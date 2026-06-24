@@ -77,7 +77,7 @@ through *inside* math, scan the `\(...\)` / `\[...\]` regions for backslash
 commands that are neither standard MathJax nor expected XyJax (`\ar`,
 `\xymatrix`); see the converter's macro tables when adding new ones.
 
-The headless MathJax/XyJax render check (`sga2-check-mathjax`) is the downstream
+The headless MathJax/XyJax render check (`sga2-check-errors`) is the downstream
 gate that loads the viewer pages in Chromium and reports `mjx-merror`s.
 
 A full headless pass (66 pages) renders **9 489** math expressions with **no

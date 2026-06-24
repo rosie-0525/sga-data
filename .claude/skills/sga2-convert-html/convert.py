@@ -1125,7 +1125,7 @@ def render_flow(s, ctx, paras=True):
 
 
 def _render_text_segment(text, ctx, paras):
-    text = text.replace('\\par', '\n\n')
+    text = re.sub(r'\\par(?![a-zA-Z])', '\n\n', text)
     if not paras:
         h = render_inline(text, ctx).strip()
         return h
@@ -1186,16 +1186,32 @@ def render_mathblock(kind, body, ctx):
     # normalise existing \tag{$..$} -> \tag{..}
     body = re.sub(r'\\tag\{\$([^$]*)\$\}', r'\\tag{\1}', body)
 
-    def repl_label(m):
-        key = m.group(1)
-        if numbered and not has_tag:
-            info = ctx.labels.get(key)
-            disp = info['display'] if info else ''
-            disp = disp.replace('$', '')
+    # Turn each \label into its \tag{<number>} (numbers from main.aux), deciding
+    # PER ROW: a multi-line env (align/gather/...) may mix rows that carry an
+    # explicit \tag with rows that rely on \label for their number. Splitting on
+    # the row separator \\ lets a label-only row still get its tag even when a
+    # sibling row already has an explicit \tag (otherwise that number is dropped).
+    def repl_row(row):
+        if '\\tag' in row:                       # explicit tag: keep it, drop labels
+            return re.sub(r'\\label\{[^}]*\}', '', row)
+        if not numbered:                          # unnumbered env: just drop labels
+            return re.sub(r'\\label\{[^}]*\}', '', row)
+        used = [False]
+        def repl_label(m):
+            if used[0]:                           # only first label of a row -> tag
+                return ''
+            info = ctx.labels.get(m.group(1))
+            disp = (info['display'] if info else '').replace('$', '')
             if disp:
+                used[0] = True
                 return '\\tag{%s}' % disp
-        return ''
-    body2 = re.sub(r'\\label\{([^}]*)\}', repl_label, body)
+            return ''
+        return re.sub(r'\\label\{([^}]*)\}', repl_label, row)
+
+    parts = re.split(r'(\\\\)', body)             # keep the \\ separators
+    for i in range(0, len(parts), 2):             # even indices = row contents
+        parts[i] = repl_row(parts[i])
+    body2 = re.sub(r'\\label\{[^}]*\}', '', ''.join(parts))  # safety: drop strays
 
     expanded = math_html(body2, ctx).strip()
 

@@ -25,7 +25,7 @@ same clean tree.
 | `01-normalized_tex/` | The normalized modern LaTeX tree — `main.tex`, `sga2-macros.sty`, and one `chapter-NN.tex` per exposé, plus `front-matter.tex` / `back-matter.tex`. Compiles with stock `pdflatex`. |
 | `02-converted_html/` | The HTML deliverable, produced by the HTML converter. |
 | `03-converted_html_orig/` + `comparison.html` | A rough baseline: raw conversion of the *original* source (macros leak, for before/after comparison). |
-| `issues/` | Verification reports — `mathjax_errors.json` (full structured result) and `mathjax_errors.md` (categorised summary + fixes). |
+| `issues/` | Verification reports, categorised — `mathjax_errors.json` (typeset failures, `mjx-merror`, leaked macros), `crossref_errors.json` (`\ref` in math, `???`/`??` markers, dead `#anchor` links), and `other_errors.json` (equation-tag dropout + page/console errors). Each lists only the pages with an error in that category. |
 | `.claude/skills/` | The pipeline, implemented as scripts (see below). |
 
 ## Pipeline
@@ -68,21 +68,22 @@ files are empty stubs — French is the populated reference. See
 ### 3. Check (`02-converted_html/` → `issues/`)
 
 ```sh
-bash .claude/skills/sga2-check-mathjax/check.sh
+bash .claude/skills/sga2-check-errors/check.sh
 ```
 
 Loads the viewer in headless Chromium and renders every page through the
 deliverable's own MathJax 3 + XyJax-v3 setup, letting typesetting (incl.
 xymatrix) run to completion, then reports `mjx-merror`s, leaked `\command`
 tokens, unresolved cross-references (`???`), and internal links that resolve to
-nothing. Defaults to both `fr` and `en` (pass e.g. `fr` to limit). Results →
-`issues/mathjax_errors.json`.
+nothing. Defaults to both `fr` and `en` (pass e.g. `fr` to limit). Results are
+categorised into `issues/mathjax_errors.json`, `issues/crossref_errors.json`,
+and `issues/other_errors.json`.
 
 ## Requirements
 
 - **python3** — normalization scripts and HTML conversion.
 - **pdflatex** (a TeX distribution) — `sga2-verify` compile check.
-- **node** + **npm** — `sga2-check-mathjax` (auto-installs Puppeteer/Chromium on first run).
+- **node** + **npm** — `sga2-check-errors` (auto-installs Puppeteer/Chromium on first run).
 
 ## Design principle
 
