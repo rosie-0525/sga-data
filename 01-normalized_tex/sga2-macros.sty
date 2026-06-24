@@ -1,0 +1,300 @@
+%% sga2-macros.sty
+%% Slim macro package distilled from the original sga2-smf.sty for the
+%% normalized SGA2 tree. Contains only content-bearing
+%% definitions (math operators, sheaf shorthand, French typography,
+%% theorem environments). Editorial apparatus, hyperref patches and
+%% active-paren catcodes have been removed.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sga2-macros}[2026/05/24 SGA2 normalized macros]
+
+%% \sisi was already resolved by the pipeline; define as identity in case any
+%% straggler survived.
+\providecommand{\sisi}[2]{#1}
+
+%% Chapter numbering: expos\'es use Roman numerals named "Expos\'e".
+\renewcommand{\thechapter}{\Roman{chapter}}
+\AtBeginDocument{\renewcommand{\chaptername}{Expos\'e}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theequation}{\arabic{equation}}
+\setcounter{secnumdepth}{4}
+
+\newcounter{yequation}[chapter]
+\newcommand{\steco}{\setcounter{equation}{\value{yequation}}\refstepcounter{yequation}}
+\newcounter{toto}
+\newcounter{footnoteAG}
+\newcounter{footnoteNDE}
+
+%% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theoreme}[subsection]{Th\'eor\`eme}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{lemme}[subsection]{Lemme}
+\newtheorem{corollaire}[subsection]{Corollaire}
+\newtheorem{corollaires}[subsection]{Corollaires}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{probleme}[subsection]{Probl\`eme}
+\newtheorem{theoremedefinition}[subsection]{Th\'eor\`eme et d\'efinition}
+\newtheorem{subproposition}[subsubsection]{Proposition}
+\newtheorem{propositionblah}[subsubsection]{Proposition}
+\newtheorem{criteredenormalitedeserre}[subsection]{Crit\`ere de normalit\'e de Serre}
+\newtheorem{sublemme}[subsubsection]{Lemme}
+\newtheorem{subsublemme}[paragraph]{Lemme}
+\newtheorem{supproposition}[section]{Proposition}
+\newtheorem{suplemme}[section]{Lemme}
+\newtheorem{suptheoreme}[section]{Th\'eor\`eme}
+\newtheorem{supcorollaire}[section]{Corollaire}
+\newtheorem{aconjecture}{Conjecture}[section]
+\renewcommand{\theaconjecture}{\Alph{aconjecture}}
+
+\theoremstyle{remark}
+\newtheorem{definition}[subsection]{D\'efinition}
+\newtheorem{remarque}[subsection]{Remarque}
+\newtheorem{remarques}[subsection]{Remarques}
+\newtheorem{exemple}[subsection]{Exemple}
+\newtheorem{subremarque}[subsubsection]{Remarque}
+\newtheorem{supdefinition}{Definition}[chapter]
+\renewcommand{\thesupdefinition}{\arabic{supdefinition}}
+\newtheorem*{remarquestar}{Remarque}
+
+\def\qedsymbol{\textup{C.Q.F.D.}}
+\let\CQFD\qed
+\let\cqfd\qed
+
+%% Enumerate variants
+\newenvironment{enumeratei}
+  {\bgroup\def\theenumi{\roman{enumi}}\def\theenumii{\arabic{enumii}}\begin{enumerate}}
+  {\end{enumerate}\egroup}
+\newenvironment{enumeratea}
+  {\bgroup\def\theenumi{\alph{enumi}}\def\labelenumi{\textup{\theenumi)}}\begin{enumerate}}
+  {\end{enumerate}\egroup}
+
+%% Script-letter aliases (\mathcal rendered via mathrsfs)
+\let\mathcal\mathscr
+
+\def\Aa{{\mathcal A}}\def\Bb{{\mathcal B}}\def\Cc{{\mathcal C}}\def\Dd{{\mathcal D}}
+\def\Ee{{\mathcal E}}\def\Ff{{\mathcal F}}\def\Gg{{\mathcal G}}\def\Hh{{\mathcal H}}
+\def\Ii{{\mathcal I}}\def\Jj{{\mathcal J}}\def\Kk{{\mathcal K}}\def\Ll{{\mathcal L}}
+\def\Mm{{\mathcal M}}\def\Nn{{\mathcal N}}\def\Oo{{\mathcal O}}\def\Pp{{\mathcal P}}
+\def\Qq{{\mathcal Q}}\def\Rr{{\mathcal R}}\def\Ss{{\mathcal S}}\def\Tt{{\mathcal T}}
+\def\Uu{{\mathcal U}}\def\Vv{{\mathcal V}}\def\Ww{{\mathcal W}}\def\Xx{{\mathcal X}}
+\def\Yy{{\mathcal Y}}\def\Zz{{\mathcal Z}}
+\newcommand{\SheafI}{\mathcal I}
+
+%% Bold letters
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\PP}{{\mathbf P}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\bS}{{\mathbf S}}
+\newcommand{\ZZ}{\mathbf{Z}}
+
+%% Fraktur ideals
+\newcommand{\ideal}[1]{\mathfrak{#1}}
+\newcommand{\aaa}{\ideal a}
+\newcommand{\pp}{\ideal p}
+\newcommand{\qq}{\ideal q}
+\newcommand{\rr}{\ideal r}
+\newcommand{\mm}{\ideal m}
+\newcommand{\m}{\ideal m}
+\newcommand{\formelF}{\mathfrak{F}}
+\newcommand{\formelG}{\mathfrak{G}}
+\newcommand{\formelX}{\mathfrak{X}}
+
+%% Sheaf / underlined notation
+\newcommand{\Ab}{\underline{\mathrm{Ab}}}
+\newcommand{\CJ}{\underline{C}_J}
+\newcommand{\ccat}{\underline{\mathrm{C}}}
+\newcommand{\DDJ}{\underline{D}_J}
+\newcommand{\cF}{\underline{\mathrm{F}}}
+\newcommand{\HH}{\underline{H}}
+\newcommand{\SheafGamma}{\underline{\Gamma}}
+\newcommand{\Sheafphi}{\underline{\varphi}}
+\newcommand{\uH}{\underset{\raisebox{1pt}{$\sim$}}{\mathrm{H}}}
+
+%% Math operators
+\def\Annp{\mathrm{Ann}.\,}
+\def\dimpt{\mathrm{dim}.\,}
+\def\codimpt{\mathrm{codim}.\,}
+\def\profp{\mathrm{prof}.\,}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Ass}{Ass}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\cd}{cd}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\codimh}{codh}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\colong}{colong}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\degtr}{deg\,tr}
+\DeclareMathOperator{\dimp}{dp}
+\DeclareMathOperator{\E}{E}
+\newcommand{\Et}{\mathbf{Et}}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\SheafExt}{\underline{Ext}}
+\DeclareMathOperator{\Fa}{F}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ga}{G}
+\DeclareMathOperator{\geom}{g\acute{e}om}
+\DeclareMathOperator{\gl}{gl}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\rH}{H}\let\H\rH
+\DeclareMathOperator{\SheafH}{\underline{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\SheafHom}{\underline{Hom}}
+\DeclareMathOperator{\hop}{hop}
+\DeclareMathOperator{\h}{\underline{H}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Imm}{Im}\let\Im\Imm
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Lef}{Lef}
+\DeclareMathOperator{\Leff}{Leff}
+\DeclareMathOperator{\leff}{\ell eff}
+\DeclareMathOperator{\longueur}{long}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\prof}{prof}
+\DeclareMathOperator{\profet}{prof\;\acute{e}t}
+\DeclareMathOperator{\profgeom}{prof\;g\acute{e}om}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\SheafProj}{\mathbf{Proj}}
+\DeclareMathOperator{\SheafPic}{\mathbf{Pic}}
+\DeclareMathOperator{\R}{R}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\catSch}{\mathbf{Sch}}
+\DeclareMathOperator{\Supp}{Supp}\let\supp\Supp
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\variete}{V}
+
+%% Misc shortcuts
+\newcommand{\boule}{{\raisebox{0.2ex}{$\scriptscriptstyle\bullet$}}}
+\newcommand{\OX}{\mathcal{O}_X}
+\newcommand{\OXx}{\mathcal{O}_{X, x}}
+\newcommand{\omx}{\Omega_{X/k}}
+\newcommand{\afortiori}{a~fortiori\space}
+\newcommand{\Lcal}{L}
+\newcommand{\et}{{\textup{\'et}}}
+\newcommand{\Isom}{\textup{Isom}}
+\def\noo{\hbox{${}^\circ$}}
+
+%% Bold "blackboard-style" letters used in some chapters
+\newcommand{\bbmu}{\boldsymbol{\mu}}
+\newcommand{\bbf}{\boldsymbol{f}}
+\newcommand{\bbg}{\boldsymbol{g}}
+\newcommand{\bbh}{\boldsymbol{h}}
+
+%% French typography & citation shortcuts.
+%% Use \space (and \, for the inter-word gap in loc. cit.) instead of \xspace
+%% and \kern, which the HTML converter either chokes on (\xspace) or leaks
+%% dimensions into the output for (\kern.3em -> ".3em").
+\def\cf{cf.\space}
+\def\Cf{Cf.\space}
+\def\ie{i.e.\space}
+\def\iev{i.e., }
+\def\loccit{loc.\,cit.\space}
+\def\EGA{\textup{EGA}\space}
+\def\SGA{\textup{SGA}\space}
+\let\oldS\S
+\def\S{\oldS\space}
+\def\resp{resp.\space}
+\def\Exp{Exp.\space}
+%% French guillemets. Emit literal Unicode guillemets rather than relying on
+%% \og / \guillemotleft, which the HTML converter may drop or mistranslate,
+%% leaving orphan » in the output. pdflatex maps the literal glyphs back
+%% through inputenc/T1, and the HTML converter passes them straight through.
+\def\og{«\,}
+\def\fg{\,»}
+\def\numero{n\textsuperscript{o}\space}
+
+%% Arrows
+\def\to{\mathchoice{\longrightarrow}{\rightarrow}{\rightarrow}{\rightarrow}}
+\def\from{\mathchoice{\longleftarrow}{\leftarrow}{\leftarrow}{\leftarrow}}
+\def\mto{\mathchoice{\longmapsto}{\mapsto}{\mapsto}{\mapsto}}
+\def\To{\mathchoice{\Longrightarrow}{\Rightarrow}{\Rightarrow}{\Rightarrow}}
+\def\From{\mathchoice{\Longleftarrow}{\Leftarrow}{\Leftarrow}{\Leftarrow}}
+\def\Ssi{\mathchoice{\Longleftrightarrow}{\Leftrightarrow}{\Leftrightarrow}{\Leftrightarrow}}
+\newcommand{\isomto}{\overset{\sim}{\longrightarrow}}
+\newcommand{\isomfrom}{\overset{\sim}{\longleftarrow}}
+\newcommand{\SSI}{\unskip~$\Ssi$~\ignorespaces}
+\newcommand{\ALORS}{\unskip~$\To$~\ignorespaces}
+
+\let\leq\leqslant
+\let\geq\geqslant
+\let\le\leqslant
+\let\ge\geqslant
+
+\let\bar\overline
+\let\hat\widehat
+\let\tilde\widetilde
+\let\dpl\displaystyle
+
+\def\llbracket{[\![}
+\def\rrbracket{]\!]}
+
+%% Spacing helper from sga2-smf.sty (empty by design)
+\def\quoi{}
+
+%% \varinjlim, \varprojlim, \varliminf, \varlimsup come from amsmath.
+
+%% xy-pic custom hooked arrows used in chapter XIV.
+\AtBeginDocument{%
+  \newdir^{ (}{{}*!/-5pt/\dir^{(}}%
+  \newdir_{ (}{{}*!/-5pt/\dir_{(}}%
+}
+\providecommand{\labelstyle}{\textstyle}
+
+\def\tbigoplus{\mathop{\textstyle\bigoplus}\limits}
+\def\tbigotimes{\mathop{\textstyle\bigotimes}\limits}
+\def\tbigcap{\mathop{\textstyle\bigcap}\limits}
+\def\tbigwedge{\mathop{\textstyle\bigwedge}\limits}
+
+%% Sectioning helpers used in the original SMF class
+\providecommand{\makeschapterhead}[1]{\chapter*{#1}}
+\providecommand{\chapterspace}[1]{}
+\providecommand{\skippointrait}{}
+\providecommand{\skpt}{}
+\providecommand{\pointrait}{.\enspace}
+\providecommand{\smfbreak}{\par\medskip}
+\providecommand{\smfauthor}[1]{}
+\providecommand{\smfaddress}[1]{}
+\providecommand{\skipqed}{\par\medskip}
+\providecommand{\smaller}{\small}
+\providecommand{\larger}{\large}
+\providecommand{\danger}{\textbf{!}}
+\providecommand{\AssF}{\mathrm{Ass}\,F}
+
+%% Additional math arrows from sga2-smf.sty
+\providecommand{\lto}[1]{\xrightarrow{#1}}
+\providecommand{\lfrom}[1]{\xleftarrow{#1}}
+
+%% Unnumbered theorem-like environment used in chapters X, XI, XII, XIV.
+%% Signature: \begin{enonce*}[opt-style]{title}[opt-notes].
+%% We accept the optional [style] and {title}; trailing [notes] (if any)
+%% renders inline at the start of the body, which is harmless.
+\providecommand{\@enoncestyle}{plain}
+\newenvironment{enonce*}[2][plain]
+  {\par\medskip\noindent\textbf{#2}\itshape\par\nobreak\smallskip\nobreak}
+  {\par\medskip}
+
+%% Editorial commands left over (no-op fallbacks in case anything survived)
+\providecommand{\pageoriginale}{}
+\providecommand{\pageoriginaled}{}
+\providecommand{\nde}[1]{}
+\providecommand{\ndetext}[1]{}
+\providecommand{\sfootnote}[1]{\footnote{#1}}
+\providecommand{\sfootnotemark}{}
+\providecommand{\sfootnotetext}[1]{}
+\providecommand{\ndemark}{}
+\providecommand{\ptbl}{.\,}
+\providecommand{\Ref}[1]{\ref{#1}}
+\providecommand{\sheaf}[1]{\underline{#1}}
+\providecommand{\rest}[1]{|_{#1}}
+
+\endinput

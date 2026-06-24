@@ -1,0 +1,336 @@
+\chapter{Dualit\'e locale et structure des $\H^i(M)$}\label{V}
+
+\renewcommand{\theequation}{\arabic{equation}}
+
+\section{Complexes d'homomorphismes} \label{V.1}
+
+\subsection{} \label{V.1.1}
+Soient $F^{\bullet}$ et~$G^{\bullet}$ deux modules gradu\'es, alors on note:
+\begin{equation} \label{eq:V.1} \Hom^{\bullet}(F^{\bullet}, G^{\bullet})
+\end{equation}
+le module gradu\'e des homomorphismes de modules gradu\'es de~$F^{\bullet}$ dans~$G^{\bullet}$. Ainsi on~a:
+\begin{equation} \label{eq:V.2} \Hom^{s}(F^{\bullet}, G^{\bullet})=\prod_{k}\Hom(F^{k}, G^{k+s}).
+\end{equation}
+Soit~$F^{\bullet}$ (resp. $G^{\bullet}$) un complexe, et soit~$d_{1}$ (resp. $d_{2}$) sa diff\'erentielle, alors pour $h\in\Hom^{s}(F^{\bullet}, G^{\bullet})$ on posera
+\begin{equation} \label{eq:V.3} d(h)=h\circ d_{1}+(-1)^{s}d_{2}\circ h.
+\end{equation}
+On v\'erifie trivialement que $d\circ d=0$, donc que $\Hom^{\bullet}(F^{\bullet}, G^{\bullet})$ muni de~$d$ est un complexe. Le groupe de cohomologie de ce complexe se note
+\begin{equation} \label{eq:V.4} \underset{\sim}{\mathrm{H}}^{\bullet}(F^{\bullet}, G^{\bullet}).
+\end{equation}
+Si~$G^{\bullet}$ est injectif en chaque degr\'e, alors
+$$F^{\bullet}\rightsquigarrow\underline{\H}^{\bullet}(F^{\bullet}, G^{\bullet})$$
+est un~$\partial$-foncteur exact. De m\^eme, pour $F^{\bullet}$ quelconque,
+$$G^{\bullet}\rightsquigarrow\underline{\H}^{\bullet}(F^{\bullet}, G^{\bullet})$$
+est un~$\delta$-foncteur exact sur la cat\'egorie des complexes~$G^{\bullet}$ injectifs en chaque degr\'e.
+
+\begin{remarque} \label{V.1.2}
+Les cycles de~$\Hom^{\bullet}(F^{\bullet}, G^{\bullet})$ sont les homomorphismes de~$F^{\bullet}$ dans~$G^{\bullet}$ qui commutent ou anticommutent, suivant le degr\'e, avec les diff\'erentielles. Les bords de~$\Hom^{\bullet}(F^{\bullet}, G^{\bullet})$ sont les homomorphismes de~$F^{\bullet}$ dans~$G^{\bullet}$ homotopes \`a z\'ero.
+\end{remarque}
+
+Soit $A$ un anneau et soient~$M$ (resp. $N$) un $A$-module, $R(M)$ (resp. $R(N)$) une r\'esolution injective de $M$ (resp. $N$), alors il existe un isomorphisme canonique
+\begin{equation*} \label{eq:V.1.3} \tag{1.3} \underset{\sim}{\mathrm{H}}^{s}(R(M), R(N))\simeq\Ext^{s}(M, N).
+\end{equation*}
+En effet, soit~$i\colon M\to R(M)$ l'augmentation canonique, et soit $h\in\Hom^{s}(R(M), R(N))$ alors on notera~$t_{s}$ l'application
+$$h\rightsquigarrow h_{0}\circ i$$
+de~$\Hom^{s}(R(M), R(N))$ dans~$\Hom(M, R(N)^s)$. La famille $((-1)^{s}t_{s})_{s\geq 0}$ d\'efinit un homomorphisme de complexes (ordinaires)
+$$t\colon\Hom^{\bullet}(R(M), R(N))\to\Hom(M, R(N)),
+$$
+i.e. on~a $(dh)_{0}\circ i=(-1) d_{2}\circ h_{0}\circ i.$
+
+On v\'erifie facilement que, passant \`a la cohomologie, $t$ donne un isomorphisme. En particulier il en r\'esulte que
+$$
+\underset{\sim}{\mathrm{H}}^{\bullet}(R(M), R(N))$$
+ne \og d\'epend pas\fg de la r\'esolution injective~$R(M)$ (resp. $R(N)$) de~$M$ (resp. $N$) choisie.
+
+\`A toute suite exacte de $A$-modules
+\begin{equation} \label{eq:V.5} 0\to M^{\prime}\to M\to M^{\prime\prime}\to 0
+\end{equation}
+on fait correspondre une suite exacte de r\'esolutions injectives
+\begin{equation} \label{eq:V.6} 0\to R(M^{\prime})\to R(M)\to R(M^{\prime\prime})\to 0.
+\end{equation}
+On v\'erifie que l'isomorphisme~(\ref{eq:V.1.3}) commute avec les homomorphismes: \setcounter{equation}{7}
+\begin{align} \label{eq:V.8}
+\H^{s}(R(M^{\prime}), R(N))&\to \H^{s+1}(R(M^{\prime\prime}), R(N)),\\
+\label{eq:V.9} \Ext^{s}(R(M^{\prime}), R(N))&\to\Ext^{s+1}(R(M^{\prime\prime}), R(N)),
+\end{align}
+d\'eduits de~(\ref{eq:V.6}) et~(\ref{eq:V.5}).
+
+Soient $P$ un troisi\`eme $A$-module, $R(P)$ une r\'esolution injective de~$P$, alors la composition de morphismes gradu\'es donne un accouplement
+\begin{equation} \label{eq:V.10} \Hom^{i}(R(N), R(M))\times\Hom^{j}(R(M), R(P))\to\Hom^{i+j}(R(N), R(P)),
+\end{equation}
+qui d\'efinit un accouplement:
+\begin{equation} \label{eq:V.11} \underset{\sim}{\mathrm{H}}^{i}(R(N), R(M))\times\underset{\sim}{\mathrm{H}}^{j}(R(M), R(P))\to\underset{\sim}{\mathrm{H}}^{i+j}(R(N), R(P)),
+\end{equation}
+donc un homomorphisme de foncteurs en~$M$:
+\begin{equation*} \label{eq:V.1.4} \tag{1.4} \underset{\sim}{\mathrm{H}}^{i}(R(N), R(M))\to\Hom(\H^{j}(R(M), R(P)), \H^{i+j}(R(N), R(P))).
+\end{equation*}
+On va voir que~(5.4.) est un homomorphisme de~$\delta$-foncteurs en~$M$. Les suites exactes~(\ref{eq:V.5}) et~(\ref{eq:V.6}) donnent un diagramme commutatif:
+$$
+\xymatrix{ \Hom^{i}(R(N), R(M^{\prime}))\ar[r]\ar[d] & \Hom(\Hom^{j}(R(M^{\prime}), R(P)), \Hom^{i+j}(R(N), R(P)))\ar[d]^{\Hom(q, \id)}\\
+\Hom^{i}(R(N), R(M))\ar[r]\ar[d]^{P} & \Hom(\Hom^{j}(R(M), R(P)), \Hom^{i+j}(R(N), R(P)))\ar[d]\\
+\Hom^{i}(R(N), R(M^{\prime\prime}))\ar[r] & \Hom(\Hom^{j}(R(M^{\prime\prime}), R(P)), \Hom^{i+j}(R(N), R(P))).}$$
+Soit~$h\in\Hom^{i}(R(N), R(M^{\prime\prime}))$ (resp.\ $g\in\Hom^{j}(R(M^{\prime}), R(P))$) un cycle, et soit $h^{\prime}\in\Hom^{i}(R(N), R(M))$ (resp.\ $g^{\prime}\in\Hom^{j}(R(M), R(P))$) tel que~$p(h^{\prime})=h$ (resp.\ $q(g^{\prime})=g$), alors dire que~(\ref{eq:V.1.4}) est un homomorphisme de $\delta$-foncteurs en~$M$, c'est dire que
+\begin{equation} \label{eq:V.12}
+g\circ dh^{\prime}-dg^{\prime}\circ h
+\end{equation}
+est un cobord dans~$\Hom^{\bullet}(R(N), R(P))$.
+
+Or on a:
+\begin{align*}
+dh^{\prime} &= h^{\prime}\circ d_{1}+(-1)^{i}d_{2}\circ h^{\prime}\\
+dg^{\prime} &= g^{\prime}\circ d_{2}+(-1)^{j}d_{3}\circ g^{\prime}
+\end{align*}
+avec les notations \'evidentes. Donc~(\ref{eq:V.12}) s'\'ecrit: \begin{align*} g\circ h^{\prime}\circ d_{1} &+ (-1)^{i}g\circ d_{2}\circ h^{\prime}, \\
+-g^{\prime}\circ d_{2}\circ h &- (-1)^{j}d_{3}\circ g^{\prime}\circ h.
+\end{align*}
+
+D'autre part, puisque $h$ et~$g$ sont des cycles on a:
+\begin{align*}
+g\circ d_{2} &= (-1)^{j+1}d_{3}\circ g, \\
+d_{2}\circ h &= (-1)^{i+1}h\circ d_{1},
+\end{align*}
+donc, finalement,~(\ref{eq:V.12}) s'\'ecrit:
+$$d(g\circ h^{\prime}+(-1)^{i}g^{\prime}\circ h),
+$$
+ce qui termine la d\'emonstration.
+
+(\ref{eq:V.1.3}) et~(\ref{eq:V.1.4}) donnent ainsi un homomorphisme de~$\delta$-foncteurs en~$M$:
+\begin{equation*} \label{eq:V.1.5} \tag{1.5} \Ext^{i}(N, M)\to\Hom(\Ext^{j}(M, P), \Ext^{i+j}(N, P)).
+\end{equation*}
+
+\section{Le th\'eor\`eme de dualit\'e locale pour un anneau local r\'egulier} \label{V.2}
+
+\setcounter{equation}{12}
+
+Soient~$A$ un anneau local r\'egulier de dimension~$r$, $\mm$ l'id\'eal maximal de~$A$ et~$M$ un $A$-module de type fini. \refstepcounter{toto}\label{pV2.4}On pose $\H^{i}(M)=\H^{i}_{\mm}(M)$ (donc $\H^{i}(M)=\varinjlim\Ext^{i}(A/\mm^{k}, M)$). On a vu (\ref{IV}~\ref{IV.5.4}) que~$I=\H^{r}(A)$ est un module dualisant pour~$A$, d\'esignons par~$D$ le foncteur dualisant associ\'e. Dans (\ref{eq:V.1.5}) posons $N=A/\mm^{k}$, $P=A$ alors on obtient un homomorphisme de~$\delta$-foncteurs en~$M$
+\begin{equation} \label{eq:V.13} \varphi_{k}\colon\Ext^{i}(A/\mm^{k}, M)\to\Hom(\Ext^{r-i}(M, A), \Ext^{r}(A/\mm^{k}, A)).
+\end{equation}
+Passant \`a la limite inductive suivant~$k$, on trouve un homomorphisme de~$\delta$-foncteurs
+\begin{equation} \label{eq:V.14} \varphi\colon\H^{i}(M)\to D(\Ext^{r-i}(M, A)).
+\end{equation}
+
+\begin{theoreme}[Th.\  de dualit\'e locale] \label{V.2.1}
+L'homomorphisme fonctoriel~$\varphi$ pr\'ec\'edent est un isomorphisme.
+\end{theoreme}
+
+\begin{proof}
+Si $i>r$, le deuxi\`eme membre de~(\ref{eq:V.14}) est trivialement nul, et le premier membre est nul car $\H^{i}(M)=\varinjlim_{k}\Ext^{i}(A/\mm^{k}, M)$, et c'est vrai pour chaque $\Ext^{i}(A/\mm^{k}, M)$ (Th\'eor\`eme des syzygies).
+
+Si~$i=r$, d'apr\`es ce qui pr\'ec\`ede, les deux foncteurs en~$M$, $\H^{r}(M)$ et~$D(\Hom(M, A))$ sont exacts \`a droite; puisque $A$ est noeth\'erien, et~$M$ de type fini, il suffit de v\'erifier l'isomorphisme pour~$M=A$, ce qui est imm\'ediat.
+
+Pour montrer que~$\varphi$ est un isomorphisme fonctoriel, il suffit maintenant, en proc\'edant par r\'ecurrence descendante par rapport \`a~$i$, de remarquer que tout module de type fini admet une pr\'esentation finie, et que pour~$i<r$ les deux membres de~(\ref{eq:V.14}) sont z\'ero si~$M$ est libre de type fini. Cela est \'evident pour le deuxi\`eme membre, et puisque $\H^{i}$ commute avec les sommes finies il suffit, quant au premier, de montrer que~$\H^{i}(A)=0$ pour~$i<r$. Or ceci r\'esulte, puisque $\profp A=r$, de~(\ref{III}~\ref{III.3.4}).
+\skipqed
+\end{proof}
+
+\section{Application \`a la structure des $\H^i(M)$} \label{V.3}
+
+\setcounter{equation}{14}
+
+\begin{theoreme} \label{V.3.1} Soient~$A$ un anneau local noeth\'erien, $D$ un foncteur dualisant pour~$A$, $M$ un $A$-module de type fini $\neq 0$, et de dimension~$n$, alors on a:
+\begin{enumeratei}
+\item
+$\H^{i}(M)=0$ si~$i<0$ ou si~$i>n$.
+\item
+$D(\H^{i}(M))\;\widehat{\hbox{}}$ est un module de type fini sur~$\widehat{A}$, de dimension~$\leq i$.
+\item
+$\H^{n}(M)\neq 0$, et si~$A=\widehat{A}$, $D(\H^{n}(M))$ est de dimension~$n$ et $\Ass(D(\H^{n}(M)))=\{ \pp\in\Ass(M) \mid \dimpt A/\pp=n\}$.
+\end{enumeratei}
+\end{theoreme}
+
+\begin{proof}
+Soit~$I$ le module dualisant associ\'e \`a~$D$. On sait que~$\widehat{I}$ est un module dualisant pour~$\widehat{A}$. D'autre part, on a:
+\begin{enumerate}
+\item[] $\H^{i}(M)\;\widehat{\hbox{}}=\H^{i}(\widehat{M})$,
+\item[] $D(\H^{i}(M))\;\widehat{\hbox{}}=\Hom(\H^{i}(\widehat{M}), \widehat{I})$ et
+\item[] $\dimpt\widehat{M}=\dimpt M$,
+\end{enumerate}
+\noindent
+donc on peut supposer~$A$ complet. Or, d'apr\`es un th\'eor\`eme de Cohen, tout anneau local complet est quotient d'un anneau local r\'egulier. Pour se ramener \`a ce cas, on~a besoin du lemme suivant:
+
+\begin{lemme} \label{V.3.2}
+Soient~$X$ (resp. $Y$) un espace annel\'e, $X^{\prime}$ (resp. $Y^{\prime}$) un sous-espace ferm\'e de~$X$ (resp. $Y$), et $f\colon X\to Y$ un morphisme d'espaces annel\'es tel que $f^{-1}(Y^{\prime})=X^{\prime}$. Soit~$F$ un~$\OX$-Module et d\'esignons par~$A$ (resp. $B$) l'anneau~$\Gamma(\OX)$ (resp. $\Gamma(\Oo_{Y})$) et par~$\overline{f}\colon B\to A$ l'homomorphisme d'anneaux correspondant \`a~$f$. Il existe une suite spectrale de~$B$-modules, de terme initial
+\begin{equation} \label{eq:V.15} E_{2}^{p, q}=\H_{Y^{\prime}}^{p}(Y, \R^{q}f_{\ast}(F)),
+\end{equation}
+aboutissant au~$B$-module $\H_{X^{\prime}}^{\bullet}(X, F)_{[\overline{f}]}$.
+\end{lemme}
+
+\begin{proof}
+Soit~$\Oo_{Y, Y^{\prime}}$ le faisceau ${\Oo_{Y}}{|Y^{\prime}}$ prolong\'e par~$0$ en dehors de~$Y^{\prime}$ (voir \Exp \ref{I}). On a un isomorphisme de~$B$-modules:
+\begin{equation} \label{eq:V.16} \Hom(\Oo_{Y, Y^{\prime}}, f_{\ast}(F))\simeq\Hom(f^{\ast}(\Oo_{Y, Y^{\prime}}), F)_{[\overline{f}]}.
+\end{equation}
+Or, on a:
+\begin{equation} \label{eq:V.17} f^{\ast}(\Oo_{Y, Y^{\prime}})=\Oo_{X, X^{\prime}},
+\end{equation}
+et de plus si~$G$ est un~$\OX$-Module injectif, alors
+$f_{\ast}(G)$ est un~$\Oo_{Y}$-Module injectif, du moins si $f$
+est plat, cas auquel on peut se ramener ais\'ement en rempla\c cant
+$\OX$ etc. par les faisceaux d'anneaux constants~$\ZZ$. Donc la
+suite spectrale du foncteur compos\'e
+$$F\to\Hom(\Oo_{Y, Y^{\prime}}, f_{\ast}(F)),
+$$
+de terme initial
+$$E_{2}^{p, q}=\Ext^{p}(Y;\Oo_{Y, Y^{\prime}}, \R^{q}f_{\ast}(F)),
+$$
+aboutit, compte tenu de~(\ref{eq:V.16}) et~(\ref{eq:V.17}), \`a:
+$$
+\Ext^{\bullet}(X;\Oo_{X, X^{\prime}}, F)_{[\overline{f}]}.
+$$
+
+Le lemme r\'esulte alors de~(\ref{I}~\ref{I.2.3bof}.
+\end{proof}
+
+Soit maintenant $f\colon B\to A$ un homomorphisme d'anneaux locaux surjectif. Soit
+$$f\colon\Spec(A)\to\Spec(B)$$
+le morphisme de sch\'emas affines correspondant. Posons~$X=\Spec(A)$ (resp.\ $X^{\prime}=\{\mm_{A}\}$), $Y=\Spec.(B)$ (resp. $Y^{\prime}=\{\mm_{B}\}$), et soient~$M$ un~$A$-module et $\widetilde{M}$ le~$\OX$-Module correspondant. Puisque $\R^{q}f_{\ast}(\widetilde{M})=0$ pour~$q>0$, la suite spectrale~(\ref{eq:V.15}) d\'eg\'en\`ere, et on obtient d'apr\`es~(\ref{V.3.2}) un isomorphisme de $B$~modules:
+\begin{equation} \label{eq:V.18} \H_{\{\mm_{B}\} }^{n}(Y, f_{\ast}(\widetilde{M}))\simeq\H_{\{\mm_{A}\} }^{n}(X, \widetilde{M})_{[f]},
+\end{equation}
+donc un isomorphisme de~$B$-modules:
+\begin{equation} \label{eq:V.19} \H_{\mm_{B}}^{n}(M_{[f]})\simeq\H_{\mm_{A}}^{n}(M)_{[f]}.
+\end{equation}
+D'autre part si~$D_{A}$ (resp. $D_{B}$) est le foncteur dualisant pour~$A$ (resp. $B$), on a:
+\begin{equation} \label{eq:V.20} D_{A}(M)_{[f]}\simeq D_{B}(M_{[f]}).
+\end{equation}
+Enfin, puisqueon a un isomorphisme d'anneaux
+\begin{equation} \label{eq:V.21} B/\Annp M_{[f]}\simeq A/\Annp M,
+\end{equation}
+on voit que le changement d'anneaux de base envisag\'e ne change rien. Supposons donc que~$A$ est r\'egulier de dimension~$r$.
+
+D'apr\`es (\ref{V.2.1}) on a:
+\begin{equation} \label{eq:V.22}
+D(\H^{i}(M))=\Ext^{r-i}(M, A).
+\end{equation}
+On va d\'emontrer l'\'equivalence entre les propri\'et\'es suivantes:
+\begin{enumerate}
+\item[(a)] $\dimpt \Ext^{j}(M, A)\leq r-j$;
+\item[(b)] pour tout~$\pp\in X=\Spec(A)$ tel que $\dimpt A_{\pp}<j$, on a~$\Ext^{j}(M, A)_{\pp}=0$;
+\item[(c)] $\codim(\supp(\Ext^{j}(M, A)), X)\geq j$.
+\end{enumerate}
+
+Pour d\'emontrer (a)~$\To$~ (b), soit~$\pp\in X$, $\dimpt A_\pp<j$, alors $\dim A/\pp>r-j$, donc par (a) $\Ann(\Ext^{j}(M, A))\not\subset\pp$, ce qui entra\^ine $\Ext^{j}(M, A)_{\pp}=0$. Soit~$\pp\in\Supp(\Ext^{j}(M, A))$ alors $\Ext^{j}(M, A)_{\pp}\neq 0$ donc par (b) $\dim A_\pp\geq j$. Donc $\codim(\Supp(\Ext^{j}(M, A)), X)=\inf\{ \dim A_\pp\mid \pp\in\Supp(\Ext^{j}(M, A))\} \geq j$, c'est-\`a-dire (b)~$\To$~ (c). Enfin (c) implique~(a) trivialement.
+
+D\'emontrons maintenant le th\'eor\`eme.
+\begin{enumeratei}
+\item
+Soit~$x=(x_{1},\dots, x_{r})$ un syst\`eme de param\`etres pour~$A$ tel que~$x_{i}\in\Annp M$ pour~$i=1,\dots, r-n$. Soit~$K^{\bullet}((\underline{x}^{k}), M)$ le complexe de Koszul. On voit facilement que l'application $K^{i}((x^{k}), M)\to K^{i}((x^{k^{\prime}}), M)$ pour~$k<k^{\prime}$ est z\'ero, si~$i>n$. Il en r\'esulte que $\H^{i}(M)=\varinjlim.\H^{i}((x^{k}), M)=0$ si~$i>n$. D'autre part, il est trivial que~$\H^{i}(M)=0$ si $i<0$, donc (i) est d\'emontr\'e.
+
+\item
+Puisque~$A$ est r\'egulier, $\dim A_{\pp}<j$ entra\^ine $\dim\gl{.}A_{\pp}<j$ donc $\Ext^{j}(M, A)_{\pp}=\Ext_{A_{\pp}}^{j}(M_{\pp}, A_{\pp})=0$, donc on~a d\'emontr\'e~(b) et par suite~(a). (ii) r\'esulte alors de~(\ref{eq:V.22}) et de~(a).
+
+\item
+Il existe un~$\pp\in\Supp(M)$ tel que $\dim A_{\pp}=r-n$ et tel que $\Supp(M_{\pp})=\{ \mm A_{\pp}\}$. Puisque $A_{\pp}$ est r\'egulier si~$A$ l'est, on trouve $\prof A_{\pp}=r-n$ donc
+\begin{equation} \label{eq:V.23} \Ext_{A}^{r-n}(M, A)_{\pp}=\Ext_{A_{\pp}}^{r-n}(M_{\pp}, A_{\pp})\neq 0.
+\end{equation}
+Ceci implique, tenant compte \`{de}~(\ref{eq:V.22}), que d'une part:
+$$
+\H^{n}(M)\neq 0,
+$$
+d'autre part
+$$
+\dimpt D(\H^{n}(M))\geq n,
+$$
+donc d'apr\`es (ii)
+$$
+\dimpt D(\H^{n}(M))=n.
+$$
+
+Soit maintenant $Y=\Supp(M)$. D'apr\`es~(i) on sait que $D(\H^{n}(M^{\prime}))=\Ext^{r-n}(M^{\prime}, A)$ est un foncteur en $M^{\prime}$, exact \`a gauche, sur la cat\'egorie $(\CC_{Y})^{\circ}$. Donc il existe un $A$-module~$H$ et un isomorphisme de foncteurs en~$M^{\prime}$:
+$$
+\Ext^{r-n}(M^{\prime}, A)=\Hom(M^{\prime}, H).
+$$
+
+Soient~$Y_{i}$, $i=1,\dots, k$ les composantes irr\'eductibles de~$Y$ de dimension maximum. On va voir que l'assertion $\Ext^{r-n}(M^{\prime}, A)\neq 0$ est \'equivalente \`a l'assertion: il existe un~$i$ tel que $\Supp M^{\prime}\supset Y_{i}$. En effet si $\Supp M^{\prime}\supset Y_{i}$ alors $\dimpt M^{\prime}=n$ donc $\Ext^{r-n}(M^{\prime}, A)\neq 0$.
+
+Si~$\Supp M^{\prime}\not\supset Y_{i}$ pour tout~$i=1,\dots, k$, alors $\dimpt M^{\prime}<n$
+$$D(\H^{n}(M^{\prime}))=\Ext^{r-n}(M^{\prime}, A)=0.
+$$
+
+Puisque $\Ass(\Ext^{r-n}(M, A))=\Supp M\cap\Ass H$ on voit que la derni\`ere assertion de~(iii) r\'esulte du lemme suivant:
+\end{enumeratei}
+
+\begin{lemme} \label{V.3.3} Soit~$X=\Spec(A)$, et soient $Y$ une partie ferm\'e de~$X$, $T\colon (\CC_{Y})^{\circ}\to\Ab$ un foncteur exact \`a gauche, et~$Y_{i}$, $i=1,\dots, k$ une famille de composantes irr\'eductibles de~$Y$ tels que l'assertion: $T(M)=0$ est \'equivalente \`a l'assertion: $\forall i\;\Supp M\not\supset Y_{i}$, Alors $T$ est repr\'esentable par un module~$H$ tel que $\Ass.H=\bigcup_{i=1}^{k}\{y_{i}\}$, o\`u~$y_{i}$ est le point g\'en\'erique de~$Y_{i}$,~$i=1,\dots, k$.
+\end{lemme}
+
+\begin{proof}
+Soit $y\in Y$, on fabrique un~$A$-module~$M(y)$ tel que $\Supp(M(y))=\overline{\{ y\} }$. Supposons que $y\neq y_{i}$ pour tout~$i=1,\dots, k$, alors $Y_{i}\not\subset\Supp(M(y))$ pour tout~$i=1,\dots, k$, donc $T(M)(y))=0$. Il en r\'esulte:
+$$
+\Ass(T(M(y)))=\Supp(M(y))\cap\Ass H=\emptyset,
+$$
+donc $y\not\in\Ass H$. Si~$y=y_{i}$, alors $Y_{i}\subset\Supp(M(y))$, donc $T(M(y))\neq 0$, donc:
+$$
+\Ass(T(M(y)))=\Supp(M)\cap\Ass H\neq\emptyset.
+$$
+
+D'apr\`es la premi\`ere partie de la d\'emonstration, ceci implique~$y\in\Ass H$, d'o\`u le lemme, \hfill Q.E.D.
+\skipqed
+\end{proof}
+\skipqed
+\end{proof}
+
+\begin{exemple} \label{V.3.4}
+Soit~$A$ un anneau noeth\'erien, soient $X=\Spec(A)$, et~$Y$ une partie ferm\'ee de~$X$, tel que $X-Y$ soit affine, alors pour toute composante irr\'eductible $Y_{\alpha}$ de~$Y$ on~a $\codim.(Y_{\alpha}, X)\leq 1$.
+
+En effet, consid\'erons $X$ comme pr\'esch\'ema au-dessus de~$X$. Soit $y_{\alpha}\in Y_{\alpha}$ un point g\'en\'erique, et consid\'erons le morphisme $\Spec(\Oo_{X, Y_{\alpha}})\to X$. Le sch\'ema affine obtenu par extension du sch\'ema de base de~$X$ \`a~$\Spec(\Oo_{X, Y_{\alpha}})$ est canoniquement isomorphe \`a~$\Spec(\Oo_{X, Y_{\alpha}})$.
+
+D'apr\`es~(\EGA I 3.2.7) on voit que si $y_{0}$ est l'unique point ferm\'e de~$Y_{0}=\Spec(\Oo_{X, Y_{\alpha}})$ alors $Y_{0}- y_{0}$ est affine. Par~(\EGA III 1.3.1) on trouve:
+$$
+\H^{i}(Y_{0}- y_{0}, \Oo_{Y_{0}})=0\quad\textrm{ si }i>0,
+$$
+donc par~(\ref{I}.\ref{I.2.11})
+$$
+\H^{i}(\Oo_{X, Y_{\alpha}})=\H_{\{ y_{0}\} }^{i}(Y_{0}, \Oo_{Y_{0}})=0\quad\textrm{ si }i\geq 2.
+$$
+
+Tenant compte de~(5.7.) il vient:
+$$
+\dimpt \Oo_{X, y_{\alpha}}\leq 1,
+$$
+donc $\codimpt (Y_{\alpha}, X)=\underset{y\in Y_{\alpha}}{\inf}\dimpt \Oo_{X, y}\leq 1$,\hfill Q.E.D.
+\end{exemple}
+
+Soient $A$ un anneau local noeth\'erien, $\mm$ l'id\'eal maximal et~$M$ un~$A$-module de type fini. Supposons que $A$ est quotient d'un anneau local r\'egulier. Posons $X=\Spec(A)$, et pour tout $x\in X$, $\mm_{x}=\mm A_{x}$.
+
+\begin{proposition} \label{V.3.5}
+Les deux conditions suivantes sont \'equivalentes:
+\begin{enumeratea}
+\item
+$\H^{i}(M)$ est de longueur finie,
+\item
+$\forall x\in X-\{ \mm\}, \, \H_{\mm_{x}}^{i-\dim\overline{\{ x\} }}(M_{x})=0$.
+\end{enumeratea}
+\end{proposition}
+
+\begin{proof}
+Compte tenu de~\ref{V.3.3}) nous pouvons supposer $A$ r\'egulier. D'apr\`es la formule (\ref{eq:V.1.3}) nous avons:
+$$
+\H^{i}(M)=D(\Ext^{r-i}(M, A)),
+$$
+o\`u $r=\dim.A$. D'apr\`es (\ref{IV}~\ref{IV.4.7}), a) est
+\'equivalent\refstepcounter{toto} \`a:
+\begin{equation} \label{eq:V.24} \Ext^{n-i}(M, A)\textrm{ est de longeur finie.}
+\end{equation}
+Or (\ref{eq:V.24}) est \'equivalent \`a:
+\begin{equation} \label{eq:V.25} \forall x\in X-\{ \mm\}, \textrm{ on~a }\Ext^{r-i}(M, A)_{x}=0.
+\end{equation}
+D'autre part $A_{x}$ est r\'egulier de dimension~$r-\dim\overline{\{ x\} }$, donc d'apr\`es~(\ref{V.2.1})
+\begin{equation*}%\label{eq:V.26}
+\H_{\mm_{x}}^{i-\dim\overline{\{ x\} }}(M_{x})\!=\!D(\Ext_{A_{x}}^{(r-\dim\overline{\{ x\} })-(i-\dim\overline{\{ x\} })}(M_{x}, A_{x}))\!=\!D(\Ext_{A_{x}}^{r-i}(M_{x}, A_{x})).\tag*{(26)}
+\end{equation*}
+Puisque $M$ est de type fini on a:
+$$
+\Ext_{A}^{r-i}(M, A)_{x}=\Ext_{A_{x}}^{r-i}(M_{x}, A_{x})$$
+d'o\`u la proposition.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{V.3.6} Pour que $\H^{i}(M)$ soit de longueur finie pour~$i\leq n$, il faut et il suffit que
+$$
+\profp M_{x}>n-\dim\overline{\{ x\} }$$
+pour tout $x\in X-\{ \mm\}$.
+\end{corollaire}
+
+\begin{proof}
+R\'esulte de~(\ref{V.3.5}) et de~(\ref{III}~\ref{III.3.1}).
+\skipqed
+\end{proof}
+
+\chapterspace{-4}

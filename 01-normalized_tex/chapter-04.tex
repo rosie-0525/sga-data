@@ -1,0 +1,588 @@
+\chapter{Modules et foncteurs dualisants} \label{IV}
+
+\section{G\'en\'eralit\'es sur les foncteurs de modules} \label{IV.1}
+\ignorespaces
+\hspace*{-3mm}
+\begin{tabular}{ll}
+Soient &$A$ un anneau noeth\'erien commutatif,\\
+&$\ccat$ la cat\'egorie des $A$-modules de type fini,\\
+&$\ccat'$ la cat\'egorie des $A$-modules quelconques,\\
+&$\Ab$ la cat\'egorie des groupes ab\'eliens.\refstepcounter{toto}\label{pIV.1}
+\end{tabular}
+
+\smallskip
+Le but de ce paragraphe est l'\'etude de certaines propri\'et\'es des foncteurs \hbox{$T: \ccat^{\circ}\to \Ab$} (suppos\'es additifs).
+
+Remarquons que si $M\in \Ob \ccat$, $T(M)$ peut \^etre muni de fa\c
+con canonique d'une structure de $A$-module qui est la suivante:
+si $f_{M}$ est l'homoth\'etie de $M$ associ\'ee \`a $f\in A$, $A$
+op\`ere sur $T(M)$ par $f_{T(M)}$. En d'autres termes, $T$ se
+factorise en:
+$$
+\xymatrix{ {\ccat^{\circ}}\ar^{T}[rr]\ar_{T_{\circ}}[dr]&&\Ab\\
+&{\ccat^{\prime}}\ar[ur]&}
+$$
+o\`u $\ccat'\to \Ab$ est le foncteur canonique.
+
+Dans la suite, $T(M)$ sera consid\'er\'e comme muni de sa structure de $A$-module.
+
+En composant avec l'isomorphisme \hbox{$M\isomto \Hom_{A}(A, M)$} le morphisme $\Hom_{A}(A, M)\to \Hom_{A}(T(M), T(A))$, on obtient les morphismes suivants qui se d\'eduisent l'un de l'autre de mani\`ere \'evidente:
+\begin{align*}
+M&\to \Hom_{A}(T(M), T(A)),\\
+M\times T(M)&\to T(A),\\
+T(M)&\to \Hom_{A}(M, T(A)),
+\end{align*}
+ce qui nous d\'efinit un morphisme $\varphi_{T}$ de foncteurs contravariants:
+\begin{eqnarray*}
+\varphi_{T}: T\to \Hom_{A}(M, T(A)).
+\end{eqnarray*}
+
+\begin{proposition} \label{IV.1.1}
+Les deux propri\'et\'es suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\varphi_{T}$ est un isomorphisme de foncteurs.
+
+\item
+$T$ est exact \`a gauche.
+\end{enumeratei}
+\end{proposition}
+
+L'implication (i)~$\To$~ (ii) est triviale.
+
+L'implication (ii)~$\To$~ (i) r\'esulte de ce que pour un morphisme $u:F\to F'$ de deux foncteurs \ignorespaces exacts \`a gauche $F$ et $F'$ de $\ccat^{\circ}$ dans $\Ab$, si $u(A)$ est un isomorphisme, $u$ est un isomorphisme (on utilise le fait que $A$ est noeth\'erien et donc que tout $A$-module de type fini est de pr\'esentation finie).
+
+\begin{remarque} \label{IV.1.2}
+Ceci montre en particulier que les foncteurs $T:{\ccat'}^{\circ}\to \Ab$ qui sont repr\'esentables sont les foncteurs qui commutent aux limites projectives quelconques (sur un ensemble pr\'eordonn\'e non n\'ecessairement filtrant).
+\end{remarque}
+
+Si $\mathop{\underline{\mathrm{Hom}}}\nolimits (\ccat^{\circ}, \Ab)_{g}$ d\'esigne la sous-cat\'egorie pleine de $\mathop{\underline{\mathrm{Hom}}}\nolimits (\ccat^{\circ}, \Ab)$ dont les objets sont les foncteurs exacts \`a gauche, on~a d\'emontr\'e l'\'equivalence des cat\'egories
+\[
+\ccat' \overset{\thickapprox}{\to} \mathop{\underline{\mathrm{Hom}}}\nolimits (\ccat^{\circ}, \Ab)_{g}
+\]
+par les foncteurs quasi-inverses l'un de l'autre
+\[
+H \rightsquigarrow\Hom_{A}(\;, H)
+\]
+et
+\[
+T(A) \leftarrowtail T.
+\]
+
+Soient maintenant $J$ un id\'eal de $A$, $Y=V(J)\subset \Spec\, A$, et d\'esignons par $\ccat_{Y}$ la sous-cat\'egorie pleine de $\ccat$ dont les objets sont les $A$-modules de type fini $M$ tels que $\supp M\subset Y$. On a:
+\[
+\ccat_{Y}=\bigcup_{n}\ccat^{(n)},
+\]
+o\`u $\ccat^{(n)}$ est la sous-cat\'egorie pleine de $\ccat_{Y}$ des modules $M$ tels que $J^{n}M=0$.
+
+\begin{proposition} \label{IV.1.3}
+Avec les m\^emes notations que pr\'ec\'edemment, soit $T:\ccat_{Y}\to \Ab$ un foncteur. \`A $H=$ est associ\'e un morphisme naturel
+\[
+\varphi_{T}: T\to \Hom_{A}(\;, H),
+\]
+et les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\varphi_{T}$ est un isomorphisme.
+
+\item
+Le foncteur $T$ est exact \`a gauche.
+\end{enumeratei}
+\end{proposition}
+
+\begin{proof}
+a) D\'efinition de $\varphi_{T}$.
+
+Soit $M\in \Ob \ccat_{Y}$. Il existe un entier $n$ tel que $J^{n}M=0$. Alors $M$ est un $A/J^{n}$-module, et si $T_{n}$ d\'esigne la restriction de $T$ \`a $\ccat^{(n)}$, on sait d\'efinir le morphisme
+\begin{eqnarray*}
+T_{n}\to \Hom_{A}(\;, H_{n}), \ \hbox{où}\ H_{n}=T(A/J^{n})\;;
+\end{eqnarray*}
+\begin{equation*} {T(M)=T_{n}(M)\to \Hom_{A}(M, \varinjlim H_{n})= \Hom_{A}(M, H)}\tag*{d'où}
+\end{equation*}
+\begin{equation*} \varphi_{T}: T\to \Hom_{A}(\;, H).\tag*{et}
+\end{equation*}
+
+b) \'Equivalence de (i) et (ii).
+
+Il est clair que (i) entraine (ii). Supposons (ii) v\'erifi\'e et soit $M\in \Ob \ccat^{(n)}$. On a vu que $T_{n}(M)\isomto \Hom_{A}(M, H_{n})$, donc pour tout entier $n'>n$ on a
+\begin{equation*} T(M)=T_{n}(M)=T_{n'}(M)=\varinjlim T_{n}(M)
+\end{equation*}
+\begin{equation*} T(M)=\varinjlim \Hom_{A}(M, H_{n}).\tag*{et}
+\end{equation*}
+Comme il s'agit ici de limites inductives filtrantes, on~a aussi l'isomorphisme
+\begin{equation*} \varinjlim \Hom_{A}(M, H_{n})\isomto \Hom_{A}(M, \varinjlim H_{n}) = \Hom_{A}(M, H).
+\end{equation*}
+
+Si $\ccat'_{Y}$ d\'esigne la cat\'egorie des $A$-modules, de support contenu dans $Y$, mais non n\'ecessairement de type fini, on~a encore l'\'equivalence naturelle de cat\'egories: \hbox{$\ccat'_{Y}\overset{\thickapprox}{\to} \Hom (\ccat_{Y}^{\circ}, \Ab)_{g}$}.
+\skipqed
+\end{proof}
+
+\subsection*{Application}
+Les notations \'etant les m\^emes que pr\'ec\'edemment, soit
+\begin{equation*} T^{*}:\ccat_{Y}^{\circ}\to{\Ab}
+\end{equation*}
+un $\partial$-foncteur exact. Pour tout $i\in \ZZ$, on pose $H^{i}_{n}=T^{i}(A/J^{n})$ et $H^{i}=\varinjlim H^{i}_{n}$.
+
+\begin{theoreme}
+\label{IV.1.4} Soit $n\in \ZZ$. S'il existe $i_{0}\in \ZZ$ tel que $T^{i}=0$ pour tout $i<i_{0}$, alors les trois conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$T^{i}=0$ pour tout $i<n$.
+\item
+$H^{i}=0$ pour tout $i<n$.
+\item
+Il existe un module $M_{0}$ de $\ccat_{Y}$ tel que $\supp M_{0}=Y$ et $T^{i}(M_{0})=0$ pour tout $i<n$.
+\end{enumeratei}
+\end{theoreme}
+
+\begin{proof}
+Il est \'evident que (i) entraine (ii) et (iii) (on prend $M_{0}=A/J$). Montrons par r\'ecurrence sur $n$ que (ii) entraine (i); c'est vrai pour $n=i_{0}$, et on le suppose d\'emontr\'e jusqu'au rang $n$. Supposons alors que $H^{i}=0$ pour tout $i<n+1$; par l'hypoth\`ese de r\'ecurrence on~a $T^{i}=0$ pour $i<n$, mais $T^{n-1}=0$ entraine que $T^{n}$ est un foncteur exact \`a gauche et
+\begin{equation*} T^{n}\isomto\Hom_{A}(\;, H^{n})=0.
+\end{equation*}
+Montrons alors que (iii) entraine (ii). C'est encore vrai pour $n=i_{0}$; supposons-le d\'emontr\'e jusqu'au rang $n$: soit $M_{0}$ un $A$-module de $\ccat_{Y}$ tel que $\supp M_{0}=Y$ et $T^{i}(M_{0})=0$ pour tout $i<n+1$; par l'hypoth\`ese de r\'ecurrence on~a alors $H^{i}=0$ pour tout $i<n$; il reste \`a montrer que $H^{n}=0$. Mais \og $H^{i}=0$ pour tout $i<n$\fg implique que $T^{n-1}=0$ et donc que $T^{n}\isomto\Hom_{A}(\;, H^{n})$. On a alors
+\begin{equation*}
+\Ass H^{n}=\Ass \Hom(M_{0}, H^{n})=\supp M_{0}\cap \Ass H^{n}= \Ass H^{n}
+\end{equation*}
+car
+\begin{equation*}
+\Ass H^{n}\subset \supp H^{n}\subset Y= \supp M_{0}.
+\end{equation*}
+
+D'o\`u $T^{n}(M_{0})=0\Ssi \Ass H^{n}=\emptyset \Ssi H^{n}=0$; ce qui ach\`eve la d\'emonstration.
+\skipqed
+\end{proof}
+
+\section{Caract\'erisation des foncteurs exacts} \label{IV.2}
+
+L'anneau $A$ est toujours suppos\'e noeth\'erien et commutatif. Les notations sont celles de la Proposition 2:
+\begin{equation*} Y=V(J), \quad T:\ccat_{Y}^{\circ}\to \Ab, \quad H=\varinjlim T(A/J^{n}),
+\end{equation*}
+o\`u on suppose que $T$ est un foncteur exact \`a gauche, d'o\`u:
+\begin{equation*} T(M)\isomto \Hom_{A}(M, H).
+\end{equation*}
+
+\begin{proposition} \label{IV.2.1}
+Les propri\'et\'es suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+Le foncteur $T$ est exact,
+
+\item
+$H$ est injectif dans $\ccat'$.
+\end{enumeratei}
+\end{proposition}
+
+\begin{proof}
+Il suffit \'evidemment de montrer que (i) implique (ii), c'est-\`a-dire de d\'emontrer que si la restriction \`a $\ccat_{Y}$ du foncteur $\Hom_{A}(\;, H)$ est un foncteur exact, $H$ est injectif. Mais comme $A$ est noeth\'erien, pour montrer que $H$ est injectif, on peut se borner \`a prouver que tout homomorphisme $f:N\to H$ de source un $A$-module $N$ \emph{de type fini}, sous-module d'un $A$-module $M$ \emph{de type fini}, se prolonge en un homomorphisme $\overline{f}:M\to H$.
+
+La d\'efinition de $H$ et le fait que $N$ soit de type fini entrainent qu'il existe un entier~$n$ tel que $J^{n}.f(N)=0$. Munissons alors $M$ et $N$ de la topologie $J$-adique. La topologie $J$-adique de $N$ est \'equivalente \`a la topologie induite par la topologie $J$-adique de $M$ (th\'eor\`eme de Krull). Il existe donc $V=J^{k}\cdot M$ tel que
+\begin{equation*} U=V\cap N\subset J^{n}N.
+\end{equation*}
+On a alors la factorisation
+$$
+\xymatrix{ N\ar_{f}[d]\ar[r]&N/U\ar^{u}[dl]\\
+H&},
+$$
+$N/U$ et $M/V$ sont dans $\ccat_{Y}$. L'hypoth\`ese permet donc de prolonger $u$ en $\overline{u}$
+$$
+\xymatrix{ N/U\ar_{u}[d]\ar@{^{(}->}[r]&M/V\ar^{\overline{u}}[dl]\\
+H&},
+$$
+et $M\to M/V\lto{\overline{u}} H$ donne le prolongement cherch\'e $\overline{f}$.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{IV.2.2}
+Soit $K$ un $A$-module injectif, alors le sous-module $H^{0}_{J}(K)$ de $K$ form\'e des \'el\'ements annul\'es par une puissance convenable de $J$ est injectif.
+\end{corollaire}
+
+\begin{proof}
+Il suffit de v\'erifier que la restriction \`a $\ccat_{Y}$ du foncteur $ \Hom_{A}(\;, H^{0}_{J}(K))$ est un foncteur exact. Or soit $M\in \Ob \ccat_{Y}$, il existe $k$ tel que $J^{k}\cdot M=0$, et l'inclusion
+$$
+\Hom_{A}(\;, H^{0}_{J}(K))\to \Hom_{A}(M, K)
+$$
+est alors un isomorphisme. D'o\`u le r\'esultat puisque $\Hom_{A}(\;, K)$ est exact.
+\skipqed
+\end{proof}
+
+\section[\'Etude du cas o\`u $T$ est exact \`a gauche]
+{\'Etude du cas o\`u $T$ est exact \`a gauche et $T(M)$ de type fini pour tout $M$} \label{IV.3}
+
+Soit comme plus haut
+\begin{equation*} T:\ccat_{Y}^{\circ}\to \Ab,
+\end{equation*}
+on suppose d\'esormais que $T$ est exact \`a gauche et qu'on a la factorisation
+$$
+\xymatrix@C=6mm@R=6mm{
+{\ccat^{\circ}_{Y}}\ar[dr]\ar^{T}[rr]&&{\Ab\,.}\\
+&{\ccat_{Y}}\ar[ur]&}
+$$
+ On sait donc d\'efinir $T(T(M))=T\circ T(M)$, et le morphisme canonique
+$$
+M\to \Hom_{A}(\Hom_{A}(M, H), H)
+$$
+d\'efinit un morphisme
+$$
+M\to T\circ T(M).
+$$
+
+\begin{proposition} \label{IV.3.1}
+L'anneau $A$ \'etant toujours suppos\'e noeth\'erien, si on fait l'hypoth\`ese suppl\'ementaire que $A/J$ est artinien, les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$T$ est exact \`a gauche et, pour tout $M\in \Ob \ccat_{Y}$, $T(M)$ est de type fini et \hbox{$M\to T\circ T(M)$} est un isomorphisme.
+
+\item
+$T$ est exact et, pour tout corps r\'esiduel $k$ associ\'e \`a un id\'eal maximal contenant~$J$, on~a $T(k)\isomto k$.
+
+\item
+On a $T\isomto \Hom_{A}(\;, H)$ avec $H$ injectif et, pour tout $k$ comme dans \emph{(ii)}, on~a $\Hom_{A}(k, H)\isomto k$.
+
+\item
+$T$ est exact et, pour tout $M\in \Ob \ccat_{Y}$, on~a $\longueur T(M)=\longueur M$.
+\end{enumeratei}
+\end{proposition}
+
+\begin{proof}
+On a d\'ej\`a montr\'e l'\'equivalence de (ii) et (iii) (prop.\, \ref{IV.2.1}). Montrons que (ii) entraine (iv): d'abord si $M\in \Ob \ccat_{Y}$, comme $M$ est un $A/J^{n}$-module avec $A/J^{n}$ artinien, $\longueur M$ est finie. Raisonnons par r\'ecurrence sur la longueur de $M$. La condition (iv) est vraie si $\longueur M=1$, parce qu'alors $M$ est un $k$. Si $\longueur M>1$, il existe un sous-module $M'$ de $M$ tel que $M'\neq 0$ et que $\longueur M'<\longueur M$. Formons alors la suite exacte
+$$
+0\to M'\to M\to M''\to 0.
+$$
+Comme $T$ est exact, on~a la suite
+$$
+0\to T(M')\to T(M)\to T(M'')\to 0,
+$$
+et $\longueur T(M)=\longueur T(M')+\longueur T(M'')=\longueur M'+\longueur M''=\longueur M$.
+
+(ii) entraine (i): Comme (ii) entraine (iv), soit $M$ un $A$-module de $\ccat_{Y}$, on~a $\longueur T(M)=\longueur M$; donc $T(M)$ est de longueur finie et par suite de type fini.
+
+Il reste \`a montrer que $M\to T\circ T(M)$ est un isomorphisme; on raisonne encore par r\'ecurrence sur $\longueur M$. Pour $M=k$ c'est vrai. Dans le cas g\'en\'eral on \'ecrit le diagramme commutatif dont les deux lignes sont exactes:
+$$
+\xymatrix{ 0\ar[r]&M'\ar[r]\ar[d]&M\ar[r]\ar[d]&M''\ar[r]\ar[d]&0\\
+0\ar[r]& T\circ T(M')\ar[r]& T\circ T(M)\ar[r]& T\circ T(M'')\ar[r]&0, }
+$$
+o\`u $M'$ est un sous-module de $M$ tel que $M'\neq 0$ et $\longueur M'<\longueur M$. Par l'hypoth\`ese de r\'ecurrence, les fl\`eches extr\^emes sont des isomorphismes, donc
+$$
+M\to T\circ T(M)
+$$
+est un isomorphisme.
+
+(i) entraine (ii): soit
+$$
+0\to M'\to M\to M''\to 0
+$$
+une suite exacte de $A$-modules de $\ccat_{Y}$, et soit $Q$ le conoyau de $T(M)\to T(M')$. Appliquons $T$ \`a la suite exacte
+$$
+0\to T(M')\to T(M)\to T(M'')\to Q \to 0,
+$$
+on obtient:
+$$
+\xymatrix{
+0\ar[r]&T(Q)\ar[r]&T\circ T(M')\ar[r]&T\circ T(M)&\\
+& &M'\ar_{s}[u]\ar[r]&M\ar_{s}[u],
+}
+$$
+donc $T(Q)=0$ et $Q\isomto T(T(Q))=0$.
+
+D'autre part soit $k$ un corps r\'esiduel, $k=A/\m$, $J\subset \m$. Il faut montrer que $T(k)\isomto k$. Pour cela il suffit de remarquer que $T(k)$ est un $k$-espace vectoriel. On en d\'eduit:
+\begin{gather*}
+T(k)\simeq k\oplus V,\\
+T(T(k))\simeq T(k)\oplus T(V)\simeq k\oplus V\oplus T(V)\simeq k,
+\end{gather*}
+d'o\`u $V=0$.
+
+Montrons enfin que (iv) entraine (iii): il suffit de montrer que $T(k)\isomto k$; or $\longueur T(k)= \longueur k=1$, donc $T(k)=k'$ est un corps r\'esiduel et $\supp k'= \supp \Hom_{A}(k, H)\subset \supp k$. Donc $k=k'$.
+\skipqed
+\end{proof}
+
+\begin{remarque} \label{IV.3.2}
+On peut montrer que la condition (iv) est \'equivalente \`a la condition
+
+(iv)$'$ Pour tout $M\in \Ob \ccat_{Y}$, on~a $\longueur T(M)=\longueur M$.
+\end{remarque}
+
+\section{Module dualisant. Foncteur dualisant} \label{IV.4}
+
+\begin{definition} \label{IV.4.1}
+Soient $A$ un anneau local noeth\'erien et $\m$ son id\'eal maximal. On appelle foncteur dualisant pour $A$ tout foncteur
+$$
+T:\ccat^{\circ}_\mm\to \Ab,
+$$
+o\`u on note $\ccat_{\mm}$ au lieu de $\ccat_{Y}$ pour $Y=V(\mm)$, qui satisfait aux conditions \'equivalentes de la proposition \ref{IV.3.1}. On dit qu'un $A$-module $I$ est dualisant pour $A$ si le foncteur $M\to \Hom_{A}(M, I)$ est dualisant.
+\end{definition}
+
+On peut g\'en\'eraliser la d\'efinition \ref{IV.4.1} au cas o\`u on ne suppose plus que $A$ soit un anneau local.
+
+\begin{definition} \label{IV.4.2}
+Soient $A$ un anneau noeth\'erien et soit $\bar{\ccat}$ la sous-cat\'egorie pleine de~$\ccat$ form\'ee des $A$-modules de longueur finie; on appelle foncteur dualisant tout foncteur~$T$, $A$-lin\'eaire, de $\bar{\ccat}^{\circ}$ dans $\bar{\ccat}$, qui est exact et tel que le morphisme de foncteurs
+$$
+\id \to T\circ T
+$$
+soit un isomorphisme.
+\end{definition}
+
+On va d\'emontrer un th\'eor\`eme d'existence et aussi que le module $I$ qui repr\'esente un tel foncteur est localement artinien. On montrera aussi que, pour tout id\'eal maximal $\mm$ de $A$, la composante $\mm$-primaire du socle de $I$ est de longueur 1.
+
+\begin{proposition} \label{IV.4.3}
+Soient $A$ et $B$ deux anneaux locaux noeth\'eriens d'id\'eaux maximaux $\mm_{A}$ et $\mm_{B}$, tels que $B$ soit une $A$-alg\`ebre finie. Alors, si $I$ est un module dualisant pour~$A$, $\Hom_{A}(B, I)$ est un module dualisant pour $B$.
+\end{proposition}
+
+\begin{proof}
+Soit
+$$
+R: \ccat_{\mm_{B}}\to \ccat_{\mm_{A}}
+$$
+le foncteur restriction des scalaires; il est exact. Soit $T$ un foncteur dualisant pour $A$,
+$$
+T: \ccat_{\mm_{A}}\to \Ab;
+$$
+il est exact et, pour tout $M\in \Ob \ccat_{\mm_{A}}$, le morphisme naturel $M\to T\circ T(M)$ est un isomorphisme; donc $T\circ R$ est un foncteur dualisant pour $B$. Si $I$ repr\'esente $T$, d'apr\`es la formule classique $\Hom_{A}(M, I)=\Hom_{B}(M, \Hom_{A}(B, I))$, valable pour tout $B$-module $M$, on en d\'eduit que $\Hom_{A}(B, I)$ est un module dualisant pour $B$.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{IV.4.4} Soient $A$ un anneau local noeth\'erien et $\aaa$ un id\'eal de $A$; soit $B=A/\aaa$. Si $I$ est un module dualisant pour $A$, l'annulateur de $\aaa$ dans $I$ est un module dualisant pour $B$.
+\end{corollaire}
+
+\begin{lemme} \label{IV.4.5} Soient $A$ un anneau local noeth\'erien et $I$ un $A$-module localement artinien. Il existe un isomorphisme canonique
+$$
+I\to \hat{I}=I\otimes_{A}\hat{A}.
+$$
+\end{lemme}
+
+\begin{proof}
+Soit $I_{n}$ l'annulateur de $\mm^n$ dans $I$, o\`u $\mm$ est l'id\'eal maximal de $A$. Dire que $I$ est localement artinien, c'est dire que $I$ est limite inductive des $I_{n}$ et que ceux-ci sont de longueur finie. Or le produit tensoriel commute aux limites inductives, on est donc ramen\'e au cas o\`u $I$ est artinien. Dans ce cas $I$ est annul\'e par une puissance de l'id\'eal maximal, soit $\mm^{k}$; donc pour $p\geq k$, $I\isomto I\otimes_{A}A/\mm^{p}$, donc $I\isomto I\otimes_{A}\hat{A}$ car $A$ est noeth\'erien et $I$ est de type fini.
+
+On en conclut que le foncteur restriction des scalaires de $\hat{A}$ \`a $A$ et le foncteur extension des scalaires induisent des \emph{équivalences} quasi-inverses l'une de l'autre de la cat\'egorie des $\hat{A}$-\emph{modules localement artiniens} et de la cat\'egorie des $A$-\emph{modules localement artiniens}.
+\skipqed
+\end{proof}
+
+\begin{proposition} \label{IV.4.6}
+Soient $A$ un anneau local noeth\'erien, $\hat{A}$ son compl\'et\'e, $I$ un module dualisant pour $A$ (resp. pour $\hat{A}$) et $J$ le compl\'et\'e\, de $I$ (resp. le $A$-module obtenu par restriction des scalaires). Alors $J$ est un module dualisant pour $\hat{A}$ (resp. pour $A$). De plus les groupes ab\'eliens sous-jacents \`a $I$ et $J$ sont isomorphes.
+\end{proposition}
+
+\begin{proof}
+On remarque simplement que l'\'equivalence entre la cat\'egorie des $A$-modules localement artiniens et la cat\'egorie des $\hat{A}$-modules localement artiniens induit un isomorphisme entre les bifoncteurs $\Hom_{A}(\;, \;)$ et $\Hom_{\hat{A}}(\;, \;)$, et que la caract\'erisation d'un foncteur ou d'un module dualisant ne fait intervenir que ces bifoncteurs.
+\skipqed
+\end{proof}
+
+\begin{theoreme} \label{IV.4.7}
+Soit $A$ un anneau local neoth\'erien.
+\begin{enumeratea}
+\item
+Il existe toujours un module dualisant $I$.
+
+\item
+Deux modules dualisants sont isomorphes (par un isomorphisme non canonique).
+
+\item
+Pour qu'un module $I$ soit dualisant, il faut et il suffit qu'il soit une enveloppe injective du corps r\'esiduel $k$ de $A$.
+\end{enumeratea}
+\end{theoreme}
+
+\begin{remarque} \label{IV.4.8}
+La proposition \ref{IV.4.6} permet de se ramener au cas d'un anneau local noeth\'erien complet. D'apr\`es un th\'eor\`eme de structure de COHEN, un tel anneau est quotient d'un anneau r\'egulier. La proposition \ref{IV.4.3} permet alors de supposer $A$ r\'egulier. Comme nous le verrons plus loin, cette remarque permet un calcul explicite du module dualisant\footnote{C'\'etait la m\'ethode suivie par Grothendieck (en 1957). La m\'ethode par enveloppes injectives qui va suivre est due semble-t-il \`a K.\, Morita, Sc. Rep. Tokyo Kyoiku Daigaku, t.\, 6, 1958-59, p.\, 83-142. Le travail de Morita est d'ailleurs ind\'ependant de celui de Grothendieck et bien ant\'erieur au pr\'esent s\'eminaire, et ne se limite pas au cas des anneaux de base commutatifs.}; nous d\'emontrerons cependant le th\'eor\`eme \ref{IV.4.7} par d'autres moyens.
+\end{remarque}
+
+\subsection*{Rappels}
+Avant de d\'emontrer le th\'eor\`eme, nous faisons quelques rappels sur la notion d'\emph{enveloppe injective}. Cf. GABRIEL, Th\`ese, Paris 1961, Des Cat\'egories Ab\'eliennes, ch.\, II \S 5.
+
+Soit $\Cc$ une cat\'egorie ab\'elienne dans laquelle les $\varinjlim$ existent et sont exactes (ex. $\Cc=$cat\'egorie des modules). Tout objet $M$ se plonge dans un objet injectif et on appelle enveloppe injective de $M$ tout objet injectif, contenant $M$, minimal. On a les propri\'et\'es suivantes:
+\begin{enumeratei}
+\item
+Tout objet $M$ a une enveloppe injective $I$.
+\item
+Si $I$ et $J$ sont deux enveloppes injectives de $M$, il existe entre $I$ et $J$ un isomorphisme (en g\'en\'eral non unique) qui induit l'identit\'e sur $M$.
+\item
+$I$ est une extension essentielle\refstepcounter{toto}\label{pIV.13} de $M$, c'est-\`a-dire que $P\subset I$ et $P\cap M=\{ 0\}$ implique ($P=\{ 0\}$). De plus si $I$ est injectif et extension essentielle de $M$, $I$ est enveloppe injective de $M$.
+\end{enumeratei}
+
+Ces r\'esultats admis, pour d\'emontrer le th\'eor\`eme \ref{IV.4.7}, il suffit \'evidemment de prouver c).
+
+\begin{proof}
+Soit $I$ un module dualisant pour $A$. Alors $I$ est injectif et $\Hom_{A}(k, I)$ est isomorphe \`a $k$. En composant l'isomorphisme $k\simeq \Hom_{A}(k, I)$ avec l'inclusion
+$$
+\Hom_{A}(k, I)\hookrightarrow \Hom_{A}(A, I)\simeq I,
+$$
+on obtient l'inclusion
+$$
+k\hookrightarrow I.
+$$
+Montrons que $I$ est enveloppe injective de $k$. Soit $J$ un module injectif tel que
+$$
+k\subset J\subset I.
+$$
+Comme $J$ est injectif, il existe un sous $A$-module injectif $J'$ de $I$ tel que $I=J\oplus J'$. Montrons que $\Hom_{A}(k, J')=0$. On a
+$$
+\Hom_{A}(k, I)\simeq \Hom_{A}(k, J)\oplus \Hom_{A}(k, J');
+$$
+$\Hom_{A}(k, J)$ est un sous-espace vectoriel de $\Hom_{A}(k, I)\simeq k$ non r\'eduit \`a z\'ero (puisqu'il contient l'inclusion $k\subset J$), donc $\Hom_{A}(k, J)\simeq k$ et par suite $\Hom_{A}(k, J')=0$.
+
+En raisonnant par r\'ecurrence sur la longueur on en d\'eduit que $\Hom_{A}(M, J')=0$ pour tout $A$-module $M$ de longueur finie; donc $J'$ est l'objet qui repr\'esente le foncteur $0:\ccat_{\mm}^{\circ}\to \Ab$, et par suite $J'=0$.
+
+R\'eciproquement, soit $I$ une enveloppe injective de $k$. Pour voir que $I$ est un module dualisant, il suffit de montrer \ignorespaces que $V=\Hom_{A}(k, I)$ est isomorphe \`a $k$. Or on~a la double inclusion
+$$
+k\subset V\subset I;
+$$
+$V$ est un espace vectoriel sur $k$ qui se d\'ecompose en la somme directe de $k$ et d'un sous-espace vectoriel $V'$ de $I$ tel que $V'\cap k=0$. Or $I$ est une extension essentielle de~$k$, d'o\`u $V'=0$ et $V=k$.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{IV.4.9}
+Soit $A$ un anneau local noeth\'erien; tout module dualisant pour $A$ est localement artinien.
+\end{corollaire}
+
+\begin{proof}
+Soit $I$ un module dualisant; c'est une enveloppe injective de $k$. Utilisons les notations et le r\'esultat du corollaire 2.2. On a
+$$
+k\subset H^{0}_{\mm}(I)\subset I,
+$$
+et $H^{0}_{\mm}(I)$ est injectif. On en d\'eduit que $I=H^{0}_{\mm}(I)$ et donc que $I$ est localement artinien.
+\skipqed
+\end{proof}
+
+\section{Cons\'equences de la th\'eorie des modules dualisants} \label{IV.5}
+
+Le foncteur
+$$
+T=\Hom_{A}(\;, I)\colon \ccat_{\mm}\to \ccat_{\mm}
+$$
+est une anti-\'equivalence. En effet $T\circ T$ est isomorphe au foncteur identique et l'argument est formel \`a partir de l\`a.
+
+\emph{On en déduit les propriétés habituelles de la notion d'orthogonalité:}
+
+Soit $M^{*}=\Hom_{A}(M, I)=T(M)$ et soit $N\subset M$ un sous-module. On appelle \emph{orthogonal de} $N$ le sous-module $N'$ de $M^{*}$ form\'e des \'el\'ements de $M^*$ nuls sur $N$. On obtient ainsi une bijection entre l'ensemble des sous-modules de $M$ et l'ensemble des sous-modules de $M^{*}$, qui renverse la notion d'ordre.
+
+On a en particulier:
+\begin{itemize}
+\item
+$\longueur_{M}N=\colong_{M^{*}}N'$.
+\item
+Aux modules monog\`enes, i.e. tels que $M/\mm M$ soit de dimension 0 ou 1, correspondent dans la dualit\'e des modules dont le socle est de longueur 0 ou 1.
+\item
+Si $A$ est artinien, les id\'eaux de $A$ correspondent aux sous-modules de $I$.
+\par\hfill etc.
+\end{itemize}
+
+\smallskip
+Soient $A$ un anneau local noeth\'erien, $DA$ la cat\'egorie des $A$-modules $M$ tels que, pour tout $n\in {\bf N}$, $M^{(n)}=M/\mm^{n+1}M$ soit de longueur finie et tels que $M=\varprojlim_{n}M^{(n)}$, et soit $\hat{A}$ le compl\'et\'e de $A$. Le foncteur restriction des scalaires et le foncteur compl\'etion sont des \emph{équivalences} quasi-inverses entre $DA$ et $D\hat{A}$, qui commutent \`a isomorphisme pr\`es \`a la formation des groupes ab\'eliens sous-jacents aux modules consid\'er\'es. Notons $CA$ la cat\'egorie des $A$-modules localement artiniens \`a socle de dimension finie.
+
+\begin{proposition} \label{IV.5.1}
+Soit $A$ un anneau local noeth\'erien et soit $I$ un module dualisant pour $A$. Les foncteurs
+$$
+\Hom_{A}(\;, I)\colon (CA)^{\circ}\to DA
+$$
+et
+$$
+\Hom_{\hat{A}}(\;, I)\colon DA\to (CA)^{\circ}
+$$
+sont des \'equivalence de cat\'egories, quasi-inverses l'une de l'autre.
+
+De plus, si l'on transporte ces foncteurs par les \'equivalences de cat\'egories entre $DA$ et $D\hat{A}$ d'une part, et $CA$ et $C\hat{A}$ d'autre part, on trouve le foncteur $\Hom_{\hat{A}}(\;, I)$.
+\end{proposition}
+
+\begin{proof}
+Soit $X\in \Ob CA$. Par d\'efinition, on a:
+$$
+X=\varinjlim_{k\in {\bf N}}X_{k}, \quad X_{k}=\Hom_{A}(A/\mm^{k+1}, X),
+$$
+donc
+$$
+\Hom_{A}(X, I)=\varprojlim \Hom_{A}(X_{k}, I).
+$$
+Donc $Y=\varprojlim X_{k}$ est un $\hat{A}$-module de type fini comme il r\'esulte de $\EGA 0_{\textup{I}}$ 7.2.9. On remarque \`a ce propos que $D\hat{A}$ est aussi la cat\'egorie des $\hat{A}$-modules de type fini ou, si l'on veut, que $DA$ est la cat\'egorie des $A$-modules complets et de type fini sur~$\hat{A}$. Soit alors $Y$ un tel module, soit $f:Y\to I$ un $\hat{A}$-homomorphisme. L'image de $f$ est un sous-module de type fini, donc est annul\'e par $\mm^{k}$ pour un certain $k$; en effet tout $x\in I$ est annul\'e par une puissance de $\mm$. Donc $f$ se factorise par $y/\mm^{k}Y$, d'o\`u il r\'esulte que
+\begin{align*}
+\Hom_{\hat{A}}(Y, I)&=\varinjlim_k\Hom_{\hat{A}}(Y^{(k)}, I)\quad\text{avec } Y^{(k)}=Y/\m^{k+1}Y\\
+&=\varinjlim_k(Y^{(k)})^*
+\end{align*}
+appartient \`a $\Ob CA$. D'o\`u il r\'esulte imm\'ediatement que les deux foncteurs de l'\'enonc\'e sont quasi-inverses l'un de l'autre.
+\skipqed
+\end{proof}
+
+Il r\'esulte des consid\'erations pr\'ec\'edentes que l'on ne change rien
+aux cat\'egories ou aux foncteurs consid\'er\'es, non plus qu'aux
+groupes ab\'eliens sous-jacents aux modules consid\'er\'es, en rempla\c
+cant $A$ par $\hat{A}$; la proposition \ref{IV.5.1} s'\'enonce alors ainsi:
+
+La restriction du foncteur $\Hom_{\hat{A}}(\;, I)$ \`a la cat\'egorie des $\hat{A}$-modules de type fini prend ses valeurs dans la cat\'egorie des $\hat{A}$-modules localement artiniens \`a socle de dimension finie, et admet un foncteur quasi-inverse, qui est la restriction du foncteur $\Hom_{\hat{A}}(\;, I)$. Sur l'intersection de ces deux cat\'egories, ces deux foncteurs co\"incident (\'evidemment !) et \'etablissent une auto-dualit\'e de la cat\'egorie des $\hat{A}$-modules de longueur finie.
+
+\begin{exemple}[MACAULAY]
+\label{IV.5.2} Soit $A$ un anneau local de corps r\'esiduel $k$. Soit $k_{0}$ un sous-corps de $A$ tel que $k$ soit fini sur $k_{0}$, $[k:k_{0}]=d$. Tout $A$-module de longueur finie peut \^etre consid\'er\'e comme un $k_{0}$-espace vectoriel de dimension finie et \'egale \`a $d\cdot\longueur(M)$. Le foncteur $T$:
+$$
+M\to \Hom_{k_{0}}(M, k_{0})
+$$
+est alors exact et conserve la longueur, donc est dualisant pour $A$. Le module dualisant associ\'e est donc:
+$$
+A'=\varinjlim_{n}\Hom_{k_{0}}(A/\mm^{n}, k_{0}),
+$$
+c'est le dual topologique de $A$ muni de la topologie $\mm$-adique.
+\end{exemple}
+
+\begin{exemple} \label{IV.5.3}
+Soit $A$ un anneau local noeth\'erien \emph{régulier de dimension} $n$. Soit $\mm$ son id\'eal maximal, soit $k$ son corps r\'esiduel. Il existe un syst\`eme r\'egulier de param\`etres, $(x_{1}, x_{2}, \ldots, x_{n})$, qui engendre $\mm$, et qui est une \emph{suite $A$-régulière}. On peut donc calculer les $\Ext^{i}_{A}(k, A)$ par le complexe de KOSZUL; on trouve:
+\begin{align*}
+\Ext^{i}_{A}(k, A)&=0\quad \text{si } i\neq n,\\
+\Ext^{n}_{A}(k, A)&\simeq k.
+\end{align*}
+
+La profondeur de $A$ \'etant $n$, pour tout $M$ annul\'e par une puissance de $\mm$, $\Ext^{i}_{A}(M, A)=0$ si $i<n$; de plus $\Ext^{i}_{A}(M, A)=0$ si $i>n$ car la dimension cohomologique globale de $A$ est \'egale \`a $n$. Donc $\Ext^{n}_{A}(\;, A)$ est exact et de plus $\Ext^{n}_{A}(k, A)\simeq k$; il en r\'esulte que:
+\end{exemple}
+
+\begin{proposition} \label{IV.5.4}
+Si $A$ est un anneau local noeth\'erien r\'egulier de dimension $n$, le foncteur
+$$
+M\to \Ext_{A}^{n}(M, A)
+$$
+est dualisant. Le module dualisant associ\'e est
+$$
+I=\varinjlim_{r}\Ext_{A}^{n}(A/\mm^{r}, A),
+$$
+il est isomorphe \`a $H^{n}_{\mm}(A)$ (Expos\'e \ref{II}, th.\, \ref{II.6})\footnote{Soient $A$ un anneau, $J$ un id\'eal de $A$, $M$ un $A$-module, $i\in \ZZ$; on posera alors $H^{i}_{J}(M)=H^{i}_{Y}(X, F)$, o\`u $X={\Spec}(A)$, $Y=V(J)$ et $F=\tilde{M}$.}.
+\end{proposition}
+
+\begin{remarque} \label{IV.5.5}
+Si $A$ v\'erifie \`a la fois les hypoth\`eses des deux exemples pr\'ec\'edents, les deux modules dualisants trouv\'es sont isomorphes. Supposons par exemple que $A$ soit r\'egulier de dimension $n$, complet et d'\'egales caract\'eristiques. Il existe alors un corps des repr\'esentants, soit $K$. Si l'on choisit un syst\`eme de param\`etres $(x_{1}, \ldots, x_{n})$ de $A$, on peut construire un isomorphisme entre $A$ et l'anneau des s\'eries formelles: $K[[T_{1}, \ldots, T_{n}]]$; d'o\`u, comme nous allons le voir, un isomorphisme \emph{explicite} entre les deux modules dualisants
+$$
+v\colon H^{n}(A)\to A'.
+$$
+On peut trouver une interpr\'etation \emph{intrinsèque} de cet isomorphisme \`a l'aide du module $\Omega^{n}(A/K)$ des diff\'erentielles relatives compl\'et\'e de degr\'e maximum. En effet, l'on sait que $\Omega^{n}(A/K)$ admet une base form\'ee de l'\'el\'ement $dx_{1}\wedge dx_{2}\cdots \wedge dx_{n}$.
+
+D'o\`u un isomorphisme
+$$
+u\colon H^{n}(\Omega^{n}(A/K))\to H^{n}(A).
+$$
+Un fait remarquable est alors que le compos\'e
+$$
+vu=w\colon H^{n}(\Omega^{n})\to A'
+$$
+\emph{ne dépend plus du choix du système de paramètres} et commute au changement du corps de base.
+
+Pour construire $v$ on calcule $H^{n}(A)$ gr\^ace au complexe de KOSZUL associ\'e aux $x_{i}$, on trouve:
+$$
+H^{n}(A)=\varinjlim_{r}A/(x_{1}^{r}, \ldots, x_{n}^{r});
+$$
+o\`u les morphismes de transition sont d\'efinis comme suit: posons $I_{r}=A/(x_{1}^{r}, \ldots, x_{n}^{r})$; soit $e_{a_{1}, \ldots, a_{n}}^{r}$ l'image de $(x_{1})^{a_{1}}(x_{2})^{a_{2}}\cdots (x_{n})^{a_{n}}$ dans $I_{r}$. Les $e_{a_{1}, \ldots, a_{n}}^{r}$, pour $s\leq a_{i}<r$ forment une base de $I_{r}$.
+
+Ceci dit, si $s$ est un entier, le morphisme de transition
+$$
+t_{r, r+s}\colon I_{r}\to I_{r+s}
+$$
+est la multiplication par $x_{1}^{s}x_{2}^{s}\cdots x_{n}^{s}$, donc:
+$$
+u_{r, r+s}(e_{a_{1}, \ldots, a_{n}}^{r})=e_{a_{1}+s, \ldots, a_{n}+s}^{r+s}.
+$$
+
+Notons que la donn\'ee d'un $A$-homomorphisme $w$ d'un $A$-module $M$ dans $A'$ \'equivaut \`a la donn\'ee d'une forme $K$-lin\'eaire $w':M\to K$ qui soit \emph{continue} sur les sous-modules de type fini. Dans le cas $M=H^{n}(\Omega^{n})$, la d\'efinition de $w$ \'equivaut donc \`a celle d'une forme lin\'eaire
+$$
+\rho \colon H^{n}(\Omega^{n})\to K,
+$$
+appel\'ee \emph{forme résidu}\refstepcounter{toto}\label{pagecithar}\footnote{\label{cithar}Pour une \'etude plus d\'etaill\'ee de la notion de r\'esidu, Cf. R.~HARTSHORNE, Lecture Notes in Math. \numero 20, (1966), Springer}. Pour construire $\rho$, il suffit de d\'efinir des formes $\rho_{r}:I_{r}\to K$ qui se recollent, et on prendra
+$$
+\rho_{r}(e_{a_{1}, \ldots, a_{n}}^{r})=
+\begin{cases}
+1&\text{si}\ a_{i}=r-1\ \text{pour}\ 1\leq i\leq n\\
+0& \text{sinon.}
+\end{cases}
+$$
+\end{remarque}
+
+

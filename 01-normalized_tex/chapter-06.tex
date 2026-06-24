@@ -1,0 +1,135 @@
+\chapter{Les foncteurs $\Ext^{\bullet}_Z(X;F, G)$ et $\mathop{\underline{\mathrm{Ext}}}\nolimits^{\bullet}_Z(F, G)$} \label{VI}
+
+\makeatletter\@addtoreset{equation}{subsection}\makeatother\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+
+\section{G\'en\'eralit\'es} \label{VI.1}
+\enlargethispage{\baselineskip}%
+\subsection{} \label{VI.1.1}
+Soient $(X, \OX)$ un espace annel\'e et $Z$ une partie localement ferm\'ee de $X$. Soient $F$ et $G$ des $\OX$-Modules, on d\'esignera par ${\Ext_Z^i}(X;F, G)$ (resp. ${\mathop{\underline{\mathrm{Ext}}}\nolimits_Z^i}(F, G)$) le $i$-i\`eme foncteur d\'eriv\'e du foncteur $G \rightsquigarrow \Gamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G))$ (resp. $\SheafGamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G))$).
+
+\begin{lemme} \label{VI.1.2}
+Le faisceau ${\mathop{\underline{\mathrm{Ext}}}\nolimits_Z^i}(F, G)$ est canoniquement isomorphe au faisceau associ\'e au pr\'efaisceau $U\rightsquigarrow {\Ext_{Z\cap U}^i}(U;F_{|U}, G_{|U})$.
+\end{lemme}
+
+Cela r\'esulte de (T, 3.7.2) et de ce que $\Gamma(U;\SheafGamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)))$ est canoniquement isomorphe \`a $\Gamma_{Z\cap U}(\mathop{\underline{\mathrm{Hom}}}\nolimits_{{\OX}_{|U}}(F_{|U}, G_{|U}))$
+
+\begin{theoreme}[Th\'eor\`eme d'excision] \label{VI.1.3}
+Soit $V$ un ouvert de $X$ contenant $Z$, on~a alors un isomorphisme de foncteurs cohomologiques
+\begin{equation} \label{VI.1.3.1}
+\Ext_{X}^{\bullet}(X;F, G) \simeq \Ext_{V}^{\bullet}(V;F_{|V}, G_{|V})
+\end{equation}
+\end{theoreme}
+
+En effet, si $G^\bullet$ est une r\'esolution injective de $G$, alors $G^\bullet_{|V}$ est une r\'esolution injective de $G_{|V}$. Le th\'eor\`eme en r\'esulte imm\'ediatement.
+
+\subsection{} \label{VI.1.4}
+Soit $\Oo_{X, Z}$ le $\OX$-Module d\'efini par les conditions suivantes (G,~2.9.2): ${\Oo_{X, Z}}_{|X{-} Z}=0$ et ${\Oo_{X, Z}}_{|Z}={\OX}_{|Z}$. On a vu que pour tout $\OX$-Module $H$, il existe un isomorphisme fonctoriel: $\Gamma_Z(H)\simeq \Hom_{\OX}(\Oo_{X, Z}, H)$. On en d\'eduit donc des isomorphismes fonctoriels en $F$ et $G$: \setcounter{equation}{0}
+\begin{align}
+\label{VI.1.4.1}
+\Gamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)) &\simeq \Hom_{\OX}(\Oo_{X, Z}, \mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)),\\
+\label{VI.1.4.2} \Gamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)) &\simeq \Hom_{\OX}(\Oo_{X, Z}\otimes_{\OX} F, G),\\
+\label{VI.1.4.3} \Gamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)) &\simeq \Hom_{\OX}(F, \mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(\Oo_{X, Z}, G))=\Hom_{\OX}(F, \SheafGamma_Z(G)).
+\end{align}
+Il r\'esulte en particulier de~(\ref{VI.1.4.2}) qu'il existe un isomorphisme $\partial$~fonctoriel en $F$ et~$G$ entre $\Ext_{Z}^i(X;F, G)$ et $\Ext_{{\OX}}^i(\Oo_{X, Z}\otimes_{\OX} F, G)$
+
+\subsection{} \label{VI.1.5}
+Par d\'efinition le foncteur $G \rightsquigarrow \Gamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G))$ est le compos\'e du foncteur $G \rightsquigarrow\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)$ et du foncteur $\Gamma_Z$. Comme $\Gamma_Z$ est exact \`a gauche (\ref{I},~\ref{I.1.9}) et comme $\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G)$ est flasque si $G$ est injectif, et que $\Gamma_Z$ est exact sur les flasques (\ref{I},~\ref{I.2.12}), il r\'esulte de (T, 2.4.1) qu'il existe un foncteur spectral aboutissant \`a $\Ext_{Z}^\bullet(X;F, G)$ et dont le terme initial est $H_Z^p(X, \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^q{}_{(F, G))}$.
+
+D'autre part, il r\'esulte de (\ref{VI.1.4.3}) que $\Gamma_Z(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, G))$ est le compos\'e de $\SheafGamma_Z$ et du foncteur $H \rightsquigarrow \Hom_{\OX}(F, H)$.
+
+Puisque le foncteur $\SheafGamma_Z$ transforme les injectifs en injectifs (\ref{I},~\ref{I.1.4}), il r\'esulte de (T,~2.4.1) qu'il existe un foncteur spectral aboutissant \`a $\Ext_{Z}^\bullet(X;F, G)$ et dont le terme initial est $\Ext_{\OX}^p(X;F, \mathop{\underline{\mathrm{H}}}\nolimits_Z^q(G))$.
+
+Il r\'esulte enfin, de (\ref{VI.1.4.2}) et de la suite spectrale des $\Ext$, qu'il existe un foncteur spectral aboutissant \`a $\Ext^{\bullet}_Z(X;F, G)$ et dont le terme initial est $H^p(X;\mathop{\underline{\mathrm{Ext}}}\nolimits_Z^\bullet(F, G))$. D'o\`u le
+
+\setcounter{equation}{0}
+
+\begin{theoreme} \label{VI.1.6}
+Il existe trois foncteurs spectraux aboutissant \`a $\Ext_{Z}^\bullet(X;F, G)$ et dont les termes initiaux sont respectivement
+\begin{align}
+\label{VI.1.6.1} &H_Z^p(X, \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^q(F, G))\\
+\label{VI.1.6.2} &H^p(X, \mathop{\underline{\mathrm{Ext}}}\nolimits_Z^q(F, G))\\
+\label{VI.1.6.3} &\Ext_{\OX}^p(X;F, \mathop{\underline{\mathrm{H}}}\nolimits_Z^q(G)).
+\end{align}
+\end{theoreme}
+
+\subsection{} \label{VI.1.7}
+Soit maintenant $Z'$ une partie ferm\'ee de $Z$ et soit $Z''=Z {-} Z'$. On a une suite exacte
+\setcounter{equation}{0}
+\begin{equation} \label{VI.1.7.1}
+0 \to \Oo_{X, Z''} \to \Oo_{X, Z} \to \Oo_{X, Z'} \to 0
+\end{equation}
+qui g\'en\'eralise la suite exacte de (G, 2.9.3). Cette suite exacte splitte localement, on~a donc, pour tout $\OX$-Module $F$, une autre suite exacte:
+\begin{equation} \label{VI.1.7.2} {0 \to F \otimes_{\OX} \Oo_{X, Z''} \to F \otimes_{\OX} \Oo_{X, Z} \to F \otimes_{\OX} \Oo_{X, Z'} \to 0}
+\end{equation}
+Soit maintenant $G$ un $\OX$-Module; si on applique le foncteur $\Hom_{\OX}(\bullet, G)$ \`a la suite exacte (\ref{VI.1.7.2}), on d\'eduit de (\ref{VI.1.4.2}) et de la suite exacte des $\Ext$ le th\'eor\`eme suivant:
+
+\begin{theoreme} \label{VI.1.8}
+Soient $Z$ une partie localement ferm\'ee de $X$, $Z'$ une partie ferm\'ee de $Z$ et $Z''=Z{-} Z'$. On a alors une suite exacte fonctorielle en $F$ et $G$:
+\begin{gather*}
+0 \to \Hom_{Z'}(F, G) \to \Hom_Z(F, G) \to \Hom_{Z''}(F, G)\to \Ext_{{Z'}}^1(F, G) \to \cdots{}\\
+{}\cdots \Ext_{Z}^i(F, G) \to \Ext_{{Z''}}^i(F, G) \to \Ext_{{Z'}}^{i+1}(F, G) \to \cdots{}
+\end{gather*}
+\end{theoreme}
+
+\begin{corollaire} \label{VI.1.9} Soit $Y$ une partie ferm\'ee de $X$ et soit $U=X{-} Y$. On a alors une suite exacte fonctorielle en $F$ et $G$:
+\begin{gather*}
+0 \to \Hom_Y(F, G) \to \Hom_{\OX}(F, G) \to \Hom_{{\OX}_{|U}}(F_{|U}, G_{|U}) \to \Ext_{Y}^1(F, G) \to \cdots{}\\
+{}\cdots \Ext_{{\OX}}^i(F, G) \to \Ext_{{{\OX}_{|U}}}^i(F_{|U}, G_{|U}) \to \Ext_{Y}^{i+1}(F, G) \to \cdots
+\end{gather*}
+\end{corollaire}
+
+Ce corollaire est une cons\'equence imm\'ediate du th\'eor\`eme (\ref{VI.1.3}) et du th\'eor\`eme (\ref{VI.1.8}).
+
+\section{Applications aux faisceaux quasi-coh\'erents sur les pr\'esch\'emas} \label{VI.2}
+
+\begin{proposition} \label{VI.2.1}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien; pour toute partie localement ferm\'ee $Z$ de $X$, pour tout Module coh\'erent $F$ et tout Module quasi-coh\'erent~$G$ sur $X$, les $\mathop{\underline{\mathrm{Ext}}}\nolimits_Z^i(F, G)$ sont quasi-coh\'erents.
+\end{proposition}
+
+On montre, comme pour (\ref{VI.1.6.3}), que les Modules $\mathop{\underline{\mathrm{Ext}}}\nolimits_Z^i(F, G)$ sont l'aboutissement d'une suite spectrale de terme initial $\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^p(F, \mathop{\underline{\mathrm{H}}}\nolimits_Z^q (G))$. D'apr\`es (\ref{II}, corol.\, \ref{II.3}), les $\mathop{\underline{\mathrm{H}}}\nolimits_Z^q(G)$ sont quasi-coh\'erents, et donc aussi les $\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^p (F, \mathop{\underline{\mathrm{H}}}\nolimits_Z^q (G))$, puisque $F$ est coh\'erent. La proposition en d\'ecoule alors imm\'ediatement.
+
+\begin{empty} \label{VI.2.2}
+\end{empty}
+
+\subsection{} Soient maintenant $Y$ un sous-pr\'esch\'ema ferm\'e de $X$ et $\SheafI$ un id\'eal de d\'efinition de $Y$. Soient $m$ et $n$ des entiers tels que $m\geq n \geq 0$; on d\'esigne par $i_{n, m}$ l'application canonique $\Oo_{Y_m} = \OX/\SheafI^{m+1} \to \OX/\SheafI^{n+1} = \Oo_{Y_n}$ et par $j_n$ l'application \hbox{$\Oo_{X, Y}\to \Oo_{Y_n}$}. Les $(\Oo_{Y_n}, i_{n, m})$ forment un syst\`eme projectif et les $j_n$ sont compatibles avec les~$i_{n, m}$.
+
+En appliquant le foncteur $\Ext_{\OX}^i(F\otimes\bullet, G)$, on en d\'eduit un morphisme
+$$
+\varphi'\colon \varinjlim_{n} \Ext_{\OX}^i(X;F\otimes \Oo_{Y_n}, G) \to \Ext_{\OX}^i(X;F \otimes \Oo_{X, Y}, G);
+$$
+c'est un morphisme de foncteurs cohomologiques en $G$. Le morphisme
+$$
+\varphi\colon \varinjlim_{n} \Ext_{\OX}^i(X;F\otimes \Oo_{Y_n}, G) \to \Ext_Y^i(X;F, G)
+$$
+compos\'e de $\varphi'$ et de $\theta$ (cf. \ref{VI.1.4}) est donc lui aussi un foncteur de morphismes cohomologiques en $G$.
+
+On d\'efinit de m\^eme
+$$
+\Sheafphi\colon \varinjlim_n \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(F \otimes \Oo_{Y_n}, G) \to \mathop{\underline{\mathrm{Ext}}}\nolimits_Y^i(X;F, G)
+$$
+
+\begin{theoreme} \label{VI.2.3}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ une partie ferm\'ee de $X$ d\'efinie par un id\'eal coh\'erent $\SheafI$, $F$ un Module coh\'erent, $G$ un Module quasi-coh\'erent. Alors,
+\begin{enumeratea}
+\item
+$\Sheafphi$ est un isomorphisme.
+\item
+Si $X$ est noeth\'erien, $\varphi$ est un isomorphisme.
+\end{enumeratea}
+\end{theoreme}
+
+La d\'emonstration de b) \'etant presque mot \`a mot celle de (\ref{II},~\ref{II.6},~b)), gr\^ace \`a la suite spectrale~\ref{VI.1.6.2}, nous ne la reproduirons pas.
+
+Pour la d\'emonstration de a), on peut, d'apr\`es (\ref{VI.2.1}), supposer $X$ affine d'anneau~$A$, $F$ (resp. $G$) d\'efini par un $A$-module $M$ (resp. $N$) et $\SheafI$ par un id\'eal $\underline{\rm{i}}$. Il suffit de prouver que l'homomorphisme
+\begin{equation} \label{VI.2.3.1} \varinjlim_{{n}} \Ext_A^i(M/\underline{\rm{i}}^nM, N) \to \Ext_Y^i(X, F, G)
+\end{equation}
+d\'eduit de $\Sheafphi$ est un isomorphisme
+
+En effet, on peut, pour $i=0$, identifier canoniquement les deux membres de (\ref{VI.2.3.1}) au sous-module de $\Hom_A(M, N)$ d\'efini par les \'el\'ements de $\Hom_A(M, N)$ annul\'es par une puissance de $\underline{\rm{i}}$. On voit alors que l'homomorphisme (\ref{VI.2.3.1}) n'est autre que l'application identique.
+
+Le foncteur $N\rightsquigarrow \varinjlim_{n} \Ext_A^\bullet(M/\underline{\rm{i}}^nM, N)$ est un $\partial$-foncteur universel. On va montrer qu'il en est de m\^eme du foncteur $N \rightsquigarrow \Ext_Y^\bullet(M, N)$. En effet si $N$ est un module injectif, d'apr\`es (\ref{II.9} et \ref{II.11}), $\mathop{\underline{\mathrm{H}}}\nolimits_Y^q(N)=0$ si $q \neq 0$; et d'apr\`es (IV.2.3), $H_Y^{\circ}(N)$ est injectif.
+
+Il en r\'esulte alors que $\Ext_{\OX}^p(X;M, \mathop{\underline{\mathrm{H}}}\nolimits_Y^q(N))=0$ si $p+q \neq 0$; on~a donc, d'apr\`es (\ref{VI.1.6.3}), $\Ext_Y^i(M, N)=0$ pour $i\neq 0$ et $N$ injectif. Ce qui ach\`eve la d\'emonstration.
+
+\section*{Bibliographie} M\^emes r\'ef\'erences que celles list\'ees \`a la fin de l'\Exp \ref{I}, cit\'ees respectivement T et G.
+

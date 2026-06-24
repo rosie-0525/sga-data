@@ -1,0 +1,472 @@
+\chapter{Invariants cohomologiques et profondeur} \label{III}
+
+\section{Rappels} \label{III.1}
+
+Nous \'enoncerons quelques d\'efinitions et r\'esultats que le lecteur trouvera par exemple dans le chapitre I du cours profess\'e par J.P.~SERRE au Coll\`ege de France en 1957-58.\footnote{\label{noteserre}Cf. Alg\`ebre locale et multiplicit\'e. Lecture Notes in Mathematics \numero 11, Springer.}
+
+\begin{definition} \label{def:III.1.1}
+Soit $A$ un anneau, (commutatif \`a \'el\'ement unit\'e comme dans tout ce qui suivra) et soit $M$ un $A$-module (unitaire comme dans tout ce qui suivra), on appelle:
+\begin{itemize}
+\item
+annulateur de $M$ et on note $\Ann M$ l'ensemble des $a\in A$, tels que pour tout $m\in M$ on ait $am=0$.
+
+\item
+support de $M$ et on note $\Supp M$ l'ensemble des id\'eaux premiers $\pp $ de $A$ tels que le localis\'e $M_\pp$ soit non nul.
+
+\item
+\og assassin de $M$\fg ou \og ensemble des id\'eaux premiers associ\'es \`a $M$\fg et on note $\Ass M$ l'ensemble des id\'eaux premiers $\pp $ de $A$ tels qu'il existe un \'el\'ement non nul de~$M$ dont l'annulateur soit $\pp $.
+\end{itemize}
+
+Si $\ideal a$ est un id\'eal de $A$, nous noterons $\rr(\ideal a)$ la racine de $\ideal a$ dans $A$, i.e. l'ensemble des \'el\'ements de $A$ dont un puissance est dans $\ideal a$.
+\end{definition}
+
+Les r\'esultats suivants sont valables si l'on suppose que \emph{$A$ est noethérien et $M$ de type fini}.
+
+\setcounter{subsection}{0}
+
+\skpt
+
+\begin{proposition} \label{III.1.1}
+\begin{enumeratei}
+\item
+$\Ass M$ est un ensemble fini.
+
+\item
+Pour qu'un \'el\'ement de $A$ annule un \'el\'ement non nul de $M$, il faut et il suffit qu'il appartienne \`a l'un des id\'eaux associ\'es \`a $M$.
+
+\item
+La racine de l'annulateur de $M$, $\rr(\Ann M)$, est l'intersection des id\'eaux associ\'es \`a $M$ qui sont minimaux (pour la relation d'inclusion dans $\Ass M$).
+\end{enumeratei}
+\end{proposition}
+
+\begin{proposition} \label{III.1.2}
+Soit $\pp $ un id\'eal premier de $A$, les assertions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\pp \in \Supp M$.
+
+\item
+Il existe $\qq \in \Ass M$ tel que $\qq \subset\pp $.
+
+\item
+$\pp \supset \Ann M$.
+
+\item[\textup{(iii bis)}]
+$\pp \supset \rr(\Ann M)$.
+\end{enumeratei}
+\end{proposition}
+
+\begin{proposition} \label{III.1.3}
+Soit $N$ un $A$-module de type fini, on~a la formule:
+\[
+\Ass \Hom_A(N, M) = \Supp N \cap \Ass M.
+\]
+\end{proposition}
+
+\section{Profondeur} \label{III.2}
+
+Dans tout ce paragraphe, $A$ d\'esigne un anneau commutatif, $I$ un id\'eal de $A$, $M$~et~$N$ deux $A$-modules. On notera $X$ le spectre premier de $A$ (on ne se servira pas de son faisceau structural dans ce paragraphe) et $Y$ la vari\'et\'e de $I$, $Y = \Supp(A/I) = \{\pp \in X, \ \pp \supset I\}$.
+
+\begin{lemme} \label{III.2.1}
+Supposons que $A$ soit noeth\'erien et que les modules $M$ et $N$ soient de type fini. Supposons de plus que $\Supp N=Y$. Alors les assertions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\Hom_A(N, M)=0$.
+\item
+$\Supp N \cap \Ass M = \emptyset$.
+\item
+L'id\'eal $I$ n'est pas diviseur de $0$ dans $M$, ce qui signifie que pour tout $m\in M$, $Im=0$ entra\^ine $m=0$.
+\item
+Il existe dans $I$ un \'el\'ement $M$-r\'egulier. (Un \'el\'ement $a$ de $A$ est dit $M$-r\'egulier si l'homoth\'etie de rapport $a$ dans $M$ est injective.)
+
+\item
+Pour tout $\pp \in Y$, l'id\'eal maximal $\mm_\pp$ de l'anneau local $A_\pp$ n'est pas associ\'e \`a $M_\pp$. En formule: $\pp A_\pp \notin \Ass M_\pp$.
+\end{enumeratei}
+\end{lemme}
+
+\skpt
+\begin{proof}
+(i) ~$\Ssi$~ (ii) car $\Ass \Hom_A(N, M)=\emptyset$ est \'equivalent \`a (ii) d'apr\`es la proposition \ref{III.1.3} et \`a (i) par une cons\'equence facile de la proposition \ref{III.1.2}.
+
+(iii) ~$\To$~ (ii) par l'absurde: \og il existe $\pp \in \Supp N \cap \Ass M$\fg entra\^ine que $\pp \supset I$ et qu'il existe $m\in M$ dont l'annulateur est $\pp $, donc $Im \subset \pp m=0$, ce qui contredit (iii).
+
+(iv) ~$\To$~ (iii) trivialement.
+
+(ii) ~$\Ssi$~ (iv) car $\Supp N = Y$, donc (ii) signifie que $I$ n'est contenu dans aucun id\'eal associ\'e \`a $M$ ou encore, (car les id\'eaux associ\'es \`a $M$ sont premiers et en nombre fini), que $I$ n'est pas contenu dans la r\'eunion des id\'eaux associ\'es \`a $M$. Or, par la Prop. \ref{III.1.1}~(ii), cet ensemble est l'ensemble des \'el\'ements de $A$ qui ne sont pas $M$-r\'eguliers.
+
+(i) ~$\To$~ (v); en effet, si $\Hom_A(N, M)=0$ et si $\pp \in Y$, on en d\'eduit, en vertu de la formule
+\[
+\bigl(\Hom_A(N, M) \bigr)_\pp = \Hom_{A_\pp} \bigl(N_\pp, M_\pp \bigr),
+\]
+que $\Hom_{A_\pp} \bigl(N_\pp, M_\pp \bigr)=0$, donc, gr\^ace \`a la proposition \ref{III.1.3},
+\[
+\Supp N_\pp \cap \Ass M_\pp = \emptyset,
+\]
+or $\pp A_\pp \in \Supp N_\pp, $ donc $ \pp A_\pp \notin \Ass M_\pp$.
+
+(v) ~$\To$~ (i); en effet, si $\pp \in \Ass M$, il existe $m\in M$ dont l'annulateur est $\pp$, donc l'image canonique de $m$ dans $M_\pp$ est non nulle, donc son annulateur est un id\'eal qui contient $\pp$, donc $\pp A_\pp$, donc lui est \'egal. L'id\'eal $\pp A_\pp$ est donc associ\'e \`a $M_\pp$, donc $\pp \notin Y$ d'apr\`es (v), d'o\`u (i).
+\end{proof}
+
+Nous allons travailler sur ces conditions en rempla\c cant le
+foncteur $\Hom$ par ses d\'eriv\'es.
+
+\begin{theoreme} \label{III.2.2}
+Soit $A$ un anneau commutatif, $I$ un id\'eal de $A$, $M$ un $A$-module. Soit $n$ un entier.
+
+\begin{enumeratea}
+\item
+S'il existe une suite $f_1, \ldots, f_{n+1}$, d'\'el\'ements de $I$ qui forme une suite $M$-r\'eguli\`ere (i.e. si $f_1$ est $M$-r\'egulier et si $f_{i+1}$ est r\'egulier dans $M/(f_1, \ldots, f_i)M$ pour $i\leq n$), pour tout $A$-module $N$ annul\'e par une puissance de $I$, on a:
+\[
+\Ext_A^i(N, M)=0 \text{ pour } i\leq n.
+\]
+
+\item
+Si de plus $A$ est noeth\'erien, si $M$ est de type fini, et s'il existe un $A$-module $N$ de type fini tel que $\Supp N = \variete(I)$ et tel que $\Ext_A^i(N, M)=0$ pour $i\leq n$, alors il existe une suite $f_1, \ldots, f_{n+1}$, d'\'el\'ements de $I$ qui est $M$-r\'eguli\`ere.
+\end{enumeratea}
+\end{theoreme}
+
+D\'emontrons d'abord a), par r\'ecurrence. Si $n<0$ l'\'enonc\'e est vide.
+
+Si $n\geq 0$, supposons que a) soit d\'emontr\'e pour $n'<n$; par hypoth\`ese il existe $f_1\in I$ qui est $M$-r\'egulier. D\'esignons par $f_1^i$ la multiplication par $f_1$ dans $\Ext_A^i(N, M)$ et par $f_1^M$ la multiplication par $f_1$ dans $M$. La suite
+\begin{equation} \label{eq:III.2.1}
+0 \to M \lto{f_1^M} M \to M/f_1M \to 0
+\end{equation}
+est exacte, donc aussi la suite:
+\[
+\Ext_A^{i-1} (N, M/f_1M) \lto{\delta}\Ext_A^i (N, M) \lto{f_1^i} \Ext_A^i (N, M).
+\]
+Par hypoth\`ese $I^rN=0$, donc $f_1^0$ et nilpotent; $\Ext^i$ est un foncteur universel, il en est de m\^eme de $f_1^i$ pour tout $i$. Par ailleurs, il existe une suite r\'eguli\`ere dans $M/f_1 M$ qui a $n$ \'el\'ements, donc, par hypoth\`ese de r\'ecurrence,
+\[
+Ext_A^{i-1}(N, M)=0 \text{ si } i\leq n-1.
+\]
+On en d\'eduit que si $i\leq n$, $f_1^i$ est \`a la fois nilpotent et injectif donc $\Ext_A^i(N, M)=0$.
+
+D\'emontrons b), \'egalement par r\'ecurrence. Si $n<0$, l'\'enonc\'e est vide.
+
+Si $n=0$, b) r\'esulte de l'assertion (i) ~$\To$~ (iv) du lemme \ref{III.2.1}.
+
+Si $n>0$, d'apr\`es b) pour $n=0$, il existe un \'el\'ement $f_1\in I$ qui est $M$-r\'egulier; de la suite exacte (\ref{eq:III.2.1}), on d\'eduit la suite exacte:
+\begin{equation} \label{eq:III.2.2} \Ext_A^{i-1} (N, M) \to \Ext_A^{i-1} (N, M/f_1M) \to \Ext_A^i (N, M).
+\end{equation}
+On en conclut que les hypoth\`eses de b) sont v\'erifi\'ees pour le
+module $M/f_1M$ et pour l'entier $n-1$. Par l'hypoth\`ese de
+r\'ecurrence, il existe une suite de $n$ \'el\'ements de $I$ qui est
+r\'eguli\`ere pour $M/f_1M$, ce qui entra\^ine qu'il existe une
+suite de $n+1$ \'el\'ements de~$I$, commen\c cant par $f_1$, et qui
+est $M$-r\'eguli\`ere.
+
+Ce th\'eor\`eme nous invite \`a g\'en\'eraliser de la mani\`ere suivante la d\'efinition classique de la profondeur d'un module de type fini sur un anneau noeth\'erien:
+
+\begin{definition} \label{III.2.3}
+Soit $A$ un anneau commutatif \`a \'el\'ement unit\'e, soit $M$ un $A$-module, soit $I$ un id\'eal de $A$. On appelle $I$-profondeur de $M$, et on note $\prof_I M$, la borne sup\'erieure \ignorespaces de l'ensemble des entiers naturels $n$, qui sont tels que pour tout $A$-module de type fini $N$ annul\'e par une puissance de $I$, on ait
+\[
+\Ext_A^i(N, M)=0 \text{ pour tout } i< n.
+\]
+\end{definition}
+
+On d\'eduit du th\'eor\`eme pr\'ec\'edent que si $n$ est la borne sup\'erieure des longueurs des suites $M$-r\'eguli\`eres d'\'el\'ements de $I$, on~a $n\leq\prof_I M$.
+
+\noindent Plus pr\'ecis\'ement:
+
+\begin{proposition} \label{III.2.4}
+Soit $A$ un anneau commutatif, $I$ un id\'eal de $A$ et soit $M$ un $A$-module, soit enfin $n\in \NN$. Consid\'erons les assertions:
+\begin{enumerate}
+\item
+$n\leq \prof_I M$.
+\item
+Pour tout $A$-module de type fini $N$ qui est annul\'e par une puissance de $I$, on~a:
+\[
+\Ext_A^i(N, M)=0 \text{ pour } i<n.
+\]
+\item
+Il existe un $A$-module de type fini $N$ tel que $\Supp N = \variete(I)$ et tel que $\Ext_A^i(N, M)=0$ si $i<n$.
+\item
+Il existe une suite $M$-r\'eguli\`ere de longueur $n$ form\'es d'\'el\'ements de $I$.
+\end{enumerate}
+
+On a les implications logiques suivantes:
+\[
+\begin{array}{c}\dpl \textup{(1)} \Ssi \textup{(2)} \From (4) \\
+\big\Downarrow \\
+\textup{(3)} \\
+\end{array}
+\]
+De plus si $A$ est noeth\'erien et $M$ de type fini, ces conditions sont \'equivalentes.
+\end{proposition}
+
+\skpt
+\begin{proof}
+(1) ~$\Ssi$~ (2) par d\'efinition et (2) ~$\To$~ (3) en prenant $N=A/I$; De plus (4) ~$\To$~ (2) par le th\'eor\`eme \ref{III.2.2} a). Enfin, si $A$ est noeth\'erien et $M$ de type fini, (3) ~$\To$~ (4) par le th\'eor\`eme \ref{III.2.2} b).
+\skipqed
+\end{proof}
+
+Nous supposons $A$ noeth\'erien et $M$ de type fini jusqu'\`a la fin de ce paragraphe.
+
+\begin{corollaire} \label{III.2.5}
+Soit $f\in I$ un \'el\'ement $M$-r\'egulier, on a:
+\[
+\prof_I M = \prof_I (M/fM) + 1.
+\]
+\end{corollaire}
+
+En effet, si $n\leq \prof_I (M/fM)$, il existe une suite d'\'el\'ements de $I$, $f_1, \ldots, f_n$, qui est $(M/fM)$-r\'eguli\`ere; donc la suite $f, f_1, \ldots, f_n$ est $M$-r\'eguli\`ere, donc $n+1 \leq \prof_I M$, donc $\prof_I M\geq \prof_I (M/fM) + 1$. Par ailleurs, d'apr\`es la suite exacte (\ref{eq:III.2.2}), si $i \leq \prof_I M$, on~a $\Ext_A^{i-1} (N, M/fM)=0$, donc $\prof_I M - 1 \leq \prof_I (M/fM)$.
+
+\enlargethispage{1.2\baselineskip}%
+\begin{corollaire} \label{III.2.6}
+Toute suite $M$-r\'eguli\`ere finie, form\'ee d'\'el\'ements de $I$, peut \^etre prolong\'ee en une suite $M$-r\'eguli\`ere maximale, dont la longueur est n\'ecessairement \'egale \`a la $I$-profondeur de~$M$.
+\end{corollaire}
+
+\begin{remarque} \label{III.2.7}
+On ne se retient qu'\`a grand peine de dire qu'un $A$-module est d'autant plus beau que sa profondeur est plus grande. Un module dont le support ne rencontre pas $\variete (I)$ est des plus beaux; en effet, on peut d\'emontrer que pour que $\prof_I M$ soit fini, il est n\'ecessaire et suffisant que $\Supp M \cap \variete(I) \neq \emptyset$.
+\end{remarque}
+
+\begin{remarque} \label{III.2.8}
+Si $A$ est un anneau semi-local, soit $\rr(A)$ son radical et $k=A/\rr(A)$ son anneau r\'esiduel. La notion de profondeur int\'eressante est obtenue en prenant pour $I$ le radical de~$A$. Nous conviendrons donc de noter simplement $\prof M$ la $\rr(A)$-profondeur d'un $A$-module~$M$. On retrouve dans ce cas la notion de \og codimension homologique\fg, (cf. SERRE, \textit{op.\, cit.} note~\eqref{noteserre}, page~\pageref{noteserre}), que l'on notait $\codimh_A M$, et qui est d\'efinie comme la borne inf\'erieure des entiers $i$ tels que $\Ext_A^i(k, M)\neq 0$; en effet $\Supp k = \variete(\rr(A))$.
+\end{remarque}
+
+\begin{proposition} \label{III.2.9}
+Si $A$ est noeth\'erien et $M$ de type fini, on a:
+\[
+\prof_I M = \inf_{\pp \in \variete (I)} \prof M_\pp.
+\]
+\end{proposition}
+
+\begin{corollaire} \label{III.2.10}
+Si $A$ est un anneau semi-local noeth\'erien, et si $M$ est un $A$-module de type fini, on a:
+\[
+\prof M = \inf_\mm \prof M_\mm,
+\]
+o\`u $\mm $ parcourt l'ensemble des id\'eaux maximaux de $A$.
+\end{corollaire}
+
+Le corollaire r\'esulte imm\'ediatement de le proposition \ref{III.2.9}; en effet les id\'eaux premiers qui contiennent le radical sont les id\'eaux maximaux.
+
+Par ailleurs, soit $f\in I$; si $f$ est $M$-r\'egulier, si $\pp\in X$ et si $\pp\supset I$, l'image $g$ de $f$ dans $A_\pp$ appartient \`a $\mm_\pp$, id\'eal maximal de $A_\pp$; de plus $g$ est $M_\pp$-r\'egulier, comme il r\'esulte de la suite exacte
+\begin{equation} \label{eq:III.2.3} 0 \to M_\pp \lto{g'} M_\pp \to (M/fM)_\pp \to 0,
+\end{equation}
+o\`u $g'$ d\'esigne l'homoth\'etie de rapport $g$ dans $M_\pp$. Cette suite exacte donne aussi que $(M/fM)_\pp$ est isomorphe \`a $M_\pp/gM_\pp$; en appliquant le corollaire \ref{III.2.5} \`a $M$ et \`a $M_\pp$, on en d\'eduit, par r\'ecurrence, que $\prof_I M\leq \nu(M)$, o\`u l'on a pos\'e pour tout $M$:
+\[
+\nu(M)=\inf_{\pp\in\variete(I)} \prof M_\pp.
+\]
+Plus pr\'ecis\'ement, toujours par r\'ecurrence, on sait, si $f$ est $M$-r\'egulier, que $\nu(M)= \nu(M/fM)+1$; il reste donc \`a d\'emontrer que si $\nu(M)\geq 1$, il existe un \'el\'ement $M$-r\'egulier dans $I$. Or en appliquant (\ref{III.2.1}) \`a $M_\pp$, $A_\pp$ et $\mm_\pp$ pour tout $\pp\in \variete(I)$, on voit que $\mm_\pp \notin \Ass M_\pp$, donc, en appliquant (\ref{III.2.1}) \`a $A$, $M$ et $I$, on~a la conclusion.
+
+\enlargethispage{\baselineskip}%
+\begin{proposition} \label{III.2.11}
+Soit $u:A\to B$ un homomorphisme d'anneaux noeth\'eriens. Soit~$I$ un id\'eal de $A$, $M$ un $A$-module de type fini. Posons $I_B=I\otimes_A B$ et $M_B=M\otimes_A B$. Si $B$ est $A$-plat, on~a:
+\[
+\prof_{I_B} M_B \geq \prof_I M;
+\]
+de plus si $B$ est fid\`element plat sur $A$, on~a \'egalit\'e.
+\end{proposition}
+
+En effet, soit $N=A/I$; par platitude on a: $N\otimes_A B=B/I_B$; posons $N_B=N\otimes_A B$. Toujours par platitude et hypoth\`eses noeth\'eriennes, on a:
+\[
+\Ext_B^i (N_B, M_B) = \Ext_A^i(N, M)\otimes_A B,
+\]
+donc $\Ext_A^i(N, M) = 0 $ entra\^ine $\Ext_B^i(N_B, M_B)=0$, et la r\'eciproque est vraie si $B$ est fid\`element plat sur $A$.
+
+\section{Profondeur et propri\'et\'es topologiques} \label{III.3}
+
+\begin{lemme} \label{III.3.1}
+Soit $X$ un espace topologique, $Y$ un sous-espace ferm\'e, soit $F$ un faisceau de groupes ab\'eliens sur $X$. Posons $U=X- Y$. Si $n$ est un entier, les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\mathop{\underline{\mathrm{H}}}\nolimits_Y^i (X, F)=0$ si $i<n$.
+\item
+Pour tout ouvert $V$ de $X$, l'homomorphisme de groupes
+\[
+\H^i(V, F) \to \H^i(V\cap U, F)
+\]
+est bijectif si $i<n-1$ et injectif si $i=n-1$.
+
+\item
+Pour tout ouvert $V$ de $X$,
+\[
+\H_{Y\cap V}^i(V, F_{\mid V})=0 \text{ si } i<n.
+\]
+\end{enumeratei}
+\end{lemme}
+
+\skpt
+
+\begin{proof}
+(ii) ~$\Ssi$~ (iii); en effet, soit $V$ un ouvert de $X$, posons $X'=V$, $Y'=Y\cap V$, $F'=F_{\mid V}$, $U'=X'- Y'$; $Y'$ est ferm\'e dans $X'$, on~a donc une suite exacte:
+\[
+\H_{Y'}^i(X', F') \to \H^i(X', F') \lto{\rho_i} \H^i(U', F') \to \H_{Y'}^{i+1}(X', F').
+\]
+Si les termes extr\^emes sont nuls, l'homomorphisme $\rho_i$ est bijectif, et si le terme de gauche est nul, $\rho_i$ est injectif. Donc (iii) ~$\To$~ (ii). R\'eciproquement, si $i<n$, $\H_{Y'}^i(X', F')$ est nul car $\rho_i$ est injectif et $\rho_{i-1}$ surjectif.
+
+(i) ~$\To$~ (iii); en effet la suite spectrale \og de passage du local au global\fg donne:
+\[
+\H^p\bigl(X, \mathop{\underline{\mathrm{H}}}\nolimits_Y^q(X, F)\bigr) \To \H_Y^*(X, F).
+\]
+Or, par hypoth\`ese $\mathop{\underline{\mathrm{H}}}\nolimits_Y^q(X, F) =0$ si $q<n$, donc $(\H_Y (X, F))^{p+q} = 0$ si $p+q<n$.
+
+(iii) ~$\To$~ (i); en effet (iii) exprime que le pr\'efaisceau
+\[
+V \rightsquigarrow \H_{Y\cap V}^i(V, F_{\mid V})
+\]
+est nul, donc aussi le faisceau associ\'e qui est $\mathop{\underline{\mathrm{H}}}\nolimits_Y^i (X, F)$, car $Y$ est ferm\'e.
+\skipqed
+\end{proof}
+
+\begin{remarque} \label{III.3.2}
+ Si $n\geq 2$, on peut omettre la condition que $\rho_{n-1}$ soit injectif, car le faisceau associ\'e au pr\'efaisceau
+\[
+V \rightsquigarrow \H^{n-2}(V\cap U, F)
+\]
+est isomorphe \`a $\mathop{\underline{\mathrm{H}}}\nolimits_Y^{n-1} (X, F)$, mais par l'hypoth\`ese (ii) pour $i=n-2$, ce pr\'efaisceau est isomorphe au pr\'efaisceau $V \rightsquigarrow \H^i(V, F)$ dont le faisceau associ\'e est nul.
+\end{remarque}
+
+\begin{proposition} \label{III.3.3}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ un sous-pr\'esch\'ema ferm\'e de $X$, $F$ un $\OX$-module coh\'erent. Les conditions du lemme \ref{III.3.1} sont \'equivalentes \`a chacune des conditions suivantes:
+\begin{enumeratei}
+\setcounter{enumi}{3}
+\item
+Pour tout $y\in Y$, on~a $\prof F_x \geq n$;
+
+\item
+Pour tout $\OX$-module coh\'erent $G$ sur $X$, de support contenu dans $Y$ on a
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(G, F)=0 \text{ si } i<n;
+\]
+
+\item
+Il existe un $\OX$-module coh\'erent $G$ dont le support est \'egal \`a $Y$ et tel que
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(G, F)=0 \text{ si } i<n.
+\]
+\end{enumeratei}
+\end{proposition}
+
+Si $X$ est affine, on~a fait tout ce qu'il faut \ignorespaces pour d\'emontrer l'\'equivalence des trois conditions de la proposition \ref{III.3.3},  or elles sont locales, donc il suffit de prouver (i) ~$\To$~ (vi) et (v) ~$\To$~ (i).
+
+Soit $J$ l'id\'eal de $Y$, c'est un faisceau coh\'erent d'id\'eaux; soit $\Oo_{X_m} = \OX/J^{m+1}$, c'est un $\OX$-module coh\'erent dont le support est \'egal \`a $Y$, et on sait \ignorespaces que
+\[
+\mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, F) = \varinjlim_m \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(\Oo_{X_m}, F),
+\]
+donc (v) ~$\To$~ (i). Par ailleurs, les morphismes de transition sont des \'epimorphismes dans le syst\`eme projectif des $\Oo_{X_m}$.
+
+Si le foncteur $\mathop{\underline{\mathrm{Ext}}}\nolimits^i$ est exact \`a gauche en sont premier argument, du moins lorsque celui-ci est dans la cat\'egorie des $\OX$-modules coh\'erents de support contenu dans $Y$, les morphismes de transition du syst\`eme inductif obtenu en appliquant $\mathop{\underline{\mathrm{Ext}}}\nolimits^i$ aux $\Oo_{X_m}$ seront injectifs, or (i) entra\^ine que la limite est nulle, donc (i) entra\^inera que les modules $\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(\Oo_{X_m}, F)$ sont nuls pour tout~$m$. Raisonnons par r\'ecurrence. L'\'enonc\'e est trivial pour $n<0$. Supposons que (i) ~$\To$~ (vi) pour $n<q$, alors (i) ~$\To$~ (v), donc, par la suite exacte des $\mathop{\underline{\mathrm{Ext}}}\nolimits$, $\mathop{\underline{\mathrm{Ext}}}\nolimits^q$ est exact \`a gauche en son premier argument, donc les modules $\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^q(\Oo_{X_m}, F)$ sont nuls pour tout $m$. Donc (i) ~$\To$~ (vi) pour $n\leq q$.
+\CQFD
+
+\bgroup
+\def\labelenumi{\theenumi)}
+\begin{exemple} \label{III.3.4}
+Soit $A$ un anneau local noeth\'erien, $\mm$ son id\'eal maximal, $M$ un $A$-module de type fini, soit enfin $n$ un entier. Posons $X=\Spec (A)$, $Y=\{\mm\}$, $U=X-Y$. Soit $F$ le faisceau associ\'e \`a $M$. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+
+\item
+$\prof M \geq n$;
+
+\item
+l'homomorphisme naturel
+\[
+\H^i(X, F) \to \H^i(U, F)
+\]
+ injectif si $i=n-1$, est bijectif si $i<n-1$;
+
+\item
+$\Ext_A^i(k, M) =0$ si $i<n$, o\`u $k=A/\mm$;
+
+\item
+$\H_Y^i(X, F)=0$ si $i<n$.
+\end{enumerate}
+\end{exemple}
+
+
+
+\begin{corollaire} \label{III.3.5}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ un sous-pr\'esch\'ema ferm\'e de $X$, $F$ un $\OX$-module coh\'erent; les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item
+pour tout $x\in Y$, $\prof F_x \geq 2$;
+\item
+pour tout ouvert $V$ de $X$, l'homomorphisme naturel
+\[
+\H^0(V, F) \to \H^0(V\cap(X-Y), F)
+\]
+est bijectif.
+\end{enumerate}
+\end{corollaire}
+\egroup
+
+\begin{theoreme}[HARTSHORNE] \label{III.3.6}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ un sous-pr\'esch\'ema ferm\'e de $X$. Supposons que, pour tout $x\in Y$, $\prof \Oo_{X, x} \geq 2$; alors l'application naturelle
+\[
+\pi_0(X) \to \pi_0(X-Y)
+\]
+est bijective.
+\end{theoreme}
+
+\begin{proof}
+Puisque $X$ est localement noeth\'erien, $X$ est localement connexe; il suffit donc de prouver que pour que $X$ soit connexe il est n\'ecessaire et suffisant que $X-Y$ le soit. Or, pour qu'un espace annel\'e en anneaux \vadjust{\penalty -100} locaux $(X, \OX)$ soit connexe, il est n\'ecessaire et suffisant que $\H^0(X, \OX)$ ne soit pas compos\'e direct de deux anneaux non nuls. Mais l'hypoth\`ese implique, d'apr\`es le corollaire \ref{III.3.5} appliqu\'e \`a $F=\OX$, que l'homomorphisme
+\[
+\H^0(X, \OX) \to \H^0(X-Y, \OX)
+\]
+est un isomorphisme, d'o\`u la conclusion.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{III.3.7}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien. Soit $d$ un entier tel que $\dim \Oo_{X, x} \geq d$ entra\^ine $\prof \Oo_{X, x} \geq 2$. Alors, si $X$ est connexe, $X$ est connexe en codimension $d-1$, i.e. si $X'$ et $X''$ sont deux composantes irr\'eductibles de $X$, il existe une suite de composantes irr\'eductibles :
+\[
+X'=X_0, X_1, \ldots, X_n=X''
+\]
+telle que pour tout $i$, $1\leq i \leq n$, la codimension de $X_{i-1}\cap X_i$ dans $X$ soit inf\'erieure ou \'egale \`a $d-1$.
+\end{corollaire}
+
+Remarquons d'abord que si $X$ est de COHEN-MACAULAY, $d=2$ jouira de la propri\'et\'e \'evoqu\'ee plus haut. \`A ce propos, rappelons que l'on d\'efinit la codimension de $Y$ dans~$X$ comme la borne inf\'erieure des dimensions des anneaux locaux dans~$X$ des points de~$Y$.
+
+\begin{proof}
+Soit $\Ff$ l'ensemble des parties ferm\'ees de $X$ dont la codimension dans $X$ est sup\'erieure ou \'egale \`a $d$. On notera que $\Ff$ est un antifiltre de parties ferm\'ees de $X$. Par ailleurs, pour qu'un ferm\'e $Y$ de $X$ soit \'el\'ement de $\Ff$, il faut et il suffit que, pour tout $y\in Y$ il existe un voisinage ouvert $V$ de $X$ tel que $Y\cap V$ soit de codimension $\geq d$ dans $V$. Enfin, si $X$ est connexe et si $Y\in \Ff$, $X-Y$ est connexe d'apr\`es le th\'eor\`eme de HARTSHORNE. Le corollaire r\'esulte donc du lemme suivant, qui est de nature purement topologique.
+
+\begin{lemme} \label{III.3.8}
+Soit $X$ un espace topologique connexe et localement noeth\'erien, et soit $\Ff$ un antifiltre de parties ferm\'ees de $X$. On suppose que tout ferm\'e $Y\subset X$ qui appartient localement \`a $\Ff$, (i.e. pour tout point $x\in X$ il existe un voisinage ouvert $V$ de $x$ dans $X$ et un $Y'\in \Ff$ tel que $V\cap Y=V\cap Y'$), appartient \`a $\Ff$. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+
+\item
+pour tout $Y\in \Ff$, $X-Y$ est connexe;
+
+\item
+si $X'$ et $X''$ sont deux composantes irr\'eductibles distinctes de $X$, il existe une suite de composantes irr\'eductibles de $X$, $X_0, X_1, \ldots, X_n$, telle que $X'=X_0$, $X''=X_n$ et, pour tout $i$, $1\leq i\leq n$, $X_{i-1} \cap X_i \notin \Ff$.
+\end{enumeratei}
+\end{lemme}
+
+(ii) ~$\To$~ (i). Soit $Y\in \Ff$, il faut prouver que l'ouvert $U=X-Y$ est connexe. Or, si $U'$ et $U''$ sont deux composantes irr\'eductibles de $U$, il existe deux composantes irr\'eductibles $X'$ et $X''$ de $X$ telles que $X''\cap U=U''$ et $X'\cap U=U'$; soit $X_0, \ldots X_n$ une suite de composantes irr\'eductibles de $X$ poss\'edant la propri\'et\'e \'evoqu\'ee plus haut; si l'on pose $U_i=X_i\cap U$, $0\leq i\leq n$, les $U_i$ seront des composantes irr\'eductibles de $U$, de plus $U_{i}\cap U_{i+1}$ est non vide si $0\leq i\leq n$, car sinon, {$X_{i}\cap X_{i+1} \subset Y$} serait $\in$ $\Ff$, ce qui est contraire au choix de la suite des $X_i$. Ceci entra\^ine que $U$ est connexe.
+
+(i) ~$\To$~ (ii). Soit $Y=\bigcup_{X', X''} X'\cap X''$ o\`u l'on impose que $X'$ et $X''$ soient deux composantes irr\'eductibles \emph{distinctes} de $X$ telles que $X'\cap X'' \in \Ff$. La famille des $X'\cap X''$ est localement finie car $X$ est localement noeth\'erien, de plus les $X'\cap X''$ sont ferm\'es, donc $Y$ est ferm\'e. Par ailleurs, $Y$ appartient localement \`a $\Ff$, donc $Y\in \Ff$. Donc $U=X-Y$ est connexe. Soient $X'$ et $X''$ deux composantes irr\'eductibles distinctes de~$X$, soient $U'$ et $U''$ leurs traces sur $U$, qui sont non vides par construction de $Y$. Ce sont des composantes irr\'eductibles de $U$, or $U$ est connexe, donc $U$ \'etant localement noeth\'erien, il existe une suite de composantes irr\'eductibles $U_0, \ldots, U_n$ de $U$, telles que $U_0=U'$, $U_n=U''$ et $U_{i}\cap U_{i+1}\neq \emptyset$ et $\neq U_{i}, 0\leq i < n$. Soit $X_0, \ldots, X_n$ la suite de composantes irr\'eductibles de $X$ qui est telle que $X_{i}\cap U=U_{i}$; si $X_{i}\cap X_{i+1}\in \Ff$, par construction de $\Ff$, $U_{i}\cap U_{i+1}=\emptyset$ ou $U_{i}=U_{i+1}$ ce qui n'est pas possible d'apr\`es le choix des $U_{i}$.
+\end{proof}
+
+\begin{corollaire} \label{III.3.9}
+Soit $A$ un anneau local noeth\'erien. On suppose que pour tout id\'eal premier $\pp$ de $A$, on a:
+\[
+(\dim A_\pp \geq 2) \To (\prof A_\pp \geq 2)
+\]
+On suppose de plus que $A$ satisfait la condition des cha\^ines\footnote{Cf. $\EGA 0_{\textup{IV}}$ 14.3.2}. Alors, pour tout $\pp$, id\'eal premier minimal de $A$, $\dim A/\pp =\dim A$, ou encore, toutes les composantes irr\'eductibles de $\Spec A$ ont m\^eme dimension: celle de $A$.
+\end{corollaire}
+
+Si $X'$ et $X''$ sont deux composantes irr\'eductibles de $X$, on les joint par une cha\^ine ayant les propri\'et\'es \'enum\'er\'ees dans \ignorespaces \ref{III.3.7}; il suffit alors de d\'emontrer que deux composantes successives ont la m\^eme dimension, ce qui r\'esulte de la deuxi\`eme hypoth\`ese.
+
+\begin{exemple} \label{III.3.10}
+Soit $X$ la r\'eunion de deux sous-espaces vectoriels suppl\'ementaires de dimensions respectives $2$ et $3$ dans un espace vectoriel de dimension $5$; plus pr\'ecis\'ement, soit $X=\Spec A$, avec $A=B/{\pp \cap \qq}$, o\`u $B=k[X_1, \ldots, X_5]$, $\pp$ est l'id\'eal engendr\'e par $X_1, X_2, X_3$ et $\qq$ l'id\'eal engendr\'e par $X_4$ et $X_5$; $X$ peut \^etre disconnect\'e par le point d'intersection $x$ des deux sous-espaces vectoriel, donc la profondeur de $\Oo_{X, x}$ est \'egale \`a $1$, car elle ne peut \^etre $\geq 2$ en vertu du th\'eor\`eme \ref{III.3.6}. Autre raison: la conclusion d'\'equidimensionnalit\'e du corollaire pr\'ec\'edent est en d\'efaut.
+
+Plus g\'en\'eralement, prenant une r\'eunion $X$ de deux sous-espaces vectoriels de dimension $p, q\geq 2$ dans un espace vectoriel de dimension $p+q$, pour aucun plongement de $X$ dans un sch\'ema r\'egulier, $X$ n'est m\^eme ensemblistement une intersection compl\`ete \`a l'origine, car (quitte \`a le modifier sans changer l'espace topologique sous-jacent au voisinage de l'origine), $X$ serait Cohen-Macaulay donc de profondeur $\geq 2$ \`a l'origine, ce qui n'est pas le cas.
+\end{exemple}
+
+\begin{remarque} \label{III.3.11}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ un sous-pr\'esch\'ema ferm\'e de $X$, $F$ un $\OX$-module. La profondeur est une notion purement topologique qui s'exprime en termes de nullit\'e des $\mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, F)$ pour $i<n$. On d\'esire \'egalement \'etudier ces faisceaux pour un $i$ donn\'e, ou pour $i>n$. On d\'emontre \`a ce propos le r\'esultat suivant:
+\end{remarque}
+
+\begin{lemme} \label{III.3.12}
+Soit $m$ un entier, pour que $\mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, F)=0$, $i>m$ pour tout $F$ coh\'erent, il faut et il suffit que ce soit vrai pour $F=\OX$.
+\end{lemme}
+
+Par limite inductive c'est alors vrai pour tout faisceau quasi~coh\'erent. Par exemple, si $Y$ peut \^etre d\'ecrit localement par $m$ \'equations, ou, comme on dit, si $Y$ est localement ensemblistement une intersection compl\`ete (ce qui se produit par exemple si $X$ et $Y$ sont \emph{non singuliers}) il r\'esulte du calcul des $\mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, F)$ par le complexe de KOSZUL que ces faisceaux sont nuls pour $i>m$. On a d'ailleurs utilis\'e ce fait implicitement dans l'exemple \ref{III.3.10}. Cette condition cohomologique n'est cependant pas suffisante, comme le prouve l'exemple ci-apr\`es:
+
+\begin{exemple} \label{III.3.13}
+Soit $X=\Spec (A)$, o\`u $A$ est un anneau local noeth\'erien, normal de dimension $2$. Soit $Y$ une courbe dans $X$. On peut d\'emontrer que le compl\'ementaire de la courbe est un ouvert affine donc $\mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, \OX) \approx \mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, \OX)$ $\H^{i-1}(X-Y, \OX)=0$. Cependant on peut construire une courbe qui n'est pas d\'ecrite par une \'equation.
+\end{exemple}
+
+Nous chercherons\footnote{Cf. Exp~\ref{VIII}.} des conditions pour que les $\mathop{\underline{\mathrm{H}}}\nolimits_Y^i(X, F)$ soient coh\'erents pour un~$i$ donn\'e, ce qui n'est pas le cas en g\'en\'eral, comme le montrent des exemples \'evidents, par exemple $\H_\mm^n(A)$ pour $A$ un anneau local noeth\'erien de dimension $n>0$; lorsque par exemple $A$ est un anneau de valuation discr\`ete de corps des fractions $K$, on trouve $\H_\mm^1(A) \simeq K/A$, qui n'est pas un module de type fini sur $A$. Pour \'eclairer la lanterne du lecteur, disons que le probl\`eme pos\'e est \'equivalent au suivant: Soit $f:U\to X$ une immersion ouverte, soit $G$ un faisceau coh\'erent sur $U$, trouver des crit\`eres pour que les images directes sup\'erieures $\R^i f_* G$ soient des faisceaux coh\'erents sur $X$ pour un $i$ donn\'e. Ces conditions sont n\'ecessaires pour l'utilisation de la g\'eom\'etrie formelle que nous avons vu dans Exp \ref{IX} et \ignorespaces suivants.
+

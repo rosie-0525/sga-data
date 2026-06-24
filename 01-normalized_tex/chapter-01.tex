@@ -1,0 +1,410 @@
+\chapter[Les invariants cohomologiques globaux et locaux]
+{Les invariants cohomologiques globaux et locaux relatifs \`a un sous-espace ferm\'e} \label{I}
+
+\section{Les foncteurs $\Gamma_Z$, $\underline{\Gamma}_Z$} \label{I.1}
+Soient $X$ un espace topologique, $\ccat_X$ la cat\'egorie des faisceaux ab\'eliens sur $X$. Soient $\Phi$ une famille de supports au sens de Cartan on d\'efinit le foncteur $\Gamma_\Phi$ sur $\ccat_X$ par:
+\begin{equation} \label{eq:I.1} { \Gamma_\Phi(F) = \text{ sous-groupe de } \Gamma(F) \text{ formé des sections } f \text{ telles que support } f \in \Phi}.
+\end{equation}
+Si $Z$ est une partie ferm\'ee de $X$, nous d\'esignons par abus de langage par $\underline{\Gamma}_Z$ le foncteur $\Gamma_\Phi$, o\`u $\Phi$ est l'ensemble des parties ferm\'ees de $X$ contenues dans $Z$. Donc on a:
+\begin{equation} \label{eq:I.2}
+{\Gamma_Z(F) = \text{ sous-groupe des } \Gamma(F) \text{ formé des sections } f \text{ telles que support } f \subset Z}.
+\end{equation}
+
+Nous voulons g\'en\'eraliser cette d\'efinition au cas o\`u $Z$ est une partie \textit{localement fermée} de $X$, donc ferm\'ee dans une partie ouverte convenable $V$ de $X$. On posera dans ce cas:
+\begin{equation} \label{eq:I.3} {\Gamma_Z(F)=\Gamma_Z(F|_{V})}.
+\end{equation}
+Il faut v\'erifier que $\Gamma_Z(F)$ \og ne d\'epend pas\fg de l'ouvert choisi. Il suffit de montrer que si $V'$, $V\supset V' \supset Z$ est un ouvert, alors l'application $\rho_{V'}^V: F(V) \to F(V')$ applique $\Gamma_Z(F|_{V})$ isomorphiquement sur $\Gamma_Z(F|_{V'})$. Or
+\begin{equation} \label{eq:I.4} { \Gamma_Z(F|_{V}) = \ker \rho_{V-Z}^V}
+\end{equation}
+donc si $f\in \Gamma_Z(F|_{V})$ et si $\rho_{V'}^V(f)=\rho_{V-Z}^V(f)=0$ alors $f=0$ puisque $(V', V-Z)$ est un recouvrement de $V$. De m\^eme, si $f'\in \Gamma_Z(F|_{V'})$, alors $f'\in F(V')$ et $0\in F(V-Z)$ d\'efinissent un $f\in F(V)$ tel que $\rho_{V'}^V(f)=f', f\in \Gamma_Z(F|_{V})$, donc $\rho_{V'}^V$ induit un isomorphisme $\Gamma_Z(F|_{V}) \to \Gamma_Z(F|_{V'})$.
+
+Notons que tout ouvert $W$ de $Z$ est induit par un ouvert $U$ de $X$ dans lequel $W$ est ferm\'e. Il en r\'esulte que $W \rightsquigarrow \Gamma_W(F)$ d\'efinit un pr\'efaisceau sur $Z$, et on v\'erifie que c'est un faisceau que l'on notera $i^!(F)$, o\`u $i: Z \to X$ est l'immersion canonique. On trouve:
+\begin{equation} \label{eq:I.5}
+\Gamma_Z(F)=\Gamma(i^!(F)).
+\end{equation}
+Le faisceau $i^!(F)$ est un sous-faisceau de $i^*(F)$; en effet l'homomorphisme canonique:
+$$
+\Gamma(F|_{U})=\Gamma(U, F) \to \Gamma(U\cap Z, i^*(F))$$
+est injectif sur $\Gamma_{U\cap Z}(F|_{U}) \subset \Gamma(F|_{U})$. En r\'esumant, on~a le r\'esultat suivant:
+
+\begin{proposition} \label{I.1.1} Il existe un sous-faisceau unique $i^!(F)$ de $i^*(F)$ tel que pour tout ouvert $U$ de $X$ tel que $U\cap Z$ soit ferm\'e dans $U$,
+$$
+\Gamma(F|_{U})=\Gamma(U, F) \to \Gamma(U\cap Z, i^*(F))$$
+induise un isomorphisme $\Gamma_{U \cap Z}(F|_{U}) \to \Gamma(U\cap Z, i^!(F))$.
+\end{proposition}
+
+Notons que si $Z$ est un ouvert on aura simplement
+\begin{equation} \label{eq:I.6} {i^!(F)=i^*(F)=F|_{Z}, \ \Gamma_Z(F)=\Gamma(Z, F)}.
+\end{equation}
+
+Supposons \`a nouveau $Z$ quelconque. Alors pour un ouvert $U$ de $X$ variable, on voit que
+$$
+U \rightsquigarrow \Gamma_{U\cap
+Z}(F|_{U})=\Gamma(U\cap Z, i^!(F))$$ est un faisceau sur $X$,
+que nous noterons $\underline{\Gamma}_Z(F)$; de fa\c con pr\'ecise,
+d'apr\`es la formule pr\'ec\'edente (exprimant que $i^!$ commute \`a la
+restriction aux ouverts) on~a un isomorphisme
+\begin{equation} \label{eq:I.7} {\underline{\Gamma}_Z(F)= i_*(i^!(F))}
+\end{equation}
+par d\'efinition, on a, pour tout ouvert $U$ de $X$,
+\begin{equation} \label{eq:I.8} {\Gamma(U, \underline{\Gamma}_Z(F)) = \Gamma_{U\cap Z}(F|_{U})}.
+\end{equation}
+Notons ici une diff\'erence caract\'eristique entre le cas o\`u $Z$ est un ferm\'e, et celui o\`u $Z$ est un ouvert. Dans le premier cas, la formule (\ref{eq:I.8}) nous montre que $\underline{\Gamma}_Z(F)$ peut \^etre consid\'er\'e comme un sous-faisceau de $F$, et on~a donc une \textit{immersion canonique}
+\begin{equation*} \label{eq:I.8'} \tag{$8'$} {\underline{\Gamma}_Z(F) \hookrightarrow F}.
+\end{equation*}
+
+Dans le cas o\`u $Z$ est ouvert, au contraire, on voit sur
+(\ref{eq:I.6}) que le deuxi\`eme membre de (\ref{eq:I.8}) est
+$\Gamma(U\cap Z, F)$, donc re\c coit $\Gamma(U, F)$, donc on~a un
+\textit{homomorphisme canonique} en sens inverse du pr\'ec\'edent:
+\begin{equation*} \label{eq:I.8''} \tag{8} {F\to \underline{\Gamma}_Z(F)},
+\end{equation*}
+qui n'est autre d'ailleurs que l'homomorphisme canonique
+$$F\to i_*i^*(F),
+$$
+compte tenu de l'isomorphisme
+\begin{equation*} \label{eq:I.6bis} \tag{6 bis} {\underline{\Gamma}_Z(F)\simeq i_*i^*(F)}
+\end{equation*}
+d\'eduit de (\ref{eq:I.6}) et (\ref{eq:I.7}).
+
+Bien entendu, pour $F$ variable, $\Gamma_Z(F)$, $\underline{\Gamma}_Z(F)$, $i^!(F)$ peuvent \^etre consid\'er\'es comme des foncteurs en $F$, \`a valeur respectivement dans la cat\'egorie des groupes ab\'eliens, des faisceaux ab\'eliens sur $X$, des faisceaux ab\'eliens sur $Z$. Il est parfois commode d'interpr\'eter le foncteur
+$$i^!: \ccat_X \to \ccat_Z$$
+comme le foncteur adjoint d'un foncteur bien connu
+$$i_!: \ccat_Z \to \ccat_X$$
+d\'efini par la proposition suivante:
+
+\begin{proposition} \label{I.1.2}
+Soit $G$ un faisceau ab\'elien sur $Z$. Alors il existe un sous-faisceau unique de $i_*(G)$, soit $i_!(G)$ tel que pour tout ouvert $U$ de $X$ l'isomorphisme (identique)
+$$
+\Gamma(U\cap Z, G)= \Gamma(U, i_*(G))$$
+d\'efinisse un isomorphisme
+$$
+\Gamma_{\Phi_{U\cap Z, U}}(U\cap Z, G)=\Gamma(U, i_! (G)),
+$$
+o\`u $\Phi_{U\cap Z, U}$ d\'esigne l'ensemble des parties de $U\cap Z$ qui sont ferm\'ees dans $U$.
+\end{proposition}
+
+La v\'erification se r\'eduit \`a noter que le premier membre est un faisceau pour $U$ variable, i.e. que la propri\'et\'e pour une section de $i_*(G)$ sur $U$, consid\'er\'ee comme une section de $G$ sur $U\cap Z$, d'\^etre \`a support ferm\'e \textit{dans $U$} est de \textit{nature locale sur $U$}. Le faisceau $i_!(G)$ qu'on vient de d\'efinir est connu aussi sous le nom de: \textit{faisceau déduit de~$G$ en prolongeant par $0$} en dehors de $Z$, cf. Godement. En particulier, si $Z$ est ferm\'e, on a
+\begin{equation} \label{eq:I.9} {i_!(G)=i_*(G)};
+\end{equation}
+mais dans le cas g\'en\'eral, l'injection canonique $i_!(G) \to i_*(G)$ n'est pas un isomorphisme, comme il est bien connu d\'ej\`a pour $Z$ ouvert. \'Evidemment, $i_!(G)$ d\'epend fonctoriellement de $G$ (et c'est m\^eme un foncteur exact en G). Ceci dit, on a:
+
+\begin{proposition} \label{I.1.3} Il existe un isomorphisme de bifoncteurs en $G, F$ ($G$ faisceau ab\'elien sur $Z$, $F$ faisceau ab\'elien sur $X$):
+\begin{equation} \label{eq:I.10} {\Hom(i_!(G), F) = \Hom (G, i^!(F))}.
+\end{equation}
+\end{proposition}
+
+Pour d\'efinir un tel isomorphisme, il revient au m\^eme de d\'efinir des homomorphismes fonctoriels
+$$i_!i^!(F) \to F, \ G \to i^!i_!(G),
+$$
+satisfaisant aux conditions de compatibilit\'e bien connues (cf. par exemple l'expos\'e de Shih au s\'eminaire Cartan sur les op\'erations cohomologiques).
+
+Se rappelant que $i_!$ est exact, donc transforme monomorphismes en monomorphismes, on en conclut:
+
+\begin{corollaire} \label{I.1.4}
+Si $F$ est injectif, $i^!(F)$ est injectif, donc $\underline{\Gamma}_Z(F) \to i_*i^!(F)$ est \'egalement injectif.
+\end{corollaire}
+
+Rempla\c cant $X$ par un ouvert variable $U$ de $X$, on conclut
+aussi de \ref{I.1.3}
+
+\begin{corollaire} \label{I.1.5} On a un isomorphisme fonctoriel en $F, G$:
+\begin{equation} \label{eq:I.11}
+\mathop{\underline{\mathrm{Hom}}}\nolimits{(i_!(G), F)} =i_*(\mathop{\underline{\mathrm{Hom}}}\nolimits{(G, i^!(F))}.
+\end{equation}
+\end{corollaire}
+
+Prenant pour $G$ le faisceau constant sur $Z$ d\'efini par $\ZZ$, soit $\ZZ_Z$, \ref{I.1.3} et \ref{I.1.5} se sp\'ecialisent en
+
+\begin{corollaire} \label{I.1.6} On a des isomorphismes fonctoriels en $F$:
+\begin{equation} \label{eq:I.12}
+\begin{array}[c]{l} {\Gamma_Z(F)=\Hom(\ZZ_{Z, X}, F)}, \\
+{\underline{\Gamma}_Z(F)=\mathop{\underline{\mathrm{Hom}}}\nolimits(\ZZ_{Z, X}, F)},
+\end{array}
+\end{equation}
+o\`u $\ZZ_{Z, X}= i_!(\ZZ_Z)$ est le faisceau ab\'elien sur $X$ d\'eduit du faisceau constant sur $Z$ d\'efini par $\ZZ$, en prolongeant par $0$ en dehors de $Z$.
+\end{corollaire}
+
+\begin{remarque} \label{I.1.7}
+Supposons que $X$ soit un espace annel\'e, et munissons $Z$ du faisceau d'anneaux $\Oo_Z=i^{-1}(\OX)$, enfin d\'esignons par $\ccat_X$ et $\ccat_Z$ la cat\'egorie des Modules sur $X$ resp. $Z$. Alors les consid\'erations pr\'ec\'edentes s'\'etendent mot \`a mot, en prenant pour~$F$ un Module sur $X$ et pour $G$ un modules sur $Z$, et en interpr\'etant en cons\'equence les \'enonc\'es \ref{I.1.3} \`a \ref{I.1.6}.
+\end{remarque}
+
+Pour finir ces g\'en\'eralit\'es, examinons ce qui se passe quand on change la partie localement ferm\'ee $Z$. Soit $Z'\subset Z$ une autre partie localement ferm\'ee, et soient
+$$j: Z' \to Z, i': Z' \to X, i'=ij$$
+les inclusions canoniques. Alors on~a des isomorphismes fonctoriels:
+\begin{equation} \label{eq:I.13} {(ij)^!=j^!i^!, \quad (ij)_!=i_!j_!}.
+\end{equation}
+Le premier isomorphisme (\ref{eq:I.13}) d\'efinit un isomorphisme fonctoriel
+\begin{equation} \label{eq:I.14} {\Gamma_{Z'}(F)=\Gamma(Z', (ij)^!(F))\simeq \Gamma(Z', j^!(i^!(F)))=\Gamma_{Z'}(i^!(F))}.
+\end{equation}
+
+Supposons maintenant que $Z'$ soit \textit{fermé} dans $Z$, et
+$$Z''=Z-Z'$$
+son compl\'ementaire dans $Z$, qui est ouvert dans $Z$ donc localement ferm\'e dans $X$. L'inclusion canonique (\ref{eq:I.8'}) appliqu\'ee \`a $i^!(F)$ sur $Z$ muni de $Z'$ nous d\'efinit, gr\^ace \`a (\ref{eq:I.14}), un homomorphisme canonique injectif fonctoriel
+\begin{equation} \label{eq:I.15} {\Gamma_{Z'}(F) \to \Gamma_Z(F)}.
+\end{equation}
+Si on remplace dans (\ref{eq:I.14}) $Z'$ par $Z''$ et utilise (\ref{eq:I.8''}), on trouve un homomorphisme canonique fonctoriel:
+\begin{equation*} \label{eq:I.15'} \tag{$15'$} {\Gamma_Z(F) \to \Gamma_{Z''}(F)}.
+\end{equation*}
+
+\begin{proposition} \label{I.1.8} Sous les conditions pr\'ec\'edentes, la suite d'homomorphismes fonctoriels:
+\begin{equation} \label{eq:I.16} {0 \to \Gamma_{Z'}(F) \to \Gamma_Z(F) \to \Gamma_{Z''}(F)}
+\end{equation}
+est exacte. Si $F$ est flasque, la suite reste exacte en mettant un z\'ero \`a droite.
+\end{proposition}
+
+\begin{proof}
+Rempla\c cant $X$ par un ouvert $V$ dans lequel $Z$ soit ferm\'e, on
+est ramen\'e au cas o\`u $Z$ est ferm\'e, donc $Z'$ ferm\'e. Alors $Z''$
+est ferm\'e dans l'ouvert $X-Z'$, et on~a une inclusion canonique
+$$
+\Gamma_{Z''}(F) \to \Gamma(X-Z', F),
+$$
+et l'exactitude de (\ref{eq:I.16}) signifie simplement que les sections de $F$ \`a support dans $Z'$ sont celles dont la restriction \`a $X-Z'$ est nulle.
+
+Lorsque $F$ est flasque, tout \'el\'ement de $\Gamma_{Z''}(F)$, consid\'er\'e comme section de $F$ sur $X-Z'$, peut se prolonger en une section de $F$ sur $X$, et cette derni\`ere aura \'evidemment son support dans $Z$, ce qui prouve qu'alors le dernier homomorphisme dans (\ref{eq:I.16}) est surjectif.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{I.1.9} On a une suite exacte fonctorielle
+\begin{equation*} \label{eq:I.16bis} \tag{16 bis} {0 \to \underline{\Gamma}_{Z'}(F) \to \underline{\Gamma}_Z(F) \to \underline{\Gamma}_{Z''}(F)},
+\end{equation*}
+et si $F$ est flasque, cette suite reste exacte en mettant un $0$ \`a droite.
+\end{corollaire}
+
+On peut interpr\'eter (\ref{I.1.8}) en termes de r\'esultats sur les
+foncteurs $\Hom$ et $\mathop{\underline{\mathrm{Hom}}}\nolimits$ via \ref{I.1.6}, de la fa\c con
+suivante. Notons d'abord que si $G$ est un faisceau ab\'elien sur
+$Z$, induisant les faisceaux $j^*(G)$ et $k^*(G)$ sur $Z'$ resp.
+$Z''$ (o\`u $j: Z' \to Z$ et $k: Z'' \to Z$ sont les injections
+canoniques), on~a une suite exacte canonique de faisceaux sur $X$:
+\begin{equation} \label{eq:I.17} {0 \to k^*(G)_X \to G_X \to j^*(G)_X \to 0}
+\end{equation}
+o\`u pour simplifier les notations, l'indice $X$ d\'esigne le faisceau sur $X$ obtenu en prolongeant par $0$ dans le compl\'ementaire de l'espace de d\'efinition du faisceau envisag\'e. La suite exacte (\ref{eq:I.17}) g\'en\'eralise une suite exacte bien connue lorsque $Z=X$ (cf. Godement), et s'en d\'eduit d'ailleurs en \'ecrivant la suite exacte en question sur~$Z$, et en appliquant le foncteur $i_!$. Prenant $G=\ZZ_{Z}$, on conclut en particulier:
+
+\begin{proposition} \label{I.1.10}
+Sous les conditions pr\'ec\'edentes, on~a une suite exacte de faisceaux ab\'eliens sur $X$:
+\begin{equation} \label{eq:I.18} {0 \to \ZZ_{Z{''}, X} \to \ZZ_{Z, X} \to \ZZ_{Z', X} \to 0}.
+\end{equation}
+Ceci pos\'e, les deux suites exactes \ref{I.1.8} et \ref{I.1.9} ne sont autres que les suites exactes d\'eduites de (\ref{eq:I.18}) par application du foncteur $\Hom(-, F)$ resp. $\mathop{\underline{\mathrm{Hom}}}\nolimits(-, F)$.
+\end{proposition}
+
+Cela redonne une d\'emonstration \'evidente du fait que les suites (\ref{eq:I.16}) et (\ref{eq:I.16bis}) restent exactes en mettant un z\'ero \`a droite, pourvu que $F$ soit \textit{injectif}.
+
+\section{Les foncteurs $\H_Z^*(X, F)$ et $\mathop{\underline{\mathrm{H}}}\nolimits_Z^*(F)$} \label{I.2}
+
+\ignorespaces
+
+\begin{definition} \label{I.2.1}
+On d\'enote par $\H_Z^*(X, F)$ et ${\mathop{\underline{\mathrm{H}}}\nolimits}_Z^*(F)$ les foncteurs d\'eriv\'es en $F$ des foncteurs $\Gamma_Z(F)$ resp. $\underline{\Gamma}_Z(F)$.
+\end{definition}
+
+Ce sont des foncteurs cohomologiques, \`a valeurs dans la cat\'egorie des groupes ab\'eliens resp. dans la cat\'egorie des faisceaux ab\'eliens sur $X$. Lorsque $Z$ est ferm\'e, $H_Z^*(X, F)$ n'est autre par d\'efinition que $H^*_{\Phi}(X, F)$ o\`u $\Phi$ d\'esigne la famille des parties ferm\'ees de $X$ contenues dans $Z$. Lorsque $Z$ est ouvert, on va voir que $H_Z^*(X, F)$ n'est autre que $H^*(Z, F)=H^*(Z, F|_{Z})$, gr\^ace \`a la proposition suivante.
+
+\begin{proposition}[Th\'eor\`eme d'excision] \label{I.2.2}
+Soit $V$ une partie ouverte de $X$ contenant~$Z$. Alors on~a un isomorphisme de foncteurs cohomologiques en $F$:
+\begin{equation} \label{eq:I.19}
+\H^*_Z(X, F) \to \H^*_Z(V, F|_{V}).
+\end{equation}
+\end{proposition}
+
+En effet, on~a un isomorphisme fonctoriel $\Gamma_Z^X \simeq \Gamma_Z^V j^!$, o\`u $j: V \to X$ est l'inclusion et o\`u $j^!$ est donc le foncteur restriction (cf. (\ref{eq:I.14})). Ce dernier est exact, et transforme injectifs en injectifs par \ref{I.1.4}, d'o\`u aussit\^{o}t l'isomorphisme (\ref{eq:I.19}).
+
+Lorsque $Z$ est ouvert, on peut prendre $V=Z$ et on trouve:
+
+\begin{corollaire} \label{I.2.3bof}
+Supposons $Z$ ouvert, alors on~a un isomorphisme de foncteurs cohomologiques:
+\begin{equation} \label{eq:I.20}
+\H_Z^*(X, F) = \H^*(Z, F).
+\end{equation}
+\end{corollaire}
+
+On conclut des isomorphismes \ref{I.1.6} et des d\'efinitions (cf. Tohoku):
+
+\label{I.2.3bis}
+\begin{enonce*}{Proposition 2.3}
+On a des isomorphismes de foncteurs cohomologiques:
+\begin{align} \label{eq:I.21}
+\H_Z^*(X, F)&\simeq \Ext^*(X; \ZZ_{Z, X}, F),\\
+\label{eq:I.21bis}\tag{21 bis}
+\mathop{\underline{\mathrm{H}}}\nolimits_Z^*(F)&\simeq \mathop{\underline{\mathrm{Ext}}}\nolimits^*(\ZZ_{Z, X}, F).
+\end{align}
+\end{enonce*}
+
+On peut donc appliquer les r\'esultats de Tohoku sur les $\Ext$ de Modules. Signalons d'abord l'interpr\'etation suivante des faisceaux $\mathop{\underline{\mathrm{H}}}\nolimits_Z^*(F)$ en terme de groupes globaux $\H_Z^*(X, F)$:
+
+\begin{corollaire} \label{I.2.4}
+$\mathop{\underline{\mathrm{H}}}\nolimits_Z^*(F)$ est canoniquement isomorphe au faisceau associ\'e au pr\'efaisceau
+$$
+U \rightsquigarrow \H^*_{Z\cap U}(U, F|_{U}).
+$$
+\end{corollaire}
+
+En particulier, en utilisant \ignorespaces corollaire \ref{I.2.3bof}, on trouve:
+
+\begin{corollaire} \label{I.2.5}
+Supposons $Z$ ouvert, alors on~a un isomorphisme de foncteurs cohomologiques:
+\begin{equation} \label{eq:I.22} {\mathop{\underline{\mathrm{H}}}\nolimits_Z^*(F)=\R^*i_*i^*(F)}
+\end{equation}
+(o\`u $i: Z \to X$ est l'inclusion).
+\end{corollaire}
+
+La suite spectrale des $\Ext$ donne l'importante suite spectrale:
+
+\begin{theoreme} \label{I.2.6} On a une suite spectrale fonctorielle en $F$, aboutissant \`a $\H_Z^*(X, F)$ et de terme initial
+\begin{equation} \label{eq:I.23} { \E_2^{p, q}(F)=\H^p(X, \mathop{\underline{\mathrm{H}}}\nolimits_Z^q(F))}.
+\end{equation}
+\end{theoreme}
+
+
+
+\begin{remarques} \label{I.2.7} Il r\'esulte aussit\^{o}t de \ref{I.2.4} que les faisceaux $\mathop{\underline{\mathrm{H}}}\nolimits_Z^q(F)$ sont nuls dans $X-\bar{Z}$, et \'egalement nuls dans l'int\'erieur de $Z$ pour $q\neq 0$ (donc pour un tel $q$, $\mathop{\underline{\mathrm{H}}}\nolimits_Z^q(F)$ est m\^eme port\'e par la fronti\`ere $\overset{\circ}{Z}$ de $Z$).
+
+Par suite, le deuxi\`eme membre de (\ref{eq:I.23}) peut s'interpr\'eter comme un groupe de cohomologie sur $\bar{Z}$. Nous utiliserons \ref{I.2.6} dans le cas o\`u $Z$ est ferm\'e dans $X$, et o\`u le deuxi\`eme membre de (\ref{eq:I.23}) peut s'interpr\'eter comme un groupe de cohomologie calcul\'e sur $Z$:
+\begin{equation} \label{eq:I.23bis}\tag{23 bis} {\E_2^{p, q}(F) = \H^p(Z, \mathop{\underline{\mathrm{H}}}\nolimits_Z^q(F))}.
+\end{equation}
+\end{remarques}
+\ignorespaces
+
+Notons aussi que lorsque $Z$ est ouvert, la suite spectrale \ref{I.2.6} n'est autre que la suite spectrale de Leray pour l'application continue $i: Z \to X$, compte tenu de l'interpr\'etation \ref{I.2.5} dans le calcul du terme initial de la suite spectrale de Leray.
+
+\bigskip Reprenons la suite exacte (\ref{I.1.10}), elle donne naissance \`a une suite exacte des $\Ext$ (cf. Tohoku):
+
+\begin{theoreme} \label{I.2.8}
+Soient $Z$ une partie localement ferm\'ee de $X$, $Z'$ une partie ferm\'ee de $Z$ et $Z''=Z-Z'$. Alors on~a une suite exacte fonctorielle en $F$:
+\begin{equation} \label{eq:I.24}
+\begin{gathered}
+0 \to \H_{Z'}^0(X, F) \to \H_Z^0(X, F) \to \H_{Z''}^0(X, F)\lto{\partial} \H^1_{Z'}(X, F) \to \H^1_Z(X, F) \dots \\
+\phantom{0}\dots \H_{Z'}^i(X, F) \to \H_Z^i(X, F) \to \H_{Z''}^i(X, F)\lto{\partial} \H^{i+1}_{Z'}(X, F)\dots.
+\end{gathered}
+\end{equation}
+\end{theoreme}
+
+Rappelons comment on peut obtenir cette suite exacte. Soit $C(F)$ une r\'esolution injective de $F$, alors la suite exacte (\ref{I.1.10}) donne naissance \`a la suite exacte
+\begin{equation} \label{eq:I.25} {0 \to \Gamma_{Z'}(C(F)) \to \Gamma(C(F)) \to \Gamma_{Z''}(C(F)) \to 0},
+\end{equation}
+(qui n'est autre que celle d\'efinie dans \ref{I.1.8}). On en conclut une suite exacte de cohomologie, qui n'est autre que (\ref{eq:I.24}).
+
+Le cas le plus important pour nous est celui o\`u $Z$ est ferm\'e (et
+on peut d'ailleurs toujours s'y ramener en rempla\c cant $X$ par
+un ouvert $V$ dans lequel $Z$ est ferm\'e). Alors $Z'$ est ferm\'e,
+$Z''$ est ferm\'e dans l'ouvert $X-Z'$, et on peut \'ecrire
+\begin{equation} \label{eq:I.26} {\H^i_{Z''}(X, F)=\H^i_{Z''}(X-Z', F|_{X-Z'})},
+\end{equation}
+ce qui nous permet d'\'ecrire la suite exacte (\ref{eq:I.24}) en termes de cohomologies \`a support dans un ferm\'e donn\'e. Le cas le plus fr\'equent est celui o\`u $Z=X$. Posant alors pour simplifier $Z'=A$, on trouve:
+
+\begin{corollaire} \label{I.2.9}
+Soit $A$ une partie ferm\'ee de $X$. Alors on~a une suite exacte fonctorielle en $F$:
+\begin{equation} \label{eq:I.27}
+\begin{gathered}
+0 \to \H^0_A(X, F) \to \H^0(X, F) \to \H^0(X-A, F) \lto{\partial} \H^1_A(X, F) \dots\\
+\phantom{0}\dots \H^i_A(X, F) \to \H^i(X, F) \to \H^i(X-A, F) \lto{\partial} \H^{i+1}_A(X, F)\dots.
+\end{gathered}
+\end{equation}
+\end{corollaire}
+
+Cette suite exacte montre que le groupe de cohomologie $\H^i_A(X,
+F)$ joue le r\^{o}le d'un groupe de cohomologie relative de $X\mod
+X-A$, \`a coefficients dans $F$. C'est \`a ce titre qu'elle
+s'introduisit de fa\c con naturelle dans les applications. En \og
+faisceautisant\fg (\ref{eq:I.24}) et (\ref{eq:I.27}), ou en
+proc\'edant directement, on trouve:
+
+\begin{corollaire} \label{I.2.10}
+Sous les conditions de \ref{I.2.8}, on~a une suite exacte fonctorielle en~$F$:
+\begin{equation*} \label{eq:I.24bis} \tag{24 bis}
+\dots \mathop{\underline{\mathrm{H}}}\nolimits^i_{Z'}(F) \to \mathop{\underline{\mathrm{H}}}\nolimits^i_{Z}(F) \to \mathop{\underline{\mathrm{H}}}\nolimits_{Z''}^i(F) \lto{\partial} \mathop{\underline{\mathrm{H}}}\nolimits_{Z'}^{i+1}(F) \dots
+\end{equation*}
+\end{corollaire}
+
+\begin{corollaire} \label{I.2.11}
+Soit $A$ une partie ferm\'ee de $X$, alors on~a une suite exacte fonctorielle en $F$:
+\begin{equation} \label{eq:I.28}
+0 \to \mathop{\underline{\mathrm{H}}}\nolimits_A^0(F) \to F \to f_*(F|_{X-A}) \lto{\partial} \mathop{\underline{\mathrm{H}}}\nolimits_A^1 \to 0,
+\end{equation}
+et des isomorphismes canoniques, pour $i\geq 2$:
+\begin{equation} \label{eq:I.29}
+\mathop{\underline{\mathrm{H}}}\nolimits_A^i(F)= \mathop{\underline{\mathrm{H}}}\nolimits_{X-A}^{i-1}(F)=\R^{i-1}f_*(F|_{X-A}),
+\end{equation}
+o\`u $f: (X-A) \to X$ est l'inclusion.
+\end{corollaire}
+
+Cela d\'efinit donc $\mathop{\underline{\mathrm{H}}}\nolimits^0_A(F)$ et $\mathop{\underline{\mathrm{H}}}\nolimits_A^1(F)$ respectivement comme $\ker$ et $\coker$ de l'homomorphisme canonique
+$$F \to f_*f^*(F)= f_*(F|_{X-A}),
+$$
+et les $\mathop{\underline{\mathrm{H}}}\nolimits_A^i(F)$ ($i\geq 2$) en terme des foncteurs d\'eriv\'es de $f_*$.
+
+\begin{corollaire} \label{I.2.12}
+Soit $F$ un faisceau ab\'elien sur $X$. Si $F$ est flasque, alors pour toute partie localement ferm\'ee $Z$ de $X$ et tout entier $i\neq 0$, on~a $\H^i_Z(X, F)=0$, $\mathop{\underline{\mathrm{H}}}\nolimits^i_Z(F)=0$. Inversement, si pour toute partie ferm\'ee $Z$ de $X$ on~a $\H_Z^1(X, F)=0$, alors $F$ est flasque.
+\end{corollaire}
+
+Supposons que $F$ est flasque, alors $F$ induit un faisceau flasque sur tout ouvert, donc pour prouver $\H^i_Z(X, F)=0$ pour $i>0$, on peut supposer $Z$ ferm\'e, et alors l'assertion r\'esulte de la suite exacte \ref{I.2.9}. On en conclut pour tout $Z$ localement ferm\'e, en \og faisceautisant\fg i.e. appliquant \ref{I.2.4}, que $\mathop{\underline{\mathrm{H}}}\nolimits^i_Z(F)=0$ pour $i>0$. Inversement, supposons $\H^1_Z(X, F)=0$ pour tout ferm\'e $Z$, alors la suite exacte \ref{I.2.9}. prouve que pour tout tel $Z$, $\H^0(X, F) \to \H^0(X-Z, F)$ est surjectif, ce qui signifie que $F$ est flasque.
+
+Combinant \ref{I.2.6} et \ref{I.2.8}, on va en d\'eduire:
+
+\begin{proposition} \label{I.2.13}
+Soient $F$ un faisceau ab\'elien sur $X$, $Z$ une partie ferm\'ee de $X$, $U=X-Z$, $N$ un entier. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\mathop{\underline{\mathrm{H}}}\nolimits^i_Z(F)=0$ pour $i\leq N$.
+\item
+Pour tout ouvert $V$ de $X$, consid\'erant l'homomorphisme canonique
+$$
+\H^i(V, F) \to \H^i(V\cap U, F),$$
+cet homomorphisme est:
+\begin{enumerate}
+\item[\textup{a)}] bijectif pour $i<N$,
+\item[\textup{b)}] injectif pour $i=N$.
+\end{enumerate}
+\end{enumeratei}
+\noindent
+(Lorsque $N>0$, on peut dans \textup{(ii)} se borner \`a exiger \textup{a)}).
+\end{proposition}
+
+Pour prouver (i) ~$\To$~ (ii), on est ramen\'e, gr\^ace \`a la nature locale des $\mathop{\underline{\mathrm{H}}}\nolimits_Z^i(F)$, \`a prouver~le
+
+\begin{corollaire} \label{I.2.14}
+Si la condition \ref{I.2.13} (i) est v\'erifi\'ee, alors
+$$
+\H^i(X, F) \to \H^i(U, F)$$
+est bijectif pour $i<N$, injectif pour $i=N$.
+\end{corollaire}
+
+En effet, en vertu de la suite exacte (\ref{eq:I.27}), cela signifie aussi $\H^i_Z(X, F)=0$ pour $i\leq N$, et cette relation est une cons\'equence imm\'ediate de la suite spectrale \ref{I.2.6}.
+
+R\'eciproquement, l'hypoth\`ese \ref{I.2.13} (ii) signifie que pour tout ouvert $V$ de $X$, on a
+$$
+\H^i_{Z\cap V}(V, F|_{V}) =0 \text{ pour } i\leq N,
+$$
+ce qui implique \ref{I.2.13} (i) gr\^ace \`a \ref{I.2.4}. Si d'ailleurs $N>0$, on peut dire aussi que (ii) a) implique (en passant aux faisceaux associ\'es) que $F \to f_*(F|_{U})$ est un isomorphisme, et que $\mathop{\underline{\mathrm{H}}}\nolimits_U^i(F)=0 $ pour $1\leq i<N$.
+
+Compte tenu du \ref{I.2.11} cela prouve encore \ref{I.2.13} (i)...
+
+\begin{remarquestar}
+Soit $Y \to X$ une immersion ferm\'ee, et supposons que localement elle est de la forme $\{0\}\times Y \subset R^n \times Y$. Supposons que $F$ est un faisceau localement constant sur $x$, alors on trouve
+\begin{equation} \label{eq:I.30}
+\mathop{\underline{\mathrm{H}}}\nolimits_Y^i (F)\simeq
+\begin{cases}
+0 &\text{si } i \neq n\\
+F\otimes \underline{T}_{Y, X}& \text{si } i=n, \text{ où } \underline{T}_{Y, X} \simeq \mathop{\underline{\mathrm{H}}}\nolimits_Y^n(\ZZ_X)
+\end{cases}
+\end{equation}
+est un faisceau extension \`a $X$ d'un faisceau sur $Y$ localement isomorphe \`a $\ZZ_Y$, appel\'e \og faisceau d'orientation normale de $Y$ dans $X$\fg.
+\end{remarquestar}
+
+Utilisant la suite spectrale \ref{I.2.6}, on trouve dans ce cas:
+\begin{equation} \label{eq:I.31}
+\H^i_Y(X, F)\simeq \H^{i-n}(Y, F\otimes \underline{T}_{Y, X}),
+\end{equation}
+et on retrouve l'\og homomorphisme de Gysin\refstepcounter{toto}\label{hgysin}\fg:
+\begin{equation} \label{eq:I.32} {\H^j(Y, F\otimes \underline{T}_{Y, X}) \to \H^{j+n}(X, F)}.
+\end{equation}
+
+%
+\section*{Bibliographie}
+\noindent
+R.\, Godement, Th\'eorie des faisceaux, Ac. Scient. et Ind.~1252 (cit\'e: Godement).
+\par\smallskip\noindent
+A.\, Grothendieck, sur quelques points d'alg\`ebre homologique, Tohoku Math. Journal, Vol.~9 p.\, 119--221, \S~1957, (cit\'e: Tohoku).
+
+

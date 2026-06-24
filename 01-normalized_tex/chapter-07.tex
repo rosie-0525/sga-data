@@ -1,0 +1,225 @@
+\chapter[Crit\`eres de nullit\'e, conditions de coh\'erence]
+{Crit\`eres de nullit\'e, conditions de coh\'erence des faisceaux $\mathop{\underline{\mathrm{Ext}}}\nolimits^{i}_{Y}(F, G)$}\label{VII}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\section{\'Etude pour $i < n$}
+
+D\'emontrons un lemme:
+
+\begin{lemme} \label{VII.1.1}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ une partie ferm\'ee de~$X$ et $G$ un $\OX$-Module quasi-coh\'erent. Supposons que pour tout $\OX$-Module coh\'erent~$F$ de support contenu dans $Y$, on ait:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^{n-1}(F, G) = 0.
+\]
+Alors pour tout $\OX$-Module coh\'erent $F$ et tout ferm\'e $Z$ de $X$ tels que $Y \supset \Supp F \cap Z$, on a
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^n_Z(F, G) \approx \mathop{\underline{\mathrm{Hom}}}\nolimits (F, \HH^n_Y(G)).
+\]
+\end{lemme}
+
+On remarque d'abord que
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Z(F, G) = \mathop{\underline{\mathrm{Ext}}}\nolimits^i_{Z \cap \Supp F}(F, G).
+\]
+(trivial, cf. Expos\'e \ref{VI}). On fait d'abord la d\'emonstration pour $Z \!=\! X$ donc \hbox{$\Supp F \!\subset\! Y$}. Le foncteur
+\[F \rightsquigarrow \mathop{\underline{\mathrm{Ext}}}\nolimits^n(F, G),
+\]
+d\'efini sur la cat\'egorie des $\OX$-Modules coh\'erents de support contenu dans $Y$, est exact \`a gauche. En vertu de (\ref{IV}~\ref{IV.1.2}), il est repr\'esentable par
+\[I = \varinjlim_{k} \mathop{\underline{\mathrm{Ext}}}\nolimits^n (\OX/\mathcal{I}^{k+1}, G),
+\]
+o\`u $\mathcal{I}$ est l'id\'eal de d\'efinition de Y. Or, d'apr\`es (\ref{II}~\ref{II.6}), on sait que:
+\[
+\HH^n_Y(G) \approx \varinjlim_{k} \mathop{\underline{\mathrm{Ext}}}\nolimits^n (\OX/\mathcal{I}^{k+1}, G).
+\]
+D'o\`u la conclusion si $ Z= X$. Toujours d'apr\`es (\ref{VI}~\ref{VI.2.3}) on sait que:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^n_Z (F, G) \approx \varinjlim_{k} \mathop{\underline{\mathrm{Ext}}}\nolimits^n (F/\Jj^{k + 1}F, G),
+\]
+o\`u $\Jj$ est l'id\'eal de d\'efinition de Z. Le support de $F/\Jj^{k+1}F$ est contenu dans $Y$ si $Z \cap \Supp F \subset Y$; d'apr\`es ce que nous venons de d\'emontrer, on~a donc:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^n_Z (F, G) \approx \varinjlim_{k} \mathop{\underline{\mathrm{Hom}}}\nolimits (F/\Jj^{k + 1}F, \HH^n_Y(G)).
+\]
+Il reste \`a faire voir que l'homomorphisme naturel:
+\[
+\varinjlim_{k} \mathop{\underline{\mathrm{Hom}}}\nolimits (F/\Jj^{k + 1}F, \HH^n_Y(G)) \to \mathop{\underline{\mathrm{Hom}}}\nolimits (F, \HH^n_Y (G)),
+\]
+est un isomorphisme lorsque $Z \cap \Supp F \subset Y$. Or $X$ peut \^etre recouvert par des ouverts affines noeth\'eriens; on est ainsi ramen\'e au cas o\`u $X$ est affine noeth\'erien; alors $F(X)$ est un $\OX(X)$-Module de type fini et $\Supp \HH^n_Y(G) \subset Y$. Donc tout homomorphisme \hbox{$u: F(X) \to \HH^n_Y (G) (X)$} est annul\'e par une puissance de $\Ii$ donc par une puissance de~$\Jj$, C.Q.F.D.
+
+\begin{proposition} \label{VII.1.2}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ une partie ferm\'ee de $X$, $G$ un $\OX$-Module quasi-coh\'erent et $n$ un entier. Quelles que soient $Z$ et $S$, parties ferm\'ees de $X$ telles que $Z \cap S = Y$, les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\HH^i_Y (G) = 0$ si $i<n$;
+
+\item
+il existe un $\OX$-Module coh\'erent $F$, de support $S$, tel que:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Z (F, G) = 0 \text{ si } i<n;\]
+
+\item
+pour tout $\OX$-Module $F$ coh\'erent de support contenu dans $S$ (i.e. $\Supp F \cap Z$ $=$ $\Supp F \cap Y)$, on a:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^i_{Z}(F, G) = 0 \text{ si } i < n;
+\]
+\item
+pour tout $\OX$-Module coh\'erent $F$, on a:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G) = 0 \text{ si } i < n.
+\]
+\end{enumeratei}
+\noindent
+De plus, si elles sont v\'erifi\'ees, alors pour tout $\OX$-Module coh\'erent F et toute partie ferm\'ee $Z'$ de $X$ telle que $Z' \cap \Supp F = Y \cap \Supp F$, on~a des isomorphismes:
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^n_{Z} (F, G) \approx \mathop{\underline{\mathrm{Ext}}}\nolimits^n_Y (F, G) \approx \mathop{\underline{\mathrm{Hom}}}\nolimits (F, \HH^n_Y (G)).
+\]
+\end{proposition}
+
+\begin{proof}
+Raisonnons par r\'ecurrence. La proposition est triviale pour $n < 0$. Supposons la d\'emontr\'ee pour $n < q$. Si l'une des conditions est v\'erifi\'ee pour $n = q$, et pour deux parties $Z$ et $S$ comme dit, par l'hypoth\`ese de r\'ecurrence on a, pour tout ferm\'e $Z'$ de $X$ et tout $\OX$-Module coh\'erent $F$ tels que $Z' \cap \Supp F = Y \cap \Supp F$, des isomorphismes:
+\begin{equation}\label{eq:VII.1.1}\mathop{\underline{\mathrm{Ext}}}\nolimits^{q-1}_{Z'} (F, G) \approx \mathop{\underline{\mathrm{Hom}}}\nolimits (F, \HH^{q-1}_Y (G)) \approx \mathop{\underline{\mathrm{Ext}}}\nolimits^{q-1}_Y (F, G).\end{equation}
+
+\noindent Donc:
+
+(i) ~$\To$~ (iv), car on prend $Z' = Y$ dans (1.1);
+
+(iv) ~$\To$~ (iii), car on prend $Z' = Z$ dans (1.1);
+
+(iii) ~$\To$~ (ii), car on prend $F = \Oo_S$;
+
+(ii) ~$\To$~ (i), car on prend $Z' = Z$ dans (1.1); d'o\`u $\mathop{\underline{\mathrm{Hom}}}\nolimits (F, \HH_Y^{q-1} (G)) = 0$; on remarque alors que:
+\[
+\Supp \HH_Y^{q-1} (G) \subset Y = Z \cap S \subset S = \Supp F,
+\]
+et on applique le lemme suivant:
+
+\begin{lemme} \label{VII.1.3}
+Soit $X$ un pr\'esch\'ema, soit $P$ un $\OX$-Module coh\'erent, et soit $H$ un $\OX$-Module quasi-coh\'erents tels que:
+\[
+\mathop{\underline{\mathrm{Hom}}}\nolimits (P, H) = 0 \text{ et } \Supp P \supset \Supp H.
+\]
+Alors $H = 0$.
+\end{lemme}
+
+Il suffit de d\'emontrer le lemme quand $X$ est affine, car les ouverts affines forment une base de la topologie de $X$ et les hypoth\`eses se conservent par restriction \`a un ouvert. Or, dans ce cas, on est ramen\'e \`a un probl\`eme sur les $A$-modules, o\`u $X = \Spec(A)$. On applique la formule (valable sous la seule hypoth\`ese que $M$ est de type fini):
+\[
+\Ass \Hom_A (P, H) = \Supp P \cap \Ass H;\]
+On sait que $\Ass H \subset \Supp H \subset \Supp P$ et que $\Ass \Hom_A (P, H) = \emptyset$; donc $\Ass H = \emptyset$, donc $H = 0$.
+
+Pour terminer la d\'emonstration de la proposition, il reste \`a remarquer que (iv) permet d'appliquer~(\ref{VII.1.1}).
+\skipqed
+\end{proof}
+
+\begin{corollaire}\label{VII.1.4}
+Soit $G$ un $\OX$-Module coh\'erent et de Cohen-Macaulay, soit $n \in \ZZ$. Les conditions de \textup{(1.2)} \'equivalent \`a:
+\begin{enumerate}
+\item[\textup{(v)}]\hfill$\codim(Y \cap \Supp G, \Supp G) \geq n$.\hfill\null
+\end{enumerate}
+\end{corollaire}
+\setcounter{equation}{1}
+Rappelons d'abord qu'un $\OX$-module est dit de Cohen-Macaulay si, pour tout $x \in X$, la fibre $G_x$ est un $\Oo_{X, x}$-module de Cohen-Macaulay, i.e. on~a pour tout $x \in S = \Supp G$:
+\begin{equation}\label{eq:VII.1.2}
+\prof G_x = \dim G_x = \dim \Oo_{S, x}.
+\end{equation}
+D'apr\`es la (\ref{III}~\ref{III.3.3}), la condition (i) de (\ref{VII.1.2}) est \'equivalente \`a:
+\begin{equation}\label{eq:VII.1.3} \prof_Y G = \inf_{x\in Y} \prof G_x \geq n,
+\end{equation}
+donc aussi \`a:
+\[
+\prof_Y G = \inf_{x \in Y \cap S} \prof G_x \geq n;
+\]
+car la profondeur d'un module nul est infinie.
+
+Or, par d\'efinition:
+\[
+\codim (Y \cap S, S) = \inf_{x \in S \cap Y} \dim \Oo_{S, x},
+\]
+d'o\`u la conclusion, en appliquant la formule \eqref{eq:VII.1.2}).
+
+Nous allons maintenant d\'emontrer un r\'esultat permettant de d\'eduire les conditions de coh\'erence que nous avons en vue de certains crit\`eres de nullit\'e.
+
+\begin{lemme}\label{VII.1.5}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien. Soit $T^{\ast}$ un $\partial$-foncteur contravariant exact, d\'efini sur la cat\'egorie des $\OX$-Modules coh\'erents, \`a valeurs dans la cat\'egorie des $\OX$-Modules. Soit $Y$ une partie ferm\'ee de $X$. Soit $i \in \ZZ$. Supposons que, pour tout $\OX$-Module coh\'erent de support contenu dans $Y$, $T^i F$ et $T^{i-1} F$ soient coh\'erents. Soit $F$ un $\OX$-Module coh\'erent. Pour que $T^i F$ soit coh\'erent, il faut et il suffit que $T^i F''$ le soit, o\`u l'on a pos\'e:
+\[
+F'' = F / \Gamma_Y (F).
+\]
+\end{lemme}
+
+En effet, $F' = \Gamma_Y (F)$ est coh\'erent car $X$ est localement noeth\'erien; la suite exacte de cohomologie de $T^{\ast}$ donne alors:
+\[
+T^{i-1}F' \to T^i F'' \to T^i F \to T^i F'
+\]
+o\`u les termes extr\^emes sont coh\'erents, d'o\`u la conclusion.
+
+\begin{lemme}\label{VII.1.6}
+Si $F$ et $G$ sont coh\'erents, et si $\Supp F \subset Y$, $\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G)$ est coh\'erent.
+\end{lemme}
+
+En effet, $\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G)$ est isomorphe \`a $\mathop{\underline{\mathrm{Ext}}}\nolimits^i (F, G)$; ceci est valable sur tout espace annel\'e $X$, d'ailleurs: si $Z$ est un ferm\'e qui contient $Y \cap \Supp F$, $\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Z (F, G)$ est isomorphe \`a $\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G)$ (cf. Expos\'e \ref{VI}).
+
+\begin{proposition}\label{VII.1.7}
+\hspace*{3mm}Supposons $F$ et $G$ coh\'erents et posons $\Supp F = S$, $S' = \overline{S \cap (X-Y)}$. Supposons que, pour tout $x \in Y \cap S'$, on ait $\prof G_x \geq n$, alors $\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G)$ est coh\'erent pour $i < n$.
+\end{proposition}
+
+En effet, (\ref{VII.1.6}) permet d'appliquer (1.5) \`a $T^{\ast}(F) = \mathop{\underline{\mathrm{Ext}}}\nolimits^{\ast}_Y (F, G)$. En posant $F'' = F/ \Gamma_Y (F)$, on voit que $\Supp F'' = S'$, donc $T^i F'' = 0$ pour $i < n$, gr\^ace \`a (1.2) et \`a (III 3.1), d'o\`u la conclusion.
+
+\section{\'Etude pour $i>n$}\label{VII.2}
+
+Soit $X$ un pr\'esch\'ema localement noeth\'erien \emph{régulier}, c'est-\`a-dire dont tous les anneaux locaux sont r\'eguliers. Soit $Y$ une partie ferm\'ee de $X$. Soient $F$ et $G$ deux $\OX$-Modules coh\'erents. Posons $S = \Supp F$, $S' = \overline{S \cap (X - Y)}$. Posons:
+\begin{align*}
+m& = \sup_{x \in Y \cap S} \dim \Oo_{X, x},\\
+n &= \sup_{x \in Y \cap S'} \dim \Oo_{X, x};
+\end{align*}
+on a $n \leq m$.
+
+\begin{proposition}\label{VII.2.1}
+Dans la situation d\'ecrite ci-dessus, on a:
+\begin{enumerate}
+\item
+$\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G) = 0$ si $i > m$,
+
+\item
+$\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G)$ est coh\'erent si $i > n$.
+\end{enumerate}
+\end{proposition}
+
+Remarquons d'abord que $\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G)$ est coh\'erent pour tout $i$ lorsque $\Supp F \subset Y$. De plus, en posant comme ci-dessus $F'' = F/\Gamma_Y(F)$, on voit que $\Supp F'' = S'$, donc (2) r\'esulte de (1) et de (1.3).
+
+Pour d\'emontrer (1), on remarque d'abord que
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G) \approx \varinjlim_{k} \mathop{\underline{\mathrm{Ext}}}\nolimits^i (F/\Jj^k F, G),
+\]
+o\`u $\Jj$ est l'id\'eal de d\'efinition de $Y$. Par ailleurs, il
+r\'esulte du th\'eor\`eme 4.2.2. de ( A. Grothendieck,
+\textit{Sur quelques points d'algèbre homologique}, Tohoku
+Mathematical Journal 1957) que les $\mathop{\underline{\mathrm{Ext}}}\nolimits$ commutent \`a
+la formation des fibres, du moins lorsque $X$ est un pr\'esch\'ema
+localement noeth\'erien et lorsque le premier argument est coh\'erent;
+comme il en est de m\^eme des limites inductives, on trouve des
+isomorphismes:
+\[
+(\mathop{\underline{\mathrm{Ext}}}\nolimits^i_Y (F, G))_x \approx \varinjlim_{k} \Ext_{\Oo_{X, x}} ((F/\Jj^k F)_x, G_x)
+\]
+pour tout $x \in X$. Comme $\Supp \Ext^i_Y (F, G) \subset S \cap Y$, il suffit, pour conclure, de remarquer que $x \in Y \cap S$ entra\^ine $\dim \Oo_{X, x} \leq m$, donc:
+\[
+\Ext^i_{\Oo_{X, x}} ((F/\Jj^k F)_x, G_x) = 0 \text { si } i > m,
+\]
+car la dimension cohomologique globale d'un anneau local r\'egulier est \'egale \`a sa dimension\footnote{Cf. $\EGA 0_{\textup{IV}}$ 17.3.1}.
+
+Soit $X$ un pr\'esch\'ema loc. noeth\'erien; pour toute partie $P$ de $X$, posons:
+\[
+D(P) = \left\{ \dim \Oo_{X, p} \mid p \in P \right\}.
+\]
+
+\begin{lemme}\label{VII.2.2}
+Si $P$ est l'espace sous-jacent d'un sous-pr\'esch\'ema connexe de $A$, $D(P)$ est un intervalle.
+\end{lemme}
+
+En effet, soient $a$ et $B$ appartenant \`a $D(P)$, correspondant \`a des points $p$ et $q$ de $P$. Montrons qu'il existe une suite de points de $P$: $(p = p_1, \dots, p_n = q)$ telle que, pour $1 \leq i < n $, on ait $\left| \dim \Oo_{X, p_i} - \dim \Oo_{X, p_{i+1}} \right| = 1$; il en r\'esultera que D(P) contient l'intervalle $[p, q]$. Pour cela, on remarque que $p$ et $q$ peuvent \^etre joints par une suite de composantes irr\'eductibles de $P$, telle que deux composantes successives se coupent. On est ramen\'e au cas o\`u $p$ est le point g\'en\'erique d'une composante irr\'eductible $Q$ de~$P$, et o\`u $q \in Q$ et donc $q \supset p$, en tant qu'id\'eaux de $\Oo_q$, o\`u c'est trivial sur la d\'efinition de la dimension.
+
+\begin{proposition}\label{VII.2.3} Soient $X$ un pr\'esch\'ema localement noeth\'erien r\'egulier, $Y$ une partie ferm\'ee de $X$ et $F$ un $\OX$-Module coh\'erent. Soit $P = Y \cap \Supp F \cap (X - Y)$. Soit $n \in \ZZ$, et supposons que $n \not\in D(P)$. Alors $\mathop{\underline{\mathrm{Ext}}}\nolimits^n_Y (F, \OX)$ est coh\'erent.
+\end{proposition}
+
+La conclusion est locale et les hypoth\`eses se conservent par restriction \`a un ouvert. Or $P$ est ferm\'e donc localement noeth\'erien, donc localement connexe; on peut donc supposer $X$ affine et noeth\'erien, et $P$ connexe. Posons $D(P) = [a, b[$, ce qui est licite d'apr\`es le lemme pr\'ec\'edent; si $n> b$, on conclut par (2.1); si $n < a$, on~a \hbox{$n < \dim \Oo_{X, x} = \prof \Oo_{X, x}$} pour tout $x \in P$, et on conclut par (1.7).
+
+\chapterspace{-1}

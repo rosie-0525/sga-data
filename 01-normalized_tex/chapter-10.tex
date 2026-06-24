@@ -1,0 +1,280 @@
+\chapter{Application au groupe fondamental} \label{X}
+
+\renewcommand{\theequation}{\arabic{equation}}
+
+Dans tout cet expos\'e, on d\'esignera par $X$ un pr\'esch\'ema localement noeth\'erien, par~$Y$ une partie ferm\'ee de $X$, par $U$ un voisinage ouvert variable de $Y$ dans $X$ et par~$\hat{X}$ le compl\'et\'e formel de $X$ le long de $Y$ (\EGA I 10.8). Pour tout pr\'esch\'ema $Z$, on d\'esignera par $\Et(Z)$ la cat\'egorie des rev\^etements \'etales de $Z$, et par $\LL(Z)$\refstepcounter{toto}\label{pX.1} la cat\'egorie des Modules coh\'erents localement libres sur $Z$.
+
+\enlargethispage{3mm}%
+\section{Comparaison de $\Et(\hat{X})$ et de $\Et(Y)$} \label{X.1}
+
+Soit $\Ii$ un id\'eal de d\'efinition de $Y$ dans $X$. Posons, pour tout $n\in\NN$, $Y_n=(Y, (\OX/\Ii^{n+1}){|Y})$. Les $Y_n$ forment un syst\`eme inductif de pr\'esch\'emas usuels, ou aussi de pr\'esch\'emas formels, en munissant les faisceaux structuraux de la topologie discr\`ete. On sait (\EGA I 10.6.2) que $\hat{X}$ est limite inductive, dans la cat\'egorie des pr\'esch\'emas formels, du syst\`eme inductif des $Y_n$. On sait aussi (\EGA I 10.13) que se donner un $\hat{X}$-pr\'esch\'ema formel de \emph{type fini} $R$, c'est se donner un syst\`eme inductif de $Y_n$-pr\'esch\'emas usuels $R_n$ de \emph{type fini}, tels que $R_n\simeq(R_{n+1})\times_{(Y_{n+1})}(Y_n)$. De plus, pour que $R$ soit un rev\^etement \'etale de $\hat{X}$, il est n\'ecessaire et suffisant que pour tout~$n$, $R_n$ soit un rev\^etement \'etale de $Y_n$. Ceci dit, il est facile de voir que les \'el\'ements nilpotents ne comptent pas pour les rev\^etements \'etales (\SGA I~8.3), c'est-\`a-dire que le foncteur changement de base:
+\[
+\Et(Y_{n+1}) \to \Et(Y_n)
+\]
+est une \'equivalence de cat\'egories pour tout $n\in\NN$. Donc:
+
+\begin{proposition} \label{X.1.1}
+Avec les notations introduites plus haut, le foncteur naturel $\Et(\hat{X})\to\Et(Y)$ est une \'equivalence de cat\'egories (cf. \textup{\SGA I~8.4}).
+\end{proposition}
+
+\section{Comparaison de $\Et(Y)$ et $\Et(U)$, pour $U$ variable} \label{X.2}
+
+Nous allons introduire deux conditions desquelles le th\'eor\`eme de comparaison annonc\'e r\'esultera facilement. Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Y$ une partie ferm\'ee de $X$. On dit que le couple $(X, Y)$ v\'erifie la \emph{condition de Lefschetz}, ce qu'on \'ecrit $\Lef(X, Y)$,\refstepcounter{toto}\label{pX.2} si, pour tout ouvert $U$ de $X$ contenant $Y$ et tout faisceau coh\'erent localement libre $E$ sur $U$, l'homomorphisme naturel
+\[
+\Gamma(U, E) \to \Gamma(\hat{X}, \hat{E})
+\]
+est un isomorphisme.
+
+On dit que le couple $(X, Y)$ v\'erifie la \emph{condition de Lefschetz effective}, ce qu'on \'ecrit $\Leff(X, Y)$, si on~a $\Lef(X, Y)$ et si de plus, pour tout faisceau coh\'erent localement libre~$\Ee$ sur $\hat{X}$, il existe un voisinage ouvert $U$ de $Y$ et un faisceau coh\'erent localement libre~$E$ sur $U$ et un isomorphisme $\hat{E}\simeq\Ee$.
+
+Ces conditions sont v\'erifi\'ees dans deux exemples importants:
+
+\refstepcounter{subsection}\label{X.2.1}
+\begin{enonce*}[remark]{Exemple 2.1\ndemark}
+ Soit $A$ un anneau noeth\'erien et soit $t\in \rr(A)$ un \'el\'ement $A$-r\'egulier appartenant au radical $\rr(A)$ de $A$. Supposons que $A$ soit quotient d'un anneau local r\'egulier et que $A$ soit complet pour la topologie $t$-adique (par exemple $A$ complet pour la topologie $\rr(A)$-adique). Posons $X'=\Spec(A)$ et $Y'=V(t)$, par ailleurs posons $x=\rr(A)$ et $X=X'-\{x\}$, $Y=Y'-\{x\}$. Donc $X$ est ouvert dans $X'$ et $Y=X\cap Y'$. Alors:
+\begin{enumeratei}
+\item
+Si, pour tout id\'eal premier $\pp$ de $A$ tel que $\dim A/\pp=1$ (i.e. pour tout point ferm\'e de $X$) on~a $\prof A_{\pp}\geq 2$, alors on~a $\Lef(X, Y)$;
+
+\item
+si de plus, pour tout id\'eal premier $\pp$ de $A$ tel que $t\in\pp$ et $\dim A/\pp=1$ (i.e. pour tout point ferm\'e de $Y$), on~a $\prof A_{\pp}\geq 3$, alors on~a $\Leff(X, Y)$.
+\end{enumeratei}
+\end{enonce*}
+
+Montrons d'abord que pour tout voisinage ouvert $U$ de $Y$ dans $X$, le compl\'ementaire de $U$ dans $X$ est r\'eunion d'un nombre fini de points ferm\'es (dans $X$). Remarquons que $U$ ouvert dans $X$, donc dans $X'$, donc $Z'=X'-U$ est ferm\'e. Soit $I$ un id\'eal de d\'efinition de $Z'$; il suffit de prouver que $A/I$ est de dimension $1$. Or $Z'\cap Y'=\{x\}$ donc $A/(I+(t))$ est artinien, d'o\`u la conclusion gr\^ace au \og Hauptidealsatz\fg.
+
+La \emph{première hypothèse équivaut à}: \og pour tout id\'eal premier $\pp$ de $A$, $\pp\neq \rr(A)$, on~a $\prof A_\pp\geq3-\dim A/\pp$\fg. En effet $A$ est quotient d'un anneau r\'egulier, on peut donc appliquer \ref{VIII}~\ref{VIII.2.2} au pr\'esch\'ema $X'$, \`a la partie ferm\'ee $\{x\}$ et au faisceau coh\'erent $\Oo_{X'}$.
+
+Soit $U$ un voisinage ouvert de $Y$ dans $X$ et $E$ un $\Oo_U$-module localement libre. Posons $Z=X-U$ et soit $u\colon U\to X$ l'immersion canonique. On va d'abord prouver que $u_\ast(E)$ est un $\OX$-Module \emph{cohérent}, ou, ce qui revient au m\^eme, que $\mathop{\underline{\mathrm{H}}}\nolimits^i_Z(E')$ est coh\'erent pour $i=0, 1$, o\`u $E'$ est un prolongement coh\'erent de $E$ \`a $X$. Pour cela on applique le th\'eor\`eme \ref{VIII}~\ref{VIII.2.1} au pr\'esch\'ema $X$, \`a la partie ferm\'ee $Z$ et au faisceau coh\'erent $E'$. Il suffit de v\'erifier que pour tout point $p\in U$ tel que $c(p)=1$, on~a $\prof E'_p\geq 1$, o\`u l'on a pos\'e
+\[
+c(p)=\codim (\overline{\{p\}}\cap Z, \overline{\{p\}}).
+\]
+Or si $p\in U$ et si $c(p)=1$, notant $\pp$ l'id\'eal de $A$ correspondant \`a $p$, on voit que $\dim A/\pp=2$, car le compl\'ementaire de $U$ est r\'eunion d'un nombre fini de points ferm\'es et $A$ est quotient d'un anneau r\'egulier. De plus, $E$ est localement libre, donc, pour tout $p\in\Supp E$, on~a $\prof E_p=\prof\Oo_{U, p}$. Enfin, si $p\in U$ et si $c(p)=1$, on a
+\[
+\prof E'_p = \prof E_p = \prof\Oo_{U, p} = \prof A_\pp \geq 3-2=1.
+\]
+
+Il nous faut maintenant prouver que l'homomorphisme naturel
+\begin{equation} \label{eq:X.1} {\Gamma(U, E) \to \Gamma(\hat{X}, \hat{E})}
+\end{equation}
+est un isomorphisme. Posant alors $\overline{\!E}=u_\ast(E)$, on note que $\overline{\!E}$ est coh\'erent et de profondeur $\geq 2$ en tous les points ferm\'es de $X$. Il en r\'esulte que $\R^i f_\ast(\overline{\!E})$ est coh\'erent pour $i=0, 1$, o\`u $f\colon X\to X'$ d\'esigne l'immersion canonique de $X$ dans $X'=\Spec(A)$ (\Exp \ref{VIII}). On applique alors (\ref{IX}~\ref{IX.1.5}), et l'on conclut que
+\begin{equation} \label{eq:X.2}
+\Gamma(U, \overline{\!E}) \to \Gamma(\hat{X}, \widehat{\overline{\!E}})
+\end{equation}
+est un isomorphisme, car $A$ est complet pour la topologie $t$-adique.
+
+On a un diagramme commutatif:
+\[
+\xymatrix@=5mm{ \Gamma(X, \overline{\!E})\ar[rr]^{\simeq}\ar[dr]_{\simeq} && \Gamma(U, E)\ar[dl]\\
+&\Gamma(\hat{X}, \hat{E})}
+\]
+d'o\`u la conclusion.
+
+Soit maintenant $\Ee$ un faisceau coh\'erent localement libre sur $\hat{X}$. Si l'on a prouv\'e que~$\Ee$ est alg\'ebrisable, i.e. est isomorphe au compl\'et\'e formel d'un $\OX$-Module coh\'erent~$E$, il est facile de voir que $E$ est localement libre au voisinage de $Y$, donc de prouver $\Leff (X, Y)$. Soit $\widehat{X'}$ le spectre formel de $A$ pour la topologie $t$-adique, qui s'identifie au compl\'et\'e formel de $X'$ le long de $Y'$. D\'esignons par $f$ l'immersion canonique de~$X$ dans $X'$, par $f'$ l'immersion canonique de $Y$ dans $Y'$, et par $\hat{f}$ le morphisme d\'eduit par passage aux compl\'et\'es. Pour que $\Ee$ soit alg\'ebrisable il suffit que $\hat{f}_\ast(\Ee)$ soit un $\Oo_{\hat{X}}$-Module coh\'erent, car $A$ est complet pour la topologie t-adique. Soit $\Ii = t\Oo_{\hat{X}}$, c'est un id\'eal de d\'efinition de $\hat{X}$.
+
+Pour tout $n\geq 0$, posons $\E_n=\Ee/\Ii^{n+1}$. En tout point ferm\'e $y\in Y$, la profondeur de $\E_0$ est $\geq 2$; en effet $t$ est un \'el\'ement $A$-r\'egulier donc $\prof\Oo_{Y_0, y}=\prof\Oo_{X, y}-1\geq 2$. On en conclut que $\hat{f}_\ast(\Ee)$ est coh\'erent (\ref{IX}~\ref{IX.2.3}). \cqfd
+
+\refstepcounter{subsection}\label{X.2.2}
+\begin{enonce*}[remark]{Exemple 2.2}[{{\normalfont Permettra de comparer le groupe fondamental d'une vari\'et\'e projective et d'une section hyperplane}}]
+Soit $K$ un corps et soit $X$ un $K$-pr\'esch\'ema propre. Soit $\Ll$ un $\OX$-Module inversible ample. Soit $t \in \Gamma(X, \Ll)$ un \'el\'ement $\OX$-r\'egulier, ce qui signifie que, pour tout ouvert $U$ et tout isomorphisme $u\colon \Ll~U\to\Oo_U$, \/$u(t)$ est non diviseur de z\'ero dans $\Oo_U$ (condition qui ne d\'epend pas de $u$). Soit $Y = V(t)$ le sous-sch\'ema de $X$ d'\'equation $t = 0$. Alors:
+\begin{enumeratei}
+\item
+Si, pour tout point $x$ ferm\'e dans $X$, on~a $\prof\Oo_{X, x}\geq 2$, on~a $\Lef (X, Y)$;
+
+\item
+si de plus, pour tout point ferm\'e $y\in Y$, on~a $\prof\Oo_{X, y}\geq 3$, on~a $\Leff (X, Y)$.
+\end{enumeratei}
+\end{enonce*}
+
+Cet exemple sera trait\'e en d\'etail dans \Exp \ref{XII}.
+
+Soit S un pr\'esch\'ema, on sait (\EGA II 6.1.2) que le foncteur qui, \`a tout rev\^etement fini et plat $r\colon R\to S$, associe la $\OX$-Alg\`ebre $r_\ast(\Oo_R)$, induit une \'equivalence entre la cat\'egorie des rev\^etements finis et plats de $S$ et la cat\'egorie des $\OX$-Alg\`ebres coh\'erentes et localement libres. Soit U un voisinage ouvert de $Y$, et soit $r\colon R\to U$ un rev\^etement fini et plat de U. Soit $\hat{R}$ le rev\^etement fini et plat de $\hat{X}$ qui s'en d\'eduit par changement de base. On a $\hat{r}_\ast(\Oo_{\hat{R}})\simeq\widehat{r_\ast(\Oo_R)}$.
+
+\emph{Supposons alors} $\Lef(X, Y)$. Ceci entra\^ine que, pour tout $U$, le foncteur image inverse:
+\[
+\LL(U) \to \LL(\hat{X})
+\]
+est \emph{pleinement fidèle}. En effet, soient $E$ et $F$ deux $\Oo_U$-Modules coh\'erents localement libres; $\mathop{\underline{\mathrm{Hom}}}\nolimits(E, F)$ est aussi coh\'erent et localement libre; $\mathop{\underline{\mathrm{Hom}}}\nolimits(E, F)$ est aussi coh\'erent et localement libre. Par hypoth\`ese, l'application naturelle
+\[
+\Gamma_U (\mathop{\underline{\mathrm{Hom}}}\nolimits(E, F)) \to \Gamma_{\hat{X}}(\widehat{\mathop{\underline{\mathrm{Hom}}}\nolimits(E, F)})
+\]
+est un isomorphisme, d'o\`u la conclusion, car $\mathop{\underline{\mathrm{Hom}}}\nolimits$ commute au $\, \, \hat{}\, \, $ puisque tout est localement libre. Or le $\, \, \hat{}\, \, $ commute au produit tensoriel, on en d\'eduit que le foncteur qui \`a toute $\Oo_U$-Alg\`ebre coh\'erente et localement libre $\Aa$ associe la $\Oo_{\hat{X}}$-Alg\`ebre $\hat{\Aa}$, est pleinement fid\`ele. Mieux, si $E$ est un $\Oo_U$-Module coh\'erent localement libre, il y a correspondance biunivoque entre les structures de $\Oo_{\hat{X}}$-Alg\`ebre commutative sur $\hat{E}$.
+
+\begin{proposition} \label{X.2.3}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Y$ une partie ferm\'ee de $X$. Soit $\hat{X}$ le compl\'et\'e formel de $X$ le long de $Y$. Pour tout ouvert $U$ de $X$, $U\supset Y$, d\'esignons par $L_U$ (resp. $P_U$, resp. $E_U$) le foncteur qui \`a tout $\Oo_U$-Module coh\'erent localement libre (resp. \`a tout rev\^etement fini et plat de $U$, resp. \`a tout rev\^etement \'etale de $U$) associe son image inverse par $\hat{X} \to X$.
+\begin{enumeratei}
+\item
+Si on~a $\Lef(X, Y)$, alors pour tout voisinage ouvert $U$ de $Y$, les foncteurs $L_U$, $P_U$ et $E_U$ sont pleinement fid\`eles.
+
+\item
+Si on~a $\Leff(X, Y)$, alors pour tout $\Oo_{\hat{X}}$-Module coh\'erent localement libre~$\Ee$ (resp. ...), il existe un ouvert $U$ et un $\Oo_U$-Module coh\'erent localement libre~$E$ (resp. ...), tels que $L_U(E) \simeq \Ee$ (resp. ...).
+\end{enumeratei}
+\end{proposition}
+
+(i) A \'et\'e vu.
+
+(ii) R\'esulte de (i) et de l'hypoth\`ese, du moins pour $L_U$ et $P_U$. De plus si $R$ est un rev\^etement \emph{étale} de $\hat{X}$, il existe un voisinage ouvert $U$ de $Y$ dans $X$ et un rev\^etement fini et plat $R'$ de $U$ tel que $\widehat{R'} \simeq R$. On en d\'eduit un rev\^etement $R''$ de $Y$ qui est \'etale d'apr\`es \ref{X.1.1}, donc $R'$ est \'etale dans un voisinage $U'$ de $Y$. \cqfd
+
+\begin{corollaire} \label{X.2.4}
+Si on~a $\Lef (X, Y)$, pour qu'un rev\^etement fini et plat $R$ d'un voisinage ouvert $U$ de $Y$ soit connexe, il faut et il suffit que $R \times_U \hat{X}$ le soit. En particulier, pour que $Y$ soit connexe, il faut et il suffit que le voisinage ouvert $U$ de $Y$ le soit, ou encore que $X$ le soit.
+\end{corollaire}
+
+En effet, pour qu'un espace annel\'e en anneaux locaux $(X, \OX)$ soit connexe, il faut et il suffit que $\Gamma(X, \OX)$ ne soit pas compos\'e direct de deux anneaux non nuls. Or on~a
+\[
+\Gamma(U, r_\ast(\Oo_R)) \simeq \Gamma(\hat{X}, \hat{r}_\ast(\Oo_{\hat{R}}))
+\]
+par $\Lef(X, Y)$.
+
+\begin{corollaire} \label{X.2.5} Si on~a $\Lef (X, Y)$, alors pour tout $U$, le foncteur
+\[
+\Et(U) \to \Et(Y)
+\]
+est pleinement fid\`ele. Si on~a $\Leff(X, Y)$, alors pour tout rev\^etement \'etale $R$ de $Y$, il existe un voisinage ouvert $U$ de $Y$ et un rev\^etement $R'$ de $U$ tel que $R' \times_U Y \simeq R$.
+\end{corollaire}
+
+\refstepcounter{subsection}\label{X.2.6}
+\begin{enonce*}{Corollaire 2.6\ndemark}
+Si on~a $\Lef(X, Y)$ et si $Y$ est connexe, tout voisinage ouvert $U$ de $Y$ est connexe et l'homomorphisme naturel $\pi_1(Y)\to\pi_1(U)$ est surjectif. Si de plus on~a $\Leff(X, Y)$, l'homomorphisme naturel
+\[
+\pi_1(Y) \to \varprojlim_{U}\, \pi_1(U)
+\]
+est un isomorphisme. (N.B. On suppose choisi un \og point-base\fg dans $Y$, qu'on prend aussi pour point-base dans $X$, pour la d\'efinition des groupes fondamentaux.)
+\end{enonce*}
+
+Tout ceci r\'esulte trivialement de la prop.\, \ref{X.1.1} et de la prop.\, \ref{X.2.3}.
+
+
+\section{Comparaison de $\pi_1(X)$ et de $\pi_1(U)$} \label{X.3}
+
+\begin{definition} \label{X.3.1}
+Soit $X$ un pr\'esch\'ema et $Z$ une partie ferm\'ee de $X$. Posons $U=X-Z$. On dit que le couple $(X, Z)$ est pur si, pour tout ouvert $V$ de $X$, le foncteur
+\[
+\begin{aligned} \Et(V) &\to \Et(V\cap U) \\
+V' &\rightsquigarrow V'\times_V(V\cap U)
+\end{aligned}
+\]
+est une \'equivalence de cat\'egories\footnote{Pour une notion plus satisfaisante \`a certains \'egards, cf. le commentaire \ref{XIV}~\ref{XIV.1.6} d).}.
+\end{definition}
+
+\begin{definition} \label{X.3.2}
+Soit $A$ un anneau local noeth\'erien. Posons $X=\Spec A$. Soit $\rr(A)$ le radical de $A$ et soit $x=\rr(A)$ le point ferm\'e de $X$. On dit que $A$ est pur si le couple $(X, \{x\})$ l'est.
+\end{definition}
+
+Nous laissons au lecteur le soin de ne pas d\'emontrer la proposition suivante:
+
+\begin{proposition} \label{X.3.3}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Z$ une partie ferm\'e de $X$. Pour que le couple $(X, Z)$ soit pur il est n\'ecessaire et suffisant que, pour tout $z\in Z$, l'anneau $\Oo_{X, z}$ soit pur\footnote{Comparer le cas non commutatif de \ref{XIV}~\ref{XIV.1.8}, dont la d\'emonstration est essentiellement la m\^eme que celle de \ref{X.3.3}.}.
+\end{proposition}
+
+Ceci dit le th\'eor\`eme suivant est le r\'esultat essentiel de ce num\'ero:
+
+\refstepcounter{subsection}\label{X.3.4}
+\begin{enonce*}{Th\'eor\`eme 3.4}[Th\'eor\`eme de puret\'e\ndemark]
+
+\textup{(i)}\enspace
+Un anneau local noeth\'erien r\'egulier de dimension $\geq 2$ est pur (th\'eor\`eme de puret\'e de Zariski-Nagata).
+
+\textup{(ii)}\enspace
+Un anneau local noeth\'erien de dimension $\geq 3$ qui est une intersection compl\`ete est pur.
+\end{enonce*}
+
+Rappelons qu'on dit qu'un anneau local est une \emph{intersection complète} s'il existe un anneau local noeth\'erien \emph{régulier} $B$ et une suite $(t_1, \ldots, t_k)$ $B$-r\'eguli\`ere d'\'el\'ements du radical $\rr(B)$ de $B$ tels que
+\[
+A \simeq B/(t_1, \ldots, t_k).
+\]
+
+A ce propos remarquons qu'il serait moins ambigu de dire que $A$ est une intersection compl\`ete \emph{absolue}, par opposition \`a la situation, que nous avons d\'ej\`a rencontr\'ee, o\`u $X$ est un pr\'esch\'ema localement noeth\'erien (qui n'a pas besoin d'\^etre r\'egulier) et o\`u $Y$ est une partie ferm\'ee de $X$, dont on dit qu'elle est \og localement ensemblistement une intersection compl\`ete \emph{dans $X$}\fg.
+
+Prouvons d'abord quelques lemmes.
+
+\begin{lemme} \label{X.3.5}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $U$ une partie ouverte de $X$. Posons $Z=X-U$. Soit $i\colon U\to X$ l'immersion canonique de $U$ dans $X$. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+Pour tout ouvert $V$ de $X$, si on pose $V'=V\cap U$, le foncteur $F\rightsquigarrow F|{|V'}$ de la cat\'egorie des $\Oo_V$-Modules coh\'erents localement libres dans la cat\'egorie des $\Oo_{{V'}}$-Modules coh\'erents localement libres est pleinement fid\`ele;
+
+\item
+l'homomorphisme naturel $\OX \to i_\ast(\Oo_{U})$ est un isomorphisme;
+
+\item
+pour tout $z\in Z$, on~a $\prof\Oo_{X, z}\geq 2$.
+\end{enumeratei}
+\end{lemme}
+
+On a d\'ej\`a vu (\ref{III}~\ref{III.3.3}) l'\'equivalence de (ii) et (iii). Montrons que (ii) entra\^ine (i). Soient $F$ et $G$ deux $\Oo_V$-Modules coh\'erents localement libres, $\mathop{\underline{\mathrm{Hom}}}\nolimits(F, G)$ l'est aussi, donc $\mathop{\underline{\mathrm{Hom}}}\nolimits(F, G)\to i_\ast(\mathop{\underline{\mathrm{Hom}}}\nolimits(F|{|V'}, G|{|V'}))$ est un isomorphisme donc $\Hom(F, G)\simeq\Hom(F|{|V'}, G|{|V'})$. Inversement on prend $F=G=\OX$ et on applique (i) \`a tout ouvert~$V$ de~$X$.
+
+Voici un \og lemme de descente\fg utile:
+
+\begin{lemme} \label{X.3.6} Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Z$ une partie ferm\'ee de $X$. Posons $U=X-Z$. Supposons que l'homomorphisme $\OX \to i_\ast(\Oo_U)$ soit un isomorphisme. Soit $f\colon X_1\to X$ un morphisme fid\`element plat et quasi-compact. Posons $Z_1=f^{-1}(Z)$. Si le couple $(X_1, Z_1)$ est pur, il en est de m\^eme de $(X, Z)$.
+\end{lemme}
+
+Remarquons que l'hypoth\`ese $\OX\simeq i_\ast(\Oo_U)$ se conserve par extension plate de la base, car $i$ est un morphisme quasi-compact et, dans ce cas, l'image directe commute \`a l'image inverse. Or cette hypoth\`ese entra\^ine que le foncteur
+\[
+\Et(V) \to \Et(U\cap V)
+\]
+d\'efini par
+\[
+V'\rightsquigarrow V'\times_V(V\cap U)
+\]
+est pleinement fid\`ele, comme le montre l'interpr\'etation d'un rev\^etement \'etale en termes d'Alg\`ebre coh\'erente localement libre. Il reste \`a prouver l'effectivit\'e. On peut par exemple introduire le carr\'e $X_2$ et le cube $X_3$ de $X_1$ sur $X$ et on remarque qu'un morphisme fid\`element plat et quasi compact est un morphisme de \emph{descente effective universelle} pour la cat\'egorie fibr\'ee des rev\^etements \'etales, au-dessus de la cat\'egorie des pr\'esch\'emas. La conclusion est formelle \`a partir de l\`a\footnote{Cf. J.~Giraud, M\'ethode de la descente, M\'emoire \numero 2 du Bulletin de la Soci\'et\'e Math\'ematique de France (1964).}.
+
+\begin{remarque} \label{X.3.7}
+On a prouv\'e chemin faisant que si $\OX\to i_\ast(\Oo_U)$ est un isomorphisme, $X$ est connexe si et seulement si $U$ l'est, et alors $\pi_1(U)\to\pi_1(X)$ est surjectif.
+\end{remarque}
+
+\begin{corollaire} \label{X.3.8}
+Soit $A$ un anneau local noeth\'erien. Supposons que $\prof A\geq 2$. Alors si $\hat{A}$ est pur, $A$ est pur.
+\end{corollaire}
+
+R\'esulte du lemme \ref{X.3.5} et du lemme \ref{X.3.6}.
+
+Le lemme suivant est le point essentiel de la d\'emonstration du th\'eor\`eme de puret\'e:
+
+\begin{lemme} \label{X.3.9}
+Soit $A$ un anneau local noeth\'erien et soit $t\in\rr(A)$ un \'el\'ement $A$-r\'egulier. Supposons que $A$ soit complet pour la topologie $t$-adique et de plus quotient d'un anneau local r\'egulier (par exemple $A$ complet). Posons $B=A/tA$.
+\begin{enumeratei}
+\item
+Si pour tout id\'eal premier $\pp$ de $A$ tel que $\dim A/\pp=1$, on~a $\prof A_{\pp}\geq 2$, alors $B$ pur entra\^ine $A$ pur.
+
+\item
+Si pour tout id\'eal premier $\pp$ de $A$ tel que $\dim A/\pp=1$, on~a $\prof A_{\pp}\geq 2$, si $A_\pp$ pur lorsque $t\notin\pp$, et \ignorespaces $\prof A_\pp\geq3$ lorsque $t\in\pp$, alors $A$ pur entra\^ine $B$ pur.
+\end{enumeratei}
+\end{lemme}
+
+Soit $X'=\Spec(A)$ et soit $Y'=V(t)$, que l'on identifie au spectre de $B$. Soit $x=\rr(A)$, et posons $X=X'-\{x\}$ et $Y=Y'-\{x\}=X\cap Y'$. D\'esignons par $X'$ le spectre formel de $A$ pour la topologie $t$-adique, qui s'identifie au compl\'et\'e formel de $X'$ le long de $Y'$.
+
+Puisque $A$ est complet pour la topologie $t$-adique, on remarque que $\Et(X')\to\Et(\widehat{X'})$ est une \'equivalence de cat\'egories. De m\^eme $\Et(\widehat{X'})\to\Et(Y')$ par la prop.\, \ref{X.1.1}, donc $\Et(X')\to\Et(Y')$ est une \'equivalence de cat\'egories.
+
+Montrons (i). Consid\'erons les diagrammes
+\[
+\xymatrix{ X^{\prime} & X\ar[l] && \Et(X^{\prime})\ar[r]^a \ar[d]_c & \Et(X)\ar[d]^b\\
+Y^{\prime}\ar[u] & Y\ar[l] \ar[u] && \Et(Y^{\prime})\ar[r]^d & \Et(Y)}
+\]
+On vient de voir que $c$ est une \'equivalence, $d$ l'est aussi d'apr\`es l'hypoth\`ese que $B$ est pur et enfin $b$ est pleinement fid\`ele comme on l'a vu dans l'exemple \ref{X.2.1}, cf. \ref{X.2.3} (i).
+
+Montrons (ii). Cette fois on suppose que $A$ est pur donc $a$ est une \'equivalence; de m\^eme $c$. Voyons que $b$ est une \'equivalence. D'apr\`es l'exemple \ref{X.2.1} on sait que l'on~a $\Leff(X, Y)$, donc $b$ est d\'ej\`a pleinement fid\`ele, prouvons qu'il est essentiellement surjectif. On utilise \ref{X.2.3} (ii) en notant que, si $U$ est un voisinage ouvert de $Y$ dans $X$, le compl\'ementaire de $U$ dans $X$ est une r\'eunion d'un nombre fini de points ferm\'es; le couple $(X,X-U)$ est donc pur d'apr\`es la prop.\, \ref{X.3.3}, car en un tel point $\pp$, $\Oo_{X,\pp}=A_\pp$ est pur par hypoth\`ese. D'o\`u la conclusion.
+
+\begin{proof}[D\'emonstration du th\'eor\`eme de puret\'e]
+Montrons d'abord (i) par r\'ecurrence sur la dimension. Soit $A$ un anneau local noeth\'erien de \emph{dimension} $2$. Posons $X'=\Spec(A)$, $x=\rr(A)$, $X=X'-\{x\}$. On a $\prof A=2$. On peut donc appliquer le lemme \ref{X.3.5} au couple $(X', \{x\})$ et donc $\Et(X')\to\Et(X)$ est pleinement fid\`ele. Soit maintenant $r\colon R\to X$ un rev\^etement \'etale d\'efini par une $\OX$-Alg\`ebre coh\'erente localement libre et \'etale $\Aa=r_\ast(\Oo_R)$. D\'esignons par $i\colon X\to X'$ l'immersion canonique de $X$ dans $X'$. Je dis que $i_\ast(\Aa)=\Bb$ est une $\Oo_{X'}$-Alg\`ebre \emph{cohérente}. En effet, il suffit d'appliquer le \og th\'eor\`eme de finitude\fg \ref{VIII}~\ref{VIII.2.3}. Je dis que cette alg\`ebre est de profondeur $\geq 2$ en $x$. En effet, c'est l'image directe d'un $\OX$-Module, avec $X=X'-\{x\}$. Puisque $A$ est un anneau \emph{régulier} de dimension $2$ on a: $\dimp \Bb + \prof\Bb=\dim A=2$, o\`u $\dimp\Bb$ d\'esigne la dimension projective de $\Bb$. Donc $\dimp\Bb=0$, donc $\Bb$ est projectif, donc libre. Il en r\'esulte que $\Bb$ d\'efinit un rev\^etement fini et plat de $X'=\Spec(A)$. L'ensemble des points de $X'$ o\`u ce rev\^etement n'est pas \'etale est une partie ferm\'ee de $X'$ dont l'\'equation est un id\'eal principal: l'id\'eal discriminant de $\Bb/A$. Or, par construction, ce ferm\'e est contenu dans $x=\rr(A)$ donc est vide car $\dim A=2$.
+
+Soit $A$ un anneau local noeth\'erien r\'egulier, $\dim A=n\geq3$. Supposons (i) d\'emontr\'e pour les anneaux de dimension $<n$. Pour prouver que $A$ est pur, on peut supposer $A$ complet par \ref{X.3.8}. Soit $t\in\rr(A)$ dont l'image dans $\rr(A)/\rr(A)^2$ soit non nulle. Alors $B=A/tA$ est un anneau local noeth\'erien \emph{régulier} de dimension $n-1$ donc est pur, car $n-1\geq2$. On conclut par le lemme \ref{X.3.9}~(i), qui est applicable car $A$ est complet.
+
+\emph{Montrons} (ii). Soit $A$ un anneau local noeth\'erien de dimension $\geq 3$. Supposons qu'il existe un anneau local noeth\'erien \emph{régulier} $B$ et une $B$-suite $(t_1, \ldots, t_k)$ tels que $A\simeq B/(t_1, \ldots, t_k)$. Pouvons que $A$ est pur, par r\'ecurrence sur $k$. Si $k=0$, on le sait par (i). \emph{Supposons $k\geq1$ et le résultat acquis pour $k'<k$.} D'apr\`es le corollaire \ref{X.3.9} on peut supposer que $A$ (donc aussi $B$) est complet. Posons $C=B/(t_1, \ldots, t_{k-1})$, donc $A\simeq C/t_kC$ et $t_k$ est $C$-r\'egulier. Par l'hypoth\`ese de r\'ecurrence on sait que $C$ est pur, il suffit de prouver que le lemme \ref{X.3.9}~(ii) est applicable. Notation: $A$ et $B$ du lemme deviennent $C$ et $A$. On a $\dim C\geq4$, donc pour tout id\'eal premier $\pp$ de $C$ tel que $\dim C/\pp=1$, on~a $\prof C_\pp\geq3$. De plus, $C_\pp$ est un intersection compl\`ete avec $k'\leq k-1$, donc est pur par l'hypoth\`ese de r\'ecurrence.
+\end{proof}
+
+\begin{theoreme} \label{X.3.10}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Y$ une partie ferm\'ee de $X$. Supposons que l'on ait $\Leff(X, Y)$ (cf. Exemples \ref{X.2.1} et \ref{X.2.2}). Supposons de plus que, pour tout voisinage ouvert $U$ de $Y$ et tout $x\in X-U$, l'anneau local $\Oo_{X, x}$ soit r\'egulier de dimension $\geq2$ ou bien une intersection compl\`ete de dimension $\geq3$. Alors
+\[
+\pi_0(Y) \to \pi_0(X)
+\]
+est une bijection, et si $X$ est connexe
+\[
+\pi_1(Y) \to \pi_1(X)
+\]
+est un isomorphisme.
+\end{theoreme}
+
+Il n'y a plus rien \`a d\'emontrer. On remarque que, dans les deux exemples cit\'es \ref{X.2.1} et \ref{X.2.2}, le compl\'ementaire de $U$ est une r\'eunion d'un nombre fini de points ferm\'es, d'o\`u il r\'esulte que l'hypoth\`ese sur la dimension de $\Oo_{X, x}$ n'est pas canularesque.
+
+\makeatletter\@addtoreset{equation}{section}\makeatother\renewcommand{\theequation}{\thesection.\arabic{equation}}
+

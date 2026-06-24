@@ -1,0 +1,657 @@
+%%% LES PACKAGES, DANS L'ORDRE %%%
+
+\RequirePackage{ifpdf}
+% On teste si la compilation se fait avec latex ou pdflatex.
+% Si pdflatex, on charge hyperref et on modifie certaines
+% commandes des classes smf en consequence
+% (merci a Antoine Chambert-Loir).
+
+\ifpdf
+\let\org@bibitem\@bibitem
+\let\org@lbibitem\@lbibitem
+\RequirePackage[%
+colorlinks,hyperindex,breaklinks,
+hypertexnames=true,
+plainpages=false,
+pdfpagelabels]
+{hyperref}
+
+\AtBeginDocument{%
+\def\@schapter[#1]#2{%
+\def\@currentlabelname{#1}%
+\begingroup
+\let\@mkboth\@gobbletwo
+\Hy@GlobalStepCount\Hy@linkcounter
+\xdef\@currentHref{\Hy@chapapp*.\the\Hy@linkcounter}%
+\Hy@raisedlink{\hyper@anchorstart{\@currentHref}\hyper@anchorend}%
+\endgroup
+\H@old@schapter[{#1}]{#2}
+}}
+
+\def\@@wrindex#1|#2|#3\\{%
+\ifx\\#2\\%
+\protected@write\@indexfile{}{%
+\string\indexentry{#1}{\thepage}%
+}%
+\else
+\def\Hy@temp@A{#2}%
+\ifx\Hy@temp@A\HyInd@ParenLeft
+\protected@write\@indexfile{}{%
+\string\indexentry{#1|#2}{\thepage}%
+}%
+\else
+\protected@write\@indexfile{}{%
+\string\indexentry{#1|#2}{\thepage}%
+}%
+\fi
+\fi
+\endgroup
+\@esphack
+}%
+
+\@ifpackageloaded{backref}{%
+\def\BR@@lbibitem[#1]#2#3\par{%
+\org@lbibitem[#1]{#2}#3
+\newblock
+\backref{\csname br@#2\endcsname}%
+\par
+}%
+\def\BR@@bibitem#1#2\par{%
+\org@bibitem{#1}#2
+\newblock
+\backref{\csname br@#1\endcsname}%
+\par
+}
+\AtBeginDocument{%
+\def\thebibliography{%
+% \@starttoc{brf}{}%
+\BRorg@thebibliography
+}%
+}
+
+}
+
+\def\H@old@sect#1#2#3#4#5#6[#7]#8{%
+\edef\@toclevel{\ifnum#2=\@m 0\else\number#2\fi}%
+\ifnum #2>\c@secnumdepth
+\let\@secnumber\@empty
+\let\@svsec\@empty
+\let\@svnl\@empty
+\let\@svspace\@empty
+\else
+\@xp\let\@xp\@secnumber\csname the#1\endcsname
+\refstepcounter{#1}%
+\@xp\ifx\csname #1name\endcsname\@empty
+\let\@svnl\@empty
+\def\@svspace{.\enspace}\def\@svsec{\csname the#1\endcsname}%
+\else
+\def\@svsec{\ignorespaces\csname #1name\endcsname\space
+\protect\textup{\csname the#1\endcsname}}%
+\let\@svspace\@empty
+\def\@svnl{\@@par\nobreak\smallskip\nobreak}%
+\fi
+\fi
+\@tempskipa #5\relax
+\ifsmf@skippt\@tempskipa 1sp\smf@skipptfalse\fi
+\ifdim \@tempskipa>\z@
+\begingroup
+#6{\@hangfrom{\hskip #3\relax\@svsec\@svspace}%
+\@svnl
+\interlinepenalty\@M #8\@@par}%
+\endgroup
+\csname #1mark\endcsname{#7}%
+\ifnum#2>\@m \else \@tocwrite{#1}{#8}\fi
+\par \nobreak
+\vskip \@tempskipa
+\global\@nobreaktrue
+\@afterheading
+\else
+\def\@svsechd{#6{\hskip #3\relax\@svsec\@svspace #8%
+\ifnum#2>\@m \else \@tocwrite{#1}{#8}\fi }}%
+\global\@nobreakfalse \global\@noskipsectrue
+\everypar{%
+\if@noskipsec
+\global\@noskipsecfalse
+\clubpenalty\@M \hskip -\parindent
+\begingroup
+\def\Sectionformat##1##2{%
+\@ifnotempty{##1}%
+{\ignorespaces ##1\pointrait\nobreak\ \ignorespaces}}%
+\@svsechd
+\endgroup
+\unskip
+\@tempskipa#5\relax\hskip -\@tempskipa
+\else
+\clubpenalty \@clubpenalty
+\everypar{}%
+\fi}%
+\fi
+}
+\hypersetup{pdftex}
+\else
+\def\hyperpage{}
+\fi
+
+%% PACKAGES SMF %%
+\RequirePackage{smfenum,smfthm}
+
+%% AUTRES PACKAGES %%
+\RequirePackage[all,ps,cmtip]{xy}\def\labelstyle{\textstyle}
+\RequirePackage[francais,english]{babel}
+\RequirePackage{ae}
+     \def\selectguillfont{\fontencoding{T1}\fontfamily{ptm}\selectfont}%
+     \def\guillemotleft{{\selectguillfont\symbol{19}}}%
+     \def\guillemotright{{\selectguillfont\symbol{20}}}%
+\RequirePackage{mathrsfs}
+\RequirePackage{url,xspace}
+\RequirePackage{amssymb}
+\RequirePackage{ifthen}
+\RequirePackage{mathrsfs,array,graphicx}
+\RequirePackage{perpage,manyfoot}
+
+%%% FIN DES PACKAGES %%%
+
+%% MACROS EDITEUR (ARXIV) %%
+\newboolean{original}
+\def\sisi{\ifthenelse{\boolean{original}}}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\AtBeginDocument{%
+\renewcommand{\chaptername}{Expos\'e}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theequation}{\arabic{equation}}
+
+\let\oldthesubsection\thesubsection
+\setcounter{secnumdepth}{4}
+\newcounter{yequation}[chapter]
+\newcommand{\steco}{\setcounter{equation}{\value{yequation}}\refstepcounter{yequation}}
+
+
+\theoremstyle{plain}
+\newtheorem{theoreme}[subsection]{Th\'eor\`eme}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{lemme}[subsection]{Lemme}
+\newtheorem{corollaire}[subsection]{Corollaire}
+\newtheorem{corollaires}[subsection]{Corollaires}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{probleme}[subsection]{Probl\`eme}
+\newtheorem{theoremedefinition}[subsection]{Th\'eor\`eme et d\'efinition}
+\newtheorem{subproposition}[subsubsection]{Proposition}
+\newtheorem{propositionblah}[subsubsection]{Proposition}
+\newtheorem{criteredenormalitedeserre}[subsection]{Crit\`ere de normalit\'e de Serre}
+\newtheorem{sublemme}[subsubsection]{Lemme}
+\newtheorem{subsublemme}[paragraph]{Lemme}
+\newtheorem{supproposition}[section]{Proposition}
+\newtheorem{suplemme}[section]{Lemme}
+\newtheorem{suptheoreme}[section]{Th\'eor\`eme}
+\newtheorem{supcorollaire}[section]{Corollaire}
+
+\newtheorem{aconjecture}{Conjecture}[section]
+\renewcommand{\theaconjecture}{\Alph{aconjecture}}
+
+%% And those that do not have their text underlined.
+
+\theoremstyle{remark}
+\newtheorem{definition}[subsection]{D\'efinition}
+\newtheorem{remarque}[subsection]{Remarque}
+\newtheorem{remarques}[subsection]{Remarques}
+\newtheorem{exemple}[subsection]{Exemple}
+\newtheorem{subremarque}[subsubsection]{Remarque}
+\newtheorem{supdefinition}{Definition}[chapter]
+\renewcommand{\thesupdefinition}{\arabic{supdefinition}}
+
+\newtheorem*{remarquestar}{Remarque}
+
+\def\qedsymbol{\textup{C.Q.F.D.}}
+\let\CQFD\qed
+\let\cqfd\qed
+
+%% Pages de l'original
+\newcounter{pageoriginal}
+%\renewcommand{\thepageoriginal}{\arabic{pageoriginal}}
+\newcommand{\pageoriginale}{\refstepcounter{pageoriginal}\marginpar{\footnotesize\textbf{\thepageoriginal}}\xspace}
+\let\pageoriginaled\pageoriginale
+
+%% Footnotes
+\newcounter{toto}
+
+\DeclareNewFootnote{AG}
+\MakePerPage{footnoteAG}
+\def\@fnsymbol#1{\ifcase#1\hbox{}\or *\or **\or ***\or ****\or *****\or
+******\or ******* \else\fi\relax}
+\def\thefootnoteAG{\fnsymbol{footnoteAG}}
+
+\let\sfootnote\footnoteAG
+\let\sfootnotemark\footnotemarkAG
+\let\sfootnotetext\footnotetextAG
+
+
+\DeclareNewFootnote{NDE}
+\numberwithin{footnoteNDE}{chapter}
+\def\thefootnoteNDE{\arabic{footnoteNDE}}
+
+% Red\'efinition partielle du style d'affichage des notes
+\long\def\FootnotetextNDE {\MFL@fnoteplainNDE {\footinsNDE }}
+\long\def\MFL@fnoteplainNDE#1#2#3{\NCC@makemark{#2}%
+  \MFL@insert#1{\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \hsize\MFL@columnwidth \@parboxrestore
+    \protected@edef\@currentlabel{\@thefnmark}%
+    \color@begingroup
+      \@makefntext{%
+        \rule\z@\footnotesep\textup{N.D.E.~:\unskip\ #3}\@finalstrut\strutbox}%
+    \color@endgroup
+  }%
+}
+
+\AtBeginDocument{\sisi{\let\ndemark\null}{\let\ndemark\footnotemarkNDE}}
+\def\nde#1{\sisi{}{\footnoteNDE{#1}}}
+\def\ndetext#1{\sisi{}{\footnotetextNDE{#1}}}
+
+%% The choice for the script font. Some underlined math symbols become
+%% script. For example: \mathcal{O} for structure sheaves.
+
+\let\mathcal\mathscr
+
+\let\rm\mathrm
+\let\it\mathit
+\let\bf\mathbf
+\let\cal\mathcal
+
+\def\Aa{{\mathcal A}}
+\def\Bb{{\mathcal B}}
+\def\Cc{{\mathcal C}}
+\def\Dd{{\mathcal D}}
+\def\Ee{{\mathcal E}}
+\def\Ff{{\mathcal F}}
+\def\Gg{{\mathcal G}}
+\def\Hh{{\mathcal H}}
+\def\Ii{{\mathcal I}}\newcommand{\SheafI}{\protect{\sisi{I}{\mathcal I}}}
+\def\Jj{{\mathcal J}}
+\def\Kk{{\mathcal K}}
+\def\Ll{{\mathcal L}}
+\def\Mm{{\mathcal M}}
+\def\Nn{{\mathcal N}}
+\def\Oo{{\mathcal O}}
+\def\Pp{{\mathcal P}}
+\def\Qq{{\mathcal Q}}
+\def\Rr{{\mathcal R}}
+\def\Ss{{\mathcal S}}
+\def\Tt{{\mathcal T}}
+\def\Uu{{\mathcal U}}
+\def\Vv{{\mathcal V}}
+\def\Ww{{\mathcal W}}
+\def\Xx{{\mathcal X}}
+\def\Yy{{\mathcal Y}}
+\def\Zz{{\mathcal Z}}
+
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\LL}{\mathbf{L}}%\renewcommand{\L}{\mathbf{LL}}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\PP}{{\mathbf P}}
+\newcommand\QQ{\mathbf{Q}}
+\newcommand{\bS}{{\mathbf S}}
+\newcommand\ZZ{\mathbf{Z}}
+
+\newcommand{\ideal}[1]{\mathfrak{#1}}
+\newcommand{\aaa}{\ideal a}
+\newcommand{\pp}{\ideal p}
+\newcommand{\qq}{\ideal q}
+\newcommand{\rr}{\ideal r}
+\newcommand{\mm}{\ideal m}
+\newcommand{\m}{\ideal m}
+
+%% Faisceaux sur les schemas formels
+
+\newcommand{\formelF}{\mathfrak{F}}
+\newcommand{\formelG}{\mathfrak{G}}
+\newcommand{\formelX}{\mathfrak{X}}
+
+%% Macros. See AMSLaTex user's guide for explanations.
+
+\def\rest#1{_{|#1}}
+
+\def\sheaf#1{\protect\underline{#1}}
+\newcommand{\Ab}{\underline{\mathrm{Ab}}}
+\newcommand{\CJ}{\underline{C}_J}
+\newcommand{\ccat}{\underline{\mathrm{C}}}
+\newcommand{\DDJ}{\underline{D}_J}
+\newcommand{\cF}{\underline{\mathrm{F}}}
+\newcommand{\HH}{\underline{H}}
+\newcommand{\SheafGamma}{\protect{\underline \Gamma}}
+\newcommand{\Sheafphi}{\protect{\underline \varphi}}
+
+\newcommand{\uH}{\underset{\raisebox{1pt}{$\sim$}}{\mathrm{H}}}
+
+\def\Annp{\mathrm{Ann}.\,}
+\def\dimpt{\mathrm{dim}.\,}
+\def\codimpt{\mathrm{codim}.\,}
+\def\profp{\mathrm{prof}.\,}
+
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Ass}{Ass}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\cd}{cd}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\codimh}{codh}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\colong}{colong}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\degtr}{deg\,tr}
+
+\DeclareMathOperator{\dimp}{dp}
+\DeclareMathOperator{\E}{E}
+\newcommand{\Et}{\mathbf{Et}}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\SheafExt}{\underline{Ext}}
+\DeclareMathOperator{\Fa}{F}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ga}{G}
+\DeclareMathOperator{\geom}{g\acute{e}om}
+\DeclareMathOperator{\gl}{gl}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\rH}{H}\let\H\rH
+\DeclareMathOperator{\SheafH}{\underline{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\SheafHom}{\underline{Hom}}
+\DeclareMathOperator{\hop}{hop}
+\DeclareMathOperator{\h}{\underline{H}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Imm}{Im}\let\Im\Imm
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Lef}{Lef}
+\DeclareMathOperator{\Leff}{Leff}
+\DeclareMathOperator{\leff}{\ell eff}
+\DeclareMathOperator{\longueur}{long}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\prof}{prof}
+\DeclareMathOperator{\profet}{prof\;\acute{e}t}
+\DeclareMathOperator{\profgeom}{prof\;g\acute{e}om}
+
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\SheafProj}{\mathbf{Proj}}
+\DeclareMathOperator{\SheafPic}{\mathbf{Pic}}
+\DeclareMathOperator{\R}{R}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\catSch}{\mathbf{Sch}}
+\DeclareMathOperator{\Supp}{Supp} \let\supp\Supp
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\variete}{V}
+
+\newcommand{\danger}{%
+\marginpar{\hfil\smash{\includegraphics{danger}}\parfillskip=0pt\par}}
+
+\newcommand{\boule}{{\raisebox{0.2ex}{$\scriptscriptstyle\bullet$}}}
+\newcommand{\OX}{\mathcal{O}_X}
+\newcommand{\OXx}{\mathcal{O}_{X, x}}
+\newcommand{\omx}{\Omega_{X/k}}
+\def\afortiorio{a~fortiori\xspace}
+\def\afortiorin{\textit{a~fortiori}\xspace}
+\def\afortiori{\sisi{\afortiorio}{\afortiorin}}
+\newcommand\Lcal{L}
+\newcommand{\et}{{\textup{\'et}}}
+\newcommand{\Isom}{\textup{Isom}}
+
+\def\noo{\hbox{${}^\circ$}}
+
+\typeout{Style Option: `Upshape Caps letters in math mode'}
+\DeclareMathSymbol{A}{\mathalpha}{operators}{`A}%
+\DeclareMathSymbol{B}{\mathalpha}{operators}{`B}%
+\DeclareMathSymbol{C}{\mathalpha}{operators}{`C}%
+\DeclareMathSymbol{D}{\mathalpha}{operators}{`D}%
+\DeclareMathSymbol{E}{\mathalpha}{operators}{`E}%
+\DeclareMathSymbol{F}{\mathalpha}{operators}{`F}%
+\DeclareMathSymbol{G}{\mathalpha}{operators}{`G}%
+\DeclareMathSymbol{H}{\mathalpha}{operators}{`H}%
+\DeclareMathSymbol{I}{\mathalpha}{operators}{`I}%
+\DeclareMathSymbol{J}{\mathalpha}{operators}{`J}%
+\DeclareMathSymbol{K}{\mathalpha}{operators}{`K}%
+\DeclareMathSymbol{L}{\mathalpha}{operators}{`L}%
+\DeclareMathSymbol{M}{\mathalpha}{operators}{`M}%
+\DeclareMathSymbol{N}{\mathalpha}{operators}{`N}%
+\DeclareMathSymbol{O}{\mathalpha}{operators}{`O}%
+\DeclareMathSymbol{P}{\mathalpha}{operators}{`P}%
+\DeclareMathSymbol{Q}{\mathalpha}{operators}{`Q}%
+\DeclareMathSymbol{R}{\mathalpha}{operators}{`R}%
+\DeclareMathSymbol{S}{\mathalpha}{operators}{`S}%
+\DeclareMathSymbol{T}{\mathalpha}{operators}{`T}%
+\DeclareMathSymbol{U}{\mathalpha}{operators}{`U}%
+\DeclareMathSymbol{V}{\mathalpha}{operators}{`V}%
+\DeclareMathSymbol{W}{\mathalpha}{operators}{`W}%
+\DeclareMathSymbol{X}{\mathalpha}{operators}{`X}%
+\DeclareMathSymbol{Y}{\mathalpha}{operators}{`Y}%
+\DeclareMathSymbol{Z}{\mathalpha}{operators}{`Z}%
+
+%% In order to avoid too many overfull hboxes and so on for the
+%% moment.
+
+\sloppy
+
+%% AJOUTS SMF %%
+
+%% MODIFICATION DES STANDARDS %%
+\ps@headings
+\def\th@plain{%
+  \let\thm@indent\noindent
+  \thm@headfont{\fontfamily{ptm}\bfseries\itshape}%
+  \thm@notefont{\fontfamily{ptm}\bfseries\upshape}%
+  \thm@preskip.5\linespacing \@plus .5\linespacing
+  \thm@postskip\thm@preskip
+  \thm@headpunct{\pointrait}
+  \let\thmheadnl\relax
+  \itshape }
+\def\abstractheadfont{\fontfamily{ptm}\bfseries\itshape}
+\def\@savehyphenpenalty{\xdef\@tmphyphpenalty{\the\hyphenpenalty}}
+\def\@restorehyphenpenalty{%
+  \expandafter\expandafter\global\expandafter\hyphenpenalty\@tmphyphpenalty}
+\DeclareRobustCommand{\emergencyhyphenate}{\global\hyphenpenalty9999\relax}
+\def\@tocline#1#2#3#4#5#6#7{\relax
+  \@savehyphenpenalty
+  \ifnum #1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty\addvspace{#2}%
+    \begingroup \hyphenpenalty\tochyphenpenalty
+    \@ifempty{#4}{%
+      \@tempdima\csname r@tocindent\number#1\endcsname\relax
+    }{%
+      \@tempdima#4\relax
+    }%
+    \parindent\z@ \leftskip#3\relax
+      \advance\leftskip\@tempdima\relax
+    \advance\rightskip\@pnumwidth % plus1em
+    \parfillskip-\@pnumwidth
+    {#5{\leavevmode\hskip-\@tempdima #6}}%
+    \hskip 1ex\nobreak
+    \xleaders\hbox to1ex{\normalfont\hss.\hss}\hfil\nobreak
+    \hbox to\@pnumwidth{\@tocpagenum{#7}}\par
+    \nobreak
+    \endgroup
+  \fi
+  \@restorehyphenpenalty}
+
+
+%% PAGES DE TITRE %%
+\def\smf@titlei{\clearpage\thispagestyle{empty}
+\setcounter{page}{3}
+\vspace*{-2cm}\enlargethispage{2cm}
+\bgroup
+\begin{center}\bfseries\smf@boldmath
+\mbox{ }
+\vfil\vfil
+{\large\bfseries\MakeUppercase{%
+S\'eminaire de G\'eom\'etrie Alg\'ebrique du~Bois~Marie}
+\par\medskip
+1962
+\par\vspace*{1cm}
+\huge\bfseries\MakeUppercase{%
+Cohomologie locale des~faisceaux coh\'erents et\\ th\'eor\`emes de Lefschetz\\ locaux et globaux} \par\medskip
+\smaller (SGA 2)
+%
+\par}
+\vfil
+\def\and{\par\medskip}\centering
+{\LARGE Alexander Grothendieck\par\vspace*{.5cm}
+\smaller\smaller (r\'edig\'e par un groupe d'auditeurs)\par\vspace*{.5cm}
+\larger
+Augment\'e d'un expos\'e de
+\\
+Mme Mich\`ele Raynaud\par
+\vspace*{1.5cm} \smaller
+{\fontfamily{ptm}\bfseries\itshape \'Edition recompos\'ee
+\ifthenelse{\boolean{original}}{}{et annot\'ee}
+du volume 2\\ des Advanced Studies in Pure Mathematics\\
+publi\'e en 1968 par North-Holland Publishing Company}\par}
+\vfil\vfil
+\mbox{ }
+\end{center}
+\vfilneg
+\egroup}
+
+\def\smf@titleii{}
+\def\smf@titleiii{}
+
+%% BIBLIOGRAPHIE %%
+\def\bibliofont{\def\baselinestretch{1}\normalfont}
+\renewenvironment{thebibliography}[1]{%
+\section*{\bibname}%
+\normalfont\labelsep .5em\relax
+\renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+\list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+\itemindent 0pt
+\leftmargin\labelwidth \advance\leftmargin\labelsep
+\usecounter{enumiv}}%
+\itemsep 0.1\baselineskip plus0.1\baselineskip
+minus0.1\baselineskip
+\bibliofont
+\sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+\sfcode`\.=\@m
+}{%
+\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+\endlist
+}
+
+
+%% AUTRES MACROS %%
+\let\makeschapterhead\@makeschapterhead
+
+\arraycolsep1.5pt
+\marginparwidth=20pt
+
+\newcommand{\RedefinitSymbole}[1]{%
+\expandafter\let\csname old\string#1\endcsname=#1
+\let#1=\relax
+\newcommand{#1}{\csname old\string#1\endcsname\,}%
+}
+\RedefinitSymbole{\forall} \RedefinitSymbole{\exists}
+
+\def\to{\mathchoice{\longrightarrow}{\rightarrow}{\rightarrow}{\rightarrow}}
+\def\from{\mathchoice{\longleftarrow}{\leftarrow}{\leftarrow}{\leftarrow}}
+\def\mto{\mathchoice{\longmapsto}{\mapsto}{\mapsto}{\mapsto}}
+\def\mfrom{\mathrel{\from\joinrel\mapstochar\,}}
+\def\hto{\mathrel{\lhook\joinrel\to}}
+\def\To{\mathchoice{\Longrightarrow}{\Rightarrow}{\Rightarrow}{\Rightarrow}}
+\def\From{\mathchoice{\Longleftarrow}{\Leftarrow}{\Leftarrow}{\Leftarrow}}
+\def\lto#1{\mathchoice{\xrightarrow{\labelstyle~~#1~}}{\stackrel{#1}{\longrightarrow}}{}{}}
+\def\Ssi{\mathchoice{\Longleftrightarrow}{\Leftrightarrow}{\Leftrightarrow}{\Leftrightarrow}}
+\def\mlto#1{\mathrel{\mapstochar\lto{#1}}}
+\def\lfrom#1{\mathchoice{\xleftarrow{\labelstyle~~#1~}}{\stackrel{#1}{\longleftarrow}}{}{}}
+
+\newcommand{\isomto}{\overset{\sim}{\longrightarrow}}
+\newcommand{\isomfrom}{\overset{\sim}{\longleftarrow}}
+
+\newcommand{\SSI}{\unskip~$\Ssi$~\ignorespaces}
+\newcommand{\ALORS}{\unskip~$\To$~\ignorespaces}
+
+\let\leq\leqslant
+\let\geq\geqslant
+\let\le\leqslant
+\let\ge\geqslant
+
+\def\cf{{cf.}\kern.3em}
+\def\Cf{{Cf.}\kern.3em}
+\def\ie{{i.e.}\kern.3em}
+\def\iev{{i.e.},\xspace}
+\def\loccito{loc.\kern2pt cit.\xspace}
+\def\loccitn{\textit{loc.\kern2pt cit.}\xspace}
+\def\loccit{\sisi{\loccito}{\loccitn}}
+\def\EGA{\textup{EGA}\kern.2em}
+\def\SGA{\textup{SGA}\kern.3em}
+
+\let\oldS\S
+\def\S{\oldS\kern .15em}
+\def\ptbl{.\kern .2em}
+\def\resp{resp.\kern.3em}
+\def\Exp{Exp.\kern.3em}
+
+\let\bar\overline
+\let\hat\widehat
+\let\tilde\widetilde
+\let\dpl\displaystyle
+\let\skpt\skippointrait
+
+\newcommand{\bbmu}{\boldsymbol{\mu}}
+\newcommand{\bbf}{\boldsymbol{f}}
+\newcommand{\bbg}{\boldsymbol{g}}
+\newcommand{\bbh}{\boldsymbol{h}}
+
+\newcommand{\Ref}[1]{\textup{\ref{#1}}}
+%%Les references utilisent \Ref ou \eqref, en \textup
+
+\def\llbracket{[\![}
+\def\rrbracket{]\!]}
+
+\def\quoi{}
+%% Mis avant la ponctuation des formules,
+%% pour unifier des espacements variables
+
+\def\tbigoplus{\mathop{\textstyle\bigoplus}\limits}
+\def\tbigotimes{\mathop{\textstyle\bigotimes}\limits}
+\def\tbigcap{\mathop{\textstyle\bigcap}\limits}
+\def\tbigwedge{\mathop{\textstyle\bigwedge}\limits}
+
+\AtBeginDocument{\newenvironment{enumeratei}
+{\bgroup\def\theenumi{\roman{enumi}}\def\theenumii{\arabic{enumii}}\begin{enumerate}}
+{\end{enumerate}\egroup}
+\newenvironment{enumeratea}
+{\bgroup\def\theenumi{\alph{enumi}}\def\labelenumi{\textup{\theenumi)}}%
+\begin{enumerate}}
+{\end{enumerate}\egroup}}
+
+%% POUR XY %%
+\newdir^{ (}{{}*!/-5pt/\dir^{(}}
+\newdir_{ (}{{}*!/-5pt/\dir_{(}}
+
+
+%% PARENTHESES DROITES MEME EN ITALIQUE %%
+\input{ursfs.fd}
+\ifpdf
+\RequirePackage{color}
+\else
+\fi
+
+%% Introduits a cause d'une incompatibilite avec ce qui suit
+
+\let\oparen(
+\let\fparen)
+
+% \edef\shortitdefault{\itdefault}
+
+\catcode`\(\active
+\catcode`\)\active
+\def({\ifmmode\oparen\else\textup\oparen\fi}
+\def){\ifmmode\fparen\else\textup\fparen
+% \ifx\f@shape\shortitdefault\!\fi
+\fi}
+
+\let\oldxymatrix\xymatrix
+\def\xymatrix{\let(\oparen\let)\fparen\oldxymatrix}
+%Correction pour la compatibilite avec xyPic
+%Ce n'est pas parfait !
+

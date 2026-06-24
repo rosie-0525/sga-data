@@ -1,0 +1,413 @@
+\chapter{Le th\'eor\`eme de finitude} \label{VIII}
+
+\section[Une suite spectrale de bidualit\'e]
+{Une suite spectrale de bidualit\'e}\label{VIII.1}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\'Enon\c cons le r\'esultat auquel nous d\'esirons parvenir:
+
+\begin{proposition} \label{VIII.1.1} Soit $A$ un anneau noeth\'erien et soit $I$ un id\'eal de $A$. Posons $X=\Spec(A)$ et $Y=V(I)$. Soit $M$ un $A$-module \emph{de type fini et de dimension projective finie}. Soit ${\Fa}=\widetilde{M}$ le $\OX$-Module associ\'e \`a $M$.
+\begin{enumerate}
+\item[\textup{1)}] Il existe une suite spectrale:
+\[
+\H_Y(X, {\Fa}) \Longleftarrow \Ext^p_Y(\Ext^{-q}(M, A), A).
+\]
+
+\item[\textup{2)}] Il existe une suite spectrale:
+\[
+\mathop{\underline{\mathrm{H}}}\nolimits_Y(X, {\Fa}) \Longleftarrow \mathop{\underline{\mathrm{Ext}}}\nolimits^p_Y(\mathop{\underline{\mathrm{Ext}}}\nolimits^{-q}({\Fa}, \OX), \OX).
+\]
+\end{enumerate}
+\end{proposition}
+
+Bien entendu, 2) se d\'eduit de 1) en remarquant que, si $M$ et $N$ sont deux $A$-modules de type fini et si l'on pose ${{\Fa}}=\widetilde{M}$ et ${{\Ga}}=\widetilde{N}$, on~a des isomorphismes:
+\begin{align*}
+\mathop{\underline{\mathrm{H}}}\nolimits_Y({\Fa}) &\approx \widetilde{\H_Y(X, {\Fa})}, \\
+\mathop{\underline{\mathrm{Ext}}}\nolimits_Y({\Fa}, {\Ga}) &\approx \widetilde{\Ext_Y({\Fa}, {\Ga}}), \\
+\mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}({\Fa}, {\Ga}) &\approx \widetilde{\Ext_A(M, N)}.
+\end{align*}
+
+Soit $\ccat$ la cat\'egorie des $A$-modules, et $\Ab$ celle des groupes ab\'eliens. Soit ${\cF}$ le foncteur:
+\begin{align*}
+\cF: \ccat&\to \Ab \quad\text{défini par} \\
+ M &\rightsquigarrow \Gamma_Y(\widetilde{M}).
+\end{align*}
+
+On sait depuis l'expos\'e \ref{II} qu'il existe un isomorphisme de $\partial$-foncteurs:
+\[
+\H^\ast_Y(X, \widetilde{M})\approx \R^\ast {\cF}(M).
+\]
+De plus, soient $\Ext^\ast_Y$ les foncteurs d\'eriv\'es droits en le deuxi\`eme argument de
+\[{\cF}\circ \Hom\colon \ccat^\circ \times \ccat \to \Ab.
+\]
+On sait depuis l'expos\'e \ref{VI} que l'on a un isomorphisme de $\partial$-foncteurs:
+\[
+\Ext^\ast_Y(M, N)\simeq \Ext^\ast_Y(\widetilde{M}, \widetilde{N}).
+\]
+Retenons enfin le r\'esultat suivant de l'expos\'e \ref{VI}: si $C$ est un $A$-module injectif et si $N$ est un $A$-module de type fini, le faisceau $\mathop{\underline{\mathrm{Hom}}}\nolimits(\widetilde{N}, \widetilde{C})\approx\widetilde{\Hom(N, C)}$ est \emph{flasque}, donc $\R^1{\cF}(\Hom(N, C))=0$.
+
+Il nous reste \`a d\'emontrer le r\'esultat suivant:
+
+\begin{lemme} \label{VIII.1.2} Soit $A$ un anneau noeth\'erien et soit $\ccat$ la cat\'egorie des $A$-modules. Soit ${\cF}\colon \ccat\to\Ab$ un foncteur additif exact \`a gauche tel que, pour tout $A$-module $N$ \ignorespaces et tout $A$-module \emph{injectif} $C$, on ait $\R^1{\cF}(\Hom(N, C))=0$. Soit $M$ un $A$-module de type fini et de dimension projective finie. Il existe une suite spectrale:
+\[
+\R^\ast {\cF}(M)\Longleftarrow \Ext^p_{{\cF}}(\Ext^{-q}(M, A), A), \]
+o\`u $\Ext^p_{{\cF}}$ d\'esigne le $p$-i\`eme foncteur d\'eriv\'e droit de ${\cF}\circ \Hom$.
+\end{lemme}
+
+\emph{Nous ne considérerons que des complexes dont la différentielle est de degré $+1$}. D'apr\`es l'hypoth\`ese faite sur $M$, il existe une r\'esolution \emph{libre} de $M$ de longueur finie:
+\[u\colon L^\bullet \to M, \]
+o\`u, de plus, les $L^p$ sont des modules de \emph{type fini} et $L^p=0$ si $p\not\in[-n, 0]$. Soit par ailleurs, $v\colon M\to I^\bullet$ une r\'esolution injective de $M$. Je dis que
+\begin{equation} \label{eq:VIII.1.1} v\circ u\colon L^\bullet\to I^\bullet
+\end{equation}
+est une r\'esolution injective de $L^\bullet$. Il convient de pr\'eciser ce que cela signifie.
+
+\begin{definition} \label{VIII.1.3} Soit $X^\bullet$ un complexe de $A$-modules; on appelle r\'esolution injective de $X^\bullet$ un homomorphisme de complexes:
+\[x\colon X^\bullet\to CX^\bullet, \]
+tel que $CX^p$ soit injectif pour tout $p\in \ZZ$, et que $x$ induise un isomorphisme en homologie.
+\end{definition}
+
+\begin{proposition} \label{VIII.1.4} Tout complexe limit\'e \`a gauche, i.e. tel qu'il existe $q\in\ZZ$ avec $X^p=0$ pour $p<q$, admet une r\'esolution injective. De plus, si $u\colon X^\bullet\to Y^\bullet$ est un homomorphisme de complexes (limit\'es \`a gauche) et si $x\colon X^\bullet \to CX^\bullet$ et $y\colon Y^\bullet\to CY^\bullet$ sont des r\'esolutions injectives de $X^\bullet$ et $Y^\bullet$, il existe un homomorphisme de complexes:
+\[Cu\colon CX^\bullet\to CY^\bullet, \]
+unique \`a homotopie pr\`es, tel que le diagramme:
+\[
+\xymatrix{ X^\bullet \ar[r]^x\ar[d]_u & CX^\bullet\ar[d]^{Cu} \\
+Y^\bullet \ar[r]^y & CY^\bullet \\
+}\]
+soit commutatif \`a homotopie pr\`es.
+\end{proposition}
+
+La d\'emonstration est laiss\'ee au lecteur\footnote{Cf. aussi H.~Cartan - S.~Eilenberg, Homological Algebra, Princeton University Press, 19}.
+
+Rappelons une notation introduite dans l'expos\'e \ref{V}.
+
+\subsection*{Notation}
+Soient $X^\bullet$ et $Y^\bullet$ deux complexes. On note $\Hom^\bullet(X^\bullet, Y^\bullet)$ le \emph{complexe simple} dont la composante de degr\'e $n$ est
+\[(\Hom^\bullet(X^\bullet, Y^\bullet))^n=\prod_{-p+q=n}\Hom(X^p, Y^q)\]
+not\'ee aussi $\Hom^n(X^\bullet, Y^\bullet)$, et dont la diff\'erentielle est donn\'ee par:
+\begin{gather*}
+\partial_n\colon \Hom^n(X^\bullet, Y^\bullet)\to \Hom^{n+1}(X^\bullet, Y^\bullet)\\
+\partial_n=d'+(-1)^{n+1}d'',
+\end{gather*}
+o\`u $d'$ et $d''$ sont les diff\'erentielles (de degr\'e $+1$) induites par celles de $X^\bullet$ et de $Y^\bullet$.
+
+\setcounter{equation}{1} Soit alors $A^\bullet$ le complexe d\'efini par $A^p=0$ si $p\neq 0$ et $A^0=A$. Soit
+\[a\colon A^\bullet \to CA^\bullet\]
+une r\'esolution injective de $A^\bullet$. Consid\'erons le double complexe:
+\begin{equation} \label{eq:VIII.1.2} Q^{p, q}=\Hom(\Hom(L^q, A), CA^p).
+\end{equation}
+La premi\`ere suite spectrale du bicomplexe ${\cF}Q^{\bullet\bullet}$ donnera la conclusion du lemme \ref{VIII.1.2}.
+
+Posons
+\begin{equation} \label{eq:VIII.1.3} {L'}^\bullet=\Hom^\bullet(L^\bullet, A^\bullet),
+\end{equation}
+et
+\begin{equation} \label{eq:VIII.1.4} P^\bullet=\Hom^\bullet({L'}^\bullet, CA^\bullet).
+\end{equation}
+
+On voit facilement que $P^\bullet$ est le complexe simple associ\'e \`a $Q^{\bullet\bullet}$. Calculons l'aboutissement de la suite spectrale i.e. l'homologie de ${\cF}P^\bullet$. Pour cela, utilisant le fait que $L^\bullet$ est libre de type fini en toute dimension, on prouve que $L^\bullet$ est isomorphe \`a $\Hom^\bullet({L'}^\bullet, A^\bullet)$. De l'homomorphisme $a\colon A^\bullet\to CA^\bullet$, on d\'eduit un homomorphisme:
+\[b\colon \Hom^\bullet({L'}^\bullet, A^\bullet)\to \Hom^\bullet({L'}^\bullet, CA^\bullet), \]
+ou encore, un homomorphisme
+\begin{equation} \label{eq:VIII.1.5} c\colon L^\bullet\to P^\bullet.
+\end{equation}
+Ceci dit, il est facile de voir, en utilisant le fait que ${L'}^\bullet$ est libre de type fini en toute dimension et limit\'e \`a gauche, que (\ref{eq:VIII.1.5}) est une r\'esolution injective de $L^\bullet$. Utilisant la proposition \ref{VIII.1.4}., on en conclut que $P^\bullet$ est homotopiquement \'equivalent \`a $I^\bullet$, o\`u $I^\bullet$ est la r\'esolution injective de $M$ introduite plus haut (\ref{eq:VIII.1.1}). On en d\'eduit que l'\emph{aboutissement} de la premi\`ere suite spectrale du double complexe ${\cF}Q^{\bullet\bullet}$, qui est $\H^\ast({\cF}P^\bullet)$, \emph{est isomorphe} \`a $\R^\ast {\cF}(M)$.
+
+Le terme initial de la premi\`ere suite spectrale du bicomplexe ${\cF}Q^{\bullet\bullet}$ est:
+\[
+\E^{p, q}_2 = {'\!\H}^p({''\!\H}^q({\cF}Q^{\bullet\bullet})).
+\]
+
+Pour tout $p\in\ZZ$, $CA^p$ est injectif. D'apr\`es l'hypoth\`ese faite sur ${\cF}$, le foncteur:
+\[
+N \rightsquigarrow {\cF}\Hom(N, CA^p)\]
+est exact. D'o\`u l'on d\'eduit des isomorphismes:
+\[
+{''\!\H}^q({\cF}\Hom({L'}^\bullet, CA^p))\approx {\cF}\Hom(\H^{-q}({L'}^\bullet), CA^p).
+\]
+D'apr\`es la d\'efinition de $\Ext^\ast_{{\cF}}$ comme foncteur d\'eriv\'e de ${\cF}{^\ast}\Hom$, on en d\'eduit des isomorphismes:
+\[
+\E^{p, q}_2 \approx \Ext^p_{{\cF}}(\H^q({L'}^\bullet), A).
+\]
+Or ${L'}^\bullet=\Hom^\bullet(L^\bullet, A^\bullet)$, o\`u $L^\bullet$ est une r\'esolution libre de $M$ d'o\`u des isomorphismes:
+\[
+\Ext^{q}(M, A)\approx \H^q({L'}^\bullet),
+\]
+ce qui donne la conclusion.\qed
+
+\section{Le th\'eor\`eme de finitude} \label{VIII.2}
+
+\refstepcounter{subsection}\label{VIII.2.1}
+\begin{enonce*}{Th\'eor\`eme 2.1\ndemark}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ partie ferm\'ee de $X$ et $F$ un $\OX$-Module coh\'erent.
+Supposons que $X$ soit localement immergeable dans un pr\'esch\'ema r\'egulier\footnote{Cette condition peut se g\'en\'eraliser en l'hypoth\`ese d'existence localement sur $X$, d'un \og complexe dualisant\fg, au sens d\'efini dans R.\, Hartshorne, Residues and duality (cit\'e dans \Exp \ref{IV} p.\,23).}. Soit $i\in\ZZ$. Supposons que:
+\begin{enumeratea}
+\item
+pour tout $x\in U=X-Y$, on a
+\[
+\H^{i-c(x)}({F}_x)=0,
+\]
+o\`u l'on a pos\'e\,:
+\begin{equation} \label{eq:VIII.2.1} c(x)=\codim (\overline{\{x\}}\cap Y, \overline{\{x\}}).
+\end{equation}
+Alors:
+\item
+$\mathop{\underline{\mathrm{H}}}\nolimits^i_Y(F)$ est coh\'erent.
+\end{enumeratea}
+\end{enonce*}
+
+\refstepcounter{subsection}\label{VIII.2.2}
+\begin{enonce*}{Corollaire 2.2\ndemark}
+Sous les hypoth\`eses du th\'eor\`eme pr\'ec\'edent, la condition \textup{a)} est \'equivalente \`a:
+
+\begin{enumerate}
+\item[\textup{c)}] pour tout $x\in U$ tel que $c(x)=1$, on~a $\H^{i-1}(F_x)=0$.
+\end{enumerate}
+\end{enonce*}
+
+\begin{corollaire} \label{VIII.2.3} \emph{Soient} $X$ un pr\'esch\'ema localement noeth\'erien et localement immergeable dans un pr\'esch\'ema r\'egulier, $Y$ une partie ferm\'ee de $X$, $F$ un $\OX$-Module coh\'erent, $n$ un entier. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+pour tout $x\in U$, on~a $\prof F_x>n-c(x)$;
+\item
+pour tout $x\in U$ tel que $c(x)=1$, on~a $\prof F_x\geq n$;
+\item
+pour tout $i\in \ZZ$, $\mathop{\underline{\mathrm{H}}}\nolimits^i_Y(F)$ est coh\'erent si $i\leq n$.
+\item
+$\R^ii_\ast(F_{|U})$ est coh\'erent pour $i<n$\ .
+\end{enumeratei}
+\end{corollaire}
+
+Supposons ces r\'esultats acquis lorsque $X$ est le spectre d'un anneau noeth\'erien r\'egulier $A$ et lorsque $F$ est le faisceau associ\'e \`a un $A$-module de dimension projective finie.
+
+Remarquons d'abord que, si $(X_j)_{j\in
+J}$ est un recouvrement ouvert de $X$ par des ouverts, chacune des conditions
+ci-dessus est \'equivalente \`a la conjonction des conditions
+analogues obtenues en rempla\c cant $X$ par~$X_j$, $Y$ par
+$Y_j=Y\cap X_j$ et $F$ par
+$F{|X_j}$. En effet, seules les conditions
+faisant intervenir $c(x)$ peuvent faire une difficult\'e. Soit $x\in
+U$. Si $x\in X_j$, posons
+\[
+c_j(x)=\codim(X_j\cap \overline{\{x\}}\cap Y, X_j\cap\overline{\{x\}}),
+\]
+on a n\'ecessairement $c_j(x)\geq c(x)$. Soit $y\in
+\overline{\{x\}}\cap Y$, qui \og donne la codimension\fg, i.e. tel
+que $c(x)=\dim \Oo_{\overline{\{x\}}, y}$, soit $X_j$ un ouvert du
+recouvrement tel que $y\in X_j$, alors $x\in X_j$, donc
+$c_j(x)=c(x)$, ce qui permet de conclure.
+
+On choisit un recouvrement de $X$ par des ouverts immergeables dans un pr\'esch\'ema r\'egulier. Appliquant ce qui pr\'ec\`ede, on voit qu'on peut supposer $X$ ferm\'e dans un $X'$ r\'egulier. La r\'eduction \`a $X'$ est alors imm\'ediate.
+
+On peut donc supposer $X$ r\'egulier, et m\^eme affine en recouvrant $X$ par des ouverts affines. Que l'on puisse supposer que $F=\widetilde{M}$, o\`u $M$ est de dimension projective finie r\'esultera du lemme suivant:
+
+\begin{lemme} \label{VIII.2.4}
+Soit $X$ un pr\'esch\'ema noeth\'erien r\'egulier. Soit $F$ un $\OX$-Module coh\'erent. La fonction qui \`a tout $x\in X$ associe la dimension projective de $F_x$ est born\'ee sup\'erieurement.
+\end{lemme}
+
+\setcounter{equation}{1}
+
+Soit en effet $x\in X$ et soit $U$ un voisinage ouvert affine de $x$. Soit $L^\bullet$ une r\'esolution projective du module $F(U)$, o\`u les $L^i$ sont de type fini. Par hypoth\`ese, l'anneau $\Oo_{X, x}$ est r\'egulier, donc la dimension projective de $F_x$ est finie; soit $d$ cet entier. Soit
+\[
+K=\ker(L^{d-1}\to L^{d-2}).
+\]
+Le module $K_x$ est libre, car $d$ est la dimension projective de $F_x$ ([M], Ch.\, VI. Prop.\, 2.1). D'apr\`es ($\EGA 0_{\textup{I}}$~5.4.1 Errata), on en d\'eduit que le $\Oo_U$-Module $\widetilde{K}$ est libre sur un voisinage $U'$ de $x$, $U'\subset U$. Choisissant $f\in \OX(U)$ tel que $D(f)\subset U'$, on~a donc une r\'esolution projective de $M_{f'}$ ($M=F(U)$):
+\[0\to K_f \to (L^{d-1})_f\to \cdots \to M_f\to 0, \]
+ce qui prouve que la fonction \'etudi\'ee est semi-continue sup\'erieurement. Or $X$ est quasi-compact, d'o\`u la conclusion.
+
+Nous supposons d\'esormais $X$ affine noeth\'erien r\'egulier et nous supposons que \hbox{$F=\widetilde{M}$}, o\`u $M$ est un $A$-module de type fini, n\'ecessairement de dimension projective finie. Nous proc\'ederons en plusieurs \'etapes. Tout d'abord, nous trouvons une condition d), \'equivalente \`a a), et prouvons qu'elle \'equivaut \'egalement \`a c). Puis, \`a l'aide de la suite spectrale du num\'ero pr\'ec\'edent, nous prouvons \text{d)}~$\To$~\text{b)}. Il reste alors \`a prouver que \text{(iii)}~$\To$~\text{(ii)}; en effet, \text{(i)}~$\Ssi$~\text{(ii)}~$\To$~\text{(iii)} r\'esulte imm\'ediatement de \text{a)}~$\Ssi$~\text{c)}~$\To$~\text{b)}.
+
+Soit $x\in U$, par hypoth\`ese $\Oo_{X, x}$ est un anneau local r\'egulier; en d\'esignant par $D$ le foncteur dualisant relatif \`a l'anneau local $\Oo_{X, x}$, il r\'esulte de (\ref{V}~\ref{V.2.1}) que:
+\[D\H^{i-c(x)}(F_x)\approx \Ext^{d(x)-i}_{\Oo_{X, x}}(F_x, \Oo_{X, x}), \]
+o\`u l'on a pos\'e
+\begin{equation} \label{eq:VIII.2.2} d(x)=\dim \Oo_{X, x} + c(x) = \dim \Oo_{X, x}+\codim(\overline{\{x\}}\cap Y, \overline{\{x\}}).
+\end{equation}
+Or $X$ est noeth\'erien et $F$ coh\'erent, donc:
+\begin{equation} \label{eq:VIII.2.3} D\H^{i-c(x)}(F_x)\approx (\Ext^{d(x)-i}_{\OX}(F, \OX))_x.
+\end{equation}
+De plus, pour qu'un module soit nul, il faut et il suffit que son dual le soit. Pour tout $q\in\ZZ$, posons:
+\begin{equation} \label{eq:VIII.2.4}
+\begin{cases}
+S_q=\Supp \mathop{\underline{\mathrm{Ext}}}\nolimits^q_{\OX}(F, \OX), \\
+S'_q=S_q\cap U\text{, (}U=X-Y\text{)}, \\
+Z_q=\overline{S'_q}\cap Y.
+\end{cases}
+\end{equation}
+De la formule (\ref{eq:VIII.2.3}), il r\'esulte que a) et c) sont respectivement \'equivalentes \`a
+\begin{enumerate}
+\item[a$'$)]
+pour tout $q\in\ZZ$ et tout $x\in S'_q$, on~a $q+i\neq d(x)$.
+
+\item[c$'$)]
+pour tout $q\in\ZZ$ et tout $x\in S'_q$, si $c(x)=1$, on~a $q+i\neq d(x)$.
+\end{enumerate}
+\noindent Voici la condition d) promise plus haut:
+\begin{enumerate}
+\item[d)]
+pour tout $q\in \ZZ$ et tout $y\in Z_q$, on~a $q+i\neq \dim \Oo_{X, y}$.
+\end{enumerate}
+\noindent Ces conditions sont \'equivalentes:
+
+a$'$) ~$\To$~ c$'$) pour m\'emoire.
+
+d) ~$\To$~ a$'$). En effet, soit $q\in \ZZ$ et soit $x\in S'_q$; soit $y\in\overline{\{x\}}\cap Y$ qui \og donne la codimension\fg, i.e. tel que:
+\begin{equation} \label{eq:VIII.2.5} \dim \Oo_{\overline{\{x\}}, y}=\codim(\overline{\{x\}}\cap Y, \overline{\{x\}})=c(x).
+\end{equation}
+Du fait que $X$ est r\'egulier en $y$, on d\'eduit:
+\begin{equation} \label{eq:VIII.2.6} \dim \Oo_{X, y}=d(x)\quad \text{(cf. (2.2)).}
+\end{equation}
+Mais $y\in\overline{\{x\}}$, donc $y\in Z_q$, d'o\`u la conclusion.
+
+c$'$) ~$\To$~ d). Soit $q\in\ZZ$ et soit $y\in Z_q$. Admettons provisoirement qu'il existe $x\in S'_q$ tel que:
+\[
+\dim \Oo_{\overline{\{x\}}, y}=1\, \text{;}\]
+(on dit aussi que $x$ \emph{suit} $y$). Il en r\'esulte que $c(x)=1$, car $y$ \og donne la codimension de $\overline{\{x\}}\cap Y$ dans $\overline{\{x\}}$\fg, puisque $x\not\in Y$. D'apr\`es c$'$) on en tire
+\[q+i\neq d(x).
+\]
+D'o\`u la conclusion, si l'on remarque que $d(x)=\dim \Oo_{X, y}$ (\ref{eq:VIII.2.6}). Le r\'esultat admis s'exprime dans le lemme suivant:
+
+\begin{lemme} \label{VIII.2.5} Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Y$ une partie ferm\'ee de $X$. Posons $U=X-Y$ et supposons que $U$ est dense dans $X$. Pour tout $y\in Y$, il existe $x\in U$ \og qui le suit\fg, i.e. tel que:
+\[y\in\overline{\{x\}}\text{ et } \dim\Oo_{\overline{\{x\}}, y}=1.
+\]
+\end{lemme}
+
+Nous avons appliqu\'e le lemme en prenant pour $X$ le pr\'esch\'ema $\overline{S'_q}$ et pour $Y$ la partie $Y\cap \overline{S'_q}$.
+
+\begin{proof}[D\'emonstration de~\ref{VIII.2.5}]
+Il existe $x\in U$ tel que $y\in\overline{\{x\}}$; choisissons donc un $x\in U$ tel que $y\in\overline{\{x\}}$ et tel que $\dim \Oo_{\overline{\{x\}}, y}=r$ soit minimal. Il faut prouver que $r=1$. Puisque l'on a choisi $x$ de telle sorte que tout $z\in\overline{\{x\}}$, $z\neq x$, soit dans $Y$, $\{x\}$ est ouvert dans $\Spec(\Oo_{\overline{\{x\}}, y})$. D'o\`u la conclusion.
+\skipqed
+\end{proof}
+
+\emph{La deuxième étape consiste à déduire \textup{b)} de \textup{d)}.}
+
+\noindent Posons $D(Z_q)=\{\dim \Oo_{X, y} \mid y\in Z_q\}$. D'apr\`es d), on sait que, pour tout $q\in\ZZ$, on~a $q+i\not\in D(Z_q)$. On applique alors \ref{VIII.2.2}, et l'on voit que
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^{q+i}_Y(\mathop{\underline{\mathrm{Ext}}}\nolimits^q(F, \OX), \OX) \text{ est cohérent.}\]
+Le terme initial de la suite spectrale du num\'ero pr\'ec\'edent est donn\'e par:
+\[
+\E^{p, q}_2=\mathop{\underline{\mathrm{Ext}}}\nolimits^p_Y(\mathop{\underline{\mathrm{Ext}}}\nolimits^{-q}(F, \OX), \OX).
+\]
+On en d\'eduit que $\E^{p, q}_2$ est coh\'erent pour tout $p\in\ZZ$ et tout $q\in\ZZ$ tels que $p+q=i$. Or il n'y a qu'un nombre fini de couples $(p, q)$ tels que $p+q=i$, et cette suite spectrale converge vers $\mathop{\underline{\mathrm{H}}}\nolimits^\ast_Y(F)$, d'o\`u la conclusion.
+
+\emph{Il nous reste à prouver que \textup{(iii)}~$\To$~\textup{(ii)}.} Notons:
+\[i\colon U\to X\]
+l'immersion canonique de $U$ dans $X$. Compte tenu de la suite exacte d'homologie du ferm\'e $Y$ (\ref{I}~\ref{I.2.11}) on voit que (iii) \emph{équivaut à}:
+
+(iv) $\R^ii_\ast(F_{|U})$ est coh\'erent pour $i<n$. \refstepcounter{toto}\label{condition}
+
+\noindent En effet, on~a une suite exacte:
+\[0\to \mathop{\underline{\mathrm{H}}}\nolimits^0_Y(F)\to F \to i_\ast(F_{|U})\to \mathop{\underline{\mathrm{H}}}\nolimits^1_Y(F) \to 0.
+\]
+Or $\mathop{\underline{\mathrm{H}}}\nolimits^0_Y(F)$ est un sous-faisceau quasi-coh\'erent de $F$ qui est coh\'erent, donc est coh\'erent. Donc $\mathop{\underline{\mathrm{H}}}\nolimits^1_Y(F)$ est coh\'erent si et seulement si $i_\ast(F_{|U})$ l'est. Par ailleurs, si $p>0$, la suite exacte de cohomologie du ferm\'e $Y$ se r\'eduit \`a des isomorphismes:
+\[
+\R^pi_\ast(F_{|U})\overset{\approx}{\to}\mathop{\underline{\mathrm{H}}}\nolimits^{p+1}_Y(F).
+\]
+Nous allons d\'emontrer que (iv) ~$\To$~ (ii). Pour cela, rappelons (ii):
+
+(ii) pour tout $x\in U$ tel que $c(x)=1$, on~a $\prof F_x\geq n$.
+
+Raisonnons par r\'ecurrence sur $n$.
+
+Si $n=0$, les deux conditions sont vides.
+
+Si $n=1$, on suppose que $i_\ast(F{|U})$ est coh\'erent. Raisonnons par l'absurde et supposons qu'il existe $x\in U$ tel que $c(x)=1$ et $\prof F_x=0$, i.e. $x\in \Ass F_x$. Soit $y\in\overline{\{x\}}\cap Y$ tel que $\dim \Oo_{\overline{\{x\}}, y}=1$. Posons:
+\[A=\Oo_{X, y}\text{ et } X'=\Spec(A).
+\]
+
+\setcounter{equation}{6}
+
+Effectuons le changement de base $v\colon X'\to X$, qui est plat.
+\begin{equation} \label{eq:VIII.2.7}
+\begin{array}{c}
+\xymatrix@C=5em{ U'=X'\times_X U\ar[r]^-{v'}\ar[d]_{i'} & U\ar[d]^i \\
+X'\ar[r]^-v & \,X\,.
+}
+\end{array}
+\end{equation}
+Le morphisme $i$ est s\'epar\'e (car c'est une immersion), et de type fini (car c'est une immersion ouverte et $X$ est localement noeth\'erien), le changement de base est plat donc (\EGA III~1.4.15) on~a un isomorphisme:
+\begin{equation} \label{eq:VIII.2.8}
+v^\ast(i_\ast(F|U) \approx i'_\ast({v'}^\ast(F_{|U})).
+\end{equation}
+
+Notons $\underline x$ (resp. $\underline y$) l'id\'eal de $A$ correspondant \`a $x$ (resp. $y$).
+
+Posons ${\Ga}={v'}^\ast(F{}_{|U})$; ${\Ga}$ est coh\'erent et $\underline{x}\in\Ass {\Ga}$, donc il existe un monomorphisme $\Oo_{\overline{\{x\}}}\to {\Ga}$, et par suite $i'_\ast(\Oo_{\overline{\{x\}}}{}_{|U'})$ est coh\'erent. D'apr\`es le choix de~$y$, $\dim A/\underline x=1$, et par suite le support de $\Oo_{\overline{\{x\}}}$ est r\'eduit \`a $\overline{\{\underline x\}}= \{\underline x\}\cup \{\underline y\}$, car $\overline{\{\underline x\}}= \Spec(A/\underline x)$ en tant que sch\'ema. Il en r\'esulte que
+\[(\Oo_{\overline{\{x\}}}{}_{|U'})(U')=\Frac (A/\underline x), \]
+anneau des fractions de $A/\underline x$, et
+\[i'_\ast(\Oo_{\overline{\{x\}}}{}_{|U'})(X')=\Frac(A/\underline x).
+\]
+Mais $\Frac(A/\underline x)$ n'est pas un $A$-module de type fini car $\underline x$ est diff\'erent de l'id\'eal maximal de $A$. D'o\`u une contradiction.
+
+Supposons $n>1$ et le r\'esultat acquis pour les $n'<n$. Par l'hypoth\`ese de r\'ecurrence, pour tout $x\in U$ tel que $c(x)=1$, on~a $x\not\in\Ass F_x$. Soit un tel $x$, et soit $y\in\overline{\{x\}}\cap Y$ tel que $x$ suive $y$, i.e. $\dim\Oo_{\overline{\{x\}}, y}=1$. On effectue le changement de base $v\colon\Spec (\Oo_{X, y})\to X$ en conservant les notations du diagramme (\ref{eq:VIII.2.7}). On trouve, en appliquant (\EGA III~1.4.15), des isomorphismes:
+\[v^\ast(\R^pi_\ast(F{}_{|U}) \simeq \R^pi'_\ast({v'}^\ast(F{}_{|U}))\text{, }p\in\ZZ.
+\]
+\emph{On se ramène ainsi au cas où $X$ est le spectre d'un anneau local $A$ dans lequel $x$ est un idéal premier de dimension $1$}, i.e. $\dim A/x=1$. Posons alors $F'=\SheafGamma_Y(F)$ et $F''=F/F'$.
+
+\noindent On voit que $F_x\simeq F''_x$ et que $y\not\in \Ass F''$. Par ailleurs $F'{}_{|U}=0$ d'o\`u, par la suite exacte des $\R^pi_\ast$, des isomorphismes:
+\[
+\R^pi_\ast(F{}_{|U})\simeq \R^pi_\ast(F''{}_{|U})\text{, }p\in\ZZ.
+\]
+Puisque $n>1$, on en d\'eduit que ni $x$ ni $y$ n'appartiennent \`a $\Ass F''$. Or ce sont les seuls id\'eaux premiers de $A$ qui contiennent $x$; il en r\'esulte (\ref{III}~\ref{III.2.1}) qu'il existe un \'el\'ement $g\in x$ qui est $M$-r\'egulier, o\`u l'on a pos\'e $F=\widetilde{M}$, $M=F(X)$. D'o\`u une suite exacte:
+\[0\to M\lto{g'} M\to N \to 0,
+\]
+dans laquelle $g'$ d\'esigne l'homoth\'etie de rapport $g$ dans $M$. Par la suite exacte d'homologie, on voit que:
+
+$\R^pi_\ast(\widetilde{N}{}_{|U})$ est coh\'erent pour $p<n-1$,
+
+\noindent donc, par l'hypoth\`ese de r\'ecurrence, $\prof(\widetilde{N})_x\geq n-1$, donc $\prof F_x\geq n$, QED.
+
+\section{Applications} \label{VIII.3}
+
+On d\'eduit de ces r\'esultats une condition de coh\'erence pour les images directes sup\'erieures d'un faisceau coh\'erent par un \emph{morphisme qui n'est pas propre}.
+
+\begin{theoreme} \label{VIII.3.1}
+Soit $f\colon X\to Y$ un morphisme de pr\'esch\'emas. Supposons que~$Y$ est \emph{localement noethérien} et que $f$ est \emph{propre}. Supposons que $X$ soit \emph{localement immergeable dans un préschéma régulier}. Soit $n\in\ZZ$. Soit $U$ un ouvert de $X$ et soit $F$ un $\Oo_U$-Module \emph{cohérent}. Supposons que, pour tout $x\in U$ tel que \hbox{$\codim(\overline{\{x\}}\cap (X-U), \overline{\{x\}})\!=\!1$}, on ait $\prof F_x\geq n$. \emph{Alors} les $\Oo_Y$-Modules \hbox{$\R^p(f\circ g)_\ast(F)$} sont coh\'erents pour $p<n$, o\`u $g$ est l'immersion canonique de $U$ dans~$X$.
+\end{theoreme}
+
+En effet, il existe une suite spectrale de LERAY dont l'aboutissement est $\R^\ast(f\circ g)_\ast(F)$ et dont le terme initial est donn\'e par:
+\[
+\E^{p, q}_2=R^pf_\ast(\R^qg_\ast(F)).
+\]
+Par ailleurs, il existe un $\OX$-Module \emph{cohérent} ${\Ga}$ tel que ${\Ga}{}_{|U}\simeq F$, (\EGA I~9.4.3). Il r\'esulte alors du paragraphe pr\'ec\'edent que la condition (iv) \ignorespaces est v\'erifi\'ee, i.e. que $\R^qg_\ast({\Ga}{}_{|U})$ est coh\'erent pour $q<n$. On applique alors le th\'eor\`eme de finitude de \EGA III~3.2.1 \`a $f$ et aux faisceaux $\R^qg_\ast(F)$, et on trouve que $\E^{p, q}_2$ est coh\'erent pour $q<n$, d'o\`u la conclusion.
+
+\begin{proposition} \label{VIII.3.2} Soit $X$ un pr\'esch\'ema localement noeth\'erien et localement immergeable dans un pr\'esch\'ema r\'egulier. Soit $U$ un ouvert de $X$ et soit $i\colon U\to X$ l'immersion canonique. Soit $n\in\ZZ$. Soit enfin $F$ un $\Oo_U$-Module coh\'erent et de \emph{COHEN-MACAULAY} (sur $U$!). Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(a)]
+$\R^pi_\ast(F)$ est coh\'erent pour $p<n$;
+
+\item[(b)]
+pour toute composante irr\'eductible $S'$ de l'adh\'erence $\overline S$ du support $S$ de $F$, on~a:
+\[
+\codim (S'\cap (X-U), S')>n.
+\]
+\end{enumerate}
+\end{proposition}
+
+Soit ${\Ga}$ un $\OX$-Module coh\'erent tel que ${\Ga}{}_{|U}\simeq F$ (\EGA I~9.4.3). Appliquant le corollaire \ref{VIII.2.3} \`a ${\Ga}$, on trouve que la condition (a) \'equivaut \`a (c):
+\begin{enumerate}
+\item[(c)]
+pour tout $x\in S$, on~a $\prof F_x>n-c(x)$, avec
+\[c(x)=\codim(\overline{\{x\}}\cap Y, \overline{\{x\}}).
+\]
+\end{enumerate}
+
+(a) ~$\To$~ (b). En effet, soit $S'$ une composante irr\'eductible de $\overline S$ et soit $s$ son point g\'en\'erique. Puisque $F$ est de COHEN-MACAULAY, on~a $\prof F_s=\dim \Oo_{S, s}=0$. De plus, $\overline{\{s\}}=S'$, d'o\`u la conclusion.
+
+(b) ~$\To$~ (a). Soit $x\in S$ et soit $S'$ une composante irr\'eductible de $\overline{S}$ telle que $x\in S'$. Soit $s$ le point g\'en\'erique de $S'$. Puisque $F$ est de COHEN-MACAULAY, on sait que:
+\[
+\prof F_x=\dim \Oo_{\overline{\{s\}}, x}.
+\]
+Si $c(x)=+\infty$, il n'y a rien \`a d\'emontrer. Sinon, il existe $y\in Y\cap \overline{\{x\}}$, tel que:
+\[c(x)=\dim \Oo_{\overline{\{x\}}, y}.
+\]
+Or $\Oo_{X, y}$ est quotient d'un anneau local r\'egulier par hypoth\`ese, donc:
+\[
+\dim \Oo_{\overline{\{s\}}, y}=\dim \Oo_{\overline{\{s\}}, x} +\dim \Oo_{\overline{\{x\}}, y}>n.
+\]
+\begin{flushright}C.Q.F.D.\end{flushright}
+
+\begin{thebibliography}{M}
+\bibitem[M]{M}
+H.~Cartan -- S.~Eilenberg, Homological Algebra, Princeton University Press, 1956.
+\end{thebibliography}
+
+\chapterspace{-1}

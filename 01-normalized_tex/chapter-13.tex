@@ -1,0 +1,528 @@
+\chapter{Probl\`emes et conjectures} \label{XIII}
+
+\section[Relations entre r\'esultats globaux et locaux]
+{Relations entre r\'esultats globaux et locaux. Probl\`emes affines li\'es \`a la dualit\'e} \label{XIII.1}
+
+Il est bien connu que beaucoup d'\'enonc\'es concernant un sch\'ema
+projectif $X$ peuvent se formuler en termes d'\'enonc\'es concernant
+un certain anneau gradu\'e, ou mieux un anneau local complet,
+\ignorespaces savoir l'anneau de coordonn\'ees homog\`enes
+de $X$ (i.e. l'anneau affine du c\^{o}ne projetant $\tilde{X}$ de
+$X$), ou son compl\'et\'e (i.e. le compl\'et\'e de l'anneau local du sommet
+de $\tilde{X}$). L'int\'er\^et de cette reformulation est qu'elle
+permet souvent \`a partir de r\'esultats globaux connus, de
+conjecturer, voire de d\'emontrer, des r\'esultats analogues pour des
+anneaux locaux noeth\'eriens complets plus g\'en\'eraux que ceux qui
+interviennent r\'eellement dans l'\'enonc\'e global, par exemple pour
+des anneaux locaux qui ne sont pas n\'ecessairement d'\'egale
+caract\'eristique. Ainsi, le th\'eor\`eme de dualit\'e de Serre pour
+l'espace projectif \ref{XII}~\ref{XII.1.1} a sugg\'er\'e l'utile
+th\'eor\`eme de dualit\'e locale V.5.6. Le
+th\'eor\`eme fondamental de Serre sur la cohomologie des
+modules coh\'erents sur l'espace projectif (finitude,
+comportement assymptotique pour $n$ grand de $\H^i(X,
+F(n))$, {cf. \EGA III~2.2.1}) se g\'en\'eralise en un th\'eor\`eme de
+structure pour les invariants locaux $\H^i_{\mm}(M)$, voir
+V.5.7. De m\^eme, les th\'eor\`emes de
+Lefschetz pour le groupe fondamental, et le groupe de Picard (\og
+crit\`eres d'\'equivalence{\fg}), bien familiers dans le cas
+classique et \'etendus par la suite \`a un corps de base quelconque,
+ont sugg\'er\'e les th\'eor\`emes de Lefschetz \og locaux\fg des expos\'es
+\ref{X} et \ref{XI}. Bien entendu, les th\'eor\`emes locaux \`a leur
+tour sont des outils pr\'ecieux pour obtenir des \'enonc\'es globaux.
+Par exemple la dualit\'e locale permet de formuler une propri\'et\'e
+asymptotique globale \ref{XII}~\ref{XII.1.3} (i) par l'annulation
+de certains invariants locaux $\H^i(F_x)$. De fa\c con plus
+substantielle, les th\'eor\`emes Lefschetz locaux, impliquant par
+exemple la \og puret\'e\fg ou la parafactorialit\'e de certains
+anneaux locaux intersections compl\`etes (\ref{X}~\ref{X.3.4} et
+\ref{XI}~\ref{XI.3.13}) permettent dans les th\'eor\`emes de
+Lefschetz globaux de se d\'ebarrasser de certaines hypoth\`eses de
+non singularit\'e, comme dans \ref{X}~\ref{X.3.5}, \ref{X.3.6},
+\ref{X.3.7}.
+
+Une autre g\'en\'eralisation utile des th\'eor\`emes concernant les sch\'emas projectifs sur un corps $k$ consiste \`a remplacer $k$ par un sch\'ema de base g\'en\'eral. Ainsi, la suite de {\EGA III} donnera une g\'en\'eralisation dans ce sens de la dualit\'e de Serre\footnote{cf. S\'eminaire Hartshorne, cit\'e \`a la fin de {\Exp \ref{IV}}.}; les th\'eor\`emes de finitude et de comportement asymptotique des $\H^i(X, F(n))$ ont \'et\'e \'enonc\'es dans \EGA III~2.2.1 sur un sch\'ema de base g\'en\'eral, enfin les th\'eor\`emes de Lefschetz peuvent \'egalement se d\'evelopper pour un morphisme projectif, comme on~a vu dans \ref{XII}~\ref{XII.4.9}, gr\^ace au th\'eor\`eme local \ref{XII}~\ref{XII.4.7}. Bien entendu, le fait de travailler sur un sch\'ema de base g\'en\'eral conduit aussi \`a des \'enonc\'es essentiellement nouveaux, tels le \og th\'eor\`eme de comparaison\fg \EGA III~4.15 et le th\'eor\`eme d'existence de faisceaux \EGA III~5.1.4 (qui, on l'a vu par ailleurs dans \ref{IX}, rel\`event des m\^emes th\'eor\`emes-clefs de nature cohomologique que les th\'eor\`emes de Lefschetz pour $\pi_1$ et $\Pic$).
+
+Il s'impose alors de d\'egager des th\'eor\`emes qui englobent simultan\'ement les deux g\'en\'eralisations que nous venons de signaler des \'enonc\'es concernant les sch\'emas projectifs sur un corps. Les objets naturels pour une telle g\'en\'eralisation commune sont les \emph{anneaux noethériens séparés et complets pour une topologie $I$-adique}. Leur \'etude, \`a ce point de vue, n'a pas encore \'et\'e abord\'ee s\'erieusement, et me semble \`a l'heure actuelle le sujet le plus int\'eressant dans la th\'eorie locale des faisceaux coh\'erents. Voici un probl\`eme typique dans cette direction:
+
+\refstepcounter{subsection}\label{XIII.1.1}
+\refstepcounter{footnoteAG}
+\begin{enonce*}{Conjecture 1.1}
+[\og Deuxi\`eme th\'eor\`eme de finitude affine\fg$^{(**)}$\ndemark]
+
+Soient $M$ un module de type fini sur un anneau noeth\'erien $A$ (qu'on supposera au besoin quotient d'un r\'egulier), $J$ un id\'eal de $A$, prouver que les modules $\H^i_J(M)$ sont \og $J$-cofinis\fg, i.e. que les modules
+$$
+\Hom_A(A/J, \H^i_J(M))$$
+sont de type fini.
+\end{enonce*}
+
+Rappelons qu'on d\'esigne par $\H^i_J (M)$ le module $\H^i_Y (X, \tilde{M})$ (o\`u $X=\Spec (A)$, $Y=V(J)$) de \Exp \ref{I}, interpr\'et\'e dans \ref{II} en termes de limite inductive de cohomologies de complexes de Koszul, ou encore pour $i\ge 2$ le module $\H^{i-1} (X-Y, \tilde{M})$. A vrai dire, \ref{XIII.1.1} devrait \^etre une cons\'equence d'un \'enonc\'e plus pr\'ecis, impliquant que les $\H^i_J ({M})$ sont dans une sous-cat\'egorie ab\'elienne convenable ${\DDJ}$ de la cat\'egorie ${\CJ}$ des $A$-modules de support $\subset Y=V(J)$, telle que $H\in \Ob {\DDJ}$ implique que $H$ est $J$-cofini. (NB La cat\'egorie des modules $H$ de support contenu dans $V(J)$ et qui sont $J$-cofinis n'est malheureusement pas stable par passage au quotient!). Le probl\`eme essentiel consisterait alors \`a d\'efinir ${\DDJ}$. De fa\c con plus pr\'ecise, la solution du probl\`eme \ref{XIII.1.1} devrait sortir (du moins si $A$ est quotient d'un r\'egulier) d'une th\'eorie de dualit\'e, g\'en\'eralisant \`a la fois la dualit\'e locale, et la th\'eorie de dualit\'e des morphismes projectifs \`a laquelle il a \'et\'e fait allusion plus haut, et qui serait du genre suivant:
+
+\refstepcounter{subsection} \label{XIII.1.2}
+\begin{enonce*}{Conjecture 1.2}[\og Dualit\'e affine\fg]
+ Supposons $A$ r\'egulier, s\'epar\'e et complet pour la topologie $J$-adique. Soit $C^{\bullet}(A)$ une r\'esolution injective de $A$.
+\begin{enumeratei}
+\item
+Prouver que le foncteur
+$$D_J: L_{\bullet}\mto \Hom_J(L_{\bullet}, C^{\bullet}(A))$$
+de la cat\'egorie des complexes de $A$-modules, libres de type fini en toute dimension et \`a degr\'es limit\'es sup\'erieurement, (ou les morphismes sont les homomorphismes de complexes \`a homotopie pr\`es) dans la cat\'egorie des complexes de $A$-modules $K^{\bullet}$, injectifs en toute dimension et \`a degr\'es limit\'es sup\'erieurement (ou les homomorphismes sont d\'efinis de la m\^eme fa\c con), est pleinement fid\`ele.
+
+\item
+Prouver que pour tout $K^{\bullet}$ de la forme $D_J(L_{\bullet})$, les $\H^i(K^{\bullet})(= \Ext_Y^i (X; L_{\bullet}, \OX))$ sont $J$-cofinis.
+
+\item
+De fa\c con plus pr\'ecise, prouver que les $K^{\bullet}$ qui sont homotopes \`a un complexe de la forme $D_J(L_{\bullet})$ peuvent se caract\'eriser par des propri\'et\'es de finitude des $\H^i(K^{\bullet})$, plus fortes que celle envisag\'ee dans (ii), par exemple par la propri\'et\'e $\H^i(K^{\bullet})\in \Ob {\DDJ}$, o\`u ${\DDJ}$ est une cat\'egorie ab\'elienne convenable, comme envisag\'ee plus haut.
+\end{enumeratei}
+\end{enonce*}
+
+Notons que le probl\`eme est r\'esolu par l'affirmative lorsque $A$ est local et que $J$ en est un id\'eal de d\'efinition (cf. \Exp \ref{IV}), et aussi lorsque $J$ est l'id\'eal nul. Dans ces deux cas, exceptionnellement, on peut se borner \`a prendre pour ${\DDJ}$ la cat\'egorie des modules \`a support $V(J)$ qui sont $J$-cofinis, (ce qui dans le deuxi\`eme cas signifie simplement, qu'on prend la cat\'egorie des modules de type fini sur $A$). Une solution affirmative de la conjecture \ref{XIII.1.2} en g\'en\'eral en donnerait une pour \ref{XIII.1.1}, en prenant pour $L_{\bullet}$ le dual d'une r\'esolution libre de type fini de $M$. D'autre part, une solution affirmative de \ref{XIII.1.1} donnerait une r\'eponse affirmative \`a la premi\`ere partie de la conjecture suivante que nous formulons sous forme \og globale\fg:
+
+\begin{conjecture} \label{XIII.1.3}
+Soit $X\subset \PP^r_k$ un sous-sch\'ema ferm\'e du sch\'ema projectif type qui soit localement une intersection compl\`ete et dont toute composante irr\'eductible soit de codimension $\ge s$. Soit $U=\PP^r_k -X$.
+\begin{enumeratei}
+\item
+Prouver que pour tout Module coh\'erent $F$ sur $U$, on a
+\footnote{La part (i) de cette conjecture est prouv\'ee par R.~HARTSHORNE lorsque $Y$ est lisse dans \emph{Ample Vector Bundles}, Pub. Math. \numero 29, (1966). Cet auteur a \'egalement trouv\'e un exemple pour (ii), cf. R.~HARTSHORNE, \emph{Cohomological dimension of algebraic varieties}, \`a para\^itre aux Ann. of Math.}$$
+\dim \H^i(U, F)<+\infty{\rm \ pour\ } i\ge s.{}
+$$
+
+\item
+Donner un exemple, avec $X$ connexe et r\'egulier, o\`u on a
+$$
+\H^s(U, F)\neq 0.
+$$
+\end{enumeratei}
+\end{conjecture}
+
+Pour voir que (i) est un cas particulier de \ref{XIII.1.1} on consid\`ere
+$$
+\H^i(U, F(\cdot))=\coprod_n \H^i (U, F(n))= \H^i(E^{r+1} -X, \tilde{F})$$
+comme un module sur l'anneau affine $k[t_0, \ldots, t_r]$ du c\^{o}ne projetant $E^{r+1}$ de $\PP^r$. Ce module n'est autre que $\H_J^{i+1}(M)$, o\`u $J$ est l'id\'eal du c\^{o}ne projetant $\tilde X$ de $X$ dans $E^{r+1}$. D'autre part de l'hypoth\`ese faite sur $X$, qui implique que $X$ est aussi une intersection compl\`ete de co-dimension $\ge s$ en tout point de $E^{r+1}$ distinct de l'origine, r\'esulte que $\H^{i+1}_J(M)$ est nul en dehors de l'origine pour $i\ge s$. S'il est donc $J$-cofini comme le veut \ref{XIII.1.1}, il est \afortiori $\mm$-cofini, ce qui implique facilement qu'il est de dimension finie en tout degr\'e\refstepcounter{toto} Noter d'ailleurs que la conjecture \ref{XIII.1.3} se pose d\'ej\`a pour une courbe irr\'eductible non singuli\`ere $X$ dans $\PP^3$, on ignore si dans ce cas les $\H^2(\PP^3-X, \OX(n))$ sont de dimension finie, ou s'ils sont n\'ecessairement nuls\footnote{La question vient d'\^etre r\'esolue affirmativement par R.\, HARTSHORNE et H. HIRONAKA.}. On ignore m\^eme s'il existe une courbe irr\'eductible de $\PP^3$ qui ne soit ensemblistement l'intersection de deux hypersurfaces\label{courbesurface}.
+
+\begin{probleme} \label{XIII.1.4}
+Donner une variante affine du \og th\'eor\`eme de comparaison\fg \textup{\EGA III~4.1.5} comme un th\'eor\`eme de commutation des foncteurs $\H^i_J$ avec certaines limites projectives.
+\end{probleme}
+
+Enfin, dans le pr\'esent ordre d'id\'ees, j'avais pos\'e le probl\`eme suivant: Soit $A$ un anneau local noeth\'erien r\'egulier \emph{complet}, $K$ son corps des fractions, prouver que $\Ext^i_A(K, A)=0$ pour tout $i$. Une r\'eponse affirmative a \'et\'e donn\'ee sur le champ par Mr AUSLANDER, l'hypoth\`ese de r\'egularit\'e peut \^etre remplac\'ee par celle que $A$ est int\`egre et il est vrai en fait que $\Ext^i_A(K, M)=0$ pour tout $i$, d\`es que $M$ est de type fini sur $A$. Cela r\'esulte aussit\^{o}t de l'\'enonc\'e suivant, d\^u \`a AUSLANDER: si $A$ est un anneau local noeth\'erien complet, alors pour tout module de type fini $M$ sur $A$, les foncteurs $\Ext_A^i(., M)$ transforment limites inductives en limites projectives.
+
+\section{Probl\`emes li\'es au $\pi_0$: th\'eor\`emes de Bertini locaux} \label{XIII.2}
+
+Soit $A$ un anneau local noeth\'erien complet, $f$ un \'el\'ement de son
+id\'eal maximal, $X=\Spec (A)$, $Y=\Spec(A/fA)$. L'utilisation de la
+technique \og Lefschetz\fg locale permet de donner des crit\`eres
+pour que $Y'=X'\cap Y$ (o\`u $X'=X-\{\mm\}$) soit connexe, en termes
+d'hypoth\`eses sur $X'$. Ainsi, il suffit que l'on ait: a) $X'$
+connexe b) $\prof \Oo_{X', x} \ge 2$ pour tout point ferm\'e $x$
+de $X'$ c) $f$ est $A$-r\'egulier. On notera cependant que les
+hypoth\`eses b) et c) ne sont pas de nature purement
+topologiques, par exemple ne sont pas invariants en
+rempla\c cant $X$ par $X_{\text{red}}$. Dans la situation analogue
+pour un sch\'ema projectif $X'$sur un corps et une section
+hyperplane $Y'$ de $X'$, l'utilisation du \og th\'eor\`eme de
+Bertini\fg et du \og th\'eor\`eme de connexion\fg de Zariski permet
+d'obtenir en fait des r\'esultats d'allure nettement plus
+satisfaisants, qui m'avaient amen\'e dans le s\'eminaire oral \`a
+\'enoncer une conjecture, que j'ai r\'esolue depuis par l'affirmative.
+\'Enon\c cons donc ici:
+
+\begin{theoreme} \label{XIII.2.1}
+Soient $A$ un anneau local noeth\'erien complet, $X$ son spectre, $\aaa$ le point ferm\'e de $X$, $X'=X-\{ \aaa\}$. Supposons que $X$ satisfasse les conditions (o\`u $k$ d\'esigne un entier $\ge 1$):
+\begin{itemize}
+\item[a$_k$)] Les composantes irr\'eductibles de $X'$ sont de dimension $\ge k+1$.
+
+\item[b$_k$)] $X'$ est connexe en dimension $\ge k$, i.e. on ne peut d\'econnecter $X'$ par une partie ferm\'ee de dimension $<k$ (cf. \ref{III}~\ref{III.3.8}).
+\end{itemize}
+
+Soit $m$ un entier, $0\le m\le k$, et soient $f_1, \dotsc, f_m\in \rr(A)$, posons $B=A/\sum_i f_iA$, $Y=\Spec(B)=V(f_1)\cap\dotsb\cap V(f_m)$, $Y'=X'\cap Y=Y-\{\aaa\}$. Alors $Y$ satisfait les conditions a$_{k-m}$), b$_{k-m}$). En particulier, pour toute suite de $m\le k$ \'el\'ements $f_1, \dotsc, f_m$ de $\rr(A)$, $Y'=X'\cap V(f_1)\cap\dotsb\cap V(f_m)$ est connexe.
+\end{theoreme}
+
+Il est d'ailleurs facile de voir que si la derni\`ere conclusion est valable (il suffit \'evidemment d'y faire $m=k$), et en excluant le cas o\`u $X$ serait irr\'eductible de dimension~$0$ ou $1$, il s'ensuit que les composantes irr\'eductibles de $X'$ sont de dimension $\ge k+1$, et $X'$ est connexe en dimension $\geq k$, de sorte qu'en un sens, \ref{XIII.2.1} est un r\'esultat \og le meilleur possible\fg.
+
+\bigskip
+
+Donnons le principe de la d\'emonstration de~\ref{XIII.2.1}. Seule la condition b$_{k-m}$) pour $Y$ offre un probl\`eme. On est ramen\'e facilement pour $k$ donn\'e au cas o\`u $X$ est int\`egre, et m\^eme (en passant au normalis\'e, qui est fini sur $X$) au cas o\`u $X$ est \emph{normal}. Si $k=1$, donc $\dim X' \ge 2$, alors $X'$ est de profondeur $\ge 2$ en ses points ferm\'es et on peut appliquer le r\'esultat rappel\'e au d\'ebut du N${}^\circ$, qui montre que \hbox{$Y'=X'\cap V(f)$} est connexe. Dans le cas $k\ge 1$, on suppose le th\'eor\`eme d\'emontr\'e pour les \hbox{$k'\!<\!k$}. Par r\'ecurrence sur $m$, on est ramen\'e au cas o\`u $m=1$, i.e. \`a v\'erifier que pour $f_1\in \rr(A)$, $X'\cap V(f_1)$ est connexe en dimension $\ge k-1$. S'il ne l'\'etait pas, i.e. s'il \'etait disconnect\'e par un $Z'$ de dimension $< k-1$, il existerait une suite $f_2, \dotsc, f_k$ telle que \hbox{$X'\cap V(f_1)\cap\dotsb\cap V(f_k)$} soit disconnexe, et dans cette suite on peut choisir arbitrairement $f_2\in \rr(A)$ soumis \`a la seule condition de ne s'annuler sur aucun point d'une certaine partie finie $F$ de $X'$ (\ignorespaces savoir l'ensemble des points maximaux de $Z'$). D'ailleurs, on v\'erifie facilement, utilisant le fait que $X'$ est normal, donc satisfait la condition ({$S_2$}) de Serre\footnote{Cf. \EGA IV 5.7.2.} qu'il existe une partie finie $F'$ de $X'$ telle que $f\in \rr(A)$, $V(f)\cap F'=\emptyset$ implique que $V(f)\cap X'$ satisfait \'egalement \`a la condition ({$S_2$}). On peut alors choisir $f_2$ de telle sorte que $f_2$ ne s'annule ni sur $F$ ni sur $F'$, donc que $X'\cap V(f_2)$ satisfasse ({$S_2$}). Mais alors en vertu du th\'eor\`eme de HARTSHORNE \ref{III}~\ref{III.3.6} $X'\cap V(f_2)$ est connexe en codimension~$1$ donc (comme toute composante de $X'\cap V(f_2)$ est de dimension $\ge k$) il est connexe en dimension $\ge k-1$. Appliquant l'hypoth\`ese de r\'ecurrence \`a $V(f_2)=\Spec(A/f_2A)$, il s'ensuit que $X'\cap V(f_2)\cap V(f_1)\cap V(f_3)\cap \dotsb\cap V(f_k)$ est connexe, alors qu'on l'avait construit disconnexe, absurde.
+
+Signalons quelques corollaires int\'eressants:
+
+\begin{corollaire} \label{XIII.2.2}
+Soit $f\colon X\to Y$ un morphisme propre de pr\'esch\'emas localement noeth\'erien, avec $Y$ int\`egre, $y_0\in Y$, $y_1$ le point g\'en\'erique de $Y$. On suppose
+\begin{enumeratea}
+\item
+$Y$ est unibranche en $y_0$, toute composante irr\'eductible de $X$ domine $Y$.
+\item
+Les composantes irr\'eductibles de $X_1$ sont de dimension $\ge k+1$, et $X_1$ est connexe en dimension $\ge k$.
+\end{enumeratea}
+
+Alors les composantes irr\'eductibles de $X_0$ sont de dimension $\ge k+1$, et $X_0$ est connexe en dimension $\ge k$.
+\end{corollaire}
+
+En effet, le th\'eor\`eme de connexion de Zariski (cf.\ \EGA III 4.3.1) implique que $X_0$ est connexe; pour montrer qu'il n'est pas disconnect\'e par une partie ferm\'ee de dimension $<k$, on est ramen\'e \`a montrer que ces anneaux locaux en des points $x\in X_0$ tels que $\dim \overline{x}<k$ ont un spectre non disconnect\'e par $x$. Or ceci est vrai sans supposer ni $f$ propre, ni $Y$ unibranche en $y_0$. On est ramen\'e pour le voir au cas o\`u $X$ est int\`egre dominant $Y$, et si l'on veut, $Y$ affine de type fini sur $\ZZ$, de sorte que l'on est sous les conditions de la formule des dimensions pour $\Oo_{X, x}$ sur $\Oo_{Y, y_0}$. Utilisant dans ce cas la finitude de la cl\^{o}ture normale, on peut m\^eme supposer $X$ \emph{normal}, donc en vertu d'un th\'eor\`eme de NAGATA\footnote{Cf. \EGA IV 7.8.3 (i) (ii) (v).}, le compl\'et\'e d'un anneau local $\Oo_{X, x}$ de $X'$ est encore normal, donc (si $\Oo_{X, x}$ est de dimension $N$) $\Spec (\hat{\Oo}_{X, x})$ est connexe en dimension $\ge N-1$. Soit $n=\dim\Oo_{X, y_0}$, alors $\degtr~k(x)/k(y)<k$ implique $\dim \Oo_{X, x}>n+(k+1)-k=n+1$, compte-tenu que  $\dim X_1\ge k+1$, et prenant un syst\`eme $f_1, \dotsc, f_n$ de param\`etres de $\Oo_{Y, y_0}$ qu'on rel\`eve en des \'el\'ements de $\Oo_{X, x}$, on voit par \ref{XIII.2.1} que $\Spec (\hat{\Oo}_{X, x}/\sum f_i\hat{\Oo}_{X, x})$ est connexe en dimension $\ge 1$, i.e. n'est pas disconnect\'e par son point ferm\'e, ou ce qui revient au m\^eme, $\Spec(\hat{\Oo}_{X_0, x})$ n'est pas disconnect\'e par son point ferm\'e; \afortiori il en est ainsi de $\Spec (\Oo_{X_0, x})$.
+
+Comme dans le cas du th\'eor\`eme de connexion ordinaire, on peut varier \ref{XIII.2.2} en prenant les fibres g\'eom\'etriques (sur les cl\^{o}tures alg\'ebriques des corps r\'esiduels), \`a condition de supposer $Y$ \emph{géométriquement} unibranche en $y_0$, ou (sans autre hypoth\`ese que $Y$ noeth\'erien) que $f$ est universellement ouvert. Appliquant ceci au cas o\`u $Y$ est le sch\'ema dual d'un sch\'ema projectif $\PP_k^r$ sur un corps, on retrouve une forme renforc\'ee du r\'esultat global qui avait inspir\'e \ref{XIII.2.1}, savoir:
+
+\refstepcounter{subsection}\label{XIII.2.3}
+\begin{enonce*}{Corollaire 2.3\ndemark}
+Soit $X$ un sous-sch\'ema ferm\'e de $\PP^r_k$ ($k$ un corps), on suppose les composantes irr\'eductibles de $X$ de dimension $\ge k+1$, et $X$ g\'eom\'etriquement connexe en dimension $\ge k$. Alors pour toute suite $H_1, \dotsc, H_m$ de $m$ hyperplans de $\PP^r_k$ ($0\le m\le k-1$), $X\cap H_1\cap \dotsb \cap H_m$ satisfait la m\^eme condition avec $k-m$, en particulier est g\'eom\'etriquement connexe en dimension $\ge k-1$.
+\end{enonce*}
+
+On peut d'ailleurs modifier de fa\c con
+\'evidente cet \'enonc\'e, pour le cas o\`u on s'est donn\'e un morphisme
+propre $X \to \PP^r_k$, qui n'est pas n\'ecessairement une
+immersion, et une extension analogue est possible pour
+\ref{XIII.2.1} (en consid\'erant un sch\'ema propre sur~$X'$). Ces
+\'enonc\'es se d\'eduisent d'ailleurs formellement des \'enonc\'es donn\'es
+ici, compte tenu du th\'eor\`eme de connexion ordinaire qui nous
+ram\`ene au cas d'un morphisme fini.
+
+\begin{corollaire} \label{XIII.2.4}
+Soit $A$ un anneau local noeth\'erien normal complet de dimension $\ge k+2$. Soient $X=\Spec (A)$, $X'=X-\{ \aaa\}$, $f_1, \dotsc, f_k$ des \'el\'ements de $\rr(A)$, alors $Y'=X'\cap V(f_1) \cap \dotsb \cap V(f_k)$ est connexe, et $\pi_1(Y')\to \pi_1(X')$ est surjectif.
+\end{corollaire}
+
+On proc\`ede comme dans \SGA 1~X~2.11.
+
+Dans tout ceci, il n'\'etait question que de questions de \emph{connexité}. Or dans le cas global, des th\'eor\`emes bien connus affirment que pour une vari\'et\'e projective irr\'eductible $X\subset \PP^r_k$, $k$ alg\'ebriquement clos, son intersection avec un hyperplan $H$ assez \og g\'en\'eral\fg est irr\'eductible, (et non seulement connexe): c'est le \emph{théorème de BERTINI}, prouv\'e par ZARISKI, qui implique \`a son tour par le th\'eor\`eme de connexion de Zariski, que pour \emph{tout} $H$, $H\cap X$ est connexe (bien que non n\'ecessairement irr\'eductible). On peut d'ailleurs proc\'eder en sens inverse, en prouvant ce dernier r\'esultat par une technique \`a la Lefschetz, et en d\'eduisant le th\'eor\`eme de Bertini, en se ramenant au cas o\`u $X$ est normale, et utilisant le r\'esultat suivant: pour $H$ \og assez g\'en\'eral\fg, $X\cap H$ est \'egalement normal. Cela sugg\`ere la
+
+\refstepcounter{subsection}\label{XIII.2.5}
+\begin{enonce*}{Conjecture 2.5\ndemark}
+Soit $A$ un anneau local noeth\'erien complet normal. Montrer qu'il existe $f\in\rr(A)$ non nul tel que $Y'=X'\cap V(f)=Y-\{ \aaa\}$ (o\`u $Y=\Spec (A/fA)$) soit normal (donc irr\'eductible par \ref{XIII.2.1} si $\dim A\ge 3$).
+\end{enonce*}
+
+Pour bien faire, il faudrait montrer que dans un sens convenable, il existe m\^eme \og beaucoup\fg d'\'el\'ements $f$ ayant la propri\'et\'e en question, par exemple qu'on peut choisir $f$ dans une puissance arbitraire de l'id\'eal maximal. Utilisant le crit\`ere de normalit\'e de Serre, et la remarque faite plus haut pour la propri\'et\'e $(S_2)$ de Serre, on voit qu'on aurait une r\'eponse affirmative \`a \ref{XIII.2.5} si on en avait une \`a la
+
+\refstepcounter{subsection}\label{XIII.2.6}
+\begin{enonce*}{Conjecture 2.6\ndemark}
+
+Soient $A$ un anneau local noeth\'erien complet, $U$ une partie ouverte de son spectre $X$, $F$ une partie finie de $X'=X-\{ \aaa\}$. On suppose que $U$ est r\'egulier. Prouver qu'il existe un $f \in\rr(A)$ tel que $V(f)\cap U$ soit r\'egulier, et $V(f)\cap F=\emptyset$.
+\end{enonce*}
+
+Voir, pour un r\'esultat de type \og Bertini local\fg, CHOW~\cite{XIII.2}
+
+\section{Probl\`emes li\'es au $\pi_1$} \label{XIII.3} Ici encore, on~a de nombreuses questions, sugg\'er\'ees par les r\'esultats globaux ou les r\'esultats transcendants.
+
+\refstepcounter{subsection}\label{XIII.3.1}
+\begin{enonce*}{Conjecture 3.1\ndemark} Soient $A$ un anneau local noeth\'erien complet \`a corps r\'esiduel alg\'ebriquement clos, $X=\Spec (A)$, $ X'= X- \{\aaa\}$, $\aaa$ le point ferm\'e. Supposons les composantes irr\'eductibles de $X$ de dimension $\ge 2$, $X'$ connexe.
+\begin{enumeratei}
+\item
+Prouver que $\pi_1(X')$ est topologiquement \`a engendrement fini.
+\item
+Si $p$ est l'exposant caract\'eristique du corps r\'esiduel $k$ de $A$, prouver que le plus grand groupe topologique quotient de $\pi_1(X')$ qui est \og d'ordre premier \`a $p$\fg est de pr\'esentation finie.
+\end{enumeratei}
+\end{enonce*}
+
+Pour la partie (i), utilisant la th\'eorie de la descente \SGA 1~IX~5.2 et le th\'eor\`eme 2.4, on est ramen\'e au cas o\`u $A$ est normal de dimension $2$. Dans ce cas, une m\'ethode syst\'ematique pour \'etudier le groupe fondamental de $X'$, inaugur\'ee par MUMFORD~\cite{XIII.5} dans le cadre transcendant, consiste \`a \emph{désingulariser} $X$ i.e. \`a consid\'erer un morphisme projectif birationnel $Z\to X$, avec $Z$ int\`egre r\'egulier, induisant un isomorphisme $Z'=Z|X'\to X'$; il est plausible qu'un tel $Z$ existe toujours, c'est en tous cas ce que d\'emontre la m\'ethode d'ABHYANKAR~\cite{XIII.1} dans le cas d'\og \'egales caract\'eristiques{\fg}\footnote{La possibilit\'e de \og r\'esoudre\fg $A$ est prouv\'e maintenant en toute g\'en\'eralit\'e par Abhyankar~\cite{XIII.8}.}. Soit~$C$ la fibre du point ferm\'e de $X$ par $Z\to X$, c'est une courbe alg\'ebrique sur le corps r\'esiduel $k$, connexe en vertu du th\'eor\`eme de connexion. La solution de \ref{XIII.3.1} semble alors li\'ee au
+
+\begin{probleme} \label{XIII.3.2}
+Avec les notations pr\'ec\'edentes, mettre en relations $\pi_1(X')$ avec les invariants topologiques de $C$, en particulier son groupe fondamental, (pour faire appara\^itre la g\'en\'eration topologique finie de $\pi_1(X')$, en utilisant par exemple \SGA \textup{X~2.6}).
+\end{probleme}
+
+Une autre m\'ethode serait de consid\'erer $A$ comme une alg\`ebre finie sur un anneau local \emph{régulier} complet $B$ de dimension $2$, ramifi\'e suivant une courbe $C$ contenue dans $\Spec(B)=Y$. On est conduit ainsi au
+
+\begin{probleme} \label{XIII.3.3}
+Soient $A$ un anneau local r\'egulier complet de dimension $2$, \`a corps r\'esiduel alg. clos $k$, $X$ son spectre, $C$ une partie ferm\'ee de $X$ de dimension~$1$. D\'efinir des invariants locaux de la courbe immerg\'ee $C$, ayant un sens ind\'ependant de la caract\'eristique r\'esiduelle, et dont la connaissance permette de calculer le groupe fondamental de $X-C$ par g\'en\'erateurs et relations lorsque $k$ est de caract\'eristique nulle. Prouver que lorsque $k$ est de caract\'eristique $p> 0$, le groupe fondamental \og tame\fg de $X-C$ est quotient du pr\'ec\'edent, et les deux groupes fondamentaux (en car.~$0$, et en car. $p> 0$) ont un m\^eme quotient maximal d'ordre premier \`a $p$.
+\end{probleme}
+
+Bien entendu, \ref{XIII.3.3} nous montre que dans \ref{XIII.3.1}, il y a lieu \'egalement de remplacer~$X'$ par un sch\'ema de la forme $X-Y$, o\`u $Y$ est une partie ferm\'ee de $X$ qui est de codimension $\ge 2$ dans toute composante de $X$ la contenant. Lorsqu'on abandonne cette restriction sur $Y$, il doit exister encore un r\'esultat de finitude analogue, \`a condition de mettre des restrictions genre \og tame\fg sur la ramification en les points maximaux des composantes irr\'eductibles de $Y$ qui sont de codimension $1$.
+
+\begin{probleme} \label{XIII.3.4}
+Soit $A$ un anneau local noeth\'erien complet de dimension $2$, \`a corps r\'esiduel alg\'ebriquement clos. Soit encore $X=\Spec(A)$, $X'=X-\{\aaa\}$. Trouver des propri\'et\'es de structure particuli\`eres de $\pi_1(X')$ pour le cas o\`u $A$ est une intersection compl\`ete.
+\end{probleme}
+
+Une solution satisfaisante de ce probl\`eme permettrait peut-\^etre de r\'esoudre le vieux probl\`eme suivant:
+
+\refstepcounter{subsection}\label{XIII.3.5}
+\begin{enonce*}{Conjecture 3.5\ndemark} Trouver une courbe irr\'eductible dans $\PP^3_k$ ($k$ corps alg\'ebriquement clos), de pr\'ef\'erence non singuli\`ere, qui ne soit pas ensemblistement l'intersection de deux hypersurfaces. (KNESER~\cite{XIII.4} montre qu'on peut l'obtenir toujours comme intersection de trois hypersurfaces).
+\end{enonce*}
+\ignorespaces
+
+\section[Probl\`emes li\'es aux $\pi_i$ sup\'erieurs]{Probl\`emes li\'es aux $\pi_i$ sup\'erieurs: th\'eor\`emes de Lefschetz locaux et globaux pour les espaces analytiques complexes\ndemark} \label{XIII.4}
+
+Soit $X$ un sch\'ema localement de type fini sur le corps des complexes $\CC$, on peut lui associer un espace analytique $X^h$ sur $\CC$, d'o\`u des invariants d'homotopie et d'homologie $\pi_i(X^h)$, $\H_i(X^h)$, $\H^i(X^h)$ etc. ... On sait d'ailleurs que $X$ est connexe si et seulement si $X^h$ l'est, donc que l'on a une bijection
+$$
+\pi_0(X^h)\to \pi_0(X)$$
+De m\^eme, comme tout rev\^etement \'etale $X'$ de $X$ d\'efinit un rev\^etement \'etale $X^{\prime h}$ de~$X^h$, on~a un homomorphisme canonique
+$$
+\pi_1(X^h)\to \pi_1(X),
+$$
+dont on sait, utilisant un th\'eor\`eme de Grauert-Remmert, qu'il identifie le deuxi\`eme groupe au compactifi\'e du premier pour la topologie des sous-groupes d'indice fini (ce qui exprime simplement le fait que $X'\rightsquigarrow X^{\prime h}$ est une \'equivalence de la cat\'egorie des rev\^etements \'etales de $X$ avec la cat\'egorie des rev\^etements \'etales \emph{finis} de $X^h$). Il s'ensuit que les r\'esultats de ce s\'eminaire (par voie purement alg\'ebrique) sur $\pi_0(X)$ et $\pi_1(X)$ implique des r\'esultats pour $\pi_0(X^h)$ et $\pi_1(X^h)$ (qui sont de nature transcendante). Si d'ailleurs $X$ est propre, la suite exacte bien connue $0\to \ZZ \to \CC\to \CC^*\to 0$ permet de montrer que le groupe de N\'eron-Severi de $X$ (quotient de son groupe de Picard par la composante connexe de l'\'el\'ement neutre) est isomorphe \`a un sous-groupe de $\H^2(X^h, \ZZ)$; dans le cas non singulier k\"ahl\'erien, c'est le sous-groupe not\'e $\H^{(1, 1)}(X^h, \ZZ)$ (classes de type $(1, 1)$):
+$$
+\Pic(X)/\Pic^0(X)\subset \H^2(X, \ZZ).
+$$
+
+Par suite, les renseignements que nous avons obtenus sur les groupes de Picard impliquent des renseignements, tr\`es partiels il est vrai, sur les groupes $\H^2(X^h, \ZZ)$. Il est tentant de compl\'eter tous ces r\'esultats fragmentaires par des conjectures.
+
+Des indications tr\`es pr\'ecises, allant dans le m\^eme sens que ceux qu'on vient de signaler, sont fournies par un classique th\'eor\`eme de LEFSCHETZ~\cite{XIII.7}. Il affirme que si~$X$ est un espace analytique projectif non singulier irr\'eductible de dimension $n$, et si~$Y$ est une section hyperplane non singuli\`ere, alors l'injection
+$$Y^{n-1}\to X^n$$
+induit un homomorphisme
+$$
+\pi_i(Y^{n-1})\to \pi_i(X^n)$$
+qui est un \emph{isomorphisme pour} $i\le n-2$, un \emph{épimorphisme pour} $i=n-1$. Il en r\'esulte l'\'enonc\'e analogue pour les homomorphismes
+$$
+\H_i(Y^{n-1})\to \H_i(X^n)$$
+sur l'homologie (enti\`ere pour fixer les id\'ees), tandis qu'en cohomologie,
+$$
+\H^i(X^n)\to\H^i(Y^{n-1})
+$$
+est un isomorphisme en dimension $i\le n-2$, un monomorphisme en dimension $i=n-1$. Nous avons obtenu des variantes de ces r\'esultats dans le cadre des sch\'emas, pour $\pi_0$, $\pi_1$, $\Pic$, valables d'ailleurs sans hypoth\`eses de non singularit\'e dans une large mesure, cf. \Exp \ref{XII}. \ De plus, dans l'\'elimination des hypoth\`eses de non singularit\'e, nous avons utilis\'e de fa\c con essentielle des variantes \og locales\fg de ces th\'eor\`emes de Lefschetz globaux. Tout ceci sugg\`ere les probl\`emes suivants, qui devront sans doute \^etre attaqu\'es simultan\'ement\footnote{Les formulations \ref{XIII.4.1} \`a \ref{XIII.4.3} qui suivent sont provisoires. Voir conjectures \ref{XIII.6.A} \`a \ref{XIII.6.D} plus bas, dans \og commentaires \`a l'\Exp \ref{XIII}\fg pour des formulations plus satisfaisantes, ainsi que \Exp \ref{XIV}.}.
+
+\begin{probleme} \label{XIII.4.1}
+Soient $X$ un espace analytique, $Y$ une partie analytique ferm\'ee de~$X$ (ou simplement une partie ferm\'ee?) telle que pour tout $x\in Y$, l'anneau local $\OXx$ soit une intersection compl\`ete. Soit $n$ la codimension complexe de $Y$ dans $X$. L'homomorphisme canonique
+$$
+\pi_i(X-Y)\to \pi_i(X)$$
+est-il un isomorphisme pour $i\le n-2$, et un \'epimorphisme pour $i=n-1$?
+\end{probleme}
+
+\enlargethispage{\baselineskip}%
+Dans ce probl\`eme et les pr\'ec\'edents, on suppose \'evidemment implicitement choisi un point-base pour d\'efinir les groupes d'homotopie. Pour \'enoncer le probl\`eme suivant, il faut d\'efinir, pour un espace analytique $X$ (plus g\'en\'eralement, pour un espace localement connexe par arc) et un $x\in X$, des invariants locaux $\pi_i^x(X)$\footnote{Si $i\ge 2$. Pour le cas $i\le 1$, cf. \emph{Commentaires} dans \numero 6 ci-dessous, page~\pageref{p25y}.}.\refstepcounter{toto}\label{pagexpo} Pour ceci, on choisit une application non constante $f$ de l'intervalle $[0, 1]$ dans $X$, telle que $f(0)=x$ et $f(t)\neq x$ pour $t\neq 0$ (il en existe si $x$ n'est pas un point isol\'e). Alors pour tout voisinage $U$ de $x$, il existe un $\varepsilon>0$ tel que $0<t<\varepsilon$ implique $f(t)\in U$, et les groupes d'homotopies $\pi_i(U-x, f(t))$ sont essentiellement ind\'ependants de $t$ (ils sont, pour $t$ variable, reli\'es par un syst\`eme transitif d'isomorphismes), on peut les noter $\pi_i(U-x, f)$. On pose alors\refstepcounter{toto}\label{pip15}\label{pXIII.15}
+$$
+\pi_i^x(X)= \varprojlim_{U}\pi_{i-1}(U-x, f)
+$$
+la limite projective \'etant prise sur le syst\`eme des voisinages ouverts $U$ de $x$. En toute rigueur, cette limite d\'epend de $f$, et devrait \^etre not\'ee $\pi_i^x(X, f)$, mais on v\'erifie que pour $f$ variable, ces groupes sont isomorphes entre eux\footnote{Du moins si $x$ ne disconnecte pas $X$ au voisinage de $x$, cf. \emph{Commentaires} ci-dessous, page~\pageref{p25y}.}, de fa\c con pr\'ecise ils forment un syst\`eme local sur l'espace des chemins du type envisag\'e issus de $x$. Ces invariants sont la version homotopique des invariants de cohomologie locale $\H^i_x(F)$ pour un faisceau $F$ sur $X$, introduit dans \ref{I}, et devraient jouer le r\^{o}le de \emph{groupes d'homotopie locale relatifs} de $X$ modulo $X-x$. Leur annulation pour $i\le n$ et pour tout $x\in Y$, o\`u~$Y$ est une partie ferm\'ee de $X$ de dimension topologique $\le d$, devrait entra\^iner que les homomorphismes
+$$
+\pi_i(X-Y) \to \pi_i(X)
+$$
+sont bijectifs pour $i<n-d$, et surjectif pour $i=n-d$\footnote{Pour une formulation corrig\'ee, cf. \emph{Commentaires} ci-dessous, page~\pageref{p25y}.}. De ce point de vue, \ref{XIII.4.1} impliquerait (pour $Y$ r\'eduit \`a un point) une conjecture de nature purement locale, s'exprimant par \refstepcounter{toto}
+$$
+\pi_i^x(X)=0 \rm{\ pour\ } i\le n-1\label{p15l}
+$$
+lorsque $X$ est une intersection compl\`ete de dimension $n$ en $x$.
+
+A titre d'exemple d'invariants locaux $\pi_i^x(X)$, notons que si $x$ est un point non singulier de \ignorespaces dimension complexe $n$, alors
+$$
+\pi_i^x(X)=\pi_{i-1}(S^{2n-1}),
+$$
+o\`u $S^{2n-1}$ d\'esigne la sph\`ere de dimension $2n-1$. En particulier dans ce cas $\pi_{i}^x(X)=0$ pour $i\le 2n-1$, ce qui correspond au fait que si d'une \emph{variété} topologique $X$ on enl\`eve une partie ferm\'ee $Y$ de codimension $\ge m$, alors $\pi_i(X-Y)\to \pi_i(X)$ est un isomorphisme pour $i\le m-2$ et un \'epimorphisme pour $i=m-1$.
+
+Ceci pos\'e:
+
+\begin{probleme} \label{XIII.4.2}
+Soient $X$ un espace analytique, $x\in X$, $t$ une section de $\OX$ \ s'annulant en $x$, $Y$ l'ensemble des z\'eros de $t$. Supposons les conditions suivantes satisfaites:
+\begin{enumeratea}
+\item
+$t$ est r\'eguli\`ere en $x$ (i.e. non diviseur de $0$ en $x$, hypoth\`ese peut-\^etre superflue, d'ailleurs).
+\item
+En les points $x'$ de $X-Y$ voisins de $x$, $\Oo_{X, x'}$ est une intersection compl\`ete (hypoth\`ese qui doit pouvoir se remplacer par la suivante plus g\'en\'erale si \ref{XIII.4.1} est vraie: pour $x'$ comme ci-dessus, $\pi_i^{x'}(X)=0$ pour $i\le n-1$).
+\item
+En les points $y$ de $Y-\{ x\}$ voisins de $x$, on a
+$$
+\prof \Oo_{X, y}\ge n$$
+(il suffit par exemple que l'on ait $\prof\Oo_{X, x}\ge n$).
+\end{enumeratea}
+
+Sous ces conditions, l'homomorphisme canonique
+$$
+\pi_i^x(Y)\to \pi_i^x(X)$$
+est-il un isomorphisme pour $i\le n-2$, un \'epimorphisme pour $i=n-1$?
+\end{probleme}
+
+Voici enfin une variante globale de \ref{XIII.4.2}, qui devrait s'en d\'eduire par consid\'eration du c\^{o}ne projetant en son origine, et qui g\'en\'eraliserait les th\'eor\`emes de Lefschetz classiques:
+
+\begin{probleme} \label{XIII.4.3}
+Soient $X$ un espace analytique projectif, muni d'un Module inversible~$L$ ample, $t$ une section de $L$, $Y$ l'ensemble des z\'eros de $t$. Supposons:
+\begin{enumeratea}
+\item
+$t$ est une section r\'eguli\`ere (\ignorespaces peut-\^etre superflue).
+\item
+Pour tout $x\in X-Y$, $\Oo_{X, x}$ est une intersection compl\`ete (devrait pouvoir se remplacer par $\pi_i^{x}(X)=0$ pour $i\le n-1$).
+\item
+Pour tout $x\in Y$, $\prof \Oo_{X, x}\ge n$.
+\end{enumeratea}
+
+Sous ces conditions, l'homomorphisme
+$$
+\pi_i(Y)\to \pi_i(X)$$
+est-il un isomorphisme pour $i\le n-2$, un \'epimorphisme pour $i=n-1$?
+\end{probleme}
+
+Nous laisserons au lecteur le soin d'\'enoncer des conjectures analogues de nature \emph{cohomologique}\footnote{Cf. \Exp \ref{XIV} les r\'esultats correspondants en th\'eorie des sch\'emas.}, les hypoth\`eses et conclusions portant alors sur les invariants cohomologiques locaux (\`a coefficients dans un groupe donn\'e). En tout \'etat de cause, le r\'esultat-clef semble devoir \^etre \ref{XIII.4.2}, quand l'hypoth\`ese $b)$ y est prise sous forme resp\'ee, \ --- qu'on se place au point de vue de l'homologie, ou de l'homotopie.
+
+Nous avons \'enonc\'e ces conjectures dans le cadre transcendant, dans
+l'espoir d'y int\'eresser les topologues et de les convaincre que
+les questions du type \og Lefschetz\fg sont loin d'\^etre closes.
+Bien entendu, maintenant que nous sommes sur le point de disposer
+d'une bonne th\'eorie de la cohomologie des sch\'emas (\`a coefficients
+finis), gr\^ace aux travaux r\'ecents de M. ARTIN, les
+m\^emes questions se posent dans le cadre des sch\'emas, et il est
+difficile de douter qu'elles ne re\c coivent une r\'eponse positive,
+dans un avenir prochain\footnote{voir note pr\'ec\'edente.}.
+
+\section{Probl\`emes li\'es aux groupes de Picard locaux} \label{XIII.5}
+
+Un premier probl\`eme fondamental, signal\'e pour la premi\`ere fois par MUMFORD~\cite{XIII.5} dans un cas particulier, est le suivant. Soient $A$ un anneau local complet de corps r\'esiduel $k$, $X=\Spec(A)$, $U=\Spec(A)-\{a\}$, o\`u $a$ est l'id\'eal maximal de $A$ i.e. le point ferm\'e de $\Spec(A)$. On se propose de construire un syst\`eme projectif strict $G$ de groupes localement alg\'ebriques $G_i$ sur $k$, et un isomorphisme naturel \begin{equation*} \label{eq:XIII.5.+} \tag{$+$} {\Pic(U)\simeq G(k)} \end{equation*} o\`u on pose \'evidemment $G(k)=\varprojlim G_i(k)$. De fa\c con heuristique, on se propose de \og mettre une structure de groupe alg\'ebrique\fg (ou, du moins, pro-alg\'ebrique, en un sens convenable) sur le groupe $\Pic(X')$.
+
+Il est \'evident que tel quel, le probl\`eme n'est pas assez pr\'ecis, car la donn\'ee d'un isomorphisme~(\ref{eq:XIII.5.+}) est loin de caract\'eriser le pro-objet $G$. Si $A$ contient un sous-corps not\'e encore $k$, qui soit un corps de repr\'esentants, on peut pr\'eciser le probl\`eme, en exigeant que pour une extension $k'$ de $k$ variable, on ait un isomorphisme, fonctoriel en $k'$: \begin{equation*} \label{eq:XIII.5.+'} \tag{$+'$} {\Pic(U')\simeq G(k')} \end{equation*} o\`u $U'$ est l'ouvert analogue \`a $U$ dans $\Spec(A')$, $A'=A\hat{\otimes}_k k'$. On peut proc\'eder de fa\c con analogue m\^eme si $A$ n'a pas de corps de repr\'esentants, pourvu que $k$ soit parfait, ce qui permet alors de construire fonctoriellement un $A'$ \og par extension r\'esiduelle $k'/k$\fg. D'ailleurs, lorsque $A$ admet un corps de repr\'esentants, la structure alg\'ebrique qu'on trouvera sur $\Pic(U)$ d\'ependra essentiellement du choix de ce corps de repr\'esentants (comme on voit d\'ej\`a sur le c\^{o}ne projetant d'une courbe elliptique), il semble donc qu'il faille partir d'un \og pro-anneau alg\'ebrique sur $k$\fg \`a la GREENBERG~\cite{XIII.3}, pour arriver \`a d\'efinir le pro-objet $G$. Il est d'ailleurs concevable que dans le cas o\`u il n'y a pas de corps de repr\'esentants donn\'e, on ne trouve qu'un syst\`eme projectif de groupes \emph{quasi}-alg\'ebriques au sens de Serre, ou plut\^{o}t quasi-localement alg\'ebriques (les groupes $G_i$ obtenus ne seront pas en g\'en\'eral de type fini sur $k$, mais seulement localement de type fini sur $k$). Il est m\^eme possible qu'on ne trouvera en g\'en\'eral qu'une structure encore plus faible sur $\Pic(U)$, du genre de celles rencontr\'ees par NERON~\cite{XIII.6} dans sa th\'eorie de d\'eg\'en\'erescence des vari\'et\'es ab\'eliennes d\'efinies sur des corps locaux.
+
+Une m\'ethode pour attaquer le probl\`eme, \'egalement introduite par MUMFORD, consiste \`a d\'esingulariser $X$, i.e. \`a consid\'erer un morphisme projectif birationnel $Y\to X$ avec $Y$ r\'egulier. Lorsque $U$ est r\'egulier (i.e. $a$ est un point singulier isol\'e), on peut souvent trouver $Y$ de telle fa\c con que $Y|U=V\to U$ soit un isomorphisme. Dans ce cas, on aura donc $$ \Pic(U)\simeq\Pic(V)\simeq\Pic(Y)/\Im \ZZ^I, $$ o\`u $I$ est l'ensemble des composantes irr\'eductibles de la fibre $Y_{a}$,  (chacune de celles-ci d\'efinissant un \'el\'ement de $\Pic(Y)$, \'etant un diviseur localement principal, gr\^ace \`a $Y$ r\'egulier). D'autre part, utilisant la technique de G\'eom\'etrie Formelle \EGA III~4~et~5, notamment le th\'eor\`eme d'existence, on trouve $$ \Pic(Y)\simeq\varprojlim\Pic(Y_n), $$ o\`u $Y_n=Y\otimes_A A_n$, $A_n=A/\mm^{n+1}$. Lorsque $A$ admet un corps de repr\'esentants $k$, on dispose de la th\'eorie des sch\'emas de Picard des sch\'emas projectifs $Y_n$ sur $k$, donc on~a $$ \Pic(Y_n)\simeq \mathbf{Pic}_{Y_n/k}(k). $$
+
+Cela fournit donc une construction d'un syst\`eme projectif de groupes localement alg\'ebriques $\mathbf{Pic}_{Y_n/k}/\Im \ZZ^I$, qui est le syst\`eme cherch\'e.\refstepcounter{toto} Dans le cas envisag\'e ici, on peut d'ailleurs voir (utilisant que $a$ est un point singulier isol\'e) que les composantes connexes des sous-groupes images universelles dans ce syst\`eme projectif forment un syst\`eme projectif \emph{essentiellement constant}, donc en l'occurrence on trouve un groupe localement alg\'ebrique $G$ comme solution du probl\`eme. Si on suppose m\^eme $A$ normal de dimension $2$, alors une remarque de MUMFORD (disant que la matrice d'intersection des composantes de $Y_{a}$ dans $X$ est d\'efinie n\'egative) implique que $G$ est m\^eme un groupe alg\'ebrique, i.e. de type fini sur $k$ (le nombre de ses composantes connexes \'etant d'ailleurs \'egal au d\'eterminant de la matrice d'intersection envisag\'ee il y a un instant).
+
+Si par contre $a$ n'est pas une singularit\'e isol\'ee, on se convainc sur des exemples (avec $A$ de dimension $2$) qu'on trouve un syst\`eme projectif de groupes alg\'ebriques, ne se r\'eduisant pas \`a un seul groupe alg\'ebrique.
+
+\refstepcounter{toto}\label{pXIII20}%
+Une fois qu'on disposerait d'une bonne notion de \og \emph{schéma de Picard local}\fg, il y aurait lieu de renforcer la notion de parafactorialit\'e, en disant que $A$ est \og \emph{géométriquement parafactoriel}\fg, lorsque non seulement $A$ et m\^eme $\widehat{A}$ sont parafactoriels, mais que le sch\'ema de Picard local $G(\widehat{A})$ est le groupe trivial (ce qui est plus fort, lorsque le corps r\'esiduel n'est pas alg\'ebriquement clos, que de dire que $G$ n'a d'autre point rationnel sur $k$ que l'unit\'e). On se rend compte de la n\'ecessit\'e d'une notion renforc\'ee de parafactorialit\'e, en se rappelant qu'il existe des anneaux locaux complets normaux de dimension $2$ qui sont factoriels, mais qui admettent des alg\`ebres finies \'etales qui ne le sont pas. Un anneau local \og \emph{géométriquement factoriel}\fg serait alors un anneau~$A$ normal tel que tous ces localis\'es de dimension $\geq 2$ soient g\'eom\'etriquement parafactoriels, ou mieux, tel que les localis\'es de $\widehat{A}$ soient parafactoriels\footnote{Pour une notion plus souple d'anneau local \og g\'eom\'etriquement factoriel\fg, cf. \emph{Commentaires}, page~\pageref{commpara}.}. Bien entendu, il serait int\'eressant de trouver une \og bonne\fg d\'efinition de ces notions, ind\'ependante de la th\'eorie, encore \`a faire, des sch\'emas de Picard locaux.
+
+Il est en tous cas plausible qu'on aura besoin de ces notions si on d\'esire obtenir des \'enonc\'es du type suivant: Soit $A$ un \og bon anneau\fg (par exemple une alg\`ebre de type fini sur $\ZZ$, ou sur un anneau local complet, par exemple sur un corps). Soit~$U$ l'ensemble des $x\in X=\Spec(A)$ tels que $\OXx$ soit \og g\'eom\'etriquement factoriel\fg, alors $U$ est ouvert?. Ou encore: Soit $f\colon X\to Y$ un morphisme plat de type fini avec $Y$ localement noeth\'erien, soit $U$ l'ensemble des $x\in X$ tels que $\Oo_{X_{f(x)}, x}$ soit \og g\'eom\'etriquement factoriel\fg, alors $U$ est ouvert, du moins sous des conditions suppl\'ementaires sympathiques sur $f$?. Je doute qu'avec la notion habituelle d'anneau factoriel, il existe des \'enonc\'es vrais de ce type.
+
+Nous avons soulev\'e ici, dans un cas particulier, la question de l'\'etude des propri\'et\'es g\'eom\'etriques d'anneaux locaux \og variables\fg, par exemple les $\OXx$ pour $x$ parcourant un pr\'esch\'ema $X$. Lorsque $X$ est un sch\'ema de type fini sur un corps, par exemple, on sait qu'il existe sur $X$ un syst\`eme projectif d'alg\`ebres finies $P^n_{X/k}$ (obtenu en compl\'etant $X\times_k X$ le long de la diagonale), dont la fibre en tout point $x\in X$ rationnel sur $k$ est isomorphe au syst\`eme projectif des $\OXx/\mm_X^{n+1}$. Il est alors naturel de relier l'\'etude des compl\'et\'es des anneaux locaux $\OXx$, pour $x$ variable, \`a celle de la \og famille alg\'ebrique d'anneaux locaux complets\fg donn\'ee par les $P^n$, en notant que pour tout $x\in X$ (rationnel sur $k$ ou non), on obtient un anneau local complet
+$$
+P^{\infty}(x)=\varprojlim P^n(x)
+$$
+(o\`u $P^n(x)=$~fibre~r\'eduite~$P^n\otimes_{\OXx}k(x)$). Un int\'er\^et particulier s'attachera par exemple \`a l'anneau complet associ\'e ainsi au point g\'en\'erique, et on s'attendra \`a ce que ses propri\'et\'es alg\'ebrico-g\'eom\'etriques (s'exprimant par exemple par ses groupes de Picard, ou d'homotopie, ou d'homologie, locaux), seront essentiellement celles des compl\'et\'es $\widehat{\Oo}_{X, x}$ pour $x$ dans un ouvert dense convenable $U$.
+
+On peut, de fa\c con g\'en\'erale, se proposer de faire l'\'etude simultan\'ee des anneaux locaux complets obtenus ainsi \`a partir d'un syst\`eme projectif adique $(P_n)$ d'alg\`ebres finies sur un sch\'ema donn\'e $X$. Il est plausible qu'on trouvera, moyennant certaines conditions de r\'egularit\'e (telle la platitude des $P_n$) que les groupes d'homotopie locale proviennent d'un syst\`eme projectif de sch\'emas en groupes finis sur $X$, et qu'on aura des r\'esultats analogues pour les groupes de Picard locaux. En ce qui concerne ces derni\`eres, un premier cas int\'eressant qui m\'erite d'\^etre investigu\'e est celui o\`u on part d'une surface alg\'ebrique $X$ ayant des courbes singuli\`eres, et qu'on se propose d'\'etudier les sch\'emas de Picard locaux en les points variables sur celles-ci, en termes d'un pro-sch\'ema en groupes convenable d\'efini sur le lieu singulier.
+
+\section[Commentaires]{Commentaires} \label{XIII.6}
+
+Le point de vue de la \og Cohomologie \'etale\fg des sch\'emas et des progr\`es r\'ecents dans cette th\'eorie, nous am\`ene \`a pr\'eciser et \`a \'elargir en m\^eme temps certains des probl\`emes pos\'es. Pour la notion de \og topologie\fg et de \og topologie \'etale d'un sch\'ema\fg, je renvoie \`a M.\, ARTIN, Grothendieck Topologies, Harvard University 1962 (notes mim\'eographi\'ees)\footnote{Ou de pr\'ef\'erence, \`a \SGA 4.}.
+
+Cette th\'eorie, par une notion plus fine de localisation que celle que fournit la traditionnelle \og topologie de Zariski\fg, am\`ene \`a attacher un int\'er\^et particulier aux anneaux \emph{strictement locaux}\refstepcounter{toto}\label{pXIII.6}, i.e. les anneaux locaux hens\'eliens \`a corps r\'esiduel s\'eparablement clos. Pour tout anneau local $A$ de corps r\'esiduel $k$, et toute cl\^{o}ture s\'eparable $k'$ de~$k$, on peut trouver un homomorphisme local de $A$ dans un anneau strictement local~$A'$, la \emph{clôture strictement locale} de $A$, de corps r\'esiduel $k'$, ayant une propri\'et\'e universelle \'evidente. $A'$ est hens\'elien, plat sur $A$, et $A'\otimes_A k\simeq k'$; il est noeth\'erien si et seulement si $A$ l'est. (Cf. \loccit Chap.\, III, section 4)\footnote{Ou \EGA IV~18.8.}. Si $X$ est un pr\'esch\'ema, et $x$ un point de~$X$, $x'$ un point au-dessus de $x$, spectre d'une cl\^{o}ture s\'eparable $k'$ de $k=k(x)$, on est amen\'e \`a d\'efinir l'\emph{anneau strictement local} de $X$ en $x'$, $\Oo'_{X, x'}$, comme la cl\^{o}ture strictement locale de l'anneau local habituel $\OXx$, relativement \`a l'extension r\'esiduelle $K'/K$. Ce sont les anneaux \emph{strictement} locaux des points \og g\'eom\'etriques\fg de $X$ qui, au point de vue de la topologie \'etale, sont sens\'es refl\'eter les propri\'et\'es locales du pr\'esch\'ema $X$. Ils jouent aussi, \`a bien des \'egards, le r\^{o}le qu'on faisait jouer aux \emph{complétés} des anneaux locaux de $X$ (disons, en les points \`a corps r\'esiduel alg\'ebriquement clos), tout en restant \og plus proches\fg de $X$ et permettant un passage plus ais\'e aux \og points voisins\fg.
+
+Il y a lieu alors de reprendre un bon nombre de questions, qu'on pose g\'en\'eralement pour les anneaux locaux complets (\'eventuellement restreints \`a avoir un corps r\'esiduel alg\'ebriquement clos), pour les anneaux locaux noeth\'eriens hens\'eliens (resp. les anneaux strictement locaux noeth\'eriens). C'est ainsi que les probl\`emes topologiques soulev\'es dans les n$^{\textup{os}}$~\ref{XIII.2} et \ref{XIII.3}, se posent plus g\'en\'eralement pour les anneaux strictement locaux. On peut d'ailleurs \'enoncer \`a titre conjectural, pour les \og bons\fg anneaux strictement locaux, certaines propri\'et\'es de simple connexion et d'acyclicit\'e pour les fibres g\'eom\'etriques du morphisme canonique $\Spec(\widehat{A})\to\Spec(A)$, qui montreraient que pour beaucoup de propri\'et\'es de nature \og topologique\fg, il revient au m\^eme de les prouver pour l'anneau $A$, ou pour son compl\'et\'e $\widehat{A}$. Certains r\'esultats obtenus d\'ej\`a dans cette voie\footnote{Cf. M.\, ARTIN dans \SGA 4~XIX} permettent d'esp\'erer qu'on disposera bient\^{o}t de r\'esultats complets dans cette direction.
+
+\refstepcounter{toto}\label{commpara}%
+La notion de localisation \'etale fournit une d\'efinition qui semble raisonnable de la notion d'anneau local \og \emph{géométriquement parafactoriel}\fg ou \og \emph{géométriquement factoriel}\fg, (dont le besoin a \'et\'e signal\'e dans \numero\ref{XIII.5}, p.\,20): on appellera ainsi un anneau local dont la cl\^{o}ture strictement locale est parafactorielle, resp. factorielle. Des hypoth\`eses de cette nature s'introduisent effectivement d'une fa\c con naturelle dans l'\'etude de la cohomologie \'etale des pr\'esch\'emas. Ainsi, si $X$ est un pr\'esch\'ema localement noeth\'erien dont les anneaux strictement locaux sont factoriels (i.e. dont les anneaux locaux ordinaires sont \og g\'eom\'etriquement factoriels{\fg}), on montre que les $\H^i(X_{{\textup{ét}}}, \GG_m)$ sont des groupes de torsion pour $i\geq 2$ (ce qui permet parfois d'exprimer ces groupes en termes des groupes de cohomologie \`a coefficients dans les groupes $\bbmu_n$ des racines $n$.i{\^emes} de l'unit\'e), et si $X$ est int\`egre de corps des fractions $K$, l'homomorphisme naturel $\H^2(X_{{\textup{ét}}}, \GG_m)\to\H^2(K, \GG_m)=\Br(K)$ est injectif des exemples montrent que ces conclusions peuvent \^etre en d\'efaut, m\^eme pour $X$ local, si on suppose seulement $X$ factoriel au lieu de g\'eom\'etriquement factoriel\footnote{Cf. A.\, GROTHENDIECK, le groupe de Brauer~II (S\'eminaire Bourbaki \numero 297, Nov.~1965), notamment 1.8 et 1.11~b.}.
+
+Concernant les probl\`emes de type Lefschetz local et global soulev\'es dans \ref{XIII.3.4}, et leurs analogues en th\'eorie des sch\'emas, la version homologique de ces questions s'est consid\'erablement clarifi\'ee, tout r\'esultant formellement de trois th\'eor\`emes g\'en\'eraux, l'un concernant la dimension cohomologique de certains sch\'emas affines (resp. des espaces de Stein), tels les sch\'emas affines $X$ de type fini sur un corps alg\'ebriquement clos: leur dimension cohomologique est $\leq\dim X$ (\og th\'eor\`eme de Lefschetz affine{\fg})\footnote{Cf. \SGA 4~XIV.}: l'autre \'etant un th\'eor\`eme de dualit\'e pour la cohomologie (\`a coefficients discrets) d'un morphisme projectif\footnote{Cf. \SGA 4~XVIII.}, enfin le dernier un th\'eor\`eme de \emph{dualité locale} de nature analogue\footnote{Cf. \SGA 5~I.}. En G\'eom\'etrie Alg\'ebrique, seul ce dernier n'est pas d\'emontr\'e au moment d'\'ecrire ces lignes (il l'est cependant en car.~$0$, utilisant la r\'esolution des singularit\'es par HIRONAKA). D'ailleurs, dans le cadre transcendant, on dispose d\`es \`a pr\'esent de la dualit\'e globale et locale, d\'emontr\'ees r\'ecemment par VERDIER. Bornons-nous \`a indiquer que dans l'\'enonc\'e des versions homologiques des probl\`emes \ref{XIII.4.2} et \ref{XIII.4.3} (qui d\'esormais m\'eritent le nom de conjectures), les conditions \og \`a l'infini\fg a) et c) sont certainement superflues, seule \'etant importante la \emph{structure cohomologique locale} de $X-Y$, qu'on supposera par exemple localement intersection compl\`ete de dimension $\geq n$. De plus, dans \ref{XIII.4.3} disons, le fait que $Y$ soit une section hyperplane ne devrait pas jouer, et doit pouvoir se remplacer par la seule hypoth\`ese que $X$ est compacte et $X-Y$ est Stein (i.e. dans le cas de la G\'eom\'etrie Alg\'ebrique, $X$ est propre sur $k$ et $X-Y$ affine; comme nous le disions, la version homologique de cette conjecture est d\'emontr\'ee pour les espaces alg\'ebriques sur le corps $\CC$)\footnote{Cf. \Exp \ref{XIV}}.
+
+\refstepcounter{toto}\label{p25y}%
+Dans la d\'efinition (p.\,15) des $\pi_i^x(X)$, on doit supposer $i\geq 2$. Pour $i=0, 1$, il n'y a pas de d\'efinition raisonnable des $\pi_i^x(X)$, il y a lieu de les remplacer par $\H_0^x(X)$ et $\H_1^x(X)$, d\'efinis respectivement comme le co-noyau et le noyau dans l'homomorphisme naturel
+$$
+\varprojlim \H_0(U-(x), \ZZ)\to\varprojlim\H_0(U, \ZZ).
+$$
+
+A la rigueur et pour la commodit\'e des formulations, on pourra poser $\pi_i^x(X)=\H_i^x(X)$ pour $i\leq 1$, sinon il faut compl\'eter les assertions ult\'erieures concernant les $\pi_i^x$ par les assertions correspondantes pour $\H_0^x, \H_1^x$. Si $x$ est un point isol\'e de $X$, il convient de poser $\pi_i^x(X)=0$ pour $i\neq 0$, $\pi_0^x(X)=\H_0^x(X)=\ZZ$.
+
+L'assertion que les $\pi_i^x(U, f)$ soient isomorphes entre eux n'est vraie que lorsque $X$ n'est pas disconnect\'e par $x$ au voisinage de $x$, i.e. si $\pi_i^x(X)=0$ pour $i=0, 1$. Dans le cas g\'en\'eral $\pi_i^x(X)$ ne peut d\'esigner qu'une \emph{famille} de groupes, pas n\'ecessairement isomorphes entre eux; cependant l'\'ecriture $\pi_i^x(X)=0$ garde un sens \'evident.
+
+\refstepcounter{toto}\label{p26y}Page~15, ligne~-~11, o\`u je pr\'evois que l'annulation des invariants homotopiques locaux $\pi_i^x(X)$ pour $x\in Y$, $i\leq n$ doit entra\^iner la bijectivit\'e de $\pi_i(X-Y)\to\pi_i(X)$ pour $i<n-d$, la surjectivit\'e pour $i=n-d$, il convient d'\^etre prudent, faute de pouvoir disposer dans le contexte pr\'esent (comme en G\'eom\'etrie Alg\'ebrique) de points \og g\'en\'eraux\fg en lesquels les conditions locales devront aussi s'appliquer. Il sera sans doute n\'ecessaire, pour cette raison, de faire appel \`a des invariants homotopiques locaux relatifs
+$$
+\pi_i^Y(X, f)=\pi_i^Y(X, x)=\varprojlim_U \pi_{i-1}(U-U\cap Y, f(t))\qquad\text{pour }i\geq 2\quoi,
+$$
+(et d\'efinition {ad-hoc} comme ci-dessus pour $i=0, 1$), o\`u $Y$ est une partie ferm\'ee de~$X$; ou de suppl\'eer \`a l'absence de points g\'en\'eraux en exprimant les hypoth\`eses sur $X$ en termes de propri\'et\'es de nature topologique (pour la topologie \'etale) des spectres des anneaux locaux de $X$, ce qui permet de r\'ecup\'erer des points g\'en\'eraux. La m\^eme r\'eserve s'applique \`a la g\'en\'eralisation des conjectures \ref{XIII.4.2} et \ref{XIII.4.3} au cas o\`u $X-Y$ n'est pas suppos\'e localement une intersection compl\`ete, g\'en\'eralisation sugg\'er\'ee dans l'\'enonc\'e des conditions~b) de ces conjectures.
+
+Pour formuler les versions expurg\'ees des conjectures \ref{XIII.4.2} et \ref{XIII.4.3} sugg\'er\'ees par les r\'esultats auxquels on~a fait allusion plus haut, il convient de poser la
+
+\begin{supdefinition} \label{XIII.6.1} Soit $X$ un espace topologique, $Y$ une partie localement ferm\'ee de $X$, et $n$ un entier. On dit que $X$ est de \emph{profondeur homotopique} $\geq n$ le long de $Y$, et on \'ecrit $\mathrm{prof\:hpt}_Y(X)\geq n$, si pour tout $x\in Y$, on~a $\pi_i^Y(X, x)=0$ pour $i<n$.
+\end{supdefinition}
+
+Il doit \^etre \'equivalent de dire que pour tout ouvert $X'$ de $X$, et tout $x\in X'\cap U=U'$ (o\`u $U=X-Y$), l'homomorphisme canonique
+$$
+\pi_i(U', x)\to\pi_i(X', x)$$
+est un isomorphisme pour $i<n-1$, un monomorphisme pour $i=n-1$.
+
+\begin{supdefinition} \label{XIII.6.2}
+Soit $X$ un espace analytique complexe, $n$ un entier, on dit que la \emph{profondeur homotopique rectifiée} de $X$ est $n$\footnote{Dans la premi\`ere \'edition de ces notes, nous avions employ\'e le terme: \og vraie profondeur homotopique\fg. Dans la pr\'esente version, nous suivons \EGA IV~10.8.1.}, si pour toute partie analytique localement ferm\'ee $Y$ de $X$, on a
+\begin{equation*} \label{eq:XIII.6.x} \tag{$x$} {\mathrm{prof\:htp}_Y(X)\geq n-\dim Y}
+\end{equation*}
+(o\`u, bien entendu, $\dim Y$ d\'esigne la dimension \emph{complexe} de $Y$).
+\end{supdefinition}
+
+Il doit \^etre \'equivalent de dire que pour toute partie analytique irr\'eductible $Y$ localement ferm\'ee dans $X$, il existe une partie analytique ferm\'ee $Z$ de $Y$, de dimension $<\dim Y$, telle que la relation (\ref{eq:XIII.6.x}) soit valable pour $Y-Z$ au lieu de $Y$. Cela permettrait par exemple dans la d\'efinition \ref{XIII.6.2} de se borner au cas o\`u $Y$ est non singuli\`ere.\refstepcounter{toto}
+
+\enlargethispage{\baselineskip}%
+La conjecture suivante, de nature purement topologique, est dans la nature d'un \og \emph{théorème de Hurewicz local}\fg.
+
+\refstepcounter{aconjecture} \label{XIII.6.A}
+\begin{enonce*}{Conjecture A}[\og th. de Hurewics local{\fg}\ndemark]
+Soit $X$ un espace topologique, $Y$~une partie localement ferm\'ee, soumis au besoin \`a des conditions de \og smoothness\fg genre triangulabilit\'e locale de la paire $(X, Y)$, $n$ un entier $\geq 3$. Pour qu'on ait $\mathrm{prof\:htp}_Y(X)\geq n$, il faut et il suffit que l'on ait
+$$
+\H^i_Y(\ZZ_X)=0\quad\text{pour } i<n$$
+(on dit alors que $X$ est de \emph{profondeur cohomologique} $\geq n$ le long de $Y$), et que les groupes fondamentaux locaux
+$$
+\pi^2_Y(X, x)=\varprojlim_{U\ni x} \pi_1(U-U\cap Y)$$
+soient nuls (on dit alors que $X$ est \og pur\fg le long de $Y$).
+\end{enonce*}
+
+On notera que si $X$ est un espace analytique, $Y$ un sous-espace analytique, et si~$X$ est pur le long de $Y$, alors pour tout $x\in Y$, l'anneau local $\OXx$, ainsi que ses localis\'es par rapport \`a des id\'eaux premiers contenant l'id\'eal d\'efinissant le germe~$Y$ en~$x$ (i.e. dans l'image inverse $Y_x$ de $Y$ par $\Spec(\OXx)=X_x\to X$) sont purs au sens de \Exp \ref{X}; il semble plausible que la r\'eciproque soit \'egalement vraie. Des remarques analogues valent pour la profondeur cohomologique, \'etant entendu qu'on travaille avec la topologie \'etale sur les $\Spec(\OXx)$.
+
+La conjecture \ref{XIII.4.1} se g\'en\'eralise alors en la
+
+\refstepcounter{aconjecture} \label{XIII.6.B}
+\begin{enonce*}{Conjecture B}[\og Puret\'e{\fg}\ndemark]
+Soient $E$ un espace analytique, $X$ une partie analytique de $E$. On suppose que $E$ est non singulier de dimension $N$ en $x$, et que $X$ peut se d\'ecrire par $p$ \'equations analytiques au voisinage de tout point. Alors la profondeur homotopique rectifi\'ee de $X$ est $\geq N-p$.
+\end{enonce*}
+
+En particulier, une intersection compl\`ete locale de dimension $n$ en tout point serait de profondeur homotopique rectifi\'ee $\geq n$, ce qui n'est autre que la conjecture \ref{XIII.4.1}.
+
+Les conjectures \ref{XIII.4.2} et \ref{XIII.4.3} se g\'en\'eralisent respectivement en:
+
+\refstepcounter{aconjecture} \label{XIII.6.C}
+\begin{enonce*}{Conjecture C}[\og Lefschetz local{\fg}\ndemark]
+Soient $X$ un espace analytique, $Y$ une partie analytique ferm\'ee, $x$ un point de $Y$, on suppose que $X-Y$ est Stein au voisinage de $x$ (par exemple $Y$ d\'efini par une \'equation en $x$), et que $X-Y$ est de profondeur homotopique rectifi\'ee $\geq n$ au voisinage de $x$ (par exemple, est en tout point de $X-Y$ voisin de $x$, une intersection compl\`ete de dimension $\geq n$, cf. conjecture \ref{XIII.6.B}). Alors l'homomorphisme canonique
+$$
+\pi_i^x(Y)\to\pi_i^x(X)$$
+est un isomorphisme pour $i<n-1$, un \'epimorphisme pour $i=n-1$.
+\end{enonce*}
+
+\refstepcounter{aconjecture} \label{XIII.6.D}
+\begin{enonce*}{Conjecture D}[\og Lefschetz global{\fg}\ndemark]
+
+Soient $X$ un espace analytique \emph{compact}, $Y$ un sous-espace analytique de $X$ tel que $U=X-Y$ soit Stein, et soit de profondeur homotopique rectifi\'ee $\geq n$ (par exemple intersection compl\`ete de dimension $\geq n$ en tout point). Alors l'homomorphisme canonique
+$$
+\pi_i(Y)\to\pi_i(X)$$
+est un isomorphisme pour $i<n-1$, un \'epimorphisme pour $i=n-1$.
+\end{enonce*}
+
+\begin{remarquestar}
+Lorsque, dans les \'enonc\'es \ref{XIII.6.C} et \ref{XIII.6.D}, on
+remplace l'hypoth\`ese que $X-Y$ est Stein par l'hypoth\`ese que
+$X-Y$ est r\'eunion de $c+1$ ouverts de Stein (qui jouera le
+r\^{o}le d'une hypoth\`ese de \og concavit\'e\fg topologique), les
+conclusions doivent \^etre modifi\'ees simplement en y rempla\c cant
+$n$ par $n-c$.
+\end{remarquestar}
+
+Explicitons pour finir, dans le \og cas global\fg \ref{XIII.6.D}, la conjecture concernant le groupe fondamental (obtenue en faisant $n=3$):
+
+
+\refstepcounter{aconjecture}\label{XIII.6.D'}
+\begin{enonce*}{Conjecture D$\boldsymbol'$}[Lefschetz global pour groupe fondamental\ndemark]
+
+Soient $X$ un espace analytique compact sur le corps des complexes, $Y$ une partie analytique ferm\'ee telle que $U=X-Y$ soit Stein. Supposons de plus les conditions suivantes satisfaites:
+\begin{enumeratei}
+\item
+Pour tout $x\in U$, le groupe fondamental local $\pi_2^x(X, x)$ est nul (i.e. $X$ \emph{est \og pur en }$x${\fg}), ou seulement l'anneau local $\OXx$ est pur.
+\item
+Les anneaux locaux des points de $U$ sont \og connexes en dimension $\geq 2$\fg.
+\item
+Les anneaux locaux des points de $U$ sont de dimension $\geq 3$.
+\end{enumeratei}
+
+Sous ces conditions, pour tout $x\in Y$, l'homomorphisme
+$$
+\pi_1(Y, x)\to\pi_1(X, x)
+$$
+est un isomorphisme (et $\pi_2(Y, x)\to\pi_2(X, x)$ un \'epimorphisme).
+\end{enonce*}
+
+On notera que les conditions locales (i)~(ii)~(iii) sur $U$ sont satisfaites si $U$ est localement intersection compl\`ete de dimension $\geq 3$. Du point de vue de la G\'eom\'etrie Alg\'ebrique, (lorsque $U$ provient d'un sch\'ema, encore not\'e $U$), les conditions (i) \`a (iii) correspondent \`a des hypoth\`eses sur les invariants locaux $\pi_i^x(U)$, \ignorespaces savoir \hbox{$\pi_i^x(U)=0$} pour $i<3-\degtr k(x)/k$, pour les points $x$ tels que l'on ait respectivement $\degtr k(x)/k=0, 1, 2$. La condition globale sur $U$ ($U$ Stein) sera satisfaite si $X$ est projective et $Y$ une section hyperplane.
+
+\begin{thebibliography}{HL}\refstepcounter{toto}\label{XIII.7}
+
+\bibitem[1]{XIII.1} %
+S. Abhyankar, Local uniformisation on algebraic surfaces, Annals of Math. vol.~63, \No~3, 1956
+
+\bibitem[2]{XIII.2} %
+W.L. Chow, On the theorem of Bertini for local domains, Proc. Nat. Acad. Sc. Vol.~44, \No~6, pp.\, 580--584, 1958
+
+\bibitem[3]{XIII.3} %
+M. Greenberg, Schemata over local rings, Annals of Math., vol~73, 1961
+
+\bibitem[4]{XIII.4} %
+M. Kneser, Uber die Darstellung algebraischer Raumkurven als Durchschnitte von Fl\"achen, Archiv der Math. Vol.~XI, fasc.~3, 1960
+
+\bibitem[5]{XIII.5} %
+D. Mumford, The topology of normal singularities of an algebraic surface, and a criterion for simplicity, Publications Math\'ematiques \No~9, 1961
+
+\bibitem[6]{XIII.6} %
+A. N\'eron, Mod\`eles minimaux des vari\'et\'es ab\'eliennes sur les corps locaux et globaux, \`a para\^itre aux Publications Math\'ematiques (existe en notes mim\'eographi\'ees \`a circulation restreinte...)
+
+\bibitem[7]{XIII.7} %
+A.H. Wallace, Homology Theory of algebraic Varieties, Pergamon Press, 1958.
+
+\bibitem[8]{XIII.8} %
+S. Abhyankar, Resolution of singularities of arithmetical surfaces, p.\, 111--152, Arithmetical Algebraic Geometry, Harper and Row, New-York 1963.
+
+
+\end{thebibliography}
+
+\chapterspace{-4}

@@ -1,0 +1,1594 @@
+\chapter[Profondeur et th\'eor\`emes de Lefschetz]
+{Profondeur et th\'eor\`emes de Lefschetz en~cohomologie \'etale} \label{XIV}
+\begin{center}
+par Mme M. Raynaud\footnote{D'apr\`es des notes in\'edites de A.~Grothendieck.}
+\end{center}
+
+\vspace*{1cm}
+Au \numero \ref{XIV.1}, nous d\'efinissons une notion de \og \textit{profondeur étale}\fg qui est l'analogue en cohomologie \'etale de la notion de profondeur \'etudi\'ee dans \ref{III}, en cohomologie des faisceaux coh\'erents. Apr\`es une partie technique, nous d\'emontrons au \numero \ref{XIV.4} des \og th\'eor\`emes de Lefschetz\fg, le th\'eor\`eme central \'etant \ref{XIV.4.2}. Soit $X$ un sch\'ema, $Y$ une partie ferm\'ee de $X$, $U$ l'ouvert compl\'ementaire $X-Y$ et $F$ un faisceau ab\'elien sur $X$, pour la topologie \'etale; d'une mani\`ere g\'en\'erale le but des th\'eor\`emes de Lefschetz est de montrer que, si $F$ satisfait \`a certaines conditions locales sur $U$, exprimables en termes de profondeur \'etale au points de $U$, alors, sous certaines conditions suppl\'ementaires de nature globale sur $U$ (par exemple $U$ \textit{affine}), l'application naturelle des groupes de cohomologie \'etale
+$$
+\H^i(X, F)\to \H^i(Y, F{|Y})$$
+est un isomorphisme pour des valeurs $i<n$, o\`u $n$ est un certain entier explicit\'e. En prenant pour $F$ un faisceau constant, on obtient ainsi des conditions pour que $\pi_0(X)$ soit \'egal \`a $\pi_0(Y)$ et des conditions pour que les groupes fondamentaux rendus ab\'eliens de $X$ et $Y$ soient les m\^emes. Au \numero \ref{XIV.5}, l'introduction d'une notion de \og profondeur g\'eom\'etrique\fg permet de donner des cas particuliers utiles des th\'eor\`emes de Lefschetz (\ref{XIV.5.7}). Enfin au \numero \ref{XIV.6}, nous signalons quelques conjectures, concernant notamment des variantes \og non commutatives\fg des th\'eor\`emes obtenus.
+
+\section{Profondeur cohomologique et homotopique}\label{XIV.1}
+
+\setcounter{subsection}{-1}
+
+\subsection{}\label{XIV.1.0}
+Fixons les notations suivantes. Soient $X$ un sch\'ema\footnote{Conform\'ement \`a la nouvelle terminologie (cf. r\'e\'edition de \EGA I), nous appellerons ici \og sch\'ema\fg ce qui \'etait appel\'e pr\'ec\'edemment \og pr\'esch\'ema\fg et \og sch\'ema s\'epar\'e\fg ce qui \'etait appel\'e \og sch\'ema\fg.}, $Y$ une partie ferm\'ee de~$X$, $U$ l'ouvert compl\'ementaire et $i:Y=X-U\to X$ l'immersion canonique. Soient~$\underline{\Gamma}_Y$ le foncteur qui, \`a un faisceau ab\'elien sur $X$, fait correspondre le \og faisceau des sections \`a support dans $Y$\fg, c'est-\`a-dire $\underline{\Gamma}_Y=i_*i^!$ (cf. \SGA 4 IV 3.8 et VIII 6.6) et $\Gamma_Y$ le foncteur $\Gamma\cdot \underline{\Gamma}_Y$ (o\`u $\Gamma$ est le foncteur \og sections globales{\fg}). Consid\'erons la cat\'egorie d\'eriv\'ee $D^+(X)$ et le foncteur d\'eriv\'e $\R\underline{\Gamma}_Y$ (resp. $\R\Gamma_Y$) de $\underline{\Gamma}_Y$ (resp. de $\Gamma_Y$) (cf. \cite{XIV.3}). \'Etant donn\'e un complexe de faisceaux ab\'eliens $F$ sur $X$, \`a degr\'es born\'es inf\'erieurement, on peut le consid\'erer comme un \'el\'ement de $D^+(X)$; nous noterons alors ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)$ le $p$-i\`eme faisceau de cohomologie de $\R\underline{\Gamma}_Y(F)$ et $\H_Y^p(X, F)$ le $p$-i\`eme groupe de cohomologie de $\R\Gamma_Y(F)$. Les r\'esultats de (\SGA 4 V 4.3 et 4.4) s'\'etendent trivialement \`a ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)$ et $\H_Y^p(X, F)$.
+
+\enlargethispage{\baselineskip}%
+\begin{proposition} \label{XIV.1.1}
+Soient $X$ un sch\'ema, $Y$ une partie ferm\'ee de $X$, $U$ l'ouvert compl\'ementaire et $i:U\to X$ l'immersion canonique. D\'esignons par $F$, soit un faisceau d'ensembles sur $X$, soit un faisceau en groupes sur $X$, soit un complexe de faisceaux ab\'eliens sur $X$, \`a degr\'es born\'es inf\'erieurement. Fixons les notations suivantes: si $X'\to X$ est un morphisme, $U'$ et $F'$ d\'esignent les images inverses de $U$ et $F$ sur $X'$; par ailleurs, si $\bar{y}$ est un point g\'eom\'etrique de $X$, $\bar{X}$ d\'esigne le localis\'e strict de $X$ en $\bar{y}$ et $\bar{U}$ et $\bar{F}$ les images inverses de $U$ et $F$ dans $\bar{X}$.
+
+$1^\circ)$ Soient $F$ un faisceau d'ensembles sur $X$ et $n$ un entier $\leq 2$; alors les conditions suivantes sont \'equivalentes:
+
+\textup{(i)} Le morphisme canonique
+$$F\to i_*i^*F$$
+est injectif si $n\geq 1$, bijectif si $n\geq 2$.
+
+\textup{(ii)} Pour tout sch\'ema $X'$ \'etale au-dessus de $X$, le morphisme canonique
+$$
+\H^0(X', F')\to \H^0(U', F')
+$$
+est injectif si $n\geq 1$, bijectif si $n\geq 2$.
+
+Supposons de plus l'ouvert $U$ r\'etrocompact dans $X$; alors les conditions pr\'ec\'edentes sont \'equivalentes \`a la suivante:
+
+\textup{(iii)} Pour tout point g\'eom\'etrique $\bar{y}$ de $Y$, le morphisme canonique
+$$
+\H^0(\bar{X}, \bar{F})\to \H^0(\bar{U}, \bar{F})$$
+est injectif si $n\geq 1$, et bijectif si $n\geq 2$.
+
+$2^\circ)$ Soient $F$ un faisceau en groupes sur $X$ et $n$ un entier $\leq 3$; alors les conditions suivantes sont \'equivalentes:
+
+\textup{(i)} Le morphisme canonique
+$$F\to i_*i^*F$$
+est injectif si $n\geq 1$, bijectif si $n\geq 2$, et si $n\geq 3$, en plus des conditions pr\'ec\'edentes, le faisceau d'ensemble point\'es $\R^1i_*(i^*F)$ est nul.
+
+\textup{(ii)} Pour tout sch\'ema $X'$ \'etale au-dessus de $X$, le morphisme canonique
+$$
+\H^0(X', F')\to \H^0(U', F')
+$$
+est injectif si $n\geq 1$, bijectif si $n\geq 2$, et de plus le morphisme canonique
+$$
+\H^1(X', F')\to \H^1(U', F')
+$$
+est injectif si $n\geq 2$, bijectif si $n\geq 3$.
+
+\textup{(ii bis)} Identique \`a \textup{(ii)}, sauf dans le cas $n=2$ o\`u l'on suppose seulement $\H^0(X', F')\to \H^0(U', F')$ bijectif.
+
+Supposons de plus $U$ r\'etrocompact dans $X$; alors les conditions pr\'ec\'edentes sont aussi \'equivalentes \`a la suivante:
+
+\textup{(iii)} Pour tout point g\'eom\'etrique $\bar{y}$ de $Y$, le morphisme canonique
+$$
+\H^0(\bar{X}, \bar{F})\to \H^0(\bar{U}, \bar{F})
+$$
+est injectif si $n\geq 1$, bijectif si $n\geq 2$; enfin si $n\geq 3$, en plus des conditions pr\'ec\'edentes, $\H^1(\bar{U}, \bar{F})$ est nul.
+
+$3^\circ)$ Soit $F$ un complexe de faisceaux ab\'eliens, \`a degr\'es born\'es inf\'erieurement et $n$~un entier; alors les conditions suivantes sont \'equivalentes:
+
+\textup{(i)} On a ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)=0$ pour $p<n$ (cf. 1.0).
+
+\textup{(ii)} Pour tout sch\'ema $X'$ \'etale au-dessus de $X$, le morphisme canonique
+$$
+\H^p(X', F')\to \H^p(U', F')
+$$
+est bijectif pour $p<n-1$, injectif pour $p=n-1$.
+
+Supposons $U$ r\'etrocompact dans $X$, alors les conditions qui pr\'ec\'edent sont aussi \'equivalentes \`a la suivante:
+
+\textup{(iii)} Pour tout point g\'eom\'etrique $\bar{y}$ de $Y$, le morphisme canonique
+$$
+\H^p(\bar{X}, \bar{F})\to \H^p(\bar{U}, \bar{F})$$
+est bijectif pour $p<n-1$, injectif pour $p=n-1$.
+
+Dans le cas o\`u $F$ est un faisceau ab\'elien et $n\geq 2$, les conditions \textup{(i)} et \textup{(ii)} sont aussi \'equivalentes \`a la suivante:
+
+\textup{(ii bis)} Pour tout sch\'ema $X'$ \'etale au-dessus de $X$, le morphisme canonique
+$$
+\H^p(X', F')\to \H^p(U', F')$$
+est bijectif pour $p<n-1$.
+\end{proposition}
+
+\skpt
+\begin{proof}
+$1^\circ)$ Il est clair que \textup{(i)}~$\Ssi$~ \textup{(ii)}.
+Montrons que, si $U$ est r\'etrocompact dans $X$, \textup{(i)}~$\Ssi$~
+\textup{(iii)}. En effet, \textup{(i)} \'equivaut \`a dire que, pour
+tout point g\'eom\'etrique $\bar{y}$ de $X$, le morphisme
+$F_{\bar{y}}\to (i_*i^*F)_{\bar{y}}$ est injectif si $n\leq 1$ et
+bijectif si $n\leq 2$ (\SGA 4 VIII 3.6). Comme ce morphisme est de
+toutes fa\c cons bijectif lorsque $\bar{y}$ est un point
+g\'eom\'etrique de $U$, on peut se borner aux points g\'eom\'etriques
+$\bar{y}$ de $Y$. Or il r\'esulte du fait que $i$ est quasi-compact
+et de (\SGA 4 VIII 5.3) que le morphisme
+$$F_{\bar{y}}\to (i_*i^*F)_{\bar{y}}$$
+s'identifie canoniquement au morphisme
+$$
+\H^0(\bar{X}, \bar{F})\to \H^0(\bar{U}, \bar{F}),
+$$
+d'o\`u l'\'equivalence de \textup{(i)} et \textup{(iii)}.
+
+$2^\circ)$ \textup{(i)}~$\To$~ \textup{(ii)}. Les assertions sur le $\H^0$ r\'esultent de $1^\circ)$. Soit alors $i'$ l'immersion canonique de $U'$ dans $X'$; les assertions sur le $\H^1$ r\'esultent de la suite exacte (\SGA 4 XII 3.2)
+$$0\to \H^1(X', i'_*i'^*F')\to \H^1(U', F')\to \H^0(X', \R^1i'_*(i'^*F')).
+$$
+
+(ii bis)~$\To$~ \textup{(i)}. D'apr\`es $1^\circ)$, il suffit de montrer que, pour $n\geq 3$, on~a $\R^1i_*(i^*F)=0$. Or $\R^1i_*(i^*F)$ est le faisceau associ\'e au pr\'efaisceau $X'\mto \H^1(U', F')$, c'est-\`a-dire, par hypoth\`ese, le faisceau associ\'e au pr\'efaisceau $X'\mto \H^1(X', F')$, lequel est nul.
+
+\textup{(i)}~$\Ssi$~ \textup{(iii)}. Tenant compte de $1^\circ)$, la seule chose qui reste \`a voir est que la relation $\R^1i_*(i^*F)=0$ \'equivaut au fait que $\H^1(\bar U, \bar F)=0$ pour tout point g\'eom\'etrique $\bar y$ de $Y$. Comme $\R^1i_*(i^*F))$ est nul hors de $Y$, il revient au m\^eme de dire que $\R^1i_*(i^*F)=0$ ou que $(\R^1i_*(i^*F))_{\bar y}=0$ pour tout point g\'eom\'etrique $\bar y$ de $Y$. Il suffit alors de noter que, $i$ \'etant quasi-compact, on~a $(\R^1i_*(i^*F))_{\bar y}=\H^1(\bar U, \bar F)$ (\SGA 4 VIII 5.3).
+
+$3^\circ)$ \textup{(i)}~$\To$~ \textup{(ii)}. Soit $X'$ un sch\'ema \'etale au-dessus de $X$; on~a la suite exacte (\SGA 4 V 4.5)
+\begin{equation*} \label{eq:XIV.1.1.*} \tag{$*$} {\to \H^p_{Y'}(X', F')\to H^p(X', F')\to H^p(U', F')\to};
+\end{equation*}
+donc \textup{(ii)} \'equivaut \`a $H^p_{Y'}(X', F')=0$ pour $p<n$ et pour tout sch\'ema $X'$ \'etale au-dessus de $X$. Consid\'erons alors la suite spectrale
+$$
+\E_2^{pq}=\H^p(X', {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^q(F))\To \H_{Y'}^*(X', F');$$
+par hypoth\`ese, ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^q(F)=0$ pour $q<n$, d'o\`u $\E_2^{pq}=0$ pour $p+q<n$ et par suite $\H_{Y'}^p(X', F')=0$ pour $p<n$.
+
+\textup{(ii)}~$\To$~ \textup{(i)}. Le faisceau ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)$ est associ\'e au pr\'efaisceau $X'\mto \H_{Y'}^p(X', F')$; comme on~a d\'ej\`a remarqu\'e que \textup{(ii)} \'equivaut \`a la relation $\H_{Y'}^p(X', F')=0$ pour $p<n$ et pour tout sch\'ema $X'$ \'etale au-dessus de $X$, on~a bien ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)=0$ pour $p<n$.
+
+\textup{(i)}~$\Ssi$~ \textup{(iii)}. Les faisceaux ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)$ sont concentr\'es sur $Y$; par suite il revient au m\^eme de dire que ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)=0$ ou de dire que, pour tout point g\'eom\'etrique $\bar y$ de $Y$, la fibre $({\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F))_{\bar y}$ est nulle. Or, $i$ \'etant quasi-compact, on d\'eduit de (\SGA 4 VIII 5.2) que l'on a $({\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F))_{\bar y}={\mathop{\underline{\mathrm{H}}}\nolimits}_{\bar Y}^p(\bar X, \bar F)$. L'\'equivalence de \textup{(i)} et \textup{(iii)} en r\'esulte, compte tenu de l'analogue sur $\bar X$ de la suite exacte (\ref{eq:XIV.1.1.*}).
+
+(ii bis)~$\To$~ \textup{(ii)} dans le cas o\`u $F$ est un faisceau ab\'elien. La seule chose qui reste \`a montrer est que ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F)=0$. Or, pour $n>2$, le faisceau ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F)$ est associ\'e au pr\'efaisceau $X'\mto \H^{n-2}(U', F')=\H^{n-2}(X', F')$ donc est bien nul. Le cas $n=2$ r\'esulte du fait que ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^1(F)$ est le conoyau du morphisme $F\to i_*i^*F$.
+\skipqed
+\end{proof}
+
+\begin{definition} \label{XIV.1.2}
+Les notations sont celles de \ref{XIV.1.1}. On dit que $F$ est de $Y$-profondeur \'etale $\geq n$ et on \'ecrit
+$$
+\prof_Y(F)\geq n$$
+si $F$ satisfait aux conditions \'equivalentes \textup{(i)} et \textup{(ii)} de \ref{XIV.1.1}. Si $F$ est un complexe de faisceaux ab\'eliens, on appelle $Y$-profondeur \'etale de $F$ la borne sup\'erieure des~$n$ pour lesquels $\prof_Y(F)\geq n$; on utilisera la m\^eme notation si $F$ est un faisceau d'ensembles resp. de groupes non n\'ecessairement commutatifs (de sorte qu'on a alors $0\leq \prof_Y(F)\leq 2$ resp. $0\leq \prof_Y(F)\leq 3$, lorsque le contexte ne permet pas de confusion sur celle des trois variantes envisag\'ees ici qu'on utilise).
+
+Si $\LL$ est un ensemble de nombres premiers, on dit que $X$ est de $Y$-profondeur \'etale pour $\LL \geq n$ et on \'ecrit
+$$
+\prof_Y^{\LL}(X)\geq n
+$$
+si, pour tout faisceau constant de la forme $\ZZ/\ell\ZZ$ avec $\ell\in \LL$, on~a $\prof_Y(\ZZ/\ell\ZZ)\geq n$. On d\'efinit de fa\c con \'evidente la $Y$-profondeur \'etale pour $\LL$ de $X$. Si $\LL=\PP$, ensemble de tous les nombres premiers, et s'il n'y a pas de risque de confusion avec la notation de \textup{(\EGA IV 5.7.1)} (relative au cas o\`u $F=\OX$), on omet $\LL$ dans la notation; sinon on \'ecrit $\prof {\textup{ét}}(X)$.
+
+Enfin on dit que $X$ est de $Y$-profondeur homotopique \ignorespaces pour $\LL \geq 3$ et on \'ecrit
+$$
+\prof \hop_Y^{\LL}(X)\geq 3$$
+si, pour tout faisceau de $\LL$-groupes constant fini $F$ sur $X$, on~a $\prof_Y(F)\geq 3$. Si $\LL=\PP$, on omet $\LL$ dans la notation.
+\end{definition}
+
+\begin{corollaire} \label{XIV.1.3}
+Sous les conditions de \ref{XIV.1.1}, si $\prof_Y(F)\geq n$, alors, pour tout ferm\'e~$Z$ de $Y$, on a
+$$
+\prof_Z(F)\geq n.
+$$
+\end{corollaire}
+
+Faisons par exemple le raisonnement dans le cas o\`u $F$ est un complexe de faisceaux ab\'eliens \`a degr\'es born\'es inf\'erieurement. On utilise \ref{XIV.1.1} $3^\circ)$ \textup{(ii)}. Soit $V=X-Z$ et consid\'erons, pour tout entier $p$, la suite de morphismes
+$$
+\H^p(X, F)\lto{f} \H^p(V, F)\lto{g} \H^p(U, F).
+$$
+
+Par hypoth\`ese $g$ et $f\circ g$ sont bijectifs pour $p<n-1$ et injectifs pour $p=n-1$; il en est donc de m\^eme de $f$. Comme le raisonnement est valable quand on remplace $X$ par un sch\'ema $X'$ \'etale au-dessus de $X$, ceci d\'emontre \ref{XIV.1.3}.
+
+\begin{corollaire} \label{XIV.1.4} Les notations sont celles de \ref{XIV.1.1} $2^\circ)$. Si $X'$ est un sch\'ema sur $X$, notons $\Phi'$ le foncteur qui fait correspondre \`a un rev\^etement \'etale de $X'$ sa restriction \`a~$U'$, et $\Phi'_{F'}$, le foncteur qui fait correspondre \`a un torseur\footnote{i.e. un \og fibr\'e principal homog\`ene\fg dans une ancienne terminologie.} sous $F'$ sa restriction \`a~$U'$. Alors les conditions suivantes sont \'equivalentes:
+
+\textup{(i)} On a $\prof_Y(F)\geq 1$ (resp. $\prof_Y(F)\geq 2$, resp. $\prof_Y(F)\geq 3$).
+
+\textup{(ii)} Pour tout sch\'ema $X'$ \'etale au-dessus de $X$, le foncteur $\Phi'_{F'}$ est fid\`ele (resp. pleinement fid\`ele, resp. une \'equivalence de cat\'egories).
+
+En particulier, pour que l'on ait $\prof_Y({X})\geq 1$ (resp.\ $\prof_Y({X})\geq 2$, resp.\ $\prof \hop_Y(X)\geq 3$), il faut et il suffit que le foncteur $\Phi'$ soit fid\`ele (resp.\ pleinement fid\`ele, resp. une \'equivalence de cat\'egories).
+\end{corollaire}
+
+Cela r\'esulte en effet de \ref{XIV.1.1} $2^\circ)$ \textup{(ii)}, compte tenu de l'interpr\'etation de $\H^1(X', F')$ comme l'ensemble des classes (mod. isomorphismes) de torseurs sous $F'$ (\SGA 4 VII~2), et des rev\^etements \'etales $Z$ de degr\'e $n$ d'un sch\'ema comme associ\'es \`a des rev\^etements principaux galoisiens de groupe le groupe sym\'etrique $\mathfrak{S}_n$, \`a $Z$ \'etant associ\'e le rev\^etement $\underline{\Isom}_X(Z_0, Z)$, o\`u $Z_0$ est le rev\^etement trivial de $X$ de degr\'e $n$.
+
+\begin{corollaire} \label{XIV.1.5} Sous les conditions de \ref{XIV.1.1} $3^\circ)$, supposons que l'on ait $\prof_Y(F)\geq n$; alors on a
+$$
+\H_Y^n(X, F)\simeq \H^0(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^n(F)).
+$$
+\end{corollaire}
+
+Le corollaire r\'esulte de la suite spectrale
+$$
+\E_2^{pq}=H^p(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^q(F))\To H_Y^*(X, F).
+$$
+
+En effet on~a par hypoth\`ese $\E_2^{pq}=0$ pour $q<n$, d'o\`u il r\'esulte que
+$$
+\H_Y^n(X, F)=\E_2^{0n}=\H^0(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^n(F)).
+$$
+
+\skpt
+\begin{remarques} \label{XIV.1.6}
+a) La notion de $Y$-profondeur, sous la forme des conditions \'equivalentes \textup{(i)} et \textup{(ii)} de \ref{XIV.1.1}, a un sens pour n'importe quel site. Dans le cas particulier o\`u $X$ est un sch\'ema localement noeth\'erien, muni de la topologie de Zariski, et $F$ un faisceau de $\OX$-modules coh\'erents, on trouve la notion usuelle de $Y$-profondeur comme borne inf\'erieure des profondeurs aux points de $Y$ (\ref{III}).
+
+b) Pour $n\leq 2$, la notion de $Y$-profondeur \'etale de $X$ est ind\'ependante de $\LL$. Pour $n=1$, elle signifie simplement que $U$ est dense dans $X$. En effet cette condition est n\'ecessaire pour que l'on ait $\prof_Y(F)\geq 1$, et elle est aussi suffisante car on peut supposer $X$ r\'eduit, cas dans lequel la condition $U$ dense dans $X$ se conserve par changement de base \'etale \textup{(\EGA IV 11.10.5) \textup{(ii)} b))}. Si $U$ est r\'etrocompact dans $X$, la relation $\prof_Y(X)\geq 1$ \'equivaut aussi \`a dire $Y$ ne contient aucun point maximal de~$X$ (\EGA I 6.6.5). Pour $n=2$ et $U$ r\'etrocompact dans $X$, la condition $\prof_Y(X)\geq 2$ \'equivaut au fait que, pour tout point g\'eom\'etrique $\bar y$ de $Y$, $\bar U$ est connexe non vide, c'est-\`a-dire que \og $Y$ ne disconnecte pas $X$, localement pour la topologie \'etale\fg.
+
+c) Si $X$ est de $Y$-profondeur $\geq n$ pour $\LL$ et $U$ r\'etrocompact dans $X$, alors pour tout faisceau ab\'elien localement constant de $\LL$-torsion $F$ sur $X$, on~a $\prof_Y(X)\geq n$. En effet, la propri\'et\'e $\prof_Y(F)\geq n$ \'etant locale pour la topologie \'etale, on peut supposer $F$ constant; alors $F$ est limite inductive filtrante de faisceaux sommes finies de faisceaux de la forme $\ZZ/p^m\ZZ$, o\`u $m$ est un entier $>0$ et $p\in \LL$. En utilisant \ref{XIV.1.1} \textup{(iii)} et \textup{(\SGA 4 VII 3.3)}, on voit que l'on peut se ramener au cas o\`u $F=\ZZ/p^m\ZZ$, puis, par r\'ecurrence sur $m$, au cas o\`u $F=\ZZ/p\ZZ$ pour lequel l'assertion r\'esulte de la d\'efinition.
+
+d) D'apr\`es \ref{XIV.1.4}, si l'on a $\prof_Y(X)\geq 3$, le couple $(X, Y)$ est \textit{pur} au sens de \ref{X}~\ref{X.3.1}. En fait les couples purs que l'on rencontre dans la pratique (cf. \ref{X}~\ref{X.3.4}) satisfont \`a la condition plus forte de profondeur homotopique $\geq 3$, et cette notion peut donc se substituer avantageusement \`a celle de couple pur.
+
+e) Soient $F$ un complexe de faisceaux ab\'eliens et $T(F)$ le complexe obtenu en appliquant \`a $F$ le foncteur translation (\cite{XIV.3}); alors on~a \'evidemment:
+$$
+\prof_Y(T(F))=\prof_Y(F)-1.
+$$
+
+f) Signalons que les travaux r\'ecents d'Artin-Mazur (\cite{XIV.1}) permettent de d\'efinir la notion de profondeur homotopique $\geq n$, quel que soit l'entier $n$ (pas seulement si $n\geq 3$).
+
+g) Sous les conditions de \ref{XIV.1.1} 3), pour que l'on ait $\prof_Y(F)=\infty$, il faut et il suffit que l'on ait $F\isomto Ri_*(i^*F)$ dans $D^+(X)$. En effet, les ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^p(F)$ sont les faisceaux de cohomologie du c\^{o}ne (= mapping cylinder) du morphisme canonique $F\to Ri_*i^*(F)$.
+\end{remarques}
+
+\begin{definition} \label{XIV.1.7}
+Soient $X$ un sch\'ema, $x$ un point de $X$, $\bar x$ un point g\'eom\'etrique au-dessus de $x$ et $\bar X$ le localis\'e strict de $X$ en $\bar x$. Comme pr\'ec\'edemment $F$ d\'esigne, soit un faisceau d'ensembles sur $X$, soit un faisceau en groupes sur $X$, soit un complexe de faisceaux ab\'eliens sur $X$ \`a degr\'es born\'es inf\'erieurement, $\bar F$ son image inverse sur~$\bar X$ et $\LL$ un ensemble de nombres premiers. On dit que $F$ est de \emph{profondeur étale $\geq n$ au point $x$} (resp. que la \emph{profondeur étale pour $\LL$ de $X$ en $x$ est $\geq n$}, resp. que la \emph{profondeur homotopique pour $\LL$ de $X$ en $x$ est $\geq 3$}) et l'on \'ecrit $\prof_x(F)\geq n$ (resp. $\prof_x^{\LL}(X)\geq n$, resp. $\prof \hop_x^{\LL}(X)\geq 3$) si l'on a $\prof_{\bar x}(\bar F)>n$ (resp. $\prof_{\bar x}^{\LL}(\bar X)> n$, resp. $\prof \hop_{\bar x}^{\LL}(\bar X)\geq 3$). On d\'efinit de fa\c con \'evidente l'entier $\prof_x^{\LL}(X)$ et, si $F$ est un complexe de faisceaux ab\'eliens, l'entier $\prof_x(F)$. Si $\LL$ est l'ensemble de tous les nombres premiers, on omet $\LL$ dans la notation $\prof_x^{\LL}(X)$, sauf s'il y a un risque de confusion avec la notation de \textup{(\EGA IV 5.7.1)}, auquel cas on \'ecrit $\prof {\textup{ét}}_x(X)$.
+\end{definition}
+
+On a alors la \textit{caractérisation ponctuelle} suivante de la profondeur:
+
+\begin{theoreme} \label{XIV.1.8} Soient $X$ un sch\'ema, $Y$ une partie ferm\'ee de $X$ telle que l'ouvert $U=X-Y$ soit r\'etrocompact dans $X$. Si $F$ est, soit un faisceau d'ensembles sur $X$, soit un faisceau en groupes sur $X$, soit un complexe de faisceaux ab\'eliens sur $X$ \`a degr\'es born\'es inf\'erieurement, alors on a
+$$
+\prof_Y(F)=\inf_{y\in Y} \prof_y(F).
+$$
+\end{theoreme}
+
+\subsubsection{} \label{XIV.1.8.1} Montrons d'abord que, pour tout point $y$ de $Y$, on~a l'in\'egalit\'e $\prof_y(F)\geq \prof_Y(F)$. Soient en effet $\bar y$ un point g\'eom\'etrique au-dessus de $y$, $\bar X$ le localis\'e strict de $X$ en $\bar y$, $\bar F$ et $\bar Y$ les images inverses de $F$ et $Y$ sur $\bar X$. On a d'apr\`es \ref{XIV.1.7} et \ref{XIV.1.3}
+$$
+\prof_y(F)=\prof_{\bar y}(\bar F)\geq \prof_{\bar Y}(\bar F)\geq \prof_Y(F),
+$$
+la derni\`ere in\'egalit\'e utilisant l'hypoth\`ese \og $U$ r\'etrocompact\fg, via les conditions \textup{(iii)} dans \ref{XIV.1.1} et la transitivit\'e dans la formation des localis\'es stricts.
+
+\subsubsection{} \label{XIV.1.8.2}
+Inversement supposons que, pour tout point $y$ de $Y$, on ait $\prof_y(Y)\geq n$ ($n$~entier) et montrons que l'on a alors $\prof_Y(F)\geq n$.
+
+Rappelons d'abord les r\'esultats bien connus suivant \textup{(\SGA 4 VIII)}:
+
+\begin{subsublemme} \label{XIV.1.8.2.1}
+Soient $X$ un sch\'ema, $F$ un faisceau d'ensembles sur $X$ (resp. $G\to F$ un monomorphisme de faisceaux d'ensembles sur $X$). Alors, pour que deux sections $s$ et $s'$ de $F$ co\"incident (resp. pour qu'une section $s$ de~$F$ provienne d'une section de~$G$), il faut et il suffit qu'il en soit ainsi localement. En particulier, si~$s$ et~$s'$ sont deux sections de $F$, il existe un plus grand ouvert $V$ de $X$ sur lequel elles co\"incident (resp. si $s$ est une section de $F$ sur $X$, il existe un plus grand ouvert $V$ de $X$ tel que $s|V$ provienne d'une section de $G$ sur $V$). Cet ouvert est aussi l'ensemble des points~$x$ de $X$ tels que, d\'esignant par $\bar x$ un point g\'eom\'etrique au-dessus de~$x$, les sections~$s$ et~$s'$ aient m\^eme image dans la fibre $F_{\bar x}$ (resp. que l'image de $s$ dans $F_{\bar x}$ provienne d'un \'el\'ement de $G_{\bar x}$).
+\end{subsublemme}
+
+Revenons \`a la d\'emonstration de \ref{XIV.1.8}.
+
+$1^\circ)$ Cas o\`u $F$ est un faisceau d'ensembles. Si $n=1$, il suffit de montrer que le morphisme canonique
+$$
+\H^0(X, F)\to \H^0(U, F)$$
+est injectif, le r\'esultat s'appliquant encore quand on remplace $X$ par un sch\'ema \'etale au-dessus de $X$. Soient $s$ et $s'$ deux sections de $F$ au-dessus de $X$ qui ont m\^eme image dans $\H^0(U, F)$ et soit $V$ le plus grand ouvert au-dessus duquel elles sont \'egales; on~a \'evidemment $V\supset U$. Supposons $V\neq X$ et soit $y$ un point maximal de $X-V$, $\bar y$ un point g\'eom\'etrique au-dessus de~$y$, $\bar X$ le localis\'e strict de $X$ en $\bar y$ et $\bar V$ et $\bar F$ les images inverses de $V$ et $F$ sur $\bar X$. D'apr\`es le choix de $y$, on~a $\bar X-\bar y=\bar V$ et par hypoth\`ese, le morphisme
+$$
+\H^0(\bar X, \bar F)\to \H^0(\bar X-\bar y, \bar F)=\H^0(\bar V, \bar F)$$
+est injectif. Il en r\'esulte que $s$ et $s'$ co\"incident au point $y$, ce qui est absurde. Si $n=2$, il suffit de montrer, compte tenu de ce qui pr\'ec\`ede, que le morphisme
+$$
+\H^0(X, F)\to \H^0(U, F)=\H^0(X, i_*i^*F)$$
+est surjectif (o\`u $i$ est l'immersion canonique de $U$ dans $X$). Soient $s$ une section de $i_*i^*F$ au-dessus de $X$ et $V$ le plus grand ouvert au-dessus duquel elle provient d'une section de $F$. Supposons $V\neq X$ et soit $y$ un point maximal de $X-V$; avec les notations pr\'ec\'edentes, il r\'esulte de l'hypoth\`ese que le morphisme canonique
+$$
+\H^0(\bar X, \bar F)\to \H^0(\bar X-\bar y, \bar F)=\H^0(\bar V, \bar F)
+$$
+est bijectif; par suite $s|\bar V$ se prolonge au point $\bar y$, ce qui est absurde et ach\`eve la d\'emonstration dans le cas $1^\circ)$.
+
+$2^\circ)$ Cas o\`u $F$ est un faisceau en groupes. Compte tenu de $1^\circ)$, la seule chose qui reste \`a montrer est que, dans le cas $n=3$, le morphisme
+$$
+\H^1(X, F)=\H^1(X, i_*i^*F)\to \H^1(U, F)$$
+est bijectif. On sait d\'ej\`a qu'il est injectif gr\^ace \`a $1^\circ)$ et \`a \ref{XIV.1.1} $2^\circ)$ (ii bis). Pour la surjectivit\'e, on utilise la suite exacte (\SGA 4 XII 3.2)
+$$
+0\to \H^1(X, i_*i^*F)\to \H^1(U, F)\lto{d}\H^0(X, \R^1i_*(i^*F)).
+$$
+Soient $s\in \H^1(U, F)$ et $V\supset U$ le plus grand ouvert au-dessus duquel $d(s)=0$; c'est aussi le plus grand ouvert tel que $s$ provienne d'un \'el\'ement de $\H^1(V, F)$. Supposons $V\neq X$ et soit $y$ un point maximal $X-V$; si $\bar X$ est le localis\'e strict de $X$ en un point g\'eom\'etrique $\bar y$ au-dessus de~$y$, on a, avec des notations \'evidentes, la suite exacte
+$$
+0\to \H^1(\bar X, \bar i_*(\bar i^*\bar F))\to \H^1(\bar U, \bar F)\lto{\bar d}\H^0(\bar X, \R^1\bar i_*(\bar i^*\bar F)).
+$$
+Comme $i:U\to X$ est un quasi-compact, $\R^1\bar i_*(\bar i^*\bar F)$ est l'image inverse de $\R^1i_*(i^*F)$ par le morphisme $\bar X\to X$, d'o\`u $\H^0(\bar X, \R^1\bar i_*(\bar i^*\bar F))=(\R^1i_*(i^*F))_{\bar y}$. Par hypoth\`ese et vu que $y\in Y$, le morphisme
+$$
+\H^1(\bar X, \bar F)\to \H^1(\bar V, \bar F)
+$$
+est bijectif. L'image $\bar s$ de $s$ dans $\H^1(\bar U, \bar F)$, qui se prolonge \`a $\bar V$ par d\'efinition de $V$, se prolonge donc aussi \`a $\bar X$; il en r\'esulte que $\bar d(\bar s)=0$ donc l'image de $d(s)$ dans la fibre g\'eom\'etrique $(\R^1i_*(i^*F))_{\bar y}$ est nulle; mais ceci contredit la d\'efinition de $V$, d'o\`u le cas~$2^\circ)$.
+
+$3^\circ)$ Cas o\`u $F$ est un complexe de faisceaux ab\'eliens, \`a degr\'es born\'es inf\'erieurement. On raisonne par r\'ecurrence sur $n$. La conclusion est satisfaite pour $n$ assez petit, puisque $F$ est \`a degr\'es born\'es inf\'erieurement. Supposons donc que $\prof_Y(F)\geq n-1$ et montrons que $\prof_Y(F)\geq n$, sachant que, pour tout point $y$ de $Y$, on~a $\prof_y(F)\geq n$. Il suffit de voir que le morphisme canonique
+\begin{equation*} \label{eq:XIV.1.8.*} \tag{$*$} {\H^{n-2}(X, F)\to \H^{n-2}(U, F)}
+\end{equation*}
+est surjectif et que
+\begin{equation*} \label{eq:XIV.1.8.**} \tag{$**$} {\H^{n-1}(X, F)\to \H^{n-1}(U, F)}
+\end{equation*}
+est injectif (le r\'esultat s'appliquant quand on remplace $X$ par un sch\'ema \'etale au-dessus de $X$).
+
+a) Surjectivit\'e de (\ref{eq:XIV.1.8.*}). La d\'emonstration est analogue \`a celle de $2^\circ)$. Compte tenu de \ref{XIV.1.5} et de (\SGA 4 V 4.5), on~a la suite exacte
+$$
+\H^{n-2}(X, F)\to \H^{n-2}(U, F)\lto{d}\H^{n-1}_Y(X, F)=\H^0(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F)).
+$$
+Soit $s\in \H^{n-2}(U, F)$ et $V\supset U$ le plus grand ouvert au-dessus duquel $d(s)=0$, lequel est aussi le plus grand ouvert tel que $s$ se prolonge \`a $\H^{n-2}(V, F)$. Supposons $V\neq X$ et soient $y$ un point maximal de $X-V$ et $\bar X$ le localis\'e strict de $X$ en un point g\'eom\'etrique $\bar y$ au-dessus de~$y$. Comme $i:U\to X$ est quasi-compact, la formation de ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F)$ commute au changement de base $\bar X\to X$ et l'on a donc (avec des notations \'evidentes) la suite exacte
+$$
+\H^{n-2}(\bar X, \bar F)\to \H^{n-2}(\bar U, \bar F)\lto{\bar d}\H^{n-1}_{\bar Y}(\bar X, \bar F)=({\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F))_{\bar y},
+$$
+la derni\`ere \'egalit\'e r\'esultant de l'hypoth\`ese de r\'etrocompacit\'e sur $U$.
+
+Or on~a par hypoth\`ese l'isomorphisme
+$$
+\H^{n-2}(\bar X, \bar F)\isomto \H^{n-2}(\bar X-\bar y, \bar F)=\H^{n-2}(\bar V, \bar F);
+$$
+par suite l'image $\bar s$ de $s$ dans $\H^{n-2}(\bar U, \bar F)$, qui se prolonge (par d\'efinition de $V$) \`a $\H^{n-2}(\bar V, \bar F)$, se prolonge aussi \`a $\H^{n-2}(\bar X, \bar F)$; mais ceci montre que $\bar d(\bar s)=0$, c'est-\`a-dire que $d(s)$ est nulle en $\bar y$, ce qui est absurde.
+
+b) Injectivit\'e de (\ref{eq:XIV.1.8.**}). En utilisant la surjectivit\'e de (\ref{eq:XIV.1.8.*}), on obtient la suite exacte
+$$0\to \H^0(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F))\to \H^{n-1}(X, F)\to \H^{n-1}(U, F)$$
+et il faut montrer que tout \'el\'ement $s\in \H^0(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F))$ est nul. Soit $V$ le plus grand ouvert au-dessus duquel $s=0$. Supposons que l'on ait $V\neq X$ et soient $y$ un point maximal de $X-V$, $\bar X$ un localis\'e strict de $X$ en un point g\'eom\'etrique $\bar y$ au-dessus de~$y$. On a, par hypoth\`ese de r\'ecurrence et par \ref{XIV.1.8.1}, la relation $\prof_{\bar Y}(\bar F)\geq \prof_Y(F)\geq n-1$, d'o\`u le fait que l'application $e$ du diagramme qui suit est injective:
+$$
+\H^0(\bar X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(\bar F))= ({\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F))_{\bar y}\lto{e} \H^{n-1}(\bar X, \bar F) \lto{f} \H^{n-1}(\bar V, \bar F).
+$$
+Il en est de m\^eme de $f$ en vertu de l'hypoth\`ese; l'\'egalit\'e de gauche r\'esulte de l'hypoth\`ese de r\'etrocompacit\'e sur $U$. Soit $\bar s$ l'image de $s$ dans $({\mathop{\underline{\mathrm{H}}}\nolimits}_Y^{n-1}(F))_{\bar y}$; comme $s$ s'annule au-dessus de $V$, on~a $f\cdot e(\bar s)=0$, d'o\`u $\bar s=0$, ce qui contredit le choix de $y$ et ach\`eve la d\'emonstration.
+
+\begin{remarque} \label{XIV.1.9}
+Un r\'esultat analogue \`a \ref{XIV.1.8} est sans doute valable dans le cas o\`u l'on remplace le topos \'etale d'un sch\'ema $X$ par un \og topos localement de type fini \fg, c'est-\`a-dire d\'efinissable par un site localement de type fini (\SGA 4 VI 1.1). Pour le voir, il faut utiliser un r\'esultat de P. Deligne (\SGA 4 XVII), affirmant qu'il y a \og suffisamment de foncteurs fibres\fg dans un tel topos.
+\end{remarque}
+
+Nous allons d\'eduire de \ref{XIV.1.8} des cas importants o\`u l'on peut d\'eterminer la profondeur \'etale.
+
+\refstepcounter{subsection}\label{XIV.1.10}
+\begin{enonce*}{Th\'eor\`eme 1.10}[Th\'eor\`eme de semi-puret\'e cohomologique\ndemark]
+D\'esignons par~$X$, soit un sch\'ema lisse sur un corps $k$, soit un sch\'ema r\'egulier excellent \textup{(\EGA IV 7.8.2)} de caract\'eristique nulle (N.B. si l'on admet la r\'esolution des singularit\'es au sens de \textup{(\SGA 4 XIX)}, il suffit de supposer, plus g\'en\'eralement, que $X$ est un sch\'ema r\'egulier excellent d'\'egale caract\'eristique). Soient $Y$ une partie ferm\'ee de $X$ et $\LL$ l'ensemble des nombres premiers distincts de la caract\'eristique de $X$. Alors on a
+$$
+\prof_Y^{\LL}(X)=2\codim(Y, X).
+$$
+\end{enonce*}
+
+\begin{proof}
+Il r\'esulte de \ref{XIV.1.8} que l'on a
+$$
+\prof_Y^{\LL}(X)=\inf_{y\in Y} \prof_y(X).
+$$
+
+Comme d'autre part $\codim(Y, X)=\inf_{y\in Y} \dim \Oo_{X, y}$, on est ramen\'e \`a montrer que
+$$
+\prof_y^{\LL}(X)=2 \dim \Oo_{X, y},
+$$
+ce qui r\'esulte de (\SGA 4 XVI 3.7 et XIX 3.2).
+\skipqed
+\end{proof}
+
+\begin{theoreme}[Th\'eor\`eme de puret\'e homotopique\ndemark] \label{XIV.1.11}
+Si $X$ est un sch\'ema localement noeth\'erien qui est r\'egulier (resp. dont les anneaux locaux sont des intersections compl\`etes), $Y$ une partie ferm\'ee de $X$ telle que $\codim(Y, X)\geq 2$ (resp.\ \hbox{$\codim(Y, X)\geq3$}), alors on a
+$$
+\prof \hop_Y(X)\geq 3.
+$$
+\end{theoreme}
+
+Il r\'esulte en effet de \ref{XIV.1.8} que l'on a $\prof \hop_Y(X)=\inf_{y\in Y} \prof \hop_y(X)$. Or les anneaux strictement locaux de $X$ aux diff\'erents points de $Y$ sont des anneaux r\'eguliers de dimension $\geq 2$ (resp. d'intersection compl\`ete et de dimension $\geq 3$). Il r\'esulte alors du th\'eor\`eme de puret\'e \ref{X}~\ref{X.3.4} que $\prof \hop_y(X)\geq 3$, ce qui d\'emontre le th\'eor\`eme.
+
+\begin{exemple} \label{XIV.1.12}
+Soient $X$ un sch\'ema localement noeth\'erien, $Y$ une partie ferm\'ee de~$X$ et $n=1$ ou $2$. Alors, si l'on a $\prof_Y(\OX)\geq n$ ($\prof_Y(\OX)$ d\'esignant la $Y$-profondeur au sens des faisceaux coh\'erents (cf. 1.6 a)), on~a aussi $\prof_Y(X)\geq n$; c'est \'evident pour $n=1$ et, pour $n=2$, cela n'est autre que le th\'eor\`eme de Hartshorne (\ref{III}~\ref{III.1}). Par contre l'assertion analogue est fausse pour $n\geq 3$. Prenons par exemple un espace affine de dimension $\geq 3$ sur un corps de caract\'eristique $\neq 2$ et faisons op\'erer le groupe $\ZZ/2\ZZ$ par sym\'etrie par rapport \`a l'origine. Soient $X$ le quotient et $Y=\{x\}$ l'image de l'origine dans $X$. Alors $\Oo_{X, x}$ est un anneau de Cohen-Macaulay, donc on~a $\prof_x(\OX)\geq 3$; mais l'espace affine priv\'e de l'origine est un rev\^etement \'etale de $X-\{x\}$ qui ne se prolonge pas en un rev\^etement \'etale de $X$; donc on~a d'apr\`es \ref{XIV.1.4} $\prof_Y(X)=2$.
+\end{exemple}
+
+Le th\'eor\`eme suivant est l'analogue de (\EGA IV 6.3.1):
+
+\begin{theoreme} \label{XIV.1.13}
+Soient $f:X\to S$ un morphisme de sch\'emas, $Y$ une partie ferm\'ee de $X$, $Z$ une partie ferm\'ee de $S$, telles que $f(Y)\subset Z$. On suppose que les anneaux locaux de $X$ au diff\'erents points de $Y$ sont noeth\'eriens et que les ouverts $X-Y$ et $S-Z$ sont r\'etrocompacts dans $X$ et $S$ respectivement. Soient $p$, $q$, $r$ des entiers tels que $p\geq -r$, $q\geq 0$, $\LL$ un ensemble de nombres premiers et $F$ un complexe de faisceaux ab\'eliens de $\LL$-torsion sur $S$, tel que les faisceaux de cohomologie $\H^i(F)$ soient nuls pour $i<-r$. On suppose que
+\begin{enumeratea}
+\item
+Le morphisme $f$ est localement ($p+q+r-2$)-acyclique pour $\LL$ \textup{(\SGA 4 XV 1.11)}.
+\item
+On a
+$$
+\prof_Z(F)\geq p.
+$$
+\item
+Pour tout point $s$ de $Z$, on a
+$$
+\prof_{Y_s}^{\LL}(X_s)\geq q.
+$$
+\end{enumeratea}
+\noindent
+Alors on a
+$$
+\prof_Y(f^*F)\geq p+q.
+$$
+\end{theoreme}
+
+Nous aurons besoin du lemme suivant:
+
+\begin{sublemme} \label{XIV.1.13.1}
+Soient $\LL$ un ensemble de nombres premiers, $n$ et $r$ des entiers, $f:X\to S$ un morphisme localement $n$-acyclique pour $\LL$. Soient $F$ un complexe de faisceaux ab\'eliens, \`a faisceaux de cohomologie de $\LL$-torsion, tel que $\H^i(F)=0$ pour $i<-r$, $Z$ une partie ferm\'ee de $S$ telle que $S-Z$ soit r\'etrocompact dans $S$ et $T=f^{-1}(Z)$. Alors le morphisme canonique
+$$f^*({\mathop{\underline{\mathrm{H}}}\nolimits}_Z^i(F))\to {\mathop{\underline{\mathrm{H}}}\nolimits}_T^i(f^*F)$$
+est bijectif pour $i<n-r+2$ et injectif pour $i=n-r+2$.
+\end{sublemme}
+
+Posons $U=S-Z$ et $V=X-T$, de sorte que l'on a le carr\'e cart\'esien
+$$
+\xymatrix{
+V \ar[r]^-g\ar[d]_k& U\ar[d]^j\\
+X \ar[r]^-f&S
+}$$
+Consid\'erons le diagramme commutatif suivant dont les lignes sont exactes
+$$
+\xymatrix{ {}\ar[r]&{f^*(\underline{\mathrm{H}}_Z^i(F))}\ar[r]\ar[d]& {f^*(\underline{\mathrm{H}}^i(F))}\ar[r]\ar[d]^{\wr} &{f^*(\underline{\mathrm{H}}^i(\mathrm{R} j_*(j^*F)))}\ar[r]\ar[d]& \\
+{}\ar[r] &{\underline{\mathrm{H}}_T^i(f^*F)}\ar[r]& {\underline{\mathrm{H}}^i(f^*F)} \ar[r]&{\underline{\mathrm{H}}^i(\mathrm{R} k_*(k^*f^*F))} \ar[r]&\text{;}}$$
+il en r\'esulte que l'on est ramen\'e \`a montrer que le morphisme
+$$f^*({\mathop{\underline{\mathrm{H}}}\nolimits}^i(\R j_*(j^*F)))\to {\mathop{\underline{\mathrm{H}}}\nolimits}^i(\R k_*(k^*f^*F))$$
+est bijectif pour $i<n-r+1$ et injectif pour $i=n-r+1$. Or un tel morphisme provient du morphisme suivant entre suites spectrales d'hypercohomologie
+$$
+\xymatrix{{f^*E_2^{p, q}=f^*(\mathrm{R}^pj_*(\underline{\mathrm{H}}^q(j^*F)))}\ar@{=>} [r]\ar[d]&{f^*(\underline{\mathrm{H}}^*(\mathrm{R} j_*(j^*F)))}\ar[d]\\
+{E^{\prime p, q}_2=\mathrm{R}^pk_*(\underline{\mathrm{H}}^q(k^*f^*F))}\ar@{=>}[r]&{\underline{\mathrm{H}}^*(\mathrm{R} k_*(k^*f^*F)).}}
+$$
+Comme $j$ est quasi-compact, il r\'esulte de (\SGA 4 XV 1.10) que le morphisme $f^*(E^{p, q}_2)\to E'^{p, q}_2$ est bijectif pour $p\leq n$ et injectif pour $p=n+1$; en particulier il est bijectif pour $p+q\leq n-r$ et injectif pour $p+q=n-r+1$. La conclusion en r\'esulte aussit\^{o}t.
+
+Revenons \`a la d\'emonstration de \ref{XIV.1.13}. Soit $T=f^{-1}(Z)$. D'apr\`es \ref{XIV.1.13.1} et la condition a), le morphisme canonique $f^*(\mathop{\underline{\mathrm{H}}}\nolimits_Z^i(F))\to\mathop{\underline{\mathrm{H}}}\nolimits_T^i(f^*F)$ est un isomorphisme pour $i\leq p+q$. Il r\'esulte donc de b) que $\mathop{\underline{\mathrm{H}}}\nolimits^i_T(f^*F)=0$ pour $i<p$ et, pour $i<p+q, \ \mathop{\underline{\mathrm{H}}}\nolimits^i_T(f^*F)$ restreint \`a $T$ est l'image inverse d'un faisceau $G^i$ sur $Z$. Soit
+$$f_T:T\to Z$$
+la restriction de $f$ \`a $T$. Il r\'esulte alors de c) et du corollaire qui suit que $\mathop{\underline{\mathrm{H}}}\nolimits^j_Y(f^*_T(G^i))=0$ pour $j<q$. On en conclut que
+$$
+\mathop{\underline{\mathrm{H}}}\nolimits^j_Y(\mathop{\underline{\mathrm{H}}}\nolimits^i_T(f^*F))=0\text{ pour } i+j<p+q,
+$$
+car l'in\'egalit\'e $i+j<p+q$ entra\^ine ou bien $i<p$ et alors $\mathop{\underline{\mathrm{H}}}\nolimits^i_T(f^*F)=0$, ou bien $j<q$ et alors $\mathop{\underline{\mathrm{H}}}\nolimits_Y^j(\mathop{\underline{\mathrm{H}}}\nolimits_T^i(f^*F))=0$. \'Etant donn\'e que l'on a, avec les notations de \ref{XIV.1.0}, $\underline{\Gamma}_Y=\underline{\Gamma}_Y.\underline{\Gamma}_T$, on~a la suite spectrale
+\begin{equation*} \label{eq:XIV.1.13.2} \tag{1.13.2}
+E_2^{i, j}=\mathop{\underline{\mathrm{H}}}\nolimits_Y^j(\mathop{\underline{\mathrm{H}}}\nolimits_T^i(f^*F))\To\mathop{\underline{\mathrm{H}}}\nolimits^*_Y(f^*F);
+\end{equation*}
+comme $E_2^{i, j}=0$ pour $i+j<p+q$, on voit que $\mathop{\underline{\mathrm{H}}}\nolimits_Y^k(f^*F)=0$ pour $k<p+q$. Le th\'eor\`eme sera donc d\'emontr\'e si l'on prouve le corollaire suivant (qui est le cas particulier de 1.13 obtenu en y faisant $Z=S, \ r=p=0$ et $F$ r\'eduit au degr\'e $0$).
+
+\begin{corollaire}\label{XIV.1.14}
+Soient $f:X\to S$ un morphisme, $Y$ une partie ferm\'ee telle que l'ouvert compl\'ementaire $X- Y$ soit r\'etrocompact dans $X$ et que les anneaux locaux de~$X$ aux diff\'erents points de~$Y$ soient noeth\'eriens. Soient $\LL$ un ensemble de nombres \hbox{premiers}, $q$ un entier et $F$ un faisceau ab\'elien de $\LL$-torsion sur $S$. Supposons que~$f$ soit localement $(q-2)$-acyclique pour $\LL$ et que, pour tout point $s$ de $S$, on ait \hbox{$\prof_{Y_s}^\LL(X_s)\!\geq\! q$}. Alors, on~a $\prof_Y(f^*F)\geq q$.
+\end{corollaire}
+
+$1^\circ)$ R\'eduction au cas o\`u $X$ et $S$ sont des sch\'emas strictement locaux, $f$ un morphisme local et $Y$ r\'eduit \`a un point ferm\'e de $X$.
+
+D'apr\`es \ref{XIV.1.8}, pour \'etablir \ref{XIV.1.14}, il faut montrer que l'on a pour tout point $y$ de $Y$:$$
+\prof_y(f^*F)\geq q.
+$$
+
+Soient $s=f(y)$, $\bar s$ un point g\'eom\'etrique au-dessus de $s$, $\bar y$ un point g\'eom\'etrique au-dessus de~$y$ et de $\bar s$, $\bar X$ et $\bar S$ les localis\'es stricts de $X$ et $S$ en $\bar y$ et $\bar s$ respectivement, $\bar f:\bar X\to\bar S$ le morphisme canonique et $\bar F$ l'image inverse de $F$ sur $\bar S$. Comme on~a la relation $\prof_y(f^*F)=\prof_{\bar y}(\bar f^*\bar F)$, il suffit de montrer que les hypoth\`eses de \ref{XIV.1.14} se conservent quand on remplace $f$ (resp. $Y$, resp. $F$) par $\bar f$ (resp. $\{\bar y\}$, resp. $\bar F$). La condition de r\'etrocompacit\'e r\'esulte de l'hypoth\`ese noeth\'erienne sur $\Oo_{X, x}$, impliquant que $\bar X$ est noeth\'erien. D'apr\`es (\SGA 4 XV~1.10 \textup{(i)}), $\bar f$ est encore localement $(q-2)$-acyclique pour $\LL$. D'autre part la fibre $(\bar X)_{\bar s}$ de $\bar X$ au-dessus de $\bar s$ s'identifie au localis\'e strict de $X_s$ en $\bar y$, donc satisfait \`a la relation $\prof_{\bar y}((\bar X)_{\bar s})\geq q$. Comme une relation analogue est trivialement v\'erifi\'ee pour les fibres du $\bar S$-sch\'ema $\bar X$, autres que la fibre ferm\'ee, ceci ach\`eve la r\'eduction.
+
+$2^\circ)$ Cas o\`u $X$ et $S$ sont strictement locaux, $f$ un homomorphisme local et $Y$ r\'eduit au point ferm\'e de $X$. Soient
+$$g:Y=X-\{y\}\to S$$
+le morphisme structural de $U$. On doit montrer que le morphisme canonique
+$$u_i:H^i(X, f^*F)\to H^i(U, f^*F)$$
+est bijectif pour $i\leq q-2$ et injectif pour $i=q-1$. Consid\'erons le diagramme commutatif
+$$
+\xymatrix{H^i(X, f^*F)\ar[rr]^{u_i}&& H^i(U, f^*F)\\&H^i(S, F)\ar[lu]^{v_i}\ar[ru]_{w_i}}$$
+Le morphisme $v_i$ est \'evidemment bijectif pour tout $i$. D'autre part $g$ est localement $(q-2)$-acyclique pour $\LL$; de plus ses fibres sont $(q-2)$-acycliques pour $\LL$, comme il r\'esulte du fait que $\prof_y(X_s)\geq q$ et que les fibres de $f$ sont $(q-2)$-acycliques pour~$\LL$; comme $g$ est quasi-compact puisque $X$ est noeth\'erien, il r\'esulte de (\SGA 4 XV 1.16) que $g$ est $(q-2)$-acyclique pour $\LL$. Par suite $w_i$, donc aussi $u_i$, est bijectif pour $i\leq q-2$ et injectif pour $i=q-1$, ce qui ach\`eve la d\'emonstration de \ref{XIV.1.14}.
+
+\begin{corollaire} \label{XIV.1.15}
+Soient $f:X\to S$ un morphisme de sch\'emas, $\LL$ un ensemble de nombres premiers, $m$ et $r$ des entiers et $F$ un complexe de faisceaux ab\'eliens de $\LL$-torsion sur $S$ tel que $\mathop{\underline{\mathrm{H}}}\nolimits^i(F)=0$ pour $i<-r$. Soit $x$ un point de $X,\ s=f(x)$ et supposons que l'anneau local $\Oo_{X, x}$ soit noeth\'erien. Alors, si $f$ est localement $m$-acyclique pour $\LL$, on~a la relation
+\begin{equation*} \label{eq:XIV.115..*} \tag{$*$} {\prof_x(f^*F)\geq\inf(\prof_s(F)+\prof^\LL_xX_s), n)\text{ où }n=m-r+2.}
+\end{equation*}
+En particulier, si $n\geq\prof_s(F)+\prof_x^\LL(X_s)$, par exemple si $f$ est localement acyclique pour $\LL$, on a
+\begin{equation*} \label{eq:XIV.15.**} \tag{$**$} {\prof_x(f^*F)\geq\prof_s(F)+\prof_x^\LL(X_s).}
+\end{equation*}
+Si $\LL$ est r\'eduit \`a un \'el\'ement $\ell$ et si l'on a $n\geq \prof_s(F)+\prof_x^\LL(X_s)$, l'in\'egalit\'e pr\'ec\'edente est une \'egalit\'e.
+\end{corollaire}
+
+On se ram\`ene au cas o\`u $s$ et $x$ sont des points ferm\'es, en prenant les localis\'es stricts de $S$ et $x$ en des points g\'eom\'etriques $\bar s$ au-dessus de $s$ et $\bar x$ au-dessus de $x$ et de $\bar s$. Si on~a l'in\'egalit\'e $n\geq\prof_s(F)+\prof_x^\LL(X_s)$, alors ($*$) s'obtient \`a partir de \ref{XIV.1.13} en y faisant $p=\prof_s(F)$ et $q=\prof_x^\LL(X_s)$ (l'hypoth\`ese que $S-\{s\}$ est r\'etrocompact dans $S$ r\'esulte du fait que $X-X_s$ est r\'etrocompact dans $X$ et que $f$ est surjectif puisqu'il est $(-1)$-acyclique (sauf peut-\^etre si la conclusion de 1.15 est vide)). Si l'on~a $n<\prof_s(F)+\prof_x^\LL(X_s)$, l'in\'egalit\'e \eqref{eq:XIV.115..*} s'obtient encore \`a partir de \ref{XIV.1.13} en y faisant par exemple $p=\prof_s(F)$ et $q=n-p$. Il reste \`a d\'emontrer la derni\`ere assertion. Soient $p=\prof_s(F)$ et $q=\prof_x(X_s)$; il r\'esulte de \eqref{eq:XIV.1.13.2} que l'on a
+$$
+\mathop{\underline{\mathrm{H}}}\nolimits_x^{p+q}(f^*(F))\simeq \mathop{\underline{\mathrm{H}}}\nolimits_x^q(f^*(\mathop{\underline{\mathrm{H}}}\nolimits^p_s(F))).
+$$
+Comme $\prof_s(F)=p$, le faisceau $\mathop{\underline{\mathrm{H}}}\nolimits^p_s(F)$ est un faisceau de $\ell$-torsion, constant sur~$s$, diff\'erent de z\'ero. Par suite le faisceau $G=f^*(\mathop{\underline{\mathrm{H}}}\nolimits_s^p(F))$ est un faisceau de $\ell$-torsion, constant sur $X_s$, non nul, donc contient un sous-faisceau isomorphe \`a $\ZZ/\ell\ZZ$; comme $\mathop{\underline{\mathrm{H}}}\nolimits_x^q(\ZZ/\ell\ZZ)$ est diff\'erent de z\'ero, on~a bien $\mathop{\underline{\mathrm{H}}}\nolimits_x^q(G)\neq 0$.
+
+\begin{corollaire} \label{XIV.1.16}
+Soient $f:X\to S$ un morphisme r\'egulier de sch\'emas excellents (\textup{\EGA IV 7.8.2}) de caract\'eristique nulle, $\ell$ un nombre premier et $F$ un complexe de faisceaux de $\ell$-torsion sur $S$. Soient $x\in X$, $s=f(x)$; alors on a
+$$
+\prof_x(f^*F)=\prof_s(F)+2\dim(\Oo_{X, x}).
+$$
+\end{corollaire}
+
+En effet $f$ est r\'egulier par d\'efinition de \og excellent\fg donc localement acyclique (\SGA 4 XIX 4.1). Il r\'esulte alors de \ref{XIV.1.15} que l'on a
+$$
+\prof_x(f^*F)=\prof_s(F)+\prof_x(X_s).
+$$
+Or on~a d'apr\`es \ref{XIV.1.10}
+$$
+\prof_x(X_s)=2\dim\Oo_{X_s, x},
+$$
+d'o\`u le r\'esultat.
+
+\begin{remarque} \label{XIV.1.17}
+Il r\'esulte de \ref{XIV.1.15} que \ref{XIV.1.13} reste vrai quand on remplace b) et c) par les conditions:
+
+b$'$) Pour tout point $s\in f(Y)$, on~a $\prof_s(F)\geq p$.
+
+c$'$) Pour tout point $x\in Y$, si $s=f(x)$, on~a $\prof^\LL_x(X_s)\geq q$.
+\end{remarque}
+
+Dans le cas d'un faisceau d'ensembles ou de groupes, on~a le th\'eor\`eme suivant analogue \`a \ref{XIV.1.13}.
+
+\begin{theoreme} \label{XIV.1.18}
+Soient $f:X\to S$ un morphisme de sch\'emas, $Y$ une partie ferm\'ee de $X$ telle que $X-Y$ soit r\'etrocompact dans $X$ et que, pour tout point $x$ de $Y$, l'anneau local $\Oo_{X, x}$ soit noeth\'erien.
+
+$1^\circ)$ Soient $F$ un faisceau d'ensembles sur $S$ et $n$ un entier \'egal \`a $1$ ou $2$. Supposons que $f$ soit localement $(n-2)$-acyclique et que, pour tout point $s$ de $f(Y)$, on ait:
+$$
+\prof_{Y_s}(X_s)+\prof_s(F)\geq n.
+$$
+Alors on a:$$
+\prof_Y(f^*F)\geq n.
+$$
+
+$2^\circ)$ Soient $\LL$ un ensemble de nombres premiers et $F$ un faisceau de ind-$\LL$-groupes. Supposons que $f$ soit localement $1$-asph\'erique pour $\LL$ (\textup{\SGA 4 XV 1.11}) et que, pour tout point $s$ de $f(Y)$, on ait:
+$$
+\prof\hop^\LL_{Y_s}(X_s)+\prof_s(F)\geq 3.
+$$
+Alors, on a:$$
+\prof_Y(f^*F)\geq 3.
+$$
+\end{theoreme}
+
+\begin{proof}
+On se ram\`ene, comme dans \ref{XIV.1.14} et \ref{XIV.1.15}, au cas o\`u $X$ et $S$ sont des sch\'emas strictement locaux, $f$ un homomorphisme local et $Y$ le point ferm\'e $x$ de $X$. Soit $s=f(x)$ le point ferm\'e de $S$; on~a le diagramme commutatif:
+$$
+\xymatrix{ X-X_s\ar[r]^i\ar[d]_h&X-\{x\}\ar[rd]_g\ar[rr]^j&&X\ar[ld]^f\\
+S-\{s\}\ar[rr]_k&&S. }$$
+
+$1^\circ)$ a) \textit{Cas} $n=1$.
+
+Si l'on a $\prof_s(F)\geq 1$, alors le morphisme $F\to k_*k^*F$ est injectif, donc le morphisme $f^*F\to f^*(k_*k^*F)$ est aussi injectif. D'autre part il r\'esulte du fait que $f$ est localement $(-1)$-acyclique, que le morphisme $f^*(k_*k^*F)\to (j.i)*(f^*F{|X-X_s}))$ est injectif. Finalement, le morphisme compos\'e $f^*F\to (j.i)*(f^*F{|X-X_s}))$ est injectif, ce qui montre que l'on a $\prof_{X_s}(f^*F)\geq 1$, donc aussi $\prof_x(f^*F)\geq 1$.
+
+Si l'on a $\prof_x(X_s)\geq 1$, on consid\`ere le diagramme commutatif
+\begin{equation*} \label{eq:XIV.18.*} \tag{$*$}
+\begin{array}{c}
+\xymatrix{
+H^0(X, f^*F)\ar[r]^-{v}\ar[d]_\wr&H^0(X-\{x\}, f^*F)\ar[d]\\
+H^0(X_s, f^*F)\ar[r]^-{v'}&H^0(X-\{x\}, f^*F);
+}
+\end{array}
+\end{equation*}
+Par hypoth\`ese, $v'$ est injectif donc il en est de m\^eme de $v$.
+
+b) \textit{Cas} $n=2$. On consid\`ere le diagramme commutatif
+\begin{equation*} \label{eq:XIV.1.18.**} \tag{$**$}
+\begin{array}{c}
+\xymatrix{ H^0(S, F)\ar[d]_{m}^{\wr}\ar[rr]^u&&H^0(S-\{s\}, F)\ar[d]^{\wr}_{ n}\\
+H^0(X, f^*F)\ar[r]^-v&H^0(X-\{x\}, f^*F)\ar[r]^w&H^0(X-X_s, f^*F);
+}
+\end{array}
+\end{equation*}
+on doit montrer que $v$ est bijectif. Le morphisme $m$ est \'evidement bijectif, et, comme $f$ est $0$-acyclique, $n$ est aussi bijectif.
+
+Si l'on a $\prof_s(F)\geq 2$, $u$ est bijectif. Comme on l'a vu dans a), la seule hypoth\`ese $\prof_s(F)\geq 1$ entra\^ine la relation $\prof_{X_s}(f^*F)\geq 1$; par suite $v$ et $w$ sont injectifs; il r\'esulte alors de \eqref{eq:XIV.1.18.**} que $v$ est bijectif.
+
+Si l'on a $\prof_x(X_s)\geq 2$, alors $g$ est $0$-acyclique (car il est localement $0$-acyclique et ses fibres sont $0$-acycliques). Il en r\'esulte que $v\cdot m$ est bijectif, donc $v$ est bijectif.
+
+Si l'on a $\prof_s(F)\geq 1$ et $\prof_x(X_s)\geq 1$, alors on sait d\'ej\`a que $v$ et $w$ sont injectifs. Soient $z$ un point maximal de $X_s-\{x\}$ (un tel point existe d'apr\`es l'hypoth\`ese $\prof_x(X_s)\geq 1)$, $\bar Z$ le localis\'e strict de $X$ en un point g\'eom\'etrique au-dessus de $z$ et $\overline{f^*F}$ l'image inverse de $f^*F$ sur $\bar Z$. Consid\'erons le diagramme commutatif
+\begin{equation*}
+\xymatrix@C=0mm{
+&H^0(S, F)\ar[rr]\ar[ld]_{m}^{\sim}&&H^0(S-\{s\}, F)\ar[rd]_{\sim}^{n}\\
+H^0(X, f^*F)\ar[rr]^-{v}\ar[rd]_{m'}^{\sim}&&H^0(X-\{x\}, f^*F)\ar[rr]^-{w}\ar[ld]^r&& H^0(X-X_s, f^*F)\ar[ld]^{n'}_{\sim}\\
+&H^0(\bar Z, f^*F)\ar[rr]&&H^0(\bar Z-\{\bar z\}, \overline{f^*F})}
+\end{equation*}
+le morphisme $m'\cdot m$ est \'evidemment bijectif et il r\'esulte du fait que $f$ est localement $0$-acyclique que $n'\cdot n$ est bijectif; par suite $m'$ et $n'$ sont aussi bijectifs. Comme $w$ est injectif, $r$ est aussi injectif et par suite $v$ est bijectif.
+
+$2^\circ)$ Compte tenu de b), on sait d\'ej\`a que $\prof_x(f^*F)\geq 2$.
+
+Si l'on a $\prof_s(F)\geq 3$, alors $\R^1k_*(k^*F)=1$. Comme $f$ est localement $1$-asph\'erique, on~a $\R^1(j\cdot i)_*(f^*F{|X-X_s})\!=\!f^*(\R^1k_*(k^*F))\!=\!1$. On a donc \hbox{$\prof_{X_s}(f^*F)\!\geq\! 3$} et par suite on~a $\prof_x(f^*F)\geq 3$.
+
+Si l'on a $\prof_x(X_s)\geq 3$, alors $g$ est $1$-asph\'erique (car $g$ est localement $1$-asph\'erique et ses fibres sont $1$-asph\'eriques). On a donc $H^1(X-\{x\}, f^*F)=H^1(S, F)=1$ et par suite $\prof_x(f^*F)\geq 3$.
+
+Si l'on a $\prof_s(F)\geq 2$ et $\prof_x(X_s)\geq 1$, on utilise la suite exacte (\SGA 4 XII 3.2):
+$$1\to\R^1j_*(i_*(f^*F{|X-X_s}))\to\R^1(j.i)_*(f^*F{|X-X_s}) \to j_*(\R^1i_*(f*F{|X-X_s})).
+$$
+Comme $f$ et $g$ sont localement $1$-asph\'eriques, on a
+\begin{align*}
+\R^1(j\cdot i)_*(f^*F{|X-X_s})&\simeq f^*(\R^1k_*(k^*F)) \\
+\R^1i_*(f^*F{|X-X_s})&\simeq g^*(\R^1k_*(k^*F));
+\end{align*}
+la suite exacte pr\'ec\'edente s'\'ecrit alors sous la forme
+\enlargethispage{\baselineskip}%
+\begin{equation} \label{eq:XIV.18.***}\tag{${*}{*}{*}$}
+1\to\R^1j_*(i_*(f^*F{|X-X_s}))\to f^*(\R^1k_*(k^*F))\lto{a} j_*(j^*(f^*(\R^1k_*(k^*F))).
+\end{equation}
+L'hypoth\`ese $\prof_s(F)\geq 2$ montre que le morphisme $F\to k_*k^*F$ est bijectif; en appliquant $g^*$, on trouve compte tenu du fait que $g$ est localement $0$-acyclique, $f^*F{|X-\{x\}}=i_*(f^*F{|X-X_s})$. L'hypoth\`ese $\prof_x(X_s)\geq 1$ montre que le morphisme~$a$ est injectif (noter que $f^*(\R^1k_*(k^*F))$ est un faisceau \'egal \`a $1$ en dehors de $X_s$ et constant sur $X_s$). Il r\'esulte alors de \eqref{eq:XIV.18.***} que l'on a $\R^1j_*(f^*F{|X-\{x\}})=1$, donc $\prof_x(f^*F)\geq 3$.
+
+\enlargethispage{.8\baselineskip}%
+Si l'on a $\prof_s(F)\geq 1$ et $\prof_x(f^*F)\geq 2$, on consid\`ere le faisceau en espaces homog\`enes $G$ d\'efini par la suite exacte
+$$
+1\to F\to k_*k*F\to G\to 1.
+$$
+En appliquant \`a cette suite exacte le foncteur exact $g^*$ et en utilisant (\SGA 4 XII 3.1), on obtient le diagramme commutatif suivant dont les lignes sont exactes:
+$$
+\xymatrix@R=5mm{{f^*(k_*k^*F)}\ar[r]\ar[d]&{f^*G}\ar[r]\ar[d]^b&1\\
+{j_*(g^*(k_*k^*F))}\ar[r]&{j_*(g^*G)}\ar[r]&{\mathrm{R}^1j_*(g^*F)} \ar[r]&{\mathrm{R}^1j_*(g^*(k_*k^*F)).}}
+$$
+Comme $\prof_x(X_s)\geq 2$, le morphisme $b$ est bijectif donc $u$ est surjectif et l'on a ainsi une application \`a noyau r\'eduit \`a l'\'el\'ement neutre:
+$$
+1\to\R^1j_*(g^*F)\to\R^1j_*(g^*(k_*k^*F))=R.
+$$
+Comme $g^*(k_*k^*F)\simeq i_*(f^*F{|X-X_s})$ (car $g$ est localement $0$-acyclique), $R$ s'identifie au premier terme de la suite exacte \eqref{eq:XIV.18.***}; or on~a vu dans le cas pr\'ec\'edent que $R=1$ d\`es que l'on a $\prof_x(X_s)\geq 1$, ce qui d\'emontre que $\prof_x(f^*F)\geq 3$ et ach\`eve la d\'emonstration de \ref{XIV.1.18}.
+\skipqed
+\end{proof}
+
+Les corollaires qui suivent sont des g\'en\'eralisations de (\SGA 4 XVI 3.2 et 3.3).
+
+\begin{corollaire} \label{XIV.1.19}
+Soient $f:X\to S$ un morphisme plat, \`a fibres s\'eparables, de sch\'emas localement noeth\'eriens et $Y$ une partie ferm\'ee de $X$. Supposons que pour tout point $s\in f(Y)$, la fibre $Y_s$ soit rare dans $X_s$ et que l'une des deux conditions suivantes soit v\'erifi\'ee:
+\begin{enumeratea}
+\item
+l'adh\'erence de $f(Y)$ est rare dans $S$.
+\item
+$X_s$ est g\'eom\'etriquement unibranche aux points de $Y_s$.
+\par\noindent
+Alors on a
+$$
+\prof_Y(X)\geq 2.
+$$
+\end{enumeratea}
+\end{corollaire}
+
+Il r\'esulte en effet de l'hypoth\`ese faite sur $f$ que $f$ est localement $0$-acyclique (\SGA 4 XV 4.1). On applique alors \ref{XIV.1.13}. L'hypoth\`ese $Y_s$ rare dans $X_s$ (resp. $\overline{f(Y)}$ rare dans~$S$) \'equivaut d'apr\`es \ref{XIV.1.6} b) \`a la relation $\prof_{Y_s}(X_s)\geq 1$ (resp. $\prof_{\overline{f(Y)}}(S)\geq 1$). L'hypoth\`ese $X_s$ g\'eom\'etriquement unibranche en chaque point de $Y_s$ \'equivaut \`a dire que le localis\'e strict de $X_s$ en un point g\'eom\'etrique de $Y_s$ est irr\'eductible; sachant que $Y_s$ est rare dans $X_s$, cela entra\^ine \'evidemment $\prof_{Y_s}(X_s)\geq 2$, gr\^ace \`a \ref{XIV.1.8}. Dans l'un et l'autre cas \ref{XIV.1.13} donne bien $\prof_Y(X)\geq 2$.
+
+\begin{corollaire} \label{XIV.1.20}
+Soient $f:X\to S$ un morphisme r\'egulier (\textup{\EGA IV 6.8.1}) de sch\'emas localement noeth\'eriens, $Y$ une partie ferm\'ee de $X$. Supposons que, pour tout point $s\in f(Y)$, l'une des conditions suivantes soit r\'ealis\'ee:
+\begin{enumeratea}
+\item
+On a $\codim(Y_s, X_s)\geq 2$.
+\item
+On a $\codim(Y_s, X_s)\geq 1$ et $\prof_s(S)\geq 1$.
+\item
+On a $\prof\hop_s(S)\geq 3$.
+\end{enumeratea}
+\noindent
+Alors on a
+$$
+\prof\hop_Y(X)\geq 3.
+$$
+\end{corollaire}
+
+Cela r\'esulte en effet de \ref{XIV.1.18}, \'etant donn\'e que l'hypoth\`ese a) implique $\prof\hop_{Y_s}(X_s)\geq 3$ (cf. \ref{XIV.1.11}), et que la condition $\codim(Y_s, X_s)\geq 1$ implique \'evidemment $\prof_Y(X)\geq 2$.
+
+\section{Lemmes techniques} \label{XIV.2}
+
+\subsection{} \label{XIV.2.1}
+Soient $S$ un sch\'ema localement noeth\'erien, $f:X\to S$ un morphisme localement de type fini, $t$ un point de $S$. Si $x\in X$ est tel que $s=f(x)\in\Spec\Oo_{S, t}$, on pose
+$$
+\delta_t(x)=\degtr k(x)/k(s)+\dim(\overline{\{s\}}),
+$$
+o\`u $\overline{\{s\}}$ d\'esigne l'adh\'erence de $s$ dans $\Spec\Oo_{S, t}$, $k(x)$ et $k(s)$ les corps r\'esiduels de $x$ et $s$ respectivement. Si $S$ est un anneau local de point ferm\'e $t$, on \'ecrit aussi $\delta(x)$ au lieu de $\delta_t(x)$ (cf. \SGA 4 XIV 2.2).
+\begin{sublemme} \label{XIV.2.1.1} Soit un carr\'e cart\'esien
+$$
+\xymatrix{X^{\prime}\ar[r]^{h}\ar[d]_{f^{\prime}}&X\ar[d]^f\\S^{\prime}\ar[r]^g&S},
+$$
+o\`u $S$ et $S'$ sont des anneaux locaux noeth\'eriens, de points ferm\'es $t$ et $t'$ respectivement, $g$ un morphisme fid\`element plat tel que $g^{-1}(t)=t'$, $f$ un morphisme localement de type fini. Soient $x'\in X',\ x=h(x'),\ s=f(x),\ s'=f'(x')$; alors on a
+$$
+\delta(x')\leq\delta(x).
+$$
+De plus l'in\'egalit\'e pr\'ec\'edente est une in\'egalit\'e si et seulement si l'on a:
+$$
+\degtr k(x)/k(s)=\degtr k(x')/k(s')\text{ et }\dim(\overline{\{s\}})=\dim(\overline{\{s'\}}).
+$$
+En particulier, \'etant donn\'e $x\in X$, on peut trouver $x'$ tel que l'on ait $\delta(x)=\delta(x')$.
+\end{sublemme}
+
+On a en effet (\EGA IV 6.11)
+$$
+\dim(\overline{\{s\}})=\dim g^{-1}(\overline{\{s\}}).
+$$
+Il en r\'esulte que, pour tout point $s'$ de $g^{-1}(s)$, on~a la relation $\dim(\overline{\{s'\}})\leq \dim(\overline{\{s\}})$, et que, $s$ \'etant donn\'e, on peut trouver $s'\in g^{-1}(s)$, tel qu'on ait l'\'egalit\'e. D\'esignons alors par $Z$ l'adh\'erence sch\'ematique de $x$ dans la fibre $X_s$ de $X$ en~$s$, et soit $Z'=Z\times_{\Spec k(s)}\Spec k(s')$. Alors, $Z'$ est \'equidimensionnel de dimension $\degtr k(x)/k(s)$; on~a donc, pour tout point $x'\in Z'_{x}$,
+$$
+\degtr k(x')/k(s')\leq\degtr k(x)/k(s)\text{, et on~a l'égalité}$$
+lorsque $x'$ est un point maximal de $Z'_x$. D'o\`u aussit\^{o}t la conclusion annonc\'ee.
+
+\subsection{} \label{XIV.2.2} Soient $f:X\to S$ un morphisme localement de type fini et $T$ une partie ferm\'ee de $S$. Soient $x\in X, s=f(x)$; nous poserons
+$$
+\delta_T(x)=\degtr k(x)/k(s)+\codim(\overline{\{s\}}\cap T, \overline{\{s\}})=\inf_{t\in T\cap\overline{\{s\}}}\delta_t(x).
+$$
+
+\begin{sublemme} \label{XIV.2.2.1}
+Soit un carr\'e cart\'esien
+$$
+\xymatrix{X^{\prime}\ar[r]^{h}\ar[d]_{f^{\prime}}&X\ar[d]^f\\S^{\prime}\ar[r]^g&S},
+$$
+o\`u les sch\'emas $S$ et $S'$ sont localement noeth\'eriens, cat\'enaires, le morphisme $f$ localement de type fini et $g$ fid\`element plat. Soient $T$ une partie ferm\'ee de $S$, $T'$ une partie ferm\'ee de $S'$, telles que $g(T')\subset T$, $x'$ un \'el\'ement de $X'$, $x=h(x')$ et
+$$h_{x'}:\Spec\Oo_{X', x'}\to\Spec\Oo_{X, x}$$
+le morphisme induit par $h$. Alors on a:
+$$
+\delta_T(x)-\delta_{T'}(x')\leq\dim h_{x'}^{-1}(x).
+$$
+\end{sublemme}
+
+Soient $s'=f'(x'), s=f(x)$. On a, par d\'efinition:
+\begin{multline*}
+\delta_T(x)-\delta_{T'}(x')=\degtr k(x)/k(s)-\degtr k(x')/k(s')\\
++\codim(\overline{\{s\}}\cap T, \overline{\{s\}})-\codim(\overline{\{s'\}}\cap T', \overline{\{s'\}}).
+\end{multline*}
+Puisque $g$ est fid\`element plat, il r\'esulte de (\EGA IV 6.1.4) que l'on a
+\begin{align*} \label{eq:XIV.2.2.*} \tag{$*$}
+\codim(\overline{\{s\}}\cap T, \overline{\{s\}})&=\codim(g^{-1}(\overline{\{s\}})\cap g^{-1}(T), g^{-1}(\overline{\{s\}}))\\&\leq\codim(g^{-1}(\overline{\{s\}})\cap T', g^{-1}(\overline{\{s\}}));
+\end{align*}
+comme $S'$ est cat\'enaire, on a, d'apr\`es ($\EGA 0_{\textup{IV}}$ 14.3.2 b)):
+\begin{multline*}
+\codim(\overline{\{s'\}}\cap T', g^{-1}(\overline{\{s\}}))= \codim(\overline{\{s'\}}\cap T', \overline{\{s'\}})+ \codim(\overline{\{s'\}}, g^{-1}(\overline{\{s\}}))\\
+= \codim(\overline{\{s'\}}\cap T', g^{-1}(\overline{\{s\}})\cap T')+ \codim(g^{-1}(\overline{\{s\}})\cap T', g^{-1}(\overline{\{s\}})).
+\end{multline*}
+On d\'eduit de cette relation et de \eqref{eq:XIV.2.2.*}
+$$
+\delta_T(x)-\delta_{T'}(x')\leq\degtr k(x)/k(s)-\degtr k(x')/k(s')+\codim(\overline{\{s'\}}, g^{-1}(\overline{\{s\}})).
+$$
+Calculons $\codim(\overline{\{s'\}}, g^{-1}(\overline{\{s\}}))=\dim\Oo_{S'_s, s'}$ (o\`u $S'_s$ est le fibre de $S'$ en $s$). Soit $Z$ l'image ferm\'ee de $x$ dans $X_s$ et $Z'\subset X'_s$ le sch\'ema d\'efini par le carr\'e cart\'esien
+$$
+\xymatrix{Z^{\prime}\ar[r]\ar[d]&Z\ar[d]\\S^{\prime}_s\ar[r]&{\mathrm{Spec}\,k(s)}}.
+$$
+Le morphisme $Z\to \Spec k(s)$ est plat, localement de type fini et l'on a $\dim Z=\degtr k(x)/k(s)$. Il r\'esulte alors de (\EGA IV 6.1.2) que
+$$
+\dim(\Oo_{Z', x'})=\dim(\Oo_{S'_s, s'})+\degtr k(x)/k(s)-\degtr k(x')/k(s');$$
+compte tenu du fait que $Z'_{s'}\simeq Z\otimes_{k(s)}k(s')$, on obtient alors:
+$$
+\delta_T(x)-\delta_{T'}(x')\leq\dim(\Oo_{Z', x'}).
+$$
+Or $\Spec(\Oo_{Z', x'})$ s'identifie \`a la fibre en $x$ du morphisme
+$$(\Spec(\Oo_{X', x'}))_s\to(\Spec(\Oo_{X, x}))_s,
+$$
+donc aussi \`a la fibre en $x$ de $h_{x'}$, ce qui d\'emontre le th\'eor\`eme.
+
+\subsection{} \label{XIV.2.3}
+Les d\'emonstrations des th\'eor\`emes du \numero \ref{XIV.4} sont bas\'ees sur la th\'eorie de la dualit\'e; elles utilisent les lemmes qui suivent. Soit $m$ un entier puissance d'un nombre premier $\ell$; si $X$ est un sch\'ema, tous les faisceaux consid\'er\'es sur $X$ sont des faisceaux de $\ZZ/m\ZZ$-modules; on~a alors la notion de complexe dualisant sur $X$ (\SGA 5 I 1.7). Supposons qu'il existe un tel complexe $K$ sur $X$; alors, pour chaque point g\'eom\'etrique~$\bar x$ au dessus d'un point $x$ de $X$, on d\'eduit de $K$ (cf. \SGA 5 I 4.5) un complexe dualisant~$K_{\bar x}$ sur $\Spec k(\bar x)$, de sorte que l'on a $K_{\bar x}\simeq\ZZ/m\ZZ[n]$ (le crochet d\'esignant le foncteur de translation) pour un certain entier $n$ ne d\'ependant que de $x$. Nous poserons
+$$
+\delta_K(x)=n.
+$$
+Si $K$ est normalis\'e au point $x$ (\SGA 5 I 4.5), on~a donc $n=0$.
+
+\begin{sublemme} \label{XIV.2.3.1} Soit $X$ un sch\'ema localement noeth\'erien, muni d'un complexe dualisant $K$. Si $x$ et $x'$ sont deux points de $X$, tels que $x$ soit une sp\'ecialisation de $x'$ et que l'on ait $\codim(\overline{\{x\}}, \overline{\{x'\}})=1$, alors on a
+$$
+\delta^K(x)=\delta^{K}(x')-2.
+$$
+\end{sublemme}
+
+On peut d'abord se ramener au cas o\`u $X$ est un sch\'ema strictement local. Soient en effet $\bar X$ le localis\'e strict de $X$ en un point g\'eom\'etrique $\bar x$ au-dessus de $x$, $i:\bar X\to X$ le morphisme canonique, $\bar x'$ un point g\'eom\'etrique de $\bar X$ au-dessus de $x'$. Alors $i^*K$ est un complexe dualisant sur $\bar X$ et l'on a (\SGA 5 I 4.5)
+$$
+(i^*K)_{\bar x}\simeq K_{\bar x}\text{ et } (i^*K)_{\bar x'}\simeq K_{\bar x'},
+$$
+ce qui ach\`eve la r\'eduction au cas strictement local.
+
+Si $j:\overline{\{x'\}}\to X$ d\'esigne l'immersion du sous-sch\'ema ferm\'e r\'eduit de $X$, d'espace sous-jacent $\overline{\{x'\}}$, alors $\R^!j(K)$ est un complexe dualisant sur $\overline{\{x'\}}$ et on voit tout de suite, en utilisant (\SGA 5 I 4.5) qu'il suffit de d\'emontrer le lemme pour $\overline{\{x'\}}$. On est ainsi ramen\'e au cas o\`u $X$ est un sch\'ema strictement local int\`egre de dimension $1$.
+
+Soient alors $X'$ le normalis\'e de $X$ et $f:X'\to X$ le morphisme canonique; $f$ est un morphisme entier, surjectif, radiciel, et il en r\'esulte que $f^*K$ est un complexe dualisant sur $X'$ et qu'il suffit de d\'emontrer le lemme pour $X'$ et pour les points au dessus de~$x$ et~$x'$. On est ainsi ramen\'e au cas o\`u $X$ est un sch\'ema local, int\`egre, r\'egulier de dimension $1$, mais on sait (cf. \SGA 5 I 4.6.2 et 5.1) qu'alors $\mu_m[2]$ et $\ZZ/m\ZZ$ sont des complexes dualisants, normalis\'es respectivement aux points $x$ et $x'$; le lemme en r\'esulte aussit\^{o}t.
+
+\begin{sublemme} \label{XIV.2.3.2} Soient $S$ un sch\'ema local noeth\'erien, $f:X\to S$ un morphisme de type fini. Si $K$ est un complexe dualisant sur $S$, normalis\'e au point ferm\'e $t$ de $S$ et si $\R^!f(K)=K'$ est un complexe dualisant sur $X$ (cf. \SGA 5 I 3.4.3), on a, pour tout point $x$ de $X$:$$
+\delta^{K}(x)=2\delta(x).
+$$
+\end{sublemme}
+
+En effet soient $s=f(x)$ et $x'$ un point ferm\'e de la fibre $X_s$; alors on~a $\delta^{K'}(x')=\delta^K(s)$ et d'apr\`es \ref{XIV.2.3.1}
+$$
+\delta^K(s)=2\codim(\overline{\{t\}}, \overline{\{s\}})=2\dim(\overline{\{s\}}).
+$$
+Comme on peut choisir pour $x'$ une sp\'ecialisation de $x$, on~a d'apr\`es \ref{XIV.2.3.1}
+$$
+\delta^{K'}(x)=\delta^{K'}(x')+2\codim(\overline{\{x\}}, \overline{\{x'\}})=\delta^{K'}(x')+2\degtr k(x)/k(s);$$
+le lemme en r\'esulte aussit\^{o}t.
+
+Le lemme suivant servira seulement pour la r\'eciproque du th\'eor\`eme de Lefschetz, dans le \numero\ref{XIV.4}:
+
+\begin{sublemme} \label{XIV.2.3.3}
+Soit un carr\'e cart\'esien
+$$
+\xymatrix{X^{\prime}\ar[r]^{h}\ar[d]_{f^{\prime}}&X\ar[d]^f\\S^{\prime}\ar[r]^g&S},
+$$
+o\`u $S$ est un sch\'ema strictement local excellent de caract\'eristique nulle, $S'$ le compl\'et\'e de $S$ et $f$ un morphisme de type fini. Soient $\ell$ un nombre premier, $x\in X$, $Z$ l'adh\'erence sch\'ematique de $X'_x$ dans $X'$, et $i:X'_x\to Z$, $j:Z\to X$ les morphismes canoniques. Alors, si $k:X'\to R$ est une immersion ferm\'ee de $X'$ dans un sch\'ema $R$ r\'egulier excellent, de caract\'eristique nulle, le complexe
+$$K'=i^*(R^!(k.j)(\ZZ/\ell\ZZ))$$
+est un complexe dualisant sur $X'_x$ constant (c'est-\`a-dire ayant un seul faisceau de cohomologie non nul, isomorphe \`a $\ZZ/\ell\ZZ$).
+\end{sublemme}
+
+\enlargethispage{\baselineskip}%
+Compte tenu de (\SGA 5 I 3.4.3), la seule chose \`a d\'emontrer est que $K'$ est constant. Or, comme $Z$ est excellent, l'ensemble des points de $Z$ dont les anneaux locaux sont r\'eguliers est un ensemble ouvert $U$ (\EGA IV 7.8.3 \textup{(iv)}), et $U$ contient \'evidemment $X'_x$ qui est r\'egulier. Soit alors
+$$u:U\to R$$
+l'immersion canonique de $U$ dans $R$; il r\'esulte du th\'eor\`eme de puret\'e (\SGA 4 XIX 3.2 et 3.4) et de l'isomorphisme
+$$(\mu_l)_S\simeq(\ZZ/\ell\ZZ)_S$$
+($S$ strictement local) que l'on a
+$$
+\R^!u(\ZZ/\ell\ZZ)\simeq\ZZ/\ell\ZZ[2c],
+$$
+o\`u $c$ est une fonction localement constante sur $U$, n\'ecessairement constante au voisinage de $X'_x$, car les fibres de $g$ sont g\'eom\'etriquement int\`egres d'apr\`es (\EGA IV 18.9.1) donc $X'_x$ int\`egre. Le lemme en r\'esulte aussit\^{o}t.
+
+\section{R\'eciproque du th\'eor\`eme de Lefschetz affine} \label{XIV.3}
+
+Le pr\'esent num\'ero sera utilis\'e au \numero \ref{XIV.4} pour prouver une r\'eciproque au \og th\'eor\`eme de Lefschetz\fg; un lecteur qui n'est int\'eress\'e que par la partie directe dudit th\'eor\`eme peut donc omettre la lecture du pr\'esent num\'ero.
+
+\subsection{} \label{XIV.3.1}
+
+Rappelons l'\'enonc\'e du th\'eor\`eme de Lefschetz affine (\SGA 4~XIX~6.1~bis):
+
+Soient $S$ un sch\'ema strictement local excellent de caract\'eristique nulle, $f:X\to S$ un morphisme affine de type fini et $F$ un faisceau de torsion sur $X$. Alors, si l'on pose
+$$
+\delta(F)=\sup\{\delta(x)|x\in X \text{ et } F_{\bar{x}} \neq 0\},
+$$
+on a
+$$
+H^q(X, F)=0 \text{ pour } q>\delta(F).
+$$
+
+Avant d'\'enoncer la r\'eciproque, prouvons quelques lemmes.
+
+\begin{lemme} \label{XIV.3.2} Soient $K$ un corps, $\ell$ un nombre premier distinct de la caract\'eristique de $K$ et $F$ un faisceau de $\ell$-torsion sur $K$, constructible, non nul. Supposons que la $\ell$-dimension cohomologique de $K$ (\textup{\SGA 4 X~1}) soit \'egal \`a $n$ (ceci est r\'ealis\'e par exemple si $K$ est le corps des fractions d'un anneau strictement local excellent int\`egre, de caract\'eristique nulle, de dimension $n$ (\textup{\SGA 4~XIX~6.3}), ou si $K$ est une extension de type fini de degr\'e de transcendance $n$ d'un corps s\'eparablement clos (\textup{\SGA 4~X~2.1})). Alors on peut trouver une extension s\'eparable finie $L$ de $K$, telle que l'on ait:
+$$H^n(L, F{|L}) \neq 0.
+$$
+\end{lemme}
+
+On peut trouver une extension finie $K'$ de $K$, telle que les restrictions de $F$ et de $\mu_\ell$ \`a $\Spec K'$ soient des faisceaux constants. On a alors $\cd_{\ell}(K') = \cd_{\ell}(K) = n$ (\SGA 4~X~2.1), et il r\'esulte de (\cite{XIV.2}~II~\S 3~Prop.\,4~\textup{(iii)}) que l'on peut trouver une extension finie $L$ de $K'$ telle que l'on ait
+$$
+H^n(L, \mu_{\ell})\neq 0, \quad\text {i.e. } H^n(L, \ZZ/\ell\ZZ) \neq 0.
+$$
+Or le foncteur $H^n(L,\cdot)$ est exact \`a droite sur la cat\'egorie des faisceaux de $\ell$-torsion, puisque $\cd_{\ell}(L)=n$; comme $F$ admet un quotient isomorphe \`a $\ZZ/\ell\ZZ$, on~a aussi $H^n(L, F{|L}) \neq 0$.
+
+\begin{corollaire} \label{XIV.3.3}
+Soient $k$ un corps, $K$ une extension de type fini de degr\'e de transcendance $n$ de $k$, $F$ un faisceau de $\ell$-torsion sur $K$ constructible, non nul, avec $\ell$ premier \`a la caract\'eristique de $k$. Alors on peut trouver une extension finie s\'eparable~$L$ de~$K$ telle que, si $u: \Spec L \to \Spec k$ d\'esigne le morphisme canonique, on ait
+$$R^n u_*(F{|\Spec L}) \neq 0.
+$$
+\end{corollaire}
+
+Lorsque le corps $k$ est s\'eparable clos, le corollaire est un cas particulier de \ref{XIV.3.2}. Dans le cas g\'en\'eral, on peut trouver une extension s\'eparable finie $k_1$ de $k'$ telle que les composantes irr\'eductibles de $K \otimes_k k_1$ soient g\'eom\'etriquement irr\'eductibles (\EGA IV~4.5.11); soit $K_1$ l'une d'elles. Si $k'$ est une cl\^{o}ture s\'eparable de $k_1$, alors $K' = K_1 \otimes_{k_1} k'$ est un corps, et l'on a d'apr\`es (\EGA IV~4.2)
+$$
+\deg \tr K'/k' = \deg \tr K/k = n.
+$$
+Il r\'esulte alors de \ref{XIV.3.2} que l'on peut trouver une extension finie s\'eparable $L'$ de $K'$ telle que l'on ait $H^n(L', F{|L'}) \neq 0$. Mais on~a $k' = \varinjlim_i k_i$, o\`u $k_i$ parcourt les extensions finies de $k_1$ contenues dans $k'$, et par suite $K' = \varinjlim_i (k_i \otimes_{k_1} K_1)$. Il en r\'esulte que l'on peut trouver un indice $i$ et une extension finie s\'eparable $L$ de $k_i \otimes_{k_1} K_1 =K_i$, telle que l'on ait $L' \simeq L \otimes_{K_i} K'$. L'extension $L$ de $K$ r\'epond \`a la question; en effet il r\'esulte du diagramme commutatif
+$$
+\xymatrix{
+&{\mathrm{Spec}\,L}\ar[dl]_v\ar[dr]^u&\\
+{\mathrm{Spec}\,k_i} \ar[rr]^w &{}&{\mathrm{Spec}\,k\,,}
+}
+$$
+avec $w$ fini donc $R^q w_* = 0$ si $q>0$, que l'on a
+$$R^n u_*(F{|\Spec L}) \simeq w_*(R^n v_*(F{|\Spec L})).
+$$
+Or $R^nv_*(F{|\Spec L}) \neq 0$, puisque $H^n(L', F{|L'}) \neq 0$; on~a donc aussi $R^nu_*(F{|\Spec L}) \neq 0$.
+
+Rappelons le lemme connu suivant (cf. $\EGA 0_{\textup{III}}$~10.3.1.2 et \EGA IV~18.2.3):
+
+\begin{lemme} \label{XIV.3.4}
+Soient $X$ un sch\'ema, $x$ un point de $X$, $K$ une extension s\'eparable finie de $k(x)$. Alors il existe un sch\'ema $X_1$ \'etale au-dessus de $X$, affine, et un point $x_1 \in X_1$ au-dessus de $x$, tels que $k(x_1)$ soit $k(x)$-isomorphe \`a $K$.
+\end{lemme}
+
+Nous utiliserons au \numero \ref{XIV.4} la forme technique qui suit de la r\'eciproque de \ref{XIV.3.1}.
+
+\begin{proposition} \label{XIV.3.5}
+Soit un carr\'e cart\'esien
+$$
+\xymatrix{
+X^{\prime}\ar[r]^h\ar[d]_{f^{\prime}} &X\ar[d]^f\\
+S^{\prime}\ar[r]^g &S\,,
+}
+$$
+o\`u les sch\'emas $S$ et $S'$ sont strictement locaux excellents de caract\'eristique nulle, le morphisme $f$ localement de type fini, $g$ r\'egulier (\textup{\EGA IV~6.8.1}) surjectif, la fibre ferm\'ee de $g$ r\'eduite au point ferm\'e de $S'$. \'Etant donn\'e un $S$-sch\'ema $X_1$ (resp. un $S$-morphisme $f_1$, etc.), nous noterons $X_1'$ (resp. $f_1'$, etc.) le sch\'ema $X_1 \times_S S'$ (resp. le morphisme $(f_1)_{(S')}$, etc.). Soit $F$ un faisceau de $\ZZ/m\ZZ$-modules sur $X'$ ($m$ puissance d'un nombre premier $\ell$), constructible, satisfaisant aux conditions suivantes:
+\begin{enumeratei}
+\item
+Pour tout point $x \in X$, on peut trouver une extension finie s\'eparable~$K$ de $k(x)$ telle que la restriction de $F$ \`a la fibre $(X')_{(\Spec K)}$ provienne par image r\'eciproque d'un faisceau constructible sur $\Spec K$.
+\item
+Pour tout morphisme $f_1: X_1 \to S$, avec $X_1$ \'etale au-dessus de $X$, affine, pour tout point $s \in S$ et pour tout entier $q>0$, on peut trouver une extension finie s\'eparable~$K$ de $k(s)$ telle que la restriction de $R^q f'_{1*}(F|X'_1)$ \`a la fibre $S'_{(\Spec K)}$ provienne par image r\'eciproque d'un faisceau constructible sur $\Spec K$.
+\end{enumeratei}
+
+Soit $n$ un entier, et supposons que pour tout sch\'ema $X_1$ \'etale au-dessus de $X$, affine, on ait
+$$
+H^i(X_1', F)=0 \text{ pour } i>n.
+$$
+Alors, si $\bar{x}'$ est un point g\'eom\'etrique au-dessus du point $x' \in X'$, tel que $F_{\bar{x}'} \neq 0$, on~a
+$$
+\delta(x') \leq n.
+$$
+\end{proposition}
+
+Soit $Z'$ l'ensemble des points $x'$ de $X'$ tels que l'on ait $F_{\bar{x}'} = 0$. Alors, si $Z=h(Z')$, on~a d'apr\`es \textup{(i)} $Z' = h^{-1}(Z)$; soient $x' \in X'$, $x=h(x')$, $s'=f'(x')$, $s=f(x)$. Il r\'esulte de \ref{XIV.2.1.1} et du fait que la fonction $\delta$ diminue par sp\'ecialisation, qu'il suffit de d\'emontrer l'in\'egalit\'e $\delta(x') \leq n$ lorsque $x$ est un point maximal de $Z$ et $x'$ tel que l'on ait
+$$r=\deg \tr k(x)/k(s) = \deg \tr k(x')/k(s') \text{ et }d=\dim \overline{\{s\}} = \dim\overline{\{s'\}}$$
+Soit $x'$ un tel point; il suffit de montrer que l'on peut trouver un sch\'ema $X_1$ \'etale sur~$X$, affine, tel que l'on ait
+$$
+H^{d+r}(X_1', F) \neq 0.
+$$
+
+L'ensemble $Z'$ est constructible (\SGA 4~IX~2.4), donc il en est de m\^eme de $Z$ (\EGA IV~1.9.12); on peut alors supposer, quitte \`a restreindre $X$ \`a un voisinage de~$x$, que $Z$ est un ferm\'e irr\'eductible de point g\'en\'erique $x$. Soit $T=f(Z)$; $T$ est un ensemble constructible contenu dans $\overline{\{s\}}$; on peut donc trouver un ouvert affine $U$ de~$S$, tel que $s \in U$ et que $T \cap U = T_U$ soit un ferm\'e irr\'eductible de $U$ de point g\'en\'erique~$s$.
+
+Soit alors $V$ un sch\'ema \'etale sur $X$, affine, dont l'image dans $X$ contienne $x$ et dont l'image dans $S$ soit contenue dans $U$; soient $Z_V$ l'image inverse de $Z$ dans $V$ et $u: Z_V \to T_U$ le morphisme canonique. Soient $W$ un sch\'ema \'etale sur $U$, affine, on note alors $T_W$ l'image inverse de $T_U$ dans $W$ et soit $X_1 = W\times_U V$. Comme $F$ est nul en dehors de $Z'$, on~a la suite spectrale
+$$
+E^{pq}_2 = H^p((T_W)', R^qu_*'(F)) \To H^*(X'_1, F).
+$$
+Nous allons montrer que l'on peut choisir $V$ et $W$ de telle sorte que l'on ait
+\begin{enumeratea}
+\item
+$E^{pq}_2=0$ pour $p>d$ et pour $q>r$.
+\item
+$E^{dr}_2 \neq 0$.
+\end{enumeratea}
+\noindent
+Il r\'esultera alors de la suite spectrale la relation $H^{d+r}(X_1', F) \neq 0$.
+\begin{enumerate}
+\item[$1^\circ)$]
+Posons $G_q = R^q u'_*(F)$; alors on a:
+$$(G_q)_{\bar{s}'}=H^q((Z_V)'_{\bar{s}'}, F_{\bar{s}'}),
+$$
+car $s'$ est un point maximal de $(T_U)'$. Comme la fibre $(Z_V)'_{\bar{s}'}$ est un sch\'ema affine de type fini de dimension $r$ sur un corps s\'eparablement clos, il r\'esulte de \ref{XIV.3.1} que l'on a
+$$(G_q)_{\bar{s}'}=0 \text{ pour } q>r.
+$$
+
+Pour $q>r$, soit $Y'_q$ l'ensemble des points de $(T_U)'$ o\`u la fibre g\'eom\'etrique de $G_q$ est $\neq 0$ et $Y_q=g(Y'_q)$; alors on~a $Y'_q = g^{-1}(Y_q)$ d'apr\`es \textup{(ii)}, donc $Y_q$ est un sous-ensemble constructible de $T_U$ (\SGA 4~XIX~5.1 et \EGA 1.9.12) qui ne contient pas $s$; quitte \`a restreindre $U$ \`a voisinage ouvert de $s$, on peut supposer que l'on a $G_q=0$ pour $q>r$, donc $E_2^{pq}=0$ pour $q>r$.
+
+Par ailleurs, comme $(T_W)'$ est un sch\'ema affine de type fini au-dessus de $g^{-1}(\overline{\{s\}})$, on~a quel que soit $q$ (cf. \ref{XIV.3.1}):
+$$H^p((T_W)', G_q)=0 \text{ pour } p>\dim g^{-1}(\overline{\{s\}})=d,
+$$
+d'o\`u la condition a).
+
+\item[$2^\circ)$]
+Montrons que l'on peut choisir $V$ de telle sorte que l'on ait $(G_r)_{\bar{s}'} \neq 0$. D'apr\`es~\textup{(i)}, il existe un faisceau constructible $I$, d\'efini sur une extension finie s\'eparable $K$ de $k(x)$, dont l'image inverse sur $(X')_{(\Spec K)}$ soit isomorphe \`a $F{|(X')_{(\Spec K)}}$. D'apr\`es \ref{XIV.3.3}, on trouve une extension finie s\'eparable $L$ de $K$ telle que, si $v:\Spec L \to \Spec k(s)$ d\'esigne le morphisme canonique, on ait $R^r v_*(I) \neq 0$. Comme le morphisme $S'_s \to \Spec k(s)$ est r\'egulier, on~a d'apr\`es (\SGA 4~XIX~4.2):
+$$R^rv_*'(F{|(\Spec L)'}) \simeq (R^rv_*(I))' \neq 0.
+$$
+D'apr\`es le lemme \ref{XIV.3.4}, on peut trouver un sch\'ema $X_2$ \'etale sur $X$, affine, et un point~$x_2$ de $X_2$ au-dessus de $x$, tel que $L$ soit $k(x)$-isomorphe \`a $k(x_2)$ et l'on peut supposer $X_2$ au-dessus de $U$. Comme $x$ est un point maximal de $Z$, on a
+$$
+\Spec L \simeq \varprojlim_V Z_V,
+$$
+o\`u $V$ parcourt les voisinages ouverts affines de $x_2$. On en d\'eduit par passage \`a la limite (\SGA 4~VII~5.8), apr\`es restriction \`a la fibre g\'eom\'etrique en $\bar{s}'$:
+$$
+(R^rv_*'(F{|\Spec I})')_{\bar{s}'} = \varinjlim_V (R^ru_*'(F)_{\bar{s}'},
+$$
+ce qui montre bien que l'on peut trouver $V$ tel que l'on ait $(G_r)_{\bar{s}'} \neq 0$.
+
+\item[$3^\circ)$]
+Le sch\'ema $V$ ayant \'et\'e choisi dans $2^\circ)$, montrons que l'on peut choisir le sch\'ema~$W$ de telle sorte que l'on ait
+$$
+E^{dr}_2 = H^d((T_W)', G_r) \neq 0.
+$$
+D'apr\`es \textup{(ii)}, il existe un faisceau constructible $J$, d\'efini sur une extension finie s\'eparable $K$ de $k(s)$, dont l'image inverse sur $(S')_{(\Spec K)}$ soit isomorphe \`a ${G_r}{|(S')_{(\Spec K)}}$. D'apr\`es le lemme \ref{XIV.3.2}, on peut trouver une extension finie s\'eparable $L$ de $K$, telle que l'on ait $H^d(\Spec L, J) \neq 0$. Comme le morphisme $(S')_{(\Spec L)} \to \Spec L$ est acyclique (\SGA 4~XIX~4.1 et XV~1.10 et 1.16), on a
+$$
+H^d((\Spec L)', {G_r}{|(S')_{(\Spec L)'}}) = H^d(\Spec L, J) \neq 0.
+$$
+D'apr\`es \ref{XIV.3.4}, on peut trouver un sch\'ema $U_1$ \'etale sur $U$, affine, et un point~$s_1$ au-dessus de $s$, tels que $k(s_1)$ soit $k(s)$-isomorphe \`a $L$. Or, $s$ \'etant un point maximal de~$T_U$, on~a
+$$
+\Spec L \simeq \varprojlim_W T_W,
+$$
+o\`u $W$ parcourt les voisinages ouverts affines de $s_1$. On en d\'eduit que $(\Spec L)' \simeq \varprojlim_W(T_W)'$, et par passage \`a la limite (\SGA 4~VII~5.8):
+$$
+H^d((\Spec L)', {G_r}{|(\Spec L)'}) \simeq \varinjlim_W H^d((T_W)', {G_r}{|(T_W)'});
+$$
+par suite on peut trouver $W$ tel que l'on ait
+$$
+H^d((T_W)', {G_r}{|(T_W)'})\neq 0,
+$$
+ce qui ach\`eve la d\'emonstration du th\'eor\`eme.
+\end{enumerate}
+
+\begin{corollaire} \label{XIV.3.6}
+Les hypoth\`eses concernant $S, S', f, f', m$ sont celles de \ref{XIV.3.5}. D\'esignons maintenant par $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $X'$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, et dont les faisceaux de cohomologie satisfont aux conditions \textup{(i)} et \textup{(ii)} de \ref{XIV.3.5}. Soit $n$ un entier, et supposons que, pour tout sch\'ema $X_1$ \'etale sur $X$, affine, on ait
+$$
+H^i(X'_1, F)=0\text{ pour } i>n.
+$$
+Alors, si $\bar{x}'$ est un point g\'eom\'etrique au-dessus d'un point $x'$ de $X'$, tel que l'on ait, pour un entier $j$, $(\underline{H}^j(F))_{\bar{x}'} \neq 0$, on a
+$$
+\delta(x')\leq n-j.
+$$
+\end{corollaire}
+
+Soit $T'$ l'ensemble des points de $X'$ o\`u la conclusion de \ref{XIV.3.7} est en d\'efaut et supposons $T' \neq \emptyset$; soit $T=f(T')$, $x$ un point maximal de $T$ et $x'$ un point de $X'$ au-dessus de~$x$. Soit $j$ le plus grand entier tel que l'on ait $(\underline{H}^j(F))_{\bar{x}'} \neq 0$; on~a donc $r=\delta(x)>n-j$. Soit $Z'_q$ l'ensemble des points o\`u la fibre g\'eom\'etrique de $\underline{H}^q(F)$ est $=0$ et $Z_q =h(Z'_q)$; on voit comme dans la d\'emonstration de \ref{XIV.3.5} que $Z_q$ est constructible. On a \'evidemment $Z'_q=\emptyset$ pour $q>n$ et pour $q$ suffisamment petit. Les autres valeurs de $q$ se r\'epartissent en trois sous-ensembles. Soit
+$$
+Q_1=\{q\mid x\in Z_q\text{ et une générisation de }x, \text{ distincte de }x, \not\in Z_q\}.
+$$
+On a $j \in Q_1$ et on peut trouver un voisinage ouvert affine $U_1$ de $x$, tel que, pour tout $q \in Q_1, U_1 \cap Z_q$ soit un ferm\'e irr\'eductible de point g\'en\'erique $x$. Si $q \in Q_1$, on a
+\begin{equation*} \label{eq:XIV.3.6.*} \tag{$*$} \delta(\underline{H}^q(F){|U_1'})=\delta(x)\quad\text{(pour la définition de $\delta(\underline{H}^q(F))$ cf. 3.1)}.
+\end{equation*}
+Soit
+$$
+Q_2=\{q\mid\text{aucune générisation de $x$ n'appartient à }Z_q\}.
+$$
+Alors, si $j<q\leq n$, on~a $q\in Q_2$, et l'on peut trouver un voisinage ouvert affine $U_2$ de $x$, tel que, pour tout $q \in Q_2$, on ait $Z_q \cap U_2 = \emptyset$; on~a ainsi
+\begin{equation*} \label{eq:XIV.3.6.**} \tag{$**$} \underline{H}^q(F){|U'_2}=0\text{ pour }q\in Q_2.
+\end{equation*}
+Soit enfin
+$$
+Q_3= \{q\mid Z_q \text{ contient des générisations strictes de }x\}.
+$$
+Alors on peut trouver un voisinage ouvert affine de $x$, $U_3$, tel que, pour tout $q \in Q_3$, tous les points maximaux de $Z_q \cap U_3$ soient des g\'en\'erisations de $x$. Si $q \in Q_3$, on a
+\begin{equation*} \label{eq:XIV.3.6.***} \tag{${*}{*}{*}$} \delta(\underline{H}^q(F){|U'_3})\leq n-q.
+\end{equation*}
+
+Pour tout sch\'ema $X_1$ \'etale au-dessus de $U_1 \cap U_2 \cap {}_3$, affine, consid\'erons la suite spectrale d'ypercohomologie
+$$
+E^{pq}_2= H^p(X_1', \underline{H}^q(F)) \To H^*(X'_1, F).
+$$
+On a $E^{pq}_2=0$ pour $q>$ d'apr\`es \eqref{eq:XIV.3.6.**}. On a $E^{pq}_2=0$ pour $p+q \geq r+j$ sauf peut-\^etre pour $p=r, q=j$. En effet c'est clair si $q\in Q_2$; si $q\in Q_1$, on~a alors $p>r$ sauf si $p=r, q=j$ et cela r\'esulte de \ref{XIV.3.1} compte tenu de (\ref{eq:XIV.3.6.*}); enfin si $q\in Q_3$, comme $r>n-j$, on~a $p>n-q$ et l'assertion r\'esulte de \ref{XIV.3.1} compte tenu de (\ref{eq:XIV.3.6.***}). Vu que $H^{r+j}(X_1', F)=0$, il r\'esulte de la suite spectrale que l'on a
+$$H^r(X_1', \underline{H}^j(F))=0;$$
+or ceci entra\^ine, d'apr\`es \ref{XIV.3.5}, $\delta(x)<r$, ce qui est absurde.
+
+\begin{corollaire} \label{XIV.3.7}
+Soient $S$ un sch\'ema strictement local excellent de caract\'eristique nulle, $f:X \to S$ un morphisme localement de type fini, $m$ une puissance d'un nombre premier, $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $X$, born\'es inf\'erieurement, \`a cohomologie constructible, et $n$ un entier. Alors les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+Pour tout sch\'ema $X_1$ \'etale au-dessus de $X$, affine, on a
+$$
+H^i(X_1, F)=0\text{ pour }i>n.
+$$
+
+\item
+Pour tout point g\'eom\'etrique $\bar{x}$ au-dessus du point $x$ de $X$, et pour tout entier~$j$ tel que l'on ait $(\underline{H}^j(F))_{\bar{x}} \neq 0$, on a
+$$
+\delta(x) \leq n-j.
+$$
+\end{enumeratei}
+\end{corollaire}
+
+\textup{(i)} ~$\To$~ \textup{(ii)} est le cas particulier de \ref{XIV.3.6} obtenu en faisant $S=S'$.
+
+\textup{(ii)} ~$\To$~ \textup{(i)} r\'esulte imm\'ediatement de \ref{XIV.3.1}, en utilisant la suite spectrale d'hypercohomologie
+$$
+H^p(X_1, \underline{H}^q(F)) \To H^*(X_1, F).
+$$
+
+\section{Th\'eor\`eme principal et variantes} \label{XIV.4}
+
+\setcounter{subsection}{-1}
+
+\subsection{} \label{XIV.4.0}
+Soient $g\colon X\to S$ un morphisme s\'epar\'e de type fini, $T$ une partie ferm\'ee de $S$, \hbox{$Z=g^{-1}(T)$} et $F$ un complexe de faisceaux ab\'eliens sur $X$, \`a degr\'es born\'es inf\'erieurement. Nous appelons \emph{$i$-ième groupe de cohomologie de $F$, à support propre, à support dans~$Z$} le groupe
+$$
+\H_{Z!}^{i}(X/S, F)=\H_{T}^{i}(S, \R_{!}g(F)),
+$$
+o\`u $\R_{!}g$ d\'esigne \og l'image directe \`a support propre\fg (\SGA 4~XVII). Dans le cas particulier o\`u $g$ est propre, on~a simplement
+$$
+\H_{Z!}^{i}(X/S, F)=\H_{Z}^{i}(X, F).
+$$
+
+\begin{proposition} \label{XIV.4.1} Soient $f\colon U\to S$ un morphisme de type fini, $F$ un complexe de faisceaux ab\'eliens sur $U$, \`a degr\'es born\'es inf\'erieurement. Supposons que l'on ait une factorisation de $f$:
+$$
+\xymatrix@C=15pt{ U\ar[rr]^-{i}\ar[rd]_-{f} & & X\ar[ld]^-{g}\\
+& S & }$$
+o\`u $i$ est une immersion ouverte et $g$ un morphisme s\'epar\'e de type fini, et d\'esignons par $G$ un complexe de faisceaux ab\'eliens sur $X$, \`a degr\'es born\'es inf\'erieurement, qui prolonge $F$. Soient $Y$ un sous-sch\'ema ferm\'e de $X$ d'espace sous-jacent $X-U$, de sorte que l'on a un diagramme commutatif:
+$$
+\xymatrix@C=15pt{ Y\ar[rr]^-{j}\ar[rd]_-{h} & & X\ar[ld]^-{g}\\
+& S & }$$
+Soient enfin $n$ un entier et $T$ une partie ferm\'ee de $S$. Alors les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+On a $\prof_{T}(\R_{!}f(F))\geq n$.
+\item
+Le morphisme canonique
+$$
+\underline{H}_{T}^{i}(\R_{!}g(G))\to\underline{H}_{T}^{i}(\R_{!}h(j^{\ast}G))$$
+est bijectif pour $i<n-1$, injectif pour $i=n-1$.
+\item
+Pour tout sch\'ema $S^{\prime}$ \'etale au-dessus de $S$, si l'on d\'esigne par $X^{\prime}$ (resp. $f^{\prime}$, resp. etc.) le sch\'ema $X\times_{S}S^{\prime}$ (resp. le morphisme $f_{(S^{\prime})}$, resp. etc.), le morphisme canonique
+$$
+\H_{g^{\prime -1}(T^{\prime})!}^{i}(X^{\prime}/S^{\prime}, G^{\prime})\to\H_{h^{\prime -1}(T^{\prime})!}^{i}(Y^{\prime}/S^{\prime}, j^{\prime\ast}G^{\prime})$$
+est bijectif pour $i<n-1$, injectif pour $i=n-1$.
+\end{enumeratei}
+\end{proposition}
+
+Consid\'erons dans la cat\'egorie d\'eriv\'ee $\D^{+}(X)$ (cf. \cite{XIV.3}) le triangle distingu\'e
+$$
+\xymatrix@C=15pt{ & j_{\ast}j^{\ast}G\ar[ld] & \\
+i_{!}F\ar[rr] & & G.\ar[lu]}$$
+En appliquant \`a ce triangle le foncteur $\R_{!}g$, on obtient le triangle
+\begin{equation*} \label{eq:XIV.4.1.*} \tag{$*$}
+\begin{array}{c}
+\xymatrix@C=0pt{
+& \mathrm{R}_{!}h(j^{\ast}G)\ar[ld] & \\
+\mathrm{R}_{!}f(F)\ar[rr] & & \mathrm{R}_{!}g(G).\ar[lu]
+}
+\end{array}
+\end{equation*}
+
+Montrons que \textup{(i)}~$\Ssi$~\textup{(ii)}. En effet, d'apr\`es la d\'efinition \ref{XIV.1.2}, \textup{(i)} \'equivaut \`a la relation
+$$
+\underline{H}_{T}^{i}(\R_{!}f(F))=0\quad\textrm{ pour }i<n\textrm{;}$$
+or on d\'eduit de \eqref{eq:XIV.4.1.*} la suite exacte de faisceaux
+$$
+\to\underline{H}_{T}^{i}(\R_{!}f(F))\to\underline{H}_{T}^{i}(\R_{!}g(G))\to\underline{H}_{T}^{i}(\R_{!}h(j^{\ast}G))\to,
+$$
+d'o\`u l'\'equivalence de \textup{(i)} et \textup{(ii)}.
+
+\textup{(i)}~$\Ssi$~\textup{(iii)}. En effet \textup{(i)} \'equivaut \`a dire que, pour tout sch\'ema $S^{\prime}$ \'etale au-dessus de $S$, on~a la relation
+\begin{equation*} \label{eq:XIV.4.1.**} \tag{$**$} {\H_{T^{\prime}}^{i}(S^{\prime}, \R_{!}f^{\prime}(F^{\prime}))=0\quad\textrm{ pour }i<n.}
+\end{equation*}
+Or on d\'eduit de \eqref{eq:XIV.4.1.*} la suite exacte de groupes ab\'eliens
+$$
+\to\H_{T^{\prime}}^{i}(S^{\prime}, \R_{!}f^{\prime}(F^{\prime}))\to\H_{T^{\prime}}^{i}(S^{\prime}, \R_{!}g^{\prime}(G^{\prime}))\to \H_{T^{\prime}}^{i}(S^{\prime}, \R_{!}h^{\prime}(j^{\prime\ast}G^{\prime}))\to\;;$$
+compte tenu de \ref{XIV.4.0}, cette suite exacte s'\'ecrit sous la forme
+$$
+\to\H_{T^{\prime}}^{i}(S^{\prime}, \R_{!}f^{\prime}(F^{\prime}))\to\H_{g^{\prime -1}(T^{\prime})!}^{i}(X^{\prime}/S^{\prime}, G^{\prime})\to\H_{h^{\prime -1}(T^{\prime})!}^{i}(Y^{\prime}/S^{\prime}, j^{\prime\ast}G^{\prime})$$
+L'\'equivalence de \textup{(i)} et \textup{(iii)} en r\'esulte, compte tenu de la forme \eqref{eq:XIV.4.1.**} de \textup{(i)}.
+
+\setcounter{subsubsection}{-1} \setcounter{subsection}{2}
+
+\subsubsection{} \label{XIV.4.2.0}
+Lorsque $f\colon U\to S$ est affine, nous allons donner des conditions \emph{locales} sur $F$ pour que les conditions \textup{(i)} \`a \textup{(iii)} de \ref{XIV.4.1} soient v\'erifi\'ees. Dans la suite, les sch\'emas consid\'er\'es sont des sch\'emas excellents de caract\'eristique nulle, les faisceaux sont des faisceaux de $\ZZ/m\ZZ$-modules, o\`u $m$ est une puissance d'un nombre premier. Si l'on disposait de la r\'esolution des singularit\'es au sens de (\SGA 4~XIX), les r\'esultats \'enonc\'es, ainsi que leurs d\'emonstrations, seraient encore valables pour des sch\'emas excellents d'\'egale caract\'eristique, avec $m$ premier \`a la caract\'eristique.
+
+\setcounter{subsection}{1}
+
+\begin{theoreme} \label{XIV.4.2}
+Soient $S$ un sch\'ema excellent de caract\'eristique nulle et \hbox{$f\colon U\!\to\! S$} un morphisme s\'epar\'e de type fini. Soient $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $U$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, $n$ un entier et~$T$ une partie ferm\'ee de $S$. Alors les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+Pour tout sch\'ema $U_{1}$ \'etale au-dessus de $U$, affine sur $S$, on a, en d\'esignant par~$f_{1}$ le morphisme structural de $U_{1}$ et par $F_{1}$ la restriction de $F_{1}$ \`a $U_{1}$:
+$$
+\prof_{T}(\R_{!}f_{1}(F_{1}))\geq n$$
+(cf. prop.\, \ref{XIV.4.1} sur la signification de cette relation).
+\item
+Pour tout point $u$ de $U$, on a:
+$$
+\prof_{u}(F)\geq n-\delta_{T}(u),
+$$
+o\`u l'on pose (cf. \ref{XIV.2.2}): $\delta_{T}(u)=\degtr(k(x)/k(s))+\codim\big(\overline{\{ s\} }\cap T, \overline{\{ s\} } \big)$.
+\end{enumeratei}
+\end{theoreme}
+
+\begin{proof}
+$1^\circ)$ Soient $t$ un point de $T$, $\overline{S}$ le localis\'e strict de $S$ en un point g\'eom\'etrique au-dessus de $t$ et $S^{\prime}$ le compl\'et\'e de $\overline{S}$, de point ferm\'e $t^{\prime}$; alors $\overline{S}$ est excellent d'apr\`es (\EGA IV~7.9.5), donc $S^{\prime}$ est un sch\'ema strictement local complet excellent. \'Etant donn\'e un sch\'ema $U$ sur $X$ (resp. un $S$-morphisme $f$, resp. etc.), nous d\'esignerons par $U^{\prime}$ (resp. $f^{\prime}$, resp. etc.) le sch\'ema $U\times_{S}S^{\prime}$ (resp. le morphisme $f_{(S^{\prime})}$, resp. etc.). On a le carr\'e cart\'esien
+$$
+\xymatrix{ U^{\prime}\ar[r]^-{h}\ar[d]_-{f^{\prime}} & U\ar[d]^-{f}\\
+S^{\prime}\ar[r]^-{g} & S, }
+$$
+dans lequel le morphisme $g$ est r\'egulier (\EGA IV~7.8.2). Montrons qu'il suffit de prouver que (pour tout point $t\in T$) les deux propri\'et\'es suivantes sont \'equivalentes:
+\begin{itemize}
+\item[$\textup{(i)}_{t}$] Pour tout sch\'ema $U_{1}$ \'etale sur $U$, affine sur $S$, posant $f_{1}\colon U_{1}\to S$, on a
+$$
+\prof_{t^{\prime}}(\R_{!}f_{1}^{\prime}(F_{1}^{\prime}))\geq n.
+$$
+
+\item[$\textup{(ii)}_{t}$] Pour tout point $u^{\prime}$ de $U^{\prime}$, on a
+$$
+\prof_{u^{\prime}}(F^{\prime})\geq n-\delta_{t^{\prime}}(u^{\prime}).
+$$
+\end{itemize}
+Il suffit de d\'emontrer le lemme suivant:
+
+\begin{sublemme} \label{XIV.4.2.1}
+On a \textup{(i)}~$\Ssi$~$\textup{(i)}_{t}$ pour tout $t\in T$ et \textup{(ii)}~$\Ssi$~$\textup{(ii)}_{t}$ pour tout $t\in T$.
+\end{sublemme}
+
+\textup{(i)}~$\Ssi$~$\textup{(i)}_{t}$ pour tout $t\in T$. En effet \textup{(i)} \'equivaut \`a dire que, pour tout sch\'ema $U_{1}$ \'etale au-dessus de $U$, affine sur $S$, on a
+$$
+\prof_{T}(\R_{!}f_{1}(F_{1}))\geq n\;;$$
+or d'apr\`es \ref{XIV.1.8}
+$$
+\prof_{T}(\R_{!}f_{1}(F_{1}))=\inf_{t\in T}\prof_{t}(\R_{!}f_{1}(F_{1})).
+$$
+Comme $g^{\ast}(\R_{!}f_{1}(F_{1}))\simeq\R_{!}f_{1}^{\prime}(F_{1}^{\prime})$ (\SGA 4~XVII), on~a d'apr\`es \ref{XIV.1.16}
+$$
+\prof_{t}(\R_{!}f_{1}(F_{1}))=\prof_{t^{\prime}}(\R_{!}f_{1}^{\prime}(F_{1}^{\prime})),
+$$
+donc \textup{(i)} \'equivaut \`a dire que l'on a, pour tout $t\in T$, $\prof_{t^{\prime}}(\R_{!}f_{1}^{\prime}(F_{1}^{\prime}))\geq n$, ce qui n'est autre que $\textup{(i)}_{t}$.
+
+\textup{(ii)}$_{t}$ pour tout $t\in T$~$\To$~\textup{(ii)}. En effet soit $u\in U$; on doit montrer la relation
+$$
+\prof_{u}(F)\geq n-\delta_{T}(u),
+$$
+o\`u $\delta_{T}(u)=\inf_{t\in T\cap\overline{\{ s\} }}\delta_{t}(u)$ (cf. \ref{XIV.2.2}); on est donc ramen\'e \`a montrer que l'on a, pour tout $t\in T\cap\overline{\{ s\} }$
+$$
+\prof_{u}(F)\geq n-\delta_{t}(u).
+$$
+Soient $u^{\prime}$ un point de $U^{\prime}$ tel que l'on ait $h(u^{\prime})=u$ et $\delta_{t^{\prime}}(u^{\prime})=\delta_{t}(u)$ (cf. \ref{XIV.2.1.1}). Comme $h$ est localement acyclique (\SGA 4~XIX~4.1), il r\'esulte de \ref{XIV.1.16} et du fait que~$u^{\prime}$ est un point g\'en\'erique de $U_{u}^{\prime}$ que l'on a
+$$
+\prof_{u^{\prime}}(F^{\prime})=\prof_{u}(F).
+$$
+Mais on~a d'apr\`es $\textup{(ii)}_{t}$ $\prof_{u}(F)=\prof_{u^{\prime}}(F^{\prime})\geq n-\delta_{t}(u)$, ce qui d\'emontre \textup{(ii)}.
+
+\textup{(ii)}~$\To$~$\textup{(ii)}_{t}$ pour tout $t$. Avec les notations de \ref{XIV.2.2.1}, pour tout point $u^{\prime}$ de $U^{\prime}$, on~a gr\^ace \`a \ref{XIV.1.16}
+$$
+\prof_{u^{\prime}}(F^{\prime})\geq\prof_{u}(F)+2\dim h_{u^{\prime}}^{-1}(u)\geq\prof_{u}(F)+\dim h_{u^{\prime}}^{-1}(u).
+$$
+Compte tenu de \ref{XIV.2.2.1} et \textup{(ii)}, on obtient
+$$
+\prof_{u^{\prime}}(F^{\prime})\geq n-\delta_{T}(u)+\dim h_{u^{\prime}}^{-1}(u)\geq n-\delta_{t^{\prime}}(u^{\prime}),
+$$
+ce qui n'est autre que $\textup{(ii)}_{t}$.
+
+$2^\circ)$ $\textup{(ii)}_{t}$~$\Ssi$~$\textup{(i)}_{t}$. On se ram\`ene imm\'ediatement au cas o\`u $F$ est \`a degr\'es born\'es, en tronquant $F$ \`a un rang suffisamment \'elev\'e. On peut r\'ealiser $S^{\prime}$ comme ferm\'e d'un sch\'ema local r\'egulier complet, donc excellent; il r\'esulte alors de (\SGA 5~I~3.4.3) qu'il existe un complexe dualisant $K$ sur $S^{\prime}$ et que $\R^{!}f^{\prime}(K)=K^{\prime}$ est un complexe dualisant sur $U^{\prime}$. Nous choisirons $K$ de telle sorte que l'on ait $\delta^{K}(t^{\prime})=0$ (pour la d\'efinition de $\delta^{K}(t^{\prime})$, cf. \ref{XIV.2.3}), et noterons $\D F^{\prime}$ le dual de $F^{\prime}$ par rapport \`a $K^{\prime}$. On peut reformuler l'hypoth\`ese $\textup{(ii)}_{t}$ de la fa\c con suivante:
+
+\begin{sublemme} \label{XIV.4.2.2}
+Soit $u^{\prime}$ un point de $U^{\prime}$; alors les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+On a $\prof_{u^{\prime}}(F^{\prime})\geq n-\delta_{t^{\prime}}(u^{\prime})$.
+\item
+On a $\big(\underline{H}^{q}(\D F^{\prime}) \big)_{\overline{u}^{\prime}}=0$ pour $q>-n-\delta_{t^{\prime}}(u^{\prime})$ ($\overline{u}^{\prime}$ point g\'eom\'etrique au-dessus de $u^{\prime}$).
+\end{enumeratei}
+\end{sublemme}
+
+Soient $\overline{U}^{\prime}$ le localis\'e strict de $U^{\prime}$ en $\overline{u}^{\prime}$ et $\overline{F}^{\prime}$ l'image r\'eciproque de $F$ par le morphisme $\overline{U}^{\prime}\to U^{\prime}$. La relation $\prof_{u^{\prime}}(F^{\prime})\geq n-\delta_{t^{\prime}}(u^{\prime})$ \'equivaut par d\'efinition \`a la suivante:
+\begin{equation*} \label{eq:XIV.4.2.*} \tag{$*$} {\H_{\overline{u}^{\prime}}^{i}(\overline{F}^{\prime})=0\quad\textrm{ pour }i>n-\delta_{t^{\prime}}(u^{\prime}).}
+\end{equation*}
+Soit $\D\big(\H_{\overline{u}^{\prime}}^{i}(\overline{F}^{\prime})\big)$ le dual du groupe ab\'elien $\H_{\overline{u}^{\prime}}^{i}(\overline{F}^{\prime})$ par rapport \`a $\ZZ/m\ZZ$. D'apr\`es \ref{XIV.2.3.2}, $K^{\prime}[-2\delta_{t^{\prime}}(u^{\prime})]=K^{\prime\prime}$ satisfait \`a $\delta^{K^{\prime\prime}}(u^{\prime})=0$; comme $F^{\prime}$ est \`a cohomologie constructible, on~a $\overline{\D F^{\prime}}=\D(\overline{F}^{\prime})$ et le th\'eor\`eme de dualit\'e locale (\SGA 5~I~4.5.3) montre alors que l'on a
+$$
+\D\big(\H_{\overline{u}^{\prime}}^{i}(\overline{F}^{\prime})\big) \simeq\big(\H^{-i-2\delta_{t^{\prime}}(u^{\prime})}(\D F^{\prime})\big)_{\overline{u}^{\prime}}.
+$$
+Donc \eqref{eq:XIV.4.2.*} \'equivaut \`a la relation
+\begin{equation*} \label{eq:XIV.4.2.**} \tag{$**$}
+\big(\underline{H}^{q}(\D F^{\prime})\big)_{\overline{u}^{\prime}}=0\quad\text{pour }q>-n-\delta_{t^{\prime}}(u^{\prime}).
+\end{equation*}
+
+Nous sommes maintenant en mesure de d\'emontrer le th\'eor\`eme. La relation \textup{(ii)}$_{t}$ \'equivaut \`a la relation \eqref{eq:XIV.4.2.**}. Soit $G^{q}=\underline{H}^{q}(\D F^{\prime})$; le th\'eor\`eme de Lefschetz affine (\ref{XIV.3.1}) entra\^ine en particulier que, pour tout sch\'ema $U_{1}$ \'etale sur $U$, affine sur $S$, on a
+$$
+\H^{p}(U_{1}^{\prime}, G^{q})=0\quad\textrm{ pour }p>\delta(G^{q}),
+$$
+o\`u $\delta(G^{q})$ est la borne sup\'erieure des $\delta_{t^{\prime}}(u^{\prime})$ pour les $u^{\prime}$ tels que l'on ait $G_{\overline{u}^{\prime}}^{q}\neq 0$; d'apr\`es \eqref{eq:XIV.4.2.**} on~a $\delta(G^{q})\leq -n-q$, donc $\textup{(ii)}_{t}$ entra\^ine la relation
+$$
+\H^{p}(U_{1}^{\prime}, \underline{H}^{q}(\D F^{\prime}))=0\quad\textrm{ pour }p>-q-n.
+$$
+Compte tenu de la suite spectrale d'hypercohomologie du foncteur \og sections sur $U_{1}^{\prime}$\fg par rapport au complexe $\D F^{\prime}$:
+$$
+\E_{2}^{pq}=\H^{p}(U_{1}^{\prime}, \underline{H}^{q}(\D F^{\prime}))\To\H^{\ast}(U_{1}^{\prime}, \D F^{\prime}),
+$$
+on obtient la relation
+\begin{equation*} \label{eq:XIV.4.2.***} \tag{${*}{*}{*}$}
+\H^{i}(U_{1}^{\prime}, \D F^{\prime})=0\quad\textrm{ pour }i>-n.
+\end{equation*}
+
+Inversement supposons v\'erifi\'ee la relation pr\'ec\'edente, pour tout $U_{1}$ \'etale sur $U$, affine sur $S$. Appliquons la proposition \ref{XIV.3.6} en y rempla\c cant $S$ par $\overline{S}^{\prime}$; les hypoth\`eses de \ref{XIV.3.6} concernant $S$ sont satisfaites, car, pour tout sch\'ema $\overline{U}_{1}$ \'etale sur $\overline{U}$, affine, on peut trouver un sch\'ema au-dessus de $\overline{U}_{1}$ qui provienne par image r\'eciproque d'un sch\'ema \'etale au-dessus de $U$, affine sur $S$; quant aux hypoth\`eses concernant $F$, elles sont satisfaites gr\^ace \`a \ref{XIV.2.3.3}. On a ainsi, pour tout point $u^{\prime}$ de $U^{\prime}$ tel que $\big(\underline{H}^{q}(\D F^{\prime})\big)_{\overline{u}^{\prime}}\neq 0$:
+$$
+\delta_{t^{\prime}}(u^{\prime})\leq -n-q,
+$$
+ce qui n'est autre que la relation \eqref{eq:XIV.4.2.**}; on~a donc prouv\'e l'\'equivalence
+$$
+\text{(ii)$_{t}$~$\Ssi$~(***)}.
+$$
+Nous allons transformer la relation \eqref{eq:XIV.4.2.***}; on~a d'abord
+$$
+\H^{i}(U_{1}^{\prime}, \D F^{\prime})=\big(\underline{H}^{i}(\R f_{1\ast}^{\prime}(\D F_{1}^{\prime}))\big)_{t^{\prime}}\;;$$
+mais d'apr\`es (\SGA 5~I~1.12), il existe un isomorphisme canonique
+$$
+\R f_{1\ast}^{\prime}(\D F_{1}^{\prime})\simeq\D\big(\R_{!}f_{1}^{\prime}(F_{1}^{\prime})\big),
+$$
+o\`u $\D\big(\R_{!}f_{1}^{\prime}(F_{1}^{\prime})\big)$ d\'esigne le dual de $\R_{!}f_{1}^{\prime}(F_{1}^{\prime})$ par rapport \`a $K$. On voit ainsi que $\textup{(ii)}_{t}$ \'equivaut \`a
+$$
+\big(\underline{H}^{i}(\D(\R_{!}f_{1}^{\prime}(F_{1}^{\prime})))\big)_{t^{\prime}}=0\quad\textrm{ pour }i>-n.
+$$
+Appliquant de nouveau le th\'eor\`eme de dualit\'e locale (\SGA 5~I~4.5.3), mais cette fois-ci au point $t^{\prime}$, on trouve que
+$$
+\big(\underline{H}^{i}(\D(\R_{!}f_{1}^{\prime}(F_{1}^{\prime})))\big)_{t^{\prime}}\simeq\D\big(\H_{t^{\prime}}^{-i}(\R_{!}f_{1}^{\prime}(F_{1}^{\prime}))\big),
+$$
+et finalement $\textup{(ii)}_{t}$ \'equivaut \`a la relation
+$$
+\H_{t^{\prime}}^{i}(\R_{!}f_{1}^{\prime}(F_{1}^{\prime}))=0\quad\textrm{ pour }i<n,
+$$
+c'est-\`a-dire $\prof_{t^{\prime}}(\R_{!}f_{1}^{\prime}(F_{1}^{\prime}))\geq n$, ce qui ach\`eve la d\'emonstration du th\'eor\`eme.
+\skipqed
+\end{proof}
+
+\begin{subremarque} \label{XIV.4.2.3}
+Le raisonnement se simplifie assez consid\'erablement lorsqu'on suppose que $S$ admet (du moins localement) un complexe dualisant (par exemple est localement immergeable dans un sch\'ema r\'egulier). Cela \'evite le recours \`a un compl\'et\'e (le passage au cas $S$ strictement local \'etant imm\'ediat), \`a \ref{XIV.2.3.3} et \`a l'\'enonc\'e technique peu plaisant \ref{XIV.3.6}, qu'on peut alors remplacer par la r\'ef\'erence plus sympathique \ref{XIV.3.7}.
+\end{subremarque}
+
+\begin{corollaire} \label{XIV.4.3}
+Soient $S$ un sch\'ema excellent de caract\'eristique nulle et $f\colon U\to S$ un morphisme s\'epar\'e de type fini, tel que $U$ soit \emph{réunion de $c+1$ ouverts, affines sur~$S$}. Soient $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, $n$ un entier et $T$ une partie ferm\'ee de $S$. Supposons que, pour tout point $u\in U$, on ait
+$$
+\prof_{u}(F)\geq n-\delta_{T}(u).
+$$
+Alors on a
+$$
+\prof_{T}(\R_{!}f(F))\geq n-c.
+$$
+\end{corollaire}
+
+Soit en effet $U_{i}$, $0\leq i\leq c$, un recouvrement de $U$ par des ouverts $U_{i}$, affines sur~$S$. Reprenant les notations de la d\'emonstration de \ref{XIV.4.2}, on a, pour tout $i$,
+$$
+\H^{i}(U_{i}^{\prime}, \underline{H}^{q}(\D F^{\prime}))=0\quad\textrm{ pour }i>-n.
+$$
+En utilisant la suite spectrale qui relie la cohomologie de $U$ \`a celle du recouvrement form\'e par les $U_{i}$ (\SGA 4~V~2.4), la relation pr\'ec\'edente montre que l'on a
+$$
+\H^{i}(U^{\prime}, \underline{H}^{q}(\D F^{\prime}))=0\quad\textrm{ pour }i>-n+c.
+$$
+Le corollaire r\'esulte alors de la fin de la d\'emonstration de \ref{XIV.4.2}.
+
+\begin{corollaire} \label{XIV.4.4}
+Soient $S$ un sch\'ema excellent de caract\'eristique nulle, $g\colon X\to S$ un morphisme, $U$ un ouvert de $X$, r\'eunion de $c+1$ ouverts affines sur $S$, $Y$ un sous-sch\'ema ferm\'e d'espace sous-jacent $X-U$ et $j\colon Y\to X$ le morphisme naturel. Soient~$F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $X$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, $T$ une partie ferm\'ee de $S$ et $n$ un entier. Supposons que, pour tout point $u$ de $U$, on ait
+$$
+\prof_{u}(F)\geq n-\delta_{T}(u).
+$$
+Alors le morphisme canonique
+$$
+\H_{g^{-1}(T)!}^{i}(X/S, F)\to\H_{(g^{-1}(T)\cap Y)!}^{i}(Y/S, j^{\ast}F)$$
+est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$.
+\end{corollaire}
+
+Cela r\'esulte imm\'ediatement de \ref{XIV.4.1} et \ref{XIV.4.3}.
+
+\begin{corollaire}[Th\'eor\`eme de Lefschetz local] \label{XIV.4.5}
+Soient $S$ un sch\'ema local hens\'elien excellent de caract\'eristique nulle, $t$ le point ferm\'e de $S$, $X$ un sch\'ema propre sur $S^{\prime}=S-\{ t\}$ et $U$ un ouvert de $X$, r\'eunion de $c+1$ ouverts affines. Soient $Y$ un sous-sch\'ema ferm\'e de $X$, d'espace sous-jacent $X-U$, $j\colon Y\to X$ le morphisme canonique, $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $X$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, et $n$ un entier. Supposons que, pour tout point $u$ de~$U$, on ait
+$$
+\prof_{u}(F)\geq n-\delta_{t}^{\prime}(u), \quad\text{où } \delta_{t}^{\prime}(u)=\delta_{t}(u)-1.
+$$
+Alors le morphisme canonique
+$$
+\H^{i}(X, F)\to\H^{i}(Y, j^{\ast}F)$$
+est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$.
+\end{corollaire}
+
+Soit $f\colon U\to S$ le morphisme canonique; il r\'esulte de
+\ref{XIV.4.2}, appliqu\'e en rempla\c cant $n$ par $n+1$, que l'on a
+$$
+\prof_{t}(\R_{!}f(F|U))\geq n+1-c.
+$$
+La relation pr\'ec\'edente montre que le morphisme canonique
+$$
+\H^{i}(S, \R_{!}f(F|U))\to\H^{i}(S^{\prime}, \R_{!}f(F|U))$$
+est bijectif pour $i<n-c$, injectif pour $i=n-c$. Comme $\R_{!}f(F|U)$ est nul en dehors de $S^{\prime}$, on~a $\H^{i}(S, \R_{!}f(F|U))\simeq\big(\underline{H}^{i}(\R_{!}f(F|U))\big)_{t}=0$, et par suite
+\begin{equation*} \label{eq:XIV.4.5.*} \tag{$*$}
+\H^{i}(S^{\prime}, \R_{!}f(F|U))=0\quad\text{pour }i<n-c.
+\end{equation*}
+Soient $g\colon X\to S^{\prime}$, $h\colon Y\to S^{\prime}$, $f^{\prime}\colon U\to S^{\prime}$ les morphismes canoniques. Il r\'esulte du triangle distingu\'e
+$$
+\xymatrix@C=0pt{ & \mathrm{R} h_{\ast}(j^{\ast}F)\ar[ld] & \\
+\mathrm{R}_{!}f^{\prime}(F|U)\ar[rr] & & \mathrm{R} g_{\ast}(F)\ar[lu] }$$
+que la condition \eqref{eq:XIV.4.5.*} \'equivaut au fait que le morphisme
+$$
+\H^{i}(S^{\prime}, \R g_{\ast}(F))\to\H^{i}(S^{\prime}, \R h_{\ast}(j^{\ast}F))$$
+est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$. Comme ce morphisme s'identifie canoniquement au morphisme
+$$
+\H^{i}(X, F)\to\H^{i}(Y, j^{\ast}F),
+$$
+la conclusion en r\'esulte aussit\^{o}t.
+
+\begin{corollaire}[Th\'eor\`eme de Lefschetz global] \label{XIV.4.6}
+Soient $S$ le spectre d'un corps, $X$ un sch\'ema propre sur $S$ et $U$ un ouvert de $X$ r\'eunion de $c+1$ ouverts affines. Soient~$Y$ un sous-sch\'ema ferm\'e de $X$, d'espace sous-jacent $X-U$, $j\colon Y\to X$ le morphisme canonique, $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $X$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible et $n$ un entier. Supposons que, pour tout point $u$ de $U$, on ait
+$$
+\prof_{u}(F)\geq n-\dim\big(\overline{\{ u\} }\big).
+$$
+Alors le morphisme canonique
+$$
+\H^{i}(X, F)\to\H^{i}(Y, j^{\ast}F)$$
+est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$.
+
+Plus g\'en\'eralement, si $g\colon X\to S$ est un morphisme s\'epar\'e de type fini, les hypoth\`eses sur $S$, $U$, $Y$, $F$ \'etant les m\^emes que pr\'ec\'edemment, alors le morphisme canonique
+$$
+\H_{!}^{i}(X/S, F)\to\H_{!}^{i}(Y/S, j^{\ast}F)$$
+(o\`u $\H_{!}^{i}$ d\'esigne la cohomologie \`a support propre, c'est-\`a-dire $\H_{!}^{i}(X, F)=\H^{i}(S, \R_{!}g(F))$) est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$.
+\end{corollaire}
+
+Le corollaire est un cas particulier de \ref{XIV.4.4}, avec $T=S$.
+
+Voici une r\'eciproque partielle \`a \ref{XIV.4.3}:
+
+\begin{proposition} \label{XIV.4.7}
+Soient $S$ un sch\'ema noeth\'erien, $f\colon U\to S$ un morphisme de type fini. Supposons qu'il existe un complexe dualisant $K$ sur $S$ et que $\R^{!}f(K)$ soit un complexe dualisant sur $U$. Soient $T$ une partie ferm\'ee de $S$ et $c$ un entier. Alors les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+Pour tout complexe de faisceaux de $\ZZ/m\ZZ$-modules $F$ sur $U$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, et pour tout entier $n$ tel que l'on ait, pour tout point $u$ de $U$,
+$$
+\prof_{u}(F)\geq n-\delta_{T}(u),
+$$
+on a
+$$
+\prof_{T}(\R_{!}f(F))\geq n-c.
+$$
+
+\item
+Pour tout faisceau de $\ZZ/m\ZZ$-modules $G$ sur $U$, constructible, et pour tout point $t\in T$, on a
+$$
+\big(\R^{p}f_{\ast}(G)\big)_{\overline{t}}=0\quad\textrm{ pour }p>\delta(G, f, t)+c$$
+(rappelons d'apr\`es (\textup{\SGA X~4~XIX~6.0}) que $\delta(G, f, t)=\sup\{ \delta_{t}(u)|t\in\overline{\{ u\} }\textrm{ et }G_{\overline{u}}\neq 0\}$).
+\end{enumeratei}
+\end{proposition}
+
+N.B. La condition \textup{(ii)} est satisfaite en vertu de \ref{XIV.3.1} si $f$ est s\'epar\'e et si $U$ est, localement sur $S$ pour la topologie \'etale, r\'eunion de $c+1$ ouverts affines sur $S$, donc \ref{XIV.4.7} contient \ref{XIV.4.3}\footnote{Du moins dans le cas ou $S$ admet localement un complexe dualisant, p. ex. $S$ immergeable localement dans un sch\'ema r\'egulier.}.
+
+On peut \'evidemment supposer que $S$ est local et que $T$ est le point ferm\'e $t$ de~$S$. La d\'emonstration de \textup{(ii)}~$\To$~\textup{(i)} est essentiellement identique \`a la partie $2^\circ)$ de la d\'emonstration de \ref{XIV.4.2}. Montrons rapidement que \textup{(i)}~$\To$~ \textup{(ii)}. Le th\'eor\`eme de dualit\'e locale (\SGA 5~I~4.3.2) appliqu\'e \`a $\D G$ montre que
+$$
+\D\big(\H_{\overline{u}}^{i}(\D G)\big) \simeq\big(\underline{H}^{-i-2\delta_{t}(u)}(G)\big)_{\overline{u}}.
+$$
+Comme $G$ est r\'eduit au degr\'e $0$, on~a donc $\H_{\overline{u}}^{i}(\D G)=0$ sauf peut-\^etre pour $i=-2\delta_{t}(u)$; plus pr\'ecis\'ement
+\begin{align*}
+\prof_{u}(\D G)=-2\delta_{t}(u) &\;\textrm{ si }\; G_{\overline{u}}\neq 0, \\
+\prof_{u}(\D G)=\infty &\;\textrm{ si }\; G_{\overline{u}}=0.
+\end{align*}
+Il en r\'esulte que l'on a, quel que soit $u\in U$:
+$$
+\prof_{u}(\D G)\geq -n-\delta_{t}(u).
+$$
+Il r\'esulte alors de l'hypoth\`ese \textup{(i)} que l'on a $\prof_{t}(\R_{!}f(\D G))\geq -n-c$. On transforme cette relation en utilisant l'isomorphisme $\R_{!}f(\D G)\simeq\D(\R f_{\ast}(G))$ (\SGA 5 I~1.12) et en appliquant le th\'eor\`eme de dualit\'e locale au point $t$; on obtient ainsi
+$$
+\big(\underline{H}^{i}(\R f_{\ast}(G)\big)_{\overline{t}}=0\quad\textrm{ pour }i>n+c,
+$$
+ce qui n'est autre que \textup{(ii)}.
+
+\subsection{} \label{XIV.4.8} Les hypoth\`eses \'etant celles de \ref{XIV.4.4} avec $g$ propre (resp. \ref{XIV.4.5}, resp. \ref{XIV.4.6} avec $g$ propre), si $V$ est un voisinage ouvert de $Y$ dans $X$, le morphisme
+$$
+\H^{i}(V, F)\to\H^{i}(Y, j^{\ast}F)$$
+est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$. Si $i\colon V\to X$ est le morphisme canonique, il suffit en effet pour le voir d'appliquer \ref{XIV.4.4} (resp. \ref{XIV.4.5}, resp. \ref{XIV.4.6}) au complexe $\R i_{\ast}(F{|V})$. On peut se poser la question de savoir si le morphisme pr\'ec\'edent est bijectif si $i=n-c-1$, injectif pour $i=n-c$. Il suffit \'evidemment que les hypoth\`eses soient v\'erifi\'ees quand on remplace $n$ par $n+1$; la proposition qui suit montre qu'il suffit d'un peu moins.
+
+\begin{proposition} \label{XIV.4.9}
+Soient $S$ un sch\'ema local excellent de caract\'eristique nulle, de point ferm\'e $t$ (resp. en plus des conditions pr\'ec\'edentes on suppose $S$ hens\'elien), $f\colon X\to S$ un sch\'ema propre sur $S$ (resp. propre sur $S-\{ s\}$) et $U$ un ouvert de $X$ r\'eunion de $c+1$ ouverts affines. Soient $Y$ un sous-sch\'ema ferm\'e de $X$, d'espace sous-jacent $X-U$, $j\colon Y\to X$ le morphisme canonique, $F$ un complexe de faisceaux de $\ZZ/m\ZZ$-modules sur $X$, \`a degr\'es born\'es inf\'erieurement et \`a cohomologie constructible, et $n$ un entier. On suppose que l'on a, pour tout point $u$ de $U$,
+$$
+\prof_{u}(F)\geq\inf(n-1, n-\delta_{t}(u))\quad(\textrm{resp. }\;\prof_{u}(F)\geq\inf(n-1, n+1-\delta_{t}(u))).
+$$
+Alors pour tout voisinage ouvert $V$ de $Y$ dans $X$, le morphisme canonique
+$$
+\H_{f^{-1}(t)}^{i}(V, F)\to\H_{f^{-1}(t)\cap Y}^{i}(Y, j^{\ast}F)\quad(\textrm{resp. }\;\H^{i}(V, F)\to\H^{i}(Y, j^{\ast}F))$$
+est bijectif pour $i<n-c-2$ et injectif pour $i=n-c-2$. De plus, il existe un voisinage ouvert $V_{0}$ de $Y$ dans $X$, tel que, pour tout autre tel $V$ avec $V\subset V_{0}$, le morphisme canonique
+$$
+\H_{f^{-1}(t)\cap V}^{i}(V, F)\to\H_{f^{-1}(t)\cap Y}^{i}(Y, j^{\ast}F)\quad(\textrm{resp. }\;\H^{i}(V, F)\to\H^{i}(Y, j^{\ast}F))$$
+soit bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$.
+\end{proposition}
+
+\begin{proof}
+Posons pour simplifier $\delta_{t}^{\prime}(u)=\delta_{t}(u)$ (resp. $\delta_{t}^{\prime}(u)=\delta_{t}(u)-1$). On d\'eduit de \ref{XIV.4.8} la premi\`ere assertion de \ref{XIV.4.9}, car les hypoth\`eses de \ref{XIV.4.4} (resp. \ref{XIV.4.5}) sont v\'erifi\'ees quand on y remplace $n$ par $n-1$. Elles le sont aussi pour $n$ lui-m\^eme, sauf aux points $u$ tels que $\delta_{t}^{\prime}(u)=0$. Or, pour un $u\in U$, dire que l'on a $\delta_{t}^{\prime}(u)=0$ \'equivaut \`a dire que $u$ est un point \emph{fermé de $U_{t}$} (resp. un point \emph{fermé de $X$}). Soit $E$ l'ensemble des points de $U$ tels que $\delta_{t}^{\prime}(u)=0$; montrons que, \emph{pour tous les points $u\in E$, sauf un nombre fini}, on~a $\prof_{u}(F)\geq n$. Soient $\overline{S}$ le localis\'e strict de $S$ en $t$, $S^{\prime}$ le compl\'et\'e de~$\overline{S}$, de point ferm\'e $t^{\prime}$, et consid\'erons le carr\'e cart\'esien
+$$
+\xymatrix{ U^{\prime}\ar[r]^-{h}\ar[d]_-{f^{\prime}} & U\ar[d]^-{f}\\
+S^{\prime}\ar[r]^-{g} & S.}$$
+Les hypoth\`eses de profondeur aux points de $U$ se conservent quand on remplace $U$ par $U^{\prime}$ et $F$ par l'image inverse $F^{\prime}$ de $F$ sur $U^{\prime}$. Soient en effet $u^{\prime}\in U^{\prime}$ et $u=h(u^{\prime})$. Si $u\not\in E$, on~a la relation $\prof_{u}(F)\geq n-\delta_{t}^{\prime}(u)$, et il r\'esulte de \ref{XIV.4.2.1} que ceci entra\^ine la relation $\prof_{u^{\prime}}(F^{\prime})\geq n-\delta_{t}^{\prime}(u^{\prime})$. Si $u\in E$, $u^{\prime}$ est un point ferm\'e de $U_{t}^{\prime}$ (resp. un point ferm\'e de $X^{\prime}=X\times_{S}S^{\prime}$), et, comme la fibre $U_{u}^{\prime}$ de $h$ en $u$ est de dimension z\'ero et $h$ r\'egulier, il r\'esulte de \ref{XIV.1.16} que l'on a $\prof_{u^{\prime}}(F^{\prime})=\prof_{u}(F)\geq n-1$.
+
+Soient alors $K$ un complexe dualisant sur $S^{\prime}$, normalis\'e au point ferm\'e $t^{\prime}$, et $\D F^{\prime}$ le dual de $F^{\prime}$ par rapport \`a $\R^{!}f(K)$. D'apr\`es \ref{XIV.4.2.2}, les hypoth\`eses de profondeur \'etale aux points de $U^{\prime}$ se traduisent par les relations:
+$$
+\big(\underline{H}^{q}(\D F^{\prime})\big)_{\overline{u}^{\prime}}=0\quad\textrm{ pour }q>-n-\delta_{t}^{\prime}(u^{\prime})\quad(\textrm{resp. }q>-n-2-\delta_{t^{\prime}}^{\prime}(u^{\prime})),
+$$
+si $u^{\prime}$ n'est pas un point de $E^{\prime}=h^{-1}(E)$,
+$$
+\big(\underline{H}^{q}(\D F^{\prime})\big)_{\overline{u}^{\prime}}=0\quad\textrm{ pour }q>-(n-1)\quad(\textrm{resp. }q>-n-1), \textrm{ si }u^{\prime}\in E^{\prime}.
+$$
+
+Soit $G=\underline{H}^{-(n-1)}(\D F^{\prime})$ (resp. $G=\underline{H}^{-n-1}(\D F^{\prime})$); comme $G$ est un faisceau constructible, l'ensemble des points en lesquels la fibre g\'eom\'etrique est non nulle est un ensemble constructible (\SGA 4~IX~2.4~\textup{(iv)}); or par hypoth\`ese cet ensemble est contenu dans l'ensemble $E^{\prime}$ des points ferm\'es de $U_{t^{\prime}}^{\prime}$ (resp. des points de $U^{\prime}$ ferm\'es dans $X^{\prime}$); il r\'esulte donc de \ref{XIV.4.9.1} ci-dessous que cet ensemble est r\'eduit \`a un nombre fini de points. Appliquant \ref{XIV.4.2.2}, on voit que, pour tous les points de $E^{\prime}$, sauf un nombre fini, on~a $\prof_{u^{\prime}}(F^{\prime})\geq n$. Il en r\'esulte bien par \ref{XIV.1.16} que, pour tous les points de $E^{\prime}$ sauf un nombre fini, on a
+$$
+\prof_{u}(F)\geq n.
+$$
+
+Soit $V$ un voisinage ouvert de $Y$ dans $X$, contenu dans le compl\'ementaire dans $X$ de l'ensemble fini de points $u$ de $E$ pour lesquels on~a $\prof_{u}(F)=n-1$. Si $i\colon V\to X$ est l'immersion canonique, soit
+$$F_{1}=\R i_{\ast}(F{|V})\;;$$
+alors $F_{1}$ est un complexe de faisceaux sur $X$, \`a cohomologie constructible (\SGA 4~XIX~5.1) et \`a degr\'es born\'es inf\'erieurement. Nous allons voir que, pour tout point $u$ de $U$, le complexe $F_{1}$ v\'erifie la relation
+\begin{equation*} \label{eq:XIV.4.9.*} \tag{$*$}
+\prof_{u}(F_{1})\geq n-\delta_{t}^{\prime}(u).
+\end{equation*}
+Si $u\in U\cap V$, on~a $\prof_{u}(F_{1})=\prof_{u}(F)$, et la
+relation \eqref{eq:XIV.4.9.*} est v\'erifi\'ee par hypoth\`ese sur les
+points de $U$ qui n'appartiennent pas \`a $E$; pour ces derniers,
+elle est aussi v\'erifi\'ee d'apr\`es le choix de $V$. Enfin, si $u\in
+U$ et $u\not\in V$, on~a d'apr\`es \ref{XIV.1.6} g)
+$\prof_{u}(F_{1})=\infty$. On applique alors \ref{XIV.4.4} (resp.
+\ref{XIV.4.5}) en rempla\c cant $F$ par $F_{1}$; on obtient le
+r\'esultat annonc\'e, compte tenu du fait que l'on a, quel que soit
+$i$:
+$$
+\H_{f^{-1}(t)}^{i}(X, \R i_{\ast}(F{|V}))\simeq\H_{f^{-1}(t)\cap V}^{i}(V, F)\quad(\textrm{resp. }\H^{i}(X, \R i_{\ast}(F{|V}))\simeq\H^{i}(V, F).
+$$
+\skipqed
+\end{proof}
+
+\begin{sublemme} \label{XIV.4.9.1} Un ensemble constructible $E$ contenu dans l'ensemble des points ferm\'es d'un sch\'ema $X$ noeth\'erien est r\'eduit \`a un nombre fini de points.
+\end{sublemme}
+
+En effet, $E$ est r\'eunion fini d'ensemble de la forme $U\cap\complement V$, o\`u $U$ et $V$ sont des ouverts de $X$; par hypoth\`ese tous les points de $U\cap\complement V$ sont des points maximaux de cet ensemble, donc ils sont en nombre fini.
+
+\section{Profondeur g\'eom\'etrique} \label{XIV.5}
+
+Pour appliquer en pratique \ref{XIV.4.2} et ses corollaires, il faut disposer d'un crit\`ere commode qui permette de v\'erifier les hypoth\`eses de profondeur \'etale aux points de $U$. Nous allons donner un tel crit\`ere, en utilisant le th\'eor\`eme de Lefschetz local~(\ref{XIV.4.5}).
+
+\subsection{} \label{XIV.5.1} Soient $A$ un anneau local noeth\'erien; quand nous parlerons de la profondeur \'etale de $A$, il s'agira de la profondeur au point ferm\'e. Nous allons introduire une notion de \og profondeur g\'eom\'etrique de $A$\fg, et utiliser \ref{XIV.4.5} pour la comparer \`a la profondeur \'etale $\profet(A)$.
+
+\begin{proposition} \label{XIV.5.2} Soit $A$ un anneau local noeth\'erien; supposons que $A$ soit isomorphe \`a un quotient d'un anneau local r\'egulier $B$ par un id\'eal $I$ (c'est vrai par exemple lorsque $A$ est complet, en vertu du th\'eor\`eme de Cohen (\textup{$\EGA 0_{\textup{IV}}$~19.8.8})). Soit $q$ le nombre minimal de g\'en\'erateurs de $I$; alors le nombre $\dim(B)-q$ est ind\'ependant du choix de $B$.
+\end{proposition}
+
+Le nombre minimal de g\'en\'erateurs de $I$ est aussi \'egal au rang du $k$-espace vectoriel $I\otimes_{B}k$, o\`u $k$ d\'esigne le corps r\'esiduel de $A$. On se ram\`ene tout de suite au cas o\`u $A$ est complet, car on~a $\widehat{A}\simeq\widehat{B}/\widehat{I}$ avec $\dim \widehat{B}=\dim B$ et $\rg_{k}(I\otimes_{B}k)=\rg_{k}(\widehat{I}\otimes_{\widehat{B}}k)$; pour la m\^eme raison on peut supposer que les anneaux $B$ sont complets. Soient $B$ et $B^{\prime}$ deux anneaux locaux r\'eguliers complets, $f\colon B\to A$, $f^{\prime}\colon B^{\prime}\to A$ deux homomorphismes surjectifs et $I=\Ker(f)$, $I^{\prime}=\Ker(f^{\prime})$. On doit montrer que
+$$
+\dim B-\rg_{k}(I\otimes_{B}k)=\dim B^{\prime}-\rg_{k}(I^{\prime}\otimes_{B^{\prime}}k).
+$$
+
+Pla\c cons-nous d'abord dans le cas o\`u l'on a une factorisation de
+la forme
+$$
+\xymatrix@C=15pt{ B\ar[rr]^-{f}\ar[rd]_-{g} & & A\\
+& B^{\prime}\ar[ru]_-{f^{\prime}} & }$$
+avec $g$ surjectif. Soit $J=\Ker(g)$; alors $J\subset I$ et $I/J=I^{\prime}$. Puisque $B^{\prime}$ est r\'egulier, $\dim(B^{\prime})=\dim(B)-\rg_{k}(J\otimes_{B}k)$ et $J$ est engendr\'e par des \'el\'ements faisant partie d'un syst\`eme r\'egulier de param\`etres de $B$. Il en r\'esulte que l'on a la suite exacte
+$$0\to J\otimes_{B}k\to I\otimes_{B}k\to J/I\otimes_{B^{\prime}}k\to 0,
+$$
+et par suite
+$$
+\dim B-\rg_{k}(I\otimes_{B}k)=\dim B-\rg_{k}(J\otimes_{B}k)-\rg_{k}(J/I\otimes_{B^{\prime}}k)=\dim B^{\prime}-\rg_{k}(I^{\prime}\otimes_{B^{\prime}}k).
+$$
+
+Le cas g\'en\'eral se ram\`ene au pr\'ec\'edent; pour le voir, il suffit de montrer que l'on peut trouver un anneau local r\'egulier complet $B^{\prime\prime}$ et des homomorphismes surjectifs $g\colon B^{\prime\prime}\to B$ et $g^{\prime}\colon B^{\prime\prime}\to B^{\prime}$, rendant commutatif le diagramme
+\begin{equation*} \label{eq:XIV.5.2.*} \tag{$*$}
+\begin{array}{c}
+\xymatrix@C=10pt@R=15pt{ & B\ar[rd]^-{f} & \\
+B^{\prime\prime}\ar[ru]^-{g}\ar[rd]_-{g^{\prime}} & & A\\
+& B^{\prime}.\ar[ru]_-{f^{\prime}} &
+}
+\end{array}
+\end{equation*}
+Or, si $W$ est un anneau de Cohen de corps r\'esiduel $k$, on~a un morphisme local $W\to A$ qui se rel\`eve \`a $B$ et $B^{\prime}$ (\EGA IV~19.8.6), de sorte que l'on a le diagramme commutatif
+$$
+\xymatrix@R=15pt@C=10pt{ & B\ar[rd] & \\
+W\ar[ru]\ar[rd] & & A\\
+& B^{\prime}.\ar[ru] & }$$
+On peut trouver des entiers $n$ et $n^{\prime}$ et des morphismes surjectifs \hbox{$h\colon W\llbracket T_{1},\dots, T_{n}\rrbracket\!\to\! B$} et $h^{\prime}\colon W\llbracket T_{1}^{\prime},\dots, T_{n^{\prime}}^{\prime}\rrbracket\to B^{\prime}$ qui soient des morphismes de $W$-alg\`ebres ($\EGA 0_{\textup{IV}}$ 19.8.8); si l'on pose alors $B^{\prime\prime}=W\llbracket T_{1},\dots, T_{n}, T_{1}^{\prime},\dots, T_{n^{\prime}}^{\prime}\rrbracket$ et si l'on d\'efinit $g$ et~$g^{\prime}$ comme des morphismes de $W$-alg\`ebres tels que
+$$g(T_{i})=h(T_{i}), \quad g(T_{i}^{\prime})=b_{i}, \quad g^{\prime}(T_{i})=b_{i}^{\prime}, \quad g^{\prime}(T_{i}^{\prime})=h^{\prime}(T_{i}^{\prime}),
+$$
+o\`u $b_{i}$ (resp. $b_{i}^{\prime}$) est un \'el\'ement de $B$ (resp. de $B^{\prime}$) qui rel\`eve $h^{\prime}.f^{\prime}(T_{i}^{\prime})$ (resp. $h.f(T_{i})$), le diagramme \eqref{eq:XIV.5.2.*} est bien commutatif.
+
+La proposition \ref{XIV.5.2} justifie la d\'efinition suivante:
+
+\begin{definition} \label{XIV.5.3}
+Soient $A$ un anneau local noeth\'erien, $\widehat{A}$ son compl\'et\'e, qui est donc isomorphe au quotient d'un anneau local r\'egulier complet $B$ par un id\'eal $I$; si $q$ est le nombre minimal de g\'en\'erateurs de $I$, on appelle \emph{profondeur géométrique} de $A$ le nombre
+$$
+\profgeom(A)=\dim B-q.
+$$
+\end{definition}
+
+\begin{proposition} \label{XIV.5.4} Soit $A$ un anneau local noeth\'erien. Alors on a
+$$
+\profgeom(A)\leq\dim A,
+$$
+et on~a l'\'egalit\'e si et seulement si $A$ est un intersection compl\`ete.
+\end{proposition}
+
+On peut supposer $A$ complet. Soit alors $A=B/I$, o\`u $B$ est un anneau local r\'egulier complet et $I$ un id\'eal de $B$. Si $(x_{1},\dots, x_{q})$ est un syst\`eme minimal de g\'en\'erateurs de $I$, on~a $\dim A\geq\dim B-q$, et dire que $\dim A=\dim B-q$ \'equivaut \`a dire que $(x_{1},\dots, x_{q})$ fait partie d'un syst\`eme de param\`etres de $B$ ($\EGA 0_{\textup{IV}}$~16.3.7); la proposition en r\'esulte imm\'ediatement.
+
+\begin{proposition} \label{XIV.5.5} Soient $A$ et $A^{\prime}$ des anneaux locaux noeth\'eriens, $f\colon A\to A^{\prime}$ un homomorphisme local. Supposons que $f$ soit plat et que, d\'esignant par $k$ le corps r\'esiduel de $A$, $A^{\prime}\otimes_{A}k$ soit un corps, extension s\'eparable de $K$. Alors on a
+$$
+\profgeom(A)=\profgeom(A^{\prime}).
+$$
+\end{proposition}
+
+Quitte \`a remplacer $A$ et $A^{\prime}$ par leurs compl\'et\'es, on peut supposer $A$ et $A^{\prime}$ complets (il r\'esulte de ($\EGA 0_{\textup{III}}$~10.2.1) que l'hypoth\`ese de platitude est conserv\'ee et cela est \'evident pour les autres hypoth\`eses). Soit alors $A=B/I$, o\`u $B$ est un anneau local r\'egulier et $I$ un id\'eal de $B$. Comme $A^{\prime}$ est formellement lisse sur $A$ ($\EGA 0_{\textup{IV}}$~19.8.2), il r\'esulte de ($\EGA 0_{\textup{IV}}$~19.7.2) que l'on peut trouver un anneau local noeth\'erien complet $B^{\prime}$ et un homomorphisme local $B\to B^{\prime}$, tel que $B^{\prime}$ soit un $B$-module plat et que l'on ait $B^{\prime}\otimes_{B}A\simeq A^{\prime}$. On a donc $A^{\prime}\simeq B^{\prime}/IB^{\prime}$; de plus l'anneau $B^{\prime}$ est r\'egulier; en effet, si $\mm$ est l'id\'eal maximal de $B$, $\mm B^{\prime}$ est l'id\'eal maximal de $B^{\prime}$, et, puisque $\mm$ est engendr\'e par une suite r\'eguli\`ere par d\'efinition de \og r\'egulier\fg, $B^{\prime}$ est engendr\'e par une suite $B^{\prime}$-r\'eguli\`ere ($\EGA 0_{\textup{IV}}$~15.1.14). Comme on~a \'evidemment $\dim B=\dim B^{\prime}$, et comme $I$ et $IB^{\prime}$ ont m\^eme nombre minimal de g\'en\'erateurs, l'assertion en r\'esulte.
+
+\refstepcounter{subsection}\label{XIV.5.6}
+\begin{enonce*}{Th\'eor\`eme 5.6\ndemark}
+Soit $A$ un anneau local excellent de caract\'eristique nulle. Alors on~a
+$$
+\profet(A)\geq\profgeom(A).
+$$
+\end{enonce*}
+
+On peut supposer $A$ strictement local complet, puisque la profondeur g\'eom\'etrique et la profondeur \'etale se conservent par passage \`a l'hens\'elis\'e strict et au compl\'et\'e d'apr\`es \ref{XIV.5.5} et \ref{XIV.1.16}. Soit $A\simeq B/I$, o\`u $B$ est un anneau local r\'egulier complet, et soit $(f_{1},\dots, f_{q})$ un syst\`eme minimal de g\'en\'erateurs de l'id\'eal $I$. On a donc
+$$
+\pi=\profgeom(A)=\dim B-q.
+$$
+Consid\'erons l'immersion ferm\'ee
+$$Y=\Spec A\to X=\Spec B,
+$$
+et soient $U=X-Y=\bigcup_{1\leq i\leq q}X_{f_{i}}$. Si $a$ d\'esigne le point ferm\'e de $X$, on doit montrer que, pour tout nombre premier $p$, on a
+$$
+\H_{a}^{i}(Y, \ZZ/p\ZZ)=0\quad\textrm{ pour }i<\pi.
+$$
+Comme $B$ est r\'egulier excellent, on~a $\profet(B)=2\dim X$ (cf. \ref{XIV.1.10}) et par suite $\H_{a}^{i}(X, \ZZ/p\ZZ)=0$ pour $i<2\dim X$. Il suffit donc, pour d\'emontrer le th\'eor\`eme, de prouver que le morphisme
+\begin{equation*} \label{eq:XIV.5.6.*} \tag{$*$}
+\H_{a}^{i}(X, \ZZ/p\ZZ)\to\H_{a}^{i}(Y, \ZZ/p\ZZ)
+\end{equation*}
+est bijectif pour $i<\pi$. On applique pour cela le th\'eor\`eme de Lefschetz local (\ref{XIV.4.5}) avec $n=\pi+q-1$, $c=q-1$ donc $n-c=\pi$. Notons que $U=X-Y$ est r\'eunion des $q$ ouverts affines $X_{f_{i}}$. Montrons que l'on a, pour tout point $u$ de $U$:
+$$
+\profet_{u}(X)\geq\pi+q-1-\dim\big(\overline{\{ u\} }\big)=\dim\Oo_{X, u}$$
+(o\`u $\overline{\{ u\} }$ d\'esigne l'adh\'erence de $u$ \emph{dans} $X-\overline{\{ a\} }$). En effet il r\'esulte de \ref{XIV.1.10} que l'on a
+$$
+\profet_{u}(X)=2\dim\Oo_{X, u}\geq\dim\Oo_{X, u}.
+$$
+En utilisant \ref{XIV.4.5}, on voit que \eqref{eq:XIV.5.6.*} est bijectif pour $i<\pi$, ce qui ach\`eve la d\'emonstration du th\'eor\`eme.
+
+\begin{corollaire} \label{XIV.5.7} Soient $S$ le spectre d'un corps de caract\'eristique nulle (resp. un sch\'ema local hens\'elien excellent de caract\'eristique nulle), $f\colon X\to S$ un sch\'ema propre sur $S$ (resp. sur $S-\{ s\}$). Soient $U$ une r\'eunion de $c+1$ ouverts de $X$, \emph{affines}, $Y$ un sous-sch\'ema ferm\'e d'espace sous-jacent $X-U$, $n$ et $m$ des entiers $>0$. On suppose que, pour tout point $u$ de $U$, on a
+$$
+\profgeom(\Oo_{X, u})\geq n-\dim\big(\overline{\{ u\} }\big)$$
+($\overline{\{ u\} }$ adh\'erence de $u$ dans $X$). Alors le morphisme canonique
+$$
+\H^{i}(X, \ZZ/m\ZZ)\to\H^{i}(Y, \ZZ/m\ZZ)$$
+est bijectif pour $i<n-c-1$, injectif pour $i=n-c-1$.
+\end{corollaire}
+
+On applique \ref{XIV.4.5} et \ref{XIV.4.6}. Les hypoth\`eses de profondeur \'etale aux points de $U$ sont v\'erifi\'ees car on~a d'apr\`es \ref{XIV.5.6} $$
+\profet_{u}(X)\geq\profgeom\Oo_{X, u}\geq n-\dim\big(\overline{\{ u\} }\big).
+$$
+
+\enlargethispage{\baselineskip}%
+\section{Questions ouvertes} \label{XIV.6}
+
+\subsection{} \label{XIV.6.1} On peut se demander si l'implication \textup{(ii)} ~$\To$~ \textup{(i)} de \ref{XIV.4.2} est valable plus g\'en\'eralement pour des faisceaux $F$ de torsion, pas n\'ecessairement annul\'es par un entier $m$ donn\'e et pas n\'ecessairement constructibles. Dans le cas o\`u $S$ n'est pas de caract\'eristique nulle, il semble possible que cette implication reste valable, m\^eme pour les faisceaux de $p$-torsion ($p$ la caract\'eristique r\'esiduelle). Enfin il n'est pas clair non plus que l'hypoth\`ese $S$ excellent ne puisse \^etre lev\'ee.
+
+\subsection{} \label{XIV.6.2}
+Soient $X$ un sch\'ema propre sur un corps $k$ ou bien le compl\'ementaire du point ferm\'e d'un sch\'ema local hens\'elien, et $j:Y \to X$ un sous-sch\'ema ferm\'e de $X$, dont le compl\'ementaire $U$ est affine. Alors, si $F$ est un faisceau d'ensembles sur $X$ ou un faisceau en groupes non n\'ecessairement commutatifs, les \'enonc\'es \ref{XIV.4.5} ou \ref{XIV.4.6} et \ref{XIV.4.9} ont encore un sens pour un tel $F$, \`a condition de se borner \`a des petites valeurs de $n$. Si $u$ est un point de $U$, on d\'esigne par $\bar{u}$ un point g\'eom\'etrique au-dessus de~$u$, par $X(\bar{u})$ le localis\'e strict de $X$ en $\bar{u}$ et par $F_{\bar{u}}$ la fibre de $F$ en $\bar{u}$. Alors, en faisant \'eventuellement certaines hypoth\`eses sur $X$ et sur $F$, par exemple en supposant $X$ excellent (\'eventuellement de caract\'eristique nulle, ou d'\'egale caract\'eristique en utilisant la r\'esolution des singularit\'es) et $F$ ind-fini (ou au besoin m\^eme $\LL$-ind-fini avec $\LL$ premier \`a la caract\'eristique de $X$), on aimerait d\'emontrer les \'enonc\'es suivants:
+\begin{enumeratea}
+\item
+Soit $F$ un faisceau d'ensembles (resp. un faisceau en groupes) et supposons que, pour tout point $u$ de $U$, on ait
+$$F_{\bar{u}} \to H^0(X(\bar{u})-\bar{u}, F)\text{ injectif si } \dim(\overline{\{u\}}) \leq 1$$
+(c'est-\`a-dire, pour un tel $u$, on~a $\prof_u(F) \geq 1$). Alors, quand $V$ parcourt l'ensemble des voisinages ouverts de $Y$, le morphisme canonique
+$$
+\varinjlim_V H^0(V, F) \to H^0(Y, j^*F)
+$$
+est bijectif (resp. on~a la conclusion pr\'ec\'edente et de plus le morphisme $\varinjlim_V H^1(V, F) \to H^1(Y, j^* F)$ est injectif). Si $F$ est constructible, on peut remplacer les $\varinjlim$ par la cohomologie de $V$ pour $V$ \og assez petit\fg.
+\item
+Soit $F$ un faisceau d'ensembles (resp. un faisceau en groupes) et supposons que, pour tout point $u$ de $U$, on ait $\prof_u(F) \geq 2 -\dim(\overline{\{u\}})$, ce qui se traduit aussi par les relations
+\begin{gather*}
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ est bijectif si } \dim(\overline{\{u\}})=0\\
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ est injectif si } \dim(\overline{\{u\}})=1.
+\end{gather*}
+Alors le morphisme canonique
+$$H^0(X, F) \to H^0(Y, j^*F)$$
+est bijectif (resp. on~a la conclusion pr\'ec\'edente et de plus le morphisme $H^1(X, F) \to H^1(Y, j^*F)$ est injectif).
+\item
+Soit $F$ un faisceau en groupes ind-fini. Supposons que, pour tout point $u$ de $U$, on ait
+\begin{gather*}
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ bijectif si } \dim(\overline{\{u\}})=0\text{ ou }1,\\
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ injectif si } \dim(\overline{\{u\}})=2.
+\end{gather*}
+Alors, quand $V$ parcourt l'ensembles des voisinages ouverts de $Y$, les morphismes canoniques
+$$
+\varinjlim_V H^0(V, F) \to H^0(Y, j^*F) \text{ et } \varinjlim_V H^1(V, F) \to H^1(Y, j^*F)
+$$
+sont bijectifs. Si $F$ est constructible, on peut remplacer les $\varinjlim$ par la cohomologie de~$V$ pour $V$ assez petit.
+\item
+Soit $F$ un faisceau en groupes. Supposons que, pour tout point $u$ de $U$, on ait $\prof_u(F) \geq 3-\dim(\overline{\{u\}})$, ce qui se traduit aussi par les conditions
+\begin{gather*}
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ bijectif, et } H^1(X(\bar{u})-\bar{u}, F)=0 \text{ si } \dim(\overline{\{u\}})=0,\\
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ bijectif si } \dim(\overline{\{u\}})=1,\\
+F_{\bar{u}}\to H^0(X(\bar{u})-\bar{u}, F)\text{ injectif si } \dim(\overline{\{u\}})=2.
+\end{gather*}
+Alors les morphismes canoniques
+$$H^0(X, F) \to H^0(Y, j^*F)\text{ et } H^1(X, F) \to H^1(Y, j^*F)$$
+sont bijectifs.
+\end{enumeratea}
+
+Comme indication en faveur de ces \'enonc\'es\refstepcounter{toto}, signalons \ref{XIII}~\ref{XIII.2.1}, \ref{X}~\ref{X.3.4} et \ref{XII}~\ref{XII.3.5}. Signalons que, gr\^ace \`a l'argument de \ref{XIV.4.8} et \ref{XIV.4.9}, l'\'enonc\'e a) (resp. c)) r\'esulterait de b) (resp. d)).
+
+\subsection{} \label{XIV.6.3}
+Il r\'esulterait de d) l'\'enonc\'e suivant analogue \`a \ref{XIV.5.6}: si $A$ est un anneau local noeth\'erien (\'eventuellement excellent) et si l'on a $\prof \geom (A) \geq 3$, alors on~a $\prof \hop (A) \geq 3$. Pour voir ceci, on r\'ealise $Y'=\Spec A$ comme ferm\'e d'un sch\'ema local r\'egulier $X'=\Spec B$, dont le compl\'ementaire est r\'eunion de $q$ ouverts affines, avec la relation $\dim B -q=\prof \geom(A)$. On a, pour tout point $x$ de $X'$, si $n=\dim B$, $\prof \hop_x(X) \geq \inf(3, n-\dim(\overline{\{x\}}))$ (cf. \ref{XIV.1.11}) et l'on d\'eduit de d) que ceci entra\^ine $\prof \hop_y(Y') \geq \inf(3, n-q-\dim(\overline{\{y\}}))$, pour tout point $y$ de $Y'$. Le r\'esultat s'obtient alors en prenant pour $y$ le point ferm\'e de $Y'$.
+
+\subsection{} \label{XIV.6.4}
+Un variante de \ref{XIV.4.2}, tout au moins de l'implication \textup{(ii)} ~$\To$~ \textup{(i)}, doit encore \^etre valable dans le cas analytique complexe, \`a condition de travailler avec des faisceaux \og analytiquement constructibles\fg (cf. \ref{XIII}); la d\'emonstration serait analogue \`a celle de \ref{XIV.4.2}, en utilisant la th\'eorie de la dualit\'e de J.-L. Verdier. Notons par contre que, pour l'analogue analytique complexe des variantes non commutatives signal\'ees dans \ref{XIV.6.2}, on ne dispose pas m\^eme d'une m\'ethode d'attaque pour les \'enonc\'es concernant le groupe fondamental sugg\'er\'es par les r\'esultats des expos\'es \ref{X}, \ref{XII}, \ref{XIII}, rappel\'es \`a fin de \ref{XIV.6.2}. Les m\'ethodes du S\'eminaire semblent en effet irr\'em\'ediablement li\'ees au cas des rev\^etements \emph{finis} (qui peuvent \^etre \'etudi\'es en termes de faisceaux coh\'erents d'Alg\`ebres).
+

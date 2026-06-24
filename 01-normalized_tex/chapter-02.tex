@@ -1,0 +1,205 @@
+\chapter[Faisceaux quasi-coh\'erents sur les pr\'esch\'emas]{Application aux faisceaux quasi-coh\'erents sur les pr\'esch\'emas} \label{II}
+
+\makeatletter\@addtoreset{equation}{section}\makeatother\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\begin{supproposition} \label{II.1}
+Soient $X$ un pr\'esch\'ema, $Z$ une partie localement ferm\'ee de la forme $Z=U-V$, o\`u $U$ et $V$ sont deux parties ouvertes de $X$ telles que $V\subset U$ et que les immersions canoniques $U\to X$, $V\to X$ soient quasi-compactes. Alors pour tout Module quasi-coh\'erent $F$ sur $X$, les faisceaux ${\mathop{\underline{\mathrm{H}}}\nolimits}_Z^i(F)$ sont quasi-coh\'erents.
+\end{supproposition}
+
+D'apr\`es (\ref{I}, \ref{eq:I.24}), il existe une suite exacte de cohomologie relative
+$$
+\to {\mathop{\underline{\mathrm{H}}}\nolimits}_U^{i-1}(F) \to {\mathop{\underline{\mathrm{H}}}\nolimits}_V^{i}(F) \to {\mathop{\underline{\mathrm{H}}}\nolimits}_Z^{i}(F) \to {\mathop{\underline{\mathrm{H}}}\nolimits}_U^{i}(F) \to {\mathop{\underline{\mathrm{H}}}\nolimits}_V^{i+1}(F) \to.
+$$
+
+D'apr\`es (\EGA III~1.4.17), pour que les ${\mathop{\underline{\mathrm{H}}}\nolimits}_Z^i(F)$ soient quasi-coh\'erents il suffit donc que les ${\mathop{\underline{\mathrm{H}}}\nolimits}_U^i(F)$ et les ${\mathop{\underline{\mathrm{H}}}\nolimits}_V^i(F)$ le soient. On peut donc supposer $Z$ ouvert et l'immersion canonique $j:Z\to X$ quasi-compacte.
+
+Puisque $Z$ est ouvert on~a (\ref{I}, \ref{eq:I.22}) un isomorphisme canonique:
+$$
+{\mathop{\underline{\mathrm{H}}}\nolimits}_Z^{i}(F) \simeq \R^ij_{*}(F_{|Z})
+$$
+mais $j$ est s\'epar\'e (\EGA I~5.5.1) et quasi-compact donc (\EGA III~1.4.10) les $\R^ij_{*}(F|Z)={\mathop{\underline{\mathrm{H}}}\nolimits}_Z^{i}(F)$ sont quasi-coh\'erents, ce qui ach\`eve la d\'emonstration.
+
+\begin{supcorollaire} \label{II.2}
+Soit $Z$ une partie ferm\'ee de $X$ telle que l'immersion canonique \hbox{$X-Z\to X$} soit quasi-compacte, alors les Modules ${\mathop{\underline{\mathrm{H}}}\nolimits}_Z^i(F)$ sont quasi-coh\'erents.
+\end{supcorollaire}
+
+\begin{supcorollaire} \label{II.3}
+Si $X$ est localement noeth\'erien, alors pour toute partie localement ferm\'ee $Z$ de $X$, et tout Module $F$ quasi-coh\'erent sur $X$, les ${\mathop{\underline{\mathrm{H}}}\nolimits}_Z^i(F)$ sont quasi-coh\'erents.
+\end{supcorollaire}
+
+R\'esulte imm\'ediatement du corollaire \ref{II.2} et de (\EGA I~6.6.4).
+
+\begin{supcorollaire} \label{II.4}
+Supposons que $X$ soit le spectre d'un anneau $A$ et soient $U$ un ouvert quasi-compact de $X$, $Y=X-U$, $F$ un Module quasi-coh\'erent sur $X$, il existe un isomorphisme de foncteurs cohomologiques en $F$:
+\begin{equation} \label{eq:II.4.1} {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^i(F) = \widetilde{(\H_Y^i(X, F))}.
+\end{equation}
+
+On a en outre une suite exacte fonctorielle en $F$:
+\begin{equation} \label{eq:II.4.2}
+0 \to \H_Y^0(X, F) \to \H^0(X, F) \to \H^0(U, F) \to \H_Y^1(X, F) \to 0
+\end{equation}
+et des isomorphismes fonctoriels en $F$:
+\begin{equation} \label{eq:II.4.3}
+\H_Y^i(X, F) \simeq \H^{i-1}(U, F), \quad i\geq 2.
+\end{equation}
+\end{supcorollaire}
+
+D'apr\`es (\ref{II.1}), les ${\mathop{\underline{\mathrm{H}}}\nolimits}_Y^i(F)$ sont quasi-coh\'erents, puisque $X$ est affine on~a donc $\H^p(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^i(F))=0$ si $p>0$. La suite spectrale (\ref{I}, \ref{eq:I.23}) d\'eg\'en\`ere, donc
+$$
+\H_Y^i(X, F) = \Gamma({\mathop{\underline{\mathrm{H}}}\nolimits}_Y^i(F)).
+$$
+L'\'egalit\'e (\ref{eq:II.4.1}) r\'esulte alors de (\EGA I~1.1.3.7), (\ref{eq:II.4.2}) et (\ref{eq:II.4.3}) de la suite exacte de cohomologie (I(\ref{eq:I.27})) et de ce que $\H^i(X, F)=0$ si $i>0$, puisque $X$ est affine.
+
+Avec les hypoth\`eses de \eqref{II.4}, $U$ est r\'eunion finie d'ouverts affines $X_f$, on peut donc trouver un id\'eal $I$ engendr\'e par un nombre fini d'\'el\'ements $f_{\alpha}$ et d\'efinissant~$Y$, soit $\bbf=(f_{\alpha})$. Avec les notations de (\EGA III~1) on a:
+
+\begin{supproposition} \label{II.5}
+Supposons que $X$ soit le spectre d'un anneau $A$, soient $\bbf=(f_{\alpha})$ une famille finie d'\'el\'ements de $A$, $Y$ la partie ferm\'ee de $X$ qu'ils d\'efinissent, $M$ un $A$-module, $F$ le faisceau associ\'e \`a $M$. On a alors des isomorphismes de $\partial$-foncteurs en $M$:
+\begin{equation} \label{eq:II.5.1} \H^i((\bbf), M) \simeq \H_Y^i(X, F).
+\end{equation}
+\end{supproposition}
+
+\noindent
+(Nous noterons aussi $\H_J^i(M)=\H_Y^i(X, F)$, si $Y$ est la partie ferm\'ee de $X=\Spec A$ d\'efinie par un id\'eal $J$ de $A$).
+
+Pour $i=0$ et $i=1$, on utilise les suites exactes (\ref{eq:II.4.2}) et (\EGA III~1.4.3.2); si $i\geq2$, on utilise (\ref{eq:II.4.3}) et (\EGA III~1.4.3.2). Cela nous donne des isomorphismes fonctoriels en $M$. On v\'erifie qu'\`a un signe pr\`es ne d\'ependant que de $i$, ils sont compatibles avec l'op\'erateur bord, d'o\`u l'existence de l'isomorphisme de $\partial$-foncteurs (\ref{eq:II.5.1}).
+
+Soient maintenant $X$ un pr\'esch\'ema, $Y$ une partie ferm\'ee de $X$ et $f:Y\to X$ l'inclusion, $I$ un id\'eal quasi-coh\'erent d\'efinissant $Y$ dans $X$. Soit $F$ un faisceau sur $X$.
+
+On a vu qu'il existe des isomorphismes de $\partial$-foncteurs en $F$
+\begin{align}
+\label{eq:II.5.*} \tag{$*$} \Ext_{\OX}^i(X;f_{*}f^{-1}(\OX), F) &\to \H_Y^i(X, F) \\
+\label{eq:II.5.**} \tag{$**$} \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(f_{*}f^{-1}(\OX), F) &\to \mathop{\underline{\mathrm{H}}}\nolimits_Y^i(F).
+\end{align}
+
+Soient $n, m$ des entiers tels que $m\geq n\geq 0$, on d\'esigne par $i_{n, m}$ l'application canonique: $\Oo_{Y_m}=\OX/I^{m+1} \to\OX/I^{n+1}=\Oo_{Y_n}$, et par $j_n$ l'application: $f_{*}f^{-1}(\OX)\to\Oo_{Y_n}$. Les $(\Oo_{Y_n}, i_{n, m})$ forment un syst\`eme projectif et les $j_n$ sont compatibles avec les $i_{n, m}$.
+
+En appliquant le foncteur $\Ext_{\OX}^i(X;\cdot, F)$, on en d\'eduit un morphisme
+$$
+\varphi': \varinjlim_{n} \Ext_{\OX}^i(X;\Oo_{Y_n}, F) \to \Ext_{\OX}^i(X;f_{*}f^{-1}(\OX), F);
+$$
+on montre facilement que c'est un morphisme de foncteurs cohomologiques en $F$. Le morphisme
+$$
+\varphi: \varinjlim_{n} \Ext_{\OX}^i(X;\Oo_{Y_n}, F) \to \H_Y^i(X, F),
+$$
+compos\'e de $\varphi'$ et de (\ref{eq:II.5.*}), est donc lui aussi un morphisme de foncteurs cohomologiques en $F$.
+
+\enlargethispage{\baselineskip}%
+On d\'efinit de m\^eme
+$$
+\underline{\varphi}: \varinjlim_{n} \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^i(\Oo_{Y_n}, F) \to {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^i(F).
+$$
+
+On a en vue le th\'eor\`eme suivant:
+
+\begin{suptheoreme} \label{II.6} \textup{a)}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien, $Y$ une partie ferm\'ee de $X$ d\'efinie par un Id\'eal coh\'erent $I$, $F$ un Module quasi-coh\'erent. Alors $\boldsymbol{\varphi}$ est un isomorphisme.
+
+\textup{b)} Si $X$ est noeth\'erien $\varphi$ est un isomorphisme.
+\end{suptheoreme}
+
+Le Th\'eor\`eme (\ref{II.6}) r\'esultera de (\ref{II.6}).a et du
+
+\begin{suplemme} \label{II.7} Si l'espace topologique sous-jacent \`a $X$ est noeth\'erien et si $\boldsymbol{\varphi}$ est un isomorphisme, il en est de m\^eme de $\varphi$.
+\end{suplemme}
+
+On va d'abord prouver (\ref{II.7}). On sait qu'il existe une suite spectrale
+\begin{equation} \label{eq:II.7.1}
+\H^p(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^q(F)) \To \H_Y^{m}(X, F).
+\end{equation}
+On a d'autre part un syst\`eme inductif de suites spectrales
+\begin{equation*} \label{eq:II.7.2n} \tag{7.2$_n$}
+\H^p(X, {\mathop{\underline{\mathrm{Ext}}}\nolimits}_{\OX}^q(\Oo_{Y_n}, F)) \To \Ext_{\OX}^{m}(X;\Oo_{Y_n}, F).
+\end{equation*}
+Il r\'esulte de la d\'efinition de $\varphi$ et de $\underline{\varphi}$ que ces morphismes sont associ\'es \`a un homomorphisme $\Phi$ de suites spectrales de la limite inductive de (\ref{eq:II.7.2n}) dans (\ref{eq:II.7.1}). Si l'espace sous-jacent \`a $X$ est noeth\'erien, par (God. 4.12.1)\footnote{Cf. premi\`ere r\'ef\'erence bibliographique, \`a la fin de \Exp \ref{I}.}
+\begin{equation*}
+\varinjlim_{n} \H^p(X, {\mathop{\underline{\mathrm{Ext}}}\nolimits}_{\OX}^q(\Oo_{Y_n}, F))\isomto \H^p(X, \varinjlim_{n} {\mathop{\underline{\mathrm{Ext}}}\nolimits}_{\OX}^q(\Oo_{Y_n}, F)),
+\end{equation*}
+alors $\Phi_2$ peut s'\'ecrire comme un morphisme:
+\begin{equation*} \H^p(X, \varinjlim_{n} {\mathop{\underline{\mathrm{Ext}}}\nolimits}_{\OX}^q(\Oo_{Y_n}, F)) \to \H^p(X, {\mathop{\underline{\mathrm{H}}}\nolimits}_Y^q(F))
+\end{equation*}
+qui n'est autre que celui qu'on d\'eduit de $\underline{\varphi}$.
+
+Si $\underline{\varphi}$ est un isomorphisme il en est donc de m\^eme de $\Phi_2$, donc de $\varphi$ d'apr\`es ($\EGA 0_{\textup{III}}$ 11.1.5), (\ref{II.7}) est donc d\'emontr\'e.
+
+On va maintenant prouver (\ref{II.6}.a), c'est une question locale sur $X$. D'apr\`es \ignorespaces corollaire~\ref{II.4} et (\EGA I~1.3.9 et 1.3.12) on peut supposer que $X$ est le spectre d'un anneau $A$. Il suffit donc de d\'emontrer que sous les hypoth\`eses du th\'eor\`eme~\ref{II.6}.a), l'homomorphisme canonique:
+\begin{equation} \label{eq:II.7.3} \varinjlim_{n} \Ext_A^i(A/I^n, M) \to \H_Y^i(X, M)
+\end{equation}
+est un isomorphisme.
+
+Soient $f_{\alpha}$ un nombre fini d'\'el\'ements de $A$ engendrant $I$, $\bbf=(f_{\alpha})$; alors la suite des id\'eaux $(\bbf^n)$ est d\'ecroissante et cofinale \`a la suite des $I^n$, de sorte que (\ref{eq:II.7.3}) est \'equivalent \`a un morphisme de $\partial$-foncteurs en $M$:
+\begin{equation} \label{eq:II.7.4} \varinjlim_{n} \Ext_A^i(A/(\bbf^n), M) \to \H_Y^i(X, M).
+\end{equation}
+
+On a d'autre part des isomorphismes canoniques:
+\begin{equation} \label{eq:II.7.5} \varinjlim_{n} \Hom_A(A/(\bbf^n), M) \simeq \varinjlim_{n} (m\in M\ |\ (\bbf^n)m=0) \simeq \H^0((\bbf), M).
+\end{equation}
+Comme $\varinjlim_{n} \Ext_A^i(A/(\bbf^n), M)$ est un $\partial$-foncteur universel en $M$, il existe un seul morphisme de $\partial$-foncteurs en $M$:
+\begin{equation} \label{eq:II.7.6} \varinjlim_{n} \Ext_A^i(A/(\bbf^n), M) \to \H^i((\bbf), M),
+\end{equation}
+qui co\"incide en degr\'e z\'ero avec (\ref{eq:II.7.5}).
+
+Comme le compos\'e de (\ref{eq:II.7.3}) et de (\ref{eq:II.5.1}) est un morphisme de $\partial$-foncteurs en $M$ qui co\"incide avec (\ref{eq:II.7.6}) en degr\'e $0$, il co\"incide avec (\ref{eq:II.7.6}) en tout degr\'e. Le th\'eor\`eme (\ref{II.6}.a) est donc une cons\'equence imm\'ediate du
+
+\begin{suplemme} \label{II.8}
+Soient $A$ un anneau noeth\'erien, $I$ un id\'eal engendr\'e par un syst\`eme fini $\bbf=(f_{\alpha})$ d'\'el\'ements, $M$ un $A$-module. Alors les homomorphismes (\ref{eq:II.7.6}) sont des isomorphismes.
+\end{suplemme}
+
+\begin{suplemme} \label{II.9}
+Soient $A$ un anneau, $\bbf=(f_{\alpha})$ un syst\`eme fini d'\'el\'ements de $A$, $I$ l'id\'eal engendr\'e par $\bbf$, $i$ un entier $>0$. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratea}
+\item
+L'homomorphisme (\ref{eq:II.7.6}) est un isomorphisme pour tout $M$.
+\item
+$\H^i((\bbf), M)=0$ pour $M$ injectif.
+\item
+Le syst\`eme projectif $(\H_i(\bbf^n, A))=\H_{i, n}$ est essentiellement nul, c'est-\`a-dire: pour tout $n$, il existe $n'>n$ tel que $\H_{i, n'}\to\H_{i, n}$ soit nul.
+\end{enumeratea}
+\end{suplemme}
+
+a) entra\^\i ne b) trivialement.
+
+b) entra\^\i ne a), en effet b) entra\^\i ne que $M\mto\H^i((\bbf), M)$ est un foncteur cohomologique universel, (\ref{eq:II.7.6}) est un alors un morphisme de foncteurs cohomologiques universels. C'est un isomorphisme en degr\'e z\'ero, donc en tout degr\'e
+
+c) entra\^\i ne b), en effet si $M$ est injectif, on~a pour tout $n$
+\begin{equation*} \H^i(\bbf^n, M)=\Hom(\H_i(\bbf^n, A), M) = \Hom(\H_{i, n}, M),
+\end{equation*}
+c) entra\^\i ne donc que pour tout $i$ le syst\`eme inductif $(\H^i(\bbf^n, M))_{n\in\ZZ}$ est essentiellement nul, d'o\`u b).
+
+b) entra\^\i ne c). Soit en effet $n>0$, et $j$ un monomorphisme de $\H_{i, n}$ dans un module injectif $M$. Soit $n'\geq n$ et soit $j_{n'}\in\Hom(\H_{i, n'}, M)$ le compos\'e de $j$ et de l'homomorphisme de transition $t_{n', n}:\H_{i, n'}\to\H_{i, n}$. Les $j_{n'}$ d\'efinissent un \'el\'ement de $\H^i((\bbf), M)$ qui est nul par hypoth\`ese. Il existe donc $n_0$ tel que $j_{n'}=0$ si $n'>n_0$. Mais puisque $j$ est un monomorphisme, $j_{n'}=0$ entra\^\i ne $t_{n'}=0$, d'o\`u la proposition.
+
+\begin{supcorollaire} \label{II.10} Supposons que l'espace sous-jacent \`a $X=\Spec(A)$ soit noeth\'erien. Pour que les conditions pr\'ec\'edentes soient v\'erifi\'ees pour toute famille finie d'\'el\'ements de $A$ et tout $i>0$ (ou encore: pour $i=1$), il faut et il suffit que pour tout $A$-module injectif $M$, le faisceau $F$ associ\'e \`a $M$ soit flasque.
+\end{supcorollaire}
+
+C'est n\'ecessaire: soient en effet $\bbf=(f_{\alpha})$ un syst\`eme fini d'\'el\'ements de $A$, $Y$ le ferm\'e d\'efini par $\bbf$ et $U=X-Y$, on~a alors la suite exacte
+\begin{equation*} \H^0(X, F) \to \H^0(U, F) \to \H^1((\bbf), M) \to 0,
+\end{equation*}
+et gr\^ace \`a \ref{II.9}.b, $\H^0(X, F)\to\H^0(U, F)$ est surjectif.
+
+C'est suffisant en vertu de (\ref{eq:II.5.1}) et de ce que pour toute partie ferm\'ee $Y$ de $X$ et tout faisceau flasque $F$ sur $X$, $\H_Y^i(X, F)=0$ pour $i>0$.
+
+\begin{suplemme} \label{II.11} Sous les hypoth\`eses du lemme~\ref{II.9}, pour tout $A$-module noeth\'erien $N$ et pour tout $i>0$, le syst\`eme projectif $(\H_{i, n}(N))_{n\in\ZZ}$, o\`u $\H_{i, n}(N)=\H_i(\bbf^n, N)$, est essentiellement nul.
+\end{suplemme}
+
+Preuve par r\'ecurrence sur \ignorespaces nombre $m$ d'\'el\'ements de $\bbf$.
+
+Si $m=1$, $\bbf$ est r\'eduit \`a un seul \'el\'ement, soit $f$, $\H_{i, n}(N)$ est nul si $i>1$ et $\H_{1, n}(N)$ est canoniquement isomorphe \`a l'annulateur $N(n)$ de $f^n$ dans $N$, l'homomorphisme de transition $N(n')\to N(n)$, $n'\geq n$, \'etant la multiplication par $f^{n'-n}$. Les $N(n)$ forment une suite croissante de sous-modules de $N$, et puisque $N$ est noeth\'erien il existe $n_0$ tel que $N(n)=N(n_0)$ si $n\geq n_0$. Donc tous les $N(n)$ sont annul\'es par $f^{n_0}$ et les homomorphismes de transition $N(n')\to N(n)$ sont tous nuls si $n'\geq n+n_0$. Le lemme est donc prouv\'e pour $m=1$.
+
+On suppose maintenant que $m>1$ et que le lemme est prouv\'e pour les entiers $m'<m$; soit alors $\bbg=(f_1, \ldots, f_{m-1})$ et $\bbh=f_m$.
+
+Pour tout $n>0$, on~a (\EGA III~1.1.4.1) une suite exacte:
+\begin{equation*}
+0 \to \H_0(\bbh^n, \H_i(\bbg^n, N)) \to \H_i(\bbf^n, N) \to \H_1(\bbh^n, \H_{i-1}(\bbg^n, N)) \to 0,
+\end{equation*}
+et pour $n$ variable un syst\`eme projectif de suites exactes. Il r\'esulte des hypoth\`eses de r\'ecurrence que pour $i>0$ les $\H_i(\bbg^n, N)$ forment un syst\`eme projectif essentiellement nul, donc aussi les $\H_0(\bbh^n, \H_i(\bbg^n, N))$ qu'on identifie \`a des quotients de $\H_i(\bbg^n, N)$. Pour les termes de droite on va factoriser les morphismes de transition de $n'$ \`a $n$ par:
+\begin{equation*}
+\H_1(\bbh^{n'}, \H_{i-1}(\bbg^{n'}, N)) \to \H_1(\bbh^{n'}, \H_{i-1}(\bbg^{n}, N)) \to \H_1(\bbh^{n}, \H_{i-1}(\bbg^{n}, N)).
+\end{equation*}
+Puisque $\H_{i-1}(\bbg^{n}, N)$ est un module noeth\'erien il r\'esulte du cas $m=1$ qu'il existe, pour $n$ donn\'e, $n'>n$ tel que la seconde fl\`eche soit nulle. On voit donc que dans ce syst\`eme projectif de suites exactes, les syst\`emes projectifs extr\^emes sont essentiellement nuls, il en est donc de m\^eme du syst\`eme projectif m\'edian.
+
+On a donc prouv\'e le lemme (\ref{II.11}) donc le lemme (\ref{II.8}) et partant le th\'eor\`eme (\ref{II.6}).
+
+\begin{remarquestar}
+On peut aussi obtenir le th\'eor\`eme (\ref{II.6}) en d\'emontrant la condition du Corollaire (\ref{II.10}) \`a l'aide des th\'eor\`emes de structure des modules injectifs sur un anneau noeth\'erien (Matlis, Gabriel).
+\end{remarquestar}
+
+\chapterspace{-1}

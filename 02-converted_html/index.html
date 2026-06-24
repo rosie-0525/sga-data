@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SGA 2 — Cohomologie locale des faisceaux cohérents</title>
+<link rel="stylesheet" href="viewer.css">
+<script>
+// MathJax 3 + XyJax-v3 (xy-pic commutative diagrams). Math uses \(..\) / \[..\]
+// delimiters; equation numbers are injected as \tag, so MathJax auto-tagging is off.
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3/build/' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none',
+    macros: {}
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header id="topbar">
+  <button id="menu-toggle" aria-label="Menu">☰</button>
+  <h1 id="book-title">SGA 2</h1>
+  <div id="lang-switch">
+    <button data-lang="fr" class="active">FR</button>
+    <button data-lang="en">EN</button>
+  </div>
+</header>
+<div id="layout">
+  <nav id="sidebar" aria-label="Table des matières"></nav>
+  <main id="content"><div id="page"></div></main>
+</div>
+<script src="viewer.js"></script>
+</body>
+</html>

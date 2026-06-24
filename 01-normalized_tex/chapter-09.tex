@@ -1,0 +1,367 @@
+\chapter{G\'eom\'etrie alg\'ebrique et g\'eom\'etrie~formelle} \label{IX}
+
+\newcommand{\Ib}{\Ii'}
+\newcommand{\Jb}{\mathcal J}
+
+Le but de cet expos\'e est de g\'en\'eraliser au cas d'un morphisme qui n'est pas propre les th\'eor\`emes 3.4.2 et 4.1.5 de \EGA III.
+
+\section{Le th\'eor\`eme de comparaison} \label{IX.1}
+
+Soit $f\colon X\to X'$ un morphisme de pr\'esch\'emas, \emph{séparé} et de \emph{type fini}. Supposons que $X'$ soit localement noeth\'erien. Soit $Y'$ une partie ferm\'ee de $X'$ et soit $Y\subset f^{-1}(Y')$. Soient $\hat{X}$ et $\hat{X'}$ les compl\'et\'es formels de $X$ et de $X'$ le long de $Y$ et de $Y'$. Soit $\hat{f}$ le morphisme d\'eduit de $f$ par passage aux compl\'et\'es.
+\begin{equation} \label{eq:IX.1.1}
+\xymatrix{ X \ar[d]_f & Y \ar[l] \ar[d]& &\hat{X}\ar[d]_{\hat f} \ar[r]^j & X\ar[d]^f &\\
+X^{\prime} & Y^{\prime} \ar[l] &, &\hat{X^{\prime}} \ar[r]^i & X^{\prime}.
+}
+\end{equation}
+
+On d\'esigne par $j$ (resp. $i$) l'homomorphisme de $\hat{X}$ dans $X$ (resp. de $\hat{X'}$ dans $X'$). On sait que $i$ et $j$ sont \emph{plats}.
+
+Soit $\Ii '$ un id\'eal de d\'efinition de $Y'$ et soit ${\Jb}=f^{*}(\Ii '). \OX$, c'est un id\'eal de d\'efinition de $Y$. On a donc:
+\begin{equation} \label{eq:IX.1.2} {\hat{X'}=(Y', \varprojlim_{k \in \NN}\Oo_{X'}/{{\Ib}^{k+1}})}, \quad {\hat{X}=(Y, \varprojlim_{k \in \NN}\OX/{{\Jb}^{k+1}})}.
+\end{equation}
+
+Pour tout $k \in \NN$, posons:
+\begin{equation} \label{eq:IX.1.3} Y'_k=(Y', \Oo_{X'}/{{\Ib}^{k+1}}), \quad {Y_k}=(Y, \OX/{{\Jb}^{k+1}}).
+\end{equation}
+
+Soit $F$ un $\OX$-Module \emph{cohérent}. Pour tout $k \in \NN$, on pose:
+\begin{equation} \label{eq:IX.1.4} F_k=F/{\Jb}^{k+1}F, \qquad \hat{F}=j^*(F)\simeq \varprojlim F_k.
+\end{equation}
+
+Si l'on pose:
+\begin{equation} \label{eq:IX.1.5} R^i f_*(F)^{\wedge}=\varprojlim_{k \in \NN} (R^i f_*(F)^{\wedge} \otimes_{{\Oo}_{X'}}{\Oo}_{Y'_k}), \quad i \in \ZZ,
+\end{equation}
+on a un homomorphisme naturel:
+\begin{equation} \label{eq:IX.1.6} r_i: i^*(R^if_*(F)) \to R^i f_*(F)^{\wedge},
+\end{equation}
+qui est un \emph{isomorphisme} lorsque $ R^i f_*(F)$ est \emph{cohérent}.
+
+Ainsi qu'il est expliqu\'e dans \EGA III 4.1.1, on~a un diagramme commutatif:
+\begin{equation} \label{eq:IX.1.7}
+\begin{array}{c}
+\xymatrix{ i^*(R^i f_*(F)) \ar[rr]^-{\rho_i} \ar[d]^{r_i} & &R^i\hat{f}_*(\hat{F}) \ar[d]^{\psi_i} \\
+R^i f_*(F)^{\wedge}\ar[rr]^-{\varphi_i} & &\varprojlim_{k \in \NN} R^i f_*(F_k).
+}
+\end{array}
+\end{equation}
+
+Dans \loccit on trouve un diagramme commutatif, car on sait que $ R^if_*(F)$ est coh\'erent, et l'on identifie la source et le but de (\ref{eq:IX.1.6}). Dans notre cas, $ R^if_*(F)$ ne sera coh\'erent que pour certaines valeurs de $i$, pour lesquelles on \'etudiera (\ref{eq:IX.1.7}).
+
+Consid\'erons l'anneau gradu\'e
+\begin{equation} \label{eq:IX.1.8}
+\Ss = \coprod_{k \in \NN} \Ii'^k,
+\end{equation}
+et le $\Ss$-Module gradu\'e:
+\begin{equation} \label{eq:IX.1.9}
+\Hh^i= \coprod_{k \in \NN} R^if_*({\Jb}^k F), \quad i \in \ZZ,
+\end{equation}
+dont la structure de $\Ss$-Module est d\'efinie comme suit.
+
+Le faisceau $R^if_*({\Jb}^k F)$ est associ\'e au pr\'efaisceau qui, \`a tout ouvert \emph{affine} $U$ de $X'$, associe:
+\begin{equation} \label{eq:IX.1.10}
+H^i(f^{-1}(U), {\Jb}^k F{|f^{-1}(U)}).
+\end{equation} Soit donc $U'$ un ouvert affine de $X'$, posons
+\begin{equation*} U=f^{-1}(U'),
+\end{equation*}
+et soit $x\in {\Ii}^m(U')$. Soit $x'$ l'image de $x$ dans ${\Jb}^{{k}} (U)$. L'homoth\'etie de rapport $x'$ dans $F_{|U'}$ applique ${\Jb}^kF{{|U'}}$ dans ${\Jb}^{k+m}F{{|U'}}$, d'o\`u, par fonctorialit\'e, un morphisme:
+\begin{equation} \label{eq:IX.1.11} \mu^i_{x, k}(U):H^i(U', {\Jb}^kF{{|U'}})\to H^i(U', {\Jb}^{k+m}F{{|U'}}),
+\end{equation}
+d\'efini pour tout $i \in \ZZ$ et tout $k \in \NN$, qui donne, par passage au faisceau associ\'e, la structure de $\Ss$-Module gradu\'e de $\Hh^i$.
+
+\begin{theoreme} \label{IX.1.1} \setcounter{equation}{11}
+Soit $n$ un entier. Supposons que le $\Ss$-Module gradu\'e $\Hh^i$ soit de type fini pour $i=n-1$ et $i=n$, alors:
+\begin{enumerate}\setcounter{enumi}{-1}
+\item
+$r_n$ et $r_{n-1}$ sont des isomorphismes et $R^i\hat{f}_*(\hat{F})$ est coh\'erent pour $i=n-1$;
+\item
+pour $i=n-1$, $\rho_i$, $\varphi_i$ et $\psi_i$ sont des isomorphismes topologiques (en particulier la filtration d\'efinie sur $R^{n-1}f_*(F)$ par les noyaux des homomorphismes
+\begin{equation} \label{eq:IX.1.12}
+R^{n-1}f_*(F) \to R^{n-1}f_*(F_k)
+\end{equation}
+est $\Ii'$-bonne);
+
+\item
+pour $i=n$, $\rho_i$, $\varphi_i$ et $\psi_i$ sont des monomorphismes, de plus la filtration sur $R^n f_*(F)$ est $\Ii'$-bonne et $\psi_n$ est un isomorphisme;
+
+\item
+Le syst\`eme projectif des $R^i f_*(F_k)$ v\'erifie, pour $i=n-2, n-1$, la condition de Mittag-Leffler uniforme, i.e. il existe un entier $k\geq 0$ \emph{fixe} tel que, pour tout $p\geq 0$ et tout $p'\geq p+k$, on ait:
+\begin{equation*}
+\Im[R^i f_*(F_{p'})\to R^i f_*(F_p)]=\Im[R^i f_*(F_{p+k})\to R^i f_*(F_p)].
+\end{equation*}
+\end{enumerate}
+\end{theoreme}
+
+En proc\'edant comme dans \EGA III 4.1.8, il est facile de \emph{se ramener au cas où} $X'$ \emph{est le spectre d'un anneau noethérien} $A$. Dans ce cas, on sait que
+\begin{equation} \label{eq:IX.1.13} R^if_*(F)=H^i(X, F)^\thicksim \quad \text{(cf. 1.10).}
+\end{equation}
+
+Soit $I$ l'id\'eal de $A$ tel que $\tilde{I}=\mathcal I'$ et soit
+\begin{equation} \label{eq:IX.1.14}
+S=\tbigoplus_{k \in \NN}I^k,
+\end{equation}
+\begin{equation} \label{eq:IX.1.15}
+H^i=\tbigoplus_{k \in \NN}H^i(X, {\Jb}^k F), \quad i \in \ZZ,
+\end{equation}
+o\`u $H^i$ est muni de la structure de $S$-module gradu\'e d\'efinie par \ref{eq:IX.1.11}, o\`u l'on a pris $U=X'$.
+
+La d\'emonstration est calqu\'ee sur celle de \EGA III 4.1.5, donnons un r\'esum\'e.
+
+On travaille sur $\varphi_i$ et $\psi_i$, auxquels correspondent des homomorphismes de modules:
+\begin{equation} \label{eq:IX.1.16}
+\begin{array}{c}
+\xymatrix{ & H^i(\hat X, \hat F) \ar[d]^-{\psi_i} \\
+H^i(X, F)^{\wedge}\ar[r]^-{\varphi_i}& \varprojlim_k H^i(X, F_k).
+}
+\end{array}
+\end{equation}
+
+\indent\textup{(a)} On suppose seulement que $H^i$ est un $S$-module gradu\'e de type fini. On en d\'eduit que \emph{la filtration définie sur} $H^i(X, F)$ \emph{par les modules}:
+\begin{equation} \label{eq:IX.1.17} R^i_k=\ker(H^i(X, F)\to H^i(X, F_k))
+\end{equation}
+\emph{est} $I$-\emph{bonne}. On utilise pour cela la suite exacte de cohomologie:
+\begin{equation} \label{eq:IX.1.18} H^i(X, {\Jb}^{k+1}F)\to H^i(X, F)\to H^i(X, F_k),
+\end{equation}
+qui prouve que \emph{le} $S$-\emph{module gradué} $\coprod_{k \in \NN} R_k^i$ est \emph {quotient} du sous-$S$-module gradu\'e
+\begin{equation*}
+\coprod_{k \in \NN}H^i(X, {\Jb}^{k+1}F)
+\end{equation*}
+de $H^i$, donc \emph{est de type fini}, car $S$ est noeth\'erien. D'o\`u ce premier point.
+
+Posons:
+\begin{equation} \label{eq:IX.1.19}
+M^i=H^i(X, F), \quad H^i_k=H^i(X, F_k).
+\end{equation}
+\enlargethispage{\baselineskip}%
+On a un diagramme commutatif:
+\begin{equation} \label{eq:IX.1.20}
+\begin{array}{c}
+\xymatrix@R=6mm{ H^i(X, F)^{\wedge} \ar[r]^-{s_i}\ar[dr]_{\varphi_i} &\varprojlim_{k}(M^i/R^i_k)\ar[d]^{t_i} \\
+&\varprojlim_{k}H^i_k\,,
+}
+\end{array}
+\end{equation}
+dans lequel $s_i$ est un \emph{isomorphisme}; en effet la filtration de $H^i(X, F)$ est $I$-bonne. De plus $t_i$ est un \emph{monomorphisme}; en effet le foncteur $\varprojlim$ est exact \`a gauche, et, pour tout $k\geq 0$, le morphisme naturel $M^i/R^i_k \to H^i_k$ est un monomorphisme, par d\'efinition de $R^i_k$.
+
+Pour \'etudier la surjectivit\'e de $t_i$ on introduit:
+\begin{equation} \label{eq:IX.1.21} Q_k^i = \coker (H^i(X, F) \to H^i(X, F_k)),
+\end{equation}
+d'o\`u un syst\`eme projectif de suites exactes:
+\begin{equation} \label{eq:IX.1.22} 0\to R_k^i \to M^i \to H^i_k \to Q_k^i \to 0.
+\end{equation}
+En utilisant la suite exacte de cohomologie:
+\begin{equation} \label{eq:IX.1.23}
+H^i(X, F)\to H^i(X, F_k)\to H^{i+1}(X, {\Jb}^{k+1}F),
+\end{equation}
+on voit que \emph{le $S$-module gradué}
+\begin{equation} \label{eq:IX.1.24}
+Q^i=\coprod_{k \in \NN}Q^i_k
+\end{equation}
+\emph{est un sous-}$S$\emph{-module gradué de} $H^{i+1}$. De plus, pour tout $k\geq 0$, on a:
+\begin{equation} \label{eq:IX.1.25}
+I^{k+1}Q^i_k=0
+\end{equation}
+car $Q_k^i$ est l'image de $H^i_k$.
+
+\textup{(b)} \label{stepb} On suppose seulement que $H^{i+1}$ est de type fini et l'on s'int\'eresse \`a $t_i$ (en oubliant $s_i$). Puisque $S$ est noeth\'erien, $Q^i$ est de type fini; en appliquant un lemme classique, on trouve qu'il existe un entier $r\geq 0$ et un entier $k_0\geq 0$ tels que
+\begin{equation} \label{eq:IX.1.26}
+I^rQ_k^i=0 \quad \text{pour } k\geq k_0.
+\end{equation}
+Il en r\'esulte que le \emph{système projectif} $(Q_k^i)_{k\in \NN}$ \emph{est essentiellement nul}, donc que le \emph{système projectif $(H_k^i)_{k\in \NN}$ vérifie la condition de Mittag-Leffler uniforme}. De la suite exacte (\ref{eq:IX.1.22}) on d\'eduit la suite exacte
+\begin{equation} \label{eq:IX.1.27}
+0 \to M^i/R_k^i \to H^i_k \to Q_k^i \to 0,
+\end{equation}
+d'o\`u la suite exacte:
+\begin{equation} \label{eq:IX.1.28}
+0\to\varprojlim_{k}M^i/R_k^i \lto{t_i} \varprojlim_{k}H^i_k \to \varprojlim_{k} Q_k^i.
+\end{equation}
+Or le syst\`eme projectif $(Q_k^i)_{k\in \NN}$ est essentiellement nul, donc $t_i$ est un \emph{isomorphisme}.
+
+\indent\textup{(c)} Prouvons que, si $H^i$ est de type fini, $\psi_i$ est un isomorphisme. Il suffit d'appliquer $\EGA 0_{\textup{III}}$ 13.3.1 en prenant pour base d'ouverts de $X$ les ouverts affines. Ceci est licite; en effet, d'apr\`es (b), le syst\`eme projectif $(H_k^{i-1})_{k\in \NN}$ v\'erifie la condition de Mittag-Leffler.
+
+Le th\'eor\`eme r\'esulte formellement de (a), (b) et (c). On remarquera qu'en fait la d\'emonstration n'utilise, \`a chaque pas, la finitude de $H^i$ que pour une seule valeur de~$i$.
+
+Donnons quelques exemples o\`u l'hypoth\`ese du th\'eor\`eme \ref{IX.1.1} est v\'erifi\'ee.
+
+\begin{corollaire}\setcounter {equation}{28} \label{IX.1.2}
+Supposons que $\Ii$ soit engendr\'e par une section $t'$ de $\Oo_{X'}$, et notons~$t$ la section correspondante de $\OX$. Soit $F$ un $\OX$-module coh\'erent et soit $n$ un entier.
+
+Supposons que:
+\begin{enumeratei}
+\item
+$t$ soit $F$-r\'egulier (i.e. l'homoth\'etie $X\to tX$ dans $F$ est un monomorphisme).
+\item
+$R^if_*(F)$ soit coh\'erent pour $i=n-1$ et $i=n$.
+\end{enumeratei}
+Alors l'hypoth\`ese du th\'eor\`eme \ref{IX.1.1} est v\'erifi\'ee.
+\end{corollaire}
+
+En effet, on remarque que \ignorespaces d\'efinit un isomorphisme $\Jb^kF\simeq\Jb F$ et on en d\'eduit que
+\begin{equation} \label{eq:IX.1.29}
+\Hh^i \simeq R^if_*(F)\otimes_{\Oo_{X'}}\Oo_{X'}[T],
+\end{equation}
+o\`u $T$ est une ind\'etermin\'ee. D'o\`u la conclusion.
+
+\setcounter{equation}{29}
+\refstepcounter{subsection}\label{IX.1.3}
+\begin{enonce*}{Corollaire 1.3\ndemark}
+Supposons que $X'=\Spec(A)$, o\`u $A$ est un anneau noeth\'erien s\'epar\'e et complet pour la topologie $I$-adique. Supposons que le $S$-module $H^i$ soit de type fini pour $i=n-1$ et $i=n$. (cf. \ref{eq:IX.1.14} et \ref{eq:IX.1.15}). Alors les hypoth\`eses du th\'eor\`eme \ref{IX.1.1} sont v\'erifi\'ees et on trouve un diagramme commutatif d'isomorphismes:
+\begin{equation} \label{eq:IX.1.30}
+\begin{array}{c}
+\xymatrix{ H^i(X, F)\ar[rr]^{\rho'_i}\ar[dr]_{\varphi'_i} && H^i(\hat{X}, \hat{F}) \ar[dl]^{\psi_i}& \\
+&\varprojlim_{k}H^i(X, F_k)&& \text{pour } i=n-1.}
+\end{array}
+\end{equation}
+
+\end{enonce*}
+
+On note simplement que $H^i(X, F)$ est de type fini donc isomorphe
+\`a son compl\'et\'e. On obtient (\ref{eq:IX.1.30}) en transcrivant dans
+la cat\'egorie des $A$-modules le diagramme de Modules
+(\ref{eq:IX.1.7}), et en rempla\c cant la verticale de gauche par
+$H^i(X, F)$.
+
+\begin{proposition}\setcounter {equation}{30} \label{IX.1.4}
+Soit $A$ un anneau noeth\'erien. Soit $t\in A$ et supposons que $A$ est s\'epar\'e et complet pour la topologie $(tA)$-adique. Posons:
+\begin{equation} \label{eq:IX.1.31}
+X'=\Spec (A), \quad Y'=V(t), \quad I=(tA).
+\end{equation}
+Soit $T$ une partie ferm\'ee de $X'$, posons
+\begin{equation} \label{eq:IX.1.32}
+X=X'-T, \quad Y=Y'\cap X=Y'-(Y'\cap T).
+\end{equation}
+Soit $F$ un $\OX$-Module coh\'erent. Soit enfin
+\begin{equation} \label{eq:IX.1.33}
+T'= \{ x\in X' \mid \codim(\{ \overline{x}\} \cap T, \{\overline{x}\})=1\}.
+\end{equation}
+Supposons que:
+\begin{enumeratea}
+\item
+$t$ soit $F$-r\'egulier,
+\item
+$\prof_{T'}(F) \geq n+1$,
+\item
+$A$ soit quotient d'un anneau noeth\'erien r\'egulier.
+\end{enumeratea}
+\noindent
+Alors, dans le diagramme (\ref{eq:IX.1.30}), les morphismes $\rho'_i$, $\varphi'_i$ et $\psi_i$ sont des isomorphismes pour $i<n$ et des monomorphismes pour $i=n$. De plus $\psi_n$ est un isomorphisme.
+\end{proposition}
+
+En vertu de \ref{eq:IX.1.3} et \ref{eq:IX.1.2}, il suffit de prouver que $R^if_*(F)$ est coh\'erent pour $i\leq n$, ce qui r\'esulte du th\'eor\`eme de finitude \ref{VIII.2.1}.
+
+En particulier:
+
+\begin{exemple} \label{IX.1.5} On appliquera \ref{eq:IX.1.4} lorsque $A$ est un anneau \emph{local} et que $t$ appartient au radical $\rr(A)$ de $A$. On prendra alors $T=\{ \rr(A)\}$. \emph{Dans ce cas}, pour $n=1$ on trouve l'\'enonc\'e suivant:
+
+\emph{Si $A$ \ignorespaces est séparé et complet pour la topologie $t$-adique et quotient d'un anneau régulier (par exemple si $A$ est complet), si de plus $t$ est $F$-régulier et si $\prof F_x\geq 2$ pour tout $x\in \Spec (A)$ tel que $\dim A/x=1$, alors l'homomorphisme naturel $$
+F(X, F)\to \Gamma(X, F)$$ est un isomorphisme.}
+
+En effet, conservant les notations de \ref{eq:IX.1.4}, on~a $T=\{ \rr(A)\}$ et la formule (\ref{eq:IX.1.33}) dit que
+$$
+T'=\{x\in\Spec(A)\mid\dim A/x=1\}.
+$$
+\end{exemple}
+
+\section{Th\'eor\`eme d'existence}
+
+\'Enon\c cons d'abord \EGA III 3.4.2 sous une forme un peu plus
+g\'en\'erale.
+
+Soit $f:\formelX \to \formelX'$ un morphisme adique\footnote{Cette hypoth\`ese n'est pas essentielle, cf. \ref{XII}, p.\,\pageref{XII.14}.} de pr\'esch\'emas formels, avec $\formelX'$ noeth\'erien. Soit $\Ii'$ un id\'eal de d\'efinition de $\formelX'$; puisque $f$ est adique, $f^*\Ii'=\Jj$ est un id\'eal de d\'efinition de $\formelX$.
+
+Pour tout $n\in \NN$, posons \label{IX.2}
+\begin{equation} \label{eq:IX.2.1}
+\formelX_n=(\formelX, \Oo_\formelX/{\Jb}^{n+1}),
+\end{equation}
+c'est un pr\'esch\'ema ordinaire qui a m\^eme espace topologique sous-jacent que $\formelX$.
+
+Soit $\formelF$ un $\Oo_\formelX$-Module \emph{cohérent}. Pour tout $k\in\NN$, les $\Oo_{\formelX_k}$-Modules
+\begin{equation} \label{eq:IX.2.2}
+F_k=\formelF/{\Jb}^{k+1}\formelF
+\end{equation}
+sont \emph{cohérents}. Pour tout $i$, on~a un homomorphisme
+\begin{equation} \label{eq:IX.2.3} \psi_i: R^if_*(\formelF) \to \varprojlim_k R^if_*(F_k),
+\end{equation}
+d\'eduit par fonctorialit\'e de l'homomorphisme naturel:
+\begin{equation} \label{eq:IX.2.4} \formelF \to F_k.
+\end{equation}
+
+Posons
+\begin{equation} \label{eq:IX.2.5}
+\bS= \gr_{{\Ib}}\Oo_{\formelX'}=\coprod_{k \in \NN} {\Ib}^k/{\Ib}^{k+1},
+\end{equation}
+\begin{equation} \label{eq:IX.2.6} \gr_{\Jj'}(\formelF)=\coprod_{k \in \NN} \Jj'^k\formelF/\Jj'^{k+1}\formelF,
+\end{equation}
+\begin{equation} \label{eq:IX.2.7} \KK^i=R^if_*(\gr_{{\Jb}}(\formelF))=\coprod_{k \in \NN}R^if_* ({\Jb}^k \formelF/{\Jb}^{k+1}\formelF\;).
+\end{equation}
+Il est clair que $\KK^i$ est muni d'une structure de $\bS$-Module gradu\'e.
+
+\begin{theoreme} \label{IX.2.1}
+Supposons que $\KK^i$ soit un $\bS$-Module gradu\'e \emph{de type fini} pour $i=n-1$, $i=n$, $i=n+1$, alors:
+\begin{enumeratei}
+\item
+$R^nf_*(\formelF)$ est coh\'erent.
+\item
+L'homomorphisme $\psi_n$ (\ref{eq:IX.2.3}) est un isomorphisme topologique. La filtration naturelle du deuxi\`eme membre de (\ref{eq:IX.2.3}) est ${\Jb}$-bonne.
+\item
+Le syst\`eme projectif des $R^nf_*(F_k)$ v\'erifie la condition de Mittag-Leffler uniforme.
+\end{enumeratei}
+\end{theoreme}
+
+La d\'emonstration est tr\`es facile \`a partir de $\EGA 0_{\textup{III}} 13.7.7$ (cf. \EGA III $3.4.2$), \`a condition de rectifier comme suit le texte page 78\footnote{Comme indiqu\'e dans (EGA, $\rm{Err}_{\rm{III}}24$).}
+\par
+\emph{Supprimer}\begin{enumerate}
+\item[ligne 6] \og et $(R^{n+1}T(A_k))_{k\in \ZZ}$\fg\
+\item[ligne 13] \og et $p+q=n+1$\fg\
+\item[ligne 23] \og et pour $n+1$\fg.
+\end{enumerate}
+
+\setcounter{equation}{7}
+\refstepcounter{subsection}\label{IX.2.2}
+\begin{enonce*}{Th\'eor\`eme 2.2\ndemark}
+Soit $A$ un anneau adique noeth\'erien et soit $I$ un id\'eal de d\'efinition de $A$. Soit $T$ une partie ferm\'ee de $X'=\Spec(A)$. Supposons que $I$ soit engendr\'e par un $t \in A$. Reprenons les notations \ref{eq:IX.1.31}, \ref{eq:IX.1.32} et \ref{eq:IX.1.33}. Soit $\formelF$ un $\Oo_{\hat{X}}$-Module coh\'erent. Posons 
+\begin{equation} \label{eq:IX.2.8}
+F_0=\formelF / {\Jb} \formelF,
+\end{equation}
+o\`u ${\Jb}=t \Oo_{\hat{X}}$ est un id\'eal de d\'efinition de $\hat{X}$. \emph{Supposons que} $A$ soit quotient d'un anneau noeth\'erien r\'egulier et que:
+\begin{enumerate}
+\item
+$t$ soit $\formelF$-r\'egulier,
+\item
+$\prof_{T'}\formelF_0\geq 2$.
+\end{enumerate}
+\noindent
+Alors il existe un $\OX$-Module coh\'erent $F$ tel que $\hat{\formelF}\simeq \formelF$.
+\end{enonce*}
+
+Il suffit de prouver que $\hat{f}_*(\formelF)$ est un $\Oo_{\hat{X}}$-Module coh\'erent, o\`u $\hat{f}: \hat{X} \to \hat{X'}$ est le morphisme de pr\'esch\'emas formels d\'eduit de l'injection de $X$ dans $X'$ par compl\'etion par rapport \`a $t$. En effet, $A$ est s\'epar\'e et complet pour la topologie $t$-adique, il existera donc un $A$-module $F'$ dont le compl\'et\'e sera isomorphe \`a $\hat{f}_*(\formelF)$. Puisque $X$ est un ouvert de $X'$, on pourra prendre $F=\tilde{F'}_{|X}$.
+
+Il reste \`a montrer que \ref{IX.2.1} est applicable au morphisme de pr\'esch\'emas formels $\hat{f}$ et \`a $\formelF$. Or, d'apr\`es l'hypoth\`ese (1), pour tout $k\in \NN$ on~a un isomorphisme:
+\begin{equation*} {\Jb}^k \formelF /{\Jb}^{k+1}\formelF \to \formelF / {\Jb} \formelF,
+\end{equation*}
+d'o\`u il r\'esulte que l'hypoth\`ese de \ref{IX.2.1} sera v\'erifi\'ee si l'on sait que
+\[
+R^if_*(F_0)\text{ est cohérent pour }i \leq 1.
+\]
+Or ceci r\'esulte de (2) et du th\'eor\`eme de finitude \ref{VIII.2.1}. D'o\`u la conclusion.
+
+Il reste \`a sp\'ecialiser cet \'enonc\'e en supposant que $A$ est un anneau local.
+
+\begin{corollaire}\setcounter{equation}{8} \label{IX.2.3}
+Soit $A$ un anneau local noeth\'erien et soit $t \in \rr(A)$, un \'el\'ement du radical de $A$. Supposons que $A$ est s\'epar\'e et complet pour la topologie $t$-adique, et, de plus, quotient d'un anneau r\'egulier (par exemple, supposons que $A$ soit un anneau local noeth\'erien complet). Posons
+\begin{equation} \label{eq:IX.2.9} X'=\Spec A, \quad T = \{ \rr(A) \},
+\end{equation}
+et reprenons les notations (\ref{eq:IX.1.31}), (\ref{eq:IX.1.32}) et (\ref{eq:IX.1.33}). Soit $\formelF$ un $\Oo_{\hat{X}}$-Module. Supposons que:
+\begin{enumerate}
+\item
+$t$ soit $\formelF$-r\'egulier,
+\item
+$\prof_{T'} \formelF_0 \geq 2$, avec $\formelF_0=\formelF/{\Jb}\formelF$ et ${\Jb}=t\Oo_{\hat{X}}$.
+
+Alors il existe un $\OX$-Module coh\'erent $F$ tel que $\hat{F}\simeq \formelF$.
+\end{enumerate}
+\end{corollaire}
+
+Remarquons qu'ici $T'$ est l'ensemble des id\'eaux premiers $\pp$ de $A$ tels que \hbox{$\dim A/\pp =1$}.
+
+
+\chapterspace{-2}

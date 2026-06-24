@@ -1,0 +1,822 @@
+\chapter[Applications aux sch\'emas alg\'ebriques projectifs]
+{Applications\\ aux sch\'emas alg\'ebriques projectifs} \label{XII}
+
+\renewcommand{\theequation}{\arabic{equation}}
+
+\section[Th\'eor\`eme de dualit\'e projective et th\'eor\`eme de finitude]
+{Th\'eor\`eme de dualit\'e projective et th\'eor\`eme de finitude}\label{XII.1}
+
+Le th\'eor\`eme suivant, essentiellement contenu dans FAC\footnote{J.-P.~Serre, Faisceaux alg\'ebriques Coh\'erents, Ann. of Math. t.61 (1955) 197-278.} (\`a cela pr\`es que dans le temps, Serre ne disposait pas du langage des Ext de faisceaux de modules), est l'analogue global du th\'eor\`eme de dualit\'e locale (Expos\'e \ref{IV}), qui a \'et\'e calqu\'e sur lui.
+
+\begin{theoreme} \label{XII.1.1}
+Soit $k$ un corps, $X=\PP_k^r$ le sch\'ema projectif type de dimension $r$ sur $k$, $F$~un module coh\'erent variable sur $X$; alors on~a un isomorphisme de $\partial$-foncteurs en~$F$:
+\steco
+\begin{equation} \label{eq:XII.1} {}\H^i(X, F)' \isomfrom \Ext^{r-i}(X;F, \omx^r),
+\end{equation}
+o\`u on pose
+\steco
+\begin{equation} \label{eq:XII.2} {}\Omega_{X/k}^r= \Oo_{\PP_k^r}(-r-1).
+\end{equation}
+\end{theoreme}
+
+\begin{remarquestar}
+Bien entendu, ce Module est aussi le Module des diff\'erentielles relatives de degr\'e $r$ de $X$ sur $k$. Sous cette forme, le th\'eor\`eme reste vrai si $X$ est un sch\'ema propre et lisse sur $k$ (pour le cas projectif, voir A. Grothendieck, \og Th\'eor\`emes de dualit\'e pour les faisceaux alg\'ebriques coh\'erents\fg, S\'eminaire Bourbaki Mai 1957)\footnote{Pour un th\'eor\`eme de dualit\'e plus g\'en\'eral, cf. le S\'eminaire Hartshorne cit\'e \`a la fin de \Exp \ref{IV}.}. Lorsque $F$ est localement libre, on retrouve le th\'eor\`eme de dualit\'e de Serre $\H^i(X, F)' \isomto \H^{r-i}(\mathop{\underline{\mathrm{Hom}}}\nolimits_{\OX}(F, \omx^r))$. Le th\'eor\`eme \ref{XII.1.1} (qui redonne d'ailleurs le cas d'un $X$ projectif sur $k$, comme dans {\loccit}) suffira pour notre propos.
+\end{remarquestar} L'homomorphisme (\ref{eq:XII.1}) se d\'eduit de l'accouplement de Yoneda
+\steco
+\begin{equation} \label{eq:XII.3} {}\H^i(X, F) \times \Ext^{r-i}(X;F, \omx^r) \to \H^r(X, \omx^r),
+\end{equation}
+et d'un isomorphisme bien connu (cf. FAC, ou \EGA III 2.1.12):
+\steco
+\begin{equation} \label{eq:XII.4} {}\H^r(X, \omx^r) = \H^r(\PP_k^r, \Oo_{\PP_k^r}(-r-1)) \isomto k.
+\end{equation}
+Pour montrer que (\ref{eq:XII.1}) est un isomorphisme, on proc\`ede comme dans le cas du th\'eor\`eme de dualit\'e locale, en notant que $\H^r(X, F)$ comme foncteur en $F$ est exact \`a droite (puisque $\H^n(X, F)=0$ pour $n>r$), et que tout Module coh\'erent est isomorphe \`a un quotient d'une somme directe de Modules de la forme $\Oo(-m)$, avec $m$ grand. Cela nous ram\`ene par r\'ecurrence descendante sur $i$ \`a faire la v\'erification pour un faisceau de la forme $\Oo(-m)$, o\`u cela est contenu dans les calculs explicites bien connus (FAC, ou \EGA III 2.1.12). On peut d'ailleurs supposer $-m \leq -r-1$, auquel cas $\H^i(X, \Oo(-m))=0$ pour $i\neq r$.
+
+\begin{corollaire} \label{XII.1.2} Pour $F$ coh\'erent donn\'e, et $m$ assez grand, on~a un isomorphisme canonique
+\steco
+\begin{equation} \label{eq:XII.5} {}\H^i(X, F(-m))'\isomto\H^0(X, \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^{r-i}(F, \omx^r)(m))
+\end{equation}
+(o\`u le $'$ d\'esigne le vectoriel dual).
+\end{corollaire}
+En effet, sur un sch\'ema projectif $X$, on~a pour tout couple de faisceaux coh\'erents $F, G$ et pour $n$ assez grand un isomorphisme canonique:
+\steco
+\begin{equation} \label{eq:XII.6} {}\Ext^n(X;F(-m), G)\simeq \Ext^n(X;F, G(m)) \isomto \H^0(X, \mathop{\underline{\mathrm{Ext}}}\nolimits_{\OX}^{n}(F, G)(m)),
+\end{equation}
+(l'isomorphisme des deux premiers membres \'etant trivialement vrai pour tout $m$), comme il r\'esulte de la suite spectrale des $\Ext$ globaux
+\[
+\H^p(X, \mathop{\underline{\mathrm{Ext}}}\nolimits^q_{\OX}(F, G(m))) \To \Ext^{\bullet}(X;F, G(m)),
+\]
+qui d\'eg\'en\`ere pour $m$ assez grand gr\^ace au fait que
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^q_{\OX}(F, G(m)) \simeq \mathop{\underline{\mathrm{Ext}}}\nolimits^q_{\OX}(F, G)(m),
+\]
+et que les $\mathop{\underline{\mathrm{Ext}}}\nolimits^q_{\OX}(F, G)$ sont des faisceaux coh\'erents. Donc (\ref{eq:XII.5}) r\'esulte de (\ref{eq:XII.6}) et (\ref{eq:XII.1}).
+
+\begin{corollaire} \label{XII.1.3}
+Conditions \'equivalentes pour $i, F$ donn\'es:
+\begin{enumeratei}
+\item
+$\H^i(X, F(-m))=0$ pour $m$ grand.
+\item[\textup{(i bis)}] $\H^i(X, F(\cdot))= \coprod_{m\in\ZZ}\H^i(X, F(-m))$ est un $S$-module de type fini, o\`u $S=k[t_o, \ldots, t_r]$.
+\item
+$\mathop{\underline{\mathrm{Ext}}}\nolimits^{r-i}_{\OX}(F, \omx^r)=0$.
+\item[\textup{(ii bis)}] $\mathop{\underline{\mathrm{Ext}}}\nolimits^{r-i}_{\OX}(F, \OX)=0$.
+\item
+$\H^i_x(F_x)=0$ pour tout point ferm\'e $x$ de $X$.
+\item
+$\H^{i+1}_x(\widetilde{F}_x)=0$ pour tout point ferm\'e $x$ du c\^{o}ne projetant \'epoint\'e $\widetilde{X}=\Spec(S)-\Spec(k)$ de $X$, o\`u $\widetilde{F}$ d\'esigne l'image inverse de $F$ par le morphisme canonique $\widetilde{X}\to X$.
+\end{enumeratei}
+\end{corollaire}
+
+\begin{proof}
+(i) ~$\Ssi$~ (i bis) puisque le sous-module de $\H^i(X, F(\cdot))$ somme des composantes homog\`enes de degr\'e $\geq \nu$ est de type fini sur $S$ (en fait, pour $i\neq 0$, il est m\^eme de type fini sur $k$), (cf. FAC ou \EGA III 2.2.1 et 2.3.2).
+
+(i) ~$\Ssi$~ (ii) en vertu de corollaire \ref{XII.1.2}.
+
+(ii) ~$\Ssi$~ (ii bis) car $\Omega_{X/k}^r$ est localement isomorphe \`a $\OX$.
+
+(ii bis) ~$\Ssi$~ (iii) en vertu du th\'eor\`eme de dualit\'e locale pour $\OXx$ (qui est un anneau local r\'egulier de dimension $r$), d'apr\`es lequel le \og dual\fg de $\mathop{\underline{\mathrm{Ext}}}\nolimits^{r-i}_{\OX}(F, \OX)_x$ s'identifie \`a $\H^i_x(F_x)$ (V 2.1).
+
+(ii bis) \'equivaut \`a la relation analogue
+\[
+\mathop{\underline{\mathrm{Ext}}}\nolimits^{r-i}_{\Oo_{\widetilde{X}}}(\widetilde{F}, \Oo_{\widetilde{X}})=0
+\]
+(gr\^ace au fait que $\widetilde{X}\to X$ est fid\`element plat, par suite l'image inverse de $\mathop{\underline{\mathrm{Ext}}}\nolimits^{r-i}_{\OX}(F, \OX)$ est isomorphe \`a $\mathop{\underline{\mathrm{Ext}}}\nolimits^{r-i}_{\Oo_{\widetilde{X}}}(\widetilde{F}, \Oo_{\widetilde{X}})$) et cette derni\`ere relation \'equivaut \`a (iv) par le th\'eor\`eme de dualit\'e locale pour l'anneau local $\OXx$, qui est r\'egulier de dimension $r+1$.
+\skipqed
+\end{proof}
+
+En particulier, appliquant ceci \`a tous les $i\leq n$, on trouve:
+
+\begin{corollaire} \label{XII.1.4}
+Conditions \'equivalentes pour $n, F$ donn\'es:
+\begin{enumeratei}
+\item
+$\H^i(X, F(-m))=0$ pour $i\leq n$ et $m$ grand.
+\item[\textup{(i bis)}] $\H^i(X, F(\cdot))$ est un $S$-module de type fini pour $i\leq n$.
+\item
+$\prof(F_x)>n$ pour tout point ferm\'e $x$ de $X$.
+\item
+$\prof(\widetilde{F}_x)>n+1$ pour tout point ferm\'e $x$ de $\widetilde{X}$.
+\end{enumeratei}
+\end{corollaire}
+
+L'int\'er\^et des corollaires \ref{XII.1.3} et \ref{XII.1.4} est d'exprimer une condition globale (i) ou~(i~bis) en termes de conditions locales, \ignorespaces savoir l'annulation d'invariants locaux comme $\H_x^i(X, F_x)$ ou $\H_x^i(X, \widetilde{F}_x)$, ou une in\'egalit\'e sur la profondeur. Sous cette forme, ces r\'esultats restent trivialement valables pour un sch\'ema projectif quelconque $X$, et un faisceau inversible tr\`es ample $\OX(1)$ sur $X$, comme on voit en induisant ce dernier \`a l'aide d'une immersion projective $X\to\PP_k^r$ convenable. (Bien entendu, les conditions \ref{XII.1.3}~(ii) et \ref{XII.1.3}~(ii bis) ne sont plus \'equivalentes aux autres dans ce cas g\'en\'eral, sauf si on suppose que $X$ est r\'egulier par exemple). On peut d'ailleurs g\'en\'eraliser au cas d'un morphisme projectif $X\to S$ de la fa\c con suivante:
+
+\begin{proposition} \label{XII.1.5}
+Soient $f:X\to S$ un morphisme projectif, avec $S$ noeth\'erien, $\OX(1)$ un Module inversible sur $X$ tr\`es ample relativement \`a $S$, $F$ un Module coh\'erent sur $X$, plat par rapport \`a $S$, $s$ un \'el\'ement de $S$, $X_s$ la fibre de $X$ en $s$ (consid\'er\'e comme sch\'ema projectif sur $k(s)$), $F_s$ le faisceau induit sur $X_s$ par $F$, enfin $i$ un entier. Supposons que pour tout point ferm\'e $x$ de $X_s$, on ait $\H^i_x(F_{s, x})=0$ (par exemple $\prof(F_{s, x})>i$). Alors il existe un voisinage ouvert $U$ de $s$, tel que la m\^eme condition soit v\'erifi\'ee pour les $s'\in U$. De plus, pour un tel $U$, on a
+\[
+\R^if_\ast(F(-m))= 0 \; \text{pour}\; m \; \text{grand, }
+\]
+et si $\Ss$ est une alg\`ebre gradu\'ee quasi-coh\'erente sur $S$, engendr\'ee par $\Ss^1$, et qui d\'efinit~$X$ avec $\OX(1)$ comme $X=\Proj(\Ss)$, $\OX(1)=\Proj(\Ss(1))$, alors le $S$-module
+\[
+\R^if_\ast(F(\cdot)) = \coprod_{m\in\ZZ}\R^if_\ast(F(m))
+\]
+est de type fini sur $U$.
+\end{proposition}
+
+Plongeons $X$ dans un $X'=\PP_S^r$ de fa\c con que $\OX(1)$ soit induit par $\Oo_{P}(1)$ (c'est possible \`a condition de remplacer $S$ par un voisinage affine de $s$). Posons\refstepcounter{toto}\label{P5}\footnote{La premi\`ere partie de \ref{XII.1.5} peut s'obtenir aussit\^{o}t en appliquant l'\'enonc\'e purement local \EGA IV 12.3.4 aux $\underline{E}^j$ pr\'ec\'edents, ce qui court-circuite la plus grande partie de la d\'emonstration qui suit.} pour tout entier $j$, et tout $t\in S$:
+\steco
+\begin{equation} \label{eq:XII.7} {}\underline{E}^j(t)= \mathop{\underline{\mathrm{Ext}}}\nolimits^j_{\Oo_{X'_t}} (F_{t'}, \Oo_{X'_t}(-r-1))
+\end{equation}
+Donc $\underline{E}^j(t)$ est un Module coh\'erent sur $X_t$, je dis que pour $t$ variable, la famille de ces Modules est \og constructible\fg au sens suivant: il existe pour tout $t\in S$ un ouvert non vide $V$ de l'adh\'erence $\overline{t}$, qu'on munit de la structure r\'eduite induite, et un Module coh\'erent $\underline{E}^j(V)$ sur $X_V=X\times_SV$, \emph{plat} relativement \`a $V$, tel que pour tout $t'\in V$, $\underline{E}^j(t)$ soit isomorphe au Module induit par $\underline{E}^j(V)$ sur $X_t$. Pour v\'erifier cette assertion, posant $Z=\overline{t}$ muni de la structure induite, on consid\`ere les Modules coh\'erents
+\[
+\underline{E}^j(Z)= \mathop{\underline{\mathrm{Ext}}}\nolimits^j_{\Oo_{X'_Z}} (F_Z, \Oo_{X'_Z}(-r-1))
+\]
+(o\`u l'indice $Z$ signifie encore qu'on s'induit au dessus de $Z$), et on prend pour $V$ un ouvert non vide de $Z$ tel que les Modules $\underline{E}^j(Z)$ soient plats au dessus de $V$: c'est possible, car on v\'erifie tout de suite que $\underline{E}^j(Z)=0$ pour $j$ non compris dans l'intervalle $[0, r]$, et on peut appliquer \SGA 1 IV 6.11. On prend alors pour $\underline{E}^j(V)=\underline{E}^j(Z)|_{X_V}$, et on v\'erifie facilement qu'il r\'epond \`a la question.
+
+De la remarque pr\'ec\'edente r\'esulte qu'il existe une partition finie de $S$ form\'ee par des ensemble$V_\alpha$ de la forme $V=V(t)$ comme dessus, (r\'ecurrence noeth\'erienne), et appliquant le th\'eor\`eme de Serre \EGA III 2.2.1 aux $\underline{E}^j(V_i)$, on voit qu'il existe un entier $m_0$ tel que
+\[
+\R^if_{V_\alpha\ast}(\underline{E}^j(V_\alpha))=0\textup{ pour } i\neq 0, m\geq m_0, \textup{ pour }j,
+\]
+d'o\`u il r\'esulte, utilisant la platitude de $\underline{E}^j(V_\alpha)$ par rapport \`a $V_\alpha$ et des relations \`a la Künneth faciles (cf. \EGA III par.\,7), que
+\[
+\H^i(X_t, \underline{E}^j(t)(m))=0\textup{ pour } i\neq 0, m\geq m_0, \textup{ pour }j,
+\]
+pour tout $t\in V_\alpha$, donc pour tout $t$ puisque les $ V_\alpha$ recouvrent $S$. De ceci et de la suite spectrale des Ext globaux r\'esulte, gr\^ace \`a \ref{XII.1.1}, comme dans la d\'emonstration de \ref{XII.1.2}, un isomorphisme
+\steco
+\begin{equation} \label{eq:XII.8} {}\H^i(X_t, F_t(-m))' \isomfrom \H^0(X_t, \underline{E}^{r-i}(t)(m))\textup{ pour } m\geq m_0,
+\end{equation}
+tout entier $i$, et tout $t\in S$.
+
+Utilisons maintenant l'hypoth\`ese faite sur $F_s$, qui s'\'ecrit
+\steco
+\begin{equation} \label{eq:XII.9} {}\underline{E}^{r-i}(s)=0,
+\end{equation}
+et gr\^ace \`a (\ref{eq:XII.8}) \'equivaut \`a
+\steco
+\begin{equation} \label{eq:XII.10} {}\H^i(X_s, F_s(-m))=0 \; \text{pour}\; m\geq m_0.
+\end{equation}
+Comme $F$ donc $F(-m)$ est plat par rapport \`a $S$, il s'ensuit par
+les relations \`a la Künneth d\'ej\`a invoqu\'ees, que (pour $m$ donn\'e) la
+m\^eme relation (\ref{eq:XII.10}) vaut en rempla\c cant $s$ par un
+$t$ voisin de $s$, en particulier pour toute g\'en\'erisation $t$ de
+$s$. En vertu de (\ref{eq:XII.8}), on aura donc, pour une telle
+g\'en\'erisation \steco
+\begin{equation} \label{eq:XII.11} {}\underline{E}^{r-i}(t)=0,
+\end{equation}
+or l'ensemble des $t\in s$ pour lesquels cette relation est vraie est \'evidemment un ensemble constructible (car il induit sur chaque $V_\alpha$ un ouvert); comme il contient les g\'en\'erisations de $s$, il contient un voisinage ouvert $U$ de $s$. Cela prouve la premi\`ere assertion de \ref{XII.1.5}. De plus, pour $t\in U$, on conclut de (\ref{eq:XII.11}) et (\ref{eq:XII.8}) que
+\steco
+\begin{equation} \label{eq:XII.12} {}\H^i(X_t, F_t(-m)=0 \; \text{pour}\; m\geq m_0, \; t\in U,
+\end{equation}
+ce qui en vertu des relations \`a la Künneth, implique (en fait, est bien plus fort que)
+\steco
+\begin{equation} \label{eq:XII.13} {}\R^if_\ast(F(-m))=0 \; \text{sur}\; U, \; \text{pour} \; m\geq m_0.
+\end{equation}
+Cela prouve la deuxi\`eme assertion de \ref{XII.1.5}. Enfin la derni\`ere en r\'esulte aussit\^{o}t, en proc\'edant comme au d\'ebut de la d\'emonstration de \ref{XII.1.3}.
+
+\refstepcounter{subsection}\label{XII.1.6}
+\begin{enonce*}[remark]{Remarque 1.6}  La d\'emonstration se simplifie notablement (en \'eliminant toute consid\'eration de constructibilit\'e) lorsqu'on suppose d\'ej\`a que l'hypoth\`ese faite pour $s\in S$ est v\'erifi\'ee en tous les $s'\in S$. En fait, lorsqu'on fait l'hypoth\`ese que $F_s$ est de profondeur $>i$ aux points ferm\'es de $X$, on dispose d'un \'enonc\'e g\'en\'eral, \emph{de nature locale sur} $X$, qui dit que la m\^eme condition est v\'erifi\'ee pour tous les $X_t$, \`a condition de remplacer $X$ par un voisinage ouvert convenable de la fibre $X_s$ (en d'autres termes, une certaine partie de $X$, d\'efinie par des conditions sur les Modules induits par $F$ sur les fibres, est ouverte, cf. \EGA IV). Comme $f$ est ici propre, on pourra donc prendre ce voisinage de la forme $f^{-1}(U)$, ce qui redonne la premi\`ere assertion de \ref{XII.1.5} sans p\'enible d\'evissage. Dans ce cas g\'en\'eral, on peut encore prouver par la m\'ethode de \loccit que la premi\`ere assertion de \ref{XII.1.5} (d\'emontr\'ee ici par voie globale, en utilisant que $X$ est projectif sur $S$) r\'esulte encore d'un \'enonc\'e purement local sur $X$ (que le lecteur explicitera s'il le juge utile).
+\end{enonce*}
+
+\section[Th\'eorie de Lefschetz pour un morphisme projectif: comparaison]
+{Th\'eorie de Lefschetz pour un morphisme projectif: th\'eor\`eme de comparaison de Grauert} \label{XII.2}
+
+\setcounter{equation}{13}
+C'est le th\'eor\`eme suivant:
+
+\begin{theoreme} \label{XII.2.1}
+Soient $f:X\to S$ un morphisme projectif, avec $S$ noeth\'erien, $\OX(1)$ un Module inversible sur $X$, ample relativement \`a $S$, $Y$ le pr\'esch\'ema des z\'eros d'une section $t$ de $\OX(1)$, $J$ l'id\'eal d\'efinissant $Y$, $X_n$ le sous-pr\'esch\'ema de $X$ d\'efini par $J^{n+1}$, $\widehat{X}$ le compl\'et\'e formel de $X$ le long de $Y$, $\widehat{f}:\widehat{X}\to S$ le morphisme compos\'e $\widehat{X}\to X\to S$, $F$ un Module coh\'erent sur $X$, plat relativement \`a $S$. On suppose de plus que pour tout $s\in S$, le Module $F_s$ induit sur la fibre $X_s$ est de profondeur $>n$ en les points de ladite fibre, et que $t$ est $F$-r\'egulier. Sous ces conditions:
+\begin{enumeratei}
+\item
+L'homomorphisme canonique
+\[
+\R^if_\ast(F) \to \R^i\widehat{f}_\ast(\widehat{F})
+\]
+est un isomorphisme pour $i<n$, un monomorphisme pour $i=n$.
+\item
+L'homomorphisme canonique
+\[
+\R^i\widehat{f}_\ast(\widehat{F}) \to \varprojlim_m \R^if_\ast(F_m)
+\]
+est un isomorphisme pour $i\leq n$.
+\end{enumeratei}
+\end{theoreme}
+
+\begin{proof}
+On se ram\`ene aussit\^{o}t au cas o\`u $S$ est affine, et \`a prouver alors le
+
+\begin{corollaire} \label{XII.2.2}
+Sous les conditions de \ref{XII.2.1} supposons de plus $S$ affine. alors:
+\begin{enumeratei}
+\item
+L'homomorphisme canonique
+\[
+\H^i(X, F) \to \H^i(\widehat{X}, \widehat{F})
+\]
+est un isomorphisme pour $i<n$, un monomorphisme pour $i=n$.
+\item
+L'homomorphisme canonique
+\[
+\H^i(\widehat{X}, \widehat{F}) \to \varprojlim_m \H^i(X_m, F_m)
+\]
+est un isomorphisme pour $i\leq n$.
+\end{enumeratei}
+\end{corollaire}
+
+Quitte \`a remplacer $\OX(1)$ par une puissance tensorielle, et $t$ par une puissance de~$t$, on peut supposer $\OX(1)$ tr\`es ample relativement \`a $S$. D'autre part $t$ donc $t^m$ \'etant $F$-r\'egulier, la multiplication par $t^m$, consid\'er\'ee comme homomorphisme de $F(-m)$ dans $F$, est injectif, donc on~a pour tout $m\geq 0$ une suite exacte:
+\steco
+\begin{equation} \label{eq:XII.14}
+0\to F(-m) \lto{t^m} F \to F_m \to0,
+\end{equation}
+d'o\`u une suite exacte de cohomologie
+\[
+\H^i(X, F(-m)) \to \H^i(X, F) \to \H^i(X, F_m) \to \H^{i+1}(X, F(-m)).
+\]
+Or en vertu de \ref{XII.1.5} on~a $\H^i(X, F(-m))=0$ pour $i\leq n$, et $m$ assez grand, ce qui prouve~le
+
+\begin{lemme} \label{XII.2.3}
+Pour $m$ grand, l'homomorphisme canonique
+\[
+\H^i(X, F) \to \H^i(X, F_m)
+\]
+est bijectif si $i<n$, injectif si $i=n$.
+\end{lemme}
+
+\enlargethispage{-2\baselineskip}%
+Cela montre que pour $i<n$, le syst\`eme projectif $(\H^i(X_m, F_m))_{m\geq 0}$ est essentiellement constant, \afortiori satisfait la condition de Mittag-Leffler, donc (compte tenu que $\widehat{F}= \varprojlim F_m$) on conclut (ii) par $\EGA 0_{\textup{III}}$ 13.3. D'autre part (i) en r\'esulte trivialement, compte tenu de \ref{XII.2.3}.
+
+\refstepcounter{subsection}\label{XII.2.4}
+\begin{enonce*}{Corollaire 2.4\ndemark}
+Soient $f:X\to S$ un morphisme projectif et plat, avec $S$ localement noeth\'erien, $\OX(1)$ un Module inversible sur $X$, ample relativement \`a $S$, $t$ une section de ce Module qui soit $\OX$-r\'eguli\`ere, $Y$ le sous-pr\'esch\'ema des z\'eros de $t$, $\widehat{X}$ le compl\'et\'e formel de $X$ le long de $Y$. On suppose que pour tout $s\in S$, $X_s$ est de profondeur $\geq 1$ (resp. de profondeur $\geq 2$) en ses points ferm\'es. Alors pour tout voisinage ouvert $U$ de $Y$, le foncteur
+\[
+F \mto \widehat{F}
+\]
+de la cat\'egorie des Modules coh\'erents localement libres sur $U$, dans la cat\'egorie des Modules coh\'erents localement libres sur $\widehat{X}$, est fid\`ele (resp. pleinement fid\`ele, i.e. la condition de Lefschetz ($\Lef$) de \ref{X}~\ref{X.2} est v\'erifi\'ee).
+\end{enonce*}
+Introduisons pour deux Modules localement libres $F$ et $G$ sur $U$ le Module
+\[
+H=\mathop{\underline{\mathrm{Hom}}}\nolimits_{\Oo_U}(F, G)
+\]
+on est ramen\'e \`a prouver que l'homomorphisme canonique
+\steco
+\begin{equation} \label{eq:XII.15} {}\H^0(U, H) \to \H^0(\widehat{U}, \widehat{H})
+\end{equation}
+est injectif (resp. bijectif). Or les Modules $H_t$ sont de profondeur $\geq 1$ (resp. $\geq 2$) aux points ferm\'es de $X_t$, on peut donc appliquer \ref{XII.2.1}, qui implique la conclusion \ref{XII.2.4} dans le cas o\`u $U=X$. Dans le cas d'un $U$ quelconque, on note que la question est locale sur $S$, donc on peut supposer $S$ affine. Alors tout Module coh\'erent sur $X$ est quotient d'un Module coh\'erent localement libre, (puisque $\OX(1)$ est un Module inversible absolument ample sur $X$). Comme le Module dual $H'=\mathop{\underline{\mathrm{Hom}}}\nolimits(H, \Oo_U)$ se prolonge en un Module coh\'erent sur $X$, qui est donc isomorphe \`a un conoyau d'un homomorphisme de Modules localement libres sur $X$, il s'ensuit par transposition qu'on peut trouver un homomorphisme
+\[
+u':{L'}^0 \to {L'}^1
+\]
+de Modules localement libres sur $X$, induisant un homomorphisme
+\[
+u:L^0 \to L^1
+\]
+de Modules localement libres sur $U$, tel qu'on ait une suite exacte
+\[
+0\to H \to L^0 \lto{u} L^1.
+\]
+Utilisant le lemme des cinq (qui devient le lemme des trois), et l'exactitude \`a gauche du foncteur $H^0$, on est ramen\'e \`a prouver que (\ref{eq:XII.15}) est injectif (resp. bijectif) lorsqu'on y remplace $H$ par $L^0$, $L^1$, ce qui nous ram\`ene au cas o\`u $H$ est induit par un Module localement libre $H'$ sur $X$. D'ailleurs dans le cas non resp\'e cette r\'eduction est m\^eme inutile, car le noyau de (\ref{eq:XII.15}) est en tout cas form\'e des sections de $H$ sur~$U$ qui s'annulent dans un voisinage ouvert convenable $V$ de $Y$, or l'homomorphisme de restriction $\H^0(U, H)\to\H^0(V, H)$ est injectif, car $H$ est de profondeur $\geq 1$ en les points de toute partie ferm\'ee $Z$ de $X$ ne rencontrant pas $Y$ (cf. lemme plus bas). Dans le cas resp\'e, on est ramen\'e \`a prouver que
+\[
+H^0(X, H')\to\H^0(U, H')
+\]
+est bijectif, ce qui r\'esulte du fait que $H'$ est de profondeur $\geq 2$ en tous les points d'un ferm\'e $Z=X- U$ de $X$ ne rencontrant pas $Y$. Il faut donc simplement prouver le
+
+\begin{lemme} \label{XII.2.5} Soit $F$ un Module coh\'erent sur $X$, plat par rapport \`a $S$, tel que pour tout $s\in S$, $F_s$ soit de profondeur $\geq n$ en tout point ferm\'e de $X_s$. Alors pour toute partie ferm\'ee $Z$ de $X$ ne rencontrant pas $Y$, $F$ est de profondeur $\geq n$ en tous les points de $Z$.
+\end{lemme}
+
+En effet, pour tout $x\in X$, posant $s=f(x)$, on~a
+\steco
+\begin{equation} \label{eq:XII.16} {}\prof(F_x)\geq \prof(F_{s, x}),
+\end{equation}
+comme on voit en relevant n'importe comment une suite $F_{s, x}$ r\'eguli\`ere d'\'el\'ements de $\rr(\Oo_{X_s, x})$ maximale, ce qui donne une suite $F_x$-r\'eguli\`ere en vertu de \SGA 1 IV 5.7. Or si $x$ appartient \`a un $Z$ comme dans le lemme \ref{XII.2.5}, alors $x$ est n\'ecessairement ferm\'e dans $X_s$, en d'autres termes, $Z$ est \emph{fini} sur $S$. En effet $Z$ (muni d'une structure induite par $X$) est projectif sur $S$ comme sous-pr\'esch\'ema ferm\'e de $X$ qui l'est, et $Z$ est affine sur $S$ comme sous-pr\'esch\'ema ferm\'e de $X- Y$, qui l'est.
+\skipqed
+\end{proof}
+
+\begin{remarque} \label{XII.2.6}
+Supposons que pour tout $s\in S$, la section $t_s$ de $\Oo_{X_s}(1)$ induite par $t$ soit $\Oo_{X_s}$-r\'eguli\`ere (ce qui implique par \SGA 1 IV 5.7 que $t$ est $\OX$-r\'eguli\`ere). Alors les hypoth\`eses faites sont stables par extension de la base $S'\to S$ ($S'$ localement noeth\'erien). Donc la conclusion reste valable apr\`es tout changement de base.
+\end{remarque}
+
+\section[Th\'eorie de Lefschetz pour un morphisme projectif: existence]{Th\'eorie de Lefschetz pour un morphisme projectif: th\'eor\`eme d'existence}\label{XII.3}%
+
+\setcounter{equation}{16}%
+\refstepcounter{subsection}\label{XII.3.1}%
+\begin{enonce*}{Th\'eor\`eme 3.1\ndemark}
+
+Soit $f:X\to S$ un morphisme projectif, avec $S$ noeth\'erien, $\OX(1)$ un Module inversible sur $X$ ample relativement \`a $S$, $X_0$ le sous-pr\'esch\'ema des z\'eros d'une section $t$ de $\OX(1)$, $\widehat{X}$ le compl\'et\'e formel de $X$ le long de $X_0$, $\formelF$ un Module coh\'erent sur $\widehat{X}$, $F_0$ le Module qu'il induit sur $X_0$. On suppose de plus:
+\begin{enumeratea}
+\item\label{XII.3.1a}
+$\formelF$ est plat par rapport \`a $S$.
+\item\label{XII.3.1b}
+Pour tout $s\in S$, la section $t_s$ induite par $t$ sur $X_s$ est $\formelF_s$-r\'eguli\`ere (ce qui implique que $F_0$ est \'egalement plat par rapport \`a $S$, cf. \textup{\SGA 1 IV 5.7}).
+\item\label{XII.3.1c}
+Pour tout $s\in S$, $F_{0s}$ est de profondeur $\geq 2$ en les points ferm\'es de $X_{0s}$.
+\end{enumeratea}
+On suppose de plus que $S$ admet un faisceau inversible ample. Sous ces conditions, il existe un Module coh\'erent $F$ sur $X$, et un isomorphisme de son compl\'et\'e formel $\widehat{F}$ avec $\formelF$.
+\end{enonce*}
+
+Cet \'enonc\'e va r\'esulter du suivant:
+
+\begin{corollaire} \label{XII.3.2}
+Sous les conditions \ref{XII.3.1a}), \ref{XII.3.1b}), \ref{XII.3.1c}) ci-dessus on~a ce qui suit:
+\begin{enumeratei}
+\item
+Le Module $\widehat{f}_\ast(\formelF)$ sur $S$ est coh\'erent, donc pour tout $n$, le Module $\widehat{f}_\ast(\formelF(n))$ sur~$S$ est coh\'erent.
+\item
+Pour $n$ grand, l'homomorphisme canonique $\widehat{f}^\ast\widehat{f}_\ast(\formelF(n))\to \formelF(n)$ est surjectif.
+\end{enumeratei}
+\end{corollaire}
+
+Admettons le corollaire pour l'instant, et prouvons \ref{XII.3.1}. Gr\^ace \`a la derni\`ere hypoth\`ese faite dans \ref{XII.3.1}, on peut se ramener au cas o\`u $X=\PP^r_S$, quitte \`a remplacer $\OX(1)$, $t$ par une puissance convenable. Je dis qu'on peut supposer de plus que pour tout~$s$, on~a $t_s\neq 0$. Sinon, on~a en effet $\formelF_s=0$ par b), ou ce qui revient au m\^eme par Nakayama, $F_{0s}=0$ i.e. $s$ n'appartient pas \`a l'image de $\Supp F_0$ par le morphisme $f_0:X_0\to S$ induit par $f$. Or cette image $S'$ est ouverte en vertu de a), b) puisque $F_0$ est plat par rapport \`a $S$, or il est \'evident qu'il suffit de prouver la conclusion de \ref{XII.3.1} dans la situation obtenue en se restreignant au-dessus de $S'$, car le Module coh\'erent $F'$ sur $X|_{S'}$ obtenu par sera restriction d'un Module coh\'erent $F$ sur $X$, qui r\'epondra \`a la question. On peut donc supposer qu'en plus des hypoth\`eses a), b), c), les hypoth\`eses suivantes sont \'egalement v\'erifi\'ees:
+\begin{enumerate}
+\item[\textup{a$'$)}] $\OX$ est plat par rapport \`a $S$.
+\item[\textup{b$'$)}] Pour tout $s\in S$, la section $t_s$ est $\Oo_{X_s}$-r\'eguli\`ere.
+\item[\textup{c$'$)}] Pour tout $s\in S$, $\Oo_{X_{0s}}$ est de profondeur $\geq 2$ en les points ferm\'es de $X_{0s}$. (Il~suffit de choisir $X=\PP_S^r$ avec $r\geq 3$, ce qui est loisible).
+\end{enumerate}
+Or \ref{XII.3.2} implique que l'on peut trouver un \'epimorphisme
+\steco
+\begin{equation} \label{eq:XII.17}
+\widehat{L} \to \formelF \to 0,
+\end{equation}
+o\`u $L$ est un Module sur $X$ de la forme $f_\ast(G)(-n)$, $G$ \'etant un Module coh\'erent localement libre sur $S$: il suffit en effet; pour $n$ grand, de repr\'esenter le Module coh\'erent $\widehat{f}_\ast(\formelF)$ sur $S$ comme quotient d'un tel $G$. D'autre part, les hypoth\`eses a), b), c) sur $f$, $t$ impliquent que $\widehat{L}$ satisfait aux m\^emes conditions a), b), c) que $\formelF$. On en conclut facilement qu'il en est de m\^eme du noyau de (\ref{eq:XII.17}), auquel on peut donc appliquer le m\^eme argument, de sorte que $\formelF$ est repr\'esent\'e comme conoyau d'un homomorphisme
+\steco
+\begin{equation} \label{eq:XII.18}
+\widehat{L'} \to \widehat{L},
+\end{equation}
+o\`u $L$, $L'$ sont des Modules localement libres sur $X$. Or en vertu de a$'$) et la deuxi\`eme partie de c$'$), et de \ref{XII.2.1} ou \ref{XII.2.4} au choix, l'homomorphisme (\ref{eq:XII.18}) provient d'un homomorphisme $L'\to L$ de Modules sur $X$. Il suffit maintenant de prendre pour $F$ le conoyau de $L'\to L$, et on gagne.
+
+Reste \`a prouver \ref{XII.3.2}. Cela avait \'et\'e fait dans le
+s\'eminaire par un exp\'edient un peu p\'enible, consistant \`a tout
+interpr\'eter en termes de cohomologie sur le c\^{o}ne projetant
+\'epoint\'e de $X$ relativement \`a $S$, pour pouvoir se ramener au
+th\'eor\`eme \ref{IX.2.1}. Une fa\c con plus directe et plus
+satisfaisante (bien que substantiellement identique), me semble
+maintenant la suivante. Elle consiste \`a noter que dans \ref{IX},
+\numero \ref{IX.2}\refstepcounter{toto}\label{XII.14} (et avec les
+notations de cet expos\'e) l'hypoth\`ese que le morphisme
+$f:\Xx\to\Xx'$ soit adique n'intervient nulle part dans la
+d\'emonstration de \ref{IX.2.1}, via $\EGA 0_{\textup{III}}$ 13.7.7;
+il suffit de supposer \`a la place que $\Xx$ est \'egalement adique,
+et de choisir deux id\'eaux de d\'efinition $\Jj$ pour $\Xx'$, $\Ii$
+pour $\Xx$, tels que $\Jj\Oo_\Xx\subset\Ii$, et de d\'efinir
+$\Ss=\gr_\Jj(\Oo_{\Xx'})$, et consid\'erer $\gr_\Ii(\formelF)$. De
+toute fa\c con, \ref{IX.2.1} peut s'appliquer directement au
+morphisme $\widehat{f}:\widehat{X}\to S$ consid\'er\'e dans le pr\'esent
+num\'ero, o\`u on prend simplement $\Jj=0$. Ainsi pour v\'erifier que
+$\widehat{f}_\ast(\formelF)$ est coh\'erent, il suffit en vertu de
+\loccit de v\'erifier que $\R^if_{0\ast}(\gr_\Ii(\formelF))$ est
+coh\'erent sur $S$ pour $i=0, 1$; pour ceci on note qu'en vertu de
+a) et b), le Module envisag\'e n'est autre que
+$\coprod_{m\geq 0}\R^if_{0\ast}(F_0(-m))$, qui
+est bien coh\'erent en vertu de l'hypoth\`ese c) et de
+\ref{XII.1.5}.
+
+Cela prouve \ref{XII.3.2} (i). Pour \ref{XII.3.2} (ii), nous aurons besoin du
+
+\begin{lemme} \label{XII.3.3}
+Sous les conditions de \ref{XII.3.1a}), \ref{XII.3.1b}), \ref{XII.3.1c}) de \ref{XII.3.1}, posons
+\[
+G_m= \widehat{f}_\ast(\formelF(\cdot)_m) = \coprod_n\widehat{f}_\ast(\formelF_m(n))
+\]
+Alors le syst\`eme projectif $(G_m)$ satisfait la condition de Mittag-Leffler.
+\end{lemme}
+
+On peut supposer $S$ affine, d'anneau $A$. Soit alors $\Ss$ une $A$-alg\`ebre gradu\'ee de type fini \`a degr\'es positifs, et $t'\in\Ss_1$, tels que $X$ s'immerge dans $\Proj(\Ss)$, $\OX(1)$ \'etant induit par $\SheafProj(\Ss(1))$ et la section $t$ \'etant l'image de $t'$. Munissons $\Ss$ de la filtration $\Jj$-adique, o\`u $\Jj=t'\Ss$, et consid\'erons le syst\`eme projectif des $\formelF(\cdot)_m$ dans la cat\'egorie des faisceaux ab\'eliens sur $X_0$. On est encore sous les conditions pr\'eliminaires de $\EGA 0_{\textup{III}}$ 13.7.7\footnote{Rectifi\'e comme indiqu\'e dans \ref{IX} p.\,11} et de plus $\H^i(X_0, \gr(\formelF(\cdot))$ est un Module de type fini sur $\gr_\Jj(\Ss)$ pour $i=0, 1$. En effet, comme $t'$ est $\formelF$-r\'egulier, on constate aussit\^{o}t qu'en tant que Module sur $(\Ss /t'\Ss)[T]$ (dont $\gr_\Jj(\Ss)$ est un quotient), le Module envisag\'e s'identifie \`a $\H^i(X_0, F_0(\cdot))\otimes_{\Ss /t'\Ss}(\Ss /t'\Ss)[T]$, or en vertu de \ref{XII.1.5}, $\H^i(X_0, F_0(\cdot))$ est de type fini sur $\Ss$, donc sur $\Ss /t'\Ss$, pour $i=0, 1$, ce qui prouve notre assertion. Par suite on est sous les conditions d'application de $0_{\text{III}}$ 13.7.7 avec $n=1$, ce qui prouve \ref{XII.3.3}.
+
+Ce point acquis (et supposant toujours $S$ affine, ce qui est loisible pour prouver \ref{XII.3.2} (ii)) soit $m_0$ tel que $m\geq m_0$ implique $\Im(G_m\to G_0)= \Im(G_{m_0}\to G_0)$, de sorte que les deux membres sont aussi \'egaux \`a $\Im(\varprojlim G_m\to G_0) = \Im(\widehat{f}_\ast(\formelF(\cdot))\to f_\ast\formelF_0(\cdot))$. Remarquons maintenant que pour $n$ grand, $\formelF_{m_0}(n)$ est engendr\'e par ses sections, donc $\formelF_0(n)$ est engendr\'e par des sections qui se remontent \`a $\formelF_{m_0}$, donc (gr\^ace au choix de~$m_0$) qui se remontent \`a $\formelF$. Donc les sections de $\formelF$ engendrent $\formelF_0$, donc aussi~$\formelF$ gr\^ace \`a Nakayama. Cela prouve \ref{XII.3.2} (ii), donc \ref{XII.3.1}.
+
+\begin{corollaire} \label{XII.3.4}
+Soient $f:X\to S$ un morphisme projectif et plat, avec $S$ localement noeth\'erien, $\OX(1)$ un Module inversible sur $X$, ample relativement \`a $S$, $t$ une section de ce Module telle que pour tout $s\in S$, la section $t_s$ induite sur la fibre $X_s$ soit $\Oo_{X_s}$-r\'eguli\`ere, $X_0$ le sous-pr\'esch\'ema des z\'eros de $t$, $\widehat{X}$ le compl\'et\'e formel de $X$ le long de~$X_0$. On suppose que pour tout $s\in S$, $X_{0s}$ est de profondeur $\geq 2$ en ses points ferm\'es, (i.e. $X_s$ est de profondeur $\geq 3$ aux points ferm\'es de $X_{0s}$) et $X_s$ est de profondeur $\geq 2$ en ses points ferm\'es. Sous ces conditions, le couple $(X, X_0)$ satisfait la condition de Lefschetz effective ($\Leff$) de \ref{X}~\ref{X.2}, i.e.:
+\begin{enumeratea}
+\item
+Pour tout voisinage ouvert $U$ de $X_0$ dans $X$, le foncteur
+\[
+F \rightsquigarrow \widehat{F}
+\]
+de la cat\'egorie des Modules coh\'erents localement libres sur $U$ dans la cat\'egorie des Modules coh\'erents localement libres sur $\widehat{X}$ est pleinement fid\`ele.
+\item
+Pour tout Module coh\'erent localement libre $\formelF$ sur $\widehat{X}$, il existe un voisinage ouvert~$U$ de $X_0$, et un Module coh\'erent localement libre $F$ sur $U$ tel que $\formelF$ soit isomorphe \`a~$\widehat{F}$.
+\end{enumeratea}
+\end{corollaire}
+
+En effet, a) a d\'ej\`a \'et\'e not\'e dans \ref{XII.2.4} sous des conditions plus faibles. Pour b), on applique \ref{XII.3.1} qui donne la conclusion, du moins si $S$ est noeth\'erien et admet un Module inversible absolument ample, en particulier si $S$ est affine. En effet, si $F$ est un module coh\'erent sur $X$ tel que $\widehat{F}$ soit isomorphe \`a $\formelF$ donc localement libre, il s'ensuit que $F$ est localement libre sur un voisinage $U$ de $X_0$, et $F|U$ satisfera la condition voulue. Mais notons maintenant qu'en vertu de \ref{XII.2.5}, pour un tel $F$, son image par l'immersion $U\to X$ est coh\'erente, et d'ailleurs ind\'ependante de la solution $(U, F)$ choisie (compte tenu \ignorespaces que deux solutions co\"incident au voisinage de $X_0$, en vertu de a)). De fa\c con pr\'ecise, on peut trouver un Module coh\'erent $F$ sur $X$ et un isomorphisme $\widehat{F}\isomto \formelF$, tel que $F$ soit de profondeur $\geq 2$ en tous les points de $X$ qui sont ferm\'es dans leur fibre, et ceci d\'etermine $F$ \`a un isomorphisme unique pr\`es. Gr\^ace \`a cette propri\'et\'e d'unicit\'e, les solutions du probl\`eme qu'on trouve en s'induisant au-dessus des ouverts affines de $S$ se recollent, d'o\`u un $F$ coh\'erent sur $X$ tout entier et un isomorphisme $\widehat{F}\simeq \formelF$. Restreignant $F$ \`a l'ouvert $U$ des points en lesquels il est libre, on trouve ce qu'on a cherch\'e.
+
+Gr\^ace \`a \ref{XII.2.4} et \ref{XII.3.4}, on peut exploiter, dans la situation d'un sch\'ema alg\'ebrique projectif et d'une \og section hyperplane\fg dudit, les faits g\'en\'eraux \'etablis dans les expos\'es \ref{X} et \ref{XI} concernant les conditions (Lef) et (Leff). Ainsi:
+
+\begin{corollaire} \label{XII.3.5} Soient $X$ un sch\'ema alg\'ebrique projectif muni d'un Module inversible ample $\OX(1)$, soit $t$ une section de ce Module qui soit $\OX$-r\'eguli\`ere, et soit $X_0$ le sous-sch\'ema des z\'eros de $t$. Supposons que $X$ soit de profondeur $\geq 2$ en ses points ferm\'es (resp. et de profondeur $\geq 3$ en les points ferm\'es de $X_0$). Alors $\pi_0(X_0)\to \pi_0(X)$ est bijectif, en particulier $X$ est connexe si et seulement si $X_0$ l'est, et choisissant un point-base g\'eom\'etrique dans $X_0$, $\pi_1(X_0)\to \pi_1(X)$ est surjectif, et plus g\'en\'eralement pour tout ouvert $U\supset X_0$, l'homomorphisme $\pi_1(X_0)\to \pi_1(U)$ est surjectif (resp. l'homomorphisme $\pi_1(X_0)\to \varprojlim_U\pi_1(U)$ est bijectif). Dans le cas resp\'e, si on suppose de plus que l'anneau local de tout point ferm\'e de $X$ non dans $X_0$ est pur (\ref{X.3.2}) (par exemple est r\'egulier, ou seulement une intersection compl\`ete) alors $\pi_1(X_0)\to \pi_1(X)$ est un isomorphisme.
+\end{corollaire}
+
+On applique \ref{X.2.4} et \ref{XII.3.4}. On notera que dans le cas resp\'e, l'hypoth\`ese que $X$ soit de profondeur $\geq 3$ en les points ferm\'es de $X_0$, implique que toutes les composantes irr\'eductibles de dimension $\neq 0$ de $X$ sont de dimension $\geq 3$ (comme on voit en notant qu'une telle composante rencontre n\'ecessairement $X_0$, et en regardant en un point ferm\'e de l'intersection).
+
+\begin{remarquestar}
+Lorsque $X$ est normal, de dimension $\geq 2$ en tous ses points, il est de profondeur $\geq 2$ en ses points ferm\'es et on est sous les conditions non resp\'ees de \ref{XII.3.5}. Dans ce cas, on~a une d\'emonstration plus \'el\'ementaire de la surjectivit\'e de $\pi_1(X_0)\to \pi_1(X)$ \`a l'aide du th\'eor\`eme de Bertini (cf. \SGA 1 X.2.10). Lorsqu'on suppose de plus $X_0$ normal, et $X$ de dimension $\geq 3$ en tous ses points, alors on est sous les conditions resp\'ees de \ref{XII.3.5}. Dans ce cas, \ref{XII.3.5} a \'et\'e \'etabli par Grauert (il se trouve en effet que gr\^ace \`a l'hypoth\`ese de normalit\'e, on arrive alors \`a se passer du th\'eor\`eme d'existence \ref{XII.3.1} par des exp\'edients). C'est cette d\'emonstration de Grauert qui a \'et\'e le point de d\'epart de la \og th\'eorie de Lefschetz\fg qui fait l'objet du pr\'esent s\'eminaire.
+\end{remarquestar}
+
+\begin{corollaire} \label{XII.3.6} Soient $X$, $\OX(1)$, $t$, $X_0$ comme dans \ref{XII.3.5}. Supposons que $X$ soit de profondeur $\geq 2$ en ses points ferm\'es, et que
+\[
+\H^i(X_0, \Oo_{X_0}(-n))=0
+\]
+pour $n>0$ et pour $i=1$ (resp. pour $i=1$ et pour $i=2$), ce qui implique en vertu de \ref{XII.1.4} que $X_0$ est de profondeur $\geq 2$ (resp. $\geq 3$) en ses points ferm\'es, i.e. que $X$ est de profondeur $\geq 3$ (resp. $\geq 4$) en les points ferm\'es de $X_0$. Sous ces conditions, pour tout voisinage ouvert $U$ de $X_0$, $\Pic(U)\to\Pic(X_0)$ est injectif, en particulier $\Pic(X)\to\Pic(X_0)$ est injectif, (resp. $\varprojlim_U \Pic(U)\to\Pic(X_0)$ est bijectif). Dans le cas resp\'e, si on suppose de plus que l'anneau local de $X$ en tout point ferm\'e non dans $X_0$ est parafactoriel (\ref{XI.3.1}) (par exemple est r\'egulier, ou plus g\'en\'eralement une intersection compl\`ete), alors $\Pic(X)\to\Pic(X_0)$ est bijectif.
+\end{corollaire}
+On applique \ref{XI}~\ref{XI.3.12} et \ref{XI.3.13}, en notant que l'hypoth\`ese resp\'ee implique que les composantes irr\'eductibles de dimension $\neq 0$ de $X$ sont de dimension $\geq 4$. On trouve en particulier, en appliquant ceci au cas o\`u $X$ est une intersection compl\`ete globale de dimension $\geq 4$ dans l'espace projectif:
+
+\begin{corollaire} \label{XII.3.7} Soit $X$ un sch\'ema alg\'ebrique de dimension $\geq 3$, qui soit une intersection compl\`ete dans un sch\'ema $\PP_k^r$. Alors $\Pic(X)$ est le groupe libre engendr\'e par la classe du faisceau $\OX(1)$.
+\end{corollaire}
+On raisonne par r\'ecurrence sur le nombre d'hypersurfaces dont $X$ est l'intersection, en appliquant \ref{XII.3.6} et notant que pour une intersection compl\`ete $X$ de dimension $\geq 3$, on $\H^i(X, \OX(n))=0$ pour $i=1, 2$, et tout $n$.
+
+\begin{remarque} \label{XII.3.8}
+Dans le cas o\`u $X$ est une hypersurface non singuli\`ere, \ref{XII.3.7} est d\^u \`a Andreotti. Le r\'esultat \ref{XII.3.7} s'exprime aussi (lorsque $X$ est non singuli\`ere) en disant que l'anneau de coordonn\'ees homog\`enes de $X$ est factoriel, et sous cette forme est contenu dans \ref{XI}~\ref{XI.3.13} (ii). Signalons aussi que Serre avait donn\'e une d\'emonstration de \ref{XII.3.7} dans le cas non singulier, par voie transcendante, en utilisant un argument de sp\'ecialisation pour se ramener au cas de la caract\'eristique 0, o\`u on dispose du th\'eor\`eme de Lefschetz sous sa forme classique. Bien entendu, le fait que la d\'emonstration purement alg\'ebrique donn\'ee ici permette de se d\'ebarrasser d'hypoth\`eses de non singularit\'e dans l'\'enonc\'e du th\'eor\`eme de Lefschetz, invite \`a reconsid\'erer celui-ci \'egalement dans le cas classique. Cf. l'expos\'e suivant qui propose des conjectures dans ce sens.
+
+Dans les corollaires \ref{XII.3.5} et \ref{XII.3.7} nous nous sommes plac\'es sur un corps de base, alors que les th\'eor\`emes-clefs \ref{XII.2.4} et \ref{XII.3.4} sont valables sur une base quelconque. Pour g\'en\'eraliser \`a un $S$ g\'en\'eral ces corollaires \ref{XII.3.5} et \ref{XII.3.6}, nous devons donner des crit\`eres serviables pour qu'un point de $X$ (plat sur $S$) ait un anneau local \og pur\fg resp. parafactoriel. Ce sera l'objet du n\textsuperscript{o} suivant.
+\end{remarque}
+
+\section{Compl\'etion formelle et platitude normale} \label{XII.4}
+
+\setcounter{equation}{18}
+
+\begin{theoreme} \label{XII.4.1} Soit $X$ un pr\'esch\'ema localement noeth\'erien, localement immergeable dans un sch\'ema r\'egulier, $Y$ une partie ferm\'ee de $X$, $U=X- Y$, $X_0$ un sous-pr\'esch\'ema ferm\'e de $X$ d\'efini par un id\'eal $\Jj$, $\widehat{X}$ le compl\'et\'e formel de $X$ le long de $X_0$, $U_0$ la trace de $X_0$ sur $U$, $\widehat{U}$ le compl\'et\'e formel de $U$ le long de $U_0$, $i:U\to X$ et $\widehat{i}:\widehat{U}\to \widehat{X}$ les immersions canoniques, $n$ un entier. On suppose
+\begin{enumeratea}
+\item
+$X$ est normalement plat le long de $X_0$ aux points de $Y\cap X_0$, i.e. en ces points les modules $\Jj^n/\Jj^{n+1}$ sur $X_0$ sont plats i.e. \ignorespaces libres.
+\item
+Pour tout $x\in Y\cap X_0$, on~a $\prof \Oo_{X_0, x}\geq n+2$.
+\end{enumeratea}
+Sous ces conditions, on~a ce qui suit:
+\begin{enumerate}
+\item[$1^\circ)$] Soit $F$ un Module coh\'erent sur $U$, supposons que l'on ait:
+\begin{enumerate}
+\item[\textup{c)}] Pour tout $x\in Y- Y\cap X_0$, on~a $\prof \Oo_{X, x}\geq n+2$.
+
+\item[\textup{d)}] $F$ est libre en les points de $U_0$, et de profondeur $\geq n+1$ en tous les points de $U$ o\`u il n'est pas libre.
+\end{enumerate}
+Alors le Module gradu\'e
+\[
+\coprod_{m\geq 0}\R^pi_\ast(\Jj^mF)
+\]
+sur $\coprod_{m\geq 0}\Jj^m$ est de type fini pour $p\leq n$. \item[$2^\circ$] Soit $\formelF$ un Module coh\'erent sur $\widehat{U}$, alors le Module gradu\'e
+\[
+\coprod_{m\geq 0}\R^pi_\ast(\Jj^m\formelF/\Jj^{m+1}\formelF)
+\]
+sur $\coprod_{m\geq 0}\Jj^m/\Jj^{m+1}=\gr_{\Jj}(\OX)$ est de type fini pour $p\leq n$.
+\end{enumerate}
+\end{theoreme}
+
+\begin{proof}
+1) Soit $X'\!=\!\Spec(\coprod_{m\geq 0}\Jj^m)$; le changement de base \hbox{$f:X'\!\to\! X$} d\'efinit alors $U'=X'- Y'$, $X_0'$, $U_0'=X_0'\cap U'$, et des immersions $i':U'\to X'$, \hbox{$i_0':U_0'\to X_0'$}. On a donc un carr\'e cart\'esien
+\[
+\xymatrix{
+X^{\prime}\ar[d]_f&U^{\prime}\ar[l]_-{i^{\prime}}\ar[d]^g \\
+X&U\ar[l]_-{i}
+}
+\]
+et on~a
+\steco
+\begin{equation} \label{eq:XII.19}
+\coprod_{m\geq 0}\R^pi_\ast(\Jj^mF) = \R^pi_\ast \Big(\coprod_{m\geq 0} \Jj^mF \Big) =\R^pi_\ast (g_\ast(F')),
+\end{equation}
+o\`u $F'=g^\ast F$, de sorte que l'on a bien un isomorphisme canonique
+\[
+g_\ast(F') \isomto \coprod_{m\geq 0}\Jj^mF,
+\]
+car c'est vrai en les points de $U_0$, du fait que $F$ y est libre en vertu de d), et \'egalement en les points de $U_0$, du fait qu'on y a $\Jj^m=\Oo_U$, (de sorte que dans les deux cas, $\Jj^m\otimes_{\Oo_U}F\to \Jj^mF$ est un isomorphisme).
+
+D'autre part, comme $f$ et par suite $g$ sont affines, on~a
+\steco
+\begin{equation} \label{eq:XII.20} {}\R^pi_\ast(g_\ast(F')) = \R^p(ig)_\ast(F') = \R^p(fi')_\ast(F') = f_\ast(R^pi'_\ast(F'))
+\end{equation}
+donc comparant (\ref{eq:XII.19}) et (\ref{eq:XII.20}), on voit que l'assertion 1${}^\circ$) est \'equivalente \`a la suivante: $R^pi'_\ast(F')$ est un Module de type fini i.e. coh\'erent sur $X'$, pour tout $p\leq n$. Or comme $X$ est localement immergeable dans un sch\'ema r\'egulier, il en est de m\^eme de $X'$ qui est de type fini sur $X$, et on peut appliquer le crit\`ere de coh\'erence \ignorespaces~\ref{VIII.2.3} \`a un prolongement coh\'erent $F^{''}$ de $F'$: on veut exprimer que $\mathop{\underline{\mathrm{H}}}\nolimits^p_Y(F^{''})$ est coh\'erent pour $p\leq n+1$, et cela \'equivaut aussi \`a dire que pour tout $x'\in U'$ tel que
+\begin{equation*} \label{eq:XII.20bis} \tag{20 bis} {}\codim (\overline{x'}\cap Y', \overline{x'})=1,
+\end{equation*}
+on ait
+\steco
+\begin{equation} \label{eq:XII.21} {} \prof F'_{x'}\geq n+1.
+\end{equation}
+Or cette condition est v\'erifi\'ee en les points $x'$ o\`u $F'$ n'est pas libre, car pour un tel $x'$ on~a $x'\notin U_0'$ en vertu de d), donc $g$ y est un isomorphisme, et en vertu de d) encore, $F$ est de profondeur $\geq n+1$ en $g(x')$, donc $F'$ est de profondeur $\geq n+1$ en $x'$. Il suffit donc de v\'erifier la condition (\ref{eq:XII.21}) en les $x'\in U'$ satisfaisant (\ref{eq:XII.21}), et en lesquels $F'$ est libre. Or il suffit pour cela de prouver que l'on a
+\begin{equation*} \label{eq:XII.21bis} \tag{21 bis}
+\prof \Oo_{X', x'}\geq n+1
+\end{equation*}
+\enlargethispage{\baselineskip}%
+en ces points, \afortiori il suffit d'\'etablir que l'on a cette relation en tous les points~$x$ de $U'$ satisfaisant (\ref{eq:XII.20}). Or en vertu du crit\`ere cit\'e de l'expos\'e \ref{VIII}, ceci \'equivaut \`a l'assertion que les Modules
+\[
+\mathop{\underline{\mathrm{H}}}\nolimits^p_{Y'}(\Oo_{X'}) \hspace{5mm} \text{pour} \; p\leq n+1
+\]
+sont coh\'erents. En fait, nous allons prouver qu'ils sont m\^eme nuls, ou ce qui revient au m\^eme en vertu de l'expos\'e~\ref{III}, que l'on a
+\steco
+\begin{equation} \label{eq:XII.22} {} \prof \Oo_{X', x'}\geq n+2 \hspace{5mm} \text{pour tout }\; x'\in Y'.
+\end{equation}
+Pour ceci, nous distinguons deux cas. Si $x'\notin X'_0$, alors $f$ est une immersion en $x'$, et il faut v\'erifier que $F$ est de profondeur dans l'image $x=f(x')$, ce qui n'est autre que la condition c). Si par contre $x'\in X'_0$, i.e. $x=f(x')\in X_0$ donc $x\in Y\cap X_0$, on applique les conditions a) et b) gr\^ace au
+
+\begin{lemme} \label{XII.4.2}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien, $X_0$ un sous-pr\'esch\'ema ferm\'e de $X$ d\'efini par un id\'eal $\Jj$, $X'=\Spec(\coprod_{m\geq 0} \Jj^m)$, $X_0'=\Spec(\coprod_{m\geq 0} \Jj^m/\Jj^{m+1}) = X'\times_XX_0$, $x$ un point de $X_0$ en lequel $X$ est normalement plat le long de $X_0$ i.e. tel que $\gr_{\Jj}(\OX)= \coprod_{m\geq 0}\Jj^m/\Jj^{m+1}$ y soit plat comme Module sur $X_0$. Alors pour toute suite d'\'el\'ements $f_i$ ($1\leq i\leq m$) de $\Oo_{X, x}$ dont les images dans $\Oo_{X_0, x}$ forment une suite $\Oo_{X_0, x}$-r\'eguli\`ere, et tout $x'\in X'$ au-dessus de $x$, les images des $f_i$ dans $\Oo_{X', x'}$ (resp. dans $\Oo_{X'_0, x'}$) forment \'egalement une suite $\Oo_{X', x'}$-r\'eguli\`ere (resp. $\Oo_{X'_0, x'}$-r\'eguli\`ere), en particulier on~a
+\steco
+\begin{equation} \label{eq:XII.23}
+\prof \Oo_{X', x'} \geq \prof \Oo_{X_0, x}, \quad \prof \Oo_{X'_0, x'} \geq \prof \Oo_{X_0, x}.
+\end{equation}
+\end{lemme}
+
+Pour le d\'emontrer, on peut supposer que $X$ est local de point ferm\'e $x$, donc affine d'anneau $A=\Oo_{X, x}$, $\Jj$ \'etant d\'efini par Id\'eal $J$, et il suffit de prouver que pour toute suite $f_i$ ($1\leq i\leq m$) d'\'el\'ements de $A$ dont les images dans $A/J$ forment une suite $A/J$-r\'eguli\`ere, les $f_i$ forment \'egalement une suite $(\coprod_{m\geq 0} J^m)$-r\'eguli\`ere et une suite $(\coprod_{m\geq 0} J^m/J^{m+1})$-r\'eguli\`ere, i.e. pour tout $m$, elle forme une suite $J^m$-r\'eguli\`ere et $J^m/J^{m+1}$-r\'eguli\`ere. La deuxi\`eme assertion est triviale, puisque $J^m/J^{m+1}$ est un module libre sur $A/J$. La premi\`ere s'ensuit, en regardant la filtration $J$-adique de $J^m$, et notant que pour le module gradu\'e associ\'e \`a $J^m$ pour ladite filtration, la suite des~$f_i$ est r\'eguli\`ere.
+
+Cela prouve \ref{XII.4.2} et par suite \ref{XII.4.1}~1\noo).
+
+Prouvons \ref{XII.4.1} 2\noo). Pour ceci, utilisons le carr\'e cart\'esien
+\[
+\xymatrix{
+X^{\prime}_0\ar[d]_{f_0}&U^{\prime}_0\ar[l]_-{i^{\prime}_0}\ar[d]^{g_0} \\
+X_0&U_0\ar[l]_-{i_0}
+}
+\]
+et proc\'edant comme dans le d\'ebut de la d\'emonstration de 1\noo), on trouve que l'on a
+\steco
+\begin{equation} \label{eq:XII.24}
+\coprod_{m\geq 0} \R^pi_\ast(\Jj^m\formelF/\Jj^{m+1}\formelF) \simeq {f_0}_\ast (\R^p{i_0}_\ast(\formelF_0')),
+\end{equation}
+o\`u $\formelF_0=\formelF/\Jj\formelF$ et o\`u $\formelF_0'=g_0^\ast(\formelF_0)$, (en utilisant le fait que $\formelF$ est localement libre). Donc la conclusion de 2\noo) \'equivaut \`a dire que pour $p\leq n$, $\R^p{i'_0}_\ast(\formelF_0')$ est un Module coh\'erent.
+
+\enlargethispage{\baselineskip}%
+Ici encore, compte tenu que $\formelF_0'$ est localement libre, le crit\`ere \ref{VIII}~\ref{VIII.2.3} nous permet de nous ramener \`a prouver qu'il en est ainsi si on remplace $\formelF_0'$ par $\Oo_{U'_0}$, i.e. \`a prouver que les Modules
+\[
+\mathop{\underline{\mathrm{H}}}\nolimits^p_{Y_0'}(\Oo_{X_0'}) \hspace{5mm} \text{pour} \; p\leq n+1 \hspace{5mm} \text{(où} \; Y'_0=Y'\cap X_0'=X_0'- U'_0 \text{)}
+\]
+sont coh\'erents. On prouve encore qu'ils sont en fait nuls, i.e; que l'on a
+\steco
+\begin{equation} \label{eq:XII.25} {}\prof \Oo_{X'_0, x'} \geq n+2 \hspace{5mm} \text{pour tout} \; x'\in Y'_0.
+\end{equation}
+Or ceci r\'esulte en effet des conditions a) et b), compte tenu de \ref{XII.4.2}. Cela ach\`eve la d\'emonstration de \ref{XII.4.1}.
+\skipqed
+\end{proof}
+
+\begin{remarque} \label{XII.4.3}
+On voit tout de suite, par descente, que l'hypoth\`ese: $X$ localement immergeable dans un sch\'ema r\'egulier, peut \^etre remplac\'ee par la suivante plus faible: il existe un morphisme $\overline{X}\to X$, fid\`element plat et quasi-compact, tel que $\overline{X}$ soit localement immergeable dans un sch\'ema r\'egulier.
+\end{remarque}
+
+Le th\'eor\`eme \ref{XII.4.1} nous met en mesure d'appliquer les r\'esultats de l'expos\'e \ref{IX} (th\'eor\`emes de comparaison et d'existence). Nous nous int\'eresserons notamment au
+
+\begin{corollaire} \label{XII.4.4}
+Supposons les conditions a), b), c) du th\'eor\`eme \ref{XII.4.1} v\'erifi\'ees, avec $n=1$, et $X=\Spec(A)$, $A$ \'etant s\'epar\'e complet pour la topologie $J$-adique. Alors
+\begin{enumerate}
+\item[\textup{1\noo})] Le foncteur $F\mto \widehat{F}$ de la cat\'egorie des Modules coh\'erents localement libres sur~$U$, dans la cat\'egorie des Modules coh\'erents localement libres sur $\widehat{U}$, est pleinement fid\`ele. \item[\textup{2\noo})] Pour tout Module coh\'erent localement libre $\formelF$ sur $\widehat{U}$, il existe un Module coh\'erent $F$ sur $U$ et un isomorphisme $\widehat{F}\isomto \formelF$.
+\end{enumerate}
+En particulier, si pour tout $x\in U$ dont l'adh\'erence dans $U$ ne rencontre pas $U_0$ i.e. tel que $\overline{x}\cap X_0\subset Y$, on~a $\prof \Oo_{U, x}\geq 2$, alors le couple $(U, U_0)$ satisfait la condition de Lefschetz effective ($\Leff$) de l'expos\'e \ref{X}.
+\end{corollaire}
+\noindent
+(Pour la derni\`ere assertion, on proc\`ede comme dans \ref{X}~\ref{X.2.1})
+
+\pagebreak[2]
+Cas particulier de \ref{XII.4.4}:
+
+\begin{corollaire} \label{XII.4.5}
+Soient $A$ un anneau noeth\'erien, $J$ un id\'eal de $A$ contenu dans le radical, $A_0=A/J$. On suppose
+\begin{enumeratei}
+\item
+$\prof A_0\geq 3$.
+\item
+$\gr_J(A)$ est un $A_0$-module libre.
+\item
+$A$ est complet pour la topologie $J$-adique.
+\end{enumeratei}
+
+Soient $X=\Spec(A)$, $X_0=\Spec(A_0)=V(J)$, $a$ le point ferm\'e de $X$, $U=X-\{a\}$, $U_0=X_0-\{a\}$, $\widehat{U}$ le compl\'et\'e formel de $U$ le long de $U_0$. Alors le foncteur $F\mto \widehat{F}$ de la cat\'egorie des Modules coh\'erents localement libres sur $U$ dans la cat\'egorie des Modules coh\'erents localement libres sur $\widehat{U}$, est pleinement fid\`ele. De plus, pour tout Module coh\'erent localement libre $\formelF$ sur $\widehat{U}$, il existe un Module coh\'erent (pas n\'ecessairement localement libre !) $F$ sur $U$, et un isomorphisme $\widehat{F}\simeq\formelF$.
+\end{corollaire}
+
+On notera que gr\^ace \`a \ref{XII.4.3}, nous n'avons pas eu \`a supposer que $A$ est quotient d'un anneau r\'egulier, car le compl\'et\'e de $A$ pour la topologie $\rr(A)$-adique satisfait en tout cas \`a cette condition.
+
+Proc\'edant comme dans les expos\'es \ref{X} et \ref{XI}, on conclut de \ref{XII.4.5}
+
+\begin{corollaire} \label{XII.4.6}
+Sous les conditions de \ref{XII.4.5}, on~a ceci:
+\begin{enumeratea}
+\item
+$U$ et $U_0$ sont connexes (\ref{III}~\ref{III.3.1}).
+
+Choisissant un point-base g\'eom\'etrique dans $U_0$, l'homomorphisme
+\[
+\pi_1(U_0)\to \pi_1(U)
+\]
+est surjectif.
+\item
+L'homomorphisme
+\[
+\Pic(U)\to \Pic(U_0)
+\]
+est injectif.
+\end{enumeratea}
+\end{corollaire}
+
+Pour prouver b), compte tenu de \ref{XII.4.5}, cela revient \`a v\'erifier que tout isomorphisme $L_0'\isomto L_0$ se remonte en un isomorphisme $\widehat{L'}\isomto \widehat{L}$. Or pour ceci on remonte de proche en proche en des isomorphismes $L_n'\isomto L_n$, les obstructions se trouvent dans $\H^1(U_0, \Jj^n/\Jj^{n+1})$, or ces modules sont nuls du fait que $J^n/J^{n+1}$ est libre et $\prof A_0\geq 3$.
+
+Nous sommes maintenant en mesure de prouver le
+\enlargethispage{-1\baselineskip}%
+\begin{theoreme} \label{XII.4.7}
+Soient $A$ un anneau local noeth\'erien, $J$ un id\'eal de $A$ contenu dans son radical, $A_0=A/J$. On suppose
+\begin{enumeratei}
+\item
+$\prof A_0\geq 3$.
+\item
+$\gr_J(A)$ est un module libre sur $A_0$.
+\end{enumeratei}
+\noindent
+Alors, si $A_0$ est \og pur\fg (\ref{X}~\ref{X.3.1}) (resp. parafactoriel (\ref{XI}~\ref{XI.3.1})), il en est de m\^eme de~$A$.
+\end{theoreme}
+
+\begin{proof}
+Par descente, on peut supposer qu'on a aussi
+\begin{enumeratei}\setcounter{enumi}{2}
+\item
+$A$ est complet pour la topologie $J$-adique.
+\end{enumeratei}
+
+En effet, en vertu de (i) et (ii), on~a $\prof(A)\geq 3$ donc $\prof(\widehat{A})\geq 3$, o\`u $\widehat{A}$ est le compl\'et\'e de $A$ pour la topologie $J$-adique, et on applique \ref{X}~\ref{X.3.6} et \ref{XI}~\ref{XI.3.6}. On est donc sous les conditions de \ref{XII.4.5}. Comme $\prof(A)\geq 3\geq 2$, dire que $A$ est parafactoriel signifie simplement que $\Pic(U)=0$, et en vertu de \ref{XII.4.6} b) il suffit pour ceci que $\Pic(U_0)=0$, i.e. que $A_0$ soit parafactoriel. Pour prouver que $A$ est \og pur\fg si $A_0$ l'est, il faut prouver que si $V$ est un rev\^etement \'etale de $U$, d\'efini par une alg\`ebre $\Bb$ sur~$U$, alors $\H^0(U, \Bb)$ est une alg\`ebre finie \'etale sur $A$. Or $A_0$ \'etant pur, il en est de m\^eme des $A_n$ (qui n'en diff\`erent que par des \'el\'ements nilpotents), donc pour tout $n$, $\H^0(U, \Bb_n)$ est une alg\`ebre \'etale sur $A/J^{n+1}$, et bien entendu ces alg\`ebres se recollent, de sorte que $\varprojlim B_n$ est une alg\`ebre \'etale sur $A$. Or en vertu de \ref{XII.4.5}, cette alg\`ebre n'est autre que $\H^0(U, \Bb)$, ce qui \'etablit notre assertion.
+\skipqed
+\end{proof}
+
+\begin{corollaire} \label{XII.4.8}
+Soient $f:X\to Y$ un morphisme plat de pr\'esch\'emas localement noeth\'eriens, $x\in X$, $y=f(x)$, on suppose que $\Oo_{X_y, x}$ est un anneau local \og pur\fg (resp. parafactoriel) de profondeur $\geq 3$, alors il en est de m\^eme de $\Oo_{X, x}$.
+\end{corollaire}
+
+C'est le r\'esultat du type promis \`a la fin du N\textsuperscript{o} pr\'ec\'edent, pour g\'en\'eraliser les corollaires \ref{XII.3.5} et suivants. On trouve donc, en utilisant \ref{XII.3.4}, le
+
+\begin{corollaire} \label{XII.4.9}
+Soient $f:X\to S$ un morphisme projectif et plat, avec $S$ localement noeth\'erien, $\OX(1)$ un Module inversible sur $X$ ample par rapport \`a $S$, $t$ une section de $\OX(1)$ telle que pour tout $s\in S$, la section $t_s$ induite sur $X_s$ soit $\Oo_{X_s}$-r\'eguli\`ere, $X_0$ le sous-sch\'ema des z\'eros de $t$, $X_m$ le sous-pr\'esch\'ema des z\'eros de $t^{m+1}$. On suppose que pour tout $s\in S$, $X_s$ est de profondeur $\geq 3$ en tous ses points ferm\'es. Alors:
+\begin{enumeratea}
+\item
+Si les anneaux locaux des points ferm\'es de $X_s- X_{0, s}$ ($s\in S$) sont \og purs\fg\, par exemple sont des intersections compl\`etes, alors le foncteur $X'\mto X_0'=X'\times_X X_0$ de la cat\'egorie des rev\^etements \'etales de $X$ dans la cat\'egorie des rev\^etements \'etales de $X_0$ est une \'equivalence de cat\'egories; en particulier, choisissant un point base g\'eom\'etrique dans $X_0$, l'homomorphisme
+\[
+\pi_1(X_0)\to \pi_1(X)
+\]
+est un isomorphisme\refstepcounter{toto}
+
+\item
+Si les anneaux locaux des points ferm\'es des $X_s- X_{0, s}$ ($s\in S$) sont \og parafactoriels\fg, par exemple r\'eguliers, ou des intersections compl\`etes de dimension $\geq 4$, alors pour tout entier $m$ tel que $\R^if_{0\ast}(\Oo_{X_0}(-n))=0$ pour $n>m$ et $i=1, 2$, l'application $\Pic(X)\to \Pic(X_m)$ est bijective.
+
+D'ailleurs si $S$ est noeth\'erien, et les $ X_{0, s}$ sont de profondeur $\geq 3$ en leurs points ferm\'es, il existe de tels $m$ (cf. \ref{XII.1.5}).
+\end{enumeratea}
+\end{corollaire}
+
+\begin{remarque} \label{XII.4.10}
+Sous les conditions de la derni\`ere assertion de \ref{XII.4.9} b), on~a vu dans \ref{XII.1.5} qu'il existe un $m$ tel que $n>m$ implique m\^eme $\H^i(X_0, \Oo_{X_0}(-n))=0$ pour $i=1, 2$, et m\^eme pour $i\leq 2$). Cette condition est plus forte que $\R^if_{\ast}(\Oo_{X_0}(-n))=0$ pour $i=1, 2$, et elle a de plus l'avantage d'\^etre stable par changement de base. Il en est de m\^eme des hypoth\`eses de profondeur qu'on a faites dans \ref{XII.4.9}, et \'egalement d'une hypoth\`eses du type \og les $X_s$ sont localement des intersections compl\`etes\fg. Il s'ensuit alors, sous ces conditions que \ref{XII.4.9} b) implique \'egalement que le morphisme de foncteurs
+\[
+\SheafPic_{X/S}\to \SheafPic_{X_n/S}
+\]
+dans $\catSch_{/S}$ est un isomorphisme, donc aussi le morphisme pour les sch\'emas de Picard relatifs, lorsque ceux-ci existent:
+\[
+\Pic_{X/S}\to \Pic_{X_n/S}.
+\]
+M\^eme dans le cas o\`u $S$ est le spectre d'un corps alg\'ebriquement clos, cet \'enonc\'e est nettement plus pr\'ecis que l'\'enonc\'e consistant \`a dire seulement que $\Pic(X)\to \Pic(X_n)$ est bijectif.
+
+On peut se demander si on peut toujours prendre $n=0$ dans les conclusions pr\'ec\'edentes (supposant donc les $X_{0, s}$ de profondeur $\geq 3$ en leurs points ferm\'es). Lorsque $X_0$ est lisse sur $S$ et les caract\'eristiques r\'esiduelles de $S$ sont nulles, il en bien ainsi, en vertu du \og vanishing theorem\fg de Kodaira, (d\'emontr\'e par voie transcendante, utilisant une m\'etrique k\"ahl\'erienne) qui implique que pour tout sch\'ema projectif lisse connexe de dimension $n$ sur un corps $k$ de caract\'eristique nulle, et tout Module inversible ample $L$ sur $X$, on~a $\H^i(X, L^{-1})=0$ pour $i\neq n$. Il n'est pas connu \`a l'heure actuelle si ce th\'eor\`eme peut \^etre remplac\'e par un g\'en\'eralisation en caract\'eristique $p>0$, et si l'hypoth\`ese de lissit\'e peut \^etre remplac\'ee par une hypoth\`ese de nature plus g\'en\'erale (portant sur la profondeur, ou du type \og intersection compl\`ete\fg...).
+\end{remarque}
+
+\section[Conditions de finitude universelles]
+{Conditions de finitude universelles pour un morphisme non propre} \label{XII.5} Rappelons pour m\'emoire la \setcounter{equation}{25}
+
+\begin{proposition} \label{XII.5.1}
+Soit $f:X\to S$ un morphisme propre de pr\'esch\'emas, avec $S$ localement noeth\'erien, $U$ une partie ouverte de $X$, $g:U\to X$ l'immersion canonique, $h=fg:U\to S$, $F$ un Module sur $U$. Supposons que les Modules $\R^ig_\ast(F)$ soient coh\'erents pour $i\leq n$ (hypoth\`ese de nature locale sur $X$, qui se v\'erifie pratiquement \`a l'aide du crit\`ere \ref{VIII}~\ref{VII.2.3}). Alors $\R^ih_\ast(F)$ est coh\'erent pour $i\leq n$.
+\end{proposition}
+
+Cela r\'esulte aussit\^{o}t de la suite spectrale de Leray
+\steco
+\begin{equation} \label{eq:XII.26} {} \E_2^{p, q}=\R^pf_\ast(\R^qg_\ast(F)) \To \R^\ast h_\ast(F),
+\end{equation}
+et du fait que les images directes sup\'erieures par $f$ d'un Module coh\'erent sur $X$ sont coh\'erentes (\EGA III 3.2.1).
+
+\begin{proposition} \label{XII.5.2}
+Soit $S$ un pr\'esch\'ema localement noeth\'erien, $\Ss$ une Alg\`ebre gradu\'ee quasi-coh\'erente, de type fini sur $S$, engendr\'ee par $\Ss_1$, $X$ un sous-pr\'esch\'ema de $\Proj(\Ss)$, $\OX(1)$ le Module inversible sur $X$ tr\`es ample relativement \`a $S$ induit par $\Proj(\Ss(1))$, $U$ une partie ouverte de $X$, $g:U\to X$ l'immersion canonique, $h=fg:U\to S$, $F$ un Module quasi-coh\'erent sur $U$, d'o\`u des Modules tordus $F(m)=F\otimes \OX(m)$) ($m\in\ZZ$), $n$ un entier, $m_0$ un entier. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\R^ig_\ast(F)$ est coh\'erent pour $i\leq n$.
+\item
+$\coprod_{m>m_0}\R^ih_\ast(F(m))$ est un $\Ss$-Module de type fini pour $i\leq n$.
+\end{enumeratei}
+\end{proposition}
+
+\begin{proof}
+Rempla\c cant dans la suite spectrale ci-dessus $F$ par $F(m)$ on
+trouve une suite spectrale de $\Ss$-Modules gradu\'es
+\[
+\E_2^{p, q}= \coprod_{m\geq m_0} \R^pf_\ast(\R^qg_\ast(F(m)) \To \coprod_{m\geq m_0} \R^\ast h_\ast(F(m)).
+\]
+Comme on a
+\[
+\R^qg_\ast(F(m)) \simeq \R^qg_\ast(F) (m),
+\]
+on voit que si les $\R^ig_\ast(F)$ sont coh\'erents, $\E_2^{p, q}$ est de type fini sur $\Ss$ pour $q\leq n$, gr\^ace \`a la partie a) du lemme \ref{XII.5.3} ci-dessous, ce qui implique que l'aboutissement est de type fini sur $\Ss$ en degr\'e $i\leq n$. Cela prouve (i) ~$\To$~ (ii). De plus, raisonnant dans la cat\'egorie ab\'elienne des $\Ss$-Modules gradu\'es modulo la sous-cat\'egorie \'epaisse $\mathcal{C}$ de ceux qui sont quasi-coh\'erents de type fini, on trouve par la suite spectrale pr\'ec\'edente
+\[
+\coprod_{m\geq m_0} \R^{n+1} h_\ast(F(m)) \simeq \coprod_{m\geq m_0} f_\ast (\R^{n+1} g_\ast(F)(m)) \mod \mathcal{C},
+\]
+ce qui prouve que si le membre de gauche est un $\Ss$-Module de type fini, alors $\R^{n+1} g_\ast(F)$ est coh\'erent, en vertu de la partie b) du lemme \ref{XII.5.3}. Ceci prouve l'implication (ii) ~$\To$~ (i) par r\'ecurrence sur $n$. Reste \`a prouver:
+
+\begin{lemme} \label{XII.5.3} Soient $S$, $\Ss$, $X$, $f$ comme dans \ref{XII.5.2}, et $G$ un Module quasi-coh\'erent sur $X$, $m_0$ un entier. Alors
+\begin{enumeratea}
+\item
+Si $G$ est coh\'erent, alors pour tout entier $i$, le Module gradu\'e
+\[
+\coprod_{m\geq m_0} \R^i f_\ast(G(m))
+\]
+sur $\Ss$ est de type fini.
+\item
+Inversement, supposons que le Module $\coprod_{m\geq m_0} \R^i f_\ast(G(m))$ sur $\Ss$ soit de type fini, alors $G$ est coh\'erent.
+\end{enumeratea}
+\end{lemme}
+
+\begin{proof}[D\'emonstration de \ref{XII.5.3}]
+Pour a), le cas $i=0$ est donn\'e dans \EGA III 2.3.2, le cas $i>0$ dans \EGA III 2.2.1 (i)(ii) qui dit que les $ \R^i f_\ast G(m)$ sont coh\'erents, et nuls pour $m$ grand (si on suppose $S$ noeth\'erien, ce qui est loisible). Pour b), on note que $G$ est isomorphe \`a $\SheafProj (\coprod_{m\geq m_0}f_\ast(G(m))$ (\EGA II 3.4.4 et 3.4.2), ce qui prouve que $G$ est coh\'erent si $\coprod_{m\geq m_0}f_\ast(G(m))$ est de type fini sur $\Ss$, en vertu de \loccit 3.4.4.
+\skipqed
+\end{proof}
+\skipqed
+\end{proof}
+
+\begin{corollaire}[{{\normalfont$S$ noeth\'erien}}] \label{XII.5.4}
+Supposons que $\R^ig_\ast(F)$ soit coh\'erent pour $i\leq n$, alors pour $i\leq n+1$, et $m$ grand, on~a un isomorphisme canonique:
+\[
+\R^ih_\ast(F(m)) \simeq f_\ast(\R^ig_\ast(G)(m)).
+\]
+\end{corollaire}
+
+En effet la suite spectrale (\ref{eq:XII.26}) pour $F(m)$ d\'eg\'en\`ere alors en degr\'e $\leq n$, par \EGA III 2.2.1~(ii), d'o\`u aussit\^{o}t le r\'esultat (qui redonne d'ailleurs l'implication (ii) ~$\To$~ (i) de~5.2).
+
+\enlargethispage{1.2\baselineskip}%
+\begin{corollaire} \label{XII.5.5}
+Sous les conditions pr\'eliminaires de \ref{XII.5.2}, $S$ noeth\'erien, les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$\coprod_{m\geq m_0}h_\ast(F(m)$ est de type fini sur $S$, et $\R^ih_\ast(F(m))=0$ pour $0<i\leq n$ et $m$ grand.
+\item
+$g_\ast(F)$ est coh\'erent, et $\R^ig_\ast(F)=0$ pour $0<i\leq n$.
+\item[\textup{(ii bis)}] $g_\ast(F)$ est coh\'erent, et $\prof_Y g_\ast(F)>n+1$.
+\end{enumeratei}
+\end{corollaire}
+
+L'\'equivalence de (ii) et (ii bis) est contenue dans \ref{III}~\ref{III.3.3}. D'ailleurs, en vertu de \ref{XII.5.2} les conditions (i) et (ii) impliquent toutes deux que les $\R^ig_\ast(F)$ ($i\leq n$) sont coh\'erents. L'\'equivalence de (i) et (ii) r\'esulte alors de \ref{XII.5.4}, compte tenu du fait que tout un Module coh\'erent $G$ sur $X$, on~a $G=0$ si et seulement si $f_\ast(G(m))=0$ pour $m$ grand, par exemple en vertu de \EGA III 2.2.1 (iii).
+
+\begin{remarque} \label{XII.5.6}
+On peut interpr\'eter les crit\`eres \ref{XII.5.2} et \ref{XII.5.5} en disant que la \og condition de finitude simultan\'ee\fg \ref{XII.5.2} (ii) s'exprime par des propri\'et\'es de r\'egularit\'e locale (en termes de profondeur gr\^ace \`a \ref{VIII}~\ref{VIII.2.1}) de $F$ en les points de $U$ voisins de $Y=X- U$, alors que la \og condition de nullit\'e asymptotique\fg \ref{XII.5.5} (i) est de nature nettement plus forte, et s'exprime par des conditions de r\'egularit\'e locale de $g_\ast(F)$ en les points de~$Y$ lui-m\^eme. Il serait int\'eressant, pour g\'en\'eraliser les th\'eor\`emes \`a la Lefschetz pour les morphismes projectifs aux morphismes quasi-projectifs, de trouver des crit\`eres locaux sur $X$ n\'ecessaires et suffisants pour que les $\Ss$-Modules $\coprod_{m\geq 0} \R^ih_\ast(F(m))$ pour $i\leq n$ soient de type fini. Lorsque $S$ est le spectre d'un corps (et sans doute plus g\'en\'eralement, si c'est le spectre d'un anneau artinien) et $Y=X- U$ est fini, on peut montrer qu'il est n\'ecessaire et suffisant que les conditions suivantes soient v\'erifi\'ees:
+\begin{enumerate}
+\item[\textup{1\noo)}] $\prof F_x >n$ pour tout point ferm\'e $x$ de $U$ (comparer \ref{XII.1.4}).
+\item[\textup{2\noo)}] $\R^ig_\ast(F)$ est coh\'erent pour $i\leq n$, ou ce qui revient au m\^eme, il existe un voisinage ouvert $V$ de $Y$ tel que pour tout point ferm\'e $x$ de $U\cap V$, on ait $\prof F_x >n+1$.
+\end{enumerate}
+\end{remarque}
+
+\begin{proposition} \label{XII.5.7}
+Soient $S$ un pr\'esch\'ema localement noeth\'erien, $g:U\to X$ un morphisme de pr\'esch\'emas de type fini sur $S$\footnote{Il suffit en fait que $g$ soit quasi-compact et quasi-s\'epar\'e (\textup{\EGA IV1.2.1}), sans condition sur $U, X$.}, de morphismes structuraux $h$ et $f$, $F$ un Module quasi-coh\'erent sur $U$, $n$ un entier. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+Pour tout changement de base $S'\to S$, avec $S'$ noeth\'erien, le module $\R^ng'_\ast(F')$ sur $X'$ est coh\'erent.
+\item
+Pour tout changement de base comme ci-dessus, et tout Id\'eal coh\'erent $\Jj$ sur~$S'$, d\'esignant par $\Ii$ l'Id\'eal $\Jj\Oo_{X'}$ sur $X'$, le Module gradu\'e
+\[
+\coprod_{m\geq 0} \R^ng'_\ast(\Ii^mF')
+\]
+sur $\coprod_{m\geq 0} \Ii^m$ est de type fini.
+\item
+Pour tout changement de base $S'\to S$, et $\Jj$ comme ci-dessus, le Module gradu\'e
+\[
+\coprod_{m\geq 0} \R^ng'_\ast(\Ii^mF'/\Ii^{m+1}F')
+\]
+sur $\gr_I(\Oo_{X'})=\coprod_{m\geq 0} \Ii^m/\Ii^{m+1}$ est de type fini.
+\end{enumeratei}
+\end{proposition}
+
+\'Evidemment (ii) ~$\To$~ (i) et (iii) ~$\To$~ (i), comme on voit en faisant $\Ii=0$ dans les conditions (ii) et (iii). Les implications inverses s'obtiennent en appliquant (i) au changement de base compos\'e $S^{''}\to S'\to S$, o\`u $S^{''}$ est \'egal \`a $\Spec \coprod_{m\geq 0} \Jj^m$ resp. $\Spec \coprod_{m\geq 0} \Jj^m/\Jj^{m+1}$.
+
+L'int\'er\^et de cette proposition est que les conditions de la forme (ii) sont celles qui interviennent dans les \og th\'eor\`emes de comparaison alg\'ebrico-formels\fg, alors que les conditions de la forme (iii) interviennent dans les \og th\'eor\`emes d'existence\fg qui les compl\`etent, cf. expos\'e \ref{IX}. Un premier cas int\'eressant est celui o\`u $f:X\to S$ est l'identit\'e, et o\`u il s'agit donc de conditions sur un morphisme $h:U\to S$ localement de type fini et un Module $F$ quasi-coh\'erent sur $U$ plat par rapport \`a $S$. Pour obtenir des conditions suffisantes, nous allons supposer que $U$ se plonge par $g:U\to X$, comme sous-pr\'esch\'ema ouvert d'un $X$ \emph{propre} sur $S$. Appliquant \ref{XII.5.1}, on voit donc:
+
+\begin{corollaire} \label{XII.5.8}
+Soient $f:X\to S$ un morphisme propre, avec $S$ localement noeth\'erien, $U$ un ouvert de $X$, $g:U\to X$ l'immersion canonique, $h=fg:U\to S$, $F$ un Module quasi-coh\'erent sur $X$, plat par rapport \`a $S$. Supposons que pour tout changement de base $S'\to S$, avec $S'$ localement noeth\'erien, on ait $\R^ig'_\ast(F')$ coh\'erent sur $X'$ pour $i\leq n$. Alors on~a ce qui suit:
+\begin{enumeratei}
+\item
+Pour tout changement de base $S'\to S$, avec $S'$ localement noeth\'erien, $\R^ih'_\ast(F')$ est coh\'erent sur $S'$ pour $i\leq n$.
+\item
+Pour tout $S'\to S$ comme ci-dessus, et tout Id\'eal coh\'erent $\Jj$ sur $S'$, les Modules gradu\'es
+\[
+\coprod_{m\geq 0} \R^ih'_\ast(\Jj^mF')
+\]
+sur $\coprod_{m\geq 0}\Jj^m$ sont de type fini pour $i\leq n$.
+\item
+Pour tout $S'\to S$ et $\Jj$ comme ci-dessus, les Modules gradu\'es
+\[
+\coprod_{m\geq 0} \R^ih'_\ast(\Jj^mF'/\Jj^{m+1}F')
+\]
+sur $\gr_\Jj(\Oo_{S'})=\coprod_{m\geq 0}\Jj^m/\Jj^{m+1}$ sont de type fini pour $i\leq n$.
+
+De plus, sous les conditions de (ii), et en vertu du th\'eor\`eme de comparaison \ref{IX.1.1}, d\'esignant par $\widehat{S'}$ le compl\'et\'e formel de $S'$ par rapport \`a $\Jj$, et par $\widehat{U'}$ celui de $U'$ par rapport \`a $\Jj\Oo_{U'}$, les homomorphismes canoniques
+\[
+\widehat{\R^ih'_\ast(F')} \to \R^i\widehat{h'}_\ast(\widehat{F'}) \to \varprojlim_k\R^ih'_\ast(F'_k)
+\]
+sont des isomorphismes pour $i\leq n-1$.
+\end{enumeratei}
+\end{corollaire}
+
+\begin{remarque} \label{XII.5.9}
+Supposons qu'on soit de plus sous les conditions de \ref{XII.5.8} avec $F$ \emph{cohérent}, et consid\'erons un changement de base $S'\to S$ comme dans \ref{XII.5.9} (i). Supposons de plus que $S'$ soit localement immergeable dans un sch\'ema r\'egulier, ou plus g\'en\'eralement, qu'il existe un morphisme $S^{''}\to S$ fid\`element plat et quasi-compact, tel que $S^{''}$ soit localement immergeable dans un sch\'ema r\'egulier; cette condition est v\'erifi\'ee en particulier si $S'$ est local. Alors la conclusion de \ref{XII.5.8} (i) et (ii) reste valable lorsqu'on y remplace $F'$ par un Module $G'$ sur $U'$, tel que tout point de $U'$ ait un voisinage ouvert sur lequel $G'$ soit isomorphe \`a un Module de la forme ${F'}^n$. En effet, on est ramen\'e au cas $S'$ lui-m\^eme est localement immergeable dans un sch\'ema r\'egulier, de sorte qu'il en est de m\^eme de $S^{''}=\Spec\big(\coprod_{m\geq 0}\Jj^m\big)$ et de $X^{''}=X'\times_{S'} S^{''}= X\times_{S} S^{''}$, qui sont de type fini dessus. On applique alors le crit\`ere de finitude \ref{VIII}~\ref{VIII.2.3} pour les images directes pour $i\leq n$ de $G^{''}$ sous l'immersion $U^{''}\to X^{''}$, en notant qu'elles sont satisfaites par hypoth\`eses pour $F^{''}$, donc aussi pour $G^{''}$ puisqu'elles s'expriment en termes de profondeur et que $G^{''}$ est localement isomorphe \`a un ${F^{''}}^n$. Le m\^eme argument montre que si $\Gg'$ est un Module coh\'erent sur $\widehat{U'}$ (compl\'et\'e de $U'$ par rapport \`a l'Id\'eal $\Jj\Oo_{U'}$), tel que $\Gg'_0=\Gg'/\Jj\Gg'$ soit localement de la forme $F_0^{'n}$, alors la conclusion de (iii) reste valable en y rempla\c cant $F'$ par $\Gg'$. On obtient ainsi le r\'esultat suivant, en utilisant les r\'esultats de l'expos\'e \ref{IX}:
+\end{remarque}
+
+\begin{corollaire} \label{XII.5.10}
+Soient $f:X\to S$ un morphisme propre, avec $S$ localement noeth\'erien, $U$ une partie ouverte de $X$; on suppose $U$ plat par rapport \`a $S$, et que pour tout changement de base $S'\to S$, avec $S'$ localement noeth\'erien, on ait $R^ig'_\ast(\Oo_{U'})$ coh\'erent sur $X'$ pour $i=0, 1$. Supposons alors que $S'$ soit de la forme $\Spec(A)$, o\`u $A$ est anneau noeth\'erien muni d'un id\'eal $J$ tel que $A$ soit s\'epar\'e et complet pour la topologie $J$-adique. Sous ces conditions:
+\begin{enumeratei}
+\item
+Le foncteur $F\mto\widehat{F}$ de la cat\'egorie des Modules localement libres sur $U'$ dans la cat\'egorie des Modules localement libres sur $\widehat{U'}$ est pleinement fid\`ele.
+\item
+Pour tout Module localement libre $\formelF$ sur $\widehat{U'}$, il existe un Module coh\'erent $F$ sur~$U'$ (pas n\'ecessairement localement libre, h\'elas), et un isomorphisme $\widehat{F}\simeq \formelF$.
+\end{enumeratei}
+\end{corollaire}
+
+Il reste seulement \`a prouver (ii), gr\^ace \`a \ref{XII.5.9}. Or d'apr\`es cette remarque et \ref{IX.2.1} il s'ensuit que $\formelF$ est induit par un Module coh\'erent $\formelG$ sur $\widehat{X'}$. D'apr\`es le th\'eor\`eme d'existence \EGA III 5.1.4, $\formelG$ est de la forme $\widehat{F}$, o\`u $F$ est coh\'erent sur $X$, d'o\`u la conclusion.
+
+\begin{remarques} \label{XII.5.11}
+1\textsuperscript{o}) Utilisant \ref{XII.5.10}, \ref{XII.4.7} et une hypoth\`ese convenable, disant que certains anneaux locaux des fibres g\'eom\'etriques de $X'\to S'$ sont \og purs\fg resp. parafactoriels, on doit pouvoir obtenir des \'enonc\'es disant que le foncteur $Z'\mto \widehat{Z'}$ de la cat\'egorie des rev\^etements \'etales de $X'$ dans la cat\'egorie des rev\^etements \'etales de $\widehat{X'}$ (ou ce qui revient au m\^eme, de $X_0'$) est une \'equivalence de cat\'egories, resp. que le foncteur $L\mto \widehat{L}$ de la cat\'egorie des Modules inversibles sur $X'$ dans la cat\'egorie des Modules inversibles sur $\widehat{X'}$ est une \'equivalence. Utilisant des r\'esultats r\'ecents de Murre, il est probable que l'on doit pouvoir d\'eduire des th\'eor\`emes d'existence des sch\'emas de Picard pour certains sch\'emas alg\'ebriques \emph{non propres}. De fa\c con g\'en\'erale, l'\'elimination d'hypoth\`eses de puret\'e dans divers th\'eor\`emes d'existence, notamment de repr\'esentabilit\'e de foncteurs comme les foncteurs de Hilbert, ou de Picard etc., \`a~l'aide des techniques d\'evelopp\'ees dans ce s\'eminaire, m\'erite une \'etude syst\'ematique.
+
+2\textsuperscript{o}) On peut se proposer de donner des conditions n\'ecessaires et suffisantes maniables, en termes de profondeur, pour que la condition de finitude universelle envisag\'ee dans \ref{XII.5.10} soit v\'erifi\'ee. Lorsque $S$ est le spectre d'un corps, il r\'esulte facilement de \EGA III 1.4.15 qu'il faut et il suffit que les $\R^ig_\ast(F)$ ($i\leq n$) soient coh\'erents, ce qui s'exprime bien en termes de profondeur gr\^ace \`a \ref{VIII}~\ref{VIII.2.3}. Dans le cas g\'en\'eral, on notera cependant qu'il ne suffit pas d'exiger que la condition pr\'ec\'edente soit v\'erifi\'ee pour toutes les fibres $U_s\subset X_s$ ($s\in S$), m\^eme dans le cas o\`u $n=0$. Prendre par exemple $X=S$, $S$ le spectre d'un anneau de valuation discr\`ete, $U$ l'ouvert r\'eduit au point g\'en\'erique, $F=\Oo_U$.
+
+3\textsuperscript{o}) Voici cependant une condition \emph{suffisante} assurant qu'on est sous les conditions de l'hypoth\`ese de \ref{XII.5.10}: Il suffit que $f$ soit plat, et que pour tout $s\in S$ et tout $x\in Y_s=X_s- U_s$, on ait
+\[
+\prof \Oo_{X_s, x}\geq n+2.
+\]
+En effet, compte tenu du lemme \ref{XII.2.5} (cf. relation (\ref{eq:XII.16}) apr\`es \ref{XII.2.5}), il s'ensuit que l'on a alors $g_\ast(\Oo_U)\simeq\OX$ et $\R^ig_\ast(\Oo_U)=0$ pour $0<i\leq n$, et les m\^emes relations seront \'evidemment v\'erifi\'ees apr\`es tout changement de base $S'\to S$.
+\end{remarques}
+

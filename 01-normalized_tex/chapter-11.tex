@@ -1,0 +1,313 @@
+\chapter{Application au groupe de Picard} \label{XI}
+
+Cet expos\'e est calqu\'e sur le pr\'ec\'edent, mais cette fois le r\'esultat du \numero \ref{XI.1} est moins fort.
+
+Dans tout cet expos\'e, $X$ d\'esignera un pr\'esch\'ema localement noeth\'erien, $\Ii$ un id\'eal quasi-coh\'erent de $\OX$, ($Y=V(\Ii)$ est donc une partie ferm\'ee de $X$), $U$ un voisinage ouvert variable de $Y$ dans $X$, et $\hat X$ le compl\'et\'e formel de $X$ le long de $Y$. Pour tout espace annel\'e $(Z, \Oo_Z)$, on d\'esigne par $\PP(Z)$\refstepcounter{toto}\label{pXI.1} la cat\'egorie des $\Oo_Z$-Modules inversibles, autrement dit localement libres de rang~$1$, et par $\Pic(Z)$ le groupe des classes \`a isomorphisme pr\`es de Modules inversibles sur $Z$.
+
+\section{Comparaison de $\Pic(\hat X)$ et de $\Pic(Y)$} \label{XI.1}
+
+Pour tout $n\in\NN$, posons $X_n = (Y, \OX/\Ii^{n+1})$ et $P_n = \Ii^{n+1}/\Ii^{n+2}$. La suite de faisceaux de groupes ab\'eliens sur $Y$
+\begin{equation} \label{eq:XI.1.1} 0\to P_n\lto{u}\Oo_{X_{n+1}}^*\lto{v}\Oo_{X_n}^*\to 1
+\end{equation}
+est \emph{exacte}. Pr\'ecisons que la structure de groupe de $P_n$ est la structure additive, que $u(x)=1+x$ pour tout $x\in P_n$, et que $v$ est l'homomorphisme d\'eduit de l'injection $\Ii^{n+2}\to\Ii^{n+1}$. On voit que $v$ est surjectif en remarquant que, pour tout $y \in Y$, $\Oo_{X_n, y}$ est un anneau local, quotient de $\Oo_{X_{n+1}, y}$ par un id\'eal nilpotent; le reste est tout aussi trivial. On d\'eduit de (\ref{eq:XI.1.1}) une suite exacte de cohomologie:
+\begin{equation*} \label{eq:XI.1.*} \tag{$*$}
+\H^1(Y, P_n)\lto{u^1}\H^1(Y, \Oo_{X_{n+1}}^*)\lto{v^1} \H^1(Y, \Oo_{X_n}^*)\lto{d}\H^2(Y, P_n){\quoi}.
+\end{equation*}
+Par ailleurs, pour tout $n\in\NN$, on sait identifier $\Pic(X_n)$ et $\H^1(Y, \Oo_{X_n}^*)$; de plus, si~$E$ est un $\Oo_{X_{n+1}}$-Module inversible, correspondant \`a une classe de cohomologie $c(E)$, la classe de cohomologie correspondant \`a l'image inverse de $E$ sur $X_n$ est \'egale \`a $v^1(c(E))$. D'o\`u la proposition suivante:
+
+\begin{proposition} \label{XI.1.1} Conservons les notations introduites ci-dessus. Soit $p\in\NN$. L'application $\Pic(\hat X)\to \Pic(Y_n)$:
+\begin{enumeratei}
+\item
+est injective pour $n\geq p$, si $\H^1(Y, P_n)=0$ pour $n\geq p$;
+\item
+est un isomorphisme pour $n\geq p$, si $\H^i(Y, P_n)=0$ pour $n\geq p$ et $i=1, 2$.
+\end{enumeratei}
+\end{proposition}
+
+Bien entendu, la suite exacte~\eqref{eq:XI.1.*} contient plus d'information que la proposition ci-dessus. Le lecteur aura remarqu\'e que l'on n'a rien dit du foncteur $\PP(\hat X)\to\PP(Y)$. \'Etant donn\'es deux $\Oo_{\hat X}$-Modules inversibles, $H=\mathop{\underline{\mathrm{Hom}}}\nolimits(E, F)$ est aussi inversible. Si l'on indique par un indice $n$ la r\'eduction modulo $\Ii^{n+1}$, on trouve une suite exacte:
+\[
+0\to H_0\otimes P_n \to \mathop{\underline{\mathrm{Hom}}}\nolimits(E_{n+1}, F_{n+1}) \to \mathop{\underline{\mathrm{Hom}}}\nolimits(E_n, F_n)\to 0{\quoi}.
+\]
+D'o\`u une suite exacte de cohomologie que nous n'\'ecrirons pas et dont l'interpr\'etation est \'evidente; on peut utiliser cette remarque pour \'etudier le foncteur~$\PP$.
+
+\section{Comparaison de $\Pic(X)$ et de $\Pic(\hat X)$} \label{XI.2}
+
+Le lecteur trouvera dans l'expos\'e~\ref{X}, \numero \ref{X.2}, la d\'emonstration de ce qui suit:
+
+\begin{proposition} \label{XI.2.1} Supposons que l'on ait $\Lef(X, Y)$; alors pour tout voisinage ouvert $U$ de $Y$ dans $X$, le foncteur
+\begin{equation} \label{eq:XI.2.1} \PP(U)\to\PP(\hat X)
+\end{equation}
+est pleinement fid\`ele, l'application
+\begin{equation} \label{eq:XI.2.2} \Pic(U)\to\Pic(\hat X)
+\end{equation}
+est donc injective. Si l'on a $\Leff(X, Y)$, l'application~(\ref{eq:XI.2.3}) est un isomorphisme:
+\begin{equation} \label{eq:XI.2.3}
+\varinjlim_U\Pic(U)\to\Pic(\hat X){\quoi}.
+\end{equation}
+\end{proposition}
+
+\begin{corollaire} \label{XI.2.2} Supposons que l'on ait $\Lef(X, Y)$ et que pour tout entier $n\geq p$, on ait $\H^1(Y, P_n)=0$; alors pour tout ouvert $U\supset Y$, les applications
+\[
+\Pic(X)\to\Pic(U)\to\Pic(Y_n)
+\]
+sont injectives si $n\geq p$. Si l'on a $\Leff(X, Y)$ et si de plus, pour tout entier $n\geq p$, on~a $\H^i(Y, P_n)=0$ pour $i=1$ et $i=2$, alors l'application
+\[
+\varinjlim_U\Pic(U)\to\Pic(Y_n)
+\]
+est un isomorphisme pour $n\geq p$.
+\end{corollaire}
+
+\section{Comparaison de $\PP(X)$ et de $\PP(U)$} \label{XI.3}
+
+Une d\'efinition:
+\refstepcounter{subsection}\label{XI.3.1}
+\begin{enonce*}[remark]{D\'efinition 3.1}
+Soit $X$ un pr\'esch\'ema et soit $Z$ une partie ferm\'ee de~$X$. Posons $U=X-Z$. On dit que $X$ est \emph{parafactoriel} aux points de $Z$ si, pour tout ouvert $V$ de~$X$, le foncteur $\PP(V)\to \PP(V\cap U)$ est une \'equivalence de cat\'egories. On dit aussi que le couple $(X, Z)$ est parafactoriel.
+\end{enonce*}
+
+Rappelons que $\PP(Z)$ d\'esigne la cat\'egorie des Modules localement libres de rang~$1$ sur~$Z$.
+
+\begin{definition} \label{XI.3.2}
+Un anneau local noeth\'erien est dit \emph{parafactoriel} si le couple $(\Spec(A), \{\rr(A)\})$ est parafactoriel.
+\end{definition}
+
+On d\'emontre la proposition suivante qui prouve que la notion est \og ponctuelle\fg:
+
+\begin{proposition} \label{XI.3.3}
+Supposons $X$ localement noeth\'erien. Pour que le couple $(X, Z)$ soit parafactoriel, il faut et il suffit que, pour tout $z\in Z$, l'anneau local $\Oo_{X, z}$ le soit.
+\end{proposition}
+
+Remarquons que dans parafactoriel il y a \og pleinement fid\`ele\fg. On d\'emontre comme dans le lemme~\ref{X.3.5} de l'expos\'e~\ref{X} le:
+
+\begin{lemme} \label{XI.3.4}
+Si $X$ est un pr\'esch\'ema localement noeth\'erien et si $Z=X-U$ est une partie ferm\'ee de $X$, les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+pour tout ouvert $V$ de $X$, le foncteur $\PP(V)\to \PP(V\cap U)$ est pleinement fid\`ele;
+\item
+l'homomorphisme $\OX \to i_*(\Oo_U)$ est un isomorphisme;
+\item
+pour tout $z\in Z$, on~a $\prof(\Oo_{X, z})\geq 2$.
+\end{enumeratei}
+\end{lemme}
+
+Donc \og parafactoriel\fg signifie que les conditions de~\ref{XI.3.4} sont v\'erifi\'ees et que, pour tout ouvert $V$ de $X$, l'homomorphisme $\Pic(V)\to\Pic(V\cap U)$, est surjectif. En particulier, si $X$ est le spectre d'un anneau local noeth\'erien, on trouve:
+
+\begin{proposition} \label{XI.3.5}
+Soit $A$ un anneau local noeth\'erien; pour qu'il soit parafactoriel il est n\'ecessaire et suffisant que $\prof A\geq 2$ et $\Pic(X'-\{x\})=0$, o\`u l'on a pos\'e $X'=\Spec(A)$ et o\`u $x$ est l'unique point ferm\'e de $X'$.
+\end{proposition}
+
+On notera qu'un anneau local de dimension $\leq 1$ n'est jamais parafactoriel car sa profondeur est $\leq 1$. Donc \emph{factoriel n'entraîne pas parafactoriel}; c'est cependant vrai pour les anneaux locaux noeth\'eriens de dimension $\geq 2$, comme nous le verrons plus bas.
+
+\begin{lemme} \label{XI.3.6} Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $Z$ une partie ferm\'ee de $X$. Soit $f\colon X_1\to X$ un morphisme fid\`element plat et quasi-compact. Posons $Z_1=f^{-1}(Z)$. Si $(X_1, Z_1)$ est parafactoriel, alors $(X, Z)$ l'est.
+\end{lemme}
+
+On remarque d'abord que, si $i\colon(X-Z)\to X$ d\'esigne l'immersion canonique de $U=X-Z$ dans $X$, la formation de l'image directe par $i$ d'un $\Oo_U$-Module quasi-coh\'erent commute au changement de base $f$, car celui-ci est plat. Il est donc \'equivalent de supposer les conditions \'equivalentes du lemme~\ref{XI.3.5} pour $(X, Z)$ ou pour $(X_1, Z_1)$, car $f$ est un morphisme de descente pour la cat\'egorie des faisceaux quasi-coh\'erents. Il reste \`a prouver que, pour tout ouvert $V$ de $X$, $\Pic(V)\to\Pic(V\cap U)$ est surjectif. On fait le changement de base $V\to X$, qui ne change rien (sic), et on est ramen\'e \`a $V=X$. On remarque alors que, si ${\Lcal}$ est un $\Oo_U$-Module inversible et si ${\Lcal}$ admet un plongement localement libre, ce prolongement est isomorphe \`a $i_*({\Lcal})$, \`a cause de ce qui vient d'\^etre vu. Reste \`a prouver que $i_*({\Lcal})$ est inversible. Utilisant \`a nouveau le fait que l'image directe par $i$ commute au changement de base plat, et que \og localement libre de rang~$1$\fg est une propri\'et\'e qui se descend par morphisme fid\`element plat et quasi-compact, on~a gagn\'e.
+
+\begin{corollaire} \label{XI.3.7} Soit $A$ un anneau local noeth\'erien; si $\hat A$ est parafactoriel $A$ l'est.
+\end{corollaire}
+
+Ne pas croire que, si $A$ est parafactoriel, $\hat A$ l'est.
+
+\danger
+
+Avant d'aborder l'\'enonc\'e du th\'eor\`eme principal de ce \no, faisons le lien avec la th\'eorie des diviseurs et la notion d'anneau factoriel\footnote{Pour les g\'en\'eralit\'es qui suivent, cf. aussi \EGA IV~21.}.
+
+Soit $X$ un pr\'esch\'ema \emph{noethérien} et \emph{normal}. Soit $Z^1(X)$ le groupe ab\'elien libre engendr\'e par les $x\in X$ tels que $\dim\OXx=1$. L'anneau local d'un tel point est un anneau de valuation discr\`ete. On notera $v_x$ la valuation norm\'ee correspondante. Soit $K(X)$ l'anneau des fractions rationnelles de $X$ et soit
+\[
+p\colon K(X)^*\to Z^1(X)
+\]
+l'application qui \`a tout $f\in K(X)^*$ associe le cycle 1-codimensionnel:
+\[
+(f) = \sum_{x\in X, \;\dim\OXx=1} v_x(f)\cdot x{\quoi}.
+\]
+L'image de $p$ est not\'ee $P(X)$ et on appelle ses \'el\'ements \emph{diviseurs principaux}\footnote{Conform\'ement \`a la terminologie de \EGA IV~21, nous pr\'ef\'erons maintenant r\'eserver le nom de \og diviseurs\fg aux \og diviseurs localement principaux\fg ou \og diviseurs de Cartier\fg.}. On pose
+\[
+\Cl(X) = Z^1(X)/P(X){\quoi}.
+\]
+Soit $Z$ le sous-groupe de $Z^1(X)$ dont les \'el\'ements sont les \emph{diviseurs localement principaux}. On sait que
+\[
+\Pic(X)\simeq Z^{\prime1}(X)/P(X){\quoi},
+\]
+et par suite $\Pic(X)$ s'identifie \`a un sous-groupe de $\Cl(X)$.
+
+Remarquons que si $U$ est un ouvert dense de $X$, $K(X)\to K(U)$ est un isomorphisme, et que si $\codim(X-U, X)\geq 2$, i.e. si tout $x\in X$ tel que $\dim\OXx\leq 1$ appartient \`a $U$, l'homomorphisme $Z^1(X)\to Z^1(U)$ et par suite $\Cl(X)\to\Cl(U)$ est aussi un isomorphisme. Enfin, si tout $x\in U$ est factoriel, i.e. $\OXx$ l'est, alors $Z^1(U) = Z^{\prime1}(U)$ donc $\Pic(U)\simeq\Cl(U)$.
+
+\begin{propositionblah} \label{XI.3.7.1}
+Soit $X$ un pr\'esch\'ema noeth\'erien et normal. Soit $(U_i)_{i\in I}$ une famille d'ouverts de $X$ telle que:
+\begin{enumeratea}
+\item
+les $U_i$ forment une base de filtre;
+\item
+si on pose $Y_i=X-U_i$, on~a $\codim(Y_i, X)\geq 2$ pour tout $i$,
+\item
+si $x\in U_i$ pour tout $i\in I$, alors $\OXx$ est factoriel.
+\end{enumeratea}
+\noindent
+Alors on~a un isomorphisme:
+\[
+\varinjlim_{i\in I}\Pic(U_i)\lto{\approx}\Cl(X){\quoi}.
+\]
+\end{propositionblah} Remarquons que b)~entra\^ine que tout $x\in X$ tel que $\dim\OXx\leq 1$ appartient \`a $U_i$ pour tout $i$. Donc les $U_i$ sont denses et de plus l'homomorphisme $Z^1(U_i)\to Z^1(X)$ est un isomorphisme, de m\^eme que $K(U_i)\to K(X)$. Donc $\Pic(U)\subset \Cl(U_i) \simeq \Cl(X)$. Pour prouver ce que l'on d\'esire, il suffit donc de montrer que tout $D\in Z^1(X)$ appartient \`a $Z^{\prime1}(U_i)$ pour un $i$ convenable. Il suffit de le faire pour les \og diviseurs\fg irr\'eductibles et positifs. Soit donc $x\in X$ tel que $\dim\OXx=1$. Il suffit de prouver qu'il existe un $i\in I$ tel que $\overline{\{x\}}$ soit localement principal en les points de $U_i$. Soit $\Ii$ le plus grand id\'eal de d\'efinition du ferm\'e $\overline{\{x\}}$. L'ensemble des points au voisinage desquels $\Ii$ est libre est un ouvert $U$. Or $U\supset \bigcap_{i\in I}U_i$ d'apr\`es~c). Si on pose $Y=X-U$, on~a $Y\subset \bigcup_{i\in I}Y_i$, or $Y$ est ferm\'e, donc admet un nombre \emph{fini} de points g\'en\'eriques, donc est contenu dans la r\'eunion d'un nombre fini de $Y_i$, donc dans $Y_j$ pour un $j\in I$, car les $U_i$ forment une base de filtre. Donc $U\supset U_j$.\qed
+
+\begin{corollaire} \label{XI.3.8}
+Soit $X$ un pr\'esch\'ema noeth\'erien et normal et soit $Y$ une partie ferm\'ee de codimension $\geq 2$. Supposons que, pour tout $p\in X-Y$, $\Oo_{X, p}$ soit factoriel, alors
+\[
+\Pic(X-Y)\to\Cl(X-Y)\to\Cl(X)
+\]
+sont des isomorphismes.
+\end{corollaire}
+
+\begin{corollaire} \label{XI.3.9}
+Soit $A$ un anneau local noeth\'erien et normal. Posons $X'=\Spec(A)$ et $x = \rr(A)$. Pour que $A$ soit \emph{factoriel} il faut et il suffit que $\Pic(X'-\{x\})=0$ et que $\pp\in X'-\{x\}$ implique que $A_\pp$ est factoriel.
+\end{corollaire}
+En effet, pour que $A$ soit factoriel il est n\'ecessaire et suffisant que $\Cl(X')=0$\,.
+
+\begin{corollaire} \label{XI.3.10}
+Soit $A$ un anneau local noeth\'erien de dimension $\geq 2$. Posons $X'=\Spec(A)$ et soit $x = \rr(A)$. Posons $X=X'-\{x\}$. Les conditions suivantes sont \'equivalentes:
+\begin{enumeratei}
+\item
+$A$ est factoriel;
+\item
+\textup{a)}\enspace pour tout $y\in X$, $\Oo_{X, p}$ est factoriel, et
+\par\hspace*{6.3mm}\textup{b)}\enspace $A$ est parafactoriel, i.e. $\prof A\geq 2$ et $\Pic(X)=0$.
+\end{enumeratei}
+\end{corollaire}
+
+Avant de d\'emontrer ce corollaire, \'enon\c cons le
+\refstepcounter{subsection}\label{XI.3.11}
+\begin{enonce*}{Crit\`ere de normalit\'e de Serre 3.11} Soit $A$ un anneau local noeth\'erien. Pour que $A$ soit normal, il et n\'ecessaire et suffisant que
+\begin{enumeratei}
+\item
+pour tout id\'eal premier ${\pp}$ de $A$ tel que $\dim A_{{\pp}}\leq 1$, $A_{{\pp}}$ soit normal,
+\item
+pour tout id\'eal premier ${\pp}$ de $A$ tel que $\dim A_{{\pp}}\geq 2$, on ait $\prof A_{{\pp}}\geq 2$.
+\end{enumeratei}
+\end{enonce*}
+
+Prouvons~\ref{XI.3.10}.
+
+(i)~$\To$~ (ii). Sachant qu'un localis\'e de factoriel l'est aussi, on~a (ii)~a). De plus $A$ est normal donc $\prof A\geq 2$ car $\dim A\geq 2$ (\ref{XI.3.11}~(ii)). Enfin $A$ est parafactoriel; en effet $\Pic(X)\simeq\Cl(X')=0$ (cf. \ref{XI.3.9}).
+
+(ii)~$\To$~ (i). Prouvons d'abord que $A$ est \emph{normal} en appliquant le crit\`ere de SERRE. Puisque $\dim A\geq 2$, la condition~(i) du crit\`ere est dans les hypoth\`eses. De plus, pour tout ${\pp}\in X$, $A_{{\pp}}$ est factoriel, donc normal, donc de profondeur $\geq 2$, du moins si $\dim A_{{\pp}}\geq 2$. Enfin $\prof A\geq 2$ d'apr\`es (ii)~b). Il reste \`a appliquer~\ref{XI.3.9}.
+
+\smallskip
+R\'esumons ce qui pr\'ec\`ede:
+
+\begin{proposition} \label{XI.3.12}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $\Ii$ un id\'eal quasi-coh\'erent de $X$. Soit $Y=V(\Ii)$. Soit $p\in\NN$. Supposons que:
+\begin{enumerate}
+\item[1)] On a $\Leff(X, Y)$ (\textup{Exposé} \ref{X});
+\item[2)] $\H^i(X, \Ii^{n+1}/\Ii^{n+2})=0$ si $i=1$ ou $2$ et si $n\geq p$;
+\item[3)] pour tout voisinage ouvert $U$ de $Y$ dans $X$ et tout $x\in X-U$, l'anneau $\OXx$ soit parafactoriel.
+\end{enumerate}
+\noindent
+Alors, pour tout $n\geq p$, et tout voisinage ouvert $U$ de $Y$, les homomorphismes
+\[
+\xymatrix{{\mathrm{Pic}(X)}\ar[rr]\ar[dr]&&{\mathrm{Pic}(X_n)}\\&{\mathrm{Pic}(U)}\ar[ur]&}
+\]
+sont des isomorphismes.
+\end{proposition}
+
+On conna\^it des anneaux parafactoriels:
+
+\skpt
+\begin{theoreme} \label{XI.3.13}
+\begin{enumeratei}
+\item
+(Auslander-Buchsbaum) Un anneau local noeth\'erien r\'egulier est factoriel (donc parafactoriel si sa dimension est $\geq 2$).
+\item
+Un anneau local noeth\'erien de dimension $\geq 4$ et qui est une \emph{intersection complète} est parafactoriel.
+\end{enumeratei}
+\end{theoreme}
+
+\begin{corollaire}[Conjecture de\label{XI.3.14} SAMUEL\ndemark] Un anneau local noeth\'erien $A$ qui est une intersection compl\`ete et qui est factoriel en codimension $\geq 3$ (i.e. $\dim A_{{\pp}}\leq 3$ entra\^ine que $A_{{\pp}}$ est factoriel) est factoriel.
+\end{corollaire}
+
+\emph{Prouvons le corollaire}
+
+On raisonne par r\'ecurrence sur la dimension de $A$.
+
+Si $\dim A\leq 3$, $A$ est factoriel par hypoth\`ese.
+
+Si $\dim A>3$, par l'hypoth\`ese de r\'ecurrence, en remarquant qu'un localis\'e d'une intersection compl\`ete l'est aussi, tous les localis\'es de $A$ autres que $A$ sont factoriels. Par le th\'eor\`eme~\ref{XI.3.13}~(ii), $A$ est parafactoriel, donc factoriel par~\ref{XI.3.10}.
+
+D\'emontrons~\ref{XI.3.13}~(i) (suivant KAPLANSKY)\footnote{C'est la d\'emonstration reproduite dans \EGA IV~21.11.1.}.
+
+Soit $A$ un anneau local noeth\'erien r\'egulier, posons $\dim A=n$. Si $n=0$ ou $1$, le r\'esultat est connu. Supposons $n\geq 2$, raisonnons par r\'ecurrence sur $n$ et supposons $n\geq 2$ et le th\'eor\`eme d\'emontr\'e pour les anneaux de dimension $<n$. Posons $X'=\Spec(A)$ et $X=X'-\{x\}$, o\`u $x=\rr(A)$. Les localis\'es de $A$ autres que $A$ sont r\'eguliers et de dimension $<n$, donc factoriels. De plus $\prof A = \dim A\geq 2$. Il suffit donc de prouver que $\Pic(X)=0$ (cor.\,\ref{XI.3.10}). Soit donc ${\Lcal}$ un $\OX$-Module inversible, on sait qu'on peut le prolonger en un $\Oo_{X'}$-Module coh\'erent ${\Lcal}'$. Il existe une r\'esolution de ${\Lcal}'$ par des $\OX$-Modules libres:
+\[
+0\from {\Lcal}'\from {\Lcal}'_1\from\cdots\from{\Lcal}'_n\from 0{\quoi},
+\]
+car la dimension cohomologique de $A$ est finie. Par restriction \`a $X'$ on obtient une r\'esolution libre finie. Il suffit donc de prouver le lemme suivant:
+
+\begin{lemme} \label{XI.3.15} Soit $(X, \OX)$ un espace annel\'e et soit ${\Lcal}$ un $\OX$-Module localement libre qui admet une r\'esolution finie par des modules \emph{libres de type fini}. Alors $\det({\Lcal}) \simeq \OX$.
+\end{lemme}
+
+Rappelons que l'on d\'efinit $\det({\Lcal})$ comme la puissance ext\'erieure maximum de ${\Lcal}$. Dans le cas envisag\'e, $\det({\Lcal}) \simeq{\Lcal}$ car ${\Lcal}$ est inversible, donc le lemme permet de conclure. D\'emontrons ce lemme. Soit
+\[
+0\from {\Lcal}_0\from {\Lcal}_1\from {\Lcal}_2\from\cdots\from{\Lcal}_n\from 0{\quoi},
+\]
+la suite exacte annonc\'ee, o\`u ${\Lcal}_0={\Lcal}$. Puisque tout est localement libre, on a:
+\[
+\tbigotimes_{0\leq i\leq n}(\det({\Lcal}_i))^{(-1)^i} \simeq \OX
+\]
+or tous les ${\Lcal}_i$, $i>0$, sont libres, donc aussi leurs d\'eterminants, donc aussi celui de ${\Lcal}_0 = {\Lcal}$.\qed
+
+\medskip
+Il nous faut encore d\'emontrer le (ii) du th\'eor\`eme. Auparavant, prouvons un lemme qui permettra de proc\'eder par r\'ecurrence:
+
+\begin{lemme} \label{XI.3.16}
+Soit $A$ un anneau local noeth\'erien quotient d'un r\'egulier. Soit $t\in\rr(A)$ un \'el\'ement $A$-r\'egulier. Supposons que $A$ soit complet pour la topologie $t$-adique. Posons $X'=\Spec(A)$, $Y'=V(t)\simeq \Spec(B)$, $B=A/tA$, $X=X'-\{x\}$, $Y=Y'-\{x\}$, $x=\rr(A)$. Supposons que:
+\begin{enumeratea}
+\item
+pour tout $y\in X$ ferm\'e dans $X$ on ait $\prof\Oo_{X, y}\geq 2$,
+\item
+$\prof A/tA\geq 3$,
+\end{enumeratea}
+\noindent
+alors l'application $\Pic(X)\to\Pic(Y)$ est injective. En particulier, si $B$ est parafactoriel, $A$ l'est aussi.
+\end{lemme}
+
+On sait que a)~entra\^ine $\Lef(X, Y)$ gr\^ace \`a \ref{X}~\ref{X.2.1}. Si on prouve que $\H^1(Y, P_n)=0$ pour tout $n\geq 0$, on saura \ignorespaces (\ref{XI.2.2}) que $\Pic(X)\to\Pic(Y)$ est injectif. Si, de plus, $B$ est parafactoriel, on saura que $\Pic(Y)=0$ (\ref{XI.3.5}) donc $\Pic(X)=0$, or $\prof(A)=3+1\geq 2$ car $t$ est $A$-r\'egulier, donc $A$ sera parafactoriel par~\ref{XI.3.5}.
+
+Soit $\Ii=\widetilde{(tA)}$ le $\Oo_{X'}$-Module associ\'e \`a l'id\'eal $tA$. Au \numero \ref{XI.1}, on~a pos\'e $P_n = (\Ii^{n+1}/\Ii^{n+2}){|Y}$, pour tout $n\geq 0$. Or $t$ est $A$-r\'egulier donc $P_n\simeq \Oo_Y$. \emph{Il nous reste donc à prouver que $\H^1(Y, \Oo_Y)=0$.} Or $Y = Y'-\{x\}$ est un ouvert de $Y'$, on~a donc une suite exacte~(\ref{I}~(\ref{eq:I.27})):
+\[
+\H^1(Y', \Oo_{Y'})\to\H^1(Y, \Oo_{Y})\to\H^2_x(Y', \Oo_{Y'}){\quoi},
+\]
+dont le terme de droite est nul en vertu de l'hypoth\`ese~b), et celui de gauche parce que $Y'$ est affine.\qed
+
+\begin{lemme} \label{XI.3.17}
+Conservant les hypoth\`eses de~\ref{XI.3.16}, supposons de plus que:
+\begin{itemize}
+\item[c)] pour tout $y$ ferm\'e dans $Y$, on $\prof\Oo_{X, y}\geq 3$,
+\item[d)] $\prof A/tA\geq 4$ (plus fort que b),
+\item[e)] pour tout $y$ ferm\'e de $X$, $y\in Y$, l'anneau $\Oo_{X, y}$ est parafactoriel.
+\end{itemize}
+Alors l'application $\Pic(X)\to\Pic(Y)$ est un isomorphisme, en particulier pour que $A$ soit parafactoriel, il faut et il suffit que $B$ le soit.
+\end{lemme}
+
+\enlargethispage{5mm}%
+On sait~(\ref{X}~\ref{X.2.1}) que a)~et~c) entra\^inent $\Leff(X, Y)$. De plus, par le raisonnement qui vient d'\^etre fait, d)~entra\^ine que $\H^1(Y, P_n)=0$ pour tout $n\geq 0$ et $i=1$ ou $i=2$. De plus, pour tout voisinage ouvert $U$ de $Y$ dans $X$, le compl\'ementaire de $U$ dans $X$ est form\'e d'un nombre fini de points ferm\'es. Gr\^ace \`a~e) et au th\'eor\`eme~\ref{XI.3.12}, on en d\'eduit que $\Pic(X)\to \Pic(Y)$ est un isomorphisme. D'autre part $\prof A\geq \prof B\geq 2$; par le crit\`ere~\ref{XI.3.5} on en d\'eduit que $A$ est parafactoriel si et seulement si $B$ l'est.
+
+D\'emontrons maintenant~\ref{XI.3.13}~(ii). Soit $R$ un anneau local noeth\'erien r\'egulier. Soit $(t_1, \ldots, t_k)$ une $R$-suite. Posons $B=R/(t_1, \ldots, t_k)$ et supposons que $\dim B\geq 4$. Il faut prouver que $B$ est parafactoriel. Raisonnons par r\'ecurrence sur~$k$. Si $k=0$, $B$ est r\'egulier, donc factoriel par \ref{XI.3.13}~(i), donc parafactoriel par~\ref{XI.3.10}. Supposons $k\geq 1$ et le th\'eor\`eme d\'emontr\'e pour $k'<k$. Posons $A=R/(t_1, \ldots, t_{k-1})$ donc $B=A/t_k A$. On peut supposer $B$ complet d'apr\`es~\ref{XI.3.7}. Par l'hypoth\`ese de r\'ecurrence, $A$ est parafactoriel. Prouvons que l'on peut appliquer le lemme~\ref{XI.3.17}. On a suppos\'e $B$ complet donc aussi $A$, et donc $A$ est complet pour la topologie $t$-adique. Si $x\in X$, et si $x$ est ferm\'e dans $X$, $A_x$ est une intersection compl\`ete de dimension $\geq 4$, avec $k'<k$. D'apr\`es l'hypoth\`ese de r\'ecurrence $A_x$ est parafactoriel, et par ailleurs de profondeur $\geq 4$. Ce qui donne a), c)~et~e). De plus, $\dim A\geq 5$, d'o\`u~d).\qed
+
+\begin{theoreme} \label{XI.3.18}
+Soit $X$ un pr\'esch\'ema localement noeth\'erien et soit $\Ii$ un faisceau coh\'erent d'id\'eaux de $X$. Posons $Y=V(\Ii)$. Soit $n$ un entier. Supposons que:
+\begin{enumeratei}
+\item
+on ait $\leff(X, Y)$ (cf. exemples \ref{X}~\ref{X.2.1}~et~\ref{X}~\ref{X.2.2}),
+\item
+pour tout $p\geq n$, on ait $\H^i(Y, \Ii^{p+1}/\Ii^{p+2})=0$ pour $i=1$ et $i=2$,
+\item
+pour tout ouvert $U\supset Y$ et tout $x\in X-U$, l'anneau $\OXx$ soit r\'egulier de dimension $\geq 2$ ou une intersection compl\`ete de dimension $\geq 4$.
+\end{enumeratei}
+\noindent
+Alors, pour tout ouvert $U\supset Y$ et tout entier $p\geq n$, les homomorphismes
+\[
+\Pic(X)\to\Pic(U)\to\Pic(Y_p)
+\]
+sont des isomorphismes, o\`u $Y_p$ d\'esigne le pr\'esch\'ema $(Y, \OX/\Ii^{p+1})$.
+\end{theoreme}
+
+Il suffit de conjuguer \ref{XI.3.12}~et~\ref{XI.3.13}.
+

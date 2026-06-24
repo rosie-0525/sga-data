@@ -1,0 +1,77 @@
+%&biglatex
+\documentclass{smfbook}
+\usepackage{sga2-smf}
+\usepackage[ansinew]{inputenc}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a LaTeX 2e version of the book ``Cohomologie locale des faisceaux
+% coh{\'e}rents et th{\'e}or\`emes de Lefschetz locaux et globaux (SGA 2)'',
+% Advanced Studies in Pure Mathematics~2, North-Holland Publishing Company -
+% Amsterdam, 1968, by A. Grothendieck et al.
+%
+% Typesetting was done by volunteers, participating in a project on
+% which one can find more details at
+%
+%                 http://www.math.leidenuniv.nl/~edix/
+%
+% and has been completed by the Societe mathematique de France under the
+% direction of Yves Laszlo.
+%
+% This file produces two versions (0 and 1, say), depending on the value
+% of the boolean variable 'original' below. Version 0 (original = true) should
+% reproduce the original text, whereas version 1 (original = false) takes
+% reported errors into account and contains updating footnotes
+% by the editor Yves Laszlo.
+% The differences between the two versions
+% are documented in the main TeX file. Both versions can be found in the
+% archives `http://arxiv.org/'.
+% Version 1 is also published by the Societe mathematique de France (SMF)
+% in the series 'Documents Mathematiques', available at
+%                 http://smf.emath.fr/
+%
+%
+% In order to compile this latex file, you need the files
+% sga2-smf.tex (master file, this file),
+% sga2-smf.sty (the specfic macro file),
+% smf_doc-math_5_01.tex (the main TeX file, identical to the published file,
+% input-ted below)
+% the SMF standard classes
+% smfbook.cls, smfenum.sty, smfthm.sty
+% available at
+%                 http://smf.emath.fr/Publications/Formats/
+% and the standard AMS LaTeX packages.
+% You can edit this file according to your own taste, and you
+% adapt the boolean variable `original' below as desired. Then you execute
+% the following commands (in a unix type environment):
+%
+%   latex sga2-smf.tex (three times, say; the third time you should only get
+%                   underfull hboxes and messages from xymatrix);
+%
+% Then you have a correct sga2-smf.dvi dvi file.
+%
+% If you want to make a pdf file (with hypertext facilities) then you
+% replace the three commands `latex' above by `pdflatex' (then you
+% also get messages from hyperref).
+%
+%
+% Of course, you do not need to compile the latex file if you are
+% happy with dvi, postscript, or pdf, as you can download those from
+% the arXiv archives.
+%
+% If you find mistakes in this file, or have suggestions on how to
+% improve it, please report them to Yves Laszlo. If you pass on your
+% own modified version of this file (and please think about the
+% consequences before doing that), then add a text at its beginning
+% and on the first page of the output, mentioning that it is a modified
+% version. Do not modify this part of the file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% In order to make the two versions with a single file.
+%% With `\setboolean{original}{true}' you get the original version,
+%% with `\setboolean{original}{false}' you get the corrected version.
+
+\setboolean{original}{false}
+
+\input{smf_doc-math_4_01.tex}

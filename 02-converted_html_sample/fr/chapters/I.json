@@ -1,0 +1,917 @@
+{
+  "chapter_id": "I",
+  "title": "Les invariants cohomologiques globaux et locaux",
+  "pages": [
+    {
+      "id": "I",
+      "title": "Les invariants cohomologiques globaux et locaux",
+      "html": "<h1 id=\"I\">I Les invariants cohomologiques globaux et locaux relatifs à un sous-espace fermé</h1>",
+      "blocks": [
+        {
+          "id": "I",
+          "type": "heading",
+          "label": null,
+          "title": "I Les invariants cohomologiques globaux et locaux relatifs à un sous-espace fermé",
+          "html": "<h1 id=\"I\">I Les invariants cohomologiques globaux et locaux relatifs à un sous-espace fermé</h1>"
+        }
+      ],
+      "footnotes": [],
+      "bibliography": []
+    },
+    {
+      "id": "I-1",
+      "title": "Les foncteurs \\(\\Gamma _Z\\), \\(\\underline{\\Gamma }_Z\\)",
+      "html": "<h1 id=\"I.1\">1 Les foncteurs \\(\\Gamma _Z\\), \\(\\underline{\\Gamma }_Z\\)</h1>\n<p>  Soient \\(X\\) un espace topologique, \\(\\underline{\\mathrm{C}}_X\\) la catégorie des faisceaux abéliens sur \\(X\\). Soient \\(\\Phi \\) une famille de supports au sens de Cartan on définit le foncteur \\(\\Gamma _\\Phi \\) sur \\(\\underline{\\mathrm{C}}_X\\) par: </p>\n<div class=\"equation\" id=\"eq:I.1\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.1} { \\Gamma _\\Phi (F) = \\text{ sous-groupe de } \\Gamma (F) \\text{ formé des sections } f \\text{ telles que support } f \\in \\Phi }. \\end{equation}\n  </div>\n  <span class=\"equation_label\">1</span>\n</p>\n</div>\n<p> Si \\(Z\\) est une partie fermée de \\(X\\), nous désignons par abus de langage par \\(\\underline{\\Gamma }_Z\\) le foncteur \\(\\Gamma _\\Phi \\), où \\(\\Phi \\) est l’ensemble des parties fermées de \\(X\\) contenues dans \\(Z\\). Donc on a: </p>\n<div class=\"equation\" id=\"eq:I.2\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.2} {\\Gamma _Z(F) = \\text{ sous-groupe des } \\Gamma (F) \\text{ formé des sections } f \\text{ telles que support } f \\subset Z}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">2</span>\n</p>\n</div>\n<p>Nous voulons généraliser cette définition au cas où \\(Z\\) est une partie <i class=\"itshape\">localement fermée</i> de \\(X\\), donc fermée dans une partie ouverte convenable \\(V\\) de \\(X\\). On posera dans ce cas: </p>\n<div class=\"equation\" id=\"eq:I.3\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.3} {\\Gamma _Z(F)=\\Gamma _Z(F|_{V})}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">3</span>\n</p>\n</div>\n<p> Il faut vérifier que \\(\\Gamma _Z(F)\\)  ne dépend pas »de l’ouvert choisi. Il suffit de montrer que si \\(V'\\), \\(V\\supset V' \\supset Z\\) est un ouvert, alors l’application \\(\\rho _{V'}^V: F(V) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }F(V')\\) applique \\(\\Gamma _Z(F|_{V})\\) isomorphiquement sur \\(\\Gamma _Z(F|_{V'})\\). Or </p>\n<div class=\"equation\" id=\"eq:I.4\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.4} { \\Gamma _Z(F|_{V}) = \\ker \\rho _{V-Z}^V} \\end{equation}\n  </div>\n  <span class=\"equation_label\">4</span>\n</p>\n</div>\n<p> donc si \\(f\\in \\Gamma _Z(F|_{V})\\) et si \\(\\rho _{V'}^V(f)=\\rho _{V-Z}^V(f)=0\\) alors \\(f=0\\) puisque \\((V', V-Z)\\) est un recouvrement de \\(V\\). De même, si \\(f'\\in \\Gamma _Z(F|_{V'})\\), alors \\(f'\\in F(V')\\) et \\(0\\in F(V-Z)\\) définissent un \\(f\\in F(V)\\) tel que \\(\\rho _{V'}^V(f)=f', f\\in \\Gamma _Z(F|_{V})\\), donc \\(\\rho _{V'}^V\\) induit un isomorphisme \\(\\Gamma _Z(F|_{V}) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _Z(F|_{V'})\\). </p>\n<p>Notons que tout ouvert \\(W\\) de \\(Z\\) est induit par un ouvert \\(U\\) de \\(X\\) dans lequel \\(W\\) est fermé. Il en résulte que \\(W \\rightsquigarrow \\Gamma _W(F)\\) définit un préfaisceau sur \\(Z\\), et on vérifie que c’est un faisceau que l’on notera \\(i^!(F)\\), où \\(i: Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’immersion canonique. On trouve: </p>\n<div class=\"equation\" id=\"eq:I.5\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.5} \\Gamma _Z(F)=\\Gamma (i^!(F)). \\end{equation}\n  </div>\n  <span class=\"equation_label\">5</span>\n</p>\n</div>\n<p> Le faisceau \\(i^!(F)\\) est un sous-faisceau de \\(i^*(F)\\); en effet l’homomorphisme canonique: </p>\n<div class=\"displaymath\" id=\"a0000000009\">\n  \\[  \\Gamma (F|_{U})=\\Gamma (U, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (U\\cap Z, i^*(F)) \\]\n</div>\n<p> est injectif sur \\(\\Gamma _{U\\cap Z}(F|_{U}) \\subset \\Gamma (F|_{U})\\). En résumant, on&#160;a le résultat suivant: </p>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.1\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.1</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Il existe un sous-faisceau unique \\(i^!(F)\\) de \\(i^*(F)\\) tel que pour tout ouvert \\(U\\) de \\(X\\) tel que \\(U\\cap Z\\) soit fermé dans \\(U\\), </p>\n<div class=\"displaymath\" id=\"a0000000010\">\n  \\[  \\Gamma (F|_{U})=\\Gamma (U, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (U\\cap Z, i^*(F)) \\]\n</div>\n<p> induise un isomorphisme \\(\\Gamma _{U \\cap Z}(F|_{U}) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (U\\cap Z, i^!(F))\\). </p>\n\n  </div>\n</div>\n<p>Notons que si \\(Z\\) est un ouvert on aura simplement </p>\n<div class=\"equation\" id=\"eq:I.6\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.6} {i^!(F)=i^*(F)=F|_{Z}, \\  \\Gamma _Z(F)=\\Gamma (Z, F)}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">6</span>\n</p>\n</div>\n<p>Supposons à nouveau \\(Z\\) quelconque. Alors pour un ouvert \\(U\\) de \\(X\\) variable, on voit que </p>\n<div class=\"displaymath\" id=\"a0000000011\">\n  \\[  U \\rightsquigarrow \\Gamma _{U\\cap Z}(F|_{U})=\\Gamma (U\\cap Z, i^!(F)) \\]\n</div>\n<p> est un faisceau sur \\(X\\), que nous noterons \\(\\underline{\\Gamma }_Z(F)\\); de façon précise, d’après la formule précédente (exprimant que \\(i^!\\) commute à la restriction aux ouverts) on&#160;a un isomorphisme </p>\n<div class=\"equation\" id=\"eq:I.7\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.7} {\\underline{\\Gamma }_Z(F)= i_*(i^!(F))} \\end{equation}\n  </div>\n  <span class=\"equation_label\">7</span>\n</p>\n</div>\n<p> par définition, on a, pour tout ouvert \\(U\\) de \\(X\\), </p>\n<div class=\"equation\" id=\"eq:I.8\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.8} {\\Gamma (U, \\underline{\\Gamma }_Z(F)) = \\Gamma _{U\\cap Z}(F|_{U})}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">8</span>\n</p>\n</div>\n<p> Notons ici une différence caractéristique entre le cas où \\(Z\\) est un fermé, et celui où \\(Z\\) est un ouvert. Dans le premier cas, la formule (<a href=\"#eq:I.8\">8</a>) nous montre que \\(\\underline{\\Gamma }_Z(F)\\) peut être considéré comme un sous-faisceau de \\(F\\), et on&#160;a donc une <i class=\"itshape\">immersion canonique</i> </p>\n<div class=\"displaymath\" id=\"a0000000012\">\n  \\begin{equation*}  \\label{eq:I.8'} \\tag {$8'$} {\\underline{\\Gamma }_Z(F) \\hookrightarrow F}. \\end{equation*}\n</div>\n<p>Dans le cas où \\(Z\\) est ouvert, au contraire, on voit sur (<a href=\"#eq:I.6\">6</a>) que le deuxième membre de (<a href=\"#eq:I.8\">8</a>) est \\(\\Gamma (U\\cap Z, F)\\), donc reçoit \\(\\Gamma (U, F)\\), donc on&#160;a un <i class=\"itshape\">homomorphisme canonique</i> en sens inverse du précédent: </p>\n<div class=\"displaymath\" id=\"a0000000013\">\n  \\begin{equation*}  \\label{eq:I.8''} \\tag {8} {F\\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_Z(F)}, \\end{equation*}\n</div>\n<p> qui n’est autre d’ailleurs que l’homomorphisme canonique </p>\n<div class=\"displaymath\" id=\"a0000000014\">\n  \\[ F\\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i_*i^*(F),  \\]\n</div>\n<p> compte tenu de l’isomorphisme </p>\n<div class=\"displaymath\" id=\"a0000000015\">\n  \\begin{equation*}  \\label{eq:I.6bis} \\tag {6 bis} {\\underline{\\Gamma }_Z(F)\\simeq i_*i^*(F)} \\end{equation*}\n</div>\n<p> déduit de (<a href=\"#eq:I.6\">6</a>) et (<a href=\"#eq:I.7\">7</a>). </p>\n<p>Bien entendu, pour \\(F\\) variable, \\(\\Gamma _Z(F)\\), \\(\\underline{\\Gamma }_Z(F)\\), \\(i^!(F)\\) peuvent être considérés comme des foncteurs en \\(F\\), à valeur respectivement dans la catégorie des groupes abéliens, des faisceaux abéliens sur \\(X\\), des faisceaux abéliens sur \\(Z\\). Il est parfois commode d’interpréter le foncteur </p>\n<div class=\"displaymath\" id=\"a0000000016\">\n  \\[ i^!: \\underline{\\mathrm{C}}_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\mathrm{C}}_Z \\]\n</div>\n<p> comme le foncteur adjoint d’un foncteur bien connu </p>\n<div class=\"displaymath\" id=\"a0000000017\">\n  \\[ i_!: \\underline{\\mathrm{C}}_Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\mathrm{C}}_X \\]\n</div>\n<p> défini par la proposition suivante: </p>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.2\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.2</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Soit \\(G\\) un faisceau abélien sur \\(Z\\). Alors il existe un sous-faisceau unique de \\(i_*(G)\\), soit \\(i_!(G)\\) tel que pour tout ouvert \\(U\\) de \\(X\\) l’isomorphisme (identique) </p>\n<div class=\"displaymath\" id=\"a0000000018\">\n  \\[  \\Gamma (U\\cap Z, G)= \\Gamma (U, i_*(G)) \\]\n</div>\n<p> définisse un isomorphisme </p>\n<div class=\"displaymath\" id=\"a0000000019\">\n  \\[  \\Gamma _{\\Phi _{U\\cap Z, U}}(U\\cap Z, G)=\\Gamma (U, i_! (G)),  \\]\n</div>\n<p> où \\(\\Phi _{U\\cap Z, U}\\) désigne l’ensemble des parties de \\(U\\cap Z\\) qui sont fermées dans \\(U\\). </p>\n\n  </div>\n</div>\n<p>La vérification se réduit à noter que le premier membre est un faisceau pour \\(U\\) variable, i.e. que la propriété pour une section de \\(i_*(G)\\) sur \\(U\\), considérée comme une section de \\(G\\) sur \\(U\\cap Z\\), d’être à support fermé <i class=\"itshape\">dans \\(U\\)</i> est de <i class=\"itshape\">nature locale sur \\(U\\)</i>. Le faisceau \\(i_!(G)\\) qu’on vient de définir est connu aussi sous le nom de: <i class=\"itshape\">faisceau déduit de&#160;\\(G\\) en prolongeant par \\(0\\)</i> en dehors de \\(Z\\), cf. Godement. En particulier, si \\(Z\\) est fermé, on a </p>\n<div class=\"equation\" id=\"eq:I.9\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.9} {i_!(G)=i_*(G)}; \\end{equation}\n  </div>\n  <span class=\"equation_label\">9</span>\n</p>\n</div>\n<p> mais dans le cas général, l’injection canonique \\(i_!(G) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i_*(G)\\) n’est pas un isomorphisme, comme il est bien connu déjà pour \\(Z\\) ouvert. Évidemment, \\(i_!(G)\\) dépend fonctoriellement de \\(G\\) (et c’est même un foncteur exact en G). Ceci dit, on a: </p>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.3\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.3</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Il existe un isomorphisme de bifoncteurs en \\(G, F\\) (\\(G\\) faisceau abélien sur \\(Z\\), \\(F\\) faisceau abélien sur \\(X\\)): </p>\n<div class=\"equation\" id=\"eq:I.10\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.10} {\\operatorname{Hom}(i_!(G), F) = \\operatorname{Hom}(G, i^!(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">10</span>\n</p>\n</div>\n\n  </div>\n</div>\n<p>Pour définir un tel isomorphisme, il revient au même de définir des homomorphismes fonctoriels </p>\n<div class=\"displaymath\" id=\"a0000000020\">\n  \\[ i_!i^!(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }F, \\  G \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i^!i_!(G),  \\]\n</div>\n<p> satisfaisant aux conditions de compatibilité bien connues (cf. par exemple l’exposé de Shih au séminaire Cartan sur les opérations cohomologiques). </p>\n<p>Se rappelant que \\(i_!\\) est exact, donc transforme monomorphismes en monomorphismes, on en conclut: </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.4\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.4</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Si \\(F\\) est injectif, \\(i^!(F)\\) est injectif, donc \\(\\underline{\\Gamma }_Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i_*i^!(F)\\) est également injectif. </p>\n\n  </div>\n</div>\n<p>Remplaçant \\(X\\) par un ouvert variable \\(U\\) de \\(X\\), on conclut aussi de <a href=\"#I.1.3\">1.3</a> </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.5\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.5</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> On a un isomorphisme fonctoriel en \\(F, G\\): </p>\n<div class=\"equation\" id=\"eq:I.11\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.11} \\mathop{\\underline{\\mathrm{Hom}}}\\nolimits {(i_!(G), F)} =i_*(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits {(G, i^!(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">11</span>\n</p>\n</div>\n\n  </div>\n</div>\n<p>Prenant pour \\(G\\) le faisceau constant sur \\(Z\\) défini par \\(\\mathbf{Z}\\), soit \\(\\mathbf{Z}_Z\\), <a href=\"#I.1.3\">1.3</a> et <a href=\"#I.1.5\">1.5</a> se spécialisent en </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.6\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.6</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> On a des isomorphismes fonctoriels en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.12\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.12} \\begin{array}[c]{l} {\\Gamma _Z(F)=\\operatorname{Hom}(\\mathbf{Z}_{Z, X}, F)}, \\\\ {\\underline{\\Gamma }_Z(F)=\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits (\\mathbf{Z}_{Z, X}, F)}, \\end{array} \\end{equation}\n  </div>\n  <span class=\"equation_label\">12</span>\n</p>\n</div>\n<p> où \\(\\mathbf{Z}_{Z, X}= i_!(\\mathbf{Z}_Z)\\) est le faisceau abélien sur \\(X\\) déduit du faisceau constant sur \\(Z\\) défini par \\(\\mathbf{Z}\\), en prolongeant par \\(0\\) en dehors de \\(Z\\). </p>\n\n  </div>\n</div>\n<div class=\"remarque_thmwrapper theorem-style-remark\" id=\"I.1.7\">\n  <div class=\"remarque_thmheading\">\n    <span class=\"remarque_thmcaption\">\n    Remarque\n    </span>\n    <span class=\"remarque_thmlabel\">1.7</span>\n  </div>\n  <div class=\"remarque_thmcontent\">\n  <p> Supposons que \\(X\\) soit un espace annelé, et munissons \\(Z\\) du faisceau d’anneaux \\({\\mathscr O}_Z=i^{-1}(\\mathscr {O}_X)\\), enfin désignons par \\(\\underline{\\mathrm{C}}_X\\) et \\(\\underline{\\mathrm{C}}_Z\\) la catégorie des Modules sur \\(X\\) resp. \\(Z\\). Alors les considérations précédentes s’étendent mot à mot, en prenant pour&#160;\\(F\\) un Module sur \\(X\\) et pour \\(G\\) un modules sur \\(Z\\), et en interprétant en conséquence les énoncés <a href=\"#I.1.3\">1.3</a> à <a href=\"#I.1.6\">1.6</a>. </p>\n\n  </div>\n</div>\n<p>Pour finir ces généralités, examinons ce qui se passe quand on change la partie localement fermée \\(Z\\). Soit \\(Z'\\subset Z\\) une autre partie localement fermée, et soient </p>\n<div class=\"displaymath\" id=\"a0000000021\">\n  \\[ j: Z' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }Z, i': Z' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X, i'=ij \\]\n</div>\n<p> les inclusions canoniques. Alors on&#160;a des isomorphismes fonctoriels: </p>\n<div class=\"equation\" id=\"eq:I.13\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.13} {(ij)^!=j^!i^!, \\quad (ij)_!=i_!j_!}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">13</span>\n</p>\n</div>\n<p> Le premier isomorphisme (<a href=\"#eq:I.13\">13</a>) définit un isomorphisme fonctoriel </p>\n<div class=\"equation\" id=\"eq:I.14\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.14} {\\Gamma _{Z'}(F)=\\Gamma (Z’, (ij)^!(F))\\simeq \\Gamma (Z’, j^!(i^!(F)))=\\Gamma _{Z'}(i^!(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">14</span>\n</p>\n</div>\n<p>Supposons maintenant que \\(Z'\\) soit <i class=\"itshape\">fermé</i> dans \\(Z\\), et </p>\n<div class=\"displaymath\" id=\"a0000000022\">\n  \\[ Z''=Z-Z' \\]\n</div>\n<p> son complémentaire dans \\(Z\\), qui est ouvert dans \\(Z\\) donc localement fermé dans \\(X\\). L’inclusion canonique (<a href=\"#eq:I.8\">8</a>) appliquée à \\(i^!(F)\\) sur \\(Z\\) muni de \\(Z'\\) nous définit, grâce à (<a href=\"#eq:I.14\">14</a>), un homomorphisme canonique injectif fonctoriel </p>\n<div class=\"equation\" id=\"eq:I.15\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.15} {\\Gamma _{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _Z(F)}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">15</span>\n</p>\n</div>\n<p> Si on remplace dans (<a href=\"#eq:I.14\">14</a>) \\(Z'\\) par \\(Z''\\) et utilise (<a href=\"#eq:I.8\">8</a>), on trouve un homomorphisme canonique fonctoriel: </p>\n<div class=\"displaymath\" id=\"a0000000023\">\n  \\begin{equation*}  \\label{eq:I.15'} \\tag {$15'$} {\\Gamma _Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z''}(F)}. \\end{equation*}\n</div>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.8\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.8</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Sous les conditions précédentes, la suite d’homomorphismes fonctoriels: </p>\n<div class=\"equation\" id=\"eq:I.16\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.16} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z''}(F)} \\end{equation}\n  </div>\n  <span class=\"equation_label\">16</span>\n</p>\n</div>\n<p> est exacte. Si \\(F\\) est flasque, la suite reste exacte en mettant un zéro à droite. </p>\n\n  </div>\n</div>\n<div class=\"proof_wrapper\" id=\"a0000000024\">\n  <div class=\"proof_heading\">\n    <span class=\"proof_caption\">\n    Preuve\n    </span>\n    <span class=\"expand-proof\">▼</span>\n  </div>\n  <div class=\"proof_content\">\n  <p>Remplaçant \\(X\\) par un ouvert \\(V\\) dans lequel \\(Z\\) soit fermé, on est ramené au cas où \\(Z\\) est fermé, donc \\(Z'\\) fermé. Alors \\(Z''\\) est fermé dans l’ouvert \\(X-Z'\\), et on&#160;a une inclusion canonique </p>\n<div class=\"displaymath\" id=\"a0000000025\">\n  \\[  \\Gamma _{Z''}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (X-Z', F),  \\]\n</div>\n<p> et l’exactitude de (<a href=\"#eq:I.16\">16</a>) signifie simplement que les sections de \\(F\\) à support dans \\(Z'\\) sont celles dont la restriction à \\(X-Z'\\) est nulle. </p>\n<p>Lorsque \\(F\\) est flasque, tout élément de \\(\\Gamma _{Z''}(F)\\), considéré comme section de \\(F\\) sur \\(X-Z'\\), peut se prolonger en une section de \\(F\\) sur \\(X\\), et cette dernière aura évidemment son support dans \\(Z\\), ce qui prouve qu’alors le dernier homomorphisme dans (<a href=\"#eq:I.16\">16</a>) est surjectif. </p>\n\n\n  </div>\n</div>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.9\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.9</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> On a une suite exacte fonctorielle </p>\n<div class=\"displaymath\" id=\"a0000000026\">\n  \\begin{equation*}  \\label{eq:I.16bis} \\tag {16 bis} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_{Z''}(F)}, \\end{equation*}\n</div>\n<p> et si \\(F\\) est flasque, cette suite reste exacte en mettant un \\(0\\) à droite. </p>\n\n  </div>\n</div>\n<p>On peut interpréter (<a href=\"#I.1.8\">1.8</a>) en termes de résultats sur les foncteurs \\(\\operatorname{Hom}\\) et \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits \\) via <a href=\"#I.1.6\">1.6</a>, de la façon suivante. Notons d’abord que si \\(G\\) est un faisceau abélien sur \\(Z\\), induisant les faisceaux \\(j^*(G)\\) et \\(k^*(G)\\) sur \\(Z'\\) resp. \\(Z''\\) (où \\(j: Z' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }Z\\) et \\(k: Z'' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }Z\\) sont les injections canoniques), on&#160;a une suite exacte canonique de faisceaux sur \\(X\\): </p>\n<div class=\"equation\" id=\"eq:I.17\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.17} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }k^*(G)_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }G_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }j^*(G)_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0} \\end{equation}\n  </div>\n  <span class=\"equation_label\">17</span>\n</p>\n</div>\n<p> où pour simplifier les notations, l’indice \\(X\\) désigne le faisceau sur \\(X\\) obtenu en prolongeant par \\(0\\) dans le complémentaire de l’espace de définition du faisceau envisagé. La suite exacte (<a href=\"#eq:I.17\">17</a>) généralise une suite exacte bien connue lorsque \\(Z=X\\) (cf. Godement), et s’en déduit d’ailleurs en écrivant la suite exacte en question sur&#160;\\(Z\\), et en appliquant le foncteur \\(i_!\\). Prenant \\(G=\\mathbf{Z}_{Z}\\), on conclut en particulier: </p>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.10\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.10</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Sous les conditions précédentes, on&#160;a une suite exacte de faisceaux abéliens sur \\(X\\): </p>\n<div class=\"equation\" id=\"eq:I.18\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.18} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathbf{Z}_{Z{”}, X} \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathbf{Z}_{Z, X} \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathbf{Z}_{Z', X} \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">18</span>\n</p>\n</div>\n<p> Ceci posé, les deux suites exactes <a href=\"#I.1.8\">1.8</a> et <a href=\"#I.1.9\">1.9</a> ne sont autres que les suites exactes déduites de (<a href=\"#eq:I.18\">18</a>) par application du foncteur \\(\\operatorname{Hom}(-, F)\\) resp. \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits (-, F)\\). </p>\n\n  </div>\n</div>\n<p>Cela redonne une démonstration évidente du fait que les suites (<a href=\"#eq:I.16\">16</a>) et (<a href=\"#I.1.9\">1.9</a>) restent exactes en mettant un zéro à droite, pourvu que \\(F\\) soit <i class=\"itshape\">injectif</i>. </p>",
+      "blocks": [
+        {
+          "id": "I.1",
+          "type": "heading",
+          "label": null,
+          "title": "1 Les foncteurs \\(\\Gamma _Z\\), \\(\\underline{\\Gamma }_Z\\)",
+          "html": "<h1 id=\"I.1\">1 Les foncteurs \\(\\Gamma _Z\\), \\(\\underline{\\Gamma }_Z\\)</h1>"
+        },
+        {
+          "id": "paragraph-1",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>  Soient \\(X\\) un espace topologique, \\(\\underline{\\mathrm{C}}_X\\) la catégorie des faisceaux abéliens sur \\(X\\). Soient \\(\\Phi \\) une famille de supports au sens de Cartan on définit le foncteur \\(\\Gamma _\\Phi \\) sur \\(\\underline{\\mathrm{C}}_X\\) par: </p>"
+        },
+        {
+          "id": "eq:I.1",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.1\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.1} { \\Gamma _\\Phi (F) = \\text{ sous-groupe de } \\Gamma (F) \\text{ formé des sections } f \\text{ telles que support } f \\in \\Phi }. \\end{equation}\n  </div>\n  <span class=\"equation_label\">1</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-3",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> Si \\(Z\\) est une partie fermée de \\(X\\), nous désignons par abus de langage par \\(\\underline{\\Gamma }_Z\\) le foncteur \\(\\Gamma _\\Phi \\), où \\(\\Phi \\) est l’ensemble des parties fermées de \\(X\\) contenues dans \\(Z\\). Donc on a: </p>"
+        },
+        {
+          "id": "eq:I.2",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.2\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.2} {\\Gamma _Z(F) = \\text{ sous-groupe des } \\Gamma (F) \\text{ formé des sections } f \\text{ telles que support } f \\subset Z}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">2</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-5",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Nous voulons généraliser cette définition au cas où \\(Z\\) est une partie <i class=\"itshape\">localement fermée</i> de \\(X\\), donc fermée dans une partie ouverte convenable \\(V\\) de \\(X\\). On posera dans ce cas: </p>"
+        },
+        {
+          "id": "eq:I.3",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.3\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.3} {\\Gamma _Z(F)=\\Gamma _Z(F|_{V})}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">3</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-7",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> Il faut vérifier que \\(\\Gamma _Z(F)\\)  ne dépend pas »de l’ouvert choisi. Il suffit de montrer que si \\(V'\\), \\(V\\supset V' \\supset Z\\) est un ouvert, alors l’application \\(\\rho _{V'}^V: F(V) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }F(V')\\) applique \\(\\Gamma _Z(F|_{V})\\) isomorphiquement sur \\(\\Gamma _Z(F|_{V'})\\). Or </p>"
+        },
+        {
+          "id": "eq:I.4",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.4\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.4} { \\Gamma _Z(F|_{V}) = \\ker \\rho _{V-Z}^V} \\end{equation}\n  </div>\n  <span class=\"equation_label\">4</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-9",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> donc si \\(f\\in \\Gamma _Z(F|_{V})\\) et si \\(\\rho _{V'}^V(f)=\\rho _{V-Z}^V(f)=0\\) alors \\(f=0\\) puisque \\((V', V-Z)\\) est un recouvrement de \\(V\\). De même, si \\(f'\\in \\Gamma _Z(F|_{V'})\\), alors \\(f'\\in F(V')\\) et \\(0\\in F(V-Z)\\) définissent un \\(f\\in F(V)\\) tel que \\(\\rho _{V'}^V(f)=f', f\\in \\Gamma _Z(F|_{V})\\), donc \\(\\rho _{V'}^V\\) induit un isomorphisme \\(\\Gamma _Z(F|_{V}) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _Z(F|_{V'})\\). </p>"
+        },
+        {
+          "id": "paragraph-10",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Notons que tout ouvert \\(W\\) de \\(Z\\) est induit par un ouvert \\(U\\) de \\(X\\) dans lequel \\(W\\) est fermé. Il en résulte que \\(W \\rightsquigarrow \\Gamma _W(F)\\) définit un préfaisceau sur \\(Z\\), et on vérifie que c’est un faisceau que l’on notera \\(i^!(F)\\), où \\(i: Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’immersion canonique. On trouve: </p>"
+        },
+        {
+          "id": "eq:I.5",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.5\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.5} \\Gamma _Z(F)=\\Gamma (i^!(F)). \\end{equation}\n  </div>\n  <span class=\"equation_label\">5</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-12",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> Le faisceau \\(i^!(F)\\) est un sous-faisceau de \\(i^*(F)\\); en effet l’homomorphisme canonique: </p>"
+        },
+        {
+          "id": "a0000000009",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000009\">\n  \\[  \\Gamma (F|_{U})=\\Gamma (U, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (U\\cap Z, i^*(F)) \\]\n</div>"
+        },
+        {
+          "id": "paragraph-14",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> est injectif sur \\(\\Gamma _{U\\cap Z}(F|_{U}) \\subset \\Gamma (F|_{U})\\). En résumant, on&#160;a le résultat suivant: </p>"
+        },
+        {
+          "id": "I.1.1",
+          "type": "proposition",
+          "label": "1.1",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.1\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.1</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Il existe un sous-faisceau unique \\(i^!(F)\\) de \\(i^*(F)\\) tel que pour tout ouvert \\(U\\) de \\(X\\) tel que \\(U\\cap Z\\) soit fermé dans \\(U\\), </p>\n<div class=\"displaymath\" id=\"a0000000010\">\n  \\[  \\Gamma (F|_{U})=\\Gamma (U, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (U\\cap Z, i^*(F)) \\]\n</div>\n<p> induise un isomorphisme \\(\\Gamma _{U \\cap Z}(F|_{U}) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (U\\cap Z, i^!(F))\\). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-16",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Notons que si \\(Z\\) est un ouvert on aura simplement </p>"
+        },
+        {
+          "id": "eq:I.6",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.6\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.6} {i^!(F)=i^*(F)=F|_{Z}, \\  \\Gamma _Z(F)=\\Gamma (Z, F)}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">6</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-18",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Supposons à nouveau \\(Z\\) quelconque. Alors pour un ouvert \\(U\\) de \\(X\\) variable, on voit que </p>"
+        },
+        {
+          "id": "a0000000011",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000011\">\n  \\[  U \\rightsquigarrow \\Gamma _{U\\cap Z}(F|_{U})=\\Gamma (U\\cap Z, i^!(F)) \\]\n</div>"
+        },
+        {
+          "id": "paragraph-20",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> est un faisceau sur \\(X\\), que nous noterons \\(\\underline{\\Gamma }_Z(F)\\); de façon précise, d’après la formule précédente (exprimant que \\(i^!\\) commute à la restriction aux ouverts) on&#160;a un isomorphisme </p>"
+        },
+        {
+          "id": "eq:I.7",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.7\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.7} {\\underline{\\Gamma }_Z(F)= i_*(i^!(F))} \\end{equation}\n  </div>\n  <span class=\"equation_label\">7</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-22",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> par définition, on a, pour tout ouvert \\(U\\) de \\(X\\), </p>"
+        },
+        {
+          "id": "eq:I.8",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.8\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.8} {\\Gamma (U, \\underline{\\Gamma }_Z(F)) = \\Gamma _{U\\cap Z}(F|_{U})}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">8</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-24",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> Notons ici une différence caractéristique entre le cas où \\(Z\\) est un fermé, et celui où \\(Z\\) est un ouvert. Dans le premier cas, la formule (<a href=\"#eq:I.8\">8</a>) nous montre que \\(\\underline{\\Gamma }_Z(F)\\) peut être considéré comme un sous-faisceau de \\(F\\), et on&#160;a donc une <i class=\"itshape\">immersion canonique</i> </p>"
+        },
+        {
+          "id": "a0000000012",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000012\">\n  \\begin{equation*}  \\label{eq:I.8'} \\tag {$8'$} {\\underline{\\Gamma }_Z(F) \\hookrightarrow F}. \\end{equation*}\n</div>"
+        },
+        {
+          "id": "paragraph-26",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Dans le cas où \\(Z\\) est ouvert, au contraire, on voit sur (<a href=\"#eq:I.6\">6</a>) que le deuxième membre de (<a href=\"#eq:I.8\">8</a>) est \\(\\Gamma (U\\cap Z, F)\\), donc reçoit \\(\\Gamma (U, F)\\), donc on&#160;a un <i class=\"itshape\">homomorphisme canonique</i> en sens inverse du précédent: </p>"
+        },
+        {
+          "id": "a0000000013",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000013\">\n  \\begin{equation*}  \\label{eq:I.8''} \\tag {8} {F\\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_Z(F)}, \\end{equation*}\n</div>"
+        },
+        {
+          "id": "paragraph-28",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> qui n’est autre d’ailleurs que l’homomorphisme canonique </p>"
+        },
+        {
+          "id": "a0000000014",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000014\">\n  \\[ F\\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i_*i^*(F),  \\]\n</div>"
+        },
+        {
+          "id": "paragraph-30",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> compte tenu de l’isomorphisme </p>"
+        },
+        {
+          "id": "a0000000015",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000015\">\n  \\begin{equation*}  \\label{eq:I.6bis} \\tag {6 bis} {\\underline{\\Gamma }_Z(F)\\simeq i_*i^*(F)} \\end{equation*}\n</div>"
+        },
+        {
+          "id": "paragraph-32",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> déduit de (<a href=\"#eq:I.6\">6</a>) et (<a href=\"#eq:I.7\">7</a>). </p>"
+        },
+        {
+          "id": "paragraph-33",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Bien entendu, pour \\(F\\) variable, \\(\\Gamma _Z(F)\\), \\(\\underline{\\Gamma }_Z(F)\\), \\(i^!(F)\\) peuvent être considérés comme des foncteurs en \\(F\\), à valeur respectivement dans la catégorie des groupes abéliens, des faisceaux abéliens sur \\(X\\), des faisceaux abéliens sur \\(Z\\). Il est parfois commode d’interpréter le foncteur </p>"
+        },
+        {
+          "id": "a0000000016",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000016\">\n  \\[ i^!: \\underline{\\mathrm{C}}_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\mathrm{C}}_Z \\]\n</div>"
+        },
+        {
+          "id": "paragraph-35",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> comme le foncteur adjoint d’un foncteur bien connu </p>"
+        },
+        {
+          "id": "a0000000017",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000017\">\n  \\[ i_!: \\underline{\\mathrm{C}}_Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\mathrm{C}}_X \\]\n</div>"
+        },
+        {
+          "id": "paragraph-37",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> défini par la proposition suivante: </p>"
+        },
+        {
+          "id": "I.1.2",
+          "type": "proposition",
+          "label": "1.2",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.2\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.2</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Soit \\(G\\) un faisceau abélien sur \\(Z\\). Alors il existe un sous-faisceau unique de \\(i_*(G)\\), soit \\(i_!(G)\\) tel que pour tout ouvert \\(U\\) de \\(X\\) l’isomorphisme (identique) </p>\n<div class=\"displaymath\" id=\"a0000000018\">\n  \\[  \\Gamma (U\\cap Z, G)= \\Gamma (U, i_*(G)) \\]\n</div>\n<p> définisse un isomorphisme </p>\n<div class=\"displaymath\" id=\"a0000000019\">\n  \\[  \\Gamma _{\\Phi _{U\\cap Z, U}}(U\\cap Z, G)=\\Gamma (U, i_! (G)),  \\]\n</div>\n<p> où \\(\\Phi _{U\\cap Z, U}\\) désigne l’ensemble des parties de \\(U\\cap Z\\) qui sont fermées dans \\(U\\). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-39",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>La vérification se réduit à noter que le premier membre est un faisceau pour \\(U\\) variable, i.e. que la propriété pour une section de \\(i_*(G)\\) sur \\(U\\), considérée comme une section de \\(G\\) sur \\(U\\cap Z\\), d’être à support fermé <i class=\"itshape\">dans \\(U\\)</i> est de <i class=\"itshape\">nature locale sur \\(U\\)</i>. Le faisceau \\(i_!(G)\\) qu’on vient de définir est connu aussi sous le nom de: <i class=\"itshape\">faisceau déduit de&#160;\\(G\\) en prolongeant par \\(0\\)</i> en dehors de \\(Z\\), cf. Godement. En particulier, si \\(Z\\) est fermé, on a </p>"
+        },
+        {
+          "id": "eq:I.9",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.9\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.9} {i_!(G)=i_*(G)}; \\end{equation}\n  </div>\n  <span class=\"equation_label\">9</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-41",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> mais dans le cas général, l’injection canonique \\(i_!(G) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i_*(G)\\) n’est pas un isomorphisme, comme il est bien connu déjà pour \\(Z\\) ouvert. Évidemment, \\(i_!(G)\\) dépend fonctoriellement de \\(G\\) (et c’est même un foncteur exact en G). Ceci dit, on a: </p>"
+        },
+        {
+          "id": "I.1.3",
+          "type": "proposition",
+          "label": "1.3",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.3\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.3</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Il existe un isomorphisme de bifoncteurs en \\(G, F\\) (\\(G\\) faisceau abélien sur \\(Z\\), \\(F\\) faisceau abélien sur \\(X\\)): </p>\n<div class=\"equation\" id=\"eq:I.10\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.10} {\\operatorname{Hom}(i_!(G), F) = \\operatorname{Hom}(G, i^!(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">10</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-43",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Pour définir un tel isomorphisme, il revient au même de définir des homomorphismes fonctoriels </p>"
+        },
+        {
+          "id": "a0000000020",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000020\">\n  \\[ i_!i^!(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }F, \\  G \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i^!i_!(G),  \\]\n</div>"
+        },
+        {
+          "id": "paragraph-45",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> satisfaisant aux conditions de compatibilité bien connues (cf. par exemple l’exposé de Shih au séminaire Cartan sur les opérations cohomologiques). </p>"
+        },
+        {
+          "id": "paragraph-46",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Se rappelant que \\(i_!\\) est exact, donc transforme monomorphismes en monomorphismes, on en conclut: </p>"
+        },
+        {
+          "id": "I.1.4",
+          "type": "corollaire",
+          "label": "1.4",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.4\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.4</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Si \\(F\\) est injectif, \\(i^!(F)\\) est injectif, donc \\(\\underline{\\Gamma }_Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }i_*i^!(F)\\) est également injectif. </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-48",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Remplaçant \\(X\\) par un ouvert variable \\(U\\) de \\(X\\), on conclut aussi de <a href=\"#I.1.3\">1.3</a> </p>"
+        },
+        {
+          "id": "I.1.5",
+          "type": "corollaire",
+          "label": "1.5",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.5\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.5</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> On a un isomorphisme fonctoriel en \\(F, G\\): </p>\n<div class=\"equation\" id=\"eq:I.11\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.11} \\mathop{\\underline{\\mathrm{Hom}}}\\nolimits {(i_!(G), F)} =i_*(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits {(G, i^!(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">11</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-50",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Prenant pour \\(G\\) le faisceau constant sur \\(Z\\) défini par \\(\\mathbf{Z}\\), soit \\(\\mathbf{Z}_Z\\), <a href=\"#I.1.3\">1.3</a> et <a href=\"#I.1.5\">1.5</a> se spécialisent en </p>"
+        },
+        {
+          "id": "I.1.6",
+          "type": "corollaire",
+          "label": "1.6",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.6\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.6</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> On a des isomorphismes fonctoriels en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.12\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.12} \\begin{array}[c]{l} {\\Gamma _Z(F)=\\operatorname{Hom}(\\mathbf{Z}_{Z, X}, F)}, \\\\ {\\underline{\\Gamma }_Z(F)=\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits (\\mathbf{Z}_{Z, X}, F)}, \\end{array} \\end{equation}\n  </div>\n  <span class=\"equation_label\">12</span>\n</p>\n</div>\n<p> où \\(\\mathbf{Z}_{Z, X}= i_!(\\mathbf{Z}_Z)\\) est le faisceau abélien sur \\(X\\) déduit du faisceau constant sur \\(Z\\) défini par \\(\\mathbf{Z}\\), en prolongeant par \\(0\\) en dehors de \\(Z\\). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "I.1.7",
+          "type": "remarque",
+          "label": "1.7",
+          "title": "Remarque",
+          "html": "<div class=\"remarque_thmwrapper theorem-style-remark\" id=\"I.1.7\">\n  <div class=\"remarque_thmheading\">\n    <span class=\"remarque_thmcaption\">\n    Remarque\n    </span>\n    <span class=\"remarque_thmlabel\">1.7</span>\n  </div>\n  <div class=\"remarque_thmcontent\">\n  <p> Supposons que \\(X\\) soit un espace annelé, et munissons \\(Z\\) du faisceau d’anneaux \\({\\mathscr O}_Z=i^{-1}(\\mathscr {O}_X)\\), enfin désignons par \\(\\underline{\\mathrm{C}}_X\\) et \\(\\underline{\\mathrm{C}}_Z\\) la catégorie des Modules sur \\(X\\) resp. \\(Z\\). Alors les considérations précédentes s’étendent mot à mot, en prenant pour&#160;\\(F\\) un Module sur \\(X\\) et pour \\(G\\) un modules sur \\(Z\\), et en interprétant en conséquence les énoncés <a href=\"#I.1.3\">1.3</a> à <a href=\"#I.1.6\">1.6</a>. </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-53",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Pour finir ces généralités, examinons ce qui se passe quand on change la partie localement fermée \\(Z\\). Soit \\(Z'\\subset Z\\) une autre partie localement fermée, et soient </p>"
+        },
+        {
+          "id": "a0000000021",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000021\">\n  \\[ j: Z' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }Z, i': Z' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X, i'=ij \\]\n</div>"
+        },
+        {
+          "id": "paragraph-55",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> les inclusions canoniques. Alors on&#160;a des isomorphismes fonctoriels: </p>"
+        },
+        {
+          "id": "eq:I.13",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.13\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.13} {(ij)^!=j^!i^!, \\quad (ij)_!=i_!j_!}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">13</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-57",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> Le premier isomorphisme (<a href=\"#eq:I.13\">13</a>) définit un isomorphisme fonctoriel </p>"
+        },
+        {
+          "id": "eq:I.14",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.14\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.14} {\\Gamma _{Z'}(F)=\\Gamma (Z’, (ij)^!(F))\\simeq \\Gamma (Z’, j^!(i^!(F)))=\\Gamma _{Z'}(i^!(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">14</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-59",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Supposons maintenant que \\(Z'\\) soit <i class=\"itshape\">fermé</i> dans \\(Z\\), et </p>"
+        },
+        {
+          "id": "a0000000022",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000022\">\n  \\[ Z''=Z-Z' \\]\n</div>"
+        },
+        {
+          "id": "paragraph-61",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> son complémentaire dans \\(Z\\), qui est ouvert dans \\(Z\\) donc localement fermé dans \\(X\\). L’inclusion canonique (<a href=\"#eq:I.8\">8</a>) appliquée à \\(i^!(F)\\) sur \\(Z\\) muni de \\(Z'\\) nous définit, grâce à (<a href=\"#eq:I.14\">14</a>), un homomorphisme canonique injectif fonctoriel </p>"
+        },
+        {
+          "id": "eq:I.15",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.15\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.15} {\\Gamma _{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _Z(F)}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">15</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-63",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> Si on remplace dans (<a href=\"#eq:I.14\">14</a>) \\(Z'\\) par \\(Z''\\) et utilise (<a href=\"#eq:I.8\">8</a>), on trouve un homomorphisme canonique fonctoriel: </p>"
+        },
+        {
+          "id": "a0000000023",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000023\">\n  \\begin{equation*}  \\label{eq:I.15'} \\tag {$15'$} {\\Gamma _Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z''}(F)}. \\end{equation*}\n</div>"
+        },
+        {
+          "id": "I.1.8",
+          "type": "proposition",
+          "label": "1.8",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.8\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.8</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Sous les conditions précédentes, la suite d’homomorphismes fonctoriels: </p>\n<div class=\"equation\" id=\"eq:I.16\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.16} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z''}(F)} \\end{equation}\n  </div>\n  <span class=\"equation_label\">16</span>\n</p>\n</div>\n<p> est exacte. Si \\(F\\) est flasque, la suite reste exacte en mettant un zéro à droite. </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "a0000000024",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"proof_wrapper\" id=\"a0000000024\">\n  <div class=\"proof_heading\">\n    <span class=\"proof_caption\">\n    Preuve\n    </span>\n    <span class=\"expand-proof\">▼</span>\n  </div>\n  <div class=\"proof_content\">\n  <p>Remplaçant \\(X\\) par un ouvert \\(V\\) dans lequel \\(Z\\) soit fermé, on est ramené au cas où \\(Z\\) est fermé, donc \\(Z'\\) fermé. Alors \\(Z''\\) est fermé dans l’ouvert \\(X-Z'\\), et on&#160;a une inclusion canonique </p>\n<div class=\"displaymath\" id=\"a0000000025\">\n  \\[  \\Gamma _{Z''}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (X-Z', F),  \\]\n</div>\n<p> et l’exactitude de (<a href=\"#eq:I.16\">16</a>) signifie simplement que les sections de \\(F\\) à support dans \\(Z'\\) sont celles dont la restriction à \\(X-Z'\\) est nulle. </p>\n<p>Lorsque \\(F\\) est flasque, tout élément de \\(\\Gamma _{Z''}(F)\\), considéré comme section de \\(F\\) sur \\(X-Z'\\), peut se prolonger en une section de \\(F\\) sur \\(X\\), et cette dernière aura évidemment son support dans \\(Z\\), ce qui prouve qu’alors le dernier homomorphisme dans (<a href=\"#eq:I.16\">16</a>) est surjectif. </p>\n\n\n  </div>\n</div>"
+        },
+        {
+          "id": "I.1.9",
+          "type": "corollaire",
+          "label": "1.9",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.1.9\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">1.9</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> On a une suite exacte fonctorielle </p>\n<div class=\"displaymath\" id=\"a0000000026\">\n  \\begin{equation*}  \\label{eq:I.16bis} \\tag {16 bis} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_Z(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\underline{\\Gamma }_{Z''}(F)}, \\end{equation*}\n</div>\n<p> et si \\(F\\) est flasque, cette suite reste exacte en mettant un \\(0\\) à droite. </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-68",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>On peut interpréter (<a href=\"#I.1.8\">1.8</a>) en termes de résultats sur les foncteurs \\(\\operatorname{Hom}\\) et \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits \\) via <a href=\"#I.1.6\">1.6</a>, de la façon suivante. Notons d’abord que si \\(G\\) est un faisceau abélien sur \\(Z\\), induisant les faisceaux \\(j^*(G)\\) et \\(k^*(G)\\) sur \\(Z'\\) resp. \\(Z''\\) (où \\(j: Z' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }Z\\) et \\(k: Z'' \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }Z\\) sont les injections canoniques), on&#160;a une suite exacte canonique de faisceaux sur \\(X\\): </p>"
+        },
+        {
+          "id": "eq:I.17",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.17\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.17} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }k^*(G)_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }G_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }j^*(G)_X \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0} \\end{equation}\n  </div>\n  <span class=\"equation_label\">17</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-70",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> où pour simplifier les notations, l’indice \\(X\\) désigne le faisceau sur \\(X\\) obtenu en prolongeant par \\(0\\) dans le complémentaire de l’espace de définition du faisceau envisagé. La suite exacte (<a href=\"#eq:I.17\">17</a>) généralise une suite exacte bien connue lorsque \\(Z=X\\) (cf. Godement), et s’en déduit d’ailleurs en écrivant la suite exacte en question sur&#160;\\(Z\\), et en appliquant le foncteur \\(i_!\\). Prenant \\(G=\\mathbf{Z}_{Z}\\), on conclut en particulier: </p>"
+        },
+        {
+          "id": "I.1.10",
+          "type": "proposition",
+          "label": "1.10",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.1.10\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">1.10</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Sous les conditions précédentes, on&#160;a une suite exacte de faisceaux abéliens sur \\(X\\): </p>\n<div class=\"equation\" id=\"eq:I.18\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.18} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathbf{Z}_{Z{”}, X} \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathbf{Z}_{Z, X} \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathbf{Z}_{Z', X} \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">18</span>\n</p>\n</div>\n<p> Ceci posé, les deux suites exactes <a href=\"#I.1.8\">1.8</a> et <a href=\"#I.1.9\">1.9</a> ne sont autres que les suites exactes déduites de (<a href=\"#eq:I.18\">18</a>) par application du foncteur \\(\\operatorname{Hom}(-, F)\\) resp. \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits (-, F)\\). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-72",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Cela redonne une démonstration évidente du fait que les suites (<a href=\"#eq:I.16\">16</a>) et (<a href=\"#I.1.9\">1.9</a>) restent exactes en mettant un zéro à droite, pourvu que \\(F\\) soit <i class=\"itshape\">injectif</i>. </p>"
+        }
+      ],
+      "footnotes": [],
+      "bibliography": []
+    },
+    {
+      "id": "I-2",
+      "title": "Les foncteurs \\(\\operatorname{H}_Z^*(X, F)\\) et \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\)",
+      "html": "<h1 id=\"I.2\">2 Les foncteurs \\(\\operatorname{H}_Z^*(X, F)\\) et \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\)</h1>\n\n\n<div class=\"definition_thmwrapper theorem-style-remark\" id=\"I.2.1\">\n  <div class=\"definition_thmheading\">\n    <span class=\"definition_thmcaption\">\n    Définition\n    </span>\n    <span class=\"definition_thmlabel\">2.1</span>\n  </div>\n  <div class=\"definition_thmcontent\">\n  <p> On dénote par \\(\\operatorname{H}_Z^*(X, F)\\) et \\({\\mathop{\\underline{\\mathrm{H}}}\\nolimits }_Z^*(F)\\) les foncteurs dérivés en \\(F\\) des foncteurs \\(\\Gamma _Z(F)\\) resp. \\(\\underline{\\Gamma }_Z(F)\\). </p>\n\n  </div>\n</div>\n<p>Ce sont des foncteurs cohomologiques, à valeurs dans la catégorie des groupes abéliens resp. dans la catégorie des faisceaux abéliens sur \\(X\\). Lorsque \\(Z\\) est fermé, \\(H_Z^*(X, F)\\) n’est autre par définition que \\(H^*_{\\Phi }(X, F)\\) où \\(\\Phi \\) désigne la famille des parties fermées de \\(X\\) contenues dans \\(Z\\). Lorsque \\(Z\\) est ouvert, on va voir que \\(H_Z^*(X, F)\\) n’est autre que \\(H^*(Z, F)=H^*(Z, F|_{Z})\\), grâce à la proposition suivante. </p>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.2.2\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">2.2</span>\n    <span class=\"proposition_thmtitle\">Théorème d’excision</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p>  Soit \\(V\\) une partie ouverte de \\(X\\) contenant&#160;\\(Z\\). Alors on&#160;a un isomorphisme de foncteurs cohomologiques en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.19\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.19} \\operatorname{H}^*_Z(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^*_Z(V, F|_{V}). \\end{equation}\n  </div>\n  <span class=\"equation_label\">19</span>\n</p>\n</div>\n\n  </div>\n</div>\n<p>En effet, on&#160;a un isomorphisme fonctoriel \\(\\Gamma _Z^X \\simeq \\Gamma _Z^V j^!\\), où \\(j: V \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’inclusion et où \\(j^!\\) est donc le foncteur restriction (cf. (<a href=\"#eq:I.14\">14</a>)). Ce dernier est exact, et transforme injectifs en injectifs par <a href=\"#I.1.4\">1.4</a>, d’où aussitôt l’isomorphisme (<a href=\"#eq:I.19\">19</a>). </p>\n<p>Lorsque \\(Z\\) est ouvert, on peut prendre \\(V=Z\\) et on trouve: </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.3bof\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.3</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Supposons \\(Z\\) ouvert, alors on&#160;a un isomorphisme de foncteurs cohomologiques: </p>\n<div class=\"equation\" id=\"eq:I.20\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.20} \\operatorname{H}_Z^*(X, F) = \\operatorname{H}^*(Z, F). \\end{equation}\n  </div>\n  <span class=\"equation_label\">20</span>\n</p>\n</div>\n\n  </div>\n</div>\n<p>On conclut des isomorphismes <a href=\"#I.1.6\">1.6</a> et des définitions (cf. Tohoku): </p>\n<p> <p><b class=\"bfseries\">Proposition 2.3</b><i class=\"itshape\"><p> On a des isomorphismes de foncteurs cohomologiques: </p>\n<div class=\"displaymath\" id=\"eq:I.21\">\n  \\begin{align}  \\label{eq:I.21} \\operatorname{H}_Z^*(X, F)& \\simeq \\operatorname{Ext}^*(X; \\mathbf{Z}_{Z, X}, F),\\\\ \\label{eq:I.21bis}\\tag {21 bis} \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)& \\simeq \\mathop{\\underline{\\mathrm{Ext}}}\\nolimits ^*(\\mathbf{Z}_{Z, X}, F). \\end{align}\n</div>\n\n</i></p>\n </p>\n<p>On peut donc appliquer les résultats de Tohoku sur les \\(\\operatorname{Ext}\\) de Modules. Signalons d’abord l’interprétation suivante des faisceaux \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\) en terme de groupes globaux \\(\\operatorname{H}_Z^*(X, F)\\): </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.4\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.4</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\) est canoniquement isomorphe au faisceau associé au préfaisceau </p>\n<div class=\"displaymath\" id=\"a0000000027\">\n  \\[  U \\rightsquigarrow \\operatorname{H}^*_{Z\\cap U}(U, F|_{U}).  \\]\n</div>\n\n  </div>\n</div>\n<p>En particulier, en utilisant corollaire <a href=\"#I.2.3bof\">2.3</a>, on trouve: </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.5\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.5</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Supposons \\(Z\\) ouvert, alors on&#160;a un isomorphisme de foncteurs cohomologiques: </p>\n<div class=\"equation\" id=\"eq:I.22\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.22} {\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)=\\operatorname{R}^*i_*i^*(F)} \\end{equation}\n  </div>\n  <span class=\"equation_label\">23</span>\n</p>\n</div>\n<p> (où \\(i: Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’inclusion). </p>\n\n  </div>\n</div>\n<p>La suite spectrale des \\(\\operatorname{Ext}\\) donne l’importante suite spectrale: </p>\n<div class=\"theoreme_thmwrapper theorem-style-plain\" id=\"I.2.6\">\n  <div class=\"theoreme_thmheading\">\n    <span class=\"theoreme_thmcaption\">\n    Théorème\n    </span>\n    <span class=\"theoreme_thmlabel\">2.6</span>\n  </div>\n  <div class=\"theoreme_thmcontent\">\n  <p> On a une suite spectrale fonctorielle en \\(F\\), aboutissant à \\(\\operatorname{H}_Z^*(X, F)\\) et de terme initial </p>\n<div class=\"equation\" id=\"eq:I.23\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.23} { \\operatorname{E}_2^{p, q}(F)=\\operatorname{H}^p(X, \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">24</span>\n</p>\n</div>\n\n  </div>\n</div>\n<div class=\"remarques_thmwrapper theorem-style-remark\" id=\"I.2.7\">\n  <div class=\"remarques_thmheading\">\n    <span class=\"remarques_thmcaption\">\n    Remarques\n    </span>\n    <span class=\"remarques_thmlabel\">2.7</span>\n  </div>\n  <div class=\"remarques_thmcontent\">\n  <p> Il résulte aussitôt de <a href=\"#I.2.4\">2.4</a> que les faisceaux \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F)\\) sont nuls dans \\(X-\\overline{Z}\\), et également nuls dans l’intérieur de \\(Z\\) pour \\(q\\neq 0\\) (donc pour un tel \\(q\\), \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F)\\) est même porté par la frontière \\(\\overset {\\circ }{Z}\\) de \\(Z\\)). </p>\n<p>Par suite, le deuxième membre de (<a href=\"#eq:I.23\">24</a>) peut s’interpréter comme un groupe de cohomologie sur \\(\\overline{Z}\\). Nous utiliserons <a href=\"#I.2.6\">2.6</a> dans le cas où \\(Z\\) est fermé dans \\(X\\), et où le deuxième membre de (<a href=\"#eq:I.23\">24</a>) peut s’interpréter comme un groupe de cohomologie calculé sur \\(Z\\): </p>\n<div class=\"equation\" id=\"eq:I.23bis\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.23bis}\\tag {23 bis} {\\operatorname{E}_2^{p, q}(F) = \\operatorname{H}^p(Z, \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">25</span>\n</p>\n</div>\n\n  </div>\n</div>\n\n<p>Notons aussi que lorsque \\(Z\\) est ouvert, la suite spectrale <a href=\"#I.2.6\">2.6</a> n’est autre que la suite spectrale de Leray pour l’application continue \\(i: Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\), compte tenu de l’interprétation <a href=\"#I.2.5\">2.5</a> dans le calcul du terme initial de la suite spectrale de Leray. </p>\n<p>Reprenons la suite exacte (<a href=\"#I.1.10\">1.10</a>), elle donne naissance à une suite exacte des \\(\\operatorname{Ext}\\) (cf. Tohoku): </p>\n<div class=\"theoreme_thmwrapper theorem-style-plain\" id=\"I.2.8\">\n  <div class=\"theoreme_thmheading\">\n    <span class=\"theoreme_thmcaption\">\n    Théorème\n    </span>\n    <span class=\"theoreme_thmlabel\">2.8</span>\n  </div>\n  <div class=\"theoreme_thmcontent\">\n  <p> Soient \\(Z\\) une partie localement fermée de \\(X\\), \\(Z'\\) une partie fermée de \\(Z\\) et \\(Z''=Z-Z'\\). Alors on&#160;a une suite exacte fonctorielle en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.24\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.24} \\begin{gathered} 0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_{Z'}^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_Z^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_{Z''}^0(X, F)\\xrightarrow {\\partial } \\operatorname{H}^1_{Z'}(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^1_Z(X, F) \\dots \\\\ \\phantom{0}\\dots \\operatorname{H}_{Z'}^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_Z^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_{Z''}^i(X, F)\\xrightarrow {\\partial } \\operatorname{H}^{i+1}_{Z'}(X, F)\\dots . \\end{gathered} \\end{equation}\n  </div>\n  <span class=\"equation_label\">26</span>\n</p>\n</div>\n\n  </div>\n</div>\n<p>Rappelons comment on peut obtenir cette suite exacte. Soit \\(C(F)\\) une résolution injective de \\(F\\), alors la suite exacte (<a href=\"#I.1.10\">1.10</a>) donne naissance à la suite exacte </p>\n<div class=\"equation\" id=\"eq:I.25\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.25} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z'}(C(F)) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (C(F)) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z''}(C(F)) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0}, \\end{equation}\n  </div>\n  <span class=\"equation_label\">27</span>\n</p>\n</div>\n<p> (qui n’est autre que celle définie dans <a href=\"#I.1.8\">1.8</a>). On en conclut une suite exacte de cohomologie, qui n’est autre que (<a href=\"#eq:I.24\">26</a>). </p>\n<p>Le cas le plus important pour nous est celui où \\(Z\\) est fermé (et on peut d’ailleurs toujours s’y ramener en remplaçant \\(X\\) par un ouvert \\(V\\) dans lequel \\(Z\\) est fermé). Alors \\(Z'\\) est fermé, \\(Z''\\) est fermé dans l’ouvert \\(X-Z'\\), et on peut écrire </p>\n<div class=\"equation\" id=\"eq:I.26\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.26} {\\operatorname{H}^i_{Z''}(X, F)=\\operatorname{H}^i_{Z''}(X-Z’, F|_{X-Z'})}, \\end{equation}\n  </div>\n  <span class=\"equation_label\">28</span>\n</p>\n</div>\n<p> ce qui nous permet d’écrire la suite exacte (<a href=\"#eq:I.24\">26</a>) en termes de cohomologies à support dans un fermé donné. Le cas le plus fréquent est celui où \\(Z=X\\). Posant alors pour simplifier \\(Z'=A\\), on trouve: </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.9\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.9</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Soit \\(A\\) une partie fermée de \\(X\\). Alors on&#160;a une suite exacte fonctorielle en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.27\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.27} \\begin{gathered} 0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0_A(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0(X-A, F) \\xrightarrow {\\partial } \\operatorname{H}^1_A(X, F) \\dots \\\\ \\phantom{0}\\dots \\operatorname{H}^i_A(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(X-A, F) \\xrightarrow {\\partial } \\operatorname{H}^{i+1}_A(X, F)\\dots . \\end{gathered} \\end{equation}\n  </div>\n  <span class=\"equation_label\">29</span>\n</p>\n</div>\n\n  </div>\n</div>\n<p>Cette suite exacte montre que le groupe de cohomologie \\(\\operatorname{H}^i_A(X, F)\\) joue le rôle d’un groupe de cohomologie relative de \\(X\\mod X-A\\), à coefficients dans \\(F\\). C’est à ce titre qu’elle s’introduisit de façon naturelle dans les applications. En  faisceautisant »(<a href=\"#eq:I.24\">26</a>) et (<a href=\"#eq:I.27\">29</a>), ou en procédant directement, on trouve: </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.10\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.10</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Sous les conditions de <a href=\"#I.2.8\">2.8</a>, on&#160;a une suite exacte fonctorielle en&#160;\\(F\\): </p>\n<div class=\"displaymath\" id=\"a0000000028\">\n  \\begin{equation*}  \\label{eq:I.24bis} \\tag {24 bis} \\dots \\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_{Z}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathop{\\underline{\\mathrm{H}}}\\nolimits _{Z''}^i(F) \\xrightarrow {\\partial } \\mathop{\\underline{\\mathrm{H}}}\\nolimits _{Z'}^{i+1}(F) \\dots \\end{equation*}\n</div>\n\n  </div>\n</div>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.11\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.11</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Soit \\(A\\) une partie fermée de \\(X\\), alors on&#160;a une suite exacte fonctorielle en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.28\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.28} 0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^0(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }F \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }f_*(F|_{X-A}) \\xrightarrow {\\partial } \\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^1 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0, \\end{equation}\n  </div>\n  <span class=\"equation_label\">30</span>\n</p>\n</div>\n<p> et des isomorphismes canoniques, pour \\(i\\geqslant 2\\): </p>\n<div class=\"equation\" id=\"eq:I.29\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.29} \\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^i(F)= \\mathop{\\underline{\\mathrm{H}}}\\nolimits _{X-A}^{i-1}(F)=\\operatorname{R}^{i-1}f_*(F|_{X-A}), \\end{equation}\n  </div>\n  <span class=\"equation_label\">31</span>\n</p>\n</div>\n<p> où \\(f: (X-A) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’inclusion. </p>\n\n  </div>\n</div>\n<p>Cela définit donc \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^0_A(F)\\) et \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^1(F)\\) respectivement comme \\(\\ker \\) et \\(\\operatorname{coker}\\) de l’homomorphisme canonique </p>\n<div class=\"displaymath\" id=\"a0000000029\">\n  \\[ F \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }f_*f^*(F)= f_*(F|_{X-A}),  \\]\n</div>\n<p> et les \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^i(F)\\) (\\(i\\geqslant 2\\)) en terme des foncteurs dérivés de \\(f_*\\). </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.12\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.12</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Soit \\(F\\) un faisceau abélien sur \\(X\\). Si \\(F\\) est flasque, alors pour toute partie localement fermée \\(Z\\) de \\(X\\) et tout entier \\(i\\neq 0\\), on&#160;a \\(\\operatorname{H}^i_Z(X, F)=0\\), \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_Z(F)=0\\). Inversement, si pour toute partie fermée \\(Z\\) de \\(X\\) on&#160;a \\(\\operatorname{H}_Z^1(X, F)=0\\), alors \\(F\\) est flasque. </p>\n\n  </div>\n</div>\n<p>Supposons que \\(F\\) est flasque, alors \\(F\\) induit un faisceau flasque sur tout ouvert, donc pour prouver \\(\\operatorname{H}^i_Z(X, F)=0\\) pour \\(i{\\gt}0\\), on peut supposer \\(Z\\) fermé, et alors l’assertion résulte de la suite exacte <a href=\"#I.2.9\">2.9</a>. On en conclut pour tout \\(Z\\) localement fermé, en  faisceautisant »i.e. appliquant <a href=\"#I.2.4\">2.4</a>, que \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_Z(F)=0\\) pour \\(i{\\gt}0\\). Inversement, supposons \\(\\operatorname{H}^1_Z(X, F)=0\\) pour tout fermé \\(Z\\), alors la suite exacte <a href=\"#I.2.9\">2.9</a>. prouve que pour tout tel \\(Z\\), \\(\\operatorname{H}^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0(X-Z, F)\\) est surjectif, ce qui signifie que \\(F\\) est flasque. </p>\n<p>Combinant <a href=\"#I.2.6\">2.6</a> et <a href=\"#I.2.8\">2.8</a>, on va en déduire: </p>\n<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.2.13\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">2.13</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Soient \\(F\\) un faisceau abélien sur \\(X\\), \\(Z\\) une partie fermée de \\(X\\), \\(U=X-Z\\), \\(N\\) un entier. Les conditions suivantes sont équivalentes: <ol class=\"enumerate\">\n  <li><p>\\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_Z(F)=0\\) pour \\(i\\leqslant N\\). </p>\n</li>\n  <li><p>Pour tout ouvert \\(V\\) de \\(X\\), considérant l’homomorphisme canonique </p>\n<div class=\"displaymath\" id=\"a0000000030\">\n  \\[  \\operatorname{H}^i(V, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(V\\cap U, F), \\]\n</div>\n<p> cet homomorphisme est: </p>\n<ol class=\"enumerate\">\n  <li><p>bijectif pour \\(i{\\lt}N\\), </p>\n</li>\n  <li><p>injectif pour \\(i=N\\). </p>\n</li>\n</ol>\n</li>\n</ol> (Lorsque \\(N{\\gt}0\\), on peut dans <span class=\"upshape\">(ii)</span> se borner à exiger <span class=\"upshape\">a)</span>). </p>\n\n  </div>\n</div>\n<p>Pour prouver (i) &#160;\\(\\mathchoice {\\Longrightarrow }{\\Rightarrow }{\\Rightarrow }{\\Rightarrow }\\)&#160; (ii), on est ramené, grâce à la nature locale des \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^i(F)\\), à prouver&#160;le </p>\n<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.14\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.14</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Si la condition <a href=\"#I.2.13\">2.13</a> (i) est vérifiée, alors </p>\n<div class=\"displaymath\" id=\"a0000000031\">\n  \\[  \\operatorname{H}^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(U, F) \\]\n</div>\n<p> est bijectif pour \\(i{\\lt}N\\), injectif pour \\(i=N\\). </p>\n\n  </div>\n</div>\n<p>En effet, en vertu de la suite exacte (<a href=\"#eq:I.27\">29</a>), cela signifie aussi \\(\\operatorname{H}^i_Z(X, F)=0\\) pour \\(i\\leqslant N\\), et cette relation est une conséquence immédiate de la suite spectrale <a href=\"#I.2.6\">2.6</a>. </p>\n<p>Réciproquement, l’hypothèse <a href=\"#I.2.13\">2.13</a> (ii) signifie que pour tout ouvert \\(V\\) de \\(X\\), on a </p>\n<div class=\"displaymath\" id=\"a0000000032\">\n  \\[  \\operatorname{H}^i_{Z\\cap V}(V, F|_{V}) =0 \\text{ pour } i\\leqslant N,  \\]\n</div>\n<p> ce qui implique <a href=\"#I.2.13\">2.13</a> (i) grâce à <a href=\"#I.2.4\">2.4</a>. Si d’ailleurs \\(N{\\gt}0\\), on peut dire aussi que (ii) a) implique (en passant aux faisceaux associés) que \\(F \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }f_*(F|_{U})\\) est un isomorphisme, et que \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _U^i(F)=0 \\) pour \\(1\\leqslant i{\\lt}N\\). </p>\n<p>Compte tenu du <a href=\"#I.2.11\">2.11</a> cela prouve encore <a href=\"#I.2.13\">2.13</a> (i)... </p>\n<div class=\"remarquestar_thmwrapper theorem-style-remark\" id=\"a0000000033\">\n  <div class=\"remarquestar_thmheading\">\n    <span class=\"remarquestar_thmcaption\">\n    Remarque\n    </span>\n  </div>\n  <div class=\"remarquestar_thmcontent\">\n  <p>Soit \\(Y \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) une immersion fermée, et supposons que localement elle est de la forme \\(\\{ 0\\} \\times Y \\subset R^n \\times Y\\). Supposons que \\(F\\) est un faisceau localement constant sur \\(x\\), alors on trouve </p>\n<div class=\"equation\" id=\"eq:I.30\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.30} \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Y^i (F)\\simeq \\begin{cases}  0 & \\text{si } i \\neq n\\\\ F\\otimes \\underline{T}_{Y, X}&  \\text{si } i=n, \\text{ où } \\underline{T}_{Y, X} \\simeq \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Y^n(\\mathbf{Z}_X) \\end{cases} \\end{equation}\n  </div>\n  <span class=\"equation_label\">32</span>\n</p>\n</div>\n<p> est un faisceau extension à \\(X\\) d’un faisceau sur \\(Y\\) localement isomorphe à \\(\\mathbf{Z}_Y\\), appelé  faisceau d’orientation normale de \\(Y\\) dans \\(X\\) ». </p>\n\n  </div>\n</div>\n<p>Utilisant la suite spectrale <a href=\"#I.2.6\">2.6</a>, on trouve dans ce cas: </p>\n<div class=\"equation\" id=\"eq:I.31\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.31} \\operatorname{H}^i_Y(X, F)\\simeq \\operatorname{H}^{i-n}(Y, F\\otimes \\underline{T}_{Y, X}), \\end{equation}\n  </div>\n  <span class=\"equation_label\">35</span>\n</p>\n</div>\n<p> et on retrouve l’ homomorphisme de Gysin »: </p>\n<div class=\"equation\" id=\"eq:I.32\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.32} {\\operatorname{H}^j(Y, F\\otimes \\underline{T}_{Y, X}) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^{j+n}(X, F)}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">36</span>\n</p>\n</div>",
+      "blocks": [
+        {
+          "id": "I.2",
+          "type": "heading",
+          "label": null,
+          "title": "2 Les foncteurs \\(\\operatorname{H}_Z^*(X, F)\\) et \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\)",
+          "html": "<h1 id=\"I.2\">2 Les foncteurs \\(\\operatorname{H}_Z^*(X, F)\\) et \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\)</h1>"
+        },
+        {
+          "id": "I.2.1",
+          "type": "definition",
+          "label": "2.1",
+          "title": "Définition",
+          "html": "<div class=\"definition_thmwrapper theorem-style-remark\" id=\"I.2.1\">\n  <div class=\"definition_thmheading\">\n    <span class=\"definition_thmcaption\">\n    Définition\n    </span>\n    <span class=\"definition_thmlabel\">2.1</span>\n  </div>\n  <div class=\"definition_thmcontent\">\n  <p> On dénote par \\(\\operatorname{H}_Z^*(X, F)\\) et \\({\\mathop{\\underline{\\mathrm{H}}}\\nolimits }_Z^*(F)\\) les foncteurs dérivés en \\(F\\) des foncteurs \\(\\Gamma _Z(F)\\) resp. \\(\\underline{\\Gamma }_Z(F)\\). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-2",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Ce sont des foncteurs cohomologiques, à valeurs dans la catégorie des groupes abéliens resp. dans la catégorie des faisceaux abéliens sur \\(X\\). Lorsque \\(Z\\) est fermé, \\(H_Z^*(X, F)\\) n’est autre par définition que \\(H^*_{\\Phi }(X, F)\\) où \\(\\Phi \\) désigne la famille des parties fermées de \\(X\\) contenues dans \\(Z\\). Lorsque \\(Z\\) est ouvert, on va voir que \\(H_Z^*(X, F)\\) n’est autre que \\(H^*(Z, F)=H^*(Z, F|_{Z})\\), grâce à la proposition suivante. </p>"
+        },
+        {
+          "id": "I.2.2",
+          "type": "proposition",
+          "label": "2.2",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.2.2\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">2.2</span>\n    <span class=\"proposition_thmtitle\">Théorème d’excision</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p>  Soit \\(V\\) une partie ouverte de \\(X\\) contenant&#160;\\(Z\\). Alors on&#160;a un isomorphisme de foncteurs cohomologiques en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.19\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.19} \\operatorname{H}^*_Z(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^*_Z(V, F|_{V}). \\end{equation}\n  </div>\n  <span class=\"equation_label\">19</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-4",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>En effet, on&#160;a un isomorphisme fonctoriel \\(\\Gamma _Z^X \\simeq \\Gamma _Z^V j^!\\), où \\(j: V \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’inclusion et où \\(j^!\\) est donc le foncteur restriction (cf. (<a href=\"#eq:I.14\">14</a>)). Ce dernier est exact, et transforme injectifs en injectifs par <a href=\"#I.1.4\">1.4</a>, d’où aussitôt l’isomorphisme (<a href=\"#eq:I.19\">19</a>). </p>"
+        },
+        {
+          "id": "paragraph-5",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Lorsque \\(Z\\) est ouvert, on peut prendre \\(V=Z\\) et on trouve: </p>"
+        },
+        {
+          "id": "I.2.3bof",
+          "type": "corollaire",
+          "label": "2.3",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.3bof\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.3</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Supposons \\(Z\\) ouvert, alors on&#160;a un isomorphisme de foncteurs cohomologiques: </p>\n<div class=\"equation\" id=\"eq:I.20\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.20} \\operatorname{H}_Z^*(X, F) = \\operatorname{H}^*(Z, F). \\end{equation}\n  </div>\n  <span class=\"equation_label\">20</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-7",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>On conclut des isomorphismes <a href=\"#I.1.6\">1.6</a> et des définitions (cf. Tohoku): </p>"
+        },
+        {
+          "id": "paragraph-8",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> <p><b class=\"bfseries\">Proposition 2.3</b><i class=\"itshape\"><p> On a des isomorphismes de foncteurs cohomologiques: </p>\n<div class=\"displaymath\" id=\"eq:I.21\">\n  \\begin{align}  \\label{eq:I.21} \\operatorname{H}_Z^*(X, F)& \\simeq \\operatorname{Ext}^*(X; \\mathbf{Z}_{Z, X}, F),\\\\ \\label{eq:I.21bis}\\tag {21 bis} \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)& \\simeq \\mathop{\\underline{\\mathrm{Ext}}}\\nolimits ^*(\\mathbf{Z}_{Z, X}, F). \\end{align}\n</div>\n\n</i></p>\n </p>"
+        },
+        {
+          "id": "paragraph-9",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>On peut donc appliquer les résultats de Tohoku sur les \\(\\operatorname{Ext}\\) de Modules. Signalons d’abord l’interprétation suivante des faisceaux \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\) en terme de groupes globaux \\(\\operatorname{H}_Z^*(X, F)\\): </p>"
+        },
+        {
+          "id": "I.2.4",
+          "type": "corollaire",
+          "label": "2.4",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.4\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.4</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)\\) est canoniquement isomorphe au faisceau associé au préfaisceau </p>\n<div class=\"displaymath\" id=\"a0000000027\">\n  \\[  U \\rightsquigarrow \\operatorname{H}^*_{Z\\cap U}(U, F|_{U}).  \\]\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-11",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>En particulier, en utilisant corollaire <a href=\"#I.2.3bof\">2.3</a>, on trouve: </p>"
+        },
+        {
+          "id": "I.2.5",
+          "type": "corollaire",
+          "label": "2.5",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.5\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.5</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Supposons \\(Z\\) ouvert, alors on&#160;a un isomorphisme de foncteurs cohomologiques: </p>\n<div class=\"equation\" id=\"eq:I.22\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.22} {\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^*(F)=\\operatorname{R}^*i_*i^*(F)} \\end{equation}\n  </div>\n  <span class=\"equation_label\">23</span>\n</p>\n</div>\n<p> (où \\(i: Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’inclusion). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-13",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>La suite spectrale des \\(\\operatorname{Ext}\\) donne l’importante suite spectrale: </p>"
+        },
+        {
+          "id": "I.2.6",
+          "type": "theoreme",
+          "label": "2.6",
+          "title": "Théorème",
+          "html": "<div class=\"theoreme_thmwrapper theorem-style-plain\" id=\"I.2.6\">\n  <div class=\"theoreme_thmheading\">\n    <span class=\"theoreme_thmcaption\">\n    Théorème\n    </span>\n    <span class=\"theoreme_thmlabel\">2.6</span>\n  </div>\n  <div class=\"theoreme_thmcontent\">\n  <p> On a une suite spectrale fonctorielle en \\(F\\), aboutissant à \\(\\operatorname{H}_Z^*(X, F)\\) et de terme initial </p>\n<div class=\"equation\" id=\"eq:I.23\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.23} { \\operatorname{E}_2^{p, q}(F)=\\operatorname{H}^p(X, \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">24</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "I.2.7",
+          "type": "remarques",
+          "label": "2.7",
+          "title": "Remarques",
+          "html": "<div class=\"remarques_thmwrapper theorem-style-remark\" id=\"I.2.7\">\n  <div class=\"remarques_thmheading\">\n    <span class=\"remarques_thmcaption\">\n    Remarques\n    </span>\n    <span class=\"remarques_thmlabel\">2.7</span>\n  </div>\n  <div class=\"remarques_thmcontent\">\n  <p> Il résulte aussitôt de <a href=\"#I.2.4\">2.4</a> que les faisceaux \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F)\\) sont nuls dans \\(X-\\overline{Z}\\), et également nuls dans l’intérieur de \\(Z\\) pour \\(q\\neq 0\\) (donc pour un tel \\(q\\), \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F)\\) est même porté par la frontière \\(\\overset {\\circ }{Z}\\) de \\(Z\\)). </p>\n<p>Par suite, le deuxième membre de (<a href=\"#eq:I.23\">24</a>) peut s’interpréter comme un groupe de cohomologie sur \\(\\overline{Z}\\). Nous utiliserons <a href=\"#I.2.6\">2.6</a> dans le cas où \\(Z\\) est fermé dans \\(X\\), et où le deuxième membre de (<a href=\"#eq:I.23\">24</a>) peut s’interpréter comme un groupe de cohomologie calculé sur \\(Z\\): </p>\n<div class=\"equation\" id=\"eq:I.23bis\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.23bis}\\tag {23 bis} {\\operatorname{E}_2^{p, q}(F) = \\operatorname{H}^p(Z, \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^q(F))}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">25</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-16",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Notons aussi que lorsque \\(Z\\) est ouvert, la suite spectrale <a href=\"#I.2.6\">2.6</a> n’est autre que la suite spectrale de Leray pour l’application continue \\(i: Z \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\), compte tenu de l’interprétation <a href=\"#I.2.5\">2.5</a> dans le calcul du terme initial de la suite spectrale de Leray. </p>"
+        },
+        {
+          "id": "paragraph-17",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Reprenons la suite exacte (<a href=\"#I.1.10\">1.10</a>), elle donne naissance à une suite exacte des \\(\\operatorname{Ext}\\) (cf. Tohoku): </p>"
+        },
+        {
+          "id": "I.2.8",
+          "type": "theoreme",
+          "label": "2.8",
+          "title": "Théorème",
+          "html": "<div class=\"theoreme_thmwrapper theorem-style-plain\" id=\"I.2.8\">\n  <div class=\"theoreme_thmheading\">\n    <span class=\"theoreme_thmcaption\">\n    Théorème\n    </span>\n    <span class=\"theoreme_thmlabel\">2.8</span>\n  </div>\n  <div class=\"theoreme_thmcontent\">\n  <p> Soient \\(Z\\) une partie localement fermée de \\(X\\), \\(Z'\\) une partie fermée de \\(Z\\) et \\(Z''=Z-Z'\\). Alors on&#160;a une suite exacte fonctorielle en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.24\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.24} \\begin{gathered} 0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_{Z'}^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_Z^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_{Z''}^0(X, F)\\xrightarrow {\\partial } \\operatorname{H}^1_{Z'}(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^1_Z(X, F) \\dots \\\\ \\phantom{0}\\dots \\operatorname{H}_{Z'}^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_Z^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}_{Z''}^i(X, F)\\xrightarrow {\\partial } \\operatorname{H}^{i+1}_{Z'}(X, F)\\dots . \\end{gathered} \\end{equation}\n  </div>\n  <span class=\"equation_label\">26</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-19",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Rappelons comment on peut obtenir cette suite exacte. Soit \\(C(F)\\) une résolution injective de \\(F\\), alors la suite exacte (<a href=\"#I.1.10\">1.10</a>) donne naissance à la suite exacte </p>"
+        },
+        {
+          "id": "eq:I.25",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.25\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.25} {0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z'}(C(F)) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma (C(F)) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\Gamma _{Z''}(C(F)) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0}, \\end{equation}\n  </div>\n  <span class=\"equation_label\">27</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-21",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> (qui n’est autre que celle définie dans <a href=\"#I.1.8\">1.8</a>). On en conclut une suite exacte de cohomologie, qui n’est autre que (<a href=\"#eq:I.24\">26</a>). </p>"
+        },
+        {
+          "id": "paragraph-22",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Le cas le plus important pour nous est celui où \\(Z\\) est fermé (et on peut d’ailleurs toujours s’y ramener en remplaçant \\(X\\) par un ouvert \\(V\\) dans lequel \\(Z\\) est fermé). Alors \\(Z'\\) est fermé, \\(Z''\\) est fermé dans l’ouvert \\(X-Z'\\), et on peut écrire </p>"
+        },
+        {
+          "id": "eq:I.26",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.26\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.26} {\\operatorname{H}^i_{Z''}(X, F)=\\operatorname{H}^i_{Z''}(X-Z’, F|_{X-Z'})}, \\end{equation}\n  </div>\n  <span class=\"equation_label\">28</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-24",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> ce qui nous permet d’écrire la suite exacte (<a href=\"#eq:I.24\">26</a>) en termes de cohomologies à support dans un fermé donné. Le cas le plus fréquent est celui où \\(Z=X\\). Posant alors pour simplifier \\(Z'=A\\), on trouve: </p>"
+        },
+        {
+          "id": "I.2.9",
+          "type": "corollaire",
+          "label": "2.9",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.9\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.9</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Soit \\(A\\) une partie fermée de \\(X\\). Alors on&#160;a une suite exacte fonctorielle en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.27\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.27} \\begin{gathered} 0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0_A(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0(X-A, F) \\xrightarrow {\\partial } \\operatorname{H}^1_A(X, F) \\dots \\\\ \\phantom{0}\\dots \\operatorname{H}^i_A(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(X-A, F) \\xrightarrow {\\partial } \\operatorname{H}^{i+1}_A(X, F)\\dots . \\end{gathered} \\end{equation}\n  </div>\n  <span class=\"equation_label\">29</span>\n</p>\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-26",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Cette suite exacte montre que le groupe de cohomologie \\(\\operatorname{H}^i_A(X, F)\\) joue le rôle d’un groupe de cohomologie relative de \\(X\\mod X-A\\), à coefficients dans \\(F\\). C’est à ce titre qu’elle s’introduisit de façon naturelle dans les applications. En  faisceautisant »(<a href=\"#eq:I.24\">26</a>) et (<a href=\"#eq:I.27\">29</a>), ou en procédant directement, on trouve: </p>"
+        },
+        {
+          "id": "I.2.10",
+          "type": "corollaire",
+          "label": "2.10",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.10\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.10</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Sous les conditions de <a href=\"#I.2.8\">2.8</a>, on&#160;a une suite exacte fonctorielle en&#160;\\(F\\): </p>\n<div class=\"displaymath\" id=\"a0000000028\">\n  \\begin{equation*}  \\label{eq:I.24bis} \\tag {24 bis} \\dots \\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_{Z'}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_{Z}(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathop{\\underline{\\mathrm{H}}}\\nolimits _{Z''}^i(F) \\xrightarrow {\\partial } \\mathop{\\underline{\\mathrm{H}}}\\nolimits _{Z'}^{i+1}(F) \\dots \\end{equation*}\n</div>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "I.2.11",
+          "type": "corollaire",
+          "label": "2.11",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.11\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.11</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Soit \\(A\\) une partie fermée de \\(X\\), alors on&#160;a une suite exacte fonctorielle en \\(F\\): </p>\n<div class=\"equation\" id=\"eq:I.28\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.28} 0 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^0(F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }F \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }f_*(F|_{X-A}) \\xrightarrow {\\partial } \\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^1 \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }0, \\end{equation}\n  </div>\n  <span class=\"equation_label\">30</span>\n</p>\n</div>\n<p> et des isomorphismes canoniques, pour \\(i\\geqslant 2\\): </p>\n<div class=\"equation\" id=\"eq:I.29\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.29} \\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^i(F)= \\mathop{\\underline{\\mathrm{H}}}\\nolimits _{X-A}^{i-1}(F)=\\operatorname{R}^{i-1}f_*(F|_{X-A}), \\end{equation}\n  </div>\n  <span class=\"equation_label\">31</span>\n</p>\n</div>\n<p> où \\(f: (X-A) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) est l’inclusion. </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-29",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Cela définit donc \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^0_A(F)\\) et \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^1(F)\\) respectivement comme \\(\\ker \\) et \\(\\operatorname{coker}\\) de l’homomorphisme canonique </p>"
+        },
+        {
+          "id": "a0000000029",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000029\">\n  \\[ F \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }f_*f^*(F)= f_*(F|_{X-A}),  \\]\n</div>"
+        },
+        {
+          "id": "paragraph-31",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> et les \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _A^i(F)\\) (\\(i\\geqslant 2\\)) en terme des foncteurs dérivés de \\(f_*\\). </p>"
+        },
+        {
+          "id": "I.2.12",
+          "type": "corollaire",
+          "label": "2.12",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.12\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.12</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Soit \\(F\\) un faisceau abélien sur \\(X\\). Si \\(F\\) est flasque, alors pour toute partie localement fermée \\(Z\\) de \\(X\\) et tout entier \\(i\\neq 0\\), on&#160;a \\(\\operatorname{H}^i_Z(X, F)=0\\), \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_Z(F)=0\\). Inversement, si pour toute partie fermée \\(Z\\) de \\(X\\) on&#160;a \\(\\operatorname{H}_Z^1(X, F)=0\\), alors \\(F\\) est flasque. </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-33",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Supposons que \\(F\\) est flasque, alors \\(F\\) induit un faisceau flasque sur tout ouvert, donc pour prouver \\(\\operatorname{H}^i_Z(X, F)=0\\) pour \\(i{\\gt}0\\), on peut supposer \\(Z\\) fermé, et alors l’assertion résulte de la suite exacte <a href=\"#I.2.9\">2.9</a>. On en conclut pour tout \\(Z\\) localement fermé, en  faisceautisant »i.e. appliquant <a href=\"#I.2.4\">2.4</a>, que \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_Z(F)=0\\) pour \\(i{\\gt}0\\). Inversement, supposons \\(\\operatorname{H}^1_Z(X, F)=0\\) pour tout fermé \\(Z\\), alors la suite exacte <a href=\"#I.2.9\">2.9</a>. prouve que pour tout tel \\(Z\\), \\(\\operatorname{H}^0(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^0(X-Z, F)\\) est surjectif, ce qui signifie que \\(F\\) est flasque. </p>"
+        },
+        {
+          "id": "paragraph-34",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Combinant <a href=\"#I.2.6\">2.6</a> et <a href=\"#I.2.8\">2.8</a>, on va en déduire: </p>"
+        },
+        {
+          "id": "I.2.13",
+          "type": "proposition",
+          "label": "2.13",
+          "title": "Proposition",
+          "html": "<div class=\"proposition_thmwrapper theorem-style-plain\" id=\"I.2.13\">\n  <div class=\"proposition_thmheading\">\n    <span class=\"proposition_thmcaption\">\n    Proposition\n    </span>\n    <span class=\"proposition_thmlabel\">2.13</span>\n  </div>\n  <div class=\"proposition_thmcontent\">\n  <p> Soient \\(F\\) un faisceau abélien sur \\(X\\), \\(Z\\) une partie fermée de \\(X\\), \\(U=X-Z\\), \\(N\\) un entier. Les conditions suivantes sont équivalentes: <ol class=\"enumerate\">\n  <li><p>\\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits ^i_Z(F)=0\\) pour \\(i\\leqslant N\\). </p>\n</li>\n  <li><p>Pour tout ouvert \\(V\\) de \\(X\\), considérant l’homomorphisme canonique </p>\n<div class=\"displaymath\" id=\"a0000000030\">\n  \\[  \\operatorname{H}^i(V, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(V\\cap U, F), \\]\n</div>\n<p> cet homomorphisme est: </p>\n<ol class=\"enumerate\">\n  <li><p>bijectif pour \\(i{\\lt}N\\), </p>\n</li>\n  <li><p>injectif pour \\(i=N\\). </p>\n</li>\n</ol>\n</li>\n</ol> (Lorsque \\(N{\\gt}0\\), on peut dans <span class=\"upshape\">(ii)</span> se borner à exiger <span class=\"upshape\">a)</span>). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-36",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Pour prouver (i) &#160;\\(\\mathchoice {\\Longrightarrow }{\\Rightarrow }{\\Rightarrow }{\\Rightarrow }\\)&#160; (ii), on est ramené, grâce à la nature locale des \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _Z^i(F)\\), à prouver&#160;le </p>"
+        },
+        {
+          "id": "I.2.14",
+          "type": "corollaire",
+          "label": "2.14",
+          "title": "Corollaire",
+          "html": "<div class=\"corollaire_thmwrapper theorem-style-plain\" id=\"I.2.14\">\n  <div class=\"corollaire_thmheading\">\n    <span class=\"corollaire_thmcaption\">\n    Corollaire\n    </span>\n    <span class=\"corollaire_thmlabel\">2.14</span>\n  </div>\n  <div class=\"corollaire_thmcontent\">\n  <p> Si la condition <a href=\"#I.2.13\">2.13</a> (i) est vérifiée, alors </p>\n<div class=\"displaymath\" id=\"a0000000031\">\n  \\[  \\operatorname{H}^i(X, F) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^i(U, F) \\]\n</div>\n<p> est bijectif pour \\(i{\\lt}N\\), injectif pour \\(i=N\\). </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-38",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>En effet, en vertu de la suite exacte (<a href=\"#eq:I.27\">29</a>), cela signifie aussi \\(\\operatorname{H}^i_Z(X, F)=0\\) pour \\(i\\leqslant N\\), et cette relation est une conséquence immédiate de la suite spectrale <a href=\"#I.2.6\">2.6</a>. </p>"
+        },
+        {
+          "id": "paragraph-39",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Réciproquement, l’hypothèse <a href=\"#I.2.13\">2.13</a> (ii) signifie que pour tout ouvert \\(V\\) de \\(X\\), on a </p>"
+        },
+        {
+          "id": "a0000000032",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"displaymath\" id=\"a0000000032\">\n  \\[  \\operatorname{H}^i_{Z\\cap V}(V, F|_{V}) =0 \\text{ pour } i\\leqslant N,  \\]\n</div>"
+        },
+        {
+          "id": "paragraph-41",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> ce qui implique <a href=\"#I.2.13\">2.13</a> (i) grâce à <a href=\"#I.2.4\">2.4</a>. Si d’ailleurs \\(N{\\gt}0\\), on peut dire aussi que (ii) a) implique (en passant aux faisceaux associés) que \\(F \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }f_*(F|_{U})\\) est un isomorphisme, et que \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits _U^i(F)=0 \\) pour \\(1\\leqslant i{\\lt}N\\). </p>"
+        },
+        {
+          "id": "paragraph-42",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Compte tenu du <a href=\"#I.2.11\">2.11</a> cela prouve encore <a href=\"#I.2.13\">2.13</a> (i)... </p>"
+        },
+        {
+          "id": "a0000000033",
+          "type": "remarquestar",
+          "label": null,
+          "title": "Remarque",
+          "html": "<div class=\"remarquestar_thmwrapper theorem-style-remark\" id=\"a0000000033\">\n  <div class=\"remarquestar_thmheading\">\n    <span class=\"remarquestar_thmcaption\">\n    Remarque\n    </span>\n  </div>\n  <div class=\"remarquestar_thmcontent\">\n  <p>Soit \\(Y \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }X\\) une immersion fermée, et supposons que localement elle est de la forme \\(\\{ 0\\} \\times Y \\subset R^n \\times Y\\). Supposons que \\(F\\) est un faisceau localement constant sur \\(x\\), alors on trouve </p>\n<div class=\"equation\" id=\"eq:I.30\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.30} \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Y^i (F)\\simeq \\begin{cases}  0 & \\text{si } i \\neq n\\\\ F\\otimes \\underline{T}_{Y, X}&  \\text{si } i=n, \\text{ où } \\underline{T}_{Y, X} \\simeq \\mathop{\\underline{\\mathrm{H}}}\\nolimits _Y^n(\\mathbf{Z}_X) \\end{cases} \\end{equation}\n  </div>\n  <span class=\"equation_label\">32</span>\n</p>\n</div>\n<p> est un faisceau extension à \\(X\\) d’un faisceau sur \\(Y\\) localement isomorphe à \\(\\mathbf{Z}_Y\\), appelé  faisceau d’orientation normale de \\(Y\\) dans \\(X\\) ». </p>\n\n  </div>\n</div>"
+        },
+        {
+          "id": "paragraph-44",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>Utilisant la suite spectrale <a href=\"#I.2.6\">2.6</a>, on trouve dans ce cas: </p>"
+        },
+        {
+          "id": "eq:I.31",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.31\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.31} \\operatorname{H}^i_Y(X, F)\\simeq \\operatorname{H}^{i-n}(Y, F\\otimes \\underline{T}_{Y, X}), \\end{equation}\n  </div>\n  <span class=\"equation_label\">35</span>\n</p>\n</div>"
+        },
+        {
+          "id": "paragraph-46",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> et on retrouve l’ homomorphisme de Gysin »: </p>"
+        },
+        {
+          "id": "eq:I.32",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<div class=\"equation\" id=\"eq:I.32\">\n<p>\n  <div class=\"equation_content\">\n    \\begin{equation}  \\label{eq:I.32} {\\operatorname{H}^j(Y, F\\otimes \\underline{T}_{Y, X}) \\mathchoice {\\longrightarrow }{\\rightarrow }{\\rightarrow }{\\rightarrow }\\operatorname{H}^{j+n}(X, F)}. \\end{equation}\n  </div>\n  <span class=\"equation_label\">36</span>\n</p>\n</div>"
+        }
+      ],
+      "footnotes": [],
+      "bibliography": []
+    },
+    {
+      "id": "sect0002",
+      "title": "Bibliographie",
+      "html": "<h1 id=\"a0000000003\">Bibliographie</h1>\n<p> R.  Godement, Théorie des faisceaux, Ac. Scient. et Ind.&#160;1252 (cité: Godement). </p>\n<p>A.  Grothendieck, sur quelques points d’algèbre homologique, Tohoku Math. Journal, Vol.&#160;9 p.  119–221, § &#160;1957, (cité: Tohoku). </p>",
+      "blocks": [
+        {
+          "id": "a0000000003",
+          "type": "heading",
+          "label": null,
+          "title": "Bibliographie",
+          "html": "<h1 id=\"a0000000003\">Bibliographie</h1>"
+        },
+        {
+          "id": "paragraph-1",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p> R.  Godement, Théorie des faisceaux, Ac. Scient. et Ind.&#160;1252 (cité: Godement). </p>"
+        },
+        {
+          "id": "paragraph-2",
+          "type": "paragraph",
+          "label": null,
+          "title": null,
+          "html": "<p>A.  Grothendieck, sur quelques points d’algèbre homologique, Tohoku Math. Journal, Vol.&#160;9 p.  119–221, § &#160;1957, (cité: Tohoku). </p>"
+        }
+      ],
+      "footnotes": [],
+      "bibliography": []
+    }
+  ]
+}
