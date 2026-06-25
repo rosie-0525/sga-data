@@ -94,7 +94,7 @@ function assemblePageHtml(pg) {
       '<p class="muted"><em>(Traduction non disponible — la version française est la référence.)</em></p>';
   }
   if (pg.footnotes && pg.footnotes.length) {
-    html += '<section id="footnotes"><ol>';
+    html += '<section class="footnotes"><ol>';
     pg.footnotes.forEach((f) => {
       html += '<li id="' + f.id + '">' + f.html +
         ' <a class="backref" href="#' + f.id + 'ref" title="retour">↩</a></li>';

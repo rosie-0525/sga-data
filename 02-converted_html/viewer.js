@@ -1,21 +1,30 @@
-/* SGA 2 viewer: loads the JSON manifest + per-chapter content and renders it
-   with client-side MathJax 3 + XyJax-v3. Resolves cross-page anchors via the
-   manifest's anchor_index. */
+/* SGA 2 viewer: loads the FR and EN JSON manifests + per-chapter content and
+   renders them with client-side MathJax 3 + XyJax-v3. The two languages share an
+   identical page/anchor structure, so a page is shown in both columns at once;
+   the view switch (FR / EN / FR·EN) picks which columns are visible. Cross-page
+   anchors resolve via the manifest's anchor_index. */
 (function () {
   'use strict';
 
+  var LANGS = ['fr', 'en'];
+
   var state = {
-    lang: 'fr',
-    manifest: null,
-    chapterCache: {},      // chapterId -> chapter JSON
-    pageToChapter: {},     // pageId -> chapterId
-    anchorIndex: {},       // elementId -> pageId
-    currentPage: null
+    view: 'both',                  // 'fr' | 'en' | 'both'
+    manifests: { fr: null, en: null },
+    chapterCache: { fr: {}, en: {} },
+    pageToChapter: {},             // shared: page_ids are identical across languages
+    anchorIndex: {},               // shared: anchor ids are identical across languages
+    currentPage: null,
+    lastCite: {}                   // bibId -> id of the most recently visited citation
   };
 
-  var elPage = document.getElementById('page');
   var elSidebar = document.getElementById('sidebar');
-  var elContent = document.getElementById('content');
+  var panes = {
+    fr: document.getElementById('page-fr'),
+    en: document.getElementById('page-en')
+  };
+
+  var mobileMQ = window.matchMedia('(max-width: 800px)');
 
   // Typeset an element, chaining through MathJax's startup promise so we never
   // race the async CDN load (and so concurrent typesets serialize cleanly).
@@ -37,14 +46,27 @@
     });
   }
 
-  function loadManifest(lang) {
-    return fetchJSON(lang + '.json').then(function (m) {
-      state.manifest = m;
-      state.lang = lang;
-      state.chapterCache = {};
+  // Languages whose columns are currently visible (and therefore rendered).
+  function activeLangs() {
+    return state.view === 'both' ? LANGS.slice() : [state.view];
+  }
+
+  // The manifest whose titles drive the table of contents.
+  function tocLang() { return state.view === 'en' ? 'en' : 'fr'; }
+
+  function defaultPage() {
+    var m = state.manifests.fr;
+    return m.default_page_id || m.chapters[0].page_ids[0];
+  }
+
+  function loadManifests() {
+    return Promise.all(LANGS.map(function (lang) {
+      return fetchJSON(lang + '.json').then(function (m) { state.manifests[lang] = m; });
+    })).then(function () {
+      var fr = state.manifests.fr;
       state.pageToChapter = {};
-      state.anchorIndex = m.anchor_index || {};
-      m.chapters.forEach(function (ch) {
+      state.anchorIndex = fr.anchor_index || {};
+      fr.chapters.forEach(function (ch) {
         (ch.page_ids || []).forEach(function (pid) { state.pageToChapter[pid] = ch.id; });
       });
       buildSidebar();
@@ -52,7 +74,7 @@
   }
 
   function buildSidebar() {
-    var m = state.manifest;
+    var m = state.manifests[tocLang()];
     var tocByPage = {};
     m.toc.forEach(function (t) { tocByPage[t.page_id] = t; });
     var html = '';
@@ -76,17 +98,19 @@
     });
     elSidebar.innerHTML = html;
     typeset(elSidebar);
+    if (state.currentPage) markCurrent(state.currentPage);
   }
 
   function chapterFor(pageId) {
     return state.pageToChapter[pageId] ||
-           (state.manifest.chapters[0] && state.manifest.chapters[0].id);
+           (state.manifests.fr.chapters[0] && state.manifests.fr.chapters[0].id);
   }
 
-  function loadChapter(chapterId) {
-    if (state.chapterCache[chapterId]) return Promise.resolve(state.chapterCache[chapterId]);
-    return fetchJSON(state.lang + '/chapters/' + chapterId + '.json').then(function (c) {
-      state.chapterCache[chapterId] = c;
+  function loadChapter(chapterId, lang) {
+    var cache = state.chapterCache[lang];
+    if (cache[chapterId]) return Promise.resolve(cache[chapterId]);
+    return fetchJSON(lang + '/chapters/' + chapterId + '.json').then(function (c) {
+      cache[chapterId] = c;
       return c;
     });
   }
@@ -94,41 +118,58 @@
   function showPage(pageId, anchor) {
     var chId = chapterFor(pageId);
     if (!chId) return;
-    loadChapter(chId).then(function (chapter) {
-      var page = (chapter.pages || []).filter(function (p) { return p.id === pageId; })[0];
-      if (!page) { page = chapter.pages[0]; pageId = page.id; }
-      state.currentPage = pageId;
-      renderPage(page);
-      markCurrent(pageId);
-      if (anchor) scrollToAnchor(anchor);
-      else elContent.scrollTop = 0;
+    var langs = activeLangs();
+    // clear the inactive column so its stale content/ids don't linger
+    LANGS.forEach(function (lang) {
+      if (langs.indexOf(lang) === -1) panes[lang].innerHTML = '';
+    });
+    Promise.all(langs.map(function (lang) {
+      return loadChapter(chId, lang).then(function (chapter) {
+        var page = (chapter.pages || []).filter(function (p) { return p.id === pageId; })[0];
+        if (!page) page = chapter.pages[0];
+        return { lang: lang, page: page };
+      });
+    })).then(function (results) {
+      var resolved = (results[0] && results[0].page) ? results[0].page.id : pageId;
+      state.currentPage = resolved;
+      results.forEach(function (r) { renderPage(panes[r.lang], r.page, r.lang); });
+      markCurrent(resolved);
+      if (anchor) {
+        scrollToAnchor(anchor);
+      } else {
+        langs.forEach(function (lang) { panes[lang].parentNode.scrollTop = 0; });
+        if (mobileMQ.matches) window.scrollTo(0, 0);
+      }
     }).catch(function (e) {
-      elPage.innerHTML = '<p class="error">Erreur de chargement : ' + e.message + '</p>';
+      langs.forEach(function (lang) {
+        panes[lang].innerHTML = '<p class="error">Erreur de chargement : ' + e.message + '</p>';
+      });
     });
   }
 
-  function renderPage(page) {
-    var html = page.html || '';
+  function renderPage(el, page, lang) {
+    var html = (page && page.html) || '';
     if (!html.trim()) {
-      html = '<h1>' + (page.title || '') + '</h1>' +
-             '<p class="muted"><em>(Traduction non disponible — la version française est la référence.)</em></p>';
+      var msg = (lang === 'en')
+        ? '<p class="muted"><em>(Translation not available — the French version is the reference.)</em></p>'
+        : '<p class="muted"><em>(Traduction non disponible — la version française est la référence.)</em></p>';
+      html = '<h1>' + ((page && page.title) || '') + '</h1>' + msg;
     }
-    if (page.footnotes && page.footnotes.length) {
-      html += '<section id="footnotes"><ol>';
+    if (page && page.footnotes && page.footnotes.length) {
+      html += '<section class="footnotes"><ol>';
       page.footnotes.forEach(function (f) {
         html += '<li id="' + f.id + '">' + f.html +
                 ' <a class="backref" href="#' + f.id + 'ref" title="retour">↩</a></li>';
       });
       html += '</ol></section>';
     }
-    elPage.innerHTML = html;
-    wireProofs();
-    typeset(elPage);
+    el.innerHTML = html;
+    wireProofs(el);
+    typeset(el);
   }
 
-  function wireProofs() {
-    var heads = elPage.querySelectorAll('.proof-head');
-    heads.forEach(function (h) {
+  function wireProofs(scope) {
+    scope.querySelectorAll('.proof-head').forEach(function (h) {
       h.addEventListener('click', function () {
         h.parentNode.classList.toggle('collapsed');
       });
@@ -144,16 +185,27 @@
     }
   }
 
+  // Scroll every visible column to its own copy of the anchor. The two columns
+  // share element ids, so lookups are scoped per pane rather than via getElementById.
   function scrollToAnchor(id) {
-    var el = document.getElementById(id);
-    if (el) {
+    var sel = '[id="' + cssEscape(id) + '"]';
+    activeLangs().forEach(function (lang) {
+      var el = panes[lang].querySelector(sel);
+      if (!el) return;
       el.scrollIntoView({ block: 'center' });
       el.classList.add('target-flash');
-      setTimeout(function () { el.classList.remove('target-flash'); }, 1300);
-    }
+      (function (node) {
+        setTimeout(function () { node.classList.remove('target-flash'); }, 1300);
+      })(el);
+    });
   }
 
-  function cssEscape(s) { return String(s).replace(/"/g, '\\"'); }
+  function anchorInCurrent(id) {
+    var sel = '[id="' + cssEscape(id) + '"]';
+    return activeLangs().some(function (lang) { return !!panes[lang].querySelector(sel); });
+  }
+
+  function cssEscape(s) { return String(s).replace(/(["\\])/g, '\\$1'); }
 
   // Resolve a hash like "#I.1.3" or "#I-1" into a {page, anchor}.
   function resolveHash(hash) {
@@ -169,17 +221,22 @@
       var pid2 = state.anchorIndex[key] || (state.pageToChapter.hasOwnProperty(key) ? key : null);
       if (pid2) return { page: pid2, anchor: key };
     }
+    // in-page anchor (e.g. a footnote target/back-ref) already on screen
+    if (anchorInCurrent(raw)) return { page: state.currentPage, anchor: raw };
     return null;
   }
 
   function navigate(hash) {
     var r = resolveHash(hash);
     if (!r) {
-      var def = state.manifest.default_page_id || state.manifest.chapters[0].page_ids[0];
-      showPage(def, null);
+      showPage(defaultPage(), null);
       return;
     }
-    showPage(r.page, r.anchor);
+    if (r.page === state.currentPage && r.anchor) {
+      scrollToAnchor(r.anchor);          // already loaded — just scroll
+    } else {
+      showPage(r.page, r.anchor);
+    }
   }
 
   // intercept internal link clicks (incl. links inside rendered content)
@@ -187,39 +244,59 @@
     var a = e.target.closest && e.target.closest('a[href^="#"]');
     if (!a) return;
     var hash = a.getAttribute('href');
+    // Citation source -> remember it so the bibliography entry's back-button
+    // can return to the most recently visited citation (like a footnote ↩).
+    if (a.classList.contains('cite-src') && a.id) {
+      state.lastCite[hash.replace(/^#/, '')] = a.id;
+    } else if (a.classList.contains('bibref-back')) {
+      var last = state.lastCite[a.getAttribute('data-bib')];
+      if (last) hash = '#' + last;        // else fall back to the static href
+    }
     e.preventDefault();
     if (history.pushState) history.pushState(null, '', hash);
     navigate(hash);
+    // on a phone, picking an entry from the overlay TOC should close it
+    if (mobileMQ.matches && a.closest('#sidebar')) {
+      document.documentElement.classList.add('nav-collapsed');
+    }
   });
 
   window.addEventListener('popstate', function () { navigate(location.hash); });
 
-  // language switch
-  document.getElementById('lang-switch').addEventListener('click', function (e) {
-    var b = e.target.closest('button[data-lang]');
+  // view switch: FR-only / EN-only / both side by side
+  document.getElementById('view-switch').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-view]');
     if (!b) return;
-    var lang = b.getAttribute('data-lang');
-    if (lang === state.lang) return;
-    document.querySelectorAll('#lang-switch button').forEach(function (x) {
-      x.classList.toggle('active', x === b);
-    });
-    var cur = state.currentPage;
-    loadManifest(lang).then(function () { showPage(cur || location.hash.slice(1), null); });
+    setView(b.getAttribute('data-view'));
   });
 
+  function setView(view) {
+    if (view === state.view) return;
+    state.view = view;
+    document.querySelectorAll('#view-switch button').forEach(function (x) {
+      x.classList.toggle('active', x.getAttribute('data-view') === view);
+    });
+    document.body.classList.remove('view-fr', 'view-en', 'view-both');
+    document.body.classList.add('view-' + view);
+    buildSidebar();                       // TOC language may have changed
+    if (state.currentPage) showPage(state.currentPage, null);
+  }
+
+  // collapsible table of contents
   document.getElementById('menu-toggle').addEventListener('click', function () {
-    elSidebar.classList.toggle('open');
+    document.documentElement.classList.toggle('nav-collapsed');
   });
 
   // boot
-  loadManifest('fr').then(function () {
-    if (state.manifest.chapters[0]) {
-      var bt = document.getElementById('book-title');
-      // keep the static title
-    }
-    navigate(location.hash || ('#' + (state.manifest.default_page_id || '')));
+  loadManifests().then(function () {
+    navigate(location.hash || ('#' + defaultPage()));
   }).catch(function (e) {
-    elPage.innerHTML = '<p class="error">Impossible de charger le manifeste (' + e.message +
-                       '). Servez ce dossier via un serveur HTTP (ex. <code>python3 -m http.server</code>).</p>';
+    LANGS.forEach(function (lang) {
+      if (panes[lang]) {
+        panes[lang].innerHTML = '<p class="error">Impossible de charger le manifeste (' +
+          e.message + '). Servez ce dossier via un serveur HTTP (ex. ' +
+          '<code>python3 -m http.server</code>).</p>';
+      }
+    });
   });
 })();

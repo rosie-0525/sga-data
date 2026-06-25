@@ -487,6 +487,7 @@ class Ctx:
         self.bibliography = []
         self.unresolved = []      # list of (key, kind)
         self.gen_counter = 0
+        self.cite_counters = {}   # bib key -> count of in-text \cite sources seen
 
     def gen_id(self, prefix='x'):
         self.gen_counter += 1
@@ -517,7 +518,13 @@ def cite_link(ctx, keys):
         if num is None:
             ctx.unresolved.append((key, 'cite'))
             num = '?'
-        parts.append('<a href="#%s">%s</a>' % (html.escape(key, quote=True), html.escape(num)))
+        # give each in-text citation a unique source id so the bibliography
+        # entry's back-button can return to it (see wire_citations / viewer.js)
+        ctx.cite_counters[key] = ctx.cite_counters.get(key, 0) + 1
+        sid = '%s-cite-%d' % (key, ctx.cite_counters[key])
+        parts.append('<a class="cite-src" id="%s" href="#%s">%s</a>'
+                     % (html.escape(sid, quote=True), html.escape(key, quote=True),
+                        html.escape(num)))
     return '<span class="cite">[' + ', '.join(parts) + ']</span>'
 
 
@@ -1703,7 +1710,154 @@ def _split_para_blocks(html_seg):
 # Section 7. Emit JSON + manifest + en stubs
 # --------------------------------------------------------------------------
 
+# --------------------------------------------------------------------------
+# Bibliography citation wiring (prose '(cité: NAME)' markers + back buttons)
+# --------------------------------------------------------------------------
+
+# An Exposé-I-style prose-bibliography marker. The colon form is REQUIRED:
+# the bare word "cité" appears in many unrelated contexts, so only "(cité: X)"
+# (with the colon) is treated as a citation short-name declaration.
+CITE_MARKER = re.compile(r'\s*,?\s*\(cité:\s*([^)]+?)\s*\)')
+# Split html into plain-text vs. protected spans (HTML tags / inline & display
+# math). re.split() puts the captured protected spans at the ODD indices.
+_PROTECT = re.compile(r'(<[^>]+>|\\\(.*?\\\)|\\\[.*?\\\])', re.S)
+
+
+def _bib_slug(name):
+    return 'bib-' + re.sub(r'[^\w]+', '-', name).strip('-')
+
+
+def _link_names(html_str, registry):
+    """Wrap whole-word occurrences of each registered short-name in a link to
+    its bibliography entry, never substituting inside HTML tags or math spans.
+    Records a unique source id per occurrence for the entry's back-button."""
+    for name in sorted(registry, key=len, reverse=True):
+        info = registry[name]
+        name_re = re.compile(r'(?<![\w-])' + re.escape(name) + r'(?![\w-])')
+
+        def repl(m, info=info):
+            info['sources'].append(None)
+            sid = '%s-cite-%d' % (info['bib_id'], len(info['sources']))
+            info['sources'][-1] = sid
+            return ('<a class="bibref cite-src" id="%s" href="#%s">%s</a>'
+                    % (sid, info['bib_id'], m.group(0)))
+
+        segs = _PROTECT.split(html_str)
+        for i in range(0, len(segs), 2):          # even indices = plain text
+            segs[i] = name_re.sub(repl, segs[i])
+        html_str = ''.join(segs)
+    return html_str
+
+
+def wire_citations(chapters):
+    """Post-pass over already-rendered blocks. Per exposé: (A) strip prose
+    '(cité: NAME)' markers and anchor those bibliography entries; (B) link
+    in-text mentions of NAME within the same exposé. Then, document-wide,
+    (C) add a 'back' (↩) button to every bibliography entry — prose or
+    \\thebibliography — that is actually cited (outside math)."""
+    for ch in chapters:
+        # ---- Phase A: discover prose-bibliography markers in this exposé ----
+        registry = {}                # NAME -> {bib_id, page_id, block, sources}
+        bib_blocks = set()           # id() of prose bib-entry block dicts
+        for page in ch.pages:
+            for blk in page.blocks:
+                m = CITE_MARKER.search(blk['html'])
+                if not m:
+                    continue
+                name = m.group(1).strip()
+                bid = _bib_slug(name)
+                h = CITE_MARKER.sub('', blk['html'], count=1)   # drop the marker
+                anchor = ('<span class="bib-anchor" id="%s"></span>'
+                          % html.escape(bid, quote=True))
+                if '<p>' in h:
+                    h = h.replace('<p>', '<p>' + anchor, 1)
+                else:
+                    h = anchor + h
+                blk['html'] = h
+                blk['id'] = bid
+                bib_blocks.add(id(blk))
+                registry[name] = {'bib_id': bid, 'page_id': page.id,
+                                  'block': blk, 'sources': []}
+
+        # ---- Phase B: link in-text mentions, this exposé only ----
+        if registry:
+            for page in ch.pages:
+                for blk in page.blocks:
+                    if id(blk) in bib_blocks:
+                        continue
+                    blk['html'] = _link_names(blk['html'], registry)
+
+        # ---- Phase C (prose): back button on each cited prose entry ----
+        for info in registry.values():
+            if not info['sources']:
+                continue
+            bid = html.escape(info['bib_id'], quote=True)
+            back = (' <a class="bibref-back" data-bib="%s" href="#%s-cite-1" '
+                    'title="retour">↩</a>' % (bid, bid))
+            h = info['block']['html']
+            idx = h.rfind('</p>')
+            info['block']['html'] = (h[:idx] + back + h[idx:]) if idx != -1 else (h + back)
+
+    # ---- Phase C (structured): back button per cited \thebibliography key ----
+    cited = set()
+    for ch in chapters:
+        for page in ch.pages:
+            htmls = [b['html'] for b in page.blocks]
+            htmls += [f.get('html', '') for f in page.footnotes]  # \cite inside footnotes
+            for h in htmls:
+                for m in re.finditer(r'id="([^"]+)-cite-\d+"', h):
+                    cited.add(m.group(1))
+    for ch in chapters:
+        for page in ch.pages:
+            keys = [b['id'] for b in page.bibliography if b['id'] in cited]
+            if not keys:
+                continue
+            for blk in page.blocks:
+                if blk.get('type') != 'bibliography':
+                    continue
+                h = blk['html']
+                for key in keys:
+                    esc = html.escape(key, quote=True)
+                    back = (' <a class="bibref-back" data-bib="%s" href="#%s-cite-1" '
+                            'title="retour">↩</a>' % (esc, esc))
+                    pat = re.compile(r'(<dt id="%s">.*?)(</dd>)' % re.escape(esc), re.S)
+                    h = pat.sub(lambda mm: mm.group(1) + back + mm.group(2), h, count=1)
+                blk['html'] = h
+
+
+def _read_json(path):
+    try:
+        with open(path, encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def _en_manifest_is_stub(path, fr_manifest):
+    """en.json may be (re)written only if it is missing or still a French copy
+    (its toc titles are identical to the French manifest, i.e. not yet translated).
+    Once translated, it carries English titles and must be preserved."""
+    data = _read_json(path)
+    if data is None:
+        return True
+    fr_titles = [t['title'] for t in fr_manifest['toc']]
+    en_titles = [t.get('title') for t in data.get('toc', [])]
+    return en_titles == fr_titles
+
+
+def _en_chapter_is_stub(path):
+    """en/chapters/<id>.json may be (re)written only if it is missing or still an
+    empty stub (every page has empty html and no blocks). Once populated with a
+    translation it must be preserved across converter re-runs."""
+    data = _read_json(path)
+    if data is None:
+        return True
+    pages = data.get('pages', [])
+    return all((not p.get('html')) and (not p.get('blocks')) for p in pages)
+
+
 def emit(chapters, out_dir):
+    wire_citations(chapters)
     fr_dir = os.path.join(out_dir, 'fr', 'chapters')
     en_dir = os.path.join(out_dir, 'en', 'chapters')
     os.makedirs(fr_dir, exist_ok=True)
@@ -1766,8 +1920,14 @@ def emit(chapters, out_dir):
 
     with open(os.path.join(out_dir, 'fr.json'), 'w', encoding='utf-8') as f:
         json.dump(manifest, f, ensure_ascii=False, indent=1)
-    with open(os.path.join(out_dir, 'en.json'), 'w', encoding='utf-8') as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=1)
+    # English manifest: write the French copy only while still untranslated; once
+    # en.json carries English titles, preserve it (do not clobber the translation).
+    en_json_path = os.path.join(out_dir, 'en.json')
+    if _en_manifest_is_stub(en_json_path, manifest):
+        with open(en_json_path, 'w', encoding='utf-8') as f:
+            json.dump(manifest, f, ensure_ascii=False, indent=1)
+    else:
+        print('  preserving translated en.json (not overwriting)')
 
     for ch in chapters:
         pages_json = []
@@ -1786,14 +1946,19 @@ def emit(chapters, out_dir):
                         'pages': pages_json}
         with open(os.path.join(fr_dir, ch.id + '.json'), 'w', encoding='utf-8') as f:
             json.dump(chapter_json, f, ensure_ascii=False, indent=1)
-        # English stub: same structure, empty content
-        stub_pages = [{'id': p['id'], 'title': p['title'], 'html': '',
-                       'blocks': [], 'footnotes': [], 'bibliography': []}
-                      for p in pages_json]
-        stub = {'chapter_id': ch.id, 'title': ch.title, 'number': ch.number,
-                'pages': stub_pages}
-        with open(os.path.join(en_dir, ch.id + '.json'), 'w', encoding='utf-8') as f:
-            json.dump(stub, f, ensure_ascii=False, indent=1)
+        # English file: write the empty stub only while still untranslated; once a
+        # translation has been filled in, preserve it across converter re-runs.
+        en_path = os.path.join(en_dir, ch.id + '.json')
+        if _en_chapter_is_stub(en_path):
+            stub_pages = [{'id': p['id'], 'title': p['title'], 'html': '',
+                           'blocks': [], 'footnotes': [], 'bibliography': []}
+                          for p in pages_json]
+            stub = {'chapter_id': ch.id, 'title': ch.title, 'number': ch.number,
+                    'pages': stub_pages}
+            with open(en_path, 'w', encoding='utf-8') as f:
+                json.dump(stub, f, ensure_ascii=False, indent=1)
+        else:
+            print('  preserving translated en/chapters/%s.json (not overwriting)' % ch.id)
 
     return manifest
 
