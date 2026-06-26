@@ -57,6 +57,12 @@ en.json / en/chapters/    same envelope; English content is empty stubs (French 
 index.html viewer.css viewer.js   self-contained viewer
 ```
 
+- **English non-clobber guard**: `emit()` writes the empty English stubs only while the
+  English side is still untranslated. Once `en.json` carries English titles (detected by
+  `_en_manifest_is_stub`) or an `en/chapters/<id>.json` has non-empty pages (detected by
+  `_en_chapter_is_stub`), a re-run **preserves** it instead of overwriting — so a filled-in
+  English translation survives regenerating the French side.
+
 - **page**: `{id, title, html, blocks[], footnotes[], bibliography[]}` with the
   invariant `html == "\n".join(b.html for b in blocks)`.
 - **block**: `{id, type, label, title, html}`; `type` ∈ `heading | paragraph |
@@ -77,7 +83,7 @@ through *inside* math, scan the `\(...\)` / `\[...\]` regions for backslash
 commands that are neither standard MathJax nor expected XyJax (`\ar`,
 `\xymatrix`); see the converter's macro tables when adding new ones.
 
-The headless MathJax/XyJax render check (`sga2-check-mathjax`) is the downstream
+The headless MathJax/XyJax render check (`sga2-check-errors`) is the downstream
 gate that loads the viewer pages in Chromium and reports `mjx-merror`s.
 
 A full headless pass (66 pages) renders **9 489** math expressions with **no

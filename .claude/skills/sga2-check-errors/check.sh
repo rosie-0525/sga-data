@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
-# Drive a headless Chromium over 02-converted_html/ and report MathJax errors.
+# Drive a headless Chromium over 02-converted_html/ and report rendering,
+# cross-reference, and other errors (categorised into issues/*_errors.json).
 set -u
 
 SKILL_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SKILL_DIR/../../.." && pwd)"
 HTML_DIR="$ROOT/02-converted_html"
-OUT_JSON="$ROOT/issues/mathjax_errors.json"
+OUT_DIR="$ROOT/issues"
 # Languages to render+scan (comma-separated). Override as the first CLI arg.
 LANGS="${1:-fr,en}"
-mkdir -p "$ROOT/issues"
+mkdir -p "$OUT_DIR"
 
 if [ ! -f "$HTML_DIR/index.html" ]; then
   echo "error: $HTML_DIR/index.html does not exist — run sga2-convert-html first" >&2
@@ -89,7 +90,7 @@ for _ in $(seq 1 20); do
   sleep 0.1
 done
 
-node "$SKILL_DIR/check.js" "$HTML_DIR" "http://localhost:$PORT" "$OUT_JSON" "$LANGS"
+node "$SKILL_DIR/check.js" "$HTML_DIR" "http://localhost:$PORT" "$OUT_DIR" "$LANGS"
 rc=$?
 
 exit $rc

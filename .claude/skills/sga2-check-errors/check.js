@@ -1,4 +1,10 @@
-// Headless MathJax error scan for the SGA2 custom-parser viewer.
+// Headless render/error scan for the SGA2 custom-parser viewer.
+//
+// Findings are categorised into three files written under the output dir:
+//   mathjax_errors.json  — typesetError, mjx-merror, leaked \word macros
+//   crossref_errors.json — \ref/\eqref in math, ???/?? markers, dead #anchors
+//   other_errors.json    — equation-tag dropout, »-glued-to-word spacing,
+//                           fatal, page/console errors
 //
 // The deliverable (02-converted_html/) is a single-page viewer, NOT a tree of
 // standalone HTML files:
@@ -37,11 +43,11 @@ const puppeteer = require('puppeteer');
 
 const HTML_DIR = process.argv[2];
 const BASE_URL = process.argv[3] || 'http://localhost:8765';
-const OUT_JSON = process.argv[4]; // optional; if set, write full results here
+const OUT_DIR = process.argv[4]; // optional; if set, write the category files here
 const LANGS = (process.argv[5] || 'fr,en').split(',').map((s) => s.trim()).filter(Boolean);
 
 if (!HTML_DIR) {
-  console.error('usage: node check.js <html-dir> [base-url] [out-json] [langs]');
+  console.error('usage: node check.js <html-dir> [base-url] [out-dir] [langs]');
   process.exit(2);
 }
 
@@ -89,7 +95,7 @@ function assemblePageHtml(pg) {
       '<p class="muted"><em>(Traduction non disponible — la version française est la référence.)</em></p>';
   }
   if (pg.footnotes && pg.footnotes.length) {
-    html += '<section id="footnotes"><ol>';
+    html += '<section class="footnotes"><ol>';
     pg.footnotes.forEach((f) => {
       html += '<li id="' + f.id + '">' + f.html +
         ' <a class="backref" href="#' + f.id + 'ref" title="retour">↩</a></li>';
@@ -154,6 +160,68 @@ function staticDangling(html, localIds, pageIds, anchorKeys) {
     const start = Math.max(0, m.index - 30);
     const ctx = html.slice(start, m.index + m[0].length + 10).replace(/\s+/g, ' ').trim();
     out.push({ frag, context: ctx });
+  }
+  return out;
+}
+
+// Static pass: equation-tag dropout. A numbered display-math block can carry one
+// \label (hence one displayed number) per row; the converter emits the first as
+// the <div class="equation"> id and the rest as preceding label-anchor spans
+// (convert.py render_mathblock). Each numbered row should display a number via an
+// explicit \tag{} (MathJax runs tags:'none', so only \tag produces a number, and
+// multi-row envs are forced to their starred form). If a block carries more eq:
+// labels than \tag{}s, a labeled row renders with NO number — e.g. (21)/(21 bis)
+// where the (21) row silently loses its tag. We report the shortfall by block;
+// \notag/\nonumber in the body is recorded so a legitimately-unnumbered row isn't
+// mistaken for the bug. Fix belongs upstream in the converter (per the README).
+function staticTagIntegrity(html) {
+  // Each <div class="equation" ...> plus any label-anchor spans glued to its front.
+  const re = /((?:<span class="label-anchor" id="[^"]*">\s*<\/span>\s*)*)<div class="equation"([^>]*)>([\s\S]*?)<\/div>/g;
+  const out = [];
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const pre = m[1] || '', attrs = m[2] || '', body = m[3] || '';
+    const labels = new Set();
+    const idm = /id="([^"]+)"/.exec(attrs);
+    if (idm && idm[1].startsWith('eq:')) labels.add(idm[1]);
+    const are = /<span class="label-anchor" id="([^"]+)">/g;
+    let am;
+    while ((am = are.exec(pre)) !== null) {
+      if (am[1].startsWith('eq:')) labels.add(am[1]);
+    }
+    const tagCount = (body.match(/\\tag\s*\{/g) || []).length;
+    if (labels.size > tagCount) {
+      const ctx = body.replace(/\s+/g, ' ').trim().slice(0, 120);
+      out.push({
+        blockId: (idm && idm[1]) || null,
+        labels: Array.from(labels),
+        tagCount,
+        hasNotag: /\\(?:notag|nonumber)\b/.test(body),
+        context: ctx,
+      });
+    }
+  }
+  return out;
+}
+
+// Static pass: a closing guillemet » with no space before the following word.
+// The converter's control-word rule (convert.py) eats the ASCII space after \fg,
+// so source "\fg word" renders as "»word". Punctuation, closing brackets, HTML
+// tags and entities legitimately abut », so only a letter/digit, an opening
+// paren, or inline math \( right after » is the bug (e.g. "point-base »dans",
+// "algébrique »(ou", "résoudre »\(A\)"). Fix belongs upstream in convert.py
+// (\fg should not swallow the following space).
+function staticQuoteSpacing(html) {
+  const re = /»(?=[\p{L}\p{N}(]|\\\()/gu;
+  const out = [];
+  const seen = new Set();
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const start = Math.max(0, m.index - 30);
+    const ctx = html.slice(start, m.index + 30).replace(/\s+/g, ' ').trim();
+    if (seen.has(ctx)) continue; // collapse identical windows
+    seen.add(ctx);
+    out.push({ context: ctx });
   }
   return out;
 }
@@ -311,6 +379,8 @@ function makeResult(lang, pageId, title, html, scan, L, cmsgs, perrs) {
     refsInMath: staticRefsInMath(html),
     refMarkers: scan.refMarkers || [],
     danglingAnchors: staticDangling(html, collectIds(html), L.pageIds, L.anchorKeys),
+    tagIssues: staticTagIntegrity(html),
+    quoteSpacing: staticQuoteSpacing(html),
     pageErrors: perrs,
     consoleMsgs: filterConsole(cmsgs),
   };
@@ -322,9 +392,44 @@ function isBad(r) {
     || (r.refsInMath && r.refsInMath.length)
     || (r.refMarkers && r.refMarkers.length)
     || (r.danglingAnchors && r.danglingAnchors.length)
+    || (r.tagIssues && r.tagIssues.length)
+    || (r.quoteSpacing && r.quoteSpacing.length)
     || (r.consoleMsgs && r.consoleMsgs.length)
     || (r.pageErrors && r.pageErrors.length)
     || r.typesetError || r.fatal;
+}
+
+// ---------------------------------------------------------------------------
+// Category split. Each per-page result carries up to ten error channels; we
+// route them into three files so a genuine MathJax/XyJax typesetting failure is
+// not buried among cross-reference or structural/page-level problems:
+//   mathjax  — the typeset engine could not render the math/macros
+//   crossref — unresolved references and dead internal links
+//   other    — equation-number dropout + page/console-level errors
+// The identity fields are repeated in every file so each error stays
+// attributable to a page.
+// ---------------------------------------------------------------------------
+
+const IDENT = ['lang', 'file', 'pageId', 'title', 'containers'];
+
+const CATEGORIES = {
+  mathjax: { scalars: ['typesetError'], arrays: ['merrors', 'leakedMacros'] },
+  crossref: { scalars: [], arrays: ['refsInMath', 'refMarkers', 'danglingAnchors'] },
+  other: { scalars: ['fatal'], arrays: ['tagIssues', 'quoteSpacing', 'pageErrors', 'consoleMsgs'] },
+};
+
+function categoryBad(r, cat) {
+  const c = CATEGORIES[cat];
+  return c.scalars.some((k) => r[k]) || c.arrays.some((k) => r[k] && r[k].length);
+}
+
+function projectCategory(r, cat) {
+  const c = CATEGORIES[cat];
+  const out = {};
+  for (const k of IDENT) out[k] = r[k];
+  for (const k of c.scalars) out[k] = r[k] || null;
+  for (const k of c.arrays) out[k] = r[k] || [];
+  return out;
 }
 
 // ---------------------------------------------------------------------------
@@ -334,14 +439,20 @@ function isBad(r) {
 function summarise(results) {
   const lines = [];
   const bad = results.filter(isBad);
-  const totalMerror = results.reduce((s, r) => s + (r.merrors ? r.merrors.length : 0), 0);
+  const sumLen = (key) => results.reduce((s, r) => s + (r[key] ? r[key].length : 0), 0);
+  const countPages = (cat) => results.filter((r) => categoryBad(r, cat)).length;
   const totalContainers = results.reduce((s, r) => s + (r.containers || 0), 0);
-  const totalLeakNodes = results.reduce((s, r) => s + (r.leakedMacros ? r.leakedMacros.length : 0), 0);
-  const filesWithLeaks = results.filter((r) => r.leakedMacros && r.leakedMacros.length).length;
-  const totalRefInMath = results.reduce((s, r) => s + (r.refsInMath ? r.refsInMath.length : 0), 0);
-  const totalRefMarkers = results.reduce((s, r) => s + (r.refMarkers ? r.refMarkers.length : 0), 0);
-  const totalDangling = results.reduce((s, r) => s + (r.danglingAnchors ? r.danglingAnchors.length : 0), 0);
 
+  const totalMerror = sumLen('merrors');
+  const totalLeakNodes = sumLen('leakedMacros');
+  const totalRefInMath = sumLen('refsInMath');
+  const totalRefMarkers = sumLen('refMarkers');
+  const totalDangling = sumLen('danglingAnchors');
+  const totalTagIssues = sumLen('tagIssues');
+  const totalQuoteSpacing = sumLen('quoteSpacing');
+
+  // Rollup indexes used by the MathJax (leaked tokens) and Cross-references
+  // (unresolved ref labels) sections below.
   const tokenIndex = new Map();
   for (const r of results) {
     for (const leak of (r.leakedMacros || [])) {
@@ -351,71 +462,6 @@ function summarise(results) {
       }
     }
   }
-
-  lines.push('');
-  lines.push(`Checked ${results.length} pages — ${totalContainers} mjx-container elements typeset.`);
-  lines.push(`Pages with issues: ${bad.length}.  Total mjx-merror instances: ${totalMerror}.`);
-  lines.push(`Pages with leaked macros: ${filesWithLeaks}.  Total leaked text nodes: ${totalLeakNodes}.`);
-  lines.push(`Unresolved refs in math: ${totalRefInMath}.  Visible ???/?? markers: ${totalRefMarkers}.  Dangling anchors: ${totalDangling}.`);
-  if (bad.length === 0) {
-    lines.push('CHECK PASSED');
-    return lines.join('\n') + '\n';
-  }
-  lines.push('');
-  for (const x of bad) {
-    lines.push(`=== ${x.file}  (containers: ${x.containers})`);
-    if (x.typesetError) lines.push(`  typesetError: ${x.typesetError}`);
-    if (x.fatal) lines.push(`  fatal: ${x.fatal}`);
-    for (const m of (x.merrors || [])) {
-      lines.push(`  [merror] ${m.title}`);
-      const src = m.tex || m.text || '';
-      if (src) lines.push(`     source: ${JSON.stringify(src.slice(0, 300))}`);
-    }
-    for (const l of (x.leakedMacros || [])) {
-      let where;
-      if (l.viaAssistiveMML) where = 'mjx-container (rendered as text by MathJax)';
-      else if (l.inMath) where = `<${l.parentTag}> in mjx-container`;
-      else where = `<${l.parentTag}>`;
-      lines.push(`  [leak] ${l.tokens.join(' ')}  — ${where}`);
-      lines.push(`     context: ${JSON.stringify(l.context)}`);
-      if (l.sourceTeX) lines.push(`     sourceTeX: ${JSON.stringify(l.sourceTeX.slice(0, 200))}`);
-    }
-    for (const rr of (x.refsInMath || [])) {
-      const times = rr.count > 1 ? ` (×${rr.count})` : '';
-      lines.push(`  [ref-in-math] \\ref{${rr.label}}${times}  — survives into math; MathJax cannot resolve the label → renders ???`);
-      if (rr.context) lines.push(`     context: ${JSON.stringify(rr.context)}`);
-    }
-    for (const m of (x.refMarkers || [])) {
-      const where = m.inMath ? 'mjx-container' : `<${m.parentTag}>`;
-      lines.push(`  [unresolved-ref] "${m.marker}" in ${where}`);
-      lines.push(`     context: ${JSON.stringify(m.context)}`);
-      if (m.sourceTeX) lines.push(`     sourceTeX: ${JSON.stringify(m.sourceTeX.slice(0, 200))}`);
-    }
-    for (const d of (x.danglingAnchors || [])) {
-      lines.push(`  [dangling] href="#${d.frag}" — resolves to no page id, anchor_index key, or same-page id`);
-      if (d.context) lines.push(`     context: ${JSON.stringify(d.context)}`);
-    }
-    for (const c of (x.consoleMsgs || [])) {
-      lines.push(`  [console.${c.type}] ${c.text}`);
-    }
-    for (const e of (x.pageErrors || [])) {
-      lines.push(`  [pageerror] ${e}`);
-    }
-  }
-
-  if (tokenIndex.size > 0) {
-    lines.push('');
-    lines.push('Leaked macros by token (most files first):');
-    const rows = Array.from(tokenIndex.entries())
-      .map(([tok, files]) => ({ tok, files: Array.from(files).sort() }))
-      .sort((a, b) => b.files.length - a.files.length || a.tok.localeCompare(b.tok));
-    for (const { tok, files } of rows) {
-      const shown = files.slice(0, 5).join(', ');
-      const more = files.length > 5 ? `, … (+${files.length - 5})` : '';
-      lines.push(`  ${tok}  — ${files.length} file${files.length === 1 ? '' : 's'}: ${shown}${more}`);
-    }
-  }
-
   const refLabelIndex = new Map();
   for (const r of results) {
     for (const rr of (r.refsInMath || [])) {
@@ -423,14 +469,114 @@ function summarise(results) {
       refLabelIndex.get(rr.label).add(r.file);
     }
   }
-  if (refLabelIndex.size > 0) {
+
+  lines.push('');
+  lines.push(`Checked ${results.length} pages — ${totalContainers} mjx-container elements typeset.`);
+  lines.push(`Pages with issues: ${bad.length}.`);
+  lines.push(`  MathJax    — ${countPages('mathjax')} page(s): ${totalMerror} mjx-merror, ${totalLeakNodes} leaked text node(s).`);
+  lines.push(`  Cross-refs — ${countPages('crossref')} page(s): ${totalRefInMath} ref-in-math, ${totalRefMarkers} ???/?? marker(s), ${totalDangling} dangling anchor(s).`);
+  lines.push(`  Other      — ${countPages('other')} page(s): ${totalTagIssues} equation-tag dropout(s), ${totalQuoteSpacing} guillemet-spacing issue(s).`);
+  if (bad.length === 0) {
+    lines.push('CHECK PASSED');
+    return lines.join('\n') + '\n';
+  }
+
+  // --- MathJax / typesetting (→ issues/mathjax_errors.json) ---
+  const mjBad = results.filter((r) => categoryBad(r, 'mathjax'));
+  if (mjBad.length) {
     lines.push('');
-    lines.push('Unresolved refs in math by label (fix upstream in sga2-inline-macros):');
-    const rows = Array.from(refLabelIndex.entries())
-      .map(([lab, files]) => ({ lab, files: Array.from(files).sort() }))
-      .sort((a, b) => b.files.length - a.files.length || a.lab.localeCompare(b.lab));
-    for (const { lab, files } of rows) {
-      lines.push(`  \\ref{${lab}}  — ${files.join(', ')}`);
+    lines.push('## MathJax / typesetting errors  (issues/mathjax_errors.json)');
+    for (const x of mjBad) {
+      lines.push(`=== ${x.file}  (containers: ${x.containers})`);
+      if (x.typesetError) lines.push(`  typesetError: ${x.typesetError}`);
+      for (const m of (x.merrors || [])) {
+        lines.push(`  [merror] ${m.title}`);
+        const src = m.tex || m.text || '';
+        if (src) lines.push(`     source: ${JSON.stringify(src.slice(0, 300))}`);
+      }
+      for (const l of (x.leakedMacros || [])) {
+        let where;
+        if (l.viaAssistiveMML) where = 'mjx-container (rendered as text by MathJax)';
+        else if (l.inMath) where = `<${l.parentTag}> in mjx-container`;
+        else where = `<${l.parentTag}>`;
+        lines.push(`  [leak] ${l.tokens.join(' ')}  — ${where}`);
+        lines.push(`     context: ${JSON.stringify(l.context)}`);
+        if (l.sourceTeX) lines.push(`     sourceTeX: ${JSON.stringify(l.sourceTeX.slice(0, 200))}`);
+      }
+    }
+    if (tokenIndex.size > 0) {
+      lines.push('');
+      lines.push('Leaked macros by token (most files first):');
+      const rows = Array.from(tokenIndex.entries())
+        .map(([tok, files]) => ({ tok, files: Array.from(files).sort() }))
+        .sort((a, b) => b.files.length - a.files.length || a.tok.localeCompare(b.tok));
+      for (const { tok, files } of rows) {
+        const shown = files.slice(0, 5).join(', ');
+        const more = files.length > 5 ? `, … (+${files.length - 5})` : '';
+        lines.push(`  ${tok}  — ${files.length} file${files.length === 1 ? '' : 's'}: ${shown}${more}`);
+      }
+    }
+  }
+
+  // --- Cross-references (→ issues/crossref_errors.json) ---
+  const xrefBad = results.filter((r) => categoryBad(r, 'crossref'));
+  if (xrefBad.length) {
+    lines.push('');
+    lines.push('## Cross-reference errors  (issues/crossref_errors.json)');
+    for (const x of xrefBad) {
+      lines.push(`=== ${x.file}  (containers: ${x.containers})`);
+      for (const rr of (x.refsInMath || [])) {
+        const times = rr.count > 1 ? ` (×${rr.count})` : '';
+        lines.push(`  [ref-in-math] \\ref{${rr.label}}${times}  — survives into math; MathJax cannot resolve the label → renders ???`);
+        if (rr.context) lines.push(`     context: ${JSON.stringify(rr.context)}`);
+      }
+      for (const m of (x.refMarkers || [])) {
+        const where = m.inMath ? 'mjx-container' : `<${m.parentTag}>`;
+        lines.push(`  [unresolved-ref] "${m.marker}" in ${where}`);
+        lines.push(`     context: ${JSON.stringify(m.context)}`);
+        if (m.sourceTeX) lines.push(`     sourceTeX: ${JSON.stringify(m.sourceTeX.slice(0, 200))}`);
+      }
+      for (const d of (x.danglingAnchors || [])) {
+        lines.push(`  [dangling] href="#${d.frag}" — resolves to no page id, anchor_index key, or same-page id`);
+        if (d.context) lines.push(`     context: ${JSON.stringify(d.context)}`);
+      }
+    }
+    if (refLabelIndex.size > 0) {
+      lines.push('');
+      lines.push('Unresolved refs in math by label (fix upstream in sga2-inline-macros):');
+      const rows = Array.from(refLabelIndex.entries())
+        .map(([lab, files]) => ({ lab, files: Array.from(files).sort() }))
+        .sort((a, b) => b.files.length - a.files.length || a.lab.localeCompare(b.lab));
+      for (const { lab, files } of rows) {
+        lines.push(`  \\ref{${lab}}  — ${files.join(', ')}`);
+      }
+    }
+  }
+
+  // --- Other (→ issues/other_errors.json) ---
+  const otherBad = results.filter((r) => categoryBad(r, 'other'));
+  if (otherBad.length) {
+    lines.push('');
+    lines.push('## Other errors  (issues/other_errors.json)');
+    for (const x of otherBad) {
+      lines.push(`=== ${x.file}  (containers: ${x.containers})`);
+      if (x.fatal) lines.push(`  fatal: ${x.fatal}`);
+      for (const t of (x.tagIssues || [])) {
+        const note = t.hasNotag ? ' (block also has \\notag/\\nonumber — verify intent)' : '';
+        lines.push(`  [tag-missing] ${t.labels.length} eq labels but only ${t.tagCount} \\tag${t.tagCount === 1 ? '' : 's'} — ${t.labels.length - t.tagCount} labeled row(s) render with no number${note}`);
+        lines.push(`     labels: ${t.labels.join(', ')}`);
+        if (t.context) lines.push(`     context: ${JSON.stringify(t.context)}`);
+      }
+      for (const q of (x.quoteSpacing || [])) {
+        lines.push('  [quote-space] » glued to following text (missing space after closing guillemet)');
+        if (q.context) lines.push(`     context: ${JSON.stringify(q.context)}`);
+      }
+      for (const c of (x.consoleMsgs || [])) {
+        lines.push(`  [console.${c.type}] ${c.text}`);
+      }
+      for (const e of (x.pageErrors || [])) {
+        lines.push(`  [pageerror] ${e}`);
+      }
     }
   }
 
@@ -534,7 +680,7 @@ function summarise(results) {
       const r = makeResult(lang, pg.id, pg.title, html, scan, L, consoleMsgs.slice(before), pageErrors.slice(beforeE));
       if (pg.__readError) r.fatal = pg.__readError;
       process.stderr.write(isBad(r)
-        ? `ISSUES (math=${r.containers}, merror=${r.merrors.length}, leak=${r.leakedMacros.length}, refMath=${r.refsInMath.length}, mark=${r.refMarkers.length}, dangling=${r.danglingAnchors.length}, pageErr=${r.pageErrors.length}, console=${r.consoleMsgs.length}${r.typesetError ? ', typesetError' : ''})\n`
+        ? `ISSUES (math=${r.containers}, merror=${r.merrors.length}, leak=${r.leakedMacros.length}, refMath=${r.refsInMath.length}, mark=${r.refMarkers.length}, dangling=${r.danglingAnchors.length}, tag=${r.tagIssues.length}, quote=${r.quoteSpacing.length}, pageErr=${r.pageErrors.length}, console=${r.consoleMsgs.length}${r.typesetError ? ', typesetError' : ''})\n`
         : `ok (${r.containers} math)\n`);
       results.push(r);
     }
@@ -542,9 +688,13 @@ function summarise(results) {
 
   await browser.close();
 
-  if (OUT_JSON) {
-    fs.writeFileSync(OUT_JSON, JSON.stringify(results, null, 2));
-    console.error(`wrote ${OUT_JSON}`);
+  if (OUT_DIR) {
+    for (const cat of Object.keys(CATEGORIES)) {
+      const subset = results.filter((r) => categoryBad(r, cat)).map((r) => projectCategory(r, cat));
+      const out = path.join(OUT_DIR, cat + '_errors.json');
+      fs.writeFileSync(out, JSON.stringify(subset, null, 2));
+      console.error(`wrote ${out} (${subset.length} page${subset.length === 1 ? '' : 's'})`);
+    }
   }
 
   process.stdout.write(summarise(results));

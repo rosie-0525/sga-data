@@ -6,6 +6,12 @@
 <title>SGA 2 — Cohomologie locale des faisceaux cohérents</title>
 <link rel="stylesheet" href="viewer.css">
 <script>
+// Collapse the table of contents by default on narrow screens (before first paint).
+if (window.matchMedia('(max-width: 800px)').matches) {
+  document.documentElement.classList.add('nav-collapsed');
+}
+</script>
+<script>
 // MathJax 3 + XyJax-v3 (xy-pic commutative diagrams). Math uses \(..\) / \[..\]
 // delimiters; equation numbers are injected as \tag, so MathJax auto-tagging is off.
 window.MathJax = {
@@ -26,18 +32,33 @@ window.MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
 </head>
-<body>
+<body class="view-both">
 <header id="topbar">
-  <button id="menu-toggle" aria-label="Menu">☰</button>
+  <button id="menu-toggle" aria-label="Afficher ou masquer la table des matières" title="Table des matières">☰</button>
   <h1 id="book-title">SGA 2</h1>
-  <div id="lang-switch">
-    <button data-lang="fr" class="active">FR</button>
-    <button data-lang="en">EN</button>
+  <div id="view-switch" role="group" aria-label="Langue d'affichage">
+    <button data-view="fr">FR</button>
+    <button data-view="en">EN</button>
+    <button data-view="both" class="active">FR&nbsp;·&nbsp;EN</button>
+  </div>
+  <button id="settings-toggle" aria-label="Réglages" title="Réglages" aria-expanded="false">⚙</button>
+  <div id="settings-panel" hidden role="dialog" aria-label="Réglages">
+    <p class="settings-title">Défilement des deux colonnes</p>
+    <label><input type="radio" name="scroll-mode" value="separate" checked> Séparé</label>
+    <label><input type="radio" name="scroll-mode" value="together"> Synchronisé (les deux côtés défilent ensemble)</label>
+    <div class="settings-actions">
+      <button id="settings-save">Enregistrer</button>
+    </div>
   </div>
 </header>
 <div id="layout">
   <nav id="sidebar" aria-label="Table des matières"></nav>
-  <main id="content"><div id="page"></div></main>
+  <main id="content">
+    <div id="panes">
+      <section class="pane pane-fr" lang="fr"><div class="page" id="page-fr"></div></section>
+      <section class="pane pane-en" lang="en"><div class="page" id="page-en"></div></section>
+    </div>
+  </main>
 </div>
 <script src="viewer.js"></script>
 </body>
