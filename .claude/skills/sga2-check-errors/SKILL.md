@@ -122,8 +122,11 @@ Static passes (over the JSON `page.html`, in Node):
    — `«` is followed by a U+202F narrow space). Only a letter/digit, an opening
    paren `(`, or inline math `\(` right after `»` is flagged (`[quote-space]`);
    punctuation, closing brackets, HTML tags and entities (`».`, `»,`, `»)`,
-   `»]`, `»<`) legitimately abut `»` and are not. The fix belongs upstream in
-   the converter (`convert.py` — `\fg` should not eat the following space).
+   `»]`, `»<`) legitimately abut `»` and are not. A superscript-only inline math
+   (`»\(^…`) is also exempt — that is a footnote/editorial mark hugging the quote
+   (`…affine »\(^{(**)}\)`), which is correct typography with no space wanted. The
+   fix belongs upstream in the converter (`convert.py` — `\fg` should not eat the
+   following space).
 
 Plus a per-language **titles pass** (chapter + toc titles can carry math) and
 **console / page-level error** capture, with benign noise filtered (favicon

@@ -16,7 +16,6 @@
     anchorIndex: {},               // shared: anchor ids are identical across languages
     currentPage: null,
     lastCite: {},                  // bibId -> id of the most recently visited citation
-    scrollSync: false,             // when true, the two columns scroll in lockstep
     orderedPages: [],              // flattened page_ids in reading order (set in loadManifests)
     pageTitles: { fr: {}, en: {} } // page_id -> title, per language (set in loadManifests)
   };
@@ -328,71 +327,7 @@
     document.documentElement.classList.toggle('nav-collapsed');
   });
 
-  // ---- synchronized scrolling of the two columns ----
-  // Only meaningful side by side on desktop: single-language view shows one
-  // pane, and on mobile the panes stack and the window scrolls instead.
-  function syncOn() {
-    return state.scrollSync && state.view === 'both' && !mobileMQ.matches;
-  }
-
-  // Mirror one pane's scroll position onto the other. The lock (released next
-  // frame) stops the mirrored scroll from echoing back into an infinite loop.
-  var syncLock = false;
-  function mirror(src, dst) {
-    if (syncLock) return;
-    syncLock = true;
-    dst.scrollTop = src.scrollTop;
-    requestAnimationFrame(function () { syncLock = false; });
-  }
-
-  // The scrollable container is the .pane <section> (parent of #page-fr/#page-en).
-  var paneFr = panes.fr.parentNode, paneEn = panes.en.parentNode;
-  paneFr.addEventListener('scroll', function () { if (syncOn()) mirror(paneFr, paneEn); });
-  paneEn.addEventListener('scroll', function () { if (syncOn()) mirror(paneEn, paneFr); });
-
-  // ---- settings popover ----
-  var settingsToggle = document.getElementById('settings-toggle');
-  var settingsPanel = document.getElementById('settings-panel');
-
-  function openSettings(open) {
-    settingsPanel.hidden = !open;
-    settingsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  settingsToggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    openSettings(settingsPanel.hidden);
-  });
-
-  document.getElementById('settings-save').addEventListener('click', function () {
-    var sel = settingsPanel.querySelector('input[name="scroll-mode"]:checked');
-    state.scrollSync = !!sel && sel.value === 'together';
-    try { localStorage.setItem('sga2.scrollSync', state.scrollSync ? '1' : '0'); } catch (e) {}
-    LANGS.forEach(function (lang) { panes[lang].parentNode.scrollTop = 0; });
-    if (mobileMQ.matches) window.scrollTo(0, 0);
-    openSettings(false);
-  });
-
-  // close the popover on outside click or Escape
-  document.addEventListener('click', function (e) {
-    if (settingsPanel.hidden) return;
-    if (!settingsPanel.contains(e.target) && e.target !== settingsToggle) openSettings(false);
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !settingsPanel.hidden) openSettings(false);
-  });
-
-  function loadSettings() {
-    var saved = null;
-    try { saved = localStorage.getItem('sga2.scrollSync'); } catch (e) {}
-    state.scrollSync = saved === '1';
-    var val = state.scrollSync ? 'together' : 'separate';
-    var radio = settingsPanel.querySelector('input[name="scroll-mode"][value="' + val + '"]');
-    if (radio) radio.checked = true;
-  }
-
   // boot
-  loadSettings();
   loadManifests().then(function () {
     navigate(location.hash || ('#' + defaultPage()));
   }).catch(function (e) {

@@ -746,8 +746,10 @@ def _consume_command(s, i, ctx, out):
 
     if name in TEXT_MACROS:
         out.append(TEXT_MACROS[name])
-        # control word eats following space
-        if j < n and s[j] == ' ':
+        # control word eats following space — except \fg, whose replacement
+        # ends in the closing guillemet »; eating the space would glue » to the
+        # next word (\og's replacement ends in a narrow space, so eating is fine).
+        if name != 'fg' and j < n and s[j] == ' ':
             j += 1
         return name, j
 

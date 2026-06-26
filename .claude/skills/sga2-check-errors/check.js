@@ -211,8 +211,11 @@ function staticTagIntegrity(html) {
 // paren, or inline math \( right after » is the bug (e.g. "point-base »dans",
 // "algébrique »(ou", "résoudre »\(A\)"). Fix belongs upstream in convert.py
 // (\fg should not swallow the following space).
+// Exception: a superscript-only inline math "»\(^…" is a footnote/editorial mark
+// hugging the closing quote (e.g. "…affine »\(^{(**)}\)") — that is correct
+// typography (no space wanted), so it is excluded from the flag.
 function staticQuoteSpacing(html) {
-  const re = /»(?=[\p{L}\p{N}(]|\\\()/gu;
+  const re = /»(?=[\p{L}\p{N}(]|\\\((?!\^))/gu;
   const out = [];
   const seen = new Set();
   let m;
