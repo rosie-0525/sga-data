@@ -3,7 +3,8 @@
 // Findings are categorised into three files written under the output dir:
 //   mathjax_errors.json  — typesetError, mjx-merror, leaked \word macros
 //   crossref_errors.json — \ref/\eqref in math, ???/?? markers, dead #anchors
-//   other_errors.json    — equation-tag dropout, fatal, page/console errors
+//   other_errors.json    — equation-tag dropout, »-glued-to-word spacing,
+//                           fatal, page/console errors
 //
 // The deliverable (02-converted_html/) is a single-page viewer, NOT a tree of
 // standalone HTML files:
@@ -203,6 +204,28 @@ function staticTagIntegrity(html) {
   return out;
 }
 
+// Static pass: a closing guillemet » with no space before the following word.
+// The converter's control-word rule (convert.py) eats the ASCII space after \fg,
+// so source "\fg word" renders as "»word". Punctuation, closing brackets, HTML
+// tags and entities legitimately abut », so only a letter/digit, an opening
+// paren, or inline math \( right after » is the bug (e.g. "point-base »dans",
+// "algébrique »(ou", "résoudre »\(A\)"). Fix belongs upstream in convert.py
+// (\fg should not swallow the following space).
+function staticQuoteSpacing(html) {
+  const re = /»(?=[\p{L}\p{N}(]|\\\()/gu;
+  const out = [];
+  const seen = new Set();
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const start = Math.max(0, m.index - 30);
+    const ctx = html.slice(start, m.index + 30).replace(/\s+/g, ' ').trim();
+    if (seen.has(ctx)) continue; // collapse identical windows
+    seen.add(ctx);
+    out.push({ context: ctx });
+  }
+  return out;
+}
+
 // ---------------------------------------------------------------------------
 // Browser-side: typeset one HTML string into the offscreen container and scan
 // the rendered DOM. Returns merrors / leaked macros / ??? markers + count.
@@ -357,6 +380,7 @@ function makeResult(lang, pageId, title, html, scan, L, cmsgs, perrs) {
     refMarkers: scan.refMarkers || [],
     danglingAnchors: staticDangling(html, collectIds(html), L.pageIds, L.anchorKeys),
     tagIssues: staticTagIntegrity(html),
+    quoteSpacing: staticQuoteSpacing(html),
     pageErrors: perrs,
     consoleMsgs: filterConsole(cmsgs),
   };
@@ -369,6 +393,7 @@ function isBad(r) {
     || (r.refMarkers && r.refMarkers.length)
     || (r.danglingAnchors && r.danglingAnchors.length)
     || (r.tagIssues && r.tagIssues.length)
+    || (r.quoteSpacing && r.quoteSpacing.length)
     || (r.consoleMsgs && r.consoleMsgs.length)
     || (r.pageErrors && r.pageErrors.length)
     || r.typesetError || r.fatal;
@@ -390,7 +415,7 @@ const IDENT = ['lang', 'file', 'pageId', 'title', 'containers'];
 const CATEGORIES = {
   mathjax: { scalars: ['typesetError'], arrays: ['merrors', 'leakedMacros'] },
   crossref: { scalars: [], arrays: ['refsInMath', 'refMarkers', 'danglingAnchors'] },
-  other: { scalars: ['fatal'], arrays: ['tagIssues', 'pageErrors', 'consoleMsgs'] },
+  other: { scalars: ['fatal'], arrays: ['tagIssues', 'quoteSpacing', 'pageErrors', 'consoleMsgs'] },
 };
 
 function categoryBad(r, cat) {
@@ -424,6 +449,7 @@ function summarise(results) {
   const totalRefMarkers = sumLen('refMarkers');
   const totalDangling = sumLen('danglingAnchors');
   const totalTagIssues = sumLen('tagIssues');
+  const totalQuoteSpacing = sumLen('quoteSpacing');
 
   // Rollup indexes used by the MathJax (leaked tokens) and Cross-references
   // (unresolved ref labels) sections below.
@@ -449,7 +475,7 @@ function summarise(results) {
   lines.push(`Pages with issues: ${bad.length}.`);
   lines.push(`  MathJax    — ${countPages('mathjax')} page(s): ${totalMerror} mjx-merror, ${totalLeakNodes} leaked text node(s).`);
   lines.push(`  Cross-refs — ${countPages('crossref')} page(s): ${totalRefInMath} ref-in-math, ${totalRefMarkers} ???/?? marker(s), ${totalDangling} dangling anchor(s).`);
-  lines.push(`  Other      — ${countPages('other')} page(s): ${totalTagIssues} equation-tag dropout(s).`);
+  lines.push(`  Other      — ${countPages('other')} page(s): ${totalTagIssues} equation-tag dropout(s), ${totalQuoteSpacing} guillemet-spacing issue(s).`);
   if (bad.length === 0) {
     lines.push('CHECK PASSED');
     return lines.join('\n') + '\n';
@@ -540,6 +566,10 @@ function summarise(results) {
         lines.push(`  [tag-missing] ${t.labels.length} eq labels but only ${t.tagCount} \\tag${t.tagCount === 1 ? '' : 's'} — ${t.labels.length - t.tagCount} labeled row(s) render with no number${note}`);
         lines.push(`     labels: ${t.labels.join(', ')}`);
         if (t.context) lines.push(`     context: ${JSON.stringify(t.context)}`);
+      }
+      for (const q of (x.quoteSpacing || [])) {
+        lines.push('  [quote-space] » glued to following text (missing space after closing guillemet)');
+        if (q.context) lines.push(`     context: ${JSON.stringify(q.context)}`);
       }
       for (const c of (x.consoleMsgs || [])) {
         lines.push(`  [console.${c.type}] ${c.text}`);
@@ -650,7 +680,7 @@ function summarise(results) {
       const r = makeResult(lang, pg.id, pg.title, html, scan, L, consoleMsgs.slice(before), pageErrors.slice(beforeE));
       if (pg.__readError) r.fatal = pg.__readError;
       process.stderr.write(isBad(r)
-        ? `ISSUES (math=${r.containers}, merror=${r.merrors.length}, leak=${r.leakedMacros.length}, refMath=${r.refsInMath.length}, mark=${r.refMarkers.length}, dangling=${r.danglingAnchors.length}, tag=${r.tagIssues.length}, pageErr=${r.pageErrors.length}, console=${r.consoleMsgs.length}${r.typesetError ? ', typesetError' : ''})\n`
+        ? `ISSUES (math=${r.containers}, merror=${r.merrors.length}, leak=${r.leakedMacros.length}, refMath=${r.refsInMath.length}, mark=${r.refMarkers.length}, dangling=${r.danglingAnchors.length}, tag=${r.tagIssues.length}, quote=${r.quoteSpacing.length}, pageErr=${r.pageErrors.length}, console=${r.consoleMsgs.length}${r.typesetError ? ', typesetError' : ''})\n`
         : `ok (${r.containers} math)\n`);
       results.push(r);
     }

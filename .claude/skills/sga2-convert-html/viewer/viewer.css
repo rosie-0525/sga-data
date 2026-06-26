@@ -118,6 +118,22 @@ ol.enumerate, ol.enumerate-i, ol.enumerate-a, ul.itemize { margin: .5rem 0 .5rem
 .footnotes li { margin: .25rem 0; }
 .footnotes .backref { margin-left: .3rem; text-decoration: none; }
 
+/* bottom-of-page previous/next pager */
+.page-nav {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border);
+}
+.page-nav a {
+  display: flex; flex-direction: column; gap: .15rem; max-width: 48%;
+  text-decoration: none; padding: .45rem .7rem;
+  border: 1px solid var(--border); border-radius: 5px; background: var(--bg);
+}
+.page-nav a:hover { background: var(--sidebar-bg); }
+.page-nav-next { margin-left: auto; text-align: right; }
+.page-nav-dir { font-size: .8rem; color: var(--muted); }
+.page-nav-title { font-weight: 600; color: var(--accent); }
+.page-nav-spacer { flex: 0 0 auto; }
+
 /* bibliography */
 dl.bibliography { font-size: .92rem; }
 dl.bibliography dt { float: left; clear: left; font-weight: 700; color: var(--accent); margin-right: .6rem; }

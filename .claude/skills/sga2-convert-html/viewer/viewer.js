@@ -15,7 +15,9 @@
     pageToChapter: {},             // shared: page_ids are identical across languages
     anchorIndex: {},               // shared: anchor ids are identical across languages
     currentPage: null,
-    lastCite: {}                   // bibId -> id of the most recently visited citation
+    lastCite: {},                  // bibId -> id of the most recently visited citation
+    orderedPages: [],              // flattened page_ids in reading order (set in loadManifests)
+    pageTitles: { fr: {}, en: {} } // page_id -> title, per language (set in loadManifests)
   };
 
   var elSidebar = document.getElementById('sidebar');
@@ -66,8 +68,18 @@
       var fr = state.manifests.fr;
       state.pageToChapter = {};
       state.anchorIndex = fr.anchor_index || {};
+      state.orderedPages = [];
       fr.chapters.forEach(function (ch) {
-        (ch.page_ids || []).forEach(function (pid) { state.pageToChapter[pid] = ch.id; });
+        (ch.page_ids || []).forEach(function (pid) {
+          state.pageToChapter[pid] = ch.id;
+          state.orderedPages.push(pid);          // chapters[].page_ids = reading order
+        });
+      });
+      state.pageTitles = { fr: {}, en: {} };
+      LANGS.forEach(function (lang) {
+        var map = {};
+        (state.manifests[lang].toc || []).forEach(function (t) { map[t.page_id] = t.title; });
+        state.pageTitles[lang] = map;
       });
       buildSidebar();
     });
@@ -147,6 +159,33 @@
     });
   }
 
+  // Bottom-of-page pager: links to the previous and next page in reading order.
+  // Reading order is the flattened chapters[].page_ids list (state.orderedPages);
+  // the global click handler routes the "#<id>" links, so no extra wiring is needed.
+  function pagerHTML(pageId, lang) {
+    var list = state.orderedPages || [];
+    var i = list.indexOf(pageId);
+    if (i === -1) return '';
+    var prev = i > 0 ? list[i - 1] : null;
+    var next = i < list.length - 1 ? list[i + 1] : null;
+    if (!prev && !next) return '';
+    var titles = state.pageTitles[lang] || {};
+    var prevWord = (lang === 'en') ? 'Previous' : 'Précédent';
+    var nextWord = (lang === 'en') ? 'Next' : 'Suivant';
+    var navLabel = (lang === 'en') ? 'Page navigation' : 'Navigation entre les pages';
+    function link(pid, cls, dir) {
+      return '<a class="' + cls + '" href="#' + encodeURIComponent(pid) + '">' +
+             '<span class="page-nav-dir">' + dir + '</span>' +
+             '<span class="page-nav-title">' + (titles[pid] || pid) + '</span></a>';
+    }
+    var html = '<nav class="page-nav" aria-label="' + navLabel + '">';
+    html += prev ? link(prev, 'page-nav-prev', '‹ ' + prevWord)
+                 : '<span class="page-nav-spacer"></span>';
+    if (next) html += link(next, 'page-nav-next', nextWord + ' ›');
+    html += '</nav>';
+    return html;
+  }
+
   function renderPage(el, page, lang) {
     var html = (page && page.html) || '';
     if (!html.trim()) {
@@ -163,6 +202,7 @@
       });
       html += '</ol></section>';
     }
+    html += pagerHTML(page && page.id, lang);
     el.innerHTML = html;
     wireProofs(el);
     typeset(el);

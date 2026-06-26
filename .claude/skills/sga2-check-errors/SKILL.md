@@ -1,6 +1,6 @@
 ---
 name: sga2-check-errors
-description: Render every page of the 02-converted_html/ viewer in headless Chromium using the deliverable's own MathJax 3 + XyJax-v3 setup, let typesetting (incl. xymatrix) run to completion, and report every problem found, categorised into three files. MathJax errors (mjx-merror, typeset failures, leaked `\command` tokens) go to issues/mathjax_errors.json; cross-reference errors (a `\ref`/`\eqref` surviving into math that MathJax renders as `???`, leftover `???`/`??` markers, and internal `#anchor` links that resolve to nothing via the manifest) go to issues/crossref_errors.json; other errors (equation-tag dropout, plus console / page-level errors) go to issues/other_errors.json. Independent verification step on top of sga2-convert-html — pdflatex compiling cleanly does not guarantee MathJax+XyJax can render.
+description: Render every page of the 02-converted_html/ viewer in headless Chromium using the deliverable's own MathJax 3 + XyJax-v3 setup, let typesetting (incl. xymatrix) run to completion, and report every problem found, categorised into three files. MathJax errors (mjx-merror, typeset failures, leaked `\command` tokens) go to issues/mathjax_errors.json; cross-reference errors (a `\ref`/`\eqref` surviving into math that MathJax renders as `???`, leftover `???`/`??` markers, and internal `#anchor` links that resolve to nothing via the manifest) go to issues/crossref_errors.json; other errors (equation-tag dropout, a closing guillemet `»` glued to the following word — missing space after the quote, plus console / page-level errors) go to issues/other_errors.json. Independent verification step on top of sga2-convert-html — pdflatex compiling cleanly does not guarantee MathJax+XyJax can render.
 ---
 
 # sga2-check-errors
@@ -27,15 +27,17 @@ MathJax + XyJax load from jsdelivr, so **network is required**.
 
 Outputs:
 - live progress on stderr (one line per page, `ok` or `ISSUES …` with
-  per-channel counts: `merror`, `leak`, `refMath`, `mark`, `dangling`, `tag`)
+  per-channel counts: `merror`, `leak`, `refMath`, `mark`, `dangling`, `tag`,
+  `quote`)
 - three structured files under `issues/`, each an array of **only the pages
   that have an error in that category** (a clean category → `[]`):
   - `issues/mathjax_errors.json` — typeset failures, `mjx-merror`, leaked
     `\command` macros
   - `issues/crossref_errors.json` — `\ref`/`\eqref` in math, `???`/`??`
     markers, dangling `#anchor` links
-  - `issues/other_errors.json` — equation-tag dropout, plus `fatal` /
-    page-level / console errors
+  - `issues/other_errors.json` — equation-tag dropout, closing-guillemet
+    spacing (`»` glued to the following word), plus `fatal` / page-level /
+    console errors
   Each record repeats the identity fields (`lang`, `file`, `pageId`, `title`,
   `containers`) so every error stays attributable to a page.
 - human-readable summary on stdout, grouped under **MathJax** /
@@ -70,7 +72,7 @@ own `typesetPromise([root])`) while keeping full XyJax fidelity.
 Each check below is routed to one of the three output files by category:
 **MathJax** (`mathjax_errors.json`) — checks 1, 2 + `typesetError`;
 **Cross-references** (`crossref_errors.json`) — checks 3, 4, 5;
-**Other** (`other_errors.json`) — check 6 + `fatal` / page / console errors.
+**Other** (`other_errors.json`) — checks 6, 7 + `fatal` / page / console errors.
 
 Per-page DOM passes (scoped to the scratch container so the static viewer chrome
 isn't re-scanned 66×):
@@ -112,6 +114,16 @@ Static passes (over the JSON `page.html`, in Node):
    Reported per block as `[tag-missing]`; `\notag`/`\nonumber` in the body is
    noted so a legitimately-unnumbered row isn't mistaken for the bug. The fix
    belongs upstream in the converter (`convert.py` `render_mathblock`).
+7. **Closing-guillemet spacing** — a closing `»` glued to the word that follows
+   it (`point-base »dans`, `parafactoriel »signifie`). The source uses
+   `\og … \fg`, and the converter maps `\fg → ␯»` then applies TeX's
+   control-word rule that swallows the single ASCII space after a letter-named
+   control word, so `\fg word` renders as `»word` (the opening `« word` is fine
+   — `«` is followed by a U+202F narrow space). Only a letter/digit, an opening
+   paren `(`, or inline math `\(` right after `»` is flagged (`[quote-space]`);
+   punctuation, closing brackets, HTML tags and entities (`».`, `»,`, `»)`,
+   `»]`, `»<`) legitimately abut `»` and are not. The fix belongs upstream in
+   the converter (`convert.py` — `\fg` should not eat the following space).
 
 Plus a per-language **titles pass** (chapter + toc titles can carry math) and
 **console / page-level error** capture, with benign noise filtered (favicon

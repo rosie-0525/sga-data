@@ -41,6 +41,15 @@ window.MathJax = {
     <button data-view="en">EN</button>
     <button data-view="both" class="active">FR&nbsp;·&nbsp;EN</button>
   </div>
+  <button id="settings-toggle" aria-label="Réglages" title="Réglages" aria-expanded="false">⚙</button>
+  <div id="settings-panel" hidden role="dialog" aria-label="Réglages">
+    <p class="settings-title">Défilement des deux colonnes</p>
+    <label><input type="radio" name="scroll-mode" value="separate" checked> Séparé</label>
+    <label><input type="radio" name="scroll-mode" value="together"> Synchronisé (les deux côtés défilent ensemble)</label>
+    <div class="settings-actions">
+      <button id="settings-save">Enregistrer</button>
+    </div>
+  </div>
 </header>
 <div id="layout">
   <nav id="sidebar" aria-label="Table des matières"></nav>
