@@ -355,8 +355,8 @@ without that convert.py fix would re-introduce the `\§` corruption.
   can't safely capture). New failures go into `_XYMATRIX_PATCHES`.
 - [[sga2-check-errors]] — the verification step that surfaces the
   failures this skill addresses.
-- [[sga2-convert-html]] — bundles the local `xypic.js` (XyJax-v3) and
-  injects the MathJax loader.
+- [[sga2-convert-html]] — vendors `xypic.js` (XyJax-v3) and the MathJax 3
+  SVG bundle under `vendor/` and wires the loader, so diagrams render offline.
 - [[feedback-normalize-in-latex-not-html]] — design constraint: fix in
   LaTeX, not in the MathJax config.
 - [[feedback-no-sty-changes]] — design constraint: don't change

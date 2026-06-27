@@ -1,6 +1,6 @@
 ---
 name: sga2-convert-html
-description: Convert the normalized SGA2 LaTeX tree (01-normalized_tex/) into JSON-with-embedded-HTML (02-converted_html/) plus a self-contained MathJax 3 + XyJax-v3 viewer. The convert step of the pipeline; run after sga2-normalize.
+description: Convert the normalized SGA2 LaTeX tree (01-normalized_tex/) into JSON-with-embedded-HTML (02-converted_html/) plus a self-contained, offline MathJax 3 (SVG) + XyJax-v3 viewer (assets vendored under vendor/). The convert step of the pipeline; run after sga2-normalize.
 ---
 
 # sga2-convert-html
@@ -54,7 +54,8 @@ python3 .claude/skills/sga2-convert-html/convert.py --only chapter-01 --verify
 fr.json                   manifest: {toc, default_page_id, default_chapter_id, chapters, anchor_index}
 fr/chapters/<id>.json     {chapter_id, title, number, pages[]}
 en.json / en/chapters/    same envelope; English content is empty stubs (French is the reference)
-index.html viewer.css viewer.js   self-contained viewer
+index.html viewer.css viewer.js   self-contained viewer (MathJax 3 SVG + XyJax-v3)
+vendor/mathjax/es5 vendor/XyJax-v3  vendored MathJax-SVG + XyJax — renders offline, no CDN
 ```
 
 - **English non-clobber guard**: `emit()` writes the empty English stubs only while the

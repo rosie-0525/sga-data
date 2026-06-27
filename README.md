@@ -7,8 +7,9 @@ A reproducible pipeline that takes the original 1968 LaTeX source of
 > Bois-Marie 1962, by A. Grothendieck *et al.*
 
 and turns it into (1) clean, modern, self-contained LaTeX and (2) HTML that
-renders correctly in the browser through MathJax 3 + XyJax-v3 (including the
-xy-pic commutative diagrams).
+renders correctly in the browser through MathJax 3 (SVG output) + XyJax-v3
+(including the xy-pic commutative diagrams). MathJax and XyJax are vendored
+under `02-converted_html/vendor/`, so the viewer renders fully offline — no CDN.
 
 The original source uses Windows-1252 encoding and a large stack of
 publisher-specific SMF macros (`smfbook.cls`, `sga2-smf.sty`, …). Those don't
@@ -56,7 +57,7 @@ bash .claude/skills/sga2-convert-html/convert.sh
 
 A custom minimal LaTeX→JSON/HTML parser (`sga2-convert-html`). It emits a JSON
 manifest (`fr.json`) plus per-chapter content (`fr/chapters/<id>.json`) and a
-self-contained viewer (`index.html` + MathJax 3 + XyJax-v3), keeping math as
+self-contained viewer (`index.html` + vendored MathJax 3 SVG + XyJax-v3), keeping math as
 `\(...\)` / `\[...\]` for client-side rendering. Numbering and cross-references
 (chapter/section/theorem/equation numbers, `\ref`/`\eqref`/`\cite`) are resolved
 authoritatively from `main.aux`; the ~120 content macros from `sga2-macros.sty`

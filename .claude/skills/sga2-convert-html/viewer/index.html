@@ -12,12 +12,14 @@ if (window.matchMedia('(max-width: 800px)').matches) {
 }
 </script>
 <script>
-// MathJax 3 + XyJax-v3 (xy-pic commutative diagrams). Math uses \(..\) / \[..\]
-// delimiters; equation numbers are injected as \tag, so MathJax auto-tagging is off.
+// MathJax 3 (SVG output) + XyJax-v3 (xy-pic commutative diagrams), both vendored
+// under ./vendor/ so math renders fully offline — no CDN. SVG embeds glyph paths in
+// the bundle, so there are no web fonts to fetch. Math uses \(..\) / \[..\] delimiters;
+// equation numbers are injected as \tag, so MathJax auto-tagging is off.
 window.MathJax = {
   loader: {
     load: ['[custom]/xypic.js'],
-    paths: { custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3/build/' }
+    paths: { custom: './vendor/XyJax-v3/build' }
   },
   tex: {
     packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
@@ -26,11 +28,12 @@ window.MathJax = {
     tags: 'none',
     macros: {}
   },
+  svg: { fontCache: 'local' },
   options: { enableMenu: true },
   startup: { typeset: false }
 };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+<script src="./vendor/mathjax/es5/tex-svg.js" id="MathJax-script" async></script>
 </head>
 <body class="view-both">
 <header id="topbar">
@@ -49,6 +52,7 @@ window.MathJax = {
       <section class="pane pane-fr" lang="fr"><div class="page" id="page-fr"></div></section>
       <section class="pane pane-en" lang="en"><div class="page" id="page-en"></div></section>
     </div>
+    <div id="pager"></div>
   </main>
 </div>
 <script src="viewer.js"></script>

@@ -23,7 +23,8 @@ bash .claude/skills/sga2-check-errors/check.sh fr,en    # explicit
 On first run it `npm install`s puppeteer into the skill directory (~150 MB,
 downloads a Chromium build). Subsequent runs reuse the cache. The full
 two-language tree (66 pages × 2 + a titles pass each) takes roughly 1–2 min.
-MathJax + XyJax load from jsdelivr, so **network is required**.
+MathJax 3 (SVG) + XyJax are vendored under `02-converted_html/vendor/`, so
+**rendering needs no network** — only the one-time puppeteer/Chromium install does.
 
 Outputs:
 - live progress on stderr (one line per page, `ok` or `ISSUES …` with

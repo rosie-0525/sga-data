@@ -21,6 +21,9 @@
   };
 
   var elSidebar = document.getElementById('sidebar');
+  var elContent = document.getElementById('content');  // the shared scroll container
+  var elPager = document.getElementById('pager');       // one pager shared by both columns
+  var elPanes = document.getElementById('panes');       // holds the two columns (panes or grid)
   var panes = {
     fr: document.getElementById('page-fr'),
     en: document.getElementById('page-en')
@@ -130,11 +133,17 @@
   function showPage(pageId, anchor) {
     var chId = chapterFor(pageId);
     if (!chId) return;
-    var langs = activeLangs();
-    // clear the inactive column so its stale content/ids don't linger
-    LANGS.forEach(function (lang) {
-      if (langs.indexOf(lang) === -1) panes[lang].innerHTML = '';
-    });
+    // Align the columns row-by-row only when both are shown on a wide screen;
+    // single-language view and mobile keep the simple one-blob-per-column render.
+    var grid = state.view === 'both' && !mobileMQ.matches;
+    var langs = grid ? LANGS.slice() : activeLangs();
+    ensureStructure(grid);
+    if (!grid) {
+      // clear the inactive column so its stale content/ids don't linger
+      LANGS.forEach(function (lang) {
+        if (langs.indexOf(lang) === -1 && panes[lang]) panes[lang].innerHTML = '';
+      });
+    }
     Promise.all(langs.map(function (lang) {
       return loadChapter(chId, lang).then(function (chapter) {
         var page = (chapter.pages || []).filter(function (p) { return p.id === pageId; })[0];
@@ -142,20 +151,36 @@
         return { lang: lang, page: page };
       });
     })).then(function (results) {
+      var byLang = {};
+      results.forEach(function (r) { byLang[r.lang] = r.page; });
       var resolved = (results[0] && results[0].page) ? results[0].page.id : pageId;
       state.currentPage = resolved;
-      results.forEach(function (r) { renderPage(panes[r.lang], r.page, r.lang); });
+      var frP = byLang.fr, enP = byLang.en;
+      // grid only when both pages have parallel, non-empty block arrays;
+      // otherwise fall back to the two independent column blobs.
+      var canGrid = grid && frP && enP && frP.blocks && enP.blocks &&
+                    frP.blocks.length && frP.blocks.length === enP.blocks.length;
+      if (canGrid) {
+        renderAligned(frP, enP);
+      } else {
+        if (grid) ensureStructure(false);   // need the .pane skeleton back
+        results.forEach(function (r) { renderPage(panes[r.lang], r.page, r.lang); });
+      }
+      renderPager(resolved);
       markCurrent(resolved);
       if (anchor) {
         scrollToAnchor(anchor);
       } else {
-        langs.forEach(function (lang) { panes[lang].parentNode.scrollTop = 0; });
+        elContent.scrollTop = 0;
         if (mobileMQ.matches) window.scrollTo(0, 0);
       }
     }).catch(function (e) {
-      langs.forEach(function (lang) {
-        panes[lang].innerHTML = '<p class="error">Erreur de chargement : ' + e.message + '</p>';
-      });
+      var msg = '<p class="error">Erreur de chargement : ' + e.message + '</p>';
+      if (elPanes.classList.contains('aligned')) {
+        elPanes.innerHTML = msg;
+      } else {
+        langs.forEach(function (lang) { if (panes[lang]) panes[lang].innerHTML = msg; });
+      }
     });
   }
 
@@ -186,6 +211,17 @@
     return html;
   }
 
+  // Per-language footnotes list, shared by the blob and grid render paths.
+  function footnotesHTML(page) {
+    if (!(page && page.footnotes && page.footnotes.length)) return '';
+    var html = '<section class="footnotes"><ol>';
+    page.footnotes.forEach(function (f) {
+      html += '<li id="' + f.id + '">' + f.html +
+              ' <a class="backref" href="#' + f.id + 'ref" title="retour">↩</a></li>';
+    });
+    return html + '</ol></section>';
+  }
+
   function renderPage(el, page, lang) {
     var html = (page && page.html) || '';
     if (!html.trim()) {
@@ -194,18 +230,59 @@
         : '<p class="muted"><em>(Traduction non disponible — la version française est la référence.)</em></p>';
       html = '<h1>' + ((page && page.title) || '') + '</h1>' + msg;
     }
-    if (page && page.footnotes && page.footnotes.length) {
-      html += '<section class="footnotes"><ol>';
-      page.footnotes.forEach(function (f) {
-        html += '<li id="' + f.id + '">' + f.html +
-                ' <a class="backref" href="#' + f.id + 'ref" title="retour">↩</a></li>';
-      });
-      html += '</ol></section>';
-    }
-    html += pagerHTML(page && page.id, lang);
+    html += footnotesHTML(page);
     el.innerHTML = html;
     wireProofs(el);
     typeset(el);
+  }
+
+  // Aligned (FR·EN side-by-side) render: the two pages' block arrays are
+  // positionally identical, so emit one grid cell per language per block index.
+  // #panes is a 2-column CSS grid, so cell pair i shares a row whose height is
+  // the taller side — corresponding blocks line up, and proof collapse / resize
+  // / MathJax typesetting re-flow the rows automatically (no JS re-measuring).
+  function renderAligned(frPage, enPage) {
+    var n = frPage.blocks.length;
+    var html = '';
+    for (var i = 0; i < n; i++) {
+      html += '<div class="cell cell-fr" lang="fr">' + (frPage.blocks[i].html || '') + '</div>';
+      html += '<div class="cell cell-en" lang="en">' + (enPage.blocks[i].html || '') + '</div>';
+    }
+    var ffr = footnotesHTML(frPage), fen = footnotesHTML(enPage);
+    if (ffr || fen) {
+      html += '<div class="cell cell-fr cell-foot" lang="fr">' + ffr + '</div>';
+      html += '<div class="cell cell-en cell-foot" lang="en">' + fen + '</div>';
+    }
+    elPanes.innerHTML = html;
+    wireProofs(elPanes);
+    typeset(elPanes);
+  }
+
+  // Switch #panes between the two structural modes. Grid mode flattens #panes
+  // into bare cells; blob mode restores the .pane/.page skeleton and re-grabs
+  // the panes.fr / panes.en references the blob render path writes into.
+  function ensureStructure(grid) {
+    if (grid) {
+      if (!elPanes.classList.contains('aligned')) {
+        elPanes.classList.add('aligned');
+        elPanes.innerHTML = '';
+      }
+    } else if (elPanes.classList.contains('aligned') ||
+               !panes.fr || !document.body.contains(panes.fr)) {
+      elPanes.classList.remove('aligned');
+      elPanes.innerHTML =
+        '<section class="pane pane-fr" lang="fr"><div class="page" id="page-fr"></div></section>' +
+        '<section class="pane pane-en" lang="en"><div class="page" id="page-en"></div></section>';
+      panes.fr = document.getElementById('page-fr');
+      panes.en = document.getElementById('page-en');
+    }
+  }
+
+  // The two columns scroll together, so they share a single prev/next pager
+  // rendered below them. Its titles follow the table-of-contents language.
+  function renderPager(pageId) {
+    elPager.innerHTML = pagerHTML(pageId, tocLang());
+    typeset(elPager);
   }
 
   function wireProofs(scope) {
@@ -225,24 +302,28 @@
     }
   }
 
-  // Scroll every visible column to its own copy of the anchor. The two columns
-  // share element ids, so lookups are scoped per pane rather than via getElementById.
+  // The two columns scroll together in one container, so scroll the primary
+  // (FR-preferred) copy of the anchor into view and flash every copy. Both the
+  // grid cells and the blob panes duplicate element ids across the columns, so
+  // we collect every match under #panes and pick the French one to scroll to.
   function scrollToAnchor(id) {
-    var sel = '[id="' + cssEscape(id) + '"]';
-    activeLangs().forEach(function (lang) {
-      var el = panes[lang].querySelector(sel);
-      if (!el) return;
-      el.scrollIntoView({ block: 'center' });
-      el.classList.add('target-flash');
+    var nodes = elPanes.querySelectorAll('[id="' + cssEscape(id) + '"]');
+    if (!nodes.length) return;
+    var primary = null;
+    nodes.forEach(function (n) {
+      if (!primary && (n.closest('.cell-fr') || n.closest('.pane-fr'))) primary = n;
+    });
+    (primary || nodes[0]).scrollIntoView({ block: 'center' });
+    nodes.forEach(function (n) {
+      n.classList.add('target-flash');
       (function (node) {
         setTimeout(function () { node.classList.remove('target-flash'); }, 1300);
-      })(el);
+      })(n);
     });
   }
 
   function anchorInCurrent(id) {
-    var sel = '[id="' + cssEscape(id) + '"]';
-    return activeLangs().some(function (lang) { return !!panes[lang].querySelector(sel); });
+    return !!elPanes.querySelector('[id="' + cssEscape(id) + '"]');
   }
 
   function cssEscape(s) { return String(s).replace(/(["\\])/g, '\\$1'); }
@@ -302,6 +383,12 @@
   });
 
   window.addEventListener('popstate', function () { navigate(location.hash); });
+
+  // Crossing the mobile breakpoint flips between the aligned grid (wide) and the
+  // stacked one-blob-per-column layout (narrow), so re-render the current page.
+  function onBreakpoint() { if (state.currentPage) showPage(state.currentPage, null); }
+  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', onBreakpoint);
+  else if (mobileMQ.addListener) mobileMQ.addListener(onBreakpoint);
 
   // view switch: FR-only / EN-only / both side by side
   document.getElementById('view-switch').addEventListener('click', function (e) {

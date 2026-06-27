@@ -4,7 +4,8 @@
 # 1. refresh main.aux (pdflatex) if missing/stale  — numbering & cross-references
 #    are read authoritatively from the aux file;
 # 2. run the LaTeX->JSON/HTML converter;
-# 3. copy the self-contained viewer (MathJax 3 + XyJax-v3) into the output.
+# 3. copy the self-contained viewer (MathJax 3 SVG + XyJax-v3, vendored under
+#    viewer/vendor/ so math renders fully offline — no CDN) into the output.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -39,6 +40,10 @@ python3 "$HERE/convert.py" --src "$SRC" --out "$OUT" --verify
 
 echo "[convert] copying viewer assets…"
 cp "$HERE/viewer/index.html" "$HERE/viewer/viewer.css" "$HERE/viewer/viewer.js" "$OUT/"
+# vendored MathJax 3 (SVG) + XyJax-v3 — the viewer loads these locally so math renders
+# fully offline (no CDN). Refresh the copy in case the templates were updated.
+rm -rf "$OUT/vendor"
+cp -R "$HERE/viewer/vendor" "$OUT/vendor"
 
 echo "[convert] done. Output in $OUT"
 echo "          preview with:  (cd \"$OUT\" && python3 -m http.server) then open http://localhost:8000/"

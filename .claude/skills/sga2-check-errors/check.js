@@ -8,7 +8,7 @@
 //
 // The deliverable (02-converted_html/) is a single-page viewer, NOT a tree of
 // standalone HTML files:
-//   index.html  — loads MathJax 3 + XyJax-v3 (xypic) from the CDN
+//   index.html  — loads MathJax 3 (SVG) + XyJax-v3 (xypic), vendored under vendor/ (offline)
 //   viewer.js   — fetches <lang>.json + <lang>/chapters/<id>.json and renders
 //                 one page at a time into #page, calling MathJax.typesetPromise
 //   <lang>.json — manifest: chapters[].page_ids, toc, anchor_index
