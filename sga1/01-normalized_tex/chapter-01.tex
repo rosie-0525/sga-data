@@ -1,0 +1,1693 @@
+\chapter{Morphismes \'etales}
+\label{I}
+
+
+
+Pour simplifier l'exposition, on suppose que tous les
+pr\'esch\'emas envisag\'es sont localement noeth\'eriens, du
+moins apr\`es le num\'ero~\ref{I.2}.
+
+\section{Notions de calcul diff\'erentiel}
+\label{I.1}
+Soit $X$ un pr\'esch\'ema sur~$Y$, soit $\Delta_{X/Y}$ ou $\Delta$
+\label{indnot:ab}le morphisme diagonal $X\to X\times_Y X$. C'est un morphisme
+d'immersion, donc un morphisme d'immersion ferm\'ee de~$X$ dans un
+ouvert $V$ de~$X\times_Y X$. Soit $\cal{I}_X$ l'id\'eal du
+sous-pr\'esch\'ema ferm\'e correspondant \`a la diagonale
+dans~$V$ (N.B. si on veut faire les choses intrins\`equement, sans
+supposer $X$ s\'epar\'e sur~$Y$ --- hypoth\`ese qui serait
+canularesque --- on devrait consid\'erer l'image inverse ensembliste
+de~$\cal{O}_{X\times X}$ dans~$X$, et d\'esigner par $\cal{I}_X$
+l'id\'eal d'augmentation dans ce dernier...). Le faisceau
+$\cal{I}_X/\cal{I}_X^2$ peut \^etre regard\'e comme un faisceau
+quasi-coh\'erent sur~$X$, on le d\'enote
+par~$\mathit{\Omega}^1_{X/Y}$.
+\label{indnot:ac}Il est de type fini si $X\to Y$ est de type fini. Il se comporte bien
+par rapport \`a extension de la base $Y'\to Y$. On introduit aussi
+les faisceaux $\cal{O}_{X\times_Y X}/\cal{I}_X^{n+1}=\cal{P}^n_{X/Y}$,
+\label{indnot:ad}ce sont des faisceaux d'\emph{anneaux} sur~$X$, faisant de~$X$ un
+pr\'esch\'ema qu'on peut d\'enoter par $\Delta_{X/Y}^n$
+\label{indnot:ae}et appeler le \emph{\nieme voisinage infinitésimal de}~$X/Y$.
+\index{voisinage infinit\'esimal de~$X/Y$|hyperpage}Le sorite en est d'une trivialit\'e totale, bien qu'il soit assez
+long\footnote{\cf EGA IV~16.3.}; il serait prudent de n'en parler
+qu'au moment o\`u on en dit quelque chose de serviable, avec les
+morphismes lisses.
+
+\section{Morphismes quasi-finis}
+\label{I.2}
+\begin{proposition}
+\label{I.2.1}
+Soit $A\to B$ un homomorphisme local (N.B. les anneaux sont maintenant
+noeth\'eriens), $\goth{m}$ l'id\'eal maximal de~$A$. Conditions
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $B/\goth{m}B$ est de dimension finie sur~$k=A/\goth{m}$.
+\item[(ii)] $\goth{m}B$ est un id\'eal de d\'efinition, et $B/\goth{r}(B)=\kres(B)$ est une extension de~$k=\kres(A)$
+\item[(iii)] Le compl\'et\'e $\widehat{B}$ est fini sur celui
+$\widehat{A}$ de~$A$.
+\end{enumerate}
+\end{proposition}
+On dit alors
+que $B$ \emph{est quasi-fini}
+\index{quasi-fini (morphisme, alg\`ebre)|hyperpage}sur~$A$. Un morphisme $f\colon X\to Y$
+est dit quasi-fini en~$x$ (ou le $Y$-pr\'esch\'ema $f$ est dit
+quasi-fini en~$x$) si $\cal{O}_x$ est quasi-fini
+sur~$\cal{O}_{f(x)}$. Cela revient aussi \`a dire que $x$ est
+\emph{isolé dans sa fibre}~$f^{-1}(x)$. Un morphisme est dit
+quasi-fini s'il l'est en tout point\footnote{Dans EGA~II~6.2.3 on
+suppose de plus $f$ de type fini.}.
+\begin{corollaire}
+\label{I.2.2}
+Si $A$ est complet, quasi-fini \'equivaut \`a fini.
+
+\end{corollaire}
+
+On pourrait donner le sorite \textup{(i), (ii), (iii), (iv), (v),} habituel pour les morphismes quasi-finis, mais ce ne semble pas indispensable ici.
+
+\section{Morphismes non ramifi\'es ou nets}
+\label{I.3}
+\begin{proposition}
+\label{I.3.1}
+Soit $f\colon X\to Y$ un morphisme de type fini, $x\in X$,
+$y=f(x)$. Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] $\cal{O}_x/\goth{m}_y\cal{O}_x$ est une extension finie
+s\'eparable de~$\kres(y)$.
+\item[(ii)] $\mathit{\Omega}^1_{X/Y}$ est nul en~$x$.
+\item[(iii)] Le morphisme diagonal $\Delta_{X/Y}$ est une immersion
+ouverte au voisinage de~$x$.
+\end{enumerate}
+\end{proposition}
+Pour l'implication (i)$\To$(ii), on est ramen\'e
+aussit\^ot par Nakayama au cas o\`u $Y=\Spec(k)$,
+$X=\Spec(k')$, o\`u c'est bien connu et d'ailleurs trivial
+sur la d\'efinition de s\'eparable; (ii)$\To$(iii)
+d'apr\`es une caract\'erisation agr\'eable et facile des
+immersions ouvertes, utilisant Krull; (iii)$\To$(i) car on est
+encore ramen\'e au cas o\`u $Y=\Spec(k)$ et o\`u le
+morphisme diagonal est une immersion ouverte partout. Il faut alors
+prouver que $X$ est fini d'anneau s\'eparable sur~$k$, on est
+ramen\'e pour ceci au cas o\`u $k$ est alg\'ebriquement
+clos. Mais alors tout point ferm\'e de~$X$ est isol\'e (car
+identique \`a l'image inverse de la diagonale par le morphisme $X\to
+X\times_k X$ d\'efini par~$x$), d'o\`u le fait que $X$ est
+fini. On peut supposer alors $X$ r\'eduit \`a un point,
+d'anneau~$A$, donc $A\otimes_k A\to A$ est un isomorphisme, d'o\`u
+$A=k$ cqfd.
+
+\begin{definition}
+\label{I.3.2}
+\begin{enumerate}
+\item[a)] On dit alors que $f$ est \emph{net},
+\index{net (morphisme, alg\`ebre)|hyperpage}ou encore \emph{non ramifié},
+\index{non ramifi\'e (morphisme, alg\`ebre)|hyperpage}en~$x$, ou que $X$ est net, ou encore non ramifi\'e, en $x$ sur~$Y$.
+\item[b)] Soit $A\to B$ un homomorphisme local, on dit qu'il est
+\emph{net}, ou \emph{non ramifié}, ou que $B$ est une alg\`ebre
+locale \emph{nette}, ou \emph{non ramifiée} sur~$A$, si 
+$B/\goth{r}(A)B$ est une extension finie s\'eparable de~$A/\goth{r}(A)$, \ie si $\goth{r}(A)B=\goth{r}(B)$
+et $\kres(B)$ est une extension s\'eparable
+de~$\kres(A)$\footnote{\Cf remords dans III~\ref{III.1.2}.}.
+\end{enumerate}
+\end{definition}
+
+\begin{remarquesstar}
+Le fait
+que $B$ soit net sur~$A$ se reconna\^it d\'ej\`a sur
+les compl\'et\'es de~$A$ et de~$B$. Net implique quasi-fini.
+\end{remarquesstar}
+
+\begin{corollaire}
+\label{I.3.3}
+L'ensemble des points o\`u $f$ est net est ouvert.
+\end{corollaire}
+
+\begin{corollaire}
+\label{I.3.4}
+Soient $X'$, $X$ deux pr\'esch\'emas de type fini sur~$Y$, et
+$g\colon X'\to X$ un $Y$-morphisme. Si $X$ est net sur~$Y$, le
+morphisme graphe $\Gamma_g\colon X'\to X\times_Y X$ est une immersion
+ouverte.
+\end{corollaire}
+
+En effet, c'est l'image inverse du morphisme diagonal $X\to X\times_Y
+X$ par
+$$
+g\times_Y\id_{X'}\colon X'\times_Y X\to X\times_Y X.
+$$
+
+On peut aussi introduire l'id\'eal annulateur $\goth{d}_{X/Y}$
+\label{indnot:af}de~$\mathit{\Omega}^1_{X/Y}$, appel\'e id\'eal diff\'erente
+\index{diff\'erente (id\'eal)|hyperpage}\index{ideal differente@id\'eal diff\'erente|hyperpage}de~$X/Y$; il d\'efinit un sous-pr\'esch\'ema ferm\'e de~$X$
+qui, ensemblistement, est l'ensemble des points o\`u $X/Y$ est
+ramifi\'e, \ie non net.
+
+\begin{proposition}
+\label{I.3.5}
+\begin{enumerate}
+\item[(i)] Une immersion est nette.
+\item[(ii)] Le compos\'e de deux morphismes nets l'est.
+\item[(iii)] Extension de base dans un morphisme net en est un autre.
+\end{enumerate}
+\end{proposition}
+
+Se voit indiff\'eremment sur (ii) ou (iii) (le deuxi\`eme me
+semble plus amusant). On peut bien entendu aussi pr\'eciser, en
+donnant des \'enonc\'es ponctuels; ce n'est plus g\'en\'eral
+qu'en apparence (sauf dans le cadre de la d\'efinition~b)), et
+barbant. On obtient comme d'habitude des corollaires:
+
+\begin{corollaires}
+\label{I.3.6}
+\begin{enumerate}
+\item[(iv)] Produit cart\'esien de deux morphismes nets en est un
+autre.
+\item[(v)] Si $gf$ est net, $f$ est net.
+\item[(vi)] Si $f$ est net, $f_{\text{\textup{réd}}}$ est net.
+\end{enumerate}
+\end{corollaires}
+
+\begin{proposition}
+\label{I.3.7}
+Soit $A\to B$ un homomorphisme local, on suppose l'extension
+r\'esiduelle $\kres(B)/\kres(A)$ triviale ou $\kres(A)$ alg\'ebriquement
+clos. Pour que $B/A$ soit net, il faut et il suffit que $\widehat{B}$
+soit (comme $\widehat{A}$-alg\`ebre) un quotient de~$\widehat{A}$.
+\end{proposition}
+
+\begin{remarquesstar}
+\begin{enumerate}
+\item[--] Dans le cas o\`u on ne suppose pas l'extension
+r\'esiduelle triviale, on peut se ramener \`a ce cas en faisant
+une extension finie plate convenable sur~$A$ qui d\'etruise ladite
+extension.
+\item[--] Donner l'exemple o\`u $A$ est l'anneau local d'un point
+double ordinaire d'une courbe, $B$ d'un point du normalis\'e: alors
+$A\subset B$, $B$ est net sur
+$A$ \`a extension r\'esiduelle triviale, et
+$\widehat{A}\to\widehat{B}$ est surjectif mais \emph{non injectif}. On
+va donc renforcer la notion de nettet\'e.
+\end{enumerate}
+\end{remarquesstar}
+
+\section{Morphismes \'etales. Rev\^etements \'etales}
+\label{I.4}
+On va admettre tout ce qui nous sera n\'ecessaire sur les morphismes
+plats; ces faits seront d\'emontr\'es ult\'erieurement, s'il y a
+lieu\footnote{\Cf Exp.\, \ref{IV}.}.
+
+\begin{definition}
+\label{I.4.1}
+\begin{enumerate}
+\item[a)] Soit $f\colon X\to Y$ un morphisme de type fini. On dit que
+$f$ est \emph{étale}
+\index{etale (morphisme, algebre)@\'etale (morphisme, alg\`ebre)|hyperpage}en $x$ si $f$ est plat en $x$ et net en~$x$. On dit que $f$ est
+\'etale s'il l'est en tous les points. On dit que $X$ est \'etale
+en $x$ sur~$Y$, ou que c'est un $Y$-pr\'esch\'ema \'etale en~$x$
+etc.
+\item[b)] Soit $f\colon A\to B$ un homomorphisme local. On dit que $f$
+est \'etale, ou que $B$ est \'etale sur~$A$, si $B$ est plat et
+non ramifi\'e sur~$A$.\footnote{\Cf remords dans III~\ref{III.1.2}.}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+\label{I.4.2}
+Pour que $B/A$ soit \'etale, il faut et il suffit que
+$\widehat{B}/\widehat{A}$ le soit.
+\end{proposition}
+
+En
+effet, c'est vrai s\'epar\'ement pour \og net\fg et pour \og plat\fg.
+
+\begin{corollaire}
+\label{I.4.3}
+Soit $f\colon X\to Y$ de type fini, et $x\in X$. Le fait que $f$ soit
+\'etale en $x$ ne d\'epend que de l'homomorphisme local
+$\cal{O}_{f(x)}\to \cal{O}_x$, et m\^eme seulement de
+l'homomorphisme correspondant pour les compl\'et\'es.
+\end{corollaire}
+
+\begin{corollaire}
+\label{I.4.4}
+Supposons que l'extension r\'esiduelle $\kres(A)\to \kres(B)$ soit triviale,
+ou que $\kres(A)$ soit alg\'ebriquement clos. Alors $B/A$ est \'etale
+\sss $\widehat{A}\to\widehat{B}$ est un isomorphisme.
+\end{corollaire}
+
+On conjugue la platitude et~\ref{I.3.7}.
+\begin{proposition}
+\label{I.4.5}
+Soit $f\colon X\to Y$ un morphisme de type fini. Alors l'ensemble des
+points o\`u il est \'etale est ouvert.
+\end{proposition}
+
+En effet, c'est vrai s\'epar\'ement pour \og net\fg et \og plat\fg.
+
+Cette proposition montre qu'on peut laisser tomber les \'enonc\'es
+\og ponctuels\fg dans l'\'etude des morphismes de type fini \'etales
+quelque part.
+\begin{proposition}
+\label{I.4.6}
+\begin{enumerate}
+\item[(i)] Une immersion ouverte est \'etale.
+\item[(ii)] Le compos\'e de deux morphismes \'etales est
+\'etale.
+\item[(iii)] Extension de la base.
+\end{enumerate}
+\end{proposition}
+
+En effet, (i) est trivial, et pour (ii) et (iii) il suffit de noter
+que c'est vrai pour \og net\fg et pour \og plat\fg. \`A vrai dire, il y a
+aussi des \'enonc\'es correspondants pour les homomorphismes
+locaux (sans condition de finitude), qui en tout \'etat de cause
+devront figurer au multiplodoque (\`a commencer par le cas: net).
+
+\begin{corollaire}
+\label{I.4.7}
+Un produit cart\'esien de deux morphismes \'etales est itou.
+\end{corollaire}
+
+\begin{corollaire}
+\label{I.4.8}
+Soient $X$ et $X'$ de type fini sur~$Y$, $g\colon X\to X'$ un
+$Y$-morphisme. Si $X'$ est non ramifi\'e sur~$Y$ et $X$ \'etale
+sur~$Y$, alors $g$ est \'etale.
+\end{corollaire}
+
+En effet, $g$ est le compos\'e du morphisme graphe $\Gamma_g\colon
+X\to X\times_Y X'$ qui est une immersion ouverte par~\ref{I.3.4}, et
+du morphisme de projection qui est \'etale car d\'eduit du
+morphisme \'etale $X\to Y$ par le \og changement de base\fg $X'\to Y$.
+
+\begin{definition}
+\label{I.4.9}
+On appelle rev\^etement \'etale (\resp net)
+\index{etale (revetement)@\'etale (rev\^etement)|hyperpage}\index{net (revetement)@net (rev\^etement)|hyperpage}\index{revetement etale (\resp net)@rev\^etement \'etale (\resp net)|hyperpage}de~$Y$ un $Y$-sch\'ema $X$ qui est fini sur~$Y$ et \'etale
+(\resp net) sur~$Y$.
+\end{definition}
+
+\enlargethispage{.5cm}La premi\`ere condition signifie que $X$ est d\'efini par un
+faisceau coh\'erent d'alg\`ebres $\cal{B}$ sur~$Y$. La
+deuxi\`eme signifie alors que $\cal{B}$ est localement libre sur~$Y$
+(\resp rien du tout), \emph{et} que de plus, pour tout $y\in Y$, la
+fibre $\cal{B}(y)=\cal{B}_y\otimes_{\cal{O}_y}\kres(y)$ soit une
+alg\`ebre s\'eparable (= compos\'e fini d'extensions finies
+s\'eparables) sur~$\kres(y)$.
+
+\begin{proposition}
+\label{I.4.10}
+Soit $X$ un rev\^etement plat de~$Y$ de degr\'e $n$ (la
+d\'efinition de ce terme m\'eritait de figurer dans~\ref{I.4.9})
+d\'efini par un faisceau coh\'erent localement libre $\cal{B}$
+d'alg\`ebres. On d\'efinit de fa\c con bien connue
+l'homomorphisme trace $\cal{B}\to\cal{A}$ (qui est un homomorphisme de
+$\cal{A}$-modules, o\`u $\cal{A}=\cal{O}_Y$). Pour que $X$ soit
+\'etale, il \fets que la forme bilin\'eaire
+$\trace_{\cal{B}/\cal{A}}xy$ correspondante d\'efinisse un
+isomorphisme de~$\cal{B}$ sur~$\cal{B}$, ou ce qui revient au
+m\^eme, que la \emph{section discriminant}
+$$
+d_{X/Y} = d_{\cal{B}/\cal{A}} \in
+\Gamma(Y,\tbigwedge^n\check{\cal{B}}\otimes_{\cal{A}}
+\tbigwedge^n\check{\cal{B}})
+$$
+soit inversible, ou enfin que l'id\'eal discriminant d\'efini par
+cette section soit l'id\'eal unit\'e.
+\end{proposition}
+En effet, on est ramen\'e au cas o\`u $Y=\Spec(k)$, et alors c'est
+un crit\`ere de s\'eparabilit\'e bien connue, et trivial par
+passage \`a la cl\^oture alg\'ebrique de~$k$.
+
+\begin{remarquestar}
+On
+aura un \'enonc\'e moins trivial plus bas, quand on ne suppose
+pas a priori que $X$ est plat sur~$Y$ mais qu'on fait une
+hypoth\`ese de normalit\'e.
+\end{remarquestar}
+
+\section{La propri\'et\'e fondamentale des morphismes \'etales}
+\label{I.5}
+
+\begin{theoreme}
+\label{I.5.1}
+Soit $f\colon X \to Y$ un morphisme de type fini. Pour que $f$ soit
+une immersion ouverte, il \fets que ce soit un
+morphisme \emph{étale et radiciel}.
+\end{theoreme}
+
+Rappelons que radiciel
+\index{radiciel (morphisme)|hyperpage}signifie: injectif, \`a extensions
+r\'esiduelles radicielles (et
+on
+peut aussi rappeler que cela signifie que le morphisme reste injectif
+par toute extension de la base). La n\'ecessit\'e est triviale,
+reste la suffisance. On va donner deux d\'emonstrations
+diff\'erentes, la premi\`ere plus courte, la deuxi\`eme plus
+\'el\'ementaire.
+
+1) Un morphisme plat est ouvert, donc on peut supposer (rempla\c cant $Y$ par~$f(X)$) que $f$ est un \emph{homéomorphisme}
+sur.
+Par toute extension de base, il restera vrai que
+$f$
+est plat, radiciel, surjectif, donc un hom\'eomorphisme, a fortiori
+ferm\'e
+Donc $f$ est \emph{propre}. Donc $f$ est \emph{fini}
+(r\'ef\'erence: th\'eor\`eme de Chevalley) d\'efini par un
+faisceau coh\'erent $\mathcal{B}$ d'alg\`ebres. $\mathcal{B}$ est
+localement libre, de plus en vertu de l'hypoth\`ese il est partout
+de rang~$1$, donc $X=Y$, cqfd.
+
+2) On peut supposer $Y$ et $X$ \emph{affines}. On se ram\`ene de
+plus facilement \`a prouver ceci: si $Y = \Spec(A)$, $A$ local, et
+si $f^{-1}(y)$ est non vide ($y$ \'etant le point ferm\'e de~$Y$)
+alors $X=Y$ (en effet, cela impliquera que tout $y \in f(X)$ a un
+voisinage ouvert $U$ tel que $X|U = U$). On aura $X = \Spec(B)$, on
+veut prouver $A=B$. Mais pour ceci, on est ramen\'e \`a prouver
+l'assertion analogue en rempla\c cant $A$ par~$\hat A$, $B$ par $B
+\otimes_A \hat A$ (compte tenu que $\hat A$ est fid\`element plat
+sur~$A$). On peut donc supposer $A$ \emph{complet}. Soit $x$ le point
+au-dessus de~$y$, d'apr\`es le corollaire~\ref{I.2.2}
+$\mathcal{O}_x$ est fini sur~$A$ donc (\'etant plat et radiciel
+sur~$A$) est identique \`a~$A$. Donc on a $X = Y \amalg X^\prime$
+(somme disjointe). Comme $X$ est radiciel sur~$Y$, $X^\prime$ est
+vide. On a fini.
+\enlargethispage{.5cm}\begin{corollaire}
+\label{I.5.2}
+Soit $f\colon X \to Y$ un morphisme d'\emph{immersion fermée} et
+\emph{étale}. Si $X$ est connexe, $f$ est un isomorphisme de~$X$
+sur une composante connexe de~$Y$.
+\end{corollaire}
+
+En effet, $f$ est aussi une immersion ouverte. On en d\'eduit:
+
+\begin{corollaire}
+\label{I.5.3}
+Soit
+$X$ un $Y$-sch\'ema net, $Y$ connexe. Alors toute section
+de~$X$ sur~$Y$ est un isomorphisme de~$Y$ sur une composante connexe
+de~$X$. Il y a donc correspondance biunivoque entre l'ensemble de ces
+sections, et l'ensemble des composantes connexes $X_i$ de~$X$ telles
+que la projection $X_i \to Y$ soit un isomorphisme, (ou, ce qui
+revient au m\^eme par~\ref{I.5.1}, surjectif et radiciel). En
+particulier, une section est connue quand en conna\^it sa valeur en
+un point.
+\end{corollaire}
+
+Seule la premi\`ere assertion demande une d\'emonstration;
+d'apr\`es~\ref{I.5.2} il suffit de remarquer qu'une section est une
+immersion ferm\'ee (car $X$ est s\'epar\'e sur~$Y$) et \'etale
+en vertu de~\ref{I.4.8}.
+
+\begin{corollaire}
+\label{I.5.4}
+Soient $X$ et $Y$ deux pr\'esch\'emas sur~$S$, $X$ net
+s\'epar\'e sur~$S$ et $Y$ connexe. Soient $f$, $g$ deux
+$S$-morphismes de~$Y$ dans~$X$, $y$ un point de~$Y$, on suppose $f(y)
+= g(y) = x$ et les homomorphismes r\'esiduels $\kres(x) \to \kres(y)$
+d\'efinis par $f$ et~$g$ identiques (\og $f$ et~$g$ co\"incident
+g\'eom\'etriquement en~$y$\fg). Alors $f$ et~$g$ sont identiques.
+\end{corollaire}
+
+R\'esulte de~\ref{I.5.3} en se ramenant au cas o\`u $Y=S$, en
+rempla\c cant $X$ par $X \times_S Y$.
+
+Voici une variante particuli\`erement importante de~\ref{I.5.3}.
+
+\begin{theoreme}
+\label{I.5.5}
+Soient $S$ un pr\'esch\'ema, $X$ et $Y$ deux
+$S$-pr\'esch\'emas, $S_0$ un sous-pr\'esch\'ema ferm\'e
+de~$S$ ayant m\^eme espace sous-jacent que~$S$, $X_0 = X \times_S
+S_0$ et $Y_0 = Y \times_S S_0$ les \og restrictions\fg de~$X$ et~$Y$
+sur~$S_0$. On suppose $X$ \'etale sur~$S$. Alors l'application
+naturelle
+$$
+\Hom_S(Y,X) \to \Hom_{S_0}(Y_0,X_0)
+$$
+est \emph{bijective}.
+\end{theoreme}
+
+On est encore ramen\'e au cas o\`u $Y=S$, et alors cela
+r\'esulte de la description \og topologique\fg des sections de~$X/Y$
+donn\'ee dans~\ref{I.5.3}.
+
+\begin{scholiestar}
+Ce r\'esultat comporte une assertion d'\emph{unicité} et
+d'\emph{existence} de \emph{morphismes}. Il peut aussi s'exprimer
+(lorsque $X$ et~$Y$ sont tous deux pris \'etales sur~$S$) que le
+foncteur $X \mto X_0$ de la cat\'egorie des $S$-sch\'emas
+\'etales dans la cat\'egorie des $S_0$-sch\'emas \'etales est
+\emph{pleinement fidèle}, \ie \'etablit une
+\emph{équivalence} de la premi\`ere avec une
+\emph{sous-catégorie pleine} de la seconde. Nous verrons plus bas
+que c'est m\^eme une \'equivalence de la premi\`ere et de la
+seconde (ce qui sera un th\'eor\`eme d'\emph{existence de
+$S$-schémas étales}).
+\end{scholiestar}
+
+La
+forme suivante, plus g\'en\'erale en apparence, de~\ref{I.5.5}.\
+est souvent commode:
+
+\begin{corollaire}[\og Th\'eor\`eme de prolongement des rel\`evements\fg]
+\label{I.5.6}
+\index{prolongement des rel\`evements (th\'eor\`eme de)|hyperpage}\index{theoreme de prolongement des relevements@th\'eor\`eme de prolongement des rel\`evements|hyperpage}Consid\'erons un diagramme commutatif
+$$
+\xymatrix{{X}\ar[d]&{Y_0}\ar[l]\ar[d]\\{S}&{Y}\ar[l]}
+$$
+de morphismes, o\`u $X \to S$ est \'etale et $Y_0 \to Y$ est une
+immersion ferm\'ee bijective. Alors on peut trouver un morphisme
+unique $Y \to X$ qui rende les deux triangles correspondants
+commutatifs.
+\end{corollaire}
+
+En effet, rempla\c cant $S$ par~$Y$ et $X$ par $X \times_S Y$, on
+est ramen\'e au cas o\`u $Y=S$, et alors c'est le cas particulier
+de~\ref{I.5.5} pour $Y=S$.
+
+Signalons aussi la cons\'equence imm\'ediate suivante
+de~\ref{I.5.1} (que nous n'avons pas
+donn\'ee
+en corollaire~1 pour ne pas interrompre la ligne d'id\'ees
+d\'evelopp\'ee \`a la suite de~\ref{I.5.1}):
+
+\begin{proposition}
+\label{I.5.7}
+Soient $X$, $X^\prime$ deux pr\'esch\'emas de type finis et plats
+sur~$Y$, et soit $g\colon X \to X^\prime$ un $Y$-morphisme. Pour que
+$g$ soit une immersion ouverte (\resp un isomorphisme) il faut et il
+suffit que pour tout $y\in Y$, le morphisme induit sur les fibres
+$$
+g \otimes_Y \kres(y)\colon X \otimes_Y \kres(y) \to X^\prime
+\otimes_Y \kres(y)
+$$
+le soit.
+\end{proposition}
+
+Il suffit de prouver la suffisance; comme c'est vrai pour la notion de
+surjection, on est ramen\'e au cas d'une immersion
+ouverte. D'apr\`es~\ref{I.5.1}, il faut v\'erifier que $g$ est
+\emph{radiciel}, ce qui est trivial, et qu'il est \emph{étale}, ce
+qui r\'esulte du corollaire~\ref{I.5.9} ci-dessous.
+
+\begin{corollaire}
+\label{I.5.8}
+(devrait passer au \No\ref{I.3}) Soient $X$ et $X^\prime$ deux
+$Y$-pr\'esch\'emas, $g\colon X \to X^\prime$ un $Y$-morphisme, $x$
+un point de~$X$ et $y$ sa projection sur~$Y$. Pour que $g$ soit
+quasi-fini (\resp net) en~$x$, il \fets qu'il en soit
+de m\^eme de~$g\otimes_Y \kres(y)$.
+\end{corollaire}
+
+En effet, les deux alg\`ebres sur~$k\big(g(x)\big)$ qu'il faut
+regarder pour s'assurer que l'on a bien un morphisme quasi-fini \resp net en~$x$ sont les m\^emes pour~$g$ et $g \otimes_Y \kres(y)$.
+
+\begin{corollaire}
+\label{I.5.9}
+Avec
+les notations de~\ref{I.5.8}, supposons $X$ et~$X^\prime$ plats
+et de type fini sur~$Y$. Pour que $g$ soit plat (\resp \'etale)
+en~$x$, il \fets que $g \otimes_Y \kres(y)$ le soit.
+\end{corollaire}
+
+Pour \og plat\fg l'\'enonc\'e n'est mis que pour m\'emoire, c'est
+un des crit\`eres fondamentaux de platitude\footnote{\Cf IV~\ref{IV.5.9}.}. Pour \'etale, cela en r\'esulte; compte tenu
+de~\ref{I.5.8}.
+
+\section{Application aux extensions \'etales des anneaux locaux complets}
+\label{I.6}
+
+Ce num\'ero est un cas particulier de r\'esultats sur les
+pr\'esch\'emas formels, qui devront figurer dans le
+multiplodoque. N\'eanmoins, on s'en tire ici \`a meilleur compte,
+\ie sans la d\'etermination locale explicite des morphismes
+\'etales au \No\ref{I.7} (utilisant le Main Theorem). C'est peut-\^etre
+une raison suffisante de garder le pr\'esent num\'ero (m\^eme
+dans le multiplodoque) \`a cette place.
+
+\begin{theoreme}
+\label{I.6.1}
+Soit $A$ un anneau local complet (noeth\'erien bien s\^ur), de
+corps r\'esiduel~$k$. Pour toute $A$-alg\`ebre~$B$, soit $R(B) = B
+\otimes_A k$ consid\'er\'e comme $k$-alg\`ebre, elle d\'epend
+donc fonctoriellement de~$B$. Alors $R$ d\'efinit une
+\emph{équivalence} de la cat\'egorie des $A$-alg\`ebres
+\emph{finies et étales sur~$A$} avec la cat\'egorie des
+alg\`ebres \emph{de rang fini séparables} sur~$k$.
+\end{theoreme}
+
+Tout d'abord, le foncteur en question est pleinement fid\`ele, comme
+il r\'esulte du fait plus g\'en\'eral:
+
+\begin{corollaire}
+\label{I.6.2}
+Soient $B$, $B^\prime$ deux $A$-alg\`ebres finies sur~$A$. Si $B$
+est \'etale sur~$A$, alors l'application canonique
+$$
+\Hom_{\textup{$A$-alg}}(B,B^\prime) \to
+\Hom_{\textup{$k$-alg}}\big(R(B),R(B^\prime)\big)
+$$
+est bijective.
+\end{corollaire}
+
+On est ramen\'e au cas o\`u $A$ est artinien (en rempla\c cant
+$A$ par~$A/\goth{m}^n$), et alors c'est un cas particulier
+de~\ref{I.5.5}.
+
+Il reste \`a prouver que pour toute $k$-alg\`ebre finie et
+s\'eparable (pourquoi ne pas dire: \'etale, c'est plus court) $L$,
+il existe un $B$ \'etale sur~$A$ tel que $R(B)$ soit isomorphe
+\`a~$L$. On peut supposer que $L$ est une extension s\'eparable
+de~$k$, comme telle elle admet un g\'en\'erateur~$x$, \ie est
+isomorphe \`a une alg\`ebre $k[t]/Fk[t]$ o\`u $F \in k[t]$ est
+un polyn\^ome unitaire. On rel\`eve~$F$ en un polyn\^ome
+unitaire $F_1$ dans $A[t]$, et on prend $B = A[t]/F_1A[t]$.
+
+\section{Construction locale des morphismes non ramifi\'es et \'etales}
+\label{I.7}
+
+\begin{proposition}
+\label{I.7.1}
+Soient $A$ un anneau noeth\'erien, $B$ une alg\`ebre finie
+sur~$A$, $u$ un g\'en\'erateur de~$B$ sur~$A$, $F \in A[t]$ tel
+que $F(u) = 0$ (on ne suppose pas $F$ unitaire), $u^\prime =
+F^\prime(u)$ (o\`u $F^\prime$ est le polyn\^ome d\'eriv\'e),
+$\goth{q}$ un id\'eal premier de~$B$ ne contenant pas~$u^\prime$,
+$\goth{p}$ sa trace sur~$A$. Alors $B_\goth{q}$ est net sur~$A_\goth{p}$.
+\end{proposition}
+
+En d'autres termes, posant $Y = \Spec(A)$, $X= \Spec(B)$,
+$X_{u^\prime} = \Spec(B_{u^\prime})$, $X_{u^\prime}$ est non
+ramifi\'e sur~$Y$. L'\'enonce r\'esulte du suivant, plus
+pr\'ecis:
+
+\begin{corollaire}
+\label{I.7.2}
+L'id\'eal diff\'erente de~$B/A$ contient $u^\prime B$, et lui est
+\'egal si l'homo\-morphisme naturel $A[t]/FA[t] \to B$ (appliquant
+$t$ dans~$u$) est un isomorphisme.
+\end{corollaire}
+
+Soit $J$ le noyau de l'homomorphisme $C = A[t] \to B$, ce noyau
+contient $FA[t]$, et lui est \'egal dans le deuxi\`eme cas
+envisag\'e dans~\ref{I.7.2}. Comme il est surjectif,
+$\Omega^1_{B/A}$ s'identifie au quotient de~$\Omega^1_{C/A}$ par le
+sous-module engendr\'e par $J\Omega^1_{C/A}$ et $d(J)$ (il aurait
+fallu expliciter au \No\ref{I.1} la d\'efinition de l'homomorphisme~$d$, et
+le calcul de~$\Omega^1$ pour une alg\`ebre de polyn\^omes).
+Identifiant $\Omega^1_{C/A}$ \`a~$C$ gr\^ace \`a la base~$dt$,
+on trouve $B/B\cdot J^\prime$ donc la diff\'erente est engendr\'ee
+par l'ensemble~$J^\prime$ des images dans~$B$ des d\'eriv\'es des
+$G \in J$, (et il suffit de prendre des~$G$ engendrant~$J$). Comme
+$F\in J$, \resp $F$ est un g\'en\'erateur de~$J$, on a
+fini. (N.B.\ On devrait mettre~\ref{I.7.2} en prop.\
+et~\ref{I.7.1} en corollaire). On trouve:
+
+\begin{corollaire}
+\label{I.7.3}
+Sous les conditions de~\ref{I.7.1}, supposant $F$ unitaire et que
+$A[t]/FA[t] \to B$ est un isomorphisme, pour que $B_\goth{q}$ soit
+\'etale sur~$A_\goth{p}$, il
+faut et il suffit
+que~$\goth{q}$ ne contienne
+pas~$u^\prime$.
+\end{corollaire}
+
+En effet, comme $B$ est plat sur~$A$, \'etale \'equivaut \`a
+net, et on peut appliquer~\ref{I.7.2}.
+
+\begin{corollaire}
+\label{I.7.4}
+Sous les conditions de~\ref{I.7.3} pour que $B$ soit \'etale
+sur~$A$ il
+faut et il suffit que~$u^\prime$ soit inversible, ou encore que l'id\'eal engendr\'e
+par $F$, $F^\prime$ dans $A[t]$ soit l'id\'eal unit\'e.
+\end{corollaire}
+
+Le dernier crit\`ere r\'esulte du premier et de Nakayama
+(dans~$B$).
+
+Un polyn\^ome unitaire $F\in A[t]$ ayant la propri\'et\'e
+\'enonc\'ee dans le corollaire~\ref{I.7.4}
+est dit \emph{polynôme séparable}
+\index{separable (polynome)@s\'eparable (polyn\^ome)|hyperpage}(si $F$ n'est pas unitaire, il faudrait au moins exiger que le
+coefficient de son terme dominant soit inversible; dans le cas o\`u
+$A$ est un corps, on retrouve la d\'efinition usuelle).
+
+
+\begin{corollaire}
+\label{I.7.5}
+Soit $B$ une alg\`ebre \emph{finie} sur l'anneau
+\emph{local}~$A$. On suppose que $K(A)$ est infini ou que $B$ soit
+local. Soit~$n$ le rang de~$L = B \otimes_A K(A)$ sur~$K(A) = k$. Pour
+que $B$ soit net (\resp \'etale) sur~$A$, il faut et il suffit que
+$B$ soit isomorphe \`a un quotient de (\resp isomorphe \`a)
+$A[t]/FA[t]$, o\`u $F$ est un polyn\^ome unitaire s\'eparable,
+qu'on peut supposer (\resp qui est n\'ecessairement) de
+degr\'e~$n$.
+\end{corollaire}
+
+Il n'y a qu'\`a prouver la n\'ecessit\'e. Supposons $B$ net
+sur~$A$, donc $L$ s\'eparable sur~$k$, il r\'esulte alors de
+l'hypoth\`ese faite que $L/k$ admet un g\'en\'erateur~$\xi$,
+donc les $\xi^i$ ($0 \leq i < n$) forment une base de~$L$
+sur~$k$. Soit $u\in B$ relevant~$\xi$, alors par Nakayama les $u^i$
+($0\leq i < n$) engendrent le $A$-module~$B$ (\resp en forment une
+base), en particulier on peut trouver un polyn\^ome unitaire $F \in
+A[t]$ tel que $F(u)= 0$, et $B$ sera isomorphe \`a un quotient de
+(\resp isomorphe \`a) $A[t]/FA[t]$. Enfin, en vertu
+de~\ref{I.7.4}.\ appliqu\'e \`a $L/k$, $F$ et~$F^\prime$
+engendrent $A[t]$
+modulo
+$\goth{m} A[t]$, donc (d'apr\`es Nakayama dans $A[t]/FA[t]$) $F$
+et~$F^\prime$ engendrent~$A[t]$, on a fini.
+
+\begin{theoreme}
+\label{I.7.6}
+Soient $A$ un anneau local, $A \to \cal{O}$ un homomorphisme local tel
+que~$\cal{O}$ soit isomorphe \`a une alg\`ebre localis\'ee d'une
+alg\`ebre de type fini sur~$A$. Supposons
+$\cal{O}$
+\emph{net} sur~$A$. Alors on peut trouver une $A$-alg\`ebre $B$,
+enti\`ere sur~$A$, un id\'eal maximal $\goth{n}$ de~$B$, un
+g\'en\'erateur $u$ de~$B$ sur~$A$, un polyn\^ome unitaire $F\in
+A[t]$, tels que $\goth{n} \not\ni F^\prime(u)$ et que $\cal{O}$ soit
+isomorphe (comme $A$-alg\`ebre) \`a~$B_{\goth{n}}$. Si $\cal{O}$
+est \'etale sur~$A$, on peut prendre $B=A[t]/FA[t]$.
+\end{theoreme}
+
+(Bien entendu, on a l\`a des conditions aussi suffisantes...)
+
+Signalons d'abord les agr\'eables corollaires:
+
+\begin{corollaire}
+\label{I.7.7}
+Pour que $\cal{O}$ soit net sur~$A$, il \fets que $\cal{O}$ soit
+isomorphe au quotient d'une alg\`ebre analogue et \emph{étale}
+sur~$A$.
+\end{corollaire}
+
+En effet, on prendra $\cal{O}^\prime = B^\prime_{\goth{n}^\prime}$,
+o\`u $B^\prime = A[t]/FA[t]$ et o\`u $\goth{n}^\prime$ est l'image
+inverse de~$\goth{n}$ dans~$B^\prime$.
+
+\begin{corollaire}
+\label{I.7.8}
+Soit
+$f\colon X \to Y$ un morphisme de type fini, $x\in X$. Pour que
+$f$ soit net en~$x$, il \fets qu'il existe un voisinage ouvert
+$U$ de~$x$ tel que $f|U$ se factorise en $U \to X^\prime \to Y$,
+o\`u la premi\`ere fl\`eche est une immersion ferm\'ee et la
+seconde un morphisme \'etale.
+\end{corollaire}
+
+C'est une simple traduction de~\ref{I.7.7}.
+
+Montrons comment le jargon de~\ref{I.7.6} r\'esulte de
+l'\'enonc\'e principal: en effet, il existe par~\ref{I.7.7} un
+\'epimorphisme $\cal{O}^\prime \to \cal{O}$, o\`u $\cal{O}$ a les
+propri\'et\'es voulues; mais comme $\cal{O}^\prime$ et~$\cal{O}$
+sont \'etales sur~$A$, le morphisme $\cal{O}^\prime \to \cal{O}$ est
+\'etale par~\ref{I.4.8} donc un isomorphisme.
+
+\subsubsection*{D\'emonstration de~\ref{I.7.6}}
+Elle reprend une d\'emonstration du s\'eminaire
+Chevalley. D'apr\`es le \emph{Main Theorem} on aura $\cal{O} =
+B_{\goth{n}}$, o\`u $B$ est une alg\`ebre finie sur~$A$ et
+$\goth{n}$ en est un id\'eal maximal. Alors $B/\goth{n} =
+K(\cal{O})$ est une extension s\'eparable donc monog\`ene de~$k$;
+si $\goth{n}_i$ ($1 \leq i \leq r$) sont les id\'eaux maximaux
+de~$B$ distincts de~$\goth{n}$, il existe donc un \'el\'ement $u$
+de~$B$ qui appartient \`a tous les~$\goth{n}_i$, et dont l'image
+dans~$B/\goth{n}$ en est un g\'en\'erateur. Or $B/\goth{n} =
+B_\goth{n}/\goth{n} B_\goth{n} = B_\goth{n}/\goth{m} B_\goth{n}$
+(o\`u $\goth{m}$ est l'id\'eal maximal de~$A$). Admettons un
+instant le
+
+\begin{lemme}
+\label{I.7.9}
+Soient $A$ un anneau local, $B$ une alg\`ebre finie sur~$A$,
+$\goth{n}$ un id\'eal maximal de~$B$, $u$ un \'el\'ement de~$B$
+dont l'image dans $B_\goth{n}/\goth{m} B_\goth{n}$ l'engendre comme
+alg\`ebre sur~$k = A/\goth{m}$, et qui se trouve dans tous les
+id\'eaux maximaux de~$B$ distincts de~$\goth{n}$. Soit $B^\prime =
+B[u]$, $\goth{n}^\prime = \goth{n} B^\prime$. Alors l'homomorphisme
+canonique $B^\prime_{\goth{n}^\prime} \to B_\goth{n}$ est un
+isomorphisme.
+\end{lemme}
+
+\begin{lemme}
+\label{I.7.10}
+(aurait d\^u figurer en corollaire \`a~\ref{I.7.1}
+avant~\ref{I.7.5} qu'il implique). Soit $B$ une alg\`ebre finie
+sur~$A$ engendr\'ee par un \'el\'ement~$u$, soit $\goth{n}$ un
+id\'eal maximal de~$B$ tel que $B_\goth{n}$ soit non ramifi\'e
+sur~$A$. Alors il existe un polyn\^ome unitaire $F \in A[t]$ tel que
+$F(u) = 0$ et $F^\prime(u) \notin \goth{n}$.
+\end{lemme}
+
+Soit en effet $n$ le rang de la $k$-alg\`ebre $L = B \otimes_A k$,
+d'apr\`es Nakayama il existe un polyn\^ome unitaire de
+degr\'e~$n$ dans $A[t]$, tel que $F(u) = 0$. Soit $f$ le
+polyn\^ome d\'eduit de~$F$ par r\'eduction mod~$\goth{m}$, alors
+$L$ est $k$-isomorphe \`a $k[t]/fk[t]$, donc par~\ref{I.7.3}
+$f^\prime(\xi)$ n'est pas contenu dans l'id\'eal maximal de~$L$ qui
+correspond \`a~$\goth{n}$ ($\xi$ d\'esignant l'image de~$t$
+dans~$L$, \ie l'image de~$u$ dans~$L$). Comme $f^\prime(\xi)$ est
+l'image de~$F^\prime(u)$, on a fini.
+
+Le
+th\'eor\`eme~\ref{I.7.6} r\'esulte maintenant de la conjonction
+de~\ref{I.7.9} et~\ref{I.7.10}. Reste \`a
+prouver~\ref{I.7.9}. Posons $S^\prime = B^\prime - \goth{n}^\prime$,
+donc $B^\prime {S^\prime}^{-1} = B^\prime_{\goth{n}^\prime}$.
+$$
+\begin{array}{ccccc}
+B&\longrightarrow&B{S^\prime}^{-1}&\longrightarrow&BS^{-1} =
+B_\goth{n}\\ \Big\uparrow&&\Big\uparrow&&\\
+B^\prime&\longrightarrow&B^\prime{S^\prime}^{-1}
+\rlap{\hbox{$\displaystyle \ = B^\prime_{\goth{n}^\prime}$}}&&
+\end{array}
+$$
+Soit de m\^eme $S=B-\goth{n}$, donc $BS^{-1} = B_\goth{n}$, on a
+donc un homomorphisme naturel $B{S^\prime}^{-1} \to BS^{-1} =
+B_\goth{n}$, prouvons que c'est un isomorphisme, \ie que les
+\'el\'ements de~$S$ sont inversibles dans $B{S^\prime}^{-1}$,
+\ie que tout id\'eal maximal $\goth{p}$ de ce dernier ne rencontre
+pas~$S$, \ie induit~$\goth{n}$ sur~$B$. En effet, comme
+$B{S^\prime}^{-1}$ est fini sur~$B^\prime{S^\prime}^{-1} =
+B^\prime_{\goth{n}^\prime}$, $\goth{p}$ induit l'unique id\'eal
+maximal $\goth{n}^\prime B_{\goth{n}^\prime}$
+de~$B^\prime_{\goth{n}^\prime}$, donc induit l'id\'eal maximal
+$\goth{n}^\prime$ de~$B^\prime$; comme $B$ est fini sur~$B^\prime$,
+l'id\'eal $\goth{q}$ de~$B$ induit par~$\goth{p}$ \'etant
+au-dessus de~$\goth{n}^\prime$, est n\'ecessairement maximal, et ne
+contient pas~$u$, donc est identique \`a~$\goth{n}$. (On vient
+d'utiliser que $u$ appartient \`a tout id\'eal maximal de~$B$
+distinct de~$\goth{n}$). Prouvons maintenant que $B{S^\prime}^{-1}$
+\'egale $B^\prime{S^\prime}^{-1}$: comme il est fini sur ce dernier,
+on est ramen\'e par Nakayama \`a prouver l'\'egalit\'e mod
+$\goth{n}^\prime B {S^\prime}^{-1}$ et a fortiori il suffit de prouver
+l'\'egalit\'e mod $\goth{m} B{S^\prime}^{-1}$; or
+$B{S^\prime}^{-1}/\goth{m} B{S^\prime}^{-1} = B_\goth{n}/\goth{m}
+B_\goth{n}$ est engendr\'e sur~$k$ par~$u$ (on utilise ici l'autre
+propri\'et\'e de~$u$) donc l'image de~$B^\prime$ (et a fortiori de
+$B^\prime {S^\prime}^{-1}$) dedans est tout (comme sous-anneau
+contenant~$k$ et l'image de~$u$).
+
+\begin{remarquestar}
+On doit pouvoir \'enoncer le th\'eor\`eme~\ref{I.7.6} pour un
+anneau $\cal{O}$ qui est seulement semi-local, de fa\c con \`a
+coiffer aussi~\ref{I.7.5}: on fera l'hypoth\`ese que
+$\cal{O}/\goth{m}\cal{O}$ est une $k$-alg\`ebre \emph{monogène};
+on pourra donc trouver un $u\in B$ dont l'image dans
+$B/\goth{m}B$
+est un g\'en\'erateur, et appartenant \`a tous les id\'eaux
+maximaux de~$B$ ne provenant pas de~$\cal{O}$. Les lemmes~\ref{I.7.9}
+et~\ref{I.7.10} doivent s'adapter sans difficult\'e. Plus
+g\'en\'eralement, ...
+\end{remarquestar}
+
+\section[Rel\`evement infinit\'esimal des sch\'emas \'etales]{Rel\`evement infinit\'esimal des sch\'emas \'etales.
+Application aux sch\'emas formels}
+\label{I.8}
+
+\begin{proposition}
+\label{I.8.1}
+Soient $Y$ un pr\'esch\'ema, $Y_0$ un sous-pr\'esch\'ema,
+$X_0$ un $Y_0$-sch\'ema \'etale, $x$ un point de~$X_0$. Alors il
+existe un $Y$-sch\'ema \'etale~$X$, un voisinage $U_0$ de~$x$
+dans~$X_0$, et un $Y_0$-isomorphisme $U_0 \isomto X \times_Y Y_0$.
+\end{proposition}
+
+Soit en effet $y$ la projection de~$x$ dans~$Y_0$,
+appliquant~\ref{I.7.6} au homomorphisme local \'etale $A_0 \to B_0$
+des anneaux locaux de~$y$ et~$x$ dans $Y_0$ et~$X_0$: on trouve un
+isomorphisme$$
+B_0 = {C_0}_{\goth{n}_0}\qquad C_0 = A_0[t]/F_0A_0[t]
+$$
+o\`u $F_0$ est un polyn\^ome unitaire et $\goth{n}_0$ est un
+id\'eal maximal de~$C_0$ ne contenant pas la classe de
+$F^\prime_0(t)$ dans~$C_0$. Soit $A$ l'anneau local de~$y$ dans~$Y$,
+soit $F$ un polyn\^ome unitaire dans $A[t]$ donnant~$F_0$ par
+l'homomorphisme surjectif $A \to A_0$ (on rel\`eve les coefficients
+de~$F_0$), soit enfin
+$C = A[t]/FA[t]$
+et $\goth{n}$ l'id\'eal maximal
+de~$C$
+image inverse de
+$\goth{n}_0$
+par l'\'epimorphisme naturel $C \to C \otimes_A A_0 = C_0$. Posons
+$$
+B = C_\goth{n}.
+$$
+Il est imm\'ediat par construction et~\ref{I.7.1} que $B$ est
+\'etale sur~$A$, et qu'on a un isomorphisme $B \otimes_A A_0 =
+A_0$. On sait (Chap.\, I)
+qu'il existe un $Y$-sch\'ema de type fini~$X$ et un point~$z$ de~$X$
+au-dessus de~$y$ tel que $\cal{O}_z$ soit $A$-isomorphe \`a~$C$;
+comme ce dernier est \'etale sur~$A = \cal{O}_y$, on peut (en
+prenant $X$ assez petit) supposer que $X$ est \'etale sur~$Y$. Soit
+$X_0^\prime = X \times_Y Y_0$, alors l'anneau local de~$z$
+dans~$X_0^\prime$ s'identifie \`a $\cal{O}_z \otimes_A A_0 = B
+\otimes_A A_0$, donc est isomorphe \`a~$B_0$. Cet isomorphisme est
+d\'efini pas un isomorphisme d'un voisinage~$U_0$ de~$x$ dans~$X_0$
+sur un voisinage de~$z$ dans~$X_0^\prime$ (loc.\ cit\'e), qu'on peut
+supposer identique \`a~$X_0^\prime$ en prenant $X$ assez petit. On a
+fini.
+
+\begin{corollaire}
+\label{I.8.2}
+\'Enonc\'e analogue pour des \emph{revêtements} \'etales, en
+supposant le corps r\'esiduel $\kres(y)$ infini.
+\end{corollaire}
+
+La d\'emonstration est la m\^eme, \ref{I.7.5} rempla\c cant~\ref{I.7.6}.
+
+\begin{theoreme}
+\label{I.8.3}
+Le foncteur envisag\'e dans~\ref{I.5.5} est une
+\emph{équivalence} de \emph{catégories}.
+\end{theoreme}
+
+En vertu du th\'eor\`eme~\ref{I.5.5}, il reste \`a montrer que
+tout $S_0$-sch\'ema \'etale~$X_0$ est isomorphe \`a un
+$S_0$-sch\'ema $X \times_S S_0$, o\`u $X$ est un $S$-sch\'ema
+\'etale. L'espace topologique sous-jacent \`a~$X$ devra \^etre
+n\'ecessairement identique \`a celui de~$X_0$, $X_0$ s'identifiant
+de plus \`a un sous-pr\'esch\'ema ferm\'e de~$X$. Le
+probl\`eme est donc \'equivalent au suivant: trouver sur l'espace
+topologique sous-jacent $|X_0|$ \`a~$X_0$ un faisceau
+d'alg\`ebres~$\cal{O}_X$ sur~$f_0^*(\cal{O}_S)$ (o\`u $f_0$ est
+la projection $X_0 \to S_0$, regard\'ee ici comme application
+continue des espaces sous-jacents), faisant de~$|X_0|$ un
+$S$-pr\'esch\'ema \'etale~$X$, et un homomorphisme
+d'alg\`ebres $\cal{O}_X \to \cal{O}_{X_0}$, compatible avec
+l'homomorphisme $f_0^*(\cal{O}_S) \to f_0^*(\cal{O}_{S_0})$ sur
+les faisceaux de scalaires, induisant un isomorphisme $\cal{O}_X
+\otimes_{f_0^*(\cal{O}_S)} f_0^*(\cal{O}_{S_0}) \isomto
+\cal{O}_{X_0}$. (Alors $X$ sera un $S$-pr\'esch\'ema \'etale se
+r\'eduisant suivant~$X_0$,
+donc sera s\'epar\'e sur~$S$ puisque $X_0$ l'est sur~$S_0$, et $X$
+r\'epond \`a la question). Si d'ailleurs $(U_i)$ est un
+recouvrement de~$X_0$ par des ouverts, et si on a trouv\'e une
+solution du probl\`eme dans chacun des~$U_i$, il r\'esulte du
+th\'eor\`eme d'unicit\'e~\ref{I.5.5} que ces solutions se
+recollent (\ie les faisceaux d'alg\`ebres qui les d\'efinissent,
+munis de leurs homomorphismes d'augmentation, se recollent), et on
+constate aussit\^ot que l'espace annel\'e ainsi construit
+au-dessus de~$S$ est un $S$-pr\'esch\'ema \'etale~$X$ muni d'un
+isomorphisme $X \times_S S_0 \isomfrom X_0$. Il suffit donc de trouver
+une solution localement, ce qui est assur\'e par~\ref{I.8.1}.
+
+\begin{corollaire}
+\label{I.8.4}
+Soient $S$ un pr\'esch\'ema formel localement noeth\'erien, muni
+d'un id\'eal de d\'efinition~$J$, soit $S_0 =
+\big(|S|,\cal{O}_S/\cal{J}\big)$ le pr\'esch\'ema ordinaire
+correspondant. Alors le foncteur $\goth{X} \mto \goth{X} \times_S
+S_0$ de la cat\'egorie des rev\^etements \'etales de~$S$ dans la
+cat\'egorie des rev\^etements \'etales de~$S_0$ est une
+\'equivalence de cat\'egories.
+\end{corollaire}
+
+Bien entendu, on appelera rev\^etement \'etale d'un
+pr\'esch\'ema \emph{formel}~$S$ un rev\^etement de~$S$, \ie un
+pr\'esch\'ema formel sur~$S$ d\'efini \`a l'aide d'un faisceau
+coh\'erent d'alg\`ebres~$\cal{B}$, tel que $\cal{B}$ soit
+\emph{localement libre} et que les fibres r\'esiduelles $\cal{B}_s
+\otimes_{\cal{O}_s} \kres(s)$ de~$\cal{B}$ soient des alg\`ebres
+\emph{séparables} sur~$\kres(s)$. Si on d\'esigne par~$S_n$ le
+pr\'esch\'ema ordinaire
+$\big(|S|,\cal{O}_S/J^{n+1}\big)$,
+la donn\'ee d'un faisceau coh\'erent d'alg\`ebres $\cal{B}$
+sur~$S$ \'equivaut \`a la donn\'ee d'une suite de faisceaux
+coh\'erents d'alg\`ebres
+$\cal{B}_n$
+sur
+les~$S_n$,
+munis d'un syst\`eme transitif d'homomorphismes
+$\cal{B}_m\to \cal{B}_n$
+($m \geq n$) d\'efinissant des isomorphismes
+$\cal{B}_m \otimes_{\cal{O}_{S_m}} \cal{O}_{S_n} \isomto \cal{B}_n$.
+Il est imm\'ediat que $\cal{B}$ est localement libre si et seulement
+si les $\cal{B}_n$ sur les~$S_n$ le sont, et que la condition de
+s\'eparabilit\'e est v\'erifi\'ee si et seulement si elle
+l'est pour~$\cal{B}_0$, ou encore pour tous
+les~$\cal{B}_n$.
+Ainsi, $\cal{B}$ est \'etale sur~$S$ si et seulement si les
+$\cal{B}_n$
+sur les~$S_n$ le sont. Compte tenu de cela, \ref{I.8.4} r\'esulte
+aussit\^ot de~\ref{I.8.3}.
+
+\begin{remarquestar}
+Il n'\'etait pas n\'ecessaire dans~\ref{I.8.4} de se borner au cas
+des \emph{revêtements}. C'est cependant le seul utilis\'e pour
+l'instant.
+\end{remarquestar}
+
+\section{Propri\'et\'es de permanence}
+\label{I.9}
+Soit $A\to B$ un homomorphisme local et \'etale, nous examinons ici
+quelques cas o\`u une certaine propri\'et\'e pour $A$
+entra\^ine la m\^eme propri\'et\'e pour~$B$, ou
+r\'eciproquement.
+Un certain nombre de telles propositions sont d\'ej\`a
+cons\'equences du simple fait que $B$ est \emph{quasi-fini} et
+\emph{plat} sur~$A$, et nous nous bornerons \`a en \og rappeler\fg
+quelques-unes: $A$~\emph{et} $B$ \emph{ont même dimension de
+Krull, et même profondeur} (\og codimension cohomologique\fg de
+Serre, dans la terminologie encore courante). Il en r\'esulte par
+exemple que $A$ \emph{est Cohen-Macaulay si et seulement si $B$ l'est}.
+D'ailleurs, pour tout id\'eal premier $\goth{q}$ de~$B$, induisant
+$\goth{p}$ sur~$A$, $B_{\goth{q}}$ sera encore quasi-fini et plat
+sur~$A_{\goth{p}}$, pourvu qu'on suppose que $B$ soit localis\'ee
+d'une alg\`ebre de type fini sur~$A$ (cela r\'esulte du fait que
+l'ensemble des points o\`u un morphisme de type fini est quasi-fini
+\resp plat est ouvert); et d'ailleurs \emph{tout} id\'eal premier
+$\goth{p}$ de~$A$ est induit par un id\'eal premier $\goth{q}$
+de~$B$ (car $B$ est \emph{fidèlement} plat sur~$A$). Il en
+r\'esulte par exemple que \emph{$\goth{p}$ et~$\goth{q}$ ont
+même rang}; et encore que \emph{$A$ est sans idéal premier
+immergé si et seulement si~$B$ l'est}.
+
+Nous allons nous borner donc aux propositions plus sp\'eciales au
+cas des morphismes \'etales.
+
+\begin{proposition}
+\label{I.9.1}
+Soit $A\to B$ un homomorphisme local \'etale. Pour que $A$ soit
+r\'egulier, il faut et il suffit que $B$ le soit.
+\end{proposition}
+En effet, soit $k$ le corps r\'esiduel de~$A$, $L$ celui de~$B$.
+Comme $B$ est plat sur~$A$ et que
+$L=B\otimes_A k$,
+\ie $\goth{n}=\goth{m}B$ (o\`u $\goth{m}$,~$\goth{n}$ sont les
+id\'eaux maximaux de~$A$,~$B$) la filtration $\goth{m}$-adique sur~$B$ est identique \`a sa filtration $\goth{n}$-adique et on aura
+$$
+\gr^*(B)=\gr^*(A)\otimes_k L.
+$$
+Il s'ensuit que $\gr^*(B)$ est une alg\`ebre de polyn\^omes sur~$L$ si et seulement si $\gr^*(A)$ est une alg\`ebre de polyn\^omes
+sur~$k$. cqfd. (N.B.\ on n'a pas utilis\'e le fait que $L/k$ est
+s\'eparable).
+
+\begin{corollaire}
+\label{I.9.2}
+Soit $f\colon X\to Y$ un morphisme \'etale. Si $Y$ est
+r\'egulier, $X$ l'est, la r\'eciproque \'etant vraie si $f$ est
+surjectif.
+\end{corollaire}
+
+\setcounter{subsection}{1}
+
+\begin{proposition}
+\label{prop:I.9.2}
+Soit $f\colon X\to Y$ un morphisme \'etale. Si $Y$ est r\'eduit,
+il en est de m\^eme de~$X$, la r\'eciproque \'etant vraie si $f$
+est surjectif.
+\end{proposition}
+
+Cela \'equivaut au
+\begin{corollaire}
+\label{I.9.3}
+Soit $f\colon A\to B$ un homomorphisme local \'etale, $B$ \'etant
+isomorphe \`a une
+$A$-alg\`ebre localis\'ee d'une $A$-alg\`ebre de type fini.
+Pour que $A$ soit r\'eduit, il faut et il suffit que $B$ le soit.
+\end{corollaire}
+
+La n\'ecessit\'e est triviale, puisque $A\to B$ est injectif ($B$
+\'etant fid\`element plat sur~$A$). Suffisance: soient
+$\goth{p}_i$ les id\'eaux premiers minimaux de~$A$, par
+hypoth\`ese l'application naturelle $A\to\prod_i A/\goth{p}_i$ est
+injective, donc tensorisant avec le $A$-module plat $B$, on trouve que
+$B\to\prod_i B/\goth{p}_iB$ est injective, et on est ramen\'e \`a
+prouver que les $B/\goth{p}_iB$ sont r\'eduits. Comme
+$B/\goth{p}_iB$ est \'etale sur~$A/\goth{p}_i$,
+on est ramen\'e au
+cas $A$ int\`egre. Soit~$K$ son corps des fractions, alors $A\to K$
+\'etant injectif, il en est de m\^eme ($B$~\'etant $A$-plat) de
+$B\to B\otimes_A K$, on est ramener \`a prouver que ce dernier
+anneau est r\'eduit. Or, $B$ \'etant localis\'ee d'une
+$A$-alg\`ebre de type fini sur~$A$, est l'anneau local d'un point~$x$ d'un sch\'ema de type fini et \emph{étale} $X=\Spec(C)$ sur~$Y=\Spec(A)$, donc $B\otimes_A K$ est un anneau localis\'e (par
+rapport \`a un ensemble multiplicativement stable convenable) de
+l'anneau $C\otimes_A K$ de~$X\otimes_A K$. Comme $X\otimes_A K$ est
+\'etale sur~$K$, son anneau est un produit fini de corps (extensions
+s\'eparables de~$K$), il en est donc de m\^eme de~$B\otimes_A
+K$, cqfd.
+
+\begin{corollaire}
+\label{I.9.4}
+Soit $f\colon A\to B$ un homomorphisme local \'etale, supposons $A$
+analytiquement r\'eduit
+\index{analytiquement r\'eduit|hyperpage}(\ie le compl\'et\'e $\hat{A}$ de~$A$ sans \'el\'ements
+nilpotents). Alors $B$ est analytiquement r\'eduit, et a~fortiori
+r\'eduit.
+\end{corollaire}
+
+En effet,
+$\hat{B}$
+est \emph{fini} et \'etale sur~$\hat{A}$, et on applique~\ref{I.9.3}.
+
+\begin{theoreme}
+\label{I.9.5}
+Soit $f\colon A\to B$ un homomorphisme local, $B$ \'etant isomorphe
+\`a une alg\`ebre localis\'ee d'une $A$-alg\`ebre de type
+fini. Alors:
+\begin{enumerate}
+\item[(i)] Si $f$ est \'etale, $A$ est normal si et seulement si $B$
+l'est.
+\item[(ii)] Si $A$ est normal, $f$ est \'etale si et seulement si
+$f$ est injectif et net (et alors $B$ est normal par \textup{(i)}).
+\end{enumerate}
+\end{theoreme}
+
+Nous allons donner deux d\'emonstrations diff\'erentes de (i), la
+premi\`ere utilise certaines des propri\'et\'es des morphismes
+plats quasi-finis (rappel\'es au d\'ebut du num\'ero) sans
+utiliser~\ref{I.7.6} (et par l\`a, le Main Theorem); c'est l'inverse pour la
+deuxi\`eme d\'emonstration. Enfin, pour~(ii) il semble qu'on ait
+besoin du Main Theorem en tous cas.
+
+\subsubsection*{Premi\`ere d\'emonstration}
+On utilise la condition n\'ecessaire et suffisante suivante
+de normalit\'e d'un anneau local noeth\'erien $A$ de dimension
+$\neq0$.
+
+\begin{enonce*}{Crit\`ere de Serre}
+\index{Serre (crit\`ere de)|hyperpage}\textup{(i)}~Pour tout id\'eal premier $\goth{p}$ de~$A$ de rang~$1$,
+$A_{\goth{p}}$ est normal (ou ce qui revient au m\^eme,
+r\'egulier); \textup{(ii)}~Pour tout id\'eal premier $\goth{p}$ de~$A$ de
+rang~$\geq 2$, on a profondeur $A_{\goth{p}}$ $\geq2$.\footnote{\Cf EGA~IV~5.8.6.}
+\end{enonce*}
+
+Nous admettrons ici ce crit\`ere, qui est cens\'e figurer au
+paragraphe
+des plats. Son principal avantage est qu'il ne suppose pas a priori
+$A$ r\'eduit, ni a~fortiori int\`egre. Ici, on peut d\'ej\`a
+supposer $\dim{A}=\dim{B}\neq0$.
+
+D'apr\`es les rappels du d\'ebut du num\'ero, les id\'eaux
+premiers $\goth{p}$ de~$A$ qui sont de rang~$1$ (\resp de
+rang~$\ge2$) sont exactement les traces sur~$A$ des id\'eaux
+premiers~$\goth{q}$ de~$B$ qui sont de rang~$1$ (\resp de
+rang~$\ge2$). Enfin, si $\goth{p}$ et $\goth{q}$ se correspondent,
+$B_{\goth{q}}$ est \'etale sur~$A_{\goth{p}}$, donc a m\^eme
+profondeur que $A_{\goth{p}}$, et est r\'egulier si et seulement si
+$A_{\goth{p}}$ l'est (\ref{I.9.1}). Appliquant le crit\`ere de Serre, on
+trouve que $A$ est normal si et seulement si $B$ l'est.
+
+\subsubsection*{Deuxi\`eme d\'emonstration}
+Supposons $B$ normal, soit $L$ son corps des fractions, $K$ celui de
+$A$ ($A$~est int\`egre puisque $B$ l'est). On a vu dans la
+d\'emonstration de~\ref{I.9.3} que $B\otimes_A K$ est un compos\'e fini de
+corps, comme il est contenu dans $L$ c'est un corps, et comme il
+contient $B$ c'est $L$. Un \'el\'ement de~$K$ entier sur~$A$ est
+entier sur~$B$, donc est dans $B$ puisque
+$B$
+est normal, donc dans $A$ car $B\cap K=A$ (comme il r\'esulte du
+fait que $B$ est fid\`element plat sur~$A$).
+
+Supposons maintenant $A$ normal, prouvons que $B$ l'est. En vertu
+de~\ref{I.7.6} on aura $B=B^\prime_{\goth{n}}$, o\`u $B^\prime=A[t]/FA[t]$,
+$F$ et $\goth{n}$ \'etant comme dans~\ref{I.7.6}. Donc $L=B\otimes_A K$
+sera un localis\'e de~$B^\prime\otimes_A K=K[t]/FK[t]$, et un
+produit de corps; extensions finies s\'eparables de~$K$ ce dernier
+produit (comme chaque fois qu'on localise un anneau artinien, ici
+$B^\prime_K$ par rapport \`a un ensemble multiplicativement stable)
+est un facteur direct de~$B^\prime_K$, correspondant donc \`a une
+d\'ecomposition $F=F_1F_2$ dans $K[t]$, le g\'en\'erateur de~$L$
+correspondant \`a $t$ \'etant annul\'e d\'ej\`a par~$F_1$.
+Or, \emph{$A$ étant normal, les $F_i$ sont dans $A[t]$} (supposant
+qu'ils sont unitaires). Remarquant que $B\to L=B\otimes_A K$ est
+injectif ($A\to K$ l'\'etant et $B$ \'etant plat sur~$A$) il
+s'ensuit qu'on aura d\'ej\`a
+$F_1(u)=0$, avec $u$ la
+classe de~$t$ dans~$L$.
+Supposant qu'on ait pris $F$ de degr\'e minimum, il s'ensuivra que
+$F_2=1$ (N.B.\ on aura
+$F^\prime(u)=F^\prime_1(u)F_2(u)+F_1(u)F^\prime_2(u)=F^\prime_1(u)F_2(u)$
+puisque $F_1(u)=0$, d'o\`u $F^\prime_1(u)\neq0$ puisque
+$F^\prime(u)\neq0$.)
+
+Donc
+on a
+\begin{equation*}
+\label{eq:I.9.5.*}
+\tag{$*$} L=B\otimes_A K=K[t]/FK[t]
+\end{equation*}
+$F$ \'etant par suite un polyn\^ome s\'eparable dans $K[t]$
+(mais \'evidemment par n\'ecessairement dans $A[t]$). (N.B.\ Pour
+l'instant, on a seulement montr\'e, essentiellement, que dans~\ref{I.7.6} on
+peut choisir $F$ et
+$\goth{n}$
+de telle fa\c con que --- avec les notations prises ici --- $B^\prime\to B^\prime_{\goth{n}}=B$
+soit \emph{injectif}; on s'est servi pour cela de la normalit\'e de
+$A$; je ne sais pas si cela reste vrai sans hypoth\`ese de
+normalit\'e).
+
+Rappelons maintenant le lemme bien connu, extrait du Cours de Serre de
+l'an dernier:
+
+\begin{lemme}
+\label{I.9.6}
+Soient $K$ un anneau, $F\in K[t]$ un polyn\^ome unitaire
+s\'eparable, $L=K[t]/FK[t]$, $u$~la classe de~$t$ dans~$L$ (de sorte
+que $F^\prime(u)$ est un \'el\'ement inversible de~$L$). Alors on
+a les formules (o\`u $n=\deg{F}$):
+\begin{enumerate}
+\item[]$\trace_{L/K} u^i/F^\prime(u)=0$\ \ si\ \
+$0\le i< n-1$,
+\item[]$\trace_{L/K} u^{n-1}/F^\prime(u)=1$.
+\end{enumerate}
+\end{lemme}
+
+\begin{corollaire}
+\label{I.9.7}
+Le d\'eterminant de la matrice $(u^j\cdot u^i/F^\prime(u))_{0\le i,j\le
+n-1}$ est \'egal \`a
+$(-1)^{n(n-1)/2}$,
+donc inversible dans tout
+sous-anneau $A$ de~$K$.
+\end{corollaire}
+
+\begin{corollaire}
+\label{I.9.8}
+Soient
+$A$ un sous-anneau de~$K$, $V$ le $A$-module engendr\'e par les
+$u^i$~($0\le i\le n-1$) dans $L$, $V^\prime$ le sous-$A$-module de~$L$
+form\'e des $x\in L$ tels que $\trace_{L/K}(xy)\in A$ pour tout
+$y\in V$ (\ie pour $y$ de la forme $u^i$, $0\le i\le n-1$). Alors
+$V^\prime$ est le $A$-module ayant pour base les $u^i/F^\prime(u)$
+($0\le i\le n-1$).
+\end{corollaire}
+
+\begin{corollaire}
+\label{I.9.9}
+Supposons que $K$ soit le corps des fractions d'un anneau int\`egre
+normal $A$, $F$ ayant ses coefficients dans $A$. Alors avec les
+notations de \ref{I.9.8}, $V^\prime$ contient la cl\^oture normale
+$A^\prime$ de~$A$ dans $L$, qui est donc contenue dans
+$A[u]/F^\prime(u)$ et a~fortiori dans $A[u][F^\prime(u)^{-1}]$.
+\end{corollaire}
+
+Appliquons ce dernier corollaire \`a la situation que nous avions
+obtenue dans la d\'e\-mon\-stra\-tion: comme $F^\prime(u)$ est
+inversible dans $B$ qui contient $A[u]$, $B$ contient $A^\prime$.
+D'apr\`es le Main Theorem, (ou \`a partir du fait que
+$B=A[u]_{\goth{n}}$) $B$ est une alg\`ebre localis\'ee de
+$A^\prime$. Comme $A^\prime$ est normal, il en est de m\^eme
+de~$B$.
+
+\subsubsection*{D\'emonstration de \textup{(ii)}}
+On
+proc\`ede comme dans la d\'emonstration qui pr\'ec\`ede pour
+prouver qu'on peut, dans~\ref{I.7.6}, choisir $F$ de telle fa\c con que l'on
+ait encore ($*$). Le seul obstacle a priori est que, $B$ n'\'etant
+plus suppos\'e plat sur~$A$, on ne peut plus affirmer que $B\to L$
+est injectif, de sorte que le raisonnement ne s'appliquera a priori
+qu'\`a l'image $B_1$ de~$B$ par ledit homomorphisme. Il s'ensuit
+aussit\^ot que $B_1$ est plat sur~$A$ (comme localis\'ee d'une
+alg\`ebre libre sur~$A$). En vertu de \ref{I.4.8} le morphisme $B\to B_1$
+est \'etale, donc un isomorphisme, ce qui ach\`eve la
+d\'emonstration.
+
+(Du point de vue r\'edaction, il faudrait intervertir les deux
+derni\`eres d\'emonstrations, et mettre dans un num\'ero \`a
+part les calculs formels du lemme et de ses corollaires).
+
+\begin{corollaire}
+\label{I.9.10}
+Soit $f\colon X\to Y$ un morphisme \'etale. Si $Y$ est normal, $X$
+l'est, la r\'eciproque est vraie si $f$ est
+surjectif.
+\end{corollaire}
+
+\begin{corollaire}
+\label{I.9.11}
+Soit $f\colon X\to Y$ un morphisme dominant, $Y$ \'etant normal et
+$X$ connexe. Si $f$ est net, $f$ est \'etale, donc $X$ est normal
+et par suite (\'etant connexe) irr\'eductible.
+\end{corollaire}
+
+Soit $U$ l'ensemble des points o\`u $f$ est \'etale, il est
+ouvert, et il suffit de montrer qu'il est aussi ferm\'e et non vide.
+$U$ contient l'image inverse du point g\'en\'erique de~$Y$ (car
+pour une alg\`ebre sur un corps, non ramifi\'e $=$ \'etale) donc
+($X$ dominant $Y$) est non vide. Si $x$ appartient \`a
+l'adh\'erence de~$U$, alors il appartient \`a l'adh\'erence
+d'une composante irr\'eductible $U_i$ de~$U$, donc \`a une
+composante irr\'eductible $X_i\overset{v}{=}\bar{U}_i$
+de~$X$ qui rencontre $U$, et par suite domine $Y$ (car toute
+composante de~$U$, plat sur~$Y$, domine $Y$). Par suite, si $y$ est
+la projection de~$x$ sur~$Y$, $\cal{O}_y\to\cal{O}_x$ est
+\emph{injectif} (compte tenu que $\cal{O}_y$ est int\`egre). Comme
+$\cal{O}_y$ est normal et $\cal{O}_y\to\cal{O}_x$ net, on conclut
+\`a l'aide de \ref{I.9.5}(ii).
+
+\begin{corollaire}
+\label{I.9.12}
+Soit $f\colon X\to Y$ un morphisme de type fini dominant, avec $Y$
+normal et $X$ irr\'eductible. Alors l'ensemble des points o\`u
+$f$ est \'etale est identique au compl\'ementaire du support de
+$\Omega^1_{X/Y}$, \ie au compl\'ementaire du
+sous-pr\'esch\'ema de~$X$ d\'efini par l'id\'eal
+diff\'erente $\goth{d}_{X/Y}$.
+\end{corollaire}
+
+(C'est
+cela l'\'enonc\'e \og moins trivial\fg auquel il \'etait fait
+allusion dans la remarque du~\No\ref{I.4}.)
+
+\begin{remarquestar}
+On se gardera de croire qu'un rev\^etement \'etale connexe d'un
+sch\'ema irr\'eductible soit lui-m\^eme irr\'eductible, quand
+on ne suppose pas la base normale. Cette question sera
+\'etudi\'ee au~\No \ref{I.11}.
+\end{remarquestar}
+
+\section{Rev\^etements \'etales d'un sch\'ema normal}
+\label{I.10}
+
+\begin{proposition}
+\label{I.10.1}
+Soit $X$ un pr\'esch\'ema \'etale s\'epar\'e sur~$Y$ normal
+connexe de corps~$K$. Alors les composantes connexes
+
+$X_i$ de~$X$ sont int\`egres, leurs corps $K_i$ sont des extensions
+finies s\'eparables de~$K$, $X_i$ s'identifie \`a une partie
+ouverte non vide du normalis\'e de~$X$ dans $K_i$ (donc $X$ \`a
+une partie ouverte dense du normalis\'e de~$Y$ dans $R(X)=L=\prod
+K_i$).
+\end{proposition}
+
+D'apr\`es \ref{I.9.10} $X$ est normal, a~fortiori ses anneaux locaux sont
+int\`egres, donc les composantes connexes de~$X$ sont
+irr\'eductibles. Comme $X_i$ est normal, et fini et dominant
+au-dessus de~$Y$, il r\'esulte d'un cas particulier (\`a peu
+pr\`es trivial d'ailleurs) du Main Theorem que $X_i$ est un ouvert
+du normalis\'e de~$X$ dans le corps $K_i$ de~$X$.
+
+\begin{corollaire}
+\label{I.10.2}
+Sous les conditions \ref{I.10.1}, $X$ est fini sur~$Y$ (\ie un
+rev\^etement \'etale de~$Y$) si et seulement si $X$ est isomorphe
+au normalis\'e $Y'$ de~$Y$ dans $L=R(X)$ (anneau des fonctions
+rationnelles sur~$X$).
+\end{corollaire}
+
+En effet, on sait que ce normalis\'e est fini sur~$Y$ ($Y$ \'etant
+normal et $R/K$ s\'eparable), inversement si $X$ est fini sur~$Y$ il
+l'est sur~$Y'$, donc son image dans $Y'$ est ferm\'ee, d'autre part
+elle est dense.
+
+Une alg\`ebre $L$ de rang fini sur~$K$ sera dite \emph{non
+ramifiée sur~$X$} (ou simplement non ramifi\'ee sur~$K$, si $X$
+est sous-entendu) si $L$ est une alg\`ebre s\'eparable sur~$K$,
+\ie compos\'ee directe d'extensions s\'eparables $K_i$, et si le
+normalis\'e $Y'$ de~$Y$ dans $L$ (somme disjointe des normalis\'es
+de~$Y$ dans les $K_i$) est non ramifi\'e ($=$ \'etale par \ref{I.9.11})
+sur~$Y$. Donc:
+
+\begin{corollaire}
+\label{I.10.3}
+Pour tout $X$ fini sur~$Y$ et dont toute composante irr\'eductible
+domine $Y$, soit $R(X)$ l'anneau des fonctions rationnelles sur~$X$
+(produit des anneaux
+locaux des points g\'en\'eriques des composantes irr\'eductibles
+de~$X$), de sorte que $X\mto R(X)$ est un foncteur, \`a valeurs
+dans les alg\`ebres de rang fini sur~$K=R(Y)$. Ce foncteur
+\'etablit une \'equivalence de la cat\'egorie des rev\^etement
+\'etales connexes de~$Y$ avec la cat\'egorie des extensions $L$ de
+$K$ non ramifi\'ees sur~$Y$.
+\end{corollaire}
+
+Le foncteur inverse est le foncteur normalisation.
+
+Supposons $Y$ affine, donc d\'efini par un anneau normal $A$ de corps
+des fractions~$K$. Soit $L$ une extension finie de~$K$ compos\'e
+directe de corps, alors par d\'efinition la normalis\'ee $Y'$ de
+$Y$ dans $L$ est isomorphe \`a $\Spec(A')$, o\`u $A'$ est le
+normalis\'e de~$A$ dans~$L$. Dire que $L$ est non ramifi\'e sur~$Y$ signifie que $A'$ est non ramifi\'e (ou encore: \'etale)
+sur~$A$.
+Si
+$A$ est local, il revient au m\^eme de dire que les anneaux locaux
+$A^\prime_{\goth{n}}$ (o\`u
+$\goth{n}$
+parcourt l'ensemble fini des id\'eaux maximaux de~$A'$, \ie de ses
+id\'eaux premiers induisant l'id\'eal maximal $\goth{m}$ de~$A$)
+soient non ramifi\'es ($=$ \'etales) sur
+
+l'anneau local~$A$. Enfin, notons aussi que le crit\`ere par le
+discriminant (\ref{I.4.10}) peut aussi s'appliquer dans cette situation (plus
+g\'en\'eralement, une variante dudit crit\`ere devrait
+s'\'enoncer ainsi, sans condition pr\'eliminaire de platitude
+lorsque $X$ domine $Y$, $Y$ \'etant n\'eanmoins suppos\'e
+localement int\`egre: $A\to B$ et $B\to B\otimes_A K =L$ sont
+injectifs --- alors $\trace_{L/K}$ est d\'efinie --- et
+$\trace_{L/K}(xy)$ induit une \emph{forme bilinéaire fondamentale}
+$B\times B\to A$, \ie il existe des $x_i\in B$ ($1\le i\le n$, $n=$
+rang de~$L$ sur~$K$) tels que $\trace(x_ix_j)\in A$ pour tout $i$,~$j$
+et
+$\det(\trace(x_ix_j))$
+est inversible dans~$A$).
+
+Le sorite (4.6) implique aussit\^ot le sorite de la non ramification
+dans le cadre classique:
+
+\begin{proposition}
+\label{I.10.4}
+Soit
+$Y$ un pr\'esch\'ema normal int\`egre, de corps~$K$.
+\textup{(i)} $K$ est non ramifi\'e
+sur~$Y$.
+\textup{(ii)} Si $L$ est une extension de~$K$ non ramifi\'ee sur~$Y$, si $Y'$
+est un pr\'esch\'ema normal de corps $L$ et dominant $Y$ (par
+exemple le normalis\'e de~$Y$ dans~$L$) et $M$ une extension de~$L$
+non ramifi\'ee sur~$Y'$, alors $M/K$ est non ramifi\'ee sur~$X$
+(\emph{transitivité} de la non ramification). \textup{(iii)} Soit $Y'$ un
+pr\'esch\'ema normal int\`egre dominant $Y$, de corps $K'/K$; si
+$L$ est une extension de~$K$ non ramifi\'ee sur~$Y$, alors
+$L\otimes_K K'$ est une extension de~$K'$ non ramifi\'ee sur~$Y'$
+(propri\'et\'e de \emph{translation}).
+\end{proposition}
+
+De
+plus:
+
+\begin{corollaire}
+\label{I.10.5}
+Sous les conditions de \textup{(iii)}, si $Y=\Spec(A)$, $Y'=\Spec(A')$, alors
+le normalis\'e
+$\bar{A'}$
+de~$Y'$ dans $L'=L\otimes_K K'$ s'identifie
+\`a $\bar{A}\otimes_A A'$, o\`u $\bar{A}$ est le normalis\'e de
+$A$ dans $L$.
+\end{corollaire}
+
+Habituellement, les gens (qui r\'epugnent \`a la consid\'eration
+d'anneaux non int\`egres, fussent-ils compos\'es directs de corps)
+\'enoncent la propri\'et\'e de translation sous la forme (plus
+faible) suivante:
+
+\begin{corollaire}
+\label{I.10.6}
+Sous les conditions de \textup{(iii)}, soit $L_1$ une \emph{extension
+composée} de~$L/K$ (non ramifi\'ee sur~$Y$) et de~$K'/K$. Alors
+$L_1/K'$ est non ramifi\'ee sur~$Y'$. Dans le cas o\`u
+$Y=\Spec(A)$, $Y'=\Spec(A')$, on aura de plus
+$$
+\overline{A'}=A[\overline{A},A']
+$$
+\ie l'anneau $\overline{A'}$ normalis\'e de~$A'$ dans $L_1$ est la
+$A$-alg\`ebre engendr\'ee par $A'$ et le normalis\'e
+$\overline{A}$ de~$A$ dans $L$.
+\end{corollaire}
+
+Ce dernier fait est d'ailleurs faux sans hypoth\`ese de non
+ramification, m\^eme dans le cas d'extensions compos\'ees de corps
+de nombres...
+
+Pour terminer ce num\'ero, nous allons donner l'interpr\'etation
+de la notion de rev\^etement \'etale correspondant \`a l'image
+intuitive de cette notion: il doit y avoir le \og nombre maximum\fg de
+points au-dessus du point consid\'er\'e $y\in Y$, et en
+particulier il ne doit pas y avoir \og plusieurs points confondus\fg
+au-dessus de~$y$. Pour d\'emontrer les r\'esultats dans ce sens
+avec toute la g\'en\'eralit\'e d\'esirable, nous allons
+admettre ici la proposition~\ref{I.10.7} plus bas (dont la d\'emonstration
+sera dans le multiplodoque, Chap.\, IV, par.\, 15, et utilise la technique
+des ensembles constructibles de Chevalley, et un petit peu de
+th\'eorie de descente...).
+
+Un morphisme de type fini $f\colon X\to Y$ est dit
+\emph{universellement ouvert} si pour toute extension de la base
+$Y'\to Y$ (avec $Y'$ localement noeth\'erien) le morphisme $f'\colon
+X'=X\times_Y Y'\to Y'$ est ouvert, \ie transforme ouverts en
+ouverts. On peut d'ailleurs se borner au cas o\`u $Y'$ est de type
+fini sur~$Y$ (et m\^eme o\`u $Y'$ est de la forme
+$Y[t_1,\dots,t_r]$, o\`u les $t_i$ sont des ind\'etermin\'ees).
+Un morphisme universellement ouvert est a~fortiori ouvert (la
+r\'eciproque \'etant fausse), d'autre part si $f$ est ouvert, $X$
+et $Y$ \'etant irr\'eductibles, alors toutes les composantes de
+toutes les fibres de~$f$ ont m\^eme dimension (savoir la dimension de
+la fibre g\'en\'erique
+$f^{-1}(z)$, $z$ le point g\'en\'erique
+de~$Y$). Enfin si $Y$ est normal, cette derni\`ere condition
+implique d\'ej\`a que $f$ est \emph{universellement} ouvert
+(th\'eor\`eme de Chevalley). Il s'ensuit par exemple que si
+$f\colon X\to Y$ est un morphisme \emph{quasi-fini}, avec $Y$ normal
+irr\'eductible, alors $f$ est universellement
+ouvert
+(ou encore:
+ouvert)
+si et seulement si toute composante irr\'eductible de~$X$
+domine~$Y$. Rappelons aussi qu'un morphisme plat (de type fini)
+\'etant ouvert, est aussi universellement ouvert. Ces
+pr\'eliminaires pos\'es, \og rappelons\fg la
+
+\begin{proposition}
+\label{I.10.7}
+Soit $f\colon X\to Y$ un morphisme quasi-fini s\'epar\'e
+universellement ouvert. Pour tout $y\in Y$, soit $n(y)$ le \og nombre
+g\'eom\'etrique de points de la fibre $f^{-1}(y)$\fg, \'egal
+\`a la somme des degr\'es s\'eparables des extensions
+r\'esiduelles
+$\kres(x)/\kres(y)$, pour les points $x\in f^{-1}(y)$. Alors
+la fonction $y\mto n(y)$ sur~$Y$ est semi-continue
+sup\'erieurement. Pour qu'elle soit constante au voisinage du point
+$y$ (\ie pour qu'on ait $n(y)=n(z_i)$, o\`u les $z_i$ sont les
+points g\'en\'eriques des composantes irr\'eductibles de~$Y$ qui
+contiennent $y$) il faut qu'il existe un voisinage $U$ de~$y$ tel que
+$X|U$ soit \emph{fini} sur~$U$.\footnote{\Cf EGA IV 15.5.1}
+\end{proposition}
+
+\begin{corollaire}
+\label{I.10.8}
+Si $y\mto n(y)$ est constante et $Y$ g\'eom\'etriquement
+unibranche\footnote{Pour la d\'efinition, \cf ci-dessous
+\no \ref{I.11}, p.\, \pageref{I.11}}, les composantes irr\'eductibles
+de~$X$ sont disjointes.
+\end{corollaire}
+
+\begin{proposition}
+\label{I.10.9}
+Soit $f\colon X\to Y$ un morphisme \emph{étale} s\'epar\'e.
+Avec les notations~\ref{I.10.7} la fonction $y\mto n(y)$ est
+semi-continue sup\'erieurement. Pour qu'elle soit constante au
+voisinage du point $y$, (\ie pour qu'on ait $n(y)=n(z_i)$, o\`u
+les $z_i$ sont les points g\'en\'eriques des composantes
+irr\'eductibles de~$Y$ qui contiennent $y$) il faut et il suffit
+qu'il existe un voisinage ouvert $U$ de~$y$ tel que $X|U$ soit fini
+sur U, \ie soit un \emph{revêtement étale} de~$U$.
+\end{proposition}
+
+\begin{corollaire}
+\label{I.10.10}
+Pour qu'un morphisme \'etale s\'epar\'e $f\colon X\to Y$, $Y$
+connexe, soit fini (\ie fasse de~$X$ un \emph{revêtement
+étale} de~$Y$) il faut et il suffit que toutes les fibres de~$f$
+aient m\^eme nombre g\'eom\'etrique de points.
+\end{corollaire}
+
+Dans~\ref{I.10.7}
+et son corollaire, il n'y avait pas d'hypoth\`ese de normalit\'e
+sur~$Y$. Si on fait une telle hypoth\`ese, on trouve
+l'\'enonc\'e plus fort (pris le plus souvent comme
+d\'efinition de la non ramification d'un rev\^etement):
+
+\begin{theoreme}
+\label{I.10.11}
+Soit
+$f\colon X\to Y$ un morphisme \emph{quasi-fini} s\'epar\'e.
+On suppose que~$Y$ est \emph{irréductible}, que toute composante
+de~$X$ domine $Y$, que $X$ soit r\'eduit (\ie $\cal{O}_X$ sans
+\'el\'ements nilpotents). Soit $n$ le degr\'e de~$X$ sur~$Y$
+(somme des degr\'es, sur le corps $K$ de~$Y$, des corps $K_i$ des
+composantes irr\'eductibles $X_i$ de~$X$). Soit $y$ un point normal
+de~$Y$. Alors le nombre g\'eom\'etrique $n(y)$ de points de~$X$
+au-dessus de~$y$ est $\le n$, l'\'egalit\'e ayant lieu si et
+seulement si il existe un voisinage ouvert $U$ de~$y$ tel que $X|U$
+soit un \emph{revêtement étale} de~$U$.
+\end{theoreme}
+
+Le \og seulement si\fg \'etant trivial, prouvons le \og si\fg. Soit $z$ le
+point g\'en\'erique de~$Y$, on a $n(z)=$ (somme des degr\'es
+s\'eparables des $K_i/K$) $\le n$ et par \ref{I.10.7} on a $n(y)\le n(z)\le
+n$, l'\'egalit\'e impliquant que $X|U$ est \emph{fini} sur~$U$
+pour un voisinage~$U$ convenable de~$y$. On peut donc supposer $X$
+fini sur~$Y$ et la fonction $n(y')$ sur~$Y$ constante. Enfin par~\ref{I.10.8}
+$X$ est alors r\'eunion disjointe de ses composantes
+irr\'eductibles et pour prouver qu'il est non ramifi\'e en $y$, on
+est ramen\'e au cas o\`u $X$ est irr\'eductible, donc
+int\`egre. Enfin on peut supposer $Y=\Spec(\cal{O}_y)$. Le
+th\'eor\`eme se r\'eduit alors \`a l'\'enonc\'e classique
+suivant:
+
+\begin{corollaire}
+\label{I.10.12}
+Soient $A$ un anneau local normal (noeth\'erien comme toujours) de
+corps $K$, $L$ une extension finie de~$K$ de degr\'e $n$, degr\'e
+s\'eparable $n_s$, $B$ un sous-anneau de~$L$ fini sur~$A$, de corps
+des fractions
+$L$,
+$\goth{m}$ l'id\'eal maximal de~$A$ et $n'$ le
+degr\'e s\'eparable de~$B/\goth{m}B$ sur~$A/\goth{m}A=k$ ($=$
+somme des degr\'es s\'eparables des extensions r\'esiduelles de
+cet anneau). On a $n'\le n_s$ et a~fortiori $n'\le n$. Cette
+derni\`ere in\'egalit\'e est une \'egalit\'e si et seulement
+si $B$ est non~ramifi\'e ($=$ \'etale) sur~$A$.
+\end{corollaire}
+
+Il reste seulement \`a montrer que $n'=n$ implique que $B$ est
+\'etale sur~$A$. Rappelons la d\'emonstration quand $k$ est
+infini: on doit seulement montrer que $R=B/\goth{m}B$ est
+s\'eparable sur~$k$; s'il n'en \'etait pas ainsi il en
+r\'esulterait (par un lemme connu) qu'il existe un \'el\'ement
+$a$ de~$R$ dont le polyn\^ome minimal sur~$k$ est de degr\'e
+$>n'$. Cet \'el\'ement provient d'un \'el\'ement $x$ de~$B$,
+dont le polyn\^ome minimal sur~$K$ (en tant qu'\'el\'ement de
+$L$) est de degr\'e $\le n$; d'autre part ce dernier a ses
+coefficients dans~$A$ puisque $A$ est normal, et donne donc par
+r\'eduction mod $\goth{m}$ un polyn\^ome unitaire $F\in k[t]$, de
+degr\'e $\le n=n'$, tel que $F(a)=0$, absurde.
+
+Dans
+le cas g\'en\'eral ($k$ pouvant \^etre fini), reprenant le
+langage g\'eom\'etrique, on consid\`ere $Y'=\Spec(A[t])$ qui est
+fid\`element plat sur~$Y$, et le point g\'en\'erique $y'$ de la
+fibre $\Spec(k[t])$ de~$Y'$ sur~$y$. Alors $X$ est net sur~$Y$ en $y$
+si et seulement si $X'=X\times_Y Y'=\Spec(B[t])$ est net en $y'$ sur~$Y'$, comme on constate aussit\^ot. D'autre part, d'apr\`es le
+choix de~$y'$, son corps r\'esiduel est $k(t)$ donc infini. Comme
+$y'$ est un point normal de~$Y'$, on est ramen\'e au cas
+pr\'ec\'edent.
+
+
+
+
+
+
+
+\section{Quelques compl\'ements}
+\label{I.11}
+
+Nous avons d\'ej\`a dit qu'un rev\^etement \'etale connexe
+d'un sch\'ema int\`egre n'est pas n\'e\-ces\-sai\-rement
+int\`egre. Voici deux exemples de ce fait.
+
+a) Soit $C$ une courbe alg\'ebrique \`a point double
+ordinaire~$x$, $C^\prime$ sa normalis\'ee, $a$ et~$b$ les deux
+points de~$C^\prime$ au-dessus de~$x$. Soient $C_i^\prime$ ($i=1$,
+$2$) deux copies de~$C^\prime$, $a_i$ et~$b_i$ le point de
+$C_i^\prime$ qui correspond \`a $a$ \resp $b$. Dans la courbe somme
+$C_1^\prime \amalg C_2^\prime$, identifions
+$a_1$
+et~$b_2$ d'une part, $a_2$ et~$b_1$ d'autre part (on laisse au lecteur
+le soin de pr\'eciser le processus d'identification; il sera
+expliqu\'e au Chap.\, VI du multiplodoque mais, dans le cas des
+courbes sur un corps alg\'ebriquement clos, est trait\'e dans le
+livre de Serre sur les courbes alg\'ebriques). On trouve une courbe
+$C^{\prime\prime}$ \emph{connexe} et \emph{réductible}, qui est un
+rev\^etement \'etale de degr\'e~$2$ de~$C$. Le lecteur
+v\'erifiera que de fa\c con g\'en\'erale, les rev\^etements
+\'etales connexes \og galoisiens\fg $C^{\prime\prime}$ de~$C$ dont
+l'image inverse $C^{\prime\prime} \times_C C^\prime$ est un
+rev\^etement \emph{trivial} de~$C^\prime$ (\ie isomorphe \`a la
+somme d'un certain nombre de copies de~$C^\prime$) sont \og cycliques\fg
+de degr\'e~$n$, et pour tout entier~$n>0$, on peut construire un
+rev\^etement \'etale connexe cyclique de degr\'e~$n$. Dans le
+langage du groupe fondamental qui sera d\'evelopp\'e plus tard,
+cela signifie que le quotient de~$\pi_1(C)$ par le sous-groupe
+invariant ferm\'e engendr\'e par l'image de~$\pi_1(C^\prime) \to
+\pi_1(C)$ (homomorphisme induit par la projection) est isomorphe au
+compactifi\'e de~$\ZZ$. De fa\c con plus pr\'ecise, on doit
+pouvoir montrer que le groupe fondamental de~$C$ est isomorphe au
+produit libre (topologique) du groupe fondamental
+de~$C^\prime$
+par le compactifi\'e de~$\ZZ$. Notons que ce sont des questions
+de ce genre qui ont donn\'e naissance \`a la \og th\'eorie de la
+descente\fg pour les sch\'emas.
+
+b) Soit $A$ un anneau local complet int\`egre, on sait que son
+normalis\'e $A^\prime$ est fini
+sur~$A$ (Nagata), donc c'est un anneau semi-local complet, donc local
+puisqu'il est int\`egre. Supposons que l'extension r\'esiduelle
+$L/k$ qu'il d\'efinit soit non radicielle (dans le cas contraire, on
+dira que $A$ est g\'eom\'etriquement unibranche, \cf plus bas). Ce
+sera le cas par exemple pour l'anneau
+$\RR[[s,t]]/(s^2+t^2)\RR[[s,t]]$,
+o\`u $\RR$ est le corps
+des r\'eels. Soit alors $k^\prime$ une extension galoisienne finie
+de~$k$ telle que $L \otimes_k k^\prime$ se d\'ecompose; et soit~$B$
+une alg\`ebre finie \'etale sur~$A$ correspondant \`a
+l'extension r\'esiduelle~$k^\prime$ (rappelons que $B$ est
+essentiellement unique). Alors $B^\prime = A^\prime \otimes_A B$
+sur~$B$ a l'alg\`ebre r\'esiduelle $L \otimes_k k^\prime$ qui
+n'est pas locale, donc $B^\prime$ n'est pas un anneau local donc
+(\'etant complet) a des diviseurs de~$0$. Comme il est contenu dans
+l'anneau total des fractions de~$B$ (car libre sur~$A^\prime$ donc
+sans torsion sur~$A^\prime$ donc sans torsion sur~$A$, donc contenu
+dans $B^\prime \otimes_A K = B^\prime_{(K)} = A^\prime_{(K)} \otimes_K
+B_{(K)} = B_{(K)}$ puisque $A^\prime_{(K)} = K$) il s'ensuit que $B$
+n'est pas int\`egre. Dans le cas de l'anneau
+$\RR[s,t]/(s^2+t^2)\RR[s,t]$, prenant $k^\prime/k=
+\CC/\RR$, on trouve pour~$B$ l'anneau local de deux droites
+s\'ecantes du plan en leur point d'intersection.
+
+Notons d'ailleurs que s'il existe un rev\^etement connexe \'etale
+$X$ de~$Y$ int\`egre qui ne soit pas irr\'eductible, alors toute
+composante irr\'eductible de~$X$ donne un exemple d'un
+rev\^etement non ramifi\'e $X^\prime$ de~$Y$, dominant~$Y$, qui
+n'est pas \'etale sur~$Y$. Dans le cas de l'exemple~a), on obtient
+ainsi que $C^\prime$ est non ramifi\'e sur~$C$, sans \^etre
+\'etale en les deux points $a$ et~$b$ (comme on constate d'ailleurs
+directement par inspection des compl\'et\'es des anneaux locaux
+de~$x$ et~$a$: du point de vue \og formel\fg, $C^\prime$ au point~$a$
+s'identifie \`a un sous-sch\'ema ferm\'e de~$C$ au point~$x$,
+savoir l'une des deux \og branches\fg de~$C$ passant par~$x$).
+
+Dans a) et~b), on voit que la non validit\'e des conclusions
+de~\ref{I.9.5}.\, (i) et~(ii) est li\'ee directement au fait qu'un
+point de~$Y$ \og \'eclate\fg en des points \emph{distincts} du
+normalis\'e (dans~b),
+le fait que l'extension r\'esiduelle soit non radicielle
+doit \^etre interpr\'et\'ee g\'eom\'etriquement de cette
+fa\c con). De fa\c con pr\'ecise, nous dirons qu'un anneau local
+int\`egre~$A$ est \emph{géométriquement unibranche}
+\index{geometriquement unibranche@g\'eom\'etriquement unibranche|hyperpage}\index{unibranche (geometriquement)@unibranche (g\'eom\'etriquement)|hyperpage}si son normalis\'e n'a qu'un seul id\'eal maximal, l'extension
+r\'esiduelle correspondante \'etant radicielle; un point~$y$ d'un
+pr\'esch\'ema int\`egre est dit g\'eom\'etriquement
+unibranche si son anneau local l'est. Exemples: un point normal, un
+point de rebroussement ordinaire d'une courbe, etc. Il semble que si
+$Y$ admet un point qui
+n'est pas unibranche, il existe toujours
+un
+rev\^etement \'etale
+connexe non irr\'eductible de~$Y$; c'est du moins ce que nous avons
+montr\'e dans le cas~b), lorsque $Y$ est le spectre d'un anneau
+local complet. On peut montrer par contre que \emph{si tous les points
+de~$Y$ sont géométriquement unibranches, alors tout
+$Y$-préschéma non ramifié connexe dominant~$Y$ est
+étale} et irr\'eductible. La d\'emonstration reprend celle
+de~\ref{I.9.5}, en utilisant la g\'en\'eralisation suivante du
+th\'eor\`eme~\ref{I.8.3}, qui sera d\'emontr\'ee plus tard
+\`a l'aide de la technique de
+descente\footnote{\Cf IX~\ref{IX.4.10}. Pour une d\'emonstration
+plus directe, \cf EGA~IV 18.10.3, utilisant une variante
+de~\ref{I.9.5} pour des anneaux locaux g\'eom\'etriquement
+unibranches.}:
+
+\emph{Soit $Y^\prime \to Y$ un morphisme fini, radiciel, surjectif
+(\ie ce qu'on pourrait appeler un \og homéomorphisme
+universel\fg). Considérons le foncteur $X \mto X \times_Y
+Y^\prime = X^\prime$ des $Y$-préschémas dans les
+$Y^\prime$-préschémas. Ce foncteur induit une équivalence
+de la catégorie des $Y$-schémas étales avec la
+catégorie des $Y^\prime$-schémas étales.} On pourra
+appliquer par exemple ce r\'esultat dans le cas o\`u $Y^\prime$
+est le normalis\'e de~$Y$, $Y$ \'etant suppos\'e unibranche (et
+$Y^\prime$ fini sur~$Y$, ce qui est vrai dans tous les cas qu'on
+rencontre en pratique), ou au cas d'un $Y^{\prime\prime}$ \og en
+sandwich\fg entre~$Y$ et son normalis\'e (qui n'a plus besoin
+d'\^etre fini sur~$Y$).
+

@@ -1,0 +1,1593 @@
+\chapter[Descente des morphismes \'etales]{Descente des morphismes \'etales.\\ Application au groupe fondamental}
+\label{IX}
+
+\section{Rappels sur les morphismes \'etales}
+\label{IX.1}
+
+Nous allons ici passer en revue les propri\'et\'es des morphismes
+\'etales (d\'evelopp\'es dans~\ref{I}) qui vont nous servir,
+en profitant de cette occasion pour \'eliminer de la th\'eorie les
+hypoth\`eses noeth\'eriennes superflues. Le lecteur notera que
+m\^eme si on ne s'int\'eresse qu'aux sch\'emas noeth\'eriens, la
+technique de descente conduit \`a introduire des sch\'emas non
+noeth\'eriens (tels que~$\Spec(\widehat{A}\otimes_{A}\widehat{A})$,
+o\`u~$A$ est un anneau local noeth\'erien), et pour pouvoir
+appliquer le langage des cat\'egories fibr\'ees, il importe de
+d\'efinir les notions telles que morphisme \'etale etc., sans y
+introduire de restriction noeth\'erienne. Le lecteur qui
+r\'epugnerait \`a v\'erifier ou \`a admettre que les
+\'enonc\'es ci-dessous sont vrais sans hypoth\`eses
+noeth\'eriennes, pourra se contenter de les admettre sous les
+hypoth\`eses noeth\'eriennes de~\ref{I}, \`a condition
+d'introduire ces m\^emes hypoth\`eses noeth\'eriennes dans les
+\'enonc\'es des num\'eros suivants, et d'utiliser la
+d\'efinition~\ref{IX.1.1} ci-dessous pour les sch\'emas non
+noeth\'eriens qui s'introduisent dans les raisonnements.
+
+\begin{definition}
+\label{IX.1.1}
+Soient~$f\colon X\to S$ un morphisme de pr\'esch\'emas, et~$x$ un
+point de~$X$. On dit que~$f$ est \emph{étale en}~$x$,
+\index{etale (morphisme, algebre)@\'etale (morphisme, alg\`ebre)|hyperpage}ou que~$X$ est \'etale sur~$S$ en~$x$, s'il existe un voisinage
+ouvert affine~$U$ de~$s=f(x)$, un voisinage ouvert affine~$V$ de~$x$
+au-dessus de~$U$, un sch\'ema \emph{noethérien} affine~$U_{0}$,
+un~$U_{0}$-sch\'ema \emph{étale}~\eqref{I} et affine~$V_{0}$, un
+morphisme~$U\to U_{0}$, et un~$U$-isomorphisme
+$$
+V\isomto V_{0}\times_{U_{0}}U\quoi.
+$$
+\end{definition}
+
+On
+notera que lorsque~$S$ est localement noeth\'erien, cette
+terminologie co\"incide avec celle de \loccit On dira de m\^eme
+que~$f$ \emph{est étale}, ou que~$X$ \emph{est étale sur}~$S$,
+si~$f$ est \'etale en tout point~$x$ de~$X$. Avec ces
+d\'efinitions, les propositions ci-dessous se ram\`enent sans
+difficult\'e au cas noeth\'erien, o\`u elles sont
+d\'emontr\'ees dans~I~\No \ref{I.4},
+\ref{I.5},~\ref{I.7}. Pour des d\'etails, le lecteur pourra
+consulter EGA~IV\footnote{De fa\c con pr\'ecise, EGA~IV 17,~18.}.
+
+\begin{remarques}
+\label{IX.1.2}
+Si $f$ est \'etale en $x$, alors $f$ est \og \emph{de présentation
+finie en}~$x$\fg (VIII~\ref{VIII.3.5}), l'anneau local de~$x$ dans la
+fibre $f^{-1}(s)$ est une \emph{extension finie séparable} de
+$\kres(s)$, enfin $f$ est \emph{plat en}~$x$. On peut montrer que la
+r\'eciproque est vraie, donc que la d\'efinition~\ref{IX.1.1} est
+la m\^eme que dans le cas o\`u $S$ est localement noeth\'erien,
+sauf qu'il faut remplacer la condition \og de type fini en~$x$\fg par
+\og de pr\'esentation finie en~$x$\fg. Comme ce r\'esultat est de
+d\'emonstration d\'elicate, nous n'avons pas voulu ici donner
+cette d\'efinition de la notion de morphisme \'etale, qui ne se
+pr\^ete pas directement \`a la d\'emonstration des
+propri\'et\'es qui vont suivre.
+\end{remarques}
+
+Notons d'abord qu'on a trivialement:
+\begin{proposition}
+\label{IX.1.3}
+Si $f\colon X\to S$ est \'etale, alors tout morphisme $f'\colon
+X'\to S'$ qui s'en d\'eduit par changement de base $S'\to S$ est
+\'egalement \'etale.
+\end{proposition}
+
+On peut donc dire que les morphismes \'etales forment une
+\emph{sous-catégorie fibrée} de la cat\'egorie des
+fl\`eches dans~$\Sch$
+(\cf VI~\ref{VI.11}~a)). L'objet du pr\'esent
+expos\'e est l'\'etude des propri\'et\'es d'exactitude de
+cette cat\'egorie fibr\'ee sur~$\Sch$.
+\begin{proposition}
+\label{IX.1.4}
+Soit $f\colon X\to S$ un morphisme de pr\'esch\'emas. Pour que ce
+soit une immersion ouverte, il faut et il suffit qu'il soit \'etale
+et radiciel.
+\end{proposition}
+
+\Cf I~\ref{I.5.1}. On en conclut que si $X$ est \'etale sur~$S$, toute section de~$X$ sur~$S$ est une immersion ouverte, donc,
+utilisant encore~\ref{IX.1.4}, on trouve:
+\begin{corollaire}
+\label{IX.1.5}
+Soit $X$ un $S$-pr\'esch\'ema \'etale. Alors il y a une
+correspondance biunivoque entre l'ensemble des sections de~$X$
+sur~$S$, et l'ensemble des parties
+ouvertes $\Gamma$ de~$X$ telles que le morphisme $\Gamma \to S$ induit
+par le morphisme structural soit \emph{radiciel} et \emph{surjectif}.
+\end{corollaire}
+
+Si d'ailleurs $X$ est s\'epar\'e sur~$S$, $\Gamma$ sera une partie
+de~$X$ \`a la fois ouverte et ferm\'ee, mais peu importe. --- Faisant un changement de base \'evident, on peut mettre~\ref{IX.1.5}
+sous la forme en apparence plus g\'en\'erale:
+\begin{corollaire}
+\label{IX.1.6}
+Soient $X$ et $Y$ deux $S$-pr\'esch\'emas, $Y$ \'etant \'etale
+sur~$S$. Alors l'application $f \mto \Gamma_f$ qui associe \`a
+tout $S$-morphisme $f$ de~$X$ dans $Y$ la partie de~$X\times_S Y$
+sous-jacente au graphe de~$f$, est une bijection de~$\Hom_S(X,Y)$ sur
+l'ensemble des parties ouvertes de~$\Gamma$ de~$X\times_S Y$ telles
+que le morphisme $\Gamma\to X$ induit par $\pr_1$ soit
+\emph{radiciel} et \emph{surjectif}.
+\end{corollaire}
+
+\begin{proposition}
+\label{IX.1.7}
+Soit $S_0$ le sous-pr\'esch\'ema de~$S$ d\'efini par un
+Nil-id\'eal quasi-coh\'erent, \ie tel que $S_0$ ait m\^eme
+ensemble sous-jacent que~$S$. Alors le foncteur $X \mto X\times_S
+S_0$ de la cat\'egorie des pr\'esch\'emas \'etales sur~$S$
+dans la cat\'egorie des pr\'esch\'emas \'etales sur~$S_0$, est
+une \'equivalence de cat\'egories.
+\end{proposition}
+
+Le fait que ce foncteur soit pleinement fid\`ele est une
+cons\'equence imm\'ediate de~\ref{IX.1.6}. Le fait qu'il soit
+essentiellement surjectif est contenu dans~I~\ref{I.8.3}. On notera
+que dans l'\'equivalence pr\'ec\'edente,
+$X$ est de type fini \ie quasi-fini sur~$S$, (\resp fini \ie un rev\^etement \'etale
+de~$S$), si et seulement si $X_0$ satisfait \`a la condition
+analogue sur~$S_0$; m\^eme remarque pour la condition de
+s\'eparation. Ces faits sont imm\'ediats, et aussi contenus
+dans~\ref{IX.2.4} plus bas.
+
+\begin{corollaire}
+\label{IX.1.8}
+Soit $A$ un anneau local noeth\'erien complet de corps r\'esiduel
+$k$. Alors le foncteur $B \mto B\otimes_A k$ est une
+\'equivalence de la cat\'egorie des alg\`ebres finies et
+\'etales sur~$A$, avec la cat\'egorie des alg\`ebres finies et
+\'etales sur~$k$, (\ie compos\'ees d'un nombre fini d'extensions
+finies s\'eparables de~$k$).
+\end{corollaire}
+
+\begin{proposition}
+\label{IX.1.9}
+Pour que $X$ soit un \emph{revêtement étale} de~$S$ \ie fini
+et \'etale sur~$S$, il faut et il suffit que $X$ soit $S$-isomorphe
+au spectre d'une Alg\`ebre $\cal{A}$ sur~$S$, qui soit un Module
+localement libre de type fini, et telle que pour tout
+$s \in S$, $\cal{A}_s\otimes_{\cal{O}_s}\kres(s)$ soit une alg\`ebre
+s\'eparable sur~$\kres(s)$, donc en l'occurrence compos\'ee directe
+d'extensions finies s\'eparables de~$\kres(s)$.
+\end{proposition}
+
+Enfin le r\'esultat suivant est de nature moins \'el\'ementaire,
+\'etant la conjonction de~I~\ref{I.8.4} et du
+\emph{théorème d'existence de faisceaux en géométrie
+algébrique}, (EGA~III~5; \cf aussi \cite{IX.1} th.\, 3).
+
+\begin{theoreme}
+\label{IX.1.10}
+Soient $S$ le spectre d'un anneau local noeth\'erien complet, $X$ un
+$S$-sch\'ema propre, $X_0$ la fibre de~$X$ au point ferm\'e de
+$S$, (de sorte que $X_0$ est un sous-sch\'ema ferm\'e de
+$X$). Alors le foncteur restriction $X' \mto X'\times_X X_0$ est
+une \'equivalence de la cat\'egorie des rev\^etements \'etales
+de~$X$ avec la cat\'egorie des rev\^etements \'etales de~$X_0$.
+\end{theoreme}
+
+\section{Morphismes submersifs et universellement submersifs}
+\label{IX.2}
+
+\begin{definition}
+\label{IX.2.1}
+Un morphisme $g\colon S' \to S$ de pr\'esch\'emas est dit
+\emph{submersif}
+\index{submersif (morphisme)|hyperpage}s'il est surjectif, et fait de~$S$ un espace topologique quotient
+de~$S'$ (\ie une partie $U$ de~$S$ telle que $f^{-1}(U)$ soit
+ouverte, est ouverte). On dit que $f$ est \emph{universellement
+submersif}
+\index{universellement submersif (morphisme)|hyperpage}si pour tout morphisme $T \to S$, le morphisme $f'\colon T'=S'\times_S
+T \to T$ d\'eduit de~$f$ par changement de base est submersif.
+\end{definition}
+
+Il est imm\'ediat que le compos\'e de deux morphismes submersifs
+(\resp universellement submersifs) est submersif
+(\resp universellement submersif), et qu'un changement de base dans un
+morphisme universellement submersif donne un morphisme universellement
+submersif (vu qu'on fait ce qu'il faut pour cela). Si $fg$ est
+submersif (\resp universellement submersif), $f$ l'est.
+\begin{exemples}
+\label{IX.2.2}
+a) Un morphisme surjectif qui est ouvert, ou ferm\'e, est submersif,
+donc un morphisme surjectif universellement ferm\'e ou
+universellement ouvert est universellement submersif. Par exemple
+\emph{un morphisme propre surjectif est universellement
+submersif}. D'autre part \emph{un morphisme fidèlement plat et
+quasi-compact est universellement submersif} (VIII~\ref{VIII.4.3}). Ce
+seront les deux cas les plus importants pour nous.
+\end{exemples}
+
+On
+peut appliquer \`a un morphisme submersif ou universellement
+submersif $g\colon S' \to S$ les raisonnements de~VIII~\ref{VIII.4.3},
+on trouve en particulier:
+\begin{proposition}
+\label{IX.2.3}
+Supposons $g\colon S' \to S$ submersif. Alors le diagramme suivant
+d'applications est exact:
+$$
+\xymatrix@C=.5cm{{\mathrm{Ouv} (S)}\ar[r]&{\mathrm{Ouv} (S')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Ouv}(S''),}}
+$$
+o\`u $S'' = S'\times_S S'$, et o\`u $\Ouv(X)$ d\'esigne
+l'ensemble des parties ouvertes du pr\'esch\'ema~$X$.
+\end{proposition}
+
+\begin{proposition}
+\label{IX.2.4}
+Soient $g\colon S' \to S$ un morphisme universellement submersif,
+$f\colon X \to Y$ un $S$-morphisme, et $f'\colon X' \to Y'$ le
+$S'$-morphisme qui s'en d\'eduit par changement de base. Pour que
+$f$ soit ouverte (\resp ferm\'ee), il suffit que $f'$ le soit. Pour
+que $f$ soit universellement ouverte, \resp universellement
+ferm\'ee, \resp s\'epar\'ee, il faut et il suffit que $f'$ le
+soit. Si de plus $g$ est quasi-compact, et $f$ localement de type
+fini, pour que $f$ soit propre, il faut et il suffit que $f'$ le soit.
+\end{proposition}
+
+Pour ce dernier point, on note que si $f'$ est propre donc
+quasi-compact alors $f$ est quasi-compact (VIII~\ref{VIII.3.3}) donc
+de type fini puisqu'il est localement de type fini. D'autre part il
+est s\'epar\'e et universellement ferm\'e d'apr\`es ce qui
+pr\'ec\`ede, donc il est propre.
+\begin{proposition}
+\label{IX.2.5}
+Soit $S'$ un pr\'esch\'ema de type fini sur le spectre $S$ d'un
+anneau local noeth\'erien complet, supposons que la fibre du point
+ferm\'e $s$ de~$S$ soit finie, donc les anneaux locaux dans $S'$ des
+points $s'$ de cette fibre sont finis sur~$A=\cal{O}_s$. Soit~$S''$ le
+sch\'ema somme des spectres des $\cal{O}_{S',s'}$ en question,
+consid\'er\'e comme $S$-sch\'ema fini. Pour que $g\colon S' \to
+S$ soit universellement submersif, il faut et il suffit que le
+morphisme structural $S''\to S'$ soit surjectif.
+\end{proposition}
+
+Comme il y a un $S$-morphisme naturel $S'' \to S'$, et qu'un morphisme
+fini surjectif est universellement submersif d'apr\`es~\ref{IX.2.2},
+la condition \'enonc\'ee est suffisante. Montrons donc que si
+$S''\to S'$ n'est pas surjectif, alors $g$ n'est pas universellement
+submersif. En effet, soit $t$ un point de~$S$ qui n'est pas dans
+l'image de~$S''$; il existe alors un $S$-sch\'ema $T$, spectre d'un
+anneau de valuation discr\`ete, dont l'image dans $S$ est
+$\{s,t\}$. Notons que l'image de~$S''$ dans $S'$ est ouverte, car le
+morphisme $S'' \to S'$ est un isomorphisme local, et d'autre part
+cette image contient $S'_s$, et ne rencontre pas $S'_t$. Il s'ensuit
+que l'image inverse de cette derni\`ere dans $T'=S'\times_S T$ est
+\emph{ouverte}, et identique \`a l'image inverse du point ferm\'e
+de~$T$. Cela montre que $T'\to T$ n'est pas submersif, donc $S'\to S$
+n'est pas universellement submersif.
+\begin{remarque}
+\label{IX.2.6}
+Utilisant le crit\`ere IV~\ref{IV.6.3} pour qu'une partie
+constructible d'un espace noeth\'erien soit ouverte, on trouve
+facilement le crit\`ere valuatif suivant pour qu'un morphisme
+$g\colon S'\to S$ \emph{de type fini}, avec $S$ localement
+noeth\'erien, soit universellement submersif: il faut et il suffit
+que pour tout $S$-sch\'ema $T$, spectre d'un anneau de valuation
+discr\`ete, posant $T'=S'\times_S T$, l'image inverse dans $T'$ du
+point ferm\'e de~$T$ soit non ouverte.
+\end{remarque}
+
+\section{Descente de morphismes de pr\'esch\'emas \'etales}
+\label{IX.3}
+
+\begin{proposition}
+\label{IX.3.1}
+Soient $g\colon S'\to S$ un morphisme \emph{surjectif} de
+pr\'esch\'emas, $X$ et $Y$ deux pr\'esch\'emas sur~$S$, $X'$,
+$Y'$ leurs images inverses sur~$S'$. Si $Y$ est non ramifi\'e sur~$S$, alors l'application canonique
+$$
+\Hom_S(X,Y) \to \Hom_{S'}(X',Y')
+$$
+est injective.
+\end{proposition}
+
+En effet, en vertu de~\ref{IX.1.6}, un $S$-morphisme $f\colon X\to Y$
+est connu quand on conna\^it l'ensemble sous-jacent \`a son
+graphe $\Gamma$, qui est une partie de~$Z=X\times_SY$. Comme
+$$
+Z'=Z\times_SS'=X'\times_{S'}Y' \to Z
+$$
+est surjectif, (puisque $S'\to S$ l'est), cette partie $\Gamma$ est
+connue quand on conna\^it son image inverse dans $X'\times_{S'}Y'$,
+qui n'est autre que l'ensemble sous-jacent au graphe de~$f'$. D'o\`u
+la conclusion.
+
+Une partie~$\Gamma$ de~$Z$ est le graphe d'un $S$-morphisme $f\colon
+X\to Y$ si et seulement si elle est ouverte, et si le morphisme induit
+par~$\pr_1$ de~$\Gamma$ dans~$Y$ est radiciel
+et surjectif \cf \ref{IX.1}. Lorsque la premi\`ere
+propri\'et\'e est v\'erifi\'ee, la deuxi\`eme l'est si et
+seulement si l'image inverse~$\Gamma'$ de~$\Gamma$ dans~$Z'$ satisfait
+la m\^eme condition VIII~\ref{VIII.3.1}. Si on sait enfin que
+$Z'\to Z$ est submersif, ce qui sera le cas en particulier si $S'\to
+S$ est universellement submersif, alors~$\Gamma$ est ouvert si et
+seulement si~$\Gamma'$ l'est. Ainsi, l'ensemble $\Hom_S(X,Y)$ est
+alors en correspondance biunivoque avec l'ensemble des parties
+ouvertes~$\Gamma'$ de~$Z'$ telles que le morphisme projection
+$\pr_1\colon Z'\to X'$ soit radiciel et surjectif, (\ie correspondant \`a un $S'$-morphisme $f'\colon X'\to Y'$), et qui
+sont satur\'ees pour la relation d'\'equivalence d\'efinie par
+$Z'\to Z$, \ie dont les deux images inverses dans $Z''=Z'\times_Z
+Z'=Z\times_S S''$ (o\`u $S''=S'\times_S S'$), par l'une et l'autre
+projection, sont \'egales. Or ces derni\`eres sont les graphes
+des deux $S''$-morphismes $X''\to Y''$ d\'eduits de~$f'$ par
+changement de base, par l'une et l'autre projection $S''\to S'$. On a
+ainsi obtenu:
+
+\begin{proposition}
+\label{IX.3.2}
+Soient $g\colon S'\to S$ un morphisme \emph{universellement submersif}
+de pr\'esch\'emas, $S''=S'\times_S S'$, $X$ et~$Y$ deux
+$S$-pr\'esch\'emas, $X'$ et~$Y'$ leurs images inverses sur~$S'$,
+et $X''$, $Y''$ leurs images inverses sur~$S''$. Si~$Y$ est \'etale
+sur~$S$ le diagramme canonique suivant d'applications est exact:
+$$
+\xymatrix@C=.5cm{{\mathrm{Hom}_S(X,Y)}\ar[r]&{\mathrm{Hom}_{S'}(X',Y')}\ar@<2pt>[r]\ar@<-2pt>[r]&{{\mathrm{Hom}_{S''}(X'',Y'')}.}}
+$$
+\end{proposition}
+
+Prenant~$X$ et~$Y$ \'etales sur~$S$, on trouve l'\'enonc\'e
+suivant, qui d'ailleurs redonne~\ref{IX.3.2} (m\^eme en se
+restreignant \`a $X=S$, auquel cas on peut en effet toujours se
+ramener dans~\ref{IX.3.2}, par le changement de base $X\to S$);
+
+\begin{corollaire}
+\label{IX.3.3}
+Un morphisme universellement submersif de pr\'esch\'emas est un
+morphisme de descente pour la cat\'egorie fibr\'ee des
+pr\'esch\'emas \'etales sur d'autres.
+\end{corollaire}
+
+J'ignore d'ailleurs si c'est n\'ecessairement un morphisme de
+descente \emph{effective} pour la cat\'egorie fibr\'ee en
+question, m\^eme en faisant de plus l'hypoth\`ese que~$S$ est
+noeth\'erien et~$g$ de type fini, et en se bornant aux
+rev\^etements \'etales. Nous donnerons n\'eanmoins au
+num\'ero suivant des crit\`eres utiles d'effectivit\'e.
+
+\begin{corollaire}
+\label{IX.3.4}
+Soit
+$g\colon S'\to S$ un morphisme universellement submersif, dont
+les fibres $g^{-1}(s)$ sont \og g\'eom\'etriquement connexes\fg,
+\index{geometriquement connexe@g\'eom\'etriquement connexe|hyperpage}\ie pour toute extension $K/\kres(s)$, $g^{-1}(s)\otimes_{\kres(s)} K$ est
+connexe. Alors~$S'$ est connexe si~$S$ l'est. Le foncteur de la
+cat\'egorie des pr\'esch\'emas \'etales sur~$S$ dans la
+cat\'egorie
+des pr\'esch\'emas \'etales sur~$S'$ d\'efini par~$g$ est
+pleinement fid\`ele.
+\end{corollaire}
+
+Une partie de~$S'$ qui est \`a la fois ouverte et ferm\'ee est
+satur\'ee pour la relation d'\'equivalence ensembliste d\'efinie
+par~$g$, puisque les fibres sont connexes, donc est l'image inverse
+d'une partie de~$S$, qui est n\'ecessairement ouverte et ferm\'ee
+puisque~$g$ est submersif. Si donc~$S$ est connexe, $S'$ l'est. Cela
+implique aussi le r\'esultat suivant: le compos\'e~$fg$ de deux
+morphismes \`a fibres universellement connexes,
+\index{universellement connexe: synonyme de g\'eom\'etriquement connexe|hyperpage}$f$ \'etant universellement submersif, est \`a fibres
+universellement connexes; si~$S_1'$ et~$S_2'$ sur~$S$ ont des fibres
+universellement connexes, il en est de m\^eme de~$S_1'\times_S
+S_2'$. En particulier, sous les conditions de~\ref{IX.3.4}, $S''$ a
+des fibres universellement connexes sur~$S$. Soient alors~$X$ et~$Y$
+\'etales sur~$S$, et soit~$u'$ un $S'$-morphisme de~$X'$ dans~$Y'$,
+prouvons qu'il est compatible avec les donn\'ees de descente (ce qui
+entra\^ine la conclusion voulue gr\^ace \`a~\ref{IX.3.3}). Or
+soient~$u_1''$ et~$u_2''$ les deux $S''$-morphismes $X''\to Y''$
+d\'eduits de~$u'$. Le sous-pr\'esch\'ema de~$S''$ des
+co\"incidences de~$u_1''$ et~$u_2''$ est un sous-pr\'esch\'ema
+ouvert induit, ferm\'e fibre par fibre, comme image inverse du
+pr\'esch\'ema diagonal de~$Y''$ sur~$S''$\footnote{noter que les
+fibres de~$S'$ sur~$S$ sont s\'epar\'ees!}. C'est donc l'image
+inverse d'une partie de~$S$. Comme elle contient la diagonale
+dans~$S''$, elle est identique \`a~$S''$, d'o\`u $u_1''=u_2''$
+cqfd.
+
+\section{Descente de pr\'esch\'emas \'etales: crit\`eres
+d'effectivit\'e}
+\label{IX.4}
+
+\enlargethispage{.7cm}\begin{proposition}
+\label{IX.4.1}
+Soit $g\colon S'\to S$ un morphisme fid\`element plat et
+quasi-compact. Alors~$g$ est un morphisme de descente effective pour
+la cat\'egorie fibr\'ee des pr\'esch\'emas \'etales,
+s\'epar\'es et de type fini sur d'autres.
+\end{proposition}
+
+C'est en effet un morphisme de descente pour la cat\'egorie
+fibr\'ee en question, en vertu de~\ref{IX.3.3} ou de
+VIII~\ref{VIII.5.2} au choix. Reste \`a montrer que si~$X'$ est
+\'etale, s\'epar\'e et de type fini sur~$S'$, et muni d'une
+donn\'ee de descente relativement \`a $g\colon S'\to S$, cette
+derni\`ere est effective dans la cat\'egorie fibr\'ee en
+question. Or on voit facilement que si~$X$ est un pr\'esch\'ema
+sur~$S$, alors
+il est \'etale sur~$S$ si et seulement si il est \'etale sur~$S'$
+(en vertu de la d\'efinition~\ref{IX.1.1} et de \loccit \ref{VIII.3.6}). Donc il est \'etale, s\'epar\'e et de
+type fini sur~$S$ si et seulement si~$X'$ l'est sur~$S'$, \cf par
+exemple~\ref{IX.2.4}. Donc il suffit de s'assurer de
+l'effectivit\'e de la donn\'ee de descente sur~$X$ pour la
+cat\'egorie fibr\'ee des fl\`eches de~$\Sch$. Or~$X'$ est
+quasi-affine sur~$S'$ en vertu de VIII~\ref{VIII.6.2}
+et~\ref{VIII.6.6}. On peut alors conclure en utilisant
+VIII~\ref{VIII.7.9}. Le lecteur notera d'ailleurs que la
+d\'emonstration demande moins si on se borne aux pr\'esch\'emas
+\'etales et \emph{finis} sur d'autres, car on peut alors invoquer
+directement VIII~\ref{VIII.2.1}.
+
+\begin{corollaire}
+\label{IX.4.2}
+Soient $g\colon S'\to S$ un morphisme universellement submersif, $X'$
+un
+$S'$-pr\'esch\'ema
+\'etale s\'epar\'e et de type fini, muni d'une donn\'ee de
+descente relativement \`a~$g$, $S_1\to S$ un morphisme
+fid\`element plat et quasi-compact, $S_1'$ et~$X_1'$ d\'eduits
+de~$S'$ et~$X'$ par le changement de base, de sorte que $S_1'\to S_1$
+est universellement submersif, $X_1'$ est \'etale s\'epar\'e et
+de type fini sur~$S_1'$, et muni d'une donn\'ee de descente
+relativement \`a $g_1\colon S_1'\to S_1$. Pour que la donn\'ee de
+descente sur~$X'$ soit effective, il faut et il suffit que la
+donn\'ee de descente sur~$X_1'$ le soit.
+\end{corollaire}
+
+Cela r\'esulte de la th\'eorie de la descente dans les
+cat\'egories \cite{IX.D}, compte tenu de~\ref{IX.4.1} et~\ref{IX.3.3}.
+
+On prouve de fa\c con analogue:
+
+\begin{corollaire}
+\label{IX.4.3}
+Soient $g\colon S'\to S$ un morphisme universellement submersif, $X'$
+un~$S'$-pr\'esch\'ema \'etale muni d'une donn\'ee de descente
+relativement \`a~$g$, $(S_i)$ un recouvrement de~$S$ par des
+ouverts. Pour que la donn\'ee de descente soit effective, il faut
+et il suffit que pour tout~$i$, la donn\'ee de descente
+correspondante sur~$X_i'=X\times_S S_i$, relativement au morphisme
+$g_i\colon S_i'=S'\times_S S_i\to S_i$, le soit.
+\end{corollaire}
+
+Ce dernier r\'esultat conduit \`a d\'egager un crit\`ere
+d'effectivit\'e local:
+
+\enlargethispage{.3cm}
+\begin{proposition}
+\label{IX.4.4}
+Soit $g\colon S'\to S$ un morphisme de pr\'esentation finie
+\textup{VIII}~\ref{VIII.3.6}
+et universellement submersif, $X'$ un pr\'esch\'ema \'etale et
+de pr\'esentation finie sur~$S'$, muni d'une donn\'ee de descente
+relativement \`a~$g$, enfin~$a$ un point de~$S$. Pour qu'il existe
+un voisinage ouvert~$U$ de~$a$, tel que la donn\'ee de descente
+correspondante sur~$X_U'=X'\times_S U$ relativement au morphisme
+$$g_U\colon S_U'=S'\times_S U\to S_U=U$$ soit effective, il faut et il
+suffit que la donn\'ee de descente correspondante sur $X_a'=X'\times_S\Spec(\cal{O}_a)$, relativement au morphisme
+$$g_a\colon S_a'=S'\times_S\Spec(\cal{O}_a)\to S_a=\Spec(\cal{O}_a),$$
+soit effective.
+\end{proposition}
+
+La n\'ecessit\'e \'etant triviale, montrons la suffisance. On
+dispose donc d'un pr\'esch\'ema \'etale de type fini~$X_a$
+sur~$S_a$, et d'un isomorphisme
+\begin{equation*}
+\label{eq:IX.4.*}
+\tag{$*$} {X_a'\isomto X_a\times_{S_a}S_a'}
+\end{equation*}
+compatible avec les donn\'ees de descente. Conform\'ement \`a
+un sorite g\'en\'eral facile sur les pr\'esch\'emas
+d\'efinis sur une limite inductive d'anneaux (ici les anneaux~$A_f$,
+o\`u~$A$ est l'anneau d'un voisinage ouvert affine de~$a$, et
+o\`u~$f$ parcourt les \'el\'ements de~$A$ qui ne sont pas dans
+l'id\'eal premier correspondant \`a~$a$), on peut trouver un
+voisinage ouvert~$U$ de~$a$, un pr\'esch\'ema \'etale de type
+fini~$X_U$ sur~$U=S_U$, et un $S_a$-isomorphisme $X_a\isomto
+X_U\times_{S_U}S_a$. De plus, prenant~$U$ assez petit, on peut alors
+supposer que l'isomorphisme~\eqref{eq:IX.4.*} provient d'un
+isomorphisme:
+$$
+X_U'\isomto X_U\times_{S_U} S_U';
+$$
+ce dernier pourrait ne pas \^etre compatible avec les donn\'ees de
+descente, cependant \`a condition de r\'etr\'ecir~$U$, il sera
+compatible avec les donn\'ees de descente. Cela ach\`eve la
+d\'emonstration.
+
+\begin{corollaire}
+\label{IX.4.5}
+Sous les conditions de~\ref{IX.4.4}, pour que la donn\'ee de
+descente sur~$X'$ soit effective, il faut et il suffit que pour tout
+$a\in S$, la donn\'ee de descente correspondante sur~$X_a'$,
+relativement au morphisme
+$S_a'=S'\times_S\Spec(\cal{O}_a)\to\Spec(\cal{O}_a)$, le soit.
+Lorsque~$S$ est localement noeth\'erien, et~$X'$ s\'epar\'e
+sur~$S'$, on peut dans le crit\`ere pr\'ec\'edent remplacer
+aussi~$\cal{O}_a$ par son compl\'et\'e.
+\end{corollaire}
+
+La
+premi\`ere assertion r\'esulte de~\ref{IX.4.4} et~\ref{IX.4.3}, la
+deuxi\`eme est alors cons\'equence de~\ref{IX.4.2}. Utilisant
+encore~\ref{IX.4.2} et le fait que pour tout anneau local
+noeth\'erien~$A$, on peut trouver un anneau local noeth\'erien
+complet~$B$, et un homomorphisme local $A\to B$, tel que~$B$ soit plat
+sur~$A$ et que $B/\goth{m}B$ soit une extension donn\'ee du corps
+r\'esiduel $k=A/\goth{m}$ de~$A$, on trouve:
+
+\begin{corollaire}
+\label{IX.4.6}
+Sous les conditions de~\ref{IX.4.4}, supposons de plus~$X'$
+s\'epar\'e sur~$S'$, et~$S$ localement noeth\'erien. Pour que la
+donn\'ee de descente sur~$X'$ soit effective, il faut et il suffit
+que pour tout pr\'esch\'ema~$S_1$ sur~$S$, spectre d'un anneau
+local complet \`a corps r\'esiduel alg\'ebriquement clos, la
+donn\'ee de descente correspondante sur~$X_1'=X'\times_S S_1$,
+relativement au morphisme $g_1\colon S_1'\to S_1$, soit effective.
+\end{corollaire}
+
+\begin{theoreme}
+\label{IX.4.7}
+Soit $g\colon S'\to S$ un morphisme fini et surjectif, et de
+pr\'esentation finie (cette derni\`ere hypoth\`ese \'etant
+cons\'equence des autres si~$S$ est localement
+noeth\'erien)\footnote{On peut montrer qu'il suffit en fait que~$g$
+soit un morphisme \emph{entier}, en se ramenant au cas du texte par un
+proc\'ed\'e de passage \`a la limite dans le style EGA IV~8.}.
+Alors~$g$ est un morphisme de descente effective pour la cat\'egorie
+fibr\'ee des pr\'esch\'emas \'etales, s\'epar\'es, de type
+fini sur d'autres.
+\end{theoreme}
+
+Il faut montrer que si~$X'$ est \'etale, s\'epar\'e, de type
+fini sur~$S'$, et muni d'une donn\'ee de descente relativement
+\`a~$g$, alors cette donn\'ee est effective.
+Utilisant~\ref{IX.4.3}, on se ram\`ene facilement au cas o\`u~$S$
+est noeth\'erien. Gr\^ace \`a~\ref{IX.4.5}, on peut donc
+supposer que~$S$ est le spectre d'un anneau local noeth\'erien, a
+fortiori que
+$$
+\dim S=n<+\infty.
+$$
+On raisonne alors par r\'ecurrence sur~$\dim S=n$, l'assertion
+\'etant triviale pour $n<0$. Supposons donc $n\geq 0$ et le
+th\'eor\`eme d\'emontr\'e pour les dimensions $n'<n$. En
+vertu de~\ref{IX.4.6} on est ramen\'e au cas o\`u~$S$ est le
+spectre d'un anneau local complet, donc~$S'$ est une r\'eunion finie
+de spectres d'anneaux locaux complets. On a donc
+$$
+X'=X_1'\sqcup X_2'
+$$
+o\`u~$X_1'$ est \emph{fini} sur~$S'$, et o\`u~$X_2'$ n'a aucun
+point au-dessus d'un des points ferm\'es
+de~$S'$. Consid\'erons les morphismes
+$$
+\xymatrix@C=.5cm{{q_1,q_2\colon X''}\ar@<2pt>[r]\ar@<-2pt>[r]&{X'}}
+$$
+correspondants \`a la donn\'ee de descente, compatibles avec
+$\xymatrix@C=.5cm{{p_1,p_2\colon S''}\ar@<2pt>[r]\ar@<-2pt>[r]&{S'}}$. On
+voit aussit\^ot que
+$$
+X''=q_i^{-1}(X_1')\sqcup q_i^{-1}(X_2')\quad i=1,2
+$$
+est la d\'ecomposition canonique analogue de~$X''$ sur~$S''$, ce qui
+implique $q_1^{-1}(X_1')= q_2^{-1}(X_1')$ et par suite~$X_1'$ et~$X_2'$
+sont munis de donn\'ees de descente induites. Or soit~$T$ l'ouvert
+de~$S$ compl\'ementaire de son point ferm\'e, donc $T'=S'\times_S
+T$ est la partie de~$S'$ compl\'ementaire de l'ensemble des points
+ferm\'es, et~$X_2'$, qui se trouve tout entier au-dessus de~$T'$,
+est muni d'une donn\'ee de descente relativement au morphisme $T'\to
+T$ induit par~$g$. Comme ce dernier est fini surjectif, et que $\dim
+T<\dim S=n$, cette donn\'ee de descente est effective par
+l'hypoth\`ese de r\'ecurrence. On voit donc qu'il suffit de
+prouver que la donn\'ee de descente sur~$X_1'$ est effective, donc
+on peut maintenant supposer~$X'$ \'etale et \emph{fini} sur~$S'$.
+(N.B. le raisonnement par r\'ecurrence est inutile si on se borne
+aux rev\^etements \'etales dans l'\'enonc\'e~\ref{IX.4.7}).
+Soit alors~$S_0$ le spectre du corps r\'esiduel de~$A$, soit
+$S_0'=S'\times_S S_0$ et d\'efinissons de m\^eme~$S_0''$, $S_0'''$
+\`a partir des carr\'es et cubes fibr\'es~$S''$ et~$S'''$
+de~$S'$ sur~$S$. En vertu de~\ref{IX.1.8}, les morphismes $S_0\to S$,
+$S_0'\to S'$, etc. induisent des \'equivalences pour les
+cat\'egories des rev\^etements \'etales de~$S$ et~$S_0$ d'une
+part, $S'$ et~$S_0'$ d'autre part, etc. D'apr\`es les sorites de
+la th\'eorie de la descente dans les cat\'egories \cite{IX.D}, il s'ensuit
+que pour que $g\colon S'\to S$ soit un morphisme de descente effective
+pour la cat\'egorie fibr\'ee des rev\^etements \'etales, il
+faut et il suffit qu'il en soit ainsi de~$g_0\colon S_0'\to S_0$.
+Mais c'est bien le cas, comme cas particulier de~\ref{IX.4.1}, par
+exemple. Cela ach\`eve la d\'emonstration.
+
+\begin{corollaire}
+\label{IX.4.8}
+La conclusion de~\ref{IX.4.7} subsiste si on suppose seulement que
+$S'\to S$ est universellement submersif, de type fini et quasi-fini,
+pourvu qu'on suppose~$S$ localement noeth\'erien.
+\end{corollaire}
+
+En
+vertu de~\ref{IX.4.6}, on peut en effet supposer que~$S$ est le
+spectre d'un anneau local noeth\'erien complet. Alors en vertu
+de~\ref{IX.2.5}, il existe un morphisme fini et surjectif $S_1\to S$,
+et un $S$-morphisme $S_1\to S'$. Comme $S_1\to S$ est un morphisme de
+descente strict universel pour la cat\'egorie fibr\'ee
+envisag\'ee, en vertu de~\ref{IX.4.7}, et que $S'\to S$ est un
+morphisme de descente universel pour ladite, \ref{IX.4.8} r\'esulte
+des sorites g\'en\'eraux~\cite{IX.D}.
+
+\begin{corollaire}
+\label{IX.4.9}
+Soit $g\colon S'\to S$ un morphisme de type fini, surjectif et
+universellement ouvert, avec~$S$ localement noeth\'erien. Alors~$g$
+est un morphisme de descente effective pour la cat\'egorie
+fibr\'ee des pr\'esch\'emas \'etales, s\'epar\'es et de
+type fini sur d'autres.
+\end{corollaire}
+
+Proc\'edant comme dans~\ref{IX.4.7}, on est ramen\'e au cas
+o\`u~$S$ est le spectre d'un anneau local noeth\'erien et
+complet~$A$. Soit~$A_1$ une alg\`ebre finie sur~$A$, de
+spectre~$S_1$, telle que $S_1\to S$ soit fini et \emph{surjectif},
+donc un morphisme de descente effective universel pour la
+cat\'egorie fibr\'ee envisag\'ee, gr\^ace \`a~\ref{IX.4.7}.
+Il r\'esulte alors des th\'eor\`emes g\'en\'eraux \cite{IX.D}
+que~$g$ est un morphisme de descente effective pour la cat\'egorie
+fibr\'ee envisag\'ee, si et seulement si le morphisme
+correspondant $g_1\colon S_1'=S'\times_S S_1\to S_1$ l'est. Comme ce
+dernier satisfait aux m\^emes hypoth\`eses que~$g$, on est
+ramen\'e \`a prouver~\ref{IX.4.9} pour~$S_1$ au lieu de~$S$.
+Prenant d'abord pour~$A_1$ le compos\'e direct des $A/\goth{p}_i$,
+pour les id\'eaux premiers minimaux~$\goth{p}_i$ de~$A$, on est
+ramen\'e au cas o\`u~$A$ est \emph{intègre}. On montre
+alors\footnote{\Cf EGA IV~14.3.13 et~14.5.4.} qu'il existe un
+sous-sch\'ema int\`egre~$S_1$ de~$S'$, quasi-fini sur~$S$ et
+dominant~$S$, passant par un point de la fibre de~$S'$ en le point
+ferm\'e~$y$ de~$S$ (gr\^ace au fait que~$S'$ est universellement
+ouvert de type fini sur~$S$ local noeth\'erien int\`egre, et
+$S_y'\neq\emptyset$). Comme~$A$ est complet, $S_1$ est fini sur~$S$,
+et comme il domine~$S$, le morphisme $S_1\to S$ est surjectif.
+Rempla\c cant encore une fois~$S$ par~$S_1$, on est ramen\'e au
+cas o\`u~$S'$ a une section sur~$S$, o\`u l'\'enonc\'e est
+trivial.
+
+\begin{theoreme}
+\label{IX.4.10}
+Soit $g\colon S'\to S$ un morphisme fini radiciel surjectif, de
+pr\'esentation finie (cette derni\`ere condition \'etant
+superflue si~$S$ est localement noeth\'erien\footnote{Il suffit
+m\^eme que~$g$ soit entier, radiciel surjectif, comme on voit par
+une r\'eduction facile au cas du texte, style EGA~IV~8, \cf SGA~4
+VIII~1.1.}).
+Alors le foncteur image inverse induit une \'equivalence de la
+cat\'egorie des pr\'esch\'emas \'etales sur~$S$ avec la
+cat\'egorie des pr\'esch\'emas \'etales sur~$S'$.
+\end{theoreme}
+
+Comme les morphismes diagonaux de~$S'$ dans $S'\times_S S'$ et
+$S'\times_S S'\times_S S'$ sont des immersions surjectives, donc
+induisent en vertu de~\ref{IX.1.9} des \'equivalences des
+cat\'egories des pr\'esch\'emas \'etales sur~$S'\times_S S'$
+\resp $S'\times_S S'\times_S S'$ avec la cat\'egorie des
+pr\'esch\'emas \'etales sur~$S'$, il r\'esulte des sorites de
+la descente \cite{IX.D} que tout~$X'$ \'etale sur~$S'$ est muni d'une
+donn\'ee de descente et d'une seule relativement \`a $g\colon
+S'\to S$. Donc~\ref{IX.3.3} implique que le foncteur image inverse
+par~$g$, de la cat\'egorie des pr\'esch\'emas \'etales sur~$S$
+dans la cat\'egorie des pr\'esch\'emas \'etales sur~$S'$, est
+\emph{pleinement fidèle}. Reste \`a montrer qu'il est
+essentiellement surjectif, \ie que tout~$X'$ \'etale sur~$S'$ est
+isomorphe \`a l'image inverse d'un~$X$ \'etale sur~$S$. La
+question \'etant \'evidemment locale sur~$S$ \emph{et sur}~$X'$,
+on peut supposer $S$,~$S'$,~$X'$ affines. Mais alors~$X'$ est
+s\'epar\'e de type fini sur~$S'$, et on peut appliquer le
+crit\`ere d'effectivit\'e~\ref{IX.4.7}.
+
+\begin{corollaire}
+\label{IX.4.11}
+La conclusion~\ref{IX.4.9} subsiste en rempla\c cant l'hypoth\`ese
+sur~$g$ par: $g$~est fid\`element plat, quasi-compact et radiciel.
+\end{corollaire}
+
+M\^eme d\'emonstration, en invoquant~\ref{IX.4.1} au lieu
+de~\ref{IX.4.7}.
+
+On notera que la d\'emonstration de~\ref{IX.4.7} est
+\og \'el\'ementaire\fg en ce qu'elle n'utilise pas les
+th\'eor\`emes
+de
+finitude et de comparaison pour les morphismes propres (EGA~III~3,~4,~5). Il n'en est plus de m\^eme du r\'esultat suivant:
+
+\begin{theoreme}
+\label{IX.4.12}
+Soit $g\colon S'\to S$ un morphisme propre, surjectif, de
+pr\'esentation finie (cette derni\`ere hypoth\`ese \'etant
+cons\'equence de la premi\`ere si~$S$ est localement
+noeth\'erien). Alors~$g$ est un morphisme de descente effective
+pour la cat\'egorie fibr\'ee des rev\^etements \'etales de
+pr\'esch\'emas.
+\end{theoreme}
+
+En vertu de~\ref{IX.3.3} et de~\ref{IX.2.2}, on est ramen\'e \`a
+prouver que pour tout rev\^etement \'etale~$X'$ sur~$S'$, muni
+d'une donn\'ee de descente relativement \`a $g\colon S'\to S$,
+cette donn\'ee de descente est effective. Utilisant~\ref{IX.4.3},
+on est ramen\'e facilement
+au cas o\`u~$S$ est noeth\'erien, et utilisant~\ref{IX.4.6}, on
+peut donc supposer que~$S$ est le spectre d'un anneau local
+noeth\'erien \emph{complet}~$A$. Introduisons~$S''$ et~$S'''$ comme
+d'habitude, soit~$S_0$ le spectre du corps r\'esiduel de~$A$, et
+soient~$S_0'$,~$S_0''$,~$S_0'''$ d\'eduits de~$S'$,~$S''$,~$S'''$
+par le changement de base $S_0\to S$, \ie les fibres
+de~$S'$,~$S''$,~$S'''$ au point ferm\'e de~$S$.
+D'apr\`es~\ref{IX.1.10}, les morphismes $S_0\to S$, $S_0'\to S'$,
+etc. induisent des \'equivalences de la cat\'egorie des
+rev\^etements \'etales sur le sch\'ema-but avec la cat\'egorie
+des rev\^etements \'etales sur le sch\'ema-source. Par suite,
+$g\colon S'\to S$ est un morphisme de descente strict pour la
+cat\'egorie fibr\'ee des rev\^etements \'etales de
+pr\'esch\'emas, si et seulement si $g_0\colon S_0'\to S_0$ l'est,
+ce qui est bien le cas en vertu de~\ref{IX.4.1}. Cela ach\`eve la
+d\'emonstration de~\ref{IX.4.12}. (Dans ce raisonnement, on n'avait
+besoin de~\ref{IX.1.10} que le fait que le foncteur envisag\'e
+dans~\ref{IX.1.10} est \emph{pleinement fidèle}, ce qui n'utilise
+\emph{pas} le th\'eor\`eme d'existence de faisceaux coh\'erents
+en g\'eom\'etrie alg\'ebrique.)
+
+\section{Traduction en termes du groupe fondamental}
+\label{IX.5}
+
+Soit
+$$
+g\colon S'\to S
+$$
+un \emph{morphisme de descente effective} pour la cat\'egorie
+fibr\'ee des \emph{revêtements étales} de
+pr\'e\-sch\'e\-mas, par exemple un morphisme propre, surjectif, de
+pr\'esentation finie \eqref{IX.4.12}, ou un morphisme fid\`element
+plat et quasi-compact. Introduisant comme d'habitude~$S''$,~$S'''$,
+et d\'esignant par~$\cal{C}$,~$\cal{C}'$,~$\cal{C}''$,~$\cal{C}'''$
+la cat\'egorie des rev\^etements \'etales
+de~$S$,~$S'$,~$S''$,~$S'''$ respectivement, on a donc un diagramme
+$2$-exact de cat\'egories
+\begin{equation*}
+\label{eq:IX.5.*}
+\tag{$*$} 
+\xymatrix@C=.5cm{{\cal{C}}\ar[r]^-{~p^*}&{\cal{C}'}\ar@<2pt>[rr]^{p_1^*,p_2^*}\ar@<-2pt>[rr]&&{\cal{C}''}\ar@<4pt>[rrr]^{p_{21}^*,p_{32}^*,p_{31}^*}\ar[rrr]\ar@<-4pt>[rrr]&&&{\cal{C}'''}}
+\end{equation*}
+correspondant au diagramme
+$$
+\xymatrix@C=.5cm{{S}&{S'}\ar[l]_-{~p}&&{S''}\ar@<2pt>[ll]\ar@<-2pt>[ll]_-{p_1,p_2}&&&{S'''.}\ar@<4pt>[lll]\ar[lll]\ar@<-4pt>[lll]_{p_{21},p_{32},p_{31}}}
+$$
+Supposons
+les pr\'esch\'emas~$S$,~$S'$,~$S''$,~$S'''$ sommes disjointes de
+pr\'esch\'emas connexes, ce qui sera le cas en particulier si ce
+sont des pr\'esch\'emas localement connexes, a fortiori s'ils sont
+localement noeth\'eriens (par exemple si~$S'$ est de type fini
+sur~$S$ localement noeth\'erien). Alors les
+cat\'egories~$\cal{C}$,~$\cal{C}'$ ... dans~\eqref{eq:IX.5.*} sont
+des cat\'egories multigaloisiennes V~\ref{V.9}, d\'ecrites
+chacune par une collection de groupes topologiques compacts totalement
+disconnexes, savoir les groupes fondamentaux des composantes connexes
+des pr\'esch\'emas~$S$,~$S'$,~$S''$,~$S'''$. Nous supposons pour
+simplifier~$S$ connexe, et allons donner alors un proc\'ed\'e de
+calcul pour son groupe fondamental, en termes de la cat\'egorie
+fibr\'ee form\'ee avec~$\cal{C}'$,~$\cal{C}''$,~$\cal{C}'''$,
+convenablement explicit\'ee \`a l'aide des groupes fondamentaux
+exprimant ces cat\'egories. Le lecteur notera que le
+proc\'ed\'e esquiss\'e est valable en fait dans le cadre
+g\'en\'eral des cat\'egories multigaloisiennes (qui n'ont pas
+\`a provenir de pr\'esch\'emas
+donn\'es~$S$,~$S'$,~$S''$,~$S'''$). C'est d'ailleurs l'analogue du
+proc\'ed\'e bien connu pour calculer le groupe fondamental d'un
+espace topologique~$S$, r\'eunion localement finie de sous-espaces
+ferm\'es~$S_i$ (ou r\'eunion quelconque de sous-espaces
+ouverts~$S_i$), \`a l'aide des groupes fondamentaux des composantes
+des~$S_i$
+et des composantes des $S_i\cap S_j$. Bien entendu, la
+situation analogue dans le cadre des pr\'esch\'emas tombe bien
+dans le cadre g\'en\'eral de la descente, en introduisant le
+pr\'esch\'ema~$S'$ somme des~$S_i$ et le morphisme canonique
+$g\colon S'\to S$.
+
+Posons
+$$
+E'=\pi_0(S'), \quad E''=\pi_0(S''), \quad E'''=\pi_0(S'''),
+$$
+o\`u~$\pi_0$ d\'esigne le foncteur \og ensemble des composantes
+connexes\fg. Comme les produits fibr\'es de~$S'$ sur~$S$ forment un
+objet simplicial de~$\Sch$, il est transform\'e par le
+foncteur~$\pi_0$ en un ensemble simplicial dont~$E'$,~$E''$,~$E'''$
+sont les composantes de dimension~$0$,~$1$,~$2$. Nous aurons \`a
+utiliser les applications simpliciales
+$$
+q_i=\pi_0(p_i),\quad(i=1,2)\quad\text{et}
+\quad q_{ij}=\pi_0(p_{ij}),\quad (i,j)=(2,1),(3,2),(3,1),
+$$
+mises en \'evidence dans le diagramme
+\begin{equation*}
+\label{eq:IX.5.1}
+\tag{1} {\xymatrix@C=.5cm{{E'}&&{E''}\ar@<2pt>[ll]\ar@<-2pt>[ll]_{q_1,q_2}&&&{E'''.}\ar@<4pt>[lll]\ar[lll]\ar@<-4pt>[lll]_{q_{21},q_{32},q_{31}}}}
+\end{equation*}
+Les objets
+de~$E'$ seront not\'es avec un accent, comme~$s'$, ceux
+de~$E''$ \resp $E'''$ seront not\'es avec un~$''$ \resp un~$'''$.
+Le fait que~$S$ soit connexe se traduit par $\pi_0(K)=0$, o\`u~$K$
+est l'ensemble simplicial d\'efini par $g\colon S'\to S$, ou encore
+par le fait que la relation d'\'equivalence dans~$E'$ engendr\'ee
+par le couple d'applications $(q_1,q_2)$ est transitive.
+
+Nous choisirons une fois pour toutes un \'el\'ement~$s_0'$
+dans~$E'$, et pour tout~$s'$ dans~$E'$, un
+\'el\'ement~$\overline{s'}\in E''$ tel que\footnote{On fera
+attention que l'\'el\'ement~$\overline{s'}$ dont l'existence est
+admise implicitement, n'existe pas dans tous les cas. Par suite, le
+th\'eor\`eme~\ref{IX.5.1} tel qu'il est \'enonc\'e ne
+s'applique pas dans tous les cas. Il n'est pas difficile cependant,
+en s'inspirant du texte \'ecrit, de modifier l'\'enonc\'e de ce
+th\'eor\`eme de telle fa\c con qu'il donne une m\'ethode de
+calcul qui s'applique dans tous les cas. En particulier, les
+corollaires dudit th\'eor\`eme sont valables tels quels.}
+$$
+q_1(\overline{s'})=s_0', \quad q_2(\overline{s'})=s',
+$$
+mettant ainsi en \'evidence la connexit\'e de~$S$. Pour
+tout~$s'\in E'$, choisissons un point
+g\'eom\'etrique~$\underline{s}'$ dans la composante connexe~$s'$
+de~$S'$; ce point interviendra en fait par le foncteur-fibre~$F_{s'}'$
+correspondant sur la cat\'egorie multigaloisienne~$\cal{C}'$. Le
+groupe des automorphismes de ce foncteur, \ie le groupe fondamental
+de~$S'$ en~$\underline{s}'$, sera not\'e~$\pi_{s'}$. On choisit de
+m\^eme des~$\underline{s}''$ et des~$\underline{s}'''$, donc des
+foncteurs~$F_{s''}''$ et~$F_{s'''}'''$, d'o\`u des groupes
+fondamentaux~$\pi_{s''}$ et~$\pi_{s'''}$. Ainsi
+$$
+\pi_{s'}=\pi_1(S',\underline{s}'), \quad
+\pi_{s''}=\pi_1(S'',\underline{s}''), \quad
+\pi_{s'''}=\pi_1(S''',\underline{s}''').
+$$
+Pour tout $s''\in E''$, $p_1(\underline{s}'')$ se trouve dans la
+m\^eme composante connexe que $\underline{q_1(s'')}$, donc il existe
+un isomorphisme de foncteurs
+$F''_{s''}\circ p_1^*\isomto F'_{s'}$
+(\ie une \og classe de chemins\fg de~$p_1(\underline{s}'')$ \`a
+$\underline{q_1(s'')}$). Cette remarque se r\'ep\`ete pour~$q_2$,
+et les~$q_{ij}$. Choisissons toutes ces classes de chemins:
+$$
+F''_{s''}\circ p_i^*\isomto F'_{q_i(s'')},\quad F_{s'''}'''\circ
+p_{ij}^*\isomto F'''_{q_{ij}(s''')},
+$$
+(pour
+$i=1,2$ et $(i,j)=(2,1),(3,2),(3,1)$). Il en r\'esulte en
+particulier des homomorphismes de groupes:
+\begin{equation*}
+\label{eq:IX.5.2}
+\tag{2} {q_i^{s''}\colon \pi_{s''}\to\pi_{q_i(s'')},\quad
+q_{ij}^{s'''}\colon \pi_{s'''}\to\pi_{q_{ij}(s''')},}
+\end{equation*}
+(m\^emes valeurs de~$i$ et $(i,j)$). Enfin, rappelons-nous que dans
+la structure de cat\'egorie cliv\'ee de
+fibres~$\cal{C}'$,~$\cal{C''}$,~$\cal{C'''}$ figurent aussi des
+isomorphismes de foncteurs:
+$$
+p_{21}^*p_1^*\isomto p_{31}^*p_1^*,\quad p_{21}^*p_2^*\isomto
+p_{32}^*p_1^*,\quad p_{31}^*p_2^*\isomto p_{32}^*p_2^*,
+$$
+d\'eduits d'isomorphismes des deux membres respectivement avec les
+$u_i^*$~($i=1,2,3$), o\`u les~$u_i$ sont les trois projections
+de~$S'''$ dans~$S'$. Quand on explicite ces donn\'ees, on trouve
+pour tout~$s'''$ un \'el\'ement bien d\'etermin\'e
+\begin{equation*}
+\label{eq:IX.5.3}
+\tag{3} {a_i^{s'''}\in\pi_{v_i(s''')},}
+\end{equation*}
+(o\`u les~$v_i$,~$i=1,2,3$ sont les trois applications $E'''\to E'$
+d\'efinies par $v_i=\pi_0(u_i)$), d'ailleurs soumis aux conditions:
+$$
+q_1^{s_1''}q_{21}^{s'''}=\mathrm{int}(a_1^{s'''})
+q_1^{s_2''}q_{31}^{s'''}\qquad (s_1''=q_{21}(s'''),\
+s_2''=q_{31}(s''')),
+$$
+et les deux conditions analogues, faisant intervenir les~$a_2$
+et~$a_3$. Le lecteur notera d'ailleurs que les
+donn\'ees~\eqref{eq:IX.5.1},~\eqref{eq:IX.5.2},~\eqref{eq:IX.5.3}
+permettent de reconstituer, \`a une \'equivalence de
+cat\'egories fibr\'ees pr\`es, la cat\'egorie fibr\'ee
+envisag\'ee de fibres~$\cal{C}'$,~$\cal{C}''$,~$\cal{C}'''$. Elles
+doivent donc permettre en principe de reconstituer~$\cal{C}$ \`a
+\'equivalence pr\`es, donc son groupe fondamental \`a
+isomorphisme pr\`es. Nous d\'eterminerons en fait le groupe
+fondamental en le point g\'eom\'etrique $p(\underline{s}_0')$
+de~$S$, \ie le groupe des automorphismes de~$F'_{s_0'}\circ p^*$.
+
+On note que la donn\'ee d'un objet~$X'$ de~$\cal{C}'$ est
+\'equivalente essentiellement \`a la donn\'ee d'ensembles
+finis~$X'_{s'}$ ($s'\in E'$) o\`u les~$\pi_{s'}$ op\`erent
+contin\^ument. Une
+donn\'ee de recollement sur un tel objet revient alors \`a la
+donn\'ee, pour tout $s''\in E''$, d'une bijection:
+$$
+\varphi_{s''}\colon X'_{q_1(s'')}\isomto X'_{q_2(s'')}
+$$
+compatible avec les op\'erations de~$\pi_{s''}$, op\'erant sur
+l'un et l'autre membre gr\^ace aux homomorphismes $q_i^{s''}\colon
+\pi_{s''}\to\pi_{q_i(s'')}$. Prenant d'abord les~$s''$ de la
+forme~$\overline{s'}$, on voit qu'une telle donn\'ee d\'efinit des
+bijections
+$$
+\psi_{s'}\colon X'_{s_0'}=F_0'(X')\to X_{s'}'
+$$
+ce qui permet d'identifier les~$X'_{s'}$ au m\^eme ensemble
+$F_0'(X')=X'_{s_0'}$, sur lesquels tous les groupes~$\pi_{s'}$ vont
+d\`es lors op\'erer. Cela pos\'e, les
+bijections~$\varphi_{s''}$ vont correspondre \`a des bijections
+$$
+g_{s''}\colon F_0'(X')\isomto F_0'(X'),
+$$
+soumis d'une part aux relations de commutation avec~$\pi_{s''}$:
+\begin{equation*}
+\label{eq:IX.5.a}
+\tag*{a)} {g_{s''}q_1^{s''}(g'')=q_2^{s''}(g'')g_{s''}\qquad (s''\in E'',\ g''\in\pi_{s''}),}
+\end{equation*}
+d'autre part aux relations
+\begin{equation*}
+\label{eq:IX.5.b}
+\tag*{b)} {g_{\overline{s'}}=g_{\overline{s_0'}}\qquad (s'\in E'),}
+\end{equation*}
+exprimant la fa\c con dont nous avions identifi\'e entre eux
+les~$X_{s'}$. Quand on explicite la condition pour qu'une telle
+donn\'ee de recollement soit en fait une donn\'ee de descente, on
+trouve les relations:
+\begin{equation*}
+\label{eq:IX.5.c}
+\tag*{c)} {a_3^{s'''}g_{q_{31}(s''')}a_1^{s'''}=
+g_{q_{32}(s''')}a_2^{s'''}g_{q_{21}(s''')}\qquad (s'''\in E''').}
+\end{equation*}
+
+Cela nous donne une \'equivalence entre la cat\'egorie des objets
+de~$\cal{C}'$ munis d'une
+donn\'ee de descente, et la cat\'egorie des ensembles finis o\`u
+les groupes~$\pi_{s'}$ op\`erent contin\^ument, munis de plus de
+bijections~$g_{s''}$, satisfaisant les
+relations~\ref{eq:IX.5.a},~\ref{eq:IX.5.b},~\ref{eq:IX.5.c}. Soit
+alors~$G$ le groupe engendr\'e par les groupes~$\pi_{s'}$ et les
+nouveaux g\'en\'erateurs~$g_{s''}$, soumis aux
+relations~\ref{eq:IX.5.a},~\ref{eq:IX.5.b},~\ref{eq:IX.5.c}, et
+soit~$\pi$ le groupe limite projective des quotients de~$G$ par les
+sous-groupes d'indice fini dont les images inverses dans les
+groupes~$\pi_{s'}$ soient des sous-groupes ouverts. On dit aussi
+que~$\pi$ est le \emph{groupe de type galoisien engendré par
+les~$\pi_{s'}$ et les~$g_{s''}$, soumis aux
+relations~\ref{eq:IX.5.a},~\ref{eq:IX.5.b},~\ref{eq:IX.5.c}}. On
+constate aussit\^ot que la cat\'egorie envisag\'ee est aussi
+\'equivalente \`a la cat\'egorie des ensembles finis o\`u le
+groupe topologique~$\pi$ op\`ere contin\^ument. Cela \'etablit
+l'\'enonc\'e suivant:
+\begin{theoreme}
+\label{IX.5.1}
+Soit $g\colon S'\to S$ un morphisme de pr\'esch\'emas qui soit un
+morphisme de descente effective pour la cat\'egorie fibr\'ee de
+rev\^etements \'etales de pr\'esch\'emas (\cf \ref{IX.4.9}
+et~\ref{IX.4.12}). Supposons~$S$ connexe, et~$S'$, son carr\'e
+fibr\'e~$S''$ et son cube fibr\'e~$S'''$, sommes de
+pr\'esch\'emas connexes (ce qui est le cas par exemple si~$S'$ est
+de type fini sur~$S$ localement noeth\'erien et connexe).
+Choisissons comme dessus: un point g\'eom\'etrique dans toute
+composante connexe de~$S'$,~$S''$,~$S'''$, certaines classes de
+chemins, un $s_0'\in E'$, et pour tout $s'\in E'$ un
+$s''\in E''$
+dont les deux images dans~$E'$ soient~$s_0'$ et~$s'$.
+($E'$,~$E''$,~$E'''$ d\'esignent respectivement l'ensemble des
+composantes connexes de~$S'$,~$S''$,~$S'''$). Alors le groupe
+fondamental de~$S$ en le point g\'eom\'etrique image de~$s_0'$ est
+canoniquement isomorphe au groupe de type galoisien engendr\'e par
+les $\pi_{s'}=\pi_1(S',\underline{s}')$ ($s'\in E'$) et des
+g\'en\'erateurs~$g_{s''}$ ($s''\in E''$), soumis aux
+relations~\ref{eq:IX.5.a},~\ref{eq:IX.5.b},~\ref{eq:IX.5.c} ci-dessus
+faisant intervenir les \'el\'ements des groupes
+$\pi_{s''}=\pi_1(S'',\underline{s}'')$, et les
+\'el\'ements~$a_i^{s'''}$ ($i=1,2,3$, $s'''\in E'''$) introduits
+plus haut.
+\end{theoreme}
+
+\begin{corollaire}
+\label{IX.5.2}
+Supposons que~$S'$ et~$S''$ n'aient qu'un nombre fini de composantes
+connexes, et que les groupes fondamentaux des composantes connexes
+de~$S'$ soient topologiquement de g\'en\'eration finie. Alors le
+groupe fondamental de~$S$ est topologiquement de g\'en\'eration
+finie.
+\end{corollaire}
+
+Ainsi,
+nous prouverons plus tard que le groupe fondamental d'un sch\'ema
+projectif normal sur un corps alg\'ebriquement clos est
+topologiquement de g\'en\'eration finie. Utilisant le lemme de
+Chow et la normalisation des sch\'emas alg\'ebriques, il
+s'ensuivra que le m\^eme r\'esultat est vrai pour tout sch\'ema
+propre sur un corps alg\'ebriquement clos.
+
+\begin{corollaire}
+\label{IX.5.3}
+Supposons que~$S'$,~$S''$,~$S'''$ n'aient qu'un nombre fini de
+composantes connexes, que les groupes fondamentaux des composantes
+connexes de~$S'$ soient topologiquement de \emph{présentation
+finie}, et les groupes fondamentaux des composantes connexes de~$S''$
+topologiquement de \emph{génération finie}. Alors le groupe
+fondamental de~$S$ est topologiquement de \emph{présentation
+finie}.
+\end{corollaire}
+
+On notera qu'on peut exprimer~\ref{IX.4.9} (restreint aux
+\emph{revêtements} \'etales) en disant qu'\emph{un morphisme
+fini radiciel surjectif de préschémas noethériens induit
+un isomorphisme des groupes fondamentaux}; de fa\c con imag\'ee,
+on peut donc dire que le groupe fondamental est un \emph{invariant
+topologique} pour les pr\'esch\'emas. On peut expliciter plus
+g\'en\'eralement, \`a l'aide de~\ref{IX.5.1}, l'effet sur le
+groupe fondamental d'op\'erations sur les pr\'esch\'emas, telles
+que le \og pincement\fg du pr\'esch\'ema suivant un ensemble fini de
+points, ayant une signification topologique simple. On trouve par
+exemple:
+
+\begin{corollaire}
+\label{IX.5.4}
+Soient $g\colon S'\to S$ un morphisme fini de pr\'esentation finie,
+$T$ une partie discr\`ete de~$S$. Pour tout $s\in S$, soit $n(s)$ le
+\og nombre g\'eom\'etrique de points\fg dans la fibre $g^{-1}(s)$
+(qui s'explicite aussi comme le degr\'e s\'eparable de~$g^{-1}(s)$
+sur~$\kres(s)$, somme des degr\'es s\'eparables de ses extensions
+r\'esiduelles). On suppose que pour $s\in S-T$, on a $n(s)=1$. Pour
+tout $s\in T$, soit $K_s$ une extension alg\'ebriquement close de
+$\kres(s)$, $I_s$ l'ensemble des points g\'eom\'etriques de~$S'$ \`a
+valeurs dans~$K_s$ (c'est un ensemble \`a $n(s)$ \'el\'ements),
+$I_s'$ le compl\'ementaire d'un point choisi de~$I_s$, et enfin $I'$
+l'ensemble r\'eunion des $I_s'$. On suppose $S'$ connexe. Alors le
+groupe fondamental de~$S$ est isomorphe au groupe de type galoisien
+engendr\'e par le groupe fondamental de~$S'$, et des
+g\'en\'erateurs $g_i$ ($i\in I'$), soumis \`a aucune condition
+suppl\'ementaire.
+\end{corollaire}
+
+Le
+d\'etail de la d\'emonstration est laiss\'e au lecteur;
+l'\'enonc\'e obtenu n'est que la traduction, en langage de la
+th\'eorie des groupes, du fait qu'on a une \'equivalence de la
+cat\'egorie $C$ des rev\^etements \'etales de~$S$, et de la
+cat\'egorie des rev\^etements \'etales $X'$ de~$S'$,
+\emph{munis} pour tout $s\in T$ d'un syst\`eme transitif de
+bijections entre les $n(s)$ fibres de~$X'$ aux points de~$g^{-1}(s)$
+\`a valeurs dans~$K_s$. (Sous cette forme intrins\`eque bien
+entendu, il n'est plus n\'ecessaire de supposer $S'$ connexe).
+\begin{exemple}
+\label{IX.5.5}
+On prouve facilement que la courbe rationnelle $\PP^1_k$ sur un corps
+alg\'ebriquement clos $k$ est simplement
+connexe\footnote{\Cf Exp.\, XI~\ref{XI.1.1}.}. Donc le groupe
+fondamental d'une courbe rationnelle compl\`ete ayant exactement un
+point double, \`a $n$ branches analytiques, est le groupe de type
+galoisien libre engendr\'e par $n-1$ g\'en\'erateurs. Par
+exemple, dans le cas d'un point double ordinaire, on trouve le groupe
+fondamental $\hat\ZZ$, comme annonc\'e dans (I~\ref{I.11}~a)). Par
+contre, l'existence d'un point de rebroussement (qui est un point
+\og g\'eom\'etriquement unibranche\fg) n'a pas d'influence sur le
+groupe fondamental.
+\end{exemple}
+
+\begin{corollaire}
+\label{IX.5.6}
+Soit $g\colon S'\to S$ un morphisme de pr\'esch\'emas
+universellement submersif, \`a fibres g\'eom\'etriquement
+connexes, $S$ \'etant connexe. Alors $S'$ est connexe, et
+choisissant un point g\'eom\'etrique $s'$ dans~$S'$ et
+d\'esignant par $s$ son image dans~$S$, l'homomorphisme
+$$
+\pi_1(S',s')\to \pi_1(S,s)
+$$
+est \emph{surjectif}. Si $g$ est un morphisme de descente effective
+pour la cat\'egorie fibr\'ee des rev\^etements \'etales de
+pr\'esch\'emas (\cf \emph{\ref{IX.4.12}}), introduisant le point
+g\'eom\'etrique $s^{\prime\prime}=\diag(s')$
+de~$S^{\prime\prime}=S'\times_S S'$, et les deux homomorphismes
+$$
+p_{1*},p_{2*}\colon \pi_1(S^{\prime\prime},s^{\prime\prime}) \to
+\pi_1(S',s')
+$$
+induits par les deux projections, $\pi_1(S, s)$ est isomorphe au
+conoyau de ce couple de morphismes dans la cat\'egorie des groupes
+de type galoisien, \ie au quotient de~$\pi_1(S',s')$ par le
+sous-groupe invariant ferm\'e engendr\'e par les
+\'el\'ements de la forme
+$p_{1*}(g^{\prime\prime})p_{2*}(g^{\prime\prime})^{-1}$, avec
+$g^{\prime\prime}\in \pi_1(S^{\prime\prime},s^{\prime\prime})$.
+\end{corollaire}
+
+On sait en effet par~\ref{IX.3.4} que le foncteur $X\mto
+X\times_SS'$ des rev\^etements \'etales sur~$S$ dans les
+rev\^etements \'etales sur~$S'$ est pleinement fid\`ele, ce qui
+\'equivaut au fait que l'homomorphisme sur les groupes fondamentaux
+est un \'epimorphisme (V~\ref{V.6.9}). La derni\`ere assertion est
+une cons\'equence imm\'ediate de la description~\ref{IX.5.1}.
+
+\begin{remarque}
+\label{IX.5.7}
+Il n'est pas connu \`a l'heure actuelle si le groupe fondamental
+d'un sch\'ema propre sur un corps alg\'ebriquement clos $k$ est
+topologiquement de pr\'esentation finie\footnote{Cela semble
+tr\`es improbable dans le cas des courbes lisses de genre $g\geq 2$,
+en caract\'eristique $p>0$. Quand on remplace $\pi_1$ par son plus
+grand quotient premier \`a $p$, par contre, il semble que les
+techniques bien connues permettent de donner une r\'eponse
+affirmative, m\^eme sans hypoth\`ese de propret\'e. \Cf un
+travail en pr\'eparation de J.P.\, Murre.}. Utilisant~\ref{IX.5.3}, une
+technique bien connue de sections hyperplanes, et la
+d\'esingularisation des surfaces normales, on est ramen\'e au cas
+d'une \emph{surface lisse sur} $k$. Cela permet du moins de montrer,
+par voie transcendante, que la r\'eponse est affirmative en
+caract\'eristique $0$ (et ceci sans \^etre oblig\'e d'admettre
+la triangulabilit\'e de vari\'et\'es alg\'ebriques
+singuli\`eres). En caract\'eristique $p>0$, la difficult\'e
+principale semble dans le cas des courbes, dont on sait seulement que
+le groupe fondamental est un quotient de celui qui se pr\'esente
+dans le cas classique (\cf expos\'e suivant), le noyau par lequel on
+divise \'etant cependant fort mal connu.
+\end{remarque}
+
+\begin{remarque}
+\label{IX.5.8}
+On pourrait expliciter d'autres cas particuliers que~\ref{IX.5.4}
+et~\ref{IX.5.6} o\`u~\ref{IX.5.1} prend une forme
+particuli\`erement simple. Un cas int\'eressant est celui o\`u
+$S$ est le quotient de~$S'$ par un groupe fini d'automorphismes
+$\Gamma$. \emph{Alors la catégorie des revêtements étales
+de~$S'$ est équivalente à la catégorie des revêtements
+étales $X'$ de~$S'$, où le groupe $\Gamma$ opère de fa\c con compatible avec ses opérations sur~$S'$, de telle fa\c con
+que pour tout $s'\in S'$ et tout $g\in \Gamma_{s'}$} (o\`u
+$\Gamma_{s'}$ d\'esigne \emph{le groupe d'inertie} de~$s'$
+dans~$\Gamma$), \emph{$g$~opère trivialement dans la fibre}
+$X_{s'}^\prime$. Si $S'$ est connexe cet \'enonc\'e
+s'interpr\`ete de la fa\c con suivante. Soit $C'_0$ la
+cat\'egorie des rev\^etements \'etales de~$S'$ o\`u $\Gamma$
+op\`ere de fa\c con compatible avec ses op\'erations sur~$S'$
+(mais sans satisfaire n\'ecessairement la condition ci-dessus sur
+les groupes d'inertie des points de~$S'$). On voit facilement que
+c'est une cat\'egorie galoisienne (V~\ref{V.5}), et que pour
+tout point g\'eom\'etrique $a'$ de~$S'$, le foncteur fibre
+$X'\mto X_{a'}'$ sur~$C'_0$ est un foncteur fondamental. Soit
+$\pi_1(S',\Gamma;a')=G$ le groupe des automorphismes de ce foncteur,
+muni de sa topologie habituelle. On a alors une suite exacte canonique
+$$
+e\to \pi_1(S',a')\to G\to \Gamma\to e
+$$
+(cas particulier de (V~\ref{V.6.13}), o\`u on prend pour $S$ le
+rev\^etement trivial $S'\times \Gamma$ de~$S'$ d\'efini par
+$\Gamma$, o\`u on fait op\'erer $\Gamma$ de fa\c con
+\'evidente). D'ailleurs pour tout point g\'eom\'etrique $b'$
+de~$S'$, on a un isomorphisme $\pi_1(S', \Gamma ; b' )\to G =
+\pi_1(S', \Gamma; a')$ d\'efini \`a automorphisme int\'erieur
+pr\`es provenant de~$\pi_1(S',a')$, et comme $\Gamma_{b'}$
+s'applique de fa\c con \'evidente dans le premier membre, on
+obtient un homomorphisme
+$$
+u_{b'}\colon \Gamma_{b'}\to G \quoi,
+$$
+d\'efini \`a automorphisme int\'erieur pr\`es (provenant
+de~$\pi_1(S',a')$),
+dont le compos\'e avec l'homomorphisme canonique
+$G\to \Gamma$ est d'ailleurs l'immersion canonique $\Gamma_{b'} \to
+\Gamma$. Ceci pos\'e, \emph{le groupe fondamental $\pi_1(S,a)$
+\emph{est} canoniquement isomorphe au groupe quotient de~$G =
+\pi_1(S', \Gamma; a')$ par le sous-groupe invariant fermé
+engendré par les images des homomorphismes $\Gamma_{b'} \to
+G$}. En particulier, l'image de~$\pi_1(S',a')$ dans $\pi_1(S,a)$ est
+un sous-groupe invariant, et le quotient correspondant est isomorphe
+\`a un quotient de~$\Gamma$. On peut d'ailleurs r\'eduire le
+nombre des \og relations\fg introduites en introduisant, pour tout $g\in
+\Gamma$, $ g\neq e$, le sous-pr\'esch\'ema $S'_g$ des
+co\"incidences des automorphismes $\id_S$ et $g$ de~$S$, en
+choisissant un point g\'eom\'etrique $b'_{g,i}$ dans chaque
+composante connexe de~$S'_g$, puis un des homomorphismes
+correspondants $\pi_1(S',\Gamma; b'_{g,i})\to G$, d'o\`u des
+rel\`evements $\bar{g}_i$ de~$g$ dans~$G$. Il suffit alors de
+prendre le quotient de~$G$ par le sous-groupe invariant ferm\'e
+de~$G$ engendr\'e par les $\bar{g}_i$.
+
+Lorsque $a'$ est invariant par $\Gamma$, on voit ais\'ement que
+$\Gamma$ op\`ere de fa\c con naturelle sur~$\pi_1(S',a')$, et $G$
+s'identifie au produit semi-direct correspondant. Identifiant alors~$\Gamma$
+\`a
+un sous-groupe de~$G$, on voit que dans les relations
+introduites plus haut, faisant $b'=a'$, on trouve \og $g = e$\fg pour
+$g\in I$. Donc \emph{si $S'$ a un point géométrique $a'$ fixe
+par}~$I$ (\ie un point $s'$ dont le groupe d'inertie est $\Gamma$),
+\emph{alors $\pi_1(S,a)$ est un groupe quotient du groupe quotient de
+type galoisien de~$\pi_1(S',a')$ obtenu en \emph{\og rendant
+triviales\fg} les opérations de~$\Gamma$ sur~$\pi_1(S',a')$; et il
+est même isomorphe à ce dernier groupe si on suppose que pour
+tout $g\in G$, l'ensemble d'inertie $S_g'$ est connexe, donc passe par
+la localité de~$a'$}. Cette derni\`ere assertion est en effet
+contenue dans la deuxi\`eme description donn\'ee plus haut pour
+les relations \`a introduire dans $G$.
+
+Ce dernier r\'esultat s'applique en particulier si l'on prend pour
+$S'$ la puissance cart\'esienne $X^n$ d'un pr\'esch\'ema connexe
+sur un corps alg\'ebriquement clos, pour $\Gamma$ le groupe
+sym\'etrique $\Gamma={\goth {S}}_n$, op\'erant de la fa\c con
+habituelle, d'o\`u pour $S$ la puissance sym\'etrique \nieme
+de~$S$. Prenant alors pour $a'$ un point g\'eom\'etrique
+localis\'e en la diagonale, on est sous les conditions
+pr\'ec\'edentes, les ensembles d'inertie $S_g'$ contenant en effet
+tous la diagonale. Utilisant le fait, prouv\'e dans l'expos\'e
+suivant, que si $X$ est propre connexe sur~$k$, le groupe fondamental
+de~$X^n$ s'identifie \`a $\pi_1(X)^n$, on trouve le r\'esultat
+amusant suivant: \emph{Si $X$ est propre connexe sur~$k$
+algébriquement clos, le groupe fondamental de sa puissance
+symétrique \nieme, $n \geq 2$, est isomorphe au groupe
+fondamental de~$X$ rendu abélien}. (J'ignore si le fait analogue
+en Topologie alg\'ebrique est connu; il devrait pouvoir
+s'\'etablir par la m\^eme m\'ethode de descente). Prenons par
+exemple pour $X$ une courbe rationnelle $X=\PP^1_k$, on trouve une
+\Nieme d\'emonstration du fait que $\PP^r_k$ est simplement
+connexe, utilisant le fait que $\PP^1_k$ l'est. Prenons maintenant
+pour $X$ une courbe simple sur~$k$, et $n\geq 2g-1$, de sorte que
+$\Symm^n(X)$ est fibr\'e sur la jacobienne $J$, de fibres des
+espaces projectifs, donc (comme on verra \`a l'aide des
+r\'esultats des deux expos\'es suivants) a m\^eme groupe
+fondamental que $J$. On retrouve alors sans d\'evissage le fait bien
+connu que \emph{le groupe fondamental de la jacobienne de~$X$ est
+isomorphe au groupe fondamental de~$X$ rendu abélien}.
+\end{remarque}
+
+\section[Une suite exacte fondamentale]{Une suite exacte fondamentale. Descente par morphismes \`a
+fibres relativement connexes}
+\label{IX.6}
+
+\begin{theoreme}
+\label{IX.6.1}
+Soient $S$ le spectre d'un anneau artinien $A$ de corps r\'esiduel
+$k$, $\overline{k}$ une cl\^oture alg\'ebrique de~$k$, $X$ un $S$
+pr\'esch\'ema, $X_0=X\otimes_A k$, $\overline{X}_0=X\otimes_A
+\overline{k}$, $\overline{a}$ un point g\'eom\'etrique
+de~$\overline{X}$, $a$ son image dans~$X$, $b$ son image dans~$S$. On
+suppose que $X_0$ est quasi-compact et \emph{géométriquement
+connexe} sur~$k$ (N.B. si $X$ est propre sur~$S$, cela signifie que
+$\H^0(X_0,\cal{O}_{X_0})$ est un anneau artinien \emph{local} de corps
+r\'esiduel \emph{radiciel} sur~$k$). Alors la suite d'homomorphismes
+canoniques
+$$
+e\mto \pi_1(\overline{X}_0,\overline{a})\to
+\pi_1(X,a)\to\pi_1(S,b)\to e
+$$
+est exacte, et on a
+$$
+\pi_1(S,b)\isomfrom \pi_1(k,\overline{k})=\text{groupe de Galois
+de~$\overline{k}$ sur~$k$.}
+$$
+\end{theoreme}
+
+Comme les groupes fondamentaux ne changent pas en ch\^atrant par les
+\'el\'ements nilpotents, on peut supposer $A=k$, ce qui rend
+d\'ej\`a \'evident le dernier isomorphisme. Soit $k'$ la
+cl\^oture s\'eparable de~$k$ dans~$\overline{k}$, et
+consid\'erons $X'=X\otimes_k k'$, et l'image $a'$ de~$\overline{a}$
+dans~$X'$. On a une suite d'homomorphismes canoniques
+$$
+e\mto \pi_1(\overline{X}_0,\overline{a})\to
+\pi_1(X',a')\to\pi_1(S',b')\to e
+$$
+(o\`u $S'=\Spec(k')$). Enfin, on a un homomorphisme canonique de
+cette suite dans celle relative \`a~$X/k$, gr\^ace au~diagramme
+$$
+\xymatrix{{S}&{X}\ar[l]&{\overline{X}_0}\ar[l]\\{S'}\ar[u]&{X'}\ar[u]\ar[l]&{\overline{X}_0  .}\ar[l]\ar@{=}[u]}
+$$
+On voit d'autre part que cet homomorphisme de suites de groupes est un
+isomorphisme, comme il r\'esulte de~\ref{IX.4.11}. On est donc
+ramen\'e \`a prouver que la deuxi\`eme suite est exacte, \ie on
+peut supposer que $k$ est \emph{parfait}. Soient alors $k_i$ les
+sous-extensions galoisiennes finies de~$k$ dans~$\overline{k}$, posons
+$X_i=X\otimes_k k_i$, et soit $a_i$ l'image de~$\overline{a}$
+dans~$X_i$. On laisse au lecteur
+le soin
+de v\'erifier que l'homomorphisme
+naturel
+$$
+\pi_1(\overline{X}_0,a)\isomto \varprojlim\pi_1(X_i,a_i)
+$$
+est un isomorphisme, ce qui signifie simplement qu'un rev\^etement
+\'etale de~$\overline{X}$ provient d'un rev\^etement \'etale
+d'un~$X_i$, et que ce dernier est essentiellement unique, modulo
+passage \`a un~$X_j$, $j\geq i$. D'autre part, soit $\pi_i$ le
+groupe de Galois de~$k_i$ sur~$k$, \ie le groupe oppos\'e au groupe
+des $S$-automorphismes de~$S_i=\Spec(k_i)$. Comme le foncteur
+$S'\mto X\times_S S'$ des rev\^etements \'etales de~$S$ dans
+les rev\^etements \'etales de~$X$ est pleinement fid\`ele
+\eqref{IX.3.4}, il s'ensuit que $\pi_i$ est aussi isomorphe au groupe
+oppos\'e aux groupes des $X$-automorphismes du rev\^etement
+principal connexe $X_i$ de~$X$. Il r\'esulte donc de
+V~\ref{V.6.13} que l'on a une suite exacte
+$$
+e\mto \pi_1(X_i,a_i)\to \pi_1(X,a)\to\pi_i\to e.
+$$
+Passant \`a la limite projective sur~$i$ dans ces suites exactes, on
+trouve une suite exacte (puisqu'on est dans la cat\'egorie des
+groupes de type galoisien), qui n'est autre que la suite envisag\'ee
+dans~\ref{IX.6.1}. Cela ach\`eve la d\'emonstration.
+
+La traduction de l'exactitude \`a droite dans~\ref{IX.6.1} en
+langage g\'eom\'etrique est la suivante:
+
+\begin{corollaire}
+\label{IX.6.2}
+Avec les notations pr\'ec\'edentes, soit $X'$ un rev\^etement
+\'etale de~$X$, et soit $\overline{X'}_0$ le rev\^etement
+\'etale correspondant de~$\overline{X}_0$. Les conditions suivantes
+sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] Il existe un $S'$ \'etale sur~$S$, et un $X$-isomorphisme
+$X'\isomto X\times_S S'$, ($S'$ est alors d\'etermin\'e \`a
+isomorphisme unique pr\`es en vertu de~\ref{IX.3.4}).
+\item[(ii)] $\overline{X}_0'$ est compl\`etement d\'ecompos\'e
+sur~$\overline{X}_0$.
+
+Si $X'$ est connexe, ces conditions \'equivalent aussi \`a:
+\item[(ii~bis)] $\overline{X}_0'$ a une section sur~$\overline{X}_0$.
+\end{enumerate}
+\end{corollaire}
+
+(N.B. Ce dernier compl\'ement est essentiel; l'\'equivalence
+de~(i) et (ii) signifie seulement que $\pi_1(S,b)$ est le groupe
+quotient de~$\pi_1(X,a)$ par le sous-groupe
+invariant ferm\'e engendr\'e par l'image
+de~$\pi_1(\overline{X}_0,\overline{a})$, et non par cette image
+elle-m\^eme). Sous les conditions pr\'ec\'edentes, nous dirons
+que $X'$ est un rev\^etement \emph{géométriquement trivial}
+\index{geometriquement trivial (revetement)@g\'eom\'etriquement trivial (rev\^etement)|hyperpage}de~$X$.
+
+\begin{remarque}
+\label{IX.6.3}
+On ne peut dans l'\'enonc\'e~\ref{IX.6.1} remplacer $\overline{k}$
+par une extension alg\'ebriquement close quelconque de~$k$, m\^eme
+si $k$ est d\'ej\`a suppos\'e alg\'ebriquement clos. En
+d'autres termes, il n'est pas vrai en g\'en\'eral que si $X$ est
+un sch\'ema alg\'ebrique connexe sur un corps alg\'ebriquement
+clos $k$, son groupe fondamental ne change pas en rempla\c cant $k$
+par une extension alg\'ebriquement close; c'est d\'ej\`a faux
+par exemple en caract\'eristique $p>0$ pour la droite affine
+sur~$k$, \`a cause des ph\'enom\`enes de \og ramification
+sup\'erieure\fg au point \`a l'infini, impliquant une structure
+\og continue\fg pour le groupe fondamental. Nous verrons cependant dans
+l'expos\'e suivant que de tels ph\'enom\`enes ne peuvent se
+produire si $X$ est \emph{propre} sur~$k$. Nous montrerons aussi par
+voie transcendante qu'il en est de m\^eme si $k$ est de
+caract\'eristique nulle.
+\end{remarque}
+
+\begin{corollaire}
+\label{IX.6.4}
+Supposons que $a$ soit localis\'e en un $x\in X$ qui est rationnel
+sur~$k$ (ou plus g\'en\'eralement, ayant un corps r\'esiduel
+radiciel sur~$k$). Alors la suite exacte~\ref{IX.6.1} est scind\'ee.
+\end{corollaire}
+
+On peut supposer $S=\Spec(k)$. Si $x$ est rationnel sur~$k$, il
+correspond \`a une section $S\to X$ de~$X$ sur~$S$, transformant $b$
+en~$a$, et d\'efinissant un homomorphisme $\pi_1(S,b)\to \pi_1(X,a)$
+qui est le scindage cherch\'e. Si $\kres(x)$ est radiciel sur~$k$, on se
+ram\`ene au cas pr\'ec\'edent en faisant l'extension de la base
+$\Spec(\kres(x))\to\Spec(k)$.
+
+\begin{theoreme}
+\label{IX.6.5}
+Soient $f\colon X\to S$ un morphisme propre et surjectif de
+pr\'esentation finie, \`a fibres g\'eom\'etriquement connexes,
+$X'$ un pr\'esch\'ema de pr\'esentation finie et propre sur~$X$,
+$s$ un point de~$S$, $F=X_s$ la fibre de~$X$ en~$s$, et $F_1'$ une
+composante connexe de la fibre $F'=X'_s$ de~$X'$ en~$s$. Pour qu'il
+existe un voisinage ouvert $X_1'$ de~$F_1'$ dans~$X'$, un
+$S$-sch\'ema \'etale $S_1'$ et un $X$-isomorphisme $X_1'\isomto
+S_1'\times_S X$, il faut et il suffit que $X'$ soit \'etale sur~$X$
+aux points de~$F_1'$, et que $F_1'$ soit un rev\^etement
+g\'eom\'etriquement trivial de~$F$.
+\end{theoreme}
+
+La
+n\'ecessit\'e de la condition \'etant triviale, il reste
+\`a prouver la suffisance. On se ram\`ene facilement au cas o\`u
+$S$ est noeth\'erien. Consid\'erons la factorisation de Stein
+$X\to T\to S$ de~$f$, o\`u $T$ est le spectre de l'Alg\`ebre
+$f_*(\cal{O}_X)$ sur~$S$. Comme les fibres de~$X$ sur~$S$ sont
+g\'eom\'etriquement connexes, et $f$ est surjectif, le morphisme
+$T\to S$ est fini surjectif et radiciel, donc \eqref{IX.4.10} tout
+$T'$ \'etale sur~$T$ provient par image inverse d'un $S'$ \'etale
+sur~$S$. Cela nous ram\`ene \`a
+prouver~\ref{IX.6.5}
+en y rempla\c cant $S$ par~$T$, \ie dans le cas o\`u on suppose
+$f_*(\cal{O}_X)=\cal{O}_S$. Consid\'erons alors la factorisation de
+Stein $X'\to S'\to S$ du morphisme propre $h\colon X'\to S$, o\`u
+$S'$ est le spectre de l'Alg\`ebre $h_*(\cal{O}_{X'})$. Les
+morphismes $X'\to X$ et $X'\to S'$ d\'efinissent un morphisme
+canonique
+$$
+X'\to X\times_S S',
+$$
+et notre assertion est contenue dans la suivante:
+
+\begin{corollaire}
+\label{IX.6.6}
+Soit $f\colon X\to S$ un morphisme propre de pr\'esch\'emas
+localement noeth\'eriens, tel que $f_*(\cal{O}_X)=\cal{O}_S$, et
+soit $X'$ un pr\'esch\'ema propre sur~$X$. Consid\'erons la
+factorisation de \emph{Stein} $X'\to S'\to S$ pour $X'\to S$, et le
+morphisme canonique $X'\to X\times_S S'$. Soient $s$ un point de~$S$,
+$s'$ un point de~$S'$ au-dessus de~$s$, correspondant \`a une
+composante connexe $F_1'$ de la fibre $X'_s$ de~$X'$ en~$s$. Pour que
+le morphisme $X'\to X\times_S S'$ soit un isomorphisme au-dessus d'un
+voisinage ouvert $U'$ de~$s'$ \'etale sur~$S$, il faut et il suffit
+que $X'$ soit \'etale sur~$X$ en les points de~$F_1'$, et que $F_1'$
+soit un rev\^etement g\'eom\'etriquement trivial de la fibre
+$F=X_s$.
+\end{corollaire}
+
+La n\'ecessit\'e \'etant encore triviale, il reste \`a prouver
+la suffisance. La conclusion signifie aussi que a) le morphisme
+d\'eduit de~$X'\to X\times_S S'$ par le changement de base
+$\Spec(\widehat{\cal{O}}_{s'})\to S'$ est un isomorphisme, b) $S'$ est
+\'etale sur~$S$ en~$s'$, \ie $\widehat{\cal{O}}_{s'}$ est \'etale
+sur~$\widehat{\cal{O}}_s$. Sous cette forme, on voit que la conclusion
+est invariante par changement de base $\Spec(\widehat{\cal{O}}_s)\to
+S$. Les hypoth\`eses \'etant \'egalement stables par ce
+changement de base, on peut donc supposer que $S$ est le spectre d'un
+anneau local noeth\'erien complet. On peut de plus \'evidemment
+supposer $X'$ connexe, ce qui implique ici que
+$S'=\Spec(\cal{O}_{s'})$, $F'=F_1'$.
+
+Comme
+l'ensemble des points de~$X'$ o\`u $X'$ est \'etale sur~$X$ est
+ouvert et contient la fibre $X'_{s'}=F'$, $X'$ \'etant propre
+sur~$S$, il s'ensuit que $X'$ est \'etale sur~$X$. Comme il induit
+sur~$F=X_s$ un rev\^etement \'etale isomorphe \`a un
+$F\otimes_{\kres(s)}L$, o\`u $L$ est \'etale sur~$\kres(s)$, il
+r\'esulte de~\ref{IX.1.10} qu'il est isomorphe \`a un
+rev\^etement de la forme $X\times_S T$, avec $T$ \'etale sur~$S$.
+(N.B. ici encore, il suffit d'utiliser que le foncteur
+de~\ref{IX.1.10} est pleinement fid\`ele, qui r\'esulte du fait
+qu'un isomorphisme formel de faisceaux coh\'erents sur~$X$ provient
+d'un isomorphisme de ces faisceaux). Donc, si $T$ est d\'efini par
+l'alg\`ebre~$B$ finie sur~$A$, $X'$ s'identifie au spectre de
+l'Alg\`ebre $\cal{O}_X\otimes_A B$ sur~$X$, d'o\`u r\'esulte
+aussit\^ot, puisque $f_*(\cal{O}_X)=\cal{O}_S$, que
+$h_*(\cal{O}_{X'})$ est d\'efini par~$B$, donc l'homomorphisme
+canonique $X'\to X\times_S S'$ n'est autre que l'isomorphisme
+envisag\'e $X'\isomto X\times_S T$. Cela ach\`eve la
+d\'emonstration.
+
+\begin{corollaire}
+\label{IX.6.7}
+Sous les conditions de~\ref{IX.6.5}, pour qu'il existe un
+pr\'esch\'ema $S'$ \'etale sur~$S$ et un $X$-isomorphisme
+$X'\isomto X\times_S S'$, il faut et il suffit que $X'$ soit \'etale
+sur~$X$ et que pour tout $s\in S$, $X'_{s'}$ soit un rev\^etement
+g\'eom\'etriquement trivial de~$X_s$.
+\end{corollaire}
+
+En effet, s'il en est ainsi, $X'$ est r\'eunion d'ouverts $X_i'$ qui
+sont isomorphes \`a des images inverses de~$S_i'$ \'etales
+sur~$S$. On voit alors facilement que ces $S_i'$ se recollent en un
+$S'$ \'etale sur~$S$, et qu'on obtient un isomorphisme $X'\isomto
+X\times_S S'$. On peut dire par exemple que les $X_i'$ sont munis de
+donn\'ees de descente relativement \`a~$X\to S$, qui se recollent
+n\'ecessairement en une donn\'ee de descente sur~$X'$ tout entier
+relativement \`a~$X\to S$. Et comme cette derni\`ere est effective
+sur les~$X_i'$, il s'ensuit facilement (gr\^ace \`a un sorite
+oubli\'e au num\'ero \ref{IX.4}) qu'elle est effective. On peut aussi
+\'enoncer \ref{IX.6.7} sous la forme suivante:
+
+\begin{corollaire}
+\label{IX.6.8}
+Soit $f\colon X\to S$ un morphisme propre surjectif de
+pr\'esentation finie, \`a fibres g\'eom\'etriquement
+connexes. Alors $f$ est un morphisme de descente effective pour la
+cat\'egorie fibr\'ee des pr\'esch\'emas \'etales finis sur
+d'autres. Le foncteur $S'\mto X\times_S S'$ induit une
+\'equivalence de la cat\'egorie des pr\'esch\'emas \'etales
+et finis sur~$S$ avec la cat\'egorie des pr\'esch\'emas
+\'etales et finis sur~$X$ qui induisent sur chaque fibre $X_s$ un
+rev\^etement g\'eom\'etriquement trivial.
+\end{corollaire}
+
+\begin{remarque}
+\label{IX.6.9}
+Soit $f\colon X\to S$ un morphisme propre et surjectif, avec $Y$
+localement noeth\'erien, alors $f$ se factorise en un morphisme
+$X\to S'$ satisfaisant l'hypoth\`ese de~\ref{IX.6.8}, et un
+morphisme fini surjectif $S'\to S$ justiciable de~\ref{IX.4.7}, donc
+en produit de deux morphismes qui sont des \emph{morphismes de
+descente effective universels} pour la cat\'egorie fibr\'ee des
+pr\'esch\'emas \'etales et finis sur d'autres. On peut en
+conclure que $f$ lui-m\^eme est un morphisme de descente effective
+universel pour la cat\'egorie fibr\'ee envisag\'ee. On retrouve
+ainsi \ref{IX.4.12} par une m\'ethode diff\'erente.
+\end{remarque}
+
+\begin{remarque}
+\label{IX.6.10}
+La conclusion de~\ref{IX.6.7} ne reste pas valable si on remplace
+l'hypoth\`ese que $f$ est propre par: $X$ est de type fini sur~$S$
+et admet une section sur~$S$ (donc $f$ est universellement submersif
+et un morphisme de descente pour la cat\'egorie fibr\'ee des
+pr\'esch\'emas \'etales sur d'autres), m\^eme lorsque $S$ est
+le spectre d'un anneau de valuation discr\`ete et lorsque $X'$ est
+un rev\^etement \'etale de~$X$. Pour le voir, on part d'un $Z$
+propre sur~$S$, dont la fibre g\'en\'erale
+est une courbe rationnelle non singuli\`ere, et la fibre
+sp\'eciale $Z_0$ consiste en deux droites concourantes. Par exemple,
+si $t$ est une uniformisante de l'anneau de valuation~$A$, on prend le
+sous-sch\'ema ferm\'e $Z$ de~$\PP_A^2$ d\'efini par
+l'\'equation homog\`ene $x^2+y^2+tz^2=0$ (coordonn\'ees
+homog\`enes $x$, $y$, $z$). On prend pour $X$ le compl\'ementaire
+du point singulier $a$ de~$Z_0$ dans la r\'eunion $Z\cup
+\PP_k^2$. Les fibres de~$X$ sont $\PP_k^1$ et $\PP_k^2 - a$, donc sont
+g\'eom\'etriquement simplement connexes (\ie tout rev\^etement
+\'etale d'une telle fibre est g\'eom\'etriquement trivial).
+Cependant
+on construit facilement, en proc\'edant comme dans le \No \ref{IX.4}, des
+rev\^etements \'etales de~$X$ qui ne proviennent pas de
+rev\^etements \'etales de~$S$, par recollement de rev\^etements
+triviaux de~$Z-a$ et de~$\PP_k^2-a$. Il est possible par contre que la
+conclusion de~\ref{IX.6.7} subsiste si on y remplace l'hypoth\`ese
+de propret\'e par celle que $X$ soit \emph{universellement ouvert}
+de pr\'esentation finie sur~$S$\footnote{C'est maintenant
+prouv\'e, $g$ \'etant seulement universellement ouvert et
+surjectif; \cf SGA~4 XV~1.15.}. C'est vrai du moins si on suppose que
+les fibres de~$X$ sur~$S$ sont g\'eom\'etriquement
+irr\'eductibles, et non seulement g\'eom\'etriquement connexes.
+Signalons seulement qu'on peut dans cette question se ramener au cas
+o\`u $S$ est le spectre d'un anneau de valuation discr\`ete
+complet \`a corps r\'esiduel alg\'ebriquement clos.
+\end{remarque}
+
+L'interpr\'etation de~\ref{IX.6.7} en termes du groupe fondamental
+est la suivante:
+
+\begin{corollaire}
+\label{IX.6.11}
+Soit $f\colon X\to S$ un morphisme propre surjectif de
+pr\'esentation finie, \`a fibres g\'eom\'etriquement
+connexes. On suppose $X$ donc $S$ connexe. Soient $a$ un point
+g\'eom\'etrique de~$X$, $b$ son image dans~$S$, et pour tout $s\in
+S$, choisissons une cl\^oture alg\'ebrique $\overline{\kres(s)}$ de
+$\kres(s)$, un point g\'eom\'etrique $a_s$ de~$S_s$ \`a valeurs
+dans cette extension, et une classe de chemins de~$a_s$ dans~$a$,
+d'o\`u un homomorphisme $\pi_1(\overline X_s,a_s)\to \pi_1(X,a)$,
+o\`u $\overline X_s=X_s\otimes_{\kres(s)}\overline{\kres(s)}$. Alors
+l'homomorphisme $\pi_1(X,a)\to \pi_1(S,b)$ est surjectif, et son noyau
+est le sous-groupe invariant ferm\'e de~$\pi_1(X,a)$ engendr\'e
+par les images des $\pi_1(\overline X_s,a_s)$.
+\end{corollaire}
+
+\begin{remarque}
+\label{IX.6.12}
+Sous les conditions de~\ref{IX.6.7}, supposant $S$ noeth\'erien,
+on voit facilement que l'ensemble des points $s\in S$ tels que
+$S'_{s'}$ soit g\'eom\'etriquement trivial sur~$X_s$ est un
+ensemble constructible; si $X'$ est propre sur~$X$, il est m\^eme
+ouvert, comme on voit sur~\ref{IX.6.6}. Cela permet donc, si $S$ et
+un pr\'esch\'ema de Jacobson (par exemple de type fini sur un
+corps), ou
+$X'$ est propre sur~$X$, de se borner pour v\'erifier les conditions
+de~\ref{IX.6.7} aux points $s$ de~$S$ qui sont \emph{fermés}. De
+m\^eme, dans~\ref{IX.6.11} il suffit alors de prendre les
+$\pi_1(\overline X_s,a_s)$ pour les points de~$S$ qui sont ferm\'es.
+\end{remarque}
+
+\begin{thebibliography}{D}{IX.7}
+
+\bibitem[D]{IX.D} J.\, \textsc{Giraud}, M\'ethode de la
+descente,
+M\'emoire \no 2
+de la Soc.\ Math.\ Fr.,~1964.
+
+\bibitem[1]{IX.1} A.\, \textsc{Grothendieck}, G\'eom\'etrie Alg\'ebrique et
+G\'eom\'etrie Formelle, S\'eminaire Bourbaki t.\, 11, 1959,
+\No 182.
+\end{thebibliography}
+

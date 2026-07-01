@@ -1,0 +1,1180 @@
+\chapter{Th\'eorie de la sp\'ecialisation du~groupe~fondamental}
+\label{X}
+Dans le pr\'esent expos\'e, nous nous bornons \`a l'\'etude du
+groupe fondamental des fibres g\'eom\'etriques dans un morphisme
+\emph{propre}, \ie du groupe fondamental d'un sch\'ema
+alg\'ebrique \emph{propre} variable. Dans un expos\'e
+ult\'erieur, nous g\'en\'eraliserons la technique employ\'ee
+aux rev\^etements \'etales \emph{modérément ramifiés}
+\og \`a l'infini\fg. Cela nous donnera par exemple une solution du
+\og Probl\`eme des trois points\fg dans le cas des rev\^etements
+galoisiens d'ordre premier \`a la caract\'eristique (\ie une
+d\'etermination des rev\^etements galoisiens de la droite
+$\PP_k^1$, ramifi\'es au plus en trois points donn\'es et
+mod\'er\'ement ramifi\'es en ces points), et de ses variantes
+\'evidentes.
+
+\section[La suite exacte d'homotopie pour un morphisme propre]
+{La suite exacte d'homotopie pour un morphisme propre et s\'eparable}
+\label{X.1}
+
+\begin{definition}
+\label{X.1.1}
+Un pr\'esch\'ema $X$ sur un corps $k$ est dit
+\emph{séparable}, ou \emph{séparable sur~$k$}, si pour toute
+extension $K$ de~$k$, $X\otimes_k K$ est r\'eduit. Si $f\colon X\to
+Y$ est un morphisme de pr\'esch\'emas, on dit que $f$ est
+\emph{séparable}, ou que $X$ \emph{est séparable sur~$Y$}, si
+$X$ est plat sur~$Y$ et si pour tout $y\in Y$, la fibre $X\otimes_Y
+\kres(y)$ est s\'eparable sur~$\kres(y)$.
+\end{definition}
+
+Si $X$ est un pr\'esch\'ema sur un corps~$k$, dire qu'il est
+s\'eparable signifie aussi qu'il est \emph{réduit}, et que les
+corps~$\kres(x)$, pour $x$ point g\'en\'erique d'une composante
+irr\'eductible de~$X$, sont des extensions s\'eparables de~$k$. Si
+$k$ est parfait, il revient donc au m\^eme de dire que $X$ est
+r\'eduit. Notons que si $X$ est s\'eparable sur~$Y$, alors pour
+tout changement de base $Y'\to Y$, $X'=X\times_Y Y'$ est s\'eparable
+sur~$Y'$. On peut prouver aussi, moyennant des hypoth\`eses de
+finitude convenables, que le compos\'e de deux morphismes
+s\'eparables est
+un morphisme s\'eparable. Nous en aurons besoin seulement sous la
+forme suivante: \emph{si $X$ est séparable sur~$Y$, et $X'$
+étale sur~$X$, $X'$ est séparable sur~$Y$.} C'est en effet
+une cons\'equence imm\'ediate des d\'efinitions
+et~I~\ref{I.9.2}. Par ailleurs, l'hypoth\`ese \og morphisme
+s\'eparable\fg nous servira par l'interm\'ediaire de la proposition
+suivante:
+\begin{proposition}
+\label{X.1.2}
+Soit $f\colon X\to Y$ un morphisme propre et s\'eparable, avec $Y$
+localement noeth\'erien, et consid\'erons sa factorisation de
+\emph{Stein} $X\lto{f'}Y'\dpl\to Y$, (o\`u
+$f_*'(\cal{O}_X)=\cal{O}_{Y'}$, $Y'$ \'etant fini sur~$Y$ et
+isomorphe au spectre de l'alg\`ebre $f_*(\cal{O}_X)$). Alors $Y'$
+est un \emph{revêtement étale} de~$Y$.
+\end{proposition}
+
+Cette proposition figurera dans (EGA~III 7)\footnote{\Cf EGA~III
+7.8.10 (i)}. Indiquons le principe de la d\'emonstration. On se
+ram\`ene facilement au cas o\`u $Y$ est le spectre d'un anneau
+local complet~$A$, et faisant encore une extension finie plate
+convenable de ce dernier (correspondant \`a une extension
+r\'esiduelle convenable), on peut supposer que les composantes
+connexes de la fibre du point ferm\'e $y$ sont
+g\'eom\'etriquement connexes, ce qui signifie aussi que
+$\H^0(X_y,\cal{O}_{X_y})$ se d\'ecompose en un produit de corps
+identiques \`a $k=\kres(y)$. Supposant alors $X$ connexe, ce qui est
+loisible, on aura $\H^0(X_y,\cal{O}_{X_y})=k$, donc l'homomorphisme
+$A\to \H^0(X_y,\cal{O}_{X_y})$ est \emph{surjectif}. On en conclut par
+une proposition g\'en\'erale (du type K\"unneth) que
+$f_*(\cal{O}_X)$ est d\'efini par un module $B$ sur~$A$ qui est
+libre sur~$A$, et que $B/\goth{m} B\to \H^0(X_y,\cal{O}_{X_y})=k$ est
+bijectif. Donc en l'occurrence $B$ est une alg\`ebre \'etale
+sur~$A$, ce qui ach\`eve la d\'emonstration.
+
+\begin{theoreme}
+\label{X.1.3}
+Soit $f\colon X\to Y$ un morphisme propre et s\'eparable, avec $Y$
+localement noeth\'erien et connexe, et supposons
+$f_*(\cal{O}_X)=\cal{O}_Y$ (ce qui implique que les fibres de~$X$ sur~$Y$ sont g\'eom\'etriquement connexes, et r\'eciproquement
+gr\^ace \`a~\ref{X.1.2}). Soient~$y$ un point de~$Y$,
+$\overline{\kres(y)}$ une cl\^oture alg\'ebrique de~$\kres(y)$,
+$\overline X_y =X_y\otimes_{\kres(y)} \overline{\kres(y)}$. Soient \hbox{enfin~$X'$} un rev\^etement \'etale \emph{connexe} de~$X$, et $\overline
+X_y' =X_y'\otimes_{\kres(y)} \overline{\kres(y)}$. Pour qu'il existe un
+rev\^etement \'etale $Y'$ de~$Y$ et un $X$-isomorphisme
+$X'\isomto X\times_Y Y'$, il faut et il suffit que $\overline{X'}_y$
+admette une section sur~$\overline X_y$.
+\end{theoreme}
+
+Posant $Y'=\Spec(h_*(\cal{O}_{X'}))$ (o\`u $h\colon X'\to Y$ est le
+morphisme compos\'e $X'\to X\to Y$), il suffit de prouver que le
+$Y$-morphisme canonique
+$$
+X'\to X\times_Y Y'
+$$
+est un \emph{isomorphisme}, et que $Y'$ est \'etale sur~$Y$. Or nous
+savons d\'ej\`a par~\ref{X.1.2} que $Y'$ est \'etale sur~$Y$,
+donc $X\times_Y Y'$ est \'etale sur~$X$, donc le morphisme $X'\to
+X\times_Y Y'$ est \'egalement \'etale (I~\ref{I.4.8}). D'ailleurs,
+$Y'$ est connexe comme image de~$X'$ qui l'est, donc $X\times_Y Y'$
+est connexe puisque $X$ est \`a fibres connexes sur~$Y$
+(IX~\ref{IX.3.4} et V~\ref{V.6.9}~(iii)). Donc pour prouver que
+$X'\to X\times_Y Y'$ est un isomorphisme, il suffit de voir que son
+degr\'e de projection en \emph{un} point de~$X\times_Y Y'$ est
+\'egal \`a~1. Or ceci r\'esulte facilement de l'hypoth\`ese
+que $\overline{X'}_y$ admet une section sur~$\overline X_y$, soit
+par utilisation de IX~\ref{IX.6.6}, soit plus simplement en notant qu'il
+suffit de prouver l'existence d'un tel point dans $X\times_Y Y'$
+apr\`es changement de base
+$\Spec(\overline{\kres(y)})\to Y$, o\`u cela
+est \'evident. Cela ach\`eve la d\'emonstration de~\ref{X.1.3}.
+
+Tenant compte de IX~\ref{IX.3.4} et du dictionnaire V~\ref{V.6.9} et
+V~\ref{V.6.11}, on peut mettre~\ref{X.1.3} sous la forme
+\'equivalente suivante
+
+\begin{corollaire}
+\label{X.1.4}
+Avec les notations pr\'ec\'edentes pour $f\colon X\to Y$ et
+$\overline X_y$, soit $\bar{a}$ un point g\'eom\'etrique de
+$\overline X_y$, $a$ son image dans $X$ et $b$ son image
+dans~$Y$. Alors la suite suivante d'homomorphismes de groupes est
+\emph{exacte}:
+$$
+\pi_1(\overline X_y,\bar{a})\to \pi_1(X,a)\to \pi_1(Y,b)\to e.
+$$
+\end{corollaire}
+
+\begin{remarques}
+\label{X.1.5}
+On notera que la d\'emonstration de~\ref{X.1.3} fait intervenir de
+fa\c con essentielle~\ref{X.1.2} et par l\`a le \og premier
+th\'eor\`eme de comparaison\fg en g\'eom\'etrie
+alg\'ebrico-formelle. Par contre, la th\'eorie de la descente de
+l'expos\'e~\ref{IX}
+n'est intervenue que par l'interm\'ediaire de IX~\ref{IX.3.4}, dont
+une d\'emonstration directe dans le cas d'un morphisme \emph{propre}
+$f\colon X\to Y$ tel que $f_*(\cal{O}_X)=\cal{O}_Y$ est facile. Soit
+en effet $Y'$ \'etale sur~$Y$ et supposons que $X' = X\times_Y Y'$
+soit somme disjointe de deux ouverts non vides, prouvons qu'il en est
+de m\^eme de~$Y'$. En effet, on aura $Y'=\Spec(\cal{A})$, donc
+$X'=\Spec(\cal{B})$ avec $\cal{B}=\cal{A}\otimes_{\cal{O}_Y}
+\cal{O}_X$, et la d\'ecomposition de~$X'$ en somme directe
+correspond \`a une d\'ecomposition de~$\cal{B}$ en produit de deux
+Alg\`ebres non nulles $\cal{B}_1$ et $\cal{B}_2$. Comme
+$f_*(\cal{O}_X)=\cal{O}_Y$ on conclut facilement
+$f_*(\cal{B})=\cal{A}$, donc $\cal{A}$ sera somme de deux Alg\`ebres
+(non nulles \'egalement, car leurs sections unit\'e sont non
+nulles) $f_*(\cal{B}_1)$ et $f_*(\cal{B}_2)$, cqfd.
+\end{remarques}
+
+\subsection{}
+\label{X.I.6}
+Supposons encore que $f$ soit propre et s\'eparable, mais ne faisons
+plus d'hypoth\`ese sur~$f_*(\cal{O}_X)$, qui correspondra \`a un
+rev\^etement \'etale $Y'$ bien d\'etermin\'e de~$Y$,
+d'ailleurs ponctu\'e au-dessus de~$b$ par l'image $b'$
+de~$a$. Appliquant alors \ref{X.1.4} au morphisme canonique $X\to Y'$,
+et supposant $f$ surjectif, la suite exacte~\ref{X.1.4} est
+remplac\'ee par la suivante, analogue de la suite exacte d'homotopie
+des espaces fibr\'es en topologies alg\'ebriques:
+$$
+\pi_1(\overline X_y,\overline a)\to \pi_1(X,a)\to \pi_1(Y,b)\to
+\pi_0(\overline X_y,\overline a)\to \pi_0(X,a)\to \pi_0(Y,b)\to e.
+$$
+Bien entendu, dans~\ref{X.1.4} on ne peut pas en g\'en\'eral
+affirmer que l'homomorphisme
+$\pi_1(\overline X_y,\overline a)\to \pi_1(X,a)$
+soit injectif; en topologie alg\'ebrique, son noyau est l'image de
+$\pi_2(Y,b)$, et il y aurait lieu en g\'eom\'etrie alg\'ebrique
+\'egalement d'introduire des groupes d'homotopie en toutes
+dimensions, et la suite exacte d'homotopie compl\`ete pour un
+morphisme propre satisfaisant des hypoth\`eses convenables (par
+exemple d'\^etre un morphisme
+lisse).
+On ne dispose \`a l'heure
+actuelle d'aucun r\'esultat dans ce sens, \`a l'exception d'une
+d\'efinition raisonnable (sinon d\'efinitive) des groupes
+d'homotopie sup\'erieure.
+
+\begin{corollaire}
+\label{X.1.7}
+Soient $k$ un corps alg\'ebriquement clos, $X$ et $Y$ deux
+pr\'esch\'emas connexes sur~$k$, on suppose $X$ propre sur~$k$ et
+$Y$ localement
+noeth\'erien. Soient $a$ un point g\'eom\'etrique de~$X$, $b$
+un point g\'eom\'etrique de~$Y$ \`a valeurs dans la m\^eme
+extension alg\'ebriquement close $K$ de~$k$, consid\'erons le
+point g\'eom\'etrique $c=(a,b)$ de~$X\times_k Y$, et
+l'homomorphisme $\pi_1(X\times_k Y,c)\to \pi_1(X,a)\times\pi_1(Y,b)$
+d\'eduit des homomorphismes sur les groupes fondamentaux
+associ\'es aux deux projections $X\times_k Y\to X$ et $X\times_k
+Y\to Y$. L'homomorphisme pr\'ec\'edent est un \emph{isomorphisme}.
+\end{corollaire}
+
+Supposons d'abord $K=k$. Posons $Z=X\times_k Y$, consid\'erons la
+projection $f\colon Z\to Y$ et la localit\'e $y$ du point
+g\'eom\'etrique $b$ de~$Y$, appliquons \`a la situation le
+r\'esultat~\ref{X.1.4}. On notera pour ceci que quitte \`a passer
+\`a $X_\red$ (ce qui ne change pas les groupes fondamentaux
+envisag\'es), on peut supposer d\'ej\`a $X$ r\'eduit donc
+s\'eparable sur~$k$, donc~$Z$ est s\'eparable sur~$k$, et
+\'evidemment \`a fibres g\'eom\'etriquement connexes (puisque~$X$ est connexe). La fibre g\'eom\'etrique de~$Z$ en $b$ est
+canoniquement isomorphe \`a $X\otimes_k K=X$. D'autre part, comme le
+compos\'e des morphismes $X\to Z\to X$ est l'identit\'e, on trouve
+que $\pi_1(X,a)\to \pi_1(Z,c)$ est injectif et 1.4 nous donne une
+suite exacte:
+$$
+e\to \pi_1(X,a)\to \pi_1(Z,c)\to \pi_1(Y,b)\to e.
+$$
+D'autre part, on a la suite exacte canonique:
+$$
+e\to \pi_1(X,a)\to \pi_1(X,a)\times \pi_1(Y,b)\to \pi_1(Y,b)\to e,
+$$
+o\`u les deux homomorphismes \'ecrits sont l'injection canonique
+et la projection canonique. On a enfin un homomorphisme de la
+premi\`ere suite exacte dans la deuxi\`eme, \`a l'aide des
+morphismes identiques sur les termes extr\^emes, et l'homomorphisme
+canonique $\pi_1(Z,c)\to \pi_1(X,a)\times\pi_1(Y,b)$ pour les termes
+m\'edians. La commutativit\'e du diagramme ainsi obtenu se
+v\'erifie trivialement. Comme les homomorphismes sur les termes
+extr\^emes sont des isomorphismes, il en est de m\^eme pour les
+termes m\'edians, ce qui prouve \ref{X.1.7} dans ce cas.
+
+Lorsqu'on ne suppose plus $K=k$, on trouve seulement un isomorphisme
+$$
+\pi_1(Z,c)\to \pi_1(X\otimes_k K,a)\times \pi_1(Y,b),
+$$
+et~\ref{X.1.7} \'equivaut alors au cas particulier suivant:
+
+\begin{corollaire}
+\label{X.1.8}
+Soient $X$ un sch\'ema propre et connexe sur un corps
+alg\'ebriquement clos~$k$, $k'$ une extension alg\'ebriquement
+close de~$k$, $a'$ un point g\'eom\'etrique de~$X\otimes_k k'$ et
+$a$ son image dans~$X$. Alors l'homomorphisme canonique
+$\pi_1(X\otimes_k k',a')\to \pi_1(X,a)$ est un \emph{isomorphisme.}
+\end{corollaire}
+
+Le fait que cet homomorphisme soit surjectif \'equivaut \`a dire
+que si $X'$ est un rev\^etement \'etale connexe de~$X$, alors
+$X'\otimes_k k'$ est \'egalement connexe, et r\'esulte
+aussit\^ot du fait que $k$ est alg\'ebriquement clos; c'est aussi
+un cas particulier
+de~IX~\ref{IX.3.4}.
+L'hypoth\`ese de propret\'e sur~$X$ n'a pas encore servi. Ceci
+dit, dire que l'homomorphisme envisag\'e est injectif signifie aussi
+ceci: \emph{tout revêtement étale de~$X\otimes_k k'$ est
+isomorphe à l'image inverse d'un revêtement étale de~$X$.}
+Il est essentiellement sorital qu'on peut trouver une
+sous-$k$-alg\`ebre $A$ de
+$k'$,
+de type fini sur~$k$, et un
+rev\^etement \'etale de~$X\otimes_k A$ dont l'image inverse sur~$X\otimes_k k'$ soit isomorphe au rev\^etement donn\'e. Soit donc
+$Y=\Spec(A)$, qui est un $k$-sch\'ema int\`egre de type fini, donc
+a des points rationnels sur~$k$. Appliquons alors \ref{X.1.7} au
+groupe fondamental de~$X\times Y$ en un point $(a,b)$ rationnel
+sur~$k$: on trouve que tout rev\^etement \'etale connexe de
+$X\times Y$ est isomorphe \`a un quotient d'un rev\^etement
+$X'\times Y'$, o\`u $X'$, $Y'$ sont des rev\^etements galoisiens
+\'etales de~$X$ et $Y$ de groupes~$G$, $G'$ par un sous-groupe $H$
+de~$G\times G'$. Cela implique que l'image inverse de ce
+rev\^etement de~$X\times Y$ sur~$X\times Y'$ est isomorphe \`a un
+rev\^etement de la forme $X_1'\times Y'$, o\`u $X_1'$ est un
+rev\^etement \'etale de~$X$. Si donc $L$ est le corps des
+fonctions de~$Y$, \'egal au corps des fractions de~$A$ dans~$k'$, le
+rev\^etement \'etale de~$X\otimes_k L$ induit par le
+rev\^etement donn\'e de~$X\times_k Y$ est tel qu'il existe une
+extension finie s\'eparable $L'$ de~$L$, telle que l'image inverse
+dudit rev\^etement sur~$X\otimes_k L'$ est isomorphe \`a
+$X_1'\otimes_k L'$. Or $k'$ \'etant alg\'ebriquement clos, on peut
+supposer que l'extension $L'$ de~$L$ est contenue dans~$k'$. Cela
+prouve que le rev\^etement \'etale donn\'e de~$X\otimes_k k'$
+est isomorphe \`a $X_1'\otimes_k k'$, cqfd.
+
+La forme explicite signal\'ee en passant pour les rev\^etements
+\'etales d'un produit
+$X\times_k Y$ implique aussit\^ot le r\'esultat suivant:
+
+\begin{corollaire}
+\label{X.1.9}
+Soient $k$ un corps alg\'ebriquement clos, $X$ et $Y$ deux
+pr\'esch\'emas localement noeth\'eriens sur~$k$, $Z=X\times_k
+Y$ leur produit, $Z'$ un rev\^etement \'etale de~$Z$. Pour tout
+point $y\in Y$ rationnel sur~$k$, soit $i_y \colon \Spec(k)\to Y$ le
+morphisme canoniquement associ\'e, $j_y = \id_X\times_k i_y$ le
+morphisme $X\to Z$ correspondant. Soit enfin $X_y'$ le rev\^etement
+\'etale de~$X$ image inverse de~$Z'$ par~$j_y$. On suppose $Y$
+connexe, et $X$ ou~$Y$ propre sur~$k$. Alors les rev\^etements
+$X_y'$ de~$X$ sont tous isomorphes.
+\end{corollaire}
+
+De fa\c con imag\'ee, on peut dire qu'\emph{une famille de
+revêtements étales de~$X$, paramétrée par un
+préschéma connexe~$Y$, est constante si $X$ ou le
+préschéma de paramètres~$Y$ est propre sur~$k$.}
+
+\begin{remarques}
+\label{X.1.10}
+Les corollaires~\ref{X.1.7} \`a~\ref{X.1.9} sont d\^us \`a
+Lang-Serre~\cite{X.2} dans le cas des sch\'emas alg\'ebriques normaux.
+(Leur travail a \'et\'e la motivation initiale pour la th\'eorie
+du groupe fondamental d\'evelopp\'ee dans ce S\'eminaire). Comme
+l'ont remarqu\'e ces auteurs, ces r\'esultats deviennent inexacts
+lorsqu'on y abandonne l'hypoth\`ese de propret\'e, du moins en
+caract\'eristique $p>0$. Prenant par exemple pour $X$ la droite
+affine $X=\Spec(k[t])$, il n'est pas difficile de voir que les
+rev\^etements de~$X$, param\'etr\'es par la droite affine
+$Y=\Spec(k[s])$, d\'efinis par les \'equations
+$$
+x^p - x = st,
+$$
+sont \'etales et deux \`a deux non isomorphes. Cela met en
+d\'efaut~\ref{X.1.9} et a fortiori~\ref{X.1.7}, et on voit de
+m\^eme que si $s$ est consid\'er\'e comme un \'el\'ement
+transcendant sur~$k$ dans une extension alg\'ebriquement close $K$
+de~$k$, on trouve un rev\^etement \'etale $X'$ de~$X\otimes_kK$
+qui ne provient pas d'un rev\^etement \'etale de~$X$.
+\end{remarques}
+
+\section[Application du th\'eor\`eme d'existence de faisceaux]{Application du th\'eor\`eme d'existence de faisceaux:
+th\'eo\-r\`eme de semi-con\-ti\-nu\-i\-t\'e pour les groupes
+fondamentaux des fibres d'un morphisme propre et s\'eparable}
+\label{X.2}
+
+\begin{theoreme}
+\label{X.2.1}
+Soient $Y$ le spectre d'un anneau local noeth\'erien
+\emph{complet}, de corps r\'esiduel~$\kres$, $X$ un $Y$-sch\'ema
+propre, $X_0=X\otimes_A \kres$, $a_0$ un point g\'eom\'etrique de
+$X_0$ et $a$ le point g\'eom\'etrique correspondant de~$X$. Alors
+l'homomorphisme canonique $\pi_1(X_0,a_0)\to \pi_1(X,a)$ est un
+\emph{isomorphisme.}
+\end{theoreme}
+
+Ce n'est qu'une traduction, dans le langage du groupe fondamental, du
+r\'esultat rappel\'e dans IX~\ref{IX.1.10}. C'est ici que le
+th\'eor\`eme d'existence
+de
+faisceaux en g\'eom\'etrie
+alg\'ebrico-formelle s'introduit de fa\c con essentielle dans la
+th\'eorie du groupe fondamental.
+
+Introduisons maintenant une cl\^oture alg\'ebrique $\bar{k}$ du
+corps r\'esiduel $k$, et la fibre g\'eom\'etrique $\overline X_0
+= X_0\otimes_k \bar{k}$. On a donc la suite exacte (IX~\ref{IX.6.1})
+$$
+e\to \pi_1(\overline X_0,\overline a)\to \pi_1(X_0,a_0)\to
+\pi_1(k,\bar{k})\to e,
+$$
+d'autre part on a l'isomorphisme~\ref{X.2.1} et l'isomorphisme
+analogue, plus \'el\'ementaire,
+$$
+\pi_1(k,\bar{k})\to \pi_1(Y,b),
+$$
+o\`u $b$ est l'image de~$a$ dans~$Y$. On trouve ainsi:
+
+\begin{corollaire}
+\label{X.2.2}
+Avec les notations pr\'ec\'edentes, supposons
+$\overline X_0=X_0\otimes_k \bar{k}$
+connexe, et soient $\overline a_0$ un point g\'eom\'etrique de
+$\overline X_0$, $a_0$ son image dans~$X$,
+$b_0$ son image dans~$Y$. Alors la suite d'homomorphismes canoniques
+suivante
+$$
+e\to \pi_1(\overline X_0,\overline a)\to \pi_1(X,a_0)\to
+\pi_1(Y,b_0)\to e
+$$
+est exacte.
+\end{corollaire}
+
+On comparera cette suite \`a la suite exacte~\ref{X.1.4}, mais on
+notera que~a)~on n'a pas eu \`a faire d'hypoth\`ese de platitude,
+ou de s\'eparabilit\'e sur les fibres, pour $X\to Y$; b)~on a le
+compl\'ement important que \emph{le morphisme $\pi_1(\overline
+X_0,\overline a_0)\to \pi_1(X,a_0)$ est injectif.}
+
+Ce dernier fait nous permettra de comparer le groupe fondamental des
+autres
+fibres g\'eom\'etriques de~$X$ sur~$Y$ \`a celui de~$\overline
+X_0$. Soit en effet $y_1$ un point quelconque de~$Y$, $X_1$ sa fibre
+et $\overline X_1$ sa fibre g\'eom\'etrique, relativement \`a
+une extension alg\'ebriquement close de~$\kres(y_1)$, $\overline a_1$
+un point g\'eom\'etrique de~$\overline X_1$, $a_1$ son image dans
+$X$ et $b_1$ son image dans~$Y$. Choisissons une \og classe de chemins\fg
+de~$a_1$ \`a $a_0$, d'o\`u une classe de chemins de~$b_1$ \`a
+$b_0$, d'o\`u un diagramme commutatif d'homomorphismes:
+$$
+\xymatrix@=.5cm{
+&{\pi_1(\overline X_1,\overline a_1)}\ar[r]&{\pi_1(X,a_1)}\ar[r]\ar[d]&{\pi_1(Y,b_1)}\ar[r]\ar[d]&{e}\\{e}\ar[r]&{\pi_1(\overline X_0,\overline a_0)}\ar[r]&{\pi_1(X,a_0)}\ar[r]&{\pi_1(Y,b_0)}\ar[r]&{e,}}
+$$
+o\`u les deux fl\`eches verticales \'ecrites sont des
+isomorphismes. Comme la deuxi\`eme ligne est exacte, on trouve donc
+un homomorphisme canonique, que nous appellerons \emph{l'homomorphisme
+de spécialisation pour le groupe fondamental} (ne d\'ependant
+que de la classe de chemins choisis de~$a_1$ \`a~$a_0$, donc
+\emph{défini modulo automorphisme intérieur de}
+$\pi_1(X,a_0)$):
+$$
+\pi_1(\overline X_1,\overline a_1)\to \pi_1(\overline X_0,\overline
+a_0).
+$$
+Lorsque la premi\`ere ligne ci-dessus est \'egalement exacte, il
+s'ensuit aussit\^ot que l'homo\-mor\-phisme de sp\'ecialisation
+est surjectif. On trouve donc, compte tenu de~\ref{X.1.4}:
+
+\begin{corollaire}
+\label{X.2.3}
+Sous les conditions de~\ref{X.2.1}, supposons de plus que le morphisme
+$f\colon X\to Y$ soit \emph{séparable} \eqref{X.1.1} et $\overline
+X_0$ connexe (donc en vertu de~\ref{X.1.2} on a
+$f_*(\cal{O}_X)=\cal{O}_Y$). Alors pour toute fibre
+g\'eom\'etrique $\overline X_1$ de~$X$ sur~$Y$, munie d'un point
+g\'eom\'etrique $\overline a_1$, l'homomorphisme de
+sp\'ecialisation
+\index{homomorphisme de sp\'ecialisation pour le groupe fondamental|hyperpage}\index{sp\'ecialisation pour le groupe fondamental (homomorphisme de)|hyperpage}d\'efini ci-dessus est un homomorphisme \emph{surjectif.}
+\end{corollaire}
+C'est l\`a un r\'esultat de \emph{semi-continuité} pour le
+groupe fondamental, qui ne semble pas encore avoir d'analogue en
+topologie alg\'ebrique. On peut d'ailleurs l'\'enoncer sous des
+conditions plus g\'en\'erales:
+
+\begin{corollaire}
+\label{X.2.4}
+Soient
+$f\colon X\to Y$ un morphisme propre \`a fibres
+g\'eom\'etriquement connexes, avec $Y$ localement noeth\'erien,
+$y_0$ et $y_1$ deux points de~$Y$ tels que $y_0\in\overline{\{y_1\}}$,
+$\overline X_0$ et $\overline X_1$ les fibres g\'eom\'etrique de
+$X$ correspondant \`a des extensions alg\'ebriquement closes
+donn\'ees de~$\kres(y_0)$ et $\kres(y_1)$, $\overline a_0$
+\resp $\overline a_1$ un point g\'eom\'etrique de~$\overline X_0$
+\resp $\overline X_1$. Alors on peut d\'efinir de fa\c con
+naturelle un homomorphisme de sp\'ecialisation:
+$$
+\pi_1(\overline X_1,\overline a_1)\to \pi_1(\overline X_0,\overline
+a_0),
+$$
+d\'efini \`a automorphisme int\'erieur pr\`es, et c'est l\`a
+un homomorphisme \emph{surjectif} si $f$ est un morphisme
+s\'eparable \eqref{X.1.1}.
+\end{corollaire}
+
+En effet, il r\'esulte d'abord de~\ref{X.1.8} que \ref{X.2.4} est
+essentiellement ind\'ependant des extensions alg\'ebriquement
+closes choisies pour les corps r\'esiduels $\kres(y_0)$
+et~$\kres(y_1)$. Cela nous permet de remplacer $Y$ par un
+pr\'esch\'ema $Y'$ sur~$Y$ ayant un point $y_0'$ (\resp~$y_1'$)
+au-dessus de~$y_0$ (\resp $y_1$). On prendra alors pour $Y'$ le
+spectre du compl\'et\'e de l'anneau local de~$y_0$ dans~$Y$, et on
+applique~\ref{X.2.3}.
+
+\begin{remarques}
+\label{X.2.5}
+La conclusion finale de~\ref{X.2.4} sur la surjectivit\'e de
+l'homomorphisme de sp\'e\-cia\-li\-sa\-tion, et a fortiori les
+r\'esultats~\ref{X.1.3} et~\ref{X.1.4} dont elle est une
+cons\'equence, devient inexacte si on ne suppose plus que $f\colon
+X\to Y$ est un morphisme s\'eparable, m\^eme pour des sch\'emas
+projectifs sur un corps alg\'ebriquement clos de
+caract\'eristique~$0$. Nous en verrons plus loin des exemples, tant
+dans le cas o\`u $f$ est plat mais o\`u $f$ admet une fibre non
+s\'eparable ($X$ et $Y$ \'etant cependant lisses sur~$k$), que
+dans le cas o\`u les fibres de~$f$ sont bien s\'eparables mais
+o\`u $f$ n'est pas plat (par exemple $f\colon X\to Y$ \'etant un
+morphisme birationnel de sch\'emas int\`egres normaux),
+\cf XI~\ref{XI.3}. Dans ces exemples, il peut arriver que le groupe
+fondamental de la fibre g\'eom\'etrique g\'en\'erique soit
+nul, mais non celui d'une fibre g\'eom\'etrique sp\'eciale
+convenable. D'autre part, m\^eme si $f\colon X\to Y$ est un
+morphisme propre s\'eparable comme dans~\ref{X.2.4}, il arrive
+couramment que le morphisme de sp\'ecialisation ne soit
+pas un isomorphisme. Ainsi, il est facile de donner des exemples
+o\`u $\overline X_1$ est une courbe elliptique non singuli\`ere,
+(donc son groupe fondamental est commutatif, et sa composante
+$\ell$-primaire pour un nombre premier $\ell$ premier \`a la
+caract\'eristique est isomorphe \`a $\ZZ_\ell^2$, \cf \ref{XI}),
+tandis que $\overline X_0$ est form\'e, soit de deux courbes
+rationnelles non singuli\`eres se coupant en deux points, soit de
+deux courbes rationnelles tangentes en un point, soit enfin d'une
+courbe rationnelle ayant un point singulier qui est un point de
+rebroussement. (Pour la classification compl\`ete des courbes
+elliptiques d\'eg\'en\'er\'ees, voir les travaux r\'ecents
+de Kodaira~\cite{X.1} et N\'eron). On voit alors que dans ces cas, le
+groupe fondamental de~$\overline X_0$ est respectivement $\hat\ZZ$,
+$e$, $e$, donc \og strictement plus petit\fg que celui de~$\overline
+X_1$. Nous verrons cependant plus loin, lorsque $f$ est un morphisme
+\emph{lisse}, une majoration du noyau de l'homomorphisme de
+sp\'ecialisation, qui implique en particulier que si $\kres(y_0)$ est
+de \emph{caractéristique} 0, l'homomorphisme de sp\'ecialisation
+est un isomorphisme. Mais m\^eme pour un morphisme lisse, si la
+caract\'eristique de~$\kres(y_0)$ est $>0$, il peut arriver que
+l'homomorphisme de sp\'ecialisation ne soit pas un isomorphisme,
+comme on voit par exemple dans le cas o\`u $X$ est un sch\'ema
+ab\'elien sur~$Y$ (de dimension relative~$1$, si on veut),
+\cf XI~\ref{XI.2}.
+Une th\'eorie satisfaisante de la
+sp\'ecialisation du groupe fondamental doit tenir compte de la
+\og composante continue\fg du \og vrai\fg groupe fondamental, correspondant
+\`a la classification des rev\^etements principaux de groupe
+structural des groupes infinit\'esimaux; moyennant quoi on serait en
+droit \`a s'attendre que les \og vrais\fg groupes fondamentaux des
+fibres g\'eom\'etriques d'un morphisme lisse et propre $f\colon
+X\to Y$ forment un joli syst\`eme local sur~$X$, limite projective
+de sch\'emas en groupes finis et plats sur~$X$\footnote{Cette
+conjecture extr\^emement s\'eduisante est malheureusement mise en
+d\'efaut par un exemple in\'edit de M.\, Artin, d\'ej\`a lorsque
+les fibres de~$f$ sont des courbes alg\'ebriques de genre donn\'e
+$g\ge 2$.}. Nous reviendrons ult\'erieurement sur ce point de vue,
+notre objet pr\'esent \'etant au contraire de pousser aussi loin
+que possible les ph\'enom\`enes communs \`a la th\'eorie
+topologique et la th\'eorie sch\'ematique du groupe fondamental.
+\end{remarques}
+
+Soit maintenant $X_0$ une courbe propre, lisse et connexe de genre $g$
+sur un corps al\-g\'e\-bri\-quement clos~$k$. Si $k$ est de
+caract\'eristique z\'ero, son groupe fondamental peut se
+d\'eterminer par voie transcendante de la fa\c con suivante. On
+sait que $X_0$ provient par extension de la base d'une courbe
+d\'efinie
+sur une extension alg\'ebriquement close de degr\'e de
+transcendance fini du corps premier $\QQ$, et compte tenu
+de~\ref{X.1.8}, on peut supposer que $k$ est lui-m\^eme de degr\'e
+de transcendance fini sur~$\QQ$. On peut donc supposer que $k$ est un
+sous-corps du corps $\CC$ des nombres complexes, et une nouvelle
+application de~\ref{X.1.8} nous permet de supposer que $k=\CC$. Il
+n'est pas difficile alors de v\'erifier que le groupe fondamental de
+$X$ est isomorphe au compactifi\'e du groupe fondamental de l'espace
+topologique associ\'e $\tilde X$ (surface compacte orient\'ee de
+genre~$g$), pour la topologie d\'efinie par les sous-groupes
+d'indice fini\footnote{Cette d\'eduction \'etait explicit\'ee
+dans un des expos\'es oraux qui n'ont pas \'et\'e
+r\'edig\'es.}. Il est d'autre part classique que le groupe
+fondamental topologique est engendr\'e par $2g$ g\'en\'erateurs
+$s_i,t_i$ ($1\le i\le g$), soumis \`a une seule relation:
+$$
+(s_1t_1s_1^{-1}t_1^{-1})\cdots(s_gt_gs_g^{-1}t_g^{-1})=1.
+$$
+Donc le groupe fondamental de~$X$ admet $2g$ g\'en\'erateurs
+\emph{topologiques} $s_i,t_i$ ($1\le i\le g$), li\'es par la seule
+relation pr\'ec\'edente. Si maintenant la caract\'eristique de
+$k$ est $p>0$, d\'esignons par $A$ l'anneau des vecteurs de Witt
+construit avec~$k$, par $K$ une extension alg\'ebriquement close de
+son corps des fractions. On a vu dans III~\ref{III.7.4} qu'il
+existe un sch\'ema $X$ sur~$Y=\Spec(A)$, propre et lisse sur~$Y$, se
+r\'eduisant suivant $X_0$. Appliquons-lui~\ref{X.2.3}, on trouve un
+morphisme \emph{surjectif}
+$$
+\pi_1(X_1)\to \pi_1(X_0),
+$$
+o\`u $X_1=X\otimes_A K$. Il est imm\'ediat\footnote{\cf EGA
+IV~12.2.} que $X_1$ est lisse sur~$K$, connexe \eqref{X.1.2}, de
+dimension~$1$, et son genre est \'egal \`a~$g$ (d'apr\`es
+l'invariance de la caract\'eristique d'Euler-Poincar\'e, \cf EGA
+III~7). Comme $K$ est de caract\'eristique~$0$, on peut lui
+appliquer le r\'esultat pr\'ec\'edent. On a ainsi prouv\'e par
+\emph{voie transcendante}:
+
+\begin{theoreme}
+\label{X.2.6}
+Soit $X_0$ une courbe alg\'ebrique lisse propre et connexe sur un
+corps al\-g\'e\-bri\-quement clos $k$, et soit $g$ son genre. Alors
+$\pi_1(X_0)$ admet un syst\`eme de~$2g$ g\'en\'erateurs
+topologiques, li\'es par la relation \'ecrite plus haut. Lorsque la
+caract\'eristique de~$k$ est~$0$, $\pi_1(X_0)$ est m\^eme le
+groupe de type galoisien libre pour les g\'en\'erateurs et la
+relation qui pr\'ec\`edent.
+\end{theoreme}
+
+\begin{remarques}
+\label{X.2.7}
+Il n'existe pas \`a l'heure actuelle, \`a la connaissance du
+r\'edacteur, de d\'e\-mon\-stra\-tion par voie purement
+alg\'ebrique du r\'esultat pr\'ec\'edent, (sauf pour les genres
+$0,1$). Pour commencer, on ne voit gu\`ere comment distinguer dans
+$\pi_1(X_0)$ $2g$~\'el\'ements, dont on pourrait attendre ensuite
+qu'ils forment un syst\`eme de g\'en\'erateurs
+topologiques. \`A cet \'egard, la situation de la droite
+rationnelle priv\'ee de~$n$ points, et l'\'etude des
+rev\^etements d'icelle mod\'er\'ement ramifi\'es en ces
+points, est plus sympathique, puisque la consid\'eration des groupes
+de ramification en ces $n$ points fournit $n$ \'el\'ements du
+groupe fondamental \`a \'etudier, dont on montre en effet qu'ils
+engendrent topologiquement ce groupe fondamental, comme nous verrons
+ult\'erieurement\footnote{\Cf Exp.\, \ref{XII}. Encore ces
+\'el\'ements ne sont-ils d\'etermin\'es vraiment que modulo
+conjugaison, et il convient de faire un choix \emph{simultané}
+judicieux de ces \'el\'ements dans leurs classes.}. Mais m\^eme
+dans ce cas particuli\`erement concret, il ne semble pas exister de
+d\'emonstration purement alg\'ebrique. Une telle
+d\'emonstration serait \'evidemment extr\^emement
+int\'eressante. Le seul fait concernant le groupe fondamental d'une
+courbe qu'on sache d\'emontrer par voie purement alg\'ebrique
+(exception faite du th\'eor\`eme de finitude faible~\ref{X.2.12}
+ci-dessous, prouv\'e par voie alg\'ebrique par Lang-Serre~\cite{X.2}),
+semble la d\'etermination du groupe fondamental rendu ab\'elien
+via la jacobienne (signal\'ee dans IX~\ref{IX.5.8} derni\`ere
+ligne).
+\end{remarques}
+
+\subsection{}
+\label{X.2.8}
+La derni\`ere assertion~\ref{X.2.6} n'est plus valable en
+caract\'eristique $p>0$, comme on voit d\'ej\`a dans le cas des
+courbes elliptiques. Comme nous l'avons d\'ej\`a signal\'e, nous
+ne savons pas si le groupe fondamental de~$X_0$ est topologiquement de
+pr\'esentation finie; cela semble tout \`a fait improbable.
+
+\begin{theoreme}
+\label{X.2.9}
+Soient $k$ un corps alg\'ebriquement clos, et $X$ un sch\'ema
+propre et connexe sur~$k$. Alors le groupe fondamental de~$X$ est
+topologiquement de g\'en\'eration finie.
+\end{theoreme}
+
+Nous
+proc\'edons par r\'ecurrence sur~$n=\dim X$, l'assertion
+\'etant triviale pour~$n\le 0$. Supposons donc~$n>0$, et le
+th\'eor\`eme d\'emontr\'e pour les
+dimensions~$n'<n$. D'apr\`es le lemme de Chow (EGA~II~5.6.2) il
+existe un sch\'ema projectif $X'$ sur~$k$ et un morphisme surjectif
+$X'\to X$. On peut \'evidemment supposer $X'$ r\'eduit, et en
+passant au normalis\'e, normal. Gr\^ace \`a la th\'eorie de
+la descente, il suffit de prouver que les groupes fondamentaux des
+composantes connexes de~$X'$ sont topologiquement de
+g\'en\'eration finie (IX~\ref{IX.5.2}). Cela nous ram\`ene
+donc au cas o\`u $X$ est \emph{projectif} et \emph{normal}. Si
+alors $n=1$, il suffit d'appliquer~\ref{X.2.6}. Si $n\ge 2$, on
+consid\`ere une immersion projective $X\to \PP_k^r$, et une section
+hyperplane $Y=X\cdot H$
+(munie
+de la structure r\'eduite induite), telle que
+$Y\ne X$,
+\ie $H\not\supset X$. On aura alors $\dim Y<n$, et tenant compte de
+l'hypoth\`ese de r\'ecurrence, il suffit de prouver que
+$\pi_1(Y)\to \pi_1(X)$ est \emph{surjectif.} Or plus
+g\'en\'eralement:
+
+\begin{lemme}
+\label{X.2.10}
+Soient $X$ un pr\'esch\'ema propre sur un corps alg\'ebriquement
+clos~$k$, $g\colon X\to \PP_k^r$ un morphisme. On suppose $X$
+irr\'eductible et normal et $\dim g(X)\ge 2$. Soient $H$ un
+hyperplan de~$\PP_k^r$ et $Y=X\times_{\PP_k^r} H$. Alors $Y$ est
+connexe, et l'homomorphisme $\pi_1(Y)\to\pi_1(X)$ est surjectif.
+\end{lemme}
+
+Ces assertions r\'esultent en effet de la suivante:
+
+\begin{corollaire}
+\label{X.2.11}
+Sous les conditions pr\'ec\'edentes, soient $X'$ un rev\^etement
+\'etale connexe de~$X$, et $Y'=X'\times_X Y=X'\times_{\PP_k^r} H$ le
+rev\^etement induit sur~$Y$. Alors $Y'$ est connexe.
+\end{corollaire}
+
+Comme $X$ est normal, $X'$ est normal, donc \'etant connexe, $X'$
+est irr\'eductible; de plus son image dans $\PP_k^r$ est de
+dimension~$\ge 2$. Un lemme bien connu d\^u \`a Zariski (et
+appel\'e \og \emph{théorème de Bertini}\fg) implique donc que
+si $H_1'$ est l'hyperplan g\'en\'erique dans~$\PP_k^r$,
+d\'efini sur une extension $K$ de~$k$, alors $X'\times_{\PP^r} H_1$
+est universellement irr\'eductible donc universellement connexe
+sur~$K$. Le th\'eor\`eme de connexion de Zariski (EGA~III~4)
+implique alors que pour \emph{tout} hyperplan $H$ (d\'efini sur une
+extension quelconque de~$k$) $X'\times_{\PP^r} H$ est
+g\'eom\'etriquement connexe. Cela ach\`eve la d\'emonstration
+de~\ref{X.2.11}, donc de~\ref{X.2.9}.
+
+\begin{corollaire}[Lang-Serre]
+\label{X.2.12}
+Sous
+les conditions de~\ref{X.2.9}, pour tout
+groupe fini~$G$, l'ensemble des classes, \`a isomorphisme pr\`es,
+de rev\^etements principaux de~$X$ de groupe~$G$, est fini.
+\end{corollaire}
+
+\begin{remarque}
+\label{X.2.13}
+Sous les conditions de~\ref{X.2.10} nous prouverons lorsque $\dim
+g(X)\ge 3$ (du moins lorsque $g$ est une immersion et $X$
+r\'egulier), un r\'esultat plus pr\'ecis, connu en
+g\'eom\'etrie alg\'ebrique sous le nom de
+\og \emph{théorème de Lefschetz}\fg: $\pi_1(Y)\to \pi_1(X)$
+\emph{est un isomorphisme.}\footnote{\Cf le s\'eminaire SGA~2 (1962)
+faisant suite \`a celui-ci, th\'eor\`eme X~3.10.}
+Il y a dans les cas classiques des
+\'enonc\'es analogues pour les groupes d'homologie et les groupes
+d'homotopie sup\'erieure, qui t\^ot ou tard devront \^etre
+englob\'es dans la g\'eom\'etrie alg\'ebrique
+abstraite. M\^eme pour la cohomologie de Hodge $\H^p(X,\Omega^q)$,
+il ne semble pas que la question ait encore \'et\'e
+\'etudi\'ee; il n'est d'ailleurs gu\`ere probable que pour cette
+derni\`ere, les th\'eor\`emes de Lefschetz subsistent tels quels
+en caract\'eristique~$p>0$.
+\end{remarque}
+
+\begin{remarqueMR}
+\label{X.2.14}
+Soit $R$ un anneau de valuation discr\`ete complet, de
+corps r\'esiduel $\kres$ alg\'ebriquement clos de caract\'eristique $p>0$, de
+corps des fractions~$K$ et soit $Y$ une courbe propre et lisse,
+connexe, de genre $g$ sur~$R$. On a donc un morphisme de
+sp\'ecialisation surjectif $\sp : \pi_1(Y_{\overline{K}}) 
+\to\pi_1(Y_{\kres})$.
+On a d\'ej\`a not\'e que si $K$ est de caract\'eristique 0, $\sp$ n'est pas un
+isomorphisme d\`es que $g\geq1$. Supposons~$K$ de caract\'eristique $p$,
+de sorte que $R$ est isomorphe \`a l'anneau de s\'eries 
+formelles~$\kres[[T]]$.
+En \'egale caract\'eristique $p >0$, le groupe fondamental n'est pas
+d\'etermin\'e par le genre~$g$ comme on le voit d\'ej\`a sur les courbes
+elliptiques qui peuvent \^etre ordinaires ou supersinguli\`eres. Citons
+le r\'esultat r\'ecent de A.\, Tamagawa (non encore publi\'e). Si~$G$ est un
+groupe profini, on note $G^{\res}$, le groupe profini quotient de~$G$,
+limite projective des quotients topologiques de~$G$ qui sont finis
+r\'esolubles.
+
+\begin{theoreme*}[A.\, Tamagawa]
+Supposons $g\geq2$, que la fibre sp\'eciale $Y_{\kres}$
+soit d\'efinissable sur un corps fini et que le morphisme
+$\sp^{\res}:\pi_1(Y_{\overline{K}})^{\res}\to\pi_1(Y_{\kres})^{\res}$ d\'eduit de
+$\sp$ par passage au quotient, soit bijectif. Alors la courbe $Y$ est
+constante sur~$R$.
+\end{theoreme*}
+
+Notons que le groupe de Galois de~$\overline{K}/K$ est r\'esoluble. L'\'enonc\'e
+pr\'ec\'edent peut encore se traduire de la fa\c{c}on suivante : supposons que
+tout rev\^etement fini \'etale $X_K\to Y_K$ de la fibre g\'en\'erique $Y_K$,
+galoisien de groupe de Galois r\'esoluble, ait potentiellement bonne
+r\'eduction (c'est-\`a-dire s'\'etende en un rev\^etement fini \'etale de~$Y$
+apr\`es remplacement \'eventuel de~$R$ par son normalis\'e dans une extension
+finie de~$K$). Alors $Y$ est constante sur~$R$.
+\end{remarqueMR}
+
+\section[Application du th\'eor\`eme de puret\'e]{Application du th\'eor\`eme de puret\'e:
+th\'eor\`eme de continuit\'e pour les groupes fondamentaux des
+fibres d'un morphisme propre et lisse}
+\label{X.3}
+
+Rappelons sans d\'emonstration\footnote{Pour une d\'emonstration, \cf SGA~2 X~\ref{X.3.4}.} le
+
+\begin{theoremedepurete}[Zariski-Nagata]
+\label{X.3.1}
+\index{theoreme de purete@th\'eor\`eme de puret\'e|hyperpage}Soit $f\colon X\to Y$ un morphisme
+quasi-fini et dominant de pr\'esch\'emas int\`egres, avec $X$
+normal, $Y$ r\'egulier localement noeth\'erien, et soit $Z$
+l'ensemble des points de~$X$ o\`u $f$ n'est pas \'etale,
+\ie o\`u~$f$ est ramifi\'e (cela revient au m\^eme,
+\textup{I~\ref{I.9.5}~(ii)}). Si $Z\ne X$, $Z$ est de codimension~$1$ dans
+$X$ en tous ses points, \ie pour toute composante irr\'eductible
+$Z'$ de~$Z$ de point g\'en\'erique~$z$, la dimension de Krull de
+$\cal{O}_{X,z}$ est \'egale \`a~$1$.
+\end{theoremedepurete}
+
+Rappelons qu'un pr\'esch\'ema est dit \emph{normal}
+\resp \emph{régulier} si ses anneaux locaux sont normaux
+\resp r\'eguliers, et que la relation $Z\ne X$ signifie aussi que
+l'extension finie $R(Z)/R(X)$ (o\`u $R$ d\'esigne le corps des
+fonctions rationnelles) est \emph{séparable}. Se pla\c cant en
+le point g\'en\'erique $z$ d'une composante $Z'$ de~$Z$, et
+localisant en le point $y$ de~$Y$ en-dessous de~$z$, on trouve
+l'\'enonc\'e \'equivalent:
+
+\begin{corollaire}
+\label{X.3.2}
+Soient $A$ un anneau local noeth\'erien r\'egulier, $A\to B$ un
+homomorphisme local injectif tel que $B$ soit normal, localis\'e
+d'une alg\`ebre de type fini sur~$A$, et \emph{quasi-fini} sur~$A$;
+on suppose de plus que $\dim A (=\dim B)\ge 2$, et que pour tout
+id\'eal premier $\goth{p}$ de~$B$ distinct de l'id\'eal maximal,
+$B$ est \'etale sur~$A$ en~$\goth{p}$, \ie $B_\goth{p}$ est
+\'etale sur~$A_\goth{q}$ (o\`u $\goth{q}=A\cap\goth{p}$). Alors
+$B$ est \'etale sur~$A$.
+\end{corollaire}
+
+D'ailleurs, il n'est pas difficile de r\'eduire ce dernier
+\'enonc\'e au cas o\`u $A$ est un anneau local \emph{complet},
+donc o\`u $B$ est \emph{fini} sur~$A$. Zariski~\cite{X.5} donne une
+d\'emonstration simple de ce r\'esultat, valable dans le cas
+d'\'egales caract\'eristiques; le cas g\'en\'eral est d\^u
+\`a Nagata~\cite{X.3}, qui s'appuie sur un r\'esultat d\'elicat de
+Chow; ce dernier n'a \'et\'e v\'erifi\'e par aucun des
+participants du S\'eminaire, et devrait faire l'objet d'un
+expos\'e ult\'erieur. Signalons seulement ici la d\'emonstration
+tr\`es simple dans le cas particulier o\`u $\dim A=2$, qui est
+suffisant pour l'application la plus importante que nous en ferons
+dans le pr\'esent num\'ero. Comme $B$ est normal, il est un
+$B$-module de profondeur (ancienne terminologie: codimension
+cohomologique) $\ge 2$, donc c'est un $A$-module de profondeur~$\ge
+2$, et comme $A$ est r\'egulier de dimension $2$, il en r\'esulte
+que $B$ est un \emph{module libre} sur~$A$\footnote{\Cf EGA $0_{\textup{IV}}$
+17.3.4}. Il r\'esulte alors de I~\ref{I.4.10} que l'ensemble
+des id\'eaux premiers~$\goth{q}$ de~$A$ en lesquels $B$ est
+ramifi\'e sur~$A$ est la partie de~$\Spec(A)$ d\'efinie par un
+id\'eal principal (engendr\'e par le discriminant d'une base de
+$B$ sur~$A$), donc est vide si elle est contenue dans le point
+ferm\'e de~$\Spec(A)$, ce qui prouve~\ref{X.3.2} lorsque $\dim A=2$.
+
+Nous utiliserons surtout~\ref{X.3.1} sous la forme \'equivalente:
+
+\begin{corollaire}
+\label{X.3.3}
+Soient $X$ un pr\'esch\'ema localement noeth\'erien
+r\'egulier, $U$ une partie ouverte de~$X$ com\-pl\'e\-men\-taire
+d'une partie ferm\'ee $Z$ de~$X$ de codimension~$\ge 2$. Alors le
+foncteur $X'\mto X'\times_X U$ de la cat\'egorie des
+rev\^etements \'etales de~$X$ dans la cat\'egorie des
+rev\^etements \'etales de~$U$ est une \'equivalence
+de cat\'egories; en particulier, si $a$ est un point
+g\'eom\'etrique de~$U$, l'homomorphisme canonique $\pi_1(U,a)\to
+\pi_1(X,a)$ est un isomorphisme.
+\end{corollaire}
+
+La derni\`ere assertion est \'evidemment cons\'equence de la
+premi\`ere, et pour celle-ci on peut \'evidemment supposer que $X$
+est connexe donc irr\'eductible. De la normalit\'e de~$X$
+r\'esulte d\'ej\`a que le foncteur $X'\mto X'\times_X U$ de
+la cat\'egorie des rev\^etements localement libres (pas
+n\'ecessairement \'etales) de~$X'$ dans la cat\'egorie des
+rev\^etements de~$U$ est pleinement fid\`ele, car le foncteur
+$\cal{E}\mto\cal{E}\vert U$ de la cat\'egorie des Modules
+localement libres sur~$X$ dans la cat\'egorie des Modules localement
+libres sur~$U$ l'est. Il reste donc \`a prouver que pour tout
+rev\^etement \emph{étale} $U'$ de~$U$, il existe un
+rev\^etement \'etale $X'$ de~$X$ (n\'ecessairement unique
+d'apr\`es ce qui pr\'ec\`ede), tel que $U'$ soit isomorphe \`a
+$X'\times_X U$. On peut \'evidemment supposer $U'$ connexe, donc
+irr\'eductible puisque ($U$~\'etant normal) $U'$ est normal. Soit
+$K$ le corps des fonctions rationnelles sur~$X$, ou sur~$U$ (c'est
+pareil), $K'$ celui de~$U'$, alors $U'$ s'identifie au normalis\'e
+de~$U$ dans~$K'$ I~\ref{I.10.3}. Soit $X'$ le normalis\'e de
+$X$ dans~$K'$ (EGA~II~6.3), alors $X'=X\times_X U \cong U'$, d'autre
+part $X'$ est normal, int\`egre, le morphisme structural $f\colon
+X'\to X$ est \emph{fini} et dominant (car $X$ est normal et $K'/K$ est
+une extension finie s\'eparable). Il est \'etale dans
+$U'=f^{-1}(U)=X'=f^{-1}(Z)$, et comme $Z$ est de codimension $\ge 2$
+dans $X$, $f^{-1}(Z)$ est de codimension $\ge 2$ dans~$X'$. On conclut
+alors de~\ref{X.3.1} que $X'$ est \'etale sur~$X$, ce qui ach\`eve
+la d\'emonstration.
+
+\medskip
+Soit maintenant $f\colon X\to Y$ une application rationnelle d'un
+pr\'esch\'ema localement noeth\'erien et r\'egulier $X$
+dans un pr\'esch\'ema~$Y$, et supposons que $f$ soit d\'efini
+dans un ouvert $U$ compl\'ementaire d'une partie ferm\'ee de
+codimension~$\ge 2$. Alors on d\'eduit de~\ref{X.3.3} un foncteur,
+d\'efini \`a isomorphisme pr\`es, de la cat\'egorie des
+rev\^etements \'etales de~$Y$ dans la cat\'egorie des
+rev\^etements \'etales de~$X$, d'o\`u pour tout point
+g\'eom\'etrique $a$ de~$U$, d'image $b$ dans~$Y$, un homomorphisme
+canonique
+$$
+\pi_1(X,a)\to \pi_1(Y,b)
+$$
+(d\'eduit
+de l'homomorphisme canonique $\pi_1(U,a)\to \pi_1(Y,b)$ gr\^ace
+\`a l'isomorphisme $\pi_1(U,a)\isomto \pi_1(X,a))$. Lorsque $f$ est
+un morphisme dominant, $X$ et $Y$ \'etant int\`egres de corps $K$
+et~$L$, de sorte que $K$ est une extension de~$L$, et que $Y$ est
+normal, ces correspondances se pr\'ecisent en termes d'extensions de
+corps en notant que pour toute extension finie $L'$ de~$L$, non
+ramifi\'ee sur~$Y$, l'alg\`ebre $K'=L'\otimes_L K$ sur~$K$ est non
+ramifi\'ee sur~$X$.
+
+En particulier, ces r\'eflexions montrent que le groupe fondamental
+des pr\'esch\'emas localement noeth\'eriens connexes
+r\'eguliers, ponctu\'es par des points g\'eom\'etriques
+localis\'es en codimension~$\le 1$, est un \emph{foncteur} lorsque
+l'on prend comme morphismes dans cette cat\'egorie les applications
+rationnelles dominantes d\'efinies dans des compl\'ementaires de
+parties ferm\'ees de codimension~$\ge 2$. Se rappelant par exemple
+qu'une application rationnelle d'un sch\'ema normal sur un corps $k$
+dans un sch\'ema propre sur~$k$ est d\'efinie dans le
+compl\'ementaire d'un ensemble de codimension~$\ge 2$, on trouve:
+
+\begin{corollaire}[Invariance birationnelle du groupe fondamental]
+\label{X.3.4}
+\index{invariance birationnelle du groupe fondamental|hyperpage}\index{theoreme d'invariance birationnelle du groupe fondamental@th\'eor\`eme d'invariance birationnelle du groupe fondamental|hyperpage}Soient $k$ un corps, $X$ et $Y$ deux sch\'emas propres sur~$k$ et
+r\'eguliers, $f\colon X\to Y$ une application birationnelle de~$X$
+dans~$Y$, $\Omega$ une extension alg\'ebriquement close du corps des
+fonctions $K$ de~$X$, permettant de d\'efinir le groupe fondamental
+de~$X$ et le groupe fondamental de~$Y$. Ces derniers sont alors
+canoniquement isomorphes.
+\end{corollaire}
+
+Cela signifie aussi que pour une extension finie $K'$ de~$K$, si elle
+est non ramifi\'ee sur un \og mod\`ele\fg propre non singulier $X$
+de~$K$, elle l'est sur tout autre mod\`ele propre non singulier.
+
+\begin{remarque}
+\label{X.3.5}
+Pour d'autre applications du th\'eor\`eme de puret\'e, voir les
+travaux
+d'\textsc{Abhyankar}
+expos\'es dans~\cite{X.4}, inspir\'es par les
+r\'esultats de \textsc{Zariski} \cite[chap.\, VIII]{X.6}, d\'emontr\'es par voie
+topologique. Ces derniers sont loin d'avoir \'et\'e assimil\'es
+par la g\'eom\'etrie alg\'ebrique \og abstraite\fg et m\'eritent
+de nouveaux efforts.
+\end{remarque}
+
+Nous
+aurons besoin de quelques faits \'el\'ementaires de la th\'eorie
+de la ramification. Soient $V$ un anneau de valuation discr\`ete de
+corps des fractions~$K$, corps r\'esiduel~$k$, $L$ une extension
+galoisienne de~$K$ de groupe~$G$, $V'$ le normalis\'e de~$V$
+dans~$L$, qui est un module libre de rang $n=[L{\colon }K]$ sur~$V$,
+$\goth{m'}$ un id\'eal maximal de~$V'$, $G_d$ le sous-groupe de~$G$
+form\'e des \'el\'ements laissant $\goth{m'}$ invariant, de
+sorte que $G_d$ op\`ere dans l'extension r\'esiduelle
+$k'=V'/\goth{m'}$ de~$k$, et $G_i$ le sous-groupe des \'el\'ements
+de~$G_d$ op\'erant trivialement (rappelons que $G_d$ et $G_i$ sont
+appel\'es respectivement sous-groupes de \emph{décomposition} et
+d'\emph{inertie} de~$G$). On dit que $L$ est \emph{modérément
+ramifié} sur~$V$ si $n_i=[G_i{\colon }e]$ est d'ordre $p$ premier
+\`a la caract\'eristique de~$k$ (condition toujours
+v\'erifi\'ee si $k$ est de caract\'eristique~0). Il est bien
+connu que $G_i$ se plonge alors canoniquement dans le groupe ${k'}^*$,
+donc est isomorphe au groupe des racines
+$n_i$-i\`emes de l'unit\'e
+dans~${k'}^*$, ce qui implique en particulier que $G_i$ \emph{est
+cyclique}. Le cas type de cette situation est celui o\`u on pose
+$L=K[t]/(t^n - u)$, $u$ \'etant une uniformisante de~$V$ et $n$ un
+entier premier \`a~$p$: si $K$ contient les racines \niemes de
+l'unit\'e, $L$ est une extension galoisienne totalement ramifi\'ee
+de~$K$, de groupe de Galois $G=G_i$ isomorphe \`a~$\ZZ/n\ZZ$.
+
+\begin{lemme}[Lemme d'\textsc{Abhyankar}]
+\label{X.3.6}
+\index{Abhyankar (lemme d')|hyperpage}\index{lemme d'Abhyankar|hyperpage}Soit $V$ un anneau de valuation discr\`ete de
+corps des fractions~$K$, $L$ et $K'$ deux extensions galoisiennes
+de~$K$ \emph{modérément ramifiées} sur~$V$, $n$ et $m$ les
+ordres des groupes d'inertie
+correspondants,
+$L'$ une extension
+compos\'ee de~$L$ et $K'$ sur~$K$. Si $m$ est un multiple de~$n$,
+alors $L'$ est non ramifi\'ee sur les localis\'es de la
+cl\^oture normale $V'$ de~$V$ dans~$K'$.
+\end{lemme}
+
+Soient en effet $W'$ le normalis\'e de~$V'$ dans~$L'$, $\goth{m'}$
+un id\'eal maximal de~$V'$, $\goth{n'}$ un id\'eal maximal de~$W'$
+au-dessus de
+$\goth{m'}$,
+$\goth{n}$ l'id\'eal maximal qu'il induit sur le normalis\'e $W$
+de~$V$ dans~$L$, $G,\ H,\ M$ les groupes de Galois de~$L,\ K',\ L'$
+sur~$K$, et $G_i,\ H_i,\ L_i'$ les groupes d'inertie correspondant aux
+id\'eaux maximaux choisis. Alors $M$ se plonge dans le produit
+$G\times H$ et $M_i$ dans le produit $G_i\times H_i$, de telle fa\c con que les projections $M\to G$ et $M\to H$, $M_i\to G_i$
+et $M_i\to H_i$ soient surjectives (sorite du corps
+interm\'ediaire). Il en r\'esulte d\'ej\`a, puisque $G_i$ et
+$H_i$ sont par hypoth\`ese cycliques d'ordres $m$ et $n$ premiers
+\`a~$p$, que $M_i$ est d'ordre premier \`a~$p$, donc cyclique, et
+comme $m$ est multiple de~$n$ donc les \'el\'ements de~$G_i\times
+H_i$ sont de puissance
+$m$-i\`eme nulle, $M_i$ est d'ordre
+divisant~$m$, donc d'ordre \'egal \`a $m$ puisque $M_i\to H_i$ est
+surjectif. Ce dernier homomorphisme est donc \'egalement
+injectif. Or son noyau est le groupe d'inertie de~$\goth{n'}$
+au-dessus de~$\goth{m'}$, ce qui prouve que $L'$ est non ramifi\'e
+sur~$K'$ en~$\goth{n'}$. D'o\`u le lemme.
+
+Pla\c cons-nous maintenant sous les conditions de~\ref{X.2.4},
+o\`u on a un homomorphisme de sp\'ecialisation
+$$
+\pi_1(\overline X_1,\overline a_1)\to\pi_1(\overline X_0,\overline
+a_0)
+$$
+qui est \emph{surjectif}, relativement \`a un morphisme propre et
+s\'eparable $f\colon X\to Y$. Nous voulons pr\'eciser le noyau de
+cet homomorphisme. Proc\'edant comme dans la d\'emonstration
+de~\ref{X.2.4}, on voit que dans cette question, on peut toujours
+supposer que $Y$ est le spectre d'un \emph{anneau de valuation
+discrète~$V$, complet et à corps résiduel
+algébriquement clos} (car on peut toujours trouver un tel anneau
+et un morphisme de son spectre $Y'$ dans $Y$ dont l'image soit
+$\{y_0,y_1\}$). Alors on a $X_0=\overline X_0$, $\kres(y_0)=k=$ corps
+r\'esiduel de~$V$, $\kres(y_1)=K=$ corps des fractions de~$V$. Soit
+$K_s$ la cl\^oture s\'eparable de~$K$, $\overline K$ sa
+cl\^oture alg\'ebrique, et pour tout sous-anneau $W$ de~$\overline
+K$ contenant~$V$, posons $X_W=X\otimes_V W$. En particulier on a
+$$
+X_V=X, \qquad X_K=X_1, \qquad X_{\overline K}=\overline X_1.
+$$
+D'ailleurs le morphisme canonique $\overline X_1=X_{\overline K}\to
+X_{K_s}$ induit un isomorphisme sur les groupes fondamentaux
+(IX~\ref{IX.4.11}) de sorte que, compte tenu de
+l'isomorphisme~\ref{X.2.1} $\pi_1(X_0)\to\pi_1(X)$, on est ramen\'e
+\`a \'etudier l'homomorphisme surjectif
+$$
+\pi_1(X_{K_s})\to\pi_1(X)
+$$
+associ\'e
+au morphisme canonique $X_{K_s}\to X$. La d\'etermination du noyau
+de ce dernier revient \`a la solution du probl\`eme suivant:
+\emph{on a un revêtement principal connexe $Z_{K_s}$ de
+$X_{K_s}$, de groupe~$G$} (donc associ\'e \`a un homomorphisme de
+$\pi_1(X_{K_s})$ dans~$G$), \emph{déterminer sous quelles
+conditions il est isomorphe à l'image réciproque d'un
+revêtement principal $Z$ de~$X$ de groupe~$G$.}
+
+Notons d'abord que $K_s$ est r\'eunion filtrante croissante de ses
+sous-extensions finies $K'$ sur~$K$, et que par suite, $Z_{K_s}$
+est isomorphe \`a l'image inverse d'un rev\^etement principal
+$Z_{K'}$ de~$X_{K'}$ pour un $K'$ convenable (on fera attention
+cependant que pour $K'$ fix\'e, $Z_{K'}$ n'est pas d\'etermin\'e
+de fa\c con unique). Dire que $Z_{K_s}$ est isomorphe \`a l'image
+inverse d'un rev\^etement principal $Z$ de~$X$ signifie qu'il existe
+une sous-extension finie $K''\supset K'$ de~$K_s$ telle que
+$Z_{K''}=Z_{K'}\otimes_{K'} K''$ soit isomorphe \`a $Z\otimes_V
+K''$. D\'esignons maintenant pour une sous-extension finie $K'$
+de~$K_s$, par $V'$ le normalis\'e de~$V$ dans~$K'$, qui est un
+anneau de valuation discr\`ete, complet, de corps
+r\'esiduel~$k$. Donc le morphisme canonique $X_{V'}\to X_V$ induit
+un isomorphisme pour les fibres au-dessus des points ferm\'es de
+$Y=\Spec(V)$ et $Y'=\Spec(V')$ et il r\'esulte alors de~\ref{X.2.1}
+appliqu\'e \`a $X_V$ et $X_{V'}$ que l'homomorphisme induit pour
+les groupes fondamentaux $\pi_1(X_{V'})\to \pi_1(X_V)$ est un
+isomorphisme, ou encore que tout rev\^etement principal de~$X_{V'}$
+est l'image inverse d'un rev\^etement principal de~$X_V$
+d\'etermin\'e \`a isomorphisme pr\`es. Cela implique donc le
+
+\begin{lemme}
+\label{X.3.7}
+Soit $Z_{K'}$ un rev\^etement principal connexe de~$X_{K'}$ de
+groupe~$G$, $Z_{K}$ son image inverse sur~$X_{K_s}$\quoi. Pour que ce
+dernier soit isomorphe \`a l'image inverse d'un rev\^etement
+principal $Z$ de~$X$, il faut et il suffit qu'il existe une extension
+finie $K''\supset K'$ de~$K$ dans $K_s$ telle que le rev\^etement
+principal $Z_{K''}$ de~$X_{K''}$ soit induit par un rev\^etement
+principal de~$X_{V''}$.
+\end{lemme}
+
+Supposons en particulier que les $X_{V''}$ soient normaux (il suffit
+par exemple pour cela que $X_0$ soit normal, et a fortiori que $X_0$
+soit simple, \cf I~\ref{I.9.1}).
+Comme ils sont connexes, ils sont donc irr\'eductibles. Soient $L$ le
+corps des fonctions rationnelles pour $X$ et $X_{K}$, $L'$ celui pour
+$X_{V'}$ et $X_{K'}$, $L''$ celui pour $X_{V''}$ et~$X_{K''}$\quoi. Alors
+sous les conditions de~\ref{X.3.7}, $Z_{K'}$ d\'efinit une extension
+finie s\'eparable $R'$ de~$L'$, et $Z_{K''}$ d\'efinit l'extension
+$R''=R'\otimes_{L'} L'' = R'\otimes_{K'} K''$. La condition
+envisag\'ee dans~\ref{X.3.7} signifie donc aussi qu'il existe une
+extension finie s\'eparable $K''$ de~$K'$ telle que
+$R''=R'\otimes_{K'} K''$ soit \emph{non ramifiée} au-dessus du
+sch\'ema normal $X_{V''}$ de corps $L''=L'\otimes_{K'} K''$, et non
+seulement au-dessus de la partie ouverte $X_{K''}$ de~$X_{V''}$.
+
+Nous supposons dor\'enavant que $f\colon X\to Y$ est un morphisme
+\emph{lisse,} donc les morphismes $X_{V'}\to \Spec(V')$ sont lisses,
+donc les sch\'emas $X_{V'}$ sont \emph{réguliers.} Noter que la
+fibre du point ferm\'e de~$\Spec(V')$ dans $X_{V'}$ est
+irr\'eductible et de codimension~$1$. Soit $\goth{o'}$ son anneau
+local, qui est donc un anneau de valuation discr\`ete de corps
+$L'$, de corps r\'esiduel isomorphe au corps des fonctions
+rationnelles de~$X_0$, donc ayant m\^eme caract\'eristique que
+$k$. D\'efinissons de m\^eme $\goth{o''}$ dans $L''$, qui est
+\'evidemment le normalis\'e de
+$\goth{o'}$
+dans~$L''$. Il
+r\'esulte alors du th\'eor\`eme de puret\'e~\ref{X.3.1}
+ou~\ref{X.3.3} que pour que $R''$ soit non ramifi\'e sur~$X_{V''}$,
+il faut et il suffit que $R''$ soit non ramifi\'e sur~$\goth{o''}$,
+normalis\'e de~$\goth{o'}$ dans~$L''$.
+
+Notons maintenant que si $u'$ est une uniformisante de~$V'$, c'est
+aussi une uniformisante de~$\goth{o'}$. Si alors $n$ est un entier
+premier \`a la caract\'eristique $p$ de~$k$, et si on prend
+$K''=K'[t]/(t^n-u)$, alors
+$K''$
+est une extension galoisienne finie
+de~$K'$ et $L''$ est isomorphe \`a $L'[t]/(t^n-u')$, donc est
+mod\'er\'ement ramifi\'e sur~$\goth{o'}$ et de groupe d'inertie
+d'ordre~$n$. Supposons alors $G$ \emph{d'ordre premier à~$p$,} ce
+qui implique que $R'$ est mod\'er\'ement ramifi\'e sur~$\goth{o'}$, et prenons pour $n$ un multiple premier \`a $p$ de
+l'ordre du groupe d'inertie de~$R'$ sur~$\goth{o'}$ (par exemple
+$n=[G\colon e]$). Appliquant le
+lemme d'\textsc{Abhyankar}~\ref{X.3.6}, on
+voit que la condition envisag\'ee dans~\ref{X.3.7} est
+v\'erifi\'ee.
+
+Cela prouve le th\'eor\`eme suivant:
+
+\begin{theoreme}
+\label{X.3.8}
+Soient $f\colon X\to Y$ un morphisme propre et lisse, \`a fibres
+g\'eo\-m\'e\-tri\-que\-ment connexes, avec $Y$ localement noeth\'erien,
+$y_0$ et $y_1$ deux points de~$Y$ tels que
+$y_0\in\overline{\{y_1\}}$,
+$\overline{X}_0$ et $\overline{X}_1$ les fibres g\'eom\'etriques
+correspondantes, consid\'erons l'homomorphisme de sp\'ecialisation
+\eqref{X.2.4} $\pi_1(\overline X_1)\to\pi_1(\overline X_0)$. Cet
+homomorphisme est surjectif, et tout homomorphisme continu de
+$\pi_1(\overline X_1)$ dans un groupe fini $G$ d'ordre premier \`a
+la caract\'eristique $p$ de~$\kres(y_0)$ provient d'un homomorphisme de
+$\pi_1(\overline{X}_0)$ dans~$G$.
+\end{theoreme}
+
+En d'autres termes:
+
+\begin{corollaire}
+\label{X.3.9}
+Si $\kres(y_0)$ est de caract\'eristique nulle, alors l'homomorphisme
+de sp\'ecialisation est un isomorphisme. Si
+$\kres(y_0)$ est de caract\'eristique $p>0$,
+alors le noyau de
+l'homomorphisme de sp\'ecialisation est contenu dans l'intersection
+des noyaux des homomorphismes continus de~$\pi_1(\overline X_1)$ dans
+des groupes finis d'ordre premier \`a~$p$ (ou encore, le sous-groupe
+invariant ferm\'e engendr\'e par un $p$-sous-groupe de Sylow du
+groupe de type galoisien $\pi_1(\overline X_1)$); si donc
+$\pi_1(\overline X_1)^{(p)}$
+d\'esigne le groupe quotient de
+$\pi_1(\overline X_1)$ par le sous-groupe ferm\'e pr\'ec\'edent,
+et si on d\'efinit de m\^eme $\pi_1(\overline X_0)^{(p)}$, alors
+l'homomorphisme de sp\'ecialisation induit un \emph{isomorphisme}
+$$
+\pi_1(\overline X_1)^{(p)}\isomto \pi_1(\overline X_0)^{(p)}
+$$
+\end{corollaire}
+
+On notera que la d\'emonstration de \ref{X.3.8} est purement alg\'ebrique.
+Proc\'edant comme dans \ref{X.2.6}, on en conclut \emph{par voie
+transcendante:}
+
+\begin{corollaire}
+\label{X.3.10}
+Soit $X_0$ une courbe propre, lisse et connexe de genre $g$ sur un
+corps al\-g\'e\-bri\-quement clos de caract\'eristique~$p$. Avec
+la notation introduite dans~\ref{X.3.9}, le groupe $\pi_1(X_0)^{(p)}$
+est isomorphe \`a $\Gamma^{(p)}$, o\`u $\Gamma$ est le groupe de
+type galoisien engendr\'e par des g\'en\'erateurs $s_i,~t_i$
+($1\le i\le g$) li\'es par la relation
+$$
+(s_1t_1s_1^{-1}t_1^{-1})\cdots (s_gt_gs_g^{-1}t_g^{-1})=1
+$$
+\end{corollaire}
+
+\begin{remarques}
+\label{X.3.11}
+Dans le cas o\`u $\kres(y_0)$ est de caract\'eristique nulle, le
+r\'esultat~\ref{X.3.9} est bien connu par voie transcendante. On
+notera que la d\'emonstration de~\ref{X.3.10} fait appel au
+th\'eor\`eme de puret\'e dans le cas d'in\'egales
+caract\'eristiques, mais dans le cas d'anneaux de dimension 2
+seulement, o\`u la d\'emonstration dudit th\'eor\`eme est
+facile et a \'et\'e rappel\'ee dans le texte.
+\end{remarques}
+
+\begin{thebibliography}{0}{X.4}
+
+\bibitem[1]{X.1} K.\, \textsc{Kodaira}, On compact analytic surfaces,
+Ann.\ of Math.\ \textbf{71} (1960), p.\, 111--152.
+
+\bibitem[2]{X.2} S.\, \textsc{Lang} et
+J-P.\,\textsc{Serre}, Sur les rev\^etements non
+ramifi\'es des vari\'et\'es alg\'ebriques,
+Amer.\ J.\ Math.\ \textbf{79} (1957), p.\,319--330.
+
+\bibitem[3]{X.3} M.\, \textsc{Nagata},
+On the purity of branch loci in regular local rings,
+Illinois J.\ Math. \textbf{3} (1959), p.\, 328--333.
+
+\bibitem[4]{X.4}
+J-P.\,\textsc{Serre}, Rev\^etements ramifi\'es du plan
+projectif (d'apr\`es S.\, Abhyankar), S\'eminaire Bourbaki, Mai
+1960.
+
+\bibitem[5]{X.5} O.\, \textsc{Zariski},
+On the purity of the branch locus of algebraic functions,
+Proc.\ Nat.\ Acad.\ Sc.\ USA  \textbf{44} (1958), p.\, 791--796.
+
+
+\bibitem[6]{X.6} O.\, \textsc{Zariski},
+Algebraic surfaces, Ergebnisse... 1948, Chelsea (New York).
+\end{thebibliography}
+
+\chapterspace{-2}

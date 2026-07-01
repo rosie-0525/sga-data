@@ -1,0 +1,1010 @@
+\chapter{Morphismes plats}\label{IV}
+Nous donnons ici surtout les propri\'et\'es de platitude qui nous
+ont servi dans les expos\'es pr\'ec\'edents. Une \'etude plus
+d\'etaill\'ee se trouvera au Chapitre~IV des \og \'El\'ements de
+G\'eom\'etrie Alg\'ebrique\fg en pr\'eparation\footnote{\Cf EGA IV 11 et 12.}, o\`u on \'etudie de fa\c con syst\'ematique
+la situation suivante: $X$ \'etant localement de type fini sur~$Y$
+localement noeth\'erien, et~$\cal{F}$ coh\'erent sur~$X$ et
+$Y$-plat, donner des relations entre les propri\'et\'es de~$Y$,
+celles de~$\cal{F}$, et celles des faisceaux coh\'erents induits
+par~$\cal{F}$ sur les fibres de~$X\to Y$ (du point de vue notamment de
+la dimension, de la dimension cohomologique, de la profondeur
+etc.). On a notamment une fa\c con syst\'ematique d'obtenir
+des th\'eor\`emes du type \emph{Seidenberg} ou \emph{Bertini}
+(pour les sections hyperplanes). Le r\'esultat essentiel pour
+l'application des m\'ethodes de platitude dans ce contexte est le
+suivant (qui sera d\'emontr\'e plus bas): Si~$Y$ est int\`egre,
+$X$ de type fini sur~$Y$, $\cal{F}$ coh\'erent sur~$X$, il existe un
+ouvert non vide~$U$ de~$Y$ tel que~$\cal{F}$ soit $Y$-plat aux points
+de~$X$ au-dessus de~$U$. Une deuxi\`eme fa\c con, sans doute
+encore plus importante, dont la platitude s'introduit en
+G\'eom\'etrie Alg\'ebrique, est la \emph{théorie de
+descente}: voir par exemple les deux expos\'es de Grothendieck sur
+le sujet au S\'eminaire Bourbaki\footnote{et, pour un expos\'e
+plus d\'etaill\'e, les Expos\'es~\ref{VIII} et~\ref{IX} plus
+bas.}. La platitude semble ainsi une des notions techniques centrales
+en G\'eom\'etrie Alg\'ebrique.
+
+Rappelons que la notion de platitude et fid\`ele platitude a
+\'et\'e introduite par Serre dans GAGA. Un expos\'e des
+\no \ref{IV.1}~et~\ref{IV.2} suivants se trouvera aussi dans Alg.\ Comm.\ de Bourbaki
+(qui bien entendu, comme le titre du livre l'indique, ne se borne pas
+au cas d'anneaux de base commutatifs)\footnote{N. Bourbaki,
+Alg\`ebre Commutative, Chap.\, I (Modules Plats), Act.\ Sc.\ Ind 1290,
+Paris, Hermann (1961).}.
+
+Contrairement aux expos\'es pr\'ec\'edents, nous ne supposons
+pas que les anneaux envisag\'es sont n\'ecessairement
+noeth\'eriens.
+
+\section{Sorites sur les modules plats}
+\label{IV.1}
+
+Un module $M$ sur l'anneau~$A$ est dit \emph{plat}
+\index{plat, fid\`element plat (module)|hyperpage}(ou $A$-plat si on veut pr\'eciser~$A$)
+si le foncteur
+$$
+T_M \colon N \mto M \otimes_{A}N
+$$
+(qui est en tous cas exact \`a droite) est
+\emph{exact},
+\ie transforme monomorphismes en monomorphismes. Il revient au
+m\^eme de dire que le premier foncteur d\'eriv\'e \`a droite,
+ou tous les foncteurs d\'eriv\'es \`a droite, sont nuls,
+\ie que l'on a\enlargethispage{.5cm}
+$$
+\Tor^{A}_{1}(M,N)=0 \qquad \text{pour tout $N$,}
+$$
+\resp qu'on a
+$$
+\Tor^{A}_{i}(M,N)=0 \qquad \text{pour $i>0$, tout $N$.}
+$$
+Comme les $\Tor_{i}$ commutent aux limites inductives, il suffit
+d'ailleurs de v\'erifier ces conditions pour $N$ de type fini, et
+m\^eme (prenant alors une suite de composition de~$N$ \`a quotients
+monog\`enes) que l'on ait
+$$
+\Tor^{A}_{1}(M,N)=0
+$$
+si $N$ monog\`ene, \ie de la forme $A/I$, $I$ \'etant un
+id\'eal de~$A$. Notons d'ailleurs que
+$$
+\Tor^{A}_{1}(M,A/I)=0 \quad\Longleftrightarrow\quad I\otimes_{A}M \rightarrow
+M=A\otimes_{A}M\text{ est \emph{injectif}},
+$$
+comme on voit sur la suite exacte des $\Tor$,
+compte tenu de~$\Tor^{A}_{1}(M,A)=0$. Donc $M$ plat \'equivaut \`a
+dire que pour tout id\'eal~$I$, l'homomorphisme naturel
+$$
+I\otimes_{A}M \to IM
+$$
+est un isomorphisme. Il suffit d'ailleurs de le v\'erifier pour $I$
+de type fini, a fortiori il suffit de v\'erifier que le foncteur
+$M\otimes$ est exact sur les modules \emph{de type fini}.
+
+Comme chaque fois qu'on a un foncteur exact $T$, si on identifie, pour
+un sous-objet $N'$ de~$N$, $T(N')$ \`a un sous-objet de~$T(N)$, on a
+$$
+T(N' \cap N'')=T(N') \cap T(N'')
+$$
+$$
+T(N' + N'')=T(N') + T(N'')
+$$
+pour deux sous-objets $N'$, $N''$ de~$N$.
+
+Une somme directe de modules plats, un facteur direct d'un module
+plat, est plat. En particulier, $A$ \'etant plat, un module
+\emph{libre}, donc aussi un module \emph{projectif}, est plat. Le
+produit tensoriel de deux modules plats est plat, et si $M$ est plat
+sur~$A$, alors $M\otimes_{A}B$ est plat sur~$B$ pour tout changement
+de base
+$A \to B$
+(\`a cause de l'associativit\'e du produit tensoriel et du fait
+qu'un compos\'e de foncteurs
+exacts est exact). Si $M$ est plat sur~$B$, $B$ plat sur~$A$, alors
+$M$ est plat sur~$A$ (m\^eme raison).
+
+La suite exacte des $\Tor$, plus la \og commutativit\'e\fg du $\Tor$,
+donne:
+
+\begin{proposition}
+\label{IV.1.1}
+Soit $0 \to M' \to M \to M'' \to 0$ une suite exacte de~$A$-modules,
+$M''$ \'etant plat. Alors
+\begin{enumerate}
+\item[(i)] cette suite reste exacte par tensorisation par n'importe
+quel $A$-module $N$
+\item[(ii)] pour que $M$ soit plat, il faut et il suffit que $M'$ le
+soit.
+\end{enumerate}
+\end{proposition}
+
+On peut donc dire que du point de vue du comportement par produits
+tensoriels, les modules plats sont \og aussi bons\fg que les modules
+libres ou projectifs (et la suite exacte de~\ref{IV.1.1} en
+particulier est \og aussi bonne\fg que si elle splittait).
+
+Soit $S$ une partie multiplicativement stable de~$A$, alors $S^{-1}A$
+est plat sur~$A$, car $S^{-1}A \otimes N=S^{-1}N$ est un foncteur
+exact en~$N$. Si $M$ est $A$-plat, alors $S^{-1}M=S^{-1}A \otimes M$
+est $S^{-1}A$-plat, la r\'eciproque \'etant vraie si $M \to
+S^{-1}M$ est un
+isomorphisme,
+\ie si
+les $s \in S$ sont bijectifs dans $M$ (\`a cause de la
+transitivit\'e de la platitude, $S^{-1}A$ \'etant plat sur~$A$).
+Plus g\'en\'eralement, le cas d'un morphisme de pr\'esch\'emas
+$X \to Y$ et d'un faisceau quasi-coh\'erent $\cal{F}$ sur~$X$ dont
+on veut \'etudier la platitude par rapport \`a~$Y$ conduit \`a
+la situation avec deux anneaux:
+
+\begin{proposition}
+\label{IV.1.2}
+Soient $A \to B$ un homomorphisme d'anneaux, $M$ un $B$-module, $T$
+une partie multiplicativement stable de~$B$.
+\begin{enumerate}
+\item[(i)] Si $M$ est $A$-plat, alors $T^{-1}M$ est $A$-plat (donc
+aussi $S^{-1}A$-plat pour toute partie multiplicativement stable $S$
+de~$A$ s'envoyant dans $T$).
+\item[(ii)] Inversement, si $M_{\goth{n}}$ est plat sur~$A_{\goth{n}}$
+pour tout id\'eal maximal $\goth{n}$ de~$B$, $M_{\goth{n}}$ est plat
+sur~$A$ (ou, ce qui revient au m\^eme, sur~$A_{\goth{m}}$, o\`u
+$\goth{m}$ est l'id\'eal premier de~$A$ image inverse de~$\goth{n}$)
+alors $M$ est $A$-plat.
+\end{enumerate}
+\end{proposition}
+
+On a en effet la formule, fonctorielle par rapport au $A$-module~$N$:
+$$
+T^{-1}M \otimes_{A} N=T^{-1}(M \otimes_{A} N)
+$$
+car les deux membres sont fonctoriellement isomorphes \`a $T^{-1}B
+\otimes_{B} M \otimes_{B} N_{(B)}$ (avec $N_{(B)}=N \otimes_{A} B$) en
+vertu des formules d'associativit\'e de~$\otimes$. Il s'ensuit
+aussit\^ot que si $M \otimes_{A} N$ est exact en~$N$, il en est de
+m\^eme de~$T^{-1}M \otimes_{A} N$ (comme compos\'e de deux
+foncteurs exacts), d'o\`u~(i). Et il s'ensuit de m\^eme (ii), car
+pour v\'erifier l'exactitude d'une suite de~$B$-modules, il suffit
+de v\'erifier l'exactitude des localis\'es en tous les id\'eaux
+maximaux de~$B$.
+
+\begin{proposition}
+\label{IV.1.3}
+\begin{enumerate}
+\item[(i)] Soit
+$M$ un $A$-module plat. Si $x \in A$ est non diviseur
+de~$0$ dans $A$, il est non-diviseur de~$0$ dans $M$. En particulier,
+si $A$ est int\`egre, $M$ est sans torsion.
+\item[(ii)] Supposons que $A$ soit int\`egre et que pour tout
+id\'eal maximal $\goth{m}$ de~$A$, $A_{\goth{m}}$ soit principal
+(par exemple $A$ anneau de Dedekind, ou m\^eme principal). Pour que
+le $A$-module $M$ soit plat, il faut et
+il
+suffit qu'il soit sans torsion.
+\end{enumerate}
+\end{proposition}
+
+On obtient (i) en notant que l'homoth\'etie $x$ dans $M$ s'obtient
+en tensorisant par~$M$ l'homoth\'etie $x$ dans $A$. Pour (ii), on
+peut supposer d\'ej\`a $A$ principal gr\^ace \`a~\ref{IV.1.2}
+(ii); il faut montrer que si $M$ est sans torsion, alors pour tout
+id\'eal $I$ de~$A$, l'injection $I \to A$ tensoris\'ee par $M$ est
+une injection, ce qui signifie que le g\'en\'erateur $x$ de~$I$
+est non diviseur de~$0$ dans~$M$, O.K.
+
+\section{Modules fid\`element plats}
+\label{IV.2}
+
+Un foncteur $F$ d'une cat\'egorie dans une autre est dit
+\emph{fidèle} si pour tout $X$, $Y$, l'application $\Hom (X,Y) \to
+\Hom (F(X),F(Y))$ est injective. S'il s'agit d'un foncteur additif de
+cat\'egories additives, il revient au m\^eme de dire que $F(u)=0$
+implique $u=0$, et cela implique que $F(X)=0$ implique $X=0$. Pour que
+$F$ soit \emph{fidèle et exact}, il faut et il suffit que la
+condition suivante soit v\'erifi\'ee: pour toute suite $M' \to M
+\to M''$ de morphismes dans $\cal{C}$, la suite transform\'ee
+$F(M') \to F(M) \to F(M'')$
+est exacte \emph{si} et \emph{seulement si} la
+pr\'ec\'edente l'est. Ou encore: $F$ est exact, et $F(X)=0$
+implique $X=0$. (N.B. pour pouvoir parler d'exactitude, il faut
+supposer les cat\'egories en jeu \emph{abéliennes}). Supposons
+qu'on ait une famille $(M_{i})$ d'objets non nuls de~$\cal{C}$ tels
+que tout objet non nul de~$\cal{C}$ ait un sous-objet admettant un
+quotient isomorphe \`a un $M_{i}$. Alors $F$ fid\`ele et exact
+\'equivaut \`a: $F$ exact, et $F(M_{i}) \neq 0$ pour tout~$i$. Si
+$\cal{C}$ est la cat\'egorie des modules sur un anneau~$A$, on peut
+prendre par exemple pour $(M_{i})$ la famille des $A/\goth{m}$,
+$\goth{m}$ parcourant les id\'eaux maximaux de~$A$. (En effet, tout
+module non nul admet un sous-module non nul monog\`ene, donc
+isomorphe \`a un $A/I$, $I$ id\'eal~$\neq A$, lequel par Krull
+admet un quotient $A/\goth{m}$). De ces sorites, on d\'eduit en
+particulier:
+
+\begin{proposition}
+\label{IV.2.1}
+Soit $M$ un $A$-module. Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] Le foncteur $M \otimes_{A}$ est fid\`ele et exact.
+\item[(i~bis)]
+$M$ est plat, et $M \otimes_{A} N=0$ implique $N=0$
+\item[(i~ter)] $M$ est plat, et $M \otimes A/\goth{m} \neq 0$ pour
+tout id\'eal maximal $\goth{m}$ de~$A$.
+\item[(ii)] Pour toute suite d'homomorphismes $N' \to N \to N''$, la
+suite tensoris\'ee par $M$ est exacte si et seulement si la suite
+initiale l'est.
+\end{enumerate}
+\end{proposition}
+
+On dit alors que $M$ est un $A$-module \emph{fidèlement plat}.
+\index{fidelement plat (module)@fid\`element plat (module)|hyperpage}\index{plat, fid\`element plat (module)|hyperpage}En particulier, si $M$ est fid\`element plat, alors $N \to N'$ est
+un monomorphisme (\'epimorphisme, isomorphisme) si et seulement si
+l'homomorphisme tensoris\'e par~$M$ l'est. Un module fid\`element
+plat est \emph{fidèle}, puisque l'homoth\'etie $f$ dans~$M$
+s'obtient en tensorisant par~$M$ l'homoth\'etie $f$ dans~$A$.
+
+On voit comme
+dans~\ref{IV.1}
+les propri\'et\'es de
+transitivit\'e habituelles: le produit tensoriel de deux modules
+fid\`element plats est fid\`element plat, si $M$ est
+fid\`element plat sur~$A$, $M \otimes_{A}B$ est fid\`element plat
+sur~$B$ pour toute extension de la base $A \to B$, si $B$ est une
+$A$-alg\`ebre qui est fid\`element plate sur~$A$ et si $M$ est un
+$B$-module fid\`element plat, c'est un $A$-module fid\`element
+plat.
+
+\begin{corollaire}
+\label{IV.2.2}
+Soit $A \to B$ un homomorphisme local d'anneaux locaux, $M$ un
+$B$-module de type fini. Pour que $M$ soit fid\`element plat
+sur~$A$, il faut et il suffit qu'il soit plat sur~$A$ et non nul.
+\end{corollaire}
+
+R\'esulte du crit\`ere (i~ter) et de Nakayama. En particulier,
+\emph{pour que $B$ soit $A$-plat, il faut et il suffit qu'il soit
+fidèlement $A$-plat}.
+
+\begin{proposition}
+\label{IV.2.3}
+Soit $A \to B$ un homomorphisme d'anneaux, $M$ un $B$-module qui est
+fid\`element plat sur~$A$. Pour tout id\'eal premier $\goth{p}$
+de~$A$, il existe un id\'eal premier~$\goth{q}$ de~$B$ qui
+l'induise.
+\end{proposition}
+
+Divisant par $\goth{p}$, on est ramen\'e au cas o\`u
+$\goth{p}=0$. Localisant en l'id\'eal premier $0$, on est ramen\'e
+au cas o\`u $A$ est un corps. Mais $M$ \'etant fid\`element plat
+sur~$A$ est non nul, a fortiori $B \neq 0$, donc $B$ a un id\'eal
+premier, qui ne peut qu'induire l'unique id\'eal premier de~$A$!
+G\'eom\'etriquement, on peut dire que l'existence d'un faisceau
+quasi-coh\'erent $\cal{F}$ sur~$X=\Spec (B)$ qui soit
+\og fid\`element plat\fg relativement \`a~$A$, implique que $X \to
+Y=\Spec (A)$ est \emph{surjectif}.
+
+\begin{corollaire}
+\label{IV.2.4}
+Supposons $M$ plat sur~$A$, de type fini sur~$B$ et
+$\Supp M=\Spec(B)$
+(\ie $M_{\goth{q}}\neq 0$ pour tout id\'eal premier $\goth{q}$
+de~$B$). Alors les id\'eaux premiers $\goth{q}$ de~$B$ contenant
+$\goth{p}B$ minimaux induisent~$\goth{p}$.
+\end{corollaire}
+
+On
+est encore ramen\'e au cas $\goth{p}=0$ (car les hypoth\`eses se
+conservent toutes en divisant), donc $A$ int\`egre. On est
+ramen\'e \`a l'\'enonc\'e suivant:
+
+\begin{corollaire}
+\label{IV.2.5}
+$M$ \'etant comme dessus, tout id\'eal premier minimal $\goth{q}$
+de~$B$ induit un id\'eal premier $\goth{p}$ de~$A$ qui est minimal.
+\end{corollaire}
+
+En effet, localisant en $\goth{p}$ et $\goth{q}$, on est ramen\'e
+\`a prouver que si $A$ et $B$ sont locaux et l'homomorphisme $A \to
+B$ local, $M$ un $B$-module non nul plat sur~$A$, et si $B$ est de
+dimension $0$, alors $A$ est de dimension $0$. Par~\ref{IV.2.2}
+et~\ref{IV.2.3}, on conclut que tout id\'eal premier de~$A$ est
+induit par un id\'eal premier de~$B$, donc par l'id\'eal maximal
+de~$B$,
+donc est l'id\'eal maximal, cqfd. G\'eom\'etriquement,
+\ref{IV.2.5} signifie que toute composante irr\'eductible de
+$X=\Spec (B)$
+domine quelque composante irr\'eductible de~$Y=\Spec (A)$ (moyennant
+l'existence d'un faisceau quasi-coh\'erent de type fini sur~$X$, de
+support~$X$, et plat par rapport \`a~$Y$).
+
+On notera qu'on n'a pas eu \`a supposer dans~\ref{IV.2.4} $M$
+fid\`element plat sur~$A$, mais rien ne garantit alors l'existence
+d'un id\'eal premier contenant $\goth{p}B$ (donc d'un minimal parmi
+de tels).
+
+\begin{proposition}
+\label{IV.2.6}
+Soit $i \colon A \to B$ un homomorphisme d'anneaux. Conditions
+\'equivalentes:
+\begin{enumerate}\item[(i)] $B$ est un $A$-module fid\`element plat.
+\item[(ii)] $B$ est plat sur~$A$, et $\Spec (B) \to \Spec (A)$ est
+surjectif
+\item[(ii~bis)] $B$ est plat sur~$A$, et tout id\'eal maximal est
+induit par un id\'eal de~$B$.
+\item[(iii)] $i$ est injectif et $\Coker i$ est un $A$-module plat.
+\item[(iv)] Le foncteur $M_{(B)}=M \otimes_{A} B$ en le $A$-module $M$
+est exact, et l'homomorphisme fonctoriel canonique $M \to M_{(B)}$ est
+injectif.
+\item[(iv~bis)] Pour tout id\'eal $I$ de~$A$, $I \otimes_{A} B \to
+IB$ est un isomorphisme, et l'image inverse de~$IB$ dans $A$ est
+\'egale \`a~$I$.
+\end{enumerate}
+\end{proposition}
+
+On a (i)$\To$(ii) par~\ref{IV.2.3},
+(ii)$\To$(ii~bis) est trivial, (ii~bis)$\To$(i)
+par le crit\`ere (i~ter) de~\ref{IV.2.1}. On a
+(iii)$\To$(iv) par~\ref{IV.1.1}, (iv)$\To$(iv~bis)
+trivialement (en faisant $M=A/I$ dans la deuxi\`eme
+condition~(iv~bis)), et (iv~bis)$\To$(i) en vertu du
+crit\`ere de platitude par id\'eaux vu au d\'ebut de~\ref{IV.1}
+et du crit\`ere \ref{IV.2.1}~(i~ter). Enfin,
+(iv)$\To$(iii) par une r\'eciproque facile
+de~\ref{IV.1.1}, et (i)$\To$(iv) car
+si $N$ est le noyau de~$M \to M \otimes_{A}B =T(M)$, alors ($T$~\'etant exact) $N \to T(N)$ est nul d'o\`u $T(N)=N \otimes_{A}B
+=0$, d'o\`u $N=0$, cqfd.
+
+\section{Relations avec la compl\'etion}
+\label{IV.3}
+Soient $A$ un anneau noeth\'erien, $I$ un id\'eal dans $A$,
+$\widehat{A}$ le s\'epar\'e compl\'et\'e de~$A$ pour la
+topologie $I$-pr\'eadique, et pour tout $A$-module $M$, soit
+$\widehat{M}$ son compl\'et\'e pour la topologie
+$I$-pr\'eadique. C'est un $\widehat{A}$-module, d'o\`u un
+homomorphisme canonique
+$$
+M \otimes_A \widehat{A} \to \widehat{M}.
+$$
+Lorsque $M$ parcourt les modules \emph{de type fini}, le foncteur $M
+\mto \widehat{M}$ est exact, comme il r\'esulte facilement du
+\emph{théorème de Krull: Si $N \subset M$, la topologie de~$N$
+est celle induite par la topologie de~$M$}. Comme $M \otimes_A
+\widehat{A}$ est exact \`a droite, on en conclut ais\'ement (en
+r\'esolvant $M$ par $L \to L' \to M$, avec $L$ et $L'$ libres de
+type fini) que l'homomorphisme fonctoriel plus haut est un
+\emph{isomorphisme} ($\widehat{M}$ \'etant aussi exact \`a droite)
+et par cons\'equent que $M \otimes_A \widehat{A}$ est aussi un
+foncteur \emph{exact} en $M$. Par suite:
+\begin{proposition}
+\label{IV.3.1}
+Soient $A$ un anneau noeth\'erien, $I$ un id\'eal de~$A$, alors le
+compl\'et\'e s\'epar\'e $\widehat{A}$ de~$A$ (pour la
+topologie $I$-pr\'eadique) est \emph{plat} sur~$A$.
+\end{proposition}
+
+\begin{corollaire}
+\label{IV.3.2}
+Pour que $\widehat{A}$ soit fid\`element plat sur~$A$, il faut et il
+suffit que $I$ soit contenu dans le radical de~$A$.
+\end{corollaire}
+
+En effet, il suffit d'appliquer le crit\`ere \ref{IV.2.1} (i~ter).
+
+Ces r\'esultats r\'esument tout ce qu'on sait dire, du point de
+vue de l'alg\`ebre lin\'eaire, sur les relations entre $A$ et
+$\widehat{A}$. Le corollaire \ref{IV.3.2} est surtout utilis\'e lorsque $A$
+est un anneau local noeth\'erien et que $I$ est contenu dans
+l'id\'eal maximal $\goth{m}$ (et le plus souvent, lui est \'egal).
+
+\section{Relations avec les modules libres}
+\label{IV.4}
+
+\begin{proposition}
+\label{IV.4.1}
+Soient $A$ un anneau, $I$ un id\'eal de~$A$, $M$ un
+$A$-module. Supposons qu'on soit sous l'une ou l'autre des
+hypoth\`eses suivantes:
+\begin{enumerate}
+\item[(a)] $I$ est nilpotent
+\item[(b)] $A$ est noeth\'erien, $I$ est dans le radical de~$A$, et
+$M$ est de type fini.
+\end{enumerate}
+Pour que $M$ soit libre sur~$A$, il faut et il suffit que $M \otimes
+A/I$ soit libre sur~$A/I$, et que $\Tor_1^A(M,A/I) = 0$.
+\end{proposition}
+
+C'est
+n\'ecessaire, prouvons la suffisance. Soit $(e_i)$ une famille
+d'\'el\'ements de~$M$ dont l'image dans $M \otimes A/I = M/IM$ y
+d\'efinit une base sur~$A/I$ (c'est une famille finie dans le cas
+(b)). Soit $L$ le $A$-module libre construit sur le m\^eme ensemble
+d'indices, on a donc un homomorphisme $L \to M$ tel que la
+tensorisation $T$ par $A/I$ induit un isomorphisme $T(L)
+\isomto T(M)$. Si $Q$ est le conoyau de~$L \to M$, on a
+donc $T(Q) = 0$, d'o\`u $Q=0$ en vertu de Nakayama (valable sous
+l'une ou l'autre condition (a) ou (b)). Donc $L \to M$ est surjectif,
+soit $R$ son noyau, on a donc une suite exacte
+$$
+0 \to R \to L \to M \to 0
+$$
+d'o\`u, comme $\Tor_1^A(M,A/I)=0$, une suite exacte $0 \to T(R) \to
+T(L) \to T(M) \to 0$, d'o\`u $T(R)=0$, d'o\`u encore
+$R=0$
+en vertu de Nakayama (tenant compte que dans le cas (b), $R$ est de
+type fini puisque $A$ \'etait suppos\'e noeth\'erien).
+
+\begin{corollaire}\label{IV.4.2}
+On peut remplacer la condition $\Tor_1^A(M,A/I)=0$ par:
+l'homomorphisme canonique surjectif
+\begin{equation*}
+\label{eq:IV.2.*}
+\tag{$*$} { \gr_I^0(M) \otimes_{A/I} \gr_I(A) \to \gr_I(M) }
+\end{equation*}
+est un isomorphisme.
+\end{corollaire}
+
+En effet, si $M$ est libre, cela est certainement v\'erifi\'e. Il
+faut donc prouver que si $M \otimes A/I$ est libre sur~$A/I$ et la
+condition sur les $\gr$ v\'erifi\'ee, alors $M$ est libre. On
+reprend la d\'emonstration ci-dessus en construisant $L \to M$, il
+r\'esulte de l'hypoth\`ese que cet homomorphisme induit un
+isomorphisme pour les gradu\'es associ\'es, donc son noyau est
+contenu dans l'intersection des $I^nL$, donc est nul (comme il est
+trivial dans (a), et bien connu dans (b)). Cqfd.
+
+
+
+\begin{corollaire}
+\label{IV.4.3}
+Supposons que $A/I$ soit un corps. Alors les conditions suivantes sur~$M$ sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $M$ est libre
+\item[(ii)] $M$ est projectif
+\item[(iii)] $M$ est plat
+\item[(iv)] $\Tor_1^A(M, A/I) = 0$
+\item[(v)] L'homomorphisme canonique \eqref{eq:IV.2.*} est bijectif.
+\end{enumerate}
+\end{corollaire}
+
+En effet, dans le cas envisag\'e, $M \otimes A/I$ est
+automatiquement libre.
+
+Le r\'esultat pr\'ec\'edent est valable dans les deux cas
+suivants:
+\begin{enumerate}
+\item[(a)] $M$ est un module \emph{quelconque} sur un anneau local $A$
+dont l'id\'eal maximal $I$ est \emph{nilpotent} (par exemple un
+anneau local artinien).
+\item[(b)] $M$ est un module \emph{de type fini} sur un anneau
+\emph{local noethérien}.
+\end{enumerate}
+
+Rappelons
+pour m\'emoire:
+\begin{corollaire}
+\label{IV.4.4}
+Supposons que $A$ soit un anneau \emph{local noethérien
+intègre} d'id\'eal maximal $\goth{m} = I$, de corps r\'esiduel
+$k = A/I$, de corps des fractions $K$. Soit $M$ un module de type fini
+sur~$A$. Alors les conditions \'equivalentes \textup{(i)} \`a \textup{(v)}
+pr\'ec\'edentes \'equivalent aussi \`a
+\enlargethispage{.5cm}\begin{enumerate}
+\item[(vi)] $M \otimes_A K$ et $M \otimes_A k$ sont des espaces
+vectoriels de m\^eme dimension (\ie le rang de~$M$ sur~$A$ est
+\'egal au nombre minimum de g\'en\'erateurs du $A$-module $M$).
+\end{enumerate}
+\end{corollaire}
+
+D\'emonstration imm\'ediate; on laisse au lecteur le soin de
+g\'en\'eraliser au cas o\`u~$A$ est seulement suppos\'e sans
+\'el\'ements nilpotents: il faut alors exiger que les rangs de~$M$
+pour les id\'eaux premiers minimaux de~$A$ soient \'egaux \`a la
+dimension de l'espace vectoriel $M \otimes_A k$.
+
+\section{Crit\`eres locaux de platitude}
+\label{IV.5}
+
+\begin{proposition}
+\label{IV.5.1}
+Soit $A$ un anneau muni d'un id\'eal $I$, $M$ un
+$A$-module. Supposons
+$$
+\Tor_1^A(M, A/I^n) = 0 \qquad \text{pour $n>0$}
+$$
+alors l'homomorphisme canonique surjectif
+\begin{equation*}
+\label{eq:IV.5.1.*}
+\tag{$*$} {\gr_I^0(M) \otimes_{A/I} \gr_I(A) \to \gr_I(M)}
+\end{equation*}
+est un isomorphisme. La r\'eciproque est vraie si $I$ est nilpotent.
+\end{proposition}
+
+L'hypoth\`ese signifie que les homomorphismes
+$$
+I^n \otimes_A M \to I^n M
+$$
+sont des isomorphismes, d'o\`u aussit\^ot le fait que les
+homomorphismes
+$$
+I^n / I^{n+1} \otimes_A M \to I^n M / I^{n+1} M
+$$
+sont des isomorphismes. R\'eciproquement, supposons cette condition
+v\'erifi\'ee et $I$ nilpotent, prouvons $\Tor_1^A(M,A/I^n) =0$
+pour tout $n$. C'est vrai pour $n$ grand, proc\'edons par
+r\'ecurrence descendante sur~$n$, en le supposant prouv\'e pour
+$n+1$. On a un diagramme commutatif
+$$
+\xymatrix{ &{M \otimes I^{n+1}}\ar[r]\ar[d]&{M \otimes I^n}\ar[r]\ar[d]&{M \otimes(I^n/I^{n+1})}\ar[r]\ar[d]&{0}\\{0}\ar[r]&{MI^{n+1}}\ar[r]&{MI^n}\ar[r]&{MI^n/MI^{n+1}}\ar[r]&{0}}
+$$
+o\`u
+les lignes sont exactes. Par hypoth\`ese, la derni\`ere fl\`eche
+verticale est un isomorphisme, et l'hypoth\`ese de r\'ecurrence
+signifie aussi que la premi\`ere fl\`eche verticale l'est. Il en
+est donc de m\^eme de la fl\`eche verticale m\'ediane, ce qui
+ach\`eve la d\'emonstration.
+
+La proposition suivante a \'et\'e d\'egag\'ee au moment du
+S\'eminaire par Serre; elle permet des simplifications
+substantielles dans le pr\'esent num\'ero.
+\begin{proposition}
+\label{IV.5.2}
+Soient $A \to B$ un homomorphisme d'anneaux, $M$ un $A$-module. Les
+conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] Pour tout $B$-module $N$, on a $\Tor_1^A(M,N) = 0$;
+\item[(ii)] $\Tor_1^A(M,B) = 0$, et $M_{(B)} = M \otimes_A B$ est
+$B$-plat.
+\end{enumerate}
+\end{proposition}
+
+On a un isomorphisme fonctoriel
+$$
+M \otimes_A N = (M \otimes_A B) \otimes_B N
+$$
+qui exprime le premier membre, consid\'er\'e comme foncteur en
+$M$, comme un compos\'e de deux foncteurs $M \mto M \otimes_A B$
+et $P \mto P \otimes_B N$. Comme le premier transforme modules
+libres sur~$A$ en modules libres sur~$B$, donc projectifs en
+projectifs, on a la suite spectrale des foncteurs compos\'es
+$$
+\Tor_n^A(M,N) \From \Tor_p^B(\Tor_q^A(M,B),N)
+$$
+d'o\`u une suite exacte pour les termes de bas degr\'e
+$$
+0 \from \Tor_1^B(M \otimes_A B,N) \from \Tor_1^A(M,N)
+\from \Tor_1^A(M,B) \otimes_A N
+$$
+Si (i) est v\'erifi\'e, alors on conclut de cette suite exacte
+$\Tor_1^B(M \otimes_A B,N) = 0$ pour tout $N$, \ie $M \otimes_A B$
+est $B$-plat, d'o\`u (ii). Si inversement (ii) est v\'erifi\'e,
+alors dans la suite exacte les termes entourant $\Tor_1^A(M,N)$ sont
+nuls, donc on a (i).
+
+\begin{corollaire}
+\label{IV.5.3}
+Supposons que $B = A/I$, alors les conditions pr\'ec\'edentes
+\'equivalent \`a la suivante:
+\begin{enumerate}
+\item[(iii)] $\Tor_1^A(M,N) = 0$ pour tout $A$-module $N$ annul\'e
+par une puissance de~$I$.
+\end{enumerate}
+\end{corollaire}
+
+En effet, (i) signifie qu'il en est ainsi si $N$ est annul\'e par
+$I$. On en d\'eduit (iii) en appliquant l'hypoth\`ese aux
+$I^nN/I^{n+1}N$.
+
+\begin{corollaire}
+\label{IV.5.4}
+Sous les conditions de~\ref{IV.5.3}, les conditions envisag\'ees
+impliquent que
+l'ho\-mo\-mor\-phisme fonctoriel
+\begin{equation*}
+\label{eq:IV.5.*}
+\tag{$*$} {\gr_I^0(M) \otimes_{A/I} \gr_I(A) \to \gr_I(M)}
+\end{equation*}
+est un isomorphisme, et que $M \otimes_A A/I$ est plat sur~$A/I$.
+\end{corollaire}
+
+Il suffit d'appliquer (iii) et \eqref{IV.5.1}. Utilisant la
+r\'eciproque de~\ref{IV.5.1} dans le cas $I$ nilpotent, on trouve:
+\begin{corollaire}
+\label{IV.5.5}
+Soient $A$ un anneau muni d'un id\'eal nilpotent $I$, $M$ un
+$A$-module. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $M$ est $A$-plat
+\item[(ii)] $M \otimes_A A/I$ est $A/I$-plat, et $\Tor_1^A(M,A/I) = 0$
+\item[(iii)] $M \otimes_A A/I$ est $A/I$-plat, et l'homomorphisme
+canonique \eqref{eq:IV.5.*} sur les gradu\'es est un isomorphisme.
+\end{enumerate}
+\end{corollaire}
+
+En effet, ce sont respectivement les conditions (iii) et (ii)
+pr\'ec\'edentes, et celles de corollaire~\ref{IV.5.4}.
+
+Ne supposons plus $I$ nilpotent, alors on aura seulement a priori
+dans~\ref{IV.5.5} les implications (i)$\To$(ii)$\To$(iii). D'autre part, comme la condition (iii) reste
+stable en divisant par une puissance de~$I$, on voit en vertu
+de~\ref{IV.5.5} qu'elle implique
+\begin{enumerate}
+\item[(iv)] \emph{pour tout entier $n$, $M \otimes A/I^n$ est plat sur~$A/I^n$.}
+\end{enumerate}
+On se propose de donner des conditions moyennant lesquelles on peut
+en conclure~(i), \ie que $M$ est $A$-plat. Je dis qu'il suffit pour
+ceci que $A$ soit noeth\'erien et que~$M$ satisfasse la condition de
+finitude suivante: \emph{pour tout module de type fini $N$ sur~$A$, $M
+\otimes_A N$ est séparé pour la topologie
+$I$-préadique}. (Il suffirait de le v\'erifier si~$N$ est un
+id\'eal de type fini dans $A$). En effet, prouvons que sous ces
+conditions, si $N' \to N$ est un monomorphisme de modules de type
+fini, $M \otimes_A N' \to M \otimes_A N$ est un monomorphisme. Il
+suffit en effet de montrer que le noyau est contenu dans les $I^n(M
+\otimes_A N') = \Im(M \otimes_A I^n N' \to M \otimes_A N')$, ou encore
+dans les $\Im(M \otimes_A V'_n \to M \otimes_A N') = \Ker (M \otimes_A
+N' \to M \otimes_A (N'/V'_n))$, o\`u $V'_n$ parcourt un syst\`eme
+fondamental d\'enombrable de voisinages de 0 dans $N'$ (muni de sa
+topologie $I$-adique). D'apr\`es le th\'eor\`eme de Krull, la
+topologie $I$-adique de~$N'$ est induite par celle de~$N$, on peut
+donc prendre $V'_n = N' \cap I^n N$. Consid\'erons alors le
+diagramme commutatif
+$$
+\xymatrix{{M \otimes_A N'}\ar[r]\ar[d]&{M \otimes_A (N'/V'_n)}\ar[d]\\{M \otimes_A N}\ar[r]&{M \otimes_A (N / I^n N)}}
+$$
+Comme $N'/V'_n$ et $N/I^n N$ sont annul\'es par $I^n$, le
+deuxi\`eme homomorphisme vertical s'identifie \`a celui d\'eduit
+de l'homomorphisme \emph{injectif} $N'/V'_n \to N/I^n N$ en
+tensorisant sur~$A/I^n$ avec le $(A/I^n)$-module \emph{plat} $M
+\otimes_A A/I^n$, il est donc \emph{injectif}. Par suite, le noyau de
+$M \otimes_A N' \to M \otimes_A N$ est contenu dans celui de~$M
+\otimes_A N' \to M \otimes_A (N'/V'_n),$ ce qu'on voulait.
+
+La condition de \og finitude\fg envisag\'ee sur~$M$ est
+v\'erifi\'ee en particulier si $M$ est un module de type fini sur
+une $A$-alg\`ebre
+noeth\'erienne
+$B$ telle que $IB$ soit contenu
+dans le radical de~$B$: en effet, alors $M \otimes_A N$ est un module
+de type fini sur~$B$ pour tout module de type fini $N$ sur~$A$, donc
+s\'epar\'e par Krull pour la topologie $I$-adique $=$ sa topologie
+$(IB)$-adique. On trouve ainsi:
+
+\begin{theoreme}
+\label{IV.5.6}
+Soient $A\to B$ un homomorphisme d'anneaux noeth\'eriens, $I$ un
+id\'eal de~$A$ tel que $IB$ soit contenu dans le radical de~$B$, $M$
+un $B$-module de type fini. Les conditions suivantes sont
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $M$ est $A$-plat
+\item[(ii)] $M\otimes_A A/I$ est $A/I$-plat, et $\Tor_1^A(M,A/I)=0$
+\item[(iii)] $M\otimes_A A/I$ est $A/I$-plat, et l'homomorphisme
+canonique
+$$
+\gr_I^0(M)\otimes_{A/I}\gr_I(A)\to\gr_I(M)
+$$
+est un isomorphisme.
+\item[(iv)] Pour tout entier $n$, $M\otimes_A A/I^n$ est plat
+sur~$A/I^n$.
+\end{enumerate}
+\end{theoreme}
+
+Ce r\'esultat s'applique surtout lorsque $A$, $B$ sont des anneaux
+\emph{locaux} noeth\'eriens, $A\to B$ un homomorphisme local, et~$I$
+un id\'eal de~$A$ contenu dans son id\'eal maximal (et on peut
+r\'eduire aussit\^ot~\ref{IV.5.6} \`a ce cas). Un cas
+int\'eressant est celui o\`u $A/I$ est un corps, \ie $I$ maximal,
+auquel cas la condition que $M\otimes_A(A/I)$ est plat sur~$A/I$
+devient inutile; de plus, comme alors les $A/I^n$ sont des anneaux
+locaux artiniens, la condition (iv) signifie que les
+$M\otimes_A(A/I^n)$ sont \emph{libres} sur les~$A/I^n$.
+
+\begin{corollaire}
+\label{IV.5.7}
+Soit
+$A\to B$ un homomorphisme local d'anneaux locaux noeth\'eriens,
+$u\colon M'\to M$ un homomorphisme de~$B$-modules de type fini,
+supposons $M$ plat sur~$A$. Alors les conditions suivantes sont
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $u$ est injectif, et $\Coker u$ est plat sur~$A$.
+\item[(ii)] $u\otimes_A k\colon M'\otimes_A k\to M\otimes_A k$ est
+injectif
+\end{enumerate}
+(o\`u $k$ d\'esigne le corps r\'esiduel de~$A$).
+\end{corollaire}
+
+(i)$\To$(ii) en vertu de~\ref{IV.1.1}, prouvons la
+r\'eciproque. Tout d'abord $u$ est injectif, car il suffit de le
+v\'erifier sur les gradues associ\'es, o\`u cela r\'esulte
+d'un carr\'e commutatif que le lecteur \'ecrira. Soit $M''$ son
+$\Coker$, on a donc une suite exacte
+$$
+0\to M'\to M\to M''\to 0
+$$
+d'o\`u par la suite exacte des $\Tor$, compte tenu de
+l'hypoth\`ese~(ii) et de~$\Tor_1^A(M,k)=0$, la relation
+$\Tor_1^A(M'',k)=0$, donc $M''$ est plat sur~$A$ par le
+th\'eor\`eme~\ref{IV.5.6}.
+
+\begin{corollaire}
+\label{IV.5.8}
+Sous les conditions de~\ref{IV.5.6}, soit $J$ un id\'eal de~$B$
+contenant $IB$ et contenu dans le radical. Soient $\hat A$ le
+compl\'et\'e $I$-adiques de~$A$ et~$\hat B$ et~$\hat M$ les
+compl\'et\'es $J$-adiques de~$B$ et~$M$. Pour que $M$ soit
+$A$-plat, il faut et il suffit que $M$ soit $\hat A$-plat.
+\end{corollaire}
+
+(N.B. la suffisance r\'esulterait d\'ej\`a facilement
+de~\ref{IV.3.2}). On utilise le crit\`ere (iii) de~\ref{IV.5.6}
+dans la situation $(A,B,I,M)$ et dans la situation $(\hat A,\hat
+B,I\hat A, \hat M)$. On constate que les conditions obtenues pour
+l'un et l'autre cas sont \'equivalentes, gr\^ace
+\`a~\ref{IV.3.2}.
+
+\begin{corollaire}
+\label{IV.5.9}
+Soient $A\to B\to C$ des homomorphismes locaux d'anneaux locaux
+noe\-th\'e\-riens, $M$ un $C$-module de type fini (N.B. $C$
+n'intervient que pour pouvoir mettre une condition de finitude sur~$M$). On suppose $B$ plat sur~$A$. Soit $k$ le corps r\'esiduel
+de~$A$. Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] $M$ est plat sur~$B$.
+\item[(ii)] $M$ est plat sur~$A$, et $M\otimes_A k$ est plat sur~$B\otimes_A k$.
+\end{enumerate}
+\end{corollaire}
+
+L'implication (i)$\To$(ii) est triviale, prouvons
+(ii)$\To$(i). On applique le crit\`ere~(iii)
+de~\ref{IV.5.6} \`a $(B,C,\goth{m}B=I,M)$, comme
+$M\otimes_B(B/I)=M\otimes_B(B\otimes_A k) = M\otimes_A k$, la
+premi\`ere condition de ce crit\`ere signifie pr\'ecis\'ement
+que $M\otimes_A k$ est plat sur~$B\otimes_A k$,
+parfait. La deuxi\`eme condition du crit\`ere est
+v\'erifi\'ee parce que $M$ est plat sur~$A$ et~$B$ plat sur~$A$,
+par une formule d'associativit\'e du produit tensoriel. --- Bien
+entendu, se r\'ef\'erant \`a~\ref{IV.5.5} au lieu
+de~\ref{IV.5.6}, on obtient un \'enonc\'e analogue sans condition
+noeth\'erienne et de finitude, quand on suppose en revanche que
+l'id\'eal~$\goth{m}$ de~$A$ est nilpotent. (Le fait que $\goth{m}$
+ait \'et\'e pris maximal n'est d'ailleurs pas intervenu; mais
+c'est en un sens le cas \og $\goth{m}$ maximal\fg qui est \og le meilleur
+possible\fg).
+
+\section{Morphismes plats et ensembles ouverts}
+\label{IV.6}
+
+Rappelons d'abord quelques r\'esultats sur les ensembles
+constructibles, qui sont d'ailleurs d\'emontr\'es dans des notes
+en circulation du S\'eminaire Dieudonn\'e-Rosenlicht sur les
+Sch\'emas\footnote{\Cf EGA~0$_\mathrm{III}$~9, EGA~IV~1.8 et~1.10.}.
+
+Soit $X$ un espace topologique. On dit avec Chevalley qu'une partie
+de~$X$ est \emph{constructible}
+\index{constructible (partie)|hyperpage}si elle est r\'eunion finie de parties localement ferm\'ees.
+
+\begin{lemme}
+\label{IV.6.1}
+Soit $X$ un espace topologique noeth\'erien, soit $Z$ une partie
+de~$X$. Pour que~$Z$ soit constructible, il faut et il suffit que
+pour toute partie ferm\'ee irr\'eductible $Y$ de~$X$, $Z\cap Y$
+est non dense dans $Y$ ou contient une partie ouverte non vide de
+l'espace~$Y$.
+\end{lemme}
+
+On en d\'eduit, utilisant un lemme bien connu d'Alg\`ebre
+Commutative:
+
+\begin{lemme}[Chevalley]
+\label{IV.6.2}
+Soit $f\colon X\to Y$ un morphisme de type fini de
+pr\'esch\'emas, avec $Y$ noeth\'erien. Alors $f(X)$ est
+constructible.
+\end{lemme}
+
+\begin{lemme}
+\label{IV.6.3}
+Soient $X$ un espace topologique noeth\'erien dont toute partie
+ferm\'ee irr\'eductible admet un point g\'en\'erique, $U$ une
+partie constructible de~$X$, $x\in X$. Pour que $U$ soit un voisinage
+de~$x$, il faut et il suffit que toute g\'en\'erisation $y$ de~$x$
+(\ie tout $y\in X$ tel que $x\in \bar{y}$) soit dans~$U$.
+\end{lemme}
+
+En particulier
+
+\begin{corollaire}
+\label{IV.6.4}
+Soit $X$ un espace topologique noeth\'erien dont toute partie
+ferm\'ee irr\'eductible admet un point g\'en\'erique, $U$ une
+partie de~$X$. Pour que $U$ soit ouverte, il faut et il suffit
+qu'elle satisfasse les deux conditions suivantes:
+\begin{enumerate}
+\item[(a)] $U$ contient toute g\'en\'erisation de chacun de ses
+points
+\item[(b)] si $x\in U$, alors
+$U\cap\bar{x}$ contient une partie ouverte non vide de
+l'espace~$\bar{x}$.
+\end{enumerate}
+\end{corollaire}
+
+En effet, $U$ est n\'ecessairement constructible gr\^ace
+\`a~\ref{IV.6.1}, et on applique le crit\`ere~\ref{IV.6.2} qui
+prouve que $U$ est un voisinage de chacun de ses points.
+
+\begin{corollaire}
+\label{IV.6.5}
+Soit $f\colon X\to Y$ un morphisme de type fini de pr\'esch\'emas,
+avec $Y$ localement noeth\'erien, $x$ un point de~$X$, $y=f(x)$.
+Pour que $f$ transforme toute voisinage de~$x$ en un voisinage de~$y$,
+il faut et il suffit que pour toute g\'en\'erisation $y'$ de~$y$,
+il existe une g\'en\'erisation $x'$ de~$x$ telle que $f(x')=y'$.
+\end{corollaire}
+
+On peut \'evidemment supposer que $X$ et~$Y$ sont affines, donc
+noeth\'eriens. La condition est suffisante, car il suffit de
+prouver que $f(X)$ est un voisinage de~$y$, or $f(X)$ est
+constructible par~\ref{IV.6.1}, et il suffit d'appliquer le
+crit\`ere~\ref{IV.6.3}. La condition est n\'ecessaire, car soit
+$Y'=\overline{y'}$, et soit $F$ la r\'eunion des composantes
+irr\'eductibles de~$f^{-1}(Y')$ qui ne contiennent pas $x$. Alors
+$X-F$ est un voisinage ouvert de~$x$, donc son image est un voisinage
+de~$y$, et a fortiori contient $y'$, donc il existe $x'_1\in X-F$ tel
+que $f(x'_1)=y'$. Consid\'erons une composante irr\'eductible
+de~$f^{-1}(Y')$ contenant $x'_1$, elle contient n\'ecessairement $x$
+(car autrement elle serait contenue dans $F$), soit $x'$ son point
+g\'en\'erique. C'est une g\'en\'erisation de~$x$, et $f(x')$
+est une g\'en\'erisation de~$f(x'_1)=y'$ contenue dans~$Y'$, donc
+est \'egal \`a $y'$, cqfd.
+
+\begin{theoreme}
+\label{IV.6.6}
+Soient $f\colon X\to Y$ un morphisme localement de type fini, avec~$Y$
+localement noeth\'erien, $F$ un faisceau coh\'erent sur~$X$ de
+support~$X$, plat par rapport \`a~$Y$. Alors $f$ est un morphisme
+ouvert (\iev transforme ouverts en ouverts).
+\end{theoreme}
+
+Il suffit de prouver le crit\`ere~\ref{IV.6.5} pour tout point $x\in
+X$. Or les g\'en\'erisations $x'$ de~$x$ correspondent aux
+id\'eaux premiers de~$\cal{O}_x$, celles~$y'$ de~$y$ correspondent
+aux id\'eaux premiers de~$\cal{O}_y$, et il faut donc v\'erifier
+que tout id\'eal premier de~$\cal{O}_y$ est induit par une id\'eal
+premier de~$\cal{O}_x$. Or $F_x$ est un $\cal{O}_x$-module non nul et
+$\cal{O}_y$ plat, donc fid\`element plat sur~$\cal{O}_y$
+par~\ref{IV.2.2}. On peut donc appliquer~\ref{IV.2.3}, ce qui
+ach\`eve la d\'emonstration.
+
+\begin{remarquesstar}
+Comme la platitude se conserve par extension de la base, on voit que
+sous les conditions de~\ref{IV.6.5} $f$ est m\^eme
+\emph{universellement ouvert}. J'ignore cependant, lorsque $Y$ est
+int\`egre et $X$ de type fini sur~$Y$, si $f$ induit sur toute
+composante $X_i$ de~$X$ un morphisme ouvert, ou m\^eme seulement
+\'equidimensionnel\footnote{La r\'eponse \`a la deuxi\`eme question est
+affirmative, celle \`a la premi\`ere n\'egative m\^eme si $f$
+est \'etale; \cf EGA~IV~12.1.1.5 et EGA~Err$_{\rm IV}$~33.},
+\ie
+dont toutes les composantes des fibres ont m\^eme dimension (on sait
+seulement que $X_i$ \emph{domine} $Y$). La question est li\'ee
+\`a la suivante: soit $A\to B$ un homomorphisme local d'anneaux
+locaux noeth\'eriens, tel que $B$ soit plat sur~$A$ et~$\goth{m}B$
+soit un id\'eal de d\'efinition de~$B$, (ce qui implique
+d'ailleurs $\dim B=\dim A$). Est-il vrai que pour tout id\'eal
+premier minimal $\goth{p}_i$ de~$B$, on a $\dim B/\goth{p}_i=\dim B$?
+Signalons seulement que la r\'eponse \`a la premi\`ere question
+est n\'egative quand on remplace l'hypoth\`ese de platitude
+de~\ref{IV.6.5} par la seule hypoth\`ese que $f$ soit
+universellement ouvert.
+\end{remarquesstar}
+
+\begin{lemme}
+\label{IV.6.7}
+Soient $A$ un anneau int\`egre noeth\'erien, $B$ une
+$A$-alg\`ebre de type fini, $M$ un $B$-module de type fini. Alors
+il existe un \'el\'ement non nul $f$ de~$A$ tel que $M_f$ soit un
+module libre (a fortiori plat) sur~$A_f$.
+\end{lemme}
+
+Soit $K$ le corps des fractions de~$A$, alors $B\otimes_A K$ est une
+alg\`ebre de type fini sur~$K$, et $M\otimes_A K$ un module de type
+fini sur cette derni\`ere. Soit $n$ la dimension du support de ce
+module, nous raisonnerons par r\'ecurrence sur~$n$.
+Si $n<0$,
+\ie si $M\otimes_A K=0$, alors prenant un nombre fini de
+g\'en\'erateurs de~$M$ sur~$B$, on voit qu'il existe un $f\in A$
+qui annule ces g\'en\'erateurs, donc $M$, d'o\`u $M_f=0$ et on a
+gagn\'e. Supposons $n\ge 0$. On sait que le $B$-module~$M$ admet
+une suite de composition dont les quotients successifs sont isomorphes
+\`a des modules $B/\goth{p}_i$, les $\goth{p}_i$ \'etant des
+id\'eaux premiers de~$B$. Comme une extension de modules libres est
+libre, on est ramen\'e au cas o\`u $M$ lui-m\^eme est de la
+forme $B/\goth{p}$, ou encore identique \`a $B$, $B$ \'etant une
+$A$-alg\`ebre \emph{intègre}. Appliquant le lemme de
+normalisation de Noether \`a la $K$-alg\`ebre $B\otimes_A K$, on
+voit facilement qu'il existe un \'el\'ement $f$ non nul de~$A$ tel
+que $B_f$ soit entier sur le sous-anneau $A_f[t_1,\dots,t_n]$, o\`u
+les $t_i$ sont des ind\'etermin\'ees. Donc on peut d\'ej\`a
+supposer $B$ est entier sur~$C=A[t_1,\dots,t_n]$, c'est donc un
+$C$-module de type fini sans torsion. Soit $m$ son rang, il existe
+donc une suite exacte de~$C$-modules:
+$$
+0\to C^m\to B\to M'\to 0
+$$
+o\`u $M'$ est un $C$-module de torsion. Il s'ensuit que la
+dimension de Krull du~$C\otimes_A K$-module $M'\otimes_A K$ est
+strictement inf\'erieure \`a celle~$n$ de~$C\otimes_A K$.
+D'apr\`es l'hypoth\`ese de r\'ecurrence, il s'ensuit que, \`a
+condition de localiser par rapport \`a un $f$ non nul convenable
+de~$A$, on peut supposer que $M'$ est un $A$-module
+libre. D'autre part, $C^m$ est un $A$-module libre. Donc $B$ est
+alors un $A$-module libre, on a fini.
+
+\begin{lemme}
+\label{IV.6.8}
+Soient $A$ un anneau noeth\'erien, $B$ une alg\`ebre de type fini
+sur~$A$, $M$~un $B$-module de type fini, $\goth{p}$ un id\'eal
+premier de~$B$, $\goth{q}$ l'id\'eal premier qu'il induit sur~$A$. On suppose $M_\goth{p}$ plat sur~$A_{\goth{q}}$ (ou sur~$A$,
+c'est pareil). Alors il existe un $g\in B-\goth{p}$ tel que
+\begin{enumerate}
+\item[(a)] $(M/\goth{q}M)_g$ est plat sur~$A/\goth{q}$.
+\item[(b)] $\Tor_1^A(M,A/\goth{q})_g=0$.
+\end{enumerate}
+\end{lemme}
+En effet, appliquant~\ref{IV.6.7} \`a $(A/\goth(q), B/\goth{q}B,
+M/\goth{q}M)$ on voit d'abord qu'il existe un~$f$ dans $A-\goth{q}$
+tel que $(M/\goth{q}M)_f$ soit plat sur~$A/\goth{q}$. D'autre part,
+comme $M_\goth{p}$ est plat sur~$A$, on a
+$\Tor_1^A(M,A/\goth{q})_\goth{p}=\Tor_1^A(M_\goth{p},A/\goth{q})=0$,
+donc comme $\Tor_1^A(M,A/\goth{q})$ est un $B$-module de type fini, il
+existe un $g\in B-\goth{p}$ tel qu'on ait (b). On peut alors
+(rempla\c cant $g$ par $gf$) supposer qu'on a en m\^eme temps (a),
+ce qui prouve le corollaire.
+
+\begin{corollaire}
+\label{IV.6.9}
+Avec les notations de~\ref{IV.6.8}, pour tout id\'eal premier
+$\goth{p}'$ de~$B$ contenant~$\goth{p}$ et ne contenant pas~$g$,
+$M_{\goth{p}'}$ est plat sur~$A$ (ou, ce qui revient au m\^eme, sur~$A_{\goth{q}'}$, o\`u $\goth{q}'$ est l'id\'eal premier de~$A$
+induit par~$\goth{p}')$.
+\end{corollaire}
+Il suffit d'appliquer le crit\`ere~\ref{IV.5.6} (ii) au syst\`eme
+$(A, B_{\goth{q}'}, \goth{q}, M_{\goth{q'}})$, en utilisant la
+localisation des~$\Tor$.
+\begin{theoreme}
+\label{IV.6.10}
+Soit $f\colon X\to Y$ un morphisme de type fini, avec $Y$ localement
+noeth\'erien, et soit $F$ un faisceau coh\'erent sur~$X$. Soit $U$
+l'ensemble des points $x\in X$ tels que $F_x$ soit plat sur~$\cal{O}_{f(x)}$. Alors $U$ est un ensemble \emph{ouvert}.
+\end{theoreme}
+
+\subsubsection*{D\'emonstration} On peut supposer $X$ et $Y$ affines, d'anneaux $B$
+et $A$, donc $F$ d\'efini par un $B$-module $M$ de type fini. On
+applique le crit\`ere~\ref{IV.6.4}. La condition (a) est
+v\'erifi\'ee trivialement par \ref{IV.1.2}~(i), reste \`a
+v\'erifier la condition (b) de~\ref{IV.6.4}. C'est ce qui a
+\'et\'e fait dans le lemme~\ref{IV.6.8} et
+corollaire~\ref{IV.6.9}.
+
+Dans beaucoup de questions, la forme plus faible suivante du
+th\'eor\`eme~\ref{IV.6.10} est suffisante (qui r\'esulte
+d\'ej\`a du lemme~\ref{IV.6.7}, et ne n\'ecessite donc ni la
+technique
+des constructibles, ni le th\'eor\`eme~\ref{IV.5.6}):
+\begin{corollaire}
+\label{IV.6.11}
+Sous les conditions de~\ref{IV.6.10}, si on suppose $Y$ int\`egre,
+alors il existe un ouvert non vide~$V$ dans $Y$ tel que $F$ soit plat
+relativement \`a $Y$ en tous les points de~$f^{-1}(V)$.
+\end{corollaire}
+En effet, l'ensemble ouvert $U$ contient la fibre du point
+g\'en\'erique de~$Y$ (puisque l'anneau local de ce point est un
+corps), donc il contient un ouvert de la forme $f^{-1}(V)$, $X$
+\'etant de type fini sur~$Y$. De~\ref{IV.6.11}, on conclut aussi
+facilement le r\'esultat suivant, o\`u~$Y$ est suppos\'e
+noeth\'erien (mais pas n\'ecessairement int\`egre): il existe
+une partition de~$Y$ en des parties localement ferm\'ees $Y_i$
+telles que (munissant $Y_i$ de la structure r\'eduite induite) $F$
+induise sur chaque $X_i=X\times_Y Y_i$ un faisceau plat par rapport
+\`a~$Y_i$.
+

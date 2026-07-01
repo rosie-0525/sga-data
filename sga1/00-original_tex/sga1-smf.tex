@@ -1,0 +1,80 @@
+\documentclass{smfbook}
+\usepackage{sga1-smf}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a LaTeX 2e version of the book ``Rev{\^e}tements {\'E}tales et
+% Groupe Fondamental'', Lecture Notes in Mathematics, 224,
+% Springer-Verlag, Berlin-Heidelberg-New York, 1971, by Alexander
+% Grothendieck et. al.
+%
+% Typesetting was done by volunteers, participating in a project on
+% which one can find more details at
+%
+%                 http://www.math.leidenuniv.nl/~edix/
+%
+% and has been completed by the Societe mathematique de France.
+%
+% This file produces two versions (0 and 1, say), depending on the value
+% of the boolean variable orig below. Version 0 (orig = true) should
+% reproduce the original text, whereas version 1 (orig = false) takes
+% reported errors into account and contains updating remarks by Michel Raynaud.
+% The differences between the two versions
+% are documented in the main TeX file. Both versions can be found in the
+% archives `http://arxiv.org/'.
+% Version 1 is also published by the Societe mathematique de France (SMF)
+% in the series 'Documents Mathematiques', available at
+%                 http://smf.emath.fr/
+% 
+%
+% In order to compile this latex file, you need the files
+% sga1-smf.tex (master file, this file),
+% sga1-smf.sty (the specfic macro file),
+% smf_doc-math_3_01.tex (the main TeX file, identical to the published file,
+% input-ted below)
+% the SMF standard classes
+% smfbook.cls, smfenum.sty, smfthm.sty
+% available at
+%                 http://smf.emath.fr/Publications/Formats/
+% and the standard AMS LaTeX packages.
+% You can edit this file according to your own taste, and you
+% adapt the boolean variable `orig' below as desired. Then you execute
+% the following commands (in a unix type environment):
+%
+%   latex sga1-smf.tex (three times, say; the third time you should only get
+%                   underfull hboxes and messages from xymatrix and hyperref);
+%   makeindex sga1-smf
+%   latex sga1-smf.tex (twice, maybe, to get the page numbers of the two
+%                   indexes in the table of contents right).
+%
+% Then you have a correct sga1-smf.dvi dvi file (with hypertext facilities).
+% Note that the Introduction starts on page vii, to keep a perfect
+% correspondence with the new published edition.
+%
+% If you want to make a pdf file (with hypertext facilities) then you
+% replace the five commands `latex' above by `pdflatex'. 
+%
+%
+% Of course, you do not need to compile the latex file if you are
+% happy with dvi, postscript, or pdf, as you can download those from 
+% the arXiv archives. 
+%
+% If you find mistakes in this file, or have suggestions on how to
+% improve it, please report them to Bas Edixhoven. If you pass on your
+% own modified version of this file (and please think about the
+% consequences before doing that), then add a text at its beginning
+% and on the first page of the output, mentioning that it is a modified
+% version. Do not modify this part of the file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% In order to make the two versions with a single file. 
+%% With `\setboolean{orig}{true}' you get the original version, with
+%% `\setboolean{orig}{false}' you get the corrected version. 
+
+\setboolean{orig}{false}
+
+
+
+
+\input{smf_doc-math_3_01.tex}

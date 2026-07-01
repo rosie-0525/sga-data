@@ -1,0 +1,510 @@
+
+
+
+
+
+\begin{quote}\textbf{Résumé.} 
+Ce volume est une \'edition recompos\'ee et annot\'ee du livre \og Rev\^etements \'Etales et Groupe Fondamental\fg, Lecture Notes in Mathematics, 224, Springer-Verlag, Berlin-Heidelberg-New York, 1971, par Alexander Grothendieck et al.\\
+Le texte pr\'esente les fondements d'une th\'eorie du groupe fondamental en G\'eom\'etrie Alg\'ebrique, dans le point de vue \og kroneckerien\fg permettant de traiter sur le m\^eme pied le cas d'une vari\'et\'e alg\'ebrique au sens habituel, et celui d'un anneau des entiers d'un corps de nombres, par exemple.
+\end{quote}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\cleardoublepage
+\renewcommand{\baselinestretch}{1.05}\normalfont
+\chapter*{Pr\'eface}
+\thispagestyle{empty}
+\vfill
+Le pr\'esent texte est une \'edition recompos\'ee
+et annot\'ee
+du livre \og Rev\^etements
+\'Etales et Groupe Fondamental\fg, Lecture Notes in Mathematics, 224,
+Springer-Verlag, Berlin-Heidelberg-New York, 1971, par Alexander
+Grothendieck et al.
+
+La composition en \LaTeX 2e a \'et\'e r\'ealis\'ee par des volontaires, participant \`a un projet dirig\'e par Bas Edixhoven, dont on trouvera plus de d\'etails \`a l'adresse \url{http://www.math.leidenuniv.nl/~edix/}. La mise en page a \'et\'e termin\'ee par la \hbox{Société} math\'ematique de France.
+
+Ceci est une \emph{version légèrement corrigée} du texte
+original. Elle est \'edit\'ee par la \hbox{Société} math\'ematique de France (\url{http://smf.emath.fr/}) dans la s\'erie \og Documents \hbox{Mathématiques}\fg. Quelques mises \`a jour ont \'et\'e effectu\'ees par Michel Raynaud. Celles-ci sont d\'elimit\'ees par des crochets \lcrochetbf\,\rcrochetbf\ et indiqu\'ees par le symbole (MR) (remarques pages \pageref{X.2.14}, \pageref{XI.1.4}, \pageref{XII.5.6}, \pageref{XIII.2.13} et note \ref{III.6.6.p24} page \pageref{III.6.6.p24}). Afin d'uniformiser les notations, le corps r\'esiduel d'un point  $x$  est not\'e  $\kres(x)$,
+et celui d'un anneau local  $A$  est not\'e  $\kres(A)$.\par
+Il existe \'egalement une version \'electronique cens\'ee reproduire le texte original.
+
+Les deux versions ont un seul fichier source commun, se trouvant sur
+le serveur des archives arXiv.org e-Print \`a
+\url{http://arxiv.org/}. Les diff\'erences entre les deux versions
+sont document\'ees dans le fichier source.
+
+L'ancienne num\'erotation des pages est incorpor\'ee dans la marge
+(le nombre~$n$ indiquant le d\'ebut de la page~$n$).
+
+\vfill
+\newpage
+The present text is a new
+updated
+edition of the book ``Rev\^etements \'Etales et
+Groupe Fondamental'', Lecture Notes in Mathematics, 224,
+Springer-Verlag, Berlin-Heidelberg-New York, 1971, by Alexander
+Grothendieck et al.
+
+Typesetting in \LaTeX 2e was done by volunteers, participating in a project directed by Bas Edixhoven, on which one can find more details at
+\url{http://www.math.leidenuniv.nl/~edix/}. It has been completed by the Soci\'et\'e \hbox{mathématique} de France.
+
+This is a slightly \emph{corrected version} of the original
+text. It is published by the \hbox{Société} \hbox{mathématique} de France (\url{http://smf.emath.fr/}) as a volume of the series ``\hbox{Documents} Math\'ematiques''. Some updating remarks have been added by Michel Raynaud. These are bounded by brackets \lcrochetbf\,\rcrochetbf\ and indicated by the symbol (MR) (Remarks on pages \pageref{X.2.14}, \pageref{XI.1.4}, \pageref{XII.5.6}, \pageref{XIII.2.13} and footnote \ref{III.6.6.p24} on page \pageref{III.6.6.p24}). In order to unify notation, the residue field of a point $x$ is denoted by $\kres(x)$ and the residue field of a local ring $A$ is denoted by $\kres(A)$.\par
+There also exists an electronic version that is meant to reproduce the original text.
+
+Both versions are produced from the same source file, that can be
+downloaded from the arXiv.org e-Print server at
+\url{http://arxiv.org/}. All differences between the two versions are
+documented in the source file.
+
+The old page numbering is incorporated in the margin (the number~$n$
+marking the beginning of page~$n$).
+
+\vfill
+
+\cleardoublepage
+\renewcommand{\baselinestretch}{1.1}\normalfont
+\chapter*{Introduction}
+\thispagestyle{empty}
+\label{I.0}
+
+
+Dans la premi\`ere partie de cette introduction, nous donnons des
+pr\'ecisions sur le contenu du pr\'esent volume; dans la
+deuxi\`eme, sur l'ensemble du \og \emph{Séminaire de
+Géométrie Algébrique du Bois-Marie}\fg, dont le pr\'esent
+volume constitue le tome premier.
+
+\let\oldthesubsection\thesubsection
+\def\thesubsection{\arabic{subsection}}
+\subsection{}
+\label{I.introduction.1}
+Le pr\'esent volume pr\'esente les fondements d'une
+th\'eorie du groupe fondamental en G\'eom\'etrie Alg\'ebrique,
+dans le point de vue \og kroneckerien\fg permettant de traiter sur le
+m\^eme pied le cas d'une vari\'et\'e alg\'ebrique au sens
+habituel, et celui d'un anneau des entiers d'un corps de nombres, par
+exemple. Ce point de vue ne s'exprime d'une fa\c con satisfaisante
+que dans le langage des sch\'emas, et nous utiliserons librement ce
+langage, ainsi que les r\'esultats principaux expos\'es dans les
+trois premiers chapitres des \emph{Éléments de Géométrie
+Algébrique} de J.\, \textsc{Dieudonné} et A.\, \textsc{Grothendieck}, (cit\'e EGA dans
+la suite). L'\'etude du pr\'esent volume du \og \emph{Séminaire
+de Géométrie Algébrique du Bois-Marie}\fg ne demande pas
+d'autres connaissances de la G\'eom\'etrie Alg\'ebrique, et peut
+donc servir d'introduction aux techniques actuelles de
+G\'eom\'etrie Alg\'ebrique, \`a un lecteur d\'esireux de se
+familiariser avec ces techniques.
+
+Les expos\'es \ref{I} \`a \ref{XI} de ce livre sont une reproduction
+textuelle, pratiquement inchang\'ee, des notes
+mim\'eographi\'ees du S\'eminaire oral, qui \'etaient
+distribu\'ees par les soins de l'\emph{Institut des Hautes Études
+Scientifiques\footnote{Ainsi que les notes des séminaires faisant
+suite à celui-ci. Ce mode de distribution s'étant
+avéré impraticable et insuffisant à la longue, tous les
+\og \emph{Séminaire de Géométrie Algébrique du
+Bois-Marie}\fg paraîtront désormais sous forme de livre comme
+le présent volume.}}. Nous nous sommes born\'es \`a rajouter
+quelques notes de bas de page au texte primitif, de corriger quelques
+erreurs de frappe, et de faire un ajustage terminologique, le mot
+\og morphisme simple\fg ayant notamment \'et\'e remplac\'e
+entre-temps par celui de \og morphisme lisse\fg, qui ne pr\^ete pas aux
+m\^emes confusions.
+
+Les expos\'es \ref{I} \`a \ref{IV} pr\'esentent les notions locales de
+morphisme \emph{étale} et de morphisme \emph{lisse}; ils
+n'utilisent gu\`ere le langage des sch\'emas, expos\'e dans le
+Chapitre~I des \emph{Éléments}\footnote{Une \'etude plus
+compl\`ete est maintenant disponible dans les \emph{Éléments},
+Chap~IV, \oldS\S 17 et 18.}. L'expos\'e~\ref{V} pr\'esente la description
+axiomatique du groupe fondamental d'un sch\'ema, utile m\^eme dans
+le cas classique o\`u ce sch\'ema se r\'eduit au spectre d'un
+corps, o\`u on trouve une reformulation fort commode de la
+th\'eorie de Galois habituelle. Les expos\'es \ref{VI} et \ref{VIII}
+pr\'esentent la \emph{théorie de la descente}, qui a pris une
+importance croissance en G\'eom\'etrie Alg\'ebrique dans ces
+derni\`eres ann\'ees, et qui pourrait rendre des services
+analogues en G\'eom\'etrie Analytique et en Topologie. Il convient
+de signaler que l'expos\'e VII n'avait pas \'et\'e
+r\'edig\'e, et sa substance se trouve
+incorpor\'ee
+dans un
+travail de J.\, Giraud (M\'ethode de la Descente, Bull.\ Soc.\ Math.\
+France, M\'emoire~2, 1964, viii + 150~p.). Dans l'expos\'e \ref{IX}, on
+\'etudie plus sp\'ecifiquement la descente des morphismes
+\'etales, obtenant une approche syst\'ematique pour des
+th\'eor\`emes du type de \textsc{Van Kampen} pour le groupe fondamental,
+qui apparaissent ici comme de simples traductions de th\'eor\`emes
+de descente. Il s'agit essentiellement d'un proc\'ed\'e de calcul
+du groupe fondamental d'un sch\'ema connexe~$X$, muni d'un morphisme
+surjectif et propre, disons $X'\to X$, en termes des groupes
+fondamentaux des composantes connexes de~$X'$ et des produits
+fibr\'es~$X'\times_X X'$, $X'\times_X X'\times_X X'$, et des
+homomorphismes induits entre ces groupes par les morphismes
+simpliciaux canoniques entre les sch\'emas
+pr\'ec\'edents. L'expos\'e~\ref{X} donne la th\'eorie de la
+\emph{spécialisation du groupe fondamental}, pour un morphisme
+propre et lisse, dont le r\'esultat le plus frappant consiste en la
+d\'etermination (\`a peu de chose pr\`es) du groupe fondamental
+d'une courbe alg\'ebrique lisse en caract\'eristique $p>0$,
+gr\^ace au r\'esultat connu par voie transcendante en
+caract\'eristique nulle. L'expos\'e~\ref{XI} donne quelques exemples et
+compl\'ements, en explicitant notamment sous forme cohomologique la
+th\'eorie des rev\^etements de \emph{\textsc{Kummer}}, et celle
+d'\emph{\textsc{Artin}-\textsc{Schreier}}. Pour d'autres commentaires sur le texte,
+voir l'\emph{Avertissement} \`a la version multigraphi\'ee, qui
+fait suite \`a la pr\'esente Introduction.
+
+Depuis la r\'edaction en 1961 du pr\'esent S\'eminaire a
+\'et\'e d\'evelopp\'e, en collaboration par M.\, \textsc{Artin} et
+moi-m\^eme, le langage de la \emph{topologie étale} et une
+th\'eorie cohomologique correspondante, expos\'ee dans la partie
+SGA~4 \og Cohomologie \'etale des sch\'emas\fg du \emph{Séminaire
+de Géométrie Algébrique}, \`a para\^itre dans la
+m\^eme s\'erie que le pr\'esent volume. Ce langage, et les
+r\'esultats dont il dispose d\`es \`a pr\'esent, fournissent
+un outil particuli\`erement souple pour l'\'etude du groupe
+fondamental, permettant de mieux comprendre et de d\'epasser
+certains des r\'esultats expos\'es ici. Il y aurait donc lieu de
+reprendre enti\`erement la th\'eorie du groupe fondamental de ce
+point de vue (tous les r\'esultats-clefs figurant en fait d\`es
+\`a pr\'esent dans \loccit). C'est ce qui \'etait projet\'e
+pour le chapitre des \emph{Éléments} consacr\'e au groupe
+fondamental, qui devait contenir \'egalement plusieurs autres
+d\'eveloppements qui n'ont pu trouver leur place ici (s'appuyant sur
+la technique de r\'esolution des singularit\'es): calcul du
+\og groupe fondamental local\fg d'un anneau local complet en termes d'une
+r\'esolution des singularit\'es convenable de cet anneau, formules
+de K\"unneth locales et globales pour le groupe fondamental sans
+hypoth\`ese de propret\'e (\cf Exp.\, \ref{XIII}), les r\'esultats de
+M.\, \textsc{Artin} sur la comparaison des groupes fondamentaux locaux d'un
+anneau local hens\'elien excellent et de son compl\'et\'e
+(SGA~4~XIX). Signalons \'egalement la n\'ecessit\'e de
+d\'evelopper une th\'eorie du groupe fondamental d'un topos, qui
+englobera \`a la fois la th\'eorie topologique ordinaire, sa
+version semi-simpliciale, la variante \og profinie\fg
+ d\'evelopp\'ee
+dans l'expos\'e~\ref{V} du pr\'esent volume, et la variante
+pro-discr\`ete un peu plus g\'en\'erale de SGA~3~X~7
+(adapt\'ee au cas de sch\'emas non normaux et non unibranches). En
+attendant une refonte d'ensemble de la th\'eorie dans cette optique,
+l'expos\'e \ref{XIII} de Mme \textsc{Raynaud}, utilisant le langage et les
+r\'esultats de SGA~4, est destin\'e \`a montrer le parti qu'on
+peut tirer dans quelques questions typiques, en g\'en\'eralisant
+notamment certains r\'esultats de l'expos\'e~\ref{X} \`a des
+sch\'emas relatifs non propres. On y donne en particulier la
+structure du groupe fondamental \og premier \`a $p$\fg d'une courbe
+alg\'ebrique non compl\`ete en
+caract\'eristique
+quelconque (que j'avais
+annonc\'ee
+en 1959, mais dont une d\'emonstration n'avait pas
+\'et\'e publi\'ee \`a ce jour).
+
+Malgr\'e ces nombreuses lacunes et imperfections (d'autres diront:
+\`a cause de ces lacunes et imperfections), je pense que le
+pr\'esent volume pourra \^etre utile au lecteur qui d\'esire se
+familiariser avec la th\'eorie du groupe fondamental, ainsi que
+comme ouvrage de r\'ef\'erence, en attendant la r\'edaction et
+la parution d'un texte \'echappant aux critiques que je viens
+d'\'enum\'erer.
+
+\subsection{}
+\label{I.introduction.2}
+Le pr\'esent volume constitue le tome 1 du
+\og \emph{Séminaire de Géométrie Algébrique du
+Bois-Marie}\fg, dont les volumes suivants sont pr\'evus pour
+para\^itre dans la m\^eme s\'erie que celui-ci. Le but que se
+propose le \emph{Séminaire}, parall\`element au trait\'e
+\og \emph{Éléments de Géométrie Algébrique}\fg de J.\, \textsc{Dieudonné} et
+A.\, \textsc{Grothendieck}, est de jeter les fondements de la G\'eom\'etrie
+Alg\'ebrique, suivant les points de vue dans ce dernier ouvrage. La
+r\'ef\'erence standard pour tous les volumes du
+\emph{Séminaire} est constitu\'ee par les Chapitres~I, II, III
+des \og \emph{Éléments de Géométrie Algébrique}\fg
+(cit\'es EGA~I, II, III), et on suppose le lecteur en possession du
+bagage d'alg\`ebre commutative et l'alg\`ebre homologique que ces
+chapitres impliquent\footnote{Voir l'Introduction \`a EGA~I pour des
+pr\'ecisions \`a ce sujet.}. De plus, dans chaque volume du
+\emph{Séminaire} il sera r\'ef\'er\'e librement, dans le
+mesure des besoins, \`a des volumes ant\'erieurs du m\^eme
+\emph{Séminaire}, ou \`a d'autres chapitres publi\'es ou sur
+le point de para\^itre des \og \'El\'ements\fg.
+
+Chaque \emph{partie} du \emph{Séminaire} est centr\'ee sur un
+sujet principal, indiqu\'e dans le titre du ou des volumes
+correspondants; le s\'eminaire oral porte g\'en\'eralement sur
+une ann\'ee acad\'emique, parfois plus. Les expos\'es \`a
+l'int\'erieur de chaque partie du \emph{Séminaire} sont
+g\'en\'eralement dans une d\'ependance logique \'etroite les
+uns par rapport aux autres; par contre, les diff\'erentes parties du
+\emph{Séminaire} sont dans une large mesure logiquement
+ind\'ependants les uns par rapport aux autres. Ainsi, la partie
+\og Sch\'emas en Groupes\fg est \`a peu pr\`es enti\`erement
+ind\'ependante des deux parties du \emph{Séminaire} qui la
+pr\'ec\`edent chronologiquement; par contre, elle fait un
+fr\'equent appel aux r\'esultats de EGA~IV. Voici la liste des
+parties du \emph{Séminaire} qui doivent para\^itre
+prochainement (cit\'es SGA~1 \`a SGA~7 dans la suite):
+\begin{enumerateb}
+\item[SGA 1.] Rev\^etements \'etales et groupe fondamental, 1960
+et 1961.
+\item[SGA 2.] Cohomologie locale des faisceaux coh\'erents et
+th\'eor\`emes de Lefschetz locaux et globaux, 1961/62.
+\item[SGA 3.] Sch\'emas en groupes, 1963 et 1964 (3~volumes),
+en~coll. avec M.\, \textsc{Demazure}.
+\item[SGA 4.] Th\'eorie des topos et cohomologie \'etale des
+sch\'emas, 1963/64 (3~volumes), (en~coll. avec M.\, \textsc{Artin} et
+J.L.\, \textsc{Verdier}).
+\item[SGA 5.] Cohomologie $l$-adique et fonctions~$L$, 1964 et 1965
+(2~volumes).
+\item[SGA 6.] Th\'eorie des intersections et th\'eor\`eme de
+Riemann-Roch, 1966/67 (2~volumes) (en~coll. avec P.\, \textsc{Berthelot} et
+L.\, \textsc{Illusie}).
+\item[SGA 7.] Groupes de monodromie locale en g\'eom\'etrie
+alg\'ebrique.
+\end{enumerateb}
+
+Trois parmi ces \emph{Séminaires} partiels ont \'et\'e
+dirig\'es en \emph{collaboration} avec d'autres
+math\'e\-maticiens, qui figureront comme co-auteurs sur la
+couverture des volumes correspondants. Quant aux autres participants
+actifs du \emph{Séminaire}, dont le r\^ole (tant au point de vue
+r\'edactionnel que de celui du travail de mise au point
+math\'ematique) est all\'e croissant d'ann\'ee en ann\'ee, le
+nom de chaque participant figure en t\^ete des expos\'es dont il
+est responsable comme conf\'erencier ou comme r\'edacteur, et la
+liste de ceux qui figurent dans un volume d\'etermin\'e se trouve
+indiqu\'ee
+sur la page de garde dudit volume.
+
+Il convient de donner quelques pr\'ecisions sur les rapports entre
+le \emph{Séminaire} et les \emph{Éléments}. Ces derniers
+\'etaient destin\'es en principe \`a donner un expos\'e
+d'ensemble des notions et techniques jug\'ees les plus fondamentales
+dans la G\'eom\'etrie Alg\'ebrique, \`a mesure que ces notions
+et techniques elles-m\^emes se d\'egagent, par le jeu naturel
+d'exigences de coh\'erence logique et esth\'etique. Dans cette
+optique, il \'etait naturel de consid\'erer le
+\emph{Séminaire} comme une version pr\'eliminaire des
+\emph{Éléments}, destin\'ee \`a \^etre englob\'ee \`a
+peu pr\`es totalement, t\^ot ou tard, dans ces derniers. Ce
+processus avait d\'ej\`a commenc\'e dans une certaine mesure il
+y a quelques ann\'ees, puisque les expos\'es I \`a IV du
+pr\'esent volume SGA~1 sont enti\`erement englob\'es par EGA~IV,
+et que les expos\'es VI \`a VIII devaient l'\^etre d'ici
+quelques ann\'ees dans EGA~VI. Cependant, \`a mesure que se
+d\'eveloppe le travail d'\'edification entrepris dans les
+\emph{Éléments} et dans le \emph{Séminaire}, et que les
+proportions d'ensemble se pr\'ecisent, le principe initial
+(d'apr\`es lequel le \emph{Séminaire} ne constituerait qu'une
+version pr\'eliminaire et provisoire) appara\^it de moins en
+moins r\'ealiste en raison (entre autres) des limites impos\'ees
+par la pr\'evoyante nature \`a la dur\'ee de la vie
+humaine. Compte tenu du soin g\'en\'eralement apport\'e dans la
+r\'edaction des diff\'erentes parties du \emph{Séminaire}, il
+n'y aura lieu sans doute de reprendre une telle partie dans les
+\emph{Éléments} (ou des trait\'es qui en prendraient la
+rel\`eve) que lorsque des progr\`es ult\'erieurs \`a la
+r\'edaction permettront d'y apporter des am\'eliorations tr\`es
+substantielles, aux prix de modifications assez profondes. C'est le
+cas d\`es \`a pr\'esent pour le pr\'esent s\'eminaire SGA~1,
+comme on l'a dit plus haut, et \'egalement pour SGA~2 (gr\^ace aux
+r\'esultats r\'ecents de Mme~\textsc{Raynaud}). Par contre, rien n'indique
+actuellement qu'il en sera ainsi dans un proche avenir pour aucune des
+parties cit\'ees plus haut SGA~3 \`a SGA~7.
+
+Les r\'ef\'erences \`a l'int\'erieur du \og S\'eminaire de
+G\'eom\'etrie Alg\'ebrique du
+Bois Marie\fg sont donn\'ees
+ainsi. Une \emph{référence intérieure} \`a une des
+parties SGA~1 \`a SGA~7 du S\'eminaire est donn\'ee dans le
+style III~9.7, o\`u le chiffre III d\'esigne le num\'ero de
+l'expos\'e, qui figure en haut de chaque page de l'expos\'e en
+question, et~9.7 le num\'ero de l'\'enonc\'e (ou de la
+d\'efinition, remarque, etc.) \`a l'int\'erieur de
+l'expos\'e. Le cas \'ech\'eant, des nombres d\'ecimaux plus
+longs peuvent \^etre utilis\'es, par exemple 9.7.1, 9.7.2 pour
+d\'esigner par exemple les diverses \'etapes dans la
+d\'emonstration d'une proposition~9.7. La r\'ef\'erence III~9
+d\'esigne la paragraphe 9 de l'expos\'e~III. Le num\'ero de
+l'expos\'e est omis pour les r\'ef\'erences internes \`a un
+expos\'e. Pour une \emph{référence à une autre} des
+\emph{parties} du \emph{Séminaire}, on utilise les m\^emes
+sigles, mais pr\'ec\'ed\'es de la mention de la partie en
+question des SGA, SGA~1~III~9.7. De m\^eme, la r\'ef\'erence
+EGA~IV~11.5.7 signifie: \'El\'ements de G\'eom\'etrie
+Alg\'ebrique, Chap.\, IV, \'enonc\'e (ou d\'efinition
+etc.)~11.5.7; ici, le premier chiffre arabe d\'esigne encore le
+num\'ero du paragraphe. \`A part ces conventions en vigueur dans
+l'ensemble des SGA, la bibliographie relative \`a un expos\'e sera
+g\'en\'eralement rassembl\'ee \`a la fin de celui-ci, et il y
+sera r\'ef\'er\'e \`a l'int\'erieur de l'expos\'e par des
+num\'eros entre crochets comme
+[\textbf{3}], suivant l'usage.
+
+Enfin, pour la commodit\'e du lecteur, chaque fois que cela semblera
+n\'ecessaire, nous joindrons \`a la fin des volumes des SGA un
+index des notations, et un index terminologique contenant s'il y a
+lieu une traduction anglaise des termes fran\c cais utilis\'es.
+
+Je tiens \`a joindre \`a cette introduction un commentaire
+extra-math\'ematique. Au mois de novembre 1969 j'ai eu connaissance
+du fait que l'Institut des Hautes \'Etudes Scientifiques, dont j'ai
+\'et\'e professeur essentiellement depuis sa fondation, recevait
+depuis trois ans des subventions du Minist\`ere des
+Arm\'ees. D\'ej\`a comme chercheur d\'ebutant j'ai trouv\'e
+extr\^emement regrettable le peu de scrupules que se font la plupart
+des scientifiques pour accepter de collaborer sous une forme ou une
+autre avec les appareils militaires. Mes motivations \`a ce moment
+\'etaient essentiellement de nature morale, donc peu susceptibles
+d'\^etres prises au s\'erieux. Aujourd'hui elles acqui\`erent
+une force et une dimension nouvelle, vu le danger de destruction de
+l'esp\`ece humaine dont nous menace la prolif\'eration des
+appareils militaires et des moyens de destruction massives dont ces
+appareils disposent. Je me suis expliqu\'e ailleurs de fa\c con
+plus d\'etaill\'ee sur ces questions, beaucoup plus importantes
+que l'avancement de n'importe quelle science (y compris la
+math\'ematique); on pourra par exemple consulter \`a ce sujet
+l'article de G.\, Edwards dans le \no 1 du journal Survivre (Ao\^ut
+1970), r\'esumant un expos\'e plus d\'etaill\'e de ces
+questions que j'avais fait ailleurs. Ainsi, je me suis trouv\'e
+travailler pendant trois ans dans une institution alors qu'elle participait \`a
+mon insu \`a un mode de financement que je consid\`ere comme
+immoral et dangereux\footnote{Il va de soi que l'opinion que je viens
+d'exprimer n'engage que ma propre responsabilit\'e, et non pas celle
+de la maison d'\'edition Springer qui \'edite le pr\'esent
+volume.}. \'Etant \`a pr\'esent seul \`a avoir cette opinion parmi
+mes coll\`egues \`a l'IHES, ce qui a condamn\'e \`a
+l'\'echec mes efforts pour obtenir la suppression des subventions
+militaires du budget de l'IHES, j'ai pris la d\'ecision qui
+s'imposait et quitte l'IHES le 30 septembre 1970 et suspends
+\'egalement toute collaboration scientifique avec cette institution,
+aussi longtemps qu'elle continuera \`a accepter de telles
+subventions. J'ai demand\'e \`a M.\, Motchane, directeur de l'IHES,
+que l'IHES s'abstienne \`a partir du 1er octobre 1970 de diffuser des textes
+math\'ematiques dont je suis auteur, ou faisant partie du
+S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois Marie. Comme
+il a \'et\'e dit plus haut, la diffusion de ce s\'eminaire va
+\^etre assur\'ee par la maison Julius Springer, dans le s\'erie
+des Lecture Notes. Je suis heureux de remercier ici la maison Springer
+et Monsieur K.\, Peters pour l'aide efficace et courtoise qu'ils m'ont
+apport\'ee pour rendre possible cette publication, en se chargeant
+en particulier de la frappe pour la photooffset des nouveaux
+expos\'es rajout\'es aux anciens s\'eminaires, et des
+expos\'es manquants des s\'eminaires incomplets.
+
+Je remercie \'egalement M.\, J.P.\, Delale, qui s'est charg\'e du
+travail ingrat de compiler l'index des notations et l'index
+terminologique.
+
+\bigskip\hfill Massy, ao\^ut 1970.
+
+\cleardoublepage
+\chapter*{Avertissement}
+\thispagestyle{empty}
+\label{I.avertissement}
+
+
+Chacun des expos\'es r\'edig\'es donne la substance de plusieurs
+expos\'es oraux cons\'ecutifs. Il n'a pas sembl\'e utile d'en
+pr\'eciser les dates.
+
+L'expos\'e~VII, auquel il est r\'ef\'er\'e \`a diverses
+reprises au cours de l'expos\'e~\ref{VIII}, n'a pas \'et\'e
+r\'edig\'e par le conf\'erencier, qui dans les conf\'erences
+orales s'\'etait born\'e \`a esquisser le langage de la descente
+dans les cat\'egories g\'en\'erales, en se pla\c cant \`a un
+point de vue strictement utilitaire et sans entrer dans les
+difficult\'es logiques soulev\'ees par ce langage. Il est apparu
+qu'un expos\'e correct de ce langage sortirait des limites des
+pr\'esentes notes, ne serait-ce que par sa longueur. Pour un
+expos\'e en forme de la th\'eorie de la descente, je renvoie \`a
+un article en pr\'eparation de Jean \textsc{Giraud}. En attendant sa
+parution\footnote{\label{footnotegiraud}Actuellement paru: J.\, \textsc{Giraud},
+\emph{Méthodes de la descente}, M\'emoire \no 2 de la
+Soci\'et\'e math\'ematiques de France, 1964.}, je pense qu'un
+lecteur attentif n'aura pas de peine \`a suppl\'eer par ses
+propres moyens aux r\'ef\'erences fant\^omes de
+l'Expos\'e~VIII.
+
+D'autres expos\'es oraux, se pla\c cant apr\`es l'Expos\'e~\ref{XI},
+et auxquels il est fait allusion \`a certains endroits du texte,
+n'ont pas non plus \'et\'e r\'edig\'es, et \'etaient
+destin\'es \`a former la substance d'un Expos\'e~\ref{XII} et d'un
+Expos\'e~\ref{XIII}. Les premiers de ces expos\'es oraux reprenaient,
+dans le cadre des sch\'emas et des espaces analytiques avec
+\'el\'ements nilpotents (tels qu'ils sont introduits dans le
+S\'eminaire Cartan 1960/61) la construction de l'espace analytique associ\'e
+\`a un pr\'esch\'ema localement de type fini sur un corps
+valu\'e complet~$k$, les th\'eor\`emes du type GAGA dans le cas
+o\`u $k$ est le corps des complexes, et l'application \`a la
+comparaison du groupe fondamental d\'efini par voie transcendante et
+le groupe fondamental \'etudi\'e dans ces notes (comparer
+A.\, Grothendieck, Fondements de la G\'eom\'etrie Alg\'ebrique,
+S\'eminaire Bourbaki \no 190, page~10, d\'ecembre 1959). Les
+derniers expos\'es oraux esquissaient la g\'en\'eralisation des
+m\'ethodes d\'evelopp\'ees dans le texte pour l'\'etude des
+rev\^etements admettant de la ramification mod\'er\'ee, et de la
+structure du groupe fondamental d'une courbe compl\`ete priv\'ee
+d'un nombre fini de points (comparer \loccit, \no 182, page 27,
+th\'eor\`eme~14). Ces expos\'es n'introduisent aucune id\'ee
+essentiellement nouvelle, c'est pourquoi il n'a pas sembl\'e
+indispensable d'en donner une r\'edaction en forme avant la parution
+des chapitres correspondants des \'El\'ements de G\'eom\'etrie
+Alg\'ebrique\footnote{Ils sont inclus dans le pr\'esent volume
+dans l'Exp.\, \ref{XII} de Mme~Raynaud avec une d\'emonstration
+diff\'erente de la d\'emonstration originale expos\'ee dans le
+S\'eminaire oral (\cf introduction).}.
+
+Par contre, les th\'eor\`emes du type Lefschetz pour le groupe
+fondamental et le groupe de Picard, tant au point de vue local que
+global, ont fait l'objet d'un S\'eminaire s\'epar\'e en 1962,
+qui a \'et\'e compl\`etement r\'edig\'e et est \`a la
+disposition des usagers\footnote{\emph{Cohomologie étale des
+faisceaux cohérents et théorèmes de Lefschetz locaux et
+globaux} (SGA~2), paru dans North Holland Pub.\ Cie.}. Signalons que
+les r\'esultats d\'evelopp\'es tant dans le pr\'esent
+S\'eminaire que dans celui de 1962 seront utilis\'es de fa\c con
+essentielle dans la parution de plusieurs r\'esultats clefs dans la
+cohomologie \'etale des pr\'esch\'emas, qui feront l'objet d'un
+S\'eminaire (conduit par M.\, Artin et moi-m\^eme) en 1963/64,
+actuellement en pr\'eparation\footnote{\emph{Cohomologie étale
+des schémas} (cit\'e SGA~4), \`a para\^itre dans cette
+m\^eme s\'erie.}.
+
+Les expos\'es \ref{I} \`a~\ref{IV}, de nature essentiellement locale et
+tr\`es \'el\'ementaire, seront absorb\'es enti\`erement par
+le chapitre IV des \emph{Éléments de Géométrie
+Algébrique}, dont la premi\`ere partie est \`a l'impression et
+qui sera sans doute publi\'e vers fin~64. Ils pourront n\'eanmoins
+\^etre utiles \`a un lecteur qui d\'esirerait se mettre au
+courant des propri\'et\'es essentielles des morphismes lisses,
+\'etales ou plats, avant d'entrer dans les arcanes d'un trait\'e
+syst\'ematique. Quant aux autres expos\'es, ils seront
+absorb\'es dans le chapitre VIII\footnote{En fait, par suite de
+modification du plan initialement pr\'evu pour les
+\emph{Éléments}, l'\'etude du groupe fondamental y est
+report\'ee \`a un chapitre ult\'erieur \`a celui qu'on vient
+d'indiquer. Comparer l'introduction qui pr\'ec\`ede le pr\'esent
+\og Avertissement\fg.} des \og \'El\'ements\fg, dont la publication ne
+pourra gu\`ere \^etre envisag\'ee avant plusieurs ann\'ees.
+
+\bigskip\hfill Bures, juin 1963.
+
+
+
+
+

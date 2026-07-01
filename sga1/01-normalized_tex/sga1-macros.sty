@@ -1,0 +1,258 @@
+%% sga1-macros.sty
+%% Slim macro package distilled from the original sga1-smf.sty for the
+%% normalized SGA1 tree. Contains only content-bearing definitions (math
+%% operators, sheaf/blackboard/fraktur notation, French typography, theorem
+%% environments). Editorial apparatus, hyperref/SMF-class patches, the title
+%% page, and the active-paren / `l`->ell catcode tricks have been removed.
+%% The dual-edition `orig` conditionals were already resolved by the pipeline;
+%% the few orig-conditional macros (\fets, \nieme, \Gl, ...) are defined here in
+%% their *corrected* form (\setboolean{orig}{false}).
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sga1-macros}[2026/06/28 SGA1 normalized macros]
+
+%% --- Counters / sectioning (exposes use Roman numerals named "Expose") ------
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\setcounter{secnumdepth}{4}
+\renewcommand{\theequation}{\arabic{equation}}
+\numberwithin{equation}{section}
+\AtBeginDocument{\renewcommand{\chaptername}{Expos\'e}}
+
+%% --- Theorem environments ---------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theoreme}[subsection]{Th\'eor\`eme}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{lemme}[subsection]{Lemme}
+\newtheorem{corollaire}[subsection]{Corollaire}
+\newtheorem{corollaires}[subsection]{Corollaires}
+\newtheorem{theoremedefinition}[subsection]{Th\'eor\`eme et d\'efinition}
+\newtheorem{theoremedepurete}[subsection]{Th\'eor\`eme de puret\'e}
+\newtheorem{subproposition}[subsubsection]{Proposition}
+\newtheorem{sublemme}[subsubsection]{Lemme}
+\newtheorem*{theoreme*}{Th\'eor\`eme}
+\newtheorem*{corollairestar}{Corollaire}
+\newtheorem*{propositionstar}{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{definition}[subsection]{D\'efinition}
+\newtheorem{definitions}[subsection]{D\'efinitions}
+\newtheorem{remarque}[subsection]{Remarque}
+\newtheorem{remarques}[subsection]{Remarques}
+\newtheorem{exemple}[subsection]{Exemple}
+\newtheorem{exemples}[subsection]{Exemples}
+\newtheorem{subdefinition}[subsubsection]{D\'efinition}
+\newtheorem{subremarque}[subsubsection]{Remarque}
+\newtheorem*{definitionstar}{D\'efinition}
+\newtheorem*{remarquestar}{Remarque}
+\newtheorem*{remarquesstar}{Remarques}
+\newtheorem*{scholiestar}{Scholie}
+
+\def\qedsymbol{\textup{C.Q.F.D.}}
+\let\CQFD\qed
+\let\cqfd\qed
+
+%% Unnumbered enonce*-style environment (smfthm) + the Raynaud "remarqueMR".
+\newenvironment{enonce*}[2][plain]
+  {\par\medskip\noindent\textbf{#2}\itshape\par\nobreak\smallskip\nobreak}
+  {\par\medskip}
+\def\lcrochetbf{\textbf{[}}
+\def\rcrochetbf{\textbf{]}}
+\newenvironment{remarqueMR}
+  {\begin{enonce*}[remark]{\lcrochetbf Remarque}}
+  {\unskip\rcrochetbf\end{enonce*}}
+\newenvironment{enumerateb}{\begin{enumerate}}{\end{enumerate}}
+
+%% --- Font aliases -----------------------------------------------------------
+\renewcommand{\mathcal}{\mathscr}
+\let\Bbb\mathbb
+\let\goth\mathfrak
+%% Old-style 2.09 font switches used as 1-arg math commands in the source
+%% (\Fib_\rm{I}, $\cal{E}$, …). SGA1 \let's them to the \math.. family.
+\let\rm\mathrm
+\let\it\mathit
+\let\bf\mathbf
+\let\sf\mathsf
+\let\tt\mathtt
+\let\cal\mathcal
+%% Euler script (Serre's font for analytic spaces). The U/eus family ships with
+%% standard TeX distributions.
+\DeclareMathAlphabet{\othercal}{U}{eus}{m}{n}
+
+%% --- Math operators (\DeclareMathOperator -> \operatorname) -----------------
+\newcommand{\an}{\mathrm{an}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\SheafAut}{\mathbf{Aut}}
+\DeclareMathOperator{\car}{car}
+\DeclareMathOperator{\card}{card}
+\newcommand{\cart}{\mathrm{cart}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\coprof}{coprof}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\divisor}{\mathrm{div}}
+\newcommand{\Ens}{\mathbf{Ens}}
+\newcommand{\et}{\mathrm{\acute{e}t}}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Fer}{Fer}
+\newcommand{\Fib}{\mathrm{Fib}}
+\DeclareMathOperator{\Fl}{\mathrm{Fl}}
+\DeclareMathOperator{\CatFl}{\mathbf{Fl}}
+\DeclareMathOperator{\Gl}{\mathbf{GL}}
+\DeclareMathOperator{\GL}{\mathbf{GL}}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Gal}{Gal}
+\renewcommand{\H}{\mathrm{H}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\SheafHom}{\mathbf{Hom}}
+\DeclareMathOperator{\hop}{hop}
+\newcommand{\id}{\mathrm{id}}
+\DeclareMathOperator{\Imm}{Im}\let\Im\Imm
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\SheafIsom}{\mathbf{Isom}}
+\newcommand{\kres}{\mathit{k}}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator*{\Lim}{Lim}
+\DeclareMathOperator{\Norm}{N}
+\DeclareMathOperator{\Ob}{\mathrm{Ob}}
+\DeclareMathOperator{\Ouv}{Ouv}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Pro}{Pro}
+\DeclareMathOperator{\Prodash}{Pro-}
+\DeclareMathOperator{\prof}{prof}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Quot}{Quot}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\red}{\mathrm{r\acute{e}d}}
+\newcommand{\Sch}{\mathbf{Sch}}
+\DeclareMathOperator{\Symp}{\mathbf{Sp}}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Symm}{Symm}
+\newcommand{\tame}{\mathrm{t}}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\Ind}{Ind}
+\newcommand{\Univ}{\mathbf{Univ}}
+
+%% --- Blackboard-bold letters ------------------------------------------------
+\def\AA{\mathbf{A}}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\PP}{\mathbf{P}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\VV}{\mathbf{V}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\WW}{\mathbf{W}}
+
+%% --- Composite / misc math symbols ------------------------------------------
+\newcommand{\isomto}{\overset{\sim}{\longrightarrow}}
+\newcommand{\isomfrom}{\overset{\sim}{\longleftarrow}}
+\newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
+\let\rd=d
+\def\sp{\mathrm{sp}}
+\def\tH{{}^t\!H}
+\def\bbullet{{\scriptscriptstyle\bullet}}
+\def\res{\mathrm{r\acute{e}s}}
+\def\alg{\mathrm{alg}}
+\def\pr{\mathrm{pr}}
+\def\bbalpha{\boldsymbol{\alpha}}
+\def\bbmu{\boldsymbol{\mu}}
+\def\quoi{}
+\def\tbigcap{\mathop{\textstyle\bigcap}\limits}
+\def\tbigwedge{\mathop{\textstyle\bigwedge}\limits}
+\let\varinjLim\varinjlim
+\let\varprojLim\varprojlim
+
+%% --- Arrows -----------------------------------------------------------------
+\def\to{\mathchoice{\longrightarrow}{\rightarrow}{\rightarrow}{\rightarrow}}
+\def\from{\mathchoice{\longleftarrow}{\leftarrow}{\leftarrow}{\leftarrow}}
+\def\mto{\mathchoice{\longmapsto}{\mapsto}{\mapsto}{\mapsto}}
+\def\To{\mathchoice{\Longrightarrow}{\Rightarrow}{\Rightarrow}{\Rightarrow}}
+\def\From{\mathchoice{\Longleftarrow}{\Leftarrow}{\Leftarrow}{\Leftarrow}}
+\providecommand{\labelstyle}{\textstyle}
+\def\lto#1{\xrightarrow{#1}}
+\def\lfrom#1{\xleftarrow{#1}}
+\def\mlto#1{\overset{#1}{\longmapsto}}
+
+\let\leq\leqslant
+\let\geq\geqslant
+\let\le\leqslant
+\let\ge\geqslant
+\let\dpl\displaystyle
+\let\bar\overline
+\let\hat\widehat
+\let\tilde\widetilde
+
+%% --- French typography & citation shortcuts ---------------------------------
+%% Use \space instead of \kern/\xspace (the HTML converter chokes on those).
+\def\cf{cf.\space}
+\def\Cf{Cf.\space}
+\def\ie{i.e.\space}
+\def\iev{i.e., }
+\def\loccit{loc.\,cit.\space}
+\def\resp{resp.\space}
+\def\numero{n\textsuperscript{o}\space}
+\let\oldS\S
+\def\S{\oldS\space}
+\def\ptbl{.\,}
+%% French guillemets as literal Unicode (avoids orphan » in HTML).
+\def\og{«\,}
+\def\fg{\,»}
+%% Corrected-edition forms of the orig-conditional text macros.
+\def\fets{faut et il suffit\space}
+\def\sss{si et seulement si\space}
+\def\pieme{$p$-i\`eme\space}
+\def\nieme{$n$-i\`eme\space}
+\def\niemes{$n$-i\`emes\space}
+\def\Nieme{$N$-i\`eme\space}
+\def\Niemes{$N$-i\`emes\space}
+
+%% --- Per-exposé bibliography (SMF two-argument form) ------------------------
+%% SGA1 has a \thebibliography per exposé, taking TWO args:
+%%   \begin{thebibliography}{<widest label>}{<section label, e.g. VI.13>}
+%% (book.cls's default takes one). #2 becomes a \label so \ref/\cite resolve.
+\def\bibliofont{\def\baselinestretch{1}\normalfont}
+\renewenvironment{thebibliography}[2]{%
+  \section{\bibname}\label{#2}%
+  \normalfont\labelsep .5em\relax
+  \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+  \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \itemindent 0pt
+    \leftmargin\labelwidth \advance\leftmargin\labelsep
+    \usecounter{enumiv}}%
+    \itemsep 0.1\baselineskip plus0.1\baselineskip minus0.1\baselineskip
+    \bibliofont
+  \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+  \sfcode`\.=\@m
+}{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+}
+
+%% --- Index helpers ----------------------------------------------------------
+\let\indexspace\bigskip
+\providecommand{\oldindexnot}[1]{}
+
+%% --- Editorial / SMF-class no-op fallbacks (in case anything survived) ------
+\providecommand{\makeschapterhead}[1]{\chapter*{#1}}
+\providecommand{\chapterspace}[1]{}
+\providecommand{\skippointrait}{}
+\providecommand{\skpt}{}
+\providecommand{\pointrait}{.\enspace}
+\providecommand{\smfbreak}{\par\medskip}
+\providecommand{\smaller}{\small}
+\providecommand{\larger}{\large}
+\providecommand{\danger}{\textbf{!}}
+\providecommand{\sfootnote}[1]{\footnote{#1}}
+\providecommand{\Ref}[1]{\ref{#1}}
+\providecommand{\sheaf}[1]{\underline{#1}}
+\providecommand{\rest}[1]{|_{#1}}
+
+\endinput

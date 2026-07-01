@@ -1,0 +1,1320 @@
+\chapter{Exemples et compl\'ements}
+\label{XI}
+
+\section{Espaces projectifs, vari\'et\'es unirationnelles}
+\label{XI.1}
+
+\begin{proposition}
+\label{XI.1.1}
+Soient $k$ un corps alg\'ebriquement clos, $X=\PP_k^r$ l'espace
+projectif de dimension $r$ sur~$k$. Alors $X$ est \emph{simplement
+connexe,} \ie $\pi_1(X)=0$.
+\end{proposition}
+
+Pour $r=0$, c'est trivial. Si $r=1$, il faut montrer que si $X'$ est
+un rev\^etement \'etale connexe non vide de~$X=\PP_k^1$, alors
+$X'\isomto X$. La formule du genre nous donne ici, si~$g$ et $g'$ sont
+les genres de~$X$ et~$X'$:
+$$
+1-g' = d(1-g)\quoi,
+$$
+o\`u $d$ est le degr\'e de~$X'$ sur~$X$. Comme $g=0$, on aura donc
+$1-g'=d$, ce qui exige $d=1$ puisque $g'\ge 0$, ce qui prouve
+$X'\isomto X$. Lorsque $r\ge 2$, on proc\`ede par r\'ecurrence
+sur~$r$, en supposant que $\PP^{r'}$ est simplement connexe pour
+$r'<r$. Appliquant ceci \`a un hyperplan de~$\PP^r$ et utilisant
+(X~\ref{X.2.10}), il en r\'esulte bien que $\PP^r$ est simplement
+connexe. Autre d\'emonstration: on aura
+$\pi_1(\PP^1\times\cdots\times \PP^1) = \pi_1(\PP^1)\times\cdots
+\times \pi_1(\PP^1)$ en vertu de (X~\ref{X.1.7}), donc $(\PP^1)^r$
+est simplement connexe puisque $\PP^1$ l'est, donc $\PP^r$ est
+simplement connexe en vertu de l'invariance birationnelle du groupe
+fondamental (X~\ref{X.3.4}). Cette d\'emonstration montre plus
+g\'en\'eralement:
+
+\begin{corollaire}
+\label{XI.1.2}
+Soit $X$ un sch\'ema propre et normal sur un corps
+alg\'ebriquement clos~$k$; si $X$ est une vari\'et\'e
+rationnelle, \ie int\`egre et son corps des fonctions est une
+extension transcendante pure de~$k$, alors $X$ est simplement connexe.
+\end{corollaire}
+
+Ce r\'esultat s'applique en particulier aux vari\'et\'es
+grassmanniennes et plus
+g\'en\'e\-ra\-le\-ment aux vari\'et\'es~$G/H$, o\`u $G$ est un
+groupe lin\'eaire connexe sur~$k$ et $H$ un sous-groupe
+alg\'ebrique contenant un sous-groupe de Borel
+de~$G$.
+
+Rappelons qu'on appelle vari\'et\'e \emph{unirationnelle sur~$k$}
+\index{unirationnelle (vari\'et\'e)|hyperpage}un sch\'ema propre et int\`egre sur~$k$ dont le corps des
+fonctions $K$ est contenu dans une extension transcendante pure~$K'$
+de~$k$, finie sur~$K$ (\ie ayant m\^eme degr\'e de transcendance
+sur~$k$ que~$K$), \ie s'il existe une application rationnelle
+dominante $f\colon\PP_k^r\to X$, avec $r=\dim X$. Si $X$ est normale,
+on voit donc par les r\'eflexions pr\'ec\'edant X~\ref{X.3.4}
+que pour tout rev\^etement \'etale connexe $X'$ de~$X$, de
+corps~$L/K$, l'alg\`ebre $L\otimes_K K'$ sur~$K'$ est non
+ramifi\'ee sur le mod\`ele~$\PP^r$, donc compl\`etement
+d\'ecompos\'ee en vertu de~\ref{X.1.1} ce qui montre que $L$ est
+$K$-isomorphe \`a une sous-extension de~$K'/K$. Cela prouve donc,
+compte tenu de V~\ref{V.8.2}:
+
+\begin{corollaire}
+\label{XI.1.3}
+Le groupe fondamental d'une vari\'et\'e unirationnelle normale sur
+un corps al\-g\'e\-bri\-quement clos, est fini.
+\end{corollaire}
+
+(N.B. On notera que dans la d\'efinition de \og unirationnelle\fg, on
+n'avait pas besoin que $K'/K$ soit finie).
+
+\begin{remarques}
+\label{XI.1.4}
+Bien entendu, les r\'esultats de ce num\'ero sont bien
+connus. D'autre part,
+J-P.\, Serre a montr\'e~\cite{XI.10} que lorsque $X$ est
+une vari\'et\'e projective unirationnelle lisse sur un corps
+alg\'ebriquement clos de \emph{caractéristique nulle,} $X$ est
+simplement connexe. Sa d\'emonstration est transcendante en ce
+qu'elle utilise le th\'eor\`eme de sym\'etrie de Hodge.
+
+\lcrochetbf Ajout\'e en 2003 (MR) Bornons-nous au cas d'un corps alg\'ebriquement clos $k$ de
+caract\'eristique $p\geq 0$. En caract\'eristique $p>0$, la d\'efinition de
+$k$-vari\'et\'e unirationnelle donn\'ee plus haut est celle de~$k$-vari\'et\'e
+faiblement unirationnelle, par opposition \`a celle de~$k$-vari\'et\'e
+fortement unirationnelle, o\`u l'on suppose de plus que $K'$ est une
+extension s\'eparable de~$K$.
+
+Dans le cas de la dimension $2$, il existe des surfaces projectives et
+lisses, faiblement unirationnelles qui ont un groupe fondamental (fini
+d'apr\`es 1.3) non trivial et donc qui ne sont pas rationnelles (T.\, Shioda, On unirationality of supersingular surfaces, Math.~Ann. \textbf{225}
+(1977), p.\,155--159.). Par contre une surface fortement
+unirationnelle est rationnelle: cela r\'esulte du crit\`ere de rationalit\'e de
+Castelnuovo, \'etendu \`a la caract\'eristique $p>0$ par O.\, Zariski (\cf J-P.\, Serre, S\'em. Bourbaki \no146, 1957 et {\OE}uvres--Collected
+papers, vol.\, 1, p.\, 467).
+
+Sur le corps $\CC$ des nombres complexes, on conna\^it des exemples de vari\'et\'es projectives et
+lisses de \hbox{dimension $\geq 3$} qui sont unirationnelles et non
+rationnelles (\cf P.\, Deligne, Vari\'et\'es unirationnelles non
+rationnelles [d'apr\`es M.\, Artin et D.\, Mumford],  S\'em.\ Bourbaki
+\no402, 1971-72, Lecture Notes vol.\, 317). C'est le cas en particulier d'une
+hypersurface cubique lisse dans l'espace projectif $\PP^4$.
+Certains de ces exemples s'\'etendent en caract\'eristique $>0$ pour donner
+des vari\'et\'es fortement unirationnelles non rationnelles (\cf J.P.\, Murre, Reduction of the proof of the non-rationality of a non
+singular cubic threefold to a result of Mumford, Compositio Math. \textbf{27}
+(1973), p.\,63--82).
+
+Soit $V$ une $k$-vari\'et\'e projective normale, int\`egre. On dit que $V$ est
+rationnellement connexe, s'il existe un $k$-sch\'ema de type fini int\`egre
+$T$ et un $k$-morphisme $F : T\times\PP^1\to V$ tel que le morphisme :
+\begin{equation}\tag*{(1)}
+\begin{split}
+T \times\PP^1\times\PP^1&\to V\times V\\
+(t, u, u')&\mto(F(t,u), F(t,u'))
+\end{split}
+\end{equation}
+soit dominant. En particulier, par deux points rationnels de~$V$,
+assez g\'en\'eraux, passe une courbe rationnelle. La terminologie est
+justifi\'ee par le fait que si $V$ est rationnellement connexe, on peut
+joindre deux points rationnels par une cha\^ine finie de courbes
+rationnelles. Si $k$ est de caract\'eristique $p>0$, on renforce la
+d\'efinition pr\'ec\'edente en demandant que l'application (1) soit
+g\'en\'eriquement lisse. On obtient alors la notion de vari\'et\'e
+s\'eparablement rationnellement connexe. Ainsi les vari\'et\'es
+unirationnelles sont rationnellement connexes et en caract\'eristique
+$p>0$, les vari\'et\'es fortement unirationnelles sont s\'eparablement
+rationnellement connexes. J.\, Koll\'ar a montr\'e que les vari\'et\'es
+s\'eparablement rationnellement connexes ont un groupe fondamental
+alg\'ebrique trivial (\cf O.\, Debarre, Vari\'et\'es rationnellement
+connexes [d'apr\`es T.\, Graber, J.\, Harris, J.\, Starr et A.J.\, de~Jong],
+S\'em. Bourbaki \no906, 2001-2002).\rcrochetbf
+\end{remarques}
+
+\section{Vari\'et\'es ab\'eliennes}
+\label{XI.2}
+Soient $k$ un corps alg\'ebriquement clos, $A$ une vari\'et\'e
+ab\'elienne sur~$k$, \ie un sch\'ema en groupes sur~$k$, propre
+sur~$k$, lisse sur~$k$, et connexe, enfin $G$ un sch\'ema en groupes
+commutatifs de type fini sur~$k$. D\'esignons par $\Ext(A,G)$ le
+groupe des classes d'extensions commutatives de~$A$ par~$G$, par
+$\H^1(A,G)$ le groupe des classes de fibr\'es principaux sur~$A$ de
+groupe~$G$ (comparer \No \ref{XI.4} plus bas), et consid\'erons
+l'homomorphisme canonique
+$$
+\Ext(A,G)\to \H^1(A,G)\quoi.
+$$
+Un
+raisonnement de Serre \cite[chap.\, VII, th.\, 5]{XI.5} montre que c'est un
+homomorphisme injectif, qui a pour image l'ensemble des
+\og \'el\'ements primitifs\fg de~$\H^1(A,G)$, \ie des
+\'el\'ements $\xi$ pour lesquels on~a:
+$$
+\pi^*(\xi) = \pr_1^*(\xi) + \pr_2^*(\xi)\quoi,
+$$
+o\`u $\pr_i$ sont les deux projections de~$A\times A$
+sur~$A$, et $\pi\colon A\times A\to A$ la loi de composition de~$A$
+(N.B. Serre n'\'enonce son th\'eor\`eme que pour $G$
+lin\'eaire et connexe, et bien entendu lisse sur~$k$, mais en
+simplifiant la premi\`ere partie de son raisonnement, on voit que
+ces restrictions sont inutiles: il suffit de noter que tout morphisme
+de~$A$ dans un sch\'ema en groupes $E$ de type fini sur~$k$, qui
+transforme unit\'e en unit\'e, est un homomorphisme de groupes, et
+d'appliquer ceci aux sections au-dessus de~$A$ d'une extension $E$ de
+$A$ par~$G$).
+
+Nous allons appliquer ce r\'esultat au cas o\`u $G$ est un groupe
+fini s\'eparable sur~$k$, \ie un groupe fini ordinaire, suppos\'e
+commutatif. Utilisant alors $\pi_1(A\times A)\isomto \pi_1(A)\times
+\pi_1(A)$ (X~\ref{X.1.7}) et interpr\'etant $\H^1(X,G)$ comme
+$\Hom(\pi_1(X),G)$ pour tout sch\'ema alg\'ebrique~$X$, en
+particulier pour $X=A$ ou $X=A\times A$, on voit que toute classe de
+$\H^1(A,G)$ est primitive, donc on a un isomorphisme
+$$
+\Ext(A,G)\isomto \H^1(A,G)\quoi,
+$$
+en d'autres termes \emph{tout revêtement principal de~$A$ de
+groupe structural commutatif~$G$, ponctué au-dessus de l'origine
+de~$A$, est muni de fa\c con unique d'une structure de groupe
+algébrique admettant le point marqué comme origine, et tel que
+$A'\to A$ soit un homomorphisme de groupes algébriques.} En
+particulier, si $A'$ est connexe, c'est \'egalement une
+vari\'et\'e ab\'elienne, isog\`ene \`a~$A$.
+
+D'autre part, comme le foncteur $X\mto \pi_1(X)$ des sch\'emas
+alg\'ebriques ponctu\'es $X$ dans les groupes commute au produit
+(IX~\ref{IX.1.7}), il transforme un groupe dans la premi\`ere
+cat\'egorie en un groupe dans la cat\'egorie des groupes, \ie en
+un groupe \emph{commutatif}. Donc \emph{si $A$ est une variété
+abélienne, $\pi_1(A)$
+est un groupe commutatif.} Donc pour conna\^itre $\pi_1(A)$, il
+suffit de conna\^itre le foncteur $G\mto
+\H^1(A,G)=\Hom(\pi_1(A),G)$ pour $G$ variant dans les groupes finis
+\emph{commutatifs}. Enfin, rappelons que pour tout entier $n>0$,
+l'homomorphisme de multiplication par $n$ dans~$A$:
+$$
+A\lto{n} A
+$$
+est surjectif, donc \`a noyau fini, \ie c'est une isog\'enie, et
+qu'il en r\'esulte que toute isog\'enie $A'\to A$ est quotient
+d'une isog\'enie du type pr\'ec\'edent. De ceci, et de
+raisonnements standard (\cf par exemple~\cite{XI.6}) on tire:
+
+\begin{theoreme}[Serre-Lang]
+\label{XI.2.1}
+Soit $A$ une vari\'et\'e ab\'elienne sur un corps
+alg\'ebriquement clos~$k$, et pour tout entier $n>0$ consid\'erons
+le groupe fini ordinaire $K_n$ sous-jacent au noyau ${}_nA$ de la
+multiplication par $n$ dans~$A$, enfin posons pour tout nombre
+premier~$\ell$:
+$$
+T_\ell(A)=\varprojlim_r K_{\ell^r}
+$$
+et
+$$
+T_{.}(A)=\underset{\ell}{\prod}T_\ell(A)=\varprojlim_n K_n
+$$
+(o\`u pour $m$ multiple de~$n$, $m=ns$, on envoie $K_m$ dans $K_n$
+par la multiplication par~$s$). Alors le groupe $\pi_1(A)$ est
+canoniquement isomorphe \`a $T_{.}(A)$, donc pour tout nombre
+premier $\ell$, la composante $\ell$-primaire de~$\pi_1(A)$ est
+canoniquement isomorphe \`a $T_\ell(A)$.
+\end{theoreme}
+
+On notera que ces isomorphismes sont fonctoriels pour $A$ variable. Le
+module $T_\ell(A)$ est appel\'e le \emph{module $\ell$-adique de
+Tate} de la vari\'et\'e ab\'elienne~$A$. C'est un foncteur
+additif en~$A$, en particulier il donne lieu \`a une
+repr\'esentation de l'anneau $\Hom(A,A)$ des endomorphismes de~$A$
+dans $T_\ell(A)$, appel\'ee \emph{représentation $\ell$-adique
+de Weil}, et qui joue un r\^ole important dans la th\'eorie des
+vari\'et\'es ab\'eliennes (\cf par exemple \hbox{\cite[chap~VII]{XI.4}}). Le
+th\'eor\`eme~\ref{XI.2.1} en donne une interpr\'etation en
+termes de la repr\'esentation naturelle dans le \emph{groupe
+d'homologie $\ell$-adique} de~$A$, $\H_1(A,\ZZ_\ell)=\pi_1(A)_\ell$,
+ce
+qui est \'evidemment plus satisfaisant a priori, du point de vue
+notamment de la formule de Lefschetz, \cite[Chap~V]{XI.4}. Rappelons ici les
+r\'esultats de Weil sur la structure de~$T_\ell(A)$:
+\begin{enumerate}
+\item[a)] Si $n$ est premier \`a $\car(k)$, alors $K_n$ est un module
+libre de rang \'egal \`a $2\dim A$ sur~$\ZZ/n\ZZ$, donc si $\ell$
+est un nombre premier $\neq \car(k)$, $T_\ell(A)$ est un module libre
+de rang \'egal \`a $2\dim A$ sur l'anneau $\ZZ_\ell$ des entiers
+$\ell$-adiques;
+\item[b)] Si $n$ est une puissance de~$\car(k)=p$, alors $K_n$ est un
+module libre de rang $\nu\leq\dim A$ sur~$\ZZ/n\ZZ$, $\nu$
+ind\'ependant de~$n$, donc $T_p(A)$ est un module libre de rang
+$\nu\leq \dim A$ sur l'anneau $\ZZ_p$ des entiers $p$-adiques.
+\end{enumerate}
+
+Cela montre que dans la th\'eorie du groupe fondamental
+d\'evelopp\'ee ici, le groupe fondamental d'une vari\'et\'e
+ab\'elienne variable ne varie pas de fa\c con r\'eguli\`ere
+avec le param\`etre, sa composante $p$-primaire pouvant diminuer
+brusquement pour des valeurs du param\`etre $t$ correspondant \`a
+une caract\'eristique r\'esiduelle~$p$; le cas le mieux connu de
+ce ph\'enom\`ene est celui des courbes elliptiques. On notera
+cependant que, quel que soit $n$ (premier ou non \`a la
+caract\'eristique) le vrai noyau ${}_nA$ dans $A$ pour la
+multiplication par $n$ est un sch\'ema en groupe fini sur~$k$ de
+degr\'e $n^{2g}$, o\`u $g=\dim A$, qui sera non s\'eparable sur~$k$ si $n$ est un multiple de~$p=\car(k)$. D'ailleurs, lorsque $A$
+varie dans une famille de vari\'et\'es ab\'eliennes, \ie si on
+a un sch\'ema ab\'elien $A$ sur un sch\'ema de base $S$, on
+montre plus g\'en\'eralement que ${}_n A$ est un sch\'ema en
+groupes fini et plat sur~$S$, de degr\'e $n^{2g}$ sur~$S$,
+c'est-\`a-dire \`a condition de tenir compte des parties
+infinit\'esimales des noyaux~${}_n A$, ils se comportent de fa\c con r\'eguli\`ere quel que soit~$n$. Cela sugg\`ere que le
+\og vrai\fg groupe fondamental d'une vari\'et\'e ab\'elienne $A$
+est le pro-groupe alg\'ebrique (limite projective formelle de
+groupes finis sur~$k$) $\varprojlim_n{{}_nA}$, o\`u
+par \og vrai groupe fondamental\fg d'un sch\'ema alg\'ebrique~$X$, il
+faut entendre: le pro-groupe qui classifie les rev\^etements
+principaux de~$X$ de groupe structural un groupe fini quelconque $G$
+sur~$k$ (pas n\'ecessairement s\'eparable sur~$k$). De cette
+fa\c con par exemple, on r\'ecup\`ere par les
+repr\'esentations de~$\Hom(A,A)$ dans la composante $p$-primaire du
+vrai groupe fondamental de~$A$, le polyn\^ome caract\'eristique de
+Weil d\'efini par ce dernier \`a l'aide des $\ell\neq p$, de fa\c con plus naturelle que la construction de Serre~\cite{XI.8}.
+
+\section{C\^ones projetants, exemple de Zariski}
+\label{XI.3}
+
+Soit toujours $k$ un corps alg\'ebriquement clos pour simplifier, et
+soit $V$ un $k$-sch\'ema projectif connexe, sous-sch\'ema
+ferm\'e de~$\PP^r_k$, qu'on pourra si on veut supposer non
+singulier. Soient $Y=\hat C$ le c\^one projetant projectif de~$V$,
+$y_0$ son sommet, $X=\hat C_V$ la fermeture projective habituelle du
+fibr\'e vectoriel $C_V=\VV(\cal{O}_V(1))$ associ\'e \`a
+$\cal{O}_V(1)$, enfin
+$$
+f\colon X\to Y
+$$
+le morphisme canonique, contractant la section nulle $X_0$ de~$C_V$
+sur~$X$ en un point (EGA~II~8.6.4). Comme $X$ est un fibr\'e
+localement trivial sur~$V$, de fibres $\PP^1$ donc de fibres
+simplement connexes, le morphisme $p\colon X\to V$ induit en vertu
+de~(X~\ref{X.1.4})
+un isomorphisme:
+$$
+\pi_1(X)\isomto\pi_1(V)\quoi.
+$$
+Comme $p$ induit un isomorphisme $X_0\to V$, on en conclut qu'\emph{un
+revêtement étale de~$X$ est complètement décomposé
+si et seulement si sa restriction à $X_0$ l'est}. Or pour tout
+rev\^etement \'etale $Y'$ de~$Y$, l'image inverse $X'=X\times_Y
+Y'$ est un rev\^etement \'etale de~$X$ compl\`etement
+d\'ecompos\'e sur la fibre~$X_0$, donc trivial. Comme
+l'homomorphisme $\pi_1(X)\to\pi_1(Y)$ est surjectif (IX~\ref{IX.3.4}),
+on en conclut que
+$$
+\pi_1(Y)=(e)
+$$
+en d'autres termes \emph{tout cône projetant projectif est
+simplement connexe.} (N.B. en ca\-rac\-t\'e\-ris\-tique~$0$, le
+m\^eme r\'esultat sera valable en prenant pour $Y$ le c\^one
+projetant affine).
+
+Supposons maintenant $V$ r\'eguli\`ere \ie lisse sur~$k$; alors
+$X$ est r\'eguli\`ere, et pour une immersion projective convenable
+de~$V$, on trouve alors un c\^one projetant $Y$ \emph{normal}. Si
+$V$ n'est pas simplement connexe, donc $X$ non simplement connexe,
+soit $X'$ un rev\^etement \'etale connexe non trivial
+de~$X$. Comme les fibres de~$X$ en les points $y\in Y$ distincts de
+$y_0$ sont r\'eduites \`a un point, on voit que la restriction de
+$X'$ \`a ses fibres (en particulier \`a la
+fibre
+g\'en\'erique) est triviale; cependant $X$ ne provient pas par
+image inverse d'un rev\^etement \'etale de~$Y$, puisque $Y$ est
+simplement connexe et que $X'$ serait compl\`etement
+d\'ecompos\'e. Cela montre que (X~\ref{X.1.3} et~\ref{X.1.4})
+deviennent faux si on remplace l'hypoth\`ese que $f$ est
+s\'eparable par celle plus faible que ses fibres sont des
+sch\'emas alg\'ebriques s\'eparables (ou m\^eme lisses) sur
+les~$\kres(s)$. On notera de m\^eme que les groupes fondamentaux des
+fibres g\'eom\'etriques $\overline X_y$ des $y\neq y_0$ sont
+\'evidemment r\'eduits \`a $(e)$ puisque ces fibres sont
+r\'eduites \`a un point, alors que $\pi_1(X_0)\neq e$, donc le
+th\'eor\`eme de semi-continuit\'e (X~\ref{X.2.4}) est
+\'egalement en d\'efaut pour~$f$.
+
+Indiquons enfin l'exemple, signal\'e par Zariski, mettant en
+d\'efaut ces m\^emes th\'eor\`emes, lorsqu'on y remplace
+l'hypoth\`ese que $f$ est s\'eparable par celle que $f$ est
+plate. Soit $f\colon X\to Y$ un morphisme d'une surface non
+singuli\`ere projective dans la droite rationnelle $Y=\PP^1$, tel
+que
+$K=k(X)$
+soit une extension \og r\'eguli\`ere\fg \ie primaire et
+s\'eparable de~$k(f)$, (\ie la fibre g\'en\'erique
+g\'eom\'etrique est connexe et s\'eparable), et telle que le
+diviseur $(f)=X_0-X_\infty$ soit un multiple
+\nieme
+d'un diviseur (o\`u $n$ est un entier premier \`a la
+caract\'eristique). Il est possible de construire de tels exemples
+en toute caract\'eristique. Soit $X'$ le normalis\'e de~$X$ dans
+$K(f^{1/n})$, o\`u $K=k(X)$ est le corps des fonctions de~$X$. Il
+r\'esulte de l'hypoth\`ese sur~$(f)$ que $X'$ est \'etale
+sur~$X$. Soit $Y'$ le normalis\'e de~$Y$ dans $k(t)(t^{1/n})$, il
+est ramifi\'e sur~$Y$ en les points $t=0$ et $t=\infty$ exactement,
+et la restriction $X'|f^{-1}(U)$ est isomorphe \`a l'image inverse
+de~$Y'|U$. En particulier, la restriction de~$X'$ \`a la fibre
+g\'en\'erique \emph{géométrique} de~$X$ sur~$Y$ se
+d\'ecompose compl\`etement. Cependant, $X'$ n'est pas isomorphe
+\`a l'image inverse d'un rev\^etement \'etale de~$Y$, car on
+voit tout de suite que ce dernier serait n\'ecessairement~$Y'$, ce
+qui est absurde puisque $Y'$ est ramifi\'e sur~$Y$\footnote{On peut
+remarquer, du point de vue de la \og topologie \'etale\fg (SGA~4~VII),
+que dans cet exemple $\R^1(f_{\et})_*(\ZZ/n\ZZ)$ est \og non
+s\'epar\'e\fg sur~$S$.}.
+
+Voici (d'apr\`es Serre) une fa\c con simple de r\'ealiser les
+conditions de cet exemple, en s'inspirant de \cite[\No 20]{XI.5}: on prend
+pour $n$ un nombre premier $\geq 5$, distinct de la
+caract\'eristique, et on fait op\'erer $G=\ZZ/n\ZZ$ dans
+$\underline{k}^4${\renewcommand{\thefootnote}{*}\addtocounter{footnote}{-1}\footnote{\lcrochetbf Ajout\'e en 2003: $\underline{k}^4$ d\'esigne l'espace affine de dimension $4$ sur $k$.\rcrochetbf}}
+en multipliant les coordonn\'ees par quatre
+caract\`eres distincts de~$G$ (ce qui est possible puisque $n\geq
+5$). Alors $G$ op\`ere sur l'espace projectif $\PP^3_k$, et les
+seuls points fixes sous $G$ sont les quatre points correspondants aux
+axes de coordonn\'ees. La surface $X'$ d'\'equation
+$x^n+y^n+z^n+t^n=0$
+est lisse sur
+$k$ (crit\`ere jacobien), et ne contient aucun des points fixes,
+donc $G$ \'etant d'ordre premier, op\`ere sur~$X$ \og sans points
+fixes\fg \ie $X$ est un rev\^etement principal de~$X=X'/G$ de groupe
+$G$. Soit $g=x/y$ dans $k(X')=K'$, c'est un g\'en\'erateur
+kumm\'erien de~$K'$ sur~$K=k(X)$ si les caract\`eres choisis
+\'etaient~$\chi^i$, $i=0,1,2,3$, avec $\chi$ un caract\`ere
+primitif, soit $f$ sa puissance \nieme, qui est un
+\'el\'ement de~$K$. On voit tout de suite que $K'$ est une
+extension r\'eguli\`ere de~$k(g)$, ce qui r\'esulte du fait que
+la courbe plane d'\'equation homog\`ene en $U,T,Z$:
+$T^n+Z^n+(1+g^n)U^n=0$ est lisse sur~$k(g)$ (crit\`ere jacobien), et
+qu'on sait que toute courbe plane est connexe. D'autre part on a
+$k(f)=K\cap k(g)$, puisque le deuxi\`eme membre est une extension de
+$k(f)$ contenue dans l'extension $k(g)$ de degr\'e premier, et
+distincts de~$k(g)$ (puisque $g\not\in K$). Cela implique que $K$ est
+une extension r\'eguli\`ere de~$k(f)$. Enfin le diviseur de~$f$
+sur~$X$ est un multiple \nieme d'un diviseur, car son image
+inverse sur~$X'$ est le diviseur de~$g^n$, donc un multiple
+\nieme, et on peut redescendre parce que $X'$ est \'etale sur~$X$. On aurait fini si l'application rationnelle $f\colon X\to \PP^1$
+\'etait un morphisme, c'est-\`a-dire si les diviseurs des
+z\'eros et des p\^oles de~$f$ ne se rencontraient point. En fait,
+on v\'erifie ais\'ement (en regardant encore sur~$X'$) que les
+deux diviseurs en question sont les produits par $n$ de deux courbes
+lisses sur~$k$, se coupant transversalement en un point~$a$. Rempla\c cant maintenant $X$ par le sch\'ema obtenu en faisant \'eclater~$a$, les conditions pr\'ec\'edentes ($\divisor(f)$ divisible par
+$n$, et $k(X_1)=k(X)$ extension r\'eguli\`ere de~$k(X)$) restent
+v\'erifi\'ees, mais de plus $f$ est un \emph{morphisme} $X_1\to
+\PP^1$, donc on est sous les conditions voulues.
+
+\section{La suite exacte de cohomologie}
+\label{XI.4}
+
+Soit $S$ un pr\'esch\'ema, de sorte que la cat\'egorie
+$\Sch_{/S}$ des pr\'esch\'emas sur~$X$ est d\'etermin\'ee,
+donc aussi la notion de groupe dans icelle, qu'on appellera aussi
+\emph{préschéma en groupes sur~$S$}, ou simplement
+\emph{$S$-groupe}. Pour simplifier l'exposition et fixer les
+id\'ees, nous nous bornerons le plus souvent par la suite \`a des
+groupes qui sont \emph{affines} et \emph{plats} sur~$S$\footnote{En
+fait, pour ce qui va suivre, l'hypoth\`ese quasi-affine au lieu
+d'affine suffirait, \cf note de bas de page~\eqref{note-296}, p.\,\pageref{note-296}.}, ce qui
+suffira pour les applications que nous avons en vue. (Bien entendu, on
+rencontre de nombreux cas o\`u ni l'une ni l'autre hypoth\`ese
+n'est v\'erifi\'ee). Soit
+$G$ un tel $S$-groupe, et soit $P$ un pr\'esch\'ema sur~$S$ sur
+lequel $G$ op\`ere \`a droite, ce qui implique en particulier un
+morphisme
+$$
+\pi:P\times_SG\to P
+$$
+dans la cat\'egorie $\Sch_{/S}$, satisfaisant les axiomes bien
+connus. On dit que $P$ est \emph{formellement principal homogène
+sous} $G$ si le morphisme
+$$
+P\times_S G\to P\times_S P
+$$
+de composantes $\pr_1$ et $\pi$ est un isomorphisme; il revient au
+m\^eme de dire que pour tout objet $S'$ de~$\Sch_{/S'}$,
+$P(S')=\Hom_S(S',P)$ consid\'er\'e comme ensemble \`a groupes
+d'op\'erateurs $G(S')=\Hom_S(S',G)$, est vide ou principal
+homog\`ene (\ie vide ou isomorphe \`a $G(S')$ sur lequel le
+groupe $G(S')$ op\`ere par translations \`a droite). On dit que
+$P$ est \emph{trivial} si $P$ est isomorphe \`a $G$, sur lequel $G$
+op\`ere par translations \`a droite, ou ce qui revient au
+m\^eme, si chacun des ensembles \`a op\'erateurs $P(S')$ sous
+$G(S')$ est trivial. On v\'erifie, par exemple par le
+proc\'ed\'e brevet\'e de passage au cas ensembliste, que $P$
+\emph{est trivial si et seulement
+s'il
+est formellement principal homogène, et admet une section sur~$S$}
+(ce dernier fait s'\'enon\c cant en termes cat\'egoriques en
+disant que $P$ a une section sur l'objet final $e=S$ de~$\Sch_{/S}$,
+\ie qu'il existe un morphisme de~$e$ dans $P$). Pour d\'efinir la
+notion de fibr\'e principal homog\`ene $P$ sous $G$, plus forte
+que celle de fibr\'e formellement principal homog\`ene, il faut
+pr\'eciser d'abord dans $\Sch_{/S}$ un ensemble de morphismes qui
+seront utilis\'es pour la \og descente\fg, et joueront le r\^ole de
+\og morphismes de localisation\fg pour \og trivialiser\fg des fibr\'es. Le
+choix le plus ad\'equat varie suivant le contexte, aucun ne
+contenant tous les autres\footnote{\label{note-293}Voir \`a ce sujet
+SGA~3~IV, notamment~\S 4.}. Ici, il sera commode d'adopter la
+d\'efinition suivante:
+
+\begin{definition}
+\label{XI.4.1}
+Soit $G$ un $S$-groupe. On appelle \emph{fibré principal
+homogène} (\`a droite) sous~$G$, un $S$-pr\'esch\'ema $P$
+\`a~$S$-groupe \`a droite~$G$, tel qu'il existe un recouvrement de~$S$ par des ouverts~$U_i$, et pour tout $i$ un morphisme de changement
+de base $S'_i\to U_i$ fid\`element plat et quasi-compact, tel que
+$P'=P\times_S S'$ soit un pr\'esch\'ema \`a op\'erateurs
+trivial sous $G'=G\times_S S'$, o\`u $S'$ est le
+$S$-pr\'esch\'ema somme disjointe des~$S'_i$.
+\end{definition}
+
+(On
+notera que le foncteur changement de base $X\mto X'=X\times_S
+S'$
+\'etant exact \`a gauche, transforme groupes en groupes, objets
+\`a groupe d'op\'erateurs en objets \`a groupes
+d'op\'erateurs). Notons que \ref{XI.4.1} est \emph{stable par
+changement de base}. Notons aussi:
+
+\begin{proposition}
+\label{XI.4.2}
+Soient $G$ un $S$-groupe, plat et quasi-compact sur~$S$, $P$ un
+$S$-pr\'esch\'ema o\`u $G$ op\`ere \`a droite. Conditions
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $P$ est un fibr\'e principal homog\`ene
+sous~$G$;
+\item[(ii)] $P$ est formellement principal homog\`ene sous~$G$,
+\index{formellement principal homog\`ene (pr\'esch\'ema)|hyperpage}et le morphisme structural $P\to S$ est fid\`element plat et
+quasi-compact.
+\end{enumerate}
+\end{proposition}
+
+Si $P$ est principal homog\`ene sous~$G$, alors avec les notations
+de~\ref{XI.4.1} $P'$ est fid\`element plat et quasi-compact sur~$S'$
+(puisque $G'$ l'est, et $P'$ lui est $S'$-isomorphe), donc $P$ a les
+m\^emes propri\'et\'es au-dessus de~$S$, (pour \og surjectif\fg et
+\og quasi-compact\fg, \cf VIII~\ref{VIII.3.1}, pour \og plat\fg c'est un
+oubli dans les sorites de l'expos\'e~\ref{VIII}). Inversement, si
+(ii) est v\'erifi\'e, prenons le changement de base $S'=P$, qui
+est bien fid\`element plat et quasi-compact sur~$S$; alors $P'$ sera
+formellement principal homog\`ene sur~$S'$ puisque $P$ l'est sur~$S$
+et que le foncteur changement de base est exact \`a gauche, d'autre
+part $P'$ a une section sur~$S'$,
+\`a savoir
+la section diagonale, donc
+c'est un fibr\'e principal trivial, ce qui ach\`eve la
+d\'emonstration.
+
+\begin{corollaire}
+\label{XI.4.3}
+Si $G$ est affine et plat sur~$S$, tout fibr\'e principal
+homog\`ene $P$ sous $G$ est affine et plat sur~$S$.
+\end{corollaire}
+
+En effet, il le devient par extension fid\`element plate et
+quasi-compacte de la base, et on applique (VIII~\ref{VIII.5.6}).
+
+L'utilit\'e de la d\'efinition~\ref{XI.4.1} pour des $S$-groupes
+\emph{plats} et \emph{affines} sur~$S$ tient \`a
+(VIII~\ref{VIII.2.1}), \ie au fait que les morphismes $S'\to S$
+envisag\'es dans~\ref{XI.4.1} sont des morphismes de descente
+effective pour la cat\'egorie des pr\'esch\'emas affines sur
+d'autres. Gr\^ace \`a ce fait, la v\'erification des faits
+esquiss\'es ci-dessous se fait de fa\c con essentiellement
+\og cat\'egorique\fg\footnote{\Cf \loccit dans note de bas de
+page~\eqref{note-293}, p.\,\pageref{note-293}.}. Soit $E$ un $S$-pr\'esch\'ema sur lequel le
+$S$-groupe $G$ op\`ere \`a gauche, et soit $P$ un fibr\'e
+principal homog\`ene (\`a droite) sous~$G$, nous voulons
+d\'efinir un fibr\'e associ\'e $E^{(P)}$, \og localement\fg
+isomorphe \`a~$E$. Pour ceci, faisons op\'erer
+\`a droite $G$ dans $P\times_S E$ suivant la loi $(x,y)\mto
+(xg,g^{-1}y)$, qui d\'ecrit de telles op\'erations dans le
+contexte ensembliste, et s'\'etend aux cat\'egories par le
+proc\'ed\'e brevet\'e. On posera, sous-r\'eserve d'existence:
+$$
+E^{(P)}=(P\times_S E)/G
+$$
+moyennant quoi on constate que $P\times_S E$ sera un pr\'esch\'ema
+au-dessus de~$T=E^{(P)}$, \`a groupes d'op\'erateurs \`a droite
+$G_T=G\times_S T$; pour \^etre \`a l'aise, on aimerait que de plus
+$P\times_S E$ soit un fibr\'e principal homog\`ene sur~$T$ de
+groupe $G_T$. Pour v\'erifier l'existence de~$E^{(P)}$ et la
+propri\'et\'e pr\'ec\'edente, reprenons le $S'$ de la
+d\'efinition~\ref{XI.4.1} et regardons la situation image inverse
+sur~$S'$ de la situation initiale. Du fait que $P'$ est
+trivial,
+\ie isomorphe \`a $G'_d$, on voit tout de suite que $E^{\prime(P')}$
+existe, et a la propri\'et\'e voulue d'exactitude. En fait,
+$E'\times_{S'} P'$ est $G'$-isomorphe au produit $E'\times_{S'} G'$,
+donc $E^{\prime(P')}$ est isomorphe \`a~$E'$. De plus, la formation du
+\og fibr\'e associ\'e\fg dans le cas d'un espace \`a op\'erateurs
+trivial commute \`a toute extension de la base, et prenant en
+occurrence les diverses extensions de la base
+$\xymatrix@C=.5cm{{S''}\ar@<2pt>[r]\ar@<-2pt>[r]&{S'}}$
+et
+$\xymatrix@C=.5cm{{S'''}\ar@<4pt>[r]\ar@<0pt>[r]\ar@<-4pt>[r]&{S'}}$, o\`u
+$S''$ et $S'''$ sont les produits fibr\'es double et triple de~$S'$
+sur~$S$, on constate que $E^{\prime(P')}$ \emph{est muni d'une donnée
+de descente relativement au morphisme $S'\to S$, et que $E^{(P)}$
+existe avec les propriétés requises si et seulement si cette
+donnée de descente est effective}; bien entendu $E^{(P)}$ n'est
+autre alors que l'objet descendu. (Utiliser le fait que $S'\to S$ est
+un morphisme de descente dans la cat\'egorie des
+$S$-pr\'esch\'emas, \cf VIII~\ref{VIII.5.2}). Il s'ensuit~que
+\emph{le fibré associé existe si $E$ est affine sur~$S$}. Nous
+appliquerons cette construction au cas o\`u on~a un homomorphisme de~$S$-groupes $G\to H$, et qu'on prend pour $E$ le $S$-pr\'esch\'ema~$H$ muni des op\'erations de~$G$ sur~$H$ \`a gauche r\'esultant
+du morphisme donn\'e; comme $H$~op\`ere \`a droite sur
+lui-m\^eme de fa\c con \`a commuter aux op\'erations de~$G$
+sur~$H$, et que (sous r\'eserve d'existence au-dessus de~$S$) la
+formation du fibr\'e associ\'e commute \`a l'extension de la
+base, on constate ais\'ement que $H$ va op\'erer \`a droite sur~$P^{(H)}$, qui est d\`es lors un fibr\'e principal homog\`ene
+sous $H$ au sens de~\ref{XI.4.1}, et
+de fa\c con pr\'ecise est trivialis\'ee par le m\^eme
+morphisme $S'\to S$ que~$P$. En particulier, \emph{à tout
+fibré principal homogène $P$ sous $G$ et tout homomorphisme de~$S$-groupes $G\to H$, avec $H$ affine sur~$S$, est associé un
+fibré principal homogène de groupe~$H$}, de fa\c con
+fonctorielle en $(G\to H)$, et compatible avec les changements de base
+quelconques $T\to S$.
+
+\begin{definition}
+\label{XI.4.4}
+Soit $G$ un $S$-pr\'esch\'ema. On note $\H^0(S,G)$ l'ensemble des
+sections de~$G$ sur~$S$, qu'on consid\'erera comme un groupe lorsque
+$G$ est un $S$-groupe. Dans ce cas, on note $\H^1(S,G)$ l'ensemble des
+classes, \`a isomorphisme pr\`es, de fibr\'es principaux
+homog\`enes sur~$S$ de groupe $S$, en consid\'erant $\H^1(S,G)$
+comme muni du \og point marqu\'e\fg qui correspond aux fibr\'es
+triviaux\footnote{\label{note-296}Cette notation n'est coh\'erente
+vis-\`a-vis
+des notations cohomologiques g\'en\'erales (SGA~4~V)
+que lorsqu'on dispose de crit\`eres d'effectivit\'e de descente,
+qui ne sont gu\`ere assur\'es que si $G$ est affine (ou seulement
+quasi-affine, \cf (VIII~\ref{VIII.7.9})).}.
+\end{definition}
+
+Ainsi, $\H^0(S,G)$ est un foncteur en le $S$-pr\'esch\'ema~$G$,
+\`a valeurs dans la cat\'egorie des ensembles. Ce foncteur est
+exact \`a gauche, a fortiori commute aux produits finis, ce qui
+implique en effet qu'il transforme groupes en groupes, groupes
+commutatifs en groupes commutatifs. De fa\c con analogue,
+$\H^1(S,G)$ est un foncteur en le $S$-groupe \emph{affine}~$G$, \`a
+valeurs dans la cat\'egorie des ensembles gr\^ace \`a la
+formation des fibr\'es associ\'es; on constate facilement que ce
+foncteur commute aux produits finis. En particulier il transforme les
+groupes dans la cat\'egorie des $S$-groupes affines, \ie les
+$S$-groupes \emph{affines commutatifs}, en des groupes de la seconde,
+et m\^eme en des groupes commutatifs (puisque les groupes de la
+premi\`ere cat\'egorie sont commutatifs). Ainsi, \emph{si $G$ est
+un $S$-groupe affine commutatif, $\H^1(S,G)$ est un groupe
+commutatif}, et un homomorphisme $G\to H$ de~$S$-groupes affines
+commutatifs donne naissance \`a un homomorphisme de groupes
+$\H^1(S,G)\to\H^1(S,H)$.
+
+Pour simplifier, nous nous bornons pour la suite \`a la
+consid\'eration de~$S$-groupes \emph{affines et commutatifs}. Soit
+$$
+0\to G'\lto{u} G\lto{v}G''\to 0
+$$
+une suite de morphismes de tels groupes, \emph{nous dirons que cette
+suite est exacte si $vu=0$} (ce qui permet de consid\'erer $G$
+comme un pr\'esch\'ema sur~$G''$, \`a groupes d'op\'erateurs
+\`a droite~$G'_{G''}$) \emph{et si $G$ est un fibré principal
+homogène
+sur~$G''$ de groupe $G'_{G''}=G'\times_S G''$}. Cela implique en
+particulier que $u\colon G'\to G$ est un noyau de~$v$, et a fortiori
+cela implique l'exactitude de la suite
+$$0\to\H^0(X,G')\to\H^0(X,G)\to\H^0(X,G'').$$ Cela implique de plus la
+possibilit\'e de d\'efinir une application
+$$
+\partial\colon\H^0(X,G'')\to\H^1(X,G')\quoi,
+$$
+en associant \`a toute section de~$G''$ sur~$S$, \ie \`a tout
+$S$-morphisme $f\colon S\to G''$, le fibr\'e principal homog\`ene
+$P_f$ de groupe $G'\simeq f^*(G'_{G''})$ sur~$S$, image inverse du
+fibr\'e principal homog\`ene $G$ sur~$G''$. Du point de vue
+$S$-pr\'esch\'emas, ce n'est donc autre que l'image inverse par
+$v\colon G\to G''$ du sous-pr\'esch\'ema image de~$S$ par
+l'immersion~$f$, et les op\'erations de~$G'$ sur~$P_f$ sont induites
+par les op\'erations \`a droite de~$G'$
+sur~$G$.
+Nous laissons \'egalement au lecteur la v\'erification de la
+proposition suivante, qui ne pr\'esente pas de difficult\'es
+autres que de r\'edaction:
+
+\begin{proposition}
+\label{XI.4.5}
+L'application $\partial\colon \H^0(X,G'')\to\H^1(X,G')$ est un
+homomorphisme de groupes. La suite d'homomorphismes suivante est
+exacte:
+\begin{multline*}
+0\to\H^0(X,G')\lto{u^0}\H^0(X,G)\lto{v^0}\H^0(X,G')\lto{\partial}\H^1(X,G'')\\
+\lto{u^1}\H^1(X,G) \lto{v^1}\H^1(X,G'')
+\end{multline*}
+(o\`u les homomorphismes autres que $\partial$ proviennent de la loi
+fonctorielle de~$\H^0$ \resp~$\H^1$).
+\end{proposition}
+
+\begin{remarques}
+\label{XI.4.6}
+Le point de vue expos\'e ici pour l'\'etude des fibr\'es
+principaux homog\`enes est visiblement inspir\'e de Serre~\cite{XI.7}, que
+le lecteur aura tout int\'er\^et \`a consulter. Lorsqu'on veut
+un formalisme qui s'applique \'egalement \`a des $S$-groupes
+structuraux qui sont quasi-projectifs sur~$S$ (de fa\c con \`a
+englober les sch\'emas ab\'eliens projectifs en particulier), on a
+int\'er\^et \`a modifier \ref{XI.4.1} en y demandant que $S'$
+soit somme de pr\'esch\'emas $S'_i$ qui sont finis et localement
+libres sur des ouverts $S_i$ de~$S$ recouvrant $S$. Les
+d\'eveloppements pr\'ec\'edents sont alors valables, y inclus
+notamment \ref{XI.4.5}, en rempla\c cant partout l'hypoth\`ese
+affine par l'hypoth\`ese quasi-projective, et en interpr\'etant de
+fa\c con correspondante la d\'efinition donn\'ee plus faut d'une
+suite exacte de~$S$-groupes. Il suffit en effet de remplacer la
+r\'ef\'erence \`a (VIII~\ref{VIII.2.1})
+par (VIII~\ref{VIII.7.7}): les morphisme utilis\'es $S'\to S$ sont
+des morphismes de descente effective pour la cat\'egorie fibr\'ee
+des pr\'esch\'emas quasi-projectifs sur d'autres. On fera
+attention cependant que cette deuxi\`eme notion de fibr\'e
+principal homog\`ene est plus restrictive que la
+premi\`ere~\ref{XI.4.1}.
+\end{remarques}
+
+\subsection{}
+\label{XI.4.7}
+On obtient une notion encore plus restrictive de fibr\'e principal
+homog\`ene en demandant que $S$ soit recouvert par des ouverts $S_i$
+tels que pour tout~$i$, $P|S_i$ soit un fibr\'e \`a op\'erateurs
+trivial sous~$G|S_i$: on dira alors que $P$ est un fibr\'e principal
+homog\`ene \emph{localement trivial}.
+\index{principal homog\`ene localement trivial (fibr\'e)|hyperpage}Les classes de ces fibr\'es, pour $G$ donn\'e, forment une partie
+de~$\H^1(X,G)$, qui est en correspondance biunivoque avec
+$\H^1(X,\cal{O}_X(G))$, o\`u $\cal{O}_X(G)$ est le faisceau (au sens
+ordinaire) des sections de~$G$ sur~$S$, \cf \cite{XI.2}. Pour que ces $\H^1$
+donnent encore lieu \`a une suite exacte de
+cohomologie~\ref{XI.4.5}, il faut \'evidemment supposer que la suite
+$0\to G'\to G\to G''\to 0$ soit exacte au sens raisonnable pour ce
+nouveau contexte, \ie que $G$ soit fibr\'e localement trivial
+sur~$G''$, de groupe $G'_{G''}$; cela signifie aussi que $u\colon
+G'\to G$ est un noyau de~$v\colon G\to G''$, et que $G$ admet
+localement une section sur~$G''$.
+
+\subsection{}
+\label{XI.4.8}
+Il est \'evidemment tr\`es d\'esirable de continuer la suite
+exacte~\ref{XI.4.5} en introduisant les groupes de cohomologie
+sup\'erieurs $\H^i(X,G)$. Cela est possible en se pla\c cant dans
+le cadre de la \og Cohomologie de Weil\fg: on consid\`ere la
+cat\'egorie $\cal{B}$ des pr\'esch\'emas quasi-compacts sur~$S$,
+muni de l'ensemble $\cal{M}$ des morphismes fid\`element plats et
+quasi-compacts, qu'on appellera morphismes localisants. Un \og faisceau
+de Weil\fg ab\'elien sur~$S$ (ou mieux, sur~$(\cal{B},\cal{M})$) est
+alors un foncteur contravariant $\cal{F}$ de~$\cal{B}$ dans la
+cat\'egorie des groupes ab\'eliens, transformant sommes en
+produits, et une suite
+${\def\labelstyle{\scriptstyle}\xymatrix@C=.5cm{{T''=T'\times_TT'}\ar@<+2pt>[rr]^-{\pr_1,\pr_2}\ar@<-2pt>[rr]&&{T'}\ar[r]^f&{T}}}$, avec $f\in\cal{M}$, en un diagramme \emph{exact}
+d'ensembles $\xymatrix@C=.5cm{{\cal{F}(T)}\ar[r]&{\cal{F}(T')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\cal{F}(T'')}}$. Les faisceaux de Weil
+forment une cat\'egorie ab\'elienne \`a limites inductives
+exactes admettant un g\'en\'erateur, donc admettant suffisamment
+d'objets injectifs~\cite{XI.1}. Les foncteurs d\'eriv\'es droits du
+foncteur $\Gamma(\cal{F})=\cal{F}(S)$ sont alors not\'es
+$\H^i(S,\cal{F})$. D'autre part, tout $S$-groupe commutatif
+d\'efinit \'evidemment un faisceau de Weil (VIII~\ref{VIII.5.2}),
+dont le $\H^0$ et $\H^1$ ne sont autres que $\H^0(S,G)$ et
+$\H^1(S,G)$, ce qui permet de d\'efinir les autres $\H^i(S,G)$ de
+fa\c con raisonnable. On
+montre d'ailleurs qu'une suite exacte de~$S$-groupes d\'efinit une
+suite exacte de faisceaux de Weil, ce qui permet de retrouver et de
+prolonger la suite exacte~\ref{XI.4.5}\footnote{Pour une \'etude
+syst\'ematique de ce point de vue, \cf SGA~4~I~\`a~IX.}.
+
+\subsection{}
+\label{XI.4.9}
+Il serait indiqu\'e de d\'evelopper les variantes non commutatives
+de~\ref{XI.4.5} comme dans~\cite{XI.2}. Pour un d\'eveloppement
+syst\'ematique, dans le cadre qui convient, des diverses notions
+cohomologiques esquiss\'ees dans le pr\'esent num\'ero, nous
+renvoyons \`a un travail en pr\'eparation de
+J.\, \textsc{Giraud}\footnote{\Cf J.\, \textsc{Giraud}, 
+\emph{Cohomologie non abélienne},
+Springer-Verlag 1971.}.
+
+\section{Cas particuliers de fibr\'es principaux}
+\label{XI.5}
+
+Supposons maintenant que $S$ soit connexe, et muni d'un point
+g\'eom\'etrique~$a$, d'o\`u un groupe fondamental $\pi_1(S,a)$
+permettant de classifier les rev\^etements \'etales de~$S$: la
+cat\'egorie des rev\^etements \'etales de~$S$ est
+\'equivalente \`a la cat\'egorie des ensembles finis o\`u
+$\pi_1$ op\`ere contin\^ument. Il s'ensuit qu'un sch\'ema en
+groupes fini et \'etale $G$ sur~$S$ est d\'etermin\'e
+essentiellement par un groupe fini ordinaire $\cal{G}$, sur lequel
+$\pi_1$ op\`ere contin\^ument par automorphismes de groupe. Un
+rev\^etement \'etale $P$ de~$S$ o\`u $G$ op\`ere \`a droite
+est d\'etermin\'e essentiellement par un ensemble fini $\cal{P}$
+o\`u $\pi_1$ op\`ere contin\^ument (\`a gauche), et sur lequel
+$\cal{G}$ op\`ere \`a droite de fa\c con compatible avec les
+op\'erations de~$\pi_1$:
+$$
+s(p\cdot g)=(sp)\cdot(sg)\qquad \text{pour }s\in\pi_1,\
+p\in\cal{P},\ g\in\cal{G}.
+$$
+On v\'erifie que $P$ est un fibr\'e principal homog\`ene au sens
+de~\ref{XI.4.1} si et seulement si $\cal{P}$ est un ensemble principal
+homog\`ene sous~$\cal{G}$ (utiliser par exemple le
+crit\`ere~\ref{XI.4.2}). En d'autres termes, \emph{la catégorie
+des fibrés principaux homogènes sur~$S$ de groupe $G$ est
+équivalente à la catégorie des fibrés principaux
+homogènes de groupe $G$ dans la catégorie des ensembles finis
+où $\pi_1$ opère continûment.} On en d\'eduit en
+particulier une bijection canonique, fonctorielle en $G$:
+\begin{equation*}
+\label{eq:XI.5.etoile}
+\tag{$*$} \H^1(S,G)\isomto \H^1(\pi_1,\cal{G})\quoi,
+\end{equation*}
+o\`u
+le deuxi\`eme membre d\'esigne l'ensemble des classes, \`a
+isomorphisme pr\`es, des fibr\'es principaux homog\`enes sous
+$\cal{G}$ dans la cat\'egorie des ensembles finis o\`u $\pi_1$
+op\`ere (inutile d'ailleurs de pr\'eciser: contin\^ument),
+ensemble qui s'explicite de fa\c con bien connue comme ensemble
+quotient de l'ensemble $Z^1(\pi_1,G)$ des $1$-cocycles
+$\varphi:\pi_1\to \cal{G}$ (satisfaisant $\varphi(1)=1$,
+$\varphi(st)=\varphi(s)(s.\varphi(t))$) par le groupe $\cal{G}$ qui y
+op\`ere de fa\c con naturelle).
+
+\label{page-300}
+Un cas important est celui o\`u $\pi_1$ op\`ere trivialement dans~$\cal{G}$, \ie lorsque $G$ est un rev\^etement compl\`etement
+d\'ecompos\'e de~$S$, isomorphe \`a la somme de~$\cal{G}$
+exemplaires de~$S$; on \'ecrit alors aussi $\H^1(S,\cal{G})$ au lieu
+de~$\H^1(S,G)$, et cet ensemble est en correspondance biunivoque
+\eqref{eq:XI.5.etoile} avec $\H^1(\pi_1,\cal G)= \Hom(\pi_1,\cal{G})/$automorphismes int\'erieurs de~$\cal{G}$. On notera d'ailleurs que dans ce cas, un fibr\'e
+principal homog\`ene sur~$S$ de groupe $G$ n'est autre chose qu'un
+\emph{revêtement principal} de~$S$ de groupe $\cal{G}$
+(V~\ref{V.2.7}), et la correspondance biunivoque pr\'ec\'edente
+est celle qui se d\'eduit de la correspondance entre rev\^etements
+principaux de~$S$ de groupe~$\cal{G}$, \emph{ponctués} au-dessus
+de~$a$, et les homomorphismes continus de~$\pi_1(S,a)$ dans $\cal{G}$
+(\ref{V}~fin~du~\No \ref{V.5}).
+
+L'int\'er\^et de relier la th\'eorie des rev\^etements
+\'etales avec celle des fibr\'es principaux (d\'ej\`a
+implicite dans \textsc{A.\, Weil}, G\'en\'eralisation des Fonctions
+Ab\'eliennes, et explicit\'ee par \textsc{S.\, Lang} dans sa th\'eorie
+g\'eom\'etrique du corps de classes, \cf Serre~\cite{XI.5}), vient du fait
+que tout $S$-groupe qui est fini et \'etale sur~$S$ peut se plonger
+dans un $S$-groupe~$H$, affine et lisse sur~$S$, \`a fibres
+connexes, commutatif lorsque $G$ l'est de sorte que par la suite
+exacte~\ref{XI.4.5} (et \'eventuellement ses variantes non
+commutatives), la classification \og discr\`ete\fg des rev\^etements
+principaux de groupe $G$ peut s'\'etudier \`a l'aide de la
+classification \og continue\fg des fibr\'es principaux de groupe~$H$,
+et r\'eciproquement d'ailleurs. Pour l'id\'ee de la construction
+g\'en\'erale de l'immersion de~$G$ dans $H$ (assez peu
+utilis\'ee en pratique semble-t-il), se reporter \`a
+\cite[VI~2.8]{XI.5}. Nous nous contentons de d\'evelopper au \No suivant
+deux cas particuliers importants, d'ailleurs classiques. Nous y aurons
+besoin d'un r\'esultat auxiliaire:
+
+\begin{proposition}
+\label{XI.5.1}
+Soit
+$S$ un pr\'esch\'ema, $G$ un $S$-groupe isomorphe \`a
+$\Gl(n)_S$ (par exemple $\GG_{m\,S}$) ou $\GG_{a\,S}$, alors tout
+fibr\'e principal homog\`ene sous $G$ est localement trivial.
+\end{proposition}
+
+Pr\'ecisons que $\Gl(n)_S$ ($n$ entier $\geq 0$) d\'esigne le
+$S$-groupe qui repr\'esente le foncteur contravariant $T\mto
+\Gl(n,\Gamma(T,\cal{O}_T))$ en le $S$-pr\'esch\'ema~$T$, en
+particulier $\GG_{m\,S}$ (\og groupe multiplicatif sur~$S$\fg)
+repr\'esente le foncteur contravariant $T\mto
+\Gamma(T,\cal{O}_T^*)$, donc comme pr\'esch\'ema sur~$S$ est
+isomorphe \`a $\Spec {\cal{O}_S[t,t^{-1}]}$, o\`u $t$ est une
+ind\'etermin\'ee. De m\^eme $\GG_{a\,S}$ repr\'esente le
+foncteur contravariant $T\mto \Gamma(T,\cal{O}_T)$, il est donc
+isomorphe comme $S$-pr\'esch\'ema \`a $\Spec(\cal{O}_S[t])$,
+o\`u $t$ est une ind\'etermin\'ee. Notons que par d\'evissage,
+\ref{XI.5.1} redonne le r\'esultat de locale trivialit\'e de
+Rosenlicht, relatif au cas o\`u $G$ admet une \og suite de
+composition\fg dont les facteurs cons\'ecutifs sont des groupes du
+type envisag\'e ici. (Pour une \'etude plus fine des questions de
+locale trivialit\'e des fibr\'es principaux homog\`enes,
+\cf \cite{XI.7}~et~\cite{XI.3}).
+
+La premi\`ere assertion se d\'emontre en remarquant que
+$G(T)=\Aut(\cal{O}_T^n)$, et que les morphismes $S'\to S$ intervenant
+dans~\ref{XI.4.1} (\ie qui sont fid\`element plats et
+quasi-compacts) sont des morphismes de descente effective pour la
+cat\'egorie fibr\'ee des Modules localement isomorphes \`a
+$\cal{O}_T^n$, \ie localement libres de rang~$n$
+(VIII~\ref{VIII.1.12}). La deuxi\`eme se d\'emontre de fa\c con
+analogue, en notant que dans ce cas on a $G(T)=\Aut(\cal{E}_T)$,
+o\`u $\cal{E}_T$ est l'\emph{extension} triviale de~$\cal{O}_T$ par
+$\cal{O}_T$ (et o\`u les automorphismes bien entendu doivent
+respecter la structure d'extension), et que les morphismes $S'\to S$
+intervenant dans~\ref{XI.4.1} sont des morphismes de descente
+effective pour la cat\'egorie fibr\'ee des extensions de~$\cal{O}_T$ par $\cal{O}_T$ (comme il r\'esulte facilement de
+VIII~\ref{VIII.1.1}), et que de telles extensions sont automatiquement
+localement triviales.
+
+\begin{remarque}
+\label{XI.5.2}
+On notera que le m\^eme type de d\'emonstration s'applique au
+groupe symplectique $\Symp(2n)_S$, compte tenu qu'une forme
+altern\'ee sur un module localement isomorphe \`a
+$\cal{O}_S^{2n}$, qui est \og non d\'eg\'en\'er\'ee\fg
+\ie d\'efinit un isomorphisme de ce Module sur son dual, est
+localement isomorphe \`a la forme standard. Le r\'esultat pour le
+groupe orthogonal est par contre faux, d\'ej\`a si $S$ est le
+spectre d'un corps, car il peut y avoir des formes
+quadratiques sur un corps qui ne sont pas isomorphes \`a la forme
+standard. D'ailleurs on montre essentiellement dans \cite{XI.3} que les
+groupes $\Gl$, $\Symp$, $\GG_a$ et ceux qui se d\'evissent en tels
+groupes, sont \`a peu de choses pr\`es les seuls pour lesquels on
+ait un r\'esultat de trivialit\'e locale du type consid\'er\'e
+ici.
+\end{remarque}
+
+\begin{corollaire}
+\label{XI.5.3}
+On a des bijections canoniques
+$$
+\H^1(S,\GL(n)_S)\isomfrom \H^1(S,\GL(n,\cal{O}_S))\quoi,
+$$
+en particulier
+$$
+\H^1(S,\GG_{m\,S})\isomfrom \H^1(S,\cal{O}_S^*)\quoi,
+$$
+et
+$$
+\H^1(S,\GG_{a\,S})\isomfrom \H^1(S,\cal{O}_S)\quoi,
+$$
+o\`u les deuxi\`emes membres d\'esignent des cohomologies de
+l'espace topologique $S$ \`a coefficients dans des faisceaux
+ordinaires.
+\end{corollaire}
+
+En particulier, $\H^1(S,\GL(n)_S)$ s'identifie \`a l'ensemble des
+classes, \`a isomorphisme pr\`es, de Modules localement libres de
+rang $n$ sur~$S$, et $\H^1(S,\GG_{a\,S})$ s'identifie \`a l'ensemble
+des classes d'extensions du Module $\cal{O}_S$ par lui-m\^eme.
+
+\section[Application aux rev\^etements principaux]{Application aux rev\^etements principaux: th\'eories de
+Kummer et d'Artin-Schreier}
+\label{XI.6}
+
+
+\begin{proposition}
+\label{XI.6.1}
+Soient $S$ un pr\'esch\'ema, $n$ un entier $>0$, soit $u_n\colon
+\GG_{m\,S}\to\GG_{m\,S}$ l'homomorphisme de puissance \nieme, et
+$\bbmu_{n\,S}$
+\label{indnot:kb}son noyau. Alors $\bbmu_{n\,S}$ est fini et localement libre de
+rang $n$ sur~$S$, et il est \'etale sur~$S$ si et seulement si pour
+tout $s\in S$, la caract\'eristique de~$s$ est premi\`ere \`a
+$n$. La suite d'homomorphismes
+$$
+0\to \bbmu_{n\,S}\to\GG_{m\,S}\lto{u_n}\GG_{m\,S}\to 0
+$$
+est exacte au sens du \No \ref{XI.4}. (On l'appellera la \emph{suite exacte de
+Kummer}
+\index{Kummer (suite exacte de)|hyperpage}sur~$S$, relativement \`a l'entier~$n$).
+\end{proposition}
+
+On
+a
+$$
+\GG_m=\Spec\cal{O}_S[t,t^{-1}],
+$$
+et $u_n$ correspond \`a l'homomorphisme $u_n$ sur les
+$\cal{O}_S$-alg\`ebres affines, donn\'e par
+$$
+u_n(t)=t^n,
+$$
+d'autre part la section unit\'e de~$\GG_{m\,S}$ correspond \`a
+l'homomorphisme d'augmentation de~$\cal{O}_S$-alg\`ebres, donn\'e
+par
+$$
+\varepsilon(t)=1,
+$$
+dont le noyau est donc l'Id\'eal principal $(t-1)$. L'image de ce
+dernier par $u_n$ est donc l'Id\'eal principal $(1-t^n)$, et on
+trouve:
+$$
+\bbmu_{n\,S}=\Spec\cal{O}_S[t]/(1-t^n),
+$$
+ce qui montre en particulier que $\bbmu_{n\,S}$ est fini sur~$S$,
+et d\'efini par une Alg\`ebre sur~$S$ qui est libre de rang $n$,
+ayant la base form\'ee des $t^i$ ($0\leq i\leq n-1$). Pour qu'il soit
+\'etale en $s\in S$, il faut et il suffit que l'Alg\`ebre
+r\'eduite $k[t]/(1-t^n)$, o\`u $k=\kres(s)$, obtenue par adjonction
+formelle des racines \niemes de l'unit\'e \`a $k$, soit
+s\'eparable sur~$k$, \ie les racines de~$1-t^n$ dans une
+cl\^oture alg\'ebrique de~$k$ sont toutes distinctes, ce qui
+\'equivaut au fait que $n$ soit premier \`a la
+caract\'eristique. Enfin, pour montrer que la suite
+d'homomorphismes dans~\ref{XI.6.1} est exacte, on est ramen\'e en
+vertu du crit\`ere~\ref{XI.4.2} \`a prouver que
+$u_n$
+est fid\`element plat. On peut \'evidemment supposer $S$ affine
+d'anneau~$A$, donc $\GG_{m\,S}$ affine d'anneau $B=A[t,t^{-1}]$, et il
+suffit de v\'erifier que $u_n$ fait de~$B$ un module libre de rang
+$n$ sur~$B$, ou ce qui revient au m\^eme, que $u_n$ est injectif, et
+que $A[t,t^{-1}]$ est un module libre de rang $n$ sur~$A[t^n,t^{-n}]$. En effet, on v\'erifie facilement que les
+$t^i$ ($0\leq i\leq n-1$) forment une base de l'un sur l'autre, ce qui
+ach\`eve la d\'emonstration.
+
+\begin{definition}
+\label{XI.6.2}
+On
+appelle $\bbmu_{n\,S}$ le \emph{groupe de Kummer de rang $n$
+sur~$S$}, et on appelle \emph{revêtement principal kummérien
+de rang
+$n$ sur~$S$}
+tout fibr\'e principal homog\`ene sur~$S$ de groupe le groupe de
+Kummer de rang~$n$.
+\end{definition}
+
+L'ensemble de ces rev\^etements est un groupe, not\'e
+$\H^1(S,\bbmu_{n\,S})$ ou simplement $\H^1(S,\bbmu_n)$. On
+notera que la formation du groupe de Kummer de rang $n$ sur~$S$ est
+compatible avec l'extension de la base, donc que $\bbmu_{n\,S}$
+provient par extension de la base du \emph{groupe de Kummer absolu
+$\bbmu_n$} sur~$\Spec(\ZZ)$.
+
+D\'esignons par $(\ZZ/n\ZZ)_S$ le $S$-groupe d\'efini par le
+groupe fini ordinaire $\ZZ/n\ZZ$. Si~$G$ est un $S$-groupe quelconque,
+les homomorphismes de~$S$-groupes $u$ de~$(\ZZ/n\ZZ)_S$ dans $G$
+correspondent biunivoquement, et de fa\c con compatible avec le
+changement de base, aux sections de~$G$ sur~$S$ dont la puissance
+\nieme est la section unit\'e, en faisant correspondre \`a
+$u$ l'image par $u$ de la section de~$(\ZZ/n\ZZ)_S$ sur~$S$ d\'efini
+par le g\'en\'erateur $1\bmod n\ZZ$ de~$\ZZ/n\ZZ$. Ceci pos\'e:
+
+\begin{corollaire}
+\label{XI.6.3} Si $\bbmu_{n\,S}$ est \'etale sur~$S$, on
+obtient ainsi une correspondance biunivoque entre les isomorphismes de~$S$-groupes $(\ZZ/n\ZZ)_S\isomto\bbmu_{n\,S}$, et les sections de~$\cal{O}_S$ qui sont d'ordre $n$ exactement sur chaque composante
+connexe de~$S$ (une telle section s'appellera \og racine primitive
+\nieme de l'unit\'e sur~$S$\fg). Donc pour que
+$\bbmu_{n\,S}$ soit isomorphe en tant que $S$-groupe \`a
+$(\ZZ/n\ZZ)_S$, il faut et il suffit qu'il soit \'etale
+sur~$S$,
+\ie que les caract\'eristiques r\'esiduelles de~$S$ soient
+premi\`eres \`a $n$, et qu'il existe une racine primitive
+\nieme de l'unit\'e sur~$S$.
+\end{corollaire}
+
+Cela explique le r\^ole jou\'e dans la th\'eorie kumm\'erienne
+classique par l'hypoth\`ese que le corps de base (jouant le r\^ole
+de~$S$) soit de caract\'eristique premi\`ere \`a $n$ et
+contienne les racines \niemes de l'unit\'e, et par le choix
+d'une racine primitive \nieme de l'unit\'e. Une fois qu'on
+dispose du langage des sch\'emas, il n'y a plus lieu de s'embarrasser
+de ces hypoth\`eses, et il convient de raisonner directement sur~$\bbmu_n$ au lieu de~$\ZZ/n\ZZ$. Ainsi, la conjonction
+de~\ref{XI.6.1}, \ref{XI.4.5} et~\ref{XI.5.3} nous donne la relation
+g\'en\'erale suivante entre la th\'eorie des rev\^etements
+principaux kumm\'eriens et celle des groupes de Picard:
+
+\begin{proposition}
+\label{XI.6.4}
+Soient
+$S$ un pr\'esch\'ema, on a une suite exacte canonique
+$$
+\textstyle
+0\to\H^0(S,\bbmu_n)\to\H^0(S,\cal{O}^*_S)\to
+\H^0(S,\cal{O}^*_S)\to\H^1(S,\bbmu_n)\to
+\H^1(S,\cal{O}^*_S)\to\H^1(S,\cal{O}^*_S),
+$$
+d'o\`u, en posant
+$\H^1(S,\cal{O}_S^*)=\Pic(S)$,
+et en d\'esignant pour tout groupe ab\'elien $A$, par ${_n}A$ et
+$A_n$ les noyau et conoyau de la multiplication par $n$ dans $A$, la
+suite exacte:
+$$
+0\to\H^0(S,\cal{O}_S)^*_n\to\H^1(S,\bbmu_n)\to
+{{}_n\Pic}(S)\to 0.
+$$
+\end{proposition}
+
+Nous allons expliciter deux cas importants, o\`u l'un ou l'autre
+terme extr\^eme de cette suite exacte sont nuls:
+
+\begin{corollaire}
+\label{XI.6.5} Supposons ${}_n\Pic(S)=0$, (par exemple
+que $S$ soit le spectre d'un anneau local, ou d'un anneau factoriel),
+et soit $A$ l'anneau $\H^0(S,\cal{O}_S)$. Alors on a un isomorphisme
+canonique
+$$
+\H^1(S,\bbmu_n)\isomto A^*/{A^*}^n.
+$$
+\end{corollaire}
+
+C'est essentiellement l'\'enonc\'e classique de la th\'eorie de
+Kummer, lorsque $S$ est le spectre d'un corps.
+
+\begin{corollaire}
+\label{XI.6.6} Supposons que tout \'el\'ement de
+$\H^0(S,\cal{O}_S)$ soit une puissance \nieme, par exemple que
+$\H^0(S,\cal{O}_S)$ soit un compos\'e de corps alg\'ebriquement
+clos ou que $S$ soit r\'eduit et propre sur un corps
+alg\'ebriquement clos $k$. Alors on a un isomorphisme canonique
+$$
+\H^1(S,\bbmu_n)\isomto{}_n\Pic(S).
+$$
+\end{corollaire}
+
+En particulier, lorsque $S$ est propre et connexe sur un corps
+alg\'ebriquement clos $k$, cela met en relation le groupe
+fondamental de~$S$ avec les points d'ordre fini du sch\'ema de
+Picard $P$ de~$S$ sur~$k$; ainsi on aura un isomorphisme
+$$
+\Hom(\pi_1(S),\ZZ/n\ZZ)\simeq {_n P}(k)
+$$
+pour $n$ premier \`a la caract\'eristique, qui est souvent
+utilis\'e en g\'eom\'etrie
+alg\'ebrique. Comme application, lorsque la composante connexe $P^0$
+de~$P$ est un sch\'ema en groupes complet, de dimension $g$, on voit
+en utilisant les r\'esultats rappel\'es dans le \No \ref{XI.2}, et la
+finitude du groupe de torsion de
+N\'eron-Severi,
+que pour
+tout nombre premier $\ell$ premier \`a la caract\'eristique, la
+composante $\ell$-primaire du groupe fondamental $\pi_1(S)$ rendu
+ab\'elien est un module de type fini et de rang $2g$ sur l'anneau
+$\ZZ_\ell$ des entiers $\ell$-adiques (et d'ailleurs libre sauf pour
+un nombre fini au plus de valeurs de~$\ell$). Comme l'a remarqu\'e
+Serre, cela permet de prouver sous certaines conditions que lorsque
+$X$ est un sch\'ema plat et projectif sur~$S$ connexe, alors les
+sch\'emas de Picard des fibres de~$X$ ont toutes la m\^eme
+dimension, en appliquant le th\'eor\`eme de semicontinuit\'e
+(X~\ref{X.2.3}); l'argument de Serre s'applique d\`es que le
+sch\'ema de Picard de~$X$ sur~$S$ existe, et que les Picards
+connexes des fibres de~$X$ sur~$S$ sont des sch\'emas en groupes
+propres, par exemple lorsque les fibres g\'eom\'etriques de~$X$
+sur~$S$ sont normales ($X$ \'etant toujours plat et projectif
+sur~$S$), en particulier si $X$ est lisse et projectif sur~$S$.
+
+Soit maintenant $p$ un nombre premier, et supposons que $S$ soit un
+pr\'esch\'ema de caract\'eristique $p$, \ie tel que
+$p\cdot\cal{O}_S=0$. Alors l'homomorphisme de puissance \pieme
+dans $\cal{O}_S$ est additif, et le morphisme correspondant, obtenu en
+rempla\c cant $S$ par un~$T$ variable sur~$S$:
+$$
+F\colon\GG_{a\,S}\to\GG_{a\,S}
+$$
+est donc un homomorphisme de~$S$-groupes, qu'on appelle
+l'\emph{homomorphisme de Frobenius} (N.B. Un tel morphisme est
+d\'efini pour tout $S$-pr\'esch\'ema $G$ qui provient par
+extension de la base d'un pr\'esch\'ema $G_0$ sur le corps premier
+$\ZZ/p\ZZ$, et ce morphisme est un homomorphisme de groupes si $G_0$
+est un pr\'esch\'ema en groupes). Nous poserons:
+$$
+\wp=\id-F\colon\GG_{a\,S}\to\GG_{a\,S}.
+$$
+Consid\'erons d'autre part le $S$-groupe $(\ZZ/p\ZZ)_S$ d\'efini
+par le groupe fini ordinaire~$\ZZ/p\ZZ$, nous avons dit que pour tout
+$S$-groupe~$G$, les homomorphismes de~$S$-groupe de~$(\ZZ/p\ZZ)_S$
+dans $G$ correspondent biunivoquement aux sections de~$G$ sur~$S$ dont
+la puissance \pieme est la section unit\'e. Lorsque
+$G=\GG_{a\,S}$, elles correspondent
+donc aux sections quelconques de~$G$ sur~$S$. Prenant en particulier
+la section de~$\GG_{a\,S}$ sur~$S$ correspondant \`a la section
+unit\'e du faisceau d'anneaux $\cal{O}_S$, on trouve un
+homomorphisme de~$S$-groupes
+$$
+i\colon(\ZZ/p\ZZ)_S\to\GG_{a\,S}
+$$
+
+\begin{proposition}
+\label{XI.6.7} La suite d'homomorphismes de~$S$-groupes
+$$
+0\to(\ZZ/p\ZZ)_S\to\GG_{a\,S}\to \GG_{a\,S}\to 0
+$$
+est exacte (au sens du \No \ref{XI.4}). (On l'appelle la suite exacte
+\emph{d'Artin-Schreier} sur~$S$).
+\index{Artin-Schreier (suite exacte d')|hyperpage}\end{proposition}
+
+Il suffit de le prouver sur le corps premier $k=\ZZ/p\ZZ$. Il suffit
+de remarquer que l'homomorphisme $\wp^*\colon k[t]\to k[t]$ d\'efini
+par $\wp^*(t)=t-t^p$ fait de~$k[t]$ un module libre de rang $p$ sur~$k[t]$, de fa\c con pr\'ecise que $k[t]$ est un module libre sur~$k[s]$, o\`u $s=t-t^p$, ayant la base form\'ee des $t^i$ ($0\leq i\leq p-1$).
+
+On en conclut, utilisant \ref{XI.4.5} et~\ref{XI.5.3}:
+
+\begin{proposition}
+\label{XI.6.8} On a une suite exacte canonique:
+\begin{multline*}
+0\to\H^0(S,\ZZ/p\ZZ)\to\H^0(S,\cal{O}_S)\to\H^0(S,\cal{O}_S)\to
+\H^1(S,\ZZ/p\ZZ)\\
+\to\H^1(S,\cal{O}_S)\to\H^1(S,\cal{O}_S),
+\end{multline*}
+d'o\`u une suite exacte:
+$$
+0\to\H^0(S,\cal{O}_S)/\wp\H^0(S,\cal{O}_S)\to
+\H^1(S,\ZZ/p\ZZ)\to\H^1(S,\cal{O}_S)^F\to 0,
+$$
+(o\`u l'exposant $F$ dans le dernier terme signifie le sous-groupe
+des invariants par l'endomorphisme $F$, \'egal au noyau de
+$\wp=\id-F$).
+\end{proposition}
+
+Explicitons encore deux cas extr\^emes:
+
+\begin{corollaire}
+\label{XI.6.9} Supposons que $\H^1(S,\cal{O}_S)^F=0$, par exemple
+que $S$ soit un sch\'ema affine. Alors, posant
+$A=\H^0(S,\cal{O}_S)$, on a un isomorphisme canonique
+$$
+\H^1(S,\ZZ/p\ZZ)\isomto A/\wp A.
+$$
+\end{corollaire}
+
+C'est la \emph{théorie d'Artin-Schreier} dans la forme classique,
+du moins lorsque $A$ est le spectre d'un corps.
+
+\begin{corollaire}
+\label{XI.6.10}
+Supposons
+que $\wp\H^0(S,\cal{O}_S){=}\H^0(S,\cal{O}_S)$, par exemple
+que $\H^0(S,\cal{O}_S)$ soit un compos\'e de corps
+alg\'ebriquement clos, ou que $S$ soit propre sur un corps
+alg\'ebriquement clos. Alors on a un isomorphisme canonique:
+$$
+\H^1(S,\ZZ/p\ZZ)\isomto\H^1(S,\cal{O}_S)^F
+$$
+\end{corollaire}
+
+\begin{remarques}
+\label{XI.6.11}
+Le dernier \'enonc\'e est d\^u \`a
+J-P.\, Serre
+\cite{XI.9}. Il est
+possible \'egalement de d\'evelopper une th\'eorie analogue pour
+le groupe structural $\ZZ/p^n\ZZ$ pour $n$ quelconque, en utilisant au
+lieu de~$\GG_a$ le sch\'ema en groupes de Witt $\WW_n$, \cf \loccit On notera qu'en caract\'eristique $p>0$, la th\'eorie de
+Kummer ne donne plus de renseignement sur les rev\^etements
+principaux d'ordre $p$, puisque $\bbmu_p$ est alors un groupe
+\og infinit\'esimal\fg \ie radiciel sur la base, donc sans rapport
+direct avec $\ZZ/p\ZZ$; aussi \`a premi\`ere vue, la th\'eorie
+de ces rev\^etements n'est plus justiciable (lorsque $S$ est un
+sch\'ema propre sur un corps alg\'ebriquement clos pour fixer les
+id\'ees), de la th\'eorie du sch\'ema de Picard comme
+dans~\ref{XI.6.6}. N\'eanmoins, si on se rappelle que l'espace
+tangent de Zariski \`a l'origine dans
+$\mathbf{Pic}_{S/K}$\footnote{Pour la d\'efinition de
+$\mathbf{Pic}_{S/K}$, \cf A. Grothendieck, S\'em. Bourbaki \No 232
+(F\'evrier 1962).} s'identifie \`a $\H^1(S,\cal{O}_S)$, on
+constate que \emph{la connaissance du schéma en groupes
+${_p}\mathbf{Pic}_{S/k}$, noyau de la multiplication par $p$ dans
+$\mathbf{Pic}_{S/k}$, implique celle de~$\H^1(S,\ZZ/p\ZZ)$ aussi bien
+que celle de~$\H^1(S,\bbmu_p)$; on notera qu'elle implique aussi
+celle de~$\H^1(S,\bbalpha_p)$}, o\`u $\bbalpha_p$
+d\'esigne le sch\'ema en groupes infinit\'esimal sur le corps
+premier, noyau de~$F\colon\GG_a\to\GG_a$ (qui peut se d\'ecrire
+aussi comme le spectre de l'alg\`ebre enveloppante restreinte de la
+$p$-alg\`ebre de Lie triviale de dimension~$1$): en effet la suite
+exacte~\ref{XI.4.5} donne ici:
+$$
+\H^1(S,\bbalpha_p)\simeq\Ker
+(F\colon\H^1(S,\cal{O}_S)\to\H^1(S,\cal{O}_S)),
+$$
+et plus g\'en\'eralement, d\'esignant par $\bbalpha_{p^n}$
+le noyau dans $\GG_a$ du \nieme it\'er\'e de~$F$, on aura
+$$
+\H^1(S,\bbalpha_{p^n})\simeq\Ker(F^n\colon\H^1(S,\cal{O}_S)\to
+\H^1(S,\cal{O}_S)).
+$$
+
+En fait, la connaissance de~${_p}\mathbf{Pic}_{S/k}$ \'equivaut \`a
+celle de~$\H^1(S,G)$ pour tout groupe alg\'ebrique
+commutatif fini annul\'e par $p$, plus g\'en\'eralement, la
+connaissance de~${_{p^n}}\mathbf{Pic}_{S/k}$ \'equivaut \`a celle
+de~$\H^1(S,G)$ pour tout groupe alg\'ebrique commutatif fini $G$
+annul\'e par $p^n$, en vertu du th\'eor\`eme suivant qui englobe
+dans le cas envisag\'e \`a la fois la th\'eorie de Kummer et
+celle de Artin-Schreier:
+
+Soit $G$ un groupe alg\'ebrique fini sur~$k$,
+$D(G)=\SheafHom_{k\textup{-groupes}}(G,\GG_m)$ son \emph{dual de
+Cartier} (dont l'alg\`ebre affine est port\'ee par l'espace
+vectoriel dual de l'alg\`ebre affine de~$G$, \ie par
+l'hyperalg\`ebre de~$G$ au sens de Dieudonn\'e-Cartier), alors on
+a un isomorphisme canonique:
+\begin{equation}\label{eqXI.6.11}\tag{$*$}
+\H^1(S,G)\simeq\Hom_{k\textup{-groupes}}(D(G),\mathbf{Pic}_{S/k}).
+\end{equation}
+(N.B. $S$ est un sch\'ema propre sur~$k$ alg\'ebriquement clos, tel
+que $\H^0(S,\cal{O}_S)=k$). Cette formule peut encore s'exprimer en
+disant que le \og vrai groupe fondamental\fg de~$S$ auquel il \'etait
+fait allusion au \No \ref{XI.2}, rendu ab\'elien, est isomorphe \`a la
+limite projective des $D(P_i)$, o\`u $P_i$ parcourt les sous-groupes
+alg\'ebriques \emph{finis} de~$\mathbf{Pic}_{S/k}$, qu'on notera
+$T^\bbullet(\mathbf{Pic}_{X/k})$. Lorsque $S$ est une vari\'et\'e
+ab\'elienne, on a vu dans~\ref{XI.2.1} que ce groupe est
+\'egalement isomorphe au \og vrai\fg module de Tate
+$T_{\bbullet}(S)=\varprojlim\, {{_n}S}$, et l'isomorphisme
+\eqref{eqXI.6.11} s'\'ecrit alors de fa\c con plus frappante
+$$
+\Ext^1(A,G)\simeq\Hom(D(G),B),
+$$
+$A$ \'etant une vari\'et\'e ab\'elienne, $B$ sa duale, $G$ un
+groupe alg\'ebrique fini sur~$k$. Les r\'esultats qu'on vient
+d'indiquer peuvent se g\'en\'eraliser d'ailleurs au cas o\`u $k$
+est remplac\'e par un pr\'esch\'ema de base quelconque, et \`a
+d'autres groupes de coefficients $G$ que des groupes finis.
+\end{remarques}
+
+\begin{thebibliography}{10}{XI.7}
+
+\bibitem[1]{XI.1} A.\, \textsc{Grothendieck},
+Sur quelques points d'alg\`ebre homologique,
+T\^ohoku Math.~J.\ \textbf{9} (1957) p.\, 119--221.
+
+\bibitem[2]{XI.2} A.\, \textsc{Grothendieck}, A general theory of fibre spaces with
+structure sheaf, University of Kansas, 1955.
+
+\bibitem[3]{XI.3} A.\, \textsc{Grothendieck}, Torsion homologique et sections
+rationnelles, S\'eminaire \hbox{Chevalley}, 16 juin 1958.
+
+\bibitem[4]{XI.4} S.\, \textsc{Lang}, Abelian varieties, Interscience tracts in pure
+and applied mathematics, \No 7, New York.
+
+\bibitem[5]{XI.5}
+J-P.\,\textsc{Serre}, Groupes alg\'ebriques et corps de classes,
+Actualit\'es Scient. et Ind.\ \No 1264, Hermann, Paris, 1959.
+
+\bibitem[6]{XI.6}
+J-P.\,\textsc{Serre}, Groupes proalg\'ebriques,
+Publications Math\'ematiques de l'IHES \textbf{7} (1960), p.\, 1--67.
+
+\bibitem[7]{XI.7}
+J-P.\,\textsc{Serre}, Espaces fibr\'es alg\'ebriques,
+S\'eminaire Chevalley, 21 avril 1958.
+
+\bibitem[8]{XI.8}
+J-P.\,\textsc{Serre}, Quelques propri\'et\'es des
+vari\'et\'es ab\'eliennes en
+caract\'eristique~$p$, Amer.\ J.\ Math. \textbf{80} (1958), p.\, 715--739.
+
+\bibitem[9]{XI.9}
+J-P.\,\textsc{Serre}, Sur la topologie des vari\'et\'es
+alg\'ebriques en
+caract\'eristique~$p$,
+Symposium Internacional de Topologia
+Algebraica, 1958.
+
+\bibitem[10]{XI.10}
+J-P.\,\textsc{Serre}, On the fundamental group of a unirational
+variety,
+J.~London Math.\ Soc.\ \textbf{34} (1959), p.\, 481--484.
+\end{thebibliography}
+
+
+\chapterspace{-4}

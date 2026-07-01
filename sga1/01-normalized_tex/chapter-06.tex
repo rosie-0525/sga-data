@@ -1,0 +1,2410 @@
+\chapter{Cat\'egories fibr\'ees et descente}
+\label{VI}
+
+\setcounter{section}{-1}
+\section{Introduction}
+
+Contrairement \`a ce qui avait \'et\'e annonc\'e dans
+l'introduction \`a l'expos\'e pr\'ec\'edent, il s'est
+av\'er\'e impossible de faire de la descente dans la cat\'egorie
+des pr\'esch\'emas, m\^eme dans des cas particuliers, sans avoir
+d\'evelopp\'e au pr\'ealable avec assez de soin le langage de la
+descente dans les cat\'egories g\'en\'erales.
+
+La notion de \og descente\fg fournit le cadre g\'en\'eral pour tous
+les proc\'ed\'es de \og recollement\fg d'objets, et par
+cons\'equent de \og recollement\fg de cat\'egories. Le cas le plus
+classique de recollement est relatif \`a la donn\'ee d'un espace
+topologique $X$ et d'un recouvrement de~$X$ par des ouverts $X_i$; si
+on se donne pour tout $i$ un espace fibr\'e (disons) $E_i$ au-dessus
+de~$X_i$, et pour tout couple $(i,j)$ un isomorphisme $f_{ji}$ de
+$E_i|X_{ij}$ sur~$E_j|X_{ij}$ (o\`u on pose $X_{ij}=X_i\cap X_j$),
+satisfaisant une condition de transitivit\'e bien connue (qu'on
+\'ecrit de fa\c con abr\'eg\'ee $f_{kj}f_{ji}=f_{ki}$), on
+sait qu'il existe un espace fibr\'e $E$ sur~$X$, d\'efini \`a
+isomorphisme pr\`es par la condition que l'on ait des isomorphismes
+$f_i\colon E|X_i\isomto E_i$, satisfaisant les relations
+$f_{ji}=f_jf_i^{-1}$ (avec l'abus d'\'ecriture habituel). Soit $X'$
+l'espace somme des $X_i$, qui est donc un espace fibr\'e au-dessus
+de~$X$ (\ie muni d'une application continue $X'\to X$). On peut
+interpr\'eter de fa\c con plus concise la donn\'ee des $E_i$
+comme un espace fibr\'e $E'$ sur~$X'$, et la donn\'ee des $f_{ji}$
+comme un isomorphisme entre les deux images inverses (par les deux
+projections canoniques) $E''_1$ et $E''_2$ de~$E'$ sur~$X''=X'\times_X
+X'$, la condition de recollement pouvant alors s'\'ecrire comme une
+identit\'e entre isomorphismes d'espaces fibr\'es $E'''_1$ et
+$E'''_3$ sur le produit fibr\'e triple $X'''=X'\times_X X'\times_X
+X'$ (o\`u $E'''_i$ d\'esigne l'image inverse de~$E'$ sur~$X'''$
+par la projection canonique d'indice $i$). La construction de~$E$,
+\`a partir de~$E'$ et de~$f$, est un cas typique
+de proc\'ed\'e de \og descente\fg. D'ailleurs, partant d'un espace
+fibr\'e $E$ sur~$X$, on dit que $X$ est \og localement trivial\fg, de
+fibre $F$, s'il existe un recouvrement ouvert $(X_i)$ de~$X$ tel que
+les $E|X_i$ soient isomorphes \`a $F\times X_i$, ou ce qui revient
+au m\^eme, tel que l'image inverse $E'$ de~$E$ sur~$X'=\coprod_i
+X_i$ soit isomorphe \`a $X'\times F$.
+
+Ainsi, la notion de \og recollement\fg d'objets comme celle de
+\og localisation\fg d'une propri\'et\'e, sont li\'ees \`a
+l'\'etude de certains types de \og changements de base\fg $X'\to X$.
+En G\'eom\'etrie Alg\'ebrique, bien d'autres types de changement
+de base, et notamment les morphismes $X'\to X$ fid\`element plats,
+doivent \^etre consid\'er\'es comme correspondant \`a un
+proc\'ed\'e de \og localisation\fg relativement aux
+pr\'esch\'emas, ou autres objets, \og au-dessus\fg de~$X$. Ce type de
+localisation est utilis\'e tout autant que la simple localisation
+topologique (qui en est un cas particulier d'ailleurs). Il en est de
+m\^eme (dans une moindre mesure) en G\'eom\'etrie Analytique.
+
+La plupart des d\'emonstrations, se r\'eduisant \`a des
+v\'erifications, sont omises ou simplement esquiss\'ees; le cas
+\'ech\'eant nous pr\'ecisons les diagrammes moins \'evidents
+qui s'introduisent dans une d\'emonstration.
+
+\section{Univers, cat\'egories, \'equivalence de cat\'egories}
+\label{VI.1}
+
+Pour \'eviter certaines difficult\'es logiques, nous admettrons
+ici la notion d'\emph{Univers}, qui est un ensemble \og assez gros\fg
+pour qu'on n'en sorte pas par les op\'erations habituelles de la
+th\'eorie des ensembles; un \og \emph{axiome des Univers}\fg garantit
+que tout objet se trouve dans un Univers. Pour des d\'etails, voir
+un livre en pr\'eparation par C.\, Chevalley et le conf\'erencier\footnote{Les auteurs d\'efinitifs sont C.\, Chevalley et P.\, Gabriel. Le livre doit sortir en l'an 3000. En attendant, \cf aussi SGA~4 I.}. Ainsi, le sigle~$\Ens$
+\label{indnot:fb}d\'esigne, non pas la cat\'egorie de tous les ensembles (notion
+qui n'a pas de sens), mais la cat\'egorie des ensembles qui se
+trouvent dans un Univers donn\'e (que nous ne pr\'eciserons pas
+ici dans la notation). De m\^eme, $\Cat$
+\label{indnot:fc}d\'esignera la cat\'egorie des cat\'egories se trouvant dans
+l'Univers en question, les \og morphismes\fg d'un objet $X$ de~$\Cat$
+dans un autre $Y$, \'etant par d\'efinition les \emph{foncteurs}
+de~$X$ dans $Y$.
+
+Si
+$\cal{C}$ est une cat\'egorie, nous d\'esignons par $\Ob(\cal{C})$
+\label{indnot:fd}\emph{l'ensemble des objets} de~$\cal{C}$, par~$\Fl(\cal{C})$
+\label{indnot:fe}\emph{l'ensemble des flèches} de~$\cal{C}$ (ou morphismes de
+$\cal{C}$). Nous \'ecrirons donc $X\in\Ob(\cal{C})$ en \'evitant
+l'abus de notation courant $X\in\cal{C}$. Si $\cal{C}$ et $\cal{C}'$
+sont deux cat\'egories, un \emph{foncteur} de~$\cal{C}$ dans
+$\cal{C}'$ sera toujours ce qu'on appelle commun\'ement un foncteur
+\emph{covariant} de~$\cal{C}$ dans $\cal{C}'$; sa donn\'ee implique
+celle de la cat\'egorie d'arriv\'ee et la cat\'egorie de
+d\'epart, $\cal{C}$ et $\cal{C}'$. Les foncteurs de~$\cal{C}$ dans
+$\cal{C}'$ forment un ensemble, not\'e $\Hom(\cal{C},\cal{C}')$, qui
+est l'ensemble des objets d'une cat\'egorie not\'ee
+$\SheafHom(\cal{C},\cal{C}')$.
+\label{indnot:ff}Par d\'efinition, un \emph{foncteur contravariant} de~$\cal{C}$ dans
+$\cal{C}'$ est un foncteur de la \emph{catégorie opposée}
+$\cal{C}^\circ$
+\label{indnot:fg}de~$\cal{C}$ dans~$\cal{C}'$.
+
+Nous admettrons la notion de \emph{limite projective} et de
+\emph{limite inductive} d'un foncteur $F\colon \cal{I}\to \cal{C}$, et
+en particulier les cas particuliers les plus courants de cette notion:
+produits cart\'esiens et produits fibr\'es, notions duales de
+sommes directes et de sommes amalgam\'ees, et les propri\'et\'es
+formelles habituelles de ces op\'erations.
+
+Par exemple, dans la cat\'egorie $\Cat$ introduite plus haut, les
+limites projectives (relatives \`a des cat\'egories $\cal{I}$ se
+trouvant dans l'Univers choisi) existent; l'ensemble d'objets
+(\resp l'ensemble de fl\`eches) de la cat\'egorie limite
+projective $\cal{C}$ des $\cal{C}_i$, s'obtient en prenant la limite
+projective des ensembles d'objets (\resp des ensembles de fl\`eches)
+des cat\'egories $\cal{C}_i$. Le cas le plus connu est celui du
+produit d'une famille de cat\'egories. Nous utiliserons constamment
+par la suite le produit fibr\'e de deux cat\'egories sur une
+troisi\`eme.
+
+Pour tout ce qui concerne les cat\'egories et foncteurs, en
+attendant le livre en pr\'eparation d\'ej\`a signal\'e, voir
+\cite{VI.1} (qui est n\'ecessairement fort incomplet, m\^eme en ce qui
+concerne les g\'en\'eralit\'es esquiss\'ees dans le
+pr\'esent num\'ero).
+
+Prenons cette occasion pour expliciter la notion d'\'equivalence de
+cat\'egories,
+\index{equivalence@\'equivalence de cat\'egories|hyperpage}qui n'est pas expos\'ee de fa\c con satisfaisante
+dans~\cite{VI.1}. Un foncteur $F\colon\cal{C}\to \cal{C}'$ est dit
+\emph{fidèle}
+\index{fidele (foncteur)@fid\`ele (foncteur)|hyperpage}(\resp \emph{pleinement fidèle})
+\index{pleinement fid\`ele (foncteur)|hyperpage}si pour tout couple d'objets $S$, $T$ de~$\cal{C}$, l'application
+$u\mto F(u)$ de~$\Hom(S,T)$ dans $\Hom(F(S),F(T))$ est injective
+(\resp bijective). On dit que $F$ est une \emph{équivalence} de
+cat\'egories si
+$F$ est pleinement fid\`ele, et si de plus tout objet $S'$ de
+$\cal{C}'$ est isomorphe \`a un objet de la forme $F(S)$. On montre
+qu'il revient au m\^eme de dire qu'il existe un foncteur $G$ de
+$\cal{C}'$ dans $\cal{C}$ \emph{quasi-inverse de} $F$, \iev tel que
+$GF$ soit isomorphe \`a $\id_{\cal{C}}$. Lorsqu'il en est ainsi, la
+donn\'ee d'un foncteur $G\colon\cal{C}'\to \cal{C}$ et d'un
+isomorphisme $\varphi\colon GF\to \id_{\cal{C}'}$ \'equivaut \`a
+la donn\'ee, pour tout $S'\in\Ob(\cal{C}')$, d'un couple $(S,u)$
+form\'e d'un objet $S$ de~$\cal{C}$ et d'un isomorphisme $u\colon
+F(S)\to S'$, soit $(G(S),\varphi(S))$. (Avec ces notations, il existe
+un foncteur unique $\cal{C}'\to\cal{C}$ ayant l'application donn\'ee
+$S\mto G(S)$ comme application-objets, et tel que l'application
+$S\mto \varphi(S)$ soit un homomorphisme de foncteurs $FG\to
+\id_{\cal{C}'}$). Enfin, si $G$ est un foncteur quasi-inverse de~$F$,
+et si on choisit des isomorphismes $\varphi\colon
+FG\isomto\id_{\cal{C}'}$ et $\psi\colon GF\isomto\id_{\cal{C}}$, alors
+les deux conditions de compatibilit\'es sur~$\varphi$, $\psi$
+\'enonc\'ees dans \cite[I.1.2]{VI.1} sont en fait \'equivalentes l'une
+\`a l'autre, et pour tout isomorphisme $\varphi$ choisi, il existe
+un isomorphisme $\psi$ unique tel que lesdites conditions soient
+satisfaites.
+
+\section{Cat\'egories sur une autre}
+\label{VI.2}
+
+Soit $\cal{E}$ une cat\'egorie dans~$\Univ$, c'est donc un objet
+de~$\Cat$, et on peut consid\'erer la cat\'egorie
+$\Cat_{/\cal{E}}$
+\label{indnot:fh}des \og objets de~$\Cat$ au-dessus de~$\cal{E}$\fg. Un objet de cette
+cat\'egorie est donc un foncteur
+$$
+p\colon \cal{F}\to\cal{E}
+$$
+On dit aussi que la cat\'egorie~$\cal{F}$, munie d'un tel foncteur,
+est une \emph{catégorie au-dessus de}~$\cal{E}$, ou une
+$\cal{E}$\emph{-catégorie}. On appellera donc $\cal{E}$-foncteur
+d'une cat\'egorie $\cal{F}$ sur~$\cal{E}$ dans une cat\'egorie
+$\cal{G}$ sur~$\cal{E}$, un foncteur
+$$
+f\colon\cal{F}\to\cal{G}
+$$
+tel que
+$$
+qf=p
+$$
+o\`u $p$ et $q$ sont les foncteurs-projection pour $\cal{F}$
+\resp $\cal{G}$. L'ensemble des $\cal{E}$-foncteurs $f$ de~$\cal{F}$
+dans $\cal{G}$ est donc en correspondance biunivoque avec l'ensemble
+des fl\`eches d'origine $\cal{F}$ et d'extr\'emit\'e $\cal{G}$
+dans~$\Cat_{/\cal{E}}$, sans
+pourtant qu'on ait l\`a une identit\'e (puisque la donn\'ee d'un
+$f$ comme dessus ne d\'etermine pas $\cal{F}$ et $\cal{G}$ en tant
+que cat\'egories sur~$\cal{E}$); mais bien entendu, comme dans toute
+autre cat\'egorie~$\cal{C}_{/S}$, on fera couramment l'abus de
+langage consistant \`a identifier les $\cal{E}$-foncteurs (au sens
+explicit\'e plus haut) \`a des fl\`eches dans une
+cat\'egorie~$\Cat_{/\cal{E}}$.
+
+On d\'esignera par
+$$
+\Hom_{\cal{E}}(\cal{F},\cal{G})
+$$
+l'ensemble des $\cal{E}$-foncteurs de~$\cal{F}$ dans~$\cal{G}$. Bien
+entendu, un compos\'e de~$\cal{E}$-foncteurs est un
+$\cal{E}$-foncteur (la composition en question correspondant par
+d\'efinition \`a la composition des fl\`eches
+dans~$\Cat_{/\cal{E}}$).
+
+Consid\'erons maintenant deux $\cal{E}$-foncteurs
+$$
+f,g\colon \cal{F}\to\cal{G}
+$$
+et un homomorphisme de foncteurs:
+$$
+u\colon f\to g
+$$
+On dit que $u$ est un $\cal{E}$-\emph{homomorphisme} ou un
+\og \emph{homomorphisme de~$\cal{E}$-foncteurs}\fg, si pour tout
+$\xi\in\Ob(\cal{F})$, on a
+$$
+q(u(\xi))=\id_{p(\xi)} \quoi\text{,}
+$$
+en paroles: posant
+$S=p(\xi)=qf(\xi)=qg(\xi)\in\Ob(\cal{E})$,
+le morphisme
+$$
+u(\xi)\colon f(\xi)\to g(\xi)
+$$
+dans $\cal{G}$ est un $\id_S$-morphisme. (De fa\c con
+g\'en\'erale, pour tout morphisme $\alpha\colon T \to S$
+dans~$\cal{E}$, et toute cat\'egorie $\cal{G}$ au-dessus
+de~$\cal{E}$, un morphisme $v$ dans $\cal{G}$ est appel\'e un
+$\alpha$-\emph{morphisme} si $q(v)=\alpha$, $q$ d\'esignant le
+foncteur projection $\cal{G}\to \cal{E}$). Si on a un troisi\`eme
+$\cal{E}$-foncteur $h\colon \cal{F}\to \cal{G}$ et un
+$\cal{E}$-homomorphisme $v\colon g\to h$, alors $vu$ est \'egalement
+un $\cal{E}$-homomorphisme. Ainsi,
+\emph{les $\cal{E}$-foncteurs de~$\cal{F}$ dans~$\cal{G}$, et
+les $\cal{E}$-homomorphismes de tels, forment une sous-catégorie
+de la catégorie $\SheafHom(\cal{F},\cal{G})$ de tous les foncteurs
+de~$\cal{F}$ dans~$\cal{G}$, qu'on appellera la catégorie des
+$\cal{E}$-foncteurs de~$\cal{F}$ dans $\cal{G}$ et qu'on notera}
+$$
+\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})
+$$
+\label{indnot:fi}C'est aussi la sous-cat\'egorie noyau du couple de foncteurs
+$$
+\xymatrix@C=.5cm{{R,S\colon\mathbf{Hom}(\cal{F},\cal{G})}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathbf{Hom}(\cal{F},\cal{E})}}\quoi\text{,}
+$$
+o\`u $R$ est le foncteur constant d\'efini par l'objet $p$ de
+$\SheafHom(\cal{F},\cal{E})$, et o\`u $S$ est le foncteur $f\mto
+q\circ f$ d\'efini par $q\colon\cal{G}\to\cal{E}$.
+
+Pour finir ces g\'en\'eralit\'es, il reste \`a d\'efinir les
+accouplements naturels entre les cat\'egories
+$\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ par composition de
+$\cal{E}$-foncteurs. En d'autres termes, on veut d\'efinir un
+\og foncteur composition\fg:
+\begin{equation*}
+\label{eq:VI.2.i}
+\tag{i} {\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})\times
+\SheafHom_{\cal{E}/-}(\cal{G},\cal{H})\to
+\SheafHom_{\cal{E}/-}(\cal{F},\cal{H})}
+\end{equation*}
+lorsque $\cal{F}$, $\cal{G}$, $\cal{H}$ sont trois cat\'egories
+sur~$\cal{E}$, de telle fa\c con que ce foncteur induise, pour les
+objets, l'application de composition $(f,g)\mto gf$ de
+$\cal{E}$-foncteurs $f\colon\cal{F}\to\cal{G}$ et $g\colon \cal{G}\to
+\cal{H}$. Pour ceci, rappelons qu'on d\'efinit un foncteur
+canonique:
+\begin{equation*}
+\label{eq:VI.2.ii}
+\tag{ii}
+{\SheafHom(\cal{F},\cal{G})\times\SheafHom(\cal{G},\cal{H})\to
+\SheafHom(\cal{F},\cal{H})}
+\end{equation*}
+qui, pour les objets, n'est autre que l'application de composition
+$(f,g)\mto gf$ de foncteurs, et qui transforme une fl\`eche
+$(u,v)$,~o\`u
+$$
+u\colon f\to f'\quoi,\quad v\colon g\to g'
+$$
+sont des fl\`eches dans $\SheafHom(\cal{F},\cal{G})$ \resp dans
+$\SheafHom(\cal{G},\cal{H})$, en la fl\`eche
+$$
+v*u\colon gf\to g'f'
+$$
+\label{indnot:fj}d\'efinie par la relation:
+$$
+v*u(\xi)=v(f'(\xi))\cdot g(u(\xi))=g'(u(\xi))\cdot v(f(\xi))
+$$
+Il est bien connu que l'on obtient bien ainsi un homomorphisme de~$gf$
+dans~$g'f'$, et que (pour $f,g$ et $u,v$ variables) on obtient ainsi
+un foncteur~\eqref{eq:VI.2.ii}, \ie qu'on a
+\begin{equation*}
+\label{eq:VI.2.I}
+\tag{I} {\id_g*\id_f=\id_{gf}\quoi,}
+\end{equation*}
+\begin{equation*}
+\label{eq:VI.2.II}
+\tag{II} {(v'*u')\circ(v*u)=(v'\circ v)*(u'\circ u)}
+\end{equation*}
+Rappelons aussi qu'on a une formule d'associativit\'e pour les
+accouplements canoniques~\eqref{eq:VI.2.ii}, qui s'exprime d'une part
+par l'associativit\'e $(hg)f=h(gf)$ de la composition de foncteurs,
+et d'autre part par la formule
+\begin{equation*}
+\label{eq:VI.2.III}
+\tag{III} {(w*v)*u=w*(v*u)}
+\end{equation*}
+pour les produits de composition d'homomorphismes de foncteurs (o\`u
+$u\colon f\to f'$ et $v\colon g\to g'$ sont comme dessus, et o\`u on
+suppose donn\'e de plus un homomorphisme $w\colon h\to h'$ de
+foncteurs $h,h'\colon \cal{H}\to\cal{K}$). Je dis maintenant que
+\emph{lorsque~$\cal{F}$, $\cal{G}$ sont des $\cal{E}$-catégories,
+le foncteur composition canonique}~\eqref{eq:VI.2.ii} \emph{induit un
+foncteur}~\eqref{eq:VI.2.i}. Comme on sait d\'ej\`a que le
+compos\'e de deux $\cal{E}$-foncteurs est un $\cal{E}$-foncteur,
+cela revient \`a dire que \emph{lorsque $u\colon f\to f'$ et
+$v\colon g\to g'$ sont des homomorphismes de~$\cal{E}$-foncteurs,
+alors $v*u\colon gf\to g'f'$ est également un homomorphisme de
+$\cal{E}$-foncteurs.} Cela r\'esulte en effet trivialement des
+d\'efinitions. Comme les accouplements~\eqref{eq:VI.2.i} sont
+induits par les accouplements~\eqref{eq:VI.2.ii}, ils satisfont \`a
+la m\^eme propri\'et\'e d'associativit\'e, exprim\'ee aussi
+dans les formules $(hg)f=h(gf)$ et $(w*v)*u=w*(v*u)$ pour des
+$\cal{E}$-foncteurs et des $\cal{E}$-homomorphismes de
+$\cal{E}$-foncteurs.
+
+Pour compl\'eter le formulaire~\eqref{eq:VI.2.I},
+\eqref{eq:VI.2.II}, \eqref{eq:VI.2.III}, rappelons aussi les formules:
+\begin{equation*}
+\label{eq:VI.2.IV}
+\tag{IV} {v*\id_{\cal{F}}=v\quad\text{et}\quad\id_{\cal{G}}*u=u}\quoi,
+\end{equation*}
+o\`u
+pour simplifier on \'ecrit $v*f$ ou $u*g$ au lieu de~$v*u$, lorsque
+$u$ \resp $v$ est l'automorphisme identique de~$f$ \resp $g$.
+
+De la d\'efinition des accouplements~\eqref{eq:VI.2.i} r\'esulte
+que $\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ \emph{est un foncteur en
+$\cal{F}$,~$\cal{G}$,
+de la catégorie produit
+${\Cat_{/\cal{E}}}^\circ\times\Cat_{/\cal{E}}$ dans la
+catégorie~$\Cat$}. Si en effet $g\colon \cal{G}\to\cal{G}_1$ est
+un $\cal{E}$-foncteur, \ie un objet de
+$\SheafHom_{\cal{E}/-}(\cal{G},\cal{G}_1)$, alors faisant
+dans~\eqref{eq:VI.2.i} $\cal{H}=\cal{G}_1$, il lui correspond un
+foncteur
+$$
+g_*\colon\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})\to
+\SheafHom_{\cal{E}/-}(\cal{F},\cal{G}_1)
+$$
+On d\'efinit de la fa\c con analogue, pour un $\cal{E}$-foncteur
+$f\colon \cal{F}_1\to \cal{F}$, un foncteur
+$$
+f^*:\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})\to
+\SheafHom_{\cal{E}/-}(\cal{F}_1,\cal{G})
+$$
+Pour abr\'eger, on d\'esigne ces foncteurs aussi par les sigles
+$f\mto g\circ f$ \resp $g\mto g\circ f$ (qui d\'esignent
+seulement, en fait, les applications correspondantes sur les ensembles
+d'objets). Il r\'esulte de la propri\'et\'e d'associativit\'e
+indiqu\'ee plus haut que de cette fa\c con, on obtient bien comme
+annonc\'e un foncteur
+$\Cat_{/\cal{E}}^\circ\times\Cat_{/\cal{E}}\to\Cat$.
+
+\section{Changement de base dans les cat\'egories sur~$\mathcal{E}$}
+\label{VI.3}
+
+Comme dans $\Cat$ les limites projectives (relativement \`a des
+cat\'egories $\cal{I}$ \'el\'ements de~$\Univ$) existent, il en
+est de m\^eme dans $\Cat_{/\cal{E}}$, en particulier les produits
+cart\'esiens y existent, qui s'interpr\`etent comme des produits
+fibr\'es dans~$\Cat$. Conform\'ement aux notations
+g\'en\'erales, si $\cal{F}$ et $\cal{G}$ sont des cat\'egories
+au-dessus de~$\cal{E}$, on d\'esigne par
+$$
+\cal{F}\times_{\cal{E}}\cal{G}
+$$
+\label{indnot:fk}leur produit dans~$\Cat_{/\cal{E}}$, \ie leur produit fibr\'e
+au-dessus de~$\cal{E}$ dans~$\Cat$,
+en tant que cat\'egorie au-dessus de~$\cal{E}$. Ainsi,
+$\cal{F}\times_{\cal{E}} \cal{G}$ est muni de deux $\cal{E}$-foncteurs
+$\pr_1$ et $\pr_2$, qui d\'efinissent, pour toute cat\'egorie
+$\cal{H}$ au-dessus de~$\cal{E}$, une bijection
+$$
+\Hom_{\cal{E}}(\cal{H},\cal{F}\times_{\cal{E}}\cal{G})\isomto
+\Hom_{\cal{E}}(\cal{H},\cal{F})\times\Hom_{\cal{E}}(\cal{H},\cal{G}).
+$$
+Cette bijection provient d'ailleurs d'un isomorphisme de
+cat\'egories
+$$
+\SheafHom_{\cal{E}/-}(\cal{H},\cal{F}\times_{\cal{E}}
+\cal{G})\isomto\SheafHom_{\cal{E}/-}(\cal{H},\cal{F})\times
+\SheafHom_{\cal{E}/-}(\cal{H},\cal{G})
+$$
+en prenant les ensembles d'objets des deux membres, o\`u le foncteur
+\'ecrit est celui qui a pour composantes les foncteurs $h\mto
+\pr_1\circ h$ et $h\mto \pr_2\circ h$ du premier membre dans les deux
+facteurs du second. On laisse au lecteur le soin de v\'erifier qu'on
+obtient bien ainsi un isomorphisme (le fait analogue \'etant vrai,
+plus g\'en\'eralement, chaque fois qu'on a une limite projective
+de cat\'egories --- et non seulement dans le cas d'un produit
+fibr\'e).
+
+Rappelons d'ailleurs qu'on a (comme il a \'et\'e dit dans
+le~\No \ref{VI.1}):
+\begin{eqnarray*}
+\Ob(\cal{F}\times_\cal{E}\cal{G})&=&
+\Ob(\cal{F})\times_{\Ob(\cal{E})}\Ob(\cal{G})\\
+\Fl(\cal{F}\times_\cal{E}\cal{G})&=&
+\Fl(\cal{F})\times_{\Fl(\cal{E})}\Fl(\cal{G})\quoi,
+\end{eqnarray*}
+la composition des fl\`eches se faisant d'ailleurs composante par
+composante.
+
+Dans la suite, nous consid\'erons un foncteur
+$$
+\lambda\colon\cal{E}'\to\cal{E}
+$$
+et pour toute cat\'egorie $\cal{F}$ au-dessus de~$\cal{E}$, on
+consid\`ere $\cal{F}\times_\cal{E}\cal{E}'$ comme une cat\'egorie
+au-dessus de~$\cal{E}'$ gr\^ace \`a $\pr_2$; en d'autres termes,
+nous interpr\'etons l'op\'eration \og produit fibr\'e\fg comme une
+op\'eration \emph{\og changement de base\fg,} le foncteur
+$\lambda\colon\cal{E}'\to\cal{E}$ prenant le nom de \emph{\og foncteur
+de changement de base\fg.}
+\index{changement de base (foncteur)|hyperpage}\index{foncteur changement de base|hyperpage}Conform\'ement aux faits g\'en\'eraux bien connus, on obtient
+ainsi un foncteur, dit
+\emph{foncteur changement de base} pour $\lambda$:
+$$
+\lambda^*\colon\Cat_{/\cal{E}}\to\Cat_{/\cal{E}'}\quoi,
+$$
+\label{indnot:fl}(adjoint du foncteur \og restriction de la base\fg qui, \`a toute
+cat\'egorie $\cal{F}'$ au-dessus de~$\cal{E}'$, de foncteur
+projection~$p'$, associe~$\cal{F}'$, consid\'er\'e comme
+cat\'egorie au-dessus de~$\cal{E}$ par le foncteur~$p=\lambda
+p'$). Comme il est bien connu dans le cas g\'en\'eral d'un
+foncteur changement de base dans une cat\'egorie, le foncteur
+changement de base \og commute aux limites projectives\fg, et en
+particulier \og transforme\fg produits fibr\'es sur~$\cal{E}$ en
+produits fibr\'es sur~$\cal{E}'$.
+
+Soient $\cal{F}$ et $\cal{G}$ deux cat\'egories au-dessus
+de~$\cal{E}$, on va d\'efinir un \emph{isomorphisme canonique}:
+\begin{multline*}
+\label{eq:VI.3.i}
+\tag{i}
+\SheafHom_{\cal{E}'/-}(\cal{F}',\cal{G}')\isomto
+\SheafHom_{\cal{E}/-}(\cal{F}\times_{\cal{E}}\cal{E}',\cal{G})\\
+\text{où }\cal{F}'=\cal{F}\times_{\cal{E}}\cal{E}'\text{, }
+\cal{G}'=\cal{G}\times_{\cal{E}}\cal{E}'.
+\end{multline*}
+Pour ceci, consid\'erons le foncteur
+$$
+\pr_1\colon\cal{G}'=\cal{G}\times_{\cal{E}}\cal{E}'\to \cal{G}\quoi,
+$$
+et d\'efinissons~\eqref{eq:VI.3.i} par
+$$
+F\mto \pr_1\circ F\quoi,
+$$
+qui a priori d\'esigne un foncteur
+\begin{equation*}
+\label{eq:VI.3.ii}
+\tag{ii} {\SheafHom(\cal{F}',\cal{G}')\to\SheafHom(\cal{F}',\cal{G})}
+\end{equation*}
+Il faut donc v\'erifier seulement que ce dernier induit un foncteur
+pour les sous-cat\'egories~\eqref{eq:VI.3.i}, et que ce dernier est
+un isomorphisme. Que~\eqref{eq:VI.3.ii} induise une bijection
+$$
+\Hom_{\cal{E}'/-}(\cal{F}',\cal{G}')\isomto
+\Hom_{\cal{E}/-}(\cal{F}\times_{\cal{E}}\cal{E}',\cal{G})
+$$
+est la propri\'et\'e caract\'eristique du foncteur changement de
+base. Il reste donc \`a
+prouver que si $F$, $G$ sont des $\cal{E}'$-foncteurs
+$\cal{F}'\to\cal{G}'$, alors \emph{l'application}
+$$
+u\mto \pr_1\circ u
+$$
+\emph{induit une bijection}
+$$
+\Hom_{\cal{E}'}(F,G)\isomto\Hom_{\cal{E}}(\pr_1\circ F,\pr_1\circ
+G)\quoi.
+$$
+La v\'erification de ce fait est imm\'ediate, et laiss\'ee au
+lecteur.
+
+Il r\'esulte de cet isomorphisme~\eqref{eq:VI.3.i}, et de la fin du
+num\'ero pr\'ec\'edent, que
+$$
+\SheafHom_{\cal{E}'/-}(\cal{F}\times_{\cal{E}}\cal{E}',\cal{G}
+\times_{\cal{E}}\cal{E}')
+$$
+\emph{peut être considéré comme un foncteur en}
+$\cal{E}',\cal{F},\cal{G}$, \emph{de la catégorie}
+$\Cat_{/\cal{E}}^\circ\times\Cat_{/\cal{E}}^\circ\times\Cat_{/\cal{E}}$
+\emph{dans la catégorie}~$\Cat$, isomorphe au foncteur d\'efini
+par l'expression
+$\SheafHom_{\cal{E}/-}(\cal{F}\times_{\cal{E}}\cal{E}',\cal{G})$. En
+particulier, pour $\cal{F}$,~$\cal{G}$ fix\'es, on obtient un
+foncteur en $\cal{E}'$, $\cal{E}'\to
+\SheafHom_{\cal{E}''/-}(\cal{F}',\cal{G}')=
+\SheafHom_{\cal{E}'/-}(\cal{F}\times_{\cal{E}}
+\cal{E}',\cal{G}\times_{\cal{E}}\cal{E}')$, et en particulier le
+$\cal{E}$-foncteur de projection $\lambda\colon \cal{E}'\to\cal{E}$
+d\'efinit un morphisme \ie un foncteur
+$$
+\lambda^*_{\cal{F},\cal{G}}\colon
+\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})\to
+\SheafHom_{\cal{E}'/-}(\cal{F}',\cal{G}')
+$$
+que nous allons expliciter. Pour les ensembles d'objets des deux
+membres, c'est l'application
+$$
+f\mto f'=f\times_{\cal{E}}\cal{E}'
+$$
+qui exprime la d\'ependance fonctorielle de
+$\cal{F}\times_{\cal{E}}\cal{E}'$ de l'objet $\cal{F}$
+sur~$\cal{E}$. D'autre part, consid\'erons deux $\cal{E}$-foncteurs
+$$
+f,g\colon\cal{F}\to \cal{G}
+$$
+et un homomorphisme de~$\cal{E}$-foncteurs
+$$
+u\colon f\to g\quoi,
+$$
+on
+va expliciter l'homomorphisme de~$\cal{E}'$-foncteurs correspondant:
+$$
+u'\colon f'\to g'\quoi.
+$$
+Pour tout
+$$
+\xi'=(\xi,S')\in\Ob(\cal{F}')
+$$
+avec
+$$
+\xi\in\Ob(\cal{F}),\quad S'\in\Ob(\cal{E}'),\quad p(\xi)=\lambda(S')=S
+$$
+le morphisme
+$$
+u'(\xi')\colon f'(\xi')=(f(\xi),S')\to g'(\xi')=(g(\xi),S')\quad
+\text{dans } \cal{G}'
+$$
+est d\'efini par la formule
+$$
+u'(\xi')=(u(\xi),\id_{S'})
+$$
+(ce qui est bien un $S'$-morphisme dans~$\cal{G}'$, car
+$q(u(\xi))=\lambda(\id_{S'})=\id_S$).
+
+Consid\'erons maintenant un $\cal{E}$-foncteur quelconque
+$$
+\lambda'\colon\cal{E}''\to\cal{E}'
+$$
+et le foncteur correspondant
+$$
+\SheafHom_{\cal{E}'/-}(\cal{F}\times_{\cal{E}}\cal{E}',
+\cal{G}\times_{\cal{E}}\cal{E}')\to
+\SheafHom_{\cal{E}''/-}(\cal{F}\times_{\cal{E}}\cal{E}'',
+\cal{G}\times_{\cal{E}}\cal{E}'')\quoi,
+$$
+je dis que ce foncteur n'est autre que le foncteur qu'on obtient par
+le proc\'ed\'e pr\'ec\'edent, en partant de~$\cal{F}'$ et
+$\cal{G}'$ sur~$\cal{E}'$ et en consid\'erant $\cal{E}''$ comme une
+cat\'egorie sur~$\cal{E}'$, compte tenu des isomorphismes de
+\emph{\og transitivité de changement de base\fg}:
+$$
+\cal{F}'\times_{\cal{E}'}\cal{E}''\isomto
+\cal{F}''=\cal{F}\times_{\cal{E}}\cal{E}''\quad
+\text{et}\quad\cal{G}'\times_{\cal{E}'}\cal{E}''\isomto\cal{G}''
+=\cal G\times_{\cal E}\cal E''\quoi,
+$$
+qui impliquent un isomorphisme canonique
+$$
+\SheafHom_{\cal{E}''/-}(\cal{F}'\times_{\cal{E}'}\cal{E}'',
+\cal{G}'\times_{\cal{E}'}\cal{E}'')\isomto
+\SheafHom_{\cal{E}''/-}(\cal{F}\times_{\cal{E}}\cal{E}'',
+\cal{G}\times_{\cal{E}}\cal{E}'')
+$$
+La
+v\'erification de cette compatibilit\'e est imm\'ediate, et
+laiss\'ee au lecteur.
+
+Les foncteurs qu'on vient de d\'efinir sont compatibles avec les
+accouplements d\'efinis au num\'ero pr\'ec\'edent, de fa\c con pr\'ecise, si $\cal{F}$, $\cal{G}$,~$\cal{H}$ sont des
+cat\'egories au-dessus de~$\cal{E}$ et si on pose
+$$
+\cal{F}'=\cal{F}\times_{\cal{E}}\cal{E}'\quoi,\quad \cal{G}'=
+\cal{G}\times_{\cal{E}}\cal{E}'\quoi,\quad \cal{H}'=
+\cal{H}\times_{\cal{E}}\cal{E}'\quoi,
+$$
+on a commutativit\'e dans le diagramme de foncteurs suivant:
+$$
+\xymatrix{{\mathbf{Hom}_{\cal{E}/-}(\cal{F},\cal{G})\times
+\mathbf{Hom}_{\cal{E}/-}(\cal{G},\cal{H})}\ar[r]\ar[d]_{\lambda^*_{\cal{F},\cal{G}}\times \lambda^*_{\cal{G},\cal{H}}}&{\mathbf{Hom}_{\cal{E}/-}(\cal{F},\cal{H})}\ar[d]^{\lambda^*_{\cal{F},\cal{H}}}\\{\mathbf{Hom}_{\cal{E}'/-}(\cal{F}',\cal{G}')\times
+\mathbf{Hom}_{\cal{E}'/-}(\cal{G}',\cal{H}')}\ar[r]&{\mathbf{Hom}_{\cal{E}'/-}(\cal{F}',\cal{H}')}}
+$$
+o\`u les fl\`eches horizontales sont les foncteurs-composition
+d\'efinis au num\'ero pr\'ec\'edent. Cette commutativit\'e
+s'exprime par les formules
+$$
+(gf)'=g'f'
+$$
+pour $f\in\Hom_{\cal{E}}(\cal{F},\cal{G})$,
+$g\in\Hom_{\cal{E}}(\cal{G},\cal{H})$, (formule qui exprime simplement
+la fonctorialit\'e du changement de base), et la formule
+$$
+(v*u)'=v'*u'
+$$
+lorsque $u\colon f\to f_1$ est une fl\`eche de
+$\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ et $v\colon g\to g_1$ une
+fl\`eche de~$\SheafHom_{\cal{E}/-}(\cal{G},\cal{H})$. La
+v\'erification de cette formule r\'esulte facilement des
+d\'efinitions.
+
+Dans la suite, nous nous int\'eresserons surtout \`a
+$\SheafHom_{\cal{E}}(\cal{F},\cal{G})$ (et certaines
+sous-cat\'egories remarquables de celle-ci) lorsque
+$\cal{F}=\cal{E}$, et introduisons pour cette raisons une notation
+sp\'eciale:
+$$
+\bf{\Gamma}(\cal{G}/\cal{E})=
+\SheafHom_{\cal{E}}(\cal{E},\cal{G})\quoi,\quad
+\Gamma(\cal{G}/\cal{E})=\Ob(\bf{\Gamma}(\cal{G}/\cal{E}))=
+\Hom_{\cal{E}}(\cal{E},\cal{G})\quoi.
+$$
+\label{indnot:fm}
+\begin{remarquesstar}
+Lorsque
+$\cal{E}$ est une cat\'egorie ponctuelle,
+\ie $\Ob(\cal{E})$ et $\Fl(\cal{E})$ r\'eduits \`a un seul
+\'el\'ement, ce qui signifie aussi que $\cal{E}$ est un objet
+final de la cat\'egorie~$\Cat$, alors la donn\'ee d'une
+cat\'egorie sur~$\cal{E}$ est \'equivalente \`a la donn\'ee
+d'une cat\'egorie tout court, (car il y aura un foncteur unique de
+$\cal{F}$ dans~$\cal{E}$). De fa\c con plus pr\'ecise,
+$\Cat_{/\cal{E}}$ est alors isomorphe \`a~$\Cat$. De plus, les
+cat\'egories $\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ ne sont alors
+autres que les $\SheafHom(\cal{F},\cal{G})$. Rappelons alors que la
+formule fondamentale
+$$
+\Hom(\cal{H},\SheafHom(\cal{F},\cal{G}))\isomto
+\Hom(\cal{F}\times\cal{H},\cal{G})
+$$
+(isomorphisme fonctoriel en les trois arguments qui y figurent),
+permet d'interpr\'eter $\SheafHom(\cal{F},\cal{G})$ axiomatiquement,
+en termes internes \`a la cat\'egorie~$\Cat$, de sorte que le
+formulaire connu des cat\'egories $\SheafHom$ appara\^it comme un
+cas particulier d'un formulaire valable dans les cat\'egories telles
+que~$\Cat$, o\`u des \og objets $\SheafHom$\fg (d\'efinis par la
+formule pr\'ec\'edente) existent. Il y a une interpr\'etation
+analogue de~$\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ lorsqu'on suppose
+\`a nouveau $\cal{E}$ quelconque, par la formule
+$$
+\Hom(\cal{H},\SheafHom_{\cal{E}/-}(\cal{F},\cal{G}))\isomto
+\Hom_{\cal{E}}(\cal{F}\times\cal{H},\cal{G})
+$$
+(isomorphisme fonctoriel en les trois arguments). De cette fa\c con,
+les propri\'et\'es formelles expos\'ees dans les \No \ref{VI.2},~\ref{VI.3} sont
+des cas particuliers de r\'esultats plus g\'en\'eraux, valables
+dans les cat\'egories o\`u les objets
+$\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ (lorsque $\cal{F}$,~$\cal{G}$
+sont deux objets de la cat\'egorie au-dessus d'un troisi\`eme~$\cal{E}$) existent.
+\end{remarquesstar}
+
+\section[Cat\'egories-fibres]{Cat\'egories-fibres; \'equivalence de
+$\mathcal{E}$-cat\'egories}
+\label{VI.4}
+
+Soit~$\cal{F}$ une cat\'egorie sur~$\cal{E}$, et soit $S \in
+\Ob({\cal{E}})$. On appelle \emph{catégorie-fibre de}~$\cal{F}$
+en~$S$
+\index{cat\'egorie-fibre|hyperpage}la sous-cat\'egorie~$\cal{F}_S$
+\label{indnot:fn}de~$\cal{F}$ image r\'eciproque de la
+sous-cat\'egorie ponctuelle de~$\cal{E}$ d\'efinie par $S$. Donc
+les objets de~$\cal{F}_S$ sont les objets~$\xi$ de~$\cal{F}$ tels que
+$p(\xi)=S$, ses morphismes sont les morphismes~$u$ de~$\cal{F}$ tels
+que $p(u)=\id_S$, \ie les $S$-morphismes dans $\cal{F}$. Bien
+entendu,~$\cal{F}_S$ est canoniquement isomorphe au produit fibr\'e
+$\cal{F} \times_{\cal{E}} \{S\}$, o\`u~$\{S\}$ d\'esigne la
+sous-cat\'egorie ponctuelle de~$\cal{E}$ d\'efinie par~$S$, munie
+de son foncteur d'inclusion dans~$\cal{E}$. Il en r\'esulte (compte
+tenu de la transitivit\'e du changement de base) que si on fait le
+changement de base $\lambda\colon \cal{E}' \to \cal{E}$, alors pour
+tout $S' \in \Ob(\cal{E}')$, \emph{la projection $\pr_1\colon
+\cal{F}' = \cal{F} \times_{\cal{E}} \cal{E}' \to \cal{F}$ induit un
+isomorphisme}
+$$
+\cal{F}'_{S'} \to \cal{F}_S \qquad (\text{où $S=\lambda(S')$}).
+$$
+
+\begin{proposition}
+\label{VI.4.1} Soit $f\colon \cal{F} \to \cal{G}$ un
+$\cal{E}$-foncteur. Si~$f$ est pleinement fid\`ele, alors pour tout
+changement de base $\cal{E}' \to \cal{E}$, le foncteur correspondant
+$f' \colon \cal{F}' = \cal{F} \times_{\cal{E}} \cal{E}' \to \cal{G}' =
+\cal{G} \times_{\cal{E}} \cal{E}'$ est pleinement fid\`ele.
+\end{proposition}
+
+La v\'erification est imm\'ediate; plus g\'en\'eralement, on
+peut montrer que toute limite projective de
+foncteurs
+pleinement
+fid\`eles
+(ici,~$f$ et les foncteurs identiques
+dans~$\cal{E},\cal{E}'$) est un foncteur pleinement fid\`ele.
+
+On notera que l'assertion analogue \`a 4.1,
+o\`u
+\og pleinement fid\`ele\fg est remplac\'ee par \og \'equi\-va\-lence
+de cat\'egories\fg, est fausse, d\'ej\`a pour~$\cal{G}=\cal{E}$.
+Cependant:
+
+\begin{proposition}
+\label{VI.4.2} Soit $f \colon \cal{F} \to \cal{G}$ un
+$\cal{E}$-foncteur. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] Il existe un $\cal{E}$-foncteur $g \colon \cal{G} \to
+\cal{F}$ et des $\cal{E}$-isomorphismes
+$$
+gf \isomto \id_{\cal{F}}, \quad fg \isomto \id_{\cal{G}}
+.
+$$
+\item[(ii)] Pout toute cat\'egorie $\cal{E}'$ sur~$\cal{E}$, le
+foncteur
+$$
+f' = f \times_{\cal{E}} \cal{E}' \colon \cal{F}' = \cal{F}
+\times_{\cal{E}} \cal{E}' \to \cal{G}'=\cal{G} \times_{\cal{E}}
+\cal{E}'
+$$
+est une \'equivalence de cat\'egories.
+\item[(iii)]
+$f$ est une \'equivalence de cat\'egories, et pout tout $S \in
+\Ob(\cal{E})$, le foncteur $f_S \colon \cal{F}_S \to \cal{G}_S$ induit
+par~$f$ est une \'equivalence de cat\'egories.
+\item[(iii~bis)] $f$ est pleinement fid\`ele, et pour tout $S \in
+\Ob(\cal{E})$ et tout
+$\eta\in\Ob(\cal{G}_S)$,
+il existe un $\xi \in \Ob(\cal{F}_S)$ et un $S$-isomorphisme
+$u \colon f(\xi) \to \eta$.
+\end{enumerate}
+\end{proposition}
+
+\subsubsection*{D\'emonstration} \'Evidemment (i) implique que~$f$ est une
+\'equivalence de cat\'egories (notion qui se d\'efinit par la
+m\^eme condition, mais o\`u les isomorphismes de foncteurs ne sont
+pas astreints \`a \^etre des $\cal{E}$-morphismes). D'autre part,
+il r\'esulte des fonctorialit\'es du num\'ero pr\'ec\'edent
+que la condition (i) est conserv\'ee apr\`es changement de
+base~$\cal{E}'\to\cal{E}$. Il s'ensuit que (i)$\To$(ii).
+\'Evidemment (ii)$\To$(iii), car il suffit de faire $\cal{E}'
+= \cal{E}$ et~$\cal{E}'=\{S\}$. Il est encore plus trivial que
+(iii)$\To$(iii~bis), reste \`a prouver que (iii~bis)$\To$(i). Pour ceci, choisissons pour tout $\eta \in
+\Ob(\cal{G})$ un $g(\eta) \in \Ob(\cal{F})$ et un isomorphisme
+$u(\eta)\colon f(g(\eta))\to\eta$ qui soit tel que~$q(u(\eta)) =
+\id_S$, o\`u~$S=q(\eta)$. C'est possible gr\^ace \`a la
+deuxi\`eme condition (iii~bis). Comme il est connu et imm\'ediat,
+le fait que~$f$ est pleinement fid\`ele implique que~$g$ peut de
+fa\c con unique \^etre consid\'er\'e comme un foncteur
+de~$\cal{G}$ dans~$\cal{F}$, de fa\c con que les~$u(\eta)$
+d\'efinissent un homomorphisme (donc un isomorphisme) fonctoriel
+$u\colon fg \isomto \id_{\cal{G}}$. De plus, par construction~$g$ est
+un $\cal{E}$-foncteur et~$u$ un $\cal{E}$-homomorphisme. Aux
+donn\'ees pr\'ec\'edentes correspond alors un isomorphisme
+fonctoriel $v\colon gf \to \id_{\cal{F}}$, d\'efini par la condition
+que $f*v=u*f$, et on constate tout de suite que c'est \'egalement un
+$\cal{E}$-morphisme, cqfd.
+\begin{definition}
+\label{VI.4.3} Si les conditions pr\'ec\'edentes sont
+v\'erifi\'ees, on dit que~$f$ est une \'equivalence de
+cat\'egories sur~$\cal{E}$, ou une $\cal{E}$-\'equivalence.
+\end{definition}
+
+\begin{corollaire}
+\label{VI.4.4} Supposons que le foncteur projection $p\colon
+\cal{F}\to\cal{E}$ soit un foncteur transportable, \ie que pour tout
+isomorphisme $\alpha\colon T \to S$ dans~$\cal{E}$ et tout objet~$\xi$
+dans~$\cal{F}_T$, il existe un isomorphisme~$u$ dans~$\cal{F}$ de
+source~$\xi$ tel que~$p(u)=\alpha$. Alors tout $\cal{E}$-foncteur
+$f\colon \cal{F}\to\cal{G}$ qui est une \'equivalence de
+cat\'egories, est une $\cal{E}$-\'equivalence.
+\end{corollaire}
+
+R\'esulte
+du crit\`ere (iii~bis).
+
+\begin{corollaire}
+\label{VI.4.5} Soit $f\colon \cal{F}\to\cal{G}$ une
+$\cal{E}$-\'equivalence. Alors pour toute cat\'egorie~$\cal{H}$
+sur~$\cal{E}$, les foncteurs correspondants:
+\begin{align*}
+\SheafHom_{\cal{E}/-}(\cal{G},\cal{H}) & \to
+\SheafHom_{\cal{E}/-}(\cal{F},\cal{H}) \\
+\SheafHom_{\cal{E}/-}(\cal{H},\cal{F})
+& \to \SheafHom_{\cal{E}/-}(\cal{H},\cal{G})
+\end{align*}
+(\cf \No \ref{VI.2}) sont des \'equivalences de cat\'egories.
+\end{corollaire}
+
+Cela r\'esulte du crit\`ere (i) par le raisonnement habituel.
+
+\section{Morphismes cart\'esiens, images inverses, foncteurs
+car\-t\'e\-siens}
+\label{VI.5}
+
+Soit~$\cal{F}$ une cat\'egorie sur~$\cal{E}$, de
+foncteur-projection~$p$.
+\enlargethispage{.5cm}
+
+\begin{definition}
+\label{VI.5.1} Consid\'erons un morphisme
+$$
+\alpha\colon \eta\to\xi
+$$
+dans~$\cal{F}$, et soient
+$$
+S = p(\xi), \quad T = p(\eta), \quad f=p(\alpha).
+$$
+On dit que~$\alpha$ est un \emph{morphisme cartésien}
+\index{cart\'esien (morphisme)|hyperpage}si pour tout $\eta' \in \Ob(\cal{F}_T)$ et tout $f$-morphisme $u\colon
+\eta'\to\xi$, il existe un $T$-morphisme unique $\overline{u}\colon
+\eta'\to\eta$ tel que~$u=\alpha\circ\overline{u}$.
+\end{definition}
+
+Cela signifie donc que pour tout $\eta'\in\Ob(\cal{F}_T)$,
+l'application $v \mto \alpha\circ v$:
+\begin{equation}
+\tag{i} \Hom_T(\eta',\eta) \to \Hom_f(\eta',\xi)
+\end{equation}
+est bijective. Cela signifie aussi que le couple $(\eta,\alpha)$
+\emph{représente le foncteur en~$\eta'$} $\cal{F}^{\circ}_T \to
+\Ens$ du deuxi\`eme membre. Si pour un morphisme $f\colon T \to S$
+dans~$\cal{E}$ donn\'e, et un $\xi \in \Ob(\cal{F}_S)$ donn\'e, il
+existe un tel couple $(\eta,\alpha)$, \ie un morphisme
+cart\'esien~$\alpha$ dans~$\cal{F}$ de but~$\xi$, tel que
+$p(\alpha)=f$, alors~$\eta$ est d\'etermin\'e dans $\cal{F}_T$
+\`a isomorphisme unique pr\`es. On dit alors que \emph{l'image
+inverse de~$\xi$ par~$f$ existe}, et un objet~$\eta$ de~$\cal{F}_T$
+muni d'un $f$-morphisme cart\'esien $\alpha\colon \eta \to \xi$ est
+appel\'e \emph{une image inverse de~$\xi$ par~$f$}.
+\index{image inverse|hyperpage}Souvent on suppose
+choisie
+une telle image inverse chaque fois qu'elle existe ($\cal{F}$
+\'etant fix\'e); on notera alors l'image inverse par des symboles
+tels que~$f^*_{\cal{F}}(\xi)$, ou simplement~$f^*(\xi)$
+\label{indnot:fo}ou~$\xi \times_S T$
+lorsque ces notations n'entra\^inent pas
+de confusions;
+le morphisme canonique $\alpha\colon \eta \to \xi$ sera alors
+not\'e, dans ce qui suit, par~$\alpha_f(\xi)$.
+\label{indnot:fp}Si pour tout $\xi \in \Ob(\cal{F}_S)$, l'image inverse de~$\xi$
+par~$f$ existe, on dira aussi que \emph{le foncteur image inverse
+par~$f$ dans~$\cal{F}$ existe}, et~$f^*(\xi)$ devient alors un
+\emph{foncteur covariant en~$\xi$}, de~$\cal{F}_S$ dans~$\cal{F}_T$.
+Ceci provient du fait que le deuxi\`eme membre dans (i) d\'epend
+de fa\c con covariante de~$\xi$, \ie de fa\c con pr\'ecise
+d\'esigne un foncteur de~$\cal{F}^{\circ}_T \times \cal{F}_S$
+dans~$\Ens$. Cette d\'ependance fonctorielle pour~$f^*(\xi)$
+s'explicite ainsi: consid\'erons des $f$-morphismes cart\'esiens
+$$
+\alpha\colon \eta \to \xi, \quad \alpha'\colon \eta' \to \xi'
+$$
+et un $S$-morphisme $\lambda\colon \xi \to \xi'$, alors il existe un
+$T$-morphisme et un seul $\mu\colon \eta\to\eta'$ tel que l'on ait
+$$
+\alpha' \mu = \lambda \alpha
+$$
+(comme il r\'esulte du fait que~$\alpha'$ est cart\'esien).
+
+Notons aussi le fait imm\'ediat suivant: consid\'erons un
+diagramme commutatif
+$$
+\xymatrix@C=1.2cm{{\xi}\ar[d]_-{\lambda}&{\eta}\ar[l]_-{\alpha}\ar[d]^-{\mu}\\{\xi'}&{\eta'}\ar[l]_-{\alpha'}}
+$$
+dans~$\cal{F}$,
+o\`u~$\alpha$ et~$\alpha'$ sont des $f$-morphismes, et~$\lambda$ un
+$S$-isomorphisme,~$\mu$ un $T$-isomorphisme. \emph{Pour que~$\alpha$
+soit cartésien, il faut et il suffit que~$\alpha'$ le
+soit}.
+
+\begin{definition}
+\label{VI.5.2} Un $\cal{E}$-foncteur $F\colon \cal{F}\to\cal{G}$ est
+appel\'e un \emph{foncteur cartésien}
+\index{cart\'esien (foncteur)|hyperpage}s'il transforme morphismes cart\'esiens en morphismes
+cart\'esiens. On d\'esigne par $\SheafHom_\cart(\cal{F},\cal{G})$
+\label{indnot:fq}la sous-cat\'egorie pleine de
+$\SheafHom_{\cal{E}/-}(\cal{F},\cal{G})$ form\'ee des foncteurs
+cart\'esiens.
+
+Par exemple, consid\'erant~$\cal{E}$ comme une cat\'egorie
+sur~$\cal{E}$ gr\^ace au foncteur identique, tout morphisme
+de~$\cal{E}$ est cart\'esien, donc un foncteur cart\'esien
+de~$\cal{E}$ dans~$\cal{F}$ est un foncteur section $F\colon
+\cal{E}\to\cal{F}$ qui transforme tout morphisme de~$\cal{E}$ en un
+morphisme cart\'esien; un tel foncteur s'appelle une \emph{section
+cartésienne} de~$\cal{F}$ sur~$\cal{E}$.
+\end{definition}
+
+\begin{proposition}
+\label{VI.5.3} \textup{(i)}~Un foncteur $F\colon \cal{F} \to \cal{G}$ qui est une
+$\cal{E}$-\'equivalence, est un foncteur cart\'esien.
+\textup{(ii)}~Soient~$F,G$ deux $\cal{E}$-foncteurs
+\emph{isomorphes}~$\cal{F}\to\cal{G}$. Si l'un est cart\'esien,
+l'autre l'est. \textup{(iii)}~Le compos\'e de deux foncteurs cart\'esiens
+$\cal{F}\to\cal{G}$ et $\cal{G}\to\cal{H}$ est un foncteur
+cart\'esien.
+\end{proposition}
+
+L'assertion (iii) est triviale sur la d\'efinition, (ii)
+r\'esulte de la remarque pr\'ec\'edant~\ref{VI.5.2}, (i) r\'esulte
+facilement de la d\'efinition et du crit\`ere~\ref{VI.4.2}~(iii); plus
+pr\'ecis\'ement, un morphisme~$\alpha$ dans~$\cal{F}$ est
+cart\'esien si et seulement si~$F(\alpha)$ l'est.
+
+\begin{corollaire}
+\label{VI.5.4}
+Soit $F \colon \cal{F} \to \cal{G}$ une
+$\cal{E}$-\'equivalence. Alors pour toute cat\'egorie~$\cal{H}$
+sur~$\cal{E}$, les foncteurs correspondants $G \mto G \circ F$ et
+$G \mto F \circ G$ induisent des \'equivalences de
+cat\'egories:
+\begin{eqnarray*}
+\SheafHom_\cart(\cal{G},\cal{H})\lto{\approx}
+\SheafHom_\cart(\cal{F},\cal{H}) \\
+\SheafHom_\cart(\cal{H},\cal{F})\lto{\approx}
+\SheafHom_\cart(\cal{H}, \cal{G})
+\end{eqnarray*}
+\end{corollaire}
+
+Cela se d\'eduit de la fa\c con habituelle de~\ref{VI.4.2}
+crit\`ere~(i) et de~\ref{VI.5.3} (i) (ii)~(iii).
+On peut pr\'eciser que \emph{le $\cal{E}$-foncteur
+$G\colon \cal{G} \to \cal{H}$ est cartésien si et seulement si $G
+\circ F$ l'est}, et de m\^eme \emph{un $\cal{E}$-foncteur $G\colon
+\cal{H} \to \cal{F}$ est cartésien si et seulement si $F \circ G$
+l'est}.
+
+Il r\'esulte de~\ref{VI.5.4}~(iii) que si on consid\`ere la
+sous-cat\'egorie~$\Cat^\cart_{/\cal{E}}$
+\label{indnot:fr}de~$\Cat_{/\cal{E}}$ dont les objets sont les m\^emes que ceux de
+$\Cat_{/\cal{E}}$, et dont les morphismes sont les foncteurs
+\emph{cartésiens} alors on a comme au~\No \ref{VI.2} des accouplements:
+$$
+\SheafHom_\cart(\cal{F},\cal{G})\times
+\SheafHom_\cart(\cal{G},\cal{H}) \to \SheafHom_\cart(\cal{F},\cal{H})
+$$
+induits
+par ceux du~\No \ref{VI.2}, permettant de consid\'erer
+$\SheafHom_\cart(\cal{F},\cal{G})$ comme un foncteur en $\cal{F}$,
+$\cal{G}$, de la cat\'egorie $\left(\Cat^\cart_{/\cal{E}}
+\right)^\circ \times \Cat^\cart_{/\cal{E}}$
+dans~$\Cat$.
+Nous aurons besoin de cette remarque surtout pour le cas o\`u
+$\cal{F} = \cal{G}$:
+
+\begin{definition}
+\label{VI.5.5}
+Soit $\cal{F}$ une cat\'egorie sur~$\cal{E}$. On d\'esigne par
+$$
+\varprojLim\cal{F}/\cal{E}
+$$
+\label{indnot:fs}la cat\'egorie des $\cal{E}$-foncteurs cart\'esiens
+$\cal{E}\to\cal{F}$, \ie des sections cart\'esiennes de~$\cal{F}$
+sur~$\cal{E}$.
+\end{definition}
+
+D'apr\`es ce qu'on vient de dire,
+$\varprojLim\cal{F}/\cal{E}$ est un foncteur
+en~$\cal{F}$, de la cat\'egorie $\Cat^\cart_{/\cal{E}}$ dans la
+cat\'egorie $\Cat$.
+
+Nous verrons plus bas les relations entre cette op\'eration
+$\varprojLim$ et la notion de limite projective de
+cat\'egories, ainsi que de nombreux exemples.
+
+\section[Cat\'egories fibr\'ees et cat\'egories
+pr\'efibr\'ees]{Cat\'egories fibr\'ees et cat\'egories
+pr\'efibr\'ees. Produits et changement de base dans icelles}
+\label{VI.6}
+
+\begin{definition}
+\label{VI.6.1}
+Une cat\'egorie $\cal{F}$ sur~$\cal{E}$ est appel\'ee une
+\emph{catégorie fibrée}
+\index{fibree (categorie)@fibr\'ee (cat\'egorie)|hyperpage}(et on dit alors que le foncteur $\cal{F}\to\cal{E}$ est
+\emph{fibrant})
+\index{fibrant (foncteur)|hyperpage}si elle satisfait les deux axiomes suivants:
+\begin{itemize}
+\item{$\Fib_\rm{I}$}
+Pour tout morphisme $f\colon T\to S$ dans~$\cal{E}$, le foncteur image
+inverse par $f$ dans $\cal{F}$ existe.
+\item{$\Fib_\rm{II}$} Le compos\'e de deux morphismes cart\'esiens
+est cart\'esien.
+\end{itemize}
+Une cat\'egorie $\cal{F}$ sur~$\cal{E}$ satisfaisant la condition
+$\Fib_\rm{I}$ est appel\'ee une \emph{catégorie
+préfibrée sur~$\cal{E}$}.
+\index{prefibree (categorie)@pr\'efibr\'ee (cat\'egorie)|hyperpage}\end{definition}
+
+Si~$\cal{F}$ est une cat\'egorie fibr\'ee
+(\resp pr\'efibr\'ee) sur~$\cal{E}$, une sous-cat\'egorie
+$\cal{G}$ de~$\cal{F}$ est appel\'ee une \emph{sous-catégorie
+fibrée}
+\index{sous-cat\'egorie fibr\'ee (\resp pr\'efibr\'ee)|hyperpage}(\resp une \emph{sous-catégorie préfibrée}) si c'est une
+cat\'egorie fibr\'ee (\resp pr\'efibr\'ee) sur~$\cal{E}$, et
+si de plus le foncteur d'inclusion est cart\'esien. Si par exemple
+$\cal{G}$ est une sous-cat\'egorie \emph{pleine} de~$\cal{F}$, on
+voit que cela signifie que pour tout morphisme $f\colon T\to S$ dans
+$\cal{E}$ et pour tout $\xi \in \Ob(\cal{G}_S)$, $f^*_{\cal{F}}(\xi)$
+est $T$-isomorphe \`a un objet de~$\cal{G}_T$. Un autre cas
+int\'eressant est le suivant: $\cal{F}$ \'etant une cat\'egorie
+fibr\'ee sur~$\cal{E}$, consid\'erons la sous-cat\'egorie
+$\cal{G}$ de~$\cal{F}$ ayant m\^emes objets, et dont les morphismes
+sont les morphismes \emph{cartésiens} de~$\cal{F}$; en particulier
+les morphismes de~$\cal{G}_S$ sont les isomorphismes de
+$\cal{F}_S$. On voit de suite que c'est bien une sous-cat\'egorie
+fibr\'ee de~$\cal{F}$, car dans la bijection
+$$
+\Hom_T(\eta',\eta) \isomto \Hom_f(\eta',\xi)
+$$
+relative \`a un $f$-morphisme cart\'esien $\alpha$ dans $\cal{F}$,
+aux $T$-isomorphismes du premier membre correspondent les morphismes
+cart\'esiens du second. Par d\'efinition, les sections
+cart\'esiennes $\cal{E}\to\cal{F}$
+correspondent
+alors biunivoquement aux $\cal{E}$-foncteurs quelconques
+$\cal{E}\to\cal{G}$ (mais on notera que le foncteur naturel
+$$
+\SheafHom_{\cal{E}/-}(\cal{E},\cal{G})\to
+\SheafHom_\cart(\cal{E},\cal{F})=
+\varprojLim(\cal{F}/\cal{E})
+$$
+est fid\`ele, mais en g\'en\'eral n'est pas pleinement
+fid\`ele, \ie n'est pas un isomorphisme).
+
+\begin{remarquesstar}
+Soit $\cal{F}$ une cat\'egorie sur~$\cal{E}$. Les conditions
+suivantes sont \'equivalentes:~(i)~Tous les morphismes de~$\cal{F}$
+sont cart\'esiens (ii)~$\cal{F}$~est une cat\'egorie fibr\'ee
+sur~$\cal{E}$, et les $\cal{F}_S$ sont des groupo\"ides
+(\ie tout morphisme dans $\cal{F}_S$ est un isomorphisme). On dit
+alors que $\cal{F}$ est une cat\'egorie \emph{fibrée en
+groupoïdes}
+\index{fibree en groupoides@fibr\'ee en groupo\"ides|hyperpage}
+sur~$\cal{E}$. Ce sont elles qu'on rencontre surtout en \og th\'eorie
+des modules\fg. Si $\cal{E}$ est un groupo\"ide, on montre que les
+conditions (i) et (ii) \'equivalent aussi \`a la suivante:
+(iii)~$\cal{F}$ est un groupo\"ide, et le foncteur projection
+$p\colon \cal{F}\to\cal{E}$ est transportable (\cf \ref{VI.4.4}). Par
+exemple, si $\cal{E}$ et $\cal{F}$ sont des groupo\"ides tels que
+$\Ob(\cal{E})$ et $\Ob(\cal{F})$
+soient r\'eduits \`a un point, de sorte que $\cal{E}$ et $\cal{F}$
+sont d\'efinis, \`a isomorphisme pr\`es, par des groupes $E$ et
+$F$, et le foncteur $p\colon \cal{F}\to\cal{E}$ est d\'efini par un
+homomorphisme de groupes $p\colon F\to E$, alors $\cal{F}$ est
+fibr\'e sur~$\cal{E}$ si et seulement si $p$ est surjectif, \ie si
+$p$ d\'efinit une \emph{extension} du groupe $E$ par le groupe $G =
+\Ker p$.
+\end{remarquesstar}
+
+\begin{proposition}
+\label{VI.6.2}
+Soit $F \colon \cal{F} \to \cal{G}$ une
+$\cal{E}$-\'equivalence. Pour que $\cal{F}$ soit une cat\'egorie
+fibr\'ee (\resp pr\'efibr\'ee) sur~$\cal{E}$, il faut et il
+suffit que $\cal{G}$ le soit.
+\end{proposition}
+
+R\'esulte facilement des d\'efinitions et de la remarque
+signal\'ee plus haut qu'un morphisme
+$\alpha$
+dans $\cal{F}$ est cart\'esien si et seulement si $F(\alpha)$ l'est.
+
+\begin{proposition}
+\label{VI.6.3}
+Soient $\cal{F}_1$, $\cal{F}_2$ deux cat\'egories sur~$\cal{E}$, et
+soit $\alpha = (\alpha_1,\alpha_2)$ un morphisme dans
+$\cal{F}=\cal{F}_1 \times_{\cal{E}} \cal{F}_2$. Pour que $\alpha$ soit
+cart\'esien, il faut et il suffit que ses composantes le soient.
+\end{proposition}
+
+Soit en effet $\xi_i$ le but et $\eta_i$ la source de~$\alpha_i$, et
+soit $f\colon T\to S$ le morphisme de~$\cal{E}$ tel que $\alpha_1$ et
+$\alpha_2$ soient des $f$-morphismes. Pour tout
+$\eta'=(\eta'_1,\eta'_2)$ dans $\cal{F}_T$, on a un diagramme
+commutatif
+$$
+\xymatrix{{\mathrm{Hom}_T(\eta',\eta)}\ar[r]\ar[d]&{\mathrm{Hom}_f(\eta',\xi)}\ar[d]\\{\mathrm{Hom}_T(\eta'_1,\eta_1)\times\mathrm{Hom}_T(\eta'_2,\eta_2)}\ar[r]&{\mathrm{Hom}_f(\eta'_1,\xi_1)\times \mathrm{Hom}_f(\eta'_2,\xi_2)}}
+$$
+o\`u les fl\`eches verticales sont des bijections. Donc si l'une
+des fl\`eches horizontales est une bijection, il en est de m\^eme
+de l'autre. Cela montre d\'ej\`a que si $\alpha_1$, $\alpha_2$
+sont cart\'esiens (donc la deuxi\`eme fl\`eche horizontale
+bijective) alors $\alpha$ l'est. La r\'eciproque se voit en faisant
+dans le diagramme ci-dessus $\eta'_i=\eta_i$ d'o\`u
+$\Hom_T(\eta'_i,\eta_i) \neq \emptyset$, d'abord pour $i=2$ ce qui
+prouve que $\alpha_1$ est cart\'esien, puis pour $i=1$ ce qui prouve
+que $\alpha_2$ est cart\'esien.
+
+\begin{corollaire}
+\label{VI.6.4}
+Soit
+$\cal{F} = \cal{F}_1\times_{\cal{E}}\cal{F}_2$, et soit
+$F=(F_1,F_2)$ un $\cal{E}$-foncteur $\cal{G}\to\cal{F}$. Pour que
+$F$
+soit cart\'esien, il faut et il suffit que $F_1$ et $F_2$ le
+soient. On obtient ainsi un isomorphisme de cat\'egories
+$$
+\SheafHom_\cart(\cal{G}, \cal{F}_1 \times_{\cal{E}} \cal{F}_2) \isomto
+\SheafHom_\cart(\cal{G},\cal{F}_1)
+\times\SheafHom_\cart(\cal{G},\cal{F}_2)
+$$
+et en particulier (faisant $\cal{G}=\cal{E}$) un isomorphisme de
+cat\'egories
+$$
+\varprojLim(\cal{F}_1 \times_{\cal{E}}
+\cal{F}_2/\cal{E}) \isomto
+\varprojLim(\cal{F}_1/\cal{E}) \times
+\varprojLim(\cal{F}_2/\cal{E})
+$$
+\end{corollaire}
+
+\begin{corollaire}
+\label{VI.6.5}
+Soient $\cal{F}_1$ et $\cal{F}_2$ deux cat\'egories fibr\'ees
+(\resp pr\'efibr\'ees) au-dessus de~$\cal{E}$, alors leur produit
+fibr\'e $\cal{F}=\cal{F}_1 \times_{\cal{E}}\cal{F}_2$ est une
+cat\'egorie fibr\'ee (\resp pr\'efibr\'ee) sur~$\cal{E}$.
+\end{corollaire}
+
+Ces r\'esultats s'\'etendent d'ailleurs au cas du produit
+fibr\'e d'une famille quelconque de cat\'egories sur~$\cal{E}$.
+
+\begin{proposition}
+\label{VI.6.6}
+Soient $\cal{F}$ une cat\'egorie sur~$\cal{E}$, de
+foncteur-projection $p$, et soit $\lambda \colon \cal{E}' \to \cal{E}$
+un foncteur, consid\'erons
+$\cal{F}'=\cal{F}\times_{\cal{E}}\cal{E}'$ comme une cat\'egorie sur~$\cal{E}'$ par le foncteur-projection $p'=p \times_{\cal{E}}
+\id_{\cal{E}'}$. Soit $\alpha'$ un morphisme de~$\cal{F}'$, pour que
+$\alpha'$ soit un morphisme cart\'esien, il faut et il suffit que
+son image $\alpha$ dans $\cal{F}$ le soit.
+\end{proposition}
+
+La d\'emonstration est imm\'ediate et laiss\'ee au lecteur.
+
+\begin{corollaire}
+\label{VI.6.7}
+Pour tout foncteur cart\'esien $F\colon \cal{F} \to \cal{G}$ de
+cat\'egories sur~$\cal{E}$, le foncteur
+$F'=F\times_{\cal{E}}\cal{E}'$ de
+$\cal{F}'=\cal{F}\times_{\cal{E}}\cal{E}'$ dans
+$\cal{G}'=\cal{G}\times_{\cal{E}}\cal{E}'$ est cart\'esien.
+\end{corollaire}
+
+Par suite, le foncteur $\SheafHom_{\cal{E}}(\cal{F},\cal{G}) \to
+\SheafHom_{\cal{E}'}(\cal{F}',\cal{G}')$ consid\'er\'e dans
+le
+\No \ref{VI.3} induit un foncteur
+$$
+\SheafHom_\cart(\cal{F},\cal{G}) \to
+\SheafHom_\cart(\cal{F}',\cal{G}') \rm{;}
+$$
+en d'autres termes, pour $\cal{F}$, $\cal{G}$ fix\'es, \emph{on peut
+considérer}
+$$
+\SheafHom_\cart(\cal{F} \times_{\cal{E}} \cal{E}',
+\cal{G}\times_{\cal{E}} \cal{E}')
+$$
+\emph{comme
+un foncteur en~$\cal{E}'$, de la catégorie
+${\Cat_{/\cal{E}}}^\circ$ dans $\Cat$}. Si on laisse varier
+\'egalement $\cal{F}$, $\cal{G}$, on trouve
+un foncteur de la cat\'egorie ${\Cat_{/\cal{E}}}^\circ \times \big(
+\Cat^\cart_{/\cal{E}} \big)^\circ \times \Cat^\cart_{/\cal{E}}$
+dans~$\Cat$. Lorsqu'on tient compte de l'isomorphisme
+$$
+\Hom_{\cal{E}'}(\cal{F}',\cal{G}') \isomto
+\Hom_\cal{E}(\cal{F}\times_\cal{E}\cal{E}',\cal{G})
+$$
+envisag\'e au \No \ref{VI.3}, alors les $\cal{E}'$-foncteurs cart\'esiens
+de~$\cal{F}'$ dans~$\cal{G}'$ correspondent aux $\cal{E}$-foncteurs
+$\cal{F} \times_\cal{E} \cal{E}' \to \cal{G}$ qui transforment tout
+morphisme dont la premi\`ere projection est un morphisme
+cart\'esien de~$\cal{F}$, en un morphisme cart\'esien de
+$\cal{G}$. Faisant $\cal{F}=\cal{E}$, on trouve (apr\`es changement
+de notation):
+
+\begin{corollaire}
+\label{VI.6.8}
+$\varprojLim(\cal{F}'/\cal{E}')$ est isomorphe \`a
+la sous-cat\'egorie pleine de
+$\SheafHom_{\cal{E}/-}(\cal{E}',\cal{F})$ form\'ee des
+$\cal{E}$-foncteurs $\cal{E}'\to\cal{F}$ qui transforment morphismes
+quelconques en morphismes cart\'esiens. En particulier, si $\cal{F}$
+est une cat\'egorie fibr\'ee et si $\tilde{\cal{F}}$ est la
+sous-cat\'egorie de~$\cal{F}$ dont les morphismes sont les
+morphismes cart\'esiens de~$\cal{F}$, alors on a une bijection
+$$
+\Ob \varprojLim(\cal{F}'/\cal{E}') \isomto
+\Hom_{\cal{E}/-}(\cal{E}',\tilde{\cal{F}}) \rm{.}
+$$
+\end{corollaire}
+
+Cela pr\'ecise la fa\c con dont l'expression
+$\varprojLim(\cal{F} \times_{\cal{E}} \cal{E}' /
+\cal{E}')$ doit \^etre consid\'er\'ee comme un foncteur en
+$\cal{E}'$ et en $\cal{F}$, de la cat\'egorie
+${\Cat_{/\cal{E}}}^\circ \times \Cat^\cart_{/\cal{E}}$ dans la
+cat\'egorie $\Cat$. On verra ult\'erieurement une d\'ependance
+fonctorielle plus compl\`ete par rapport \`a $\cal{E}'$, lorsque
+$\cal{F}$ est astreint \`a \^etre une cat\'egorie fibr\'ee.
+
+\begin{corollaire}
+\label{VI.6.9}
+Soit $\cal{F}$ une cat\'egorie fibr\'ee (\resp pr\'efibr\'ee)
+sur~$\cal{E}$, alors $\cal{F}'=\cal{F}\times_{\cal{E}}\cal{E}'$ est
+une cat\'egorie fibr\'ee (\resp pr\'efibr\'ee) sur~$\cal{E}'$.
+\end{corollaire}
+
+\begin{proposition}
+\label{VI.6.10} Soient $\cal{F}$, $\cal{G}$ des cat\'egories
+pr\'efibr\'ees sur~$\cal{E}$, $F$ un $\cal{E}$-foncteur
+cart\'esien de~$\cal{F}$ dans $\cal{G}$. Pour que $F$ soit
+fid\`ele,
+(\resp pleinement fid\`ele, \resp une $\cal{E}$-\'equivalence)
+il faut et il suffit que pour tout
+$S\in \Ob(\cal{E})$,
+le foncteur induit $F_S\colon \cal{F}_S\to \cal{G}_S$ soit
+fid\`ele (\resp pleinement fid\`ele, \resp une \'equivalence).
+\end{proposition}
+
+D\'emonstration imm\'ediate \`a partir des d\'efinitions.
+
+Pour finir ce num\'ero, nous donnons quelques propri\'et\'es des
+cat\'egories fibr\'ees, utilisant l'axiome $\Fib_{\mathrm{II}}$.
+\begin{proposition}
+\label{VI.6.11} Soit $\cal{F}$ une cat\'egorie pr\'efibr\'ee
+sur~$\cal{E}$. Pour que $\cal{F}$ soit fibr\'ee, il faut et il
+suffit qu'elle satisfasse la condition suivante:
+
+$\Fib_{\mathrm{II}}'$: Soit $\alpha\colon\eta\to\xi$ un morphisme
+cart\'esien dans $\cal{F}$ au-dessus du morphisme $f\colon T\to S$
+de~$\cal{E}$. Pour tout morphisme $g\colon U\to T$ dans $\cal{E}$, et
+tout
+$\zeta\in\Ob(\cal{F}_U)$,
+l'application $u\mto\alpha\circ u$:
+$$
+\Hom_g(\zeta,\eta)\to\Hom_{fg}(\zeta,\xi)
+$$
+est bijective.
+\end{proposition}
+
+En d'autres termes, dans une cat\'egorie \emph{fibrée}
+sur~$\cal{E}$, les diagrammes cart\'esiens sont caract\'eris\'es
+par une propri\'et\'e, plus forte a priori que celle de la
+d\'efinition (qu'on obtient en faisant $g=\id_T$ dans
+l'\'enonc\'e qui pr\'ec\`ede).
+\begin{corollaire}
+\label{VI.6.12} Soient $\cal{F}$ une cat\'egorie sur~$\cal{E}$,
+$\alpha$ un morphisme dans $\cal{F}$. Pour que $\alpha$ soit un
+isomorphisme, il faut que $p(\alpha)=f$ soit un isomorphisme et que
+$\alpha$ soit cart\'esien; la r\'eciproque est vraie si $\cal{F}$
+est fibr\'ee sur~$\cal{E}$.
+\end{corollaire}
+
+En effet, si $\alpha$ est un isomorphisme il en est \'evidemment de
+m\^eme de~$f=p(\alpha)$; pour tout
+$\eta'\in\Ob(\cal{F}_T)$,
+l'application $u\mto \alpha\circ u$
+$$
+\Hom(\eta',\eta)\to \Hom(\eta',\xi)
+$$
+est bijective; comme $f$ est un isomorphisme, on voit de suite
+qu'un
+\'el\'ement du premier membre est un $T$-morphisme si et seulement
+si son image dans le second est un $f$-morphisme, donc on obtient
+ainsi une bijection
+$$
+\Hom_T(\eta',\eta)\to\Hom_f(\eta',\xi)
+$$
+ce
+qui prouve la premi\`ere assertion. R\'eciproquement, supposons
+que $f$ soit un isomorphisme et que $\alpha$ satisfasse la condition
+\'enonc\'ee dans $\Fib_{\mathrm{II}'}$ (ce qui signifie donc,
+lorsque $\cal{F}$ est
+fibr\'ee
+sur~$\cal{E}$, que $\alpha$ est cart\'esien), alors on voit tout de
+suite que pour tout $\zeta\in\Ob\cal{F}$, l'application $u\mto
+\alpha\circ u$ de~$\Hom(\zeta,\eta)$ dans $\Hom(\zeta,\xi)$ est
+bijective, donc $\alpha$ est un isomorphisme.
+\begin{corollaire}
+\label{VI.6.13} Soient $\alpha\colon\eta\to\xi$ et
+$\beta\colon\zeta\to \eta$ deux morphismes composables dans la
+cat\'egorie $\cal{F}$ fibr\'ee sur~$\cal{E}$. Si $\alpha$ est
+cart\'esien alors $\beta$ l'est si et seulement si $\alpha\beta$
+l'est.
+\end{corollaire}
+
+On utilise la d\'efinition des morphismes cart\'esiens sous la
+forme renforc\'ee de~\ref{VI.6.11}.
+
+\section{Cat\'egories cliv\'ees sur~$\mathcal{E}$}
+\label{VI.7}
+
+\begin{definition}
+\label{VI.7.1} Soit $\cal{F}$ une cat\'egorie sur~$\cal{E}$. On
+appelle \emph{clivage}
+\index{clivage|hyperpage}de~$\cal{F}$ sur~$\cal{E}$ une fonction qui attache \`a tout
+$f\in\Fl(\cal{E})$ un foncteur image inverse pour $f$ dans $\cal{F}$,
+soit~$f^*$. Le clivage est dit \emph{normalisé}
+\index{clivage normalis\'e|hyperpage}\index{normalis\'e (clivage)|hyperpage}si $f=\id_S$ implique $f^*=\id_{\cal{F}_S}$. On appelle
+\emph{catégorie clivée} (\resp \emph{catégorie clivée
+normalisée})
+\index{cat\'egorie cliv\'ee (\resp cliv\'ee normalis\'ee)|hyperpage}une cat\'egorie $\cal{F}$ sur~$\cal{E}$ munie d'un clivage
+(\resp d'un clivage normalis\'e).
+\end{definition}
+
+Il est \'evident que $\cal{F}$ admet un clivage si et seulement si
+$\cal{F}$ est pr\'efibr\'ee sur~$\cal{E}$, et alors $\cal{F}$
+admet un clivage normalis\'e. L'ensemble des clivages sur~$\cal{F}$
+est en correspondance biunivoque avec l'ensemble des parties $K$ de
+$\Fl(\cal{F})$ satisfaisant les conditions suivantes:
+\begin{enumerate}
+\item[a)] Les $\alpha\in K$ sont des morphismes cart\'esiens.
+\item[b)] Pour tout morphisme $f\colon T\to S$ dans $\cal{E}$ et tout
+$\xi\in\Ob(\cal{F}_S)$, il existe un $f$-morphisme unique dans $K$, de
+but $\xi$.
+\end{enumerate}
+
+Pour que le clivage d\'efini par $K$ soit normalis\'e, il faut et
+il suffit que $K$ satisfasse de plus la condition
+\begin{enumerate}
+\item[c)] Les morphismes identiques dans $\cal{F}$ appartiennent
+\`a~$K$.
+\end{enumerate}
+
+Les
+morphismes \'el\'ements de~$K$ pourront \^etre appel\'es les
+\emph{\og morphismes de transport\fg}
+\index{transport (morphisme de)|hyperpage}pour le clivage envisag\'e.
+
+La notion d'isomorphisme de cat\'egories cliv\'ees sur~$\cal{E}$
+est claire. Plus g\'en\'eralement, on peut d\'efinir les
+morphismes de~$\cal{E}$-cat\'egories cliv\'ees comme les foncteurs
+de~$\cal{E}$-cat\'egories $\cal{F}\to \cal{G}$ qui appliquent
+morphismes de transport en morphismes de transport. (Ce sont en
+particulier des foncteurs cart\'esiens). De cette fa\c con les
+cat\'egories cliv\'ees sur~$\cal{E}$ sont les objets d'une
+cat\'egorie, la \emph{catégorie des catégories clivées
+sur} $\cal{E}$. Le lecteur explicitera l'existence de produits,
+li\'ee au fait que si une cat\'egorie sur~$\cal{E}$ est produit de
+cat\'egories $\cal{F}_i$ sur~$\cal{E}$ munies chacune d'un clivage,
+alors $\cal{F}$ est muni d'un clivage naturel correspondant. On laisse
+\'egalement au lecteur d'expliciter la notion de changement de base
+dans les cat\'egories cliv\'ees.
+
+Nous d\'esignerons par $\alpha_f(\xi)$ le morphisme canonique
+$$
+\alpha_f(\xi)\colon f^*(\xi)\to\xi.
+$$
+Il est, on l'a dit, fonctoriel en $\xi$, \ie on a un homomorphisme
+fonctoriel
+$$
+\alpha_f\colon i_Tf^*\to i_S,
+$$
+o\`u pour tout $S\in\Ob(\cal{E})$, $i_S$ d\'esigne le foncteur
+d'inclusion
+$$
+i_S\colon\cal{F}_S\to \cal{F}
+$$
+
+Consid\'erons maintenant des morphismes
+$$
+f\colon T\to S\quad\text{ et }\quad g\colon U\to T
+$$
+dans $\cal{E}$, et soit $\xi\in\Ob(\cal{F}_S)$, il existe alors un
+unique $U$-morphisme
+$$
+c_{f,g}(\xi)\colon g^*f^*(\xi)\to (fg)^*(\xi)
+$$
+rendant
+commutatif le diagramme
+$$
+\xymatrix{{f^*(\xi)}\ar[d]_{\alpha_f(\xi)}& &{g^*(f^*(\xi))}\ar[ll]_{\alpha_g(f^*(\xi))}\ar[d]^{c_{f,g}(\xi)}\\{\xi}& &{(fg)^*(\xi)}\ar[ll]^{\alpha_{fg}(\xi)}}
+$$
+(en vertu de la d\'efinition de~$(fg)^*(\xi)$). Pour $\xi$ variable,
+cet homomorphisme est fonctoriel, \ie : on a un homomorphisme
+$$
+c_{f,g}\colon g^*f^*\to (fg)^*
+$$
+de foncteurs $\cal{F}_S\to\cal{F}_U$. Notons tout de suite:
+\begin{proposition}
+\label{VI.7.2} Pour que la cat\'egorie cliv\'ee $\cal{F}$
+sur~$\cal{E}$ soit fibr\'ee, il faut et il suffit que les $c_{f,g}$
+soient des isomorphismes.
+\end{proposition}
+
+On en conclut, prenant pour $f$ un isomorphisme, pour $g$ son inverse,
+et en consid\'erant les isomorphismes $c_{f,g}$ et $c_{g,f}$:
+\begin{corollaire}
+\label{VI.7.3} Si $\cal{F}$ est une cat\'egorie \emph{fibrée}
+cliv\'ee sur~$\cal{E}$, alors pour tout isomorphisme $f\colon T\to
+S$ dans $\cal{E}$, $f^*$ est une \'equivalence de cat\'egories
+$\cal{F}_S\to \cal{F}_T$.
+\end{corollaire}
+
+\begin{proposition}
+\label{VI.7.4} Soit $\cal{F}$ une cat\'egorie cliv\'ee sur~$\cal{E}$.
+On a
+
+$\qquad\qquad A)\qquad
+\left\{\begin{array}{ccc}c_{f,\id_T}(\xi)&=&\alpha_{\id_T}(f^*(\xi))\\
+c_{\id_S,f}(\xi)&=&f^*(\alpha_{\id_S}(\xi))
+\end{array}\right.$
+
+\smallskip
+$\qquad\qquad B)\qquad c_{f,gh}(\xi)\cdot
+c_{g,h}(f^*(\xi))=c_{fg,h}(\xi)\cdot h^*(c_{f,g}(\xi))$
+
+\noindent(Dans
+ces formules, $f,g,h$ d\'esignent des morphismes
+$$
+V\to U\to T\to S
+$$
+et $\xi$ un objet de~$\cal{F}_S$).
+\end{proposition}
+
+La premi\`ere et seconde relation, dans le cas d'un clivage
+normalis\'e, prennent la forme plus simple
+\begin{equation*}
+\label{eq:VI.7.A'}\quad A')\qquad {c_{f,\id_T}=\id_{f^*},\quad
+c_{\id_S,f}=\id_{f^*}.\qquad\qquad\qquad\qquad\qquad\qquad}
+\end{equation*}
+
+Quant \`a la troisi\`eme, elle se visualise par la
+commutativit\'e du diagramme
+\begin{equation*}
+\label{eq:VI.7.D} \tag{$D$}
+\begin{split}
+\xymatrix@C=2.2cm{{h^*g^*f^*(\xi)}\ar[r]^-{c_{g,h}(f^*(\xi))}\ar[d]_{h^*(c_{f,g}(\xi))}&{(gh)^*(f^*(\xi))}\ar[d]^{c_{f,gh}(\xi)}\\{h^*(fg)^*(\xi)}\ar[r]_-{c_{fg,h}(\xi)}&{(fgh)^*(\xi)}}
+\end{split}
+\end{equation*}
+Dans le cas des cat\'egories
+fibr\'ees
+(o\`u les $c_{f,g}$ sont des isomorphismes), cette commutativit\'e
+peut s'exprimer intuitivement par le fait que \emph{l'utilisation
+successive des isomorphismes de la forme $c_{f,g}$ ne conduit pas
+à des \og identifications contradictoires\fg.} On peut \'ecrire
+\'egalement cette formule sans argument $\xi$, par l'utilisation du
+produit de convolution d'homomorphismes de foncteurs:
+$$
+c_{fg,h}\circ (h^**c_{f,g})=c_{f,gh}\circ(c_{g,h}*f^*).
+$$
+
+\enlargethispage{.5cm}
+La d\'emonstration des deux premi\`eres formules~\ref{VI.7.4} est
+triviale, esquissons celle de la troisi\`eme. Pour ceci,
+consid\'erons, en plus du carr\'e $(D)$, le carr\'e
+d'homomorphismes:
+\begin{equation*}
+\label{eq:VI.7.D'} \tag{$D'$}
+\begin{split}
+\xymatrix@C=2cm{{g^*f^*(\xi)}\ar[r]^-{\alpha_g(f^*(\xi))}\ar[d]_{c_{f,g}(\xi)}&{f^*(\xi)}\ar[d]^{\alpha_f(\xi)}\\{(fg)^*(\xi)}\ar[r]_-{\alpha_{fg}(\xi)}&{\xi}}
+\end{split}
+\end{equation*}
+qui
+est commutatif par d\'efinition de
+$c_{f,g}(\xi)$. Consid\'erons le diagramme obtenu en joignant les
+sommets de~$(D)$ aux sommets correspondants de~$(D')$ par les
+homomorphismes de la forme $\alpha$:
+$$
+\begin{array}{ll}
+\alpha_h(g^*f^*(\xi)),&\alpha_{gh}(f^*(\xi))\\
+\alpha_h((fg)^*(\xi)),&\alpha_{fgh}(\xi).
+\end{array}
+$$
+Les quatre faces lat\'erales du cube ainsi obtenu sont \'egalement
+commutatives: pour celle de gauche, cela provient du fait que la
+colonne gauche de~$(D)$ se d\'eduit de la colonne gauche de~$(D')$
+par application de~$h$, et que $\alpha_h$ est un homomorphisme
+fonctoriel; pour les trois autres, ce n'est autre que la
+d\'efinition des op\'erations $c$ des trois c\^ot\'es restants
+de~$(D)$. Ainsi les cinq faces du cube autres que la face
+sup\'erieure sont commutatives. Il en r\'esulte que les deux
+$(fgh)$-morphismes $h^*g^*f^*(\xi)\to(fgh)^*(\xi)$ d\'efinis par
+$(D)$ ont un m\^eme compos\'e avec $\alpha_{fgh}(\xi)\colon
+(fgh)^*(\xi)\to\xi$, donc ils sont \'egaux par d\'efinition de
+$(fgh)^*$.
+
+Bornons-nous pour la suite aux cat\'egories cliv\'ees
+\emph{normalisées}. Une telle cat\'egorie donne naissance aux
+objets suivants:
+\begin{enumerate}
+\item[a)] Une application $S\mto \cal{F}_S$ de~$\Ob(\cal{E})$ dans
+$\Cat$.
+\item[b)] Une application $f\mto f^*$, associant \`a toute
+$f\in\Fl(\cal{E})$, de source $T$ et de but $S$,
+un
+foncteur $f^*\colon \cal{F}_S\to\cal{F}_T$.
+\item[c)] Une application $(f,g)\mto c_{f,g}$, associant \`a tout
+couple de fl\`eches $(f,g)$ de~$\cal{E}$, un homomorphisme
+fonctoriel $c_{f,g}\colon g^*f^*\to (fg)^*$.
+\end{enumerate}
+
+D'ailleurs ces donn\'ees satisfont aux conditions exprim\'ees dans
+les formules $A')$ et~$B)$ donn\'ees plus haut. (N.B. Si on ne
+s'\'etait pas born\'e au cas d'un clivage normalis\'e, il aurait
+fallu introduire un objet suppl\'ementaire, savoir une fonction
+$S\mto \alpha_S$ qui associe \`a tout objet $S$ de~$\cal{E}$ un
+homomorphisme fonctoriel $\alpha_S\colon (\id_S)^*\to
+\id_{\cal{F}_S}$; la condition $A')$ se remplacerait alors par la
+condition $A)$).
+
+Nous
+allons montrer maintenant comment on peut reconstituer (\`a
+isomorphisme unique pr\`es) la cat\'egorie cliv\'ee
+normalis\'ee $\cal{F}$ sur~$\cal{E}$ \`a l'aide des objets
+pr\'ec\'edents.
+
+\section[Cat\'egorie cliv\'ee d\'efinie par un pseudo-foncteur]{Cat\'egorie cliv\'ee d\'efinie par un pseudo-foncteur
+$\mathcal{E}^\circ\to\Cat$} \label{VI.8}
+
+Appelons, pour abr\'eger, \emph{pseudo-foncteur} de~$\cal{E}^\circ$
+dans $\Cat$ (il faudrait dire, pseudo-foncteur \emph{normalisé}),
+un ensemble de donn\'ees a), b), c) comme ci-dessus, satisfaisant les
+conditions $A')$ et $B)$. Au num\'ero pr\'ec\'edent, nous avons
+associ\'e, \`a une cat\'egorie cliv\'ee normalis\'ee
+sur~$\cal{E}$, un pseudo-foncteur $\cal{E}^\circ\to\Cat$, ici nous
+allons indiquer la construction inverse. Nous laisserons au lecteur la
+v\'erification de la plupart des d\'etails, ainsi que du fait que
+ces constructions sont bien \og inverses\fg l'une de l'autre. De
+fa\c con pr\'ecise, il y aurait lieu de consid\'erer les
+pseudo-foncteurs $\cal{E}^\circ\to\Cat$ comme les objets d'une
+nouvelle cat\'egorie, et de montrer que nos constructions
+fournissent des \'equivalences, quasi-inverses l'une de l'autre,
+entre cette derni\`ere et la cat\'egorie des cat\'egories
+cliv\'ees au-dessus de~$\cal{E}$, d\'efinie au num\'ero
+pr\'ec\'edent.
+
+On pose
+$$
+\cal{F}_\circ=\underset{S\in\Ob(\cal{E})}\coprod
+\Ob(\cal{F}(S)),
+$$
+ensemble somme des ensembles
+$\Ob(\cal{F}(S))$
+(N.B. nous noterons ici $\cal{F}(S)$ et non $\cal{F}_S$ la valeur en
+l'objet $S$ de~$\cal{E}$ du pseudo-foncteur donn\'e, pour \'eviter
+des confusions de notation par la suite). On a donc une application
+\'evidente:
+$$
+p_\circ\colon\cal{F}_\circ\to\Ob\cal{E}.
+$$
+Soient
+$$
+\overline{\xi}
+=(S,\xi),\quad \overline{\eta}=(T,\eta)\qquad\qquad
+\text{(avec $\xi\in\Ob\cal{F}(S)$, $\eta\in\Ob\cal{F}(T)$)}
+$$
+deux \'el\'ements de~$\cal{F}_\circ$, et soit $f\in\Hom(T,S)$, on
+posera
+$$
+h_f(\overline{\eta},\overline{\xi})=\Hom_{\cal{F}(T)}(\eta,f^*(\xi)).
+$$
+Si on a de plus un morphisme $g\colon U\to T$ dans $\cal{E}$, et un
+$\zeta\in\Ob\cal{F}(U)$, on d\'efinit une application, not\'ee
+$(u,v)\mto u\circ v$:
+$$
+h_f(\overline{\eta},\overline{\xi})\times
+h_g(\overline{\zeta},\overline{\eta})\to
+h_{fg}(\overline{\zeta},\overline{\xi}),
+$$
+\ie une application
+$$
+\Hom_{\cal{F}(T)}(\eta,f^*(\xi))\times\Hom_{\cal{F}(U)}(\zeta,g^*(\eta))
+\to \Hom_{\cal{F}(U)}(\zeta,(fg)^*(\xi)),
+$$
+par la formule
+$$
+u\circ v=c_{f,g}(\xi)\cdot g^*(u)\cdot v,
+$$
+\ie $u\circ v$ est le compos\'e de la s\'equence
+$$
+\zeta\lto{u}
+g^*(\eta)\lto{g^*(u)}
+g^*f^*(\xi)\lto{c_{f,g}(\xi)} (fg)^*(\xi).
+$$
+On posera d'autre part
+$$
+h(\overline{\eta},\overline{\xi})=\underset{f\in\Hom(T,S)}\coprod
+h_f(\overline{\eta},\overline{\xi}),
+$$
+et les accouplements pr\'ec\'edents d\'efinissent des
+accouplements
+$$
+h(\overline{\eta},\overline{\xi})\times
+h(\overline{\zeta},\overline{\eta})\to
+h(\overline{\zeta},\overline{\xi}),
+$$
+tandis que la d\'efinition des $h(\overline{\eta},\overline{\xi})$
+implique une application \'evidente:
+$$
+p_{\overline{\eta},\overline{\xi}}\colon
+h(\overline{\eta},\overline{\xi})\to \Hom(T,S).
+$$
+Ceci dit, on v\'erifie les points suivants:
+\begin{enumerate}
+\item[1)] La composition entre \'el\'ements des
+$h(\overline{\eta},\overline{\xi})$
+est \emph{associative}.
+\item[2)]
+Pour tout $\overline{\xi}=(\xi,S)$ dans $\cal{F}_\circ$,
+consid\'erons l'\'el\'ement
+identit\'e
+de
+$$
+h_{\id_S}(\overline{\xi},\overline{\xi})=
+\Hom_{\cal{F}(S)}(\id_S^*(\xi),\xi)=\Hom_{\cal{F}(S)}(\xi,\xi),
+$$
+et son image dans $h(\overline{\xi},\overline{\xi})$. Cet objet est
+une \emph{unité} \`a gauche et \`a droite pour la composition
+entre \'el\'ements des $h(\overline{\eta},\overline{\xi})$.
+
+Cela montre d\'ej\`a que \emph{l'on obtient une catégorie}
+$\cal{F}$, en posant
+$$
+\Ob\cal{F}=\cal{F}_\circ,\quad \Fl{\cal{F}}=
+\underset{\overline{\xi},\overline{\eta}\in\cal{F}_\circ}
+\coprod h(\overline{\eta},\overline{\xi}).
+$$
+(N.B. on ne peut prendre simplement pour $\Fl\cal{F}$ la
+\emph{réunion} des ensembles $h(\overline{\eta},\overline{\xi})$,
+car ces derniers ne sont pas n\'ecessairement disjoints). De plus:
+\item[3)] Les applications $p_\circ\colon \Ob\cal{F}\to\Ob\cal{E}$ et
+$p_1=(p_{\overline{\eta},\overline{\xi}})\colon\Fl\cal{F}\to\Fl{\cal{E}}$
+d\'efinissent un \emph{foncteur} $p\colon\cal{F}\to\cal{E}$. De
+cette fa\c con, $\cal{F}$ devient une cat\'egorie sur~$\cal{E}$, de
+plus l'application \'evidente
+$h_f(\overline{\eta},\overline{\xi})\to\Hom(\overline{\eta},\overline{\xi})$
+induit une \emph{bijection}
+$$
+h_f(\overline{\eta},\overline{\xi})\isomto
+\Hom_f(\overline{\eta},\overline{\xi}).
+$$
+\item[4)] Les applications \'evidentes
+$$ \Ob\cal{F}(S)\to\cal{F}_\circ=\Ob\cal{F},\qquad \Fl\cal{F}(S)\to
+\Fl\cal{F},
+$$
+o\`u la deuxi\`eme est d\'efinie par les applications
+\'evidentes
+$$
+\Hom_{\cal{F}(S)}(\xi,\xi')=
+h_{\id_S}(\overline{\xi},\overline{\xi}')\to
+\Hom(\overline{\xi},\overline{\xi}')
+$$
+d\'efinissent un \emph{isomorphisme}
+$$
+i_S \colon \cal{F}(S)\isomto\cal{F}_S.
+$$
+\item[5)] Pour tout objet $\overline{\xi}=(S,\xi)$ de~$\cal{F}$, et
+tout morphisme $f\colon T\to S$ de~$\cal{E}$, consid\'erons
+l'\'el\'ement $\overline{\eta}=(T,\eta)$ de~$\cal{F}_T$, avec
+$\eta=f^*(\xi)$, et l'\'el\'ement $\alpha_f(\xi)$ de
+$\Hom(\overline{\eta},\overline{\xi})$, image de~$\id_{f^*(\xi)}$ par
+le morphisme
+$\Hom_{\cal{F}(T)}(f^*(\xi),f^*(\xi))=h_f(\overline{\eta},\overline{\xi})
+\to \Hom_f(\overline{\eta},\overline{\xi})$. \emph{Cet élément
+est cartésien, et c'est l'identité dans $\overline{\xi}$ si}
+$f=\id_S$, en d'autres termes, l'ensemble des $\alpha_f(\xi)$
+d\'efinit un \emph{ clivage normalisé de~$\cal{F}$ sur}
+$\cal{E}$. De plus, par construction, on a commutativit\'e dans le
+diagramme de foncteurs
+$$
+\xymatrix{{\cal{F}(S)}\ar[r]^{f^*}\ar[d]_{i_S}&{\cal{F}(T)}\ar[d]^{i_T}\\{\cal{F}_S}\ar[r]^{f^*_{\cal{F}}}&{\cal{F}_T}}
+$$
+o\`u $f^*_{\cal{F}}$ est le foncteur image inverse par $f$, relatif
+au clivage consid\'er\'e sur~$\cal{F}$. Enfin:
+\item[6)] les homomorphismes $c_{f,g}$ donn\'es avec le
+pseudo-foncteur sont transform\'es, par les isomorphismes $i_S$, en
+les homomorphismes fonctoriels $c_{f,g}$ associ\'es au clivage
+de~$\cal{F}$.
+\end{enumerate}
+
+Nous nous bornons \`a donner la v\'erification de 1) (qui est, si
+possible, moins triviale que les autres). Il suffit de prouver
+l'associativit\'e de la composition entre les objets d'ensembles de
+la forme $h_f(\overline{\eta},\overline{\xi})$. Consid\'erons donc
+dans $\cal{E}$ des morphismes
+$$
+S\lfrom{f} T\lfrom{g} U\lfrom{h} V
+$$
+et des objets
+$$
+\xi,\ \eta,\ \zeta,\ \tau
+$$
+dans $\cal{F}(S),\cal{F}(T),\cal{F}(U),\cal{F}(V)$, enfin des
+\'el\'ements
+$$
+\begin{array}{ccc}
+u\in
+h_f(\overline{\eta},\overline{\xi})&=&\Hom_{\cal{F}(T)}(\eta,f^*(\xi))\\
+v\in
+h_g(\overline{\zeta},\overline{\eta})&=&\Hom_{\cal{F}(U)}(\zeta,g^*(\eta))\\
+w\in
+h_h(\overline{\tau},\overline{\zeta})&=&\Hom_{\cal{F}(V)}(\tau,h^*(\zeta)).
+\end{array}
+$$
+On
+veut prouver la formule
+$$
+(u\circ v)\circ w = u\circ (v\circ w),
+$$
+qui est une \'egalit\'e dans
+$\Hom_{\cal{F}(V)}(\tau,(fgh)^*(\xi))$. En vertu des d\'efinitions
+les deux membres de cette \'egalit\'e s'obtiennent par composition
+suivant le contour sup\'erieur et inf\'erieur du diagramme
+ci-dessous:
+$$
+\xymatrix{
+\tau \ar[r]^w \ar[drr]_{v\circ w} & h^*(\zeta)
+\ar[r]^{h^*(v)} \ar@<-2pt>
+`u[rrrrr] `[rrrrr]^{h^*(u\circ v)} [rrrrr] & h^*g^*(\eta)
+\ar[rr]^{h^*g^*(u)}
+\ar[d]_{c_{g,h}(\eta)} & & h^*g^*f^*(\xi) \ar[rr]^{h^*(c_{f,g}(\xi))}
+\ar[d]^{c_{g,h}(f^*(\xi))} & & h^*(fg)^*(\xi) \ar[d]^{c_{fg,h}(\xi)} \\
+& & (gh)^*(\eta) \ar[rr]^{(gh)^*(u)} & & (gh)^*f^*(\xi)
+\ar[rr]^{c_{f,gh}(\xi)} & & (fgh)^*(\xi) }
+$$
+Or le carr\'e m\'edian est commutatif parce que $c_{g,h}$ est un
+homomorphisme fonctoriel, et le carr\'e de droite est commutatif en
+vertu de la condition~$B)$ pour un pseudo-foncteur. D'o\`u le
+r\'esultat annonc\'e.
+
+Bien entendu, il reste \`a pr\'eciser, lorsque le pseudo-foncteur
+envisag\'e provient d\'ej\`a d'une cat\'egorie cliv\'ee
+normalis\'ee $\cal{F}'$ sur~$\cal{E}$, comment on obtient un
+isomorphisme naturel entre $\cal{F}'$ et $\cal{F}$. Nous en laissons
+le d\'etail au lecteur.
+
+Nous laissons \'egalement au lecteur d'interpr\'eter, en termes de
+pseudo-foncteurs, la notion d'image inverse d'une cat\'egorie
+cliv\'ee $\cal{F}$ sur~$\cal{E}$ par un foncteur changement de base
+$\cal{E}' \to\cal{E}$.
+
+\section[Exemple]{Exemple: cat\'egorie cliv\'ee d\'efinie par un foncteur
+$\cal{E}^\circ\to\Cat$; cat\'egories scind\'ees sur~$\cal{E}$}
+\label{VI.9}
+Supposons qu'on ait un foncteur
+$$
+\varphi\colon\cal{E}^\circ\to\Cat,
+$$
+il d\'efinit alors un pseudo-foncteur en posant
+$$
+\cal{F}(S)=\varphi(S),
+\quad f^*=\varphi(f),\quad c_{f,g}=\id_{(fg)^*}
+$$
+Donc la construction du num\'ero pr\'ec\'edent nous donne une
+cat\'egorie $\cal{F}$ cliv\'ee sur~$\cal{E}$, dite associ\'ee au
+foncteur $\varphi$. Pour qu'une cat\'egorie cliv\'ee sur~$\cal{E}$
+soit isomorphe \`a une cat\'egorie cliv\'ee d\'efinie par un
+foncteur $\varphi:\cal{E}^\circ\to\Cat$, il faut et il suffit
+manifestement qu'elle satisfasse les conditions:
+$$
+(fg)^*=g^*f^*,\quad c_{f,g}=\id_{(fg)^*}\quoi.
+$$
+En termes de l'ensemble $K$ des morphismes de transport, cela signifie
+aussi simplement que \emph{le composé de deux morphismes de
+transport est un morphisme de transport}. Un clivage d'une
+cat\'egorie $\cal{F}$ sur~$\cal{E}$ satisfaisant la condition
+pr\'ec\'edente est appel\'e un \emph{scindage}
+\index{scindage|hyperpage}de~$\cal{F}$ sur~$\cal{E}$, et une cat\'egorie $\cal{F}$
+sur~$\cal{E}$ munie d'un scindage est appel\'ee une
+\emph{catégorie scindée sur~$\cal{E}$}.
+\index{scindee (categorie)@scind\'ee (cat\'egorie)|hyperpage}C'est donc un cas particulier de la notion de cat\'egorie
+cliv\'ee. La cat\'egorie des cat\'egories scind\'ees
+sur~$\cal{E}$ est donc \'equivalente \`a
+$\SheafHom(\cal{E}^\circ,\Cat)$. Noter qu'une cat\'egorie
+scind\'ee sur~$\cal{E}$ est a fortiori une cat\'egorie cliv\'ee
+sur~$\cal{E}$.
+
+Si $\cal{F}$ est une cat\'egorie fibr\'ee sur~$\cal{E}$, il
+n'existe pas toujours de scindage sur~$\cal{F}$. Supposons par exemple
+que $\Ob\cal{E}$ et $\Ob\cal{F}$ soient r\'eduits \`a un
+\'el\'ement, et que l'ensemble des endomorphismes dudit est un
+groupe $E$ \resp $F$, de sorte que le foncteur projection $p$ est
+donn\'e par un homomorphisme de groupes $p\colon F\to E$, surjectif
+puisque $p$ est fibrant. On v\'erifie alors aussit\^ot que
+l'ensemble des clivages de~$\cal{F}$ sur~$\cal{E}$ est en
+correspondance biunivoque avec l'ensemble des applications $s\colon
+E\to F$ telles que $ps=\id_E$ (\ie l'ensemble des \og syst\`emes de
+repr\'esentants\fg pour les classes mod le sous-groupe $G$ noyau de
+l'homomorphisme surjectif $p\colon F\to E$). Un clivage est un
+scindage si et seulement si $s$ est un homomorphisme de groupes. Dire
+qu'il existe un scindage signifie donc que l'extension de groupes $F$
+de~$E$ par $G$ est triviale, ce qui s'exprime, lorsque $G$ est
+commutatif, par la nullit\'e d'une certaine classe de cohomologie
+dans $\H^2(E,G)$ (o\`u $G$ est consid\'er\'e comme un groupe
+o\`u $E$ op\`ere).
+
+Supposons cependant que $\cal{F}$ soit une cat\'egorie fibr\'ee
+sur~$\cal{E}$ telle que les
+$\cal{F}_S$ soient des cat\'egories \emph{rigides}, \ie le groupe
+des automorphismes de tout objet de~$\cal{F}_S$ est r\'eduit \`a
+l'identit\'e. Il est facile alors de prouver que $\cal{F}$ admet un
+scindage sur~$\cal{E}$. En effet, on constate d'abord que la question
+d'existence d'un scindage n'est pas modifi\'ee si on remplace
+$\cal{F}$ par une cat\'egorie $\cal{E}$-\'equivalente, ce qui nous
+ram\`ene en l'occurrence au cas o\`u les $\cal{F}_S$ sont des
+cat\'egories rigides \emph{et réduites} (\ie deux objets
+isomorphes dans $\cal{F}_S$ sont identiques). Mais si $G$ est une
+cat\'egorie rigide et r\'eduite, tout isomorphisme de deux
+foncteurs $H\to G$ (o\`u $H$ est une cat\'egorie quelconque) est
+une identit\'e. Il s'ensuit que si $\cal{F}$ est une cat\'egorie
+fibr\'ee sur~$\cal{E}$, telle que les cat\'egories-fibres soient
+rigides et r\'eduites, alors il existe un clivage \emph{unique} de
+$\cal{F}$ sur~$\cal{E}$, qui est n\'ecessairement un scindage. Donc
+$\cal{F}$ est isomorphe \`a la cat\'egorie d\'efinie par un
+foncteur $\varphi\colon \cal{E}^\circ\to \Cat$, tel que les
+$\varphi(S)$ soient des cat\'egories rigides et discr\`etes, et le
+foncteur $\varphi$ est d\'efini \`a isomorphisme pr\`es.
+
+\section{Cat\'egories co-fibr\'ees, cat\'egories bi-fibr\'ees}
+\label{VI.10}
+Consid\'erons une cat\'egorie $\cal{F}$ au-dessus de~$\cal{E}$,
+avec le foncteur projection
+$$
+p\colon \cal{F}\to \cal{E},
+$$
+elle d\'efinit une cat\'egorie $\cal{F}^\circ$ au-dessus de
+$\cal{E}^\circ$, par le foncteur projection
+$$
+p^\circ\colon \cal{F}^\circ\to \cal{E}^\circ.
+$$
+Un morphisme $\alpha\colon \eta\to\xi$ dans $\cal{F}$ est dit
+\emph{co-cartésien} si c'est un morphisme cart\'esien pour
+$\cal{F}^\circ$ sur~$\cal{E}^\circ$. Explicitant, on voit que cela
+signifie que pour tout objet $\xi'$ de~$\cal{F}_S$, l'application
+$u\mto u\circ \alpha$
+$$
+\Hom_S(\xi,\xi')\to\Hom_f(\eta,\xi')
+$$
+est bijective. On dit alors aussi que $(\xi,\alpha)$ est une
+\emph{image directe}
+\index{image directe|hyperpage}de~$\eta$ par $f$, dans la cat\'egorie $\cal{F}$ sur~$\cal{E}$. Si
+elle existe pour tout $\eta$ dans $\cal{F}_T$, on dit que le foncteur
+image directe par $f$ existe, et on note ce foncteur
+$f_*^{\cal{F}}$ ou~$f_*$,
+\label{indnot:ft}une fois choisi. Il est donc d\'efini par
+un isomorphisme de bifoncteurs sur~$\cal{F}_T^\circ\times\cal{F}_S$:
+$$
+\Hom_S(f_*(\eta),\xi)\isomto \Hom_f(\eta,\xi).
+$$
+Si donc $f_*$ existe, pour que $f^*$ existe, il faut et il suffit que
+$f_*$
+admette un foncteur adjoint, \ie qu'il existe un foncteur
+$f^*\colon \cal{F}_S\to\cal{F}_T$ et un isomorphisme de bifoncteurs
+$$
+\Hom_S(f_*(\eta),\xi)\isomto \Hom_T(\eta,f^*(\xi)).
+$$
+Soit $g\colon U\to T$ un autre morphisme dans $\cal{E}$, et supposons
+que les images inverses et directes par $f,g$ et $fg$
+existent. Consid\'erons alors les homomorphismes fonctoriels
+$$
+\begin{array}{cccc}
+c^{f,g}\colon&f_*g_*&\dpl\from&(fg)_*\\
+c_{f,g}\colon&g^*f^*&\dpl\to&(fg)^*.
+\end{array}
+$$
+On constate que si on consid\`ere $f_*g_*$ et $g^*f^*$ comme un
+couple de foncteurs adjoints, ainsi que $(fg)_*$ et $(fg)^*$, les deux
+homomorphismes pr\'ec\'edents sont adjoints l'un de l'autre. Donc
+l'un est un isomorphisme si et seulement si l'autre l'est. En
+particulier:
+\begin{proposition}
+\label{VI.10.1} Supposons que la cat\'egorie $\cal{F}$ sur~$\cal{E}$
+soit pr\'efibr\'ee et co-pr\'efibr\'ee. Pour qu'elle soit
+fibr\'ee, il faut et il suffit qu'elle soit
+co-fibr\'ee.
+\end{proposition}
+
+Bien entendu, on dit que $\cal{F}$ est co-pr\'efibr\'ee \resp co-fibr\'ee
+\index{co-fibr\'ee (cat\'egorie)|hyperpage}sur~$\cal{E}$, si $\cal{F}^\circ$ est pr\'efibr\'ee \resp fibr\'ee sur~$\cal{E}$. Nous dirons que $\cal{F}$ est bi-fibr\'ee
+sur~$\cal{E}$,
+\index{bi-fibr\'ee (cat\'egorie)|hyperpage}si elle est \`a la fois fibr\'ee et co-fibr\'ee sur~$\cal{E}$.
+
+\section{Exemples divers}
+\label{VI.11}
+
+\begin{enumerate}
+
+\item[a)] \textbf{Catégories des flèches de}~$\cal{E}$. Soit
+$\cal{E}$ une cat\'egorie. D\'esignons par $\mathbf{\Delta^1}$ la
+cat\'egorie associ\'ee \`a l'ensemble totalement ordonn\'e
+\`a deux \'el\'ements $[0,1]$;
+elle a donc deux objets 0 et 1, et en plus des deux morphismes
+identiques une fl\`eche $(0,1)$ de source 0 et but 1. Soit
+$$
+\CatFl(\cal{E})=\SheafHom(\mathbf{\Delta^1},\cal{E})
+$$
+on l'appelle la \emph{catégorie des flèches de} $\cal{E}$.
+L'objet 1 de~$\mathbf{\Delta^1}$ d\'efinit un foncteur canonique,
+appel\'e \emph{foncteur-but}
+$$
+\CatFl(\cal{E})\to \cal{E}
+$$
+(le foncteur d\'efini par l'objet 0 de~$\mathbf{\Delta^1}$ est
+appel\'e \emph{foncteur-source}). Pour tout objet $S$ de~$\cal{E}$,
+la cat\'egorie-fibre $\CatFl(\cal{E})_S$ est canoniquement isomorphe
+\`a la cat\'egorie $\cal{E}_{/S}$ des objets de~$\cal{E}$
+au-dessus de~$S$.
+
+Consid\'erons un morphisme $f\colon T\to S$ dans $\cal{E}$, alors il
+lui correspond un foncteur canonique
+$$
+f_*\colon \cal{E}_{/T}=\cal{F}_T\to \cal{E}_{/S}=\cal{F}_S
+$$
+et un isomorphisme fonctoriel
+$$
+\Hom_S(f_*(\eta),\xi)\isomto\Hom_f(\eta,\xi)
+$$
+qui fait donc de~$f_*$ un foncteur image directe pour $f$ dans
+$\cal{F}$. On a d'ailleurs ici
+$$
+(\id_S)_*=\id_{\cal{F}_S},\quad (fg)_*=f_*g_*,\quad
+c^{f,g}=\id_{(fg)},
+$$
+\ie $\cal{F}$ est muni d'un co-scindage sur~$\cal{E}$. A fortiori,
+$\cal{F}$ est co-fibr\'ee sur~$\cal{E}$. Notons maintenant que
+l'ensemble des morphismes dans $\cal{F}$ est en correspondance
+biunivoque avec l'ensemble des diagrammes carr\'es commutatifs dans
+$\cal{E}$.
+$$
+\xymatrix{{X}\ar[d]_-u&{Y}\ar[l]_-{f'}\ar[d]^-v\\{S}&{T}\ar[l]_-{f}}
+$$
+Par
+d\'efinition, le morphisme en question est cart\'esien si le
+carr\'e est cart\'esien dans $\cal{E}$, \ie s'il fait de~$Y$ un
+produit fibr\'e de~$X$ et $T$ sur~$S$. Le foncteur image inverse
+$f^*$
+existe donc si et seulement si pour tout objet $X$ sur~$S$, le produit
+fibr\'e $X\times_ST$ existe. Il r\'esulte de~\ref{VI.10.1} que si
+le produit de deux objets sur un troisi\`eme existe toujours dans~$\cal{E}$, \ie si $\cal{F}$ est pr\'efibr\'ee sur~$\cal{E}$,
+alors $\cal{F}$ est m\^eme fibr\'ee sur~$\cal{E}$.
+
+\medskip
+\item[b)] \textbf{Catégorie des préfaisceaux ou faisceaux sur
+des espaces variables}
+
+Soit $\cal{E}=\mathbf{Top}$ la cat\'egorie des espaces topologiques.
+Si $T$ est un espace topologique, nous noterons $\cal{U}(T)$ la
+cat\'egorie des ouverts de~$T$, o\`u les morphismes sont les
+applications d'inclusion. Si $\cal{C}$ est une cat\'egorie, un
+foncteur $\cal{U}(T)^\circ\to \cal{C}$ s'appelle un
+\emph{préfaisceau} sur~$T$ \`a valeurs dans $\cal{C}$, et un
+\emph{faisceau} s'il satisfait une condition d'exactitude \`a gauche
+que nous ne r\'ep\'etons pas ici. La \emph{catégorie
+$\cal{P}(T)$ des préfaisceaux sur~$T$ à valeurs dans
+$\cal{C}$}, est par d\'efinition la cat\'egorie
+$\SheafHom(\cal{U}(T)^\circ,\cal{C})$, et la cat\'egorie
+$\cal{F}(T)$ des faisceaux sur~$T$ \`a valeurs dans $\cal{C}$ est la
+sous-cat\'egorie pleine dont les objets sont les objets de
+$\SheafHom(\cal{U}(T)^\circ,\cal{C})$ qui sont des faisceaux. Si
+$f\colon T\to S$ est un morphisme dans $\cal{E}$, \ie une
+application continue d'espaces topologiques, il lui correspond par
+l'application croissante $U\mto f^{-1}(U)$ un foncteur
+$\cal{U}(S)\to \cal{U}(T)$, d'o\`u un foncteur
+$$
+f_*\colon\SheafHom(\cal{U}(T)^\circ,\cal{C})\to
+\SheafHom(\cal{U}(S)^\circ,\cal{C})
+$$
+appel\'e \emph{foncteur image directe de préfaisceaux par}
+$f$. On voit aussit\^ot que l'image directe d'un faisceau est un
+faisceau, donc le foncteur
+$f_*\colon \cal{P}(T)\to\cal{P}(S)$
+induit un foncteur, \'egalement not\'e
+$f_*\colon\cal{F}(T)\to\cal{F}(S)$.
+On v\'erifie de plus trivialement (par l'associativit\'e de la
+composition des foncteurs) qu'on a, pour une deuxi\`eme application
+continue $g\colon U\to T$, l'identit\'e
+$$
+(gf)_* =g_*f_*,\qquad
+\text{de même }\ (\id_S)_*=\id_{\cal{P}(S)}.
+$$
+De cette fa\c con, on a obtenu un foncteur
+$$
+S\mto \cal{P}(S)
+$$
+\resp $$
+S\mto \cal{F}(S)
+$$
+de
+$\cal{E}$ dans~$\Cat$. En fait, nous nous int\'eressons au
+foncteur correspondant
+$$
+S\mto \cal{P}(S)^\circ,\qquad\text{\resp~}S\mto
+\cal{F}(S)^\circ.
+$$
+Il d\'efinit une cat\'egorie co-fibr\'ee, et m\^eme
+co-scind\'ee, sur la cat\'egorie des espaces topologiques qu'on
+appelle la \emph{catégorie co-fibrée des préfaisceaux}
+(\resp \emph{faisceaux}) \emph{à valeurs dans} $\cal{C}$
+(sous-entendu: sur des espaces variables). Explicitant la construction
+du \No \ref{VI.8}, on voit qu'un morphisme d'un pr\'efaisceau $B$ sur~$T$
+dans un pr\'efaisceau $A$ sur~$S$ est un couple $(f,u)$ form\'e
+d'une application continue de~$T$ dans $S$, et d'un morphisme $u\colon
+A\to f_*(B)$ dans la cat\'egorie $\cal{P}(S)$. Cette description
+vaut \'egalement pour les morphismes de faisceaux, $\cal{F}$
+\'etant une sous-cat\'egorie pleine de~$\cal{P}$.
+
+Dans les cas les plus importants, la cat\'egorie $\cal{P}$ et la
+cat\'egorie $\cal{F}$ au-dessus de~$\cal{E}$ sont aussi des
+cat\'egories fibr\'ees, \ie pour toute application continue, les
+foncteurs image directe $\cal{P}(T)\to \cal{P}(S)$ et
+$\cal{F}(T)\to\cal{F}(S)$ ont un foncteur adjoint, qui est alors
+not\'e $f^*$ et appel\'e foncteur image inverse de
+pr\'efaisceaux \resp foncteur image inverse de faisceaux, par
+l'application continue $f$. Ce foncteur existe par exemple si
+$\cal{C}=\Ens$. On peut montrer que le foncteur $f^*\colon
+\cal{P}(S)\to \cal{P}(T)$ existe chaque fois que dans $\cal{C}$ les
+limites inductives (relatives \`a des diagrammes dans l'Univers
+consid\'er\'e) existent. La question est moins facile pour
+$\cal{F}$; on notera en effet que (m\^eme dans le cas
+$\cal{C}=\Ens$) l'image inverse d'un pr\'efaisceau qui est un
+faisceau n'est en g\'en\'eral pas un faisceau, en d'autres termes le
+foncteur image inverse de faisceau n'est pas isomorphe au foncteur
+induit par le foncteur image inverse de pr\'efaisceaux (malgr\'e
+la notation commune $f^*$). Ainsi, $\cal{F}$ est une
+sous-cat\'egorie co-fibr\'ee de~$\cal{P}$, mais pas une
+sous-cat\'egorie fibr\'ee, \ie \emph{le foncteur d'inclusion
+$\cal{F}\to\cal{P}$ n'est pas fibrant}.
+
+La cat\'egorie co-fibr\'ee $\cal{P}$ peut se d\'eduire d'une
+cat\'egorie co-fibr\'ee (ou plut\^ot fibr\'ee) plus
+g\'en\'erale, obtenue ainsi. Pour toute cat\'egorie $\cal{U}$ (dans
+l'Univers fix\'e), on pose
+$$
+\cal{P}(\cal{U})=\SheafHom(\cal{U},\cal{C})
+$$
+et
+on note que $\cal{U}\mto\cal{P}(\cal{U})$ est de fa\c con
+naturelle un foncteur contravariant en~$\cal{U}$, de la cat\'egorie
+$\Cat$ dans $\Cat$. Il d\'efinit donc une cat\'egorie scind\'ee
+au-dessus de~$\cal{E}=\Cat$, que nous noterons $\Cat_{/\!/\cal{C}}$. Les
+objets de cette cat\'egorie sont les couples $(\cal{U},p)$ d'une
+cat\'egorie $\cal{U}$ et d'un foncteur $p\colon\cal{U}\to\cal{C}$,
+et un morphisme de~$(\cal{U},p)$ dans $(\cal{V},q)$ est
+essentiellement un couple $(f,u)$, o\`u $f$ est un foncteur
+$\cal{U}\to\cal{V}$ et $u$ un homomorphisme de foncteurs $u\colon p\to
+qf$. Nous laissons au lecteur le soin d'expliciter la composition des
+morphismes dans $\Cat_{/\!/\cal{C}}$. Le foncteur-projection
+$$
+\cal{F}=\Cat_{/\!/\cal{C}}\to\cal{E}=\Cat
+$$
+associe au couple $(\cal{U},p)$ l'objet $\cal{U}$; la
+cat\'egorie-fibre en $\cal{U}$ est la cat\'egorie
+$\SheafHom(\cal{U},\cal{C})$ (\`a isomorphisme pr\`es). Lorsque
+dans $\cal{C}$ les limites inductives existent, on montre facilement
+que la cat\'egorie fibr\'ee $\Cat_{/\!/\cal{C}}$ sur~$\Cat$ est
+\'egalement co-fibr\'ee sur~$\Cat$, \ie on peut d\'efinir la
+notion d'\emph{image directe d'un foncteur} $p\colon\cal{U}\to\cal{C}$
+par un foncteur $f\colon\cal{U}\to\cal{V}$. La cat\'egorie des
+pr\'efaisceaux se d\'eduit de la cat\'egorie fibr\'ee
+pr\'ec\'edente par le changement de base
+$$
+\mathbf{Top}^\circ\to\Cat
+$$
+(foncteur $S\mto\cal{U}(S)$ d\'efini plus haut), ce qui donne une
+cat\'egorie fibr\'ee sur~$\mathbf{Top}^\circ$, et en passant \`a
+la cat\'egorie oppos\'ee, on obtient la cat\'egorie
+co-fibr\'ee $\cal{P}$ des pr\'efaisceaux au-dessus de
+$\mathbf{Top}$. La notion d'image inverse d'un foncteur correspond
+\`a celle d'image directe de pr\'efaisceau, la notion d'image
+directe d'un foncteur \`a celle d'image inverse d'un
+pr\'efaisceau.
+
+\medskip
+\item[c)] \textbf{Objets à opérateurs au-dessus d'un objet
+à opérateurs}
+
+Soit $\cal{F}$ une cat\'egorie sur~$\cal{E}$, et soit $S$ un objet de
+$\cal{E}$ o\`u un groupe $G$ op\`ere, \`a gauche pour fixer les
+id\'ees. Cet objet \`a op\'erateurs peut s'interpr\'eter comme
+correspondant \`a un foncteur $\lambda\colon\cal{E}'\to \cal{E}$ de
+la cat\'egorie (\`a un seul objet, ayant $G$ comme groupe
+d'endomorphismes) $\cal{E}'$ d\'efinie par $G$, dans la
+cat\'egorie $\cal{E}$, et d\'efinie donc par changement de base
+une cat\'egorie $\cal{F}'$ au-dessus de~$\cal{E}'$, qui est
+fibr\'ee \resp co-fibr\'ee lorsque $\cal{F}$ l'est
+sur~$\cal{E}$. Une
+section de~$\cal{E}'$ sur~$\cal{F}'$ (n\'ecessairement
+cart\'esienne, car $\cal{E}'$ est un groupo\"ide, et tout
+isomorphisme dans $\cal{F}'$ est cart\'esien en vertu
+de~\ref{VI.6.12}), peut aussi s'interpr\'eter comme un
+$\cal{E}$-foncteur $\cal{E}'\to\cal{F}$ au-dessus de~$\lambda$, ou
+aussi comme un objet \`a op\'erateurs $\xi$ dans $\cal{F}$
+\og au-dessus\fg de l'objet \`a op\'erateurs $S$.
+
+\medskip
+\item[d)] \textbf{Couples de foncteurs adjoints quasi-inverses;
+autodualités}
+
+Lorsque la cat\'egorie-base $\cal{E}$ est r\'eduite \`a deux
+objets $a,b$ et, en plus des fl\`eches identiques, \`a deux
+isomorphismes $f\colon a\to b$ et $g\colon b\to a$ inverse l'un de
+l'autre (\ie $\cal{E}$ est un groupo\"ide connexe rigide avec deux
+objets), une cat\'egorie cliv\'ee normalis\'ee sur~$\cal{E}$ est
+essentiellement la m\^eme chose que le syst\`eme form\'e par
+deux cat\'egories $\cal{F}_a$ et $\cal{F}_b$ et un \emph{couple de
+foncteurs adjoints} $G\colon \cal{F}_a\to\cal{F}_b$ et $F\colon
+\cal{F}_b\to\cal{F}_a$, qui soient des \'equivalences de
+cat\'egories (donc quasi-inverses l'un de l'autre). On prendra pour
+$\cal{F}_a$ et $\cal{F}_b$ les cat\'egories fibres de~$\cal{F}$,
+pour $F$ et $G$ les foncteurs $f^*$ et $g^*$, et les deux
+isomorphismes
+$$
+u\colon FG\isomto\id_{\cal{F}_a}\qquad v\colon
+GF\isomto\id_{\cal{F}_b}
+$$
+sont $c_{g,f}$ et $c_{f,g}$. Les deux conditions usuelles de
+compatibilit\'e entre $u$ et $v$ ne sont autres que la condition
+\ref{VI.7.4}~$B)$ pour les compos\'es $fgf$ et $gfg$. Il est facile
+de montrer que ces conditions suffisent \`a impliquer qu'on a bien
+un pseudo-foncteur $\cal{E}^\circ\to\Cat$.
+
+Un cas int\'eressant est celui o\`u l'on a
+$$
+\cal{F}_b=\cal{F}_a^\circ,\quad G=F^\circ,\quad v=u^\circ.
+$$
+On appelle \emph{autodualité}
+\index{autodualit\'e|hyperpage}dans une cat\'egorie $\cal{C}$, la
+donn\'ee d'un foncteur $D\colon \cal{C}\to\cal{C}^\circ$, et d'un
+isomorphisme $u\colon DD^\circ\isomto\id_{\cal{C}}$, tels que $u$ et
+l'isomorphisme $u^\circ\colon D^\circ D\isomto\id_{\cal{C}^\circ}$
+fassent de~$(D,D^\circ)$ un couple de foncteurs adjoints,
+(n\'ecessairement quasi-inverses l'un de l'autre). Cette condition
+s'\'ecrit:
+$$
+D(u(x))=u(D(x))\qquad \text{pour tout $x\in\Ob(\cal{C})$.}
+$$
+\item[e)]
+\textbf{Catégories au-dessus d'une catégorie
+discrète $\cal{E}$.} On dit que $\cal{E}$ est une
+\emph{catégorie discrète} si toute fl\`eche y est une
+fl\`eche identique, de sorte que $\cal{E}$ est d\'efini \`a
+isomorphisme unique pr\`es par la connaissance de l'ensemble
+$I=\Ob(\cal{E})$. La donn\'ee d'une cat\'egorie $\cal{F}$
+au-dessus de~$\cal{E}$ \'equivaut donc (\`a isomorphisme unique
+pr\`es) \`a la donn\'ee d'une famille de cat\'egories
+$\cal{F}_i$ ($i\in I$), les cat\'egories fibres. Toute cat\'egorie
+$\cal{F}$ sur~$\cal{E}$ est fibr\'ee, tout $\cal{E}$-foncteur
+$\cal{F}\to\cal{G}$ est cart\'esien, on a un isomorphisme canonique
+$$ \SheafHom_{\cal{E}/-}(\cal{F},\cal{G}) \isomto
+\underset{i}\prod\SheafHom(\cal{F}_i,\cal{G}_i).
+$$
+En particulier, on obtient
+$$
+\bf{\Gamma}(\cal{F}/\cal{E})=\varprojLim\cal{F}/\cal{E}\isomto\underset{i}\prod \cal{E}_i.
+$$
+\item[f)] \textbf{Supposons que $\cal{E}$ ait exactement deux objets
+$S$ et $T$,} et en plus des \textbf{morphismes identiques, un
+morphisme }$f\colon T\to S$. Alors une cat\'egorie $\cal{F}$
+au-dessus de~$\cal{E}$ est d\'efinie, \`a $\cal{E}$-isomorphisme
+unique pr\`es, par la donn\'ee de deux cat\'egories $\cal{F}_S$
+et $\cal{F}_T$ et d'un bifoncteur $H(\eta,\xi)$ sur~$\cal{F}_T^\circ\times\cal{F}_S$, \`a valeurs dans $\Ens$. En effet,
+si~$\cal{F}$ est une cat\'egorie au-dessus de~$\cal{E}$, on lui
+associe les deux cat\'egories-fibres $\cal{F}_S$ et~$\cal{F}_T$ et
+le bifoncteur $H(\eta,\xi)=\Hom_f(\eta,\xi)$. On laisse au lecteur le
+soin d'expliciter la construction en sens inverse. Pour que la
+cat\'egorie envisag\'ee soit fibr\'ee (ou pr\'efibr\'ee,
+cela revient au m\^eme) il faut et il suffit que le foncteur $H$ soit
+repr\'esentable par rapport \`a l'argument $\xi$. Pour qu'elle
+soit co-fibr\'ee, il faut et il suffit que $H$ soit
+repr\'esentable par rapport \`a l'argument~$\eta$.
+\item[g)] Soit $\cal{F}=\cal{C}\times\cal{E}$, consid\'er\'ee
+comme cat\'egorie au-dessus de~$\cal{E}$ gr\^ace \`a
+$\pr_2$. Alors $\cal{F}$ est fibr\'ee et co-fibr\'ee sur~$\cal{E}$,
+et est m\^eme munie d'un scindage et d'un co-scindage canonique,
+correspondant au foncteur constant sur~$\cal{E}$, \resp sur~$\cal{E}^\circ$, \`a valeurs dans $\Cat$, de valeur $\cal{C}$. On a
+$$
+\bf{\Gamma}(\cal{F}/\cal{E})\simeq\SheafHom(\cal{E},\cal{C})
+$$
+et
+$\varprojLim\cal{F}/\cal{E}$ correspond \`a la
+sous-cat\'egorie pleine form\'ee des foncteurs
+$F\colon\cal{E\to\cal{C}}$ transformant morphismes quelconques en
+isomorphismes.
+\end{enumerate}
+
+\section{Foncteurs sur une cat\'egorie cliv\'ee}
+\label{VI.12}
+
+Soit $\cal{F}$ une cat\'egorie cliv\'ee normalis\'ee
+sur~$\cal{E}$. Pour tout objet $S$ de~$\cal{E}$ on d\'esigne par
+$$
+i_S\colon \cal{F}_S\to\cal{F}
+$$
+le foncteur d'inclusion. On a donc un homomorphisme fonctoriel, pour
+tout morphisme $f\colon T\to S$ dans~$\cal{E}$:
+$$
+\alpha_f\colon i_T f^*\to i_S,
+$$
+o\`u $f^*$ est le foncteur changement de base
+$\cal{F}_S\to\cal{F}_T$ pour $f$ d\'efini par le clivage. Soit
+maintenant
+$$
+F\colon\cal{F}\to\cal{C}
+$$
+un foncteur de~$\cal{F}$ dans une cat\'egorie $\cal{C}$, posons,
+pour tout~$S\in\Ob(\cal{E})$,
+$$
+F_S=F\circ i_S\colon\cal{F}_S\to\cal{C}
+$$
+et pour tout~$f\colon T\to S$ dans~$\cal{E}$,
+$$
+\varphi_f=F*\alpha_f\colon F_T f^*\to F_S
+$$
+On a ainsi, \`a tout foncteur $F\colon \cal{F}\to\cal{C}$,
+associ\'e une famille $(F_S)$ de foncteurs $\cal{F}_S\to\cal{C}$, et
+une famille $(\varphi_f)$ d'homomorphismes de foncteurs $F_T f^*\to
+F_S$. Ces familles satisfont aux conditions suivantes:
+
+a) $\varphi_{\id_S}=\id_{F_S}$.
+
+b) Pour deux morphismes $f\colon T\to S$ et $g\colon U\to T$
+dans~$\cal{E}$, on a commutativit\'e dans le carr\'e
+d'homomorphismes fonctoriels:
+$$
+\xymatrix@C=2cm{{F_U g^* f^*}\ar[r]^-{F_U*c_{f,g}}\ar[d]_{\varphi_g * f^*}&{F_U(fg)^*}\ar[d]^{\varphi_{fg}}\\{F_T f^*}\ar[r]^-{\varphi_f}&{F_S.}}
+$$
+La premi\`ere relation est triviale, et la deuxi\`eme relation
+s'obtient en appliquant le foncteur~$F$ au diagramme commutatif
+$$
+\xymatrix@C=2cm{{g^* f^* (\xi)}\ar[r]^-{c_{f,g}(\xi)}\ar[d]_{\alpha_g(f^*(\xi))}&{(fg)^*(\xi)}\ar[d]^{\alpha_{fg}(\xi)}\\{f^*(\xi)}\ar[r]^-{\alpha_f(\xi)}&{\xi}}
+$$
+pour un objet variable $\xi$ dans~$\cal{F}_S$.
+
+Si $G$ est un deuxi\`eme foncteur $\cal{F}\to\cal{C}$, donnant
+naissance \`a des foncteurs $G_S\colon\cal{F}_S\to\cal{C}$ et des
+homomorphismes fonctoriels $\psi_f\colon G_Tf\to G_S$, et si $u\colon
+F\to G$ est un homomorphisme fonctoriel, alors il lui correspond des
+homomorphismes fonctoriels $u*i_S$:
+$$
+u_S\colon F_S\to G_S
+$$
+et on constate aussit\^ot que pour tout morphisme $f\colon T\to S$
+dans $\cal{E}$, on a commutativit\'e dans les carr\'es
+\begin{equation*}
+\begin{array}{c}
+\xymatrix@C=1.5cm{{F_Tf^*}\ar[r]^-{\phi_f}\ar[d]_{u_T * f^*}&{F_S}\ar[d]^{u_S}\\{G_T f^*}\ar[r]^-{\psi_f}&{G_S}}
+\end{array}
+\tag*{c)}
+\end{equation*}
+
+\begin{proposition}
+\label{VI.12.1}
+Soit $\cal{H}(\cal{F},\cal{C})$ la cat\'egorie dont les objets sont
+les couples de familles $(F_S)$ ($S\in\Ob(\cal{F})$) de foncteurs
+$\cal{F}_S\to\cal{C}$, et de familles $(\varphi_f)$
+($f\in\Fl(\cal{F})$) d'homomorphismes fonctoriels $F_Tf^*\to F_S$,
+satisfaisant les conditions \emph{a) et~b)}, et o\`u les morphismes
+sont les familles $(u_S)$ ($S\in\Ob(\cal{F})$) d'homomorphismes
+$F_S\to G_S$, v\'erifiant la condition de commutativit\'e
+\emph{c)} \'ecrite plus haut, (la composition des morphismes se
+faisant par la composition des homomorphismes de foncteurs
+$\cal{F}_S\to\cal{C}$). Alors les deux lois explicit\'ees plus haut
+d\'efinissent un \emph{isomorphisme} $K$ de la cat\'egorie
+$\SheafHom(\cal{F},\cal{C})$ avec la cat\'egorie
+$\cal{H}(\cal{F},\cal{C})$.
+\end{proposition}
+
+Il est trivial qu'on a bien l\`a un \emph{foncteur} de la
+premi\`ere cat\'egorie dans la seconde. Ce foncteur est pleinement
+fid\`ele, car pour $F,G$ donn\'es, $\Hom(F,G)\to\Hom(K(F),K(G))$
+est trivialement injectif; pour montrer que c'est surjectif, il suffit
+de noter que la condition de commutativit\'e c) exprime la
+fonctorialit\'e des applications $u(\xi)=u_S(\xi)\colon
+F(S)=F_S(\xi)\to G(\xi)=G_S(\xi)$ pour les homomorphismes de la forme
+$\alpha_f(\xi)$ dans $\cal{F}$, d'autre part on a la fonctorialit\'e
+sur chaque cat\'egorie fibre \ie pour les morphismes dans $\cal{F}$
+qui sont des $T$-morphismes ($T\in\Ob(\cal{E})$), d'o\`u la
+fonctorialit\'e pour tout morphisme dans $\cal{F}$,
+puisqu'un
+$f$-morphisme (o\`u $f\colon T\to S$ est un morphisme dans
+$\cal{E}$
+est de fa\c con unique) un compos\'e d'un morphisme
+$\alpha_f(\xi)$ et d'un $T$-morphisme. Il reste donc \`a prouver que
+le foncteur~$K$ est bijectif pour les objets. L'argument
+pr\'ec\'edent montre d\'ej\`a que $K$ est injectif pour les
+objets, reste \`a prouver qu'il est surjectif, \ie que si on part
+d'un syst\`eme $(F_S),(\varphi_f)$, satisfaisant a) et b); et si on
+d\'efinit une application $\Ob\cal{F}\to\Ob\cal{C}$ par
+$$
+F(\xi)=F_S(\xi) \quad\text{pour }
+\xi\in\Ob\cal{F}_S\subset\Ob\cal{F}
+$$
+et une application $\Fl(\cal{F})\to\Fl(\cal{C})$ par
+$$
+F(\alpha_f(\xi)u')=\varphi_f(\xi)\,F_T(u')
+$$
+pour tout morphisme $f\colon T\to S$ dans $\cal{E}$, tout objet $\xi$
+de~$\cal{F}_S$ et tout $T$-morphisme $u'$ de but $f^*(\xi)$, alors on
+obtient un \emph{foncteur} $F$ de~$\cal{F}$ dans $\cal{C}$. En effet,
+la relation $F(\id_\xi)=\id_{F(\xi)}$ est triviale, il reste \`a
+prouver la multiplicativit\'e $F(uv)=F(u)F(v)$ lorsqu'on a un
+$f$-morphisme $u\colon\eta\to\xi$ et un $g$-morphisme
+$v\colon\zeta\to\nu$, avec $f\colon T\to S$ et $g\colon U\to T$ des
+morphismes de~$\cal{E}$. Posant $w=uv$, on aura
+$$
+u=\alpha_f(\xi)u'\quoi,\quad v=\alpha_g(\eta)v'\quoi,\quad w=\alpha_{fg}(\xi)w'
+$$
+avec
+$$
+w'=c_{f,g}(\xi)g^*(u')v'\quad \hbox{(\cf \No \ref{VI.8})}.
+$$
+
+Avec ces notations, il faut prouver la commutativit\'e du contour
+ext\'erieur du diagramme ci-dessous:
+$$
+\xymatrix{ F_U(\zeta) \ar@{-<} `u[r] `[rrrrrr]^{F(w')} [rrrrrr]
+\ar[rr]^{F_u(v')} \ar[drr]_{F(v)} & & F_Ug^*(\eta)
+\ar[rr]^{F_ug^*(u')} \ar[d]^{\varphi_g(\eta)} & & F_Ug^*f^*(\xi)
+\ar[rr]^{F_U(c_{f,g}(\xi))}\ar[d]^{\varphi_g(f^*(\xi))}& &
+F_U(fg)^*(\xi) \ar[d]^{\varphi_{fg}(\xi)} \\ & & F_T(\eta) \ar@{-<}
+`d[r] `[rrrr]_{F(u)} [rrrr] \ar[rr]_{F_T(u')} & & F_Tf^*(\xi)
+\ar[rr]_{\varphi_f(\xi)} & & F_S(\xi) }
+$$
+Or le triangle gauche est commutatif par d\'efinition de~$F(v)$, le
+carr\'e m\'edian est commutatif car d\'eduit de l'homomorphisme
+$u'\colon \xi\to f(\eta)$ par l'homomorphisme fonctoriel $\alpha_g$,
+enfin le carr\'e de droite est commutatif en vertu de la condition
+b). La conclusion voulue en r\'esulte.
+
+Supposons maintenant que $\cal{C}$ soit \'egalement une
+cat\'egorie cliv\'ee normalis\'ee sur~$\cal{E}$, que nous
+appellerons dor\'enavant $\cal{G}$, et que nous nous int\'eressons
+aux $\cal{E}$-foncteurs de~$\cal{F}$ dans $\cal{G}$. Si $F$ est un tel
+foncteur, il induit des foncteurs
+$$
+F_S\colon \cal{F}_S\to\cal{G}_S
+$$
+pour les cat\'egories fibres. D'autre part, pour tout morphisme
+$f\colon T\to S$ dans~$\cal{E}$, et tout objet $\xi$ dans~$\cal{F}_S$,
+le $f$-morphisme $F(\alpha_f(\xi))$ se factorise de fa\c con unique
+par un $T$-morphisme
+$$
+\varphi_f(\xi)\colon F_T(f^*_{\cal{F}}(\xi))\to
+f^*_{\cal{G}}(F_S(\xi))
+$$
+(o\`u le $\cal{F}$ ou le $\cal{G}$ en indice indique la
+cat\'egorie cliv\'ee pour laquelle on prend le foncteur image
+inverse), d'o\`u un homomorphisme fonctoriel de foncteurs de
+$\cal{F}_S$ dans $\cal{G}_T$:
+$$
+\varphi_f\colon F_T f^*_{\cal{F}}\to f^*_{\cal{G}}F_S.
+$$
+Les deux syst\`emes $(F_S)$ et $(\varphi_f)$ satisfont les
+conditions suivantes:
+
+a') $\varphi_{\id_S}=\id_{F_S}$.
+
+b') Pour deux morphismes $f\colon T\to S$ et $g\colon U\to T$ dans
+$\cal{E}$, on a commutativit\'e dans le diagramme d'homomorphismes
+fonctoriels suivant:
+$$
+\xymatrix{{F_Ug_F^*f_F^*}\ar[rr]^{F_U *c_{f,g}^\cal{F}}\ar[d]_{\varphi_{g^*}f^*_{\cal{F}}}& &{F_U(fg)^*_F}\ar[dd]^{\varphi_{fg}}\\{g^*_{\cal{G}}F_Tf^*_F}\ar[d]_{g^*_{\cal{G}}*\varphi_f}& & \\{g^*_{\cal{G}}f^*_{\cal{G}}F_S}\ar[rr]^{c_{f,g}^\cal{G}*F_S}& &{(fg)^*_{\cal{G}}F_S.}}
+$$
+Nous en laissons la v\'erification au lecteur, ainsi que
+l'\'enonc\'e et la d\'emonstration de l'analogue de la
+proposition~\ref{VI.12.1}, impliquant que l'on obtient ainsi une
+correspondance biunivoque entre l'ensemble des $\cal{E}$-foncteurs de
+$\cal{F}$ dans $\cal{G}$, et l'ensemble des syst\`emes
+$(F_S)$,$(\varphi_f)$ satisfaisant les conditions a') et b')
+ci-dessus. Bien entendu, dans cette correspondance, les foncteurs
+cart\'esiens sont caract\'eris\'es par la propri\'et\'e que
+les homomorphismes $\varphi_f$ sont des isomorphismes.
+
+\begin{remarquestar}
+Bien entendu, il y a int\'er\^et le plus souvent \`a raisonner
+directement sur des cat\'egories fibr\'ees sans utiliser des
+clivages explicites, ce qui dispense en particulier de faire appel,
+pour la notion simple de~$\cal{E}$-foncteur ou de~$\cal{E}$-foncteur
+cart\'esien, \`a une interpr\'etation pesante comme
+ci-dessus. C'est pour \'eviter des lourdeurs insupportables, et pour
+obtenir des \'enonc\'es plus intrins\`eques,
+que nous avons d\^u renoncer \`a partir comme dans \cite{VI.2} de la
+notion de cat\'egorie cliv\'ee (appel\'ee \og cat\'egorie
+fibr\'ee\fg dans \loccit), qui passe au second rang au profit de
+celle de cat\'egorie fibr\'ee. Il est d'ailleurs probable que,
+contrairement \`a l'usage encore pr\'epond\'erant maintenant,
+li\'e \`a d'anciennes habitudes de pens\'ee, il finira par
+s'av\'erer plus commode dans les probl\`emes universels, de ne pas
+mettre l'accent sur \emph{une} solution suppos\'ee choisie une fois
+pour toutes, mais de mettre toutes les solutions sur un pied
+d'\'egalit\'e.
+\end{remarquestar}
+
+\begin{thebibliography}{0}{VI.13}
+\bibitem[1]{VI.1} A.\, \textsc{Grothendieck}, Sur quelques points d'alg\`ebre
+homologique,
+T\^ohoku Math.\ J. \textbf{9} (1957) p.\, 119--221.
+
+
+\bibitem[2]{VI.2} A.\, \textsc{Grothendieck}, Technique de descente et
+Th\'eor\`emes d'existence,~I, S\'eminaire Bourbaki~190,
+d\'ecembre~1959.
+\end{thebibliography}
+
+
+\refstepcounter{chapter}
+\addtocontents{toc}{\medskip\par\noindent\textbf{VII: n'existe pas}}
+
+\chapterspace{-2}

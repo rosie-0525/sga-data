@@ -1,0 +1,1646 @@
+\chapter{Descente fid\`element plate}
+\label{VIII}
+
+\section{Descente des Modules quasi-coh\'erents}
+\label{VIII.1}
+
+Soit $\Sch$
+\label{indnot:hb}la cat\'egorie des pr\'esch\'emas. Proc\'edant comme
+dans~VI~\ref{VI.11}.b, on trouve que la cat\'egorie des
+couples~$(X,F)$ d'un pr\'esch\'ema~$X$ et d'un Module~$F$ sur~$X$,
+(o\`u les morphismes sont d\'efinis comme dans \loccit \`a
+l'aide de la notion d'image directe de Module par un morphisme
+d'espaces annel\'es) peut \^etre consid\'er\'ee comme une
+cat\'egorie fibr\'ee au-dessus de~$\Sch$, le foncteur de
+changement de base relativement \`a un morphisme~$f\colon X\to Y$
+dans $\Sch$ \'etant le foncteur image inverse de Modules
+par~$f$. (On notera que la cat\'egorie fibre en~$X\in \Ob(\Sch)$ de
+la cat\'egorie fibr\'ee pr\'ec\'edente est la cat\'egorie
+\emph{opposée} \`a la cat\'egorie des Modules sur~$X$). Comme
+l'image inverse d'un Module quasi-coh\'erent est quasi-coh\'erent,
+on voit que la sous-cat\'egorie pleine de la cat\'egorie des
+couples~$(X,F)$, form\'ee des couples pour lesquels $F$ est
+quasi-coh\'erent, est une sous-cat\'egorie fibr\'ee de la
+cat\'egorie fibr\'ee pr\'ec\'edente. (Par contre, si on ne
+fait pas d'hypoth\`eses sur~$f$, l'image directe d'un Module
+quasi-coh\'erent n'est pas en g\'en\'eral un Module
+quasi-coh\'erent). On appellera simplement cette cat\'egorie
+fibr\'ee la \emph{catégorie fibrée des Modules
+quasi-cohérents sur les préschémas}.
+
+Rappelons d'autre part qu'un morphisme~$f\colon X\to Y$ d'espaces
+annel\'es est dit \emph{fidèlement plat}
+\index{fidelement plat (morphisme)@fid\`element plat (morphisme)|hyperpage}\index{plat (morphisme fid\`element)|hyperpage}s'il est \emph{plat} (\ie pour tout~$x\in X$, $\mathcal{O}_{X,x}$ est
+un module plat sur~$\mathcal{O}_{Y,f(x)}$, \eqref{IV}), et
+\emph{surjectif}. On dit que $f$ est un morphisme \emph{quasi-compact}
+si l'image inverse par $f$ de toute partie quasi-compacte est
+quasi-compacte; lorsque $f$ est un morphisme de pr\'esch\'emas,
+cela signifie aussi que l'image inverse par~$f$ d'un ouvert affine
+de~$Y$ est r\'eunion \emph{finie} d'ouverts affines de~$X$.
+
+\begin{theoreme}
+\label{VIII.1.1}
+Soit
+$\cal{F}$ la cat\'egorie fibr\'ee des Modules
+quasi-coh\'erents sur les pr\'esch\'emas. Soit
+$g\colon S'\to S$
+un morphisme de pr\'esch\'emas, fid\`element plat et
+quasi-compact. Alors $g$ est un morphisme de~$\cal{F}$-descente
+effective.
+\index{descente effective (morphisme de)|hyperpage}\end{theoreme}
+
+Rappelons\footnote{Nous admettrons ici la th\'eorie
+g\'en\'erale de la descente expos\'ee expos\'ee en d\'etail
+dans l'article de J.\, \textsc{Giraud} cit\'e dans la
+note~\eqref{footnotegiraud} en bas de page de l'Avertissement, travail
+que nous citerons \cite{VIII.D} par la suite. \Cf aussi \cite{VIII.2} pour un expos\'e
+succinct.} que cela signifie deux choses:
+
+\begin{corollaire}[Descente d'homomorphismes de Modules]
+\label{VIII.1.2}
+\index{descente d'homomorphismes de modules|hyperpage}Soient $g\colon S'\to S$ un morphisme de pr\'esch\'emas,
+fid\`element plat et quasi-compact, $F$ et $G$ deux Modules
+quasi-coh\'erents sur~$S$, $F'$ et $G'$ leurs images inverses
+sur~$S'$, enfin $F''$ et $G''$ leurs images inverses
+sur~$S''=S'\times_{S}S'$. Consid\'erons le diagramme d'applications
+d'ensembles d\'efini par les foncteurs changement de base par~$g$,
+$p_{1}$, $p_{2}$ (o\`u $\xymatrix@C=.5cm{{p_{1},p_{2}\colon
+S'\times_{S}S'}\ar@<2pt>[r]\ar@<-2pt>[r]&{S'}}$ sont les deux
+projections):
+$$
+\xymatrix@C=.5cm{{\mathrm{Hom}_{S}(F,G)}\ar[r]&{\mathrm{Hom}_{S'}(F',G')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Hom}_{S''}(F'',G'').}}
+$$
+Ce diagramme est exact, \ie d\'efinit une bijection du premier
+ensemble sur l'ensemble des co\"incidences des deux applications
+\'ecrites du deuxi\`eme dans le troisi\`eme.
+\end{corollaire}
+
+En d'autres termes, le foncteur changement de base
+par~$g$,
+$F\mto F'$, d\'efinit un foncteur \emph{pleinement
+fidèle} de la cat\'egorie des Modules quasi-coh\'erents sur~$S$ dans la cat\'egorie des Modules quasi-coh\'erents sur~$S'$
+munis d'une donn\'ee de descente relativement
+\`a~$g$.
+De plus:
+
+\begin{corollaire}[Descente de Modules]
+\label{VIII.1.3}
+\index{descente de modules|hyperpage}Pour tout Module quasi-coh\'erent~$F'$ sur~$S'$, toute donn\'ee de
+descente sur~$F'$ relativement \`a $g$ est \emph{effective},
+\index{donn\'ee de descente effective|hyperpage}\ie $F'$ est isomorphe avec sa donn\'ee de descente \`a l'image
+inverse par~$g$ d'un Module quasi-coh\'erent sur~$S$
+(d\'etermin\'e \`a isomorphisme unique pr\`es en vertu
+de~\ref{VIII.1.2}).
+\end{corollaire}
+
+En d'autres termes, le foncteur pleinement fid\`ele
+pr\'ec\'edent est m\^eme une
+\emph{équivalence}. Pratiquement, cela signifie qu'il revient au
+m\^eme de se donner un Module quasi-coh\'erent sur~$S$, ou un
+Module quasi-coh\'erent sur~$S'$ muni d'une donn\'ee de descente
+relativement \`a~$g$.
+
+\subsubsection*{D\'emonstration de~\ref{VIII.1.1}}
+Soit
+d'abord $T$ un~$S$-pr\'esch\'ema qui est $S$-isomorphe \`a
+la somme d'une famille
+d'ouverts
+induits~$S_{i}$ de~$S$ qui recouvrent~$S$. Alors il est \'evident
+que le morphisme structural~$T\to S$ est un morphisme de
+$\cal{F}$-descente effective (cela signifie pr\'ecis\'ement que la
+donn\'ee d'un Module quasi-coh\'erent~$F$ sur~$S$ \'equivaut
+\`a la donn\'ee de Modules quasi-coh\'erents~$F_{i}$ sur
+les~$S_{i}$, et d'isomorphismes de recollement~$\varphi_{ji}\colon
+F_{i}|S_{i}\cap S_{j}\to F_{j}|S_{i}\cap S_{j}$ satisfaisant la
+condition de cocha\^ines bien connue). En vertu de~VII,~8
+il s'ensuit que pour v\'erifier que $g\colon S'\to S$ est un
+morphisme de~$\cal{F}$-descente effective, il suffit de le
+v\'erifier pour le morphisme~$g_{T}\colon T'=T\times_{S}S'\to T$
+d\'eduit de~$g$ par le changement de base~$T\to S$. (Remarquer que
+l'hypoth\`ese sur~$T\to S$ reste stable par changement de base
+quelconque, donc que $T\to S$ est en fait un morphisme de
+$\cal{F}$-descente effective \emph{universel}). Prenant pour~$S_{i}$
+des ouverts affines qui recouvrent~$S$, on est donc ramen\'e au cas
+o\`u~$S$ est affine.
+
+Alors $S'$ est r\'eunion finie d'ouverts affines, et prenant le
+$S$-sch\'ema somme de ces derniers, on trouve un $S$-sch\'ema
+affine~$S_{1}$ et un $S$-morphisme~$S_{1}\to S'$ plat et
+surjectif. Donc $S_{1}$ est aussi fid\`element plat sur~$S$. Si donc
+on prouve qu'un morphisme fid\`element plat et affine est un
+morphisme de~$\cal{F}$-descente effective, donc un morphisme de
+$\cal{F}$-descente strict universel, (l'hypoth\`ese \'etant en
+effet stable par changement de base), on en conclut en particulier que
+le morphisme structural~$S_{1}\to S$ est un morphisme de
+$\cal{F}$-descente strict universel, et comme il existe un
+$S$-morphisme~$S_{1}\to S'$, il en r\'esultera bien, par \cite{VIII.D}, que
+$g\colon S'\to S$ est un morphisme de~$\cal{F}$-descente strict.
+
+\enlargethispage{.5cm}Cela nous ram\`ene donc au cas o\`u $g$ est un morphisme affine,
+et comme on a vu on peut alors de plus supposer $S$ affine, donc
+\emph{on peut supposer $S$ et $S'$ affines}. Dans ce cas,
+\ref{VIII.1.2} \'equivaut au
+
+\begin{lemme}
+\label{VIII.1.4}
+Soient $A$ un anneau, $A'$ une~$A$-alg\`ebre fid\`element plate,
+$M$ et $N$ deux~$A$-modules, $M'$ et $N'$ les~$A'$-modules d\'eduits
+par changement d'anneau~$A\to A'$, et $M''$,$N''$
+les~$A''=A'\otimes_{A}A'$-modules d\'eduits par changement
+d'anneau~$A\to A''$. Alors la suite d'applications ensemblistes
+$$
+\xymatrix@C=.5cm{{\mathrm{Hom}_{A}(M,N)}\ar[r]&{\mathrm{Hom}_{A'}(M',N')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Hom}_{A''}(M'',N'')}}
+$$
+est exacte.
+\end{lemme}
+
+Comme
+l'homomorphisme~$N\to N'$ est injectif ($A'$ \'etant fid\`element
+plat sur~$A$) on voit que la premi\`ere fl\`eche est injective. Il
+reste \`a prouver que si un
+$A'$-homomorphisme
+$u'\colon M'\to N'$ est compatible avec les donn\'ees de descente,
+alors il provient d'un $A$-homomorphisme~$u\colon M\to N$. Or cela
+signifie aussi simplement que $u'$ applique le sous-ensemble~$M$
+de~$M'$ dans le sous-ensemble~$N$ de~$N'$ (l'application~$u\colon M\to
+N$ induite sera alors automatiquement $A$-lin\'eaire puisque $u'$
+est $A'$-lin\'eaire, et on voit de m\^eme que $u'$ est
+n\'ecessairement \'egal \`a~$u\otimes_{A}A'$). Or si $x\in M$,
+alors $u'(x)$ est un \'el\'ement dans le noyau du couple
+d'applications~$\xymatrix@C=.5cm{{N'}\ar@<2pt>[r]\ar@<-2pt>[r]&{N''}}$. On est
+donc ramen\'e pour prouver~\ref{VIII.1.4}
+au cas particulier suivant (correspondant au cas o\`u~$M=A$):
+
+\begin{corollaire}
+\label{VIII.1.5}
+Soit $N$ un~$A$-module, alors la suite d'applications ensemblistes
+$$
+\xymatrix@C=.5cm{{N}\ar[r]&{N'}\ar@<2pt>[r]\ar@<-2pt>[r]&{N''}}
+$$
+est exacte.
+\end{corollaire}
+
+Soit en effet $A_{1}$ une~$A$-alg\`ebre fid\`element plate. Pour
+montrer que la suite envisag\'ee est exacte, il suffit de prouver
+que la suite qui s'en d\'eduit par le changement d'anneau~$A\to
+A_{1}$ l'est. Or cette derni\`ere, comme on voit de suite, est celle
+relative au
+$A_1$-module
+$N_{1}=N\otimes_{A}A_{1}$ et \`a la $A_{1}$-alg\`ebre
+$A_{1}'=A_{1}\otimes_{A}A'$. Il suffit donc de trouver un $A_{1}$
+fid\`element plat sur~$A$, tel que $\Spec(A_{1}')\to \Spec(A_{1})$
+soit un morphisme de~$\cal{F}$-descente strict. Or il suffit en effet
+de prendre $A_{1}=A'$, car alors le morphisme pr\'ec\'edent admet
+un morphisme inverse \`a droite, donc en vertu de~\cite{VIII.D} c'est un
+morphisme de descente effective pour n'importe quelle cat\'egorie
+fibr\'ee sur~$\Sch$.
+
+Il reste enfin \`a montrer que si $N'$ est un~$A'$-module muni d'une
+donn\'ee de descente pour~$A\to A'$, \ie muni d'un isomorphisme
+$$
+\varphi\colon N_{1}'\isomto N_{2}'
+$$
+entre les deux modules d\'eduits de~$N$ par les changements
+d'anneaux $\xymatrix@C=.5cm{{A'}\ar@<2pt>[r]\ar@<-2pt>[r]&{A'\otimes_{A}A'}}$,
+alors
+$N'$ est isomorphe avec sa donn\'ee de descente \`a un
+module~$N\otimes_{A}A'$. On voit facilement, compte tenu
+de~\ref{VIII.1.5}, que cet \'enonc\'e \'equivaut au suivant:
+
+\begin{lemme}
+\label{VIII.1.6}
+Soit $N'$ un~$A'$-module muni d'une donn\'ee de descente
+relativement \`a~$A\to A'$ (o\`u $A'$ est une
+$A$-alg\`ebre). Soit $N$ le sous-$A$-module de~$N'$ form\'e
+des~$x$ tels que $\varphi(x\otimes_{A'}1_{A'})=1_{A'}\otimes_{A'}x$,
+et consid\'erons l'homomorphisme canonique
+$$
+N\otimes_{A}A'\to N'\quoi,
+$$
+(qui est alors compatible avec les donn\'ees de descente). Si $A'$
+est fid\`element plat sur~$A$, cet homomorphisme est un
+isomorphisme.
+\end{lemme}
+
+D\'emontrons ce lemme. Soit encore $A_{1}$ une $A$-alg\`ebre
+fid\`element plate, pour montrer que le morphisme envisag\'e est
+un isomorphisme, il suffit de prouver qu'il le devient apr\`es le
+changement d'anneau
+$A\to A_1$.
+Or, utilisant la platitude de~$A_{1}$ sur~$A$, on voit que
+l'homomorphisme ainsi obtenu n'est autre que celui qu'on obtiendrait
+directement en termes du module~$N'\otimes_{A}A_{1}$ sur~$A_{1}'=A'\otimes_{A}A_{1}$, muni de la donn\'ee de descente
+relativement \`a~$A_{1}\to A_{1}'$ qui se d\'eduit canoniquement
+par changement d'anneau de celle qui \'etait donn\'ee
+sur~$N'$. Ainsi il suffit de trouver un~$A_{1}$ fid\`element plat
+sur~$A$ tel que $\Spec(A_{1}')\to \Spec(A_{1})$ soit un morphisme de
+$\cal{F}$-descente effective. On prend alors comme ci-dessus
+$A_{1}=A'$. Cela ach\`eve la d\'emonstration de~\ref{VIII.1.6}, et
+par l\`a la d\'emonstration de~\ref{VIII.1.1}.
+
+\begin{corollaire}[Descente de sections de Modules]
+\label{VIII.1.7}
+\index{descente de sections de modules|hyperpage}Soit $g\colon S'\to S$ un morphisme de pr\'esch\'emas,
+fid\`element plat et quasi-compact. Pour tout Module
+quasi-coh\'erent $G$ sur~$S$, soient $G'$ et $G''$ ses images
+inverses sur~$S'$ et $S''=S'\times_{S}S'$, et consid\'erons le
+diagramme d'homomorphismes de Modules sur~$S$:
+$$
+\xymatrix@C=.5cm{{G}\ar[r]&{g_*(G')}\ar@<2pt>[r]\ar@<-2pt>[r]&{h_*(G'')}}
+$$
+(o\`u $h\colon S''\to S$ est le morphisme structural). Ce diagramme
+est \emph{exact}.
+\end{corollaire}
+
+En
+effet, cela signifie que pour tout ouvert~$U$ dans~$S$, le diagramme
+correspondant form\'e par les sections sur~$U$ est exact. On peut
+\'evidemment supposer alors $U=S$, et l'exactitude en question est
+alors un cas particulier de~\ref{VIII.1.2}, obtenu en faisant
+$F=\mathcal{O}_{S}$.
+
+Comme le foncteur image inverse de Modules est exact \`a droite, on
+conclut formellement \`a partir de~\ref{VIII.1.1}:
+
+\begin{corollaire}[Descente de Modules quotients]
+\label{VIII.1.8}
+\index{descente de modules quotients|hyperpage}Avec les notations de~\ref{VIII.1.7}, soit de plus, pour tout Module
+quasi-coh\'erent~$F$ sur un pr\'esch\'ema, $\Quot(F)$ l'ensemble
+des Modules quasi-coh\'erents quotients de~$F$. Avec cette
+convention, le diagramme d'applications d'ensembles:
+$$
+\xymatrix@C=.5cm{{\mathrm{Quot}(G)}\ar[r]&{\mathrm{Quot}(G')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Quot}(G'')}}
+$$
+est exact.
+\end{corollaire}
+
+(On aurait \'evidemment le m\^eme \'enonc\'e avec les
+sous-Modules au lieu de Modules quotients, puisque les deux se
+correspondent biunivoquement). Faisant en particulier
+$G=\mathcal{O}_{S}$, on trouve:
+
+\begin{corollaire}[Descente des sous-pr\'esch\'emas ferm\'es]
+\label{VIII.1.9}
+\index{descente des sous-pr\'esch\'emas ferm\'es|hyperpage}Pour tout pr\'esch\'ema~$X$, soit $H(X)$ l'ensemble des
+sous-pr\'esch\'emas ferm\'es de~$X$. Avec cette notation, et
+sous les conditions de~\ref{VIII.1.7}, le diagramme d'applications
+d'ensembles suivant
+$$
+\xymatrix@C=.5cm{{H(S)}\ar[r]&{H(S')}\ar@<2pt>[r]\ar@<-2pt>[r]&{H(S'')}}
+$$
+\emph{est exact}.
+\end{corollaire}
+
+Il y a lieu de compl\'eter le th\'eor\`eme~\ref{VIII.1.1} par le
+r\'esultat suivant:
+
+\begin{proposition}[Descente de propri\'et\'es de Modules]
+\label{VIII.1.10}
+\index{descente de propri\'et\'es de modules|hyperpage}Soient $g\colon S'\to S$ un morphisme fid\`element plat et
+quasi-compact, $F$ un Module quasi-coh\'erent sur~$S$. Pour que~$F$
+soit de type fini, \resp de pr\'esentation finie, \resp localement
+libre et de type fini, il faut et il suffit que son image inverse $F'$
+sur~$S'$ le soit.
+\end{proposition}
+
+Il n'y a qu'\`a prouver le \og il suffit\fg. On peut \'evidemment
+supposer~$S$ affine,
+et rempla\c cant alors~$S'$ par
+une
+somme d'ouverts affines recouvrant~$S'$, on est ramen\'e au cas
+o\`u~$S'$ est \'egalement affine. Alors notre \'enonc\'e
+\'equivaut au suivant:
+
+\begin{corollaire}
+\label{VIII.1.11}
+Soient $A$ un anneau, $A'$ une~$A$-alg\`ebre fid\`element plate,
+$M$ un~$A$-module, $M'$ le~$A'$-module $M\otimes_{A}A'$. Pour que~$M$
+soit de type fini (\resp de pr\'esentation finie, \resp localement
+libre de type fini) il faut et il suffit que~$M'$ le soit.
+\end{corollaire}
+
+En effet, on a $M=\varinjlim_i M_{i}$, o\`u les~$M_{i}$
+sont les sous-modules de type fini de~$M$. Par suite
+$M'=\varinjlim_i M_{i}'$, et si $M'$ est de type fini, $M'$
+est \'egal \`a l'un des~$M_{i}'$, donc par fid\`ele platitude
+$M$ est \'egal \`a~$M_{i}$, donc $M$ est de type fini. Par suite
+il existe une suite exacte
+$$
+0\to R\to L\to M\to 0\quoi,
+$$
+avec $L$ libre de type fini, d'o\`u une suite exacte
+$$
+0\to R'\to L'\to M'\to 0\quoi,
+$$
+avec $L'$ libre de type fini. Si donc $M'$ est de pr\'esentation
+finie, $R'$ est de type fini, donc d'apr\`es ce qui pr\'ec\`ede
+$R$ est de type fini, donc $M$ est de pr\'esentation finie. Enfin,
+dire que~$M$ est localement libre et de type fini, signifie qu'il est
+de pr\'esentation finie et plat (\cf \ref{IV} dans le cas
+noeth\'erien; le cas g\'en\'eral est laiss\'e au
+lecteur). Comme chacune de ces propri\'et\'es se descend bien, il
+en est de m\^eme de leur conjonction, ce qui ach\`eve la
+d\'emonstration.
+
+\begin{remarque}
+\label{VIII.1.12}
+La conjonction de~\ref{VIII.1.1} et de~\ref{VIII.1.10} montre que
+l'\'enonc\'e~\ref{VIII.1.1} reste encore valable, quand on
+remplace la cat\'egorie fibr\'ee~$\cal{F}$ par la
+sous-cat\'egorie fibr\'ee form\'ee des Modules
+quasi-coh\'erents de type fini, \resp de pr\'esentation finie,
+\resp localement libres de type fini, \resp localement libres de rang
+donn\'e $n$.
+\end{remarque}
+
+\section{Descente des pr\'esch\'emas affines sur un autre}
+\label{VIII.2}
+
+Comme le foncteur image inverse de Modules est compatible avec le
+produit tensoriel et d'autres op\'erations tensorielles, le
+th\'eor\`eme~\ref{VIII.1.1} implique diverses variantes, obtenues
+en envisageant, au lieu d'un seul Module quasi-coh\'erent, un Module
+quasi-coh\'erent ou un syst\`eme de Modules quasi-coh\'erents
+muni de structures suppl\'ementaires diverses s'exprimant \`a
+l'aide d'op\'erations tensorielles. Par exemple, la donn\'ee de
+trois Modules quasi-coh\'erents~$F$, $G$, $H$ sur~$S$ et d'un
+accouplement
+$$
+F\otimes G\to H\quoi,
+$$
+\'equivaut \`a la donn\'ee de trois Modules
+quasi-coh\'erents~$F'$, $G'$, $H'$ sur~$S'$, munis de donn\'ees de
+descente relativement \`a~$g\colon S'\to S$, et munis d'un
+accouplement
+$$
+F'\otimes G'\to H'\quoi,
+$$
+\og compatible\fg avec ces donn\'ees de descente, au sens \'evident
+du terme. Par exemple, si $F=G=H$, on voit que la donn\'ee d'un
+Module quasi-coh\'erent~$F$ sur~$S$ muni d'une loi d'alg\`ebre
+(dont pour l'instant nous ne supposons pas qu'elle satisfasse \`a
+aucun axiome d'associativit\'e, commutativit\'e ou d'existence
+d'une section unit\'e), \'equivaut \`a la m\^eme donn\'ee
+sur~$S'$, munie en plus d'une donn\'ee de descente. Et utilisant les
+r\'esultats du num\'ero pr\'ec\'edent, on constate
+aussit\^ot que pour que~$F$ satisfasse \`a l'un des axiomes
+habituels auxquels on vient de faire allusion, il faut et il suffit
+qu'il en soit ainsi pour~$F'$. Par exemple, la donn\'ee d'une
+Alg\`ebre quasi-coh\'erente~$\mathcal{A}$ sur~$S$ (par quoi nous
+sous-entendons d\'esormais: associative, commutative, \`a section
+unit\'e) \'equivaut \`a la donn\'ee d'une Alg\`ebre
+quasi-coh\'erente~$\mathcal{A}'$ sur~$S'$, munie d'une donn\'ee de
+descente relativement \`a
+$g\colon S'\to S$.
+Si on se rappelle l'\'equivalence entre la cat\'egorie duale des
+Alg\`ebres quasi-coh\'erentes sur~$S$, et de la cat\'egorie
+des~$S$-pr\'esch\'emas affines sur~$S$, (EGA~II par.1), on trouve
+aussit\^ot:
+
+\begin{theoreme}
+\label{VIII.2.1}
+Soit $\cal{F}'$ la cat\'egorie fibr\'ee des morphismes affines de
+pr\'esch\'emas $f\colon X\to S$, consid\'er\'ee comme
+sous-cat\'egorie fibr\'ee de la cat\'egorie fibr\'ee
+des fl\`eches dans la cat\'egorie des pr\'esch\'emas $\Sch$
+\textup{(VI~\ref{VI.11}.a)}. Soit $g\colon S'\to S$ un morphisme de
+pr\'esch\'emas fid\`element plat et quasi-compact. Alors $g$ est
+un morphisme de~$\cal{F}'$-descente effective.
+\end{theoreme}
+
+\section[Descente de propri\'et\'es ensemblistes]{Descente de propri\'et\'es ensemblistes et de propri\'et\'es de finitude de morphismes\footnotemark}
+\label{VIII.3}
+
+
+\footnotetext{Pour d'autres r\'esultats comme ceux trait\'es dans les
+num\'eros 3 et~4, \Cf EGA~IV~2.3, 2.6,~2.7.}
+
+\begin{proposition}
+\label{VIII.3.1}
+Soient $f\colon X\to Y$ un~$S$-morphisme, $g\colon S'\to S$ un
+morphisme surjectif, $f'\colon X'=X\times_{S}S'\to Y'=Y\times_{S}S'$
+le morphisme d\'eduit de~$f$ par le changement de base \`a l'aide
+de~$g\colon S'\to S$. Pour que $f$ soit surjectif (\resp radiciel), il
+faut et il suffit que $f'$ le soit.
+\end{proposition}
+
+On note que $f'$ peut aussi s'obtenir par le changement de base~$Y'\to
+Y$, qui est \'egalement surjectif puisque d\'eduit de~$g\colon
+S'\to S$ qui l'est. D'autre part, pour tout~$y\in Y$ et tout~$y'\in Y'$
+au-dessus de~$y$, on a un isomorphisme
+$$
+X'_{y'}\isomfrom X_{y}\otimes_{\kres(y)}\kres(y')\quoi,
+$$
+o\`u $X_{y}$ d\'esigne la fibre de~$X$~en~$y$, et $X'_{y'}$ celle
+de~$X'$~en $y'$. Il en r\'esulte que~$X_{y}$ est non vide (\resp a
+au plus un point, et ce dernier correspond \`a une extension
+r\'esiduelle radicielle) si et seulement si
+$X'_{y'}$
+a la m\^eme propri\'et\'e. Cela prouve~\ref{VIII.3.1}.
+
+\begin{corollaire}
+\label{VIII.3.2}
+Sous les conditions de~\ref{VIII.3.1}, si $f'$ est injectif
+(\resp bijectif), alors $f$ l'est \'egalement.
+\end{corollaire}
+
+Cela provient du fait que si $X'_{y'}$ a au plus un point
+(\resp exactement un point) il en est de m\^eme de~$X_{y}$; il en
+est bien ainsi, puisque le morphisme $X'_{y'}\to X_{y}$ est surjectif
+(car d\'eduit de~$\Spec(\kres(y'))\to \Spec(\kres(y))$ qui l'est).
+
+\begin{proposition}
+\label{VIII.3.3}
+Avec les notations de~\ref{VIII.3.1}. Supposons que~$g\colon S'\to S$
+soit surjectif et quasi-compact (\resp fid\`element plat et
+quasi-compact). Pour que~$f$ soit quasi-compact (\resp de type fini),
+il faut et il suffit que~$f'$ le soit.
+\end{proposition}
+
+Il
+y a \`a prouver seulement le~\og il suffit\fg. On peut \'evidemment
+supposer~$S=Y$, puisque l'hypoth\`ese faite sur~$g\colon S'\to S$
+est conserv\'ee pour~$Y'\to Y$. De plus on peut supposer~$Y$
+affine. Alors $Y'$ est quasi-compact, donc $X'$ est quasi-compact
+(puisque~$f'$ l'est par hypoth\`ese). Soit $(X_{i})_{i\in I}$ une
+famille d'ouverts affines de~$X$ recouvrant~$X$, alors les~$X_{i}'$
+sont des ouverts de~$X'$ recouvrant~$X'$, donc il y a une sous-famille
+finie qui recouvre~$X'$. Comme $X'\to X$ est surjectif, il s'ensuit
+que les~$X_{i}$ correspondants recouvrent d\'ej\`a~$X$, donc~$X$ est
+quasi-compact, \ie $f$ est quasi-compact. Supposons maintenant $f'$
+de type fini, prouvons que~$f$ l'est, en supposant~$g$ fid\`element
+plat. Rempla\c cant $Y'$ par la somme d'une famille d'ouverts
+affines le recouvrant, on peut supposer $Y'$ affine. Enfin, $X$
+\'etant recouvert par un nombre fini d'ouverts affines $X_{i}$ par
+ce qui pr\'ec\`ede, il faut montrer qu'ils sont de type fini sur~$Y$ sachant que $X_{i}'$ est de type fini sur~$Y'$. Cela nous
+ram\`ene alors au
+
+\begin{corollaire}
+\label{VIII.3.4}
+Soient $B$ une $A$-alg\`ebre, $A'$ une~$A$-alg\`ebre
+fid\`element plate, $B'=B\otimes_{A}A'$ la~$A$-alg\`ebre
+d\'eduite de~$B$ par changement d'anneau. Pour que~$B$ soit de type
+fini, il faut et il suffit que~$B'$ le soit.
+\end{corollaire}
+
+Il y a \`a prouver seulement le~\og il suffit\fg. On a
+$B=\varinjlim_i B_{i}$, o\`u les $B_{i}$ sont les
+sous-alg\`ebres de type fini de~$B$. On a donc
+$B'=\varinjlim_i B_{i}'$, et si $B'$ est de type fini
+sur~$A'$, alors $B'$ est \'egal \`a un des~$B_{i}'$, donc $B$ est
+\'egal \`a~$B_{i}$, donc est de type fini.
+
+\begin{corollaire}
+\label{VIII.3.5}
+Supposons encore le morphisme de changement de base~$g\colon S'\to S$
+fid\`element plat et quasi-compact. Pour que~$f$ soit quasi-fini, il
+faut et il suffit que~$f'$ le soit.
+\end{corollaire}
+
+En effet, la propri\'et\'e \og quasi-fini\fg est par d\'efinition
+la conjonction de \og type fini\fg et \og \`a fibres finies\fg, dont
+chacune se descend bien par~$g$, la premi\`ere en vertu
+de~\ref{VIII.3.3}, la seconde par le raisonnement de~\ref{VIII.3.1}
+(n'utilisant que le fait que $g$ soit surjectif).
+
+\begin{remarques}
+\label{VIII.3.6}
+Soient $A$ un anneau, $X$ un~$A$-pr\'esch\'ema. On voit facilement
+que
+les conditions suivantes sont \'equivalentes:
+
+\begin{enumerate}
+\item[(i)] Il existe un anneau noeth\'erien~$A_{0}$ (qu'on peut si
+on veut supposer un sous-anneau de type fini de~$A$), un
+$A_{0}$-pr\'esch\'ema de type fini~$X_{0}$, un homomorphisme
+$A_0\to A$
+et un $A$-isomorphisme~$X\isomto X_{0}\times_{A_{0}}A$.
+\item[(ii)] Le morphisme diagonal~$X\to X\times_{\Spec(A)}X$ est
+quasi-compact (condition vide si $X$ est s\'epar\'e sur~$A$), $X$
+est r\'eunion finie d'ouverts affines~$X_{i}$ dont les
+anneaux~$B_{i}$ sont des alg\`ebres de pr\'esentation finie
+sur~$A$, \ie quotients d'alg\`ebres de polyn\^omes \`a un
+nombre fini d'ind\'etermin\'ees, par des id\'eaux de type fini.
+\end{enumerate}
+
+Si $X$ est lui-m\^eme affine, d'anneau~$B$, ces conditions
+signifient simplement que~$B$ est une alg\`ebre de pr\'esentation
+finie sur~$A$.
+
+Un morphisme~$f\colon X\to Y$ est dit \emph{morphisme de
+présentation finie},
+\index{presentation finie@pr\'esentation finie (morphisme de)|hyperpage}et on dit encore que~$X$ est de pr\'esentation finie sur~$Y$, si $Y$
+est r\'eunion d'ouverts affines~$Y_{i}$, tel que~$X|Y_{i}$ en tant
+que $Y_{i}$-pr\'esch\'ema satisfasse aux conditions
+\'equivalentes pr\'ec\'edentes. Il en est alors de m\^eme pour
+$X|Y'$ pour \emph{tout} ouvert affine $Y'$ dans $Y$. C'est l\`a une
+propri\'et\'e stable par changement de base, et d'ailleurs le
+compos\'e de deux morphismes de pr\'esentation finie est de
+pr\'esentation finie.
+
+Ces notions pos\'ees, on voit sur (ii), proc\'edant comme
+dans~\ref{VIII.1.10}, que cet \'enonc\'e reste valable en y
+rempla\c cant les mots \og de type fini\fg par \og de pr\'esentation
+finie\fg.
+\end{remarques}
+
+\section{Descente de propri\'et\'es topologiques}
+\label{VIII.4}
+
+\begin{theoreme}
+\label{VIII.4.1}
+Soient $g\colon Y'\to Y$ un morphisme, et $Z$ une partie de~$Y$. On
+suppose que~$g$ est plat, et qu'il existe un morphisme
+quasi-compact~$f\colon X\to Y$ tel que~$Z=f(X)$ (N.B. si $Y$ est
+noeth\'erien, cette derni\`ere condition est impliqu\'ee par
+\og $Z$ est constructible\fg). Alors on a
+$$
+g^{-1}(\overline{Z})=\overline{g^{-1}(Z)}\quoi.
+$$
+\end{theoreme}
+
+On peut supposer~$Y$ affine, puis $Y'$ affine. Comme $Y$ est affine,
+$X$ est r\'eunion
+finie d'ouverts affines~$X_{i}$, et rempla\c cant~$X$ par la somme
+des~$X_{i}$, on peut supposer \'egalement~$X$
+affine. Soient~$A,A',B$ les anneaux de~$Y,Y',X$, $B'=B\otimes_{A}A'$
+celui de~$X'=X\times_{Y}Y'$, $I$ le noyau de~$A\to B$, $I'$ le noyau
+de~$A'\to B'$, donc les parties ferm\'ees de~$Y$ et~$Y'$
+d\'efinies par ces id\'eaux sont respectivement l'adh\'erence
+de~$Z=f(X)$ et l'adh\'erence de~$Z'=f'(X')=g^{-1}(Z)$. On veut
+\'etablir que cette derni\`ere est \'egale \`a
+$g^{-1}(\overline{Z})$, ce qui r\'esultera de~$I'=IA'$, lui-m\^eme
+cons\'equence de la platitude de~$A'$ sur~$A$.
+
+\begin{corollaire}
+\label{VIII.4.2}
+Soient $g\colon Y'\to Y$ un morphisme plat et quasi-compact, et $Z'$
+une partie ferm\'ee de~$Y'$ satur\'ee pour la relation
+d'\'equivalence ensembliste d\'efinie par $g$. Alors on a
+$Z'=g^{-1}(\overline{g(Z')})$.
+\end{corollaire}
+
+\enlargethispage{.5cm}On a en effet $Z'=g^{-1}(Z)$, avec~$Z=g(Z')$. On peut alors
+appliquer~\ref{VIII.4.1}, en notant que la condition mise sur~$Z$
+dans~\ref{VIII.4.1} est bien v\'erifi\'ee en prenant pour~$X$ le
+pr\'esch\'ema~$Z'$ muni de la structure r\'eduite induite
+par~$Y'$. (Le fait que~$g$ soit quasi-compact assure alors que~le
+morphisme induit~$f\colon Z'\to Y$ est quasi-compact).
+
+L'\'enonc\'e~\ref{VIII.4.2} signifie aussi que \emph{la topologie
+de~$g(Y')$ induite par~$Y$ est quotient de celle de~$Y'$}. En
+particulier:
+
+\begin{corollaire}
+\label{VIII.4.3}
+Soit $g\colon Y'\to Y$ un morphisme fid\`element plat et
+quasi-compact. Alors $g$ fait de~$Y$ un espace topologique quotient
+de~$Y'$, \ie pour une partie~$Z$ de~$Y$, $Z$ est ferm\'ee
+(\resp ouverte) si et seulement si $Z'=g^{-1}(Z)$ l'est.
+\end{corollaire}
+
+Rappelons maintenant que deux \'el\'ements $a,b$, de~$Y'$ ont
+m\^eme image dans $Y$ si et seulement si ils sont de la forme
+$p_{1}(c),p_{2}(c)$ pour un \'el\'ement convenable $c$
+dans~$Y''=Y'\times_{Y}Y'$. Il en r\'esulte que si $g$ est surjectif,
+on a un diagramme \emph{exact} d'ensembles
+$$
+\xymatrix@C=.5cm{{\cal{P}(Y)}\ar[r]&{\cal{P}(Y')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\cal{P}(Y'')}}\quoi,
+$$
+o\`u pour tout ensemble~$E$, on d\'esigne par~$\cal{P}(E)$
+l'ensemble de ses parties. Ceci pos\'e, \ref{VIII.4.3} peut aussi
+s'interpr\'eter ainsi:
+
+\begin{corollaire}[Descente des parties ouvertes \resp ferm\'ees]
+\label{VIII.4.4}
+Soit
+\index{descente des parties ouvertes (\resp ferm\'ees)|hyperpage}$g\colon Y'{\to} Y$ comme dans~\ref{VIII.4.3}. Pour tout
+pr\'esch\'ema~$X$, soit $\Ouv(X)$ \resp $\Fer(X)$ l'ensemble de
+ses parties ouvertes \resp l'ensemble de ses parties
+ferm\'ees. Alors on a des diagrammes \emph{exacts} d'applications
+ensemblistes (d\'eduits de~$g$ et des deux projections de
+$Y''=Y'\times_{Y}Y'$):
+\vspace*{-5pt}
+\begin{gather*}
+\xymatrix@C=.5cm{{\mathrm{Ouv}(Y)}\ar[r]&{\mathrm{Ouv}(Y')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Ouv}(Y'')}}\\[-3pt]
+\xymatrix@C=.5cm{{\mathrm{Fer}(Y)}\ar[r]&{\mathrm{Fer}(Y')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Fer}(Y'')}}
+\end{gather*}
+\end{corollaire}
+
+On a le compl\'ement suivant \`a~\ref{VIII.4.3}:
+
+\begin{corollaire}
+\label{VIII.4.5}
+Soit $g\colon Y'\to Y$ comme dans~\ref{VIII.4.3}, et soit~$Z$ une
+partie de~$Y$ telle qu'il existe un morphisme quasi-compact~$f\colon
+X\to Y$ d'image~$Z$ (par exemple $Z$ constructible, $Y$
+noeth\'erien). Pour que $Z$ soit une partie localement ferm\'ee
+de~$Y$, il faut et il suffit que $Z'=g^{-1}(Z)$ soit une partie
+localement ferm\'ee de~$Y'$.
+\end{corollaire}
+
+Il suffit de prouver le \og il suffit\fg. Soit $Y_{1}$ le
+sous-pr\'esch\'ema ferm\'e de~$Y$, adh\'erence de~$Z$ muni de
+la structure r\'eduite induite, et soit~$Y_{1}'=Y_{1}\times_{Y}Y'$
+le sous-pr\'esch\'ema ferm\'e de~$Y'$ image r\'eciproque
+de~$Y_{1}$. Son ensemble sous-jacent est l'image
+inverse~$g^{-1}(Y_{1})=g^{-1}(\overline{Z})$, donc est \'egal en
+vertu de~\ref{VIII.4.1} \`a~$\overline{Z'}$. Comme $Z'$ est
+localement ferm\'e dans~$Y'$, il est ouvert dans~$\overline{Z'}$
+donc ouvert dans~$Y_{1}'$. Or ce dernier est fid\`element plat et
+quasi-compact sur~$Y_{1}$, donc en vertu de~\ref{VIII.4.3} on en
+conclut que~$Z$ est ouvert dans~$Y_{1}$, \ie dans~$\overline{Z}$, ce
+qui signifie que $Z$ est localement ferm\'e.
+
+\begin{corollaire}
+\label{VIII.4.6}
+Soit $g\colon S'\to S$ un morphisme fid\`element plat et
+quasi-compact, $f\colon X\to Y$ un $S$-morphisme, $f'\colon X'\to Y'$
+le $S'$-morphisme qui s'en d\'eduit par changement de
+base. Supposons que~$f'$ soit une application ouverte (\resp une
+application ferm\'ee, \resp quasi-compacte
+et un hom\'eomorphisme dans, \resp un hom\'eomorphisme sur); alors
+$f$ a la m\^eme propri\'et\'e.
+\end{corollaire}
+
+Comme $Y'$ est fid\`element plat et quasi-compact sur~$Y$, on peut
+supposer~$Y=S$. Soit~$Q$
+une partie de~$X$, on a alors (en d\'esignant par $h$ le morphisme
+de projection $X'\to X$):
+$$
+g^{-1}(f(Q))=f'(h^{-1}(Q))\quoi.
+$$
+
+Si $Q$ est ouvert (\resp ferm\'e), il en est de m\^eme
+de~$h^{-1}(Q)$, donc aussi de~$f'(h^{-1}(Q))$ si on suppose $f'$ une
+application ouverte (\resp ferm\'ee), donc il en est de m\^eme
+de~$f(Q)$ en vertu de la formule pr\'ec\'edente et
+de~\ref{VIII.4.3}. Cela prouve les deux premi\`eres assertions
+dans~\ref{VIII.4.6}, il reste \`a examiner le cas o\`u~$f'$ est un
+hom\'eomorphisme dans, et prouver alors que~$f$ est un
+hom\'eomorphisme dans. (Le cas d'un hom\'eomorphisme sur
+r\'esultera alors de~\ref{VIII.3.1}). En vertu
+de~\ref{VIII.3.2}
+$f$ est injectif, il reste \`a prouver que l'application $X\to f(X)$
+est ouverte. On sait d\'ej\`a que~$f$ est quasi-compact en vertu
+de~\ref{VIII.3.3}. Il suffit de prouver que pour toute partie
+ferm\'ee~$Z$ de~$X$, on a $Z=f^{-1}(\overline{f(Z)})$, ce qui
+\'equivaut \`a la formule analogue pour les images inverses par
+l'application surjective~$h\colon X'\to X$, \ie \`a
+$$
+Z'=f'^{-1}(g^{-1}(\overline{f(Z)})\quoi,
+$$
+o\`u on pose $Z'=h^{-1}(Z)$. Or en vertu de~\ref{VIII.4.1}
+appliqu\'e \`a la partie~$f(Z)$ de~$Y$, on a
+$g^{-1}(\overline{f(Z)})=\overline{g^{-1}(f(Z))}$, et la formule \`a
+prouver \'equivaut \`a
+$$
+Z'=f'^{-1}(\overline{f'(Z')})\quoi,
+$$
+qui r\'esulte de l'hypoth\`ese que $f'$ est un hom\'eomorphisme
+dans.
+
+N.B. Dans ce dernier raisonnement, supposant d\'ej\`a que~$f$ est
+quasi-compact, on n'a pas utilis\'e que~$g$ est quasi-compact, mais
+seulement que
+$g$
+est fid\`element plat. Donc c'est sous cette hypoth\`ese qu'on
+peut descendre la propri\'et\'e \og hom\'eomorphisme dans\fg, ou
+\og hom\'eomorphisme sur\fg, ou encore gr\^ace au raisonnement
+pr\'ec\'edent, la propri\'et\'e \og $f'$ est quasi-compact et
+fait de~$f'(X')$ un espace topologique quotient de~$X'$\fg.
+
+Nous dirons qu'un morphisme~$f\colon X\to Y$ de pr\'esch\'emas est
+\emph{universellement ouvert} (\resp \emph{universellement fermé},
+\resp \emph{universellement bicontinu}, etc.)
+\index{universellement ouvert (\resp universellement ferm\'e, \resp
+universellement bicontinu, etc.)|hyperpage}si pour tout changement de base~$Y'\to Y$, $f'\colon X'\to Y'$ est un
+morphisme ouvert (\resp ferm\'e, \resp un
+hom\'eomorphisme
+sur l'espace image). On tire alors de~\ref{VIII.4.6}:
+
+\begin{corollaire}
+\label{VIII.4.7}
+Sous
+les conditions de~\ref{VIII.4.6}, pour que~$f$ soit
+universellement ouvert, (\resp universellement ferm\'e, \resp un
+hom\'eomorphisme dans universel, \resp un hom\'eomorphisme
+universel), il faut et il suffit que $f'$ le soit.
+\end{corollaire}
+
+\begin{corollaire}
+\label{VIII.4.8}
+Sous les conditions de~\ref{VIII.4.6}, pour que~$f$ soit
+s\'epar\'e (\resp propre) il faut et il suffit que $f'$ le soit.
+\end{corollaire}
+
+Dire que~$f$ est s\'epar\'e signifie que le morphisme
+diagonal~$X\to X\times_{Y}X$ est ferm\'e ou aussi universellement
+ferm\'e, et la premi\`ere assertion
+de
+\ref{VIII.4.8} r\'esulte donc de~\ref{VIII.4.7}. Dire que~$f$ est
+propre signifie que $f$ satisfait les conditions a) $f$ est de type
+fini b) $f$ est s\'epar\'e c) $f$ est universellement
+ferm\'e. La condition a) se descend bien en vertu de~\ref{VIII.3.3},
+b) aussi d'apr\`es ce qu'on vient de voir, enfin c) \'egalement
+par~\ref{VIII.4.7}.
+
+\begin{remarques}
+\label{VIII.4.9}
+Rappelons que lorsque $g\colon Y'\to Y$ est un morphisme plat de type
+fini, avec~$Y$ localement noeth\'erien, alors $g$ est un morphisme
+ouvert (VI~\ref{IV.6.6}) ce qui est un r\'esultat plus
+pr\'ecis que~\ref{VIII.4.3}. On notera cependant que si~$f$ est un
+morphisme fid\`element plat et quasi-compact de pr\'esch\'emas
+noeth\'eriens, alors $f$ n'est pas en g\'en\'eral un morphisme
+ouvert. Soit par exemple $Y$ un sch\'ema irr\'eductible dont le
+point g\'en\'erique~$y$ n'est pas ouvert (par exemple une courbe
+alg\'ebrique), et prenons pour~$Y'$ le sch\'ema somme~$Y\amalg
+\Spec(\kres(y))$, alors l'image par le morphisme structural~$Y'\to Y$ de
+la partie ouverte~$\Spec(\kres(y))$ n'est pas une partie ouverte
+de~$Y$. Le lecteur remarquera \'egalement que divers \'enonc\'es
+du pr\'esent expos\'e deviennent faux si on y abandonne
+l'hypoth\`ese que le morphisme fid\`element plat envisag\'e est
+aussi quasi-compact, le cas type mettant les \'enonc\'es en
+d\'efaut \'etant celui o\`u on prend pour~$Y'$ le sch\'ema
+somme des spectres des anneaux locaux des points de~$Y$. Par exemple,
+prenant encore pour~$Y$ une courbe alg\'ebrique irr\'eductible, et
+pour~$Z$ la partie de~$Y$ r\'eduite au point g\'en\'erique, son
+image inverse dans~$Y'$ est ouverte, sans que~$Z$ soit ouverte.
+\end{remarques}
+
+\subsection{}
+\label{VIII.4.10}
+Divers
+\'enonc\'es du pr\'esent expos\'e restent valables en y
+rempla\c cant l'hypoth\`ese que~$Y'$ soit plat sur~$Y$ par la
+suivante: il existe un Module de type fini~$F$ sur~$Y'$, de
+support~$Y'$, plat par rapport \`a~$Y$; l'hypoth\`ese de
+fid\`ele platitude sera alors remplac\'ee par la
+pr\'ec\'edente, plus l'hypoth\`ese que $Y'\to Y$ est
+surjectif. Ceci s'applique aux deux premi\`eres assertions
+dans~\ref{VIII.1.10}, \`a~\ref{VIII.3.3}, \ref{VIII.3.5},
+\ref{VIII.4.1} et par suite \`a tous les r\'esultats du
+pr\'esent num\'ero.
+
+\section{Descente de morphismes de pr\'esch\'emas}
+\label{VIII.5}
+
+\begin{proposition}
+\label{VIII.5.1}
+Soit $g\colon S'\to S$ un morphisme de pr\'esch\'emas.
+\begin{enumerate}
+\item[a)] Supposons que~$g$ soit surjectif, et que l'homomorphisme
+$$
+g^*\colon \mathcal{O}_{S}\to g_*(\mathcal{O}_{S'})
+$$
+soit injectif, alors~$g$ est un \'epimorphisme dans la cat\'egorie
+des pr\'esch\'emas, et m\^eme dans la cat\'egorie des espaces
+annel\'es.
+\item[b)] Supposons que~$g$ soit surjectif et fasse de~$S$ un espace
+topologique quotient de~$S'$. Soit~$S''=S'\times_{S}S'$ et
+soit~$h\colon S''\to S$ le morphisme structural, consid\'erons le
+diagramme d'homomorphismes canonique:
+$$
+\xymatrix@C=.5cm{{\mathcal{O}_{S}}\ar[r]&{g_*(\mathcal{O}_{S'})}\ar@<2pt>[r]\ar@<-2pt>[r]&{h_*(\mathcal{O}_{S''})}}\quoi,
+$$
+et supposons ce diagramme \emph{exact}. Alors $g$ est un
+\'epimorphisme effectif
+\index{epimorphisme effectif@\'epimorphisme effectif|hyperpage}dans la cat\'egorie des pr\'esch\'emas (et aussi dans la
+cat\'egorie des espaces annel\'es), \ie le diagramme
+$$
+\xymatrix@C=.5cm{{S}&{S'}\ar[l]&{S''}\ar@<2pt>[l]\ar@<-2pt>[l]}
+$$
+est exact.
+\end{enumerate}
+\end{proposition}
+
+\subsubsection*{D\'emonstration} a) Il faut montrer qu'un morphisme d'espaces
+annel\'es~$f\colon S\to Z$ est connu quand on
+conna\^it~$fg$. Or comme~$g$ est surjectif, on conna\^it
+l'application ensembliste~$f_{0}$ sous-jacente \`a~$f$, reste \`a
+d\'eterminer l'homomorphisme de faisceaux
+d'anneaux~$\mathcal{O}_{Z}\to \mathcal{O}_{S}$, ou ce qui revient au
+m\^eme l'homomorphisme
+de faisceaux d'anneaux
+$$
+u\colon f_{0}^{-1}(\mathcal{O}_{Z})\to \mathcal{O}_{S}
+$$
+d\'efini par~$f$. On conna\^it d\'ej\`a l'homomorphisme
+$$
+(fg)_{0}^{-1}(\mathcal{O}_{Z})=
+g_{0}^{-1}(f_{0}^{-1}(\mathcal{O}_{Z}))\to \mathcal{O}_{S'}
+$$
+d\'efini par~$fg$, ou ce qui revient au m\^eme, on dispose d'un
+homomorphisme
+$$
+f_{0}^{-1}(\mathcal{O}_{Z})\to
+g_{0*}(\mathcal{O}_{S'})=g_*(\mathcal{O}_{S'})\quoi.
+$$
+On constate aussit\^ot que ce dernier n'est autre que le compos\'e
+de~$g^*\colon \mathcal{O}_{S}\to g_*(\mathcal{O}_{S'})$ et
+de~$u$, et comme $g^*$ est injectif, $u$ est connu quand on
+conna\^it~$g^*u$. [N.B. on n'a pas utilis\'e \'evidemment
+que~$g\colon S'\to S$ est un morphisme de pr\'esch\'emas,
+l'\'enonc\'e vaudrait pour un morphisme quelconque d'espaces
+annel\'es; la m\^eme remarque vaut pour b), tant dans la
+cat\'egorie des espaces annel\'es, que dans la cat\'egorie des
+espaces annel\'es en anneaux locaux. Noter aussi que si~$g$ est un
+morphisme de pr\'esch\'emas pas n\'ecessairement surjectif, mais
+tel que~$g^*\colon \mathcal{O}_{S}\to g_*(\mathcal{O}_{S'})$
+soit injectif, alors pour deux morphismes~$f_{1},f_{2}$ de~$S$ dans un
+\emph{schéma}~$Z$ tel que~$f_{1}g=f_{2}g$, on a $f_{1}=f_{2}$; en
+effet, si~$I$ est l'Id\'eal sur~$S$ qui d\'efinit le
+sous-pr\'esch\'ema de~$S$ des co\"incidences de~$f_{1},f_{2}$
+(image inverse du sous-pr\'esch\'ema diagonal de~$Z\times Z$
+par~$(f_{1},f_{2})$), on voit que~$I$ est contenu
+dans~$\Ker(g^*)$].
+
+b) On doit montrer que pour tout espace annel\'e~$Z$, le diagramme
+suivant d'applications
+$$
+\xymatrix@C=.5cm{{\mathrm{Hom}(S,Z)}\ar[r]&{\mathrm{Hom}(S',Z)}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Hom}(S'',Z)}}
+$$
+est exact, et qu'il en est de m\^eme lorsque~$Z$ est un espace
+annel\'e en anneaux locaux et qu'on se borne aux homomorphismes
+d'espaces annel\'es en anneaux locaux. Comme on sait d\'ej\`a par a)
+que la premi\`ere application est injective, il reste \`a voir que
+si~$f'\colon S'\to Z$ est un homomorphisme d'espaces annel\'es tel
+que~$f'p_{1}=f'p_{2}$,
+alors~$f'$ est de la forme~$fg$, o\`u~$f\colon S\to Z$ est un
+homomorphisme d'espaces annel\'es. Comme~$g$ est surjectif, il est
+alors \'evident que si~$f'$ est un morphisme d'espaces annel\'es
+en anneaux locaux, il en sera de m\^eme pour~$f$.
+
+De l'hypoth\`ese sur~$f'$ r\'esulte que l'application ensembliste
+sous-jacente~$f_{0}'$ est constante sur les fibres de
+l'application~$g_{0}$, donc comme cette derni\`ere est surjective,
+$f_{0}'$ se factorise de fa\c con unique en~$f_{0}'=f_{0}g_{0}$,
+o\`u~$f_{0}\colon S\to Z$ est une application, n\'ecessairement
+continue puisque~$g_{0}$ identifie~$S$ \`a un espace topologique
+quotient de~$S'$. Consid\'erons maintenant l'homomorphisme
+$$
+f_{0}^{-1}(\mathcal{O}_{Z})\to g_*(\mathcal{O}_{S'})
+$$
+d\'eduit de l'homomorphisme~$(f_{0}g_{0})^{-1}(\mathcal{O}_{Z})\to
+\mathcal{O}_{S'}$ correspondant
+\`a~$f'$. L'hypoth\`ese~$f'p_{1}=f'p_{2}$ s'interpr\`ete alors
+en disant que les compos\'es de l'homomorphisme pr\'ec\'edent
+avec les deux homomorphismes
+$\xymatrix@C=.5cm{{g_*(\mathcal{O}_{S'})}\ar@<2pt>[r]\ar@<-2pt>[r]&{h_*(\mathcal{O}_{S''})}}$ sont les m\^emes donc d'apr\`es
+l'hypoth\`ese b) il se factorise par un morphisme
+$$
+f_{0}^{-1}(\mathcal{O}_{Z})\to \mathcal{O}_{S}\quoi.
+$$
+Ce dernier d\'efinit un morphisme d'espaces annel\'es~$f\colon
+S\to Z$, qui est le morphisme cherch\'e.
+
+\begin{theoreme}
+\label{VIII.5.2}
+Soit $\cal{F}$ la cat\'egorie fibr\'ee des fl\`eches dans la
+cat\'egorie~$\Sch$ des pr\'esch\'emas
+\textup{(VI~\ref{VI.11}.a)}. Alors tout morphisme~$g\colon S'\to S$
+fid\`element plat et quasi-compact est un morphisme
+de~$\cal{F}$-descente (ou encore, comme on dit, un morphisme de
+descente dans~$\Sch$).
+\index{descente (morphisme de)|hyperpage}\end{theoreme}
+
+Cela signifie donc ceci: soit~$S''=S'\times_{S}S'$, et pour deux
+pr\'esch\'emas~$X,Y$ sur~$S$, consid\'erons leurs images
+inverses~$X',Y'$ sur~$S'$ et leurs images inverses~$X'',Y''$
+sur~$S''$, d'o\`u un diagramme d'applications
+$$
+\xymatrix@C=.5cm{{\mathrm{Hom}_{S}(X,Y)}\ar[r]&{\mathrm{Hom}_{S'}(X',Y')}\ar@<2pt>[r]\ar@<-2pt>[r]&{\mathrm{Hom}_{S''}(X'',Y'')}}\quoi;
+$$
+ces notations pos\'ees, \ref{VIII.5.2} signifie que ce diagramme est
+exact. On notera qu'il
+n'est pas vrai en g\'en\'eral que~$g$ soit un morphisme de
+descente effective, \ie que pour tout pr\'esch\'ema~$X'$
+sur~$S'$, toute donn\'ee de descente sur~$X'$ relativement
+\`a~$g\colon S'\to S$ soit effective. La question de
+l'effectivit\'e, souvent d\'elicate, sera examin\'ee au
+\No \ref{VIII.7}.
+
+On a vu \cite{VIII.D}, (compte tenu que dans~$\Sch$ les produits fibr\'es
+existent) que l'\'enonc\'e~\ref{VIII.5.2} \'equivaut au suivant:
+
+\begin{corollaire}
+\label{VIII.5.3}
+Un morphisme fid\`element plat et quasi-compact de
+pr\'esch\'emas est un \'epi\-mor\-phisme effectif universel.
+\end{corollaire}
+
+Comme un morphisme fid\`element plat et quasi-compact reste tel par
+toute extension de la base, on est ramen\'e \`a prouver que c'est
+un \'epimorphisme effectif. On applique alors le
+crit\`ere~\ref{VIII.5.1} b), qui donne le r\'esultat voulu, compte
+tenu de~\ref{VIII.4.3} et~\ref{VIII.1.7}.
+
+\begin{corollaire}
+\label{VIII.5.4}
+Soit $g\colon S'\to S$ un morphisme fid\`element plat et
+quasi-compact, $f\colon X\to Y$ un~$S$-morphisme, $f'\colon X'\to Y'$
+le~$S'$-morphisme qui s'en d\'eduit par le changement de base~$S'\to
+S$. Pour que~$f$ soit un isomorphisme, il faut et il suffit que~$f'$
+le soit.
+\end{corollaire}
+
+En effet, si $f'$ est un isomorphisme, c'est aussi un isomorphisme
+pour les structures de descente naturelles sur~$X',Y'$, et comme le
+foncteur~$X\mto X'$ de~$\Sch_{/S}$ dans la cat\'egorie des
+pr\'esch\'emas sur~$S'$ munis d'une donn\'ee de descente
+relativement \`a~$g$ est pleinement fid\`ele par~\ref{VIII.5.2},
+la conclusion voulue appara\^it.
+
+\begin{corollaire}
+\label{VIII.5.5}
+Sous les conditions de~\ref{VIII.5.4}, pour que~$f$ soit une immersion
+ferm\'ee (\resp une immersion ouverte, \resp une immersion
+quasi-compacte) il faut et suffit que~$f'$ le soit.
+\end{corollaire}
+
+On peut supposer comme d'habitude~$Y=S$, et il y a \`a prouver
+seulement le \og il suffit\fg. Notons que le fait que~$X'/Y'$ soit muni
+d'une donn\'ee de descente relativement \`a~$g\colon Y'\to Y$, et
+que le morphisme structural~$f'\colon X'\to Y'$ soit une immersion
+donc un monomorphisme, implique que les deux sous-objets de~$Y''$
+images
+inverses de~$X'/Y'$ par l'une et l'autre projection de~$S''$ dans~$S'$
+sont les m\^emes. Si~$f'$ est une immersion ferm\'ee, il en
+r\'esulte en vertu de~\ref{VIII.1.9} qu'il existe un
+sous-pr\'esch\'ema ferm\'e $X_{1}$ de~$Y$ dont l'image inverse
+par~$g\colon Y'\to Y$ est~$X'$. Donc par l'unicit\'e de la solution
+d'un probl\`eme de descente relativement \`a un morphisme de
+$\cal{F}$-descente,
+il
+r\'esulte que~$X_{1}$ est $Y$-isomorphe \`a~$X$, donc $f\colon
+X\to Y$ est une immersion ferm\'ee. On proc\`ede de m\^eme pour
+une immersion ouverte, en utilisant~\ref{VIII.4.4}. Si enfin $f'$ est
+une immersion quasi-compacte, $f$ est quasi-compact en vertu
+de~\ref{VIII.3.3}, donc on peut appliquer \`a la partie~$f(X)$
+de~$Y$ le crit\`ere~\ref{VIII.4.5}, qui prouve que~$f(X)$ est
+localement ferm\'e puisque son image inverse~$f'(X')$ dans~$Y'$
+l'est. Rempla\c cant alors~$Y$ par une partie ouverte dans
+laquelle~$f(X)$ soit ferm\'ee, on est ramen\'e au cas o\`u~$f'$
+est une immersion ferm\'ee, donc $f$ l'est en vertu de ce qui
+pr\'ec\`ede.
+
+\begin{corollaire}
+\label{VIII.5.6}
+Sous les conditions de~\ref{VIII.5.4}, pour que~$f$ soit affine, il
+faut et il suffit que~$f'$ le soit.
+\end{corollaire}
+
+On proc\`ede comme dans~\ref{VIII.5.5}, en utilisant~\ref{VIII.2.1}
+(On peut aussi utiliser le crit\`ere cohomologique de Serre [EGA II
+5.2], qui d\'emontre~\ref{VIII.5.6} sans utiliser de technique de
+descente).
+
+\begin{corollaire}
+\label{VIII.5.7}
+Sous les conditions de~\ref{VIII.5.4}, pour que~$f$ soit entier
+(\resp fini, \resp fini et localement libre) il faut et il suffit
+que~$f'$ le soit.
+\end{corollaire}
+
+Il y a \`a prouver seulement le \og il suffit\fg, et comme d'habitude
+on peut supposer $Y=S$, $Y$ affine, et $Y'$ affine. Comme
+l'hypoth\`ese implique que~$f'$ est affine, il en est de m\^eme
+de~$f$ d'apr\`es~\ref{VIII.5.6}, donc~$X$ et par suite~$X'$ sont
+affines. Soient~$A,A',B,B'=B\otimes_{A}A'$ les anneaux
+de~$Y,Y',X,X'$. On a $B=\varinjlim_i B_{i}$, o\`u~$B_{i}$
+parcourt les sous-$A$-alg\`ebres de~$B$ qui sont de type fini
+sur~$A$, d'o\`u $B'=\varinjlim_i B_{i}'$, o\`u
+les~$B_{i}'$ sont des sous-alg\`ebres de type fini de la
+$A'$-alg\`ebre~$B'$. Si $B'$ est entier
+sur~$A'$,
+les~$B_{i}'$ sont des modules de type fini sur~$A'$, donc $A'$
+\'etant fid\`element plat sur~$A$, les~$B_{i}$ sont des modules de
+type fini sur~$A$, \ie $B$ est entier sur~$A$. On voit de m\^eme
+que si~$B'$ est fini sur~$A'$, $B$ l'est sur~$A$. M\^eme conclusion
+pour \og localement libre de type fini\fg, \cf \ref{VIII.1.11}.
+
+\begin{corollaire}
+\label{VIII.5.8}
+Sous
+les conditions de~\ref{VIII.5.4}, supposons~$f$ quasi-compact et
+soient~$\mathcal{L}$ un Module inversible sur~$X$, et~$\mathcal{L}'$
+son image inverse sur~$X'$. Pour que~$\mathcal{L}$ soit ample
+(\resp tr\`es ample) relativement \`a~$f$, il faut et il suffit
+que~$\cal{L}'$
+soit ample (\resp tr\`es ample) relativement \`a~$f'$.
+\end{corollaire}
+
+Il y a \`a prouver seulement le \og il suffit\fg. L'hypoth\`ese
+sur~$\mathcal{L}$ implique en tous cas que~$f'$ est s\'epar\'e,
+donc $f$ est s\'epar\'e par~\ref{VIII.4.8}, et comme~$f$ est
+quasi-compact, et~$g\colon Y'\to Y$ est plat, le calcul des images
+directes par recouvrements affines montre qu'on a des isomorphismes
+$$
+g^*(f_*(\mathcal{L}^{\otimes n}))\isomto
+f_*'(\mathcal{L}'^{\otimes n})
+$$
+pour tout entier~$n$, donc on a un isomorphisme
+$$
+g^*(\mathcal{S})\isomto \mathcal{S}'\quoi,
+$$
+o\`u~$\mathcal{S}$ (\resp $\mathcal{S}'$) d\'esigne l'Alg\`ebre
+gradu\'ee quasi-coh\'erente sur~$Y$ (\resp sur~$Y'$) somme directe
+des~$f_*(\mathcal{L}^{\otimes n})$
+(\resp des~$f_*'(\mathcal{L}'^{\otimes n})$) pour~$n\geq
+0$. Notons que pour tout~$n\geq 0$, le conoyau de l'homomorphisme
+canonique~$f'^*(\mathcal{S}_{n}')\to \mathcal{L}'^{\otimes n}$
+est l'image inverse par~$X'\to X$ du conoyau
+de~$f^*(\mathcal{S}_{n})\to \mathcal{L}^{\otimes n}$, donc son
+support~$Z_{n}'$ est l'image inverse du support~$Z_{n}$. Si
+$\cal{L}'$
+est ample l'intersection des~$Z_{n}'$ est vide, donc comme~$X'\to X$
+est surjectif, l'intersection des~$Z_{n}$ est vide, \ie on a un
+morphisme canonique
+$$
+j\colon X\to \Proj(\mathcal{S})
+$$
+(EGA~II 3). D'ailleurs, le morphisme analogue
+$$
+j'\colon X'\to \Proj(\mathcal{S}')
+$$
+n'est autre que celui qui est d\'eduit du pr\'ec\'edent par le
+changement de base~$Y'\to Y$ (\loccit). Ceci pos\'e, dire que
+$\mathcal{L}'$ est ample relativement \`a~$f'$ signifie que~$j'$ est
+une immersion, d'ailleurs n\'ecessairement quasi-compacte
+puisque~$f'$ est quasi-compact. Donc en vertu de~\ref{VIII.5.5} $j$
+est une immersion, \ie $\mathcal{L}$ est ample relativement
+\`a~$f$. --- On proc\`ede de fa\c con toute analogue dans le cas
+de \og tr\`es
+ample\fg, en se bornant ci-dessus \`a~$n=1$, et en rempla\c cant la
+consid\'eration de~$\Proj(\mathcal{S})$ par celle du fibr\'e
+projectif~$\mathcal{P}(\mathcal{S}_{1})$ associ\'e
+\`a~$\mathcal{S}_{1}$.
+
+Rappelons (EGA~II 5.1.1) qu'un morphisme quasi-compact~$f$ est dit
+\emph{quasi-affine} si pour tout ouvert affine~$U$ dans~$Y$,
+$f^{-1}(U)$ est un pr\'esch\'ema isomorphe \`a un
+sous-sch\'ema ouvert d'un sch\'ema affine. On montre (\loccit)
+qu'il revient au m\^eme de dire que~$\mathcal{O}_{X}$ est ample (ou
+aussi: tr\`es ample) relativement \`a~$f$. Donc~\ref{VIII.5.8}
+implique:
+
+\begin{corollaire}
+\label{VIII.5.9}
+Sous les conditions de~\ref{VIII.5.4}, et supposant~$f$ quasi-compact,
+pour que~$f$ soit quasi-affine, il faut et il suffit que~$f'$ le soit.
+\end{corollaire}
+
+\begin{remarques}
+\label{VIII.5.10}
+L'exemple de vari\'et\'e non projective de Hironaka montre qu'on
+peut avoir un morphisme propre~$f\colon X\to Y$ de vari\'et\'es
+alg\'ebriques non singuli\`eres (avec~$Y$ projective), tel que~$Y$
+soit r\'eunion de deux ouverts~$Y_{i}$ tels
+que~$X_{i}=X\times_{Y}Y_{i}$ soit projectif sur~$Y_{i}$, mais~$f$
+n'\'etant pas projectif. Donc posant~$Y'=Y_{1}\amalg Y_{2}$, $Y'$
+est fid\`element plat et quasi-compact (et m\^eme quasi-fini)
+sur~$Y$, $f'\colon X'\to Y'$ est projectif, mais~$f$ n'est pas
+projectif. Il faut donc faire attention que pour
+appliquer~\ref{VIII.5.8}, et d\'eduire du fait que~$f'$ est
+projectif la m\^eme conclusion sur~$f$, il faut disposer d\'ej\`a
+sur~$X'$ d'un Module inversible~$\mathcal{L}'$ ample pour~$f'$,
+\emph{muni d'une donnée de descente relativement à}~$X'\to X$,
+(ce qui permet de consid\'erer~$\mathcal{L}'$ comme l'image inverse
+d'un Module inversible~$\mathcal{L}$ sur~$X$, qui sera alors ample
+pour~$f$ gr\^ace \`a~\ref{VIII.5.8}). Lorsque~$g\colon S'\to S$
+est fini et localement libre, voir cependant~\ref{VIII.7.7}.
+\end{remarques}
+
+\section[Application aux morphismes finis et quasi-finis]{Application aux morphismes finis et quasi-finis\footnotemark}
+\label{VIII.6}
+\footnotetext{\Cf EGA IV 18.12 pour des g\'en\'eralisations \`a des pr\'esch\'emas non n\'ecessairement localement noeth\'eriens}
+
+Nous allons d\'emontrer les deux th\'eor\`emes suivants:
+
+\begin{theoreme}
+\label{VIII.6.1}
+Soit~$f\colon X\to Y$ un morphisme \emph{propre à fibres finies},
+avec~$Y$ localement noeth\'erien. Alors~$f$ est fini.
+\end{theoreme}
+
+\begin{theoreme}
+\label{VIII.6.2}
+Soit~$f\colon X\to Y$ un morphisme \emph{quasi-fini} et
+\emph{séparé}, avec~$Y$ localement noeth\'erien. Alors~$f$
+est quasi-affine, et a fortiori quasi-projectif.
+\end{theoreme}
+
+\begin{remarques}
+\label{VIII.6.3}
+Le
+th\'eor\`eme~\ref{VIII.6.1} est bien connu, et d\^u \`a
+Chevalley dans le cas de vari\'et\'es alg\'ebriques; on en
+trouvera aussi une d\'emonstration simple dans [EGA III 4],
+utilisant le \og th\'eor\`eme des fonctions holomorphes\fg. La
+d\'emonstration donn\'ee ici n'utilise pas ce dernier
+th\'eor\`eme, mais par contre la th\'eorie de descente; nous
+la donnons comme prime au lecteur, car on l'a \og pour rien\fg en
+m\^eme temps que celle de~\ref{VIII.6.2}. Rappelons aussi ([EGA III
+4] ou \cite{VIII.1}) que la forme globale du \og Main Theorem\fg de Zariski,
+d\'eduit du \og th\'eor\`eme des fonctions holomorphes\fg, affirme
+que si~$f\colon X\to Y$ est quasi-fini et \emph{quasi-projectif}, $Y$
+\'etant noeth\'erien, alors~$X$ est $Y$-isomorphe \`a un
+sous-pr\'esch\'ema ouvert d'un~$Y$-pr\'esch\'ema
+\emph{fini}~$Z$. La conjonction du \og Main Theorem\fg et
+de~\ref{VIII.6.2} s'\'enonce donc ainsi:
+\end{remarques}
+
+\begin{corollaire}
+\label{VIII.6.4}
+Soit~$f\colon X\to Y$ un morphisme quasi-fini et s\'epar\'e,
+avec~$Y$ noeth\'erien. Alors~$X$ est $Y$-isomorphe \`a un
+sous-pr\'esch\'ema ouvert d'un~$Y$-pr\'esch\'ema fini~$Z$.
+\end{corollaire}
+
+Une autre cons\'equence int\'eressante de~\ref{VIII.6.2} pour la
+th\'eorie de la descente sera donn\'ee avec~\ref{VIII.7.9}.
+
+\subsubsection*{D\'emonstration de~\ref{VIII.6.1} et~\ref{VIII.6.2}}
+Nous admettrons le fait suivant, dont la d\'emonstration est
+facile\footnote{\Cf EGA IV 8}:
+
+\begin{lemme}
+\label{VIII.6.5}
+Soit~$X$ un pr\'esch\'ema de type fini sur~$Y$ localement
+noeth\'erien, et soit~$y\in Y$. Pour qu'il existe un voisinage
+ouvert~$U$ de~$y$ tel que~$X|U$ soit fini (\resp quasi-affine,
+\resp\ ...) sur~$U$, il faut et il suffit
+que~$X\times_{Y}\Spec(\mathcal{O}_{y})$ soit fini (\resp quasi-affine,
+\resp\ ...) sur~$\Spec(\mathcal{O}_{y})$.
+\end{lemme}
+
+Comme d'autre part la propri\'et\'e pour~$f\colon X\to Y$
+d'\^etre fini, \resp quasi-affine, est locale sur~$Y$, on est
+ramen\'e pour prouver~\ref{VIII.6.1} et~\ref{VIII.6.2} au cas
+o\`u~$Y$ est le spectre d'un anneau local, et est a fortiori de
+dimension finie. (N.B. on appelle \emph{dimension d'un
+préschéma}~$Y$ le sup des dimensions de Krull de ses anneaux
+locaux). Nous proc\'edons par r\'ecurrence sur~$$
+n=\dim(Y)\quoi,
+$$
+l'assertion
+\'etant triviale pour~$n<0$. Nous pouvons donc supposer~$n\geq 0$,
+et l'assertion d\'emontr\'ee pour les dimensions~$n'<n$. On peut
+\`a nouveau supposer que~$Y$ est le spectre d'un anneau local
+noeth\'erien~$A$, de dimension~$n$. Notons que les hypoth\`eses
+faites dans~\ref{VIII.6.1} et~\ref{VIII.6.2} sont stables par
+changement de base (on s'en est d\'ej\`a servi dans la r\'eduction
+du d\'ebut), elles resteront vraies apr\`es le changement de
+base~$\Spec(\widehat{A})\to \Spec(A)$. Comme ce dernier est
+fid\`element plat et quasi-compact, les
+\'enonc\'es~\ref{VIII.5.7} et~\ref{VIII.5.9} nous ram\`enent au
+cas o\`u~$A$ est de plus complet. Utilisant alors le fait que tout
+anneau local noeth\'erien~$B$ sur~$A$ quasi-fini sur~$A$ est fini
+sur~$A$, et le fait que~$X$ est s\'epar\'e sur~$Y$ et la fibre
+de~$y$ est form\'ee de points isol\'es, on trouve une
+d\'ecomposition
+$$
+X=X'\amalg X''
+$$
+o\`u~$X'$ est \emph{fini} sur~$Y$, et o\`u la fibre de~$X''$
+en~$y$ est vide. Si~$X$ est propre sur~$Y$, il en est de m\^eme
+de~$X''$, donc son image dans~$Y$ est ferm\'ee, et comme elle ne
+contient pas~$y$, elle est vide, donc~$X''=\emptyset$ donc~$X=X'$,
+ce qui montre que~$X$ est fini sur~$Y$ et d\'emontre~\ref{VIII.6.1}
+(N.B. l'hypoth\`ese de r\'ecurrence est ici inutile). Si~$X$ est
+quasi-fini sur~$Y$, $X''$ l'est aussi, or~$X''$ se trouve en fait sur
+l'ouvert~$Y-\{ y\}$
+de~$Y$, \emph{qui est de dimension} $<n$. En vertu de l'hypoth\`ese
+de r\'ecurrence, $X''$ est quasi-affine
+sur~$Y-\{ y\}$,
+donc aussi sur~$Y$, il en est \'evidemment de m\^eme de~$X'$, donc
+aussi de leur somme~$X$, ce qui prouve~\ref{VIII.6.2}.
+
+\begin{remarque}
+\label{VIII.6.6}
+Les th\'eor\`emes~\ref{VIII.6.1} et~\ref{VIII.6.2} restent
+valables si on ne suppose plus~$Y$ localement noeth\'erien, \`a
+condition de sp\'ecifier que l'on suppose~$f$ de pr\'esentation
+finie
+(\cf \ref{VIII.3.6}).
+En effet, on peut encore supposer~$Y$ affine, et alors on v\'erifie
+sans difficult\'e que la situation~$f\colon X\to Y$ est
+d\'eduite,
+par un changement de base~$Y\to Y_{0}$, d'une situation~$f_{0}\colon
+X_{0}\to Y_{0}$ satisfaisant les m\^emes hypoth\`eses que~$f$,
+avec~$Y_{0}$ \emph{noethérien}. Donc d'apr\`es le
+r\'esultat~\ref{VIII.6.1} \resp \ref{VIII.6.2}, $f_{0}$ est fini
+\resp quasi-affine, donc il en est de m\^eme de~$f$. Ce genre de
+raisonnement est souvent utile pour se d\'ebarrasser
+d'hypoth\`eses noeth\'eriennes,
+(qui finissent toujours par \^etre g\^enantes dans les
+applications).
+\end{remarque}
+
+\section{Crit\`eres d'effectivit\'e pour une donn\'ee de descente}
+\label{VIII.7}
+
+Consid\'erons comme d'habitude un morphisme de pr\'esch\'emas
+$$
+g\colon S'\to S
+$$
+et un $S'$-pr\'esch\'ema~$X'$. Conform\'ement aux faits
+g\'en\'eraux~VII,~9\footnote{n'existe pas; voir expos\'e 212 du
+S\'eminaire Bourbaki (1962)},
+la donn\'ee d'une donn\'ee de descente sur~$X'$, relativement
+\`a~$g$, est \'equivalente \`a la donn\'ee d'un couple
+d'\'equivalence \cite{VIII.3}:
+$$
+\xymatrix@C=.5cm{{q_{1},q_{2}\colon X''}\ar@<2pt>[r]\ar@<-2pt>[r]&{X'}}
+$$
+tel que le morphisme structural~$X'\to S'$ soit compatible avec ce
+couple et le couple d'\'equivalence
+$$
+\xymatrix@C=.5cm{{p_{1},p_{2}\colon
+S''=S'\times_{S}S'}\ar@<2pt>[r]\ar@<-2pt>[r]&{S'}}
+$$
+d\'efini par~$g$, et tel que les deux carr\'es (ou l'un des deux,
+cela revient au m\^eme par raison de sym\'etrie) extraits du
+diagramme correspondant
+$$
+\xymatrix{{X'}\ar[d]&{X''}\ar@<2pt>[l]\ar@<-2pt>[l]\ar[d]\\{S'}&{S''}\ar@<2pt>[l]\ar@<-2pt>[l]}
+$$
+(en utilisant soit~$p_{1},q_{1}$, soit~$p_{2},q_{2}$), soit
+\emph{cartésien}. Une solution du probl\`eme de descente
+pos\'e par cette donn\'ee de descente, \ie un objet~$X$ sur~$S$
+muni d'un isomorphisme~$X\times_{S}S'\isomfrom X'$ compatible avec les
+donn\'ees de descente, \'equivaut \`a la donn\'ee d'un
+carr\'e \emph{cartésien}
+$$
+\xymatrix{{X}\ar[d]&{X'}\ar[l]_{h}\ar[d]\\{S}&{S'}\ar[l]_{g}}
+$$
+satisfaisant~$hq_{1}=hq_{2}$.
+
+Comme
+l'ensemble des morphismes fid\`element plats et quasi-compacts est
+stable par changement de base, et qu'un morphisme fid\`element plat
+et quasi-compact est un \'epimorphisme effectif en vertu
+de~\ref{VIII.5.3}, il r\'esulte de la th\'eorie g\'en\'erale
+\cite{VIII.D}:
+
+\begin{proposition}
+\label{VIII.7.1}
+Supposons~$g\colon S'\to S$ fid\`element plat et quasi-compact. Pour
+qu'une don\-n\'ee de descente sur~$X'$ relativement \`a~$g$ soit
+effective, il faut et il suffit que la relation
+d'\'equivalence~$R=(q_{1},q_{2})$ qu'elle d\'efinit soit effective
+(\ie le quotient~$X'/R$ existe et $X''$ devient le carr\'e
+fibr\'e de~$X'$ sur~$X'/R$), et que le morphisme canonique~$X'\to
+X'/R$ soit fid\`element plat et quasi-compact.
+\end{proposition}
+
+Ainsi la question de l'effectivit\'e d'une donn\'ee de descente
+est un cas particulier de la question d'effectivit\'e d'un graphe
+d'\'equivalence, et divers crit\`eres d'effectivit\'e donn\'es
+dans ce num\'ero peuvent s'obtenir de cette fa\c con. N\'eanmoins on dispose dans le contexte de la descente du
+th\'eor\`eme~\ref{VIII.2.1}, qui implique que \emph{si $X'$ est
+affine sur~$S'$, toute donnée de descente sur~$X'$ relativement
+à~$g$ est effective}, \'enonc\'e qui n'a pas d'analogue pour
+le passage au quotient par un graphe d'\'equivalence plat
+g\'en\'eral. Tous les crit\`eres d'effectivit\'e que nous
+donnons ici peuvent aussi \^etre consid\'er\'es comme
+d\'eduits du pr\'ec\'edent.
+
+Soit~$U'$ un sous-pr\'esch\'ema de~$X'$ (ou plus
+g\'en\'eralement un sous-objet de~$X'$ dans la
+cat\'egorie~$\Sch$); on dit que~$U'$ est \emph{stable par la
+donnée de descente} sur~$X'$, si on peut trouver sur~$U'$ une
+donn\'ee de descente relativement \`a~$g$, telle que
+l'immersion~$U'\to X'$ soit compatible avec les donn\'ees de
+descente. Cela signifie aussi que les images inverses de~$U'$
+dans~$X''$ par~$q_{1}$ et~$q_{2}$ sont les m\^emes (ou aussi, comme
+on dit, que~$U'$ est \emph{stable par la relation
+d'équivalence}~$R$), et bien entendu la donn\'ee de descente en
+question sur~$U'$ est alors unique, et dite \emph{donnée de
+descente induite}
+\index{donn\'ee de descente induite|hyperpage}par celle de~$X'$. Ceci pos\'e:
+
+\begin{proposition}
+\label{VIII.7.2}
+Soit~$(X_{i}')$ un recouvrement de~$X'$ par des ouverts~$X_{i}'$
+stables
+par la donn\'ee de descente. Pour que la donn\'ee de descente
+sur~$X'$ soit effective, il faut et il suffit qu'il en soit de
+m\^eme des donn\'ees de descente induites dans les~$X_{i}'$.
+\end{proposition}
+
+C'est l\`a une cons\'equence facile de~\ref{VIII.7.1} par exemple,
+et le d\'etail de la d\'emonstration est laiss\'e au lecteur.
+
+\begin{corollaire}
+\label{VIII.7.3}
+Soit~$(S_{i})$ un recouvrement ouvert de~$S$, et pour tout~$i$
+soient~$S_{i}'$ et~$X_{i}'$ d\'eduits de~$S'$
+et
+$X'$ par le changement de base~$S_{i}\to S$. Pour que la donn\'ee de
+descente sur~$X'$ soit effective, il faut et il suffit que, pour
+tout~$i$, la donn\'ee de descente sur~$X_{i}'$ relativement
+\`a~$g_{i}\colon S_{i}'\to S_{i}$ soit effective.
+\end{corollaire}
+
+Ce crit\`ere nous ram\`ene toujours pratiquement au cas o\`u~$S$
+est affine. Dans le cas o\`u~$S'$ est \'egalement affine, ce qui
+est le cas le plus fr\'equent dans les applications, on~a:
+
+\begin{corollaire}
+\label{VIII.7.4}
+Supposons~$S$ et~$S'$ affines. Pour que la donn\'ee de descente
+sur~$X'$ soit effective, il faut et il suffit que~$X'$ soit
+r\'eunion d'ouverts~$X_{i}'$ affines et stables par la donn\'ee de
+descente.
+\end{corollaire}
+
+La suffisance provient de~\ref{VIII.7.2} et du fait que si~$X_{i}'$
+est affine, il est affine sur~$S'$ et on peut
+appliquer~\ref{VIII.2.1}. Pour la n\'ecessit\'e, on note que
+si~$X'$ provient de~$X$, et si~$X$ est recouvert par des ouverts
+affines~$X_{i}$, alors les~$X_{i}'=X_{i}\times_{S}S'$ sont des ouverts
+affines stables par les donn\'ees de descente et recouvrant~$X'$.
+
+\begin{corollaire}
+\label{VIII.7.5}
+Soit~$g\colon S'\to S$ un morphisme fid\`element plat, quasi-compact
+et \emph{radiciel}. Alors~$g$ est un morphisme de descente
+\emph{effective}, \ie pour tout~$X'$ sur~$S'$, toute donn\'ee de
+descente sur~$X'$ relativement \`a~$g\colon S'\to S$ est effective.
+\end{corollaire}
+
+En effet, en vertu de~\ref{VIII.7.3} on peut supposer~$S$ affine, donc
+comme~$S'$ est radiciel sur~$S$ donc s\'epar\'e, $S'$ est
+s\'epar\'e. D'ailleurs pour tout~$x'\in X'$, la
+fibre~$R(x')=q_{2}(q_{1}^{-1}(x'))$ de la relation d'\'equivalence
+ensembliste d\'efinie
+par la relation d'\'equivalence~$R$ est r\'eduite \`a un point,
+car~$g$ \'etant radiciel, il en est de m\^eme de~$p_{1},p_{2}$ qui
+s'en d\'eduisent par changement de base~$S'\to S$, donc aussi
+de~$q_{1},q_{2}$ qui se d\'eduisent des pr\'ec\'edents par
+changement de base~$X'\to S''$. Donc \emph{tout ouvert de~$X'$ est
+stable} par la donn\'ee de descente. Recouvrons alors~$X'$ par des
+ouverts affines~$X_{i}'$, ils sont affines sur~$S$ puisque~$S'$ est
+s\'epar\'e, donc la donn\'ee de descente induite est effective
+par~\ref{VIII.2.1}. On conclut alors par~\ref{VIII.7.2}.
+
+On notera que~\ref{VIII.7.5} donne le seul cas connu d'un morphisme de
+descente effective dans la cat\'egorie des pr\'esch\'emas, et
+c'est probablement le seul cas en effet, m\^eme en se limitant aux
+sch\'emas noeth\'eriens, ou aux sch\'emas de type fini sur un
+corps.
+
+Lorsqu'on suppose~$S$ localement noeth\'erien et~$S'$ de type fini
+sur~$S$, l'\'enonc\'e~\ref{VIII.7.5} est aussi un cas particulier
+du suivant (qui g\'en\'eralise la descente galoisienne de Weil et
+la descente ins\'eparable de Cartier):
+
+\begin{corollaire}
+\label{VIII.7.6}
+Soit~$g\colon S'\to S$ un morphisme fini localement libre
+(\ie d\'efini par une Alg\`ebre sur~$S$ qui est un module
+localement libre de type fini) et surjectif (donc~$g$ est
+fid\`element plat et quasi-compact, donc un morphisme de
+descente). Soit~$X'$ un~$S'$-pr\'esch\'ema muni d'une donn\'ee
+de descente. Pour que cette donn\'ee soit effective, il faut et il
+suffit que pour tout~$x'\in X'$, la
+fibre~$R(x')=q_{2}(q_{1}^{-1}(x'))$ soit contenue dans un ouvert
+affine (condition automatiquement v\'erifi\'ee si~$X'$ est
+quasi-projectif sur~$S'$).
+\end{corollaire}
+
+La remarque entre parenth\`eses provient du fait que si~$s$ est le
+point de~$S$ au-dessous de~$x'$, alors $R(x')$ est fini et contenu
+dans la
+fibre~$X'_{s}$,
+d'autre part comme~$X'$ est quasi-projectif sur~$S'$ et~$S'$ est fini
+sur~$S$, $X'$ est quasi-projectif sur~$S$, ce qui implique qu'une
+fibre
+de~$X'$ sur~$S$
+est contenue dans un ouvert affine.
+
+Comme toute partie finie d'un sch\'ema affine admet un syst\`eme
+fondamental de voisinages affines, on voit qu'on ne perd pas
+l'hypoth\`ese en se restreignant au-dessus d'un ouvert affine
+de~$S$, ce qui en vertu de~\ref{VIII.7.3} nous ram\`ene au cas
+o\`u~$S$ est affine. En vertu de~\ref{VIII.7.4}, on est ramen\'e
+\`a montrer
+que~$x'$
+est contenu
+dans un ouvert affine \emph{stable} par la donn\'ee de
+descente. Soit en effet~$U$ un ouvert affine contenant~$R(x')$, alors
+le satur\'e
+$$
+R(X'-U)=q_{2}(q_{1}^{-1}(X'-U))
+$$
+ne rencontre pas~$R(x')$, d'autre part comme~$q_{2}$ est fini (car~$g$
+donc~$p_{2}$ l'est) donc ferm\'e, le deuxi\`eme membre est une
+partie ferm\'ee de~$X'$. Soit~$U'$ son compl\'ementaire dans~$X'$,
+c'est donc un ouvert \emph{saturé} et on a
+$$
+R(x')\subset U'\subset U
+$$
+avec~$U$ affine, mais~$U'$ pas affine a priori. Comme une partie
+finie~$R(x')$ dans un sch\'ema affine~$U$ a un syst\`eme
+fondamental de voisinages affines de la forme~$U_{f}$, on voit,
+rempla\c cant~$f$ par sa restriction \`a~$U'$, qu'il existe une
+section~$f$ de~$\mathcal{O}_{U}$ telle que:
+$$
+R(x')\subset U_{f}',\quad U_{f}'\textrm{ est affine}.
+$$
+Soit alors~$U''=q_{1}^{-1}(U')=q_{2}^{-1}(U')$, d\'esignons encore
+par~$q_{1},q_{2}$ les morphismes induits~$U''\to U'$, et
+consid\'erons
+$$
+f'=\Norm_{q_{2}}(q_{1}^*(f))\quoi,
+$$
+o\`u~$\Norm_{q_{2}}$ d\'esigne la \emph{norme} relativement au
+morphisme fini localement libre~$q_{2}\colon U''\to U'$. La
+compatibilit\'e de la formation de la norme avec le changement de
+base implique facilement que~$f'$ est une section \emph{invariante}:
+$$
+q_{1}^*(f')=q_{2}^*(f')
+$$
+ce qui implique que~$U_{f'}'$ est un ouvert satur\'e de~$U'$. De
+fa\c con plus pr\'ecise d'ailleurs, d\'esignant par~$Z(f')$
+l'ensemble des z\'eros d'une section~$f'$, on trouve en vertu des
+propri\'et\'es des normes:
+$$
+Z(f')=q_{2}(Z(q_{1}^*(f)))=q_{2}(q_{1}^*(Z(f)))=
+R(U'-U_{f}')\quoi,
+$$
+ce
+qui implique que~$U_{f'}'=U'-Z(f')$ est satur\'e, contient~$R(x')$,
+et est contenu dans~$U_{f}'$. Comme ce dernier est affine, il s'ensuit
+que~$U_{f'}'$ l'est aussi (car \'egal \`a~$(U_{f}')_{f''}$,
+avec~$f''=f'|U_{f'}'$). C'est donc un ouvert affine satur\'e
+contenant~$R(x')$ donc~$x'$, ce qui ach\`eve la d\'emonstration.
+
+On notera que ce raisonnement s'applique chaque fois qu'on a une
+relation d'\'equivalence (ou m\^eme seulement de
+pr\'e\'equivalence, \cf \cite{VIII.3}) dans un pr\'esch\'ema~$X'$, fini
+et localement libre et d'ailleurs~\ref{VIII.7.6} est aussi un cas
+particulier du r\'esultat analogue pour les pr\'e\'equivalences
+finies et localement libres, \cf \loccit M\^eme remarque
+pour~\ref{VIII.7.7} ci-dessous.
+
+On peut aussi, une fois obtenue l'existence d'un ouvert quasi-affine
+satur\'e~$U'$ contenant~$x'$, faire appel \`a~\ref{VIII.7.9}
+et~\ref{VIII.7.2} ce qui \'evite le recours aux normes.
+
+Notons d'ailleurs que sous les conditions de~\ref{VIII.7.6}, si la
+donn\'ee de descente sur~$X'$ est effective, $X'$ provenant de~$X$
+sur~$S$, alors le morphisme~$X'\to X$ est fini, localement libre et
+surjectif, car d\'eduit de~$g$ par le changement de base~$X\to
+S$. Il s'ensuit (EGA~II 6.6.4) que si~$X'$ est quasi-projectif
+sur~$S'$ donc sur~$S$, alors~$X$ est quasi-projectif sur~$S$, (un
+faisceau inversible relativement ample sur~$X$ \'etant obtenu en
+prenant la \emph{norme} d'un faisceau inversible sur~$X'$ relativement
+ample sur~$S$, ou sur~$S'$, cela revient au m\^eme). On obtient
+ainsi:
+
+\begin{corollaire}
+\label{VIII.7.7}
+Un morphisme~$g\colon S'\to S$ fini localement libre et surjectif est
+un morphisme de descente effective pour la cat\'egorie fibr\'ee
+des pr\'esch\'emas quasi-projectifs sur d'autres, \ie pour
+tout~$X'$ quasi-projectif sur~$S'$, toute donn\'ee de descente
+sur~$X'$ relativement \`a~$g$ est effective, et le
+$S$-pr\'esch\'ema descendu~$X$ est quasi-projectif sur~$S$.
+\end{corollaire}
+
+\begin{proposition}
+\label{VIII.7.8}
+Soit~$g\colon S'\to S$ un morphisme fid\`element plat et
+quasi-compact. Alors~$g$ est un morphisme de descente effective pour
+la cat\'egorie fibr\'ee des pr\'esch\'emas~$Z$ quasi-compacts
+sur un pr\'esch\'ema~$T$, munis d'un faisceau inversible ample
+relativement \`a~$T$. En particulier, pour tout
+pr\'esch\'ema~$X'$ sur~$S'$, muni d'une donn\'ee de descente
+relativement \`a~$g\colon S'\to S$, et tout faisceau
+inversible~$\mathcal{L}'$ sur~$X'$ ample relativement \`a~$S'$, muni
+\'egalement d'une donn\'ee de descente relativement \`a celle
+donn\'ee sur~$X'$, (\ie muni d'un isomorphisme
+de~$q_{1}^*(\mathcal{L}')$ avec~$q_{2}^*(\mathcal{L}')$,
+satisfaisant la condition de transitivit\'e habituelle), la
+donn\'ee de descente sur~$X'$ est effective, et le faisceau
+inversible~$\mathcal{L}$ sur le pr\'esch\'ema descendu~$X$,
+d\'eduit de~$\mathcal{L}'$ par descente, est ample relativement
+\`a~$S$.
+\end{proposition}
+
+La d\'emonstration est toute analogue \`a celle de~\ref{VIII.5.8},
+en notant que sur l'Alg\`ebre gradu\'ee
+quasi-coh\'erente~$\mathcal{S}'$ sur~$S'$ d\'efinie
+par~$\mathcal{L}'$, il y a une donn\'ee de descente, permettant de
+construire une Alg\`ebre gradu\'ee
+quasi-coh\'erente~$\mathcal{S}$ sur~$S$ gr\^ace
+\`a~\ref{VIII.1.1} d'o\`u un~$P=\Proj(\mathcal{S})$ sur~$S$ tel
+que~$P'=\Proj(\mathcal{S}')$ s'identifie avec sa donn\'ee de
+descente \`a~$P\times_{S}S'$. Comme par hypoth\`ese $X'$
+s'identifie \`a un ouvert de~$P'$, n\'ecessairement stable par la
+donn\'ee de descente sur~$P'$, la donn\'ee de descente sur~$X'$
+est \'egalement effective, et on obtient le pr\'esch\'ema
+descendu comme un ouvert dans~$P$. Le d\'etail est laiss\'e au
+lecteur. --- En particulier, faisant~$\mathcal{L}'=\mathcal{O}_{X'}$, on
+trouve:
+
+\begin{corollaire}
+\label{VIII.7.9}
+Soit~$g\colon S'\to S$ un morphisme fid\`element plat et
+quasi-compact, et soit~$X'$ un pr\'esch\'ema \emph{quasi-affine}
+au-dessus de~$S'$, alors toute donn\'ee de descente sur~$X'$
+relativement \`a~$g$ est effective, et le pr\'esch\'ema
+descendu~$X$ est quasi-affine sur~$S$.
+\end{corollaire}
+
+En vertu de~\ref{VIII.6.2}, ce r\'esultat s'applique en particulier
+si~$S'$ est localement noeth\'erien et~$X'$ est quasi-fini et
+s\'epar\'e sur~$S'$, plus g\'en\'eralement si~$S'$ est
+quelconque et~$X'$ est de pr\'esentation finie, quasi-fini et
+s\'epar\'e sur~$S'$ (\cf \ref{VIII.6.6}).
+
+\begin{remarques}
+\label{VIII.7.10}
+Les r\'esultats donn\'es dans ce num\'ero \'epuisent les
+crit\`eres actuellement connus d'effectivit\'e, et probablement
+m\^eme les crit\`eres utiles existants\footnote{Cette opinion
+s'est trouv\'ee partiellement erron\'ee, voir p.\, ex. J.P.\, \textsc{Murre},
+S\'em. Bourbaki 294 (Appendix), Mai 1965, et des r\'esultats
+sp\'eciaux (notamment de \textsc{Néron} et \textsc{Raynaud}). Pour la descente des
+sch\'emas en groupes; \cf M.\, Raynaud, th\`ese (1968).}. On notera
+les contre-exemples suivants \`a l'appui de cette assertion:
+\begin{enumerate}
+\item[(i)]
+Si~$S$ est le spectre d'un corps, et~$S'$ est le spectre d'une
+extension quadratique galoisienne, on peut trouver un~$X'$ sur~$S'$
+propre et lisse sur~$S'$, de dimension 3, muni d'une donn\'ee de
+descente qui n'est pas effective (Serre).
+\item[(ii)] On peut trouver un~$S$ spectre d'un anneau local
+r\'egulier de dimension 3 (si on veut, l'anneau local d'un
+sch\'ema alg\'ebrique sur un corps de caract\'eristique
+donn\'ee), un~$T$ rev\^etement principal de~$S$ de
+groupe~$\ZZ/2\ZZ$, tel que, si~$t$ d\'esigne l'un des points de~$T$
+au-dessus du point ferm\'e~$s$ de~$S$, et $S'=T-s$, on puisse
+trouver un~$X'$ \emph{projectif} sur~$S'$, r\'egulier, muni d'une
+donn\'ee de descente relativement \`a~$g\colon S'\to S$, cette
+donn\'ee de descente n'\'etant pas effective.
+\end{enumerate}
+
+On utilise pour ces constructions l'exemple de Hironaka de
+vari\'et\'es non projectives. Pour~(i), il suffit d'utiliser le
+fait qu'on peut trouver au-dessus de~$k$ un sch\'ema propre et
+lisse~$X_{0}$ de dimension 3, sur lequel~$G=\ZZ/2\ZZ$ op\`ere sans
+inertie, et dans lequel il existe deux points~$a,b$ rationnels
+sur~$S$,
+congrus sous~$G$, qui ne sont pas contenus dans un ouvert affine. On
+pose alors~$X'=X_{0}\times_{k}k'$, on fait op\'erer~$G$ sur~$X'$
+gr\^ace aux op\'erations de~$G$ sur les deux facteurs, ce qui
+donne une donn\'ee de descente sur~$X'$ relativement \`a~$g\colon
+\Spec(k')\to \Spec(k)$. Au-dessus de~$a$ \resp $b$, il y a exactement
+un point~$a'$ \resp $b'$, (\`a extension r\'esiduelle
+quadratique), et~$a'$ et~$b'$ sont congrus sous~$G$, puisque~$X'\to
+X_{0}$ est compatible avec les op\'erations de~$G$. Alors~$a'$
+et~$b'$ ne peuvent \^etre contenus dans un ouvert affine, soit~$U'$,
+car alors~$U=X_{0}-\Im(X'-U')$ serait un ouvert de~$X_{0}$
+contenant~$(a,b)$ et dont l'image inverse dans~$X'$ serait contenue
+dans~$U'$, donc quasi-affine, donc~$U$ serait quasi-affine, et par
+suite~$(a,b)$ aurait un voisinage affine dans~$U$.
+
+Pour~(ii), on utilise le fait que dans l'exemple de Hironaka, $X_{0}$
+est obtenu comme pr\'esch\'ema propre au-dessus
+d'un~$k$-sch\'ema projectif~$Y$, lisse sur~$k$ (le
+morphisme~$f\colon X_{0}\to Y$ \'etant d'ailleurs birationnel, mais
+peu importe), le groupe~$G$ op\'erant \'egalement sur~$Y$ de
+fa\c con compatible avec ses op\'erations sur~$X_{0}$, enfin
+posant~$S'=Y-f(b)$, $X'=X_{0}|S'$, $X'$ est projectif
+sur~$S'$. Alors~$X_{0}$ est muni d'une donn\'ee de descente
+naturelle relative au morphisme
+canonique~$Y\to S=Y/G$, gr\^ace aux op\'erations de~$G$
+sur~$X_{0}$ compatibles avec ses op\'erations sur~$Y$. Cette
+donn\'ee de descente n'est pas effective, puisque~$(a,b)$ n'est pas
+contenu dans un ouvert affine. La donn\'e de descente induite
+sur~$X'$ relativement \`a~$g\colon S'\to S$ n'est alors pas
+effective, comme on v\'erifie facilement.
+\end{remarques}
+
+\begin{thebibliography}{D}{VIII.8}
+
+\bibitem[D]{VIII.D} J.\, \textsc{Giraud}, M\'ethode de la descente, M\'emoire \no 2
+de la Soc.\ Math.\ Fr., 1964.
+
+\bibitem[1]{VIII.1} A.\, \textsc{Grothendieck}, S\'eminaire Bourbaki:
+G\'eom\'etrie formelle et G\'eom\'etrie alg\'ebrique, Mai
+1959, \No 182.
+
+\bibitem[2]{VIII.2} A.\, \textsc{Grothendieck}, S\'eminaire Bourbaki: Technique de
+descente et Th\'eor\`emes d'existence~I, D\'ecembre 1959,
+\No 190.
+
+\bibitem[3]{VIII.3} A.\, \textsc{Grothendieck}, S\'eminaire Bourbaki: Technique de
+descente et Th\'eor\`emes d'existence~III, F\'evrier 1961,
+\No 212.
+\end{thebibliography}
+

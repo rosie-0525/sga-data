@@ -1,0 +1,1578 @@
+\chapter{Morphismes lisses: propri\'et\'es~de~prolongement}
+\label{III}
+
+\section{Homomorphismes formellement lisses}
+\label{III.1}
+
+Dans~\ref{II}, nous nous sommes born\'es \`a la consid\'eration
+d'homomorphismes de type fini, et par cons\'equent, dans les
+homomorphismes locaux~$A\to B$ d'anneaux locaux, au cas o\`u~$B$ est
+isomorphe \`a une alg\`ebre localis\'ee d'une $A$-alg\`ebre de
+type fini. Ce cas est insuffisant pour diverses applications,
+notamment en g\'eom\'etrie formelle ou en g\'eom\'etrie
+analytique. Par exemple, l'anneau de s\'eries
+formelles~$B=A[[t_1,\dots,t_n]]$ a (du point de vue de la
+g\'eom\'etrie formelle) les propri\'et\'es d'une alg\`ebre
+lisse sur~$A$. En g\'eom\'etrie analytique, il en est de m\^eme
+de l'anneau local d'un point~$(y,z)$ d'un produit $Y\times\CC^n$
+consid\'er\'e comme alg\`ebre sur l'anneau local de~$y$;
+d'ailleurs, la compl\'et\'ee de cette alg\`ebre est isomorphe
+\`a l'alg\`ebre des s\'eries formelles en~$n$
+ind\'etermin\'ees sur le compl\'et\'e de l'anneau de
+base~$\cal{O}_x$. C'est ce qui conduit \`a poser la d\'efinition
+qui suit.
+
+\begin{definition}
+\label{III.1.1}
+Soit~$u\colon A\to B$ un homomorphisme local d'anneaux locaux
+(noeth\'eriens, on le rappelle). On 
+suppose~$\kres(B)$ fini sur~$\kres(A)$.
+On dit que~$u$ est un \emph{homomorphisme
+formellement lisse},
+\index{formellement lisse (homomorphisme, alg\`ebre)|hyperpage}\index{lisse (formellement)|hyperpage}ou que l'alg\`ebre~$B$ est \emph{formellement lisse sur}~$A$, s'il
+existe une $\overline{A}$-alg\`ebre locale
+finie~$A'$,
+libre sur~$\overline{A}$, telle que les composants locaux de l'anneau
+semi-local~$\overline{B}\otimes_{\overline{A}} A'=B'$ soient
+$A'$-isomorphes \`a des alg\`ebres des s\'eries formelles
+sur~$A'$\footnote{Pour une d\'efinition plus g\'en\'erale et
+plus conceptuelle, motiv\'ee par~\ref{III.2.1} ci-dessous,
+cf.\ EGA~$\mathrm{0}_{\mathrm{IV}}$~19.3.1.}.
+\end{definition}
+(On d\'enote par~$\overline{A}$, $\overline{B}$ les anneaux
+compl\'et\'es de~$A$, $B$). Comme~$B'$ est fini et libre
+sur~$\overline{B}$, c'est bien un anneau semi-local, compos\'e
+direct d'anneaux locaux complets, dont chacun est encore un module
+libre sur~$\overline{B}$, donc a m\^eme dimension que~$\overline{B}$
+donc que~$B$. Il s'ensuit que le nombre de variables~$t_i$ dans les
+anneaux de s\'eries formelles envisag\'es dans~\ref{III.1.1} est
+\'egal \`a $\dim \overline{B}-\dim \overline{A}=\dim B-\dim A$, et
+en particulier ind\'ependant du composant local
+choisi. On voit tout de suite que c'est aussi la dimension de l'anneau
+$B\otimes k=B/\goth{m} B$, o\`u~$k=A/\goth{m}$ est le corps
+r\'esiduel de~$A$; on l'appellera la \emph{dimension relative
+de}~$B$
+\index{dimension relative|hyperpage}\emph{par rapport à}~$A$.
+
+\begin{remarques}
+\label{III.1.2}
+Il est \'evident que la d\'efinition~\ref{III.1.1} ne d\'epend
+que de l'homomorphisme sur les compl\'et\'es $\overline{A} \to
+\overline{B}$ d\'eduit de~$A\to B$, ce qui justifie dans une
+certaine mesure la terminologie. Nous nous repentons ici de la
+d\'efinition~I~\ref{I.3.2}~b) et I~\ref{I.4.1}~b), qui risque
+d'induire en erreur, et pr\'ef\'erons dire \og formellement non
+ramifi\'e\fg
+\index{formellement non ramifi\'e (\resp net)|hyperpage}et \og formellement \'etale\fg
+\index{formellement etale@formellement \'etale|hyperpage}dans les cas envisag\'es dans ces d\'efinitions, r\'eservant la
+terminologie \og non ramifi\'ee\fg et \og \'etale\fg au cas o\`u $B$
+est localis\'ee d'une $A$-alg\`ebre de type fini\footnote{Ou
+mieux, \og essentiellement non ramifi\'e\fg \resp \og essentiellement
+\'etale\fg, comparer EGA IV 18.6.1.}.
+\index{essentiellement etale@essentiellement \'etale|hyperpage}\index{essentiellement non ramifi\'e (\resp net)|hyperpage}Le lecteur v\'erifiera aussit\^ot que \og formellement \'etale\fg
+\'equivaut \`a \og formellement lisse et quasi-fini\fg. Enfin,
+signalons qu'il y a une d\'efinition raisonnable de \og formellement
+lisse\fg sans aucune hypoth\`ese pr\'ealable sur l'extension
+r\'esiduelle
+$\kres(B)/\kres(A)$
+(suppos\'ee ici finie),
+englobant entre autres les homomorphismes locaux $A\to B$ tels que $B$
+soit \emph{plat} sur~$A$ et $B/\goth{m}B$ une \emph{extension
+séparable} de~$A/\goth{m} =k$ (pas n\'ecessairement de type
+fini); par exemple, un $p$-anneau de Cohen est formellement
+lisse
+sur
+l'anneau des entiers $p$-adiques. C'est la propri\'et\'e de
+rel\`evement des homomorphismes (comparer~\ref{III.2.1}) qui doit
+devenir d\'efinition dans ce cas g\'en\'eral. Pour les
+applications que nous avons en vue, le cas trait\'e dans la
+d\'efinition~\ref{III.1.1} nous suffira; par la suite, dans
+\og formellement lisse\fg nous sous-entendrons \og \`a extension
+r\'esiduelle finie\fg.
+\end{remarques}
+
+\begin{lemme}
+\label{III.1.3}
+Si $B$ est formellement lisse sur~$A$, $B$ est plat sur~$A$.
+\end{lemme}
+
+
+Comme la platitude est invariante par compl\'etion, on peut supposer
+$A$ et $B$ complets. Comme la platitude est invariante par extension
+plate locale (donc fid\`element plate) de l'anneau de base, on est
+ramen\'e en vertu de d\'efinition~\ref{III.1.1} au cas o\`u $B$
+est une alg\`ebre de s\'eries formelles sur~$A$. Mais alors en
+tant que $A$-module, $B$ est isomorphe \`a un produit de~$A$-modules
+isomorphes \`a $A$, donc (l'anneau de base $A$ \'etant
+noeth\'erien) est $A$-plat comme produit de~$A$-modules plats.
+
+
+\medskip
+Mettons-nous sous les conditions de~\ref{III.1.1}. Comme les
+extensions
+r\'esiduelles des composants locaux de~$B'$ sur~$A'$ sont triviales,
+il s'ensuit que $L\otimes_k k'$ est une $k'$-alg\`ebre artinienne
+dont les composants locaux ont des extensions r\'esiduelles
+triviales (o\`u $L,\, k,\, k'$ sont les corps r\'esiduels de~$A,\,
+B,\, A'$). Cette condition n\'ecessaire pour que l'extension finie
+libre $A'$ satisfasse la condition \'enonc\'ee dans~\ref{III.1.1}
+est aussi suffisante, comme il r\'esulte aussit\^ot de
+\ref{III.1.4}~(i) et~\ref{III.1.5} ci-dessous.
+
+\begin{proposition}
+\label{III.1.4}
+Soit $A\to B$ un homomorphisme local d'anneaux locaux, \`a extension
+r\'esiduelle finie
+et
+soit $A'$ une $A$-alg\`ebre finie locale sur~$A$, de sorte que
+$B'=B\otimes_A A'$ est finie sur~$B$, donc un anneau semi-local
+\'egalement noeth\'erien. \textup{(i)} Si $B$ est formellement lisse
+sur~$A$, alors les localis\'es de B en ses id\'eaux maximaux sont
+formellement lisses sur~$A'$. \textup{(ii)} La r\'eciproque est vraie
+si $A'$ est libre sur~$A$.
+\end{proposition}
+
+On est aussit\^ot ramen\'e au cas o\`u $A$, $B$ sont complets.
+
+(i) Soit $A''$ une extension finie libre locale de~$A$ telle que les
+composants locaux de~$B''=B\otimes_A A''$ soient des alg\`ebres de
+s\'eries formelles sur~$A''$. Faisant l'extension des scalaires
+$A''\to A''\otimes_A A' \to A'''$, o\`u $A'''$ est un composant
+local de~$A''\otimes_A A'$, on voit que les composants locaux de
+$B''\otimes_{A''} A'''=B\otimes_A A'''$ sont des alg\`ebres de
+s\'eries formelles sur~$A'''$. Or on a aussi
+$B\otimes_AA'''=(B\otimes_A A')\otimes_{A'} A'''=B'\otimes_{A'} A'''$,
+d'autre
+part comme $A''$ est libre sur~$A$, $A''\otimes_A A'$ est libre sur~$A'$ et il en est de m\^eme par suite de~$A'''$ qui en est facteur
+direct, ce qui prouve que $B'$ est formellement lisse sur~$A'$.
+
+(ii) Soit $A''$ une $A'$-alg\`ebre finie libre locale telle que les
+composants locaux de~$B'\otimes_{A'} A'' = B\otimes_A A''$ soient des
+alg\`ebres de s\'eries formelles sur~$A''$. Comme $A'$ est libre
+sur~$A$, $A''$ l'est aussi, donc $B$ est formellement \emph{lisse}
+sur~$A$.
+
+\begin{proposition}
+\label{III.1.5}
+Soit $A\to B$ un homomorphisme local d'anneaux locaux, \`a extension
+r\'esiduelle \emph{triviale}. Pour que $B$ soit formellement lisse
+sur~$A$, il faut et il suffit que $\overline{B}$ soit isomorphe \`a
+une alg\`ebre de s\'eries formelles sur~$\overline{A}$.
+\end{proposition}
+
+Il n'y a \`a prouver que la n\'ecessit\'e, et on peut supposer
+$A$ et $B$ complets. Soit $\goth{m}$ ($\goth{n}$) l'id\'eal maximal
+de~$A$ ($B$) et soient $t_1,\dots, t_n$ des \'el\'ements de
+$\goth{n}$ qui d\'efinissent une base de l'espace vectoriel
+$$
+(\goth{n}/\goth{n}^2)/ \Im (\goth{m}/\goth{m}^2)=
+\goth{n}/(\goth{n}^2 +\goth{m}B)
+$$
+Ces \'el\'ements d\'efinissent donc un homomorphisme de
+$A$-alg\`ebres locales
+$$
+B_1= A[[t_1,\dots,t_n]] \to B
+$$
+prouvons
+que c'est un isomorphisme. Il suffit de prouver que pour toute
+puissance $\goth{m}^q$ de~$\goth{m}$, on obtient un isomorphisme en
+r\'eduisant mod~$\goth{m}^q$ (puisque $B_1$ et $B$ sont les
+limites projectives des anneaux correspondants r\'eduits
+mod~$\goth{m}^q$, $q$ variable). Comme $B$ et $B_1$ sont des
+$A$-modules plats donc les gradu\'es associ\'es \`a la
+filtration $\goth{m}$-adique s'obtiennent en tensorisant par $\gr
+(A)$, sur~$k=A/\goth{m}$, les anneaux $B_1/\goth{m}B_1$
+\resp $B/\goth{m}B$, on est ramen\'e \`a montrer que
+$B_1/\goth{m}B_1\to B/\goth{m}B$ est un isomorphisme. Compte tenu
+de~\ref{III.1.3}, on est ainsi ramen\'e au cas o\`u $A$ est un
+\emph{corps} $k$. D'autre part, si $A'$ est $A$-alg\`ebre finie
+libre locale telle que $B\otimes_A A'$ soit une alg\`ebre de
+s\'eries formelles sur~$A'$ (N.B. cette alg\`ebre est locale,
+puisque l'extension r\'esiduelle de~$B$ sur~$A$ est triviale), pour
+prouver que $B_1\to B$ est un isomorphisme, il suffit de prouver que
+$B_1\otimes_A A'\to B\otimes_A A'$ l'est. Cela nous ram\`ene au cas
+o\`u $B$ est d\'ej\`a une alg\`ebre de s\'eries formelles
+(il fallait commencer par cette r\'eduction, avant de se ramener au
+cas d'un corps de base). Mais alors $B$ est un anneau local
+r\'egulier \`a corps de repr\'esentants $k$, et il est bien
+connu (et imm\'ediat par consid\'eration des gradu\'es
+associ\'es \`a la filtration $\goth{n}_1 $-adique et
+$\goth{n}$-adique sur~$B_1$ et $B$) que $B_1 \to B$ est un
+isomorphisme, ce qui ach\`eve la d\'emonstration.
+
+\begin{corollaire}
+\label{III.1.6}
+Si $B$ est formellement lisse sur~$A$, alors il existe une
+$A$-alg\`ebre finie locale $A'$ telle que les composants locaux de
+$\overline{B}\otimes_{\overline{A}}
+\overline{A'}=\overline{(B\otimes_A A')}$ soient isomorphes \`a des
+alg\`ebres de s\'eries formelles sur~$\overline{A'}$.
+\end{corollaire}
+En effet, si $L/k$ est l'extension r\'esiduelle de~$B/A$, on
+consid\`ere une extension $k'/k$, telle que les extensions
+r\'esiduelles dans la $k'$-alg\`ebre $L\otimes_k k'$ soient
+triviales. Soit $A'$ une alg\`ebre finie libre sur~$A$ telle que
+$A'/\goth{m}A'=k'$ (on sait qu'il en existe, par exemple en se
+ramenant de proche en proche au cas o\`u $k'/k$ est monog\`ene, et
+alors on rel\`eve dans $A$ les coefficients du polyn\^ome minimal
+d'un g\'en\'erateur de~$k'$ sur~$k$). Elle est locale. Alors
+$B\otimes_A A'$ a en ses id\'eaux maximaux des extensions
+r\'esiduelles triviales au-dessus de celle $k'$ de~$A'$, et on
+ach\`eve \`a l'aide de~\ref{III.1.5}.
+
+\begin{corollaire}
+\label{III.1.7}
+Soit $A\to B$ un homomorphisme local d'anneaux locaux. Pour que $B$
+soit formellement lisse sur~$A$, il faut et il suffit que $B$ soit
+plat sur~$A$ et que $B/\goth{m}B$ soit formellement lisse sur~$k=A/\goth{m}$.
+\end{corollaire}
+Faisant une extension finie libre locale $A'$ convenable de~$A$ et
+utilisant \ref{III.1.4}~(ii), on est ramen\'e au cas o\`u
+l'extension r\'esiduelle de~$B/A$ est triviale.
+On sait d'ailleurs par \ref{III.1.4}~(i) et~\ref{III.1.3} que les
+conditions \'enonc\'ees sont n\'ecessaires. Pour la suffisance,
+il suffit de remarquer que la d\'emonstration de~\ref{III.1.5}
+prouve, sous les hypoth\`eses faites ici, que $B$ est une
+alg\`ebre de s\'eries formelles sur~$A$ (supposant $A$ et $B$
+complets, ce qui est loisible).
+
+\begin{remarque}
+\label{III.1.8}
+Il ne serait pas difficile de d\'evelopper, pour les homomorphismes
+formellement lisses, l'analogue de toutes les propri\'et\'es des
+morphismes lisses, \'etudi\'ees dans~\ref{II}. Pour les
+propri\'et\'es diff\'erentielles, cela demande cependant une
+modification de la d\'efinition habituelle des diff\'erentielles
+de K\"ahler (\cf I~\ref{I.1}), les produits tensoriels
+compl\'et\'es rempla\c cant les produits tensoriels
+ordinaires. Nous nous contentons d'\'evoquer ici ces ab\^imes,
+ce qui pr\'ec\`ede \'etant suffisant pour notre propos.
+
+Il reste \`a faire le lien entre la lissit\'e formelle, et la
+notion de lissit\'e d\'evelopp\'ee dans~\ref{II} (et dont nous
+n'avons encore fait nul usage):
+\end{remarque}
+
+\begin{proposition}
+\label{III.1.9}
+Soit $A\to B$ un homomorphisme local, $B$ \'etant localis\'ee
+d'une $A$-alg\`ebre de type fini. Pour que $B$ soit lisse sur~$A$,
+il faut et il suffit qu'il soit formellement lisse sur~$A$.
+\end{proposition}
+
+Utilisant~\ref{III.1.7} et II~\ref{II.2.1}, on est ramen\'e au cas
+o\`u $A$ est un corps.
+
+Utilisant~\ref{III.1.4}~(ii) et II~\ref{II.4.13} une extension convenable
+$k'$ de~$k$ nous ram\`ene au cas o\`u l'extension r\'esiduelle
+pour $B/k$ est triviale. En vertu de~\ref{III.1.5}
+(\resp II~\ref{II.5.2}) $B$ est alors lisse sur~$k$ (\resp formellement
+\emph{lisse sur} $k$) si et seulement si $B$ est un anneau local
+r\'egulier (\resp son compl\'et\'e est une alg\`ebre de
+s\'eries formelles sur~$k$). Or il est bien connu que ces deux
+conditions sont \'equivalentes (l'extension r\'esiduelle \'etant
+triviale).
+
+\section[Propri\'et\'e de rel\`evement]{Propri\'et\'e de rel\`evement caract\'eristique des
+ho\-mo\-mor\-phis\-mes formellement lisses}
+\label{III.2}
+
+\begin{theoreme}
+\label{III.2.1}
+Soit $A \to B$ un homomorphisme local d'anneaux locaux d\'efinissant
+une extension r\'esiduelle finie. Les conditions suivantes sont
+\'equivalentes:
+\begin{enumerate}
+\item[(i)]
+$B$ est formellement lisse sur~$A$
+\item[(ii)] Pour tout homomorphisme local $A \to C$, o\`u $C$ est un
+anneau local \emph{complet}, tout id\'eal $J$ de~$C$ contenu dans
+$\goth{r}(C)$,
+et tout $A$-homomorphisme local $B \to C/J$, il existe un
+$A$-homomorphisme (n\'ecessairement local) $B \to C$ qui le
+rel\`eve.
+\item[(iii)] Pour toute $A$-alg\`ebre $C$ (pas n\'ecessairement un
+anneau noeth\'erien) tout id\'eal nilpotent $J$ de~$C$, et tout
+$A$-homomorphisme $B \to C$ continu (\ie s'annulant sur une puissance
+de~$\goth{r}(B)$), il existe un $A$-homomorphisme $B \to C$
+(n\'ecessairement continu lui aussi) qui le rel\`eve.
+\item[(iv)] M\^eme \'enonc\'e que \textup{(ii)} et \textup{(iii)}, mais $C$
+\'etant un anneau local artinien, fini au-dessus de~$A$.
+\item[(iv~bis)] Comme \textup{(iv)}, mais $J$ \'etant de plus de carr\'e
+nul.
+\end{enumerate}
+\end{theoreme}
+
+\begin{remarquestar}
+Pour la suite de cet expos\'e, nous nous servirons seulement de
+l'implication (iv)$\To$(i) ou (iv~bis)$\To$(i);
+l'implication directe (i)$\To$(ii) sera prouv\'ee par une
+autre m\'ethode au \no suivant lorsque $B$ est localis\'ee d'une
+alg\`ebre de type fini sur~$A$. Rappelons que dans la \og bonne\fg
+th\'eorie des th\'eor\`emes de Cohen\footnote{\Cf EGA
+$0_{\textup{IV}}$ 19.3, 19.8}, la propri\'et\'e (ii) ou (iii)
+devient la d\'efinition des homomorphismes formellement lisses,
+alors que \ref{III.1.1} devient une propri\'et\'e caract\'eristique
+valable seulement dans le cas d'une extension r\'esiduelle finie. On
+fera attention que des propri\'et\'es (ii) et (iii) aucune n'est
+plus g\'en\'erale que l'autre. On pourrait donner une
+propri\'et\'e (\'equivalente) qui les coiffe toutes deux, en
+introduisant un anneau lin\'eairement topologis\'e $C$,
+\emph{séparé} et \emph{complet}, un id\'eal \emph{fermé
+topologiquement nilpotent} de~$C$, et un homomorphisme continu $A \to
+C$ (faisant donc de~$C$ une $A$-alg\`ebre topologique); nous
+laisserons cette modification au lecteur.
+\end{remarquestar}
+
+\subsubsection*{D\'emonstration de~\ref{III.2.1}}
+Nous prouverons (i)$\To$(iii)$\To$(ii), puis (iv)$\To$(i). Comme (ii)$\To$(iv) est trivial, et
+l'\'equivalence de (iv) et (iv~bis) se voit par une r\'ecurrence
+imm\'ediate sur l'entier $n$ tel que $J^n = 0$, cela ach\`evera la
+d\'emonstration.
+
+(i)$\To$(iii). Une r\'ecurrence imm\'ediate nous
+ram\`ene au cas o\`u $J^2 = 0$. Comme $C$ est fini sur~$A$, il
+existe une puissance $\goth{m}^q$ de l'id\'eal maximal de~$A$ qui annule
+$C$. Divisant par $\goth{m}^q$, et notant que $B/\goth{m}^qB$ est
+encore formellement lisse
+sur~$A/\goth{m}^q$ par \ref{III.1.4}~(i), on peut supposer $A$
+artinien. Comme $B$ est plat sur~$A$ par~\ref{III.1.3}, $B$ \emph{est
+libre sur} $A$ puisque $A$ est artinien. Donc il existe un
+\emph{homomorphisme de} $A$-\emph{modules}
+$$
+w \colon B \to C
+$$
+qui rel\`eve l'homomorphisme donn\'e $u \colon B \to C/J$. Posons
+$$
+f(x,y) = w(xy) - w(x)w(y) \qquad (x,y \in B)
+$$
+alors $f(x,y) \in J$, et $f$ est donc une application
+$A$-bilin\'eaire de~$B \times B$ dans $J$. Pour qu'il existe un
+rel\`evement $v \colon B \to C$ de~$u$ qui soit un homomorphisme
+d'alg\`ebres, il faut et il suffit qu'il existe une application
+$A$-lin\'eaire $g \colon B \to J$ telle que $v = w + g$ soit un
+homomorphisme d'alg\`ebres, ce qui s'\'ecrit
+\begin{align*}
+g(1) &= 1 - w(1) \\
+g(x,y) - u(x)g(y) -u(y)g(x) &= -f(x,y) \qquad (\text{pour } x,y \in
+B)
+\end{align*}
+C'est l\`a un syst\`eme d'\'equations \emph{linéaires} dans
+$\Hom_A(B,J)$, \`a seconds membres dans $J$, donc il a une solution
+si et seulement si le syst\`eme correspondant dans $\Hom_A(B,J)
+\otimes_A A'$, \`a seconds membres dans $J' = J \otimes_A A'$, a une
+solution, --- $A'$ d\'esignant une alg\`ebre fid\`element plate
+sur~$A$. Or soit $A'$ une alg\`ebre finie et libre sur~$A$, locale,
+telle que $B' = B \otimes_A A'$ soit une alg\`ebre de s\'eries
+formelles sur~$A'$ (N.B. on peut dans notre d\'emonstration supposer
+$A$ et $B$ complets, comme on constate aussit\^ot). Comme $A'$ est
+libre de type fini sur~$A$, on a
+$$
+\Hom_A(B,J) \otimes_A A' = \Hom_{A'}(B',J')
+$$
+et on constate que le syst\`eme d'\'equations obtenu dans
+$\Hom_{A'}(B',J')$ est celui qui d\'etermine les homomorphismes de
+$A'$-alg\`ebres $B' \to C' = C \otimes_A A'$ qui rel\`event
+l'homomorphisme $u' \colon B' \to C'/J'$ d\'eduit de~$u$ par
+extension des scalaires en \og corrigeant\fg par un homomorphisme de
+$A'$-modules $g' \colon B' \to J'$ l'homomorphisme de~$A'$-modules $w'
+\colon B' \to C'$ d\'eduit de~$w$ par extension des
+scalaires. (Noter que $B$ engendre $B'$ comme $A'$-module). On est
+ainsi ramen\'e \`a prouver (iii) lorsque $B$ est une
+\emph{algèbre de séries formelles} sur~$A$, $B = A[[t_1,
+\dots, t_n]]$. Relevons alors de fa\c con quelconque les images dans
+$C/J$ des $t_i$ en des \'el\'ements $z_i$ de~$C$. Comme les $z_i$~mod~$J$ sont nilpotents ($u \colon B \to C/J$ \'etant continu) il en
+est de m\^eme des $z_i$ (puisque $J$ est nilpotent), donc les $z_i$
+d\'efinissent un homomorphisme continu de~$A$-alg\`ebres
+topologiques de~$B$ dans $C$ discret, relevant \'evidemment $u$,
+cqfd.
+
+
+(iii)$\To$(ii).
+Soit $\goth{n}$ l'id\'eal maximal de~$C$, et
+pour tout entier $q > 0$, soit
+$$
+C_q = C/\goth{n}^q \text{\quoi, \quad} J_q = (J +
+\goth{n}^q)/\goth{n}^q
+$$
+donc $C_q/J_q$ s'identifie \`a une alg\`ebre quotient de~$C/J$,
+d'autre part l'homomorphisme compos\'e $u_q \colon B \to C/J \to
+C_q/J_q$ est continu de~$B$ dans $C_q/J_q$ discret, et $J_q$ est un
+id\'eal nilpotent dans $C_q$. On construit alors de proche en proche
+des $A$-homomorphismes
+$$
+v_q \colon B \to C_q
+$$
+tels que (a) $v_q$ rel\`eve $u_q$ et (b) $v_q$ rel\`eve
+$v_{q-1}$. La possibilit\'e de la r\'ecurrence se v\'erifie
+ais\'ement, car comme
+$$
+u_q \colon B \to C/(J + \goth{n}^q) \text{\quad et \quad} v_{q-1}
+\colon B \to C/\goth{n}^{q-1}
+$$
+d\'efinissent le m\^eme homomorphisme
+$$
+B \to C/((J + \goth{n}^q) + \goth{n}^{q-1}) = C/(J + \goth{n}^{q-1}) =
+C_{q-1}/J_{q-1}
+$$
+\`a savoir $u_{q-1}$, ils d\'efinissent un homomorphisme
+$$
+B \to C/J_q' \text{\quad où \quad} J_q' = (J + \goth{n}^q)\cap
+\goth{n}^{q-1} \supset \goth{n}^q
+$$
+(dont ils proviennent l'un et l'autre par r\'eduction). On est donc
+ramen\'e \`a relever un homomorphisme $B \to C/J_q'$ de~$B$ dans
+un quotient de~$C_q$ par un id\'eal $J_q'/\goth{n}^q$ contenu dans
+$J_q$, donc nilpotent, et cela est possible d'apr\`es
+l'hypoth\`ese (iii).
+
+Ceci fait, les $v_q$ d\'efinissent un homomorphisme de~$B$ dans la
+limite projective $C$ des $C_q$. Comme $J$ est ferm\'e, $J$ est la
+limite projective des $J_q$, donc $v$ rel\`eve $u$, cqfd.
+
+(iv)$\To$(i). On constate d'abord aussit\^ot que si (iv)
+est v\'erifi\'e, (iv) reste v\'erifi\'e pour las composants
+locaux de~$B \otimes_A A'$ sur~$A'$, si $A'$ est une alg\`ebre
+locale finie sur~$A$. Prenant $A'$ libre sur~$A$ et telle que les
+extensions r\'esiduelles de~$B'$ au-dessus de~$A'$ soient triviales,
+on est ramen\'e gr\^ace \`a~\ref{III.1.4} (ii) au cas o\`u
+l'extension r\'esiduelle de~$B$ sur~$A$ est triviale. Nous allons
+prouver alors le r\'esultat un peu pr\'ecis:
+
+\begin{corollaire}
+\label{III.2.2}
+Sous les conditions de~\ref{III.2.1}, supposons de plus l'extension
+r\'esiduelle de~$B$ au-dessus de~$A$ triviale. Alors les conditions
+\'equivalentes
+de~\ref{III.2.1} \'equivalent aussi aux deux conditions suivantes
+(en supposant dans \textup{(v)} $A$ et $B$ complets):
+\begin{enumerate}
+\item[(iv~ter)] Comme \textup{(iv)}, mais l'anneau local artinien $C$ fini sur~$A$ \'etant restreint \`a avoir une extension r\'esiduelle
+triviale (et de plus, si on y tient, l'id\'eal $J$ \'etant de
+carr\'e nul).
+\item[(v)] Il existe un $A$-homomorphisme local (o\`u $n =
+\dim{\goth{n}/(\goth{n}^2+\goth{m}B})$)
+$$
+u \colon B \to B_1 = A[[t_1, \dots, t_n]]
+$$
+induisant un \emph{isomorphisme}
+$$
+\goth{n}/(\goth{n}^2+\goth{m}B) \isomto
+\goth{n}_1/(\goth{n}_1^2+\goth{m}B_1)
+$$
+o\`u $\goth{n}$ ($\goth{n}_1$) est l'id\'eal maximal de~$B$
+($B_1$), $\goth{m}$ celui de~$A$.
+\end{enumerate}
+\end{corollaire}
+
+\subsubsection*{D\'emonstration} Comme (iv~bis) implique \'evidemment (iv~ter) --- en faisant abstraction du canular de l'id\'eal de carr\'e nul ---,
+il suffira de prouver (iv~ter)$\To$(v)$\To$(i).
+
+(iv~ter)$\To$(v). Choisissons une base $a_1,\dots,a_n$ de
+$\goth{n}/(\goth{n}^2+\goth{m}B)$, ce qui d\'efinit donc un
+homomorphisme local de~$A$-alg\`ebres
+$$
+B \to B_1/(\goth{n}_1^2+\goth{m}B_1) = k[t_1, \dots, t_n]/(t_1, \dots,
+t_n)^2
+$$
+qu'on peut relever de proche en proche, en vertu de (iv~ter) en des
+homomorphismes de~$A$-alg\`ebres de~$B$ dans $B_1/\goth{n}_1^2$,
+$B_1/\goth{n}_1^3$ etc, d'o\`u en passant \`a la limite projective
+l'homomorphisme $B \to B_1$ ayant la propri\'et\'e voulue.
+
+(v)$\To$(i). Comme dans le diagramme commutatif
+$$
+\xymatrix{{\goth{m}/\goth{m}^2}\ar[r]\ar[d]&{\goth{n}/\goth{n}^2}\ar[r]\ar[d]&{\goth{n}/(\goth{n}^2+\goth{m}B)}\ar[r]\ar[d]&{0}\\{\goth{m}/\goth{m}^2}\ar[r]&{\goth{n}_1/\goth{n}_1^2}\ar[r]&{\goth{n}_1/(\goth{n}_1^2+\goth{m}B_1)}\ar[r]&{0}}
+$$
+les deux lignes sont exactes, et les fl\`eches verticales
+extr\^emes surjectives, la fl\`eche m\'ediane est surjective et
+il s'ensuit ($B$ \'etant complet) que $B \to B_1$ est
+\emph{surjectif}. Soient $x_i$ ($1 \leq i \leq n$) des
+\'el\'ements de~$B$ qui rel\`event les $t_i$. Ils
+d\'efinissent donc un homomorphisme de~$A$-alg\`ebre $B_1 \to B$,
+qui sera surjectif pour la m\^eme raison que $u$, et dont le
+compos\'e avec $u$ est l'identit\'e par construction. Donc $B_1
+\to B$ est aussi injectif, et est par suite un isomorphisme. On trouve
+donc
+
+\begin{corollaire}
+\label{III.2.3}
+Sous
+les conditions de \ref{III.2.2}~\textup{(v)}, $u$ est n\'ecessairement
+un isomorphisme.
+\end{corollaire}
+
+Cela ach\`eve de prouver que $B$ est formellement lisse sur~$A$. On
+a d'ailleurs en m\^eme temps retrouv\'e~\ref{III.1.5} (mais il n'y
+a gu\`ere de m\'erite \`a \c ca).
+
+\section[Prolongement infinit\'esimal local des morphismes]{Prolongement infinit\'esimal local des morphismes dans un
+$S$-sch\'ema lisse}
+\label{III.3}
+
+\begin{theoreme}
+\label{III.3.1}
+Soit $f \colon X \to Y$ un morphisme localement de type fini.
+Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] $f$ est lisse.
+\item[(ii)] Pour tout pr\'esch\'ema $Y'$ sur~$Y$, tout
+sous-pr\'esch\'ema ferm\'e $Y'_0$ de~$Y'$ ayant m\^eme espace
+sous-jacent que $Y'$, tout $Y$-morphisme $g_0 \colon Y'_0 \to X$ et
+tout $z \in Y'_0$, il existe un voisinage ouvert $U$ de~$z$ dans $Y'$
+et un prolongement $g$ de~$g_0|Y'_0 \cap U$ en un $Y$-morphisme $U \to
+X$.
+\item[(ii~bis)] Pour $Y'$, $Y'_0$ et $z$ comme dans \textup{(ii)}, posant
+$X' = X \times_Y Y'$, $X'_0 = X \times_Y Y'_0$, toute section de
+$X'_0$ sur~$Y'_0$ se prolonge en une section de~$X'$ au-dessus d'un
+voisinage ouvert $U$ de~$z$.
+\item[(iii)] Pour tout $Y$-sch\'ema $Y'$, spectre d'un anneau artinien
+local fini sur quelque $\mathcal{O}_y$ ($y \in Y$), tout
+sous-pr\'esch\'ema ferm\'e non vide~$Y'_0$ de~$Y'$, et tout
+$Y$-morphisme $g_0 \colon Y'_0 \to X$, il existe un $Y$-morphisme $g
+\colon Y' \to X$ qui prolonge $g_0$.
+\item[(iii~bis)] Pour tout $Y'$, $Y'_0$ comme dans \textup{(iii)},
+posant $X' = X \times_Y Y'$, $X'_0 = X \times_Y Y'_0$, toute section
+de~$X'_0$ sur~$Y'_0$ se prolonge en une section de~$X'$ sur~$Y'$.
+\end{enumerate}
+\end{theoreme}
+
+\subsubsection*{D\'emonstration} L'\'equivalence de (ii) et (ii~bis) d'une part, de
+(iii) et (iii~bis) d'autre part, est triviale, ainsi que l'implication
+(ii)$\To$(iii). Il reste donc \`a prouver (i)$\To$(ii) et (iii)$\To$(i).
+
+(i)$\To$(ii). Soit $x = g_0(z)$. Rempla\c cant $X$ par un
+voisinage ouvert convenable de~$x$, et $Y'$ par le pr\'esch\'ema
+induit sur l'ouvert image r\'eciproque de ce dernier par~$g_0$, on
+peut supposer que $X$ est \'etale au-dessus de~$Y[t_1, \dots, t_n]$.
+Consid\'erons le $Y$-morphisme compos\'e $Y'_0 \to X \to Y[t_1,
+\dots, t_n]$, il est d\'efini par $n$ sections du faisceau
+$\mathcal{O}_{Y'_0}$, qui peuvent donc se prolonger au voisinage de
+$z$ en des sections de~$\mathcal{O}_{Y'}$, donc on peut supposer que
+le morphisme en question a \'et\'e prolong\'e en un
+$Y$-morphisme $Y' \to Y'_0$. En vertu de (I~\ref{I.5.6}) il existe
+alors un unique $Y$-morphisme $g \colon Y' \to X$ qui rel\`eve le
+pr\'ec\'edent, et prolonge en m\^eme temps $g_0$, cqfd.
+
+(iii)$\To$(i). Comme l'ensemble des points o\`u $f$ est
+lisse est ouvert, il suffit de prouver qu'il contient tout $x \in X$
+qui est \emph{fermé} dans sa fibre. Soit $y = f(x)$, alors
+$\mathcal{O}_x$ est une alg\`ebre sur~$\mathcal{O}_y$, localis\'ee
+d'une alg\`ebre de type fini, \`a extension r\'esiduelle finie.
+D'autre part, l'hypoth\`ese (iii) implique que tout homomorphisme de
+$\mathcal{O}_x$ dans une alg\`ebre $A/J$, o\`u $A$ est une
+alg\`ebre artinienne locale finie sur~$\mathcal{O}_y$, et $J$ un
+id\'eal contenu dans son radical, se rel\`eve en un homomorphisme
+de~$\mathcal{O}_x$ dans l'alg\`ebre $A$ (compte tenu qu'un morphisme
+d'un $\Spec(B)$, $B$ anneau local, dans $X$ est d\'etermin\'e
+biunivoquement par un homomorphisme local d'un $\mathcal{O}_x$ ($x \in
+X$) dans $B$). Par~\ref{III.2.1} il s'ensuit que $\mathcal{O}_x$ est
+formellement lisse sur~$\mathcal{O}_y$, donc lisse sur~$\mathcal{O}_y$
+en vertu de~\ref{III.1.9}.
+
+\begin{corollaire}
+\label{III.3.2}
+Soit $f\colon X\to Y$ comme dans~\ref{III.3.1}. Conditions
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $f$ est \'etale
+\item[(ii)] On a la condition~\textup{(ii)} de~\ref{III.3.1} avec
+{\emph{unicité}} du prolongement $g$ de~$g_0$ \`a $U$.
+\item[(iii)] On a la condition~\textup{(iii)} de~\ref{III.3.1} avec
+{\emph{unicité}} de~$g$.
+\end{enumerate}
+\end{corollaire}
+
+Il suffit de noter, dans la d\'emonstration de (i)$\To$(ii)
+ci-dessus, qu'on ne peut avoir unicit\'e (quand $Y'_0$ n'est pas
+identique \`a~$Y'$ au voisinage de~$z$) que si $n=0$ (condition
+qu'on sait \^etre suffisante).
+
+\begin{corollaire}
+\label{III.3.3}
+Soit $X$ un pr\'esch\'ema localement de type fini sur un anneau
+local {\emph{complet}} $A$, $y$ le point ferm\'e de~$Y=\Spec(A)$ et
+$x$ un point de~$f^{-1}(y)$ {\emph{rationnel}}
+sur~$\kres(y)$. Si $X$
+est {\emph{lisse sur~$A$ en~$x$}}, alors il existe une section $s$ de
+$X$ sur~$Y$ \og passant par~$x$\fg \ie telle que $s(y)=x$.
+\end{corollaire}
+
+En particulier, si $X$ est lisse sur~$A$, alors l'application
+naturelle
+$$
+\Gamma(X/Y)\to\Gamma(X\otimes_A k/k)
+$$
+des sections de~$X$ sur~$Y$ dans l'ensemble des points de la fibre
+$f^{-1}(y)=X\otimes_A k$ rationnels sur~$k$, est surjective. Ce fait
+\'etait surtout bien connu et utilis\'e lorsque $A$ est un anneau
+de valuation discr\`ete et $X$
+est propre sur~$A$ (en fait, projectif sur~$A$), auquel cas les
+sections de~$X$ sur~$Y$ (\ie les \og points de~$X$ \`a valeurs
+dans~$A$\fg) s'identifient aussi aux sections rationnelles, \ie aux
+points de~$X\otimes_A K=X_K$ (qui est un sch\'ema propre et simple
+sur~$K$) \`a valeurs dans $K=$ corps des fractions
+de~$A$,
+\ie aux
+points de~$X$ rationnels sur~$K$.
+
+\section{Prolongement infinit\'esimal local des $S$-sch\'emas lisses}
+\label{III.4}
+
+\begin{theoreme}
+\label{III.4.1}
+Soient $Y$ un pr\'esch\'ema localement noeth\'erien, $Y_0$ un
+sous-pr\'e\-sch\'ema ferm\'e ayant m\^eme espace sous-jacent,
+$X_0$ un $Y_0$-pr\'esch\'ema lisse, $x$ un point de~$X_0$. Alors
+il existe un voisinage ouvert $U_0$ de~$x$, un pr\'esch\'ema $X$
+lisse sur~$Y$, et un $Y_0$-isomorphisme:
+$$
+h\colon U_0\isomto X\times_Y Y_0.
+$$
+De plus, si $(U'_0,X',h')$ est une autre solution de ce probl\`eme,
+alors \og elle est isomorphe \`a la premi\`ere au voisinage
+de~$x$\fg.
+\end{theoreme}
+
+On laisse au lecteur de pr\'eciser ce qu'on veut dire par l\`a. On
+peut noter que pour $U_0$ donn\'e, une solution du
+probl\`eme pos\'e
+revient \`a la donn\'ee, sur~$U_0$, d'un faisceau d'alg\`ebres
+$\cal{B}$ sur~$f_0^{-1}(\cal{O}_Y)$ (o\`u $f_0$ est l'application
+continue sous-jacente au morphisme structural $U_0\to Y_0$), muni d'un
+homomorphisme d'anneaux $\cal{B}\to \cal{O}_{U_0}$ compatible avec
+l'homomorphisme $f^{-1}(\cal{O}_Y)\to f^{-1}(\cal{O}_{Y_0})$, tels que
+
+(a) cet homomorphisme induit un isomorphisme
+$$
+\cal{B}\otimes_{f^{-1}(\cal{O}_Y)} f^{-1}(\cal{O}_{Y_0})\isomto
+\cal{O}_{Y_0};
+$$
+
+(b) $U_0$ muni de~$\cal{B}$ devient un $Y$-pr\'esch\'ema lisse.
+
+De cette fa\c con, le sens pr\'ecis de l'assertion d'unicit\'e
+locale devient particuli\`erement \'evident.
+
+\subsubsection*{D\'emonstration} On peut supposer d\'ej\`a que $X_0$ est
+\'etale \hbox{sur un $Y_0[t_1,\dots,t_n]=Y'_0$}. Or ce dernier peut
+\^etre consid\'er\'e comme un sous-pr\'esch\'ema ferm\'e
+de~$Y'{=} Y[t_1,\dots,t_n]$, ayant m\^eme espace sous-jacent. Par
+(I~\ref{I.8.3}), il existe un $X$ \'etale sur~$Y'$, et un
+$Y'_0$-isomorphisme $X\times_{Y'}Y'_0\isomto X'$. On a gagn\'e pour
+l'existence. Pour l'unicit\'e, on utilise la
+propri\'et\'e~\ref{III.3.1}~(ii)
+des morphismes lisses, en tenant compte du
+
+\begin{lemme}
+\label{III.4.2}
+Soient $Y$ un pr\'esch\'ema, $Y_0$ un sous-pr\'esch\'ema
+ferm\'e d\'efini par un faisceau d'id\'eaux $\cal{J}$ localement
+nilpotent, $X$ et $X'$ des $Y$-pr\'esch\'emas, $u\colon X\to X'$
+un $Y$-morphisme. On suppose $X$ plat sur~$Y$. Pour que $u$ soit un
+isomorphisme, il faut et suffit que $u_0\colon X\times_Y Y_0\to
+X'\times_Y Y_0$ le soit.
+\end{lemme}
+
+D\'emonstration facile, en passant au cas affine et regardant les
+gradu\'es associ\'es. On notera d'ailleurs que l'\'enonc\'e
+analogue, obtenu en rempla\c cant \og isomorphisme\fg par \og immersion
+ferm\'ee\fg, est \'egalement valable, et sans hypoth\`ese de
+platitude.
+
+\begin{remarque}
+\label{III.4.3}
+Il est essentiel de noter que le prolongement local $X$ obtenu
+dans~\ref{III.4.1} {\emph{n'est pas canonique}}, en d'autres termes
+l'isomorphisme local entre deux solutions n'est pas unique, \ie il
+existe en g\'en\'eral des $Y$-automorphismes non triviaux de~$X$
+induisant l'identit\'e sur le sous-pr\'esch\'ema ferm\'e
+$X_0=X\times_Y Y_0$. C'est pour cela qu'il faut s'attendre, pour la
+construction de prolongements infinit\'esimaux {\emph{globaux}} de
+pr\'esch\'emas
+lisses, \`a l'existence d'une obstruction de
+nature cohomologique, qui sera pr\'ecis\'ee plus bas (\no \ref{III.6}).
+\end{remarque}
+
+\section{Prolongement infinit\'esimal global des morphismes}
+\label{III.5}
+
+Soient $T$ un espace topologique, $\cal{G}$ un faisceau de groupes
+sur~$X$,
+$\cal{P}$
+un faisceau d'ensembles sur~$T$ sur lequel $\cal{G}$ op\`ere (\`a
+droite, pour fixer les id\'ees). On dit que $\cal{P}$ est
+\emph{formellement principal homogène}
+\index{formellement principal homog\`ene (faisceau)|hyperpage}sous~$\cal{G}$, si l'homomorphisme bien connu
+$$
+\cal{G}\times \cal{P}\to \cal{P}\times \cal{P}
+$$
+de faisceaux d'ensembles, d\'eduit des op\'erations de~$\cal{G}$
+sur~$\cal{P}$, est un {\emph{isomorphisme}}. Il revient au m\^eme de
+dire que pour tout $x\in T$, $\cal{P}_x$ est {\emph{vide ou un espace
+principal homogène}} sous le groupe ordinaire $\cal{G}_x$, ou
+aussi que pour tout ouvert $U$ de~$T$, $\cal{P}(U)$ est vide ou un
+espace principal homog\`ene sous le groupe ordinaire
+$\cal{G}(U)$. On dit que
+$\cal{P}$
+est un {\emph{faisceau principal homogène}}
+\index{principal homog\`ene (faisceau)|hyperpage}sous~$\cal{G}$
+s'il l'est formellement et si en plus les $\cal{P}_x$ sont non vides
+(en d'autres termes, si {\emph{tous}} les $\cal{P}_x$ sont des espaces
+principaux homog\`enes,
+donc non vides, sous les $\cal{G}_x$)\footnote{Il semble
+pr\'ef\'erable d'adopter le terme plus court et plus parlant de
+\og {\emph{torseur sous}}~$\cal{G}$\fg,
+introduit dans la th\`ese de J.\, \textsc{Giraud}.}. Rappelons que l'ensemble
+des classes (\`a isomorphisme pr\`es) de faisceaux principaux
+homog\`enes sous~$\cal{G}$ s'identifie \`a l'ensemble de
+cohomologie $\H^1(T,\cal{G})$, qui est aussi le groupe de cohomologie
+usuel de~$T$ \`a coefficients dans $\cal{G}$ lorsque $\cal{G}$ est
+commutatif. On a ainsi, pour tout $\cal{P}$ principal homog\`ene,
+une classe caract\'eristique $c(\cal{P})\in\H^1(T,\cal{G})$, dont la
+trivialit\'e est n\'ecessaire et suffisante pour que $\cal{P}$
+soit trivial (\ie isomorphe \`a~$\cal{G}$, sur lequel $\cal{G}$
+op\`ere par translations \`a droite), ou encore pour que $\cal{P}$
+ait une section.
+
+\begin{proposition}
+\label{III.5.1}
+Soient $S$ un pr\'esch\'ema, $X$ et $Y$ des pr\'esch\'emas
+sur~$S$, $Y_0$ un sous-pr\'esch\'ema ferm\'e de~$Y$ d\'efini
+par un Id\'eal $\cal{J}$ sur~$Y$ {\emph{de carré nul}}. Soit
+$g_0$ un $S$-morphisme de~$Y_0$ dans~$X$, et $\cal{P}(g_0)$ le
+faisceau sur~$Y$ dont les sections sur un ouvert~$U$ sont les
+prolongements $g\colon U\to X$ de~$g_0|U\cap Y_0$ en un $S$-morphisme
+$g$. Alors $\cal{P}(g_0)$ est un faisceau {\emph{formellement
+principal homogène}} (de fa\c con naturelle) sous le faisceau
+en groupes commutatif
+$$
+\cal{G}=\SheafHom_{\cal{O}_{Y_0}}(g_0^*(\it{\Omega}^1_{X/S}),\cal{J})
+$$
+\end{proposition}
+
+Posons $\cal{P}=\cal{P}(g_0)$. Nous devons d\'efinir pour tout
+ouvert $U$ de~$Y$ une application
+$$
+\cal{P}(U)\times \cal{G}(U)\to \cal{P}(U)
+$$
+de fa\c con que (a) pour $g\in \cal{P}(U)$ fix\'e, l'application
+$s\mto gs$ de~$\cal{G}(U)$ dans~$\cal{P}(U)$ est bijective (b)
+$\cal{P}(U)$ devient un ensemble \`a groupe d'op\'erateurs
+$\cal{G}(U)$ (c) les applications pr\'ec\'edentes sont compatibles
+avec les op\'erateurs de restriction pour un ouvert $V\subset U$. La
+v\'erification de (c) sera triviale, on peut donc pour simplifier
+supposer $U=Y$. La v\'erification de (b) (qui est, si on veut, de
+nature locale) sera laiss\'ee au lecteur, nous nous bornerons donc,
+pour un $g\in \cal{P}(Y)$ donn\'e, de d\'efinir une bijection
+naturelle de~$\cal{G}(Y)$ sur~$\cal{P}(Y)$. Donc on suppose donn\'e
+d\'ej\`a un $S$-morphisme $g\colon Y\to X$, et on cherche une
+bijection canonique
+\begin{equation*}
+\label{eq:III.5.1.*}
+\tag{$*$}
+\Hom_{\cal{O}_{Y_0}}(g_0^*(\it{\Omega}^1_{X/S}),\cal{J})\isomto
+\cal{P}(Y)
+\end{equation*}
+o\`u $\cal{P}(Y)$ est l'ensemble des $S$-morphismes $g'$ de~$Y$
+dans~$X$ induisant le m\^eme morphisme $g_0\colon Y_0\to X$ que~$g$.
+La donn\'ee d'un tel $g'$ est \'equivalente \`a la donn\'ee
+d'un $S$-morphisme $h\colon Y\to X\times_S X$ tel que
+${\pr}_1\circ h=g$, et $h\circ i=(g_0,g_0)$, o\`u
+${\pr}_1\colon X\times_S X \to X$
+est la premi\`ere projection, $i\colon Y_0\to Y$ l'immersion
+canonique, et $(g_0,g_0)\colon Y_0\to X\times_S X$ est le morphisme
+$\Delta_{X/S}g_0$ de
+composantes
+$g_0,g_0$:
+$$
+\xymatrix@C=2.2cm{{X\times_S X}\ar[d]_{{\pr}_1}&{Y_0}\ar[l]_-{h_0=(g_0,g_0)}\ar[d]^i\\{X}&{Y}\ar[l]_-g\ar@{-->}[lu]_-h}
+$$
+Comme $h_0$ se factorise par l'immersion diagonale $\Delta_{X/S}$ et
+que $Y$ est dans le voisinage infinit\'esimal d'ordre $1$ de~$Y_0$
+(\ie $\cal{J}^2=0$) les $h$ cherch\'es se factorisent
+n\'ecessairement (de fa\c con unique) par le voisinage
+infinit\'esimal du premier ordre de la diagonale, lequel s'identifie
+(en tant que $X$-pr\'esch\'ema gr\^ace \`a ${\pr}_1$)
+au spectre $X'$ du faisceau d'alg\`ebres
+$\cal{O}_X+\it{\Omega}^1_{X/S}$ (o\`u le deuxi\`eme terme est
+consid\'er\'e comme un Id\'eal de carr\'e nul), le morphisme
+diagonal $X\to X'$ correspondant \`a l'augmentation canonique de ce
+faisceau d'alg\`ebres. Posons $Y'=X'\times_X Y$, $Y'_0=Y'\times_Y
+Y_0=X'\times_X Y_0$, de sorte que les $h$ cherch\'es sont en
+correspondance biunivoque avec les sections $u$ de~$Y'$ sur~$Y$ qui
+prolongent une section donn\'ee $u_0$ de~$Y'_0$ sur~$Y_0$. On peut
+d'ailleurs identifier $Y'$ au spectre du faisceau d'alg\`ebres sur~$Y$ $\cal{A}=g^*(\cal{O}_X+\it{\Omega}^1_{X/S})=\cal{O}_Y+
+g^*(\it{\Omega}^1_{X/S})$, et $Y'_0$ au faisceau d'alg\`ebres
+$\cal{A}_0=\cal{A}\otimes_{\cal{O}_Y}\cal{O}_{Y_0}=\cal{O}_{Y_0}+
+g^*_0(\it{\Omega}^1_{X/S})$, alors la section $u_0$ est celle
+d\'efinie par l'augmentation canonique de~$A_0$
+dans~$\cal{O}_{Y_0}$. Donc $\cal{P}(Y)$ s'identifie \`a l'ensemble
+des homomorphismes d'alg\`ebres $\cal{A}\to \cal{O}_Y$ qui induisent
+l'augmentation canonique $\cal{A}_0\to \cal{O}_{Y_0}$. Or les
+homomorphismes d'alg\`ebres $\cal{A}\to \cal{O}_Y$
+correspondent
+biunivoquement aux homomorphismes de Modules $\cal{M}\to \cal{A}$
+(posant pour simplifier $\cal{M}=g^*(\it{\Omega}^1_{X/S})$), et on
+s'int\'eresse \`a ceux qui induisent l'homomorphisme {\emph{nul}}
+$\cal{M}_0\to \cal{O}_{Y_0}$ (o\`u
+$\cal{M}_0=\cal{M}\otimes_{\cal{O}_Y}\cal{O}_{Y_0}$) \ie qui
+appliquent $\cal{M}$ dans l'id\'eal $\cal{J}$ de l'augmentation. On
+trouve donc l'ensemble
+$\Hom_{\cal{O}_Y}(\cal{M},\cal{J})=\Hom_{\cal{O}_{Y_0}}(\cal{M}_0,\cal{J})$
+(puisque $\cal{J}$ est annul\'e par $\cal{J}$). C'est la bijection
+canonique cherch\'ee \eqref{eq:III.5.1.*}.
+
+Tenant compte de l'implication (i)$\To$(iii)
+dans~\ref{III.3.1}, on trouve:
+
+\begin{corollaire}
+\label{III.5.2}
+Si $X$ est lisse sur~$S$ (du moins aux points de~$g_0(Y_0)$)
+alors~$\cal{P}$ est m\^eme un \emph{faisceau principal homogène}
+sous le faisceau en groupes commutatifs~$\cal{G}$, qui en l'occurrence
+peut aussi s'\'ecrire
+\begin{equation*}
+\cal{G}=g_0^*(\goth{g}_{X/S})\otimes_{\cal{O}_{Y_0}}\cal{J}
+\end{equation*}
+o\`u $\goth{g}_{X/S}$
+\label{indnot:cb}est le faisceau sur~$X$ dual de~$\it{\Omega}_{X/S}^1$, \ie le
+\emph{faisceau tangent}
+\index{faisceau tangent|hyperpage}\index{tangent (faisceau)|hyperpage}(ou \emph{faisceau des dérivations})
+\index{derivations (faisceau des)@d\'erivations (faisceau des)|hyperpage}\index{faisceau des derivations@faisceau des d\'erivations|hyperpage}de~$X$ par rapport \`a~$S$. (Cette derni\`ere formule provient du
+fait que~$\it{\Omega}_{X/S}^1$ est alors libre de type fini).
+\end{corollaire}
+
+En particulier, \`a ce faisceau principal homog\`ene correspond
+une classe de cohomologie dans $\H^1(Y_0,\cal{G})$, dont l'annulation
+est n\'ecessaire et suffisante pour l'existence d'un
+$S$-morphisme~$g$ prolongeant~$g_0$. Et s'il existe un tel
+prolongement, l'ensemble de tous les prolongements possibles est un
+espace homog\`ene sous le groupe~$\H^0(Y_0,\cal{G})$.
+
+Dans l'application des m\'ethodes de la g\'eom\'etrie formelle,
+la situation est le plus souvent la suivante: on donne deux
+$S$-pr\'esch\'emas $X$ et~$Y$, un Id\'eal coh\'erent~$\cal{I}$
+sur~$S$, on d\'esigne par~$S_n$ le sous-pr\'esch\'ema ferm\'e
+de~$S$ d\'efini par~$\cal{I}^{n+1}$, et on pose
+\begin{equation*}
+X_n=X\times_S S_n \quoi,\quad Y_n=Y\times_S S_n.
+\end{equation*}
+On suppose qu'on a un $S_n$-morphisme:
+\begin{equation*}
+g_n\colon Y_n\to X_n
+\end{equation*}
+(ou, ce qui revient au m\^eme, un~$S$-morphisme $Y_n\to X$ ou encore
+un $S_{n+1}$-morphisme $Y_n\to X_{n+1}$,
+puisqu'un
+tel morphisme
+induit n\'ecessairement $Y_n\to X_n$), et on cherche \`a le
+prolonger en un $S_{n+1}$-morphisme
+\begin{equation*}
+g_{n+1}\colon Y_{n+1}\to X_{n+1}
+\end{equation*}
+(Si on peut continuer ind\'efiniment, on obtient donc un morphisme
+$\widehat{Y}\to\widehat{X}$ pour les pr\'esch\'emas formels
+compl\'et\'es de~$Y$ et~$X$ pour les Id\'eaux
+$\cal{IO}_Y$ et~$\cal{IO}_X$).
+On peut appliquer~\ref{III.5.1} en y rempla\c cant $(S,X,Y,Y_0,g_0)$
+par $(S_{n+1},X_{n+1},Y_{n+1},Y_n,g_n)$, le faisceau $\cal{G}$ devient
+ici le faisceau des homomorphismes de Modules
+de~$g_n^*(\it{\Omega}_{X_{n+1}/S_{n+1}}^1)$
+dans~$\cal{J}=\cal{I}^{n+1}\cal{O}_Y/\cal{I}^{n+2}\cal{O}_Y$.
+Comme~$\cal{J}$ est annul\'e par $\cal{IO}_Y$, on peut remplacer
+alors~$g_n^*(\it{\Omega}_{X_{n+1}/S_{n+1}}^1)$
+par le faisceau qu'il induit sur~$Y_0$,
+savoir~$h_0^*(\it{\Omega}_{X/S}^1)$, o\`u~$h_0$ est le compos\'e
+$Y_0\to Y_n\to X_{n+1}$, ou encore le compos\'e $Y_0 \to X_0\to
+X_{n+1}$, o\`u $g_0\colon Y_0\to X_0$ est induit par $g_n$. Comme
+l'image inverse de~$\it{\Omega}_{X_{n+1}/S_{n+1}}^1$
+sur~$X_0=X_{n+1}\times_{S_{n+1}}S_0$
+est~$\it{\Omega}_{X_{0}/S_{0}}^1$, on voit qu'on a aussi
+\begin{equation*}
+\cal{G}=\SheafHom_{\cal{O}_{Y_0}} (g_0^*(\it{\Omega}_{X_0/S_0}^1),
+\cal{I}^{n+1}\cal{O}_Y/\cal{I}^{n+2}\cal{O}_Y)
+\end{equation*}
+Donc on obtient le
+
+\begin{corollaire}
+\label{III.5.3}
+Soient $S,X,Y,\cal{I},g_n$ comme ci-dessus, soit $\cal{P}(g_n)$ le
+faisceau sur~$Y$ dont les sections sur un ouvert $U$ sont les
+prolongements $g_{n+1}$ de~$g_n$ en un $S_{n+1}$-morphisme $Y_{n+1}\to
+X_{n+1}$. Alors
+$\cal{P}(g_{n})$
+est un faisceau formellement principal homog\`ene sous le faisceau
+en groupes
+\begin{equation*}
+\cal{G}=\SheafHom_{\cal{O}_{Y_0}} (g_0^*(\it{\Omega}_{X_0/S_0}^1),
+\gr_{\cal{IO}_Y}^{n+1}(\cal{O}_Y))
+\end{equation*}
+\end{corollaire}
+
+En particulier:
+
+\begin{corollaire}
+\label{III.5.4}
+Si de plus $X$ est lisse sur~$S$ (du moins aux points de~$g_0(Y_0)$)
+alors
+$\cal{P}(g_{n})$
+est m\^eme un faisceau principal homog\`ene.
+\enlargethispage{.5cm}En particulier, il d\'efinit une classe d'obstruction dans
+$\H^1(Y_0,\cal{G})$, dont l'annulation est n\'ecessaire et
+suffisante pour l'existence d'un prolongement global~$g_{n+1}$
+de~$g_n$. Et s'il existe un tel prolongement, l'ensemble de tous les
+prolongements globaux est un espace principal homog\`ene sous
+$\H^0(Y_0,\cal{G})$. Enfin, dans le cas envisag\'e, le
+faisceau~$\cal{G}$ peut aussi s'\'ecrire
+\begin{equation*}
+\cal{G}=g_0^*(\goth{g}_{X_0/S_0})\otimes_{\cal{O}_{Y_0}}
+\gr_{\cal{IO}_Y}^{n+1}(\cal{O}_Y)
+\end{equation*}
+\end{corollaire}
+
+Proc\'edant de proche en proche, on voit donc que si tous les
+$\H^1(Y_0,\cal{G}_n)$ son nuls (o\`u
+$\cal{G}_n=g_0^*(\goth{g}_{X_0/S_0})\otimes
+\gr_{\cal{IO}_Y}^{n}(\cal{O}_Y)$), alors partant avec un $g_k$
+quelconque, on peut le prolonger successivement en $g_{k+1},\dots$ En
+particulier, si $\cal{I}$ est nilpotent, on pourra trouver un
+prolongement $g$ de~$g_k$ \`a $Y$. La condition de nullit\'e des
+$\H^1$ est v\'erifi\'ee en particulier si $Y_0$ est affine. On
+trouve donc:
+
+\begin{corollaire}
+\label{III.5.5}
+Dans
+l'\'enonc\'e du th\'eor\`eme~\ref{III.3.1}, on obtient
+une condition n\'ecessaire et suffisante \'equivalente aux autres
+en supposant que le~$Y^\prime$ qui intervient dans \textup{(ii)} (ou \textup{(ii~bis)})
+est affine, et en exigeant l'existence d'un \emph{prolongement global}
+$g$ de~$g_0$ \`a tout~$Y^\prime$.
+\end{corollaire}
+
+On notera que la d\'emonstration de~\ref{III.3.1} ne pouvait pas
+nous donner ce r\'esultat directement.
+
+Un cas important est celui o\`u $Y$ est \emph{plat} sur~$S$, alors
+on a donc
+\begin{equation*}
+\gr^n(\cal{O}_Y)=\gr^n(\cal{O}_S)\otimes_{\cal{O}_{S_0}}\cal{O}_{Y_0}
+\end{equation*}
+et lorsque de plus les $\gr^n(\cal{O}_S)$ sont \emph{localement libres
+sur}~$S$, on trouve
+\begin{equation*}
+\cal{G}_n=
+\SheafHom_{\cal{O}_{Y_0}}(g_0^*(\it{\Omega}_{X_0/S_0}^1),\cal{O}_{Y_0})
+\otimes_{\cal{O}_{S_0}}\gr^n(\cal{O}_S),
+\end{equation*}
+ou encore, si $\it{\Omega}_{X_0/S_0}^1$ est lui aussi localement libre
+(par exemple $X$ lisse sur~$S$)
+\begin{equation*}
+\cal{G}_n=g_0^*(\goth{g}_{X_0/S_0})
+\otimes_{\cal{O}_{S_0}}\gr^{n}(\cal{O}_S)
+\end{equation*}
+Si par exemple $S$ est affine d'anneau affine~$A$, $\cal{I}$ \'etant
+d\'efini par un id\'eal $I$ de~$A$, on trouve
+\begin{equation*}
+\H^i(Y_0,\cal{G}_n)=\H^i(Y_0,\cal{G}_0) \otimes_A\gr_I^n(A)
+\end{equation*}
+pour tout $i$ (en effet, la question est locale sur~$S_0$, et on est
+ramen\'e au cas o\`u on tensorise par un Module libre).
+\emph{Dans ce cas, la nullité de~$\H^1(Y_0,\cal{G}_0)$ implique
+que toutes les obstructions aux prolongements successifs de~$g_n$ sont
+nulles}. On obtient donc:
+
+\begin{corollaire}
+\label{III.5.6}
+Soient $(S,X,Y,\cal{I},g_n)$ comme plus haut, supposons de plus $X$
+lisse sur~$S$ et $Y$ plat sur~$S$, enfin $S$ affine, et les
+$\gr^n(\cal{O}_S)=\cal{I}^n/\cal{I}^{n+1}$ localement libres. Alors
+l'obstruction \`a construire~$g_{n+1}$ se trouve dans
+$\H^1(Y_0,\cal{G}_0)\otimes_A\gr_I^{n+1}(A)$ (o\`u~$A$ est l'anneau
+de~$S$, $I$ l'id\'eal de~$A$ d\'efinissant $\cal{I}$), en posant
+\begin{equation*}
+\cal{G}_0=g_0^*(\goth{g}_{X_0/S_0})
+\end{equation*}
+Si $\H^1(Y_0,\cal{G}_0)=0$, alors $g_n$ peut se prolonger en un
+$\widehat{S}$-morphisme $\widehat{g}\colon\widehat{Y}\to\widehat{X}$.
+\end{corollaire}
+
+Bien entendu, ce r\'esultat resterait valable tel quel, si on
+partait, au lieu de~$S$-pr\'esch\'emas ordinaires $X$ et~$Y$, de
+$\widehat{S}$-pr\'esch\'emas formels $\widehat{\cal{I}}$-adiques
+$\goth{X}$ et~$\goth{Y}$. Il permet de prouver par exemple que
+certains sch\'emas formels propres sur un anneau local complet (par
+exemple) sont en fait alg\'ebriques. En effet, proc\'edant comme
+dans le lemme~\ref{III.4.2}, on trouve:
+
+\begin{corollaire}
+\label{III.5.7} Sous les conditions de~\ref{III.5.6}, si $g_0$ est
+un isomorphisme il en est de m\^eme de~$\widehat{g}$.
+\end{corollaire}
+
+\noindent
+(N.B. le m\^eme r\'esultat vaut pour les immersions ferm\'ees).
+
+On obtient ainsi:
+
+\begin{proposition}
+\label{III.5.8} Soient $A$ un anneau local complet d'id\'eal
+maximal $\goth{m}$,
+de
+corps r\'esiduel~$k$, soient $\goth{X}$ et $\goth{Y}$ deux
+pr\'esch\'emas formels $\goth{m}$-adiques sur~$A$, plats sur~$A$
+(\ie pour tout~$n$, $X_n$ et $Y_n$ sont plats
+sur~$A_n=A/\goth{m}^{n+1}$), on suppose $X_0=\goth{X}\otimes_Ak$ lisse
+sur~$k$ et $\H^1(X_0,\goth{g}_{X_0/k})=0$. Alors tout $k$-isomorphisme
+de~$Y_0$ sur~$X_0$ se prolonge en un $A$-isomorphisme de~$\goth{Y}$
+sur~$\goth{X}$; ce prolongement est unique si de plus
+$\H^0(X_0,\goth{g}_{X_0/k})=0$.
+\end{proposition}
+
+Cela donne en particulier un r\'esultat d'\emph{unicité} de
+pr\'esch\'ema formel lisse sur~$A$ se r\'eduisant suivant un
+pr\'esch\'ema $X_0$ donn\'e (moyennant
+$\H^1(X_0,\goth{g}_{X_0/k})=0$). De plus, si~$\goth{X}$ et~$\goth{Y}$
+proviennent de sch\'emas ordinaires propres sur~$A$, soient $X$
+et~$Y$, alors on sait d'apr\`es le th\'eor\`eme d'existence de
+faisceaux en G\'eom\'etrie formelle (\cf expos\'e au
+S\'eminaire Bourbaki, \No 182\footnote{\Cf EGA III 5.4.1 pour la
+d\'emonstration.}) qu'il y a correspondance biunivoque entre les
+$A$-isomorphismes $Y\isomto X$ et le $A$-isomorphismes des
+compl\'et\'es formels, donc
+
+\begin{corollaire}
+\label{III.5.9} L'\'enonc\'e pr\'ec\'edent~\ref{III.5.8} reste
+valable en y rempla\c cant $\goth{X}$ et $\goth{Y}$ par des
+$A$-sch\'emas ordinaires $X$ et~$Y$, \emph{propres} sur~$A$.
+\end{corollaire}
+
+Enfin, lorsque $\goth{X}$ est un sch\'ema formel propre sur~$A$, et
+que $\goth{Y}$ est de la forme~$\widehat{Y}$ o\`u~$Y$ est un
+sch\'ema ordinaire propre sur~$A$, alors la
+proposition~\ref{III.5.8} donne des conditions suffisantes pour qu'on
+puisse trouver un isomorphisme de~$\goth{X}$ avec~$\widehat{Y}$, donc
+pour que le sch\'ema formel $\goth{X}$ soit en fait
+\og alg\'ebrique\fg (\ie isomorphe \`a un~$\widehat{X}$, $X$ un
+sch\'ema ordinaire propre sur~$A$, lequel sera alors canoniquement
+d\'etermin\'e). C'est ce qui a lieu notamment si $X_0=\PP_k^r$ (ou
+plus g\'en\'eralement, si $X_0$ est un sch\'ema de
+Severi-Brauer,
+\ie devient
+isomorphe \`a l'espace projectif type sur la cl\^oture
+alg\'ebrique de~$k$): tout sch\'ema formel propre et plat sur~$A$,
+de fibre~$\PP_k^r$, est alg\'ebrisable, et de fa\c con plus
+pr\'ecise est isomorphe au compl\'et\'e formel $\goth{m}$-adique
+de~$\PP_A^r$. En particulier (gr\^ace au \og th\'eor\`eme
+d'existence\fg) tout sch\'ema ordinaire propre sur~$A$, de
+fibre~$\PP_k^r$, est isomorphe \`a~$\PP_A^r$ ($A$ \'etant un
+anneau local complet). Utilisant la th\'eorie de la descente, on
+peut prouver que si~$A$ n'est pas complet, $X$ devient isomorphe
+\`a~$\PP^r$ en faisant une extension $A\to A^\prime$ finie et
+\'etale de la base (et sous cette forme, le r\'esultat reste
+valable pour une fibre qui est un sch\'ema de
+Severi-Brauer).
+
+\section{Prolongement infinit\'esimal global des $S$-sch\'emas lisses}
+\label{III.6}
+
+Sous les conditions du th\'eor\`eme~\ref{III.4.1}, on se propose
+de chercher s'il existe un pr\'esch\'ema~$X$ lisse sur~$Y$ tel que
+$X\times_YY_0$ soit $Y_0$-isomorphe \`a~$X_0$, sachant qu'un tel
+sch\'ema \og existe localement sur~$X_0$\fg. Reprenant la m\'ethode
+de construction de proche en proche, on est conduit \`a
+remplacer~$Y$ par la lettre~$S$, \`a supposer qu'on se donne un
+sous-pr\'esch\'ema ferm\'e $S_0$ de~$S$ d\'efini par un
+faisceau d'id\'eaux~$\cal{I}$, (qu'il n'est plus n\'ecessaire de
+supposer localement nilpotent), \`a introduire les
+sous-pr\'esch\'emas ferm\'es~$S_n$ de~$S$ d\'efinis par
+les~$\cal{I}^{n+1}$, et \`a supposer qu'on s'est donn\'e un
+sous-pr\'esch\'ema~$X_{n}$ lisse sur~$S_n$. On se propose de
+trouver un $S_{n+1}$-pr\'esch\'ema~$X_{n+1}$ \og qui se r\'eduit
+suivant~$X_{n}$\fg, \ie muni d'un isomorphisme
+\begin{equation*}
+X_{n+1}\times_{S_{n+1}}S_n\isomfrom X_n
+\end{equation*}
+qui soit \emph{lisse} sur~$S_{n+1}$ (ou, ce qui revient au m\^eme
+par II~\ref{II.2.1}, \emph{plat} sur~$S_{n+1}$). Comme nous l'avons
+signal\'e dans \No \ref{III.4}, une telle donn\'ee revient \`a la
+donn\'ee d'un faisceau d'alg\`ebres~$\cal{B}$ sur~$f^{-1}(\cal{O}_{S_{n+1}})$ (o\`u $f$ est l'application continue
+sous-jacente au morphisme structural $X_n\to S_n$), muni d'une
+augmentation $\cal{B}\to\cal{O}_{X_n}$ compatible avec l'augmentation
+$f^{-1}(\cal{O}_{S_{n+1}})\to f^{-1}(\cal{O}_{S_n})$, et satisfaisant
+\`a deux conditions (a) et (b) que nous ne r\'e\'ecrirons pas,
+nous bornant \`a noter qu'elles sont de \emph{nature locale} sur
+l'espace topologique sous-jacent \`a~$X_n$. On sait
+d'apr\`es~\ref{III.4.1} qu'une solution existe localement. Elle est
+de plus unique \`a isomorphisme (non unique) pr\`es, du moins
+localement. Commen\c cons par pr\'eciser ce point:
+
+\begin{proposition}
+\label{III.6.1}
+Soit
+$X_{n+1}$ sur~$S_{n+1}$ se r\'eduisant suivant $X_n$
+sur~$S_{n}$. Alors le faisceau (sur l'espace topologique sous-jacent
+\`a~$X_{n}$, ou encore \`a~$X_0$) des $S_{n+1}$-automorphismes
+de~$X_{n+1}$ qui induisent l'identit\'e sur~$X_n$ est canoniquement
+isomorphe~\`a
+\begin{equation*}
+\cal{G}=\goth{g}_{X_0/S_0}\otimes_{\cal{O}_{S_0}}
+\gr_{\cal{I}}^{n+1}(\cal{O}_S)
+\end{equation*}
+(en tant que faisceau de groupes).
+\end{proposition}
+
+En effet, par~\ref{III.5.4} et~\ref{III.4.2} ce faisceau est un
+faisceau principal homog\`ene sous~$\cal{G}$. Comme il est muni
+d'une section privil\'egi\'ee (l'automorphisme identique
+de~$X_{n+1}$), il s'identifie donc comme faisceau d'ensembles
+\`a~$\cal{G}$. Il faut v\'erifier que cette identification est
+compatible avec les structures de groupe. C'est facile, et d'ailleurs
+un cas particulier d'un r\'esultat plus g\'en\'eral sur la
+compatibilit\'e des structures de fibr\'es principaux,
+dans~\ref{III.5.1} et~\ref{III.5.3}, avec la composition des
+morphismes (r\'esultat que nous n'\'enon\c cons pas ici, mais
+qui se doit de figurer dans le hyperplodoque).
+
+En particulier, le faisceau sur~$X_0$ des germes d'automorphismes
+de~$X_{n+1}$ (avec les structures explicit\'ees) est
+\emph{commutatif}. Il s'ensuit que si~$X_{n+1}^\prime$ est une autre
+solution du probl\`eme, isomorphe \`a~$X_{n+1}$ au-dessus de
+l'ouvert~$U$ de~$X_0$, alors l'isomorphisme de~$\SheafAut(X_{n+1})|U$
+sur~$\SheafAut(X_{n+1}^\prime)|U$ d\'eduit par transport de
+structure d'un isomorphisme $X_{n+1}|U\isomto X_{n+1}^\prime|U$,
+\emph{ne dépend pas} du choix de ce dernier. (Ce n'est d'ailleurs
+autre que l'isomorphisme identique de~$\cal{G}$, lorsque on identifie
+l'un et l'autre faisceau d'automorphismes \`a~$\cal{G}$ gr\^ace
+\`a~\ref{III.6.1}).
+
+On d\'eduit de~\ref{III.6.1}:
+
+\begin{corollaire}
+\label{III.6.2}
+Soient~$X_{n+1}$, $X_{n+1}'$ lisses sur~$S_{n+1}$ et \og se
+r\'eduisant suivant~$X_n$\fg. Alors le faisceau (sur l'espace
+sous-jacent \`a~$X_0$) des~$S_{n+1}$-isomorphismes de~$X_{n+1}$
+sur~$X_{n+1}'$ induisant l'identit\'e sur~$X_n$, est de fa\c con
+naturelle un faisceau principal homog\`ene sous~$\cal{G}$.
+\end{corollaire}
+
+Cela exprime en effet que~$X_{n+1}$ et~$X_{n+1}'$ sont isomorphes
+localement, et que le faisceau des germes d'automorphismes du premier
+est~$\cal{G}$.
+
+Notons maintenant qu'en vertu de~\ref{III.4.1}, on peut toujours
+trouver un recouvrement~$(U_i)$
+de~$X_n$ par des ouverts (qu'on peut supposer affines), et pour
+tout~$i$ un sch\'ema lisse~$X^i$ sur~$S_{n+1}$ se r\'eduisant
+suivant~$U_i$.
+Supposons pour simplifier~$X_n$ \emph{séparé}, donc
+les~$U_{ij}=U_i\cap U_j$ sont encore des ouverts \emph{affines}
+de~$X_n$. Comme le~$\H^1$ d'un tel ouvert, \`a valeurs dans le
+faisceau quasi-coh\'erent~$\cal{G}$, est nul, on en d\'eduit par
+le
+corollaire~\ref{III.6.2} que~$X^i|U_{ij}$ est isomorphe
+\`a~$X^j|U_{ij}$; soit
+$$
+f_{ji}:X^i|U_{ij}\isomto X^j|U_{ij}
+$$
+un tel isomorphisme. Il est d\'etermin\'e \`a une section
+pr\`es de~$\cal{G}$ sur~$U_{ij}$. Posons, pour tout
+triplet
+d'indices:
+$$
+f_{ji}^{(k)}=f_{ji}|U_{ijk}\quad\text{où }U_{ijk}=U_i\cap U_j\cap
+U_k.
+$$
+Si on avait
+\begin{equation*}
+\label{eq:III.6.1}
+\tag{1} {f_{kj}^{(i)}f_{ji}^{(k)}=f_{ki}^{(j)},}
+\end{equation*}
+il s'ensuivrait que les~$X^i$ se \og recollent\fg par les~$f_{ji}$, donc
+qu'ils d\'efinissent une solution~$X=X_{n+1}$ du probl\`eme
+cherch\'e. Une telle solution existe plus g\'en\'eralement, si
+on peut modifier les~$f_{ji}$ en des~$f_{ji}'$:
+\begin{equation*}
+\label{eq:III.6.2}
+\tag{2} {f_{ji}'=f_{ji}g_{ji}\quad (g_{ji}\in\Gamma(U_{ij},\cal{G}))}
+\end{equation*}
+de telle fa\c con que les~$f_{ji}'$ satisfassent la condition de
+transitivit\'e ci-dessus. Cette condition suffisante pour
+l'existence d'une solution est aussi n\'ecessaire, comme on voit en
+se rappelant qu'une telle solution~$X$ doit, sur chaque~$U_i$,
+\^etre isomorphe \`a~$X^i$, ce qui permet donc de choisir des
+isomorphismes
+$$
+f_i:X|U_i\isomto X^i
+$$
+et de d\'efinir des
+$$
+f_{ji}'=(f_j|U_{ij})(f_i|U_{ij})^{-1}:X^i|U_{ij}\isomto X^j|U_{ij}
+$$
+satisfaisant la condition de recollement.
+
+Or posons
+\begin{equation*}
+\label{eq:III.6.3}
+\tag{3}
+{f_{ijk}=(f_{ki}^{(j)})^{-1}f_{kj}^{(i)}f_{ji}^{(k)},}
+\end{equation*}
+c'est un automorphisme de~$X^i|U_{ijk}$, que nous identifierons \`a
+une section de~$\cal{G}$ gr\^ace \`a~\ref{III.6.1}. On constate
+que c'est un $2$-\emph{cocycle} $f$ du recouvrement ouvert
+$\cal{U}=(U_i)$, \`a coefficients dans~$\cal{G}$, par un petit
+calcul formel laiss\'e au lecteur. Le m\^eme calcul montre que
+moyennant~\eqref{eq:III.6.2}, la condition de
+recollement~\eqref{eq:III.6.1} \emph{pour les} $f_{ij}'$ \'equivaut
+\`a la formule
+\begin{equation*}
+\label{eq:III.6.4}
+\tag{4} {f=dg,}
+\end{equation*}
+o\`u $g=(g_{ij})$ est consid\'er\'e comme une $1$-cocha\^ine
+de~$\cal{U}$ \`a coefficients dans~$\cal{G}$. Donc \emph{la
+condition nécessaire et suffisante pour l'existence d'une solution
+du problème est que la classe de cohomologie dans
+$\H^2(\cal{U},\cal{G})$ définie par le cocycle~\eqref{eq:III.6.3}}
+soit nulle. Notons d'ailleurs que puisque~$\cal{U}=(U_i)$ est un
+recouvrement affine de~$X_0$ qui est un \emph{schéma},
+$\H^2(\cal{U},\cal{G})$ s'identifie \`a $\H^2(X_0,\cal{G})$. Il est
+imm\'ediat d'ailleurs que la classe de cohomologie ainsi obtenue
+dans $\H^2(X_0,\cal{G})$ ne d\'epend pas du recouvrement affine
+consid\'er\'e. On l'appellera la \emph{classe d'obstruction au
+prolongement de~$X_n$ en un schéma~$X_{n+1}$ lisse sur~$S_{n+1}$}.
+
+Supposons cette obstruction nulle. Alors un raisonnement esquiss\'e
+plus haut montre que toute solution~$X=X_{n+1}$ est isomorphe \`a
+une solution obtenue par recollement \`a partir
+d'isomorphismes~$f_{ji}'$, qu'on peut supposer sous la
+forme~\eqref{eq:III.6.2}, la condition de recollement n'\'etant
+autre que~\eqref{eq:III.6.3}. L'ensemble des $g$ admissibles est donc
+un espace principal homog\`ene sous le groupe
+$\mathrm{Z}^1(\cal{U},\cal{G})$ des $1$-cocycles de~$\cal{U}$ \`a
+coefficients dans~$\cal{G}$. De plus, on constate tout de suite que
+\emph{deux cochaînes $g$ et $g'$} (telles que $dg=dg'=f$)
+\emph{définissent des solutions isomorphes si et seulement si le
+cocycle $g-g'$ est de la forme $dh$}, o\`u
+$h=(h_i)\in\mathrm{C}^0(\cal{U},\cal{G})$. On trouve donc:
+
+\begin{theoreme}
+\label{III.6.3}
+\index{obstruction au prolongement d'un sch\'ema en un sch\'ema lisse|hyperpage}Soient $(S,\cal{I},X_n)$ comme ci-dessus, $X_n$ \'etant suppos\'e
+s\'epar\'e\footnote{Cette condition est en fait inutile, et on
+peut \'eviter les calculs de cocycles plus haut. \Cf le livre de J.
+\textsc{Giraud}, Cohomologie Non Ab\'elienne (\`a para\^itre dans
+Springer Verlag 1971). Comparer remarques~\ref{III.6.4}.}. Alors on
+peut d\'efinir canoniquement une classe d'obstruction dans
+$\H^2(X_0,\cal{G})$ (o\`u~$\cal{G}$ est d\'efini
+dans~\ref{III.6.1}), dont l'annulation est n\'ecessaire et
+suffisante pour l'existence d'un sch\'ema~$X_{n+1}$ lisse
+sur~$S_{n+1}$ se r\'eduisant suivant~$X_n$. Si cette obstruction
+est nulle, alors l'ensemble des classes, \`a isomorphisme pr\`es
+(induisant l'identit\'e sur~$X_n$)
+de~$S_{n+1}$-pr\'esch\'emas~$X_{n+1}$ se r\'eduisant
+suivant~$X_n$, est de fa\c con naturelle un espace principal
+homog\`ene sous $\H^1(X_0,\cal{G})$.
+\end{theoreme}
+
+\begin{remarques}
+\label{III.6.4}
+\`A partir de~\ref{III.6.1}, les raisonnements faits ici sont purement
+formels, et se transcrivent avantageusement dans le cadre des
+cat\'egories locales,
+ou m\^eme des cat\'egories fibr\'ees g\'en\'erales. La
+classe d'obstruction \`a l'existence d'un objet \og global\fg d'une
+cat\'egorie (dont on peut trouver un objet \og localement\fg, et dont
+deux objets sont toujours \og isomorphes localement\fg, le groupe des
+automorphismes de tout objet \'etant commutatif) ainsi obtenu dans
+le contexte g\'en\'eral, contient comme cas particulier le
+\og deuxi\`eme homomorphisme bord\fg dans une suite exacte de faisceaux
+de groupes non n\'ecessairement commutatifs, (\'etudi\'e par
+exemple par Grothendieck dans Kansas ou
+T\^ohoku).
+Le calcul b\'eb\^ete par cocycles fait ici doit donc \^etre regard\'e
+comme un pis-aller, d\^u \`a la non existence d'un texte de
+r\'ef\'erence satisfaisant.
+\end{remarques}
+
+\subsection{}
+\label{III.6.5}
+On notera que dans~\ref{III.6.3}, il n'y a pas en g\'en\'eral
+d'\'el\'ement privil\'egi\'e dans l'espace principal
+homog\`ene envisag\'e sous $\H^1(X_0,\cal{G})$. Cela se traduit
+notamment par le fait que l'on obtient (localisant sur~$S$) un
+faisceau principal homog\`ene sur~$S_0$, de groupe structural
+$\R^1f_*(\cal{G})$, qui n'est pas n\'ecessairement trivial, \ie qui
+d\'efinit une classe de cohomologie dans
+$\H^1(S_0,\R^1f_*(\cal{G}))$ qui n'est pas n\'ecessairement nulle.
+(Lorsque l'on suppose que la classe $d\in\H^2(X_0,\cal{G})$ n'est pas
+nulle, mais nulle \og localement au-dessus de~$S$\fg, \ie d\'efinit
+une section nulle de~$\R^2f_*(\cal{G})$, \ie un \'el\'ement nul
+dans $\H^0(S_0,\R^2f_*(\cal{G}))$).
+
+\subsection{}
+\label{III.6.6}
+On ne sait pour l'instant \`a peu pr\`es rien sur le m\'ecanisme
+alg\'ebrique g\'en\'eral des classes de cohomologie introduites
+dans ce num\'ero et ses relations avec le num\'ero
+pr\'ec\'edent, et on ne sait rien en dire de pr\'ecis dans les
+cas particuliers les plus simples, tel le cas des sch\'emas
+ab\'eliens sur des anneaux artiniens\footnote{\label{III.6.6.p24}On sait maintenant que cette obstruction est toujours nulle dans ce
+cas \lcrochetbf ajout\'e en 2003 (MR): \cf F.\, Oort, Finite group schemes, local moduli for abelian varieties and
+lifting problems, Algebraic Geometry Oslo 1970, Wolters-Noordhoff, 1972, p.\,223--254\rcrochetbf.}. On esp\`ere qu'il se trouvera des gens pour chiader la
+question, qui semble particuli\`erement int\'eressante. Elle est
+intimement li\'ee en particulier \`a la \og th\'eorie des
+modules\fg des structures alg\'ebriques.
+
+\begin{corollaire}
+\label{III.6.7}
+Supposons que $\H^2(X_0,\cal{G})=0$, alors un~$X_{n+1}$ existe, et il
+est unique \`a isomorphisme pr\`es si de plus
+$\H^1(X_0,\cal{G})=0$.
+\end{corollaire}
+
+En particulier, on en conclut, en proc\'edant de proche en proche
+(et remarquant qu'un sch\'ema affine est acyclique pour un faisceau
+quasi-coh\'erent):
+
+\begin{corollaire}
+\label{III.6.8}
+Sous
+les conditions du th\'eor\`eme~\ref{III.4.1}, si~$X_0$ est
+affine, alors il existe un~$X$ lisse sur~$Y$ se r\'eduisant
+suivant~$X_0$, et cet~$X$ est unique \`a isomorphisme (non unique)
+pr\`es.
+\end{corollaire}
+
+On notera que la d\'emonstration directe du th.\, \ref{III.4.1} ne
+pouvait nous donner ce r\'esultat.
+
+\begin{corollaire}
+\label{III.6.9}
+Sous les conditions de~\ref{III.6.3}, supposons~$S$ affine
+d'anneau~$A$, $\cal{I}$ d\'efini par un id\'eal~$I$ de~$A$, enfin
+les $\gr^n_{\cal{I}}(\cal{O}_S)=\cal{I}^n/\cal{I}^{n+1}$ localement
+libres. Alors $\H^i(X_0,\cal{G})$ s'identifie \`a
+$\H^i(X_0,\cal{G}_0)\otimes_A\gr^{n+1}_I(A)$, o\`u
+$$
+\cal{G}_0=\goth{g}_{X_0/S_0},
+$$
+donc la classe d'obstruction au prolongement de~$X_n$ se trouve dans
+$\H^2(X_0,\cal{G}_0)\otimes_A\gr^{n+1}_I(A)$, et si elle est nulle,
+l'ensemble des classes (\`a isomorphisme pr\`es) de solutions est
+un espace principal homog\`ene sous
+$\H^1(X_0,\cal{G}_0)\otimes_A\gr^{n+1}_I(A)$.
+\end{corollaire}
+
+En particulier:
+
+\begin{corollaire}
+\label{III.6.10}
+Sous les conditions de~\ref{III.6.9} supposons
+$$
+\H^2(X_0,\goth{g}_{X_0/S_0})=0,
+$$
+alors il existe un sch\'ema formel $\hat{I}$-adique
+$\goth{X}$
+sur le compl\'et\'e formel $\cal{I}$-adique~$\hat{S}$ de~$S$, qui
+soit \og lisse sur~$S$\fg (\ie les~$\goth{X}_p$ sont lisses sur
+les~$S_p$) et qui se r\'eduise suivant~$X_n$, \ie muni d'un
+isomorphisme
+$$
+\goth{X}\times_S S_n\isomfrom X_n.
+$$
+Si de plus $\H^1(X_0,\goth{g}_{X_0/S_0})=0$, alors un tel~$\goth{X}$
+est unique \`a isomorphisme pr\`es.
+\end{corollaire}
+
+En effet, on construit de proche en proche $X_{n+1}$,~$X_{n+2}$, etc.,
+d'o\`u~$\goth{X}$ en passant \`a la limite inductive des~$X_i$.
+L'assertion d'unicit\'e figure d\'ej\`a au \no
+pr\'ec\'edent.
+
+\section[Application \`a la construction de sch\'emas formels...]{Application \`a la construction de sch\'emas formels
+et de sch\'emas ordinaires lisses sur un anneau local complet~$A$}
+\label{III.7}
+Les r\'esultats du \no pr\'ec\'edent permettent parfois de
+prouver l'existence
+d'un sch\'ema formel $\goth{m}$-adique sur un tel anneau, se
+r\'eduisant suivant un sch\'ema lisse~$X_0$ sur~$k$
+donn\'e. Distinguons deux cas:
+
+a) \emph{$A$ est \og d'égales caractéristiques\fg} (c'est le cas
+en particulier si~$k$ est de caract\'eristique~$0$). Alors on sait
+qu'il existe un \emph{sous-corps de représentants de}~$A$, \ie
+un sous-corps~$k'$ tel que~$A\to k$ induise un isomorphisme~$k'\isomto
+k$. \emph{Alors il existe même un schéma ordinaire lisse
+sur~$A$ se réduisant suivant~$X_0$}, savoir~$X=X_0\otimes_kA$, $A$~\'etant consid\'er\'e comme une alg\`ebre sur~$k$ gr\^ace
+\`a l'homomorphisme~$k\to k'\to A$ d\'efini par~$k'$. Il faut
+cependant noter que cette construction n'est pas \og naturelle\fg; il est
+facile de se convaincre (d\'ej\`a dans le cas
+o\`u~$A=k[t]/(t^2)$, alg\`ebre des nombres duaux) qu'un autre
+homomorphisme de rel\`evement~$k\to A$ (d\'efini en l'occurrence
+par une d\'erivation absolue de~$k$ dans lui-m\^eme) d\'efinit
+un~$X'$ sur~$A$ qui en g\'en\'eral \emph{n'est pas isomorphe
+à~$X$} (si~$\H^1(X_0,\goth{g}_{X_0/k})\neq0$). Il serait
+d'ailleurs int\'eressant d'\'etudier (pour~$k$ de
+caract\'eristique~$0$, ou non parfait et de
+caract\'eristique~$p>0$) quels sont
+les~$X$ lisses sur~$A$ qu'on obtient ainsi, \`a quelle condition
+deux homomorphismes~$k\to A$ d\'efinissent des $A$-sch\'emas
+isomorphes. N\'eanmoins, l'existence de~$k'$ suffit \`a
+entra\^iner que la premi\`ere obstruction au rel\`evement
+de~$X_0$, qui est
+dans~$\H^2(X_0,\goth{g}_{X_0/k})\otimes_k\goth{m}/\goth{m}^2$, est
+n\'ecessairement nulle. Bien entendu, quand on a relev\'e
+alors~$X_0$ en~$X_1$ lisse sur~$A/\goth{m}^2$, la nouvelle obstruction
+\`a la construction de~$X_2$ ne sera en g\'en\'eral pas nulle:
+elle sera fonction d'un \'el\'ement variable dans un certain
+espace principal homog\`ene
+sous~$\H^1(X_0,\cal{G}_0)\otimes\goth{m}/\goth{m}^2$ et se trouve
+dans~$\H^2(X_0,\cal{G}_0)\otimes\goth{m}^2/\goth{m}^3$: il
+conviendrait d'\'etudier la situation de fa\c con
+d\'etaill\'ee\footnote{Elle est sans doute d\'ecrite par
+l'op\'eration crochet de Kodaira-Spencer (\cf S\'eminaire Cartan,
+1960/61, Exp.\, 4).}.
+
+b) \emph{$A$ est d'inégales caractéristiques.} Dans ce cas, on
+ignore tout, (sauf si par chance $\H^2(X_0,\goth{g}_{X_0/k})=0$,
+auquel cas on peut construire un sch\'ema formel $\goth{m}$-adique
+simple sur~$A$ se r\'eduisant suivant~$k$). M\^eme
+si~$A=\ZZ/p^2\ZZ$ et si~$X_0$ est un sch\'ema \og ab\'elien\fg de
+dimension~$2$, on ne sait pas si on peut le relever en un~$X=X_1$ lisse
+sur~$A$\footnote{C'est maintenant prouv\'e, \cf \
+note~\ref{III.6.6.p24} page~\pageref{III.6.6.p24}.}, d'autre part, on
+n'a pas d'exemple d'un~$X_0$ dont on ait prouv\'e qu'il ne provient
+pas d'un sch\'ema ordinaire~$X$ lisse sur~$A$. (J'ai l'impression
+que cela doit exister, avec~$X_0$ une surface
+projective)\footnote{\label{nIII.3}Un tel exemple a \'et\'e depuis
+construit par
+J-P.\, Serre (Proc.\ Nat.\ Acad.\ Sc.\ USA  \textbf{47} (1961),
+\No 1, p.\,108--109), du moins pour certaines
+dimensions. D.\, Mumford a donn\'e un exemple (non publi\'e) avec
+une \emph{surface} alg\'ebrique.}. Signalons simplement que
+d'apr\`es le th\'eor\`eme de Cohen, il existe un $p$-anneau de
+Cohen~$B$ de corps r\'esiduel~$k$ et un homomorphisme~$B\to A$
+induisant l'isomorphisme identique sur les corps r\'esiduels; par
+suite, le r\'esultat \og le plus fort\fg de rel\`evement serait
+obtenu en prenant pour~$A$
+un $p$-anneau de Cohen: s'il existe une solution (ordinaire ou
+formelle) au-dessus d'un tel anneau, il en existe une au-dessus de
+tout anneau local complet de corps r\'esiduel~$k$. En particulier,
+comme pour un $p$-anneau de Cohen~$\goth{m}/\goth{m}^2$ s'identifie
+canoniquement \`a~$k$, on voit que \emph{pour tout schéma
+lisse~$X_0$ sur un corps~$k$ de caractéristique~$p>0$, il existe
+une classe de cohomologie dans~$\H^2(X_0,\goth{g}_{X_0/k})$}
+premi\`ere obstruction au rel\`evement de~$X_0$ en un sch\'ema
+lisse sur un $p$-anneau de Cohen; on ignore si elle peut \^etre non
+nulle\footnote{Elle peut \^etre non nulle, comme signal\'e en
+note~\ref{nIII.3} \`a la page~\pageref{nIII.3}.}.
+
+M\^eme si on arrive de proche en proche \`a construire les~$X_n$
+se r\'eduisant suivant~$X_0$, cela ne donne en g\'en\'eral qu'un
+sch\'ema \emph{formel}~$\goth{X}$ lisse sur~$A$, se r\'eduisant
+suivant~$X_0$. Lorsque~$X_0$ est propre sur~$A$, il reste la question
+si~$\goth{X}$ est en fait alg\'ebrisable, pour pouvoir obtenir un
+sch\'ema \emph{ordinaire} propre sur~$A$ et simple sur~$A$, se
+r\'eduisant suivant~$X_0$. Le seul crit\`ere connu (signal\'e
+dans le S\'eminaire Bourbaki, et qui figure dans les \'El\'ements,
+Chap.\, III, 4.7.1) est le suivant: si~$\goth{X}$ est propre sur~$A$, et
+si~$\cal{L}$ est un faisceau inversible sur~$\goth{X}$ tel que le
+faisceau induit~$\cal{L}_0$ sur~$X_0$ soit ample (\ie une puissance
+tensorielle convenable~$\cal{L}_0^{\otimes n}$, $n>0$, provient d'une
+immersion projective de~$X_0$) alors il existe un sch\'ema~$X$
+projectif sur~$A$, et un faisceau inversible ample sur~$X$, tels
+que~$(\goth{X},\cal{L})$ s'en d\'eduise par compl\'etion
+$\goth{m}$-adique. Cela nous am\`ene donc, \'etant donn\'e un
+faisceau localement libre~$\cal{E}_0$ sur~$X_0$ (que nous choisirons
+inversible ample pour notre propos), de le prolonger en un faisceau
+localement libre~$\cal{E}$ sur~$\goth{X}$. Pour ceci, on est
+ramen\'e \`a construire de proche en proche des faisceaux
+localement libres~$\cal{E}_n$ sur les~$X_n$. La discussion est toute
+analogue \`a celle du \No \ref{III.6}, (\cf remarque~\ref{III.6.4}), le r\^ole
+essentiel \'etant jou\'e par le \emph{faisceau des automorphismes}
+d'un~$\cal{E}_{n+1}$ qui induisent l'identit\'e sur~$\cal{E}_n$: on
+montre aussit\^ot que ce faisceau s'identifie \`a
+\begin{equation*}
+\label{eq:III.7.*}\tag{$*$}{}
+\cal{G}= \SheafHom_{\cal{O}_{X_0}}(\cal{E}_0,
+\cal{E}_0\otimes\gr_{\cal{I}}^{n+1}(\cal{O}_X))=
+\SheafHom_{\cal{O}_{X_0}}(\cal{E}_0,
+\cal{E}_0)\otimes\gr_{\cal{I}}^{n+1}(\cal{O}_X)
+\end{equation*}
+qui est encore un faisceau en groupes commutatifs. On trouve:
+
+\begin{proposition}\label{III.7.1}
+Soit~$S$ un pr\'esch\'ema muni d'un faisceau quasi-coh\'erent
+d'id\'eaux~$\cal{I}$, $X$ un pr\'esch\'ema sur~$S$, $S_n$ le
+sous-pr\'esch\'ema de~$S$ d\'efini par~$\cal{I}^{n+1}$,
+et~$X_n=X\times_SS_n$ (pour tout entier~$n$). Soit~$\cal{E}_n$ un
+faisceau localement libre
+sur~$X_n$, on se propose de le prolonger en un faisceau localement
+libre~$\cal{E}_{n+1}$ sur~$X_{n+1}$. Alors~$\cal{E}_n$ d\'efinit une
+classe d'obstruction canonique dans~$\H^2(X_0,\cal{G})$,
+o\`u~$\cal{G}$ est le faisceau quasi-coh\'erent donn\'e par la
+formule ci-dessus, classe dont l'annulation est n\'ecessaire et
+suffisante pour l'existence d'un~$\cal{E}_{n+1}$
+prolongeant~$\cal{E}_n$. Si cette classe est nulle, alors l'ensemble
+des classes, \`a isomorphisme pr\`es (induisant l'identit\'e
+sur~$\cal{E}_n$) de solutions~$\cal{E}_{n+1}$, est un espace principal
+homog\`ene sous~$\H^1(X_0,\cal{G})$.
+\end{proposition}
+
+Cette proposition donne lieu aux corollaires habituels. Signalons
+seulement que si~$X$ est \emph{plat} sur~$S$, alors on peut \'ecrire
+$$
+\cal{G}= \SheafHom_{\cal{O}_{X_0}}(\cal{E}_0, \cal{E}_0)
+\otimes_{\cal{O}_{S_0}} \gr_{\cal{I}}^{n+1}(\cal{O}_S)
+$$
+d'o\`u, si~$S$ est affine d'anneau~$A$ et si
+les~$\cal{I}^n/\cal{I}^{n+1}$ sont localement libres, la condition
+suffisante
+$$
+\H^2(X_0,\cal{G}_0)=0 \qquad\text{avec}\qquad
+\cal{G}_0=\SheafHom_{\cal{O}_{X_0}}(\cal{E}_0, \cal{E}_0)
+$$
+pour l'existence d'un~$\cal{E}_{n+1}$, donc de proche en proche pour
+l'existence de prolongements successifs~$\cal{E}_m$ ($m=n,n+1,$
+etc.).
+
+Revenant \`a la situation de d\'epart, on trouve donc:
+
+\begin{proposition}\label{III.7.2}
+Soient~$A$ un anneau local complet, $\goth{X}$ un sch\'ema formel
+propre et plat sur~$A$, tel que~$X_0$ soit projectif et
+que~$\H^2(X_0,\cal{O}_{X_0})=0$. Alors il existe un sch\'ema~$X$
+projectif sur~$A$ dont le compl\'et\'e formel $\goth{m}$-adique
+est isomorphe \`a~$\goth{X}$.
+\end{proposition}
+
+Conjuguant avec~\ref{III.6.10}, on trouve:
+
+\begin{theoreme}\label{III.7.3}
+Soient~$A$ un anneau local complet de corps r\'esiduel~$k$, $X_0$ un
+sch\'ema projectif et lisse sur~$k$, tel que
+$$
+\H^2(X_0,\goth{g}_{X_0/k})=\H^2(X_0,\cal{O}_{X_0})=0
+$$
+Alors il existe un sch\'ema lisse et projectif~$X$ sur~$A$, se
+r\'eduisant suivant~$X_0$.
+\end{theoreme}
+
+Plus g\'en\'eralement, si on se donne un~$X_n$ lisse
+sur~$A_n=A/\goth{m}^{n+1}$ se r\'eduisant suivant~$X_0$, alors il
+existe un~$X$ lisse et propre sur~$A$ et un
+isomorphisme~$X\otimes_AA_n=X_n$.
+
+\begin{corollaire}\label{III.7.4}
+Toute courbe lisse et propre sur~$k$ provient par r\'eduction d'une
+courbe lisse et propre sur~$A$.
+\end{corollaire}
+
+C'est ce r\'esultat qui sera l'outil essentiel (avec le
+th\'eor\`eme d'existence de faisceaux en G\'eom\'etrie
+Formelle) pour \'etudier le groupe fondamental de~$X_0$ par voie
+transcendante.
+

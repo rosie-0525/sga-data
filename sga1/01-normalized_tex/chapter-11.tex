@@ -1,0 +1,1290 @@
+\chapter{G\'eom\'etrie alg\'ebrique et~g\'eom\'etrie~analytique}
+\label{XII}
+
+\begin{center}
+{Mme M.\ \textsc{Raynaud}\footnote{D'apr\`es des notes in\'edites de
+A.\, Grothendieck.}}
+\end{center}
+\vspace*{1cm}
+
+Proc\'edant comme dans \cite{XII.10}, on associe \`a tout sch\'ema $X$
+localement de type fini sur le corps des nombres complexes $\CC$ un
+espace analytique~$X^\an$
+\label{indnot:lb}dont l'ensemble sous-jacent est $X(\CC)$.
+
+Dans les \No \ref{XII.2} et~\ref{XII.3} de cet expos\'e, nous donnons un
+\og dictionnaire\fg entre les propri\'et\'es usuelles de~$X$ et de
+$X^\an$ et entre les propri\'et\'es d'un morphisme $f\colon X\to
+Y$ et du morphisme associ\'e $f^\an\colon X^\an \to Y^\an$.
+\label{indnot:lc}
+Nous montrons ensuite que les th\'eor\`emes de comparaison entre
+faisceaux coh\'erents sur~$X$ et $X^\an$, \'etablis dans \cite[\No
+12]{XII.10} pour une vari\'et\'e projective, sont encore valables lorsque
+$X$ est un sch\'ema propre.
+
+Enfin nous prouvons au \No \ref{XII.5} l'\'equivalence de la cat\'egorie des
+rev\^etements \'etales finis de~$X$ et de la cat\'egorie des
+rev\^etements \'etales finis de~$X^\an$. En prime au lecteur, nous
+donnons une nouvelle d\'emonstration du th\'eor\`eme de
+Grauert-Remmert \cite{XII.6}, utilisant la r\'esolution des
+singularit\'es~\cite{XII.8}.
+
+\section{Espace analytique associ\'e \`a un sch\'ema}
+\label{XII.1}
+
+Soit $X$ un sch\'ema localement de type fini sur~$\CC$. Soit $\Phi$
+le foncteur de la cat\'egorie des espaces analytiques \cite[\No 9]{XII.4} dans
+la cat\'egorie des ensembles, qui \`a un espace analytique~$\othercal{X}$ associe l'ensemble des morphismes d'espaces annel\'es en
+$\CC$-alg\`ebres $\Hom_\CC (\othercal{X},X)$. On a le th\'eor\`eme
+suivant:
+
+\begin{theoremedefinition}
+\label{XII.1.1} Le foncteur $\Phi$ est repr\'esentable par un
+espace analytique $X^\an$ et un morphisme $\varphi\colon X^\an\to
+X$. On dit que $X^\an$ est l'espace analytique associ\'e \`a~$X$.
+\index{espace analytique associ\'e|hyperpage}
+Si $|X^\an|$ est l'ensemble sous-jacent \`a $X^\an$, $\varphi$
+induit une bijection de~$|X^\an|$ sur l'ensemble $X(\CC)$ des points
+de~$X$ \`a valeurs dans $\CC$. De plus, pour chaque point $x$ de~$X^\an$, le morphisme
+$$
+\varphi_x\colon\cal{O}_{X,\varphi(x)}\to\cal{O}_{X^\an,x},
+$$
+qui est n\'ecessairement local, donne par passage aux
+compl\'et\'es un isomorphisme
+$$
+\widehat{\varphi}_x\colon\widehat{\cal{O}}_{X,\varphi(x)}\isomto
+\widehat{\cal{O}}_{X^\an,x},
+$$
+En particulier le morphisme $\varphi$ est plat.
+\end{theoremedefinition}
+
+Notons que le fait que $\varphi$ induise une bijection de~$X^\an$ sur~$X(\CC)$ r\'esulte de la propri\'et\'e universelle de~$X^\an$.
+D'autre part on a les assertions suivantes:
+
+\begin{enumerate}
+\item [a)] Si le th\'eor\`eme est vrai pour un sch\'ema $Y$, il
+en est de m\^eme pour tout sous-sch\'ema $X$ de~$Y$. Supposons
+d'abord que $X$ soit un sous-sch\'ema ouvert de~$Y$; si $\psi\colon
+Y^\an\to Y$ est le morphisme canonique, $\psi^{-1}(X)$ est un ouvert
+de~$Y^\an$ que l'on muni de la structure d'espace analytique induite
+par celle de~$Y^\an$. Comme tout morphisme d'un espace analytique
+$\othercal{X}$ dans $X$ se factorise \`a travers $Y^\an$ d'apr\`es la
+propri\'et\'e universelle de ce dernier, donc \`a travers
+$X^\an$ qui est le produit fibr\'e $Y^\an\times_Y X$, $X^\an$ est
+l'espace analytique associ\'e \`a $X$. Enfin l'assertion
+concernant les $\varphi_x$ est \'evidente.
+
+Il suffit maintenant de consid\'erer le cas o\`u $X$ est un
+sous-sch\'ema ferm\'e de~$Y$. Soit~$I$ le $\cal{O}_Y$-Id\'eal
+coh\'erent d\'efinissant $X$; alors $I\cdot\cal{O}_{Y^\an}$ est un
+faisceau coh\'erent d'id\'eaux sur~$\cal{O}_{Y^\an}$ qui
+d\'efinit un sous-espace analytique ferm\'e $X^\an$ de~$Y^\an$; on
+voit comme dans le cas d'un sous-sch\'ema ouvert que $X^\an$ est
+l'espace analytique associ\'e \`a $X$. Soit $\varphi\colon
+X^\an\to X$ le morphisme canonique. Pour tout point $x$ de~$X^\an$, le
+morphisme $\varphi_x$ n'est autre que le morphisme
+$$
+\cal{O}_{Y,\psi(x)}/I_{\psi(x)}\to
+\cal{O}_{Y^\an,x}/I_{\psi(x)}\cdot\cal{O}_{Y^\an,x}
+$$
+induit par $\psi_x$; son compl\'et\'e
+$$
+\widehat{\varphi}_x\colon
+\widehat{\cal{O}}_{Y,\psi(x)}/I_{\psi(x)}\cdot\widehat{\cal{O}}_{Y,\psi(x)}
+\to\widehat{\cal{O}}_{Y^\an,x}/I_{\psi(x)}\cdot\widehat{\cal{O}}_{Y^\an,x}
+$$
+est un isomorphisme puisque $\widehat\psi_x$ en est un, ce qui
+d\'emontre a).
+
+\item [b)] Si l'on a deux $\CC$-sch\'emas $X_1$, $X_2$, tels que
+$X_1^\an$ et $X_2^\an$ existent, alors il en est de m\^eme de
+$(X_1\times X_2)^\an$. Soient en effet $\varphi_1\colon X_1^\an\to
+X_1$, $\varphi_2\colon X_2^\an\to X_2$ les morphismes canoniques,
+$p_1$, $p_2$ les deux projections de~$X_1^\an\times X_2^\an$. On
+d\'eduit formellement de EGA~I~1.8.1 que $X_1\times X_2$ est le
+produit de~$X_1$ et $X_2$ dans la cat\'egorie des espaces
+annel\'es en anneaux locaux; il en r\'esulte que les morphismes
+$\varphi_1\cdot p_1$ et $\varphi_2\cdot p_2$ d\'efinissent un
+morphisme $\varphi\colon X_1^\an\times X_2^\an\to X_1\times X_2$ et
+que le couple $(X_1^\an\times X_2^\an,\varphi)$ repr\'esente le
+foncteur $\othercal{X}\mto\Hom_\CC(\othercal{X},X_1\times X_2)$.
+
+\item [c)] Si $\othercal{E}^1$ d\'esigne l'espace affine de dimension 1,
+\ie l'espace topologique $\CC$ muni du faisceau des fonctions
+holomorphes, le foncteur{\renewcommand{\thefootnote}{*}\addtocounter{footnote}{-1}\footnote{\lcrochetbf Ajout\'e en 2003: $E^1_\CC$ d\'esigne la droite affine (alg\'ebrique) sur $\CC$.\rcrochetbf}}
+$\othercal{X}\mto\Hom_\CC (\othercal{X},E^1_\CC)$
+est repr\'esentable par $\othercal{E}^1$, le morphisme canonique
+$\varphi\colon\othercal{E}^1\to E^1_\CC$ \'etant le morphisme
+\'evident. En effet se donner un morphisme d'un espace analytique
+$\othercal{X}$ dans $E^1_\CC$ \'equivaut \`a se donner un
+\'el\'ement de~$\Gamma(\othercal{X},\cal{O}_\othercal{X})$, ce qui revient
+aussi \`a se donner un morphisme de~$\othercal{X}$ dans~$\othercal{E}^1$. On
+a \'evidemment une bijection $|\othercal{E}^1|\simeq E^1(\CC)$, et, pour
+chaque point $x\in\othercal{E}^1$, le morphisme $\widehat\varphi_x$ n'est
+autre que le morphisme identique d'un anneau de s\'eries formelles
+\`a une variable sur~$\CC$.
+\end{enumerate}
+
+\enlargethispage{.5cm}On d\'eduit de b) et c) que le th\'eor\`eme est vrai pour
+l'espace affine $E^n_\CC$, $n\geq 0$. Utilisant a), on voit qu'il en
+est de m\^eme pour tout sch\'ema affine $X$, localement de type
+fini sur~$\CC$. Si l'on ne suppose plus $X$ affine et si $(X_i)$ est
+un recouvrement de~$X$ par des ouverts affines, il r\'esulte de la
+propri\'et\'e universelle et de a) que les $X_i^\an$ se recollent
+et d\'efinissent ainsi l'espace analytique $X^\an$ associ\'e
+\`a~$X$.
+
+\subsection{}
+\label{XII.1.2}
+Soit $f\colon X\to Y$ un morphisme de~$\CC$-sch\'emas localement de
+type fini. Si $\varphi\colon X^{\an}\to X$ et $\psi\colon Y^{\an}\to
+Y$ sont les morphismes canoniques, il r\'esulte de la
+propri\'et\'e universelle de~$Y^{\an}$ qu'il existe un unique
+morphisme $f^{\an}\colon X^{\an}\to Y^{\an}$ tel que le diagramme
+$$
+\xymatrix{{X^{\an}}\ar[r]\ar[d]_-{f^{\an}}&{X}\ar[d]^-f\\{Y^{\an}}\ar[r]&{Y}}
+$$
+soit
+commutatif. On a donc d\'efini un foncteur $\Phi$ de la
+cat\'egorie des $\CC$-sch\'emas localement de type fini dans la
+cat\'egorie des espaces analytiques.
+
+Le foncteur $\Phi$ commute aux limites projectives finies. Il suffit
+en effet de voir que $\Phi$ commute aux produits fibr\'es. Or, si
+$X$, $Y$, $Z$, sont des sch\'emas localement de type fini sur~$\CC$,
+il r\'esulte du fait que $X\times_Z Y$ est le produit fibr\'e de
+$X$ et $Y$ au-dessus de~$Z$ dans la cat\'egorie des espaces
+annel\'es en anneaux locaux que $X^{\an}\times_{Z^{\an}}Y^{\an}$
+satisfait \`a la propri\'et\'e universelle qui caract\'erise
+$(X\times_Z Y)^{\an}$.
+
+\subsection{}
+\label{XII.1.3}
+Soient $X$ un $\CC$-sch\'ema localement de type fini, $X^{\an}$
+l'espace analytique associ\'e, $\varphi\colon X^{\an}\to X$ le
+morphisme canonique. Si $F$ est un ${\cal{O}}_X$-Module, l'image
+inverse $\varphi^*F=F^{\an}$ est un faisceau de modules sur~${\cal{O}}_{X^{\an}}$. On d\'efinit ainsi un foncteur de la
+cat\'egorie des $\cal{O}_X$-Modules dans la cat\'egorie des
+Modules sur~$X^{\an}$. Ce foncteur commute aux limites inductives
+(EGA~0~4.3.2). Le faisceau $\cal{O}_{X^{\an}}$ \'etant coh\'erent
+\cite[\no18~\S 2~th.\, 2]{XII.4}, il transforme faisceaux coh\'erents en
+faisceaux coh\'erents (EGA~0~5.3.11). On a de plus:
+
+\begin{subproposition}
+\label{XII.1.3.1}
+Le foncteur qui \`a un $\cal{O}_{X^{\an}}$-Module $F$ associe son
+image inverse $F^{\an}$ sur~$X^{\an}$ est exact, fid\`ele,
+conservatif.
+\end{subproposition}
+
+L'exactitude r\'esulte du fait que le morphisme $\varphi\colon
+X^{\an}\to X$ est plat \eqref{XIII.1.1}. Prouvons que le foncteur $F\mto
+F^{\an}$ est fid\`ele. Compte tenu de l'exactitude, il suffit de
+montrer que, si $F^{\an}$ est nul, il en est de m\^eme de~$F$. Or,
+pour tout point $x$ de~$X^{\an}$, on a alors $F_{\varphi
+(x)}\otimes_{\cal{O}_{X,\varphi (x)}}\cal{O}_{X^{\an},x}=0$. Le
+morphisme $\cal{O}_{X,\varphi (x)}\to \cal{O}_{X^{\an},x}$ \'etant
+fid\`element plat, on a $F_{\varphi (x)}=0$ pour tout point
+ferm\'e $\varphi (x)$ de~$X$, et, comme $X$ est de Jacobson
+(EGA~IV~10.4.8), ceci implique que $F$ est nul.
+
+Le
+fait que le foncteur $F\mto F^{\an}$ soit conservatif est formel
+\`a partir de l'exactitude et de la fid\'elit\'e.
+
+\section[Comparaison des propri\'et\'es d'un sch\'ema]{Comparaison des propri\'et\'es d'un sch\'ema et de l'espace
+analytique \hbox{associé}}
+\label{XII.2}
+
+\begin{proposition}
+\label{XII.2.1}
+Soient $X$ un $\CC$-sch\'ema localement de type fini, $X^{\an}$
+l'espace analytique associ\'e, $n$ un entier. Consid\'erons la
+propri\'et\'e $P$ d'\^etre
+\begin{itemize}
+\item[(i)] non vide
+\item[(i')] discret
+\item[(ii)] de Cohen-Macaulay
+\item[(iii)] $(\mathrm{S}_n)$
+\item[(iv)] r\'egulier
+\item[(v)] $(\mathrm{R}_n)$
+\item[(vi)] normal
+\item[(vii)] r\'eduit
+\item[(viii)] de dimension $n$.
+\end{itemize}
+Alors, pour que $X$ poss\`ede la propri\'et\'e $P$, il faut et
+il suffit qu'il en soit ainsi de~$X^{\an}$.
+\end{proposition}
+
+Soit $\varphi\colon X^{\an}\to X$ le morphisme
+canonique. (i)~r\'esulte du fait que l'on a $|X^{\an}|=X(\CC )$
+\eqref{XIII.1.1} et du fait que $X$ est de Jacobson (EGA~IV~10.4.8). Dire que~$X$
+(\resp $X^{\an}$) est discret \'equivaut \`a dire que l'on a $\dim
+X=0$ (\resp $\dim X^{\an}=0$ d'apr\`es \cite[\no19~\S 4~cor.\, 6]{XII.4}); (i')
+r\'esulte donc de~(viii).
+
+Soit $P$ l'une des propri\'et\'es (ii) \`a (vii). Pour que $X$
+poss\`ede la propri\'et\'e $P$, il faut et il suffit que $P$
+soit v\'erifi\'ee en chaque point ferm\'e de~$X$; en effet, $X$
+\'etant excellent (EGA~IV~7.8.6~(iii)), l'ensemble des points
+o\`u $X$ v\'erifie $P$ est un ouvert (\loccit) et, si cet ouvert
+contient tous les points ferm\'es, il est \'egal \`a $X$ tout
+entier. Dire que $X$ (\resp $X^{\an}$) a la propri\'et\'e $P$
+\'equivaut donc \`a dire que, pour tout point $x$ de~$X^{\an}$,
+l'anneau local $\cal{O}_{X,\varphi (x)}$ (\resp $\cal{O}_{X^{\an},x}$)
+a la propri\'et\'e $P$. Comme le fait qu'un anneau local excellent
+ait la propri\'et\'e $P$ se voit apr\`es passage au
+compl\'et\'e, la proposition r\'esulte des isomorphismes
+$\widehat{\cal{O}}_{X,\varphi(x)}\isomto\widehat{\cal{O}}_{X^{\an},x}$
+dans les cas (ii) \`a (vii). Il en est de m\^eme dans le cas
+(viii), compte tenu des relations
+$$
+\dim X=\sup_x~\dim \cal{O}_{X,\varphi (x)}\qquad \dim
+X^{\an}=\sup_x~\dim \cal{O}_{X^{\an},x}
+$$
+o\`u $x\in X^{\an}$. Ceci ach\`eve la d\'emonstration.
+
+\begin{proposition}
+\label{XII.2.2}
+Soient $X$ un $\CC$-sch\'ema localement de type fini,
+$\varphi\colon X^{\an}\to X$ le morphisme canonique, $T$ une partie
+localement constructible de~$X$. Alors on a la relation
+$$
+\varphi^{-1}(\overline{T})=\overline{\varphi^{-1}(T)}.
+$$
+\end{proposition}
+
+On peut supposer que $T$ est un ouvert dense de~$X$. Soit $H$ le
+sous-sch\'ema ferm\'e r\'eduit de~$X$ d'espace sous-jacent
+$X-T$; l'espace associ\'e $H^{\an}$ est un sous-espace analytique
+ferm\'e de~$X^{\an}$ d'espace sous-jacent
+$X^{\an}-\varphi^{-1}(T)$. On doit montrer que tout point $x$ de
+$H^{\an}$ appartient \`a $\overline{\varphi^{-1}(T)}$. Or, en un tel
+point $x$, le germe d'espace analytique $(X^{\an},x)$ contient le
+sous-germe $(H^{\an},x)$, et celui-ci est d\'efini par un Id\'eal
+non nilpotent de~$\cal{O}_{X^{\an},x}$. Il r\'esulte alors du
+Nullstellensatz \cite[\no19~\S 4~cor.\, 3]{XII.4} que tout voisinage ouvert de~$x$
+contient des points de~$X^{\an}$ qui n'appartiennent pas \`a
+$H^{\an}$, ce qui prouve bien que l'on a
+$x\in\overline{\varphi^{-1}(T)}$.
+
+\begin{corollaire}
+\label{XII.2.3}
+Soient
+$X$ un $\CC$-sch\'ema localement de type fini, $\varphi
+\colon X^\an \to X$ le morphisme canonique, $T$ une partie localement
+constructible de~$X$. Pour que $T$ soit une partie ouverte (\resp une
+partie ferm\'ee, \resp une partie dense), il faut et il suffit qu'il
+en soit ainsi de~$\varphi^{-1} (T)$.
+\end{corollaire}
+
+Le corollaire r\'esulte de~\ref{XII.2.2} et du fait que, $X$
+\'etant un sch\'ema de Jacobson (EGA~IV~10.4.8), deux parties
+localement constructibles de~$X$ qui ont m\^eme trace sur l'ensemble
+tr\`es dense $X (\CC )$ sont \'egales.
+
+\begin{proposition}
+\label{XII.2.4} Soit $X$ un $\CC$-sch\'ema localement de type
+fini. Pour que $X$ soit connexe (\resp irr\'eductible), il faut et
+il suffit qu'il en soit ainsi de~$X^\an$.
+\end{proposition}
+
+Supposons $X^\an $ connexe (\resp irr\'eductible). L'image $X (\CC)
+$ de~$X^\an$ dans $X$ est alors connexe (\resp irr\'eductible). Il
+en r\'esulte que $X$ est connexe (\resp irr\'eductible) car les
+parties ferm\'ees de~$X$ et $X (\CC)$ se correspondent bijectivement
+(EGA~IV~10.1.2).
+
+Inversement supposons $X$ connexe (\resp irr\'eductible), et
+montrons qu'il en est de m\^eme de~$X^\an$. On peut se borner au cas
+o\`u $X$ est irr\'eductible. Supposons en effet $X$ connexe.
+\'Etant donn\'e un point $x$ de~$X$, l'ensemble des points $y \in X$
+tels qu'il existe une suite finie de sous-sch\'emas ferm\'es
+irr\'eductibles $X_1, \dots, X_n$ de~$X$, avec $x \in X_1$, $y \in
+X_n$, $X_i \cap X_{i+1} \neq \emptyset $ pour $1 \leq i \leq n-1$,
+est un ensemble \`a la fois ouvert et ferm\'e, donc \'egal \`a
+$X$ tout entier. Pour une suite $X_1, \dots, X_n$ telle que
+pr\'ec\'edemment, on a aussi $X_{i}^\an \cap X_{i+1}^\an \neq
+\emptyset $ pour $1 \leq i \leq n-1 $; si l'on suppose
+d\'emontr\'e que les $X_{i}^\an$ sont connexes, il en est alors de
+m\^eme de~$X^\an$.
+
+On
+suppose d\'esormais $X$ irr\'eductible. On peut supposer de plus
+$X$ affine. En effet, si $(U_i)_{i \in I}$ est un recouvrement de~$X$
+par des ouverts affines, deux de ces ouverts ont une intersection non
+vide, et la m\^eme propri\'et\'e est donc vraie pour le
+recouvrement $(U_{i}^\an)_{i \in I} $ de~$X^\an$; si l'on suppose
+d\'emontr\'e que les $U_{i}^\an $ sont irr\'eductibles, il en
+est alors de m\^eme de~$X^\an$.
+
+On peut supposer de plus que $X$ est normal. Soit en effet $\tilde X$
+le normalis\'e de~$X$; comme le morphisme $\tilde X \to X$ est
+surjectif, il est de m\^eme de~$\tilde X^\an \to X^\an$, ce qui
+prouve que, si $\tilde X^\an $ est irr\'eductible, il est de
+m\^eme de~$X^\an$.
+
+On suppose d\'esormais $X$ affine normal. Comme les anneaux locaux
+de~$X^\an$ sont int\`egres, il revient au m\^eme de dire que
+$X^\an$ est irr\'eductible ou qu'il est connexe. En effet, si
+$\cal{F}$ est une partie analytique ferm\'ee de~$X^\an$, l'ensemble
+des points $x$ de~$X^\an$ o\`u l'on a $\codim_x (\cal{F}, X^\an ) =
+0$ est un sous-ensemble analytique ferm\'e de~$X^\an$ \cite[\no 20 A
+Cor.\, 1]{XII.4} qui est aussi ouvert; si $X^\an$ est connexe, ceci prouve que,
+si l'on a $\cal{F} \neq X^\an$, $\cal{F}$ est rare, donc que $X^\an$
+est irr\'eductible. On est ainsi ramen\'e \`a montrer que
+$X^\an$ est connexe.
+
+Soit
+$$
+i \colon X \to P
+$$
+une compactification de~$X$, o\`u $P$ est un $\CC$-sch\'ema
+projectif normal et $i$ une immersion ouverte dominante. Il
+r\'esulte alors de \cite[\no 12 th.\, 1]{XII.10} que $P^\an$ est connexe. Comme
+$X^\an$ est obtenu en enlevant \`a $P^\an$ une partie analytique
+ferm\'ee rare, il r\'esulte de~\ref{XII.2.5} ci-dessous que $X^\an$
+est aussi connexe.
+
+\begin{lemme}
+\label{XII.2.5}
+Soient
+$\cal{P} $ un espace analytique normal connexe, $\cal{Y}$ une
+partie analytique ferm\'ee rare, alors $\cal{X} = \cal{P} - \cal{Y}$
+est connexe.
+\end{lemme}
+
+Lorsque $\cal{Y}$ est de codimension $\geq 2$, la proposition
+r\'esulte de \cite[\no 3 prop.\, 4]{XII.11}. Dans le cas g\'en\'eral on peut
+supposer, quitte \`a enlever \`a $\cal{P}$ une partie analytique
+ferm\'ee de codimension $\geq 2$, que $\cal{P}$ et $\cal{Y}$
+(consid\'er\'e comme sous-espace analytique r\'eduit de~$\cal{P}$) sont r\'eguliers. D'apr\`es le th\'eor\`eme des
+fonctions implicites, tout point $y$ de~$\cal{Y}$ poss\`ede un
+voisinage $\cal{U}$ isomorphe \`a une boule d'un espace affine
+$\cal{E}^{n}$, de sorte que $\cal{U} \cap \cal{Y}$ soit d\'efini par
+l'annulation d'un certain nombre de fonctions coordonn\'ees. Ceci
+prouve que $\cal{U} - \cal{U} \cap \cal{Y}$ est connexe, et il en est
+donc de m\^eme de~$\cal{X}$.
+
+\begin{corollaire}
+\label{XII.2.6} Soit $X$ un $\CC$-sch\'ema localement de type
+fini; le morphisme
+$$
+\pi_0 (X^{\an}) \to \pi_0 (X)
+$$
+induit par le morphisme canonique $X^\an \to X$ est bijectif.
+\end{corollaire}
+
+\section{Comparaison des propri\'et\'es des morphismes}
+\label{XII.3}
+
+\begin{proposition}
+\label{XII.3.1} Soient $f \colon X \to Y$ un morphisme de
+$\CC$-sch\'emas localement de type fini, $f^\an \colon X^\an \to
+Y^\an$ le morphisme d\'eduit de~$f$ sur les espaces analytiques
+associ\'es. Soit $P$ la propri\'et\'e d'\^etre
+\begin{enumerate}
+\item[(i)] plat
+\item[(ii)] net (\ie non ramifi\'e)
+\item[(iii)] \'etale
+\item[(iv)] lisse
+\item[(v)] normal
+\item[(vi)]
+r\'eduit
+\item[(vii)] injectif
+\item[(viii)] s\'epar\'e
+\item[(ix)] un isomorphisme
+\item[(x)] un monomorphisme
+\item[(xi)] une immersion ouverte.
+\end{enumerate}
+Alors, pour que $f$ poss\`ede la propri\'et\'e $P$, il faut et
+il suffit qu'il en soit ainsi de~$f^\an$.
+\end{proposition}
+
+Notons $\varphi \colon X^\an \to X $ et $\psi \colon Y^\an \to Y$ les
+morphismes canoniques. Soient $x$ un point de~$X^\an$, $y = f^\an
+(x)$. Les morphismes $\cal{O}_{Y^\an, y} \to {\mathcal O}_{X^\an, x}$
+et $\cal{O}_{Y, \psi(y)} \to \cal{O}_{X, \varphi(x)} $ d\'eduits de
+$f$ et $f^{\an}$ donnent le m\^eme morphisme par passage aux
+compl\'et\'es \eqref{XII.1.1}. D'apr\`es \cite[ch.\, 3 \S 5 prop.\, 4]{XII.2}
+(\resp EGA~IV 17.4.4) il revient donc au m\^eme de dire que $f^\an $
+v\'erifie la propri\'et\'e (i) (\resp (ii)) ou de dire que $f$
+v\'erifie (i) (\resp (ii)) en chaque point ferm\'e de~$X$. Comme
+l'ensemble des points de~$X$ o\`u (i) (\resp (ii)) est
+v\'erifi\'e est un ouvert (EGA~IV 11.1.1 et I 3.3), ceci
+d\'emontre (i) et (ii), donc aussi (iii).
+
+\enlargethispage{.5cm}Soit $P$ la propri\'et\'e (iv) (\resp (v), \resp (vi)). Compte tenu
+de~\ref{XII.2.1} ((v), (vi), (vii)), il revient au m\^eme de dire que
+les fibres g\'eom\'etriques de~$f^\an$ aux diff\'erents points
+$y$ de~$Y^\an$ sont r\'eguli\`eres (\resp normales, \resp r\'eduites) ou qu'il en est ainsi des fibres g\'eom\'etriques de
+$f$ aux diff\'erents points ferm\'es $\psi (y)$ de~$Y$. Les cas
+(iv) (\resp (v), \resp (vi)) r\'esultent alors de (i) et du fait que
+l'ensemble des points de~$Y$ o\`u les fibres g\'eom\'etriques de
+$f$ sont r\'eguli\`eres est un ouvert (EGA~IV 12.1.7).
+
+(vii). Si $f$ est injectif, il en est de m\^eme de~$f^\an$.
+Inversement supposons $f^\an$ injectif et montrons qu'il en est de
+m\^eme de~$f$. On peut supposer
+$f$ de type fini. Le morphisme $f^\an$ \'etant injectif, les fibres
+de~$f$ aux points ferm\'es de~$Y$ sont radicielles; comme l'ensemble
+des points de~$Y$ dont la fibre est radicielle est localement
+constructible (EGA~IV 9.6.1) et comme $Y$ est un sch\'ema de
+Jacobson, $f$ a toutes ses fibres radicielles donc est injectif.
+
+(viii). Soient $\Delta \colon X \to X \times_Y X $ et $\Delta^\an
+\colon X^\an \to X^\an \times_{Y^\an} X^\an $ les immersions
+diagonales, $\Theta \colon X^\an \times_{Y^\an} X^\an \to X \times_Y X
+$ le morphisme canonique. En vertu de~\ref{XII.2.3} il revient au
+m\^eme de dire que $\Delta (X)$ est ferm\'e dans $X \times_Y X $
+ou que $\Delta^\an (X^\an)$ est ferm\'e dans $X^\an \times_{Y^\an}
+X^\an$.
+
+Comme une immersion ouverte n'est autre qu'un morphisme \'etale
+injectif (EGA~IV 17.9.1 et \cite[\no 13 \S 1]{XII.4}), (xi) r\'esulte de (iii)
+et de (vii). Un isomorphisme \'etant la m\^eme chose qu'une
+immersion ouverte surjective, (ix) r\'esulte de (xi) et de
+(\ref{XII.3.2}~(i)) ci-dessous. Dire que $f$ est un monomorphisme
+\'equivaut \`a dire que la morphisme diagonal $\Delta \colon X \to
+X \times_Y X$ est un isomorphisme, donc (x) r\'esulte de (ix).
+
+\begin{proposition}
+\label{XII.3.2}
+Soient $X$ et $Y$ deux $\CC$-sch\'emas localement de type fini,
+$f\colon X \to Y$ un morphisme de type fini, $f^\an \colon X^\an \to
+Y^\an $ le morphisme d\'eduit de~$f$ sur les espaces analytiques
+associ\'es. Soit $P$ la propri\'et\'e d'\^etre
+\begin{enumerate}
+\item[(i)] surjectif
+\item[(ii)] dominant
+\item[(iii)] une immersion ferm\'ee
+\item[(iv)] une immersion
+\item[(v)] propre\footnote{Nous dirons qu'un morphisme d'espaces
+analytiques est propre s'il l'est au sens de \cite[ch.\, 1 \S 10 \no 1]{XII.1} et
+s'il est s\'epar\'e.}
+\item[(vi)]
+fini.
+\end{enumerate}
+Alors, pour que $f$ poss\`ede la propri\'et\'e $P$, il faut et
+il suffit qu'il en soit ainsi de~$f^\an$.
+\end{proposition}
+
+Soient $\varphi \colon X^\an \to X$ et $\psi \colon Y^\an \to Y$ les
+morphismes canoniques.
+
+(i). Si $f$ est surjectif, pour tout point $y$ de~$Y^\an$, $f^{-1}
+(\psi (y)) $ est une partie ferm\'ee non vide de~$X$; elle contient
+donc au moins un point ferm\'e, ce qui prouve que $f^\an$ est
+surjectif. Inversement, si $f^\an$ est surjectif, $f(X)$ est une
+partie localement constructible de~$Y$ (EGA~IV 1.8.4) qui contient
+tous les points ferm\'es de~$Y$; on a donc $f(X)=Y$.
+
+(ii) r\'esulte de~\ref{XII.2.2}.
+
+(iii). Si $f$ est une immersion ferm\'ee, il en est de m\^eme de
+$f^\an$ d'apr\`es \ref{XII.1.1}~a). Inversement, si $f^\an$ est une
+immersion ferm\'ee, il en est de m\^eme de~$f$ d'apr\`es
+\ref{XII.3.1}~(x) et \ref{XII.3.2}~(v), car cela revient \`a dire
+que $f$ est un monomorphisme propre (EGA~IV 8.11.5).
+
+(iv). Il est clair que, si $f$ est une immersion, il en est de
+m\^eme de~$f^\an$. Inversement supposons que $f^\an$ soit une
+immersion, et soient $T$ l'image de~$X$ dans $Y$, $\overline{T}$
+l'adh\'erence sch\'ematique de~$f$. On a une factorisation de~$f$,
+$$
+X \lto{i} \overline{T} \lto{j} J \quoi,
+$$
+o\`u $j$ est une immersion ferm\'ee, $i$ le morphisme canonique,
+et on en d\'eduit la factorisation suivante de~$f^\an$
+$$
+X^\an \lto{i^\an} \overline{T}^{ \an} \lto{j^\an} Y^\an \
+.
+$$
+Comme
+$T = f(X)$ est une partie localement constructible de~$Y$ (EGA~IV
+1.8.4), on~a, d'apr\`es~\ref{XII.2.2}, $\overline{T}^{ \an} =
+\overline{f^\an (X^\an )}$. Il en r\'esulte que $i^\an (X^\an )$ est
+un ouvert de~$\overline{T}^{ \an}$, donc que $i(X) $ est un ouvert de
+$\overline{T}$. On consid\`ere la factorisation canonique de~$i$
+$$
+X \lto{i_1} i (X) \lto{i_2} \overline{T}.
+$$
+Le morphisme $i_1^\an $ est un monomorphisme propre, donc il en est de
+m\^eme de~$i_1$ d'apr\`es \ref{XII.3.2}~(v) et \ref{XII.3.1}~(x);
+ceci prouve que $i_1$ donc aussi $f$ est une immersion.
+
+(v). Supposons que $f$ soit propre et montrons qu'il en est de
+m\^eme de~$f^\an$. Le fait que $f^\an $ soit propre \'etant local
+sur~$Y^\an$, on peut supposer $Y$ affine. D'apr\`es le lemme de Chow
+(EGA~II 5.6.1), on peut trouver un $Y$-sch\'ema projectif $X'$ et un
+morphisme projectif surjectif
+$$
+g \colon X' \to X.
+$$
+Le morphisme $(fg)^\an = f^\an g^\an $ est projectif donc propre,
+$g^\an $ est surjectif, et il r\'esulte de \cite[ch.\, 1 \S 10]{XII.1} que
+$f^\an $ est propre.
+
+Inversement supposons $f^\an $ propre et montrons qu'il en est de
+m\^eme de~$f$. D'apr\`es \ref{XII.3.1}~(viii) $f$ est
+s\'epar\'e. Il reste \`a prouver que $f$ est universellement
+ferm\'e, et il suffit m\^eme de montrer que $f$ est ferm\'e; en
+effet, pour tout $Y$-sch\'ema $Y'$ localement de type fini, le
+morphisme
+$$
+f_{(Y')} = h \colon X \times_Y Y' \to Y'
+$$
+sera aussi ferm\'e puisque $h^\an $ est propre. Soit $T$ une partie
+ferm\'ee de~$X$; $f(T)$ est un ensemble localement constructible, et
+l'on a
+$$
+f^\an (\varphi^{-1} (T)) = \psi^{-1} (f(T)).
+$$
+Comme
+$f^\an $ est propre, $\psi^{-1} (f (T))$ est une partie ferm\'ee de
+$Y^\an $, et il r\'esulte donc de~\ref{XII.2.2} que l'on a
+$$
+\psi^{-1} (\overline{f(T)}) = \psi^{-1} (f(T))\quoi .
+$$
+Cela entra\^ine que l'on a $f(T) = \overline{f(T)}$, \ie que $f$
+est ferm\'ee donc que $f$ est propre.
+
+(vi). Il revient au m\^eme de dire qu'un morphisme est fini ou qu'il
+est propre \`a fibres finies (EGA~III 4.4.2 et \cite[\no 19 \S 5]{XII.4}).
+Comme l'ensemble des points o\`u les fibres de~$f$ sont finies est
+localement constructible (EGA~IV 9.7.9), les fibres de~$f$ sont finies
+si et seulement si il en est ainsi des fibres de~$f^\an $; (vi)
+r\'esulte donc de (v).
+
+\begin{remarque}
+\label{XII.3.3}
+\begin{enumerate}
+\item[a)] soit $f \colon X \to Y$ un morphisme de~$\CC$-sch\'emas
+localement de type fini. Le fait que $f^\an $ soit un isomorphisme
+local n'entra\^ine pas qu'il en soit de m\^eme de~$f$. En effet,
+si $f$ est \'etale, $f^\an $ est \'etale donc est un isomorphisme
+local \hbox{\cite[\no 13 \S 1]{XII.4}}, mais il n'en est pas n\'ecessairement ainsi
+de~$f$.
+\item[b)]
+L'\'enonc\'e~\ref{XII.3.2}
+n'est pas vrai si l'on ne suppose
+pas $f$ de type fini. Montrons par exemple que $f^\an $ peut \^etre
+une immersion ferm\'ee sans qu'il en soit de m\^eme de~$f$. Il
+suffit en effet de prendre pour $X$ la somme de~$\ZZ $ copies de
+$\Spec \CC$, et pour $Y$ la droite affine, et pour $f$ le morphisme
+obtenu en envoyant les points de~$X$ sur des points distincts de~$Y$
+formant une partie discr\`ete.
+\end{enumerate}
+\end{remarque}
+
+\section[Th\'eor\`emes de comparaison cohomologique]{Th\'eor\`emes de comparaison cohomologique et th\'eor\`emes d'existence}
+\label{XII.4}
+
+L'objet de ce num\'ero est de red\'emontrer les r\'esultats de
+\cite[\no 2 th.\, 5 et th.\, 6]{XII.3}; ces derniers g\'en\'eralisent au cas
+d'un sch\'ema propre les th\'eor\`emes \'etablis dans \cite[\no 12]{XII.10} lorsque $X$ est projectif, et les \'etendent au cas
+relatif. Des r\'esultats plus g\'en\'eraux, concernant les
+sch\'emas relatifs propres sur un espace analytique, sont
+prouv\'es dans \cite[ch.\, VIII \no 3]{XII.7}.
+
+Rappelons que la cohomologie de {\v{C}}ech utilis\'ee dans \cite[\no 12]{XII.10} co\"incide avec la cohomologie usuelle dans le cas
+alg\'ebrique comme dans le cas analytique (EGA~III 1.4.1. et \cite[II 5.10]{XII.5}).
+\subsection{}
+\label{XII.4.1}
+Soient $f \colon X \to Y $ un morphisme de~$\CC$-sch\'emas
+localement de type fini et consid\'erons le diagramme commutatif
+$$
+\xymatrix{{X^\an}\ar[r]^\varphi\ar[d]_{f^\an}&{X}\ar[d]^f\\{Y^\an}\ar[r]^\psi&{Y \quoi.}}
+$$
+Si $F$ est un $\cal{O}_X$-Module, on a, pour tout entier $p \geq
+0$, des morphismes
+$$
+\R^p f_* F \lto{i} \R^p f_* (\varphi_* F^\an )
+\lto{j} \R^p (f\cdot\varphi)_* F^\an \lto{k} \psi_*
+(\R^p f_*^\an F^\an ) \quoi,
+$$
+o\`u $i$ se d\'eduit du morphisme canonique $F \to \varphi_*
+F^\an $, et $j, k$ sont des \og edge-homomorphismes\fg de suites
+spectrales de Leray. Au compos\'e $k.j.i$ est associ\'e un
+morphisme canonique
+\begin{equation*}
+\label{eq:XII.4.1.1}
+\tag{4.1.1} {\theta_p \colon (\R^p f_* F)^\an \to \R^p f_*^\an
+(F^\an )}
+\end{equation*}
+
+\begin{theoreme}
+\label{XII.4.2}
+Soient
+$f \colon X \to Y $ un morphisme propre de~$\CC$-sch\'emas
+localement de type fini, $F$ un $\cal{O}_X$-Module
+coh\'erent. Alors, pour tout entier $p \geq 0$ le morphisme
+\eqref{eq:XII.4.1.1}
+$$
+\theta_p \colon (\R^p f_* F)^\an \to \R^p f_*^\an (F^\an)
+$$
+est un isomorphisme.
+\end{theoreme}
+
+1) \emph{Cas où $f$ est projectif}. La d\'emonstration est
+analogue \`a celle de \cite[\no 13]{XII.10}. Rappelons-la bri\`evement. On
+se ram\`ene au cas o\`u $X$ est un espace projectif type $\PP^r_Y
+$ au-dessus de~$Y$. Soit $\cal{Y} = Y^\an$, $\cal{P} = \PP^r_\cal{Y}$;
+on prouve d'abord que l'on a
+$$
+f_*^\an \cal{O}_\cal{P} = \cal{O}_\cal{Y} \quoi, \qquad \R^p f_*^\an
+(\cal{O}_\cal{P}) = 0 \qquad \text{pour } p>0
+$$
+Pour v\'erifier les relations pr\'ec\'edentes, on peut en effet
+se ramener au cas o\`u $\cal{Y}$ est une boule $\cal{B}$ d'un espace
+affine $\cal{E}^n$. On consid\`ere le \og recouvrement standard\fg $\{
+\cal{U}_i \}$ de~$\cal{P}$ par $r+1$ ouverts isomorphes \`a $\cal{B}
+\times \cal{E}^r$. Comme ces ouverts sont de Stein, on~a, pour tout
+entier $p \geq 0$, des isomorphismes
+$$
+\H^p (\{ \cal{U}_i \}, \cal{O}_\cal{P}) \isomto \H^p (\cal{P},
+\cal{O}_\cal{P})
+$$
+On peut alors exprimer les sections du faisceau structural
+$\cal{O}_\cal{P}$ sur les ouverts $\cal{U}_i $ et sur leurs
+intersections en termes de s\'eries de Laurent; un calcul facile
+prouve que l'on~a
+$$
+\H^0 (\cal{P}, \cal{O}_\cal{P} ) \isomto \H^0 (\cal{Y},
+\cal{O}_\cal{Y} ) \quoi, \qquad \H^p (\cal{P}, \cal{O}_\cal{P} ) = 0
+\qquad \text{pour } p>0
+$$
+La d\'emonstration s'ach\`eve alors en recopiant \cite[\no 12
+lemme~5]{XII.10}, les groupes de cohomologie \'etant remplac\'es par les
+faisceaux de cohomologie.
+
+2)
+\emph{Cas où $f$ est propre}. On utilise EGA~III 3.1.2 pour se
+ramener au cas projectif. Soit $\cal{K}$ la cat\'egorie des
+$\cal{O}_X$-Modules coh\'erents tels que $\theta_p$ soit un
+isomorphisme pour tout $p \geq 0$. Il suffit de prouver que, pour
+toute suite exacte $0 \to F' \to F \to F'' \to 0$
+dont deux termes sont dans $\cal{K}$, il en est de m\^eme du
+troisi\`eme, qu'un facteur direct d'un objet de~$\cal{K}$ est dans
+$\cal{K}$, et que, pour tout point $x$ de~$X$, on peut trouver un
+objet $F$ de~$\cal{K}$ tel que l'on ait $F_x \neq 0$.
+
+Le premi\`ere condition r\'esulte par application du lemme des
+cinq du diagramme commutatif suivant dont les lignes sont exactes:
+$$
+\xymatrix@=.7cm{ \ar[r] &{(\R^p f_* F')^\an}\ar[d]\ar[r]&{(\R^p f_*
+F)^\an}\ar[d]\ar[r]&{(\R^p f_* F'')^\an}\ar[d]\ar[r]&{(\R^{p+1} f_* F' )^\an}\ar[r]\ar[d]&{\,}\\ \ar[r] &{\R^p
+f_*^\an F'^\an}\ar[r]&{\R^p f_*^\an F^\an}\ar[r]&{\R^p
+f_*^\an F''^\an}\ar[r]&{\R^{p+1} f_*^\an F'^\an}\ar[r]&{\quoi,}}
+$$
+et on v\'erifie de fa\c{c}on analogue la deuxi\`eme condition.
+
+Pour v\'erifier la troisi\`eme condition, on peut se borner au cas
+o\`u $X$ est un sch\'ema irr\'eductible de point
+g\'en\'erique $x$. On pouvait supposer $Y$ noeth\'erien d\`es
+le d\'ebut. D'apr\`es le lemme de Chow (EGA~II 5.6.1), on peut
+trouver un $Y$-sch\'ema projectif~$X'$ et un morphisme projectif
+surjectif $g \colon X' \to X$. D'autre part il existe un entier~$n$
+tel que l'on ait $\R^p g_* (\cal{O}_{X'} (n)) = 0 $ pour tout $p>0$ et
+que le morphisme canonique $g^* g_* (\cal{O}_{X'} (n)) \to
+\cal{O}_{X'} (n)$ soit surjectif (EGA~III 2.2.1). Si l'on pose
+$F = g_* (\cal{O}_{X'} (n)) $, le faisceau $F$ r\'epond
+\`a la question. En effet on a $F_x \neq 0$; de plus la suite
+spectrale de Leray
+$$
+\R^p f_* (\R^q g_* (\cal{O}_{X'} (n))) \To \R^{p+q}
+(f\cdot g)_* (\cal{O}_{X'} (n))
+$$
+\'etant d\'eg\'en\'er\'ee, on a un isomorphisme
+$$
+\R^p f_* F \isomto \R^p (f\cdot g)_* (\cal{O}_{X'} (n))
+$$
+Comme dans le cas alg\'ebrique on a un isomorphisme canonique
+$$\R^p f_*^\an F^\an \isomto
+\R^p (f\cdot g)_*^\an (\cal{O}_{X'}(n)^\an ),$$
+et le diagramme
+$$
+\xymatrix@C=1cm{{(\R^p f_* F)^\an}\ar[d]_{\theta_p}\ar[r]^-{\sim}&{(\R^p (f\cdot g)_* (\cal{O}_{X'} (n)))^\an}\ar[d]_{\psi_p}\\{\R^p f_*^\an F^\an}\ar[r]^-{\sim}&{\R^p (f\cdot g)_*^\an
+(\cal{O}_{X'}(n)^\an)}}
+$$
+est commutatif. D'apr\`es~1) $\psi_p $ est un isomorphisme; il en
+est donc de m\^eme de~$\theta_p$, ce qui ach\`eve la
+d\'emonstration.
+
+\begin{corollaire}
+\label{XII.4.3}
+Soient $X$ un $\CC$-sch\'ema propre, $F$ un $\cal{O}_X$-Module
+coh\'erent. Alors, pour tout entier $p\geq 0$, le morphisme
+canonique
+$$
+\H^p(X,F)\to \H^p(X^{\an},F^{\an})
+$$
+est un isomorphisme.
+\end{corollaire}
+
+\begin{theoreme}
+\label{XII.4.4}
+Soit $X$ un $\CC$-sch\'ema propre. Le foncteur qui, \`a tout
+$\cal{O}_X$-Module coh\'erent $F$, associe son image inverse
+$F^{\an}$ sur~$X^{\an}$ est une \'equivalence de cat\'egories.
+\end{theoreme}
+
+1) \emph{Le foncteur est pleinement fidèle}. Soient en effet $F$
+et $G$ deux $\cal{O}_X$-Modules coh\'erents. Le morphisme canonique
+$$
+\Hom_{\cal{O}_X}(F,G)\to \Hom_{\cal{O}_{X^{\an}}}(F^{\an},G^{\an})
+$$
+s'identifie au morphisme canonique
+$$
+\H^0(X,\SheafHom_{\cal{O}_X}(F,G))\to
+\H^0(X^{\an},\SheafHom_{\cal{O}_X}(F,G))
+$$
+(EGA~$0_{\textup{I}}$~6.7.6). Comme $\SheafHom_{\cal{O}_X}(F,G)$ est
+coh\'erent, il r\'esulte de~\ref{XII.4.3} que ce morphisme est
+bijectif.
+
+2) \emph{Le foncteur est essentiellement surjectif}. Lorsque $X$ est
+projectif l'assertion r\'esulte de \cite[\no 12~th.\, 3]{XII.10}. Le cas
+g\'en\'eral se ram\`ene au pr\'ec\'edent en utilisant le
+lemme de Chow (EGA~II~5.6.1). Soient en effet $X'$ un $\CC$-sch\'ema
+projectif, $f\colon X'\to X$ un morphisme projectif surjectif, $U$ un
+ouvert dense de~$X$ tel que $f$ induise un isomorphisme
+$f^{-1}(U)\simeq U$. On raisonne par r\'ecurrence noeth\'erienne
+sur~$X$; on peut donc supposer que, pour tout faisceau coh\'erent
+$\cal{G}$ sur~$X^{\an}$ tel que l'on puisse trouver une partie
+ferm\'ee $Y$ de~$X$ distincte de~$X$, satisfaisant \`a la relation
+$Y^{\an}\supset \Supp \cal{G}$, il existe un faisceau coh\'erent $G$
+sur~$X$ tel que l'on ait un isomorphisme $G^{\an}\simeq \cal{G}$.
+
+Soit $\cal{F}$ un faisceau de modules coh\'erent sur~$\cal{O}_{X^{\an}}$, $\cal{K}$ et $\cal{L}$ les faisceaux
+coh\'erents d\'efinis par la condition que la suite
+$$
+0\to\cal{K}\to\cal{F}\to f_*^{\an}f^{\an *}\cal{F}\to\cal{L}\to 0
+$$
+soit exacte. Comme $X'$ est projectif, il existe un
+$\cal{O}_{X'}$-Module coh\'erent $F'$ tel que l'on ait
+$F'^{\an}\simeq {f^{\an}}^*\cal{F}$; on d\'eduit alors
+de~\ref{XII.4.2} que l'on a un isomorphisme $(f_*F')^{\an}\simeq
+f_*^{\an}{f^{\an}}^*\cal{F}$. Comme $\cal{K}|U^{\an}$ et
+$\cal{L}|U^{\an}$ sont nuls, il existe des $\cal{O}_X$-Modules
+coh\'erents $K$ et $L$ tel que l'on ait des isomorphismes
+$K^{\an}\simeq \cal{K}$, $L^{\an}\simeq \cal{L}$. D'apr\`es~1) le
+morphisme $f_*^{\an}{f^{\an}}^*\cal{F}\to\cal{L}$ provient d'un unique
+morphisme $f_*F'\to L$; soit $I=\Ker(f_*F'\to L)$. Le faisceau
+$\cal{F}$ est alors extension de~$I^{\an}$ par~$K^{\an}$, et il suffit
+de voir que cette extension provient
+par image inverse d'une extension de~$I$ par~$K$. Il suffit donc de
+prouver que le morphisme canonique
+\begin{equation*}
+\label{eq:XII.4.*}
+\tag{$*$} \Ext_{\cal{O}_X}^q(I,K)^{\an}\isomto
+\Ext_{\cal{O}_{X^{\an}}}^q(I^{\an},K^{\an})\quad q\neq 1
+\end{equation*}
+est bijectif. Or on a des isomorphismes
+$\mathbf{Ext}_{\cal{O}_X}^q(I,K)^{\an}\isomto
+\mathbf{Ext}_{\cal{O}_{X^{\an}}}^q(I^{\an},K^{\an})$ pour tout entier
+$q\geq 0$ (EGA~$0_{\textup{III}}$~12.3.5), et un morphisme de suites
+spectrales
+$$
+\xymatrix@R=.7cm@C=.5cm{{\H^p(X,\mathbf{Ext}_{\cal{O}_X}^q(I,K))}\ar@{=>}[r]\ar[d]&{\mathrm{Ext}_{\cal{O}_X}^{p+q}(I,K)}\ar[d]\\{\H^p(X^{\an},\mathbf{Ext}_{\cal{O}_{X^{\an}}}^q(I^{\an},K^{\an}))}\ar@{=>}[r]&{\mathrm{Ext}_{\cal{O}_{X^{\an}}}^{p+q}(I^{\an},K^{\an}).}}
+$$
+Ce morphisme est un isomorphisme car, d'apr\`es~\ref{XII.4.3}, il en
+est ainsi sur les termes $E^{pq}_2$, et ceci d\'emontre la
+bijectivit\'e de~$(*)$.
+
+\begin{corollaire}
+\label{XII.4.5}
+Le foncteur qui \`a tout $\CC$-sch\'ema propre $X$ associe
+$X^{\an}$ est pleinement fid\`ele.
+\end{corollaire}
+
+On doit montrer que, si $X$ et $Y$ sont deux $\CC$-sch\'emas
+propres, l'application canonique
+$$
+\Hom_{\CC}(X,Y)\to\Hom(X^{\an},Y^{\an})
+$$
+est bijective. Or se donner un morphisme de~$X$ dans~$Y$ (\resp de
+$X^{\an}$ dans $Y^{\an}$) \'equivaut \`a se donner son graphe,
+\ie un sous-sch\'ema ferm\'e $Z$ de~$X\times Y$ (\resp un
+sous-espace analytique ferm\'e $\othercal{Z}$ de~$X^{\an}\times
+Y^{\an}$), tel que la restriction de la premi\`ere projection
+$X\times Y\to X$ \`a~$Z$ (\resp de~$X^{\an}\times Y^{\an}\to
+X^{\an}$ \`a~$\othercal{Z}$) soit
+un isomorphisme. Comme la donn\'ee d'un sous-sch\'ema ferm\'e
+de~$X\times Y$ (\resp d'un sous-espace analytique ferm\'e
+de~$X^{\an}\times Y^{\an}$) \'equivaut \`a celle d'un faisceau
+coh\'erent d'id\'eaux sur~$\cal{O}_{X\times Y}$ (\resp sur~$\cal{O}_{X^{\an}\times Y^{\an}}$), le corollaire r\'esulte
+de~\ref{XII.4.4}.
+
+\begin{corollaire}
+\label{XII.4.6}
+Soit $X$ un $\CC$-sch\'ema propre. Le foncteur qui, \`a tout
+sch\'ema fini (\resp \'etale fini) $X'$ au-dessus de~$X$, associe
+$X'^{\an}$ est une \'equivalence de la cat\'egorie des sch\'emas
+finis (\resp \'etales finis) au-dessus de~$X$ dans la cat\'egorie
+des espaces analytiques finis (\resp \'etales finis) au-dessus
+de~$X^{\an}$.
+\end{corollaire}
+
+En effet se donner un morphisme fini $X'\to X$ (\resp $X'^{\an}\to
+X^{\an}$) \'equivaut \`a se donner un faisceau coh\'erent
+d'alg\`ebres sur~$\cal{O}_X$ (\resp sur~$\cal{O}_{X^{\an}}$)
+\cite[\no 19~\S 5~th.\, 2]{XII.4}. Le corollaire r\'esulte donc de~\ref{XII.4.4}
+dans le cas non resp\'e, et le cas resp\'e s'en d\'eduit compte
+tenu de~\ref{XII.3.1}~(iii).
+
+\section{Th\'eor\`emes de comparaison des rev\^etements \'etales}
+\label{XII.5}
+\setcounter{subsection}{-1}
+\subsection{}
+\label{XII.5.0}
+Pr\'ecisons la notion de rev\^etement fini d'un espace analytique.
+\index{revetement fini d'un espace analytique@rev\^etement fini d'un espace analytique|hyperpage}Si $\othercal{X}$ est un espace analytique, on dit qu'un espace analytique
+$\othercal{X}'$ fini au-dessus de~$\othercal{X}$ est un rev\^etement fini de
+$\othercal{X}$ si toute composante irr\'eductible de~$\othercal{X}'$ domine
+une composante irr\'eductible de~$\othercal{X}$.
+
+
+\begin{theoreme}[\og Th\'eor\`eme d'existence de Riemann\fg]
+\label{XII.5.1}
+\index{Riemann (theoreme d'existence de)@Riemann (th\'eor\`eme d'existence de)|hyperpage}\index{theoreme d'existence de Riemann@ th\'eor\`eme d'existence de Riemann|hyperpage}Soient $X$ un $\CC$-sch\'ema localement de type fini, $X^{\an}$
+l'espace analytique associ\'e \`a $X$. Le foncteur $\Psi$ qui,
+\`a tout rev\^etement \'etale fini $X'$ de~$X$, associe
+$X^{\prime\an}$ est une \'equivalence
+de la cat\'egorie des rev\^etements \'etales finis de~$X$ dans
+la cat\'egorie des rev\^etements \'etales finis de~$X^{\an}$.
+\end{theoreme}
+
+1) \emph{Le foncteur $\Psi$ est pleinement fidèle.} Soient $X'$
+et $X''$ deux rev\^etements \'etales finis de~$X$, et prouvons que
+l'application canonique
+\begin{equation*}
+\label{eq:XII.5.*}
+\tag{$*$} { \Hom_{X}(X',X'') \to
+\Hom_{X^{\an}}(X^{\prime\an},X^{\prime\prime\an}) }
+\end{equation*}
+est bijective. On peut supposer $X'$ connexe. Se donner un
+$X$-morphisme de~$X'$ dans $X''$ \'equivaut \`a se donner une
+composante connexe $X_{i}$ de~$X'\times_{X}X''$ telle que le morphisme
+$X_{i}\to X'$ induit par la premi\`ere projection soit un
+isomorphisme. Comme les composantes connexes de~$X'\times_{X}X''$
+correspondent bijectivement aux composantes connexes de
+$X^{\prime\an}\times_{X^{\an}}X^{\prime\prime\an}$~\eqref{XII.2.6} et qu'un
+morphisme $X_{i}\to X'$ est un isomorphisme si et seulement si il en
+est ainsi de~$X_{i}^{\an}\to X^{\prime\an}$, ceci d\'emontre la
+bijectivit\'e de~\eqref{eq:XII.5.*}.
+
+2) \emph{Le foncteur $\Psi$ est essentiellement surjectif.} Soit
+$\othercal{X}'$ un rev\^etement \'etale fini de~$X^{\an}$ et prouvons
+qu'il existe un rev\^etement \'etale $X'$ de~$X$ tel que l'on ait
+un isomorphisme $X^{\prime\an}\isomto\othercal{X}'$. Compte tenu de~1) la
+question est locale sur~$X$, et on peut donc supposer $X$ affine.
+
+a) R\'eduction au cas o\`u $X$ est normal. On peut supposer $X$
+r\'eduit. Supposons en effet le th\'eor\`eme d\'emontr\'e
+pour $X_{\red}$. Le foncteur qui, \`a un rev\^etement \'etale
+fini $X'$ de~$X$ fait correspondre le rev\^etement \'etale fini
+$X^{\prime\an}_{\red}$ de~$X_{\red}^{\an}$ est alors une \'equivalence.
+Comme il s'obtient en composant $\Psi$ avec le foncteur $\Theta$ qui,
+\`a un rev\^etement \'etale fini de~$X^{\an}$ associe son image
+inverse sur~$X_{\red}^{\an}$, et que $\Theta$ est pleinement
+fid\`ele, ceci montre que $\Psi$ est une \'equivalence de
+cat\'egories.
+
+On
+peut supposer $X$ normal. Soit en effet $\widetilde{X}$ le
+normalis\'e de~$X$, $p\colon\widetilde{X}\to X$ le morphisme
+canonique. Comme $p$ est fini, $p$ est un morphisme de descente
+effective pour la cat\'egorie des rev\^etements
+\'etales~(IX~\ref{IX.4.7}). Le th\'eor\`eme \'etant
+suppos\'e d\'emontr\'e pour $\widetilde{X}$, si l'on pose
+$\widetilde{\othercal{X}'}=\othercal{X}'\times_{X^{\an}}\widetilde{X}^{\an}$,
+il existe un rev\^etement \'etale $\widetilde{X}'$ de
+$\widetilde{X}$ et un isomorphisme $\widetilde{X}'{}^{\an}\simeq
+\widetilde{\othercal{X}'}$. Il r\'esulte alors de~1) que la donn\'ee
+de descente naturelle que l'on a sur~$\widetilde{\othercal{X}'}$ se
+rel\`eve en une donn\'ee de descente sur~$\widetilde{X}'$
+relativement \`a $\widetilde{X}\to X$; ceci prouve l'existence d'un
+rev\^etement \'etale $X'$ de~$X$ tel que l'on ait un isomorphisme
+$i\colon X^{\prime\an}\times_{X^{\an}}\widetilde{X}^{\an} \simeq
+\widetilde{\othercal{X}'}$, dont les images inverses par les deux
+projections de
+$\widetilde{X}^{\an}\times_{X^{\an}}\widetilde{X}^{\an}$ soient les
+m\^emes. D'apr\`es~IX~\ref{IX.3.2}, dont la d\'emonstration est
+valable dans le cas analytique, le morphisme $\widetilde{X}^{\an}\to
+X^{\an}$ est un morphisme de descente pour la cat\'egorie des
+rev\^etements \'etales, et par suite $i$ provient d'un
+isomorphisme $X^{\prime\an}\simeq
+\othercal{X}'$.
+
+b) R\'eduction au cas o\`u $X$ est r\'egulier. Soient $U$
+l'ouvert des points r\'eguliers de~$X$, $i\colon U\to X$,
+$i^{\an}\colon U^{\an}\to X^{\an}$ les morphismes canoniques; comme
+$X$ est normal, on a $\codim(X-U,X)\geq 2$. Supposons qu'il existe un
+rev\^etement \'etale $U'$ de~$U$ tel que l'on ait
+$U^{\prime\an}\simeq \othercal{X}'|U^{\an}$ et montrons qu'alors $U'$ se
+prolonge en un rev\^etement \'etale $X'$ de~$X$ tel que l'on ait
+$X^{\prime\an}\simeq \othercal{X}'$. Il suffit de voir que $U'$ se prolonge
+en un rev\^etement \'etale $X'$ de~$X$; en effet on aura alors un
+isomorphisme $X^{\prime\an}|U^{\an}\simeq \othercal{X}'|U^{\an}$; mais, si
+$\cal{F}$ et $\cal{G}$ sont les faisceaux coh\'erents d'alg\`ebres
+sur~$\cal{O}_{X^{\an}}$ d\'efinissant respectivement $\othercal{X}'$ et
+$X^{\prime\an}$, le fait que $X$ soit normal et que l'on ait
+$\codim(X-U,X)\geq 2$ entra\^ine que les morphismes canoniques
+$$
+\cal{F}\to i_*^{\an}(\cal{F}|U^{\an}) \qquad
+\cal{G}\to i_*^{\an}(\cal{G}|U^{\an})
+$$
+sont
+des isomorphismes \cite[\no 3~prop.\, 4]{XII.11}. Il en r\'esulte que $\cal{F}$
+et $\cal{G}$ donc aussi $X^{\prime\an}$ et $\othercal{X}'$ sont isomorphes.
+
+Soit $\varphi\colon X^{\an}\to X$ le morphisme canonique. Comme le
+probl\`eme de prolonger $U'$ \`a $X$ est local sur~$X$, il suffit
+de prouver que, pour tout point $y$ de~$X^{\an}- U^{\an}$, le rev\^etement \'etale
+$U'_{\varphi(y)}=U'\times_{X}\Spec\cal{O}_{X,\varphi(y)}$ de
+$U_{\varphi(y)}=U\times_{X}\Spec\cal{O}_{X,\varphi(y)}$ se prolonge
+\`a $\Spec\cal{O}_{X,\varphi(y)}$. Soit $H$ la
+$\cal{O}_{U}$-Alg\`ebre coh\'erente d\'efinissant $U'$. Le
+morphisme canonique
+$$
+\alpha\colon (i_*H)^{\an} \to i_*^{\an}(H^{\an})
+=\cal{F}
+$$
+d\'efinit un morphisme de faisceaux de modules sur~$\Spec\cal{O}_{X^{\an},y}$:
+$$
+\alpha_{y}\colon (i_*H)^{\an}_{y} \to \cal{F}_{y}\quoi,
+$$
+dont la restriction \`a $U_{y}=U_{\varphi(y)}
+\times_{\Spec\cal{O}_{X,\varphi(y)}}\Spec\cal{O}_{X^{\an},y}$ est un
+isomorphisme. Mais ceci prouve que $H|U_{y}$ est trivial, donc que
+$U'_{\varphi(y)}$ se prolonge \`a $\Spec\cal{O}_{X,\varphi(y)}$.
+
+c) Cas o\`u $X$ est affine r\'egulier. Soit
+$$
+j\colon X\to P
+$$
+une compactification de~$X$, o\`u $P$ est un $\CC$-sch\'ema
+projectif et $j$ une immersion ouverte dominante. Gr\^ace au
+th\'eor\`eme de r\'esolution des singularit\'es~\cite{XII.8}, on peut
+trouver un sch\'ema r\'egulier $R$, un morphisme projectif
+$r\colon R\to P$, tel que $r$ induise un isomorphisme $r^{-1}(X)\simeq
+X$ et que $r^{-1}(X)$ soit le compl\'ementaire dans $R$ d'un
+diviseur \`a croisements normaux. Soit
+$$
+k\colon X\to R
+$$
+l'immersion canonique. On va montrer qu'il existe un rev\^etement
+fini normal~\eqref{XII.5.0} $\othercal{R}'$ de~$R^{\an}$ qui prolonge le
+rev\^etement \'etale $X^{\prime\an}$. D'apr\`es la
+proposition~\ref{XII.5.3} ci-dessous, un tel rev\^etement est
+unique; le probl\`eme de prolonger $X^{\prime\an}$ est donc local sur~$R^{\an}$ au voisinage de~$R^{\an}- X^{\an}$. Or chaque
+point de~$R^{\an}- X^{\an}$ a un voisinage ouvert
+$\othercal{V}$ isomorphe \`a une boule d'un espace affine
+$\othercal{E}^{n}$, tel que $\othercal{V}- \othercal{V}\cap X^{\an}$
+soit d\'efini par l'annulation des $p$ premi\`eres fonctions
+coordonn\'ees $z_{1},\dots,z_{p}$, avec $0\leq p\leq n$. Le groupe
+fondamental de~$\othercal{U}=\othercal{V}\cap X^{\an}$ est isomorphe \`a
+$\ZZ^{p}$, et tout rev\^etement \'etale de~$\othercal{U}$ est quotient
+d'un rev\^etement de la forme
+$$
+\othercal{U}''= \othercal{U}[T_{1},\dots,T_{p}]/
+(T_{1}^{n_{1}}-z_{1},\dots,T_{p}^{n_{p}}-z_{p})\quoi,
+$$
+o\`u les $n_{i}$ sont des entiers $>0$, par un sous-groupe $H$ du
+groupe de Galois $\ZZ/n_{1}\ZZ\times\cdots\times\ZZ/n_{p}\ZZ$ de
+$\othercal{U}''$. Or $\othercal{U}''$ se prolonge en le rev\^etement
+r\'egulier
+$$
+\othercal{V}''= \othercal{V}[T_{1},\dots,T_{p}]/
+(T_{1}^{n_{1}}-z_{1},\dots,T_{p}^{n_{p}}-z_{p})\quoi,
+$$
+de~$\othercal{V}$ sur lequel $H$ op\`ere, et le quotient de~$\othercal{V}''$
+par $H$ est le prolongement cherch\'e.
+
+La d\'emonstration s'ach\`eve alors gr\^ace \`a~\ref{XII.4.6}.
+Le rev\^etement $\othercal{R}'$ provient d'un rev\^etement fini $R'$
+de~$R$; la restriction de~$R'$ \`a $X$ est un rev\^etement $X'$ de
+$X$ tel que l'on ait $X^{\prime\an}\simeq \othercal{X}'$, et
+d'apr\`es~\ref{XII.3.1}(iii) $X'$ est un rev\^etement \'etale
+de~$X$.
+
+\begin{corollaire}
+\label{XII.5.2}
+Soient
+$X$ un $\CC$-sch\'ema localement de type fini connexe,
+$\varphi\colon X^{\an}{\to} X$ le morphisme canonique, $x$ un point de
+$X^{\an}$. Soit $\pi_{1}(X^{\an},x)$ le groupe fondamental de
+l'espace topologique $X^{\an}$ au point $x$, $\pi_{1}(X,\varphi(x))$
+le groupe fondamental du sch\'ema $X$ au point $\varphi(x)$
+\textup{(V~\ref{V.7})}. Alors $\pi_{1}(X,\varphi(x))$ est canoniquement
+isomorphe au compl\'et\'e de~$\pi_{1}(X^{\an},x)$, pour la
+topologie des sous-groupes d'indice fini.
+\end{corollaire}
+
+Soit en effet $\cal{C}$ la cat\'egorie des rev\^etements
+\'etales finis de~$X^{\an}$, $F$ le foncteur de~$\cal{C}$ dans
+$\Ens$ qui, \`a tout rev\^etement \'etale fini $\othercal{X}'$ de
+$X^{\an}$ associe l'ensemble des points de~$\othercal{X}'$ au-dessus de
+$x$, et soit $\widehat{\pi}_{1}(X^{\an},x)$ le groupe profini
+associ\'e \`a $\cal{C}$ et $F$ comme il est dit dans~V~\ref{V.4}.
+Comme tout rev\^etement \'etale fini de~$X^{\an}$ est quotient du
+rev\^etement universel par un sous-groupe d'indice fini,
+$\widehat{\pi}_{1}(X^{\an},x)$ n'est autre que le compl\'et\'e de
+$\pi_{1}(X^{\an},x)$ pour la topologie des sous-groupes d'indice fini.
+Le corollaire r\'esulte donc de~\ref{XII.5.1} et~V~\ref{V.6.10}.
+
+\begin{proposition}
+\label{XII.5.3}
+Soient $\othercal{X}$ un espace analytique normal, $\othercal{Y}$ un
+sous-ensemble analytique ferm\'e tel que
+$\othercal{U}=\othercal{X}-\othercal{Y}$ soit dense dans $\othercal{X}$.
+Alors le foncteur qui, \`a tout rev\^etement normal
+fini~\eqref{XII.5.0} $\othercal{X}'$ de~$\othercal{X}$ associe sa restriction
+\`a $\othercal{U}$ est pleinement fid\`ele.
+\end{proposition}
+
+Soient $\othercal{X}'$ and $\othercal{X}''$ deux rev\^etements finis normaux
+de~$\othercal{X}$. On doit montrer que l'application canonique
+$$
+\Hom_{\othercal{X}}(\othercal{X}',\othercal{X}'') \to
+\Hom_{\othercal{U}}(\othercal{X}'|\othercal{U},\othercal{X}''|\othercal{U})
+$$
+est bijective. Soient $u$, $v$ deux $\othercal{X}$-morphismes de
+$\othercal{X}'$ dans $\othercal{X}''$ dont les restrictions \`a $\othercal{U}$
+sont les m\^emes et prouvons que $u=v$. Les morphismes $u$ et
+$v$ co\"incident sur l'ouvert dense
+$\othercal{U}\times_{\othercal{X}}\othercal{X}'$, donc sur les espaces
+topologiques sous-jacents. D'apr\`es \hbox{\cite[\no 19~\S 4~cor.\, 5]{XII.4}} ceci
+prouve que l'on a $u=v$.
+
+Soit maintenant $u$ un $\othercal{U}$-morphisme de~$\othercal{X}'|\othercal{U}$
+dans $\othercal{X}''|\othercal{U}$ et montrons qu'il se prolonge \`a
+$\othercal{X}'$ tout entier. On peut supposer $\othercal{X}'$ r\'egulier.
+En effet, $\othercal{X}'$ \'etant normal, on peut trouver un ouvert
+$\othercal{V}$ de~$\othercal{X}$ dont le compl\'ementaire soit une partie
+analytique de codimension $\geq 2$, tel que
+$\othercal{X}'\times_{\othercal{X}}\othercal{V}=\othercal{V}'$ soit r\'egulier.
+Soit $\othercal{V}''=\othercal{X}''\times_{\othercal{X}}\othercal{V}$ et supposons la
+proposition d\'emontr\'ee pour $\othercal{V}$. On consid\`ere le
+diagramme commutatif
+$$
+\xymatrix{{\othercal{V}'}\ar[dd]_{g'}\ar[rd]\ar[rrr]^{i'}&& &{\othercal{X}'}\ar[dd]^{f'}\\ &{\othercal{V}''}\ar[ld]_{g''\mkern-10mu}\ar[rrr]^-{i''~~}& &
+&{\othercal{X}''}\ar[ld]_{f''\mkern-12mu}\\{\othercal{V}}\ar[rrr]^{i}&& &{\othercal{X}}\\
+}
+$$
+\`A $u$ est associ\'e un morphisme de
+$\cal{O}_{\othercal{V}}$-Alg\`ebres $g''_*\cal{O}_{\othercal{V}''}\to
+g'_*\cal{O}_{\othercal{V}'}$, d'o\`u l'on d\'eduit un morphisme
+$$
+i_*g''_*\cal{O}_{\othercal{V}''} \to
+i_*g'_*\cal{O}_{\othercal{V}'}\quoi.
+$$
+Compte tenu des isomorphismes
+$i'_*\cal{O}_{\othercal{V}'}\simeq\cal{O}_{\othercal{X}'}$,
+$i''_*\cal{O}_{\othercal{V}''}\simeq\cal{O}_{\othercal{X}''}$
+\cite[\no 3~prop.\, 4]{XII.11} on en d\'eduit un morphisme de
+$\cal{O}_{\othercal{X}}$-Alg\`ebres
+$$
+f''_*\cal{O}_{\othercal{X}''} \to
+f'_*\cal{O}_{\othercal{X}'}\quoi,
+$$
+d'o\`u le morphisme $\othercal{X}'\to\othercal{X}''$ cherch\'e.
+
+On
+suppose d\'esormais $\othercal{X}'$ r\'egulier. Soient
+$\othercal{U}'=\othercal{U}\times_{\othercal{X}}\othercal{X}'$,
+$\othercal{Y}'=\othercal{X}'-\othercal{U}'$. On consid\`ere $\othercal{Y}'$ comme
+sous-espace analytique r\'eduit de~$\othercal{X}'$; si $\othercal{Y}'_{1}$
+est le ferm\'e singulier de~$\othercal{Y}'$, on a $\dim \othercal{Y}'_{1} <
+\dim \othercal{Y}'$~\cite[\no 20~D.\, Th.\, 3]{XII.4}. On voit donc par r\'ecurrence
+sur la dimension de~$\othercal{Y}'$ que l'on peut supposer $\othercal{Y}'$
+lisse. Comme il suffit de prolonger $u$ \`a un voisinage ouvert de
+chaque point de~$\othercal{Y}'$, on peut supposer par le th\'eor\`eme
+des fonctions implicites que $\othercal{X}'$ est une boule d'un espace
+affine $\othercal{E}^{n}$ et $\othercal{Y}'$ le ferm\'e d\'efini par
+l'annulation des $p$ premi\`eres fonctions coordonn\'ees
+$z_{1},\dots,z_{p}$, avec $0\leq p\leq n$.
+
+On associe \`a $u$ une section $s$ de
+$p\colon\othercal{X}'\times_{\othercal{X}}\othercal{X}''\to\othercal{X}'$ au-dessus de
+$\othercal{U}'$; quitte \`a restreindre $\othercal{X}'$, on peut supposer
+$p_*(\cal{O}_{\othercal{X}'\times_{\othercal{X}}\othercal{X}''})$
+engendr\'e par des \'el\'ements $x_{1},\dots,x_{q}$ de
+$\Gamma(\othercal{X}',
+p_*\cal{O}_{\othercal{X}'\times_{\othercal{X}}\othercal{X}''})$; soient
+$u_{1},\dots,u_{q}\in\Gamma(\othercal{U}',\cal{O}_{\othercal{X}'})$ les images
+par $s$ de~${x_{1}}|\othercal{U}',\dots,{x_{q}}|\othercal{U}'$. Dire
+que $s$ se prolonge \`a $\othercal{X}'$ revient \`a dire que les
+$u_{1},\dots,u_{q}$ se prolongent en des sections de
+$\Gamma(\othercal{X}',\cal{O}_{\othercal{X}'})$. Mais, puisque $f$ est fini,
+chaque $u_{i}$ est une s\'erie de Laurent en $z_{1},\dots,z_{p}$,
+\`a coefficients des s\'eries enti\`eres en
+$z_{p{+}1},\dots,z_{n}$, qui satisfont \`a des relations de
+d\'ependance int\'egrale. Il en r\'esulte que $u_{i}$ est
+born\'e donc est une s\'erie enti\`ere en $z_{1},\dots,z_{n}$,
+et par suite se prolonge \`a $\othercal{X}'$.
+
+On peut se demander si le foncteur introduit dans~\ref{XII.5.3} est
+une \'equivalence de cat\'egories. On a une r\'eponse \`a
+cette question gr\^ace au th\'eor\`eme de \textsc{Grauert}-\textsc{Remmert} \cite{XII.6}
+dont nous donnons une d\'emonstration ci-dessous utilisant la
+r\'esolution des singularit\'es. On aurait aussi pu utiliser le
+th\'eor\`eme de \textsc{Grauert}-\textsc{Remmert} pour d\'emontrer~\ref{XII.5.1};
+c'est ce que l'on faisait avant de disposer de~\cite{XII.8}.
+
+\enlargethispage{.5cm}
+\begin{theoreme}[Th\'eor\`eme de \textsc{Grauert}-\textsc{Remmert}]
+\label{XII.5.4}
+Soient
+\index{Grauert-Remmert (th\'eor\`eme de)|hyperpage}\index{theoreme de Grauert-Remmert@th\'eor\`eme de Grauert-Remmert|hyperpage}$\othercal{X}$ un espace analytique normal, $\othercal{Y}$ un
+sous-ensemble analytique ferm\'e tel que
+$\othercal{U}=\othercal{X}-\othercal{Y}$ soit dense dans~$\othercal{X}$. Soit
+$\othercal{U}'$ un rev\^etement normal fini de~$\othercal{U}$; on suppose
+qu'il existe une partie analytique ferm\'ee rare $\othercal{S}$
+de~$\othercal{X}$ telle que la restriction de~$\othercal{U}'$ \`a
+$\othercal{U}-\othercal{U}\cap\othercal{S}$ soit \'etale. Alors il existe un
+rev\^etement fini normal $\othercal{X}'$ de~$\othercal{X}$ qui prolonge
+$\othercal{U}'$, et $\othercal{X}'$ est unique \`a isomorphisme pr\`es.
+\end{theoreme}
+
+L'unicit\'e r\'esulte de~\ref{XII.5.3}. Le probl\`eme de
+prolonger $\othercal{U}'$ est donc local sur~$\othercal{X}$. On peut supposer
+$\othercal{U}$ r\'egulier et $\othercal{U}'$ \'etale sur~$\othercal{U}$. En
+effet l'ensemble des points r\'eguliers de~$\othercal{U}$ est un ouvert
+$\othercal{V}$ dense dans~$\othercal{X}$ dont le compl\'ementaire est une
+partie analytique \hbox{\cite[\no20~D th.\, 2]{XII.4}} et il suffit de remplacer
+$\othercal{U}$ par l'ouvert $\othercal{V}-\othercal{V}\cap\othercal{S}$.
+
+Soit $y$ un point de~$\othercal{X}-\othercal{U}$ et montrons que l'on peut
+prolonger $\othercal{U}'$ \`a un voisinage de~$y$. Quitte \`a
+restreindre $\othercal{X}$ \`a un voisinage ouvert de~$y$, il
+r\'esulte du th\'eor\`eme de r\'esolution des singularit\'es
+\cite{XII.8} que l'on peut trouver un espace analytique r\'egulier
+$\othercal{X}_1$, un morphisme projectif $f\colon\othercal{X}_1\to\othercal{X}$
+induisant par restriction \`a~$\othercal{U}$ un isomorphisme
+$\othercal{U}_1=f^{-1}(\othercal{U})\simeq\othercal{U}$, tel que $\othercal{U}_1$ soit
+le compl\'ementaire dans~$\othercal{X}_1$ d'un diviseur \`a
+croisements normaux. Montrons que $\othercal{U}'$ se prolonge en un
+rev\^etement fini normal de~$\othercal{X}_1$. Comme la question est
+locale sur~$\othercal{X}_1$, on peut supposer que $\othercal{X}_1$ est une
+boule d'un espace affine $\othercal{E}^n$ et que $\othercal{X}_1-\othercal{U}_1$
+est d\'efini par l'annulation des $p$ premi\`eres fonctions
+coordonn\'ees
+$z_1,\dots,z_p$,
+avec $0\leq p\leq n$. Le rev\^etement \'etale $\othercal{U}'$
+de~$\othercal{U}_1$ est quotient d'un rev\^etement de la forme
+$$
+\othercal{U}_2=\othercal{U}_1[T_1,\dots,T_p]/\left(T_1^{n_1}-z_1,\dots,
+T_p^{n_p}-z_p\right)
+$$
+par un sous-groupe $H$ du groupe de Galois de~$\othercal{U}_2$. Le
+rev\^etement $\othercal{U}_2$ se prolonge
+en le rev\^etement
+$$
+\othercal{X}_2=\othercal{X}_1[T_1,\dots,T_p]/\left(T_1^{n_1}-z_1,\dots,
+T_p^{n_p}-z_p\right)
+$$
+de~$\othercal{X}_1$ sur lequel $H$ op\`ere, et $\othercal{X}_2/H$ prolonge
+$\othercal{U}'$ \`a~$\othercal{X}_1$.
+
+Notons $\othercal{X}_1'$ le rev\^etement fini normal de~$\othercal{X}_1$ qui
+prolonge $\othercal{U}'$, $\othercal{F}_1$ la
+$\cal{O}_{\othercal{X}_1}$-Alg\`ebre coh\'erente d\'efinie
+par~$\othercal{F}_1$. D'apr\`es le th\'eor\`eme de finitude de
+\textsc{Grauert}-\textsc{Remmert} \hbox{\cite[\no15 th.\, 1.1]{XII.4}}, $f_*\othercal{F}_1$ est une
+$\cal{O}_{\othercal{X}}$-Alg\`ebre coh\'erente. Il lui correspond donc
+un rev\^etement fini $\othercal{X}'$ de~$\othercal{X}$ qui est d'ailleurs
+normal puisque $\othercal{X}_1'$ l'est, et $\othercal{X}'$ est le prolongement
+de~$\othercal{U}'$ cherch\'e.
+
+\begin{remarque}
+\label{XII.5.5}
+Dans l'\'enonc\'e~\ref{XII.5.4}, on ne peut supprimer
+l'hypoth\`ese sur le lieu des points o\`u le morphisme
+$\othercal{U}'\to\othercal{U}$ n'est pas \'etale. Soit par exemple
+$\othercal{X}$ le disque unit\'e du plan complexe, $\othercal{U}$ le
+compl\'ementaire de l'origine dans~$\othercal{X}$,
+$\othercal{U}'=\othercal{U}[T]/(T^2-\sin 1/z)$, o\`u~$z$ est la fonction
+coordonn\'ee sur~$\othercal{X}$. Alors $\othercal{U}'$ est un rev\^etement
+fini normal de~$\othercal{U}$ qui ne se prolonge pas
+\`a~$\othercal{X}$. Supposons en effet que $\othercal{U}'$ se prolonge en un
+rev\^etement fini $\othercal{X}'$ de~$\othercal{X}$; le lieu des points
+de~$\othercal{X}$ o\`u le morphisme $\othercal{X}'\to\othercal{X}$ n'est pas
+\'etale est alors un ferm\'e analytique qui contient tous les
+points $z$ tels que l'on ait $\sin 1/z=0$, ce qui est absurde.
+
+On peut cependant supprimer l'hypoth\`ese sur le lieu singulier du
+morphisme $\othercal{U}'\to\othercal{U}$ lorsque l'on a
+$\codim(\othercal{X}-\othercal{U},\othercal{X})\geq~2$. On peut en effet supposer
+$\othercal{U}$ r\'egulier. Le lieu des points de~$\othercal{U}$ o\`u
+$\othercal{U}'\to\othercal{U}$ n'est pas \'etale est un diviseur
+de~$\othercal{U}$, et il r\'esulte du th\'eor\`eme de \textsc{Remmert}-\textsc{Stein}
+\cite[th.\, 3]{XII.9} qu'il est
+la trace sur~$\othercal{U}$ d'un diviseur de~$\othercal{X}$. Or, dans ce cas,
+si $\othercal{A}$ est une $\cal{O}_{\othercal{U}}$-Alg\`ebre coh\'erente
+telle que $\othercal{U}'=\Spec \an(\othercal{A})$, si $i:\othercal{U}\to\othercal{X}$
+est le morphisme canonique, il suffit de prendre
+$\othercal{X}'=\Spec\an(i_*\othercal{A})$; on sait en effet que $i_*\othercal{A}$
+est
+coh\'erente
+\cite[\no 1 th.\, 1]{XII.11}.
+\end{remarque}
+
+\begin{remarqueMR}
+\label{XII.5.6}
+Il existe des groupes de pr\'esentation finie $G$, non
+triviaux, qui ne poss\`edent pas de sous-groupes d'indice fini,
+distincts de~$G$, par exemple le groupe de G.\, Higman (\cf J-P.\, Serre, Arbres et amalgames, Ast\'erisque N$^\circ$46, prop.\, 6, chap.\, I, \S 1).
+D\`es lors, si un tel groupe se r\'ealise comme groupe fondamental
+topologique d'un sch\'ema $V$ sur~$\CC$, disons lisse et
+projectif, l'espace topologique $V_{\mathrm{top}}$ sous-jacent \`a $V$ n'est pas
+simplement connexe, mais $V$ est alg\'ebriquement simplement connexe.
+\`A l'heure actuelle, on ne conna\^it pas de tels $V$. Signalons toutefois
+que D.\, Toledo a construit des sch\'emas lisses et projectifs $V$ sur~$\CC$ dont le groupe fondamental topologique n'est pas s\'epar\'e
+pour la topologie des sous-groupes d'indice fini (le morphisme naturel
+$\pi_1(V_{\mathrm{top}})\to\pi_1(V_{\alg})$ n'est pas injectif). [D.\, Toledo, Projective varieties with non-residually finite fundamental group, Publ.\ Math.\ IHES \textbf{77} (1993), p.\,103--119].
+\end{remarqueMR}
+
+
+\begin{thebibliography}{10}{XII.6}
+
+\bibitem[1]{XII.1} N.\, \textsc{Bourbaki},
+Topologie G\'en\'erale, Hermann, Paris (1960).
+
+\bibitem[2]{XII.2} N.\, \textsc{Bourbaki},
+Alg\`ebre Commutative, Hermann, Paris (1961).
+
+\bibitem[3]{XII.3} H.\, \textsc{Cartan}. S\'eminaire E.N.S., Paris (1956-57).
+
+\bibitem[4]{XII.4} H.\, \textsc{Cartan}. S\'eminaire E.N.S., Paris (1960-61).
+
+\bibitem[5]{XII.5} R.\, \textsc{Godement}, Th\'eorie des Faisceaux, Hermann, Paris
+(1958).
+
+\bibitem[6]{XII.6} H.\, \textsc{Grauert} et R.\, \textsc{Remmert},
+Komplexe R\"aume, Math.\ Ann. \textbf{136} (1958), p.\, 245--318.
+
+\bibitem[7]{XII.7} M.\, \textsc{Hakim}, Sch\'emas relatifs, th\`ese, Paris (1967).
+
+\bibitem[8]{XII.8} H.\, \textsc{Hironaka},
+Resolution of singularities of an algebraic variety over a field of characteristic zero, Ann.\ of Math. \textbf{39} (1964), p.\, 109--236.
+
+
+\bibitem[9]{XII.9} R.\, \textsc{Remmert} et K.\, \textsc{Stein},
+Ueber die wesentlichen Singularit\"aten analytischer Mengen,
+Math.\ Ann. \textbf{126} (1953), p.\, 263--306.
+
+\bibitem[10]{XII.10}
+J-P.\,\textsc{Serre},
+G\'eom\'etrie alg\'ebrique et g\'eom\'etrie analytique, Ann.\ Inst.\ Fourier (Grenoble) \textbf{6} (1956), p.\, 1--42.
+
+\bibitem[11]{XII.11}
+J-P.\,\textsc{Serre},
+Prolongement de faisceaux analytiques
+coh\'erents, Ann.\ Inst.\ Fourier (Grenoble) \textbf{16} (1966), p.\, 363--374.
+
+
+\end{thebibliography}
+
+\chapterspace{-4}

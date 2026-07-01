@@ -1,0 +1,1658 @@
+\chapter{Morphismes lisses: g\'en\'eralit\'es,~propri\'et\'es~diff\'erentielles}
+\label{II}
+Les renvois \`a l'expos\'e~\ref{I} sont indiqu\'es par~I. On
+rappelle que les anneaux sont noeth\'eriens, et les
+pr\'esch\'emas localement noeth\'eriens.
+
+\section{G\'en\'eralit\'es}
+\label{II.1}
+
+Soit $Y$ un pr\'esch\'ema, soient $t_1,\dots,t_n$ des
+ind\'etermin\'ees, on pose
+\begin{equation}
+\label{eq:II.1.1}
+Y[t_1,\dots,t_n]=Y\otimes_\ZZ \ZZ[t_1,\dots,t_n]\quoi.
+\end{equation}
+Donc $Y[t_1,\dots,t_n]$ est un $Y$-sch\'ema, affine au-dessus
+de~$Y$, d\'efini par le faisceau quasi-coh\'erent d'alg\`ebres
+$\cal{O}_Y[t_1,\dots,t_n]$. La donn\'ee d'une section de ce
+pr\'esch\'ema au-dessus de~$Y$ \'equivaut donc \`a la
+donn\'ee de~$n$ sections de~$\cal{O}_Y$ (correspondant aux images
+des~$t_i$ par l'homomorphisme correspondant). Si $Y^\prime$ est
+au-dessus de~$Y$, on a
+\begin{equation}
+\label{eq:II.1.2}
+Y[t_1,\dots,t_n]\times_Y Y'=Y'[t_1,\dots,t_n]\quoi,
+\end{equation}
+(ce qui implique que la donn\'ee d'un $Y$-morphisme de~$Y^\prime$
+dans $Y[t_1,\dots,t_n]$ \'equivaut \`a la donn\'ee de~$n$
+sections de~$\cal{O}_{Y^\prime}$), d'autre part on a
+\begin{equation}
+\label{eq:II.1.3}
+\big(Y[t_1,\dots,t_n]\big)[t_{n+1},\dots,t_m]=Y[t_1,\dots,t_m]\quoi,
+\end{equation}
+en vertu de la formule analogue pour les anneaux de polyn\^omes
+sur~$\ZZ$. La formule~\eqref{eq:II.1.2} implique que
+$Y[t_1,\dots,t_n]$ varie fonctoriellement avec~$Y$.
+
+$Y[t_1,\dots,t_n]$ est de type fini et plat au-dessus de~$Y$.
+
+\begin{definition}
+\label{II.1.1}
+Soit $f\colon X \to Y$ un morphisme, faisant de~$X$ un
+$Y$-pr\'esch\'ema. On dit que $f$ est
+\emph{lisse}\footnote{Ancienne terminologie: $f$ est \emph{simple}
+\index{simple: synonyme d\'esuet de lisse|hyperpage}en~$x$, ou $x$ est un point \emph{simple} pour~$f$. Cette
+terminologie pr\^etait \`a confusion dans divers contextes
+(alg\`ebres simples, groupes simples) et a d\^u \^etre
+abandonn\'ee.}
+\index{lisse (morphisme, alg\`ebre)|hyperpage}en $x \in X$, ou que $X$ est \emph{lisse sur~$Y$ en~$x$}, s'il existe
+un entier $n \geq 0$, un voisinage ouvert $U$ de~$x$, et un
+$Y$-morphisme \'etale de~$U$ dans $Y[t_1,\dots,t_n]$. On dit
+que~$f$
+(\resp $X$)
+est \emph{lisse} s'il est lisse en tous les points de~$X$. Une
+alg\`ebre~$B$ sur un anneau~$A$ est dite lisse en un id\'eal
+premier $\goth{p}$ de~$B$, si $\Spec(B)$ est lisse sur~$\Spec(A)$
+au
+point~$\goth{p}$;
+$B$ est dite lisse sur~$A$ si elle est lisse sur~$A$ en tout id\'eal
+premier~$\goth{p}$ de~$B$. Enfin, un homomorphisme local $A \to B$
+d'anneaux locaux est dit lisse (ou $B$ est dite lisse sur~$A$)\footnote{Il vaut mieux dire alors, comme dans EGA IV 18.6.1, que $B$
+est \og \emph{essentiellement lisse}\fg sur~$A$.}
+\index{essentiellement lisse|hyperpage}si $B$ est localis\'ee d'une alg\`ebre de type fini $B_1$ lisse
+sur~$A$.
+\end{definition}
+
+On note que la notion de lissit\'e de~$X$ sur~$Y$ est locale sur~$X$
+et sur~$Y$; si $X$ est lisse sur~$Y$, il est localement de type fini
+sur~$Y$.
+
+\setcounter{subsection}{0}
+\begin{proposition}
+\label{prop:II.1.1}
+L'ensemble des points $x$ de~$X$ en lesquels $f$ est lisse est ouvert.
+\end{proposition}
+
+C'est trivial sur la d\'efinition.
+
+\begin{corollaire}
+\label{II.1.2}
+Si $B$ est lisse sur~$A$ en~$\goth{p}$, alors il est lisse sur~$A$
+en~$\goth{q}$ pour tout id\'eal premier~$\goth{q}$ de~$B$ contenu
+dans~$\goth{p}$.
+\end{corollaire}
+
+\ref{prop:II.1.1} implique aussi que les deux derni\`eres
+d\'efinitions~\ref{II.1.1} co\"incident dans leur domaine commun
+d'existence.
+
+\begin{proposition}
+\label{II.1.3}
+\textup{(i)}~Un morphisme \'etale, en particulier une immersion
+ouverte, un morphisme identique, est lisse. \textup{(ii)}~Une extension
+de la base dans un morphisme lisse donne un morphisme
+lisse. \textup{(iii)}~Le compos\'e de deux morphismes lisses est
+lisse.
+\end{proposition}
+
+(i)~est trivial sur la d\'efinition, on a plus pr\'ecis\'ement:
+
+\begin{corollaire}
+\label{II.1.4}
+\'etale $=$ quasi-fini $+$ lisse.
+\end{corollaire}
+
+(ii)~r\'esulte aussit\^ot du fait analogue pour les morphismes
+\'etales (I~\ref{I.4.6}) et pour les projections $Y[t_1,\dots,t_n]
+\to Y$ (\cf \eqref{eq:II.1.2}). Pour (iii), cela r\'esulte
+formellement du fait que c'est vrai s\'epar\'ement pour
+\og \'etale\fg (I~\ref{I.4.6}) et des projections du type
+$Y[t_1,\dots,t_n]\to Y$
+(\cf \eqref{eq:II.1.3}), et des deux faits cit\'es pour~(ii):
+Supposons $Y$ lisse sur~$Z$ et $X$ lisse sur~$Y$, prouvons que $X$ est
+lisse sur~$Z$; on peut supposer $Y$ \'etale sur~$Z[t_1,\dots,t_n]$
+et $X$ \'etale sur~$Y[s_1,\dots,s_m]$, la premi\`ere
+hypoth\`ese implique donc que $Y[s_1,\dots,s_m]$ est \'etale sur~$Z[t_1,\dots,t_n][s_1,\dots,s_m] = Z[t_1,\dots,s_m]$, donc $X$ est
+\'etale sur~$Z[t_1,\dots,s_m]$, cqfd.
+
+\begin{remarque}
+\label{II.1.5}
+L'entier $n$ qui figure dans d\'ef.\, \ref{II.1.1} est bien
+d\'etermin\'e, car on constate
+aussit\^ot que c'est la dimension de l'anneau local de~$x$ dans sa
+fibre $f^{-1}\big(f(x)\big)$. On l'appelle \og dimension relative\fg
+de~$X$ sur~$Y$. Elle se comporte additivement pour la composition des
+morphismes.
+\end{remarque}
+
+\section{Quelques crit\`eres de lissit\'e d'un morphisme}
+\label{II.2}
+
+\begin{theoreme}
+\label{II.2.1}
+Soit $f\colon X\to Y$ un morphisme localement de type fini, soit $x\in
+X$ et $y=f(x)$. Pour que $f$ soit lisse en $x$, il faut et il suffit
+que \textup{(a)} $f$ soit plat en $x$, et \textup{(b)} $f^{-1}(y)$ soit lisse sur~$\kres(y)$
+en $x$.
+\end{theoreme}
+
+Le compos\'e de deux morphismes plats \'etant plat, et
+$Y[t_{1},\dots,t_{n}]\to Y$ \'etant un morphisme plat, on voit que
+lisse implique plat; compte tenu de~\ref{II.1.3} (ii) cela prouve la
+n\'ecessit\'e. Supposons (a) et (b) v\'erifi\'ees, soient $V$
+un voisinage affine de~$y$ d'anneau~$A$, $U$ un voisinage affine de
+$x$ au-dessus de~$V$, d'anneau $B$. Prenant $U$ assez petit, on peut
+supposer par (b) qu'il existe un $\kres(y)$-morphisme \emph{étale}
+$$
+g\colon U|f^{-1}(y)\to\Spec k[t_{1},\dots,t_{n}]\quad (k=\kres(y))
+$$
+d\'efini par $n$ sections $g_{i}$ du faisceau structural de
+$U|f^{-1}(y)$. On constate facilement qu'on peut supposer que les
+$g_{i}$ (qui a priori sont des \'el\'ements de
+$B\otimes_{A}k=BS^{-1}$, o\`u $S=A-\goth{p}$, $\goth{p}$ l'id\'eal
+premier de~$A$ correspondant \`a $y$) proviennent de sections du
+faisceau structural de
+$U$,
+donc que $g$ est induit par un morphisme,
+encore not\'e~$g$
+$$
+g\colon U\to Y[t_{1},\dots,t_{n}]
+$$
+(quitte \`a multiplier les $g_{i}$ par un m\^eme \'el\'ement
+non nul de~$k$). Or
+$U$
+est plat sur~$Y$ par (a), il en est de m\^eme de
+$Y[t_{1},\dots,t_{n}]$, d'autre part $g$ induit un morphisme
+\'etale entre les fibres au-dessus de~$y$, donc $g$ est \'etale en
+$x$ par~(I~\ref{I.5.8}), cqfd.
+
+\begin{corollaire}
+\label{II.2.2}
+Soient $S$ un pr\'esch\'ema, $f\colon X\to Y$ un $S$-morphisme de
+type fini, $Y$ \'etant de type fini et plat sur~$S$, $x\in X$, $s$
+la projection de~$x$ sur~$S$. Pour que $f$ soit lisse en $x$, il faut
+et il suffit que $X$ soit plat (ou encore: lisse) sur~$S$ en $x$, et
+que le morphisme $f_{s}\colon X_{s}\to Y_{s}$ induit sur les fibres de
+$s$ soit lisse en $x$.
+\end{corollaire}
+
+Seule la suffisance demande une d\'emonstration, et r\'esulte du
+crit\`ere~\ref{II.2.1}, joint au crit\`ere de
+platitude~(I~\ref{I.5.9}).
+
+Pour
+\'enoncer le r\'esultat suivant, \og rappelons\fg qu'un morphisme
+$f\colon X\to Y$ localement de type fini est dit
+\emph{équidimensionnel}
+\index{equidimensionnel@\'equidimensionnel (morphisme)|hyperpage}en le point $x\in X$ si (posant $y=f(x)$) on peut trouver un voisinage
+ouvert $U$ de~$x$, dont toute composante domine une composante de~$Y$
+tel que, pour tout $y'\in Y$, les composantes irr\'eductibles de
+$f^{-1}(y')\cap U$ aient toutes une m\^eme dimension
+ind\'ependante de~$y'$. Il suffit d'ailleurs dans cette condition de
+prendre pour $y'$ les points g\'en\'eriques des composantes
+irr\'eductibles de~$Y$ passant par $y$, \emph{et} le point $y$. Si
+par exemple $X$ et $Y$ sont int\`egres et $f$ dominant, la condition
+signifie que les composantes des $f^{-1}(y)$ passant par $x$ ont \og la
+bonne\fg dimension, \ie la dimension de la fibre g\'en\'erique
+(rappelons qu'elles sont toujours $\ge$ la dimension de la fibre
+g\'en\'erique). Si $f$ est \'equidimensionnel en $x$, la
+dimension de sa fibre en $x$ \'etant $n$, et si $g\colon U\to
+Y'=Y[t_{1},\dots,t_{n}]$ est un $Y$-morphisme d'un voisinage~$U$ de
+$x$, induisant un morphisme sur les fibres de~$y$ qui est quasi-fini
+en $x$ (ou encore, ce qui revient au m\^eme, si $g$ est quasi-fini
+en~$x$), alors on montre que toute composante irr\'eductible de~$U$
+passant par $x$ domine une composante irr\'eductible de~$Y'$. D'ailleurs en vertu du \og lemme de normalisation\fg, un tel $g$
+existe toujours (et r\'eciproquement, s'il existe un $Y$-morphisme
+quasi-fini $g$ d'un voisinage ouvert $U$ de~$x$ dans un $Y$-sch\'ema
+de la forme $Y'=Y[t_{1},\dots,t_{n}]$, tel que toute composante de~$U$ passant par $x$ domine une composante de~$Y'$, alors $f$ est
+\'equidimensionnel en~$x$). Ceci pos\'e:
+
+\begin{proposition}
+\label{II.2.3}
+Soient $f\colon X\to Y$ un morphisme localement de type fini, $x$ un
+point de~$X$, $y=f(x)$, on suppose $\cal{O}_{y}$ normal. Pour que $f$
+soit lisse en $x$, il faut et il suffit que $f$ soit
+\'equidimensionnel en $x$, et que $f^{-1}(y)$ soit lisse sur~$\kres(y)$
+en $x$.
+\end{proposition}
+
+On voit aussit\^ot sur la d\'efinition qu'un morphisme lisse est
+\'equidimensionnel (N.B. un morphisme plat de type fini n'est pas
+n\'ecessairement \'equidimensionnel en $x$, m\^eme si sa fibre
+en $x$ est irr\'eductible). Prouvons la r\'eciproque. Comme
+$f^{-1}(y)$ est lisse sur~$\kres(y)$ en $x$, on peut supposer (rempla\c cant au besoin $X$ par un voisinage convenable de~$x$) qu'il existe
+un $Y$-morphisme
+$$
+g\colon X\to Y[t_{1},\dots,t_{n}]=Y'
+$$
+induisant un morphisme \'etale sur les fibres de~$y$, et a fortiori
+quasi-fini en $x$. Donc
+$g$ est non ramifi\'e, et ($f$ \'etant \'equidimensionnel en
+$x$) les composantes irr\'eductibles de~$X$ passant par $x$ dominent
+chacun une composante de~$Y'$, a fortiori l'homomorphisme
+$\cal{O}_{y'}\to\cal{O}_{x}$ d\'eduit de~$g$ (o\`u $y'=g(x)$) est
+\emph{injectif}. Cet homomorphisme est de plus non ramifi\'e, et
+$\cal{O}_{y'}$ est normal puisque localis\'e de l'anneau
+$\cal{O}_{y}[t_{1},\dots,t_{n}]$, qui est normal puisque
+$\cal{O}_{y}$ l'est. Donc l'homomorphisme $\cal{O}_{y'}\to\cal{O}_{x}$
+est \'etale (I~\ref{I.9.5}~(ii)).
+
+\begin{remarques}
+\label{II.2.4}
+L'\'enonc\'e pr\'ec\'edent vaut encore en rempla\c cant
+l'hypoth\`ese que $\cal{O}_{y}$ est normal par l'hypoth\`ese plus
+faible que $Y$ est \emph{géométriquement unibranche} en $y$,
+(\cf I~\ref{I.11}) --- puisque (I~\ref{I.9.5}) vaut sous cette
+hypoth\`ese. Profitons de l'occasion pour signaler en m\^eme temps
+que si le corps r\'esiduel d'un anneau local int\`egre $A$ est
+alg\'ebriquement clos, alors analytiquement int\`egre
+\index{analytiquement int\`egre|hyperpage}(\ie $\widehat{A}$ est int\`egre) implique g\'eom\'etriquement
+unibranche, la r\'eciproque \'etant vraie de plus dans toute
+cat\'egorie de \og bons anneaux\fg, de fa\c con pr\'ecise dans une
+cat\'egorie d'anneaux stable par les op\'erations usuelles, et
+o\`u la compl\'etion d'un anneau local normal est normale
+(condition remplie, en vertu du \og th\'eor\`eme de normalit\'e
+analytique\fg de Zariski, dans la cat\'egorie des alg\`ebres
+affines et leurs localis\'ees)\footnote{\Cf EGA IV~7.8.}.
+
+\og Rappelons\fg enfin dans le contexte actuel le r\'esultat suivant,
+d\^u \`a Hironaka\footnote{\Cf EGA IV 5.12.10.} qui permet parfois
+de s'assurer que $f^{-1}(y)$ est un sch\'ema r\'eduit, \ie que
+c'est aussi ce que de nombreux g\'eom\`etres alg\'ebristes
+consid\'eraient abusivement comme la fibre (sans multiplicit\'e)
+de~$f$ au-dessus de~$x$ (savoir $f^{-1}(y)_{\red}$):
+\end{remarques}
+
+\begin{proposition}
+\label{II.2.5}
+Soient $f\colon X\to Y$ un morphisme dominant de type fini de
+pr\'esch\'emas r\'eduits, $y$ un point de~$Y$ tel que
+$\cal{O}_{y}$ soit r\'egulier. On suppose que toutes les composantes
+de~$f^{-1}(y)$ sont de multiplicit\'e~$1$
+\index{composante de multiplicit\'e~$1$|hyperpage}(\cf d\'efinition plus bas), et que $f^{-1}(y)_{\red}$ est
+normal. Alors $f^{-1}(y)$ est r\'eduit donc normal, $X$ est normal
+en tous les points de~$f^{-1}(y)$, enfin $X$ est plat sur~$Y$ en tous
+les points de~$f^{-1}(y)$.
+\end{proposition}
+On
+dit qu'une composante $Z$ de~$f^{-1}(y)$ est de
+\emph{multiplicité}~$1$
+\index{multiplicit\'e d'une composante|hyperpage}si, $x$ d\'esignant le point g\'en\'erique de~$Z$, on a (i)
+$\dim\cal{O}_{x}=\dim\cal{O}_{y}$ (\ie $Z$ n'est pas \og composante
+exc\'edentaire\fg, c'est-\`a-dire n'est pas \og de dimension trop
+grande\fg; (ii) l'id\'eal maximal de~$\cal{O}_{x}$ est engendr\'e
+par l'id\'eal maximal de~$\cal{O}_{y}$ (qui a priori, en vertu du
+choix de~$x$, engendre un id\'eal de d\'efinition
+de~$\cal{O}_{x}$).
+
+Compte tenu de~\ref{II.2.3} ou de~\ref{II.2.1} on trouve donc:
+
+\begin{corollaire}
+\label{II.2.6}
+Soient $f\colon X\to Y$ un morphisme dominant de type fini de
+pr\'esch\'emas r\'eduits, $y$ un point de~$Y$ tel que
+$\cal{O}_{y}$ soit r\'egulier. Pour que $f$ soit lisse aux points de
+$X$ au-dessus de~$y$, il faut et il suffit que les composantes de
+$f^{-1}(y)$ soient de multiplicit\'es $1$, et que $f^{-1}(y)_{\red}$
+soit lisse sur~$\kres(y)$.
+\end{corollaire}
+
+Cette situation \'etait surtout consid\'er\'ee par le pass\'e
+quand $Y$ \'etait le spectre d'un anneau de valuation discr\`ete
+$A$, et \'etait d\'esign\'ee commun\'ement sous des vocables
+tels que: \og si la r\'eduction de~$X$ par rapport \`a la valuation
+donn\'ee est jolie\fg... De plus, $X$ d\'esignait alors un
+sous-sch\'ema (si on peut dire) ferm\'e d'un $\PP_{K}^{n}$ ($K$
+\'etant le corps des fractions de~$A$) et faute d'un
+langage
+ad\'equat, le r\^ole plus intrins\`eque d'un objet \og d\'efini
+sur~$A$\fg (et non seulement sur~$K$) n'apparaissait gu\`ere.
+
+\section{Propri\'et\'es de permanence}
+\label{II.3}
+
+\begin{proposition}
+\label{II.3.1}
+Soit $f\colon X\to Y$ un morphisme, soit $x\in X$ et
+$y=f(x)$. Supposons $f$ lisse en~$x$. Pour que $\cal{O}_{x}$ soit
+r\'eduit (\resp r\'egulier, \resp normal) il faut et il suffit que
+$\cal{O}_{y}$ le soit.
+\end{proposition}
+
+Cet \'enonc\'e est en effet connu quand $X$ est de la forme
+$Y[t_{1},\dots,t_{n}]$, et il est d\'emontr\'e dans (I, \no \ref{I.9})
+pour un morphisme \'etale; le cas g\'en\'eral s'en d\'eduit
+aussit\^ot gr\^ace \`a la d\'efinition~\ref{II.1.1}.
+
+Nous ne d\'etaillons pas ici les autres propri\'et\'es de
+permanence, r\'esultant d\'ej\`a de la seule platitude, ou du
+fait que $X$ est localement quasi-fini et plat au-dessus d'un
+$Y$-pr\'esch\'ema de la forme $Y[t_{1},\dots,t_{n}]$ (ou, comme
+nous dirons, que $X$ est
+Cohen-Macaulay
+\index{Cohen-Macaulay (sch\'ema de)|hyperpage}au-dessus de~$Y$). Signalons seulement que de ce dernier fait
+r\'esulte que
+\begin{equation}
+\label{eq:II.3.1}
+{\dim\cal{O}_{x}=\dim\cal{O}_{y}+n-d,\quad
+\prof\cal{O}_{x}=\prof\cal{O}_{y}+n-d},
+\end{equation}
+o\`u $n$ est la dimension de la fibre de~$f$ en $x$, et $d$ le
+degr\'e de transcendance de~$\kres(x)$ sur~$\kres(y)$, d'o\`u (posant
+$\coprof=\dim-\prof$)\footnote{Pour ces formules, \cf EGA~IV 6.1
+et~6.3.}
+\begin{equation}
+\label{eq:II.3.2}
+{\coprof\cal{O}_{x}=\coprof\cal{O}_{y}}.
+\end{equation}
+Il en r\'esulte par exemple que $\cal{O}_{x}$ est Cohen-Macaulay
+(\resp sans composantes immerg\'ees) si et seulement si il en est de
+m\^eme de~$\cal{O}_{y}$.
+
+\section{Propri\'et\'es diff\'erentielles des morphismes lisses}
+\label{II.4}
+Pour simplifier, nous nous restreindrons pour l'essentiel au calcul
+diff\'erentiel d'ordre~$1$, nous bornant \`a de rapides
+indications pour l'ordre sup\'erieur (o\`u les r\'esultats sont
+tout aussi simples).
+
+Pour la d\'efinition du faisceau des $1$-diff\'erentielles
+$\it{\Omega}^1_{X/Y}$ d'un $Y$-pr\'esch\'ema $X$,
+\cf (I~\No\ref{I.1}). Supposons que $X$ et $Y$ soient des
+$S$-pr\'esch\'emas, le morphisme structural $f\colon X\to Y$
+\'etant un $S$-morphisme. Alors $f$ d\'efinit un homomorphisme de
+Modules (compatible avec $f$)
+\begin{equation}
+\label{eq:II.4.1}
+{f^*\colon \it{\Omega}^1_{Y/S}\to\it{\Omega}^1_{X/S}}
+\end{equation}
+en d'autres termes, $\it{\Omega}^1_{X/S}$ est \emph{contravariant} en
+le $S$-pr\'esch\'ema $X$. D'ailleurs~\eqref{eq:II.4.1}
+\'equivaut \`a un homomorphisme de Modules sur~$X$
+\begin{equation*}
+\label{eq:II.4.1bis}
+\tag{4.1\textrm{bis}}
+{f^*\big(\it{\Omega}^1_{Y/S}\big)\to\it{\Omega}^1_{X/S}}
+\end{equation*}
+\'egalement d\'enot\'e par $f^*$ \`a d\'efaut de mieux, et
+qui s'ins\`ere dans une suite exacte canonique d'homomorphismes de
+Modules
+\begin{equation}
+\label{eq:II.4.2}
+{f^*\big(\it{\Omega}^1_{Y/S}\big)\to
+\it{\Omega}^1_{X/S}\to\it{\Omega}^1_{X/Y}\to 0}
+\end{equation}
+Tous ces homomorphismes sont d\'efinis par la condition d'\^etre de
+nature locale (ce qui ram\`ene au cas affine) et de commuter avec
+les op\'erateurs $\rd$. L'exactitude de~\eqref{eq:II.4.2} est
+classique et triviale, et se transcrit dans le cas affine en la suite
+exacte (correspondant \`a un homomorphisme $B\to C$ de
+$A$-alg\`ebres):
+\begin{equation*}
+\label{eq:II.4.2bis}
+\tag{4.2\textrm{bis}}
+{\Omega^1_{B/A}\otimes_{B}C\to\Omega^1_{C/A}\to\Omega^1_{C/B}\to 0}
+\end{equation*}
+
+\begin{lemme}
+\label{II.4.1}
+Soit
+$f\colon X\to Y$ un morphisme de~$S$-pr\'esch\'emas. Si $f$
+est non ramifi\'e (\resp \'etale) alors
+$f^*\big(\it{\Omega}^1_{Y/S}\big)\to\it{\Omega}^1_{X/S}$
+est surjectif (\resp un isomorphisme). La r\'eciproque est vraie
+dans le cas \og non ramifi\'e\fg, si $f$ est suppos\'e localement de
+type fini.
+\end{lemme}
+
+Le cas non ramifi\'e r\'esulte de la suite
+exacte~\eqref{eq:II.4.2} et de (I~\ref{I.3.1}), mais peut aussi se
+voir directement comme le cas \'etale. Consid\'erons le diagramme
+\begin{equation*}
+\xymatrix@C=1.5cm{{X}\ar[r]^-{\Delta_{X/Y}}&{X\times_{Y}X}\ar[d]\ar[r]&{X\times_{S}X}\ar[d]\\ &{Y}\ar[r]^-{\Delta_{Y/S}}&{Y\times_{S}Y}}
+\end{equation*}
+dans lequel $X\times_{Y}X$ s'identifie au produit fibr\'e de~$Y$ et
+$X\times_{S}X$ sur~$Y\times_{S}Y$. Comme $f$ est non ramifi\'e,
+$X\to X\times_{Y}X$ est une immersion ouverte, donc le faisceau
+\og conormal\fg de l'immersion compos\'ee $\Delta_{X/S}$ de cette
+derni\`ere avec $X\times_{Y}X\to X\times_{S}X$ est isomorphe \`a
+l'image inverse sur~$X$ du faisceau conormal pour l'immersion
+$X\times_{Y}X\to X\times_{S}X$. D'autre part, $X\to Y$ \'etant
+\'etale donc plat, $X\times_{S}X\to Y\times_{S}Y$ est plat, donc le
+faisceau conormal pour l'immersion $X\times_{Y}X\to X\times_{S}X$ est
+isomorphe \`a l'image inverse du faisceau conormal pour l'immersion
+$Y\to Y\times_{S}Y$, \ie l'image inverse de~$\it{\Omega}^1_{Y/S}$. La
+conclusion en r\'esulte.
+
+\begin{lemme}
+\label{II.4.2}
+Soit $X=Y[t_{1},\dots,t_{n}]$, $Y$ \'etant un
+$S$-pr\'esch\'ema. Alors la suite d'homomorphismes canoniques
+$$
+0\to f^*\big(\it{\Omega}^1_{Y/S}\big)\to
+\it{\Omega}^1_{X/S}\to\it{\Omega}^1_{X/Y}\to 0
+$$
+est exacte et $\it{\Omega}^1_{X/Y}$ est libre de base les
+$\rd_{X/Y}t_{i}$.
+\end{lemme}
+
+La v\'erification (purement affine) est imm\'ediate. (N.B. on
+conna\^it d\'ej\`a l'exactitude de~\eqref{eq:II.4.2}).
+
+Combinant ces deux \'enonc\'es et d\'efinition~\ref{II.1.1}, on
+trouve
+
+\begin{theoreme}
+\label{II.4.3}
+Soient $f\colon X\to Y$ un morphisme lisse de~$S$-pr\'esch\'emas,
+alors:
+\begin{enumerate}
+\item[(i)] La suite d'homomorphismes canoniques
+$$
+0\to f^*\big(\it{\Omega}^1_{Y/S}\big)\to
+\it{\Omega}^1_{X/S}\to\it{\Omega}^1_{X/Y}\to 0
+$$
+est exacte.
+\item[(ii)] $\it{\Omega}^1_{X/Y}$ est localement libre, son rang $n$
+en $x$ est \'egal \`a la dimension relative de~$f$ en~$x$.
+\end{enumerate}
+\end{theoreme}
+
+\begin{corollaire}
+\label{II.4.4}
+L'homomorphisme
+$f^*\big(\it{\Omega}^1_{Y/S}\big)\to\it{\Omega}^1_{X/S}$ est
+injectif, son image dans $\it{\Omega}^1_{X/S}$ est localement facteur
+direct.
+\end{corollaire}
+
+Soit $u\colon F\to G$ un homomorphisme de Modules sur le
+pr\'esch\'ema $X$, on dit qu'il est \emph{universellement
+injectif}
+\index{universellement injectif (morphisme de modules)|hyperpage}en $x\in X$, si l'homomorphisme $F_{x}\to G_{x}$ de
+$\cal{O}_{x}$-modules est injectif, et reste tel par tensorisation
+avec toute $\cal{O}_{x}$-alg\`ebre (ou, ce qui revient au m\^eme
+d'ailleurs, avec tout $\cal{O}_{x}$-module). Il suffit par exemple
+qu'il existe un voisinage ouvert $U$ de~$x$ tel que $u$ induise un
+isomorphisme de~$F|U$ sur un facteur direct de~$G|U$, cette condition
+est aussi n\'ecessaire lorsque $F$ et $G$ sont libres (et de type
+fini) dans un voisinage de~$x$, de fa\c con pr\'ecise dans ce cas
+les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $u$ est injectif en $x$ et $\Coker u$ libre en $x$;
+\item[(ii)] Il existe un voisinage ouvert $U$ de~$x$ tel que $u$
+induise un isomorphisme de~$F|U$ sur un facteur direct de~$G|U$;
+\item[(iii)] $u$ est universellement injectif en $x$;
+\item[(iv)] l'homomorphisme
+$F_{x}\otimes \kres(x)\to G_{x}\otimes \kres(x)$
+sur les \og fibres\fg restreintes induit par $u$ est injectif;
+\item[(v)] L'homomorphisme transpos\'e $\check{G}\to\check{F}$ est
+surjectif au point $x$ (ou encore, ce qui revient au m\^eme, au
+voisinage de~$x$).
+\end{enumerate}
+(D\'emonstration circulaire, (iv)$\To$(v) r\'esulte de
+Nakayama, d'autre part (v)$\To$(i)
+puisqu'un
+faisceau
+quotient localement libre est n\'ecessairement facteur
+direct). G\'eom\'etriquement, la situation envisag\'ee signifie
+que $u$ correspond \`a un isomorphisme du fibr\'e vectoriel dont
+le faisceau des sections
+est~$F$,
+sur un sous-fibr\'e du
+fibr\'e vectoriel analogue d\'efini par $G$. Bien entendu, il ne
+suffit pas pour cela que
+$F\to G$
+soit injectif.
+
+\begin{corollaire}
+\label{II.4.5}
+Soit $f\colon X\to Y$ un morphisme de~$S$-pr\'esch\'emas,
+localement de type fini, $x\in X$, $y=f(x)$, $s$ la projection de~$x$
+et $y$ sur~$S$. On suppose $Y$ lisse en $y$ sur~$S$. Conditions
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $f$ est lisse en $x$.
+\item[(ii)] $X$ est lisse sur
+$S$
+en~$x$, et
+$f^*\big(\it{\Omega}^1_{Y/S}\big)\to\it{\Omega}^1_{X/S}$ est
+universellement injectif en~$x$, \ie c'est un homomorphisme injectif en~$x$ et son conoyau $\it{\Omega}^1_{X/Y}$ est libre
+en~$x$.
+\end{enumerate}
+\end{corollaire}
+
+La n\'ecessit\'e r\'esulte de~\ref{II.1.3} (iii) et
+de~\ref{II.4.3} (i)\,(ii), prouvons la suffisance. Comme les
+$\rd g$ ($g\in\cal{O}_{x}$) engendrent le module
+$\it{\Omega}^1_{X/Y}$ en $x$, on peut trouver des
+$g_{i}$ ($1\le i\le n$) tels que les images des $\rd g_{i}$ dans
+$\big(\it{\Omega}^1_{X/Y}\big)_{x}$ forment une base de ce
+module. Prenant $X$ assez petit, on peut supposer que les $g_{i}$
+proviennent de sections de~$\cal{O}_{X}$, et d\'efinissent donc un
+$Y$-morphisme $g\colon X\to Y'=Y[t_{1},\dots,t_{n}]$. Utilisant
+l'hypoth\`ese et lemme~\ref{II.4.2}, on voit facilement que
+l'homomorphisme correspondant
+$g^*\big(\it{\Omega}^1_{Y'/S}\big)\to\it{\Omega}^1_{X/S}$ est
+bijectif en $x$, ce qui nous ram\`ene \`a prouver le
+
+\begin{corollaire}
+\label{II.4.6}
+Soit $f\colon X\to Y$ un morphisme de~$S$-pr\'esch\'emas
+lisses. Pour que $f$ soit \'etale en $x\in X$, il faut et il suffit
+que $f^*\big(\it{\Omega}^1_{Y/S}\big)\to\it{\Omega}^1_{X/S}$ soit
+un isomorphisme en $x$.
+\end{corollaire}
+
+On sait que c'est n\'ecessaire par~\ref{II.4.1}, et cette condition
+implique que $f$ est non ramifi\'e en $x$ par le m\^eme lemme. En
+vertu de~\ref{II.2.2}, on est ramen\'e au cas o\`u
+$S=\Spec(k)$. Comme $Y$ est lisse sur~$k$, il est r\'egulier, donc a
+fortiori normal, et en vertu de (I~\ref{I.9.5} (ii)) on est ramen\'e
+\`a prouver que $\cal{O}_{y}\to\cal{O}_{x}$ est injectif, ou encore
+que $\cal{O}_{y}$ et $\cal{O}_{x}$ ont m\^eme dimension. Or ces
+dimensions sont respectivement les rangs de~$\it{\Omega}^1_{Y/k}$ et
+$\it{\Omega}^1_{X/k}$ en $y$ \resp $x$, donc \'egaux en vertu de
+l'hypoth\`ese.
+\begin{remarques}
+\label{II.4.7}
+$X$ et $Y$ \'etant suppos\'es lisses sur~$S$, le
+crit\`ere~\ref{II.4.5} (ii) de lissit\'e de~$f\colon X\to Y$ peut
+encore s'\'enoncer en disant que pour tout $x\in X$, l'application
+\emph{tangente} (relativement \`a la base $S$) de~$f$ en $x$,
+\ie la transpos\'ee de l'homomorphisme des $\kres(x)$ espaces vectoriels
+de dimension finie, fibres restreintes de
+$f^*\big(\it{\Omega}^1_{Y/S}\big)$ et $\it{\Omega}^1_{X/S}$ en
+$x$, est \emph{surjective}. C'est l\`a une hypoth\`ese bien
+famili\`ere en particulier parmi les gens travaillant avec les
+espaces analytiques. L'hypoth\`ese de non singularit\'e qu'ils
+font d'ordinaire (qui signifie que $X$ et $Y$ sont \og lisses sur~$\CC$\fg, \cf \No \ref{II.5}) ne semble due qu'\`a la peur qu'inspirent
+encore \`a bien des g\'eom\`etres les points singuliers des
+vari\'et\'es alg\'ebriques ou espaces analytiques.
+\end{remarques}
+
+Signalons le cas particulier suivant de~\ref{II.4.6}:
+\begin{corollaire}
+\label{II.4.8}
+Soient $X$ un $S$-pr\'esch\'ema, $g\colon X\to
+S[t_{1},\dots,t_{n}]$ un $S$-morphisme, d\'efini par les sections
+$g_{i}$ ($1\le i\le n$) de~$\cal{O}_{X}$, $x$ un point de~$X$ tel que
+$X$ soit lisse sur~$S$ en $x$. Pour que $g$ soit \'etale en $x$, il
+faut et il suffit que les $\rd g_{i}$
+($1\le i\le n$) forment une base de~$\it{\Omega}^1_{X/S}$ en $x$ (ou,
+ce qui revient au m\^eme, que leurs images dans
+$\it{\Omega}^1_{X/S}(x) =
+\big(\it{\Omega}^1_{X/S}\big)_{x}\otimes_{\cal{O}_{x}}\kres(x)$ forment
+une base de cet espace vectoriel sur~$\kres(x)$).
+\end{corollaire}
+
+Soient $X$ un pr\'esch\'ema, $Y$ un sous-pr\'esch\'ema
+ferm\'e de~$X$ d\'efini par un faisceau coh\'erent $\cal{J}$
+d'id\'eaux. Donc $\cal{J}/\cal{J}^2$ peut \^etre consid\'er\'e
+comme un faisceau coh\'erent sur~$Y$ (le \emph{faisceau conormal}
+\index{conormal (faisceau)|hyperpage}\index{faisceau conormal|hyperpage}de~$Y$ dans~$X$). Si maintenant $X$ est un $S$-pr\'esch\'ema, on a
+une suite exacte canonique de faisceaux quasi-coh\'erents sur~$Y$
+\begin{equation}
+\label{eq:II.4.3}
+{\cal{J}/\cal{J}^2\lto{\rd}
+\it{\Omega}^1_{X/S}\otimes_{\cal{O}_{X}}\cal{O}_{Y}\to
+\it{\Omega}^1_{Y/S}\to 0}
+\end{equation}
+dont la partie de droite n'est autre que~\eqref{eq:II.4.2} (avec le
+r\^ole de~$X$ et $Y$ interchang\'es, compte tenu que
+$\it{\Omega}^1_{Y/X}=0$), tandis que l'homomorphisme
+$\cal{J}/\cal{J}^2\to\it{\Omega}^1_{X/S}\otimes_{\cal{O}_{X}}\cal{O}_{Y}$
+est d\'eduit de l'homomorphisme (en g\'en\'eral non
+lin\'eaire) $g\to\rd g$ par passage aux
+quotients. L'exactitude de~\eqref{eq:II.4.3} est classique et
+d'ailleurs triviale, et s'interpr\`ete dans le cas affine par la
+suite exacte suivante (correspondante \`a un homomorphisme surjectif
+$B\to C$ de~$A$-alg\`ebres, de noyau $J$):
+\begin{equation*}
+\label{eq:II.4.3bis}
+\tag{4.3\textrm{bis}}
+{J/J^2\to\Omega^1_{B/A}\otimes_{B}C\to\Omega^1_{C/A}\to 0\qquad
+(C=B/J)}
+\end{equation*}
+(suite exacte qui avait d\'ej\`a \'et\'e utilis\'ee
+implicitement dans la d\'emonstration de (I~\ref{I.7.2})!).
+
+\begin{proposition}
+\label{II.4.9}
+Soient $X$ un $S$-pr\'esch\'ema, $Y$ un sous-pr\'esch\'ema
+ferm\'e de~$X$ d\'efini par un faisceau coh\'erent $\cal{J}$
+d'id\'eaux sur~$X$, $x$ un point de~$X$, $g_i$ ($1 \leq i \leq n$)
+des sections de~$\cal{O}_X$, d\'efinissant un $S$-morphisme
+$$
+g \colon X \to S[t_1,\dots,t_n] = X'
+$$
+enfin $p$ un entier, $0 \leq p \leq n$. On suppose $X$ \emph{lisse sur~$S$ en $x$}. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] Il existe un voisinage ouvert $X_1$ de~$x$ dans $X$ tel que
+$g|X_1$ soit \emph{étale} et que $Y_1=Y \cap X_1$ (trace de~$Y$
+sur~$X_1$) soit \emph{l'image inverse} du sous-pr\'esch\'ema
+ferm\'e $Y'=S[t_{p+1},\dots,t_n]$
+de
+$X'=S[t_1,\dots,t_n]$ (\ie les $g_i$ ($1 \leq i \leq p$) engendrent
+$\cal{J}|X_1$):
+$$
+\xymatrix{{Y_1}\ar[d]\ar[r]&{X_1}\ar[d]^{\'etale}\\{Y'=S[t_{p+1},\dots, t_n]}\ar[r]&{X'=S[t_1,\dots,t_n]}}
+$$
+\item[(ii)]
+$Y$
+est \emph{lisse sur~$S$ en $x$}, les $g_i$ ($1 \leq i \leq p$)
+d\'efinissent des \emph{éléments de} $\cal{J}_x$, les $d
+g_i(x)$ ($1 \leq i \leq n$) forment une \emph{base de}
+$\it{\Omega}^1_{X/S}(x)$ sur~$\kres(x)$, les $dg'_i(x)$ ($p+1 \leq i \leq
+n$) forment une \emph{base de} $\it{\Omega}^1_{Y/S}(x)$ sur~$\kres(x)$
+(o\`u les $g'_i$ d\'esignent les restrictions des $g_i$ \`a~$Y$;
+les diff\'erentielles sont prises par rapport \`a~$S$).
+\item[(iii)] Les $g_i$ ($1 \leq i \leq p$) d\'efinissent un
+\emph{système de générateurs} de~$\cal{J}_x$, et les
+$dg_i(x)$ ($1 \leq i \leq n$) forment une \emph{base de}
+$\it{\Omega}^1_{X/S}(x)$ sur~$\kres(x)$.
+\item[(iv)] $Y$ est \emph{ lisse sur~$S$} en $x$, les $g_i$
+($1 \leq i \leq p$)
+forment un \emph{système minimal de générateurs de}
+$\cal{J}_x$, les $dg'_i(x)$ ($p+1 \leq i \leq n$) forment une
+\emph{base de} $\it \Omega^1_{Y/S}(x)$ sur~$\kres(x)$.
+\end{enumerate}
+
+De plus, sous ces conditions, $\cal{J}/\cal{J}^2$ est un Module libre
+sur~$Y$ en $x$, admettant comme \emph{base en $x$} les classes des
+$g_i$ ($1 \leq i \leq p$), \emph{et l'homomorphisme} canonique
+$\cal{J}/\cal{J}^2 \to \it{\Omega}^1_{X/S} \otimes \cal{O}_Y$ est
+\emph{universellement injectif en $x$}.
+\end{proposition}
+
+\begin{remarquestar}
+Cela implique que $p$ est bien d\'etermin\'e par les autres
+conditions, soit comme \emph{rang} du Module libre
+$\cal{J}/\cal{J}^2$ sur~$Y$ en $x$, ou encore le \emph{nombre minimum
+de générateurs} de~$\cal{J}_x$ sur~$X$, ou enfin par le fait
+que la dimension relative de~$Y$ rel. $S$ en $x$ est $n-p$.
+\end{remarquestar}
+
+\subsubsection*{D\'emonstration}
+Supposons d'abord (i) v\'erifi\'e. Alors par (I~\ref{I.4.6}
+(iii)) $Y_1$ est \'etale sur~$Y'$, donc par d\'efinition il est
+lisse sur~$S$ en $x$ (de dimension relative $n-p$), il en est donc de
+m\^eme de~$Y$. Il r\'esulte alors de \eqref{II.4.8} que les $dg_i$
+($1 \leq i \leq n$) forment une base de~$\it{\Omega}^1_{X/S}$ en $x$,
+et que les $dg'_i$ ($p+1 \leq i \leq n$) une base de
+$\it{\Omega}^1_{Y/S}$ en $x$, d'o\`u il r\'esulte par la suite
+exacte \eqref{eq:II.4.3} que les $g_i$ ($1 \leq i \leq p$) sont
+lin\'eairement ind\'ependants dans $\cal{J}/\cal{J}^2$
+(consid\'er\'e comme Module sur~$Y$) en $x$; comme les $g_i$ ($1
+\leq i \leq p$) engendrent $\cal{J}_x$, il s'ensuit que les $g_i \mod
+\cal{J}_x^2$ forment une \emph{base de} $\cal{J}/\cal{J}^2$ en
+$x$. Cela implique d'une part que les $g_i$ ($1 \leq i \leq p$)
+forment un syst\`eme \emph{minimal} de g\'en\'erateurs de
+$\cal{J}_x$, d'autre part que l'homomorphisme $\cal{J}/\cal{J}^2 \to
+\it{\Omega}^1_{X/S} \otimes \cal{O}_Y$ de \eqref{eq:II.4.3} est
+universellement injectif en $x$ (car applique une base d'un Module
+libre en $x$ sur une partie d'une base d'un Module libre en $x$ --- N.B. il s'agit de~$Y$-Modules). Cela prouve que (i) implique (ii),
+(iii), (iv), ainsi que les derni\`eres assertions de
+proposition~\ref{I.4.9}.
+
+(iii) implique (i) en vertu de corollaire~\ref{I.4.8}.
+
+(ii)
+implique (i). En effet, la premi\`ere hypoth\`ese dans (ii)
+signifie que (quitte \`a remplacer $X$ par un voisinage ouvert de
+$x$ dans $X$) $g$ induit un morphisme $h\colon Y \to
+Y'$. D'apr\`es~\ref{I.4.8}, les deux autres hypoth\`eses de (ii)
+signifient que $g$ est \'etale en $x$, et $h$ \'etale en $x$. Soit
+alors $Y''$ l'image inverse de~$Y'$ par $g$. Donc $Y$ est un
+sous-pr\'esch\'ema ferm\'e de~$Y''$, qui est \'etale sur~$Y'$
+en $x$ par (I~\ref{I.4.6}~(iii)) puisque $g$ est \'etale en
+$x$. Donc le morphisme d'immersion $Y \to Y''$ est lui-m\^eme
+\'etale (I~\ref{I.4.8}) donc une immersion ouverte (I~\ref{I.5.8} ou
+I~\ref{I.5.2}), donc rempla\c cant encore $X$ par un voisinage
+ouvert convenable $X_1$ de~$x$, on obtient (i).
+
+Ce qui pr\'ec\`ede \'etablit l'\'equivalence des conditions
+(i), (ii), (iii), et le fait qu'elles impliquent (iv), il reste \`a
+prouver que (iv)$\To$(ii), ce qui est imm\'ediat (compte
+tenu que $\it{\Omega}^1_{X/S}$ est libre sur~$X$ en $x$) une fois
+qu'on sait que le fait que $Y$ est lisse sur~$S$ en $x$ implique que
+$\cal{J}/\cal{J}^2$ est libre sur~$Y$ en $x$, et l'homomorphisme
+$\cal{J}/\cal{J}^2 \to \it{\Omega}^1_{X/S}\otimes \cal{O}_Y$
+universellement injectif en $x$. Ce dernier point est inclus dans le
+\begin{theoreme}
+\label{II.4.10}
+Soient $X$ un $S$-pr\'esch\'ema lisse, $Y$ un
+sous-pr\'esch\'ema ferm\'e de~$X$ d\'efini par un faisceau
+coh\'erent $\cal{J}$ d'id\'eaux sur~$X$, $x$ un point de~$X$. Les
+conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $Y$ est \emph{lisse sur~$S$ en $x$}.
+\item[(ii)] Il existe un voisinage ouvert $X_1$ de~$x$ dans $X$ et un
+$S$-morphisme \emph{étale}
+$$
+g\colon X_1 \to X'=S[t_1,\dots,t_n]
+$$
+tel que $Y_1=Y \cap X_1$ (trace de~$Y$ sur~$X_1$) soit le
+sous-pr\'esch\'ema de~$X_1$ \emph{image inverse} par $g$ du
+sous-pr\'esch\'ema ferm\'e $Y'=S[t_{p+1},\dots,t_n]$ de
+$X'=S[t_1,\dots,t_n]$, pour un $p$ convenable.
+\item[(iii)] Il existe des \emph{générateurs $g_i$ ($1 \leq i
+\leq p$) de~$\cal{J}_x$}, tels que les $dg_i$ forment une partie d'une
+base de~$\it{\Omega}^1_{X/S}$ en $x$ (ou, ce qui revient au m\^eme,
+tel que les $dg_i(x)$ dans $\it{\Omega}^1_{X/S}$ soient
+lin\'eairement ind\'ependant sur~$\kres(x)$).
+\item[(iv)] Le faisceau $\cal{J}/\cal{J}^2$ est libre sur~$Y$ en $x$,
+et l'homomorphisme canonique
+$$
+d\colon \cal{J}/\cal{J}^2 \to \it{\Omega}^1_{X/S}\otimes \cal{O}_Y
+$$
+est universellement injectif en~$x$; ou encore: la suite
+d'homomorphismes canoniques
+$$
+0 \to \cal{J}/\cal{J}^2 \to \it{\Omega}^1_{X/S}\otimes \cal{O}_Y \to
+\it{\Omega}^1_{Y/S} \to 0
+$$
+est exacte en $x$, et $\it{\Omega}^1_{Y/S}$ est localement libre
+en~$x$.
+\end{enumerate}
+\end{theoreme}
+
+\subsubsection*{D\'emonstration}
+On
+sait d\'ej\`a que (ii) implique (i), (iii), (iv) d'apr\`es ce qui
+pr\'ec\`ede. Prouvons que (i)$\To$(ii) (ce qui
+ach\`evera en m\^eme temps la d\'emonstration
+de~\ref{I.4.9}).
+En vertu de th\'eor\`eme \ref{II.4.3}~(ii), les deux derniers
+termes dans la suite exacte \eqref{eq:II.4.3} sont des Modules libres
+sur~$Y$. Donc, comme les images dans
+$\it{\Omega}^1_{X/S}\otimes_{\cal{O}_X} \cal{O}_Y$ des $dg$ ($g \in
+\cal{O}_X$) engendrent ce module en $x$, donc leurs images dans
+$\it{\Omega}^1_{Y/S}$ engendrent ce dernier en~$x$, on peut trouver
+des $g_i$ ($p+1 \leq i \leq n$) dans $\cal{O}_X$ tels que les $dg'_i$
+forment une base de~$\it{\Omega}^1_{Y/S}$, puis (en vertu de
+l'exactitude de \eqref{eq:II.4.3}) compl\'eter le syst\`eme des
+$dg_i$ ($p+1 \leq i \leq n$) en une base du terme m\'edian par des
+\'el\'ements de la forme $dg_i$ ($1 \leq i \leq n$) o\`u les
+$g_i$ ($1 \leq i \leq p$) \emph{sont dans $\cal{J}_x$.} Les $g_i$
+proviennent de sections de~$\cal{O}_X$ sur un voisinage de~$x$ dans
+$X$, qu'on peut supposer \'egal \`a $X$. On est alors sous les
+conditions de~\ref{II.4.8}~(ii), et on a \'etabli que cela implique
+la condition~\ref{II.4.8}~(i), d'o\`u~\ref{II.4.10}~(ii).
+
+L'implication (iii)$\To$(ii) dans~\ref{II.4.10} r\'esulte
+aussit\^ot de l'implication (iii)$\To$(i)
+dans~\ref{II.4.8}. Donc
+(i), (ii), (iii)
+sont \'equivalents, et
+impliquent (iv). Enfin, il est trivial que (iv) implique (iii), compte
+tenu que des $g_i \in \cal{J}_x$ qui forment une base de~$\cal{J}_x
+\mod \cal{J}_x^2$ engendrent $\cal{J}_x$ (Nakayama).
+
+De plus, la d\'emonstration qui pr\'ec\`ede montre ceci:
+\begin{corollaire}
+\label{II.4.11}
+Soient $X$ un $S$-pr\'esch\'ema, $Y$ un sous-pr\'esch\'ema
+ferm\'e d\'efini par un faisceau coh\'erent $\cal{J}$
+d'id\'eaux sur~$X$, $x$ un point de~$Y$. On suppose \emph{$X$ et $Y$
+lisses sur~$S$ en $x$}. Soient $g_i$ des sections de~$\cal{J}$ ($1
+\leq i \leq p$). Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] Les $g_i$ \emph{engendrent} $\cal{J}_x$ et les $dg_i(x)$
+sont \emph{linéairement indépendants} dans
+$\it{\Omega}^1_{X/S}(x)$
+sur~$\kres(x)$.
+\item[(ii)] Les $g_i \mod \cal{J}^2$ forment une base de
+$\cal{J}/\cal{J}^2$ en $x$.
+\item[(iii)] Les $g_i$ forment un syst\`eme minimal de
+g\'en\'erateurs de~$\cal{J}_x$.
+\item[(iv)] On peut trouver d'autres sections $g_i$ ($p+1 \leq i \leq
+n$) de~$\cal{O}_X$ sur un voisinage $X_1$ \emph{de} $X$,
+d\'efinissant avec les pr\'ec\'edents un morphisme
+\emph{étale} $X_1 \to X'=S[t_1,\dots,t_n]$ tel que $Y_1=Y \cap
+X_1$ soit \emph{l'image inverse} par $g$ du sous-pr\'esch\'ema
+ferm\'e $Y'=S[t_{p+1},\dots,t_n]$ de~$X'=S[t_{1},\dots,t_n]$.
+\end{enumerate}
+\end{corollaire}
+
+En
+particulier:
+
+\begin{corollaire}
+\label{II.4.12}
+Soient $X$ un $S$-pr\'esch\'ema, $F$ une section de~$\cal{O}_X$,
+$Y$ le sous-pr\'esch\'ema des z\'eros de~$F$ (d\'efini par
+l'Id\'eal coh\'erent $F\cdot\cal{O}_X$), $x$ un point de~$Y$. On
+suppose $X$ simple sur~$S$ en $x$. Pour que $Y$ soit lisse sur~$S$ en
+$x$, il faut et il suffit que ou bien $F$ soit nul au voisinage de
+$x$, ou bien que $dF(x) \neq 0$ (o\`u $dF(x)$ d\'esigne l'image de
+$dF$ dans l'espace vectoriel $\it{\Omega}^1_{X/S}(x)$ sur~$\kres(x)$).
+\end{corollaire}
+
+C'est suffisant en vertu de~\ref{II.4.10} crit\`ere~(iii). C'est
+n\'ecessaire, car comme $\cal{J}$ est engendr\'e par un
+\'el\'ement, il faut d'abord que $\cal{J}/\cal{J}^2$ au point $x$
+soit libre de rang $\leq 1$. Si ce rang est $0$,
+\ie $\cal{J}/\cal{J}^2=0$ en $x$, il s'ensuit que $\cal{J}=0$ en $x$
+par Nakayama, \ie $F$ est nul au voisinage de~$x$. Si ce rang est
+$1$, alors $F$ forme un syst\`eme minimal de g\'en\'erateurs de
+$\cal{J}$ en $x$, et on conclut par \eqref{II.4.11}, \'equivalence de
+(i) et~(iii)).
+\begin{corollaire}
+\label{II.4.13}
+Soient $Y$ un $S$-pr\'esch\'ema localement de type fini, $S'$ un
+$S$-pr\'e\-sch\'ema \emph{plat}, $Y'=Y \times_S S'$, $x'$ un point
+de~$Y'$ et $x$ son image canonique dans~$Y$. Pour que $Y$ soit lisse
+sur~$S$ en~$X$, il faut et il suffit que $Y'$ soit lisse sur~$S'$ en~$x'$. En particulier, si $S'\to S$ est plat et surjectif, $Y$ est
+lisse sur~$S$
+si et seulement si\xspace $Y'$ est lisse sur~$S'$.
+\end{corollaire}
+
+Il n'y a \`a prouver que la suffisance (la n\'ecessit\'e a
+\'et\'e vue dans~\ref{II.1.3}~(ii)). On peut supposer (rempla\c cant $Y$ par un voisinage convenable de~$x$, $Y'$ par l'image inverse
+de ce dernier) que $Y$ est affine de type fini sur~$S$ affine, donc
+$Y$ est isomorphe \`a un sous-pr\'esch\'ema ferm\'e d'un
+sch\'ema $S[t_1,\dots,t_n]$. Par suite, $Y'$ s'identifie \`a un
+sous-pr\'esch\'ema ferm\'e de~$X'=X \times_S S'$. Comme $X$ est
+lisse sur~$S$, donc $X'$ lisse sur~$S'$, on peut appliquer les
+crit\`eres de lissit\'e~\ref{II.4.10}. Ici, le crit\`ere (iv)
+donne le r\'esultat aussit\^ot.
+
+\begin{remarques}
+\label{II.4.14}
+Le crit\`ere (iii) de th\'eor\`eme~\ref{II.4.10} m\'erite
+d'\^etre appel\'e \emph{critère jacobien de lissité}.
+\index{crit\`ere jacobien de lissit\'e|hyperpage}\index{jacobien (crit\`ere de lissit\'e)|hyperpage}\index{lissit\'e (crit\`ere jacobien de)|hyperpage}Il permet de reconna\^{\i}tre, th\'eoriquement, si un
+$S$-pr\'esch\'ema donn\'e $Y$ est lisse sur~$S$ en un point $x$
+de~$Y$, puisque il existe toujours un voisinage de~$Y$ isomorphe \`a
+un sous-pr\'esch\'ema d'un $S$-pr\'esch\'ema lisse $X$, par
+exemple $X=S[t_1,\dots,t_n]$. C'est d'ailleurs pour
+$X=S[t_1,\dots,t_n]$, $S=\Spec(A)$, qu'on \'enonce d'habitude le
+crit\`ere jacobien (bien
+entendu, dans le cas classique envisag\'e par Zariski, $A$ \'etait
+un corps). On laisse au lecteur de donner l'\'enonc\'e relatif
+\`a la donn\'ee d'un id\'eal $J$ de~$A[t_1,\dots,t_n]$ et d'un
+id\'eal premier le contenant, auquel on est ainsi conduit. Notons
+qu'il semble bien \`a l'heure actuelle (et surtout depuis que Nagata
+est parvenu \`a g\'en\'eraliser par des m\'ethodes
+non-diff\'erentielles le th\'eor\`eme de Zariski disant que
+l'ensemble des points r\'eguliers d'un sch\'ema alg\'ebrique est
+ouvert) que le crit\`ere jacobien n'a gu\`ere d'int\'er\^et
+que sous la forme o\`u nous le donnons ici (\ie en utilisant
+exclusivement des diff\'erentielles \emph{relatives} et non pas des
+diff\'erentielles \emph{absolues}, \ie relatives \`a l'anneau de
+constantes absolues $\ZZ$). Comme bien souvent, la consid\'eration
+des diff\'erentielles est plus commode ici que celle des
+d\'erivations. Notons enfin que si $Y$ est lisse sur~$S$ en $x$, de
+dimension relative $n$, alors il existe un voisinage ouvert de~$x$
+dans~$Y$ isomorphe \`a un sous-pr\'esch\'ema de
+$X=S[t_1,\dots,t_n]$ avec $n=m+1$, comme il r\'esulte de la
+d\'efinition et
+de~(I~\ref{I.7.6}).
+
+Soient $A$ un anneau noeth\'erien, $x_i$ ($1 \leq i \leq n$) des
+\'el\'ements de~$A$, $J$ l'id\'eal engendr\'e par les
+$x_i$. On dit que les $x_i$ forment un \emph{système régulier
+de générateurs}
+\index{regulier (systeme de generateurs)@r\'egulier (syst\`eme de g\'en\'erateurs)|hyperpage}\index{systeme regulier de generateurs)@syst\`eme r\'egulier de g\'en\'erateurs|hyperpage}de~$J$ si l'homomorphisme surjectif canonique
+$$
+(A/J)[t_1,\dots,t_n] \to \gr^J(A)
+$$
+d\'efini par les $x_i$ (o\`u le deuxi\`eme membre d\'esigne
+l'anneau gradu\'e associ\'e \`a $A$ filtr\'e par les
+puissances de~$J$) est un \emph{isomorphisme}. Cette condition
+signifie aussi que
+\begin{enumerate}
+\item[(i)] L'homomorphisme surjectif canonique
+$$
+S_{A/J} (J/J^2) \to \gr^J(A)
+$$
+(o\`u, le premier membre d\'esigne l'alg\`ebre sym\'etrique du
+$A/J$-module $J/J^2$) est un isomorphisme, et
+\item[(ii)] $J/J^2$ est libre et admet pour base les classes des $x_i
+\mod J^2$.
+\end{enumerate}
+Sous cette forme, on voit que si $J\neq A$, les $x_i$ forment un
+\emph{système minimal de générateurs} de~$J$, et que
+\emph{tout autre système minimal de générateurs} de~$J$
+\emph{est un système régulier de générateurs}
+(N.B. \og minimal\fg est pris au sens strict: nombre minimum
+d'\'el\'ements, qui n'est \'equivalent au sens: minimal pour
+l'inclusion, que si $A$ est local); d'autre part, si $J=A$, tout
+syst\`eme de g\'en\'erateurs de~$J$ est r\'egulier.
+
+La
+condition de r\'egularit\'e d'un syst\`eme de
+g\'en\'erateurs d'un id\'eal est stable par localisation par un
+ensemble multiplicativement stable quelconque, et d'autre part on voit
+tout de suite que pour que $(x_i)$ soit un syst\`eme minimal de
+g\'en\'erateurs de~$J$, il suffit d\'ej\`a que pour tout id\'eal
+\emph{maximal $\goth m$ contenant $J$}, les $x_i$ d\'efinissent un
+syst\`eme r\'egulier de g\'en\'erateurs de~$JA_{\goth m}$ dans
+$A_{\goth m}$. Cela nous ram\`ene donc au cas o\`u $A$ est un
+anneau local d'id\'eal maximal $\goth m$, et o\`u les $x_i$ sont
+dans $\goth m$. \emph{Alors les $x_i$ forment un système
+régulier de générateurs de~$J$ si et seulement si ils
+forment une $A$-suite au sens de Serre}\footnote{Nous dirons
+maintenant plut\^ot \og suite $A$-r\'eguli\`ere\fg, \cf EGA
+$0_{\textup{IV}}$~15.1.7 et 15.1.11.}, \ie si pour tout $i$ tel que $1
+\leq i \leq n$, $x_i$ est non-diviseur de~$0$ dans
+$A/(x_1,\dots,x_{i-1})A$.
+
+Enfin, dans le cas o\`u $A$ est une alg\`ebre sur un anneau $B$,
+et o\`u $A/J$ est isomorphe comme $B$-alg\`ebre \`a $B$ (de
+sorte que $J$ est le noyau d'un homomorphisme de~$B$-alg\`ebres
+$A\to B$), alors les $x_i$ forment un syst\`eme r\'egulier de
+g\'en\'erateurs de~$J$ si et seulement si l'homomorphisme
+canonique
+$$
+B[[ t_1,\dots,t_n]]\to \hat{A}
+$$
+d\'efini par les $x_i$ (o\`u le deuxi\`eme membre d\'esigne le
+compl\'et\'e s\'epar\'e $\varprojlim A/J^{n+1}$ de~$A$ pour la
+topologie d\'efinie par les puissances de~$J$) est un
+\emph{isomorphisme} (il est en tout cas \emph{surjectif}).
+
+Tous ces faits sont bien connus, et figurent sans doute dans le cours
+de Serre d'alg\`ebre commutative r\'edig\'e par Gabriel, \`a
+peu de choses pr\`es. (O\`u on trouve $N$ autres
+caract\'erisations des $A$-suites, dans le cas o\`u $A$ est un
+anneau local).
+
+Soit $J$ un id\'eal dans un anneau noeth\'erien $A$. On dira que
+$J$ est un \emph{idéal régulier}
+\index{ideal regulier@id\'eal r\'egulier|hyperpage}\index{regulier (ideal)@r\'egulier (id\'eal)|hyperpage}si pour tout id\'eal premier $\goth p$ de~$A$, $JA_{\goth p}$ admet
+un syst\`eme r\'egulier de g\'en\'erateurs. Il suffit
+\'evidemment de le v\'erifier pour $\goth p \supset J$, et on peut
+de plus se borner \`a $\goth p$ maximal. Plus g\'en\'eralement,
+soit $\cal{J}$ un Id\'eal sur un pr\'esch\'ema localement
+noeth\'erien $X$, on dit que $\cal{J}$ est un \emph{Idéal
+régulier} si pour tout $x\in X$, $\cal{J}_x$ est un id\'eal de
+$\cal{O}_x$ qui admet un syst\`eme r\'egulier de
+g\'en\'erateurs. Cela \'equivaut \`a la conjonction des deux
+conditions suivantes:
+\begin{enumerate}
+\item[(a)] L'homomorphisme canonique surjectif
+$$
+S_{\cal{O}_X/\cal{J}}(\cal{J}/\cal{J}^2) \to \gr^{\cal{J}}(\cal{O}_X)
+$$
+est un isomorphisme et
+\item[(b)] Le faisceau de~$\cal{O}_X/\cal{J}$-Modules
+$\cal{J}/\cal{J}^2$ est localement libre.
+\end{enumerate}
+
+On
+dit alors aussi que le sous-pr\'esch\'ema $Y$ de~$X$ d\'efini
+par $\cal{J}$ (donc tel que $\cal{O}_Y$ prolong\'e par $0$ soit
+isomorphe \`a $\cal{O}_X/\cal{J}$) est \emph{régulièrement
+immergé}
+\index{regulierement immerge (preschema)@r\'eguli\`erement immerg\'e (pr\'esch\'ema)|hyperpage}dans~$X$, et on d\'efinit de m\^eme (de fa\c con
+\'evidente) la notion de morphisme d'\emph{immersion
+régulière},
+\index{immersion r\'eguli\`ere|hyperpage}\index{reguliere (immersion)@r\'eguli\`ere (immersion)|hyperpage}(\resp \emph{régulière en un point $x$}), morphisme
+d'immersion $Y\to X$ identifiant $Y$ (\resp un voisinage convenable de
+$x$), \`a un sous-pr\'esch\'ema ferm\'e r\'eguli\`erement
+immerg\'e dans un ouvert de~$X$. (Il ne faut pas dire:
+sous-pr\'esch\'ema r\'egulier, car cela signifierait que les
+anneaux locaux de~$Y$ sont r\'eguliers). Enfin, des sections $x_i$
+de~$\cal{J}$ sont appel\'ees \emph{système régulier de
+générateurs} si pour tout $x\in X$, les \'el\'ements
+correspondants de~$\cal{O}_x$ forment un syst\`eme r\'egulier de
+g\'en\'erateurs de~$\cal{J}_x$ (terminologie compatible avec celle
+introduite pour des g\'en\'erateurs d'un id\'eal d'un
+anneau). Cela signifie aussi que l'homomorphisme surjectif canonique
+$$
+\cal{O}_Y[t_1,\dots,t_n] \to \gr^{\cal{J}} (\cal{O}_X)
+$$
+d\'efini par les $x_i$ est un isomorphisme. Si on sait par avance
+que l'Id\'eal $\cal{J}$ est r\'egulier, cela signifie aussi,
+simplement, que en tout point $x$ \emph{de~$Y$}, les $x_i$
+d\'efinissent une \emph{base} de~$\cal{J}/\cal{J}^2$ sur~$\cal{O}_{Y,x}$. (N.B. cette condition est vide si $Y$ est
+vide). Ainsi, pour que $\cal{J}$ admette un syst\`eme r\'egulier
+de g\'en\'erateurs, il faut et il suffit que $\cal{J}$ soit
+r\'egulier, et le $\cal{O}_Y$-Module $\cal{J} /\cal{J}^2$ soit
+globalement libre (et non-seulement localement libre), \ie que
+l'homomorphisme canonique $S_{\cal{O}_Y}(\cal{J}/\cal{J}^2) \to
+\gr^{\cal{J}} (\cal{O}_X)$ soit surjectif, et que le
+$\cal{O}_Y$-Module $\cal{J}/\cal{J}^2$ soit globalement libre.
+
+Un \emph{anneau augmenté est dit régulier}
+\index{anneau augment\'e r\'egulier|hyperpage}\index{regulier (anneau augmente@r\'egulier (anneau augment\'e)|hyperpage}si l'id\'eal de l'augmentation est r\'egulier. Ainsi, si $A$ est
+un anneau local, consid\'er\'e comme augment\'e dans son corps
+r\'esiduel $k$, alors $A$ est un anneau local r\'egulier si et
+seulement si c'est un anneau augment\'e r\'egulier.
+
+(\`A vrai dire, il semble qu'il \'etait inutile de commencer par
+faire le sorite pr\'eliminaire pour les anneaux, il y a
+int\'er\^et \`a commencer avec les faisceaux tout de suite. Si
+on veut quelque chose dans le cas noeth\'erien, c'est la
+d\'efinition adopt\'ee ici --- a priori moins stricte que celle par
+les $A$-suites de Serre --- qui semble pr\'ef\'erable pour les
+besoins du calcul diff\'erentiel. Bien entendu, pour bien faire, il
+faudrait d\'evelopper aussi au moins une partie de la th\'eorie
+des morphismes lisses dans le cadre non-noeth\'erien\footnote{Comme
+il est dit dans l'avant-propos, c'est chose faite maintenant, \cf EGA
+IV 17, 18}, probablement en
+partant du crit\`ere jacobien, de fa\c con \`a obtenir si
+possible toutes les propri\'et\'es formelles essentielles des
+morphismes lisses et des morphismes \'etales \ie lisses et
+quasi-finis; les r\'eciproques seules faisant appel \`a des
+hypoth\`eses noeth\'eriennes).
+\end{remarques}
+
+Apr\`es ces longs pr\'eliminaires terminologiques, un petit
+th\'eor\`eme:
+\begin{theoreme}
+\label{II.4.15}
+Soient $X$ un $S$-pr\'esch\'ema localement de type fini, $Y$ un
+sous-pr\'esch\'ema ferm\'e de~$X$ d\'efini par un faisceau
+coh\'erent $\cal{J}$ d'id\'eaux sur~$X$, $x$ un point de~$X$. On
+suppose maintenant \emph{$Y$ lisse sur~$S$ en $x$} (et rien sur~$X$). Alors les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $X$ est lisse sur~$S$ en $x$
+\item[(ii)] L'immersion $i\colon Y \to X$ est r\'eguli\`ere en
+$x$, \ie $\cal{J}_x$ est un id\'eal r\'egulier de~$\cal{O}_x$.
+\end{enumerate}
+\end{theoreme}
+
+\begin{corollaire}
+\label{II.4.16}
+Supposons $Y$ \emph{lisse} sur~$S$. Pour que $X$ soit lisse sur~$S$
+dans un voisinage de~$Y$ (\ie aux points de~$Y$) il faut et il suffit
+que $Y$ soit r\'eguli\`erement plong\'e dans $X$, \ie que
+l'immersion $i \colon Y \to X$ soit r\'eguli\`ere.
+\end{corollaire}
+
+\subsubsection*{D\'emonstration}
+(i) implique (ii). On applique \ref{II.4.10} crit\`ere~(ii), comme
+$g\colon X_1 \to X$ est \emph{plat}, pour montrer que l'image inverse
+par $g$ du sous-pr\'esch\'ema $Y'$ de~$X'$ est
+r\'eguli\`erement plong\'e, on est ramen\'e \`a prouver que
+$Y'=S[t_{p+1},\dots, t_n]$ est r\'eguli\`erement plong\'e dans
+$S[t_1,\dots,t_n]$, ce qui est trivial (les $t_i$ ($1 \leq i \leq
+p$) forment un syst\`eme r\'egulier de g\'en\'erateurs de
+l'Id\'eal d\'efinissant $Y'$ dans $X'$).
+
+(ii) implique (i). Soit $g_i$ ($1 \leq i \leq p$) un syst\`eme
+r\'egulier de g\'en\'erateurs de~$\cal{J}_x$ et soient $g_i$
+($p+1 \leq i \leq n$) des \'el\'ements de~$\cal{O}_{X,x}$ tels que
+leurs images $g'_i$ dans $\cal{O}_{Y,x}$ d\'efinissent un morphisme
+\emph{étale}
+$$
+Y_1 \to Y'=S[t_{p+1},\dots, t_n]
+$$
+d'un voisinages $Y_1$ de~$Y$ dans $Y'$. Les $g_i$ ($1 \leq i \leq n$)
+proviennent de sections (de m\^eme nom) de~$\cal{O}_X$ sur un
+voisinage $X_1$ de~$x$, et on peut supposer $X_1=X$, $Y_1=Y$. On
+obtient ainsi un morphisme
+$$
+g\colon X \to X'=S[t_1,\dots,t_n]
+$$
+et tout revient \`a montrer que ce morphisme est \emph{étale}
+en~$x$. Prenant $X_1$ assez petit,
+on peut supposer que les $g_i$ ($1 \leq i \leq p$) forment un
+syst\`eme r\'egulier de g\'en\'erateurs de~$\cal{J}$ sur tout
+$X$. En particulier, ils engendrent $\cal{J}$, donc le
+sous-pr\'esch\'ema $Y$ de~$X$ s'identifie \`a l'image inverse
+par $g$ du sous-pr\'esch\'ema $Y'$ de~$X'$. Soit $x'=g(x)$, alors
+la fibre de~$X' \to X$ en $x'$ est
+\ignorespaces
+identique \`a la fibre de~$Y \to Y'$ en $x$, donc est \'etale sur~$\kres(x')$, donc $g$ est \emph{non ramifié} en $x$, reste \`a
+prouver que $g$ est \emph{plat} en $x$. Or le gradu\'e associ\'e
+\`a $\cal{O}_{X',x'}$ filtr\'e par les puissances de
+$\cal{J}'_{x}$ est \emph{libre} sur~$\cal{O}_{Y',x'}$ en tous
+degr\'es, d'autre part le gradu\'e associ\'e \`a
+$\cal{O}_{X,x}$ filtr\'e par les puissances de
+$\cal{J}_x=\cal{J}'_x\cal{O}_{X,x}$ est isomorphe (sous
+l'homomorphisme canonique) au produit tensoriel du pr\'ec\'edent
+par $\cal{O}_{Y,x}$ (puisque l'un et l'autre anneau sont des anneaux
+de polyn\^omes \`a $n-p$ ind\'etermin\'ees, \`a anneau de
+constantes $\cal{O}_{Y',x'}$, \resp $\cal{O}_{Y,x}$), enfin sur~$\cal{O}_{X',x'}/\cal{J}'_{x'}= \cal{O}_{Y',x'}$
+$\cal{O}_{X,x}/\cal{J}_x =\cal{O}_{Y,x}$ est plat.
+
+D'apr\`es un crit\`ere g\'en\'eral de platitude (valable pour
+un homomorphisme local d'anneaux locaux noeth\'eriens $A' \to A$,
+$A'$ \'etant muni d'un id\'eal $J' \neq A'$ tel que le gradu\'e
+associ\'e soit libre sur~$A'/J'$ en toute dimension) il s'ensuit que
+$X$ est plat sur~$X'$ en $x$, cqfd.
+
+\begin{corollaire}
+\label{II.4.17}
+Soient $X$ un pr\'esch\'ema localement de type fini sur~$Y$, $i$
+une section de~$X$ sur~$Y$, $y$ un point de~$Y$, $x=i(y)$, $\cal{J}$
+le faisceau d'id\'eaux sur~$X$ d\'efini par le
+sous-pr\'esch\'ema $i(Y)$ (que nous supposons ferm\'e pour
+simplifier l'\'enonc\'e, condition v\'erifi\'ee si $X$ est un
+sch\'ema).
+
+Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $X$ est lisse sur~$Y$ en $x$
+\item[(ii)] $i$ est une immersion r\'eguli\`ere en $y$
+\item[(iii)] La $\cal{O}_y$-alg\`ebre compl\'et\'ee de
+$\cal{O}_x$ pour la topologie d\'efinie par les puissances de
+$\cal{J}_x$ est isomorphe \`a une alg\`ebre de s\'eries
+formelles $\cal{O}_y[[ t_1,\dots,t_n]]$.
+\item[(iii~bis)] Il existe un voisinage ouvert $U$ de~$y$ tel que le
+faisceau d'alg\`ebres $\varprojlim i^*(\cal{O}_X/\cal{J}^{n+1})$ sur~$\cal{O}_Y$ soit isomorphe \`a un faisceau de la forme
+$\cal{O}_Y[[ t_1,\dots, t_n]]$ au-dessus de~$U$.
+\item[(iv)] Il existe un voisinage ouvert $U$ de~$y$, et un voisinage
+ouvert $V$ de~$x$, et enfin un $Y$-morphisme $g \colon V \to
+U[t_1,\dots, t_n]$, tel que $g$ soit \'etale, que
+$i$
+induise une section de~$V$ sur~$U$, transform\'ee par $g$ en la
+section nulle de~$U[t_1,\dots, t_n]$ sur~$U$.
+\end{enumerate}
+\end{corollaire}
+
+L'\'equivalence
+de (i) et (ii) est un cas particulier de
+th\'eor\`eme~\ref{II.4.15}, en faisant $Y=S$, l'\'equivalence de
+(ii) et (iii) (et moralement de (ii) et (iii~bis)) a \'et\'e
+signal\'e avec les \og rappels\fg. quant \`a l'\'equivalence de (i)
+et (iv), elle se d\'eduit facilement de
+th\'eor\`eme~\ref{II.4.10} (\'equivalence des conditions (i) et
+(ii) dudit).
+
+\begin{corollaire}
+\label{II.4.18}
+Soit $X$ un pr\'esch\'ema lisse au-dessus de~$S$. Alors le
+morphisme diagonal
+$$
+\Delta_{X/S}\colon X\to X\times_S X
+$$
+est une
+\emph{immersion régulière},
+ou comme on dit encore, $X$ est \og \emph{différentiablement
+lisse}\fg sur~$S$.
+\index{diff\'erentiablement lisse|hyperpage}\end{corollaire}
+
+
+En effet, c'est un cas particulier de corollaire~\ref{II.4.16}, puisque
+$X$ et $X\times_S X$ sont tous deux lisses sur~$S$.
+
+\setcounter{subsection}{17}
+
+\begin{remarques}
+\label{rem:II.4.18}
+Rappelons (I~\ref{I.1}) que si $X$ est un pr\'esch\'ema au-dessus
+de~$S$, on introduit les faisceaux quasi-coh\'erents
+d'alg\`ebres
+$\cal{P}_{X/S}^n=\cal{O}_{X\times_S X}/\cal{I}_X^{n+1}$ sur~$X$,
+(o\`u $\cal{I}_X$ d\'esigne le faisceau
+d'id\'eaux
+qui d\'efinit la diagonale dans $X\times_S X$), consid\'er\'e comme
+faisceau de~$\cal{O}_X$-alg\`ebres gr\^ace \`a la premi\`ere
+projection $\pr_1\colon X\times_S X\to X$. Les
+$\cal{P}_{X/S}^n$ forment un syst\`eme projectif d'Alg\`ebres sur~$X$, dont la limite projective est not\'ee $\cal{P}_{X/S}^{\infty}$
+et n'est autre que le faisceau structural du compl\'et\'e formel
+de~$X\times_S X$ le long de la diagonale (en supposant maintenant $X$
+localement de type fini sur~$S$, donc les $\cal{P}_{X/S}^n$
+coh\'erents). Dire que $X$ est diff\'erentiablement lisse sur~$S$
+(\ie que le morphisme diagonal $\Delta_{X/S}$ est une immersion
+r\'eguli\`ere) signifie aussi que $\cal{P}_{X/S}^{\infty}$ est
+r\'egulier, en tant que faisceau d'alg\`ebres augment\'e vers
+$\cal{O}_X$, \ie que $\it{\Omega}_{X/S}^1$ est localement libre et
+l'homomorphisme surjectif canonique
+$$
+S_{\cal{O}_X}(\it{\Omega}_{X/S}^1)\to
+\mathrm{gr}_*(\cal{P}_{X/S}^{\infty})
+$$
+est un isomorphisme, ou enfin que tout point de~$X$
+a
+un voisinage ouvert sur lequel le faisceau
+d'alg\`ebres
+augment\'ees $\cal{P}_{X/S}^{\infty}$ soit isomorphe \`a un
+faisceau $\cal{O}_X[[t_1,\dots,t_n]]$.
+
+Soit $s$ une section de~$X$ sur~$S$, $\cal{J}$ le faisceau
+d'id\'eaux sur~$X$ qu'elle d\'efinit (supposant
+pour simplifier que $s(S)$ est ferm\'e), on a alors des
+isomorphismes canoniques de~$\cal{O}_X$-alg\`ebres augment\'ees:
+\begin{equation}
+\label{eq:II.4.4}
+s^*(\cal{P}_{X/S}^n)=\cal{O}_X/\cal{J}^{n+1}\quoi,\quad
+s^*(\cal{P}_{X/S}^{\infty})= \varprojlim_{n}
+\cal{O}_X/\cal{J}^{n+1}
+\end{equation}
+Ces isomorphismes sont fonctoriels dans un sens \'evident par
+changement de base, et (compte tenu de ce fait) redonnent une
+caract\'erisation des faisceaux d'alg\`ebres $\cal{P}_{X/S}^n$ sur~$S$. Si par exemple $S=\Spec(k)$, $k$ un corps, alors la donn\'ee
+d'une section~$s$ de~$X$ sur~$S$ \'equivaut \`a la donn\'ee d'un
+point $x$ de~$X$ rationnel sur~$k$, et les formules
+pr\'ec\'edentes signifient que l'on a un isomorphisme de
+$k$-alg\`ebres
+\begin{equation}
+\label{eq:II.4.5}
+\cal{P}_{X/S}^n(x)=\cal{O}_x/\goth{m}_x^{n+1}
+\end{equation}
+ce qui justifie le nom: \og \emph{faisceau des parties principales
+d'ordre~$n$ sur~$X$ rel. à~$S$}\fg
+\index{parties principales d'ordre~$n$ (faisceau des, syst\`eme des)|hyperpage}\label{indnot:ad1}donn\'e \`a~$\cal{P}_{X/S}^n$. On voit de plus sur
+\eqref{eq:II.4.4} que \emph{si $X$ est différentiablement lisse
+sur~$S$ en tout point de~$s(S)$, alors $X$ est lisse sur~$S$ en tout
+point de~$s(S)$}, (corollaire~\ref{II.4.17}) \emph{la réciproque
+étant également vraie} (corollaire~\ref{II.4.18}). Compte tenu
+de~\ref{II.4.13}, on en conclut facilement que si $X$ est un
+$S$-pr\'esch\'ema localement de type fini, \emph{$X$ est lisse sur~$S$ si et seulement si il est plat sur~$S$ et différentiellement
+lisse sur~$S$.} (N.B. l'hypoth\`ese de platitude est essentielle,
+comme on voit en prenant pour $X$ un sous-pr\'esch\'ema ferm\'e
+de~$S$).
+
+Notons encore, \`a titre de rappel, qu'on obtient une
+\emph{deuxième structure d'algèbre} sur~$\cal{P}_{X/S}^n$
+gr\^ace \`a la projection $\pr_2\colon X\times_S X\to X$,
+se d\'eduisant d'ailleurs de la pr\'ec\'edente \`a l'aide de
+l'\emph{involution canonique} du faisceau d'anneaux $\cal{P}_{X/S}^n$,
+induit par l'automorphisme de sym\'etrie de~$X\times_S X$. On note
+par $d_{X/S}^n$
+\label{indnot:bb}ou simplement $d^n$, l'homomorphisme de faisceaux d'anneaux
+\begin{equation}
+\label{eq:II.4.6}
+d_{X/S}^n\colon \cal{O}_X\to\cal{P}_{X/S}^n
+\end{equation}
+qui correspond \`a cette deuxi\`eme structure
+d'Alg\`ebre. Compte tenu de l'isomorphisme~\eqref{eq:II.4.4}, cet
+homomorphisme transforme une section $f$ de~$\cal{O}_X$ en une section
+$d^n(f)$ de~$\cal{P}_{X/S}^n$ dont l'image inverse par une section $s$
+de~$X$ sur~$S$ s'identifie \`a l'image canonique de~$f$ dans
+$\Gamma(X,\cal{O}_X/\cal{J}^{n+1})$. Cela justifie le nom de
+\og \emph{système des parties principales d'ordre $n$ de~$f$}\fg
+\index{systeme des parties principales d'ordre n d'une section@syst\`eme des parties principales d'ordre~$n$ d'une section|hyperpage}donn\'e \`a $d^nf$, notamment dans le cas o\`u $S=\Spec(k)$,
+envisag\'e dans la formule~\eqref{eq:II.4.5}.
+
+Pour finir, notons que l'homomorphisme \eqref{eq:II.4.6} peut \^etre
+consid\'er\'e comme l'\emph{opé\-ra\-teur différentiel
+d'ordre}~$\leq n$\footnote{Pour tout ce qui concerne le pr\'esent
+alin\'ea, on pourra consulter EGA~IV~16.8 \`a 16.12.}
+(relativement au pr\'esch\'ema des constantes $S$)
+\emph{universel}
+\index{op\'erateur diff\'erentiel d'ordre~$\leq n$ universel|hyperpage}sur~$\cal{O}_X$, en convenant d'appeler op\'erateur diff\'erentiel
+d'ordre~$\leq n$
+\index{op\'erateur diff\'erentiel d'ordre~$\leq n$|hyperpage}de~$\cal{O}_X$ dans un Module $F$, un homomorphisme de faisceaux $D$
+qui se factorise en
+$$
+D\colon \cal{O}_X\lto{d^n} \cal{P}_{X/S}^n\lto{u} F
+$$
+o\`u $u$ est un homomorphisme \emph{de~$\cal{O}_X$-Modules},
+d'ailleurs uniquement d\'etermin\'e par~$D$. Cette d\'efinition
+concorde avec la d\'efinition r\'ecurrente intuitive ($D$ est un
+op\'erateur diff\'erentiel d'ordre $\leq n$ si pour toute section
+$g$ de~$\cal{O}_X$ sur un ouvert $U$ de~$X$, $f\mto D(fg)-D(f)$ est
+un op\'erateur diff\'erentiel d'ordre $\leq n-1$ sur~$U$). Il
+s'ensuit que \emph{si $X$ est différentiablement lisse sur~$S$, le
+faisceau d'anneaux des opérateurs différentiels de tous ordres
+a la structure simple bien connue} en calcul diff\'erentiel sur les
+vari\'et\'es diff\'erentiables, et en particulier admet
+localement une base de~$\cal{O}_X$-Module
+form\'e 
+des \emph{puissances divisées} en des op\'erateurs permutables
+$\delta/\delta x_i$ $(1\leq i\leq n)$. Si~$S$ est un faisceau de
+$\QQ$-alg\`ebres ($\QQ=$ corps des rationnels) il suffit de prendre
+les polyn\^omes ordinaires en les $\delta/\delta x_i$. Dans ce cas
+d'ailleurs, et tr\`es exceptionnellement, pour que $X$ soit
+diff\'erentiablement lisse sur~$S$, il suffit d\'ej\`a que
+$\it{\Omega}_{X/S}^1$ soit localement libre.
+\end{remarques}
+
+\begin{remarque}
+\label{II.4.19}
+\index{Cohen-Macaulay (sch\'ema de)|hyperpage}La terminologie \og immersion r\'eguli\`ere\fg, \og id\'eal
+r\'egulier\fg, etc. introduite dans ce num\'ero a rencontr\'e
+une opposition assez vive et g\'en\'erale (Chevalley, Serre). On a
+propos\'e \og id\'eal de Cohen-Macaulay\fg ou \og id\'eal de
+Macaulay\fg ou \og id\'eal macaulayen\fg, ce qui moralement obligerait
+\`a adopter aussi \og immersion de Cohen-Macaulay\fg ou \og immersion de
+Macaulay\fg. Cette terminologie cependant conflicte avec une autre
+d\'ej\`a employ\'ee dans de futures r\'edactions du
+multiplodoque, o\`u un morphisme (de type fini) est dit
+\og Cohen-Macaulay\fg en un point s'il est plat en ce point, et si la
+fibre passant par ce point y a un anneau local qui soit un anneau de
+Cohen-Macaulay. En attendant de trouver une solution satisfaisante,
+nous garderons sous toutes r\'eserves la terminologie introduite
+dans ce num\'ero\footnote{C'est celle adopt\'ee dans
+EGA~$\mathrm{0}_\mathrm{IV}$~15.1.7.}.
+\end{remarque}
+
+\section{Cas d'un corps de base}
+\label{II.5}
+
+\begin{proposition}
+\label{II.5.1}
+Soient $k$ un corps, $X$ un pr\'esch\'ema de type fini sur~$k$,
+$x$ un point de~$X$ et $n$ la dimension de~$X$ en~$x$,
+$f\colon X\to\Spec k[t_1,\dots,t_n]=Y$
+un morphisme, d\'efini par des \'el\'ements
+$f_i\in\Gamma(X,\cal{O}_X)$.
+Les conditions suivantes sont \'equivalentes (et entra\^inent que
+$X$ est lisse sur~$k$ en $x$, et a fortiori r\'egulier en $x$
+d'apr\`es~\ref{II.3.1}):
+\begin{enumerate}
+\item[(i)] $f$ est \'etale en $x$.
+\item[(ii)] Les $df_i$ forment une base de~$\it{\Omega}_{X/k}^1$ en $x$.
+\item[(iii)] Les $df_i$ engendrent $\it{\Omega}_{X/k}^1$ en $x$.
+\end{enumerate}
+\end{proposition}
+
+Comme (i) implique que $X$ est lisse sur~$k$ en $x$, l'implication
+(i)$\To$(ii) est un cas particulier de~\ref{II.4.8},
+(ii)$\To$(iii) est trivial, reste \`a prouver
+(iii)$\To$(i). Or si (iii) est v\'erifi\'e, $f$ est net
+en $x$ en vertu de lemme~\ref{II.4.1}, donc (rempla\c cant $x$ par
+un voisinage ouvert) quasi-fini, donc dominant par raison de
+dimensions. Comme $Y$ est r\'egulier, il s'ensuit que $f$ est
+\'etale par (I~\ref{I.9.5}~(ii)) ou (I~\ref{I.9.11}).
+
+\begin{corollaire}
+\label{II.5.2}
+Sous les conditions pr\'eliminaires de~\ref{II.5.1}, supposons que
+$\kres(x)$
+soit une extension \emph{finie séparable} de~$k$, et
+que les $f_i$ ($1\leq i\leq n$) d\'efinissent des \'el\'ements
+de~$\goth{m}_x$. Alors les conditions pr\'ec\'edentes
+\'equivalent \`a
+\begin{enumerate}
+\item[(iv)] Les $f_i$ forment un syst\`eme de g\'en\'erateurs de
+$\goth{m}_x$ (ou encore: les $f_i$ mod $\goth{m}_x^2$ forment une base
+de~$\goth{m}_x/\goth{m}_x^2$
+sur~$\kres(x)$).
+\end{enumerate}
+\end{corollaire}
+
+En effet, (iv)$\To$(iii) en vertu de la suite exacte
+\begin{equation}
+\label{eq:II.5.1}
+\goth{m}_x/\goth{m}_x^2\to\Omega_{\cal{O}_x/k}^1\to
+\Omega_{\kres(x)/k}^1\to 0
+\end{equation}
+et compte tenu de~$\Omega_{\kres(x)/k}^1=0$ puisque $\kres(x)$ est
+\'etale sur~$k$. D'autre part (ii) implique (iv), car comme $X$ et
+$\Spec(\kres(x))$ sont lisses sur~$k$ en $x$, on peut dans la suite
+exacte pr\'ec\'edente mettre un $0$ sur la gauche en vertu de
+\ref{II.4.10}~(iv).
+
+\begin{corollaire}
+\label{II.5.3}
+Soit $x$ un point de~$X$ (de type fini sur~$k$). Si $X$ est lisse sur~$k$ en $x$, alors $\cal{O}_x$ est r\'egulier, la r\'eciproque
+\'etant vraie si
+$\kres(x)$
+est une extension finie s\'eparable
+de~$k$.
+\end{corollaire}
+
+En
+effet, la r\'eciproque r\'esulte de~\ref{II.5.2}, en prenant un
+syst\`eme r\'egulier $(f_i)$ de g\'en\'erateurs de
+$\goth{m}_x$. (N.B. au lieu de~\ref{II.5.2}, on peut aussi invoquer le
+th\'eor\`eme~\ref{II.4.15}). On conclut:
+
+\begin{proposition}
+\label{II.5.4}
+Soit $X$ un pr\'esch\'ema de type fini sur~$k$. Si $X$ est lisse
+sur~$k$, il est r\'egulier, la r\'eciproque \'etant vraie si $k$
+est parfait.
+\end{proposition}
+
+Pour la r\'eciproque, on note qu'en vertu de~\ref{II.5.3}, $X$ est
+lisse sur~$k$ en tout point ferm\'e, donc partout puisque l'ensemble
+des points o\`u il est lisse est ouvert.
+
+\begin{theoreme}
+\label{II.5.5}
+Soient $X$ un pr\'esch\'ema de type fini sur~$k$, $x$ un point de
+$X$, $n$ la dimension de~$X$ en $x$, $k'$ une extension parfaite de
+$k$. Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $X$ est lisse sur~$k$ en~$x$.
+\item[(ii)] $\it{\Omega}_{X/k}^1$ est libre de rang $n$ en~$x$.
+\item[(ii~bis)] $\it{\Omega}_{X/k}^1$ est engendr\'e par $n$
+\'el\'ements en~$x$.
+\item[(iii)] $X$ est diff\'erentiablement lisse sur~$k$ en $x$.
+\item[(iv)] Il existe un voisinage ouvert $U$ de~$x$ tel que
+$U\otimes_k k'$ soit r\'egulier (\ie les anneaux locaux de ses
+points sont r\'eguliers).
+\end{enumerate}
+\end{theoreme}
+
+On a (i)$\To$(ii) par \ref{II.4.3}~(ii), (ii)$\To$(ii~bis) trivialement et (ii~bis)$\To$(i) gr\^ace
+\`a~\ref{II.5.1}. Comme $X$ est plat sur~$k$, on a
+(i)$\Leftrightarrow$(iii) en vertu de~\ref{II.4.18}. On a
+(i)$\To$(iv) puisque lisse est invariant par extension de la
+base et implique r\'egulier, et (iv)$\To$(i) car par
+Proposition~\ref{II.5.4}, on voit que $U\otimes_k k'$ est simple sur~$k'$, donc $U$ est simple sur~$k$ par~\ref{II.4.13}.
+
+Prenant pour $x$ le point g\'en\'erique de~$X$ suppos\'e
+irr\'eductible, on trouve:
+
+\begin{corollaire}
+\label{II.5.6}
+Soit $K$ un anneau d'Artin local localis\'e d'une alg\`ebre de
+type fini sur le corps~$k$ (par exemple, $K$ peut \^etre une
+extension de type fini de~$k$), soit~$n$ le degr\'e de transcendance
+sur~$K$ de son corps r\'esiduel. Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] $K$ est une extension finie s\'eparable d'une extension
+transcendante pure $k(t_1,\dots,t_n)$ de~$k$.
+\item[(ii)]
+$\it{\Omega}^1_{X/k}$
+est un $K$-module libre de rang~$n$.
+\item[(ii~bis)]
+$\it{\Omega}^1_{X/k}$
+est un $K$-module admettant $n$
+g\'en\'erateurs.
+\item[(iii)] Le compl\'et\'e $O'$ de~$K\otimes_k K$ pour la
+topologie d\'efinie par les puissances de l'id\'eal d'augmentation
+$K\otimes_k K\to K$ est une
+$K$-alg\`ebre
+augment\'ee \og r\'eguli\`ere\fg, \ie isomorphe \`a une
+alg\`ebre de s\'eries formelles en~$K$ (N.B. Si~$K$ est un corps,
+cela \'equivaut \`a dire que~$O'$ est un anneau local
+r\'egulier).
+\item[(iv)] $K$ est une extension s\'eparable de~$k$.
+\end{enumerate}
+\end{corollaire}
+
+En effet, on peut toujours consid\'erer $K$ comme l'anneau local du
+point g\'en\'erique d'un sch\'ema de type fini
+irr\'eductible~$X$ sur~$k$, et les conditions envisag\'ees sont
+les conditions de m\^eme nom dans~\ref{II.5.5}, en prenant dans~(iv)
+pour~$k'$ une extension alg\'ebriquement close de~$k$. Seule
+l'implication $K$ s\'eparable sur~$k$ $\To$ $X$ lisse sur~$k$ en~$x$, demande une d\'emonstration. Or on est aussit\^ot
+ramen\'e gr\^ace \`a~\ref{II.4.13} au cas o\`u le corps de
+base est~$k'$, donc alg\'ebriquement clos, donc o\`u il existe un
+point $a$ de~$X$ rationnel sur~$k$. Mais alors $X$ est lisse sur~$k$
+en~$a$ d'apr\`es~\ref{II.5.4}, a fortiori il est lisse sur~$k$ en le
+point g\'en\'erique~$x$, cqfd\footnote{\Cf Errata \`a la fin du pr\'esent Exp.\, II
+(p.\, \pageref{II.fin.errata})}.
+
+On remarquera que dans le cas o\`u~$K$ est une extension de type
+fini de~$k$, l'\'equivalence de
+(i), (ii), (ii~bis), (iv)
+est bien
+connue, mais que nous ne nous sommes servis d'aucune de
+ces
+\'equivalences
+d\'ej\`a connues. Bien entendu, la
+proposition~\ref{II.5.1} contient comme cas particulier qu'une suite
+d'\'el\'ements~$x_i$ ($1\leq i\leq n$) est un \og base de
+transcendance s\'eparante\fg de~$K$ sur~$k$ si et seulement si
+les~$dx_i$ forment une base du $K$-module $\Omega^1_{K/k}$, fait bien
+connu par ailleurs.
+
+\begin{corollaire}
+\label{II.5.7} Soit $X$ un pr\'esch\'ema de type fini sur un
+corps~$k$. Pour que $X$ soit lisse sur~$k$, il faut et il suffit que
+$\it{\Omega}^1_{X/k}$
+soit localement libre, et que les anneaux locaux des
+points g\'en\'eriques des composantes irr\'eductibles de~$X$
+soient des extensions s\'eparables de~$k$ (cette derni\`ere
+condition \'etant automatiquement v\'erifi\'ee si $k$ est
+parfait et $X$ r\'eduit).
+\end{corollaire}
+
+On peut supposer $X$ connexe, soit $n$ le rang de
+$\it{\Omega}^1_{X/k}$
+suppos\'e localement libre. D'apr\`es l'hypoth\`ese
+et~\ref{II.5.6}, c'est aussi le degr\'e de transcendance des
+extensions
+de~$k$ d\'efinies par les anneaux locaux des points
+g\'en\'eriques de~$X$, donc toutes les composantes
+irr\'eductibles de~$X$ sont de dimension~$n$. On conclut alors
+gr\^ace \`a~\ref{II.5.5}.
+
+On fera attention que si $K$ est une extension finie (non
+n\'ecessairement s\'eparable) de~$k$, alors $\Omega^1_{K/k}$ est
+un $k$-module libre, donc posant $X=\Spec(K)$, $\Omega^1_{X/k}$ est un
+faisceau localement libre, et $X$ est r\'eduit, sans que $X$ soit
+n\'ecessairement lisse sur~$k$. \'Etendant alors les scalaires \`a
+la cl\^oture alg\'ebrique de~$k$, on trouve un exemple analogue,
+o\`u $k$ est alg\'ebriquement clos, mais $X$ en revanche
+n'\'etant pas r\'eduit.
+
+\begin{corollaire}\label{II.5.8}
+Soient $X$ un pr\'esch\'ema de type fini sur le corps~$k$, $x$ un
+point de~$X$, $n$ la dimension de~$X$ en~$x$, $p$ la dimension
+de~$\cal{O}_x$,
+\ie la codimension dans $X$ de l'adh\'erence $Y$ de
+$x$ dans~$X$; donc $n-p$ le degr\'e de transcendance
+de~$\kres(x)$
+sur~$k$. Soient $f_i$ ($1\leq i\leq n$) des \'el\'ements
+de~$\cal{O}_x$, tels que $f_i\in \goth{m}_x$ pour $1\leq i\leq p$. Les
+conditions suivantes sont \'equivalentes
+
+\begin{enumerate}
+\item[(i)] le germe de morphisme en~$x$
+$$
+X\to \Spec\bigl(k[t_1,\dots,t_n]\bigr)
+$$
+d\'efini par les $f_i$ est \'etale en~$x$.
+\item[(ii)] Les $f_i$ ($1\leq i\leq p$)
+engendrent~$\goth{m}_x$,
+\ie forment un syst\`eme r\'egulier de param\`etres
+de~$\cal{O}_x$, et les classes dans
+$\kres(x)$ des~$f_j$ ($p+1\leq j\leq n$) forment une base de transcendance s\'eparante, (\ie les~$d\overline{f}_j$ ($p+1\leq j\leq n$) forment une base
+de~$\Omega^1_{\kres(x)/k}$, ou encore engendrent~$\Omega^1_{\kres(x)/k}$).
+\end{enumerate}
+\end{corollaire}
+
+Supposons~(i) v\'erifi\'e. Il en r\'esulte que les $df_i(x)$
+forment une base de~$\it{\Omega}^1_{X/k}(x)$ \eqref{II.4.8} donc leurs
+images $d\overline{f}_i(x)$ dans $\Omega^1_{\kres(x)/k}$ engendrent
+cet espace vectoriel sur~$k$. Comme les $\overline{f}_i$ pour $1\leq
+i\leq p$ sont nuls, il s'ensuit qu'il suffit de prendre les
+$d\overline{f}_i(x)$ avec $p+1\leq i\leq n$. Comme le degr\'e de
+transcendance de~$\kres(x)$ sur~$k$ est~$n-p$, il r\'esulte alors
+du corollaire~\ref{II.5.6} crit\`ere~(iii) (appliqu\'e
+\`a~$K=\kres(x)$) que $Y$ est lisse sur~$k$ en son point
+g\'en\'erique~$x$, et que les~$d\overline{f}_i(x)$ ($p+1\leq i\leq
+n$) forment une \emph{base} de~$\Omega^1_{\kres(x)/k}$
+sur~$\kres(x)$. Par suite, la condition~(ii) de~\ref{II.4.9} est
+v\'erifi\'ee, donc aussi la condition~(iii) et en particulier
+les~$f_i$ ($1\leq i\leq p$) forment un syst\`eme de
+g\'en\'erateurs de~$\goth{m}_x$. Comme
+$\cal{O}_x$ est de dimension~$p$, ils forment donc un syst\`eme
+r\'egulier de param\`etres en~$x$. Cela prouve~(ii).
+
+Supposons~(ii) v\'erifi\'e. En vertu de la suite
+exacte~\eqref{II.5.1}, il s'ensuit que les~$df_i(x)$
+engendrent~$\it{\Omega}^1_{X/k}$,
+d'o\`u~(i) gr\^ace \`a~prop.\, \ref{II.5.1}.
+
+\begin{corollaire}
+\label{II.5.9} Soient~$X$ un pr\'esch\'ema de type fini sur le
+corps~$k$, $x$ un point de~$X$, $n$ la dimension de~$X$ en~$x$, $p$ la
+dimension
+de~$\cal{O}_x$,
+\ie la codimension de l'adh\'erence~$Y$
+de~$x$ dans~$X$, donc~$n-p$ le degr\'e de transcendance
+de~$\kres(x)$
+sur~$k$. Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] $\cal{O}_x$ est r\'egulier
+et~$\kres(x)$
+ est une
+extension s\'eparable de~$k$.
+\item[(ii)] $X$ est lisse sur~$k$ en~$x$, et l'homomorphisme canonique
+$$
+\goth{m}_x/\goth{m}_x^2\to
+\Omega^1_{\cal{O}_x/k}\otimes_{\cal{O}_x}
+\kres(x)=\it{\Omega}^1_{X/k}(x)
+$$
+est injectif.
+\item[(iii)] Il y a des~$f_i\in \cal{O}_x$ ($1\leq i\leq n$)
+avec~$f_i\in \goth{m}_x$ pour~$1\leq i\leq p$, tels que le germe de
+morphisme en~$x$ de~$X$ dans~$\Spec\bigl(k[t_1,\dots,t_n]\bigr)$
+d\'efini par les~$f_i$ soit \'etale en~$x$ (\ie par~\ref{II.5.1}
+tels que les~$df_i(x)$ engendrent~$\it{\Omega}^1_{X/k}(x)$).
+\item[(iv)] Il y a des~$f_i\in \cal{O}_x$ ($1\leq i\leq n$) tels que
+les~$f_i$ ($1\leq i\leq p$) engendrent~$\goth{m}_x$ et que
+les~$df_j(x)$ ($p+1\leq j\leq n$) 
+engendrent~$\Omega^1_{\kres(x)/k}$ sur~$\kres(x)$.
+\end{enumerate}
+\end{corollaire}
+
+L'\'equivalence de~(iii) et~(iv) r\'esulte du
+corollaire~\ref{II.5.8}, ces conditions \'equivalent aussi
+d'apr\`es~\ref{II.4.9} au fait que~$X$ est lisse sur~$k$ en~$x$ et
+que la condition~(ii)
+de~\ref{II.4.10}
+est v\'erifi\'ee. Donc elles \'equivalent au fait que~$X$ est
+lisse sur~$k$ en~$x$ et que la condition~(iv) de~\ref{II.4.10} est
+v\'erifi\'ee, donc \`a~\ref{II.5.9}~(ii). Ou au fait que~$X$ est
+lisse sur~$k$ en~$x$ et que la condition~(i) de~\ref{II.4.10} est
+v\'erifi\'ee, qui ici signifie simplement
+que~$\kres(x)$
+est
+s\'eparable sur~$k$. Cela implique~\ref{II.5.9}~(i), il reste \`a
+prouver que~\ref{II.5.9}~(i) l'implique, \ie \`a prouver le
+
+\begin{corollaire}
+\label{II.5.10}
+Soit~$x$ un point
+d'un
+pr\'esch\'ema de type fini sur le corps~$k$, tel
+que~$\kres(x)$
+soit s\'eparable sur~$k$. Pour que~$X$ soit lisse sur~$k$ en~$x$,
+il faut et il suffit qu'il soit r\'egulier en~$x$ (\ie que l'anneau
+local~$\cal{O}_x$ soit r\'egulier).
+\end{corollaire}
+
+En effet, s'il en est ainsi, on peut \'evidemment trouver
+des~$f_i\in \cal{O}_x$ ($1\leq i\leq n$) satisfaisant la
+condition~\ref{II.5.9}~(iv).
+
+\subsection*{Errata}
+\label{II.fin.errata}
+Dans
+le pr\'esent num\'ero, d\'emonstration de~\ref{II.5.6}, on
+a utilis\'e le fait qu'un sch\'ema de type fini r\'eduit non
+vide sur un corps alg\'ebriquement clos admet au moins un point
+r\'egulier (donc lisse), fait qui se d\'emontre d'habitude par
+voie diff\'erentielle (via le th\'eor\`eme de Zariski que
+l'ensemble des points r\'eguliers de~$X$ est ouvert). Si on veut
+\'eviter un cercle vicieux, il faut d\'emontrer que si~$K/k$ est
+une extension s\'eparable de type fini, et si les~$f_i\in K$ sont
+tels que~$d_{K/k}f_i$ forment une base de~$\Omega^1_{K/k}$, ($1\leq
+i\leq n$), alors~$n$ est le degr\'e de transcendance de~$K$
+sur~$k$,
+\ie les~$f_i$ sont alg\'ebriquement ind\'ependants. La
+d\'emonstration de ce fait \`a l'aide du crit\`ere de
+Mac Lane
+est bien connue, \cf Bourbaki, Alg\`ebre, Chap.\, V par.\, 9 th.\, 2: on
+prend un polyn\^ome~$g\in k[t_1,\dots,t_n]$ de degr\'e minimal
+tel que~$g(f_1,\dots,f_n)=0$, on a donc
+$$
+\sum\frac{dg}{d t_i}(f_1,\dots,f_n) df_i=0
+$$
+d'o\`u (puisque les~$df_i$ forment une base de~$\Omega^1_{K/k}$) le
+fait que les~$dg/d t_i$ annulent~$(f_1,\dots,f_n)$, donc sont nuls
+d'apr\`es le caract\`ere minimal de~$g$, donc si~$k$ est de
+caract\'eristique~$0$ on a~$g=0$, et si~$k$ est de
+caract\'eristique~$p\neq 0$ on a~$g=h(t_1^p,\dots,t_n^p)$.
+Utilisant le crit\`ere de
+Mac Lane,
+on voit que le
+polyn\^ome~$h\in k[t_1,\dots,t_n]$ annule aussi~$(f_1,\dots,f_n)$,
+d'o\`u encore~$g=0$ par le caract\`ere minimal de~$g$.
+

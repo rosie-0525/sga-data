@@ -1,0 +1,638 @@
+%%% LES PACKAGES, DANS L'ORDRE %%%
+
+\RequirePackage{ifpdf}
+% On teste si la compilation se fait avec latex ou pdflatex.
+% Si pdflatex, on charge hyperref et on modifie certaines
+% commandes des classes smf en consequence
+% (merci a Antoine Chambert-Loir).
+
+ \ifpdf
+\let\org@bibitem\@bibitem
+\let\org@lbibitem\@lbibitem
+ \RequirePackage[%
+               colorlinks,hyperindex,breaklinks,
+               hypertexnames=true,
+               plainpages=false,
+               pdfpagelabels]
+               {hyperref}
+
+\AtBeginDocument{%
+\def\@schapter[#1]#2{%
+  \def\@currentlabelname{#1}%
+   \begingroup
+   \let\@mkboth\@gobbletwo
+   \Hy@GlobalStepCount\Hy@linkcounter
+   \xdef\@currentHref{\Hy@chapapp*.\the\Hy@linkcounter}%
+   \Hy@raisedlink{\hyper@anchorstart{\@currentHref}\hyper@anchorend}%
+   \endgroup
+  \H@old@schapter[{#1}]{#2}
+}}
+
+\def\@@wrindex#1|#2|#3\\{%
+    \ifx\\#2\\%
+        \protected@write\@indexfile{}{%
+          \string\indexentry{#1}{\thepage}%
+        }%
+    \else
+        \def\Hy@temp@A{#2}%
+        \ifx\Hy@temp@A\HyInd@ParenLeft
+          \protected@write\@indexfile{}{%
+             \string\indexentry{#1|#2}{\thepage}%
+          }%
+        \else
+          \protected@write\@indexfile{}{%
+            \string\indexentry{#1|#2}{\thepage}%
+          }%
+        \fi
+      \fi
+      \endgroup
+      \@esphack
+    }%
+
+\@ifpackageloaded{backref}{%
+\def\BR@@lbibitem[#1]#2#3\par{%
+  \org@lbibitem[#1]{#2}#3
+  \newblock
+  \backref{\csname br@#2\endcsname}%
+  \par
+}%
+\def\BR@@bibitem#1#2\par{%
+  \org@bibitem{#1}#2
+  \newblock
+  \backref{\csname br@#1\endcsname}%
+  \par
+}
+\AtBeginDocument{%
+\def\thebibliography{%
+  % \@starttoc{brf}{}%
+  \BRorg@thebibliography
+}%
+}
+
+}
+
+\def\H@old@sect#1#2#3#4#5#6[#7]#8{%
+ \edef\@toclevel{\ifnum#2=\@m 0\else\number#2\fi}%
+ \ifnum #2>\c@secnumdepth
+    \let\@secnumber\@empty
+    \let\@svsec\@empty
+    \let\@svnl\@empty
+    \let\@svspace\@empty
+ \else
+   \@xp\let\@xp\@secnumber\csname the#1\endcsname
+    \refstepcounter{#1}%
+    \@xp\ifx\csname #1name\endcsname\@empty
+        \let\@svnl\@empty
+        \def\@svspace{.\enspace}\def\@svsec{\csname the#1\endcsname}%
+    \else
+         \def\@svsec{\ignorespaces\csname #1name\endcsname\space
+                  \protect\textup{\csname the#1\endcsname}}%
+         \let\@svspace\@empty
+         \def\@svnl{\@@par\nobreak\smallskip\nobreak}%
+    \fi
+  \fi
+  \@tempskipa #5\relax
+  \ifsmf@skippt\@tempskipa 1sp\smf@skipptfalse\fi
+  \ifdim \@tempskipa>\z@
+    \begingroup
+       #6{\@hangfrom{\hskip #3\relax\@svsec\@svspace}%
+          \@svnl
+          \interlinepenalty\@M #8\@@par}%
+    \endgroup
+    \csname #1mark\endcsname{#7}%
+    \ifnum#2>\@m \else \@tocwrite{#1}{#8}\fi
+    \par \nobreak
+    \vskip \@tempskipa
+    \global\@nobreaktrue
+    \@afterheading
+  \else
+    \def\@svsechd{#6{\hskip #3\relax\@svsec\@svspace #8%
+         \ifnum#2>\@m \else \@tocwrite{#1}{#8}\fi }}%
+    \global\@nobreakfalse \global\@noskipsectrue
+    \everypar{%
+      \if@noskipsec
+        \global\@noskipsecfalse
+        \clubpenalty\@M \hskip -\parindent
+        \begingroup
+          \def\Sectionformat##1##2{%
+           \@ifnotempty{##1}%
+               {\ignorespaces ##1\pointrait\nobreak\ \ignorespaces}}%
+           \@svsechd
+        \endgroup
+        \unskip
+        \@tempskipa#5\relax\hskip -\@tempskipa
+      \else
+        \clubpenalty \@clubpenalty
+        \everypar{}%
+      \fi}%
+  \fi
+}
+     \hypersetup{pdftex}
+  \else
+     \def\hyperpage{}
+ \fi
+
+
+%% PACKAGES SMF %%
+\RequirePackage{smfenum,smfthm}
+
+%% AUTRES PACKAGES %%
+\RequirePackage[all,ps,cmtip]{xy}\def\labelstyle{\textstyle}
+\RequirePackage[francais,english]{babel}
+\RequirePackage{ae}
+     \def\selectguillfont{\fontencoding{T1}\fontfamily{ptm}\selectfont}%
+     \def\guillemotleft{{\selectguillfont\symbol{19}}}%
+     \def\guillemotright{{\selectguillfont\symbol{20}}}%
+\RequirePackage{mathrsfs}
+\RequirePackage{url,xspace}
+\RequirePackage{amssymb}
+\RequirePackage{ifthen}
+
+%%% FIN DES PACKAGES %%%
+
+%% MACROS EDIXHOVEN (ARXIV) %%
+\newboolean{orig}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theequation}{\arabic{equation}}
+
+\theoremstyle{plain}
+\newtheorem{theoreme}[subsection]{Th\'eor\`eme}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{lemme}[subsection]{Lemme}
+\newtheorem{corollaire}[subsection]{Corollaire}
+\newtheorem{corollaires}[subsection]{Corollaires}
+\newtheorem{theoremedefinition}[subsection]{Th\'eor\`eme et d\'efinition}
+\newtheorem{subproposition}[subsubsection]{Proposition}
+\newtheorem{sublemme}[subsubsection]{Lemme}
+
+%% And a *-form (i.e., without numbering) of some of these.
+\newtheorem*{corollairestar}{Corollaire}
+\newtheorem*{propositionstar}{Proposition}
+
+%% And those that do not have their text underlined. 
+
+\theoremstyle{remark}
+\newtheorem{definition}[subsection]{D\'efinition}
+\newtheorem{definitions}[subsection]{D\'efinitions}
+\newtheorem{remarque}[subsection]{Remarque}
+\newtheorem{remarques}[subsection]{Remarques}
+\newtheorem{exemples}[subsection]{Exemples}
+\newtheorem{exemple}[subsection]{Exemple}
+\newtheorem{subdefinition}[subsubsection]{D\'efinition}
+\newtheorem{subremarque}[subsubsection]{Remarque}
+
+%% And a *-form: 
+\newtheorem*{definitionstar}{D\'efinition}
+\newtheorem*{remarquestar}{Remarque}
+\newtheorem*{remarquesstar}{Remarques}
+\newtheorem*{scholiestar}{Scholie}
+
+%% For the equations.
+
+\numberwithin{equation}{section}
+
+%% The choice for the script font. Some underlined math symbols become
+%% script. For example: \mathcal{O} for structure sheaves. 
+
+\renewcommand{\mathcal}{\mathscr}
+
+%% The choice for the black board bold font.
+
+\let\Bbb\mathbb
+
+%% The choice for the gothic font. These are handwritten in the typed
+%% text. 
+
+\let\goth\mathfrak
+
+%% Other calligaphic font (for analytic spaces). Suggestion of Serre.
+
+\DeclareMathAlphabet{\othercal}{U}{eus}{m}{n}
+
+%% make the old font selection commands from LaTeX 2.09 work as the
+%% ones we want, but only in math mode. 
+
+\let\rm\mathrm
+\let\it\mathit
+\let\bf\mathbf
+\let\cal\mathcal
+
+
+%% Macros. See AMSLaTex user's guide for explanations. 
+
+\newcommand{\an}{\mathrm{an}}
+%% for analytic spaces etc. 
+\DeclareMathOperator{\Aut}{Aut}
+%% group of automorphisms
+\DeclareMathOperator{\SheafAut}{\mathbf{Aut}}
+%% sheaf of automorphism groups
+\DeclareMathOperator{\car}{car}
+%% caract\'eristique
+\DeclareMathOperator{\card}{card}
+%% cardinal
+\newcommand{\cart}{\mathrm{cart}}
+%% cartesian
+\newcommand{\Cat}{\mathbf{Cat}}
+%% category of categories
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\coprof}{coprof}
+\DeclareMathOperator{\diag}{diag}
+%% for diagonal
+\DeclareMathOperator{\divisor}{\mathrm{div}}
+%% for divisor of a function
+\newcommand{\Ens}{\mathbf{Ens}}
+%% category of sets
+\newcommand{\et}{\mathrm{\acute{e}t}}
+%% plus accent 
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Fer}{Fer}
+%% set of closed subsets
+\newcommand{\Fib}{\mathrm{Fib}}
+%% for axioms of fibered category
+\DeclareMathOperator{\Fl}{\mathrm{Fl}}
+%% arrows in a category
+\DeclareMathOperator{\CatFl}{\mathbf{Fl}}
+%% category of arrows, page 183
+\ifthenelse{\boolean{orig}}
+{\DeclareMathOperator{\Gl}{G\ell}}
+{\DeclareMathOperator{\Gl}{\mathbf{GL}}}
+\ifthenelse{\boolean{orig}}
+{\DeclareMathOperator{\GL}{\mathbf{Gl}}}
+{\DeclareMathOperator{\GL}{\mathbf{GL}}}
+%% general linear group ('\mathbf' asked by P. Colmez)
+%% two notations in the original text, unified in the corrected text
+\DeclareMathOperator{\gr}{gr}
+%% graded 
+\DeclareMathOperator{\Gal}{Gal}
+%% for Galois group
+\renewcommand{\H}{\mathrm{H}}
+%% replaces the old \H (what did it do?); this one is for (co)homology.
+\DeclareMathOperator{\Hom}{Hom}
+%% set of morphisms
+\DeclareMathOperator{\SheafHom}{\mathbf{Hom}}
+\DeclareMathOperator{\hop}{hop}
+%% occurs on page 424 (what is it?)
+\newcommand{\id}{\mathrm{id}}
+%% identity morphism
+\DeclareMathOperator{\Imm}{Im}\let\Im\Imm
+%% replaces old \Im (Imaginary part of complex number)
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\SheafIsom}{\mathbf{Isom}}
+
+\newcommand{\kres}{\mathit{k}}
+%% for residue field of a local ring; \renewcommand below suppressed
+%%%\renewcommand{\k}{\mathrm{k}}
+%%%this replaces an existing \k, of
+%%% which I hope that we don't need it.  
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator*{\Lim}{Lim}
+\DeclareMathOperator{\Norm}{N}
+\DeclareMathOperator{\Ob}{\mathrm{Ob}}
+\DeclareMathOperator{\Ouv}{Ouv}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Pro}{Pro}
+\DeclareMathOperator{\Prodash}{Pro-}
+\DeclareMathOperator{\prof}{prof}
+\DeclareMathOperator{\Proj}{Proj}
+%% for projective scheme 
+\DeclareMathOperator{\Quot}{Quot} 
+%\DeclareMathOperator{\R}{R}
+\newcommand{\R}{\mathrm{R}}
+%% for right-derivation of functors
+\newcommand{\red}{\mathrm{r\acute{e}d}}
+%% for reduced closed subscheme
+\newcommand{\Sch}{\mathbf{Sch}}
+\DeclareMathOperator{\Symp}{\mathbf{Sp}}
+%% symplectic group ('\mathbf' asked by P. Colmez)
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Supp}{Supp}
+%% for the support of a sheaf
+\DeclareMathOperator{\Symm}{Symm}
+%% for symmetric powers
+\newcommand{\tame}{\mathrm{t}}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\trace}{tr}
+%% trace morphism
+\newcommand{\Univ}{\mathbf{Univ}}
+%% universe
+
+
+%% Some composite symbols.
+
+\newcommand{\isomto}{\overset{\sim}{\longrightarrow}}
+\newcommand{\isomfrom}{\overset{\sim}{\longleftarrow}}
+
+
+%% Some special symbols in blackboard bold font.
+%% ('\mathbf' asked by P. Colmez)
+
+\def\AA{\mathbf{A}}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\GG}{\mathbf{G}}
+%% G for multiplicative/additive group.
+\newcommand{\LL}{\Bbb{L}}
+%% finite set of primes. 
+\newcommand{\PP}{\mathbf{P}}
+%% P for projective space. 
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\VV}{\mathbf{V}}
+%% vector bundle associated to an O_X-module
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\WW}{\mathbf{W}}
+%sch\'ema en groupes de Witt
+
+%% In order to make left superscripts easy to type (one can type 
+%% ${}^e F$  for example, but then the height of the exponent does not
+%% take what is after it into account). 
+
+\newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
+
+
+%% In order to prevent line breaks in formulas (I learned this from
+%% Rutger Noot).
+
+\relpenalty=10000 \binoppenalty=10000
+
+
+%% In order to avoid too many overfull hboxes and so on for the
+%% moment. 
+
+\sloppy
+
+
+
+%%% AJOUTS SMF %%%
+
+%% MODIFICATION DES STANDARDS %%
+\ps@headings
+\def\th@plain{%
+  \let\thm@indent\noindent
+  \thm@headfont{\fontfamily{ptm}\bfseries\itshape}%
+  \thm@notefont{\fontfamily{ptm}\bfseries\upshape}%
+  \thm@preskip.5\linespacing \@plus .5\linespacing
+  \thm@postskip\thm@preskip
+  \thm@headpunct{\pointrait}
+  \let\thmheadnl\relax
+  \itshape }
+\def\abstractheadfont{\fontfamily{ptm}\bfseries\itshape}
+\def\@savehyphenpenalty{\xdef\@tmphyphpenalty{\the\hyphenpenalty}}
+\def\@restorehyphenpenalty{%
+  \expandafter\expandafter\global\expandafter\hyphenpenalty\@tmphyphpenalty}
+\DeclareRobustCommand{\emergencyhyphenate}{\global\hyphenpenalty9999\relax}
+\def\@tocline#1#2#3#4#5#6#7{\relax
+  \@savehyphenpenalty
+  \ifnum #1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty\addvspace{#2}%
+    \begingroup \hyphenpenalty\tochyphenpenalty
+    \@ifempty{#4}{%
+      \@tempdima\csname r@tocindent\number#1\endcsname\relax
+    }{%
+      \@tempdima#4\relax
+    }%
+    \parindent\z@ \leftskip#3\relax
+      \advance\leftskip\@tempdima\relax
+    \advance\rightskip\@pnumwidth % plus1em
+    \parfillskip-\@pnumwidth
+    {#5{\leavevmode\hskip-\@tempdima #6}}%
+    \hskip 1ex\nobreak
+    \xleaders\hbox to1ex{\normalfont\hss.\hss}\hfil\nobreak
+    \hbox to\@pnumwidth{\@tocpagenum{#7}}\par
+    \nobreak
+    \endgroup
+  \fi
+  \@restorehyphenpenalty}
+
+
+%% PAGES DE TITRE %%
+\def\smf@titlei{\clearpage\thispagestyle{empty}
+\setcounter{page}{3}
+\vspace*{-2cm}\enlargethispage{2cm}
+\bgroup
+\begin{center}\bfseries
+  \mbox{ }
+  \vfil\vfil
+  {\large\bfseries\MakeUppercase{%
+  S\'eminaire de G\'eom\'etrie Alg\'ebrique du~Bois~Marie}
+\par\medskip
+1960--61
+\par\vspace*{1cm}
+\huge\bfseries\MakeUppercase{%
+Rev\^etements \'etales et\\ groupe fondamental} \par\medskip
+\smaller (SGA 1)
+%
+  \par}
+  \vfil
+  \def\and{\par\medskip}\centering
+  {\LARGE Un s\'eminaire dirig\'e par
+A.\ Grothendieck\par\vspace*{.5cm} \smaller
+Augment\'e de deux expos\'es de
+\\
+Mme M.\ Raynaud\par
+\vspace*{1.5cm} \smaller
+{\fontfamily{ptm}\bfseries\itshape \'Edition recompos\'ee
+\ifthenelse{\boolean{orig}}{}{et annot\'ee}
+du volume 224 des Lecture Notes in Mathematics\\
+publi\'e en 1971 par Springer-Verlag}\par}
+  \vfil\vfil
+ \mbox{ }
+\end{center}
+\vfilneg
+\egroup}
+
+\def\smf@titleii{}
+\def\smf@titleiii{}
+
+%% BIBLIOGRAPHIE %%
+\def\bibliofont{\def\baselinestretch{1}\normalfont}
+\renewenvironment{thebibliography}[2]{%
+  \section{\bibname}\label{#2}%
+  \normalfont\labelsep .5em\relax
+  \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+  \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \itemindent 0pt
+    \leftmargin\labelwidth \advance\leftmargin\labelsep
+    \usecounter{enumiv}}%
+    \itemsep 0.1\baselineskip plus0.1\baselineskip
+        minus0.1\baselineskip
+    \bibliofont
+  \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+  \sfcode`\.=\@m
+}{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+}
+
+%% INDEX %%
+\def\oldindexnot#1{}
+%\def\indexterm#1{\index{#1}}
+\let\indexspace\bigskip
+\makeindex
+
+%% AUTRES MACROS %%
+\let\makeschapterhead\@makeschapterhead
+
+\arraycolsep1.5pt
+\marginparwidth=20pt
+
+\theoremstyle{plain}
+\newtheorem*{theoreme*}{Th\'eor\`eme}
+\newtheorem{theoremedepurete}[subsection]{Th\'eor\`eme de puret\'e}
+
+\def\lcrochetbf{{\fontfamily{ptm}\bfseries\upshape[}}
+\def\rcrochetbf{{\fontfamily{ptm}\bfseries\upshape]}}
+%% Pour encadrer les ajouts 2003
+
+\newenvironment{remarqueMR}{\begin{enonce*}[remark]{\lcrochetbf Remarque}[ajout\'ee en 2003 (MR)]}{\unskip\rcrochetbf\end{enonce*}}
+%% Pour les remarques ajout\'ees par M. Raynaud
+
+\def\to{\mathchoice{\longrightarrow}{\rightarrow}{\rightarrow}{\rightarrow}}
+\def\from{\mathchoice{\longleftarrow}{\leftarrow}{\leftarrow}{\leftarrow}}
+\def\mto{\mathchoice{\longmapsto}{\mapsto}{\mapsto}{\mapsto}}
+\def\To{\mathchoice{\Longrightarrow}{\Rightarrow}{\Rightarrow}{\Rightarrow}}
+\def\From{\mathchoice{\Longleftarrow}{\Leftarrow}{\Leftarrow}{\Leftarrow}}
+\def\lto#1{\mathchoice{\xrightarrow{\labelstyle~~#1~}}{\stackrel{#1}{\longrightarrow}}{}{}}
+\def\mlto#1{\mathrel{\mapstochar\lto{#1}}}
+\def\lfrom#1{\mathchoice{\xleftarrow{\labelstyle~~#1~}}{\stackrel{#1}{\longleftarrow}}{}{}}
+
+\let\leq\leqslant
+\let\geq\geqslant
+\let\le\leqslant
+\let\ge\geqslant
+\let\dpl\displaystyle
+\let\skpt\skippointrait
+
+\def\cf{{cf.}\kern.3em}
+\def\Cf{{Cf.}\kern.3em}
+\def\ie{{i.e.}\kern.3em}
+\def\iev{{i.e.},\xspace}
+\def\loccit{loc.\kern2pt cit.\xspace}
+
+\let\oldS\S
+\def\S{\oldS\kern .15em }
+\def\ptbl{.\kern .2em }
+\def\resp{resp.\xspace}
+
+\let\bar\overline
+\let\hat\widehat
+\let\tilde\widetilde
+
+\def\bbalpha{\boldsymbol{\alpha}}
+\def\bbmu{\boldsymbol{\mu}}
+
+
+\def\varLim@#1#2{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font Lim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\def\varinjLim{%
+  \mathop{\mathpalette\varLim@{\rightarrowfill@\textstyle}}\nmlimits@
+}
+\def\varprojLim{%
+  \mathop{\mathpalette\varLim@{\leftarrowfill@\textstyle}}\nmlimits@
+}
+
+%Pour varinjlim, varprojlim
+\let\nmlimits@\displaylimits
+
+\newenvironment{enumerateb}{\begin{enumerate}}{\end{enumerate}}
+
+\newcommand{\Ref}[1]{\textup{\ref{#1}}}
+%%Les references utilisent \Ref ou \eqref, en \textup
+
+\DeclareMathOperator{\Ind}{Ind}
+
+\def\quoi{}
+%% Mis avant la ponctuation des formules,
+%% pour unifier des espacements variables
+
+\def\tbigcap{\mathop{\textstyle\bigcap}\limits}
+\def\tbigwedge{\mathop{\textstyle\bigwedge}\limits}
+
+\let\rd=d
+%%\def\rd{\mathrm{d}}
+%% diff\'erentielle en rm supprim\'ee,
+%% trop difficile de garder la coh\'erence dans le texte.
+\def\sp{\mathrm{sp}}
+\def\tH{{}^t\!H}
+\def\bbullet{{\scriptscriptstyle\bullet}}
+
+\def\res{\mathrm{r\acute{e}s}}
+\def\alg{\mathrm{alg}}
+\def\pr{\mathrm{pr}}
+
+\def\fets{\ifthenelse{\boolean{orig}}%
+                 {\textup{f}.~et~\textup{s}.\xspace}
+                 {faut et il suffit\xspace}}
+\def\sss{\ifthenelse{\boolean{orig}}{sss\xspace}{si et seulement si\xspace}}
+
+\def\pieme{\ifthenelse{\boolean{orig}}{$p$.\`eme\xspace}{$p$-i\`eme\xspace}}
+\def\nieme{\ifthenelse{\boolean{orig}}{$n$.\`eme\xspace}{$n$-i\`eme\xspace}}
+\def\niemes{\ifthenelse{\boolean{orig}}{$n$.\`emes\xspace}{$n$-i\`emes\xspace}}
+\def\Nieme{\ifthenelse{\boolean{orig}}{$N$.\`eme\xspace}{$N$-i\`eme\xspace}}
+\def\Niemes{\ifthenelse{\boolean{orig}}{$N$.\`emes\xspace}{$N$-i\`emes\xspace}}
+
+
+% Changement de l en \ell en mode math
+\mathcode`l="7160 % l -> \ell 
+%introduit avant le chapitre 1
+
+% Il faut empecher la correction dans les macros qui ecrivent un l
+\newcommand{\Nonchangel}[1]{%
+\expandafter\let\csname old\string#1\endcsname=#1
+\let#1=\relax
+\newcommand{#1}{\mathcode`l="716C\csname old\string#1\endcsname\mathcode`l="7160 }%
+}
+%par exemple
+\Nonchangel{\log}
+\Nonchangel{\ln}
+\Nonchangel{\lim}
+\Nonchangel{\limsup}
+\Nonchangel{\liminf}
+\Nonchangel{\varlimsup}
+\Nonchangel{\varliminf}
+\Nonchangel{\varinjlim}
+\Nonchangel{\varprojlim}
+%etc. et pour sga1:
+\Nonchangel{\Fl}
+\Nonchangel{\CatFl}
+\Nonchangel{\Gal}
+\Nonchangel{\alg}
+
+\let\oldurl\url
+\def\url#1{\mathcode`l="716C\oldurl{#1}\mathcode`l="7160 }%
+
+
+%% PARENTHESES DROITES MEME EN ITALIQUE %%
+\input{ursfs.fd}
+\ifpdf
+   \RequirePackage{color}
+\else
+\fi
+% Introduits a cause d'une incompatibilite avec ce qui suit
+
+\let\oparen(
+\let\fparen)
+
+% \edef\shortitdefault{\itdefault}
+
+\catcode`\(\active
+\catcode`\)\active
+\def({\ifmmode\oparen\else\textup\oparen\fi}
+\def){\ifmmode\fparen\else\textup\fparen
+%   \ifx\f@shape\shortitdefault\!\fi
+\fi}
+
+\let\oldxymatrix\xymatrix
+\def\xymatrix{\let(\oparen\let)\fparen\oldxymatrix}
+%Correction pour la compatibilite avec xyPic
+%Ce n'est pas parfait !

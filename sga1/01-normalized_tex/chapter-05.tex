@@ -1,0 +1,2214 @@
+\chapter{Le groupe fondamental: g\'en\'eralit\'es}
+\label{V}
+
+\setcounter{section}{-1}
+\section{Introduction}
+
+Le pr\'esent S\'eminaire est la suite du S\'eminaire 1960. Nous
+r\'ef\'erons \`a ce dernier par des sigles tels que I~\ref{I.9.7}
+qui signifie: S\'eminaire de G\'eom\'etrie Alg\'ebrique,
+expos\'e~I, \No9.7. Les num\'eros des expos\'es de 1961 suivront
+ceux de 1960. Nous r\'ef\'erons aux \'El\'ements de
+G\'eom\'etrie Alg\'ebrique de Dieudonn\'e-Grothendieck par des
+sigles tels que (EGA~I 8.7.3).
+
+Le pr\'esent expos\'e r\'esume (avec de l\'egers
+compl\'ements) les derniers expos\'es de 1960, qui n'avaient pas
+\'et\'e r\'edig\'es.
+
+Comme en 1961, nous nous limiterons en r\`egle g\'en\'erale
+\`a des pr\'esch\'emas localement noeth\'eriens, bien que
+souvent cette restriction soit inessentielle. Nous admettrons dans
+l'expos\'e \ref{VI} la th\'eorie de la descente fid\`element plate,
+r\'esum\'ee dans S\'eminaire Bourbaki \No190. S'il y a lieu,
+nous en donnerons un expos\'e plus d\'etaill\'e dans un
+expos\'e ult\'erieur\footnote{\Cf Exp.\, \ref{VI} et Exp.\, \ref{VIII}}, une fois
+que le lecteur aura eu l'occasion de se convaincre de l'utilit\'e de
+cette technique, pour la th\'eorie du groupe fondamental.
+
+\section{Pr\'esch\'ema \`a groupe fini d'op\'erateurs,
+pr\'esch\'ema quotient}
+\label{V.1}
+
+Soient $X$ un pr\'esch\'ema, $G$ un groupe fini op\'erant sur~$X$ par automorphismes, \`a droite pour fixer les id\'ees. Si $X$
+est affine d'anneau $A$, $G$ op\`ere donc par automorphismes \`a
+gauche sur~$A$.
+
+Pour tout pr\'esch\'ema $Z$, $G$ op\`ere \`a gauche sur
+l'ensemble $\Hom(X,Z)$,
+on peut donc consid\'erer l'ensemble
+$$
+\Hom(X,Z)^G
+$$
+des morphismes invariants par $G$. Il d\'epend fonctoriellement de
+$Z$,
+on peut se demander si ce foncteur est \og repr\'esentable\fg,
+\ie isomorphe \`a un foncteur $Z\mto\Hom(Y,Z)$.
+Cela signifie qu'on peut trouver un pr\'esch\'ema $Y$, et un
+morphisme invariant par $G$
+$$
+p\colon X\to Y
+$$
+tel que pour tout $Z$, l'application correspondante $g\mto gp$
+$$
+\Hom(Y,Z)\to \Hom(X,Z)^G
+$$
+soit bijective. On dit alors que $(Y,p)$ est un
+\emph{préschéma quotient}
+\index{quotient (pr\'esch\'ema)|hyperpage}de~$X$
+par~$G$
+(il est d\'etermin\'e \`a isomorphisme unique pr\`es).
+
+\begin{proposition}
+\label{V.1.1}
+Soient $A$ un anneau sur lequel le groupe fini $G$ op\`ere \`a
+gauche, $B=A^G$ le sous-anneau des invariants de~$A$, $X=\Spec(A)$ et
+$Y=\Spec(B)$, $p\colon X\to Y$ le morphisme canonique (\'evidemment
+invariant par $G$). Alors
+\begin{enumerate}
+\item[(i)] $A$ est entier sur~$B$ \ie $p$ est un morphisme
+\emph{entier}.
+\item[(ii)] Le morphisme $p$ est surjectif, ses fibres sont les
+trajectoires de~$G$, la topologie de~$Y$ est quotient de celle de~$X$.
+\item[(iii)] Soit $x\in X$, $y=p(x)$, $G_x$ le stabilisateur de~$x$, alors
+$\kres(x)$ est une extension alg\'ebrique quasi-galoisienne de
+$\kres(y)$ et l'application canonique de~$G_x$ dans le groupe
+$\Gal(\kres(x)/\kres(y))$ des $\kres(y)$-automorphismes de
+$\kres(x)$
+est
+surjective.
+\item[(iv)] $(Y,p)$ est un pr\'esch\'ema quotient de~$X$ par $G$.
+\end{enumerate}
+\end{proposition}
+
+Les \'enonc\'es
+(i), (ii), (iii)
+sont bien connus en alg\`ebre
+commutative\footnote{\Cf N. Bourbaki, Alg. Comm. Chap.\, 5, \S 1 et \S
+2, th.\, 2.} et sont mis seulement pour m\'emoire, sauf l'assertion
+sur la topologie, qui provient du fait g\'en\'eral suivant,
+cons\'equence facile du th\'eor\`eme de Cohen-Seidenberg: un
+morphisme entier est ferm\'e (\ie transforme ferm\'es en
+ferm\'es). Notons tout de suite:
+
+\begin{corollaire}
+\label{V.1.2}
+Sous les conditions pr\'ec\'edentes, l'homomorphisme naturel
+$$\cal{O}_Y{\to} p_*(\cal{O}_X)^G$$ est un isomorphisme.
+\end{corollaire}
+
+Cela r\'esulte aussit\^ot de la formule
+$$
+(S^{-1}A)^G = S^{-1}(A^G)
+$$
+valable pour toute partie multiplicativement stable $S$ de~$B=A^G$
+(formule qui se module, et s'\'enonce plus g\'en\'eralement pour
+un changement de base $A\to A'$ qui est \emph{plat}),
+appliqu\'ee
+au cas o\`u $S$ est engendr\'e par un \'el\'ement $f$ de~$B$.
+
+L'assertion (ii) et cor.\, \ref{V.1.2} impliquent facilement (iv); plus
+g\'en\'eralement, on aura ceci:
+
+\begin{proposition}
+\label{V.1.3}
+Soient
+$X$ un pr\'esch\'ema \`a groupe d'automorphismes finis
+$G$, $p\colon{}X\to{}Y$ un morphisme affine invariant tel que
+$\cal{O}_Y\isomto p_*(\cal{O}_X)^G$. Alors les conclusions
+\textup{(i), (ii), (iii), (iv)}
+de~\ref{V.1.1} sont encore valables.
+\end{proposition}
+
+En effet, pour
+(i), (ii), (iii),
+on peut supposer $Y$ donc $X$ affine, et
+si $B,A$ sont leurs anneaux, l'hypoth\`ese implique $B=A^G$, il
+suffit d'appliquer~\ref{V.1.1}. Pour (iv), on utilise (ii) et
+$\cal{O}_Y=p_*(\cal{O}_X)^G$.
+
+\begin{corollaire}
+\label{V.1.4}
+Sous les conditions de~\ref{V.1.3}, pour tout ouvert $U$ de~$Y$, $U$
+est un quotient de~$X|U=p^{-1}(U)$ par $G$.
+\end{corollaire}
+
+En effet, $p^{-1}(U)\to{}U$ induit par $p$ satisfait aux m\^emes
+hypoth\`eses que~$p$.
+
+Si maintenant $X$ est un $Z$-pr\'esch\'ema et les op\'erations
+de~$G$ sont des $Z$-automorphismes, alors par (iv) $Y$ est un
+$Z$-pr\'esch\'ema. Ceci dit:
+
+\begin{corollaire}
+\label{V.1.5}
+Pour que $X$ soit affine \resp s\'epar\'e sur~$Z$, il faut et il
+suffit que~$Y$ le soit. Si $X$ est de type fini sur~$Z$, il est
+\emph{fini} sur~$Y$; si de plus $Z$ est localement noeth\'erien, $Y$
+est de type fini sur~$Z$.
+\end{corollaire}
+
+Comme $X$ est affine et a fortiori s\'epar\'e sur~$Y$, si $Y$ est
+affine \resp s\'epar\'e sur~$Z$, $X$~l'est
+aussi. R\'eciproquement, supposons $X$ affine sur~$Z$, prouvons que
+$Y$ l'est: on peut gr\^ace \`a~\ref{V.1.4} supposer $Z$ affine, et
+on est ramen\'e \`a prouver que si $X$ est affine, $Y$~l'est, ce
+qui r\'esulte de la d\'etermination explicite de~$Y$ comme
+$\Spec(A)^G$ faite dans~\ref{V.1.1}. De m\^eme, comme
+$p\colon{}X\to{}Y$ est entier donc universellement ferm\'e, et
+surjectif, il s'ensuit que si $X$ est s\'epar\'e sur~$Z$, $Y$
+l'est aussi (lemme \`a d\'egager!); en effet, dans le diagramme
+$$
+\xymatrix@C=1.5cm{{X \times_ZX}\ar[r]^-{p\times_Zp}&{Y\times_ZY}\\{X}\ar[u]^{\Delta_{X/Z}}\ar[r]^{p}&{Y}\ar[u]_{\Delta_{Y/Z}}}
+$$
+le morphisme $X\times_ZX\to Y\times_ZY$ est ferm\'e, donc transforme
+la diagonale (ferm\'ee) de~$X\times_ZX$ en une partie ferm\'ee de
+$Y\times_ZY$, qui n'est d'ailleurs autre que la diagonale de ce
+dernier puisque $p$ est surjectif.
+--- Si $X$ est de type fini sur~$Z$, il l'est a fortiori sur~$Y$ donc
+il est fini sur~$Y$ (puisqu'il est d\'ej\`a entier sur~$Y$). Supposons de plus $Z$ localement noeth\'erien, prouvons que
+$Y$ est de type fini sur~$Z$. On peut gr\^ace \`a~\ref{V.1.4}
+supposer $Z$ affine. Comme l'espace topologique $X$ est quasi-compact
+et que $p\colon X\to Y$ est surjectif, $Y$ est
+\'egalement
+quasi-compact donc r\'eunion finie d'ouverts
+affines, et par~\ref{V.1.4} on est ramen\'e au cas o\`u $Y$ est
+affine, donc $X$ affine. Mais alors l'anneau $A$ de~$X$ est une
+alg\`ebre de type fini sur l'anneau $C$ de~$Z$ qui est
+noeth\'erien, et il est connu que $B=A^G$ est alors \'egalement
+une alg\`ebre de type fini sur~$C$ (car $A$ sera enti\`ere, donc
+finie sur une sous-alg\`ebre $B'$ de~$B$ de type fini sur~$C$, donc
+comme $B'$ est noeth\'erien, $B$ est \'egalement
+finie
+sur~$B'$, donc de type fini sur~$C$).
+
+\begin{corollaire}
+\label{V.1.6}
+Pour que $X$ soit affine \resp un sch\'ema, il \fets que $Y$ le
+soit.
+\end{corollaire}
+
+\begin{definition}
+\label{V.1.7}
+Soit
+$X$ un pr\'esch\'ema o\`u un groupe fini $G$ op\`ere
+\`a droite. On dit que $G$ \emph{opère de fa\c con admissible}
+s'il existe un morphisme $p\colon X\to Y$ ayant les propri\'et\'es
+de~\ref{V.1.3} (ce qui implique que $X/G$ existe et est isomorphe
+\`a~$Y$).
+\end{definition}
+
+\begin{proposition}
+\label{V.1.8}
+Soit $X$ un pr\'esch\'ema o\`u le groupe fini $G$ op\`ere
+\`a droite. Pour que $G$ op\`ere de fa\c con admissible, il faut
+et il suffit que $X$ soit r\'eunion d'ouverts affines invariants par
+$G$, ou encore que toute trajectoire de~$G$ dans $X$ soit contenue
+dans un ouvert affine.
+\end{proposition}
+
+Cette derni\`ere condition est \'evidemment impliqu\'ee par la
+premi\`ere, et \`a son tour elle l'implique; car soit $T$ une
+trajectoire de~$G$, $U$ un ouvert affine la contenant, l'intersection
+des transform\'es de~$U$ par les
+$g$ dans $G$
+est alors un ouvert $U'$ stable par~$G$, contenant $T$ et contenu dans
+l'ouvert affine $U$. Comme dans $U$, toute partie finie a un
+syst\`eme fondamental de voisinages ouverts affines, il existe un
+voisinage ouvert affine $V$ de~$T$ contenu dans $U'$. Ces
+transform\'es par les
+$g$ dans $G$
+sont donc affines et contenus dans $U'$ qui est \emph{séparé},
+donc leur intersection $U''$ est un ouvert affine qui est invariant
+par $G$ et contient $T$.
+--- Ceci pos\'e, la condition envisag\'ee dans~\ref{V.1.8} est
+\emph{nécessaire}, car on prendra les images inverses $X_i$
+d'ouverts affines $Y_i$ recouvrant~$Y$. Elle est suffisante, car on
+peut alors par~\ref{V.1.1} construire les quotients $Y_i=X_i/G$; dans
+chaque $Y_i$ l'image de~$X_i\cap X_j$ est un ouvert $Y_{ij}$
+s'identifiant \`a $X_{ij}/G$ par~\ref{V.1.4}, en particulier on en
+d\'eduit des isomorphismes $Y_{ij}\isomto Y_{ji}$ permettant de
+recoller les $Y_i$ pour construire $Y$. Serre pr\'ef\`ere
+construire directement l'espace topologique quotient $Y$ de~$X$ par
+$G$, mettre dessus le faisceau $p_*(\cal{O}_X)^G$ et v\'erifier que
+$Y$ devient un pr\'esch\'ema et qu'on est alors sous les
+conditions de~\ref{V.1.3}.
+
+
+\setcounter{subsection}{6}
+
+\begin{corollaire}
+\label{cor:V.1.7}
+Si $G$ op\'erant sur~$X$ est admissible, il en est de m\^eme pour
+tout sous-groupe $H$ de~$G$ (donc $X/H$ existe).
+\end{corollaire}
+
+Cela peut aussi se v\'erifier directement sur la
+situation~\ref{V.1.3}, en notant qu'on peut toujours supposer $X$
+affine sur un $Z$ et les $s\in G$ op\`erent par $Z$-automorphismes
+(on prend par exemple $Z=Y$); on a en effet:
+
+\begin{corollaire}
+\label{cor:V.1.8}
+Supposons $X$ affine sur~$Z$, et les op\'erations de~$G$ des
+$Z$-auto\-mor\-phismes. Alors $G$ op\`ere sur~$X$ de fa\c con
+admissible. Si $X$ est d\'efini par un faisceau quasi-coh\'erent
+$\cal{A}$ d'alg\`ebres, $Y$ est d\'efini par le faisceau
+$\cal{A}^G$ des invariants de~$\cal{A}$ par~$G$.
+\end{corollaire}
+
+\begin{proposition}
+\label{V.1.9}
+Supposons que $G$ op\`ere de fa\c con admissible sur~$X$, et que
+$X/G=Y$ soit un pr\'esch\'ema sur~$Z$. Consid\'erons un
+morphisme de changement de base $Z'\to Z$, posons $X'=X\times_Z Z',
+Y'=Y\times_Z Z'$, de sorte que $G$ op\`ere encore par transport de
+structure sur~$X'$, le morphisme $p'\colon X'\to Y'$ \'etant
+invariant. Si $Z'$ est \emph{plat} sur~$Z$, alors $p'$ satisfait
+encore les hypoth\`eses
+de~\ref{V.1.3},
+\ie $\cal{O}_Y'\to
+p_*'(\cal{O}_{X'})^G$ est un isomorphisme ($p'$ \'etant de toutes
+fa\c cons affine). Donc $G$ op\`ere de fa\c con admissible sur~$X'$, et $(X/G)\times_Z Z'\thickapprox (X\times_Z Z')/G$.
+\end{proposition}
+
+On peut \'evidemment supposer $Z=Y$, on est ramen\'e au cas o\`u
+de plus $Y$ et $Y'$ sont affines. Il faut montrer que si $B$ est le
+sous-anneau des invariants de~$G$ op\'erant dans $A$, et si $B'$ est
+une alg\`ebre sur~$B$ plate sur~$B$, alors $B'$ est la
+sous-alg\`ebre des invariants de~$A'=A\otimes_B B'$. C'est
+imm\'ediat, car la suite exacte
+\enlargethispage{.5cm}$$
+0 \to B \lto{i} A \lto{j} A^{(G)}
+$$
+(o\`u le dernier terme signifie une puissance de~$A$, et o\`u
+$j(x)$ est le syst\`eme des $s\cdot x-x$, $s\in G$) reste exacte par
+tensorisation par
+$B'$.
+
+On fera attention que l'hypoth\`ese de platitude \'etait
+essentielle pour la validit\'e du r\'esultat; en particulier, si
+$Y'$ est un sous-pr\'esch\'ema ferm\'e de
+$Y$
+(par exemple m\^eme un point ferm\'e de
+$Y$),
+$X'$ son image inverse dans $X$,
+alors $Y'$ \emph{ne s'identifie pas} en g\'en\'eral \`a
+$X'/G$. Nous verrons qu'il en est n\'eanmoins ainsi si $X$ est
+\'etale sur~$Y$.
+
+Pour finir, donnons un formalisme aussi commode que trivial. Soit $Y$
+un pr\'esch\'ema. Comme dans la cat\'egorie des
+pr\'esch\'emas, les sommes directes existent, on peut pour tout
+ensemble $E$ consid\'erer le pr\'esch\'ema somme d'une famille
+$(Y_i)_{i\in E}$ de pr\'esch\'emas tous identiques \`a $Y$, ce
+pr\'esch\'ema sera not\'e $Y\times E$.
+Il est caract\'eris\'e par la formule
+\begin{equation*}
+\label{eq:V.1.*}
+\tag{$*$} \Hom(Y\times E,Z) = \Hom(E,\Hom(Y,Z))
+\end{equation*}
+o\`u le deuxi\`eme $\Hom$ d\'esigne \'evidemment l'ensemble
+des applications de l'ensemble $E$ dans l'ensemble $\Hom(Y,Z)$. On a
+un morphisme canonique
+$$
+Y\times E\to Y
+$$
+faisant de~$Y\times E$ un pr\'esch\'ema sur~$Y$. Comme les
+produits fibr\'es commutent aux sommes directes (dans la
+cat\'egorie des pr\'esch\'emas) on aura, si $Y$ est un
+pr\'esch\'ema sur un autre $Z$, pour un changement de base $Z'\to
+Z$:
+$$
+(Y\times E)\times_Z Z'=(Y\times_Z Z')\times E
+$$
+(formule surtout utile si $Z=Y$). D'autre part, on conclut
+trivialement de la d\'efinition
+$$
+(Y\times E)\times F=Y\times(E\times F)=(Y\times E)\times_Y(Y\times F)
+$$
+(la derni\`ere formule cependant r\'esultant de la
+commutativit\'e signal\'ee plus haut).
+
+Pour $Y$ fix\'e, on peut regarder $Y\times E$ comme un foncteur en
+$E$, \`a valeurs dans les pr\'esch\'emas sur~$Y$, foncteur qui
+commute aux produits finis d'apr\`es la formule pr\'ec\'edente,
+(ce qui permet par exemple \`a tout groupe ordinaire $G$ de faire
+correspondre un sch\'ema en groupes $Y\times G$ sur~$Y$, qui sera
+fini sur~$Y$ si $Y$ l'est, etc.). Plus g\'en\'eralement, ce
+foncteur est \og exact \`a gauche\fg, mais nous n'aurons pas \`a nous
+en servir ici. Ce foncteur commute aussi trivialement aux sommes
+directes, et il est aussi \og exact \`a droite\fg, comme on voit
+aussit\^ot sur la formule de d\'efinition \eqref{eq:V.1.*}. En
+particulier, si le groupe fini $G$ op\`ere \`a droite dans
+l'ensemble $E$, alors il op\`ere \`a droite dans $Y\times E$, et
+on a
+$$
+(Y\times E)/G = Y\times (E/G)
+$$
+o\`u en fait le quotient du premier membre satisfait aux conditions
+de~\ref{V.1.3} (c'est imm\'ediat).
+
+\section{Groupes de d\'ecomposition et d'inertie. Cas \'etale}
+\label{V.2}
+Soit $G$
+un
+groupe fini op\'erant \`a droite sur le pr\'esch\'ema $X$. Si
+$x\in X$, on appelle
+\emph{groupe de décomposition de~$x$}
+\index{decomposition (groupe de)@d\'ecomposition (groupe de)|hyperpage}\index{groupe de d\'ecomposition|hyperpage}le stabilisateur $G_d(x)$ de~$x$. Ce groupe op\`ere canoniquement
+(\`a gauche) sur le corps r\'esiduel
+$\kres(x)$, et l'ensemble
+des \'el\'ements de~$G_d(x)$ qui op\`erent trivialement est
+appel\'e \emph{groupe d'inertie}
+\index{groupe d'inertie|hyperpage}\index{inertie (groupe d')|hyperpage}de~$x$, not\'e~$G_i(x)$.
+
+Supposons que $G$ op\`ere sur~$X$ de fa\c con admissible et que
+$Y$ soit un pr\'esch\'ema sur un pr\'esch\'ema
+$Z$. Fixons-nous un $z\in Z$, et une extension alg\'ebriquement
+close $\Omega$
+de~$\kres(z)$ ayant un degr\'e de transcendance
+sup\'erieur \`a celui des $\kres(x)/\kres(z)$, o\`u $x$ est un
+point de~$X$ au-dessus de~$z$. On peut regarder $\Spec(\Omega)$ comme
+un $Z$-sch\'ema, et les points de~$X$ \`a valeurs dans $\Omega$
+correspondent aux homomorphismes
+de~$\kres(z)$-alg\`ebres $\kres(x)\to\Omega$,
+o\`u $x$ est un point de~$X$ au-dessus de~$z$;
+comme $\Omega$ a \'et\'e prise assez grande, tout point $x$ de~$X$
+au-dessus de~$z$ est la localit\'e d'un point de~$X$ \`a valeurs
+dans $\Omega$. Si $X(\Omega)$ et $Y(\Omega)$ d\'esignent
+respectivement l'ensemble des points de~$X$ et $Y$ \`a valeurs dans
+$\Omega$, on a une application naturelle
+$$
+X(\Omega)\to Y(\Omega),
+$$
+d'autre part, $G$ op\`ere sur~$X(\Omega)$ et l'application
+pr\'ec\'edente est invariante par $G$. Ceci pos\'e, les
+conclusions (ii) et (iii) de~\ref{V.1.3} s'interpr\`etent aussi
+ainsi: \emph{l'application précédente est surjective et
+identifie $Y(\Omega)$ au quotient $X(\Omega)/G$. De plus, si $x$ est
+la localité de~$a\in X(\Omega)$, alors le stabilisateur de~$a$
+dans $G$ n'est autre que le groupe d'inertie $G_i(x)$}. Tout ceci est
+d'ailleurs vrai sans supposer $\Omega$ \og assez grand\fg, cette
+derni\`ere hypoth\`ese sert uniquement \`a assurer qu'on peut
+caract\'eriser le groupe d'inertie de tout \'el\'ement de~$X$
+au-dessus de~$z$ comme un stabilisateur \og g\'eom\'etrique\fg. On en
+conclut par exemple aussit\^ot:
+\begin{proposition}
+\label{V.2.1}
+Faisons une extension de la base $Z'\to Z$, d'o\`u
+$X'=X\times_ZZ'$. Soit $x'$ un point de~$X'$, $x$ son image dans $X$,
+alors on a $G_i(x)=G_i(x')$.
+\end{proposition}
+
+Il suffit, dans les consid\'erations ci-dessus, de prendre pour
+$\Omega$ une extension assez grande
+de~$\kres(z')$
+(o\`u $z,z'$ sont les images de~$x,x'$ dans $Z,Z'$).
+
+\begin{proposition}
+\label{V.2.2}
+Sous les conditions de~\ref{V.1.3}, supposons $Y$ localement
+noeth\'erien, $X$ fini sur~$Y$. Soit $H$ un sous-groupe de~$G$,
+consid\'erons $X'=X/H$ (\cf \ref{cor:V.1.7}), soit
+$x\in X$, $x'$ son image dans $X'$ et $y$ son image dans $Y$.
+\begin{enumerate}
+\item[(i)] Si $H\supset G_d(x)$, alors l'homomorphisme
+$\cal{O}_y\to\cal{O}_{x'}$ induit un isomorphisme sur les
+compl\'et\'es.
+\item[(ii)] Si $H\supset G_i(x)$, alors l'homomorphisme $\cal{O}_y\to
+\cal{O}_{x'}$ est \'etale \ie $X'$ est \'etale sur~$Y$ en $x'$.
+\end{enumerate}
+\end{proposition}
+Soit $Y_1=\Spec(\widehat{\cal{O}_y})$, faisons le changement de base
+$Y_1\to Y$, on trouve un $X_1=X\times_Y Y_1$ fini sur~$Y_1$, sur
+lequel $G$ op\`ere, le quotient \'etant $Y_1$
+par~\ref{V.1.9}. Soit~$y_1$ l'unique point de~$Y_1$ au-dessus de~$y$,
+comme
+$\kres(y)=\kres(y_1)$,
+il s'ensuit que la fibre de~$X$ en~$y$
+est isomorphe \`a celle de~$X_1$ en $y_1$, d'o\`u un unique point
+$x_1$ de~$X_1$ au-dessus de~$x$. D'ailleurs par~\ref{V.1.9} on aura
+$X_1/H=X'_1=X'\times_Y Y_1$, soit $x'_1$ l'image de~$x_1$ dans $X'_1$,
+il est au-dessus de~$x'$, et on v\'erifie facilement ($X'$ \'etant
+de type fini sur~$Y$) que l'homomorphisme
+$\cal{O}_{x'}\to\cal{O}_{x'_1}$ induit un isomorphisme sur les
+compl\'et\'es. Donc on est ramen\'e au cas o\`u $Y$ est le
+spectre d'un anneau local complet, soit $B$, donc~$X$ le spectre d'un
+anneau fini $A$ sur~$B$, compos\'e d'un nombre fini d'anneaux locaux~$A_x$ correspondant
+aux points $x_i$ de~$X$ sur~$Y$. Si $A_0$ correspond \`a $x=x_0$,
+alors $A$ s'identifie \`a l'anneau $\Hom_{G_d}(G,A_0)$ des fonctions
+$f\colon G\to A_0$ telles que $f(st)=sf(t)$ pour $s\in G_d$, les
+op\'erations de~$G$ sur ces fonctions \'etant d\'efinies par
+$(uf)(t)=f(tu)$. On voit donc que si $H$ est un sous-groupe quelconque
+de~$G$, alors $A^H$ est l'anneau des fonctions $f\colon G\to A_0$
+telles que
+$$
+f(stu)=sf(t)\qquad\text{pour}\ s\in G_d,\ u\in H
+$$
+donc c'est un anneau semi-local dont les composants locaux
+correspondent aux doubles classes $G_daH$ dans $G$, \`a la double
+classe d\'efinie par $a\in G$ correspondant (gr\^ace \`a
+l'application $f\mto f(a)$) le sous-anneau $A_0^{H(a)}$ de~$A_0$,
+o\`u $H(a)=G_d\cap aHa^{-1}$. D'ailleurs, le composant local de
+$A^H$ correspondant \`a l'image $x'$ de~$x$ est aussi celui
+correspondant \`a la double classe $G_dH$ de l'\'el\'ement
+neutre, son composant local est donc $A_0^{G_d\cap H}$. Si donc
+$G_d\subset H$,
+on trouve $A_0^{G_d}=A^G=B$, ce qui prouve (i). Pour
+prouver (ii), on peut, en passant \`a une extension finie plate
+convenable de~$A$, et utilisant~\ref{V.2.1}, se ramener au cas o\`u
+l'extension r\'esiduelle
+$\kres(x)/\kres(y)$
+est triviale. Mais
+alors $G_i(x)=G_d(x)$, et on est ramen\'e au cas pr\'ec\'edent.
+
+\begin{corollaire}
+\label{V.2.3}
+Sous
+les conditions de~\ref{V.2.2}, supposons $G_i(x)=(e)$, alors X
+est \'etale sur~$Y$ en $x$. Donc si $G_i(x)=(e)$ pour tout $x \in
+X$, alors $X \to Y$ est un morphisme \'etale.
+\end{corollaire}
+
+Il y a une r\'eciproque partielle:
+
+\begin{corollaire}
+\label{V.2.4} Supposons $X$ connexe et le groupe $G$ fid\`ele
+sur~$X$. Pour que $p \colon X \to Y=X/G$ soit \'etale, il faut et il
+suffit que les groupes d'inertie des points de~$X$ soient r\'eduits
+\`a l'\'el\'ement neutre. S'il en est ainsi, $G$ s'identifie au
+groupe de tous les $Y$-automorphismes du $Y$-sch\'ema~$X$.
+\end{corollaire}
+
+Compte tenu de~\ref{V.2.3}, on peut supposer $X$ \'etale sur~$Y$. Mais si un $s \in G$ est dans un $G_i(x)$, il r\'esulte alors
+de I~\ref{I.5.4} que $s$ op\`ere trivialement sur~$G$, donc est
+l'\'el\'ement unit\'e puisque $G$ est fid\`ele, ce qui prouve
+la premi\`ere assertion. Soit $u$ un $Y$-automorphisme de~$X$, soit
+$x \in X$. D'apr\`es la proposition~\ref{V.1.3}, il existe un $s \in
+G$ tel que $s(x)=u(x)$, et induisant le m\^eme homomorphisme
+r\'esiduel
+$\kres(x)/\kres(x')$
+que $u$. Par \loccit on a donc
+$s=u$, ce qui ach\`eve la d\'emonstration.
+
+\begin{remarque}
+\label{V.2.5}
+L'hypoth\`ese que $G$ op\`ere fid\`element n'est \'evidemment
+par surabondante dans le corollaire~\ref{V.2.4}. Il en est de m\^eme
+de l'hypoth\`ese que $X$ est connexe, comme on voit par exemple en
+prenant $X=Y \times E$, $E$ \'etant un ensemble fini, et $G$ le
+groupe des permutations de~$E$: $G$ op\`ere avec force inertie,
+n\'eanmoins $(Y \times E)/G=Y \times (E/G)=Y$, et $X$ est \'etale
+sur~$Y$. Prenant pour $G$ un groupe strictement plus petit que le
+groupe sym\'etrique de~$E$, mais op\'erant transitivement sur~$E$,
+on voit qu'il y aura aussi des $Y$-automorphismes de~$X$ ne provenant
+pas de~$G$.
+\end{remarque}
+
+L'exemple type d'un groupe $G$ op\'erant sans inertie est celui de
+$Y \times G$, sur lequel on fait op\'erer $G$ gr\^ace \`a ses
+op\'erations sur le facteur $G$ par translations \`a droite: un
+$Y$-pr\'esch\'ema $X$ \`a groupe d'op\'erateurs \`a droite
+$G$ est dit \emph{trivial} s'il est isomorphe \`a $Y \times G$.
+
+Pour faire le lien entre le pr\'esch\'emas \`a groupes finis
+d'op\'erateurs et la notion de fibr\'e principal dans une
+cat\'egorie (lien dont nous n'aurons pas besoin d'ailleurs pour la
+suite du s\'eminaire, mais important dans d'autres contextes) les
+consid\'erations suivantes sont utiles. Nous fixons un
+pr\'esch\'ema de base $Y$, et nous pla\c cons dans le
+cat\'egorie des $Y$-pr\'esch\'emas. Si $G$ est un groupe
+fini, nous poserons pour abr\'eger $G_Y=Y \times G$, c'est donc un
+sch\'ema en groupes finis sur~$Y$ (\cf \numero 1), et si $X$ est
+un $Y$-pr\'esch\'ema, on a
+$$
+X \times_Y G_Y = X \times G
+$$
+(m\^eme r\'ef\'erence). La donn\'ee d'un $Y$-morphisme $X
+\times_Y G_Y \to X$ \'equivaut donc \`a la donn\'ee d'un
+$Y$-morphisme $X \times G \to X$, \ie \`a la donn\'ee pour tout
+$g \in G$ d'un $Y$-morphisme $T_g \colon X \to X$. On constate
+aussit\^ot que pour que la donn\'ee des $T_g$ d\'efinisse sur~$X$ une structure de pr\'esch\'ema \`a groupe d'op\'erateurs
+\`a droite $G$, (\ie $T_{gg'}=T_{g'}T_g$, $T_e=\id_x$) il faut et il
+suffit que le $Y$-morphisme correspondant $X \times_Y G_Y \to X$
+d\'efinisse sur~$X$ une structure de~$Y$-pr\'esch\'ema \`a
+$Y$-sch\'ema en groupes d'op\'erateurs, (au sens g\'en\'eral
+des objets \`a $\cal{C}$-groupe d'op\'erateurs dans une
+cat\'egorie $\cal{C}$). Supposons qu'il en soit ainsi. Rappelons que
+$X$ est dit \emph{formellement principal homogène}
+\index{formellement principal homog\`ene (pr\'esch\'ema)|hyperpage}sous~$G_Y$\footnote{on dit plut\^ot maintenant: $X$ est un
+pseudo-torseur sous $G_Y$.} si le morphisme canonique
+$$
+X \times_Y G_Y \to X \times_Y X
+$$
+dont les composantes sont respectivement $\pr_1$ et le morphisme de
+multiplication $\pi \colon X \times_Y G_Y \to X$, est un
+isomorphisme. En l'occurrence, identifiant le premier membre \`a $X
+\times G$, le morphisme consid\'er\'e est celui qui, \`a tout $g
+\in G$, associe le morphisme
+$$
+(\id_X,T_g)=(\id_X \times_Y T_g)\Delta_{X/Y} \colon X \to X \times_Y X
+$$
+et par suite, dire que $X$ est formellement principal homog\`ene
+sous $G_Y$ signifie aussi que $X \times_Y X$ est isomorphe \`a la
+somme directe des transform\'ees de la diagonale par les
+\'el\'ements $(e,g)$ de~$G \times G$ (op\'erant sur~$X \times_Y
+X$ de fa\c con \'evidente) o\`u $e$ d\'esigne l'\'el\'ement
+unit\'e de~$G$. Si on ne veut pas distinguer la gauche et la droite
+et donner une formule qui reste applicable au produit de plus de deux
+facteurs identiques \`a $X$, on peut formuler la condition en disant
+que le morphisme canonique
+$$
+X \times_G (G \times G) \to X \times_Y X
+$$
+obtenu en attachant au couple $(g,g')$ le morphisme
+$$
+(T_g,T_{g'})=(T_g \times_Y T_{g'})\Delta_{X/Y} \colon X \to X \times_Y
+X
+$$
+et en faisant op\'erer $G$ \`a gauche sur~$G \times G$ par
+l'homomorphisme diagonal;
+$$
+s(g,g')=(sg,sg'),
+$$
+est un \emph{isomorphisme}.
+
+La
+notion d'\emph{espace principal homogène}
+\index{principal homog\`ene (pr\'esch\'ema, fibr\'e)|hyperpage}est d\'eduite de celle de l'espace formellement principal
+homog\`ene en ajoutant un axiome suppl\'ementaire, assurant que le
+\og quotient\fg de~$X$ par $G_Y$ existe et est pr\'ecis\'ement
+l'objet unit\'e \`a droite de la cat\'egorie, ici $Y$. Cet
+axiome peut varier suivant le contexte, et s'explicite souvent le plus
+commod\'ement (dans le yoga de la \og descente\fg) en exigeant que
+l'objet \`a op\'erateurs devienne \og trivial\fg \ie isomorphe au
+produit $X \times_Y G_Y$ (en l'occurrence $X \times G$) par un
+changement de base convenable, de type pr\'ecis\'e (de telle fa\c con, en pratique, \`a permettre la technique de descente;
+\cf Grothendieck, Technique de descente et th\'eor\`emes
+d'existence en G\'eom\'etrie Alg\'ebrique, S\'em. Bourbaki
+\No 190, pages 26 \`a 28)\footnote{\Cf Exp.\, \ref{VIII} pour la
+th\'eorie de la descente plate.}. Dans cet ordre d'id\'ees,
+signalons ici la caract\'erisation des fibr\'es principaux
+homog\`enes de groupe $G$ (au sens de \loccit):
+
+\begin{proposition}
+\label{V.2.6}
+Soient $Y$ un pr\'esch\'ema localement noeth\'erien, $X$ un
+$Y$-pr\'esch\'ema \`a groupe fini $G$ d'op\'erateurs
+op\'erant \`a droite. Les conditions suivantes sont
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $X$ est fini sur~$Y$, $Y=X/G$, les groupes d'inertie des
+points de~$X$ sont r\'eduits \`a l'unit\'e.
+\item[(ii)] Il existe un changement de base fid\`element plat et
+quasi-compact $Y_1 \to Y$ tel que $X_1=X \times_Y Y_1$ soit un
+$Y_1$-pr\'esch\'ema \`a op\'erateurs trivial, \ie isomorphe
+\`a $Y_1 \times G$.
+\item[(ii~bis)] Comme (ii), mais $Y_1 \to Y$ \'etant fini,
+\'etale, surjectif.
+\item[(iii)] $X$ est formellement principal homog\`ene sous $G_Y$,
+et fid\`element plat et quasi-compact sur~$Y$.
+\end{enumerate}
+\end{proposition}
+\textit{Démonstration} (i)$\To$(ii~bis) On prendra
+$Y_1=X$, notant que $X \to Y$ est bien fini, \'etale par~\ref{V.2.3}
+et surjectif. Montrons que $X_1$ est alors trivial sur~$Y_1$, ce que
+r\'esultera du
+
+\begin{corollaire}
+\label{V.2.7} Si \textup{(i)} est v\'erifi\'e et si $X$ admet une
+section sur~$Y$, alors $X$ est un espace \`a op\'erateurs trivial.
+\end{corollaire}
+
+En effet, cette section permet de d\'efinir un $G$-morphisme $X
+\times G \to X$, surjectif puisque $G$ est transitif sur les fibres de
+$X$, injectif puisque $G$ op\`ere sans inertie; enfin, c'est un
+isomorphisme local en vertu de I~\ref{I.5.3} puisque $X$ est \'etale
+sur~$Y$. Donc c'est un isomorphisme.
+
+(ii~bis)
+implique trivialement (ii), qui implique (i) car les ingr\'edients
+de (i) sont \og invariants\fg par extension fid\`element plate
+quasi-compacte de la base (\cf S\'eminaire Bourbaki cit\'e plus
+haut pour \og fini\fg; pour les groupes d'inertie, on
+applique~\ref{V.2.1}, et pour $Y=X/G$, une r\'eciproque
+de~\ref{V.1.9} dans le cas d'un changement de base
+\emph{fidèlement plat}, que nous avions oubli\'e d'expliciter).
+
+Nous avons prouv\'e (i)$\To$(iii) en passant en prouvant
+(i)$\To$(ii~bis). Enfin (iii)$\To$(ii), car la
+premi\`ere hypoth\`ese dans (iii) signifie pr\'ecis\'ement que
+$X$ devient trivial en faisant le changement de base $Y_1=X$; d'o\`u
+(ii) puisque $X$ est fid\`element plat et quasi-compact sur~$Y$.
+
+\begin{definition}
+\label{V.2.8} Un $Y$-pr\'esch\'ema $X$ \`a groupe
+d'op\'erateurs \`a droite $G$ satisfaisant les conditions
+\'equivalentes de~\ref{V.2.6} est appel\'e un \emph{revêtement
+principal de~$Y$, de groupe de Galois~$G$}.
+\index{groupe de Galois d'un rev\^etement principal|hyperpage}\index{principal (revetement)@principal (rev\^etement)|hyperpage}\index{revetement principal@rev\^etement principal|hyperpage}\end{definition}
+
+\section{Automorphismes et morphismes de rev\^etements \'etales}
+\label{V.3}
+
+\begin{proposition}
+\label{V.3.1} Soit $X$ \'etale s\'epar\'e de type fini sur~$Y$ localement noeth\'erien, soit $G$ un groupe fini op\'erant sur~$X$ par $Y$-automorphismes. Alors $G$ op\`ere de fa\c con
+admissible et le pr\'esch\'ema quotient $X/G$ est \'etale sur~$Y$.
+\end{proposition}
+
+On ne suppose pas $X$ fini sur~$Y$, cependant $X$ est quasi-projectif
+sur~$Y$ d'o\`u l'existence de~$X/G$ gr\^ace
+\`a~\ref{V.1.8}. Prouvons d'abord
+
+\begin{corollaire}
+\label{V.3.2} Le morphisme $X \to X/G$ est \'etale.
+\end{corollaire}
+
+On peut supposer \'evidemment $G$ transitif sur l'ensemble des
+composantes connexes de~$X$, puis par consid\'eration du
+stabilisateur d'une composante connexe, que $X$ est m\^eme
+connexe. Enfin, on peut supposer que $G$ op\`ere fid\`element.
+Mais alors on voit comme dans~\ref{V.2.4} que $G$ op\`ere sans
+inertie, donc par~\ref{V.2.3} il s'ensuit que $X \to X/G$ est
+\'etale. On conclut gr\^ace au
+
+\begin{lemme}[remords \`a l'expos\'e I]
+\label{V.3.3} Soient $X \to X' \to
+Y$ des morphismes de type fini, $x$ un point de~$X$, $x'$ et $y$ ses
+images. On suppose $Y$ localement noeth\'erien. Si deux des
+morphismes envisag\'es sont \'etales aux points marqu\'es, il en est
+de m\^eme du troisi\`eme.
+\end{lemme}
+
+Il reste seulement \`a regarder le cas o\`u $X \to X'$ et $X \to
+Y$ sont \'etales en $x$ et prouver que $X' \to Y$ l'est en $x'$ (ce
+qui est le cas dont nous avons besoin
+pour~\ref{V.3.1}). Faisant une extension plate convenable de la base
+$Y$, on est ramen\'e au cas o\`u l'extension r\'esiduelle
+$\kres(x)/\kres(y)$
+est triviale. Consid\'erons les homomorphismes
+$\cal{O}_y \to \cal{O}_{x'} \to \cal{O}_x$ et les homomorphismes
+d\'eduits par passage aux compl\'et\'es, l'hypoth\`ese
+signifie que $\hat{\cal{O}_y} \to \hat{\cal{O}_x}$ et
+$\hat{\cal{O}_{x'}} \to \hat{\cal{O}_x}$ sont des isomorphismes,
+d'o\`u aussit\^ot que $\hat{\cal{O}_y} \to \hat{\cal{O}_{x'}}$ en
+est un, ce qui prouve le lemme.
+
+\begin{corollaire}
+\label{V.3.4} Si $X$ est fini et \'etale sur~$Y$, alors $X/G$
+est fini et \'etale sur~$Y$.
+\end{corollaire}
+
+\begin{proposition}
+\label{V.3.5} Soient $X$, $X'$ deux rev\^etements \'etales de
+$Y$. Alors tout $Y$-morphisme $f \colon X \to X'$ se factorise en le
+produit d'un morphisme \'etale surjectif $X \to X''$ et de
+l'immersion canonique $X'' \to X'$ d'une partie $X''$ de~$X'$ \`a la
+fois ouverte et ferm\'ee.
+\end{proposition}
+
+On sait (I~\ref{I.4.8}) que $f$ est \'etale, donc un morphisme
+ouvert, d'autre part $X$ \'etant fini sur~$Y$, $f$ est ferm\'e,
+donc $f(X)=X''$ est une partie \`a la fois ouverte et ferm\'ee de~$X'$. On a fini (N.B. il suffisait que $X'$, au lieu d'un
+rev\^etement \'etale, soit non ramifi\'e sur~$Y$).
+
+\begin{corollaire}
+\label{V.3.6} Avec les notations pr\'ec\'edentes, $X \to X'$
+est un \'epimorphisme strict dans la cat\'egorie des
+pr\'esch\'emas, et $X' \to X''$ est un monomorphisme (et m\^eme
+un monomorphisme strict) dans la cat\'egorie des pr\'esch\'emas.
+\end{corollaire}
+
+La premi\`ere assertion signifie par d\'efinition que la suite de
+morphismes
+$$
+\xymatrix@C=.7cm{{X \times_{X''} X}\ar@<2pt>[r]^-{\pr_1}\ar@<-2pt>[r]_-{\pr_2}&{X}\ar[r]&{X''}}
+$$
+est exacte, et cela r\'esulte du fait que $X \to X''$ est fini et
+fid\`element plat, comme on voit facilement (\cf Grothendieck, \loccit). L'assertion duale pour $X'' \to X'$ est encore plus triviale.
+
+Le corollaire~\ref{V.3.6} nous sera utile pour la th\'eorie du
+groupe fondamental au \No suivant; il est possible (pour ceux
+qui n'aiment pas la notion d'\'epimorphisme strict) de remplacer le
+corollaire~\ref{V.3.6} par telle variante que le lecteur arrangera
+\`a son go\^ut personnel. Profitons seulement de l'occasion pour
+signaler qu'une factorisation
+$f=f'f''$, avec $f''$ un \'epimorphisme strict et $f'$ un
+monomorphisme, est n\'ecessairement unique \`a isomorphisme unique
+pr\`es (dans toute cat\'egorie); cependant, il peut exister en
+m\^eme temps une factorisation $f=f_1f_2$ ayant les
+propri\'et\'es duales: $f_2$ est un \'epimorphisme, $f_1$ un
+monomorphisme strict, (\'egalement unique \`a isomorphisme unique
+pr\`es), qui ne soit pas isomorphe \`a la pr\'ec\'edente: il
+suffit de prendre par exemple la cat\'egorie des espaces vectoriels
+topologiques (s\'epar\'es, si on y tient), et pour $u \colon X \to
+X'$ un morphisme tel que $u(X)$ ne soit pas ferm\'e.
+
+\begin{proposition}
+\label{V.3.7} Soient $Y$ un pr\'esch\'ema \emph{connexe} localement
+noeth\'erien, $y$ un point de~$Y$, $\mathit{\Omega}$ une extension
+alg\'ebriquement close
+de~$\kres(y)$. Pour tout $X$ sur~$Y$, on
+d\'esigne par $X(\Omega)$ l'ensemble des points de~$X$
+\`a valeurs dans $\Omega$. Soient $X$, $X'$ des rev\^etements
+\'etales de~$Y$ et $u \colon X \to X'$ un $Y$-morphisme tel que
+l'application correspondante $X(\Omega) \to
+X'(\Omega)$ soit un isomorphisme. Alors $u$ est un
+isomorphisme.
+\end{proposition}
+
+On est imm\'ediatement ramen\'e au cas o\`u $X'$ est
+connexe. Comme $X \to X'$ est fini et \'etale, on sait que le nombre
+g\'eom\'etrique de points dans une fibre de~$X \to X'$ est
+constant, et \'egal \`a 1 si et seulement si le morphisme
+consid\'er\'e est un isomorphisme. Or ce nombre est aussi le
+nombre d'\'el\'ements dans une fibre de~$X(\Omega) \to
+X'(\Omega)$, d'o\`u la conclusion.
+\enlargethispage{.5cm}
+\section{Conditions axiomatiques d'une th\'eorie de Galois}
+\label{V.4}
+Soit $\cal{C}$ une cat\'egorie, $F$ un foncteur covariant de
+$\cal{C}$ dans la cat\'egorie des ensembles finis. Supposons les
+conditions suivantes satisfaites:
+
+\begin{enumerateb}
+
+\item[(G 1)] $\cal{C}$ a un objet final\footnote{Rappelons qu'un objet
+$e$ de~$\cal{C}$ est appel\'e \emph{objet final} si pour tout $X$ dans
+$\cal{C}$, $\Hom(X,e)$ a exactement un \'el\'ement. On d\'efinit
+de fa\c con duale un \emph{objet initial} de~$\cal{C}$.} et le produit
+fibr\'e de deux objets au-dessus d'un troisi\`eme dans $\cal{C}$
+existe (cet axiome peut aussi s'\'enoncer en disant que dans
+$\cal{C}$ les limites projectives finies existent).
+
+\item[(G 2)] Les sommes finies dans $\cal{C}$ existent (donc aussi un
+objet initial $\emptyset_{\cal{C}}$, jouant le r\^ole de l'ensemble
+vide), ainsi que le quotient d'un objet de~$\cal{C}$ par un groupe
+fini d'automorphismes.
+
+\item[(G 3)] Soit $u \colon X \to Y$ un morphisme dans $\cal{C}$,
+alors $u$ se factorise en un produit $X\lto{u'} Y'\lto{u''} Y$, avec $u'$ un \'epimorphisme \emph{strict} et
+$u''$ un monomorphisme, qui est un isomorphisme sur un sommande direct
+de~$Y$.
+
+\item[(G 4)]
+Le foncteur $F$ est exact \`a gauche (\ie transforme unit\'e
+\`a droite en unit\'e \`a droite, et commute aux produits
+fibr\'es).
+
+\item[(G 5)] $F$ commute aux sommes directes finies, transforme
+\'epimorphismes stricts en \'epi\-mor\-phismes, et commute au
+passage au quotient par un groupe fini d'automorphismes.
+
+\item[(G 6)] Soit $u \colon X \to Y$ un morphisme dans $\cal{C}$ tel
+que $F(u)$ soit un isomorphisme, alors $u$ est un isomorphisme.
+\end{enumerateb}
+
+Notre objet est construire un groupe topologique~$\pi$, limite
+projective de groupes finis, et une \'equivalence de la
+cat\'egorie $\cal{C}$ avec la cat\'egorie $\cal{C}(\pi)$
+\label{indnot:eb}\emph{des ensembles finis où} $\pi$ \emph{opère
+continûment} (\ie de telle fa\c con que le stabilisateur d'un
+point soit un sous-groupe ouvert, ou encore qu'il existe un groupe
+quotient discret qui op\`ere d\'ej\`a sur l'ensemble
+envisag\'e), l'\'equivalence construite transformant le foncteur
+donn\'e $F$ en le foncteur d'inclusion \'evident de~$\cal{C}(\pi)$
+dans la cat\'egorie des ensembles finis. On notera tout de suite que
+la cat\'egorie $\cal{C}(\pi)$ construite \`a l'aide d'un groupe
+topologique~$\pi$, et le foncteur d'inclusion pr\'ec\'edent,
+satisfont bien aux conditions (G 1) \`a (G 6).
+
+Nous proc\'edons en plusieurs \'etapes.
+\begin{enumerateb}
+\item[a)] \emph{Soit} $u \colon X \to Y$ \emph{dans}
+$\cal{C}$. \emph{Pour que} $u$ \emph{soit un monomorphisme, il faut et
+il suffit} $F(u)$ \emph{le soit}. (Utilise (G 1), (G 4), (G 6)).
+
+En effet, dire que $u$ est un monomorphisme signifie que la projection
+$\pr_1 \colon X \times_Y X \to X$ est un isomorphisme.
+
+\item[b)] \emph{Tout objet} $X$ \emph{de} $\cal{C}$ \emph{est
+artinien}.
+
+En effet, si $X' \to X'' \to X$ sont des monomorphismes tels que
+$F(X')$ et $F(X'')$ aient m\^eme image dans $F(X)$, alors par a)
+$F(X') \to F(X'')$ est un isomorphisme, donc $X' \to X''$ est un
+isomorphisme par (G 6).
+
+\item[c)] \emph{Le foncteur} $F$ \emph{est strictement
+pro-représentable}. (\cf Grothendieck, Technique de descente et
+th\'eor\`emes d'existence en G\'eom\'etrie Alg\'ebrique, II,
+S\'eminaire Bourbaki 195, f\'evrier 1960).
+
+En effet, d'apr\`es \loccit prop.\, \ref{V.3.1}, cela r\'esulte de
+b) et (G 4). On peut donc trouver un syst\`eme projectif sur~$I$
+ordonn\'e filtrant:
+$$
+P=(P_i)_{i \in I}
+$$
+dans $\cal{C}$, consid\'er\'e comme pro-objet de~$\cal{C}$, et un
+isomorphisme fonctoriel
+\begin{equation*}
+\label{eq:V.4.*} \tag{$*$} F(X)=\Hom_{\Pro(\cal{C})}(P,X)=\varinjlim_{i} \Hom_{\cal{C}}(P_i,X)
+\end{equation*}
+Cet isomorphisme est r\'ealis\'e par un \'el\'ement
+$$
+\varphi \in \varprojlim_{i} F(P_i)=F(P)
+$$
+On peut supposer de plus que les homomorphismes de transition
+$\varphi_{ji} \colon P_i \to P_j$ ($i \geq j$) sont des
+\emph{épimorphismes}, et que \emph{tout épimorphisme} $P_i \to
+P'$ soit \'equivalent \`a un \'epimorphisme $P_i \to P_j$ pour
+$j \leq i$ convenable (ce qui d\'etermine le syst\`eme projectif~$P$ de fa\c con essentiellement unique).
+
+Un objet $X \in \cal{C}$ est dit \emph{connexe}
+\index{connexe (objet d'une cat\'egorie)|hyperpage}s'il n'est pas isomorphe \`a la somme de deux objets de~$\cal{C}$
+non isomorphes \`a l'objet initial $\emptyset_{\cal{C}}$.
+
+\item[d)] \emph{Les} $P_i$ \emph{sont connexes et non isomorphes
+à} $\emptyset_{\cal{C}}$.
+
+Si $X$ est une unit\'e \`a gauche, on a $F(X)=\emptyset$ par (G 5)
+appliqu\'e \`a la somme directe d'une famille vide, et
+r\'eciproquement par (G 6). Donc si $X'$ est un objet de~$\cal{C}$
+qui n'est pas unit\'e \`a gauche, \ie tel que $F(X') \neq
+\emptyset$, il n'existe aucun morphisme de~$X'$ dans $X$. Donc si un
+$P_i$ est unit\'e \`a gauche, alors $i$ est un plus grand
+\'el\'ement de l'ensemble d'indices ordonn\'e filtrant $I$, et
+la formule \eqref{eq:V.4.*} signifierait $F(X)=\Hom(P_i,X)={}$ ensemble
+r\'eduit \`a un \'el\'ement pour tout $X$, ce qui est absurde
+puisque $F(\emptyset_{\cal{C}})=\emptyset$. Donc les~$P_i$ sont non
+isomorphes \`a $\emptyset_{\cal{C}}$.
+
+Supposons qu'on ait $P_i=A \amalg B$, d'o\`u par (G 5)
+$F(P_i)=F(A) \amalg F(B)$, en particulier l'\'el\'ement $a_i$
+de~$F(P_i)$, correspondant par \eqref{eq:V.4.*} \`a
+l'homomorphisme identique $P_i \to P_i$, est dans $F(A) \amalg
+F(B)$, par exemple dans $F(A)$. Cela signifie qu'il existe un $j
+\geq i$ tel que $\varphi_{ij} \colon P_j \to P_i$ se factorise en
+$P_j \to A \to P_i=A \amalg B$, o\`u la deuxi\`eme fl\`eche
+est le morphisme canonique. Donc $F(P_j) \to F(P_i)$ se factorise
+en $F(P_j) \to F(A) \to F(P_i)=F(A) \amalg F(B)$, et comme $F(P_j)
+\to F(P_i)$ est surjectif par (G 5), il s'ensuit que
+$F(B)=\emptyset$, donc $B$ est isomorphe \`a $\emptyset_{\cal{C}}$.
+
+\item[e)]
+\emph{Tout morphisme} $u \colon X \to Y$ \emph{dans} $\cal{C}$,
+\emph{avec} $X$ \emph{non isomorphe à} $\emptyset_{\cal{C}}$
+\emph{et} $Y$ \emph{connexe, est un épimorphisme strict. Tout
+endomorphisme d'un objet connexe est un automorphisme}.
+
+Consid\'erons la factorisation (G 3) de~$u$, comme $X \neq
+\emptyset_{\cal{C}}$ il r\'esulte de (G 6) que $F(X) \neq \emptyset$ donc
+$F(Y') \neq \emptyset$ donc $Y' \neq \emptyset_{\cal{C}}$, donc $Y$
+\'etant connexe, $Y'$ s'identifie \`a~$Y$, donc $u$ est un
+\'epimorphisme strict. Supposons que $u$ soit un endomorphisme de
+l'objet connexe $X$, prouvons que c'est un automorphisme. En effet, on
+peut supposer~$X$ non isomorphe \`a $\emptyset_{\cal{C}}$, donc $u$ est
+un \'epimorphisme strict par ce qui pr\'ec\`ede, donc $F(u)$ est
+un \'epimorphisme par (G 5), et comme $F(X)$ est un ensemble fini,
+$F(u)$ est bijectif. Donc $u$ est un automorphisme par (G 6).
+
+En particulier, \emph{tout endomorphisme d'un} $P_i$ \emph{est un
+automorphisme}.
+
+\item[f)] \emph{Les conditions suivantes sur un} $P_i$ \emph{sont
+équivalentes}: (i) L'application injective naturelle
+$\Hom(P_i,P_i) \to \Hom(P,P_i) \simeq F(P_i)$ est aussi surjective,
+\ie pour tout $u \colon P \to P_i$ il existe un $v \colon P_i \to
+P_i$ tel que $u=v\varphi_i$ (o\`u $\varphi_i$ est l'homomorphisme
+canonique $P \to P_i$). (ii) Le groupe $\Aut(P_i)$ op\`ere de fa\c con transitive sur~$F(P_i)$. (iii)~Le groupe $\Aut(P_i)$ op\`ere de
+fa\c con simplement transitive sur~$F(P_i)$.
+
+En effet, identifiant $\Hom(P,P_i)$ \`a $F(P_i)$, l'application
+envisag\'ee dans (i) n'est autre que $v \mto
+F(v)(\varphi_i)$. L'\'equivalence des trois conditions provient
+alors du fait que $\Hom(P_i,P_i)=\Aut(P_i)$ et que l'application
+pr\'ec\'edente est d\'ej\`a injective.
+
+Un $P_i$ satisfaisant les conditions \'equivalentes
+(i), (ii), (iii)
+de~f) est appel\'e \emph{galoisien}.
+\index{galoisien (objet)|hyperpage}
+\item[g)] \emph{Pour tout} $X$ \emph{dans} $\cal{C}$, \emph{il existe
+un} $P_i$ galoisien \emph{tel que tout} $u \in \Hom(P,X)$ \emph{se
+factorise en} $P \lto{\varphi_i} P_i \longrightarrow X$.
+
+Soit $J=\Hom(P,X)=F(X)$, c'est un ensemble fini, donc il existe un
+$P_j$ tel que tout $u \colon P \to X$ se factorise en $P\lto{j}P_j\longrightarrow X$, ou encore tel que le morphisme naturel
+$$
+P \to X^J \qquad (J=\Hom(P,X))
+$$
+se factorise en
+$$
+P \lto{\varphi_j} P_j \to X^J
+$$
+En
+vertu de (G~3), le morphisme $P_j \to X^J$ se factorise en le produit
+d'un monomorphisme par un \'epimorphisme strict, que l'on peut
+prendre de la forme $\varphi_{ij} \colon P_j \to P_i$. On est donc
+ramen\'e \`a prouver que $P_i$ est galoisien. Soit $k$ un indice
+$\geq j$ tel que tout morphisme $P \to P_i$ se factorise par
+$P \lto{\varphi_k} P_k \longrightarrow P_i$. Notons que le
+morphisme naturel $P_k \to X^J$ se factorise encore en le compos\'e
+$$
+P_k \lto{\varphi_{ik}} P_i \lto{U} X^J
+$$
+o\`u la premi\`ere fl\`eche est un \'epimorphisme strict
+par~e), et la deuxi\`eme un monomorphisme. On veut prouver que pour
+un morphisme donn\'e $\psi \colon P_k \to P_i$, il existe un
+endomorphisme $v$ de~$P_i$ tel que $\psi = v \varphi_{ik}$. Mais pour
+tout $u \in \Hom(P_i,X)$, consid\'erons $u \psi \in \Hom(P_k,X)$,
+il est donc de la forme $u'\varphi_{ik}$ avec un $u' \in \Hom(P_i,X)$
+bien d\'etermin\'e. L'application $u \mto u'$ de~$J$ dans $J$
+ainsi d\'efinie par $\psi$ est d'ailleurs injective car $\psi$ est
+un \'epimorphisme en vertu de e); elle est donc bijective puisque
+l'ensemble~$J$ est fini. L'application bijective $u \mto u'$ de~$J$
+dans $J$ d\'efinit donc un isomorphisme $\alpha \colon X^J \isomto
+X^J$ rendant commutatif le diagramme
+$$
+\xymatrix{{P_k}\ar[r]^-{\varphi_{ik}}\ar@{=}[d]&{P_i}\ar[r]^-U&{X^J}\ar[d]^-{\alpha}_-{\simeq}\\{P_k}\ar[r]^{\psi}&{P_i}\ar[r]^-U&{X^J}}
+$$
+D'apr\`es les propri\'et\'es d'unicit\'e de la factorisation
+d'un morphisme en produit d'un monomorphisme par un \'epimorphisme
+strict, il s'ensuit (puisque $\psi$ lui aussi est un \'epimorphisme
+strict par e)) que l'on peut trouver un morphisme $v \colon P_i \to
+P_i$ qui laisse le diagramme commutatif, cqfd.
+
+On en conclut en particulier que \emph{les} $P_i$ \emph{galoisiens
+forment un système cofinal dans le système des} $(P_j)$. On
+aura donc, puisque pour un objet galoisien $P_i$ on a
+$$
+\Hom(P,P_i)=\Hom(P_i,P_i)=\Aut(P_i),
+$$
+par passage \`a la limite:
+$$
+\Hom(P,P) = \varprojlim_{i} \Hom(P,P_i) = \varprojlim_{i} \Hom(P_i,P_i) =
+\varprojlim_{i} \Aut(P_i)
+$$
+o\`u
+\enlargethispage{.5cm}
+la limite projective est prise sur les $P_i$ galoisiens. D'ailleurs,
+moyennant l'identification $\Hom(P,P_i)=F(P_i)$, et compte tenu que
+$F$ transforme \'epimorphismes en \'epimorphismes, on voit que les
+homomorphismes de transition dans le syst\`eme projectif
+pr\'ec\'edent sont surjectifs. On conclut de tout ceci:
+
+\item[h)] \emph{On a}
+$$
+\Hom(P,P) = \Aut(P) = \varprojlim_{i} F(P_i) = \varprojlim_{i} \Aut(P_i),
+$$
+\emph{où la limite projective est prise sur les} $P_i$
+\emph{galoisiens}.
+
+En particulier, $\Aut(P)$ appara\^it comme limite projective d'un
+syst\`eme projectif de groupes finis (les homomorphismes de
+transition \'etant surjectifs), on le munira de la topologie limite
+projective des topologies discr\`etes. \emph{On désignera
+par}~$\pi$
+\label{indnot:ec}\emph{et on appellera groupe fondamental}
+\index{groupe fondamental d'une cat\'egorie galoisienne|hyperpage}(de~$\cal{C}$ muni de~$F$) \emph{le groupe opposé
+à}~$\Aut(P)$. Ce groupe op\`ere donc \emph{à droite}
+sur~$P$, c'est la limite projective de groupes finis $\pi_i$
+op\'erant \`a droite sur les $P_i$ galoisiens, $\pi_i$ \'etant
+le groupe oppos\'e \`a $\Aut(P_i)$.
+
+Compte tenu de l'isomorphisme fonctoriel
+$$
+F(X)=\Hom(P,X)
+$$
+et de la d\'efinition de~$\pi$, on voit donc que $\pi$ op\`ere
+\emph{à gauche} sur~$F(X)$, et d'ailleurs de fa\c con continue
+d'apr\`es g) (car avec les notations de g), c'est en fait $\pi_i$
+qui op\`ere sur~$F(X)$). Il est trivial que pour tout morphisme $u
+\colon X \to Y$ dans $\cal{C}$, le morphisme $F(u) \colon F(X) \to
+F(Y)$ est compatible avec les op\'erations de~$\pi$. \emph{On peut
+donc considérer par la suite} $F$ \emph{comme un foncteur
+covariant}
+$$
+F \colon \cal{C} \to \cal{C}(\pi)
+$$
+\emph{où} $\cal{C}(\pi)$ \emph{est la catégorie des ensembles
+finis où} $\pi$ \emph{opère à gauche continûment}.
+
+Nous allons maintenant d\'efinir un foncteur en sens inverse:
+$$
+G \colon \cal{C} \from \cal{C}(\pi)
+$$
+par la formule
+$$
+G(E)=P \times_{\pi} E,
+$$
+o\`u $P \times_{\pi} E$ est d\'efini comme solution du
+probl\`eme universel r\'esum\'e par
+$$
+\Hom_{\cal{C}}(P \times_{\pi} E,X) \isomto \Hom_{\pi}(E,\Hom(P,X))
+$$
+(o\`u
+dans le deuxi\`eme membre $\Hom(P,X)=F(X)$ est consid\'er\'e
+comme un ensemble o\`u $\pi$ op\`ere \`a gauche). Il faut prouver
+l'existence de l'objet $P \times_{\pi} E$.
+
+\item[i)] \emph{Soit} $Q$ \emph{un objet de} $\cal{C}$ \emph{où un
+groupe fini} $G$ \emph{opère à droite, et} $E$ \emph{un
+ensemble fini où} $G$ \emph{opère à gauche. Alors} $G
+\times_G E$ \emph{existe, et l'application canonique}
+$$
+F(Q) \times_G E \to F(Q \times_G E)
+$$
+\emph{est un isomorphisme}.
+
+Comme les sommes directes finies existent dans $\cal{C}$ par (G 2), et
+que $F$ y commute par (G 5), on est ramen\'e aussit\^ot au cas
+o\`u $G$ op\`ere transitivement sur~$E$, car si les~$E_j$ sont les
+trajectoires de~$G$ dans $E$, on aura
+$$
+Q \times_G E = \underset {j}{\amalg}\ Q \times_G E_j.
+$$
+Soit alors $a \in E$, soit $H$ son stabilisateur, on voit aussit\^ot
+sur la d\'efinition que $Q \times_G E$ s'identifie \`a $Q/H$.
+D'o\`u l'existence, gr\^ace \`a (G~2), et la propri\'et\'e
+de commutation pour~$F$ gr\^ace \`a (G~5).
+
+\item[j)] \emph{Soit} $E$ \emph{un objet de} $\cal{C}(\pi)$, \emph{et
+soit} $P_i$ \emph{galoisien tel que} $\pi_i$ \emph{opère
+déjà sur} $E$. \emph{Alors} $P_i \times_{\pi_i} E$
+\emph{existe et on a un isomorphisme canonique}
+$$
+E \isomto F(P_i \times_{\pi_i} E)
+$$
+\emph{Si} $j \geq i$ \emph{est tel que} $P_j$ \emph{soit galoisien,
+alors l'homomorphisme canonique} $P_j \times_{\pi_j} E \to P_i
+\times_{\pi_i} E$ \emph{est un isomorphisme}.
+
+La premi\`ere assertion est un cas particulier de i), compte tenu
+que $\pi_i$ op\`ere de fa\c con simplement transitive sur~$F(P_i)$
+qui est muni d'un point marqu\'e $\varphi_i$, d'o\`u un isomorphisme
+$F(P_i) \times_{\pi_i} E \simeq E$. Pour la deuxi\`eme assertion on
+utilise par exemple (G 6).
+
+Soit, pout tout $j$, $\cal{C}_j$ la sous-cat\'egorie pleine de
+$\cal{C}$ form\'ee des $X$ tels que $\Hom(P_j,X) \to \Hom(P,X)
+\simeq F(X)$ soit bijectif. On sait par g) que $\cal{C}$ \emph{est
+réunion filtrante des} $\cal{C}_j$. On a donc pour $X \in
+\cal{C}_j$:
+\begin{align*}
+\Hom_{\pi}(E,\Hom(P,X)) & \simeq \Hom_{\pi}(E,\Hom(P_j,X)) \simeq
+\Hom_{\pi_j}(E,\Hom(P_j,X))\\ & \simeq \Hom(P_j \times_{\pi_j} E,X)
+\end{align*}
+et
+compte tenu de la derni\`ere assertion dans j) on trouve un
+isomorphisme fonctoriel en l'objet $X$ de~$\cal{C}_j$:
+$$
+\Hom_{\pi}(E,\Hom(P,X)) \simeq \Hom(P_i \times_{\pi_i} E,X)
+$$
+Comme cela est vrai pour tout $j$ et que ces isomorphismes fonctoriels,
+pour $j$ variable, s'induisent mutuellement, on conclut:
+
+\item[k)] \emph{Sous les conditions de} j), \emph{le morphisme
+composé des morphismes canoniques}
+$$
+E \to \Hom(P_i,P_i \times_{\pi_i} E) \to \Hom(P,P_i \times_{\pi_i} E)
+$$
+\emph{fait de} $P_i \times_{\pi_i} E$ \emph{une solution du
+problème universel définissant} $P \times_{\pi} E$,
+\ie \emph{ce dernier existe et on a un isomorphisme}
+$$
+P \times_{\pi} E \isomto P_i \times_{\pi_i} E
+$$
+
+Cela ach\`eve la construction du foncteur $G(E)$. On a d'autre part
+un homomorphisme fonctoriel
+$$
+\alpha \colon \id_{\cal{C}(\pi)} \to FG
+$$
+\ie un homomorphisme fonctoriel en l'objet $E$ de~$\cal{C}(\pi)$:
+$$
+\alpha(E) \colon E \to FG(E) = F(P \times_{\pi} E)
+$$
+savoir le compos\'e des morphismes canoniques
+$$
+E \to F(P) \times_{\pi} E \to F(P \times_{\pi} E)
+$$
+(o\`u le premier provient du point marqu\'e $\varphi \in F(P)$).
+Conjuguant j) et k), on trouve:
+
+\item[l)] \emph{L'homomorphisme} $\alpha$ \emph{est un isomorphisme}
+
+On d\'efinit de m\^eme un homomorphisme fonctoriel
+$$
+\beta \colon GF \to \id_{\cal{C}}
+$$
+\ie un homomorphisme fonctoriel en l'objet $X$ de~$\cal{C}$:
+$$
+\beta(X) \colon P \times_{\pi} F(X) \to X
+$$
+comme
+associ\'e au $\pi$-homomorphisme
+$$
+F(X) \to \Hom(P,X)
+$$
+inverse de l'isomorphisme canonique $\Hom(P,X) \isomto F(X)$.
+
+\item[m)] \emph{Les composés}
+\begin{gather*}
+F(X) \lto{\alpha(F(X))} FGF(X) \lto{F(\beta(X))} F(X)\\
+G(E) \lto{G(\alpha(E))} GFG(E) \lto{\beta(G(E))} G(E)
+\end{gather*}
+\emph{sont les isomorphismes identiques}.
+
+\^Ane qui trotte.
+
+Compte tenu de l) il s'ensuit:
+
+\item[n)] \emph{L'homomorphisme} $\beta$ \emph{est un isomorphisme}
+
+Nous avons ainsi obtenu le r\'esultat promis:
+\end{enumerateb}
+
+\begin{theoreme}
+\label{V.4.1}
+Soit $\cal{C}$ une cat\'egorie satisfaisant les conditions \emph{(G
+1)}, \emph{(G 2)}, \emph{(G~3)} du d\'ebut du num\'ero, et $F$ un
+foncteur covariant de~$\cal{C}$ dans la cat\'egorie des ensembles
+finis, satisfaisant les conditions \emph{(G 4)}, \emph{(G 5)} et
+\emph{(G 6)}. Alors les constructions canoniques pr\'ec\'edentes
+d\'efinissent des \'equivalences de cat\'egories $F\colon
+\cal{C}\to \cal{C}(\pi)$ et $G\colon \cal{C}(\pi)\to \cal{C}$
+quasi-inverses l'une de l'autre. De fa\c con pr\'ecise, il existe
+un pro-objet~$P$ de~$\cal{C}$, et un isomorphisme fonctoriel $F(X)
+\isomfrom \Hom(P, X)$, $\pi$ est le groupe oppos\'e au groupe des
+automorphismes de~$P$, topologis\'e de fa\c con convenable, de
+fa\c con que~$\pi$ op\`ere de fa\c con continue sur les
+ensembles $\Hom(P, X)\simeq F(X)$. Enfin $G$ est donn\'e par
+$G(E)\simeq P\times_{\pi} E$.
+\end{theoreme}
+
+\begin{remarques}
+\label{V.4.2}
+L'\'enonc\'e des conditions (G 1) \`a (G 6) devient plus simple
+et plus sympathique si on remplace (G 2) et (G 5) respectivement par:
+\begin{enumerateb}
+\item[(G' 2)] Les limites inductives finies dans
+$\cal{C}$
+existent.
+\item[(G' 5)] Le foncteur $F$ est exact \`a droite (\ie commute aux
+limites inductives finies).
+\end{enumerateb}
+Ces conditions sont en apparence plus fortes que (G~2) et (G~5), mais
+il r\'esulte aussit\^ot du th\'eor\`eme de
+structure~\ref{V.4.1} qu'elles sont entra\^in\'ees par (G~1)
+\`a (G~6). On notera cependant que dans les cas qui nous
+int\'eresseront, la v\'erification de (G~2) et (G~5) semble
+effectivement plus simple que celle de (G'~2) et (G'~5). J'ignore si
+dans la condition (G~3), le fait que $u''$ soit un isomorphisme sur un
+sommande direct de~$Y$ ne pourrait \^etre omis.
+\end{remarques}
+
+\section{Cat\'egories galoisiennes}
+\label{V.5}
+
+\begin{definition}
+\label{V.5.1}
+On appelle cat\'egorie galoisienne
+\index{galoisienne (cat\'egorie)|hyperpage}une cat\'egorie $\cal{C}$ \'equivalente \`a une cat\'egorie
+$\cal{C}(\pi)$, o\`u $\pi$ est un groupe compact, limite projective
+de groupes finis (\ie totalement disconnexe).
+
+Pour la d\'efinition de~$\cal{C}(\pi)$, \cf d\'ebut du \No \ref{V.4}. En
+vertu du th.\, \ref{V.4.1}, $\cal{C}$ est galoisienne si et seulement si
+elle satisfait les conditions (G 1) \`a (G 3), et s'il existe un
+foncteur $F$ de
+$\cal{C}$
+dans la cat\'egorie des ensembles finis satisfaisant les conditions
+(G~4) \`a (G~6) (\ie qui est \emph{exact} et \emph{conservatif},
+dans une terminologie g\'en\'erale). Un tel foncteur sera
+appel\'e \emph{foncteur fondamental}
+\index{foncteur fondamental|hyperpage}de la cat\'egorie galoisienne $\cal{C}$\footnote{Il semble pr\'ef\'erable d'adopter le terme plus parlant
+de \og foncteur fibre\fg.};
+\index{foncteur fibre|hyperpage}il est pro-repr\'esentable par un pro-objet que nous noterons~$P_F$;
+un pro-objet $P$ tel que le foncteur $F$ associ\'e soit fondamental
+est appel\'e \emph{pro-objet fondamental}.
+\index{pro-objet fondamental|hyperpage}De cette fa\c con, la cat\'egorie des foncteurs fondamentaux sur~$\cal{C}$ est anti-\'equivalente \`a la cat\'egorie des
+pro-objets fondamentaux; si $F$ et $P$ se correspondent, le groupe
+$\Aut F$ est donc isomorphe \`a l'oppos\'e du groupe $\Aut P$,
+donc le groupe not\'e $\pi$ dans le num\'ero pr\'ec\'edent
+n'est autre que $\Aut P$. Rappelons qu'au num\'ero pr\'ec\'edent
+nous avons construit, \`a partir d'un foncteur fondamental
+\emph{donné} $F$, une \'equivalence de~$\cal{C}$ avec
+$\cal{C}(\pi)$ (o\`u $\pi=\Aut(F)$) qui transforme le foncteur $F$
+en le foncteur canonique de~$\cal{C}(\pi)_x$ dans la cat\'egorie des
+ensembles finis. Dans ce cas type $\cal{C}=\cal{C}(\pi)$, $F=$
+foncteur canonique, le pro-objet fondamental associ\'e \`a $F$
+n'est autre que le syst\`eme projectif des quotients discrets
+$\pi_i$ de~$\pi$.
+\end{definition}
+
+Il peut \^etre utile d'expliciter la cat\'egorie des pro-objets de
+$\cal{C}(\pi)$. On trouve:
+
+\begin{proposition}
+\label{V.5.2}
+La cat\'egorie $\Prodash\cal{C}(\pi)$
+\label{indnot:ed}est canoniquement \'equivalente \`a la cat\'egorie
+$\cal{C}'(\pi)$ des espaces, \`a groupe topologique $\pi$
+d'op\'erateurs, qui sont compacts et totalement disconnexes.
+\end{proposition}
+
+Comme cette derni\`ere contient $\cal{C}(\pi)$ comme
+sous-cat\'egorie pleine (correspondant aux espaces \`a
+op\'erateurs compacts discrets) et que les limites projectives y
+existent, on a en tous cas un foncteur canonique $g\colon
+\Prodash\cal{C}(\pi) \to \cal{C}'(\pi)$, au syst\`eme projectif
+$Q=(Q_i)$ correspondant
+l'objet $X=\varprojlim_{i} Q_i$ de~$\cal{C}'(\pi)$. Pour d\'efinir
+un foncteur en sens inverse, il suffit de d\'efinir un foncteur
+contravariant de~$\cal{C}'(\pi)$ dans la cat\'egorie des foncteurs
+$\cal{C}\to \Ens$ exacts \`a gauche, et on prendra pour tout
+$X\in\cal{C}'(\pi)$ le foncteur $h(X)(E)= \Hom(X, E)$
+(le $\Hom$ \'etant pris dans $\cal{C}'(\pi)$). Il est imm\'ediat
+par d\'efinition que les foncteurs $h$ et $g$ sont adjoints l'un de
+l'autre, et que $hg$ est canoniquement isomorphe au foncteur identique
+de~$\Prodash\cal{C}(\pi)$. Il reste \`a prouver (pour \'etablir
+que $g$ et $h$ sont quasi-inverses l'un de l'autre) que tout objet de
+$\cal{C}'(\pi)$ est isomorphe \`a un objet de la forme $g(Q)$,
+o\`u $Q\in\Prodash{\cal C}(\pi)$, en d'autres termes: \emph{tout
+espace $X$ à groupe topologique $\pi$ d'opérateurs, qui est
+compact et totalement disconnexe, est isomorphe à une limite
+projective d'espaces à opérateurs finis discrets}. Comme $X$
+est limite projective de ses quotients finis discrets (en tant
+qu'espace topologique sans op\'erateurs), on est ramen\'e \`a
+montrer que dans l'ensemble de ces quotients, il y a un syst\`eme
+cofinal qui est invariant par $\pi$. Il suffit pour cela de montrer
+que pour un tel quotient $X'$, l'ensemble des transform\'es de ce
+quotient par les op\'erations de~$\pi$ est fini, (on prendra alors
+le sup desdits transform\'es, qui sera un quotient invariant
+majorant $X'$). Ou encore, qu'il y a un sous-groupe invariant ouvert
+$\pi'$ de~$\pi$ tel que les \'el\'ements de ce sous-groupe
+invarient $X'$. Or $X'$ correspond \`a une partition finie de~$X$ en
+ensembles ouverts $X_i$. Par raison de continuit\'e et de
+compacit\'e de~$\pi$, il existe un voisinage $V$ de
+l'\'el\'ement neutre de~$\pi$ tel que $s\in V$ implique
+$s\cdot X_i\subset X_i$ pour tout~$i$, donc $s$ invarie~$X'$. Or on sait
+que les sous-groupes invariants ouverts de~$\pi$ forment un
+syst\`eme fondamental de voisinages de l'\'el\'ement neutre, ce
+qui ach\`eve la d\'emonstration.
+
+Remarquons qu'on voit encore plus simplement que la cat\'egorie
+$\Ind \cal{C}(\pi)$ est canoniquement \'equivalente \`a la
+cat\'egorie des ensembles o\`u $\pi$ op\`ere
+contin\^ument. Nous n'en aurons pas besoin ici.
+
+\begin{proposition}
+\label{V.5.3}
+Soient $\cal{C}$ une cat\'egorie galoisienne, $F$ un foncteur
+fondamental
+sur~$\cal{C}$,
+$P=(P_i)$ le pro-objet associ\'e, normalis\'e de la fa\c con
+habituelle. Soit
+$X\in\cal{C}$;
+pour que $X$ soit connexe, il faut et il suffit que $\pi$ op\`ere
+transitivement sur~$E=F(X)$.
+\end{proposition}
+
+On est ramen\'e au cas type $\cal{C}=\cal{C}(\pi)$, $F=$ foncteur
+canonique, o\`u c'est trivial.
+
+\begin{corollaire}
+\label{V.5.4}
+Conditions \'equivalentes sur~$X$: \textup{(i)} $X$ est connexe et
+$\not\simeq\emptyset_{\cal{C}}$ \textup{(ii)} le groupe $\pi$ est
+transitif sur~$E=F(X)$, et $F(X)\ne\emptyset$ \textup{(iii)} $X$ est
+isomorphe \`a un $P_i$.
+\end{corollaire}
+
+L'\'equivalence
+de (i) et (iii) r\'esulte aussi d\'ej\`a facilement de
+\No \ref{V.4},~e).
+
+\begin{proposition}
+\label{V.5.5}
+Soit $Q=(Q_i)_{i\in I}$ un pro-objet
+de~$\cal{C}$,
+normalis\'e de la fa\c con habituelle, et soit $G$ le foncteur
+correspondant $G(X)=\Hom(Q, X)$ de~$\cal{C}$
+(dans~$\Ens$).
+Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] $G$ commute aux sommes directes finies
+\item[(ii)] $G$ commute \`a la somme de deux objets
+\item[(iii)] Les $Q_i$ sont connexes et
+$\not\simeq\emptyset_\cal{C}$
+\item[(iv)] $Q$ est isomorphe \`a $\pi/H$, o\`u $H$ est un
+sous-groupe ferm\'e de~$\pi$.
+\item[(v)] Le foncteur $G$ est isomorphe au foncteur $E\mto
+E^H$ (ensemble des invariants par $H$) d\'efini par un sous-groupe
+ferm\'e $H$ de~$\pi$.
+\end{enumerate}
+\end{proposition}
+
+N.B. dans l'\'enonc\'e de (iv) et (v), on suppose choisi un
+foncteur fondamental, permettant d'identifier $\cal{C}$ \`a la
+cat\'egorie~$\cal{C}(\pi)$.
+
+\subsubsection*{D\'emonstration} On peut supposer
+$\cal{C}=\cal{C}(\pi)$. L'implication (i)$\To$(ii) est
+triviale, (ii)$\To$(iii) se prouve comme la
+propri\'et\'e d) du \No \ref{V.4}. Prouvons (iii)$\To$(iv). En
+effet, on sait que $\varprojlim_i Q_i$ est non vide comme limite
+projective d'ensembles finis non vides. Soit $a$ un point de
+$\varprojlim_i Q_i$, il d\'efinit un homomorphisme d'espaces \`a
+op\'erateurs
+$$
+\pi\to Q
+$$
+qui est \emph{surjectif}, car pour tout $i$ le compos\'e $\pi\to
+Q\to Q_i$ l'est, puisque $\pi$ est transitif dans $Q_i$ en vertu
+de~\ref{V.5.3}. Si donc $H$ est le sous-groupe de stabilisateur de
+$a$, on obtient un isomorphisme $\pi/H\isomto Q$. Les implications
+(iv)$\To$(v) et (v)$\To$(i) sont \`a nouveau
+triviales.
+
+\begin{proposition}
+\label{V.5.6}
+Soient $\cal{C}$ une cat\'egorie galoisienne, $P$ un pro-objet
+fondamental de~$\cal{C}$ et $F$ le foncteur fondamental
+associ\'e. Soit $P'=(P'_i)_{i\in I}$ un pro-objet de~$\cal{C}$, mis
+sous forme normale, et $F'$ le foncteur associ\'e $F'(X)=\Hom(P',X)$
+de~$\cal{C}$ dans~$\Ens$. Conditions \'equivalentes:
+\begin{enumerate}
+\item[(i)] $P'\simeq P$, ou encore $F'\simeq F$.
+\item[(ii)] $P'$ est fondamental, ou encore $F'$ est
+fondamental.
+\item[(iii)] $F'$ transforme somme de deux objets en somme, et
+$X\not\simeq\emptyset_{\cal{C}}$ implique $F(X)\ne\emptyset$.
+\item[(iv)]
+Les objets de~$\cal{C}$ connexes et $\ne\emptyset_{\cal{C}}$ sont
+exactement les objets isomorphes \`a un~$P'_i$.
+\end{enumerate}
+\end{proposition}
+
+On a trivialement (i)$\To$(iii) et (i)$\To$(ii),
+de plus (ii)$\To$(iv) en vertu de~\ref{V.5.4} (appliqu\'e
+\`a $P'$ au lieu de~$P$). De plus (iii) ou (iv) implique en vertu
+de~\ref{V.5.5} que $P'$ est de la forme $\pi/H$ o\`u $H$ est un
+sous-groupe ferm\'e de~$\pi$. Dans le cas (iii), il existe pour tout
+sous-groupe invariant ouvert $\pi'$ de~$\pi$ un $\pi$-homomorphisme
+$P'=\pi/H\to \pi/\pi'$, d'o\`u $H\subset \pi'$, d'o\`u $H=(0)$ et
+par suite (i), cqfd.
+
+\begin{corollaire}
+\label{V.5.7}
+Soit $\cal{C}$ une cat\'egorie galoisienne. Les pro-objets
+fondamentaux sont isomorphes, les foncteurs fondamentaux sont
+isomorphes.
+\end{corollaire}
+
+En d'autres termes, \emph{la catégorie des foncteurs fondamentaux
+est un groupoïde connexe~$\Gamma$},
+\label{indnot:ef}qu'on peut appeler le \emph{groupoïde fondamental}
+\index{groupoide fondamental@groupo\"ide fondamental|hyperpage}de la cat\'egorie galoisienne~$\cal{C}$. Si $\cal{C}=\cal{C}(\pi)$,
+le groupe des automorphismes d'un objet du groupo\"ide fondamental
+est isomorphe \`a $\pi$, cet isomorphisme \'etant bien
+d\'etermin\'e \`a automorphisme int\'erieur pr\`es. (N.B. on
+appelle \emph{groupoïde} une cat\'egorie o\`u tous les
+morphismes sont des isomorphismes, groupo\"ide \emph{connexe}
+groupo\"ide dont tous les objets sont isomorphes). Les pro-objets
+fondamentaux de~$\cal{C}$ forment un groupo\"ide connexe
+\'equivalent \`a l'\emph{opposé} du groupo\"ide
+fondamental. Si $F, F'$ sont deux foncteurs fondamentaux, associ\'es
+\`a des pro-objets fondamentaux $P, P'$, alors $\Hom(F, F')=\Isom(F,
+F')$ est parfois not\'e $\pi_{F', F}$ et joue le r\^ole d'un
+\og ensemble de \emph{classes de chemins} de~$F$ \`a~$F'$\fg. En
+particulier $\pi_{F, F}=\pi_F$ n'est autre que le \emph{groupe
+fondamental de~$\cal{C}$} en $F$ construit dans le num\'ero
+pr\'ec\'edent. Quant au pro-objet $P$ associ\'e \`a~$F$, il
+joue le r\^ole d'un \emph{revêtement universel en~$F$} de
+l'objet final $e_{\cal{C}}$ de~$\cal{C}$.
+
+Il peut \^etre commode d'avoir une description de~$\cal{C}$ (\`a
+\'equivalence pr\`es) en termes de son groupo\"ide fondamental
+$\Gamma$, sans passer par un choix d'un objet particulier $F$ de ce
+dernier. Or \`a tout objet $X$ de~$\cal{C}$ est associ\'e le
+foncteur $E_X$ sur le groupo\"ide fondamental, d\'efini par
+$$
+E_X(F)=F(X),
+$$
+\`a valeurs dans~$\Ens$. (Un tel foncteur est connu en topologie
+sous le nom de \og syst\`eme local\fg sur le groupo\"ide)
+$F(X)=E_X(F)$ peut \^etre appel\'e la \emph{fibre} de~$X$ en $F$,
+et le foncteur $E_X$ le foncteur-fibre associ\'e \`a~$X$. Le
+foncteur $E_X$ a la propri\'et\'e
+suivante:
+\emph{pour tout $F$, $E_X(F)$ est un ensemble fini
+où le groupe topologique $\pi_F=\Aut(F)$ opère continûment}.
+Pour un
+foncteur covariant donn\'e $\xi$ du groupo\"ide fondamental
+dans~$\Ens$, la condition pr\'ec\'edente \'equivaut d'ailleurs
+\`a la m\^eme condition pour \emph{un} $F$ fix\'e
+quelconque. Ceci pos\'e:
+
+\begin{proposition}
+\label{V.5.8}
+Le foncteur $X\mto E_X$ est une \'equivalence de la cat\'egorie
+$\cal{C}$ avec la cat\'egorie des foncteurs covariants du
+groupo\"ide fondamental $\Gamma$ de~$\cal{C}$ dans~$\Ens$, qui
+satisfont la condition
+mise en \'evidence ci-dessus.
+\end{proposition}
+
+En effet, soit $F_0$ un objet du groupo\"ide fondamental, et soit
+$\pi_0=\Aut(F_0)$, alors le foncteur $\xi\mto \xi(F_0)$ est une
+\'equivalence de la deuxi\`eme cat\'egorie envisag\'ee
+dans~\ref{V.5.8} avec la cat\'egorie $\cal{C}(\pi_0)$, comme on
+constate aussit\^ot. D'autre part, le compos\'e de ce dernier et
+du foncteur $X\mto E_X$ est l'\'equivalence naturelle
+$\cal{C}\to\cal{C}(\pi_0)$. Il en r\'esulte que le foncteur
+$X\mto E_X$ lui-m\^eme est une \'equivalence.
+
+\begin{corollaire}
+\label{V.5.9}
+La cat\'egorie $\Prodash\cal{C}$
+est \'equivalente canoniquement \`a la cat\'egorie des foncteurs
+covariants $\xi$ du groupo\"ide fondamental $\Gamma$ dans la
+cat\'egorie des espaces topologiques, satisfaisant la condition:
+pour tout objet $F$ de~$\Gamma$, $\xi(F)$ est un espace compact
+totalement disconnexe \`a groupe topologique $\pi_F$
+d'op\'erateurs.
+\end{corollaire}
+
+Ici encore, on peut v\'erifier cette condition sur~$\xi$, il suffit
+de la v\'erifier pour \emph{un}~$F$. La d\'emonstration est la
+m\^eme que pour~\ref{V.5.8}.
+
+\begin{remarque}
+\label{V.5.10}
+Soit $(F_s)_{s\in S}$ une famille
+d'objets
+du groupo\"ide fondamental~$\Gamma$. Posons pour $s, s'\in S$:
+$$
+\Hom(s, s')=\Hom(F_s, F_{s'})
+$$
+de sorte que $S$ devient lui-m\^eme un groupo\"ide connexe et
+l'application $s\mto F_s$ un foncteur pleinement fid\`ele de~$S$
+dans $\Gamma$, soit~$f$. Consid\'erant alors le foncteur $X\mto
+E_X\circ f$ de~$\cal{C}$ dans la cat\'egorie de foncteurs
+$\Hom(S,\Ens)$, on obtient une variante de~\ref{V.5.8}
+(et~\ref{V.5.9}) avec $\Gamma$ remplac\'e par~$S$. L'\'enonc\'e
+ainsi obtenu se r\'eduit au th\'eor\`eme~\ref{V.4.1} lorsque $S$
+est r\'eduit \`a un point, et n'est autre que~\ref{V.5.8}
+lui-m\^eme si $S$ est l'ensemble des objets de~$\Gamma$.
+\end{remarque}
+
+Nous allons utiliser~\ref{V.5.9} pour d\'efinir un pro-objet
+canonique de~$\cal{C}$. Pour ceci, nous consid\'erons le foncteur
+de~$\Gamma$ dans la cat\'egorie des espaces topologiques
+(et m\^eme des groupes topologiques):
+$$
+f\colon F\mto \Aut(F)=\pi_F.
+$$
+Ce foncteur satisfait la condition envisag\'ee dans~\ref{V.5.8},
+l'espace \`a op\'erateurs $f(F)$ sous $\pi_F$ n'est autre que
+$\pi_F$, consid\'er\'e comme espace \`a op\'erateurs sous
+lui-m\^eme par les automorphismes int\'erieurs. Donc le foncteur
+$f$ correspond \`a un pro-objet de~$\cal{C}$ d\'etermin\'e \`a
+isomorphisme unique pr\`es, qui est m\^eme un pro-groupe de
+$\cal{C}$ et qui est appel\'e le \emph{pro-groupe fondamental
+de~${\cal C}$},
+\index{pro-groupe fondamental d'une cat\'egorie galoisienne|hyperpage}jouant le r\^ole d'un syst\`eme local de groupes
+fondamentaux. C'est donc un pro-groupe $\Pi$ de~$\cal{C}$ d\'efini
+par la condition qu'on ait un isomorphisme fonctoriel en $F$
+$$
+F(\Pi)\simeq\pi_F.
+$$
+
+Si $X$ est un pro-objet quelconque de~$\cal{C}$, on a un morphisme
+canonique
+$$
+\Pi\times X \to X
+$$
+qui fait de~$X$ un objet \`a groupe d'op\'erateurs \`a gauche
+$G$ dans $\Prodash\cal{C}$. Il suffit pour ceci de noter que pour $F$
+variable, on a une application canonique
+$$
+\Pi(F)\times X(F) \to X(F)
+$$
+\ie $$
+\Aut(F)\times E_X(F) \to E_X(F), \quad \text{ou} \quad \pi_F\times
+F(X)\to F(X)
+$$
+qui est fonctorielle en~$F$. Elle est aussi fonctorielle en $X$, donc
+pour tout morphisme $X\to Y$ de pro-objets, le diagramme
+$$
+\xymatrix{{\Pi \times X}\ar[r]\ar[d]&{X}\ar[d]\\{\Pi \times Y}\ar[r]&{Y}}
+$$
+correspondant est commutatif.
+
+\begin{remarque}
+\label{V.5.11}
+On se gardera de confondre un pro-objet fondamental $P$ (qui n'est pas
+muni d'une structure de groupe, et est connexe) avec le pro-groupe
+fondamental (qui est un pro-\emph{groupe}, et en g\'en\'eral non
+connexe). De fa\c con pr\'ecise, $G$ est connexe si
+et
+seulement si $\pi_F$ op\'erant sur lui-m\^eme par automorphismes
+int\'erieurs est transitif, \ie si $\pi$ est r\'eduit \`a
+l'\'el\'ement neutre, ou encore $\cal{C}$ \'equivalente \`a la
+cat\'egorie des ensembles finis. Une autre diff\'erence
+essentielle est que $G$ est d\'etermin\'e \`a isomorphisme
+unique pr\`es, et $P$ n'est d\'etermin\'e qu'\`a isomorphisme
+non unique pr\`es.
+
+Soit $E$ un ensemble fini et consid\'erons le foncteur constant sur
+le groupo\"ide~$\Gamma$, de valeur $E$: il d\'efinit en vertu
+de~\ref{V.5.8} un objet de~$\cal{C}$, not\'e $E_{\cal{C}}$, et qui
+peut aussi s'interpr\'eter comme la somme de~$E$ exemplaires de
+l'objet final $e_{\cal{C}}$ de~$\cal{C}$. On peut consid\'erer
+$E_{\cal{C}}$ comme un foncteur en $E$, de la cat\'egorie des
+ensembles finis dans la cat\'egorie $\cal{C}$, et ce foncteur est
+\emph{exact}, donc transforme groupes finis en $\cal{C}$-groupes,
+etc. Si donc $X$ est un objet de~$\cal{C}$ sur lequel le groupe fini
+$G$ op\`ere \`a droite, on voit qu'on peut consid\'erer $X$
+comme un objet de~$\cal{C}$ ayant un $\cal{C}$-groupe d'op\'erateurs
+\`a droite~$G_{\cal{C}}$. On dira donc par extension d'une
+terminologie g\'en\'erale relative \`a des objets \`a
+$\cal{C}$-groupes d'op\'erateurs, que $X$ est \emph{formellement
+principal homogène}
+\index{formellement principal homog\`ene (objet)|hyperpage}sous $G$ si $X$ est formellement principal homog\`ene sous
+$G_{\cal{C}}$, \ie si le morphisme canonique
+$$
+X\times G_{\cal{C}} \to X\times X
+$$
+d\'eduit de l'op\'eration de~$G_{\cal{C}}$ sur~$X$ \`a droite,
+est un isomorphisme. On dit que $X$ est \emph{principal homogène}
+\index{principal homog\`ene (objet)|hyperpage}sous $G$ s'il l'est sous $G_{\cal{C}}$, \ie s'il l'est formellement,
+et si de plus le quotient $X/G=X/G_{\cal{C}}$ est~$e_{\cal{C}}$. Si on
+se fixe un foncteur fondamental, d'o\`u une \'equivalence de
+$\cal{C}$ avec une cat\'egorie $\cal{C}(\pi)$, $X$ correspond \`a
+un ensemble sur lequel $\pi$ op\`ere \`a gauche contin\^ument,
+soit $E=F(X)$. Faire op\'erer $G$ sur~$X$ \`a droite revient alors
+\`a faire op\'erer $G$ sur l'ensemble $E$ \`a droite, de fa\c con que les op\'erations de~$G$ commutent \`a celles de~$\pi$. On
+constate alors aussit\^ot que $X$ est principal homog\`ene sous
+$G$ si et seulement si l'ensemble $E$ est un espace principal
+homog\`ene
+sous $G$,
+\ie si et seulement si $G$ y op\`ere de fa\c con simplement transitive. (D'ailleurs $X$ est formellement
+principal homog\`ene \sss
+$E$ principal homog\`ene \emph{ou} vide). Comparant
+avec~\ref{V.5.3}, on voit que si $X$ est principal homog\`ene sous
+$G$ \emph{et connexe}, alors l'homomorphisme donn\'e de~$G$ dans le
+groupe oppos\'e \`a $\Aut(X)$ est un \emph{isomorphisme}; et
+d'ailleurs pour qu'un objet $X$
+de~$\cal{C}$
+soit connexe et principal homog\`ene sous le groupe oppos\'e \`a
+$\Aut(X)$, il faut et il suffit, avec les notations du \No \ref{V.4}, qu'il
+soit isomorphe \`a un $P_i$ \emph{galoisien}. Dans le cas type
+$\cal{C}=\cal{C}(\pi)$, cela signifie que $X$ est isomorphe \`a un
+quotient de~$\pi$ par un sous-groupe invariant.
+
+Supposons toujours donn\'e un foncteur fondamental~$F$. Alors la
+donn\'ee d'un
+$X$ principal homog\`ene sous un groupe fini $G$ op\'erant \`a
+droite, et d'un point $a\in F(X)$, est \'equivalente \`a la
+donn\'ee d'un homomorphisme de~$\pi$ dans le groupe~$G$. En effet,
+\`a un tel homomorphisme on fait correspondre l'ensemble $E=G$, en y
+faisant op\'erer~$\pi$ \`a gauche gr\^ace \`a l'homomorphisme
+donn\'e $\pi\to G$ et les translations \`a gauche de~$G$, et en y
+faisant op\'erer $G$ \`a droite par translation \`a droite, le
+point marqu\'e $a$ de~$E$ \'etant l'\'el\'ement unit\'e
+de~$G$. Gr\^ace \`a ce qui pr\'ec\`ede, on obtient ainsi de
+fa\c con essentiellement unique tout triple $(X, G, a)$ ayant les
+propri\'et\'es envisag\'ees plus haut,
+puisqu'un
+ensemble \`a
+point marqu\'e principal homog\`ene sous un groupe $G$ s'identifie
+\`a ce dernier. De cette fa\c con, on a une interpr\'etation
+g\'eom\'etrique directe du foncteur $G\mto \Hom(\pi, G)$ de la
+cat\'egorie des groupes finis dans~$\Ens$, foncteur qui est
+pro-repr\'esentable \`a l'aide de~$\pi$, et dont la
+consid\'eration fournirait donc une autre construction du groupe
+$\pi$ associ\'e \`a~$F$.
+\end{remarque}
+
+\section{Foncteurs exacts d'une cat\'egorie galoisienne dans une autre}
+\label{V.6}
+
+\begin{proposition}
+\label{V.6.1}
+Soient $\cal{C}$, $\cal{C'}$ deux cat\'egories galoisiennes,
+$H\colon \cal{C}\to \cal{C'}$ un foncteur covariant, $F'$ un foncteur
+fondamental sur~$\cal{C'}$ et $F=F' \circ H$. Conditions
+\'equivalentes:
+\begin{enumerate}
+\item[(i)] $H$ est \emph{exact}, \ie exact \`a gauche et exact
+\`a droite.
+\item[(ii)] $H$ est exact \`a gauche, transforme sommes finies en
+sommes finies, et \'epimorphismes en \'epimorphismes (ou encore:
+objets $\not\approx \emptyset_{\cal{C}}$ en objets $\not\approx
+\emptyset_{\cal{C'}}$).
+\item[(iii)] $F$ est un foncteur fondamental sur~$\cal{C}$.
+\end{enumerate}
+\end{proposition}
+
+L'implication (i)$\To$(ii) est un fait g\'en\'eral aux
+cat\'egories. D'ailleurs la premi\`ere forme donn\'ee \`a (ii)
+implique la seconde, comme on voit en notant que si $X$ est un objet
+de~$\cal{C}$, alors $X$ est $\not\approx \emptyset_{\cal{C}}$ \sss le
+morphisme $X\to e_{\cal{C}}$ est un \'epimorphisme; on notera que
+$F$ \'etant suppos\'e exact \`a gauche transforme $e_{\cal{C}}$
+en~$e_{\cal{C'}}$. La deuxi\`eme forme donn\'ee \`a (ii)
+implique~(iii), car $F$ \'etant exact \`a gauche donc
+pro-repr\'esentable est justiciable de~\ref{V.5.6}
+crit\`ere~(iii). Enfin (iii) implique~(i), comme il r\'esulte du
+fait que $F$ est exact, et \og conservatif\fg (\ie satisfait l'axiome
+(G~6) de~\no \ref{V.4}).
+
+Soit alors $\Gamma$ le groupo\"ide fondamental de~$\cal{C}$,
+$\Gamma'$ celui de~$\cal{C'}$. Donc si
+$H$ est exact, alors $F' \mto F' \circ H$ est un foncteur du
+groupo\"ide~$\Gamma'$ dans le groupo\"ide~$\Gamma$, qu'on
+d\'enotera par $\tH$:
+$$
+\tH (F')(X)=F' (H(X))
+$$
+qu'on peut aussi \'ecrire, avec la notation $F(X)=E_X (F)$
+introduite dans~\no \ref{V.6}:
+$$
+E_{H(X)} (F')=E_X (\tH(F')).
+$$
+Cette derni\`ere formule montre, compte tenu de~\ref{V.5.8}
+ou~\ref{V.4.1}, que le foncteur exact $H$ est d\'etermin\'e (\`a
+isomorphisme unique pr\`es) quand on conna\^it le foncteur
+correspondant~$\tH$. Fixons nous un~$F'$, soit $F=\tH (F')$,
+alors $\tH$ d\'efinit un homomorphisme de~$\pi_{F'} =\Aut(F')$
+dans $\pi_F =\Aut(F)$:
+$$
+\tH\colon \pi_{F'} \to \pi_F \quad (F=\tH (F')=F' \circ H).
+$$
+D'ailleurs la formule plus haut montre (compte tenu de~\ref{V.5.8})
+que cet homomorphisme a la propri\'et\'e suivante: pour tout
+ensemble fini $E$ o\`u $\pi_F$ op\`ere contin\^ument, le groupe
+$\pi_{F'}$ op\`ere \'egalement \emph{continûment} gr\^ace
+\`a l'homomorphisme pr\'ec\'edent $\pi_{F'} \to
+\pi_F$. \hbox{Appliquant} ceci aux quotients de~$\pi_F$ par ses sous-groupes
+invariants ouverts, on voit que la condition pr\'ec\'edente
+signifie aussi que l'homomorphisme consid\'er\'e est
+continu. R\'eciproquement,
+donnons-nous
+un objet $F$ de~$\Gamma$, un
+objet $F'$ de~$\Gamma'$ et un homomorphisme continu
+$$
+u\colon \pi_{F'} \to \pi_F ,
+$$
+il lui correspond donc un foncteur de~$\cal{C} (\pi)$
+dans~$\cal{C}(\pi')$, manifestement exact, donc en vertu
+de~\ref{V.4.1} il lui correspond un foncteur $H$ de~$\cal{C}$ dans
+$\cal{C'}$ qui est exact, et tel que $\tH\colon \pi_{F'} \to \pi_F$
+soit pr\'ecis\'ement~$u$. On peut aussi, au lieu d'un
+homomorphisme de groupes, partir d'un \emph{foncteur}
+$$
+U\colon \Gamma' \to \Gamma
+$$
+qui est tel que pour \emph{tout} $F' \in \Gamma'$ (ou \emph{un} $F'
+\in \Gamma'$, cela revient au m\^eme) l'homomorphisme correspondant
+$\pi_{F'} \to \pi_F$ soit continu: un tel foncteur est isomorphe \`a
+un foncteur de la forme~$\tH$, o\`u $H\colon \cal{C} \to
+\cal{C'}$ est un foncteur exact d\'etermin\'e \`a isomorphisme
+unique pr\`es. Ainsi:
+
+\begin{corollaire}
+\label{V.6.2}
+Pour
+qu'un foncteur $H\colon \cal{C} \to \cal{C'}$ de cat\'egories
+galoisiennes soit exact, il faut et il suffit qu'il existe des
+\'equivalences $\cal{C}(\pi)\to\cal{C}$ et
+$\cal{C'}\to\cal{C}(\pi')$
+qui transforment le foncteur $H$ en le foncteur
+$\cal{C}(\pi)\to\cal{C}(\pi')$ associ\'e \`a un homomorphisme de
+groupes topologiques $\pi'\to\pi$.
+\end{corollaire}
+
+\begin{corollaire}
+\label{V.6.3}
+Soient $\cal{C}$, $\cal{C'}$ deux cat\'egories galoisiennes,
+$\Gamma$, $\Gamma'$ leurs groupo\"ides fondamentaux. Alors la
+cat\'egorie des foncteurs exacts de~$\cal{C}$ dans $\cal{C'}$ est
+\'equivalente \`a la cat\'egorie des foncteurs $U\colon \Gamma'
+\to \Gamma$ ayant la propri\'et\'e suivante: pour tout $F'$ dans~$\Gamma'$ (ou \emph{un} $F'$ dans~$\Gamma'$, cela revient au
+m\^eme), posant $F=U(F')$, l'homomorphisme
+$$
+\pi_{F'} =\Aut (F')\to \pi_F =\Aut (F)
+$$
+d\'efini par $U$ est continu.
+\end{corollaire}
+
+Consid\'erons le pro-groupe fondamental $\Pi$ de~$\cal{C}$, alors un
+foncteur exact $H$ le transforme en un pro-groupe $H(\Pi)$
+de~$\cal{C'}$, nous allons d\'efinir un homomorphisme
+$$
+\Pi' \to H(\Pi)
+$$
+(o\`u $\Pi'$ est le pro-groupe fondamental de~$\cal{C'}$), par la
+condition que pour tout objet $F'$ de~$\Gamma'$, l'homomorphisme
+correspondant
+$$
+F' (\Pi')=\pi_{F'} \to F' (H(\Pi))=\pi_F \qquad
+\text{(où $F=F'\circ H=\tH(F')$)}
+$$
+soit l'homomorphisme naturel
+$$
+\Aut(F')\to \Aut(F' \circ H).
+$$
+Comme ce dernier est fonctoriel en~$F'$, il d\'efinit bien en vertu
+de~\ref{V.5.8} un homomorphisme de pro-objets, et en fait de
+pro-groupes, de~$\cal{C'}$. Cet homomorphisme est dit
+\emph{associé} au foncteur~$H$.
+
+Soit maintenant $H'$ un deuxi\`eme foncteur exact, de la
+cat\'egorie galoisienne $\cal{C'}$ dans une cat\'egorie
+galoisienne~$\cal{C''}$. Il est trivial qu'on a
+$$
+{}^t (H' H)=\tH\,\tH'
+$$
+(N.B. on a l\`a une identit\'e de foncteurs, et non seulement un
+isomorphisme canonique). On a une propri\'et\'e de
+transitivit\'e analogue pour les homomorphismes associ\'es des
+pro-groupes fondamentaux.
+
+Nous
+allons maintenant interpr\'eter les propri\'et\'es du foncteur
+exact $H$ en termes de l'homomorphisme correspondant
+$$
+u\colon \pi_{F'} \to \pi_{F} \qquad \text{(où $F' =F'\circ H$)}.
+$$
+Il est commode d'introduire la notion d'\emph{objet ponctué}
+\index{ponctu\'e (objet)|hyperpage}de la cat\'egorie galoisienne $\cal{C}$ (muni de son foncteur
+fondamental $F$): c'est par d\'efinition un objet $X$ de~$\cal{C}$
+muni d'un \'el\'ement $a$ de~$F(X)$. Il s'interpr\`ete donc
+comme un ensemble fini o\`u $\pi_F$ op\`ere contin\^ument \`a
+gauche, muni d'un point~$a$. Donc les objets ponctu\'es
+\emph{connexes} de~$\cal{C}$ s'identifient en vertu de~\ref{V.5.3} aux
+sous-groupes ouverts de~$\pi_F$. Si $U$ et $V$ sont deux tels
+sous-groupes, correspondants \`a des objets ponctu\'es connexes
+$X$, $Y$ de~$\cal{C}$, alors il existe un homomorphisme ponctu\'e de
+$X$ dans $Y$ si et seulement si $U\subset V$, et cet homomorphisme est
+alors unique. Bien entendu, le foncteur $H$ transforme objets
+ponctu\'es en objets ponctu\'es (puisque $F=F' \circ H$). Notons
+d'autre part qu'un sous-groupe ferm\'e d'un groupe tel que $\pi_F$
+est l'intersection des sous-groupes ouverts qui le contiennent; par
+suite,
+si
+$M$, $N$ sont deux sous-groupes ferm\'es, alors $M\subset N$ si et
+seulement si tout sous-groupe ouvert qui contient $N$ contient
+\'egalement~$M$. Gr\^ace \`a ces remarques, on prouve facilement
+les r\'esultats qui suivent:
+
+\begin{proposition}
+\label{V.6.4}
+Soit $X$ un objet ponctu\'e connexe de~$\cal{C}$, associ\'e \`a
+un sous-groupe ouvert $U$ de~$\pi_F$. Pour que
+$U$
+contienne $u(\pi_{F'})$ (\resp le sous-groupe invariant ferm\'e
+engendr\'e par~$u(\pi_{F'})$) il faut et il suffit que $H(X)$
+admette une section ponctu\'ee (\resp soit compl\`etement
+d\'ecompos\'e).
+\end{proposition}
+
+On appellera \emph{section} --- sous-entendu: au-dessus de l'objet
+final --- d'un objet $X$ d'une cat\'egorie galoisienne~$\cal{C}$, un
+morphisme de l'objet final $e_{\cal{C}}$ dans~$X$, ce qui revient
+\`a la donn\'ee d'un \'el\'ement $a$ de~$F(X)$ invariant par
+$\pi_F$; si $X$ est ponctu\'e, on dit qu'on a une \emph{section
+ponctuée} si elle est compatible avec les structures ponctu\'ees
+sur~$X$ et~$e_{\cal{C}}$, \ie si $a$ est pr\'ecis\'ement l'objet
+marqu\'e de~$F(X)$. Une telle section est donc unique, et existe si
+et seulement si l'objet marqu\'e de~$F(X)$ est invariant
+par~$\pi_F$. Enfin, un objet d'une cat\'egorie galoisienne est dit
+\emph{complètement décomposé}
+\index{compl\`etement d\'ecompos\'e (objet)|hyperpage}\index{decompose (objet completement)@d\'ecompos\'e (objet compl\`etement)|hyperpage}s'il est isomorphe \`a une somme d'objets finaux, \ie si $\pi_F$
+op\`ere trivialement dans $F(X)$ --- condition \'evidemment plus
+forte que l'existence d'une section ponctu\'ee, lorsque $X$ est
+ponctu\'e. La proposition~\ref{V.6.4} r\'esulte trivialement des
+d\'efinitions et remarques pr\'ec\'edentes.
+
+\begin{corollaire}
+\label{V.6.5}
+Pour
+que $u$ soit trivial, il faut et il suffit que pour tout objet
+$X$ de~$\cal{C}$, $H(X)$ soit compl\`etement d\'ecompos\'e.
+\end{corollaire}
+
+\begin{proposition}
+\label{V.6.6}
+Soit $X'$ un objet ponctu\'e connexe de~${\cal{C}}'$, associ\'e
+\`a un sous-groupe ouvert $U'$ de~$\pi_{F'}$. Pour que $U'$
+contienne~$\Ker u$, il faut et il suffit qu'il existe un objet
+ponctu\'e connexe $X$ de~$\cal{C}$ et un homomorphisme ponctu\'e
+de la composante connexe ponctu\'ee $X'_0$ de~$H(X)$ dans~$X'$ (donc
+que $X$ soit isomorphe comme objet ponctu\'e \`a un quotient de la
+composante connexe neutre de l'image inverse d'un objet ponctu\'e
+de~$\cal{C}$). Si $u$ est surjectif, la condition pr\'ec\'edente
+\'equivaut aussi \`a la suivante: $X$ est isomorphe \`a
+un~$H(X)$, o\`u $X$ est un objet ponctu\'e de~$\cal{C}$.
+\end{proposition}
+
+(On appelle \emph{composante connexe neutre}
+\index{neutre (composante connexe d'un objet ponctu\'e)|hyperpage}d'un objet ponctu\'e $X$ d'une cat\'egorie galoisienne~$\cal{C}$,
+l'unique sous-objet connexe ponctu\'e de~$X$; il correspond \`a la
+trajectoire sous $\pi_F$ du point marqu\'e de~$F(X)$, en vertu
+de~\ref{V.5.3}). Comme le fait que $U'$ contienne $\Ker u$ ne
+d\'epend pas de la ponctuation choisie de~$X'$ (car une autre
+ponctuation revient \`a remplacer $U$ par un sous-groupe
+conjugu\'e \`a~$U$), on voit:
+
+\begin{corollaire}
+\label{V.6.7}
+Pour que $U'$ contienne~$\Ker u$, il faut et il suffit qu'il existe un
+\hbox{objet~$X$} de~$\cal{C}$ (qu'on peut supposer connexe) et un morphisme
+d'une composante connexe de~$H(X)$ dans~$X'$. Si $u$ est surjectif,
+cela signifie aussi que $X'$ est isomorphe \`a un objet de la
+forme~$H(X)$.
+\end{corollaire}
+
+\begin{corollaire}
+\label{V.6.8}
+Pour que $u$ soit injectif, il faut et il suffit que pour tout objet
+$X'$ de~${\cal{C}}'$, il existe un objet $X$ de~$\cal{C}$ et un
+homomorphisme d'une composante connexe de~$H(X)$ dans~$X'$.
+\end{corollaire}
+
+\begin{proposition}
+\label{V.6.9}
+Les conditions suivantes sont \'equivalentes:
+\begin{enumerate}
+\item[(i)] L'homomorphisme $u\colon \pi_{F'} \to \pi_F$ est surjectif.
+\item[(ii)] Pour tout objet connexe $X$ de~$\cal{C}$, $H(X)$ est
+connexe.
+\item[(iii)] Le foncteur $H$ est pleinement fid\`ele.
+\end{enumerate}
+\end{proposition}
+
+Ce dernier fait signifie que pour deux objets~$X$, $Y$ de~$\cal{C}$,
+l'application naturelle
+$$
+\Hom(X,Y) \to \Hom(H(X),H(Y))
+$$
+est bijective.
+
+\begin{corollaire}
+\label{V.6.10}
+Pour
+que $u$ soit un isomorphisme, il faut et suffit que $H$ soit une
+\'equivalence de cat\'egories, ou encore que les deux conditions
+suivantes soient v\'erifi\'ees:
+\begin{enumerate}
+\item[a)] pour tout objet connexe $X$ de~$\cal{C}$, $H(X)$ est connexe
+\item[b)] tout objet de~$\cal{C}'$ est isomorphe \`a un objet de la
+forme~$H(X)$.
+\end{enumerate}
+\end{corollaire}
+
+\begin{proposition}
+\label{V.6.11}
+Soient $H\colon \cal{C}\to \cal{C}'$ et $H'\colon\cal{C}\to \cal{C}''$
+des foncteurs exacts entre cat\'egories galoisiennes, $F''$ un
+foncteur fondamental sur~$\cal{C}''$, posons $F'=F''H'$ et $F=F'H$, et
+consid\'erons les homomorphismes associ\'es
+$$
+u'\colon\pi_{F''}\to \pi_{F'}\qquad u\colon\pi_{F'}\to \pi_F.
+$$
+Pour que $\Ker u\subset \Im u'$ \ie pour que $uu'$ soit
+l'homomorphisme trivial, il faut et il suffit que pour tout objet $X$
+de~$\cal{C}$, $H'(H(X))$ soit compl\`etement d\'ecompos\'e. Pour
+que $\Ker u \supset \Im u' $, il faut et il suffit que pour tout objet
+ponctu\'e connexe $X'$ de~$\cal{C}'$ tel que $H'(X')$ admette une
+section ponctu\'ee, il existe un objet~$X$ de~$\cal{C}$ et un
+homomorphisme d'une composante connexe de~$H(X)$ dans~$X'$.
+\end{proposition}
+
+La premi\`ere assertion r\'esulte de la derni\`ere affirmation
+de~\ref{V.6.4}. La deuxi\`eme r\'esulte de la conjonction
+de~\ref{V.6.4} et~\ref{V.6.6}.
+
+\begin{remarque}
+\label{V.6.12}
+Il n'est pas vrai en g\'en\'eral, sous les conditions
+de~\ref{V.6.8} que $X'$ soit isomorphe \`a un objet de la forme
+$H(X)$. On peut montrer que pour que tout objet connexe (donc tout
+objet) de~$\cal{C}'$ soit isomorphe \`a un objet de la forme $H(X)$,
+il faut et il suffit que $u$ soit un isomorphisme de~$\pi_{F'}$ sur un
+sous-groupe \emph{facteur direct} de~$\pi_F$. En pratique cependant,
+on construit directement un homomorphisme $\pi_F\to\pi_{F'}$ inverse
+\`a droite de~$u$ \`a l'aide d'un foncteur exact convenable
+de~$\cal{C'}$ dans~$\cal{C}$.
+\end{remarque}
+
+\begin{proposition}
+\label{V.6.13}
+Soient $\cal{C}$ une cat\'egorie galoisienne munie d'un foncteur
+fondamental $F$, $S$ un objet connexe de~$\cal{C}$, $\cal{C}'$ la
+cat\'egorie des objets de~$\cal{C}$ au-dessus de~$S$. Alors
+$\cal{C'}$ est une cat\'egorie galoisienne, et le foncteur $X\mto
+H(X)=X\times S$ de~$\cal{C}$ dans~$\cal{C}'$ est exact. Soit $a\in
+F(S)$, et soit $F'$ le foncteur de~$\cal{C}'$ dans la cat\'egorie
+des ensembles finis d\'efini par
+$$
+F'(X')=\text{image inverse de~$a$ par }F(X')\to F(S).
+$$
+Alors on a un isomorphisme $F\cong F'\circ H$, et l'homomorphisme
+correspondant
+$$
+u:\pi_{F'}\to \pi_F
+$$
+est un isomorphisme de~$\pi_{F'}$ sur le sous-groupe ouvert $U$ de
+$\pi_{F}$ stabilisateur de l'\'el\'ement marqu\'e $a$ de~$F(X)$.
+\end{proposition}
+
+La d\'emonstration est laiss\'ee au lecteur.
+
+\section{Cas des pr\'esch\'emas}
+\label{V.7}
+Soit $S$ un pr\'esch\'ema localement noeth\'erien et
+\emph{connexe}, et soit
+$$
+a\colon \Spec(\Omega)\to S
+$$
+un point g\'eom\'etrique de~$S$, \`a valeurs dans un corps
+alg\'ebriquement clos $\Omega$. On posera
+$$
+\cal{C}=\text{catégorie des revêtements étales de~$S$}
+$$
+et pour un objet $X$ de~$\cal{C}$, \ie un rev\^etement \'etale
+$X$ de~$S$, on pose
+$$
+F(X)=\text{ensemble des points géométriques de~$X$ au-dessus
+de~$a$.}
+$$
+Ainsi, $F$ devient un foncteur sur~$\cal{C}$ \`a valeurs dans la
+cat\'egorie des ensembles finis. Les propri\'et\'es (G~1) \`a
+(G~6) sont satisfaites: pour (G~1), c'est contenu dans les sorites de
+I~\ref{I.4.6}, (G~2) r\'esulte de~\ref{V.3.4}, (G~3) de~\ref{V.3.5},
+(G~4) est trivial par d\'efinition, (G~5) r\'esulte de~\ref{V.3.5} et
+du d\'ebut du \No \ref{V.2}, enfin (G~6) est prouv\'e dans~\ref{V.3.7}. On
+peut donc appliquer les r\'esultats des \No \ref{V.4}, \ref{V.5}, \ref{V.6}. Cela permet en
+particulier de d\'efinir un pro-objet $P$ de~$\cal{C}$
+repr\'esentant $F$, appel\'e \emph{revêtement universel de~$S$
+au point~$a$},
+\index{revetement universel d'un preschema en un point@rev\^etement universel d'un pr\'esch\'ema en un point|hyperpage}et un groupe topologique $\pi=\Aut(F)=\Aut^0 P$, appel\'e
+\emph{groupe fondamental de~$S$ en~$a$},
+\index{groupe fondamental d'un pr\'esch\'ema en un point|hyperpage}et not\'e~$\pi_1(S,a)$.
+\label{indnot:eg}Le foncteur $F$ d\'efinit alors une \'equivalence de la
+cat\'egorie $\cal{C}$ avec la cat\'egorie des ensembles finis
+o\`u $\pi=\pi_1(S,a)$ op\`ere contin\^ument. Cette
+\'equivalence permet donc d'interpr\'eter les op\'erations
+courantes de limites projectives et limites inductives finies sur des
+rev\^etements (produits, produits fibr\'es, sommes, passage au
+quotient, etc.) en termes des op\'erations analogues dans
+$\cal{C}(\pi)$, \ie en termes des op\'erations \'evidentes sur
+des ensembles finis o\`u $\pi$ op\`ere. Notons d'ailleurs, puisque
+les composantes connexes topologiques d'un rev\^etement \'etale
+sont \'egalement des rev\^etements \'etales, qu'\emph{un \hbox{objet $X$} de~$\cal{C}$ est connexe dans $\cal{C}$ si et seulement si il est
+topologiquement connexe}; en vertu de~\ref{V.5.3} cela signifie donc
+que $\pi_1$ op\`ere transitivement dans~$F(X)$.
+Notons que pour qu'un objet $X$ de~$\cal{C}$ soit fid\`element plat
+et quasi-compact sur~$S$ (comme il est d\'ej\`a plat et
+quasi-compact sur~$S$), il faut et suffit que $X\to S$ soit surjectif
+\ie soit un \'epimorphisme dans $\cal{C}$, ou encore que $X\neq
+\emptyset$. On conclut alors du crit\`ere \ref{V.2.6}~(iii) que~$X$
+\emph{est un revêtement principal de
+$S$
+de groupe $G$ si et seulement si il est un espace principal
+homogène sous $G$ dans la catégorie $\cal{C}$}, (tel qu'il a
+\'et\'e d\'efini dans \No \ref{V.5}).
+
+Si $a'$ est un autre point g\'eom\'etrique de~$S$ (correspondant
+\`a un corps alg\'ebriquement clos $\Omega'$, qui peut \^etre
+diff\'erent de~$\Omega$ et qui peut m\^eme avoir une
+caract\'eristique diff\'erente), il d\'efinit un foncteur fibre
+$F'=F_{a'}$ de~$\cal{C}$ dans la cat\'egorie des ensembles finis,
+qui est encore exact, donc isomorphe \`a $F=F_a$. Par suite, les
+groupes fondamentaux $\pi_1(S;a)$
+\label{indnot:eg1}pour $a$ variable sont isomorphes entre eux. Si on d\'esigne par
+$\pi_1(S;a,a')$
+\label{indnot:eh}l'ensemble des isomorphismes (ou ce qui revient au m\^eme,
+l'ensembles des homomorphismes) $F_a\to F_{a'}$ des foncteurs fibres
+associ\'es, on obtient ainsi un \emph{groupoïde} dont
+l'ensemble des objets est l'ensemble des points g\'eom\'etriques
+de~$S$, les groupes fondamentaux \'etant les groupes
+d'automorphismes des objets dudit groupo\"ide. L'ensemble
+$\pi_1(S;a',a)$ peut \^etre appel\'e l'\emph{ensemble des classes
+de chemins de~$a$ à $a'$}. Ces classes se composent donc de fa\c con \'evidente. Enfin, on peut d\'efinir un pro-groupe $\Pi_1^S$
+de~$\cal{C}$, qu'on pourra appeler \emph{pro-groupe fondamental
+de}~$S$
+\index{pro-groupe fondamental d'un pr\'esch\'ema|hyperpage}ou \emph{système local des groupes fondamentaux sur}~$S$,
+\index{systeme local des groupes fondamentaux@syst\`eme local des groupes fondamentaux|hyperpage}d\'efini \`a isomorphisme unique pr\`es par la condition qu'on
+ait un isomorphisme, fonctoriel en le point g\'eom\'etrique $a$ de
+$S$:
+$$
+F_a(\Pi_1^S)=\pi_1(S;a)
+$$
+(\cf remarque~\ref{V.5.10}). En particulier, si $s$ est un point
+ordinaire de~$S$, la fibre de~$G$ en~$s$ est un pro-groupe sur~$\kres(s)$,
+limite projective de groupes finis \'etales sur~$\kres(s)$; on pourrait
+appeler ce pro-groupe \emph{le groupe fondamental de~$S$ en le point
+ordinaire $s$ de~$S$}, et le noter $\pi_1(S,s)$. Par d\'efinition, ces
+points \`a valeurs dans une extension alg\'ebriquement close
+$\Omega$ de~$\kres(s)$ sont les \'el\'ements de~$\pi_1(S;a)$, o\`u
+$a$ est le point g\'eom\'etrique de~$S$ d\'efini par ladite
+extension. En particulier, (prenant pour $S$ le spectre d'un corps)
+\`a tout corps $k$ est associ\'e canoniquement et fonctoriellement
+un pro-groupe sur~$k$, qu'on pourrait noter $\pi_1(k)$, limite
+projective de groupes finis \'etales sur~$k$, et dont les points
+dans une extension alg\'ebriquement close $\Omega$ de~$k$
+s'identifient
+aux \'el\'ements du groupe de Galois topologique de~$\bar{k}/k$,
+o\`u $\bar{k}$ est la cl\^oture galoisienne de~$k$ dans $\Omega$
+(\cf \ref{V.8.1}). Ce groupe $\pi_1(k)$ ne semble pas encore avoir
+retenu l'attention des alg\'ebristes.
+
+Soit maintenant
+$$
+f\colon S'\to S
+$$
+un morphisme d'un pr\'esch\'ema connexe localement noeth\'erien
+dans un autre, soit $a'$ un point g\'eom\'etrique de~$S'$ et soit
+$a=f(a')$ son image directe dans $S$. Alors le foncteur \og image
+inverse\fg induit un foncteur de la cat\'egorie $\cal{C}(S)$
+\label{indnot:ei}des rev\^etements \'etales de~$S$, dans la cat\'egorie
+$\cal{C}(S')$ des rev\^etements \'etales de~$S'$:
+$$
+f^\bbullet:\cal{C}(S)\to \cal{C}(S')
+$$
+On a d'ailleurs un isomorphisme de foncteurs
+$$
+F_a\cong F_{a'}\circ f^\bbullet,
+$$
+de sorte que $f^\bbullet$ est un foncteur \emph{exact}, auquel
+s'appliquent les r\'esultats du \No \ref{V.6}. On a en particulier un
+homomorphisme canonique
+$$
+u=\pi_1(f;a'):\pi_1(S',a')\to \pi_1(S;a) \qquad (a'=f(a))
+$$
+\label{indnot:ej}qui permet de reconstituer le foncteur image inverse, comme une
+op\'eration de restriction des groupes d'op\'erateurs. Les
+propri\'et\'es du foncteur $f^\bbullet$ s'expriment donc de
+fa\c con simple par les propri\'et\'es de l'homomorphisme de
+groupes associ\'es, comme il a \'et\'e explicit\'e dans le
+\No \ref{V.6}. Si en particulier $S'$ est un rev\^etement \'etale de~$S$,
+alors l'homomorphisme $u$ est un isomorphisme de~$\pi_1(S',a')$ sur le
+sous-groupe ouvert de~$\pi_1(S,a)$ qui d\'efinit le rev\^etement
+\'etale connexe ponctu\'e $S'$ de~$S$ (\ie le stabilisateur~$U$
+de~$a'\in F_a(S')$ dans $\pi_1(S;A)$).
+
+Si on d\'esire interpr\'eter les homomorphismes $\pi_1(f;a')$ pour
+un point g\'eom\'etrique variable $a'$, on doit, conform\'ement
+\`a ce qui a \'et\'e dit dans le \No \ref{V.6}, consid\'erer un
+homomorphisme
+$$
+\Pi_1(f):\Pi_1^{S'}\to f^\bbullet(\Pi_1^S)
+$$
+de pro-groupes sur~$S$, et prendre l'homomorphisme correspondant pour
+les fibres g\'eom\'etriques.
+
+\section{Cas d'un pr\'esch\'ema de base normale}
+\label{V.8}
+\begin{proposition}
+\label{V.8.1}
+Soit $S$ le spectre d'un corps $k$, et soit $\Omega$ une extension
+alg\'ebriquement close de~$k$, d\'efinissant un point
+g\'eom\'etrique $a$ de~$S$ \`a valeurs dans $\Omega$. Soit
+$\bar{k}$ la cl\^oture s\'eparable de~$k$ dans $\Omega$. Alors il
+existe un isomorphisme canonique de~$\pi_1(S,a)$ sur le groupe de
+Galois topologique de~$\bar{k}/k$.
+\end{proposition}
+
+Soit $k'$ la cl\^oture alg\'ebrique de~$k$ dans $\Omega$, il
+correspond donc \`a un point g\'eom\'etrique~$b$ de~$S$, \`a
+valeurs dans $k'$. L'homomorphisme naturel de foncteurs $F_b\to F_a$
+est \'evidemment un isomorphisme, car un $k$-homomorphisme d'une
+extension finie s\'eparable de~$k$ dans $\Omega$ prend
+n\'ecessairement ses valeurs dans $\bar{k}$ et a fortiori dans
+$k'$. D'autre part, le groupe $\pi'$ des $k$-automorphismes de~$k'/k$
+op\`ere de fa\c con \'evidente sur~$F_b$, d'o\`u un
+homomorphisme $\pi'\to \Aut(F_b)\isomto \Aut(F_a)=\pi_1(S;a)$.
+D'autre part, il est bien connu que l'homomorphisme naturel de~$\pi'$
+dans le groupe $\pi$ des automorphismes de~$\bar{k}/k$ est un
+isomorphisme. On obtient ainsi un homomorphisme canonique $\pi\to
+\pi_1(S;a)$, reste \`a montrer que c'est un isomorphisme. En effet,
+cet homomorphisme est injectif, car un \'el\'ement du noyau est un
+automorphisme de~$\bar{k}/k$ qui induit l'identit\'e sur toute
+sous-extension s\'eparable finie, donc est trivial. Cet
+homomorphisme est surjectif, car si $X$ est un rev\^etement
+\'etale \emph{connexe} de~$S$, donc d\'efini par une
+\emph{extension} finie s\'eparable~$L/k$, alors $\pi$ est transitif
+sur l'ensemble des $k$-homomorphismes de~$L$ dans $k'$, comme bien
+connu.
+
+\begin{proposition}
+\label{V.8.2}
+Soient $S$ un pr\'esch\'ema connexe, localement noeth\'erien et
+normal, $K=\kres(s)$ son corps des fonctions $=$ le corps r\'esiduel en
+son point g\'en\'erique $s$, $\Omega$ une extension
+alg\'ebriquement close de~$K$, d\'efinissant un point
+g\'eom\'etrique $a'$ de~$S'=\Spec(K)$ et un point
+g\'eom\'etrique $a$ de~$S$. Alors l'homomorphisme
+$\pi_1(S';a')\to\pi_1(S;a)$ est surjectif. Lorsqu'on identifie le
+premier groupe au groupe de Galois de la cl\^oture s\'eparable
+$\bar{K}$ de~$K$ dans~$\Omega$ (\cf \ref{V.8.1}) alors le noyau de
+l'homomorphisme pr\'ec\'edent correspond par la th\'eorie de
+Galois \`a la sous-extension de~$\bar{K}/K$ compos\'ee des
+extensions finies de~$K$ dans $\Omega$ qui sont non ramifi\'ees sur~$S$.
+\end{proposition}
+
+La premi\`ere assertion signifie que l'image inverse sur~$S'$ d'un
+rev\^etement \'etale connexe $X$ de~$S$ est connexe, \ie que $X$
+est int\`egre, ce n'est autre que (I~\ref{I.10.1}). Le noyau de
+l'homomorphisme pr\'ec\'edent s'interpr\`ete alors comme
+form\'e des automorphismes de~$\bar{K}/K$ qui induisent
+l'identit\'e sur les ensembles~$F_a(X)$,
+o\`u on peut supposer le rev\^etement \'etale $X$ de~$S$
+connexe. Mais cela signifie que cet automorphisme induit
+l'identit\'e sur les sous-extensions finies de~$\bar{K}/K$ qui sont
+non ramifi\'ees sur~$S$, ce qui prouve la derni\`ere assertion.
+
+\begin{remarquestar}
+Gr\^ace \`a cette interpr\'etation du groupe fondamental du
+pr\'esch\'ema normal $S$ en termes de th\'eorie des Galois
+habituelle, la d\'efinition \'etait connue dans ce cas depuis
+longtemps.
+\end{remarquestar}
+
+\section{Cas des pr\'esch\'emas non connexes: cat\'egories
+multigaloisiennes}
+\label{V.9}
+
+Soit $S$ un pr\'esch\'ema localement noeth\'erien, et soient
+$(S_i)_{i\in I}$ ses composantes connexes. Alors la cat\'egorie
+$\cal{C}(S)$ des rev\^etements \'etales de~$S$ est \'equivalente
+\`a la cat\'egorie produit des $\cal{C}(S_i)$, qui
+s'interpr\`etent en termes des groupes fondamentaux des $S_i$, une
+fois choisie un point g\'eom\'etrique dans chaque $S_i$. Dans
+l'application de la th\'eorie de la descente pour les morphismes
+\'etales, il est parfois malcommode de faire choix pour tout $S_i$
+d'un point g\'eom\'etrique de~$S_i$. Il est plus commode alors
+de recourir \`a la g\'en\'eralisation naturelle de~\ref{V.5.8}
+pour interpr\'eter $\cal{C}(S)$ comme une cat\'egorie de foncteurs
+sur le groupo\"ide des points g\'eom\'etriques de~$S$,
+consid\'er\'e comme somme des groupo\"ides correspondants aux
+composantes connexes de~$S$; les foncteurs en question sont les
+foncteurs \`a valeurs dans la cat\'egorie des ensembles finis,
+satisfaisant la propri\'et\'e de continuit\'e analogue \`a
+celle invoqu\'ee dans~\ref{V.5.8}. En pratique, on aura une famille
+$(a_t)_{t\in E}$ de points g\'eom\'etriques de~$S$, telle que
+toute composante connexe $S_i$ de~$S$ en contienne au moins un, et on
+pourra alors, comme dans~\ref{V.5.10}, remplacer le groupo\"ide de
+tous les points g\'eom\'etriques de~$S$ par le groupo\"ide
+analogue dont l'ensemble sous-jacent est~$E$. Bien entendu, ces
+consid\'erations devraient s'ins\'erer dans des d\'efinitions
+g\'en\'erales concernant les cat\'egories qui sont
+\'equivalentes \`a des cat\'egories produits de cat\'egories
+de la forme $\cal{C}(\pi)$, et qu'on pourra appeler
+\emph{catégories multi-galoisiennes}.
+\index{multi-galoisienne (cat\'egorie)|hyperpage}Nous en laisserons le d\'etail au lecteur.
+
