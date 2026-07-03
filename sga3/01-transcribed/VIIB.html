@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 3 — Exposé VII B. Étude infinitésimale des schémas en groupes (B — Groupes formels)</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="VIIB">EXPOSÉ VII B<br>ÉTUDE INFINITÉSIMALE DES SCHÉMAS EN GROUPES<span class="author">par P. Gabriel</span></h1>
+
+<h2 id="VIIB.B">B) Groupes formels</h2>
+
+<p>L'étude des groupes formels est habituellement d'une simplicité extrême. Si cela
+n'apparaît pas clairement dans les pages qui suivent, la responsabilité en incombe à
+un arithméticien, qui prétend connaître des groupes formels sur «&nbsp;autre chose que des
+corps&nbsp;». Nous avons donc déroulé pour les groupes formels «&nbsp;localement libres sur
+des limites projectives d'anneaux artiniens&nbsp;» les généralités qu'on énonce d'habitude
+pour les groupes formels définis sur un corps. Pour une étude plus détaillée de ces
+derniers, nous renvoyons au séminaire de géométrie algébrique 1964/65 de Heidelberg-Strasbourg.</p>
+
+<h2 id="VIIB.0">0. Rappels sur les anneaux et modules pseudocompacts</h2>
+
+<p>Ce paragraphe contient quelques préliminaires techniques&nbsp;; nous y rappelons et
+complétons quelques résultats de <em>C.A.</em> (Des catégories abéliennes, Bul. Soc. math.
+de France, 90, 1962).</p>
+
+<h3 id="VIIB.0.1">0.1.</h3>
+<p>Un anneau <em>pseudocompact</em> à gauche est un anneau avec élément unité, topologique, séparé, complet et qui possède une base de voisinages de 0 formée d'idéaux à
+gauche \(\mathfrak{l}\) de colongueur finie (i.e. \(\mathrm{long}_A(A/\mathfrak{l}) &lt; +\infty\)). Nous allons supposer ici que A
+est commutatif, de sorte qu'il n'y a pas à distinguer «&nbsp;entre la gauche et la droite&nbsp;». En
+particulier, les quotients \(A/\mathfrak{l}\) sont munis de structures d'anneau artinien et A s'identifie à la limite projective topologique de ces anneaux qu'on munit de la topologie
+discrète.</p>
+<p>Un anneau local noethérien complet est évidemment pseudocompact.</p>
+
+<h4 id="VIIB.0.1.1">0.1.1.</h4>
+<p>Un idéal fermé de A est l'intersection des idéaux ouverts qui le contiennent.
+Un idéal fermé maximal est donc ouvert. De plus, si \(\mathfrak{l}\) est un idéal ouvert de A, les
+idéaux maximaux de \(A/\mathfrak{l}\) correspondent biunivoquement aux idéaux maximaux fermés
+\(\mathfrak{m}\) qui contiennent \(\mathfrak{l}\). Le localisé \((A/\mathfrak{l})_{\mathfrak{m}}\) de \(A/\mathfrak{l}\) par rapport à un idéal maximal fermé
+\(\mathfrak{m}\) est donc un anneau local si \(\mathfrak{m}\) contient \(\mathfrak{l}\) et est nul sinon. Comme l'anneau \(A/\mathfrak{l}\) est
+artinien, il est produit direct d'un nombre fini d'anneaux locaux, ce qu'on peut écrire
+\[
+A/\mathfrak{l} \simeq \prod_{\mathfrak{m}\in\Upsilon(A)} (A/\mathfrak{l})_{\mathfrak{m}}
+\]
+en désignant par \(\Upsilon(A)\) l'ensemble des idéaux maximaux fermés de A. On tire de là
+des isomorphismes «&nbsp;canoniques&nbsp;»
+\[
+A \simeq \varprojlim_{\mathfrak{l}} (A/\mathfrak{l}) \simeq \varprojlim_{\mathfrak{l}} \prod_{\mathfrak{m}} (A/\mathfrak{l})_{\mathfrak{m}} \simeq \prod_{\mathfrak{m}} \varprojlim_{\mathfrak{l}} (A/\mathfrak{l})_{\mathfrak{m}},
+\]
+où l'on a posé \(A_{\mathfrak{m}} = \varprojlim_{\mathfrak{l}} (A/\mathfrak{l})_{\mathfrak{m}}\). Cette <em>composante locale</em> \(A_{\mathfrak{m}}\) est une limite projective
+filtrante d'anneaux locaux&nbsp;; c'est donc un anneau local qui est pseudocompact pour
+la topologie de la limite projective (les anneaux \((A/\mathfrak{l})_{\mathfrak{m}}\) sont artiniens et munis de la
+topologie discrète).</p>
+
+<h4 id="VIIB.0.1.2">0.1.2.</h4>
+<p>Soit \(\mathfrak{r}(A)\) l'intersection des idéaux maximaux fermés de A, c'est-à-dire le
+produit cartésien des idéaux \(\mathfrak{m}A_{\mathfrak{m}}\) lorsqu'on identifie A à \(\prod_{\mathfrak{m}} A_{\mathfrak{m}}\). Pour tout idéal
+ouvert \(\mathfrak{l}\) de A, l'image de \(\mathfrak{r}(A)\) dans \(A/\mathfrak{l}\) est contenue dans le radical de \(A/\mathfrak{l}\). Une
+certaine puissance de cette image est donc nulle, de sorte que \(\mathfrak{r}(A)^n\) est contenu dans
+\(\mathfrak{l}\) lorsque n est assez grand. La suite des \(\mathfrak{r}(A)^n\) tend donc vers 0&nbsp;; il en va de même de
+la suite des \(x^n\), lorsque x appartient à \(\mathfrak{r}(A)\). Autrement dit, tout élément de \(\mathfrak{r}(A)\) est
+topologiquement nilpotent et la réciproque est claire. Il s'ensuit que la suite de terme
+général \(1+x+\cdots+x^n\) est convergente et converge vers \(1/(1-x)\) lorsque \(x\in\mathfrak{r}(A)\).
+Cela montre que \(\mathfrak{r}(A)\) est le radical de Jacobson de A (Bourb., Alg., chap. 8, § 6, th. 1).</p>
+
+<h4 id="VIIB.0.1.3">0.1.3.</h4>
+<p>Si A et B sont deux anneaux pseudocompacts, un homomorphisme de A
+dans B est, par définition, une application <em>continue</em> compatible avec l'addition, la
+multiplication et les éléments unité. Un tel homomorphisme envoie un élément topologiquement nilpotent de A sur un élément topologiquement nilpotent de B&nbsp;; il
+applique donc le radical de A dans le radical de B.</p>
+
+<h3 id="VIIB.0.2">0.2.</h3>
+<p>Soit A un anneau pseudocompact (commutatif). Un A-<em>module pseudocompact</em>
+M est un A-module topologique, séparé, complet, unitaire qui possède une base de
+voisinages de 0 formée de sous-modules M′ tels que M/M′ soit de longueur finie sur
+A. Si M et N sont deux A-modules pseudocompacts, un morphisme de M dans N est
+par définition une application A-linéaire continue. Les A-modules pseudocompacts
+forment une catégorie abélienne qui a pour cogénérateurs les A-modules pseudocompacts de longueur finie (dont la topologie est donc discrète). Si \((M_i)\) est un système
+projectif de modules pseudocompacts, la limite projective des \(M_i\) a pour module sousjacent la limite projective des modules sous-jacents, pour topologie celle de la limite
+projective. De plus, le foncteur limite projective est exact lorsque les indices forment
+un ensemble ordonné filtrant (Axiome \(\mathrm{AB5}^*\)). De même, si f est un morphisme de A-modules pseudocompacts, \(\mathrm{Coker}\,f\) a pour module sous-jacent le conoyau des modules
+sous-jacents et la topologie de \(\mathrm{Coker}\,f\) est le quotient de celle du but de f (confer
+[C.A.], IV, § 3).</p>
+
+<h4 id="VIIB.0.2.1">0.2.1.</h4>
+<p>Chaque composante locale \(A_{\mathfrak{m}}\) de A est un facteur direct de A, donc un objet
+projectif de la catégorie des A-modules pseudocompacts (A est manifestement projectif). Il résulte de C.A. (IV, § 3, cor. 1 au théo. 3) que tout A-module pseudocompact
+projectif est un produit direct (topologique) de tels \(A_{\mathfrak{m}}\).</p>
+<p>Un A-module pseudocompact M est dit <em>topologiquement libre</em> s'il est isomorphe au
+produit d'une famille \((A_i)\) d'exemplaires de A. Une famille \((m_i)\) d'éléments de M est
+appelée une <em>pseudobase</em> de M si les applications A-linéaires de \(A_i\) dans M qui envoient
+l'élément unité de A sur \(m_i\) se prolongent en un isomorphisme de \(\prod_i A_i\) sur M.</p>
+
+<h4 id="VIIB.0.2.2">0.2.2.</h4>
+<p>Si M est un A-module pseudocompact, \(M^*\) désigne le A-module \(\mathrm{Hom}_c(M,A)\)
+formé des applications A-linéaires continues de M dans A. Lorsque l'anneau A est
+<em>artinien</em>, le foncteur \(P \mapsto P^*\) est une anti-équivalence de la catégorie des A-modules
+pseudocompacts projectifs sur celle des A-modules projectifs. En particulier, lorsque
+A <em>est un corps</em>, \(P \mapsto P^*\) est une antiéquivalence de la catégorie de tous les A-modules pseudocompacts (on parle aussi d'<em>espaces vectoriels linéairement compacts sur
+A</em>) sur celle des A-espaces vectoriels.</p>
+
+<h3 id="VIIB.0.3">0.3.</h3>
+<p>Soient M et N deux A-modules pseudocompacts et \(\mathrm{Hom}_c(M,N)\) le groupe
+des morphismes de M dans N. Notons en outre \(\mathbf{h}_c^M\) le foncteur qui associe à tout
+A-module pseudocompact de <em>longueur finie</em> N le groupe abélien \(\mathrm{Hom}_c(M,N)\). On sait
+alors que le foncteur \(M \mapsto \mathbf{h}_c^M\) est une antiéquivalence de la catégorie des A-modules
+pseudocompacts sur celle des foncteurs exacts à gauche (C.A., II, théo. 1). Si L et M
+sont deux A-modules pseudocompacts, on définit donc à isomorphisme près un A-module pseudocompact \(L \widehat{\otimes}_A M\) en exigeant que le foncteur \(N \mapsto \mathrm{Hom}_c(L \widehat{\otimes}_A M, N)\)
+soit isomorphe au foncteur \(N \mapsto \mathrm{Bil}_c(L\times M, N)\), \(\mathrm{Bil}_c(L\times M,N)\) désignant l'ensemble
+des applications A-bilinéaires continues de \(L\times M\) dans un module de longueur finie
+N.</p>
+<p>On peut décrire \(L \widehat{\otimes}_A M\) comme la limite projective des A-modules (discrets)
+\((L/L')\otimes_A(M/M')\), \(L'\) et \(M'\) parcourant respectivement les sous-modules ouverts de L
+et de M&nbsp;: soit en effet \(\varphi : L\times M \to N\) une application bilinéaire continue de \(L\times M\) dans
+un A-module (discret) de longueur finie N. D'après le lemme <a class="ref" href="#VIIB.0.3.1">0.3.1</a> ci-dessous, il existe des
+sous-modules ouverts \(L'\) et \(M'\) de L et M tels que \(\varphi(L'\times M) = \varphi(L\times M') = \{0\}\).
+Cela signifie que l'application \(\overline{\varphi} : L\otimes_A M \to N\), qui est induite par \(\varphi\), est de la
+forme \(\varphi' \circ p\), où p est la projection canonique de \(L\otimes_A M\) sur \((L/L')\otimes_A(M/M')\). Si
+\(\widehat{\varphi}\) est obtenu en composant \(\varphi'\) avec la projection canonique de la limite projective
+\(L \widehat{\otimes}_A M\) sur \((L/L')\otimes_A(M/M')\), il est clair que l'application \(\varphi \mapsto \widehat{\varphi}\) est une bijection
+de \(\mathrm{Bil}_c(L\times M,N)\) sur \(\mathrm{Hom}_c(L \widehat{\otimes}_A M, N)\).</p>
+<p>Le module pseudocompact \(L \widehat{\otimes}_A M\) est donc le séparé complété de \(L\otimes_A M\) pour
+la topologie linéaire définie par les noyaux des projections canoniques de \(L\otimes_A M\) sur
+\((L/L')\otimes_A(M/M')\). Si x et y appartiennent à L et M, l'image de \(x\otimes_A y\) dans le <em>produit
+tensoriel complété</em> \(L \widehat{\otimes}_A M\) sera notée \(x \widehat{\otimes}_A y\).</p>
+
+<div class="thm thm-plain lemme" id="VIIB.0.3.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">0.3.1</span></div>
+  <div class="thm-body"><p>Soient L, M et N des A-modules pseudocompacts, N étant de longueur
+finie. Si \(\varphi : L\times M \to N\) est une application A-bilinéaire continue, il existe des
+sous-modules ouverts \(L'\) et \(M'\) de L et M tels que \(\varphi(L'\times M) = \varphi(L\times M') = \{0\}\).</p></div>
+</div>
+<p>En effet, \(\varphi^{-1}(0)\) est un voisinage ouvert de \((0,0)\), donc contient un ouvert de la
+forme \(L'\times M'\), où \(L'\) et \(M'\) sont des sous-modules ouverts de L et M. Comme \(L/L'\)
+est de longueur finie, il existe des éléments \(x_1,\ldots,x_r\) de L tels que \(L'+Ax_1+\cdots+Ax_r = L\).
+Si \(M'\) est «&nbsp;assez petit&nbsp;», on a aussi \(\varphi(x_i,M') = 0\) pour tout i, parce que
+l'application \(y \mapsto (x_i,y)\) est continue&nbsp;; on tire de là \(\varphi(L,M') = \{0\}\)&nbsp;; de même,
+\(\varphi(L',M) = \{0\}\) si \(L'\) est assez petit.</p>
+
+<h4 id="VIIB.0.3.2">0.3.2.</h4>
+<p>Soit \(L' \xrightarrow{f} L \xrightarrow{g} L'' \to 0\) une suite exacte de A-modules pseudocompacts. Il
+est clair que la suite induite
+\[
+0 \longrightarrow \mathrm{Bil}_c(L''\times M,N) \longrightarrow \mathrm{Bil}_c(L\times M,N) \longrightarrow \mathrm{Bil}_c(L'\times M,N)
+\]
+est exacte pour tout A-module pseudocompact M et tout N de longueur finie. Cela
+signifie que la suite des foncteurs exacts à gauche représentés par \(L'' \widehat{\otimes}_A M\), \(L \widehat{\otimes}_A M\) et
+\(L' \widehat{\otimes}_A M\) est exacte, autrement dit que la suite
+\[
+(*)\qquad L' \widehat{\otimes}_A M \xrightarrow{f\widehat{\otimes}M} L \widehat{\otimes}_A M \xrightarrow{g\widehat{\otimes}M} L'' \widehat{\otimes}_A M \longrightarrow 0
+\]
+est exacte&nbsp;: <em>le foncteur produit tensoriel complété est exact à droite</em>.</p>
+<p>Prenons en particulier pour L l'anneau A, pour f l'inclusion d'un idéal fermé \(\mathfrak{a}\)
+dans A, pour g la projection canonique de A sur \(A/\mathfrak{a}\). On peut alors identifier
+\(A \widehat{\otimes}_A M\) à M au moyen de l'application \(x \widehat{\otimes} y \mapsto x\cdot y\). Comme l'image de \(\mathfrak{a} \widehat{\otimes}_A M\)
+est fermée dans M (C.A., IV, § 3) et que l'image de \(\mathfrak{a}\otimes_A M\) est partout dense dans
+\(\mathfrak{a} \widehat{\otimes}_A M\), l'image de \(f\widehat{\otimes}M\) n'est autre que l'adhérence \(\overline{\mathfrak{a}\cdot M}\) du produit \(\mathfrak{a}\cdot M\) dans
+M. La suite \((*)\) entraîne donc que \((A/\mathfrak{a}) \widehat{\otimes}_A M\) s'identifie à \(M/\overline{\mathfrak{a}\cdot M}\).</p>
+
+<div class="thm thm-plain lemme" id="VIIB.0.3.3">
+  <div class="thm-head"><span class="thm-name">Lemme de Nakayama</span> <span class="thm-num">0.3.3</span></div>
+  <div class="thm-body"><p>Soient A un anneau pseudocompact, M un A-module
+pseudocompact et \(\mathfrak{a}\) un idéal de A contenu dans le radical \(\mathfrak{r}(A)\). L'égalité \(\overline{\mathfrak{a}\cdot M} = M\)
+entraîne alors \(M = 0\).</p></div>
+</div>
+<p>Soient en effet \(M'\) un sous-module ouvert de M et \(M''\) le quotient \(M/M'\). Comme
+\(M''\) est discret, \(\mathfrak{a}\cdot M''\) est fermé dans \(M''\), donc égal à \(\overline{\mathfrak{a}\cdot M''}\). D'après <a class="ref" href="#VIIB.0.3.2">0.3.2</a>, l'application
+canonique de \(M/\overline{\mathfrak{a}\cdot M}\) dans \(M''/\overline{\mathfrak{a}\cdot M''}\) est surjective, de sorte qu'on a \(\mathfrak{a}\cdot M'' = \overline{\mathfrak{a}\cdot M''} =
+M''\) si \(\overline{\mathfrak{a}\cdot M} = M\)&nbsp;; mais ceci entraîne \(M'' = 0\), car \(M''\) est un module de type fini sur
+A (Nakayama)&nbsp;; par conséquent, tout sous-module ouvert \(M'\) de M est égal à M, qui
+est donc nul.</p>
+
+<h4 id="VIIB.0.3.4">0.3.4.</h4>
+<p>On tire du lemme de Nakayama les conséquences habituelles&nbsp;: si \(\mathfrak{a}\) est un
+idéal fermé contenu dans le radical de A et \(f : M \to N\) un morphisme de A-modules
+pseudocompacts, f est surjectif si l'application induite \(f'\) de \(M/\mathfrak{a}M\) dans \(N/\mathfrak{a}N\) l'est
+(appliquer le lemme <a class="ref" href="#VIIB.0.3.3">0.3.3</a> à \(\mathrm{Coker}\,f\)). De même, si N est projectif, f est inversible si \(f'\) l'est
+(en effet f est surjectif, donc possède une section&nbsp;; on applique alors <a class="ref" href="#VIIB.0.3.3">0.3.3</a> à \(\mathrm{Ker}\,f\)).</p>
+<p>Lorsque A est local d'idéal maximal \(\mathfrak{m}\), on peut aussi déduire de <a class="ref" href="#VIIB.0.3.3">0.3.3</a> le <em>théorème
+d'échange</em> qui suit&nbsp;: si M est un A-module topologiquement libre de pseudobase \((m_i)_{i\in I}\)
+(<a class="ref" href="#VIIB.0.2.1">0.2.1</a>) et N un facteur direct (fermé) de M, il existe une pseudobase de M formée
+d'éléments de N et de certains \(m_i\)&nbsp;: en effet, cela est clair lorsque A est un corps (se
+servir alors de la dualité de <a class="ref" href="#VIIB.0.2.2">0.2.2</a> et appliquer le théorème d'échange habituel)&nbsp;; par
+conséquent, \(N/\mathfrak{m}N\) a pour supplémentaire un module topologiquement libre sur \(A/\mathfrak{m}\)
+de pseudobase \((\overline{m_i})_{i\in J}\), où \(\overline{m_i}\) est l'image de \(m_i\) dans \(M/\mathfrak{m}M\) et J une partie de I. Si
+P désigne le produit direct \(\prod_{i\in J} Am_i\), l'application canonique de \(N\oplus P\) dans M est
+«&nbsp;bijective modulo \(\mathfrak{m}\)&nbsp;»&nbsp;; elle est donc bijective d'après ce qui précède (pour une autre
+preuve voir C.A., IV, § 2, prop. 8).</p>
+
+<h3 id="VIIB.0.3.5">0.3.5.</h3>
+<p>Considérons maintenant trois A-modules pseudocompacts L, M et N, N
+étant de longueur finie. Soit \(\psi\) un élément de l'ensemble \(\mathrm{Hom}_c(L,\mathrm{Hom}_c(M,N))\) des
+applications A-linéaires continues de L dans le module \(\mathrm{Hom}_c(M,N)\) muni de la topologie discrète. Un tel \(\psi\) définit une application bilinéaire continue \(\psi' : (\ell,m) \mapsto \psi(\ell)(m)\)
+de \(L\times M\) dans N. On obtient donc une autre caractérisation de \(\mathrm{Hom}_c(L \widehat{\otimes}_A M,N)\),
+qu'on va utiliser lorsque M est la limite projective d'un système projectif <em>filtrant</em> de
+A-modules pseudo-compacts \(M_i\). On a alors des isomorphismes naturels
+\[
+\begin{aligned}
+\mathrm{Hom}_c(L \widehat{\otimes}_A \varprojlim M_i, N) &amp;\simeq \mathrm{Hom}_c(L, \mathrm{Hom}_c(\varprojlim M_i, N)) \\
+&amp;\simeq \mathrm{Hom}_c(L, \varinjlim \mathrm{Hom}_c(M_i,N)) \\
+&amp;\simeq \varinjlim \mathrm{Hom}_c(L, \mathrm{Hom}_c(M_i,N)) \\
+&amp;\simeq \varinjlim \mathrm{Hom}_c(L \widehat{\otimes}_A M_i, N) \\
+&amp;\simeq \mathrm{Hom}_c\Big(\varprojlim(L \widehat{\otimes}_A M_i), N\Big)
+\end{aligned}
+\]
+qui permettent d'identifier \(L \widehat{\otimes}_A (\varprojlim M_i)\) à \(\varprojlim(L \widehat{\otimes}_A M_i)\).</p>
+
+<h3 id="VIIB.0.3.6">0.3.6.</h3>
+<p>En particulier, <em>le produit tensoriel complété commute aux produits infinis</em>.
+Par exemple, comme l'anneau A est le produit de ses composantes locales \(A_{\mathfrak{m}}\) (§ <a class="ref" href="#VIIB.0.1.1">0.1.1</a>),
+tout A-module pseudocompact M (\(\simeq A \widehat{\otimes}_A M\)) s'identifie au produit des modules
+\(M_{\mathfrak{m}} = A_{\mathfrak{m}} \widehat{\otimes}_A M\) (les <em>composantes locales</em> de M).</p>
+<p>De même, soient M et N deux A-modules pseudo-compacts et considérons l'application \(\varphi : M^*\otimes_A N^* \to (M \widehat{\otimes}_A N)^*\) (<a class="ref" href="#VIIB.0.2.2">0.2.2</a>) qui associe à un élément \(f\otimes g\) de \(M^*\otimes_A N^*\)
+l'application \(m \widehat{\otimes} n \mapsto f(m)g(n)\) de \(M \widehat{\otimes}_A N\) dans A. Cette application \(\varphi\) est bijective
+lorsque M est isomorphe à A. Comme les foncteurs \(M \mapsto M^*\otimes_A N^*\) et \(M \mapsto (M \widehat{\otimes}_A N)^*\)
+transforment un produit direct en somme directe <em>lorsque A artinien</em>, on voit que \(\varphi\)
+est un isomorphisme chaque fois que A est artinien et M topologiquement libre (ou
+plus généralement projectif).</p>
+
+<h3 id="VIIB.0.3.7">0.3.7.</h3>
+<p>Pour tout idéal maximal fermé \(\mathfrak{m}\) de A le foncteur \(M \mapsto A_{\mathfrak{m}} \widehat{\otimes}_A M\) est
+évidemment exact. Comme tout A-module pseudocompact projectif P est un produit
+de modules de la forme \(A_{\mathfrak{m}}\), il en résulte que le foncteur \(M \mapsto P \widehat{\otimes}_A M\) est exact lorsque
+P est projectif. La réciproque est vraie&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIIB.0.3.7.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Soient A un anneau pseudocompact, P un A-module pseudocompact.
+Le foncteur \(M \mapsto P \widehat{\otimes}_A M\) est exact si et seulement si P est projectif.</p></div>
+</div>
+<p>Comme \(P \widehat{\otimes}_A M\) est le produit de ses composantes locales
+\[
+(P \widehat{\otimes}_A M)_{\mathfrak{m}} \simeq P_{\mathfrak{m}} \widehat{\otimes}_{A_{\mathfrak{m}}} M_{\mathfrak{m}},
+\]
+on est ramené au cas où l'anneau A est local. On va prouver alors que P est <em>topologiquement libre</em>&nbsp;: pour cela soit \(\mathfrak{m}\) l'idéal maximal de A&nbsp;; alors \(P/\overline{\mathfrak{m}P}\) est un espace vectoriel
+linéairement compact sur \(A/\mathfrak{m}\), donc un produit d'exemplaires de \(A/\mathfrak{m}\). Il y a donc
+une famille \((A_i)_{i\in I}\) d'exemplaires de A et un isomorphisme \(\varphi : \prod_{i\in I}(A_i/\mathfrak{m}) \xrightarrow{\ \sim\ } P/\overline{\mathfrak{m}P}\).
+Comme \(\prod_{i\in I} A_i\) est projectif, il y a un carré commutatif
+\[
+\xymatrix{
+\prod_{i\in I} A_i \ar[r]^-{\psi} \ar[d]_-{p} & P \ar[d]^-{q} \\
+\prod_{i\in I}(A_i/\mathfrak{m}) \ar[r]_-{\varphi}^-{\sim} & P/\overline{\mathfrak{m}P}
+}
+\]
+où p et q désignent les projections canoniques. Appliquant le lemme de Nakayama à
+\(\mathrm{Coker}\,\psi\) et notant que \((A/\mathfrak{m}) \widehat{\otimes}_A \psi\) n'est autre que \(\varphi\), on voit que \(\psi\) est surjectif.</p>
+<p>Posant alors \(B = \prod_{i\in I} A_i\) et \(N = \mathrm{Ker}\,\psi\), on a le diagramme commutatif et exact
+suivant&nbsp;:
+\[
+\xymatrix{
+ & & & & 0 \ar@{-->}[dddll] \\
+ & \mathfrak{m} \widehat{\otimes}_A N \ar[r] \ar[d] & \mathfrak{m} \widehat{\otimes}_A B \ar[r] \ar[d] & \mathfrak{m} \widehat{\otimes}_A P \ar[r] \ar[d] & 0 \\
+0 \ar[r] & A \widehat{\otimes}_A N \ar[r] \ar[d] & A \widehat{\otimes}_A B \ar[r]^-{\psi} \ar[d] & A \widehat{\otimes}_A P \ar[r] \ar[d] & 0 \\
+ & (A/\mathfrak{m}) \widehat{\otimes}_A N \ar[r] & (A/\mathfrak{m}) \widehat{\otimes}_A B \ar[r]^-{\varphi} & (A/\mathfrak{m}) \widehat{\otimes}_A P \ar[r] & 0
+}
+\]
+Le «&nbsp;lemme du serpent&nbsp;» appliqué aux deux premières lignes montre alors que le
+morphisme \((A/\mathfrak{m}) \widehat{\otimes}_A N \to (A/\mathfrak{m}) \widehat{\otimes}_A B\) est un monomorphisme. Comme \(\varphi\) est un
+isomorphisme et que la dernière ligne est exacte, \((A/\mathfrak{m}) \widehat{\otimes}_A N\) est nul&nbsp;; d'où \(N = 0\)
+d'après le «&nbsp;lemme de Nakayama&nbsp;» <a class="ref" href="#VIIB.0.3.3">0.3.3</a>. Donc \(\psi\) est un isomorphisme.</p>
+
+<div class="thm thm-plain corollaire" id="VIIB.0.3.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">0.3.8</span></div>
+  <div class="thm-body"><p>Soient A un anneau local, noethérien, complet et P un A-module
+pseudocompact. Alors P est topologiquement libre si et seulement si P est plat sur A.</p></div>
+</div>
+<p>En effet, l'application canonique de \(M\otimes_A P\) dans \(M \widehat{\otimes}_A P\) est bijective lorsque M
+est égal à A, donc lorsque M est noethérien (prendre une présentation finie de M et
+utiliser l'exactitude à droite du produit tensoriel et du produit tensoriel complété).
+Or P est plat si et seulement si le foncteur \(M \mapsto M\otimes_A P\) est exact quand M parcourt
+les modules noethériens. De même, on a vu dans la démonstration de la proposition
+<a class="ref" href="#VIIB.0.3.7.prop">0.3.7</a> que P est topologiquement libre si la suite
+\[
+0 \longrightarrow \mathfrak{m} \widehat{\otimes}_A P \longrightarrow A \widehat{\otimes}_A P \longrightarrow (A/\mathfrak{m}) \widehat{\otimes}_A P \longrightarrow 0
+\]
+est exacte. Donc P est topologiquement libre si et seulement si le foncteur \(M \mapsto M \widehat{\otimes}_A P\)
+est exact quand M parcourt les modules noethériens. Le corollaire résulte donc
+de l'égalité \(M\otimes_A P = M \widehat{\otimes}_A P\) ci-dessus.</p>
+
+<h3 id="VIIB.0.4">0.4.</h3>
+<p>Soit k un anneau pseudocompact. Une k-<em>algèbre</em> topologique A (avec élément
+unité et commutative) est dite <em>profinie</em> si le k-module topologique sous-jacent est
+pseudocompact. Si tel est le cas et si \(\mathfrak{l}\) est un k-sous-module ouvert de A, l'application
+composée
+\[
+\varphi : A\times A \xrightarrow{\ \mathrm{mult.}\ } A \xrightarrow{\ \mathrm{can.}\ } A/\mathfrak{l}
+\]
+est continue. D'après le lemme <a class="ref" href="#VIIB.0.3.1">0.3.1</a>, il existe un k-sous-module ouvert \(\mathfrak{n}\) de A tel que
+\(\varphi(A\times\mathfrak{n}) = 0\). Cela signifie que \(\mathfrak{l}\) contient l'idéal ouvert \(A\cdot\mathfrak{n}\) et entraîne que A est
+<em>un anneau pseudocompact</em>.</p>
+<p>Considérons de même un A-module topologique M dont le k-module sous-jacent
+est pseudocompact. Si \(M'\) est un k-sous-module ouvert de M, le lemme <a class="ref" href="#VIIB.0.3.1">0.3.1</a> appliqué
+à l'application
+\[
+A\times M \xrightarrow{\ \mathrm{mult.}\ } M \xrightarrow{\ \mathrm{can.}\ } M/M'
+\]
+montre que \(M'\) contient un A-sous-module ouvert, donc que M est aussi un A-<em>module
+pseudocompact</em>.</p>
+
+<h4 id="VIIB.0.4.1">0.4.1.</h4>
+<p>Si A et B sont deux k-algèbres profinies, un morphisme de A dans B est,
+par définition, un homomorphisme continu de k-algèbres. La catégorie des k-algèbres
+profinies possède évidemment des limites projectives&nbsp;: l'algèbre sous-jacente à une limite projective est la limite projective des algèbres sous-jacentes&nbsp;; la topologie est celle
+de la limite projective. De même, il y a des limites inductives finies&nbsp;: par exemple, si
+\(f : A \to B\) et \(g : A \to C\) sont deux morphismes de k-algèbres profinies, la somme amalgamée de B et C sous A est \(B \widehat{\otimes}_A C\) pour A-module topologique sous-jacent (d'après
+<a class="ref" href="#VIIB.0.4">0.4</a>, f et g munissent B et C de structures de A-module pseudocompact)&nbsp;; la multiplication de \(B \widehat{\otimes}_A C\) est évidemment telle qu'on ait \((b\widehat{\otimes}c)(b'\widehat{\otimes}c') = (bb')\widehat{\otimes}(cc')\) si
+\(b,b'\in B\) et \(c,c'\in C\).</p>
+<p>On notera désormais \(\mathrm{Al}/k\) la catégorie des k-algèbres profinies.</p>
+
+<h4 id="VIIB.0.4.2">0.4.2.</h4>
+<p>Une k-algèbre profinie C sera dite de <em>longueur finie</em> si le k-module sous-jacent
+est de longueur finie (donc discret)&nbsp;; nous noterons \(\mathrm{Alf}/k\) la sous-catégorie pleine de
+\(\mathrm{Al}/k\) formée des k-algèbres de longueur finie et, pour toute algèbre profinie A, \(\mathbf{h}^A\)
+sera le foncteur \(C \mapsto \mathrm{Hom}_{\mathrm{Al}/k}(A,C)\) de \(\mathrm{Alf}/k\) dans la catégorie \((\mathrm{Ens})\). Il est clair que
+\(\mathbf{h}^A\) est un foncteur exact à gauche&nbsp;; de plus, lorsque \(\mathfrak{l}\) parcourt les idéaux ouverts de
+A, les projections canoniques de A sur \(A/\mathfrak{l}\) induisent un isomorphisme
+\[
+\mathrm{Hom}_{\mathrm{Al}/k}(A,C) \xleftarrow{\ \sim\ } \varprojlim_{\mathfrak{l}} \mathrm{Hom}_{\mathrm{Alf}/k}(A/\mathfrak{l},C)
+\]
+chaque fois que C est de longueur finie. Cela signifie que \(\mathbf{h}^A\) est la limite inductive
+des foncteurs représentables \(\mathbf{h}^{A/\mathfrak{l}}\)&nbsp;; si B est une autre k-algèbre profinie, on a donc des
+isomorphismes
+\[
+\begin{aligned}
+\mathrm{Hom}_{\mathrm{Al}/k}(B,A) &amp;\simeq \varprojlim_{\mathfrak{l}} \mathrm{Hom}_{\mathrm{Al}/k}(B,A/\mathfrak{l}) \simeq \varprojlim_{\mathfrak{l}} \mathbf{h}^B(A/\mathfrak{l}) \\
+&amp;\simeq \varprojlim_{\mathfrak{l}} \mathrm{Hom}(\mathbf{h}^{A/\mathfrak{l}}, \mathbf{h}^B) \simeq \mathrm{Hom}(\mathbf{h}^A, \mathbf{h}^B),
+\end{aligned}
+\]
+qui montrent que le foncteur contravariant \(\mathbf{h}^? : A \mapsto \mathbf{h}^A\) est pleinement fidèle.</p>
+<p>En réalité, \(\mathbf{h}^?\) est une antiéquivalence de \(\mathrm{Al}/k\) sur la catégorie des foncteurs exacts
+à gauche de \(\mathrm{Alf}/k\) dans \((\mathrm{Ens})\). Il suffit en effet, d'après ce qui précède, de montrer
+que tout foncteur exact à gauche F est isomorphe à un foncteur du type \(\mathbf{h}^A\)&nbsp;; pour
+cela, on peut construire A comme suit (TDTE II, § 3)&nbsp;: comme F est exact à gauche, il
+y a, pour toute k-algèbre de longueur finie C et pour tout élément \(\xi\) de \(F(C)\), une
+plus petite sous-algèbre \(C'\) de C, telle que \(\xi\) appartienne à l'image de \(F(C')\) dans
+\(F(C)\)&nbsp;; si l'on a \(C' = C\), on dit que le couple \((C,\xi)\) est <em>minimal</em>. Les couples minimaux
+forment une catégorie si l'on prend pour morphismes de \((C,\xi)\) dans \((D,\eta)\) les homomorphismes \(\varphi\) de C dans D tels que \((F\varphi)(\xi) = \eta\)&nbsp;; il est clair qu'un tel \(\varphi\) est une
+surjection et que la catégorie des couples minimaux est «&nbsp;filtrante à gauche&nbsp;». De plus,
+comme on peut manifestement se restreindre aux couples \((C,\xi)\) tels que C appartienne à un ensemble contenant des k-algèbres de longueur finie de chaque type, le
+foncteur \((C,\xi) \mapsto C\), qui a pour catégorie de départ celle des couples minimaux et
+pour catégorie d'arrivée celle des k-algèbres profinies, possède une limite projective&nbsp;;
+on prend pour A cette limite projective.</p>
+<p>L'existence d'une antiéquivalence de \(\mathrm{Al}/k\) sur la catégorie des foncteurs exacts
+à gauche de \(\mathrm{Alf}/k\) dans \((\mathrm{Ens})\), entraîne par exemple que \(\mathrm{Al}/k\) possède des limites
+inductives infinies&nbsp;: en effet, la catégorie des foncteurs exacts à gauche possède des
+limites projectives, qui sont définies par la formule
+\[
+(\varprojlim F_i)(C) = \varprojlim F_i(C),
+\]
+lorsque C est une k-algèbre de longueur finie et \((F_i)\) un système projectif de foncteurs.</p>
+
+<h3 id="VIIB.0.5">0.5.</h3>
+<p>Soient k et \(\ell\) des anneaux pseudocompacts et \(\varphi : k \to \ell\) un homomorphisme
+(<a class="ref" href="#VIIB.0.1.3">0.1.3</a>). Pour tout k-module pseudocompact M, nous notons \(M \widehat{\otimes}_k \ell\) le séparé complété
+de \(M\otimes_k \ell\) pour la topologie linéaire définie par les sommes des images de \(M'\otimes_k \ell\)
+et \(M\otimes_k \ell'\) dans \(M\otimes_k \ell\) (\((M',\ell')\) parcourant les couples formés d'un sous-module
+ouvert de M et d'un idéal ouvert de \(\ell\))&nbsp;; de même, si \(m\in M\) et \(x\in\ell\), nous notons
+\(m \widehat{\otimes}_k x\) l'image canonique de \(m\otimes_k x\) dans \(M \widehat{\otimes}_k \ell\). Il est clair que \(M \widehat{\otimes}_k \ell\) est un
+\(\ell\)-module pseudocompact.</p>
+<p>Associons à tout \(\ell\)-module pseudocompact N et tout morphisme \(f : M\otimes_k \ell \to N\)
+l'application \(f' : m \mapsto f(m \widehat{\otimes}_k 1)\) de M dans N. Il est clair qu'on obtient ainsi une
+bijection de \(\mathrm{Hom}_c(M \widehat{\otimes}_k \ell, N)\) sur l'ensemble des applications k-linéaires continues de
+M dans le k-module déduit de N par restriction des scalaires. On en déduit comme
+en <a class="ref" href="#VIIB.0.3.2">0.3.2</a> et <a class="ref" href="#VIIB.0.3.4">0.3.4</a> que le foncteur \(M \mapsto M \widehat{\otimes}_k \ell\) est exact à droite et qu'il commute aux
+produits infinis et au produit tensoriel complété.</p>
+<p>Enfin, si A est une k-algèbre profinie, il y a sur \(A \widehat{\otimes}_k \ell\) une et une seule structure
+de \(\ell\)-algèbre profinie telle que \((m\widehat{\otimes}_k x)(n\widehat{\otimes}_k y) = (mn)\widehat{\otimes}_k(xy)\) si \(m,n\in A\) et \(x,y\in\ell\).
+On dit que \(A \widehat{\otimes}_k \ell\) est <em>l'algèbre déduite de A par l'extension des scalaires</em> \(\varphi\). Le
+foncteur \(A \to A \widehat{\otimes}_k \ell\) est exact à droite.</p>
+
+<h2 id="VIIB.1">1. Variétés formelles sur un anneau pseudocompact</h2>
+
+<h3 id="VIIB.1.1">1.1.</h3>
+<p>On peut associer à tout anneau pseudocompact A un schéma formel (EGA
+I, 10.4.2) en procédant comme suit&nbsp;: l'espace topologique sous-jacent est l'ensemble
+\(\Upsilon(A)\) des idéaux maximaux fermés de A, qu'on munit de la topologie discrète&nbsp;; le
+faisceau structural a le produit cartésien \(\prod_{\mathfrak{m}\in E} A_{\mathfrak{m}}\) pour espace des sections sur une
+partie E de \(\Upsilon(A)\). Le schéma formel ainsi obtenu est noté \(\mathrm{Spf}\,A\) (le <em>spectre formel</em>
+de A).</p>
+<p>Si A et B sont deux anneaux pseudocompacts, un morphisme de \(\mathrm{Spf}\,B\) dans \(\mathrm{Spf}\,A\)
+consiste en la donnée d'une application f de \(\Upsilon(B)\) dans \(\Upsilon(A)\) et d'une famille d'homomorphismes \(f_y\) (<a class="ref" href="#VIIB.0.1.3">0.1.3</a>) de \(A_{f(y)}\) dans \(B_y\) (\(y\in\Upsilon(B)\)). Un tel morphisme induit un
+homomorphisme de A (le produit des \(A_x\), \(x\in\Upsilon(A)\)) dans B (le produit des \(B_y\)) et la
+réciproque est vraie&nbsp;: si \(\varphi : A \to B\) est un homomorphisme continu d'algèbres, l'image
+réciproque \(\varphi^{-1}(\mathfrak{n})\) d'un idéal maximal fermé (donc ouvert) de B est un idéal ouvert
+premier de A&nbsp;; il est donc maximal dans A et on peut poser \(\mathfrak{m} = \varphi^{-1}(\mathfrak{n}) = (\mathrm{Spf})(\mathfrak{n})\)&nbsp;;
+l'application \(\varphi\) induit alors un homomorphisme de \(A_{\mathfrak{m}}\) dans \(B_{\mathfrak{n}}\).</p>
+<p>On voit donc que le foncteur contravariant \(A \mapsto \mathrm{Spf}\,A\) est pleinement fidèle. Bien
+que nous ne parlions ici que de schémas formels de la forme \(\mathrm{Spf}\,A\), nous utiliserons
+le langage des schémas formels plutôt que celui des anneaux pseudocompacts pour
+appuyer nos assertions sur une intuition géométrique.</p>
+
+<h3 id="VIIB.1.2">1.2.</h3>
+<p>Soit k un anneau pseudocompact. Nous appellerons <em>variété formelle sur k</em> tout
+schéma formel X au-dessus de \(\mathrm{Spf}\,k\) qui est isomorphe à un k-schéma formel \(\mathrm{Spf}\,A\)
+pour une certaine k-algèbre profinie A. L'algèbre A est alors isomorphe à <em>l'algèbre
+affine</em> de X, c'est-à-dire à l'algèbre des sections du faisceau structural \(\mathscr{O}_X\) de X.
+D'après <a class="ref" href="#VIIB.1.1">1.1</a> le foncteur \(A \mapsto \mathrm{Spf}\,A\) est une antiéquivalence de \(\mathrm{Al}/k\) (<a class="ref" href="#VIIB.0.4.1">0.4.1</a>) sur la sous-catégorie pleine \(\mathbf{Vf}/k\) de la catégorie des schémas formels sur \(\mathrm{Spf}\,k\) dont les objets sont les
+k-variétés formelles.</p>
+<p>La catégorie \(\mathbf{Vf}/k\) possède des limites projectives et inductives&nbsp;: soient par exemple
+Y, Z des k-variétés formelles au-dessus d'une même k-variété formelle X et soient A,
+B, C les algèbres affines de X, Y, Z&nbsp;; d'après <a class="ref" href="#VIIB.0.4.1">0.4.1</a>, l'algèbre affine du produit fibré \(Y\times_X Z\)
+s'identifie à \(B \widehat{\otimes}_A C\), de sorte que l'inclusion de \(\mathbf{Vf}/k\) dans la catégorie de tous les k-schémas formels commute aux limites projectives finies (cf. EGA I, 10.7). De même,
+les limites inductives de k-variétés formelles correspondent aux limites projectives de
+leurs algèbres affines&nbsp;: soient, par exemple, \(d,e : X \rightrightarrows Y\) une double-flèche de \(\mathbf{Vf}/k\)&nbsp;;
+l'algèbre affine de \(\mathrm{Coker}(d,e)\) est isomorphe au noyau des homomorphismes induits sur
+les algèbres affines de X et Y&nbsp;; mais on peut aussi donner de \(\mathrm{Coker}(d,e)\) la construction
+suivante&nbsp;: l'ensemble sous-jacent à \(\mathrm{Coker}(d,e)\) est le conoyau des ensembles sous-jacents&nbsp;; si p est la projection canonique de l'ensemble sous-jacent à Y sur le conoyau
+et si z appartient au conoyau, l'algèbre locale de \(\mathrm{Coker}(d,e)\) en z est le noyau de la
+double-flèche
+\[
+d',e' : \prod_{p(y)=z} \mathscr{O}_{Y,y} \rightrightarrows \prod_{q(x)=z} \mathscr{O}_{X,x}
+\]
+où l'on a posé \(q = pd = pe\) et où \(d'\) et \(e'\) sont induits par les homomorphismes \(d_x\) et
+\(e_x\) (notations de <a class="ref" href="#VIIB.1.1">1.1</a>).</p>
+<p>Enfin, si \(\varphi : k \to \ell\) est un homomorphisme d'anneaux pseudocompacts et X une
+k-variété formelle d'algèbre affine A, le schéma formel \(X \times_{\mathrm{Spf}\,k} \mathrm{Spf}\,\ell\), obtenu par changement de base, est une \(\ell\)-variété formelle, que nous noterons aussi \(X \widehat{\otimes}_k \ell\) et qui a
+pour algèbre affine le produit tensoriel complété \(A \widehat{\otimes}_k \ell\) (confer <a class="ref" href="#VIIB.0.5">0.5</a> et EGA I, 10).</p>
+<p>Comme toute variété formelle sur k se décompose en variétés formelles sur les
+composantes locales de k, nous supposerons dans certaines démonstrations que k est
+un anneau pseudocompact local.</p>
+<p>Donnons maintenant quelques exemples, en même temps que nous fixons notre
+terminologie&nbsp;:</p>
+
+<h4 id="VIIB.1.2.1">1.2.1.</h4>
+<p>Un <em>k-foncteur</em> sera, par définition, un foncteur covariant de \(\mathrm{Alf}/k\) dans
+\((\mathrm{Ens})\). D'après <a class="ref" href="#VIIB.0.4.2">0.4.2</a>, on peut identifier \(\mathbf{Vf}/k\) à une sous-catégorie pleine de
+\(\underline{\mathrm{Hom}}(\mathrm{Alf}/k,(\mathrm{Ens}))\), en associant à toute k-variété formelle le foncteur \(C \mapsto X(C)\)
+(C parcourt les objets de \(\mathrm{Alf}/k\) et \(X(C)\) désigne l'ensemble \(\mathrm{Hom}_{\mathbf{Vf}/k}(\mathrm{Spf}\,C,X)\)).</p>
+<p>Nous rencontrerons plus loin des foncteurs \(\mathbf{F}\) qui associent à tout objet C de \(\mathrm{Alf}/k\)
+un module \(\mathbf{F}(C)\) sur C et à tout morphisme \(\varphi : C \to D\) de \(\mathrm{Alf}/k\) une application
+linéaire \(\mathbf{F}(\varphi) : \mathbf{F}(C) \to \mathbf{F}(D)\) telle que \((\mathbf{F}(\varphi))(\lambda x) = \varphi(\lambda)\cdot(\mathbf{F}(\varphi)(x))\), si \(x\in\mathbf{F}(C)\) et
+\(\lambda\in C\).</p>
+<p>D'après <a class="ref" href="#I.3.1">I 3.1</a>, \(\mathbf{F}\) est muni d'une structure de \(\mathbf{O}_k\)-module, si l'on désigne par \(\mathbf{O}_k\) le
+k-foncteur en anneaux qui associe à tout objet C de \(\mathrm{Alf}/k\) l'anneau sous-jacent à C.
+Un <em>k-module</em> \(\mathbf{F}\) sera dit <em>plat</em>, si \(\mathbf{F}(C)\) est plat sur C pour tout objet C de \(\mathrm{Alf}/k\), et si
+tout morphisme \(\varphi : C \to D\) de \(\mathrm{Alf}/k\) induit une bijection de \(D\otimes_C \mathbf{F}(C)\) sur \(\mathbf{F}(D)\).</p>
+<p>Par exemple, si M est un module sur k, nous noterons \(\underline{M}\) le \(\mathbf{O}_k\)-module \(C \mapsto
+C\otimes_k M\)&nbsp;; alors \(\underline{M}\) est plat lorsque M est plat sur k. De plus, le foncteur \(M \mapsto \underline{M}\) a
+pour adjoint à droite le foncteur qui associe à tout \(\mathbf{O}_k\)-module \(\mathbf{F}\) la limite projective
+\(\varprojlim_{\mathfrak{l}} \mathbf{F}(k/\mathfrak{l})\), \(\mathfrak{l}\) parcourant les idéaux ouverts de k.</p>
+
+<h4 id="VIIB.1.2.2">1.2.2.</h4>
+<p>Dans la suite, un \(\mathbf{O}_k\)-module sera toujours désigné par une lettre en caractères gras telle que \(\mathbf{F}\)&nbsp;; lorsque k est artinien, nous écrirons alors simplement F au
+lieu de \(\mathbf{F}(k)\). Dans ce cas, il va de soi que le foncteur \(\mathbf{F} \mapsto F\) induit une équivalence
+de la catégorie des \(\mathbf{O}_k\)-modules plats sur celle des k-modules plats&nbsp;! La terminologie,
+que nous avons adoptée, a donc seulement pour but de nous permettre de raisonner
+«&nbsp;comme si k était toujours artinien&nbsp;».</p>
+<p>Conformément à l'exposé <a class="ref" href="#I.3.1">I § 3.1</a>, nous utiliserons des conventions analogues pour
+d'autres structures algébriques&nbsp;: ainsi, une \(\mathbf{O}_k\)-algèbre (resp. une \(\mathbf{O}_k\)-<em>coalgèbre</em>, resp.
+une \(\mathbf{O}_k\)-algèbre de Lie, resp. une p-algèbre de Lie sur \(\mathbf{O}_k\)) consistera en la donnée
+d'un \(\mathbf{O}_k\)-module M et, pour tout objet C de \(\mathrm{Alf}/k\), d'une structure de C-algèbre (resp.
+de C-coalgèbre, resp. de C-algèbre de Lie, resp. de p-algèbre de Lie sur C) sur
+\(\mathbf{M}(C)\)&nbsp;; on suppose de plus que, pour tout morphisme \(\varphi : C \to D\) de \(\mathrm{Alf}/k\), l'application de \(D\otimes_C \mathbf{M}(C)\) dans \(\mathbf{M}(D)\), qui est induite par \(\mathbf{M}(\varphi)\), est un homomorphisme
+de D-algèbres (resp. de C-coalgèbres, resp. …).</p>
+<p>Notons enfin que, si \(\mathbf{F}\) et \(\mathbf{G}\) sont deux \(\mathbf{O}_k\)-modules, \(\mathbf{F}\otimes_k \mathbf{G}\) désignera le \(\mathbf{O}_k\)-module
+\(C \mapsto \mathbf{F}(C)\otimes_C \mathbf{G}(C)\).</p>
+
+<h4 id="VIIB.1.2.3">1.2.3.</h4>
+<p>Soit N un k-module <em>pseudocompact</em>. Nous notons \(\mathbf{V}_k^f(N)\) ou \(\mathbf{N}^*\) le \(\mathbf{O}_k\)-module
+qui associe à tout \(C\in\mathrm{Alf}/k\) le C-module \((C \widehat{\otimes}_k N)^*\) dual de \(C \widehat{\otimes}_k N\) (<a class="ref" href="#VIIB.0.2.2">0.2.2</a>)&nbsp;; ce \(\mathbf{O}_k\)-module \(\mathbf{N}^*\) sera appelé <em>le dual de N</em>. Il est clair que \(\mathbf{N}^*\) est plat (<a class="ref" href="#VIIB.1.2.1">1.2.1</a>), lorsque N est
+un k-module pseudocompact projectif.</p>
+<p>Réciproquement, si M est un \(\mathbf{O}_k\)-module, nous appelons <em>dual de M</em> et nous notons
+\(M^*\) la limite projective des modules pseudocompacts \((\mathbf{M}(k/\ell))^*\) sur \(k/\ell\) (\(\ell\) parcourt
+les idéaux ouverts de k). Si \(\mathbf{M}\) est un \(\mathbf{O}_k\)-module plat, il est clair que \(\mathbf{M}\) n'est autre
+que le dual de \(M^*\), donc que <em>les foncteurs</em> \(N \mapsto \mathbf{N}^*\) <em>et</em> \(\mathbf{M} \mapsto M^*\) <em>définissent une
+antiéquivalence de la catégorie des k-modules pseudocompacts projectifs sur celle des
+\(\mathbf{O}_k\)-modules plats</em> (confer <a class="ref" href="#VIIB.0.2.2">0.2.2</a>).</p>
+<p>De plus, si M est un k-module pseudocompact topologiquement libre, soient \((m_i)\)
+une pseudobase de M (<a class="ref" href="#VIIB.0.2.1">0.2.1</a>) et \(m_i^C\) l'image canonique de \(m_i\) dans \(C \widehat{\otimes}_k M\) (\(C\in\mathrm{Alf}/k\)).
+Si l'on définit l'élément \(n_i^C\) de \((C \widehat{\otimes}_k M)^*\) par les égalités \(n_i^C(m_i^C) = 1\) et \(n_i^C(m_j^C) = 0\)
+pour \(i\neq j\), la famille \((n_i^C)\) est une base de \(\mathbf{M}^*(C)\)&nbsp;; en outre, pour tout morphisme
+\(\varphi : C \to D\) de \(\mathrm{Alf}/k\), \(\mathbf{M}^*(\varphi)\) envoie \(n_i^C\) sur \(n_i^D\)&nbsp;: on peut donc choisir pour les
+C-modules \(\mathbf{M}^*(C)\) des bases «&nbsp;de manière cohérente&nbsp;».</p>
+
+<h4 id="VIIB.1.2.4">1.2.4.</h4>
+<p>Pour tout k-module pseudocompact E, le \(\mathbf{O}_k\)-module \(\mathbf{E}^*\) est naturellement
+isomorphe au foncteur \(C \mapsto \mathrm{Hom}_{\mathrm{Al}/k}(\widehat{S}_k(E),C)\), où \(\widehat{S}_k(E)\) désigne <em>l'algèbre symétrique
+complétée</em> de E qu'on peut construire de la manière suivante&nbsp;: soit \(T_k(E)\) la somme
+directe des groupes abéliens
+\[
+\widehat{\bigotimes}{}_k^n E = E \widehat{\otimes}_k \cdots \widehat{\otimes}_k E \quad (n\geqslant 0\ ;\ \text{si } n=0,\ \widehat{\bigotimes}{}_k^0 E = k)\text{;}
+\]
+on fait de \(T_k(E)\) une k-algèbre graduée en définissant la multiplication de la façon
+habituelle&nbsp;; soit alors \(S_k(E)\) le quotient de \(T_k(E)\) par l'idéal homogène qui a pour
+n-ième composante le k-sous-module fermé de \(\widehat{\bigotimes}{}_k^n E\) engendré par les éléments
+\[
+x_1 \widehat{\otimes} \cdots \widehat{\otimes} x_i \widehat{\otimes} x_{i+1} \widehat{\otimes} \cdots \widehat{\otimes} x_n - x_1 \widehat{\otimes} \cdots \widehat{\otimes} x_{i+1} \widehat{\otimes} x_i \widehat{\otimes} \cdots \widehat{\otimes} x_n.
+\]</p>
+<p>Si \(S_k^n(E)\) est le quotient de \(\otimes_k^n E\) par ce sous-module, \(S_k(E)\) est évidemment une
+k-algèbre graduée de n-ième composante \(S_k^n(E)\)&nbsp;; l'algèbre profinie \(\widehat{S}_k(E)\) est le séparé
+complété de \(S_k(E)\) pour la topologie linéaire définie par les idéaux \(\mathfrak{l}\) tels que \(S_k(E)/\mathfrak{l}\)
+soit un k-module de longueur finie et que \(S_k^n(E)\cap\mathfrak{l}\) soit un sous-module ouvert de
+\(S_k^n(E)\) pour tout n.</p>
+<p>Dans toute la suite, nous identifions le spectre formel de \(\widehat{S}_k(E)\) au k-foncteur
+\(\mathbf{V}_k(E)\) (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>).</p>
+
+<h4 id="VIIB.1.2.5">1.2.5.</h4>
+<p>D'après <a class="ref" href="#VIIB.1.2.4">1.2.4</a>, le morphisme nul de E dans k est associé à un morphisme
+d'algèbres profinies \(\pi : \widehat{S}_k(E) \to k\)&nbsp;; ce morphisme \(\pi\) induit l'application nulle sur
+\(S_k^n(E)\) pour \(n\geqslant 1\) et définit une section de la projection canonique de \(\mathbf{V}_k^f(E)\) sur
+\(\mathrm{Spf}\,k\). Nous noterons \(\mathbf{V}_k^{f,0}(E)\) la variété formelle qui a pour points les images x des
+points s de \(\mathrm{Spf}\,k\) par la section \(\mathrm{Spf}\,\pi\) et qui a les mêmes algèbres locales que \(\mathbf{V}_k^f(E)\)
+en ces points x. Il est clair que l'algèbre affine de \(\mathbf{V}_k^{f,0}(E)\) est le produit infini
+\[
+k[[E]] = k \times E \times S_k^2(E) \times S_k^3(E) \times \cdots.
+\]</p>
+<p>La multiplication de \(k[[E]]\) est induite par celle de \(S_k(E)\) et l'on a un isomorphisme
+naturel
+\[
+\mathrm{Hom}_{\mathrm{Al}/k}(k[[E]],C) \simeq \mathrm{Hom}_c(E,\mathfrak{r}(C))
+\]
+lorsque C parcourt les k-algèbres de longueur finie et que \(\mathfrak{r}(C)\) désigne le radical de
+C.</p>
+
+<h4 id="VIIB.1.2.6">1.2.6.</h4>
+<p>Une k-variété formelle V est dite <em>de longueur finie</em> si son algèbre affine l'est.
+De même, si S est un schéma, un S-schéma X est dit <em>de longueur finie</em> si X est fini
+sur S et si l'image directe de \(\mathscr{O}_X\) sur S est un \(\mathscr{O}_S\)-Module de longueur finie. Les
+S-schémas de longueur finie s'identifient aux variétés formelles de longueur finie sur
+le schéma formel \(\widehat{S}\) qui suit&nbsp;: l'espace topologique sous-jacent à \(\widehat{S}\) est l'ensemble des
+points fermés de S muni de la topologie discrète&nbsp;; si s est un tel point fermé, le faisceau
+structural \(\mathscr{O}_{\widehat{S}}\) a pour fibre \(\mathscr{O}_{\widehat{S},s}\) en s le séparé complété de \(\mathscr{O}_{S,s}\) pour la topologie
+linéaire définie par les idéaux de colongueur finie.</p>
+<p>Soit \(\mathbf{V}/\widehat{S}\) la catégorie des variétés formelles de longueur finie sur \(\widehat{S}\) (identifiée à
+celle des S-schémas de longueur finie). D'après <a class="ref" href="#VIIB.1.1">1.1</a> et <a class="ref" href="#VIIB.1.2.1">1.2.1</a>, la catégorie \(\mathbf{Vf}/\widehat{S}\) des
+variétés formelles sur \(\widehat{S}\) est équivalente à celle des foncteurs contravariants exacts à
+gauche de \(\mathbf{V}/\widehat{S}\) dans \((\mathrm{Ens})\). Par exemple, si X est un S-schéma, le foncteur
+\(T \mapsto \mathrm{Hom}_{(\mathrm{Sch}/S)}(T,X)\) est un tel foncteur exact à gauche&nbsp;; il est donc naturellement
+isomorphe à un foncteur \(T \mapsto \mathrm{Hom}_{\mathbf{Vf}/\widehat{S}}(T,\widehat{X/S})\), où \(\widehat{X/S}\) est une variété formelle sur
+\(\widehat{S}\) qu'on peut décrire de la manière suivante&nbsp;: l'ensemble sous-jacent est formé des
+points x de X tels que le corps résiduel \(k(x)\) de X en x soit une extension finie du
+corps résiduel \(k(s)\) de l'image s de x sur S&nbsp;; la fibre de \(\mathscr{O}_{\widehat{X/S}}\) en x est le séparé complété
+de l'anneau local \(\mathscr{O}_{X,x}\) pour la topologie linéaire définie par les idéaux de colongueur
+finie.</p>
+
+<div class="thm thm-plain proposition" id="VIIB.1.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.3</span></div>
+  <div class="thm-body"><p>Soient \(f : X \to Y\) un morphisme de variétés formelles sur k, A
+et B les algèbres affines de X et Y, \(g : B \to A\) le morphisme induit par f. Alors f est
+un monomorphisme de \(\mathbf{Vf}/k\) si et seulement si g est une surjection.</p></div>
+</div>
+<p>En effet, A est un k-module pseudocompact et g fait de A un B-module pseudocompact (<a class="ref" href="#VIIB.0.4">0.4</a>)&nbsp;; il est donc loisible de supposer B égal à k. De plus, comme B et A sont les
+produits des composantes locales \(B_{\mathfrak{n}}\) et \(A_{\mathfrak{n}}\) (\(\mathfrak{n}\in\Upsilon(B)\)), on peut supposer B local. Si \(\mathfrak{n}\)
+est alors l'idéal maximal de B, il suffit de montrer que \(g \widehat{\otimes}_B(B/\mathfrak{n})\) est surjectif (lemme
+de Nakayama, <a class="ref" href="#VIIB.0.3.3">0.3.3</a>)&nbsp;; or \(g \widehat{\otimes}_B(B/\mathfrak{n})\) est déduit de g par changement de base, donc
+est un épimorphisme de \(\mathrm{Al}/k\). On peut donc supposer que \(B=k\) est un corps. Or f
+est un monomorphisme si et seulement si le morphisme diagonal \(X \to X\times_Y X\) est un
+isomorphisme, c'est-à-dire si l'homomorphisme \(x \widehat{\otimes}_B x' \mapsto xx'\) est un isomorphisme
+de \(A \widehat{\otimes}_k A\) sur A. Comme k est un corps, cela implique \(A=k\).</p>
+
+<h3 id="VIIB.1.3.1">1.3.1.</h3>
+<p>La proposition précédente entraîne en particulier que <em>tout monomorphisme
+de \(\mathbf{Vf}/k\) est effectif</em> (confer IV 1.3). Il n'en va pas de même pour les épimorphismes,
+comme on le voit facilement en modifiant un peu le contrexemple de V 2c)&nbsp;; c'est
+pourquoi nous allons considérer une classe sympathique d'épimorphismes effectifs&nbsp;:</p>
+<p>Un morphisme \(f : X \to Y\) de k-variétés formelles est dit <em>surjectif</em> s'il induit une
+surjection des ensembles sous-jacents&nbsp;; il est dit <em>topologiquement plat</em> si, pour tout
+point x de X, l'homomorphisme \(f_x : \mathscr{O}_{Y,f(x)} \to \mathscr{O}_{X,x}\), qui est induit par f, fait de
+\(\mathscr{O}_{X,x}\) un module topologiquement libre sur \(\mathscr{O}_{Y,f(x)}\).</p>
+
+<div class="thm thm-plain proposition" id="VIIB.1.3.1.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Un morphisme surjectif et topologiquement plat de k-variétés formelles
+est un épimorphisme effectif (IV 1.3).</p></div>
+</div>
+<p>Soient en effet A et B les algèbres affines de X, Y et soit \(g : B \to A\) le morphisme
+induit par f. D'après ce que nous avons vu en <a class="ref" href="#VIIB.1.2">1.2</a>, on peut supposer B local. Notre
+hypothèse signifie alors que g fait de A un B-module topologiquement libre et non
+nul. Si \(\mathfrak{n}\) est l'idéal maximal de B, \(A/\mathfrak{n}A\) n'est donc pas nul, de sorte que l'application
+\(g' : B/\mathfrak{n} \to A/\mathfrak{n}A\) déduite de g est une injection. D'après le lemme <a class="ref" href="#VIIB.1.3.2">1.3.2</a> ci-dessous,
+le B-module A s'identifie donc à la somme directe de B et d'un supplémentaire \(A'\) de
+l'image de B dans A. Il en résulte évidemment que g est un isomorphisme de B sur
+la partie de A formée des a tels que \(a \widehat{\otimes}_B 1 = 1 \widehat{\otimes}_B a\), cqfd</p>
+
+<div class="thm thm-plain lemme" id="VIIB.1.3.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.3.2</span></div>
+  <div class="thm-body"><p>Soient B un anneau pseudocompact local d'idéal maximal \(\mathfrak{n}\), M et
+N deux B-modules pseudocompacts projectifs et g un morphisme de M dans N. Alors
+g est un isomorphisme de M sur un facteur direct de N si \((B/\mathfrak{n}) \widehat{\otimes}_B g\) est une injection.</p></div>
+</div>
+<p>Posons en effet \(g' = (B/\mathfrak{n}) \widehat{\otimes}_B g\). Alors \(g'\) possède une rétraction \(r'\). Si p et q sont
+les projections canoniques de M et N sur \(M/\mathfrak{n}M\) et \(N/\mathfrak{n}N\), il y a donc un morphisme
+r tel que \(pr = r'q\)&nbsp;; par conséquent, \(r'\) est déduit de r par passage au quotient et \(rg\) est
+un isomorphisme parce que \(r'g'\) l'est (<a class="ref" href="#VIIB.0.3.4">0.3.4</a>). Si s l'isomorphisme réciproque de \(rg\), g
+a \(sr\) pour rétraction.</p>
+
+<div class="thm thm-plain proposition" id="VIIB.1.3.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.3.3</span></div>
+  <div class="thm-body"><p>Soient \(f : X \to Y\) et \(g : Y \to Z\) des morphismes de k-variétés
+formelles&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(i)</span> <p>Si f et g sont topologiquement plats, \(g\circ f\) l'est.</p></li>
+  <li><span class="item-label">(ii)</span> <p>Si g et \(g\circ f\) sont topologiquement plats et si f est surjectif, g est topologiquement plat.</p></li>
+  <li><span class="item-label">(iii)</span> <p>Si f est topologiquement plat, \(f\times_Y Y'\) l'est pour tout changement de base \(Y' \to Y\).</p></li>
+  </ol>
+  </div>
+</div>
+<p>Les assertions (i) et (iii) sont claires. Pour prouver (ii), appelons A, B, C les algèbres
+affines de X, Y, Z, et \(f' : B \to A\) et \(g' : C \to B\) les morphismes induits par f et g.
+Comme \(g\circ f\) est topologiquement plat, \(f'\circ g'\) fait de A un C-module pseudocompact projectif&nbsp;; de même, \(f'\) fait de A un B-module pseudocompact fidèle. Lorsque P
+parcourt les C-modules pseudocompacts et N les B-modules pseudocompacts, les
+foncteurs \(P \mapsto P \widehat{\otimes}_C A\) et \(N \mapsto N \widehat{\otimes}_B A\) sont donc exacts&nbsp;; comme le deuxième est en
+outre fidèle, le foncteur \(P \mapsto P \widehat{\otimes}_C B\) est exact&nbsp;; d'après <a class="ref" href="#VIIB.0.3.7.prop">0.3.7</a>, B est donc un
+C-module pseudocompact projectif.</p>
+
+<div class="thm thm-plain proposition" id="VIIB.1.3.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.3.4</span></div>
+  <div class="thm-body"><p>Soient S un schéma, Y un S-schéma localement noethérien et
+\(f : X \to Y\) un S-morphisme localement de type fini et fidèlement plat. Alors \(\widehat{f/S} :
+\widehat{X/S} \to \widehat{Y/S}\) est un morphisme surjectif et topologiquement plat de \(\widehat{S}\)-variétés formelles (<a class="ref" href="#VIIB.1.2.6">1.2.6</a>). De plus, la suite
+\[
+\xymatrix{
+\widehat{(X\times_Y X)/S} \ar@&lt;0.6ex&gt;[r]^-{\widehat{\mathrm{pr}_1/S}} \ar@&lt;-0.6ex&gt;[r]_-{\widehat{\mathrm{pr}_2/S}} & \widehat{X/S} \ar[r]^-{\widehat{f/S}} & \widehat{Y/S}
+}
+\]
+déduite de la suite exacte
+\[
+\xymatrix{
+X\times_Y X \ar@&lt;0.6ex&gt;[r]^-{\mathrm{pr}_1} \ar@&lt;-0.6ex&gt;[r]_-{\mathrm{pr}_2} & X \ar[r]^-{f} & Y
+}
+\]
+est exacte.</p></div>
+</div>
+<p>Soit en effet y un point de Y de projection s sur S et tel que \(k(y)\) soit une extension
+finie du corps résiduel \(k(s)\) de s. Comme f est localement de type fini, \(f^{-1}(y)\) est
+localement de type fini sur \(k(y)\) et les points de \(\widehat{X/S}\) se projetant en y sont les points
+fermés de \(f^{-1}(y)\)&nbsp;; ceci montre que f est surjectif.</p>
+<p>Si x est un point fermé de \(f^{-1}(y)\), les anneaux locaux de x et y sur \(\widehat{X/S}\) et \(\widehat{Y/S}\)
+sont les complétés de \(\mathscr{O}_{X,x}\) et \(\mathscr{O}_{Y,y}\) pour les topologies linéaires définies par les
+puissances des idéaux maximaux. D'après SGA IV 5.8, \(\widehat{\mathscr{O}}_{X,x}\) est donc plat sur \(\widehat{\mathscr{O}}_{Y,y}\).
+D'après <a class="ref" href="#VIIB.0.3.8">0.3.8</a>, \(\widehat{\mathscr{O}}_{X,x}\) est un \(\widehat{\mathscr{O}}_{Y,y}\)-module topologiquement libre.</p>
+<p>Nous avons vu enfin en <a class="ref" href="#VIIB.1.2.4">1.2.4</a> que le foncteur \(T \to \mathrm{Hom}_{\mathbf{Vf}/\widehat{S}}(T,\widehat{X/S})\) était naturellement isomorphe au foncteur \(T \mapsto \mathrm{Hom}_{(\mathrm{Sch}/S)}(T,X)\) (T étant de longueur finie).
+Comme une limite projective de foncteurs exacts à gauche se calcule «&nbsp;argument par
+argument&nbsp;» et que \(\mathbf{Vf}/\widehat{S}\) est une catégorie équivalente à celle des foncteurs contravariants exacts à gauche de \(\mathbf{V}/\widehat{S}\) dans \((\mathrm{Ens})\), on voit que le foncteur \(X \mapsto \widehat{X/S}\) commute aux limites projectives. En particulier \(\widehat{(X\times_Y X)/S}\) s'identifie à \(\widehat{X/S} \times_{\widehat{Y/S}} \widehat{X/S}\), de sorte que notre dernière assertion dit simplement que \(\widehat{f/S}\) est un épimorphisme
+effectif (<a class="ref" href="#VIIB.1.3.1">1.3.1</a>).</p>
+
+<h3 id="VIIB.1.3.5">1.3.5.</h3>
+<p>Une variété formelle X sur k est dite <em>topologiquement plate</em> si son algèbre
+affine A est un k-module pseudocompact projectif, c'est-à-dire si le morphisme structural \(X \to \mathrm{Spf}(k)\) est topologiquement plat. On peut décrire une telle variété formelle
+à l'aide de coalgèbres&nbsp;: désignons, en effet, par \(\mathbf{H}(X)\) le \(\mathbf{O}_k\)-module \(\mathbf{V}_k^f(A)\) dual de
+A (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>). Comme \(\mathbf{V}^f(A\widehat{\otimes}A)\) s'identifie à \(\mathbf{V}^f(A)\otimes_k \mathbf{V}^f(A)\) (<a class="ref" href="#VIIB.1.2.2">1.2.2</a>) d'après <a class="ref" href="#VIIB.0.3.6">0.3.6</a>, la
+multiplication de l'algèbre A induit par transposition un morphisme diagonal, qui fait
+de \(\mathbf{H}(X)\) une \(\mathbf{O}_k\)-coalgèbre (<a class="ref" href="#VIIB.1.2.2">1.2.2</a>). Nous dirons que \(\mathbf{H}(X)\) est <em>la coalgèbre de X sur
+\(\mathbf{O}_k\)</em>.</p>
+<p>Réciproquement, toute \(\mathbf{O}_k\)-coalgèbre \(\mathbf{H}\) définit un k-foncteur (<a class="ref" href="#VIIB.1.2.1">1.2.1</a>) \(\mathrm{Spf}^*\mathbf{H}\)&nbsp;:
+pour tout objet C de \(\mathrm{Alf}/k\), \((\mathrm{Spf}^*\mathbf{H})(C)\) est l'ensemble des éléments x de \(\mathbf{H}(C)\) tels
+que \(\varepsilon_{\mathbf{H}(C)}(x) = 1\) et \(\Delta_{\mathbf{H}(C)}(x) = x\otimes x\) (notations de <a class="ref" href="#VIIA.3.1">VII<sub>A</sub> 3.1</a>). Lorsque le \(\mathbf{O}_k\)-module sous-jacent à \(\mathbf{H}\) est plat, \(\mathrm{Spf}^*\mathbf{H}\) s'identifie au spectre formel d'une algèbre
+\(H^*\in\mathrm{Al}/k\), qui a pour k-module topologique sous-jacent le dual de H (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>), la multiplication de \(H^*\) étant induite par les morphismes diagonaux des coalgèbres \(\mathbf{H}(C)\)
+(confer <a class="ref" href="#VIIA.3.1.2">VII<sub>A</sub> 3.1.2</a>). On voit ainsi que <em>les foncteurs \(X \mapsto \mathbf{H}(X)\) et \(\mathbf{H} \mapsto \mathrm{Spf}^*\mathbf{H}\) définissent une
+équivalence entre la catégorie des k-variétés formelles topologiquement plates et celle
+des \(\mathbf{O}_k\)-coalgèbres plates</em>.</p>
+
+<h3 id="VIIB.1.3.6">1.3.6.</h3>
+<p>Dans la suite de cet exposé, nous définirons plusieurs fois une variété formelle topologiquement plate X en exhibant la coalgèbre \(\mathbf{H}(X)\). Il nous faudra alors
+interpréter au moyen de \(\mathbf{H}(X)\) certaines propriétés géométriques de X. Nous donnons
+ici un exemple de cette situation&nbsp;: supposons pour simplifier k artinien et posons
+\(H = \mathbf{H}(X)(k)\)&nbsp;; supposons donnée en outre une section \(\sigma\) de la projection canonique
+de X sur \(\mathrm{Spf}\,k\) et demandons sous quelle condition \(\sigma\) induit un isomorphisme des
+espaces topologiques sous-jacents&nbsp;: désignons pour cela par \(H^+\) le noyau de l'augmentation \(\varepsilon_H\) (<a class="ref" href="#VIIA.3.1">VII<sub>A</sub> 3.1</a>), par \(\eta_H\) la section de \(\varepsilon_H\) qui est induite par \(\sigma\). L'application
+\((x,y) \mapsto \eta_H(x)+y\) nous permet alors d'identifier \(k\oplus H^+\) à H et de définir par
+récurrence des sous-modules \(H_n\) de H&nbsp;:
+\[
+\begin{aligned}
+H_0 &amp;= \eta_H(k)\\
+H_{n+1} &amp;= \{u\in H \mid \Delta_H u - u\otimes 1 \in H_n\otimes H^+\}.
+\end{aligned}
+\]</p>
+<p>Nous dirons que la suite \(H_0\subset H_1\subset\cdots\) est <em>la filtration naturelle de H</em>&nbsp;; sous les
+hypothèses ci-dessus, on voit alors facilement que la section \(\sigma\) de la projection canonique de X sur k induit un isomorphisme sur les espaces topologiques sous-jacents
+si et seulement si H est la réunion des \(H_n\)&nbsp;: soient en effet A l'algèbre affine de X,
+\(\varepsilon_A : A \to k\) l'homomorphisme induit par \(\sigma\) et I le noyau de \(\varepsilon_A\), c'est-à-dire l'orthogonal de \(H_0\) dans A. Notons en outre \(A'\) (resp. \(A''\)) l'anneau des sections du faisceau
+structural de X sur l'image de \(\sigma\) (resp. sur le complémentaire de cette image dans
+X). L'algèbre A est alors canoniquement isomorphe à \(A'\oplus A''\) et I s'identifie à une
+partie de \(A'\oplus A''\) de la forme \(I'\oplus A''\). Comme \(A''\) est un k-module pseudocompact
+projectif et que les idéaux \(I'^r\) tendent vers 0, il est clair que \(A''\) est nul si et seulement si toute application linéaire continue de A dans k s'annule sur un idéal \(I^{n+1}\),
+donc si et seulement si H est la réunion des k-modules \((A/I^{n+1})^*\). Montrons qu'on
+a \(H_n = (A/I^{n+1})^*\)&nbsp;:</p>
+<p>Cela est clair pour \(n=0\). Supposons le donc vérifié pour \(n&lt;r\)&nbsp;: aux suites exactes
+\[
+0 \longrightarrow \overline{I^r} \longrightarrow A \longrightarrow A/I^r \longrightarrow 0
+\]
+et
+\[
+\overline{I^r} \widehat{\otimes} I \longrightarrow A \longrightarrow A/I^{r+1} \longrightarrow 0
+\]
+correspondent par dualité les suites exactes
+\[
+(\overline{I^r})^* \longleftarrow H \longleftarrow H_{r-1} \longleftarrow 0
+\]
+\[
+\text{et}\qquad (\overline{I^r})^*\otimes H^+ \xleftarrow{\ \delta\ } H \longleftarrow (A/\overline{I^{r+1}})^* \longleftarrow 0,
+\]
+où \(\delta\) est obtenu en composant \(\Delta_H\) avec la projection canonique de \(H\otimes H\) dans
+\((\overline{I^r})^*\otimes H^+\). La première suite montre que \(H/H_{r-1}\) s'injecte dans \((\overline{I^r})^*\), donc que
+\((H/H_{r-1})\otimes H^+\) s'injecte dans \((\overline{I^r})^*\otimes H^+\) (\(H^+\) est plat). D'autre part, \(\Delta_H u - u\otimes 1\)
+appartient à \(H\otimes H^+\) pour tout \(u\in H\), donc est la projection de u sur \(H\otimes H^+\). La
+seconde suite exacte montre alors que u appartient à \((A/\overline{I^{r+1}})^*\) si et seulement si
+\(\Delta_H u - u\otimes 1\) appartient au noyau de l'application canonique de \(H\otimes H^+\) sur
+\((H/H_{r-1})\otimes H^+\), c'est-à-dire à \(H_{r-1}\otimes H^+\).</p>
+
+<div class="thm thm-plain theoreme" id="VIIB.1.4">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">1.4</span></div>
+  <div class="thm-body"><p>Soient k un anneau pseudocompact et \(d_0,d_1 : X_1 \rightrightarrows X\) un couple
+d'équivalence de \(\mathbf{Vf}/k\) (V 2b) tel que \(d_1\) soit topologiquement plat. Alors la projection
+canonique de X sur \(X/X_1\) (\(=\mathrm{Coker}(d_0,d_1)\)) est surjective et topologiquement plate,
+et le morphisme \(X_1 \to X\times_{X/X_1} X\) de composantes \(d_0\) et \(d_1\) est un isomorphisme.</p></div>
+</div>
+<p>La démonstration de ce théorème occupe les paragraphes <a class="ref" href="#VIIB.1.4.1">1.4.1</a>, <a class="ref" href="#VIIB.1.4.2">1.4.2</a> et <a class="ref" href="#VIIB.1.4.3">1.4.3</a>&nbsp;:</p>
+
+<h3 id="VIIB.1.4.1">1.4.1.</h3>
+<p>Montrons d'abord qu'on peut se ramener au cas où X a un seul point&nbsp;:
+comme nous avons affaire à un couple d'équivalence, on voit comme en V 3e qu'on
+définit une relation d'équivalence dans l'ensemble sous-jacent à X en déclarant que
+deux points x, y sont équivalents s'il existe un point z de \(X_1\) tel que \(d_0z=y\) et
+\(d_1z=x\). On peut évidemment supposer sans inconvénient que X contient une seule
+classe d'équivalence pour cette relation, autrement dit que \(X/X_1\) a un seul point (voir
+la construction de \(X/X_1\) donnée en <a class="ref" href="#VIIB.1.2">1.2</a>)&nbsp;: dans ce cas, soient x un point quelconque de
+X et U la variété formelle qui a x pour seul point et qui a même anneau local que X
+en x. On voit alors comme en V § 6 que la relation d'équivalence induite par \((d_0,d_1)\)
+sur U vérifie encore les hypothèses du théorème et qu'il suffit de faire la preuve pour
+cette dernière relation d'équivalence (U est «&nbsp;quasi-section&nbsp;»)&nbsp;:</p>
+<p>Rappelons brièvement le principe de la démonstration faite en V, § 6&nbsp;: posons
+\(V = d_0^{-1}(U) = U\times_{i,d_0} X_1\), où i est l'inclusion de U dans X&nbsp;; soient u et v les
+morphismes de source V induits respectivement par \(d_0\) et \(d_1\)&nbsp;:
+\[
+X \xleftarrow{\ v\ } V \xrightarrow{\ u\ } U.
+\]</p>
+<p>Il est clair que u et v sont topologiquement plats et que u est surjectif&nbsp;; comme X
+contient une seule classe d'équivalence, v est surjectif. Si \((v_0,v_1)\) est l'image réciproque
+du couple d'équivalence \((d_0,d_1)\) par v (V 3a), il résulte de V § 3c d que \(X/X_1\) et le
+quotient de U par la relation d'équivalence induite par \((d_0,d_1)\) s'identifient tous deux
+à \(\mathrm{Coker}(v_0,v_1)\). Le reste est facile (V § 6).</p>
+
+<h3 id="VIIB.1.4.2">1.4.2.</h3>
+<p>On se trouve ainsi ramené au cas où X a un seul point&nbsp;: considérons alors
+le diagramme commutatif suivant (confer V § 1 (0,1,2))
+\[
+\xymatrix{
+X_2 \ar@&lt;0.6ex&gt;[r]^-{d_1'} \ar@&lt;-0.6ex&gt;[r]_-{d_0'} \ar[d]_-{d_2'} & X_1 \ar[r]^-{d_0} \ar[d]^-{d_1} & X \ar[d] \\
+X_1 \ar@&lt;0.6ex&gt;[r]^-{d_1} \ar@&lt;-0.6ex&gt;[r]_-{d_0} & X \ar[r] & X/X_1
+}
+\]
+où \(X_2\) est le produit fibré \(X_1\times_{d_1,d_0} X_1\), \(d_2',d_1'\) et \(d_0'\) étant respectivement les morphismes «&nbsp;\((x,y,z)\mapsto(x,y)\)&nbsp;», «&nbsp;\((x,y,z)\mapsto(x,z)\)&nbsp;» et «&nbsp;\((x,y,z)\mapsto(y,z)\)&nbsp;». Si B, A, \(A_1\)
+et \(A_2\) désignent respectivement les algèbres affines de \(X/X_1\), X, \(X_1\) et \(X_2\), le diagramme
+précédent induit un diagramme commutatif
+\[
+\xymatrix{
+A_2 \ar@&lt;0.6ex&gt;[r]^-{j_1} \ar@&lt;-0.6ex&gt;[r]_-{j_0} \ar[d]_-{j_2} & A_1 \ar[d]^-{i_1} & A \ar[l]_-{i_0} \ar[d]^-{i} \\
+A_1 \ar@&lt;0.6ex&gt;[r]^-{i_1} \ar@&lt;-0.6ex&gt;[r]_-{i_0} & A & B \ar[l]^-{i}
+}
+\]
+dans lequel les deux lignes sont exactes et les carrés déterminés par \((i_0,j_0)\) et \((i_1,j_1)\)
+cocartésiens. Comme le morphisme \(X_1 \to X\times X\) de composantes \(d_0\) et \(d_1\) est un
+monomorphisme par hypothèse, le morphisme \(A\widehat{\otimes}_k A \to A_1\) de composantes \(i_0\) et
+\(i_1\) est surjectif (<a class="ref" href="#VIIB.1.3">1.3</a>). Cela signifie que \(i_1\) fait de \(A_1\) un A-module pseudocompact
+(supposé topologiquement libre) engendré par \(i_0(A)\). Comme A est local, le lemme
+<a class="ref" href="#VIIB.1.4.3">1.4.3</a> ci-dessous entraîne l'existence d'un k-module topologiquement libre V et d'un
+morphisme de k-modules pseudocompacts \(j : V \to A\) tels que le morphisme \(\alpha_1 :
+a\widehat{\otimes}v \mapsto i_1(a)\cdot i_0(jv)\) de \(A\widehat{\otimes}_k V\) dans \(A_1\) soit inversible. Soient \(\alpha : B\widehat{\otimes}_k V \to A\) et
+\(\alpha_2 : A_1\widehat{\otimes}_k V \to A_2\) les morphismes «&nbsp;\(b\widehat{\otimes}v \mapsto b\cdot j(v)\)&nbsp;» et «&nbsp;\(a\otimes v \mapsto (j_2a)\cdot j_0(i_0(jv))\)&nbsp;».
+Dans le diagramme commutatif suivant
+\[
+\xymatrix{
+A_2 \ar@&lt;0.6ex&gt;[r]^-{j_1} \ar@&lt;-0.6ex&gt;[r]_-{j_0} & A_1 & A \ar[l]_-{i_0} \\
+A_1\widehat{\otimes}_k V \ar@&lt;0.6ex&gt;[r]^-{i_1\otimes V} \ar@&lt;-0.6ex&gt;[r]_-{i_0\otimes V} \ar[u]^-{\alpha_2} & A\widehat{\otimes}_k V \ar[u]^-{\alpha_1} & B\widehat{\otimes}_k V \ar[l]^-{i\otimes V} \ar[u]_-{\alpha}
+}
+\]
+les deux lignes sont donc exactes et les deux carrés de gauche sont cocartésiens. Comme
+\(\alpha_1\) est inversible, il en va de même pour \(\alpha_2\), donc pour \(\alpha\). Ceci montre d'une part que
+A est topologiquement libre sur B de «&nbsp;base j&nbsp;» et qu'on obtient une pseudobase de \(A_1\)
+sur A (considéré comme A-module au moyen de \(i_1\)&nbsp;; <a class="ref" href="#VIIB.0.2.1">0.2.1</a>) en prenant l'image par
+\(i_0\) d'une pseudobase de A sur B&nbsp;; cela entraîne que le morphisme \(A\widehat{\otimes}_B A \to A_1\) de
+composantes \(i_1\) et \(i_0\) est inversible&nbsp;:
+\[
+A\widehat{\otimes}_B A \simeq A\widehat{\otimes}_B B\widehat{\otimes}_k V \simeq A\widehat{\otimes}_k V \simeq A_1.
+\]</p>
+
+<div class="thm thm-plain lemme" id="VIIB.1.4.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.4.3</span></div>
+  <div class="thm-body"><p>Soient k un anneau pseudocompact local, A une k-algèbre profinie
+locale, \(A_1\) un A-module topologiquement libre et \(i_0 : M \to A_1\) un morphisme de k-modules pseudocompacts tels que l'application \(a\widehat{\otimes}m \mapsto a\cdot i_0(m)\) de \(A\widehat{\otimes}_k M\) dans \(A_1\)
+soit surjective. Il existe alors un k-module topologiquement libre V et un morphisme
+de k-modules pseudocompacts \(j : V \to M\) tels que l'application \(a\widehat{\otimes}v \mapsto a\cdot i_0(jv)\) de
+\(A\widehat{\otimes}_k V\) dans \(A_1\) soit bijective.</p></div>
+</div>
+<p>Comme tout k-module pseudocompact est le quotient d'un k-module topologiquement libre, on peut supposer sans inconvénient que M est topologiquement libre sur
+k&nbsp;; prenons donc pour M le produit direct d'une famille \((M_i)_{i\in I}\) d'exemplaires de
+k. Dans ce cas, \(A\widehat{\otimes}_k M\) n'est autre que le produit \(\prod_{i\in I} A\widehat{\otimes}_k M_i\), dont chaque facteur est isomorphe à A, donc est projectif et indécomposable. Comme l'application
+\(a\widehat{\otimes}m \mapsto a\cdot i_0(m)\) est surjective et que \(A_1\) est projectif, le noyau de cette application est un facteur direct de \(A\widehat{\otimes}_k M\)&nbsp;; il résulte donc du théorème d'échange (<a class="ref" href="#VIIB.0.3.4">0.3.4</a>) que
+ce noyau a pour supplémentaire un produit partiel \(\prod_{i\in J} A\widehat{\otimes}_k M_i\), où J désigne une
+certaine partie de I.</p>
+
+<h3 id="VIIB.1.5">1.5.</h3>
+<p>Soient k un anneau pseudocompact et \((f_i)\) une famille de morphismes \(f_i :
+X_i \to X\) de \(\mathbf{Vf}/k\). Nous dirons que \((f_i)\) est une <em>famille surjective topologiquement
+plate</em> si le morphisme de \(\coprod_i X_i\) dans X, qui est induit par les \(f_i\), est surjectif et
+topologiquement plat&nbsp;; cela signifie que chaque \(f_i\) est topologiquement plat et que
+tout point de X appartient à l'image d'au moins l'un des \(X_i\).</p>
+<p>Il résulte de <a class="ref" href="#VIIB.1.3.3">1.3.3</a> que les familles surjectives, topologiquement plates définissent une
+<em>prétopologie</em> sur \(\mathbf{Vf}/k\) (IV 4.2.5)&nbsp;; la topologie correspondante sera appelée <em>la topologie
+plate</em> sur \(\mathbf{Vf}/k\). Il est clair qu'un foncteur contravariant F de \(\mathbf{Vf}/k\) dans \((\mathrm{Ens})\) est un
+faisceau pour la topologie plate si et seulement si F transforme une somme directe
+en produit direct et si la suite
+\[
+\mathrm{F}Y \xrightarrow{\ \mathrm{F}f\ } \mathrm{F}X \underset{\mathrm{F}(\mathrm{pr}_2)}{\overset{\mathrm{F}(\mathrm{pr}_1)}{\rightrightarrows}} \mathrm{F}(X\times_Y X)
+\]
+est exacte pour tout morphisme surjectif topologiquement plat \(f : X \to Y\).</p>
+<p>La proposition <a class="ref" href="#VIIB.1.3.1">1.3.1</a> entraîne que la topologie plate est moins fine que la topologie
+canonique. On obtient donc un foncteur i de \(\mathbf{Vf}/k\) dans la catégorie des faisceaux pour
+la topologie plate en associant à toute variété formelle X le foncteur \(iX : T \mapsto
+\mathrm{Hom}_{\mathbf{Vf}/k}(T,X)\). Le théorème <a class="ref" href="#VIIB.1.4">1.4</a> implique que, si \(d_0,d_1 : X_1 \rightrightarrows X\) est une relation
+d'équivalence telle que \(d_1\) soit topologiquement plat, la formation du quotient commute avec i&nbsp;:
+\[
+i(X)/i(X_1) \simeq i(X/X_1).
+\]</p>
+
+<h3 id="VIIB.1.6">1.6.</h3>
+<p>Pour terminer ces généralités sur les variétés formelles, il nous reste à
+définir brièvement les variétés formelles étales&nbsp;:</p>
+<p>Une variété formelle X sur k est dite <em>étale</em>, si le morphisme diagonal \(\Delta_X : X \to
+X\times X\) est un isomorphisme local, c'est-à-dire si \(\Delta_X\) induit un isomorphisme de
+\(\mathscr{O}_{X\times X,\Delta(x)}\) sur \(\mathscr{O}_{X,x}\) pour tout point x de X. On voit facilement à l'aide de SGA I,
+que cette formulation est équivalente aux deux suivantes&nbsp;: la variété formelle X est
+topologiquement plate, et, pour tout point \(x\in X\), de projection \(s\in\mathrm{Spf}\,k\), \(\mathscr{O}_{X,x}\widehat{\otimes}_k k(s)\)
+est une extension finie séparable du corps résiduel \(k(s)\) de s&nbsp;; ou encore, si A désigne
+l'algèbre affine de X, les composantes locales (<a class="ref" href="#VIIB.0.1">0.1</a>) de \(A\widehat{\otimes}_k(k/\mathfrak{n})\) sont des algèbres finies et
+étales sur \(k/\mathfrak{n}\), quel que soit l'idéal ouvert \(\mathfrak{n}\) de k.</p>
+<p>Notons \(\mathbf{Ve}/k\) la sous-catégorie pleine de \(\mathbf{Vf}/k\) formée des variétés étales. <em>L'inclusion de \(\mathbf{Ve}/k\) dans \(\mathbf{Vf}/k\) possède alors un foncteur adjoint à gauche \(X \mapsto X_e\)</em>
+qu'on peut décrire de la façon suivante&nbsp;: la variété \(X_e\) a les mêmes points que X&nbsp;;
+de plus, si x est un point de X, de corps résiduel \(k(x)\) et de projection s sur \(\mathrm{Spf}\,k\),
+l'algèbre locale \(\mathscr{O}_{X_e,x}\) est un k-module pseudocompact projectif et \(k(s)\widehat{\otimes}_k \mathscr{O}_{X_e,x}\) est
+isomorphe à la plus grande extension séparable de \(k(s)\) contenue dans \(k(x)\). Pour tout
+isomorphisme \(q_x\) de \(k(s)\widehat{\otimes}_k \mathscr{O}_{X_e,x}\) dans \(k(x)\), il y a un morphisme d'algèbres profinies
+\(p_x : \mathscr{O}_{X_e,x} \to \mathscr{O}_{X,x}\) et un seul qui soit compatible avec \(q_x\) et avec les projections canoniques de \(\mathscr{O}_{X_e,x}\) et \(\mathscr{O}_{X,x}\) sur \(k(s)\widehat{\otimes}_k \mathscr{O}_{X_e,x}\) et \(k(x)\). Ces morphismes \(p_x\) définissent
+un morphisme canonique p de X dans \(X_e\), qui est fonctoriel en X. Il résulte de SGA,
+I que tout morphisme de X dans une variété formelle étale se factorise d'une manière
+et d'une seule à travers p.</p>
+
+<h3 id="VIIB.1.6.1">1.6.1.</h3>
+<p>Soient Y une k-variété formelle étale et \(f : X \to Y\) un morphisme de
+\(\mathbf{Vf}/k\). Le morphisme graphe \(\Gamma_f : X \to X\times Y\), de composantes \(\mathrm{id}_X\) et f, est alors
+l'image réciproque du morphisme diagonal \(\Delta_Y : Y \to Y\times Y\) par le changement
+de base \(f\times\mathrm{id}_Y : X\times Y \to Y\times Y\). Il s'ensuit que \(\Gamma_f\) est un isomorphisme local,
+donc que \(f = \mathrm{pr}_2\circ\Gamma_f\) est topologiquement plat si \(\mathrm{pr}_2\) l'est, par exemple si X est
+topologiquement plat sur k. Réciproquement, comme Y est topologiquement plat, X
+est topologiquement plat sur k si X l'est sur Y (<a class="ref" href="#VIIB.1.3.3">1.3.3</a>). Prenant en particulier pour f
+le morphisme canonique \(p : X \to X_e\) de <a class="ref" href="#VIIB.1.6">1.6</a>, on voit que X <em>est topologiquement plat
+sur \(X_e\) si et seulement si X l'est sur k</em>.</p>
+
+<h2 id="VIIB.2">2. Généralités sur les groupes formels</h2>
+
+<h3 id="VIIB.2.1">2.1.</h3>
+<p>Soient k un anneau pseudocompact et G un <em>k-groupe formel</em>, c'est-à-dire un
+groupe de la catégorie \(\mathbf{Vf}/k\) des variétés formelles sur k. Si A est l'algèbre affine de
+G, la loi de composition de G définit évidemment un <em>morphisme diagonal</em>, c'est-à-dire
+un homomorphisme de k-algèbres profinies \(\Delta_A : A \to A\widehat{\otimes}_k A\)&nbsp;; cet homomorphisme
+vérifie les conditions suivantes&nbsp;:</p>
+<p>(i) le diagramme
+\[
+A \xrightarrow{\ \Delta_A\ } A\widehat{\otimes}_k A \underset{A\otimes\Delta_A}{\overset{\Delta_A\otimes A}{\rightrightarrows}} A\widehat{\otimes}_k A\widehat{\otimes}_k A
+\]
+est commutatif.</p>
+<p>(ii) il existe une <em>augmentation</em> (nécessairement unique), c'est-à-dire un homomorphisme de k-algèbres profinies \(\varepsilon_A : A \to k\) tel que les applications composées
+\[
+A \xrightarrow{\ \Delta_A\ } A\widehat{\otimes}_k A \xrightarrow{\ \varepsilon_A\otimes A\ } k\widehat{\otimes}_k A \simeq A
+\]
+\[
+\text{et}\qquad A \xrightarrow{\ \Delta_A\ } A\widehat{\otimes}_k A \xrightarrow{\ A\otimes\varepsilon_A\ } A\widehat{\otimes}_k k \simeq A
+\]
+soient les applications identiques de A.</p>
+<p>(iii) il existe un <em>antipodisme</em> (nécessairement unique), c'est-à-dire un homomorphisme de k-algèbres profinies \(c_A : A \to A\) tel que l'application composée
+\[
+A \xrightarrow{\ \Delta_A\ } A\widehat{\otimes}_k A \xrightarrow{\ c_A\otimes A\ } A\widehat{\otimes}_k A \xrightarrow{\ m_A\ } A
+\]
+soit égale à \(\eta_A\circ\varepsilon_A\), si l'on note \(m_A\) l'application linéaire qui envoie \(a\widehat{\otimes}b\) sur \(a\cdot b\)
+et \(\eta_A\) l'application \(\lambda \mapsto \lambda 1_A\) de k dans A.</p>
+<p>Il est clair que, réciproquement, tout morphisme diagonal \(\Delta_A\) vérifiant (i), (ii) et
+(iii) induit un morphisme de \(G\times G\) dans G, qui fait de G un groupe formel sur k.</p>
+<p>Dans la suite, nous appellerons <em>idéal d'augmentation</em> de A l'idéal \(I_A = \varepsilon_A^{-1}(0)\).
+Nous noterons \(\omega_{G/k}\) le k-module pseudocompact \(I_A/\overline{I_A^2}\), c'est-à-dire le quotient de
+\(I_A\) par l'idéal fermé engendré par les produits \(x\cdot y\), \(x,y\in I_A\).</p>
+
+<h3 id="VIIB.2.2">2.2.</h3>
+<p>Soit \(\mathbf{H}\) un groupe de la catégorie des Coalgèbres sur \(\mathbf{O}_k\) (<a class="ref" href="#VIIB.1.2.2">1.2.2</a>). Pour toute
+k-algèbre \(C\in\mathrm{Alf}/k\), \(\mathbf{H}(C)\) est donc muni d'une structure de C-coalgèbre en groupes
+(<a class="ref" href="#VIIA.3.1">VII<sub>A</sub> 3.1</a>&nbsp;; à la suite de Manin, nous dirons <em>bialgèbre</em> au lieu de coalgèbre en groupes)&nbsp;;
+de plus, si \(\varphi : C \to D\) est un morphisme de \(\mathrm{Alf}/k\), l'application \(d\otimes x \mapsto d\cdot(\mathbf{H}(\varphi))(x)\)
+de \(D\otimes_C \mathbf{H}(C)\) dans \(\mathbf{H}(D)\) est un homomorphisme de bialgèbres sur D. Nous résumerons
+ces propriétés en disant que \(\mathbf{H}\) est <em>une bialgèbre sur \(\mathbf{O}_k\)</em>.</p>
+<p>Il est clair que le foncteur \(\mathbf{H} \mapsto \mathrm{Spf}^*\mathbf{H}\) de <a class="ref" href="#VIIB.1.3.5">1.3.5</a> commute aux produits finis. Il
+transforme donc bialgèbre sur \(\mathbf{O}_k\) en un k-foncteur en groupes&nbsp;; c'est-à-dire, pour toute
+k-algèbre de longueur finie C, les éléments x de \(\mathbf{H}(C)\) appartenant à \((\mathrm{Spf}^*\mathbf{H})(C)\)
+forment un groupe pour la multiplication de l'algèbre \(\mathbf{H}(C)\) (confer <a class="ref" href="#VIIA.3.2.2">VII<sub>A</sub> 3.2.2</a>)&nbsp;:
+rappelons que ces éléments x sont tels que \(\varepsilon_{\mathbf{H}(C)}(x) = 1\) et \(\Delta_{\mathbf{H}(C)}(x) = x\otimes x\). La
+deuxième condition entraîne d'ailleurs l'égalité \(\varepsilon_{\mathbf{H}(C)}(x) = \varepsilon_{\mathbf{H}(C)}(x)\varepsilon_{\mathbf{H}(C)}(x)\), donc aussi
+\(\varepsilon_{\mathbf{H}(C)}(x) = 1\) si k est local.</p>
+
+<h3 id="VIIB.2.2.1">2.2.1.</h3>
+<p>Une bialgèbre \(\mathbf{H}\) sur \(\mathbf{O}_k\) est dite <em>plate</em> si le module sous-jacent est plat
+(<a class="ref" href="#VIIB.1.2.1">1.2.1</a>). Si \(\mathbf{H}\) est plate, il est clair que le k-foncteur \(\mathrm{Spf}^*\mathbf{H}\) est exact à gauche. Il est
+donc isomorphe à \(C \mapsto \mathrm{Hom}_{\mathbf{Vf}/k}(\mathrm{Spf}\,C,\mathscr{G}(\mathbf{H}))\) pour un certain groupe formel \(\mathscr{G}(\mathbf{H})\)&nbsp;;
+il résulte de <a class="ref" href="#VIIA.3.2.2">VII<sub>A</sub> 3.2.2</a> et <a class="ref" href="#VIIB.1.3.5">1.3.5</a> qu'on peut décrire \(\mathscr{G}(\mathbf{H})\) de la manière suivante&nbsp;: soit
+\(H^*\) le k-module pseudocompact dual de \(\mathbf{H}\) (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>). Les morphismes diagonaux des
+hyperalgèbres \(\mathbf{H}(C)\) induisent une multiplication sur \(H^*\) qui fait de \(H^*\) une k-algèbre
+profinie. La multiplication dans les hyperalgèbres \(\mathbf{H}(C)\) induit dans \(H^*\) un morphisme
+diagonal vérifiant les conditions (i), (ii) et (iii) de <a class="ref" href="#VIIB.2.1">2.1</a>. Il reste à poser
+\[
+\mathscr{G}(\mathbf{H}) = \mathrm{Spf}\,H^*.
+\]</p>
+<p>Réciproquement, soit G un k-groupe formel topologiquement plat, d'algèbre affine A et posons \(\mathbf{H}(G) = \mathbf{V}_k^f(A)\) (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>). Le morphisme diagonal \(\Delta_A : A \to A\widehat{\otimes}_k A\)
+induit alors, pour toute k-algèbre de longueur finie C, une application linéaire de
+\(\mathbf{V}_k^f(A)(C)\otimes_C \mathbf{V}_k^f(A)(C)\) dans \(\mathbf{V}_k^f(A)(C)\) qui fait de la coalgèbre \(\mathbf{V}_k^f(A)(C)\) une
+bialgèbre sur C. On dit que \(\mathbf{H}(G)\) est <em>la bialgèbre du groupe formel G</em>. D'après <a class="ref" href="#VIIB.1.3.5">1.3.5</a>,
+<em>le foncteur \(\mathbf{H} : G \mapsto \mathbf{H}(G)\) est une équivalence de la catégorie des k-groupes formels
+topologiquement plats sur celle des bialgèbres plates sur \(\mathbf{O}_k\)</em>. Le foncteur \(\mathscr{G}\) est un
+«&nbsp;inverse à isomorphisme fonctoriel près&nbsp;» de \(\mathbf{H}\).</p>
+<p>Lorsque k est un anneau artinien et G un k-groupe formel topologiquement plat,
+le foncteur \(\mathbf{H}(G)\) est évidemment déterminé par sa valeur \(H(G) = \mathbf{H}(G)(k)\) en k.
+On dit aussi que \(H(G)\) est <em>la bialgèbre de G</em>. Le foncteur \(H : G \mapsto H(G)\) est alors
+une équivalence de la catégorie des k-groupes formels topologiquement plats sur la
+catégorie des bialgèbres plates sur k.</p>
+
+<h3 id="VIIB.2.2.2">2.2.2.</h3>
+<p>Supposons pour simplifier k artinien et soit G un k-groupe formel, commutatif, topologiquement plat. Dans ce cas, la bialgèbre \(H(G)\) a une multiplication
+commutative, de sorte que \(H(G)\) est co-groupe dans la catégorie des k-algèbres commutatives (<a class="ref" href="#VIIA.3.3">VII<sub>A</sub> 3.3</a>).</p>
+<p>Si k est artinien, on voit donc que <em>le foncteur \(G \mapsto \mathrm{Spec}\,H(G)\) est une antiéquivalence de la catégorie des k-groupes formels commutatifs topologiquement plats sur
+celle des schémas en groupes commutatifs qui sont affines et plats sur k</em>.</p>
+<p>Lorsque k est un corps, on obtient ainsi une antiéquivalence de la catégorie des k-groupes formels commutatifs topologiquement plats sur celle des k-schémas affines
+en groupes commutatifs.</p>
+
+<h3 id="VIIB.2.3">2.3.</h3>
+<p>Considérons maintenant un k-groupe formel arbitraire G, d'algèbre affine
+A. Notons toujours \(\mathbf{H}(G)\) le \(\mathbf{O}_k\)-module \(\mathbf{V}_k^f(A)\) dual de A et désignons par \(\varphi_G\)
+l'homomorphisme fonctoriel
+\[
+\varphi_G : \mathbf{H}(G)\otimes_k \mathbf{H}(G) \longrightarrow \mathbf{H}(G\times G)
+\]
+qui est induit par l'application naturelle (<a class="ref" href="#VIIB.0.3.6">0.3.6</a>), pour tout objet C de \(\mathrm{Alf}/k\)&nbsp;:
+\[
+(A\widehat{\otimes}_k C)^*\otimes_C (A\widehat{\otimes}_k C)^* \longrightarrow ((A\widehat{\otimes}_k C)\widehat{\otimes}_C (A\widehat{\otimes}_k C))^*.
+\]</p>
+<p>Si \(m : G\times G \to G\) est le morphisme structural de G, l'application composée&nbsp;:
+\[
+\mathbf{H}(G)\otimes_k \mathbf{H}(G) \xrightarrow{\ \varphi_G\ } \mathbf{H}(G\times G) \xrightarrow{\ \mathbf{H}(m)\ } \mathbf{H}(G)
+\]
+fait de \(\mathbf{H}(G)\) une algèbre sur \(\mathbf{O}_k\)&nbsp;; pour tout \(C\in\mathrm{Alf}/k\), l'élément unité de \(\mathbf{H}(G)(C) =
+(A\widehat{\otimes}_k C)^*\) est l'augmentation de \(A\widehat{\otimes}_k C\) (cf. <a class="ref" href="#VIIB.2.1">2.1</a>). Nous dirons que \(\mathbf{H}(G)\) est <em>l'algèbre
+du groupe G</em>.</p>
+<p>Lorsque G est topologiquement plat sur k, \(\varphi_G\) est un isomorphisme et la structure
+d'algèbre que nous venons de définir coïncide évidemment avec celle de <a class="ref" href="#VIIB.2.2.1">2.2.1</a>. Dans
+le cas général cependant, \(\varphi_G\) n'est pas inversible, de sorte que le morphisme \(\delta_G :
+\mathbf{H}(G) \to \mathbf{H}(G\times G)\), qui est induit par le morphisme diagonal «&nbsp;\(x\mapsto(x,x)\)&nbsp;» de G
+dans \(G\times G\), ne se factorise pas canoniquement à travers \(\mathbf{H}(G)\otimes_k \mathbf{H}(G)\).</p>
+
+<div class="thm thm-plain proposition" id="VIIB.2.3.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.3.1</span></div>
+  <div class="thm-body"><p>Soient K et G deux k-groupes formels, K étant topologiquement
+plat sur k. Il existe alors une bijection canonique de l'ensemble \(\mathrm{Hom}_{k\text{-Gr.}}(K,G)\) des
+homomorphismes de k-groupes formels de K dans G sur l'ensemble des homomorphismes de \(\mathbf{O}_k\)-algèbres unitaires \(h : \mathbf{H}(K) \to \mathbf{H}(G)\) tels que le diagramme
+\[
+\xymatrix{
+\mathbf{H}(K)\otimes_k \mathbf{H}(K) \ar[rr]^-{h\otimes h} & & \mathbf{H}(G)\otimes_k \mathbf{H}(G) \ar[dr]^-{\varphi_G} & \\
+\mathbf{H}(K) \ar[u]^-{\Delta_{\mathbf{H}(K)}} \ar[rr]_-{h} & & \mathbf{H}(G) \ar[r]_-{\delta_G} & \mathbf{H}(G\times G)
+}
+\]
+soit commutatif.</p></div>
+</div>
+<p>Comme K est topologiquement plat, \(\mathbf{H}(K)\) est muni d'une structure de bialgèbre
+(cf. <a class="ref" href="#VIIB.2.2">2.2</a>) et \(\Delta_{\mathbf{H}(K)}\) en est le morphisme diagonal&nbsp;; autrement dit, on a \(\Delta_{\mathbf{H}(K)} = \varphi_K^{-1}\circ
+\delta_K\). Lorsque G est aussi topologiquement plat sur k, notre proposition résulte de
+l'équivalence de catégories définie en <a class="ref" href="#VIIB.2.2.1">2.2.1</a>.</p>
+<p>Dans le cas général, on peut supposer k artinien et raisonner sur les algèbres H(K)
+et \(H(G) = \mathbf{H}(G)(k)\). Soient alors B et A les algèbres affines de K et G, \(\mathrm{Hom}_c(A,B)\)
+l'ensemble des applications k-linéaires continues de A dans B et \(\mathrm{Hom}_k(B^*,A^*)\) l'ensemble des applications k-linéaires de \(B^*\) dans \(A^*\). On sait que l'application canonique
+\(f \mapsto f^*\) de \(\mathrm{Hom}_c(A,B)\) dans \(\mathrm{Hom}_k(B^*,A^*)\) est bijective lorsque B est un k-module
+pseudocompact projectif. Comme cette application est en outre fonctorielle en A et
+B, on voit facilement que f est compatible avec les morphismes diagonaux de A et B
+si et seulement si \(f^*\) est compatible avec la multiplication de \(A^*\) et celle de \(B^*\). De
+même, f est compatible avec la multiplication de B et celle de A si et seulement si le
+diagramme
+\[
+\xymatrix{
+B^*\otimes_k B^* \ar[r]^-{f^*\otimes f^*} \ar[d]_-{\Delta_B} & A^*\otimes_k A^* \ar[r]^-{\mathrm{can.}} & (A\widehat{\otimes}_k A)^* \ar[d]^-{m_A^*} \\
+B^* \ar[rr]_-{f^*} & & A^*
+}
+\]
+est commutatif (\(m_A\) désigne l'application linéaire \(a\widehat{\otimes}a' \mapsto a\cdot a'\) de \(A\widehat{\otimes}_k A\) dans A).</p>
+<p>Enfin, si f est un homomorphisme d'algèbres unitaires et est compatible avec les
+morphismes diagonaux, on a \(\varepsilon_B\circ f = \varepsilon_A\), de sorte que \(f^*\) envoie l'élément unité de \(B^*\)
+sur celui de \(A^*\). Réciproquement, si \(f^*\) est un homomorphisme d'algèbres unitaires qui
+rend commutatif le diagramme ci-dessus, f est compatible avec les multiplications et
+les morphismes diagonaux et l'on a \(\varepsilon_B\circ f = \varepsilon_A\). On en déduit les égalités 
+\(\varepsilon_B f(1) = 1\), \(f(1)\cdot f(1) = f(1)\) et \(\Delta_B f(1) = f(1)\widehat{\otimes}f(1)\). Si \(c_B\) est l'antipodisme de B, il résulte de
+<a class="ref" href="#VIIB.2.1">2.1</a> (iii) que \(f(1)\) a un inverse \(c_B f(1)\) dans B, donc que \(f(1)\) est l'élément unité de B.</p>
+
+<h3 id="VIIB.2.3.2">2.3.2.</h3>
+<p><em>Supposons maintenant</em> pour simplifier l'anneau k <em>artinien</em>. Lorsque G est
+topologiquement plat sur k, l'algèbre \(H(G) = \mathbf{H}(G)(k)\) peut être caractérisée par une
+propriété universelle (CARTIER)&nbsp;: soient U une k-algèbre (associative, avec élément
+unité) et \(U_m\) le k-foncteur en groupes qui associe à toute k-algèbre de longueur finie
+C le groupe multiplicatif des éléments inversible de \(U\otimes_k C\)&nbsp;; identifions G au k-foncteur en groupes \(C \mapsto \mathrm{Hom}_{\mathbf{Vf}/k}(\mathrm{Spf}\,C,G)\) et notons \(\mathrm{Hom}_{k\text{-Gr.}}(G,U_m)\) l'ensemble
+des homomorphismes de k-foncteurs en groupes de G dans \(U_m\). On a la</p>
+
+<div class="thm thm-plain proposition" id="VIIB.2.3.2.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Pour tout groupe formel G topologiquement plat sur un anneau artinien k et pour toute k-algèbre U, il y a un isomorphisme canonique
+\[
+\mathrm{Hom}_{k\text{-Gr.}}(G,U_m) \xrightarrow{\ \sim\ } \mathrm{Hom}_{k\text{-Alg.}}(H(G),U)
+\]</p></div>
+</div>
+<p>Soient en effet X une variété formelle sur k, M un k-module et \(\mathbf{W}(M)\) le k-foncteur \(C \mapsto M\otimes_k C\)&nbsp;; de plus, notons \(\mathrm{Hom}_k(X,\mathbf{W}(M))\) l'ensemble des morphismes de k-foncteurs de X dans \(\mathbf{W}(M)\)&nbsp;; si A est l'algèbre affine de X et si \(\mathfrak{l}\) parcourt les idéaux
+ouverts de A, on a des isomorphismes canoniques
+\[
+\mathrm{Hom}_k(X,\mathbf{W}(M)) \xrightarrow{\ \sim\ } \varprojlim_{\mathfrak{l}} \mathrm{Hom}_k(\mathrm{Spf}\,A/\mathfrak{l}, \mathbf{W}(M)) \xrightarrow{\ \sim\ } \varprojlim_{\mathfrak{l}} M\otimes_k (A/\mathfrak{l})
+\]
+et des applications linéaires
+\[
+M\otimes_k (A/\mathfrak{l}) \longrightarrow \mathrm{Hom}_k((A/\mathfrak{l})^*,M)
+\]
+qui envoient \(u\otimes x\) sur l'application k-linéaire \(f \mapsto f(x)\cdot u\). Par passage à la limite
+projective, on obtient donc des applications
+\[
+\mathrm{Hom}_k(X,\mathbf{W}(M)) \xrightarrow{\ \sim\ } M\widehat{\otimes}_k A \xrightarrow{\ \psi_A\ } \mathrm{Hom}_k(A^*,M)
+\]
+où \(M\widehat{\otimes}_k A\) désigne la limite projective des k-modules \(M\otimes_k(A/\mathfrak{l})\). L'application \(\psi_A\) ne
+fait évidemment intervenir que la structure de k-module pseudocompact de A&nbsp;; de plus,
+cette application est bijective lorsque A est égal à k, donc plus généralement lorsque
+A est un k-module pseudocompact projectif (le foncteur \(N \mapsto M\widehat{\otimes}_k N\) commute aux
+produits infinis).</p>
+<p>Supposons maintenant X égal à G et M à U. Pour toute k-algèbre de longueur
+finie C, la multiplication fait alors de \(U\otimes_k C\) un monoïde à élément unité&nbsp;; de plus,
+il est clair que \(\mathrm{Hom}_{k\text{-Gr.}}(G,U_m)\) est la partie de \(\mathrm{Hom}_k(G,\mathbf{W}(U))\) qui est formée
+des homomorphismes de k-foncteurs en monoïdes à élément unité. Lorsque A est un
+k-module pseudocompact projectif, il résulte du caractère fonctoriel de \(\psi_A\) que ces
+homomorphismes correspondent aux applications k-linéaires de A dans U qui sont
+compatibles avec la multiplication et avec les éléments unité de A et U.</p>
+
+<h3 id="VIIB.2.4">2.4.</h3>
+<p>Revenons maintenant à un anneau pseudocompact quelconque k pour appliquer aux groupes formels les résultats du § <a class="ref" href="#VIIB.1">1</a> sur le passage au quotient par une relation
+d'équivalence topologiquement plate.</p>
+<p>Si \(u : F \to G\) est un <em>monomorphisme</em> de k-groupes formels, \(\mu : G\times G \to G\) le
+morphisme «&nbsp;multiplication&nbsp;» de G et \(\lambda\) le morphisme composé
+
+\[
+\lambda : F\times G \xrightarrow{\ u\times\mathrm{id}_G\ } G\times G \xrightarrow{\ \mu\ } G,
+\]
+on sait en effet que le couple
+\[
+F\times G \underset{\lambda}{\overset{\mathrm{pr}_2}{\rightrightarrows}} G
+\]
+est un couple d'équivalence (cf. V, 2.a et VII<sub>A</sub>, 3.1). Si F est topologiquement plat
+sur k, \(\mathrm{pr}_2\) est topologiquement plat et nous pouvons appliquer le théorème <a class="ref" href="#VIIB.1.4">1.4</a>&nbsp;:
+<em>la projection canonique p de G sur la variété \(F\backslash G\) des classes à gauche de G modulo
+F est donc topologiquement plate</em>&nbsp;; d'autre part, le morphisme \(F\times G \to G\times_{F\backslash G} G\)
+de composantes \(\lambda\) et \(\mathrm{pr}_2\) est inversible&nbsp;; lorsque T est une variété formelle de longueur
+finie sur k et x, y deux éléments de \(G(T)\), x et y ont donc même image dans \((F\backslash G)(T)\)
+si et seulement s'il y a un z dans \(F(T)\) tel \(y = u(z)\cdot x\). Prenant pour x le morphisme
+nul, qui se factorise à travers la section unité de G, on voit que y a même image dans
+\((F\backslash G)(T)\) que l'élément unité de \(G(T)\) si et seulement si y appartient à l'image de
+\(F(T)\) par \(u(T)\).</p>
+<p>En particulier, si u est un isomorphisme de F sur un sous-groupe distingué de G,
+le morphisme structural de \(G\times G\) dans G induit manifestement par passage au
+quotient une structure de groupe formel sur \(F\backslash G\)&nbsp;; ce qui précède montre alors que
+u est un isomorphisme de F sur \(\mathrm{Ker}\,p\).</p>
+
+<h3 id="VIIB.2.4.1">2.4.1.</h3>
+<p>Soient \(f : G \to H\) un homomorphisme de k-groupes formels, F le noyau
+de f et u l'inclusion de F dans G. Si F est topologiquement plat sur k, l'homomorphisme \(f' : F\backslash G \to H\), qui est induit par f, est un monomorphisme&nbsp;; c'est une conséquence des résultats de l'exposé IV&nbsp;; nous en donnons cependant une démonstration
+directe&nbsp;: soient T une variété formelle de longueur finie sur k et t un élément de
+\((F\backslash G)(T)\) tel que \(f'\circ t\) soit l'élément unité de \(H(T)\). Nous devons montrer que t est
+l'élément unité de \((F\backslash G)(T)\)&nbsp;; comme la projection canonique \(\mathrm{pr}_1\) de \(T\times_{F\backslash G} G\) sur
+T est surjective et topologiquement plate (<a class="ref" href="#VIIB.2.4">2.4</a>), il suffit de montrer (<a class="ref" href="#VIIB.1.3.1">1.3.1</a>) que \(t\circ\mathrm{pr}_1\)
+est l'élément unité de \((F\backslash G)(T\times_{F\backslash G} G)\). Comme on a \(t\circ\mathrm{pr}_1 = p\circ\mathrm{pr}_2\), si \(\mathrm{pr}_2\)
+est la projection canonique de \(T\times_{F\backslash G} G\) sur G, l'égalité \(1 = f'\circ(p\circ\mathrm{pr}_2) = f\circ\mathrm{pr}_2\)
+et la suite exacte
+\[
+1 \longrightarrow F \longrightarrow G \longrightarrow H
+\]
+montrent que \(\mathrm{pr}_2\) se factorise à travers F, donc que \(p\circ\mathrm{pr}_2\) est nul.</p>
+<p>Si B, C et D sont les algèbres affines de G, H et \(F\backslash G\), \(p : G \to F\backslash G\) induit donc
+une injection de D dans B et \(f'\) induit une surjection de C dans D (<a class="ref" href="#VIIB.1.3">1.3</a>). Par conséquent, D est l'image de C dans B.</p>
+
+<h3 id="VIIB.2.4.2">2.4.2.</h3>
+<p>Supposons maintenant F et G topologiquement plats sur k&nbsp;: comme G est
+topologiquement plat sur k et sur \(F\backslash G\), \(F\backslash G\) est topologiquement plat sur k (<a class="ref" href="#VIIB.1.3.3">1.3.3</a>)&nbsp;;
+il est clair d'autre part qu'on a \(\mathrm{Coker}\,f = \mathrm{Coker}\,f'\)&nbsp;; comme \(f'\) est un monomorphisme,
+la projection canonique de H sur \(\mathrm{Coker}\,f'\) est topologiquement plate et \(f'\) est un
+isomorphisme de \(F\backslash G\) sur \(\mathrm{Ker}\,q\)&nbsp;; si \(\mathrm{Ker}\,f\) et G sont topologiquement plats sur k,
+on voit donc qu'on a les égalités \(\mathrm{Coim}\,f = \mathrm{Im}\,f\)&nbsp;; d'où</p>
+
+<div class="thm thm-plain theoreme" id="VIIB.2.4.2.thm">
+  <div class="thm-head"><span class="thm-name">Théorème</span></div>
+  <div class="thm-body"><p>Les groupes formels commutatifs sur un corps forment une catégorie
+abélienne.</p></div>
+</div>
+
+<div class="thm thm-plain corollaire" id="VIIB.2.4.2.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>Les schémas affines en groupes commutatifs sur un corps forment une
+catégorie abélienne.</p></div>
+</div>
+<p>Ceci résulte de <a class="ref" href="#VIIB.2.2.2">2.2.2</a>.</p>
+
+<h3 id="VIIB.2.5">2.5.</h3>
+<p>Un k-groupe formel est dit <em>étale</em> si la variété formelle sous-jacente est étale
+(<a class="ref" href="#VIIB.1.6">1.6</a>)&nbsp;; ces groupes formels ont une structure très simple&nbsp;: supposons en effet k <em>local</em>&nbsp;;
+soient \(\overline{k}\) le corps résiduel de k, \(k_s\) une clôture séparable de \(\overline{k}\) et \(\Gamma\) le groupe de
+Galois topologique de \(k_s\) sur \(\overline{k}\)&nbsp;; appelons \(\Gamma\)-<em>ensemble</em> la donnée d'un ensemble E et
+d'une opération continue de \(\Gamma\) sur E (le groupe d'isotropie d'un élément \(x\in E\) est
+donc un sous-groupe ouvert de \(\Gamma\)). Associons enfin à toute variété formelle X sur
+k la limite inductive \(X(k_s)\) des ensembles \(X(\ell)\), \(\ell\) parcourant les extensions finies de
+\(\overline{k}\) contenues dans \(k_s\). Il est clair que \(\Gamma\) opère continûment dans \(X(k_s)\) et il résulte
+de SGA 1, I 8.3, que le foncteur \(X \mapsto X(k_s)\) est une équivalence de la catégorie des
+variétés formelles des groupes étales sur k sur celle des \(\Gamma\)-ensembles.</p>
+<p>Ce foncteur \(X \mapsto X(k_s)\) <em>induit donc une équivalence de la catégorie des groupes
+formels étales sur k (local) sur celle des \(\Gamma\)-groupes</em>, c'est-à-dire des groupes de la
+catégorie des \(\Gamma\)-ensembles (un tel \(\Gamma\)-groupe consiste donc en la donnée d'un groupe
+abstrait G et d'une opération continue de \(\Gamma\) sur G par automorphismes de groupe).</p>
+
+<h3 id="VIIB.2.5.1">2.5.1.</h3>
+<p>Supposons de nouveau l'anneau pseudocompact k quelconque. Il est clair
+que le foncteur \(G \mapsto G_e\) de <a class="ref" href="#VIIB.1.6.1">1.6.1</a> commute aux produits finis. Il transforme donc un
+groupe formel en un groupe formel étale. De plus, comme le morphisme \(p : G \to G_e\)
+de <a class="ref" href="#VIIB.1.6">1.6</a> est fonctoriel en G, c'est un homomorphisme de groupes formels lorsque G est
+muni d'une structure de groupe&nbsp;; considérons le noyau de cet homomorphisme&nbsp;;
+comme p induit une bijection sur les ensembles sous-jacents, \(\mathrm{Ker}\,p\) a pour ensemble
+sous-jacent l'image de \(\mathrm{Spf}\,k\) par la section unité&nbsp;; si nous identifions les ensembles
+sous-jacents à \(\mathrm{Spf}\,k\) et \(\mathrm{Ker}\,p\) au moyen de cette section unité, \(G_e\) a même algèbre
+locale que \(\mathrm{Spf}\,k\) en un point g de \(\mathrm{Ker}\,p\)&nbsp;; par conséquent, \(\mathrm{Ker}\,p\) a pour algèbre
+locale en g le produit tensoriel \(k\widehat{\otimes}_k \mathscr{O}_{G,g}\), c'est-à-dire \(\mathscr{O}_{G,g}\). Pour ces raisons nous dirons
+que \(\mathrm{Ker}\,p\) est <em>le voisinage infinitésimal de l'origine de G</em> et nous écrirons \(\mathrm{Ker}\,p = G_0\),
+obtenant ainsi une suite exacte
+\[
+1 \longrightarrow G_0 \xrightarrow{\ \mathrm{incl.}\ } G \xrightarrow{\ p\ } G_e.
+\]</p>
+<p>Dans la suite, nous dirons que G est <em>infinitésimal</em> si \(G = G_0\).</p>
+<p><em>Lorsque G est un groupe formel topologiquement plat sur k</em>, \(p : G \to G_e\) est surjectif
+et topologiquement plat d'après <a class="ref" href="#VIIB.1.6.1">1.6.1</a>, de sorte que \(G_e\) s'identifie au quotient \(G/G_0\)
+et que l'on a une suite exacte
+\[
+1 \longrightarrow G_0 \xrightarrow{\ \mathrm{incl.}\ } G \xrightarrow{\ p\ } G_e \longrightarrow 1.
+\]</p>
+
+<h3 id="VIIB.2.5.2">2.5.2.</h3>
+<p>Dans le cas où k est un corps parfait, le foncteur \(X \mapsto X_e\) de <a class="ref" href="#VIIB.1.6">1.6</a> est aussi
+adjoint à droite à l'inclusion de \(\mathbf{Ve}/k\) dans \(\mathbf{Vf}/k\)&nbsp;: de façon précise, si k est un corps
+parfait, \(X_e\) a les mêmes points que X et a pour algèbre locale en un point x le corps
+résiduel de \(\mathscr{O}_{X,x}\). Les projections canoniques des algèbres \(\mathscr{O}_{X,x}\) sur leurs corps résiduels définissent donc une section \(s : X_e \to X\) de p. Cette section dépend fonctoriellement
+de X&nbsp;; c'est donc un homomorphisme de groupes formels lorsque X est un groupe
+formel.</p>
+<p><em>Lorsque k est un corps parfait, on voit donc qu'un groupe formel G sur k est
+canoniquement isomorphe au produit semi-direct d'un groupe infinitésimal \(G_0\)
+et d'un groupe étale \(G_e\) opérant sur \(G_0\)</em>.</p>
+<p>Si, de plus, nous supposons G commutatif, G est le produit de \(G_0\) et de \(G_e\). Cette
+décomposition des groupes formels commutatifs sur k correspond à une décomposition analogue des k-schémas affines en groupes commutatifs (<a class="ref" href="#VIIB.2.2.2">2.2.2</a>)&nbsp;: disons qu'un
+schéma en groupes commutatifs sur un corps k est <em>de type multiplicatif</em> (resp. <em>unipotent</em>) s'il est isomorphe à \(\mathrm{Spec}\,H(G)\), où G est un k-groupe formel commutatif étale
+(resp. infinitésimal). D'après <a class="ref" href="#VIIB.2.5.1">2.5.1</a>, tout schéma affine en groupes commutatifs G sur
+un corps k contient un sous-groupe de type multiplicatif \(G_m\) tel que \(G/G_m\) soit
+unipotent. Lorsque k est parfait, <a class="ref" href="#VIIB.2.5.1">2.5.1</a> entraîne en outre l'existence d'une rétraction
+canonique de G sur \(G_m\), de sorte que G est le produit d'un groupe unipotent et d'un
+groupe de type multiplicatif.</p>
+
+<h3 id="VIIB.2.6">2.6.</h3>
+<p>Nous allons maintenant étudier les groupes formels infinitésimaux, auxquels sont consacrés les paragraphes suivants. Dans cette étude, les <em>algèbres de Lie</em>
+jouent un rôle primordial.</p>
+<p>Supposons d'abord l'anneau de base k artinien et soit G un groupe formel sur k.
+On peut donner de l'algèbre de Lie de G trois interprétations différentes que nous
+utiliserons toutes&nbsp;:</p>
+<p><strong>a)</strong> Soient D l'algèbre \(k[d]/(d^2)\) des nombres duaux sur k et \(\delta\) l'homomorphisme
+de D dans k qui annule d. Pour tout groupe formel G sur k, \(\mathrm{Lie}(G)\) est le noyau de
+\(G(\delta)\), de sorte qu'on a par définition une suite exacte de groupes
+\[
+0 \longrightarrow \mathrm{Lie}(G) \longrightarrow G(D) \xrightarrow{\ G(\delta)\ } G(k) \longrightarrow 1.
+\]</p>
+<p><strong>b)</strong> Si G a A pour algèbre affine, le groupe \(G(D)\) a pour éléments les homomorphismes d'algèbres profinies \(f : A \to D\). La condition \(G(\delta)(f)=1\) équivaut à
+\(\delta\circ f = \varepsilon_A\). Pour tout \(x\in A\), on a donc la relation
+\[
+f(x) = \varepsilon_A(x)\cdot 1_D + f'(y)\cdot d,
+\]
+où \(f'\) est une application linéaire continue de \(I_A/\overline{I_A^2}\) dans k et où y est la classe de
+\(x-\varepsilon_A(x)1_A\) modulo \(\overline{I_A^2}\). Il est clair que <em>l'application \(f\mapsto f'\) est une bijection de Lie G
+sur le dual topologique de \(\omega_{G/k}\)</em> (<a class="ref" href="#VIIB.0.2.2">0.2.2</a> et <a class="ref" href="#VIIB.2.1">2.1</a>). Cette bijection respecte évidemment les
+structures de groupe&nbsp;: soient en effet f et g deux éléments de Lie G. Leur produit est
+l'application composée \(h\circ\Delta_A\), où \(h : A\widehat{\otimes}A \to D\) est tel que \(h(a\widehat{\otimes}b) = f(a)\cdot g(b)\).
+Mais il résulte de <a class="ref" href="#VIIB.2.1">2.1</a> (ii) qu'on a \(\Delta_A a - a\widehat{\otimes}1 - 1\widehat{\otimes}a \in I_A\widehat{\otimes}I_A\) lorsque \(a\in I_A\)&nbsp;; si
+\(a\in I_A\), on a par conséquent \((f\cdot g)(a) = f(a)+g(a)\) (confer aussi II 3/10).</p>
+<p>Dans la suite, nous identifions \(\mathrm{Lie}(G)\) à \(\omega_{G/k}^*\) au moyen de la bijection \(f\mapsto f'\)
+décrite ci-dessus. <em>Le groupe \(\mathrm{Lie}(G)\) est donc muni d'une structure de k-module</em>.</p>
+
+<p><strong>c)</strong> Soient \(A^*\) et \(D^*\) les k-modules duaux de A et D, \(\{1_D^*,d^*\}\) la base duale de
+la base \(\{1_D,d\}\) de D sur k (\(1_D^* = \delta\)). Comme D est libre de rang fini sur k, l'application
+canonique \(f\mapsto f^*\) de l'ensemble \(\mathrm{Hom}_c(A,D)\) des morphismes de k-modules pseudocompacts de A dans D dans \(\mathrm{Hom}_k(D^*,A^*)\) est bijective. D'un autre côté, \(f^*\) est
+déterminé par les valeurs \(f^*(1_D^*)\) et \(f^*(d^*) = x\). La condition \(G(\delta)(f) = 1\) équivaut
+à l'égalité \(f^*(1_D^*) = \varepsilon_A\). On voit aisément d'autre part que f est compatible avec la
+multiplication si et seulement si l'on a
+\[
+(*)\qquad \delta_G x = \varphi_G(x\otimes 1 + 1\otimes x)
+\]
+(cf. <a class="ref" href="#VIIB.2.3">2.3</a>).</p>
+<p>Enfin, il est clair qu'une application linéaire continue \(f : A \to D\), qui est compatible
+avec la multiplication et telle que \(\delta\circ f = \varepsilon_A\), envoie élément unité sur élément unité.
+L'application \(f\mapsto x\) nous permet donc d'identifier Lie G à la partie de \(H(G)\) formée
+des éléments vérifiant la relation \((*)\). Si x et y sont deux éléments de \(H(G)\) vérifiant
+\((*)\), on a
+\[
+\begin{aligned}
+\delta_G(xy) &amp;= (\delta_G x)(\delta_G y) = \varphi_G((x\otimes 1+1\otimes x)(y\otimes 1+1\otimes y))\\
+&amp;= \varphi_G(xy\otimes 1+x\otimes y+y\otimes x+1\otimes xy),
+\end{aligned}
+\]
+d'où \(\delta_G(xy-yx) = \varphi_G((xy-yx)\otimes 1+1\otimes(xy-yx))\).</p>
+<p>Ceci montre que le k-module Lie G est identifié à une sous-algèbre de Lie de \(H(G)\)&nbsp;:
+nous dirons que <em>Lie G est l'algèbre de Lie de G</em>.</p>
+
+<h3 id="VIIB.2.6.1">2.6.1.</h3>
+<p>Lorsque k est un anneau pseudocompact arbitraire et G un groupe formel
+sur k, nous appelons \(\mathbf{O}_k\)-algèbre de Lie de G le foncteur \(\mathbf{Lie}(G)\) qui associe à toute
+k-algèbre profinie de longueur finie C l'algèbre de Lie \(\mathrm{Lie}(G\widehat{\otimes}_k C)\) de \(G\widehat{\otimes}_k C\) sur C
+(<a class="ref" href="#VIIB.1.2.3">1.2.3</a>)&nbsp;; cette algèbre de Lie est plate sur \(\mathbf{O}_k\) lorsque \(\omega_{G/k}\) est un k-module pseudocompact projectif.</p>
+
+<h3 id="VIIB.2.6.2">2.6.2.</h3>
+<p>Réciproquement, toute algèbre de Lie \(\mathbf{L}\) sur \(\mathbf{O}_k\) définit un k-foncteur en
+groupes&nbsp;: désignons en effet par \(\mathbf{U}(\mathbf{L})\) le foncteur qui associe à toute k-algèbre de
+longueur finie C l'algèbre enveloppante \(U(\mathbf{L}(C))\) de l'algèbre de Lie \(\mathbf{L}(C)\) sur C.
+D'après <a class="ref" href="#VIIA.3.2.2">VII<sub>A</sub> 3.2.2</a>, \(\mathbf{U}(\mathbf{L})\) est une bialgèbre sur \(\mathbf{O}_k\) et détermine un k-foncteur en groupes
+\(\mathrm{Spf}^*\mathbf{U}(\mathbf{L})\) (<a class="ref" href="#VIIB.2.2">2.2</a>) que nous noterons désormais \(\mathscr{G}(\mathbf{L})\)&nbsp;: \(\mathscr{G}(\mathbf{L})(C)\) est donc le groupe des
+éléments \(z\in U(\mathbf{L}(C))\) d'augmentation 1 et tels que \(\Delta_{U(\mathbf{L}(C))}(z) = z\otimes z\).</p>
+<p>Lorsque \(\mathbf{L}\) est une algèbre de Lie plate sur \(\mathbf{O}_k\), la bialgèbre \(\mathbf{U}(\mathbf{L})\) est plate sur
+\(\mathbf{O}_k\) d'après le théorème de Poincaré-Birkhoff-Witt (Bourbaki, Alg. de Lie, I 2.7)&nbsp;; par
+conséquent, \(\mathscr{G}(\mathbf{L})\) est un groupe formel topologiquement plat sur k qui a \(\mathbf{U}(\mathbf{L})\) pour
+\(\mathbf{O}_k\)-bialgèbre. <em>Ce groupe est radiciel</em>&nbsp;: en effet, on se ramène directement au cas où
+k est artinien (<a class="ref" href="#VIIB.2.6">2.6</a>). Posons alors \(U = U(\mathbf{L})\) et soit \(U^+\) l'idéal bilatère de U engendré
+par l'image de \(\mathbf{L}\). Posons en outre
+\[
+\begin{aligned}
+U_0 &amp;= k\cdot 1_U\\
+U_n &amp;= \{u\in U \mid \Delta_U u - u\otimes 1 \in U_{n-1}\otimes U^+\}\\
+\text{et}\qquad U_n^+ &amp;= U_n\cap U^+.
+\end{aligned}
+\]</p>
+<p>D'après <a class="ref" href="#VIIB.1.3.6">1.3.6</a>, il suffit de montrer que U est la réunion des \(U_n\). Or, si l'on
+identifie \(\mathbf{L}\) à son image canonique dans U, \(\mathbf{L}\) est évidemment contenu dans \(U_1\). Si
+\(x_1,\ldots,x_n\) sont des éléments de \(\mathbf{L}\), on a donc \(\Delta_U(x_1\cdots x_n) = (x_1\otimes 1+1\otimes x_1)\cdots(x_n\otimes 1+1\otimes x_n)\), ce qui montre, par récurrence sur n, que le produit \(x_1\cdots x_n\) appartient
+à \(U_n\), donc que \(U = \bigcup_n U_n\).</p>
+
+<h3 id="VIIB.2.6.3">2.6.3.</h3>
+<p>Si \(\mathbf{L}\) est une algèbre de Lie plate sur \(\mathbf{O}_k\), le groupe formel \(\mathscr{G}(\mathbf{L})\) peut être
+caractérisé par une propriété universelle&nbsp;: considérons en effet un homomorphisme
+h de \(\mathscr{G}(\mathbf{L})\) dans un groupe formel G&nbsp;; un tel homomorphisme induit un homomorphisme \(\mathbf{Lie}\,h\) de l'algèbre de Lie de \(\mathscr{G}(\mathbf{L})\) dans celle de G. Composant \(\mathbf{Lie}\,h\) avec le
+monomorphisme canonique de \(\mathbf{L}\) dans \(\mathbf{U}(\mathbf{L})\), on obtient un homomorphisme \(h' : \mathbf{L} \to
+\mathrm{Lie}\,G\).</p>
+
+<div class="thm thm-plain proposition" id="VIIB.2.6.3.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Si G est un k-groupe formel et \(\mathbf{L}\) une algèbre de Lie plate sur \(\mathbf{O}_k\),
+l'application \(h\mapsto h'\) définie ci-dessus est une bijection
+\[
+\mathrm{Hom}_{k\text{-Gr.}}(\mathscr{G}(\mathbf{L}),G) \xrightarrow{\ \sim\ } \mathrm{Hom}(\mathbf{L},\mathrm{Lie}\,G)
+\]
+de l'ensemble des homomorphismes de k-groupes formels de \(\mathscr{G}(\mathbf{L})\) dans G sur celui
+des morphismes de \(\mathbf{O}_k\)-algèbres de Lie de \(\mathbf{L}\) dans \(\mathrm{Lie}\,G\).</p></div>
+</div>
+<p>On se ramène en effet tout de suite au cas où k est artinien. Dans ce cas,
+\(\mathrm{Hom}_{k\text{-Gr.}}(\mathscr{G}(\mathbf{L}),G)\) est en correspondance biunivoque canonique (<a class="ref" href="#VIIB.2.3.1">2.3.1</a>) avec l'ensemble
+des homomorphismes d'algèbres unitaires \(g : U(\mathbf{L}) \to H(G)\) tels que le diagramme
+suivant soit commutatif
+\[
+\xymatrix{
+\mathbf{U}(\mathbf{L}) \ar[rr]^-{g} \ar[d]_-{\Delta_{\mathbf{U}(\mathbf{L})}} & & \mathbf{H}(G) \ar[dr]^-{\delta_G} & \\
+\mathbf{U}(\mathbf{L})\otimes\mathbf{U}(\mathbf{L}) \ar[rr]_-{g\otimes g} & & \mathbf{H}(G)\otimes\mathbf{H}(G) \ar[r]_-{\varphi_G} & \mathbf{H}(G\times G)
+}
+\]
+Or g est défini par sa restriction à \(\mathbf{L}\) qui est un homomorphisme d'algèbres de Lie de
+\(\mathbf{L}\) dans l'algèbre de Lie sous-jacente à \(H(G)\). La commutativité du diagramme signifie
+donc simplement que g applique \(\mathbf{L}\) sur la partie Lie G de \(H(G)\) formée des x tels que
+\(\delta_G x = \varphi_G(x\otimes 1+1\otimes x)\).</p>
+
+<h3 id="VIIB.2.7">2.7.</h3>
+<p>Nous terminons ces généralités sur un énoncé qui remonte à S. Lie et qui
+nous servira au paragraphe <a class="ref" href="#VIIB.5">5</a>. Un <em>monoïde formel à élément unité</em> sur k est par
+définition un couple \((M,m)\) formé d'une variété formelle M et d'un morphisme
+\(m : M\times M \to M\) tel que \(m(C)\) fasse de \(M(C)\) un monoïde à élément unité pour
+tout objet C de \(\mathrm{Alf}/k\) (<a class="ref" href="#VIIB.0.4.2">0.4.2</a>). En particulier, l'élément unité de \(M(k)\) définit une
+section \(\varepsilon_M\) de la projection canonique de M sur \(\mathrm{Spf}\,k\). Nous dirons que le monoïde
+formel M est <em>infinitésimal</em> si \(\varepsilon_M\) induit une bijection des ensembles sous-jacents.</p>
+
+<div class="thm thm-plain proposition" id="VIIB.2.7.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Tout k-monoïde formel M topologiquement plat et infinitésimal est
+un groupe formel.</p></div>
+</div>
+<p>Nous devons montrer que \(M(C)\) est un groupe pour tout objet C de \(\mathrm{Alf}/k\). On
+se ramène donc de suite au cas où k est artinien. Soit alors \(U = H(M)\) la coalgèbre
+de M (<a class="ref" href="#VIIB.1.3.5">1.3.5</a>)&nbsp;; le morphisme structural m induit un homomorphisme de coalgèbres \(m_U\)
+de \(U\otimes U\) dans U, qui fait de U une algèbre associative sur k&nbsp;; cette algèbre a pour
+élément unité l'image de l'élément unité de k par l'application de k dans U qui est
+induite par la section unité \(\varepsilon_M\) de M. De même, la projection canonique de M sur
+\(\mathrm{Spf}\,k\) induit un homomorphisme \(\varepsilon_U\) de U dans k&nbsp;; nous noterons \(U^+\) le noyau de
+\(\varepsilon_U\).</p>
+<p>Nous devons montrer qu'il existe un <em>antipodisme</em>, c'est-à-dire un homomorphisme
+de coalgèbres \(c_U : U \to U\) tel que l'application composée
+\[
+U \xrightarrow{\ \Delta_U\ } U\otimes_k U \xrightarrow{\ c_U\otimes U\ } U\otimes_k U \xrightarrow{\ m_U\ } U
+\]
+applique \(u\in U\) sur \(\varepsilon_U(u)\cdot 1_U\). Comme M est infinitésimal, \(U^+\) est la réunion de sous-modules \(U_n^+\) définis comme en <a class="ref" href="#VIIB.2.6.2">2.6.2</a>&nbsp;; on montre alors facilement, par récurrence sur
+n, qu'il existe une et une seule application linéaire \(c_n : U_n^+ \to U_n\) telle que l'application
+composée
+\[
+U_n^+ \xrightarrow{\ \mathrm{incl.}\ } U \xrightarrow{\ \Delta_U\ } U\otimes U \xrightarrow{\ c_U\otimes U\ } U\otimes U \xrightarrow{\ m_U\ } U
+\]
+soit nulle. En particulier, \(c_{n+1}\) prolonge \(c_n\) et l'on pourra poser
+\[
+c_U(x) = \varepsilon_U(x)\cdot 1_U + c_n(x-\varepsilon_U(x)\cdot 1_U),
+\]
+où n est assez grand pour que \(U_n^+\) contienne \(x-\varepsilon_U(x)\cdot 1_U\).</p>
+
+<h2 id="VIIB.3">3. Phénomènes particuliers à la caractéristique 0</h2>
+<p>Dans tout ce paragraphe 3, nous supposons que l'anneau pseudocompact k
+contient le corps des nombres rationnels \(\mathbb{Q}\).</p>
+
+<div class="thm thm-plain lemme" id="VIIB.3.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.1</span></div>
+  <div class="thm-body"><p>Soient C une \(\mathbb{Q}\)-algèbre commutative avec élément 1, \(\mathbf{L}\) une algèbre
+de Lie sur C dont le C-module sous-jacent est libre. L'application canonique de \(\mathbf{L}\)
+dans l'algèbre enveloppante \(U(\mathbf{L})\) est un isomorphisme de \(\mathbf{L}\) sur l'ensemble des
+éléments primitifs de \(U(\mathbf{L})\).</p></div>
+</div>
+<p>En effet, identifions \(\mathbf{L}\) à son image canonique dans \(U(\mathbf{L})\)&nbsp;; soient I un ensemble
+totalement ordonné et \((x_i)_{i\in I}\) une base de \(\mathbf{L}\) indexée par I&nbsp;; désignons par \(\mathbb{N}^{(I)}\)
+l'ensemble des familles \(n=(n_i)_{i\in I}\) d'entiers naturels telles que \(n_i\) soit nul sauf
+peut-être pour un nombre fini d'indices \(i_1&lt;i_2&lt;\cdots&lt;i_s\) (ces indices dépendent de
+n)&nbsp;; posons enfin \(x^n = x_{i_1}^{n_{i_1}} x_{i_2}^{n_{i_2}} \cdots x_{i_s}^{n_{i_s}}\) et \(n! = (n_{i_1}!)(n_{i_2}!)\cdots(n_{i_s}!)\).</p>
+<p>On sait alors que les \(x^n\) forment une base de \(U(\mathbf{L})\) (théorème de Poincaré-Birkhoff-Witt) et on voit facilement qu'on a
+\[
+(*)\qquad \Delta_{U(\mathbf{L})}\left(\frac{x^n}{n!}\right) = \sum \frac{x^m}{m!}\otimes\frac{x^{n-m}}{(n-m)!}
+\]
+la somme étant étendue à tous les éléments m de \(\mathbb{N}^{(I)}\) tels que \(0\leqslant m\leqslant n\) (i.e.
+tels que \(0\leqslant m_i\leqslant n_i\ \forall i\)). Il s'ensuit évidemment qu'on a \(\Delta_{U(\mathbf{L})}(u) = u\otimes 1+1\otimes u\)
+si et seulement si u est une combinaison linéaire des \(x_i\).</p>
+
+<h3 id="VIIB.3.2">3.2.</h3>
+<p>Supposons maintenant C artinien, de radical \(\mathfrak{r}\). Pour toute C-algèbre U
+(associative, unitaire), le produit \(\mathfrak{r}U\) est donc formé d'éléments nilpotents&nbsp;; si x
+appartient à \(\mathfrak{r}U\), nous poserons
+\[
+\exp_U x = 1+x+\frac{x^2}{2!}+\cdots\ .
+\]</p>
+<p>On obtient ainsi une bijection de \(\mathfrak{r}U\) sur \(1+\mathfrak{r}U\)&nbsp;; la bijection réciproque applique un
+élément \(1+y\) de \(1+\mathfrak{r}U\) sur
+\[
+\log_U(1+y) = y - \frac{y^2}{2} + \frac{y^3}{3} - \cdots\ .
+\]</p>
+<p>De plus, il est clair que l'application \(\exp_U\) est fonctorielle en U.</p>
+<p>L'anneau C étant toujours artinien, supposons U muni d'une structure de bialgèbre sur C (cf. <a class="ref" href="#VIIB.2.2">2.2</a>). Pour tout élément primitif x de \(\mathfrak{r}U\) (cf. <a class="ref" href="#VIIA.3.2.3">VII<sub>A</sub> 3.2.3</a>), on a
+alors
+\[
+\begin{aligned}
+\Delta_U(\exp_U x) &amp;= \exp_{U\otimes U}(\Delta_U(x))\\
+&amp;= \exp_{U\otimes U}(x\otimes 1+1\otimes x)\\
+&amp;= \exp_{U\otimes U}(x\otimes 1)\cdot\exp_{U\otimes U}(1\otimes x)\\
+&amp;= \big((\exp_U x)\otimes 1\big)\cdot\big(1\otimes(\exp_U x)\big)\\
+&amp;= (\exp_U x)\otimes(\exp_U x).
+\end{aligned}
+\]</p>
+<p>On voit donc que la bijection \(\exp_U\) transforme un élément primitif de \(\mathfrak{r}U\) en un
+élément z de \(1+\mathfrak{r}U\) tel que \(\Delta_U(z) = z\otimes z\) et la réciproque est claire.</p>
+<p>Considérons en particulier une algèbre de Lie \(\mathbf{L}\) plate sur C, prenons pour U
+l'algèbre enveloppante \(U(\mathbf{L})\) de \(\mathbf{L}\) sur C et identifions \(\mathbf{L}\) à son image canonique dans
+U. D'après le lemme <a class="ref" href="#VIIB.3.1">3.1</a>, \(\mathbf{L}\) est donc l'ensemble des éléments primitifs de U (en effet
+\(\mathbf{L}\) est un produit de modules libres sur les composantes locales de C). Considérons
+d'autre part le quotient \(\overline{C} = C/\mathfrak{m}\) de C par un idéal maximal \(\mathfrak{m}\). Comme le \(\overline{C}\)-groupe
+formel \(\mathscr{G}(\mathbf{L}\otimes_C\overline{C})\), qui a \(U(\mathbf{L}\otimes_C\overline{C})\) pour bialgèbre, est infinitésimal (<a class="ref" href="#VIIB.2.6.2">2.6.2</a>), l'élément unité de \(U(\mathbf{L}\otimes_C\overline{C})\) est le seul élément \(\overline{z}\) tel que \(\Delta_{U(\mathbf{L}\otimes_C\overline{C})}(\overline{z}) = \overline{z}\otimes\overline{z}\). Il
+s'ensuit que les éléments z de \(U(\mathbf{L})\) tels que \(\Delta_U(z) = z\otimes z\) appartiennent nécessairement à \(1+\mathfrak{r}U\).</p>
+<p>Enfin, comme \(\mathbf{L}\cap\mathfrak{r}U\) s'identifie à \(\mathbf{L}\otimes_C \mathfrak{r}\), on voit finalement que&nbsp;: <em>\(\exp_U\) définit une
+bijection de \(\mathbf{L}\otimes_C \mathfrak{r}\) sur le groupe \(\mathscr{G}(\mathbf{L})(C)\)</em>. Nous résumons&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIIB.3.2.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Soient k un anneau pseudocompact contenant \(\mathbb{Q}\), \(\mathbf{L}\) une algèbre de Lie
+plate sur \(\mathbf{O}_k\), C une k-algèbre profinie de longueur finie et \(\mathfrak{r}(C)\) le radical de C.
+L'application
+\[
+\exp_{U(\mathbf{L}(C))} : \mathbf{L}(C)\otimes_C \mathfrak{r}(C) \longrightarrow \mathscr{G}(\mathbf{L})(C)
+\]
+est bijective et fonctorielle en C et \(\mathbf{L}\).</p></div>
+</div>
+
+<h3 id="VIIB.3.2.1">3.2.1.</h3>
+<p>La bijection \(\exp_{U(\mathbf{L}(C))}\) permet de définir par transport de structure une
+loi de groupe sur l'ensemble \(\mathbf{L}(C)\otimes_C \mathfrak{r}(C)\) (qu'on identifie à une partie de \(U(\mathbf{L}(C))\)
+comme en <a class="ref" href="#VIIB.3.2">3.2</a>). Si x et y sont deux éléments de \(\mathbf{L}(C)\otimes_C \mathfrak{r}(C)\), cette loi est telle que
+\[
+\begin{aligned}
+x\cdot y &amp;= \log\big((\exp x)(\exp y)\big) = \log\Big(1+ \sum_{p+q&gt;0} \frac{x^p}{p!}\frac{y^q}{q!}\Big)\\
+&amp;= \sum_{m\geqslant 1}\ \sum_{p_i+q_i&gt;0} \frac{(-1)^{m-1}}{m}\cdot\frac{x^{p_1}}{p_1!}\frac{y^{q_1}}{q_1!}\cdots\frac{x^{p_m}}{p_m!}\frac{y^{q_m}}{q_m!} = \sum_{\ell\geqslant 1} \mathrm{P}_\ell(x,y)
+\end{aligned}
+\]
+où \(\mathrm{P}_\ell(x,y)\) désigne la somme des monômes de degré total \(\ell\) en x et y. On a par
+exemple&nbsp;:
+\[
+\mathrm{P}_1(x,y) = x+y
+\]
+\[
+\mathrm{P}_2(x,y) = \underbrace{\frac{x^2}{2}+xy+\frac{y^2}{2}}_{m=1} - \underbrace{\frac{1}{2}(x^2+xy+yx+y^2)}_{m=2} = \frac{1}{2}(xy-yx) = \frac{1}{2}[x,y]
+\]
+\[
+\begin{aligned}
+\mathrm{P}_3(x,y) &amp;= \underbrace{\frac{x^3}{6}+\frac{x^2y}{2}+\frac{xy^2}{2}+\frac{y^3}{6}}_{m=1}\\
+&amp;\quad -\underbrace{\frac{1}{2}\Big(x^3+\frac{3}{2}x^2y+\frac{1}{2}yx^2+xyx+yxy+\frac{1}{2}y^2x+\frac{3}{2}xy^2+y^3\Big)}_{m=2}\\
+&amp;\quad +\underbrace{\frac{1}{3}(x^3+x^2y+yx^2+xyx+yxy+y^2x+xy^2+y^3)}_{m=3}\\
+&amp;= \frac{1}{12}(x^2y+yx^2-2xyx-2yxy+y^2x+xy^2)\\
+&amp;= \frac{1}{12}[[y,x],x] + \frac{1}{12}[y,[y,x]].
+\end{aligned}
+\]</p>
+<p>On peut montrer plus généralement qu'on a
+\[
+\mathrm{P}_\ell(x,y) = \sum \frac{(-1)^{m+\ell}}{m\cdot\ell}\,(\mathrm{ad}\,y)^{q_m}(\mathrm{ad}\,x)^{p_m}\cdots(\mathrm{ad}\,y)^{q_2}(\mathrm{ad}\,x)^{p_2}(\mathrm{ad}\,y)^{q_1}(\mathrm{ad}\,x)^{p_1-1} x
+\]
+où \(p_1,q_1,\ldots,p_m,q_m\) parcourent les suites d'entiers naturels telles que \(p_i+q_i&gt;0\) et
+\(\sum(p_i+q_i)=\ell\) (pour une démonstration de cette <em>formule de Campbell-Hausdorff</em>, voir
+Jacobson, Lie Algebras, V § 5, Inter-science Publishers).</p>
+
+<h3 id="VIIB.3.3">3.3.</h3>
+<p>Si G est un k-groupe formel d'algèbre affine A, rappelons qu'on note \(I_A\) l'idéal
+d'augmentation de A et \(\omega_{G/k}\) le k-module pseudocompact \(I_A/\overline{I_A^2} \simeq I_A\widehat{\otimes}_A(A/I_A)\).</p>
+
+<div class="thm thm-plain theoreme" id="VIIB.3.3">
+  <div class="thm-head"><span class="thm-name">Théorème (Cartier)</span></div>
+  <div class="thm-body">
+  <p>Soit k un anneau pseudocompact local contenant le corps
+\(\mathbb{Q}\) et G un groupe formel sur k. Les assertions suivantes sont équivalentes&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(i)</span> <p>Il existe une \(\mathbf{O}_k\)-algèbre de Lie plate \(\mathbf{L}\) telle que G soit isomorphe à \(\mathscr{G}(\mathbf{L})\).</p></li>
+  <li><span class="item-label">(ii)</span> <p>Il existe un k-module pseudocompact projectif \(\omega\) tel que la variété formelle sous-jacente à G soit isomorphe à la variété \(\mathbf{V}_k^0(\omega)\) d'algèbre affine \(k[[\omega]]\) (<a class="ref" href="#VIIB.1.2.5">1.2.5</a>).</p></li>
+  <li><span class="item-label">(iii)</span> <p>G est infinitésimal et \(\omega_{G/k}\) est un k-module pseudocompact projectif.</p></li>
+  <li><span class="item-label">(iv)</span> <p>G est infinitésimal et topologiquement plat sur k.</p></li>
+  </ol>
+  </div>
+</div>
+<p>\((\mathrm{i})\Rightarrow(\mathrm{ii})\)&nbsp;: Soit \(\omega\) le k-module pseudocompact dual de \(\mathbf{L}\) (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>). Pour toute
+k-algèbre profinie de longueur finie C, nous devons exhiber un isomorphisme de
+\(\mathbf{V}_k^0(\omega)(C)\) sur \(\mathscr{G}(\mathbf{L})(C)\) qui soit fonctoriel en C. D'après <a class="ref" href="#VIIB.1.2.5">1.2.5</a>, \(\mathbf{V}_k^0(\omega)(C)\)
+s'identifie à l'ensemble \(\mathrm{Hom}_c(\omega,\mathfrak{r}(C))\) des applications k-linéaires continues de \(\omega\)
+dans le radical de C. Cet ensemble est naturellement isomorphe à l'ensemble \(\mathrm{Hom}_c(\omega\widehat{\otimes}_kC, \mathfrak{r}(C))\) des applications C-linéaires continues de \(\omega\widehat{\otimes}_kC\) dans \(\mathfrak{r}(C)\)&nbsp;;
+enfin, comme \(\omega\widehat{\otimes}_kC\) est un C-module pseudocompact projectif, l'application canonique
+\[
+(\omega\widehat{\otimes}_kC)^*\otimes_C \mathfrak{r}(C) \longrightarrow \mathrm{Hom}_c(\omega\widehat{\otimes}_kC, \mathfrak{r}(C))
+\]
+est bijective. Comme \((\omega\widehat{\otimes}_kC)^*\) s'identifie à \(\mathbf{L}(C)\), on voit finalement que \(\mathbf{V}_k^0(\omega)(C)\)
+est canoniquement isomorphe à \(\mathbf{L}(C)\otimes_C \mathfrak{r}(C)\). L'implication \((\mathrm{i})\Rightarrow(\mathrm{ii})\) résulte donc
+de la proposition <a class="ref" href="#VIIB.3.2.prop">3.2</a>.</p>
+<p>\((\mathrm{ii})\Rightarrow(\mathrm{iii})\)&nbsp;: Soit h un isomorphisme de \(k[[\omega]]\) sur l'algèbre affine A de G. Composant h avec l'augmentation \(\varepsilon_A\) (<a class="ref" href="#VIIB.2.1">2.1</a>), on obtient un homomorphisme \(\varepsilon_A h : k[[\omega]] \to k\),
+qui est déterminé par la restriction \(\lambda\) de \(\varepsilon_A h\) à \(\omega\)&nbsp;; cette restriction envoie \(\omega\)
+dans le radical \(\mathfrak{r}\) de k et l'application \(x\mapsto x-\lambda(x)\) de \(\omega\) dans le radical de \(k[[\omega]]\)
+se prolonge en un endomorphisme \(\ell_\lambda\) de \(k[[\omega]]\). Les égalités \(\ell_\lambda\circ\ell_{-\lambda} = \ell_{-\lambda}\circ\ell_\lambda =
+\mathrm{id}_{k[[\omega]]}\) montrent que \(\ell_\lambda\) est un automorphisme de \(k[[\omega]]\). Par conséquent, \(h\ell_\lambda\)
+est un isomorphisme de \(k[[\omega]]\) sur A et \(\varepsilon_A h\ell_\lambda\) applique \(\omega\) sur 0. Quitte à remplacer h
+par \(h\ell_\lambda\), on peut donc supposer que \(\varepsilon_A h\) s'annule sur l'idéal fermé I de \(k[[\omega]]\) qui
+est engendré par \(\omega\)&nbsp;: dans ce cas, h induit une bijection de \(I/I^2\) sur \(I_A/\overline{I_A^2}\)&nbsp;; comme
+\(I/I^2\) s'identifie à \(\omega\), on voit que \(\omega_{G/k}\) est projectif. Il est clair d'autre part que
+\(\mathrm{Spf}\,\mathbf{V}_k^0(\omega)\) est infinitésimal de même que G.</p>
+<p>\((\mathrm{iii})\Rightarrow(\mathrm{i})\)&nbsp;: Soit en effet \(\mathbf{L}\) la \(\mathbf{O}_k\)-algèbre de Lie de G&nbsp;; cette algèbre a pour \(\mathbf{O}_k\)-module sous-jacent le dual de \(\omega_{G/k}\) (<a class="ref" href="#VIIB.2.1">2.1</a>)&nbsp;; par conséquent, \(\mathbf{L}\) est plat sur \(\mathbf{O}_k\).
+Si nous identifions \(k[[\omega_{G/k}]]\) à l'algèbre affine du groupe formel \(\mathscr{G}(\mathbf{L})\) (cela est possible d'après \((\mathrm{i})\Rightarrow(\mathrm{ii})\)), le morphisme identique de \(\mathbf{L}\) est associé canoniquement à un
+homomorphisme continu d'algèbres
+\[
+a : A \longrightarrow k[[\omega_{G/k}]].
+\]</p>
+<p>Il s'agit de montrer que a, qui induit par définition un isomorphisme de \(\omega_{G/k}\) sur
+\(\omega_{\mathscr{G}(\mathbf{L})/k}\), est un isomorphisme&nbsp;: Pour cela, on considère une section \(\tau\) de la projection canonique de \(I_A\) sur \(\omega_{G/k}\). Une telle section définit d'après <a class="ref" href="#VIIB.1.2.5">1.2.5</a> un homomorphisme continu d'algèbres
+\[
+b : k[[\omega_{G/k}]] \longrightarrow A.
+\]</p>
+<p>Soit I l'idéal fermé de \(k[[\omega_{G/k}]]\) engendré par \(\omega_{G/k}\) et filtrons \(k[[\omega_{G/k}]]\) (resp. A)
+par les adhérences des idéaux \(I^n\) (resp. \(I_A^n\)). Le composé \(a\tau\) est évidemment une
+section de la projection canonique de I sur \(\omega = I/\overline{I^2}\). Par conséquent, \(ab\) induit
+l'application identique sur \(I/\overline{I^2}\), donc aussi sur le gradué associé à \(k[[\omega_{G/k}]]\). Il
+s'ensuit que \(ab\) est un isomorphisme (C.A. V, § 7 lemme 1). De plus, b induit un
+isomorphisme de \(I/\overline{I^2}\) sur \(I_A/\overline{I_A^2}\), donc une surjection des gradués associés à
+\(k[[\omega_{G/k}]]\) et A (comme G est radiciel, \(I_A\) est contenu dans le radical de A, de sorte
+que l'intersection des \(\overline{I_A^r}\) est nulle). Comme \(ab\) est un isomorphisme et b une
+surjection, b et a sont des isomorphismes.</p>
+<p>Notons enfin qu'il est clair que (i) ou (ii) entraînent (iv), de sorte qu'il reste à
+prouver l'implication \((\mathrm{iv})\Rightarrow(\mathrm{ii})\)&nbsp;: pour cela, on peut supposer k local, de corps
+résiduel \(k_0\). Posons alors \(G_0 = G\widehat{\otimes}_k k_0\), \(\omega = \omega_{G/k}\), \(\omega_0 = \omega\widehat{\otimes}_k k_0\). Comme \(\omega_0\)
+est topologiquement libre sur k, il existe un k-module topologiquement libre \(\omega'\) et une
+application k-linéaire continue \(f : \omega' \to \omega\) telle que \(f_0 = f\widehat{\otimes}_k k_0\) soit inversible (f
+est l'enveloppe projective de \(\omega\)). Comme \(\omega'\) est un k-module pseudocompact projectif,
+f est composée d'une application k-linéaire continue \(g : \omega' \to I_A\) et de la projection
+canonique de \(I_A\) sur \(\omega\). A son tour, g induit un homomorphisme d'algèbres topologiques \(g : k[[\omega]] \to A\)
+(<a class="ref" href="#VIIB.1.2.5">1.2.5</a>). Comme \(\omega_0\) s'identifie à \(\omega_{G_0/k_0}\) et \(k_0[[\omega_0]]\) à
+\(k[[\omega]]\widehat{\otimes}_k k_0\), \(g_0 = g\widehat{\otimes}_k k_0\) est inversible parce que (iii) entraîne (ii) et que les
+hypothèses (iii) sont vérifiées pour \(k_0\) et \(G_0\). Comme, d'autre part, \(k[[\omega]]\) et A sont des
+k-modules pseudocompacts projectifs, g est inversible d'après <a class="ref" href="#VIIB.0.3.4">0.3.4</a>.</p>
+
+<div class="thm thm-plain corollaire" id="VIIB.3.3.1">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.1</span></div>
+  <div class="thm-body"><p>Soient S un schéma localement noethérien sur \(\mathbb{Q}\) et G un S-schéma en groupes localement de type fini. Si \(\omega_{G/S}\) est un \(\mathscr{O}_S\)-Module localement libre,
+G est lisse sur S le long de la section unité.</p></div>
+</div>
+<p>En effet, soient x un point de la section unité, s son image dans S, \(\mathscr{O}_x\) et \(\mathscr{O}_s\) les
+algèbres locales de x et s. Il suffit de montrer que \(\widehat{\mathscr{O}}_x\) est formellement lisse sur
+\(\widehat{\mathscr{O}}_s\) (EGA IV 6.8.6 et \(0_{\mathrm{IV}}\) 19.3.6). Or \(\widehat{\mathscr{O}}_x\) et \(\widehat{\mathscr{O}}_s\) sont les anneaux locaux de x et s
+dans \(\widehat{G/S}\) et \(\widehat{S}\). Posant \(k = \widehat{\mathscr{O}}_s\) et \(H = \mathrm{Spf}\,\widehat{\mathscr{O}}_x\), il est clair que H est un groupe formel
+infinitésimal sur k et que l'on a \(\omega_{H/k} = (\omega_{G/S})_s \otimes_{\mathscr{O}_s} \widehat{\mathscr{O}}_s\). Donc \(\omega_{H/k}\) est le produit
+d'un nombre fini d'exemplaires de k. Le corollaire résulte donc de <a class="ref" href="#VIIB.3.3">3.3</a> et de EGA
+\(0_{\mathrm{IV}}\) 19.3.4.</p>
+<p>Nous retrouvons donc ainsi un résultat obtenu par ailleurs pour les schémas en
+groupes localement de présentation finie sur un schéma S.</p>
+
+<div class="thm thm-plain corollaire" id="VIIB.3.3.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.2</span></div>
+  <div class="thm-body"><p>Si k est un corps de caractéristique 0, le foncteur \(\mathbf{L}\mapsto\mathscr{G}(\mathbf{L})\)
+est une équivalence de la catégorie des k-algèbres de Lie sur celle des k-groupes
+formels infinitésimaux.</p></div>
+</div>
+<p>En effet, quand G parcourt les k-groupes formels infinitésimaux, le foncteur
+\(G \mapsto \mathscr{G}(\mathrm{Lie}\,G)\) est isomorphe au foncteur identique de la catégorie des groupes
+infinitésimaux (théorème <a class="ref" href="#VIIB.3.3">3.3</a>). De même, le foncteur \(\mathbf{L}\mapsto \mathrm{Lie}(\mathscr{G}(\mathbf{L}))\) est isomorphe
+au foncteur identique de la catégorie des algèbres de Lie (<a class="ref" href="#VIIB.3.1">3.1</a>).</p>
+
+<h3 id="VIIB.3.3.3">3.3.3.</h3>
+<p>Supposons toujours que k est un corps de caractéristique 0. Soient \(\overline{k}\) la
+clôture algébrique de k et \(\Gamma\) le groupe de Galois topologique de \(\overline{k}\) sur k.</p>
+<p>Pour tout k-groupe formel H, nous notons \(\underline{\mathrm{Aut}}_k H\) le k-foncteur en groupes qui
+associe à toute k-algèbre commutative de dimension finie C le groupe des automorphismes du C-groupe formel \(H\widehat{\otimes}_k C\). Ce k-foncteur est manifestement exact à gauche
+(H est topologiquement plat sur k&nbsp;!), de sorte que nous pouvons le traiter comme un
+groupe formel sur k. Si L est une algèbre de Lie sur k et H le groupe formel \(\mathscr{G}(\mathbf{L})\), le théorème <a class="ref" href="#VIIB.3.3">3.3</a> montre que \(\underline{\mathrm{Aut}}_k H\) est isomorphe au k-foncteur en groupes \(\underline{\mathrm{Aut}}_k \mathbf{L}\) qui associe à une k-algèbre de dimension finie C le groupe des automorphismes de la C-algèbre de Lie \(C\otimes_k \mathbf{L}\).</p>
+
+<p>Si G est un k-groupe formel arbitraire, nous avons vu en <a class="ref" href="#VIIB.2.5.2">2.5.2</a> que G se décompose canoniquement en un produit semidirect d'un groupe formel étale \(G_e\) et d'un groupe formel infinitésimal \(G_0\). Ce produit semidirect est déterminé par la donnée de Lie G, du \(\Gamma\)-groupe \(G_e(\overline{k})\) et d'un homomorphisme \(h : G_e \to \underline{\mathrm{Aut}}_k(\mathrm{Lie}\,G)\). Un tel homomorphisme envoie \(G_e\) dans la «&nbsp;partie étale&nbsp;» \((\underline{\mathrm{Aut}}_k\,\mathrm{Lie}\,G)_e\) de \(\underline{\mathrm{Aut}}_k\,\mathrm{Lie}\,G\) (<a class="ref" href="#VIIB.2.5.1">2.5.1</a>). Il est donc déterminé par la donnée d'un homomorphisme de \(\Gamma\)-groupes
+\[
+h(\overline{k}) : G(\overline{k}) \longrightarrow (\underline{\mathrm{Aut}}_k \mathbf{L})(\overline{k}).
+\]</p>
+
+<p>Si l'on fait opérer \(\Gamma\) dans \((\mathrm{Lie}\,G)\otimes_k\overline{k}\) au moyen de la formule \(\gamma(\ell\otimes x) = \ell\otimes\gamma(x)\), l'homomorphisme \(h(\overline{k})\) fait opérer \(G(\overline{k})\) par automorphismes dans la k-algèbre de Lie \((\mathrm{Lie}\,G)\otimes_k\overline{k}\). Nous exprimons cette dernière condition en disant que \(G(\overline{k})\) opère dans \((\mathrm{Lie}\,G)\otimes_k\overline{k}\) de manière compatible avec \(\Gamma\).</p>
+
+<p>On peut résumer la situation à l'aide d'un énoncé «&nbsp;savant&nbsp;»&nbsp;: appelons \(\Gamma\)-<em>algèbre de Lie</em> sur k la donnée d'un triplet \((\mathbf{L},K,h)\) formé d'une algèbre de Lie \(\mathbf{L}\) sur k, d'un \(\Gamma\)-groupe K et d'une opération h de K dans \(\mathbf{L}\otimes_k\overline{k}\) qui soit «&nbsp;compatible avec l'action de \(\Gamma\) dans K et \(\mathbf{L}\otimes_k\overline{k}\)&nbsp;». Si \((\mathbf{L},K,h)\) et \((\mathbf{L}',K',h')\) sont telles \(\Gamma\)-algèbres de Lie, un homomorphisme de la première dans la seconde est un couple (f,g) formé d'un morphisme \(f : \mathbf{L}\to \mathbf{L}'\) d'algèbres de Lie et d'un morphisme \(g : K\to K'\) de \(\Gamma\)-groupes tels que \((f\otimes_k\overline{k})(\gamma\cdot x) = g(\gamma)\cdot(f\otimes_k\overline{k})(x)\) si \(x\in \mathbf{L}\otimes_k\overline{k}\) et \(\gamma\in K\)&nbsp;: alors <em>le foncteur \(G\mapsto (\mathrm{Lie}\,G, G(\overline{k}), h(\overline{k}))\) est une équivalence de la catégorie des groupes formels sur k (= corps de caractéristique 0) sur la catégorie des \(\Gamma\)-algèbres de Lie</em>.</p>
+
+<h2 id="VIIB.4">4. Phénomènes particuliers à la caractéristique <em>p</em> &gt; 0</h2>
+<p>Dans tout ce paragraphe 4, nous désignons par p un nombre premier, par k un anneau pseudocompact de caractéristique p, par \(\pi\) l'endomorphisme continu \(x\mapsto x^p\) de k.</p>
+
+<h3 id="VIIB.4.1">4.1.</h3>
+<p>Soient X une variété formelle sur k d'algèbre affine A et \(X^{(p/k)}\) ou \(X^{(p)}\) la variété formelle \(X\widehat{\otimes}_\pi k\) (cf. <a class="ref" href="#VIIB.1.2">1.2</a>). Cette variété a pour algèbre affine le produit tensoriel complété \(A\widehat{\otimes}_\pi k\)&nbsp;; de plus, l'homomorphisme continu de \(A\widehat{\otimes}_\pi k\) dans A qui applique \(a\widehat{\otimes}_\pi\lambda\) sur \(a^p\lambda\) induit un morphisme de k-variétés formelles
+\[
+\mathrm{Fr}(X/k) : X \longrightarrow X^{(p/k)}.
+\]
+Dans la suite, nous dirons que Fr(X/k) est <em>le morphisme de Frobenius</em> de X relativement à k et nous écrirons souvent Fr au lieu de Fr(X/k).</p>
+
+<h4 id="VIIB.4.1.1">4.1.1.</h4>
+<p>Considérons un schéma S sur le corps premier \(\mathbb{F}_p\), un S-schéma X et un S-schéma \(q : T\to S\) de longueur finie (<a class="ref" href="#VIIB.1.2.6">1.2.6</a>). Soit fr(S) le morphisme de Frobenius de S relativement à \(\mathbb{F}_p\) (ce morphisme induit l'identité sur l'espace topologique sous-jacent et applique une section s du faisceau structural sur \(s^p\)&nbsp;; cf. <a class="ref" href="#VIIA.4.1">VII<sub>A</sub> 4.1</a>). Si nous posons \(X^{(p)} = X\times_{\mathrm{fr}(S)} S\) (VII<sub>A</sub>, loc. cit.), les morphismes de S-variétés formelles \(f : T\to \widehat{X^{(p)}}/\widehat{S}\) correspondent biunivoquement aux S-morphismes de T dans \(X^{(p)}\) (<a class="ref" href="#VIIB.1.2.6">1.2.6</a>), c'est-à-dire aux carrés commutatifs
+\[
+\xymatrix{
+T \ar[r]^-{f'} \ar[d]_-q & X \ar[d] \\
+S \ar[r]_-{\mathrm{fr}(S)} & S
+}
+\]
+.</p>
+<p>À un tel carré est associé un S-morphisme de T dans \((\widehat{X}/\widehat{S})^{(p)}\) si et seulement si \(f'\) se factorise à travers un sous-schéma \(X_0\) de X qui est de longueur finie sur S. On voit ainsi que \(\mathrm{Hom}_{\mathbf{Vf}/\widehat{S}}(T,(\widehat{X}/\widehat{S})^{(p)})\) peut être identifié à une partie de \(\mathrm{Hom}_{\mathbf{Vf}/\widehat{S}}(T,\widehat{X^{(p)}}/\widehat{S})\), ce qui définit \((\widehat{X}/\widehat{S})^{(p)}\) comme <em>une sous-variété formelle de</em> \(\widehat{X^{(p)}}/\widehat{S}\). On a l'égalité \((\widehat{X}/\widehat{S})^{(p)} = \widehat{X^{(p)}}/\widehat{S}\) si \(\mathrm{fr}(S)\circ q\) est un S-schéma de longueur finie lorsque q en est un. Ceci a lieu par exemple lorsque S est localement de type fini sur un corps k tel que \([k:k^p] < +\infty\).</p>
+
+<h4 id="VIIB.4.1.2">4.1.2.</h4>
+<p>Soit G un groupe formel sur k d'algèbre affine A. Comme le foncteur \(X\mapsto X\widehat{\otimes}_\pi k\) commute aux produits finis, il transforme un k-groupe formel en un k-groupe formel. En outre, comme Fr(X/k) est fonctoriel en X, le morphisme
+\[
+\mathrm{Fr} : G \longrightarrow G^{(p)}
+\]
+est un homomorphisme de k-groupes formels. Si l'on pose \(G^{(p^{n+1})} = (G^{(p^n)})^{(p)}\), il en va de même pour le morphisme composé
+\[
+\mathrm{Fr}^n = \mathrm{Fr}^n(G/k) : G \xrightarrow{\ \mathrm{F}\ } G^{(p)} \xrightarrow{\ \mathrm{F}\ } G^{(p^2)} \xrightarrow{\ \mathrm{F}\ } \cdots \xrightarrow{\ \mathrm{F}\ } G^{(p^n)}.
+\]
+Le noyau de cet homomorphisme \(\mathrm{Fr}^n\) sera noté \({}_{\mathrm{Fr}^n}G\). Il résulte directement des définitions que \({}_{\mathrm{Fr}^n}G\) est radiciel et a pour algèbre affine le quotient \(A/I_A^{\{p^n\}}\), où \(I_A^{\{p^n\}}\) désigne l'idéal fermé de A qui est engendré par les puissances \(p^n\)-ièmes des éléments de \(I_A\). Lorsque \(I_A^{\{p^n\}}\) est nul, c'est-à-dire lorsqu'on a \({}_{\mathrm{Fr}^n}G = G\), on dit que G est <em>de hauteur \(\leqslant n\)</em>.</p>
+
+<h3 id="VIIB.4.2">4.2.</h3>
+<p>Il est clair que l'algèbre de Lie \(\mathrm{Lie}(G)\) d'un k-groupe formel G est une p-sous-algèbre de Lie de l'Algèbre \(\mathbf{H}(G)\) (cf. <a class="ref" href="#VIIB.2.3">2.3</a>)&nbsp;: en effet, on se ramène tout de suite au cas où k est artinien&nbsp;; dans ce cas, Lie(G) est la partie de H(G) formée des éléments x tels que \(\varphi_G(x\otimes1+1\otimes x) = \Delta_G(x)\) avec les notations de <a class="ref" href="#VIIB.2.3">2.3</a> et <a class="ref" href="#VIIB.2.6">2.6</a> (c). On a alors
+\[
+\begin{aligned}
+\varphi_G(x^p\otimes1+1\otimes x^p) &amp;= \varphi_G\big((x\otimes1+1\otimes x)^p\big)\\
+&amp;= \varphi_G(x\otimes1+1\otimes x)^p = \Delta_G(x)^p = \Delta_G(x^p).
+\end{aligned}
+\]</p>
+
+<h4 id="VIIB.4.2.1">4.2.1.</h4>
+<p>Réciproquement, toute p-algèbre de Lie L sur \(\mathbf{O}_k\) définit un k-foncteur en groupes&nbsp;: désignons en effet par \(\mathbf{U}_p(\mathbf{L})\) le foncteur qui associe à toute k-algèbre de longueur finie C l'algèbre enveloppante restreinte \(\mathbf{U}_p(\mathbf{L}(C))\) de la p-algèbre de Lie \(\mathbf{L}(C)\) sur C (VII<sub>A</sub> 5.3). D'après VII<sub>A</sub> 5.4, \(\mathbf{U}_p(\mathbf{L})\) est une \(\mathbf{O}_k\)-bialgèbre et détermine un k-foncteur en groupes \(\mathrm{Spf}^*\mathbf{U}_p(\mathbf{L})\) (<a class="ref" href="#VIIB.2.2">2.2</a>) que nous noterons désormais \(\mathscr{G}_p(\mathbf{L})\)&nbsp;: \(\mathscr{G}_p(\mathbf{L})(C)\) est donc le groupe des éléments \(z\in \mathbf{U}_p(\mathbf{L}(C))\) d'augmentation 1 et tels que \(\Delta_{\mathbf{U}_p(\mathbf{L}(C))}(z) = z\otimes z\).</p>
+
+<h4 id="VIIB.4.2.2">4.2.2.</h4>
+<p>Lorsque \(\mathbf{L}\) est une p-algèbre de Lie plate sur \(\mathbf{O}_k\), \(\mathbf{U}_p(\mathbf{L})\) est plate sur k d'après VII<sub>A</sub> 5.3.3&nbsp;; par conséquent, \(\mathscr{G}_p(\mathbf{L})\) est un groupe formel topologiquement plat sur k qui a \(\mathbf{U}_p(\mathbf{L})\) pour \(\mathbf{O}_k\)-bialgèbre. Ce groupe formel peut être caractérisé par une propriété universelle&nbsp;: considérons un homomorphisme h de \(\mathscr{G}_p(\mathbf{L})\) dans un groupe formel G&nbsp;; un tel h induit un homomorphisme \(\mathbf{Lie}\,h\) de l'Algèbre de Lie de \(\mathscr{G}_p(\mathbf{L})\) dans celle de G. On voit d'autre part comme en VII<sub>A</sub> 7.3 que le morphisme canonique de \(\mathbf{L}\) dans l'Algèbre enveloppante restreinte \(\mathbf{U}_p(\mathbf{L})\) définit un isomorphisme de \(\mathbf{L}\) sur la p-algèbre de Lie de \(\mathscr{G}_p(\mathbf{L})\)&nbsp;; composant cet isomorphisme avec \(\mathbf{Lie}\,h\), on obtient un homomorphisme \(h' : \mathbf{L}\to \mathrm{Lie}\,G\)&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIIB.4.2.2.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Si k est un anneau pseudocompact de caractéristique \(p>0\), G un k-groupe formel et \(\mathbf{L}\) une p-algèbre de Lie plate sur \(\mathbf{O}_k\), l'application \(h\mapsto h'\) définie ci-dessus est une bijection
+\[
+\mathrm{Hom}_{k\text{-Gr.}}(\mathscr{G}_p(\mathbf{L}), G) \longrightarrow \mathrm{Hom}_p(\mathbf{L}, \mathrm{Lie}\,G)
+\]
+de l'ensemble des homomorphismes de k-groupes formels de \(\mathscr{G}_p(\mathbf{L})\) dans G sur celui des morphismes de p-algèbres de Lie de \(\mathbf{L}\) dans Lie G.</p></div>
+</div>
+<p>On se ramène en effet tout de suite au cas où k est artinien. Dans ce cas, l'ensemble \(\mathrm{Hom}_{k\text{-Gr.}}(\mathscr{G}_p(\mathbf{L}),G)\) est en correspondance biunivoque canonique (<a class="ref" href="#VIIB.2.3.1">2.3.1</a>) avec les homomorphismes d'algèbres unitaires \(g : \mathbf{U}_p(\mathbf{L})\to \mathbf{H}(G)\) tels que le diagramme suivant soit commutatif&nbsp;:
+\[
+\xymatrix{
+\mathbf{U}_p(\mathbf{L}) \ar[rr]^-{g} \ar[d]_-{\Delta} & & \mathbf{H}(G) \ar[dr]^-{\delta_G} & \\
+\mathbf{U}_p(\mathbf{L})\otimes\mathbf{U}_p(\mathbf{L}) \ar[rr]_-{g\otimes g} & & \mathbf{H}(G)\otimes\mathbf{H}(G) \ar[r]_-{\varphi_G} & \mathbf{H}(G\times G)
+}
+\]
+Or g est défini par sa restriction à \(\mathbf{L}\) qui est un homomorphisme de p-algèbres de Lie de \(\mathbf{L}\) dans la p-algèbre de Lie sous-jacente à \(\mathbf{H}(G)\). La commutativité du diagramme signifie donc simplement que g applique \(\mathbf{L}\) sur la partie Lie G de \(\mathbf{H}(G)\) formée des x tels que \(\varphi_G(x\otimes1+1\otimes x) = \delta_G x\).</p>
+
+<h3 id="VIIB.4.3">4.3.</h3>
+<p>Nous nous proposons maintenant d'étudier de façon plus détaillée le k-groupe formel \(\mathscr{G}_p(\mathbf{L})\) lorsque \(\mathbf{L}\) est une p-algèbre de Lie plate sur \(\mathbf{O}_k\).</p>
+<p>Pour cela, nous considérons d'abord un anneau C de caractéristique p et une p-algèbre de Lie \(\mathbf{L}\) sur C dont le module sous-jacent est libre de base \((x_i)_{i\in I}\). Désignons en outre par P l'ensemble des familles \(n=(n_i)_{i\in I}\) formées d'entiers naturels tels que \(0\leqslant n_i < p\) et que les \(n_i\) soient nuls hormis peut-être un nombre fini d'entre eux. Si nous munissons I d'un ordre total et si nous appelons \(i_1,i_2,\ldots,i_r\) (\(i_1&lt;i_2&lt;\cdots&lt;i_r\)) les indices i tels que \(n_i\neq0\), nous pouvons donc poser \(|n|=n_{i_1}+\cdots+n_{i_r}\) et
+\[
+x^n = x_{i_1}^{n_{i_1}}\cdot x_{i_2}^{n_{i_2}}\cdots x_{i_r}^{n_{i_r}}, \qquad n! = (n_{i_1}!)\cdots(n_{i_r}!).
+\]
+On sait que les monômes \(x^n/n!\) forment une base de \(\mathbf{U}_p(\mathbf{L})\) (VII<sub>A</sub> 5.3.3) et il est clair qu'on a
+\[
+(*)\qquad \Delta\left(\frac{x^n}{n!}\right) = \sum_{m\leqslant n} \frac{x^m}{m!}\otimes\frac{x^{n-m}}{(n-m)!}
+\]
+la somme étant étendue à tous les \(m\in\mathrm{P}\) tels qu'on ait \(m\leqslant n\) (i.e. \(m_i\leqslant n_i\) pour tout \(i\in I\)).</p>
+<p>La formule (*) permet une détermination aisée de la filtration naturelle de \(\mathbf{U}_p(\mathbf{L})\) (cf. <a class="ref" href="#VIIB.1.3.6">1.3.6</a>). Soit \(\mathrm{U}^+\) l'idéal bilatère de \(\mathbf{U}_p(\mathbf{L})\) qui est engendré par \(\mathbf{L}\) et posons \(\mathrm{U}=\mathbf{U}_p(\mathbf{L})\). Rappelons qu'on a par définition
+\[
+\mathrm{U}_0 = C\cdot 1_{\mathrm{U}}
+\]
+\[
+\ldots\ldots\ldots\ldots
+\]
+\[
+\mathrm{U}_n = \{u\in \mathrm{U}\mid \Delta_{\mathrm{U}}u - u\otimes1 \in \mathrm{U}_{n-1}\otimes \mathrm{U}^+\}.
+\]
+La formule (*) entraîne alors que \(\mathrm{U}_n\) est le C-module libre qui a pour base les monômes \(x^m\) tels que \(|m|\leqslant n\).</p>
+
+<h4 id="VIIB.4.3.1">4.3.1.</h4>
+<p>Avec les notations de <a class="ref" href="#VIIB.4.3">4.3</a>, déterminons les éléments \(\xi\) de U d'augmentation 1 et tels que \(\Delta_{\mathrm{U}}\xi = \xi\otimes\xi\)&nbsp;: tout élément \(\xi\) de U se met sous la forme \(\xi = \sum_{n\in\mathrm{P}} \xi_n\frac{x^n}{n!}\), où \(\xi_n\in C\). La condition \(\varepsilon_{\mathrm{U}}(\xi)=1\) entraîne l'égalité \(\xi_0=1\), si 0 désigne l'élément de P dont toutes les composantes sont nulles. La condition \(\Delta_{\mathbf{U}_p(\mathbf{L})}(\xi) = \xi\otimes\xi\) entraîne
+\[
+\sum_{m\leqslant n} \xi_n\frac{x^m}{m!}\otimes\frac{x^{n-m}}{(n-m)!} = \sum_{q,r} \xi_q\xi_r \frac{x^q}{q!}\otimes\frac{x^r}{r!}
+\]
+c'est-à-dire
+\[
+\xi_{q+r} = \xi_q\xi_r \ \text{ si } q_i+r_i&lt;p \qquad\text{et}\qquad \xi_q\xi_r = 0 \ \text{ sinon.}
+\]
+Si l'on note \(\xi_i\) la valeur de \(\xi_n\) lorsque \(n_i=1\) et \(n_j=0\) pour \(j\neq i\), ces conditions signifient que l'on a
+\[
+\xi_n = \prod_i \xi_i^{n_i} \ \text{ si } n\in\mathrm{P} \qquad\text{et}\qquad \xi_i^p = 0\ \ \forall i\in I.
+\]</p>
+<p>On tire de là&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIIB.4.3.1.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Soient p un nombre premier, k un anneau pseudocompact de caractéristique p, \(\mathbf{L}\) une p-algèbre de Lie plate sur \(\mathbf{O}_k\), C une k-algèbre profinie de longueur finie et \(\sqrt[p]{0_C}\) l'idéal de C formé des éléments x tels que \(x^p=0\). Il existe une bijection
+\[
+\mathbf{L}(C)\otimes_C \sqrt[p]{0_C} \longrightarrow \mathscr{G}_p(\mathbf{L})(C)
+\]
+«&nbsp;qui est fonctorielle en C&nbsp;».</p></div>
+</div>
+<p>D'après <a class="ref" href="#VIIB.1.2.3">1.2.3</a>, on peut en effet choisir une base \({}^C(x_i)_{i\in I}\) de \(\mathbf{L}(C)\) sur C de telle façon que, pour tout morphisme \(\varphi : C\to D\) de \(\mathrm{Alf}/k\) (<a class="ref" href="#VIIB.0.4.2">0.4.2</a>), \(\mathbf{L}(\varphi)\) applique \({}^Cx_i\) sur \({}^Dx_i\). D'après ce qui précède, l'application \(\sum_i {}^Cx_i\otimes\xi_i \mapsto \sum_{n\in\mathrm{P}} \Big(\prod_i \xi_i^{n_i}\Big)\frac{{}^Cx^n}{n!}\) est une bijection fonctorielle de \(\mathbf{L}(C)\otimes_C \sqrt[p]{0_C}\) sur \(\mathscr{G}_p(\mathbf{L})(C)\).</p>
+
+<h4 id="VIIB.4.3.2">4.3.2.</h4>
+<p>«&nbsp;Il n'y a pas de formule de Campbell-Hausdorff en caractéristique \(p>0\)&nbsp;»&nbsp;; expliquons-nous&nbsp;: l'isomorphisme fonctoriel de <a class="ref" href="#VIIB.4.3.1">4.3.1</a> dépend du choix des bases \({}^C(x_i)_{i\in I}\). À la différence de ce qui se passe en <a class="ref" href="#VIIB.3.2">3.2</a> (cas de la caractéristique 0), il n'y a pas, en général, de bijection de \(\mathbf{L}(C)\otimes_C\sqrt[p]{0_C}\) sur \(\mathscr{G}_p(\mathbf{L})(C)\) qui soit «&nbsp;fonctorielle à la fois en C et en \(\mathbf{L}\)&nbsp;». L'argument qui suit montre par exemple qu'un tel isomorphisme n'existe pas lorsque k est un corps contenant les racines \((p^2-1)\)-ièmes de l'unité&nbsp;:</p>
+<p>Choisissons en effet \(\mathbf{L}\) de telle façon que, pour tout \(C\in\mathrm{Alf}/k\), \(\mathbf{L}(C)\) soit la p-algèbre de Lie abélienne sur C qui est engendrée par un élément x soumis à la relation \(x^{(p^2)}=0\). On a donc
+\[
+\mathbf{L}(C) = Cx \oplus Cx^{(p)}.
+\]
+Nous allons montrer que le seul morphisme fonctoriel
+\[
+\chi_C : \mathbf{L}(C)\otimes_C \sqrt[p]{0_C} \longrightarrow \mathbf{U}_p(\mathbf{L}(C)),
+\]
+qui soit compatible avec les endomorphismes de \(\mathbf{L}\) et qui applique \(\mathbf{L}(C)\otimes_C\sqrt[p]{0_C}\) dans \(\mathscr{G}_p(\mathbf{L})(C)\), est le morphisme constant de valeur 1. Soit en effet \(\psi_C\) l'application de \(\mathbf{L}(C)\otimes_C\sqrt[p]{0_C}\) dans \(\mathbf{U}_p(\mathbf{L}(C))\) qui envoie \(x\otimes a+x^{(p)}\otimes b\) sur \(\sum_{0\leqslant i,j&lt;p} a^ib^j x^{i+pj}\). En composant \(\chi_C\) avec \(\psi_C^{-1}\), on obtient un morphisme fonctoriel (en C)&nbsp;:
+\[
+\mathbf{L}(C)\otimes_C\sqrt[p]{0_C} \longrightarrow \mathbf{L}(C)\otimes_C\sqrt[p]{0_C}
+\]
+qui applique \(x\otimes a+x^{(p)}\otimes b\) sur \(x\otimes \mathrm{P}(a,b)+x^{(p)}\otimes \mathrm{Q}(a,b)\). La fonctorialité en C implique que \(\mathrm{P}(a,b)\) et \(\mathrm{Q}(a,b)\) sont les valeurs en \((a,b)\) de deux polynômes \(\mathrm{P},\mathrm{Q}\in k[X,Y]\) qu'on peut supposer de degré \(&lt;p\) en X ainsi qu'en Y. Si \(\alpha\) est un élément de k et si \(\underline{\ell}\) est l'endomorphisme de \(\mathbf{L}\) qui applique x sur \(\alpha x\), on voit de suite que le carré
+\[
+\xymatrix{
+\mathbf{L}(C)\otimes_C\sqrt[p]{0_C} \ar[r]^-{\psi_C} \ar[d]_-{\underline{\ell}(C)\otimes_C\sqrt[p]{0_C}} & \mathbf{U}_p(\mathbf{L}(C)) \ar[d]^-{\mathbf{U}_p(\underline{\ell}(C))} \\
+\mathbf{L}(C)\otimes_C\sqrt[p]{0_C} \ar[r]_-{\psi_C} & \mathbf{U}_p(\mathbf{L}(C))
+}
+\]
+est commutatif. Tenant compte de la compatibilité de \(\chi_C\) avec \(\underline{\ell}\), on en déduit les égalités \(\mathrm{P}(\alpha a,\alpha^pb)=\alpha\mathrm{P}(a,b)\) et \(\mathrm{Q}(\alpha a,\alpha^pb)=\alpha^p\mathrm{Q}(a,b)\). Prenant pour \(\alpha\) une racine \((p^2-1)\)-ième primitive de l'unité et prenant pour C l'algèbre \(k[X,Y]/(X^p,Y^p)\), on en</p>
+<p>déduit que P et Q sont de la forme \(\mathrm{P}=\lambda X\) et \(\mathrm{Q}=\mu Y\), \(\lambda,\mu\in k\). Par conséquent \(\chi_C\) envoie \(x\otimes a+x^{(p)}\otimes b\) sur \(\sum_{0\leqslant i,j&lt;p} (\lambda a)^i(\mu b)^j x^{i+pj}\).</p>
+<p>Cette dernière application ne «&nbsp;commute&nbsp;» avec l'endomorphisme de \(\mathbf{L}\) qui envoie x sur \(x^{(p)}\) que si \(\lambda=\mu=0\).</p>
+
+<div class="thm thm-plain theoreme" id="VIIB.4.4">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">4.4</span></div>
+  <div class="thm-body">
+  <p>Soient p un nombre premier, k un anneau pseudocompact de caractéristique p et G un groupe formel sur k. Les assertions suivantes sont équivalentes&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(i)</span> <p>Il existe une p-algèbre de Lie \(\mathbf{L}\) plate sur \(\mathbf{O}_k\) telle que G soit isomorphe à \(\mathscr{G}_p(\mathbf{L})\).</p></li>
+  <li><span class="item-label">(ii)</span> <p>Il existe un k-module pseudocompact projectif \(\omega\) tel que l'algèbre affine de G soit isomorphe au quotient de \(k[[\omega]]\) par l'idéal fermé engendré par les \(x^p\), \(x\in\omega\).</p></li>
+  <li><span class="item-label">(iii)</span> <p>G est de hauteur \(\leqslant1\) et \(\omega_{G/k}\) est un k-module pseudocompact projectif.</p></li>
+  <li><span class="item-label">(iv)</span> <p>G est de hauteur \(\leqslant1\) et est topologiquement plat sur k.</p></li>
+  </ol>
+  </div>
+</div>
+<p>(i)\(\Rightarrow\)(ii)&nbsp;: Soient \(\omega\) le k-module pseudocompact dual de \(\mathbf{L}\) (<a class="ref" href="#VIIB.1.2.3">1.2.3</a>) et A le quotient de \(k[[\omega]]\) par l'idéal fermé engendré par les \(x^p\), \(x\in\omega\). Pour toute k-algèbre profinie de longueur finie C, un homomorphisme continu \(h : A\to C\) est déterminé par sa restriction \(h'\) à \(\omega\)&nbsp;; cette restriction \(h'\) envoie \(\omega\) dans \(\sqrt[p]{0_C}\)&nbsp;; on obtient ainsi une bijection canonique de \(\mathrm{Hom}_{\mathrm{Al}/k}(A,C)\) sur l'ensemble \(\mathrm{Hom}_k(\omega,\sqrt[p]{0_C})\) des applications k-linéaires continues de \(\omega\) dans \(\sqrt[p]{0_C}\). Ce dernier ensemble est canoniquement isomorphe à \(\mathbf{L}(C)\otimes_C \sqrt[p]{0_C}\) (voir la démonstration de <a class="ref" href="#VIIB.3.3">3.3</a>). L'implication (i)\(\Rightarrow\)(ii) résulte donc de <a class="ref" href="#VIIB.4.3.1">4.3.1</a>.</p>
+<p>Pour les autres implications, consulter les démonstrations des théorèmes <a class="ref" href="#VIIB.3.3">3.3</a> et VII<sub>A</sub> 7.4.1, qui sont analogues.</p>
+
+<div class="thm thm-plain corollaire" id="VIIB.4.4.1">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.4.1</span></div>
+  <div class="thm-body"><p>Si k est un corps de caractéristique \(p>0\), le foncteur \(\mathbf{L}\mapsto \mathscr{G}_p(\mathbf{L})\) est une équivalence de la catégorie des p-algèbres de Lie sur k sur celle des k-groupes formels de hauteur \(\leqslant1\).</p></div>
+</div>
+<p>En effet, quand G parcourt les groupes formels de hauteur \(\leqslant1\), le foncteur \(G\mapsto \mathscr{G}_p(\mathrm{Lie}\,G)\) est isomorphe au foncteur identique d'après le théorème <a class="ref" href="#VIIB.4.4">4.4</a>&nbsp;; de même, nous avons vu que le foncteur \(\mathbf{L}\mapsto \mathrm{Lie}\,\mathscr{G}_p(\mathbf{L})\) est isomorphe au foncteur identique (confer VII<sub>A</sub> 7.5).</p>
+
+<h4 id="VIIB.4.4.2">4.4.2.</h4>
+<p>Prenons toujours pour k un corps de caractéristique p. Pour tout k-groupe formel infinitésimal G, l'algèbre affine A de G est la limite projective des algèbres affines \(A/I_A^{\{p^n\}}\) des groupes \({}_{\mathrm{Fr}^n}G\) (cf. <a class="ref" href="#VIIB.4.1.2">4.1.2</a>). <em>Un k-groupe formel infinitésimal est donc une limite inductive de k-groupes formels de hauteur finie.</em></p>
+<p>Supposons maintenant G de hauteur \(\leqslant n\). Comme \({}_{\mathrm{Fr}}G\) est le noyau de \(\mathrm{Fr} : G\to G^{(p)}\), Fr induit un monomorphisme i de \(H=G/{}_{\mathrm{Fr}}G\) dans \(G^{(p)}\). Comme \(\mathrm{Fr}^n(G/k) = \mathrm{Fr}^{n-1}(G^{(p)}/k)\circ\mathrm{Fr}(G/k)\) est nul, \(\mathrm{Fr}^{n-1}(G^{(p)}/k)\circ i\) est nul ainsi que \(i^{(p^{n-1})}\circ\mathrm{Fr}^{n-1}(H/k)\). Comme i est un monomorphisme (<a class="ref" href="#VIIB.2.4.1">2.4.1</a>), on voit que H est de hauteur \(\leqslant n-1\). On voit donc qu'<em>un groupe de hauteur finie possède une suite de composition dont les quotients sont de hauteur \(\leqslant1\), donc peuvent être décrits par des p-algèbres de Lie sur k</em>.</p>
+<p>Enfin, lorsque G est un k-groupe formel infinitésimal tel que \(\omega_{G/k}\) soit de dimension finie sur k, l'algèbre affine A de G est un quotient de \(k[[\omega]]\), de sorte que toutes les algèbres \(A/I_A^{\{p^n\}}\) sont de dimension finie sur k en tant qu'espaces vectoriels. On voit par conséquent qu'<em>un groupe formel infinitésimal sur un corps de caractéristique \(p>0\) est une limite inductive de groupes formels finis (i.e. de longueur finie, <a class="ref" href="#VIIB.1.2.6">1.2.6</a>) dès que \(\omega_{G/k}\) est de dimension finie sur k</em>.</p>
+
+<h2 id="VIIB.5">5. Espaces homogènes de groupes formels infinitésimaux sur un corps</h2>
+<p>Dans tout ce qui suit, la lettre k désigne un corps.</p>
+
+<h3 id="VIIB.5.1">5.1.</h3>
+<p>Soient G un k-groupe formel infinitésimal d'algèbre affine A, B une sous-algèbre fermée de A, \(I_B\) l'intersection \(B\cap I_A\) de B avec l'idéal d'augmentation de A, \(\overline{AI_B}\) l'idéal fermé de A engendré par \(I_B\), X le spectre formel de B et \(r : G\to X\) l'épimorphisme induit par l'inclusion de B dans A. On se propose de voir sous quelle condition r fait de X le quotient à gauche de G par un sous-groupe F (<a class="ref" href="#VIIB.2.4">2.4</a>)&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIIB.5.1.prop">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body">
+  <p>Avec les notations ci-dessus, les deux assertions suivantes sont équivalentes&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(i)</span> <p>\(\forall x\in B,\ \Delta_A x - 1\widehat{\otimes}x \in \overline{AI_B}\widehat{\otimes}_k A\).</p></li>
+  <li><span class="item-label">(ii)</span> <p>Le morphisme diagonal de A induit par passage au quotient un morphisme diagonal sur l'algèbre \(A/AI_B\) qui fait du spectre formel de cette algèbre un sous-groupe formel de G. De plus, si q désigne la projection canonique de A sur \(A/\overline{AI_B}\), la suite
+\[
+(*)\qquad B \xrightarrow{\ \mathrm{incl.}\ } A \xrightarrow{\ \mathrm{in}_2 - (q\widehat{\otimes}A)\Delta_A\ } (A/\overline{AI_B})\widehat{\otimes}_k A
+\]
+est exacte&nbsp;; autrement dit, r induit un isomorphisme de \(F\backslash G\) sur X.</p></li>
+  </ol>
+  </div>
+</div>
+<p>L'assertion (i) signifie simplement que B est contenu dans le noyau du couple \((\mathrm{in}_2,(q\widehat{\otimes}A)\Delta_A)\). Par conséquent, la démonstration de la réciproque «&nbsp;(i) entraîne (ii)&nbsp;» occupe les paragraphes <a class="ref" href="#VIIB.5.1.1">5.1.1</a> à 5.1.5.</p>
+
+<h4 id="VIIB.5.1.1">5.1.1.</h4>
+<p>Considérons d'abord la catégorie (Cou) qui suit&nbsp;: un objet de (Cou) est un couple (C,J) formé d'une k-algèbre profinie C et d'un idéal fermé J de C&nbsp;; un morphisme \(\psi : (C,I)\to(D,J)\) de (Cou) est un homomorphisme continu de l'algèbre C dans l'algèbre D qui applique I dans J. Si l'on associe à (C,I) le couple \((\mathrm{Spf}(C/I),\mathrm{Spf}\,C)\), on obtient évidemment une antiéquivalence de (Cou) sur la catégorie des couples (Z,Y) formés d'une k-variété formelle Y et d'une sous-variété formelle Z.</p>
+<p>Une structure de co-groupe sur un objet (C,J) de (Cou) consiste en la donnée d'une structure de groupe formel sur Spf C telle que les conditions suivantes soient réalisées (notations de <a class="ref" href="#VIIB.2.1">2.1</a>)&nbsp;:</p>
+<ol class="enumerate">
+<li><span class="item-label">(1)</span> <p>\(\Delta_C J \subset J\widehat{\otimes}_kC + C\widehat{\otimes}_kJ\)&nbsp;;</p></li>
+<li><span class="item-label">(2)</span> <p>\(\varepsilon_C(J) = 0\)&nbsp;;</p></li>
+<li><span class="item-label">(3)</span> <p>\(c_C(J) \subset J\).</p></li>
+</ol>
+<p>Ces conditions signifient aussi que Spf(C/J) est un sous-groupe formel de Spf C.</p>
+<p>Il résulte de <a class="ref" href="#VIIB.2.7">2.7</a> que les conditions 2) et 3) sont une conséquence de 1) lorsque C est local, c'est-à-dire lorsque Spf C est un groupe infinitésimal. En particulier, si l'on pose \(I = \overline{AI_B}\), la condition (i) de la proposition <a class="ref" href="#VIIB.5.1">5.1</a> entraîne la relation
+\[
+\Delta_A I_B \subset I\widehat{\otimes}_kA + A\widehat{\otimes}_kI
+\]
+d'où
+\[
+\Delta_A I \subset I\widehat{\otimes}_kA + A\widehat{\otimes}_kI,
+\]
+de sorte que \(\Delta_A\) induit un morphisme diagonal dans A/I qui fait de A/I l'algèbre affine d'un sous-groupe formel F de G.</p>
+
+<h4 id="VIIB.5.1.2">5.1.2.</h4>
+<p>Désignons par \(\mathrm{GrAl}/k\) la catégorie des k-algèbres «&nbsp;profinies graduées&nbsp;»&nbsp;: un objet de cette catégorie consiste en la donnée d'une suite \(A_0,A_1,\ldots,A_n,\ldots\) d'espaces vectoriels linéairement compacts sur k et d'une structure d'algèbre profinie sur le produit \(\prod_{n\geqslant0}A_n\) telle qu'on ait \(A_n\cdot A_m \subset A_{m+n}\) (\(A_n\) identifié à une partie de \(\prod_{i\geqslant0}A_i\) au moyen de l'injection canonique)&nbsp;; un morphisme \(\psi : (A_n)\to(B_n)\) est une suite d'applications linéaires continues \(\psi_n : A_n\to B_n\) telles qu'on ait \(\psi_{m+n}(a\cdot a') = \psi_m(a)\cdot\psi_n(a')\) si \(a\in A_m\) et \(a'\in A_n\).</p>
+<p>Il est clair que deux k-algèbres profinies graduées \((A_n)\) et \((B_n)\) ont une somme directe dans \(\mathrm{GrAl}/k\) et que cette somme directe a pour n-ième composante le produit \(\prod_{i=0}^n A_i\widehat{\otimes}_kB_{n-i}\) des k-espaces vectoriels linéairement compacts \(A_i\widehat{\otimes}_kB_{n-i}\). Cette somme directe sera notée \((A_n)\widehat{\otimes}_k(B_n)\).</p>
+<p>On peut associer à tout objet (C,J) de (Cou) l'algèbre profinie graduée \(\mathrm{Gr}_J(C)\) de C pour la filtration définie par les adhérences \(\overline{J^n}\) des puissances de J&nbsp;; on a donc \(\mathrm{Gr}_J(C)_n = J^n/J^{n+1}\) et la multiplication de \(\mathrm{Gr}_J(C)\) est induite par celle de C. De plus, il résulte du lemme ci-dessous que le foncteur \((C,J)\mapsto \mathrm{Gr}_J(C)\) commute aux sommes directes finies&nbsp;; il transforme donc un co-groupe de (Cou) en un co-groupe de \(\mathrm{GrAl}/k\). On voit en particulier qu'avec les notations de <a class="ref" href="#VIIB.5.1.1">5.1.1</a>, l'algèbre profinie graduée \(\mathrm{Gr}_I(A)\) est munie d'une structure de co-groupe dans \(\mathrm{GrAl}/k\)&nbsp;:</p>
+
+<div class="thm thm-plain lemme" id="VIIB.5.1.2.lemme">
+  <div class="thm-head"><span class="thm-name">Lemme</span></div>
+  <div class="thm-body"><p>Soient \(U_0\supset U_1\supset\cdots\) et \(V_0\supset V_1\supset\cdots\) deux k-espaces vectoriels linéairement compacts filtrés séparés. Filtrons le produit tensoriel complété \(W = U\widehat{\otimes}_kV\) à l'aide des sous-espaces fermés
+\[
+W_n = U_n\widehat{\otimes}_kV_0 + U_{n-1}\widehat{\otimes}_kV_1 + \cdots + U_0\widehat{\otimes}_kV_n.
+\]
+Pour tout n, les applications canoniques de \((U_i/U_{i+1})\widehat{\otimes}_k(V_j/V_{j+1})\) dans \(W_n/W_{n+1}\) (\(i+j=n\)) définissent un isomorphisme
+\[
+\bigoplus_{i+j=n} (U_i/U_{i+1})\widehat{\otimes}_k(V_j/V_{j+1}) \xrightarrow{\ \sim\ } W_n/W_{n+1}.
+\]</p></div>
+</div>
+
+<h4 id="VIIB.5.1.3">5.1.3.</h4>
+<p>Identifions toute k-algèbre profinie \(\Gamma\) à la k-algèbre profinie graduée \((\Gamma_n)_{n\geqslant0}\) telle que \(\Gamma_0=\Gamma\) et \(\Gamma_n=0\) si \(n>0\). En particulier, si \((A_n)_{n>0}\) est une k-algèbre profinie graduée, nous considérerons indifféremment \(A_0\) comme une k-algèbre profinie ou bien comme une k-algèbre profinie graduée. Nous désignerons alors par \(\rho : (A_n)\to A_0\) le morphisme de \(\mathrm{GrAl}/k\) tel que \(\rho_0=\mathrm{id}_{A_0}\) et \(\rho_n=0\) si \(n>0\). De même, \(\iota : A_0\to(A_n)\) désignera la section de \(\rho\) telle que \(\iota_0=\mathrm{id}_{A_0}\) et \(\iota_n=0\) si \(n>0\).</p>
+<p>Toute structure de cogroupe sur \((A_n)_{n\in\mathbb{N}}\) induit une structure de cogroupe sur \(A_0\) telle que \(\rho\) et \(\iota\) soient des homomorphismes de cogroupes. Comme \(\iota\) est une section de \(\rho\), le cogroupe \((A_n)_{n\in\mathbb{N}}\) est donc une «&nbsp;somme semidirecte&nbsp;» de \(A_0\) et d'un cogroupe \((A'_n)_{n\in\mathbb{N}}\) de \(\mathrm{GrAl}/k\) tel que \(A'_0=k\). Autrement dit, si \((A'_n)\) est la sous-algèbre graduée de \((A_n)\) telle que la suite
+\[
+(A'_n) \xrightarrow{\ j=\mathrm{incl.}\ } (A_n) \xrightarrow{\ \mathrm{in}_2 - (\rho\widehat{\otimes}\mathrm{Id})\Delta\ } A_0\widehat{\otimes}_k(A_n)
+\]
+soit exacte, le morphisme \((A_0\widehat{\otimes}_kA'_n)\to(A_n)\) de composantes \(\iota\) et j est inversible. (On désigne par \(\Delta : (A_n)\to(A_n)\widehat{\otimes}_k(A_n)\) le morphisme qui définit la structure de cogroupe de \((A_n)\)).</p>
+
+<h4 id="VIIB.5.1.4">5.1.4.</h4>
+<p>Dans le cas qui nous intéresse, on a \((A_n) = \mathrm{Gr}_I(A)\) et \(A_0 = A/I\). De plus, il est clair que l'algèbre \((A_n)\) est engendrée par \(A_0\) et \(A_1\), c'est-à-dire que, pour \(n\geqslant1\), l'application
+\[
+A_1\widehat{\otimes}_{A_0}A_1\widehat{\otimes}_{A_0}\cdots\widehat{\otimes}_{A_0}A_1 \longrightarrow A_n
+\]
+définie par la multiplication est surjective. Comme on a \(A_1 \simeq A_0\widehat{\otimes}_kA'_1\) et \(A_n \simeq A_0\widehat{\otimes}_k(A'_1\widehat{\otimes}_k\cdots\widehat{\otimes}_kA'_1)\), on voit que l'application \(A'_1\widehat{\otimes}_k\cdots\widehat{\otimes}_kA'_1 \to A'_n\), qui est induite par la multiplication de \((A'_n)\), est surjective&nbsp;; autrement dit, \((A'_n)\) est engendrée par ses termes de degré 1.</p>
+<p>Désignons maintenant par Gr(B) et Gr'(B) les gradués associés à B pour la filtration induite par celle de A et pour la filtration définie par les adhérences \(\overline{I_B^n}\) des puissances de \(I_B\). Comme le diagramme
+\[
+\xymatrix{
+B \ar[r]^-{\mathrm{incl.}} & A \ar[r]^-{\mathrm{in}_2 - (q\widehat{\otimes}_kA)\Delta_A} & (A/\overline{AI_B})\widehat{\otimes}_kA
+}
+\]
+est commutatif d'après la condition (i), on voit qu'on a \(\mathrm{Gr}(B)_n \subset A'_n\) pour tout n. Or \(I/\overline{I^2} \simeq (A/I)\widehat{\otimes}_kA'_1\) est engendré en tant que (A/I)-module pseudocompact par l'image de \(\mathrm{Gr}'(B)_1\), de sorte qu'on a \(\mathrm{Gr}(B)_1 \simeq A'_1\), d'où \(\mathrm{Gr}(B) = (A'_n)\)&nbsp;; de plus, l'application canonique de \(\mathrm{Gr}'(B)\) dans \(\mathrm{Gr}(B)\) est surjective puisque l'algèbre graduée \(\mathrm{Gr}(B) = (A'_n)\) est engendrée par ses termes de degré 1. Le lemme <a class="ref" href="#VIIB.5.1.5">5.1.5</a> montre donc qu'on a \(\mathrm{Gr}'(B) = \mathrm{Gr}(B)\).</p>
+<p>Considérons enfin le noyau N du couple \((\mathrm{in}_2,(q\widehat{\otimes}A)\Delta_A)\) ci-dessus et munissons N de la filtration induite par celle de A. On a alors \((A'_n)\subset \mathrm{Gr}(B) \subset \mathrm{Gr}(N) \subset (A'_n)\). Comme toutes les filtrations considérées sont séparées, on en déduit \(N=B\) (C.A., V, §7, lemme 1).</p>
+
+<div class="thm thm-plain lemme" id="VIIB.5.1.5">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">5.1.5</span></div>
+  <div class="thm-body"><p>Soient B un groupe abélien, \(B=B'_0\supset B'_1\supset B'_2\supset\cdots\) et \(B=B_0\supset B_1\supset B_2\supset\cdots\) deux filtrations séparées de B par des sous-groupes tels que \(B'_m\subset B_m\) pour tout m. Si l'application canonique de \(B'_m/B'_{m+2}\) dans \(B_m/B_{m+1}\) est surjective pour tout m et si B est complet pour la topologie définie par la filtration \((B'_m)\), alors on a \(B'_m = B_m\) pour tout m.</p></div>
+</div>
+<p>Appliquer le lemme 1 de C.A. V, §7 à l'inclusion de \(B'_m\) dans \(B_m\).</p>
+
+<h3 id="VIIB.5.2">5.2.</h3>
+<p>Dans toute la suite de ce paragraphe 5, k désigne un corps parfait de caractéristique \(p>0\).</p>
+<p>Nous posons \(\overline{\mathbb{N}} = \mathbb{N}\cup\{\infty\}\). Si B est une k-algèbre profinie et si \(r\in\overline{\mathbb{N}}\), nous notons \(((x^{p^r}))_{x\in\mathfrak{r}(B)}\) l'idéal fermé de B qui est engendré par les éléments \(x^{p^r}\), où x parcourt le radical \(\mathfrak{r}(B)\) de B. Si \(r=\infty\), nous utilisons la même notation en convenant que \(((x^{p^\infty}))_{x\in\mathfrak{r}(B)}\) est l'idéal nul. Dans les deux cas, \(B_r\) désigne le quotient \(B/((x^{p^r}))_{x\in\mathfrak{r}(B)}\).</p>
+<p>Nous disons que B <em>est de hauteur \(\leqslant r\)</em> si \(((x^{p^r}))_{x\in\mathfrak{r}(B)}\) est l'idéal nul&nbsp;; si cela a lieu et si r est fini, nous disons que B est <em>de hauteur finie</em>.</p>
+<p>Considérons en particulier le cas où B est de la forme \(k[[\omega]]\), \(\omega\) étant un k-espace vectoriel linéairement compact (<a class="ref" href="#VIIB.0.2.2">0.2.2</a>). Nous disons alors que B <em>est une algèbre de séries formelles</em> et que \(B_r\) (\(r\in\overline{\mathbb{N}}\)&nbsp;; nous convenons donc de dire que \(B_\infty=B\) est également «&nbsp;tronquée&nbsp;») est <em>une algèbre de séries formelles tronquée</em>. Si \(B=k[[\omega]]\), nous écrivons aussi \(((x^{p^r}))_{x\in\omega}\) au lieu de \(((x^{p^r}))_{x\in\mathfrak{r}(B)}\).</p>
+<p>Lorsque \(\omega\) est un k-espace vectoriel linéairement compact filtré par une suite croissante de sous-espaces vectoriels fermés
+\[
+0=\omega_0\subset\omega_1\subset\omega_2\subset\omega_3\subset\cdots
+\]
+nous notons \(((x^{p^r}))_{x\in\omega_r}\) l'idéal fermé de \(k[[\omega]]\) qui est engendré par les éléments \(x^{p^r}\), où r parcourt \(\mathbb{N}\) et x parcourt \(\omega_r\). Nous désignons par \({}_r\omega\) l'espace vectoriel linéairement compact filtré tel que
+\[
+{}_r\omega_i = \omega_i \ \text{ si } i&lt;r \qquad\text{et}\qquad {}_r\omega_i = \omega \ \text{ si } i\geqslant r.
+\]</p>
+
+<div class="thm thm-plain theoreme" id="VIIB.5.2">
+  <div class="thm-head"><span class="thm-name">Théorème (Dieudonné-Cartier)</span></div>
+  <div class="thm-body">
+  <p>Soit \(H\to G\) un monomorphisme de groupes formels infinitésimaux sur un corps parfait k de caractéristique \(p>0\). Soit B l'algèbre affine de l'espace homogène \(H\backslash G\) et supposons vérifiée l'une des deux conditions suivantes&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(i)</span> <p>B est de hauteur finie (ceci a lieu en particulier si G est de hauteur finie).</p></li>
+  <li><span class="item-label">(ii)</span> <p>B est un anneau local noethérien complet.</p></li>
+  </ol>
+  <p>Alors B est isomorphe au produit tensoriel complété d'une famille finie d'algèbres de séries formelles tronquées.</p>
+  </div>
+</div>
+<p>La démonstration de ce théorème occupe les paragraphes <a class="ref" href="#VIIB.5.2.1">5.2.1</a> à 5.2.5.</p>
+
+<h4 id="VIIB.5.2.1">5.2.1.</h4>
+<p>Soient I l'idéal maximal de B et posons \(\omega=I/\overline{I^2}\). On désigne par \(I_r\) le sous-espace vectoriel fermé de I formé des x tels que \(x^{p^r}=0\), par \(\omega_r\) l'image canonique de \(I_r\) dans \(\omega\). Nous allons voir que B est isomorphe à \(k[[\omega]]/((x^{p^r}))_{x\in\omega_r}\) chaque fois qu'il existe une section \(\sigma : \omega\to I\) de la projection canonique de I sur \(I/\overline{I^2}\), telle que \(\sigma(\omega_r)\subset I_r\) pour tout r&nbsp;: une telle section se prolonge en effet en un homomorphisme continu \(t : k[[\omega]]\to B\), qui se factorise à travers \(B' = k[[\omega]]/((x^{p^r}))_{x\in\omega_r}\). Nous prouvons de 5.2.2 à 5.2.5 que l'homomorphisme \(s : B'\to B\), qui est induit par t, est bijectif.</p>
+<p>Ce qui précède s'applique en particulier quand la filtration de \(\omega\) est <em>stationnaire</em>, c'est-à-dire quand il existe un entier \(n_0\) tel que \(\omega_n=\omega_{n_0}\) pour \(n_0\leqslant n<+\infty\). Dans ce cas là en effet, on peut construire \(\sigma\) d'abord sur \(\omega_1\), puis sur un supplémentaire \(\omega'_2\) de \(\omega_1\) dans \(\omega_2\), puis sur un supplémentaire \(\omega'_3\) de \(\omega_2\) dans \(\omega_3\ldots\), enfin sur un supplémentaire \(\omega'_\infty\) de \(\omega_{n_0}\) dans \(\omega\). Il est clair qu'on obtient ainsi un isomorphisme de \(k[[\omega]]/((x^{p^r}))_{x\in\omega_r}\) sur le produit tensoriel complété des algèbres \(k[[\omega_1]]/((x^p))_{x\in\omega_1}\), \(k[[\omega'_2]]/((x^{p^2}))_{x\in\omega'_2}\), \(\ldots\), \(k[[\omega'_{n_0}]]/((x^{p^{n_0}}))_{x\in\omega'_{n_0}}\), \(k[\omega'_\infty]\).</p>
+<p>La filtration de \(\omega\) est évidemment stationnaire si \(\omega_r=\omega\) pour r assez grand (cas (i)), ou bien si \(\omega\) est de dimension finie (cas (ii)). L'énoncé ci-dessus implique donc notre théorème.</p>
+
+<h4 id="VIIB.5.2.2">5.2.2.</h4>
+<p>Supposons d'abord B de hauteur \(\leqslant1\), c'est-à-dire que \(x^p=0\) si \(x\in I\). Il résulte alors de <a class="ref" href="#VIIB.5.1.4">5.1.4</a> que le gradué \(\mathrm{Gr}_I(B)\) associé à B par la filtration \(I\supset\overline{I^2}\supset\overline{I^3}\cdots\) est muni d'une structure de co-groupe de la catégorie \(\mathrm{GrAl}/k\). Si l'on pose \(C=\prod_{n\geqslant0}\mathrm{Gr}_I(B)_n\), le morphisme structural de \(\mathrm{Gr}_I(B)\) dans \(\mathrm{Gr}_I(B)\widehat{\otimes}_k\mathrm{Gr}_I(B)\) induit un morphisme diagonal \(\Delta_C : C\to C\widehat{\otimes}_kC\) qui fait de C l'algèbre affine d'un groupe formel K sur k. Il est clair qu'on a \(\omega_{K/k}=I/\overline{I^2}\) et que K est radiciel de hauteur \(\leqslant1\). D'après <a class="ref" href="#VIIB.4.4">4.4</a>, l'application identique de \(\omega_{K/k}\) induit donc un isomorphisme de \(k[[\omega_{K/k}]]/((x^p))_{x\in\omega_{K/k}}\) sur C. Ceci implique en particulier que l'application s de <a class="ref" href="#VIIB.5.2.1">5.2.1</a> induit un isomorphisme sur les gradués associés à B' et B lorsqu'on filtre B' et B par les puissances des idéaux maximaux. Donc s est un isomorphisme (C.A. V, §7, lemme 1).</p>
+
+<h4 id="VIIB.5.2.3">5.2.3.</h4>
+<p>Supposons maintenant B de hauteur finie \(\leqslant r\)&nbsp;: soit \(\pi\) l'isomorphisme \(x\mapsto x^p\) de k sur k. L'application linéaire de \(B\widehat{\otimes}_\pi k\) dans B qui envoie \(b\widehat{\otimes}_\pi x\) sur \(b^px = (bx^{\frac1p})^p\) a une image fermée qui n'est autre que la sous-algèbre fermée \(B^p = \{b^p\mid b\in B\}\) de B. D'après la proposition <a class="ref" href="#VIIB.5.1">5.1</a>, si l'on pose \(J=B^p\cap I = A\cap I_A\), \(B^p\) est l'algèbre affine du quotient à gauche de G par un sous-groupe H d'algèbre affine \(A/AJ\). Comme A est topologiquement libre sur B (<a class="ref" href="#VIIB.1.4">1.4</a>), B est un facteur direct du B-module pseudocompact A (<a class="ref" href="#VIIB.1.3.2">1.3.2</a>), de sorte qu'on peut identifier \(B = B/BJ\) à une sous-algèbre fermée de \(A/AJ\).</p>
+<p>D'après la proposition <a class="ref" href="#VIIB.5.1">5.1</a>, \(B_1\) est l'algèbre affine d'un espace homogène de H et est de hauteur \(\leqslant1\). D'après <a class="ref" href="#VIIB.5.2.2">5.2.2</a>, l'homomorphisme s de <a class="ref" href="#VIIB.5.2.1">5.2.1</a> induit donc un isomorphisme de \(B'_1\) sur \(B_1\). Si nous notons \(I'\) l'idéal maximal de \(B'\), \(B'^p\) la sous-algèbre \(\{x^p\mid x\in B'\}\) de \(B'\) et \(J'\) l'idéal maximal de \(B'^p\), cela signifie que l'homomorphisme \(s : B'\to B\) de <a class="ref" href="#VIIB.5.2.1">5.2.1</a> induit un isomorphisme de \(B'/B'J'\) sur \(B/BJ\). Or, comme A est topologiquement libre sur B et sur \(B^p\) (<a class="ref" href="#VIIB.5.1">5.1</a> et <a class="ref" href="#VIIB.1.4">1.4</a>), B est topologiquement libre sur \(B^p\) (<a class="ref" href="#VIIB.1.3.3">1.3.3</a>)&nbsp;; d'après <a class="ref" href="#VIIB.0.3.4">0.3.4</a>, s est donc un isomorphisme si l'homomorphisme \(s^p : B'^p\to B^p\), qui est induit par s, est un isomorphisme. Ceci est prouvé en 5.2.4 ci-dessous.</p>
+
+<h4 id="VIIB.5.2.4">5.2.4.</h4>
+<p>Pour tout espace vectoriel linéairement compact V sur k, nous notons \({}_\pi V\) l'espace \(V\widehat{\otimes}_\pi k\) déduit de V par l'extension \(x\mapsto x^p\) du corps des scalaires. On a alors un diagramme commutatif exact
+\[
+\xymatrix{
+0 \ar[r] & {{}_\pi\overline{I^2}} \ar[r]^-{\alpha} \ar[d]_-u & {{}_\pi I} \ar[r]^-{\beta} \ar[d]_-v & {{}_\pi\omega} \ar[r] \ar[d]^-w & 0 \\
+0 \ar[r] & \overline{J^2} \ar[r]_-{\gamma} & J \ar[r]_-{\delta} & \overline{\omega} \ar[r] & 0
+}
+\]
+où l'on a posé \(\overline{\omega}=J/\overline{J^2}\) et où les applications u, v, w sont induites par l'application linéaire \(x\widehat{\otimes}a \mapsto x^pa\) de \({}_\pi B\) dans \(B^p\). Si l'on pose \(J_n=\{x\in J\mid x^{p^n}=0\}\) et \(\overline{\omega}_n=\delta(I_n)\), il est clair qu'on a \(J_n=v({}_\pi I_{n+1})\) et \(\overline{\omega}_n=w(\omega_{n+1})\). De plus, comme u et v sont des surjections, w est une surjection et a pour noyau l'image \(\omega_0\) du noyau de v. La section \({}_\pi\sigma : {}_\pi\omega \to {}_\pi I\), qui est induite par la section \(\sigma\) de <a class="ref" href="#VIIB.5.2.1">5.2.1</a>, définit donc par passage au quotient une section \(\tau : \overline{\omega}\to J\) qui est compatible avec les filtrations de J et \(\overline{\omega}\). Par hypothèse de récurrence, cette section induit un isomorphisme \(s'\) de \(B'' = k[[\overline{\omega}]]/((x^{p^r}))_{x\in{}_r\overline{\omega}}\) sur \(B^p\). Comme \(B''\) s'identifie manifestement à \(B'^p\) et \(s'\) à \(s^p\), notre théorème est donc démontré quand B est de hauteur finie.</p>
+
+<h4 id="VIIB.5.2.5">5.2.5.</h4>
+<p>Il reste à considérer le cas où B est de hauteur infinie, et où la projection canonique de I sur \(\omega\) possède une section compatible avec les filtrations de \(\omega\) et I. Il suffit de montrer que pour tout r, l'application \(s_r : B'_r\to B_r\) induite par s est inversible. Or B est un facteur direct du B-module pseudocompact A (<a class="ref" href="#VIIB.1.3.2">1.3.2</a>). Si l'on pose \(L=((x^{p^r}))_{x\in{}_r(B)}\), on peut donc identifier \(B/BL\) à une sous-algèbre fermée de \(A/AL\)&nbsp;; la proposition <a class="ref" href="#VIIB.5.1">5.1</a> montre que \(A/AL\) est l'algèbre affine d'un sous-groupe formel \(G_r\) de G et que \(B/BL\) est l'algèbre affine d'un espace homogène de \(G_r\).</p>
+<p>Posons \(M=I/BL\)&nbsp;; la projection canonique de B sur \(B_r\) induit évidemment un isomorphisme de \(\omega=I/\overline{I^2}\) sur \(M/\overline{M^2}\), qui nous permet d'identifier ces deux espaces. Soit alors \(\omega_n^r\) l'image dans \(\omega\) de l'ensemble \(M_n=\{x\in M\mid x^{p^n}=0\}\)&nbsp;; soit \(I_n^r\) l'image réciproque de \(M_n\) dans I. La suite exacte
+\[
+0 \longrightarrow I_n^r\cap\overline{I^2} \longrightarrow I_n^r \longrightarrow \omega_n^r \longrightarrow 0
+\]
+et l'égalité \(I_n = \bigcap_r I_n^r\) montrent, par passage à la limite projective, que \(\omega_n\) est l'intersection des \(\omega_n^r\) (\(\mathrm{AB5}^*\), 0.2). Or, comme le théorème <a class="ref" href="#VIIB.5.2">5.2</a> est déjà prouvé pour les algèbres de hauteur finie, donc pour les \(B_r\), on a \(\omega_n^r=\omega_n^{r+1}\) si \(n&lt;r\) et \(\omega_n^r=\omega\) si \(n\geqslant r\). Il s'ensuit qu'on a \(\omega_n^r=\omega_n\) si \(n&lt;r\) et \(\omega_n^r=\omega\) si \(n\geqslant r\).</p>
+<p>Autrement dit, l'espace vectoriel \(\omega\) filtré par les sous-espaces \(\omega_n^r\) n'est autre que \({}_r\omega\) (<a class="ref" href="#VIIB.5.2">5.2</a>). A fortiori, l'application \(\sigma^r\) composée de \(\sigma : \omega\to I\) et de la projection canonique de I sur M est compatible avec les filtrations \((\omega_n^r)\) et \((M_n)\) de \(\omega\) et M. Comme \(k[[{}_r\omega]]/((x^{p^n}))_{x\in{}_r\omega_n}\) n'est autre que \(B'_r\) et que \(s_r : B'_r\to B_r\) est l'homomorphisme induit par \(\sigma^r\), <a class="ref" href="#VIIB.5.2.4">5.2.4</a> montre que \(s_r\) est un isomorphisme, cqfd</p>
+
+<h3 id="VIIB.5.3">5.3. Remarques.</h3>
+<p>Appelons <em>stationnaire</em> toute algèbre profinie sur k qui est le produit tensoriel complété d'une famille d'algèbres de séries formelles tronquées. Si G est un groupe formel infinitésimal sur k et B l'algèbre affine d'un espace homogène de G, il résulte du théorème <a class="ref" href="#VIIB.5.2">5.2</a> que l'algèbre \(B/((x^{p^r}))_{x\in\mathfrak{r}(B)}\) est stationnaire pour tout entier \(r\in\mathbb{N}\). Cela implique en particulier que B est une limite projective d'algèbres stationnaires.</p>
+<p>Je ne sais pas si, avec les notations de <a class="ref" href="#VIIB.5.2.1">5.2.1</a>, on peut choisir G et B de telle façon qu'il n'existe pas de section \(\sigma : \omega\to I\) compatible avec les filtrations. On remarquera cependant qu'on peut avoir pour \(\omega\) n'importe quel espace vectoriel linéairement compact filtré par une suite croissante de sous-espaces fermés. Si \(\omega_1\subset\omega_2\subset\cdots\subset\omega\) est un tel espace filtré, on peut en effet définir dans l'algèbre \(A=k[[\omega]]/((x^{p^r}))_{x\in\omega_r}\) un morphisme diagonal \(\Delta_A : A\to A\widehat{\otimes}_kA\) vérifiant les conditions (i), (ii), (iii) de <a class="ref" href="#VIIB.2.1">2.1</a>&nbsp;; il suffit de poser \(\Delta_Ay = y\widehat{\otimes}1+1\widehat{\otimes}y\) lorsque y est l'image dans A d'un élément de \(\omega\).</p>
+
+<div class="thm thm-plain corollaire" id="VIIB.5.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.4</span></div>
+  <div class="thm-body"><p>Soient G un groupe algébrique sur un corps parfait k de caractéristique \(p>0\), H un sous-groupe algébrique de G, e l'image de l'élément neutre de G dans \(H\backslash G\) et A l'algèbre locale de \(H\backslash G\) en e. Alors \(\widehat{A}\) est isomorphe à une algèbre de la forme
+\[
+k[[X_1,\ldots,X_r,\ldots X_s]]/(X_1^{p^{n_1}},\ldots,X_r^{p^{n_r}}).
+\]</p></div>
+</div>
+<p>Ceci résulte de <a class="ref" href="#VIIB.5.2">5.2</a> (ii) et <a class="ref" href="#VIIB.1.3.4">1.3.4</a>.</p>
+
+</body>
+</html>
+
+

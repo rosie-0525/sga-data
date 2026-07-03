@@ -1,0 +1,1777 @@
+{
+  "chapter_id": "I",
+  "title": "EXPOSÉ I: STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES",
+  "number": "1",
+  "pages": [
+    {
+      "id": "1",
+      "title": "Page 1",
+      "blocks": [
+        {
+          "id": "1.1",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I <br> STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES <br> GROUPES <br> par M. Demazure</p>"
+        },
+        {
+          "id": "1.2",
+          "type": "paragraph",
+          "html": "<p>Cet exposé se compose de deux parties ; la première rassemble un certain nombre <br> de définitions générales et pose des notations qui seront souvent utilisées par la suite, <br> la seconde traite de la cohomologie des groupes et aboutit au théorème 5.3.3 (nullité <br> de la cohomologie des groupes diagonalisables). <br> Nous choisissons une fois pour toutes un Univers. Toutes les définitions posées et toutes les constructions effectuées seront relatives à cet Univers. Nous nous <br> permettrons systématiquement l’abus de langage suivant : pour définir un foncteur <br> f : C → C ′ , nous nous contenterons de définir l’objet f (S) de C ′ pour tout objet S <br> de C , chaque fois qu’il n’y aura aucune ambiguı̈té sur la manière de définir f (h) pour <br> une flèche h de C . En pratique, nous dirons : soit f : C → C ′ le foncteur défini par <br> f (S) = · · · .</p>"
+        },
+        {
+          "id": "1.3",
+          "type": "paragraph",
+          "html": "<p>1</p>"
+        },
+        {
+          "id": "1.4",
+          "type": "paragraph",
+          "html": "<p>1. Généralités <br> 1.1. — Soit C une catégorie. On notera Cb la catégorie Hom(C ◦ , (Ens)) des foncteurs <br> contravariants de C dans la catégorie (Ens) des ensembles. Il existe un foncteur <br> canonique h : C → Cb qui associe à tout X ∈ Ob(C ) le foncteur hX tel que <br> hX (S) = Hom(S, X).</p>"
+        },
+        {
+          "id": "1.5",
+          "type": "paragraph",
+          "html": "<p>Pour tout foncteur F ∈ Ob(Cb), on définit (cf. par exemple EGA 0.8.1) une bijection <br> ∼</p>"
+        },
+        {
+          "id": "1.6",
+          "type": "paragraph",
+          "html": "<p>Hom(hX , F) −→ F(X).</p>"
+        },
+        {
+          "id": "1.7",
+          "type": "paragraph",
+          "html": "<p>En particulier, pour tout couple X, Y d’objets de C , l’application canonique <br> ∼</p>"
+        },
+        {
+          "id": "1.8",
+          "type": "paragraph",
+          "html": "<p>Hom(X, Y) −→ Hom(hX , hY ) <br> est bijective ; le foncteur h est pleinement fidèle. Il définit donc un isomorphisme de <br> C sur une sous-catégorie pleine de Cb, et une équivalence de C avec la sous-catégorie <br> pleine de Cb formée des foncteurs représentables (i.e. isomorphes à un foncteur de la <br> forme hX ). Dans la suite, nous identifierons souvent X et hX . Les numéros suivants <br> ont pour but de montrer que cette identification peut se faire sans danger.</p>"
+        },
+        {
+          "id": "1.9",
+          "type": "paragraph",
+          "html": "<p>2</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "2",
+      "title": "Page 2",
+      "blocks": [
+        {
+          "id": "2.1",
+          "type": "paragraph",
+          "html": "<p>2</p>"
+        },
+        {
+          "id": "2.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "2.3",
+          "type": "heading",
+          "html": "<p>1.2. — Un monomorphisme de Cb n’est autre qu’un morphisme F → G tel que pour <br> S ∈ Ob(C ), l’application d’ensembles correspondante F(S) → G(S) soit injective. On <br> dira que F est un sous-objet (ou un sous-foncteur) de G si F(S) est un sous-ensemble <br> de G(S) pour chaque S. <br> Dans Cb les limites projectives « quelconques » existent et se calculent par <br> (lim Fi )(S) = lim Fi (S), <br> ←− <br> ←− <br> i</p>"
+        },
+        {
+          "id": "2.4",
+          "type": "paragraph",
+          "html": "<p>i</p>"
+        },
+        {
+          "id": "2.5",
+          "type": "paragraph",
+          "html": "<p>en particulier les produits fibrés par <br> \u0001 <br> F × F′ (S) = F(S) × F′ (S). <br> G</p>"
+        },
+        {
+          "id": "2.6",
+          "type": "paragraph",
+          "html": "<p>3</p>"
+        },
+        {
+          "id": "2.7",
+          "type": "paragraph",
+          "html": "<p>G(S)</p>"
+        },
+        {
+          "id": "2.8",
+          "type": "paragraph",
+          "html": "<p>Nous choisirons comme objet final de Cb le foncteur e tel que e(S) = {∅}. Tout <br> F ∈ Ob(Cb) possède un morphisme unique dans e et on pose <br> F × F′ = F × F′ . <br> e</p>"
+        },
+        {
+          "id": "2.9",
+          "type": "paragraph",
+          "html": "<p>Pour tout F ∈ Ob(Cb) on pose</p>"
+        },
+        {
+          "id": "2.10",
+          "type": "paragraph",
+          "html": "<p>Γ(F) = Hom(e, F);</p>"
+        },
+        {
+          "id": "2.11",
+          "type": "paragraph",
+          "html": "<p>un élément de Γ(F) est donc une famille (γS )S∈Ob(C ) , γS ∈ F(S) telle que pour toute <br> flèche f : S′ → S′′ de C , on ait F(f )(γS′′ ) = γS′ . <br> Le foncteur h commute aux limites projectives ; en particulier pour que X × X′ <br> existe (X, X′ ∈ Ob(C )), resp. pour que C admette un objet final e, il faut et il suffit <br> que hX × hX′ soit représentable, resp. e soit représentable, et on a <br> hX × hX′ ≃ hX×X′</p>"
+        },
+        {
+          "id": "2.12",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "2.13",
+          "type": "paragraph",
+          "html": "<p>he ≃ e.</p>"
+        },
+        {
+          "id": "2.14",
+          "type": "paragraph",
+          "html": "<p>On pose Γ(X) = Γ(hX ) pour X ∈ Ob(C ). Si C à un objet final e, on a donc un <br> isomorphisme Γ(X) ≃ Hom(e, X). <br> 1.3. — Soit S ∈ Ob(C ). On dénote par C/S la catégorie des objets de C au-dessus de <br> S, c’est-à-dire la catégorie dont les objets sont les flèches f : T → S de C , l’ensemble <br> Hom(f, f ′ ) étant le sous-ensemble de Hom(T, T′ ) formé des u tels que f = f ′ ◦ u. <br> Si C possède un objet final e, alors C/e est isomorphe à C . La catégorie C/S possède <br> un objet final : la flèche identique S → S. <br> Si f : T → S est un objet de C/S , alors on peut former la catégorie (C/S )/f que <br> l’on note par abus de langage (C/S )/T et on a un isomorphisme canonique <br> C/T ≃ (C/S )/T .</p>"
+        },
+        {
+          "id": "2.15",
+          "type": "paragraph",
+          "html": "<p>4</p>"
+        },
+        {
+          "id": "2.16",
+          "type": "paragraph",
+          "html": "<p>d <br> Cette construction s’applique en particulier aux catégories Cb, C <br> /S , etc. . ., on définit <br> b <br> en particulier la catégorie C/hS . <br> Si f : T → S est un objet de C/S , alors Γ(f ) s’identifie à l’ensemble Γ(T/S) des <br> sections de T au-dessus de S, c’est-à-dire des flèches S → T inverses à droite de f . <br> Remarquons que hf : hT → hS est alors un objet de Cb/hS et que l’on a : <br> Γ(hf ) ≃ Γ(hT /hS ) ≃ Γ(T/S) ≃ Γ(f ).</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "3",
+      "title": "Page 3",
+      "blocks": [
+        {
+          "id": "3.1",
+          "type": "paragraph",
+          "html": "<p>1. GÉNÉRALITÉS</p>"
+        },
+        {
+          "id": "3.2",
+          "type": "paragraph",
+          "html": "<p>3</p>"
+        },
+        {
+          "id": "3.3",
+          "type": "paragraph",
+          "html": "<p>d <br> 1.4. — On se propose maintenant de définir une équivalence des catégories C <br> /S et <br> b <br> C/hS , c’est-à-dire de prouver que « se donner un foncteur sur la catégorie des objets <br> de C au-dessus de S, c’est « la même chose » que se donner un foncteur sur C muni <br> d’un morphisme dans hS ». <br> d <br> (i) Construction de αS : Cb/hS → C <br> /S . <br> Soit d’abord H : F → hS un objet de Cb/hS . On doit définir un foncteur αS (H) <br> sur C/S . Soit donc d’abord f : T → S un objet de C/S ; définissons αS (H)(f ) comme <br> l’image inverse de f ∈ hS (T) par l’application H(T) : F(T) → hS (T). <br> Soit ensuite u : f → f ′ une flèche de C/S ; alors F(u) : F(T′ ) → F(T) induit une <br> application de αS (H)(f ′ ) dans αS (H)(f ) que l’on note αS (H)(u). On vérifie aussitôt <br> que les applications <br> f 7−→ αS (H)(f )</p>"
+        },
+        {
+          "id": "3.4",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "3.5",
+          "type": "paragraph",
+          "html": "<p>u 7−→ αS (H)(u)</p>"
+        },
+        {
+          "id": "3.6",
+          "type": "paragraph",
+          "html": "<p>d <br> définissent bien un foncteur sur C/S , donc un objet de C <br> /S . <br> ′ <br> ′ <br> Soient enfin H : F → hS et H : F → hS deux objets de Cb/hS et U : H → H′ un <br> morphisme de Cb/hS , <br> F❆ <br> ❆❆ <br> ❆❆ <br> ❆ <br> H ❆❆</p>"
+        },
+        {
+          "id": "3.7",
+          "type": "paragraph",
+          "html": "<p>U</p>"
+        },
+        {
+          "id": "3.8",
+          "type": "paragraph",
+          "html": "<p>// F′ <br> ④ <br> ④ <br> ④④ <br> ④④ ′ <br> }}④④ H <br> hS <br> .</p>"
+        },
+        {
+          "id": "3.9",
+          "type": "paragraph",
+          "html": "<p>Alors pour tout f : T → S, U(T) : F(T) → F′ (T) induit une application <br> αS (U)(f ) :</p>"
+        },
+        {
+          "id": "3.10",
+          "type": "paragraph",
+          "html": "<p>αS (H)(f ) −→ αS (H′ )(f ),</p>"
+        },
+        {
+          "id": "3.11",
+          "type": "paragraph",
+          "html": "<p>ce qui définit un morphisme de foncteurs <br> αS (U) :</p>"
+        },
+        {
+          "id": "3.12",
+          "type": "paragraph",
+          "html": "<p>αS (H) −→ αS (H′ ).</p>"
+        },
+        {
+          "id": "3.13",
+          "type": "paragraph",
+          "html": "<p>On vérifie aisément que les applications <br> H 7−→ αS (H)</p>"
+        },
+        {
+          "id": "3.14",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "3.15",
+          "type": "paragraph",
+          "html": "<p>U 7−→ αS (U)</p>"
+        },
+        {
+          "id": "3.16",
+          "type": "paragraph",
+          "html": "<p>d <br> définissent bien un foncteur αS : Cb/hS → C <br> /S . <br> d <br> (ii) Proposition 1.4.1. — Le foncteur αS : Cb/hS → C <br> /S est une équivalence de catégories. <br> Indiquons seulement le principe de la construction d’un foncteur quasi-inverse βS : <br> d <br> b <br> C <br> /S → C/hS . Soit G un foncteur de C/S ; pour tout objet T de C , on pose <br> βS (G)(T) = somme des ensembles G(f ) pour f ∈ Hom(T, S) = hS (T), <br> ce qui définit un foncteur βS (G) sur C , qui est muni d’une projection évidente sur <br> hS .</p>"
+        },
+        {
+          "id": "3.17",
+          "type": "paragraph",
+          "html": "<p>5</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "4",
+      "title": "Page 4",
+      "blocks": [
+        {
+          "id": "4.1",
+          "type": "paragraph",
+          "html": "<p>4</p>"
+        },
+        {
+          "id": "4.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "4.3",
+          "type": "heading",
+          "html": "<p>1.5. — L’équivalence αS commute aux foncteurs Γ. En d’autres termes, si H : F → hS <br> d <br> est un objet de Cb/hS et αS (H) l’objet correspondant de C <br> /S , on a <br> Γ(αS (H)) ≃ Γ(H) ≃ Γ(F/hS ).</p>"
+        },
+        {
+          "id": "4.4",
+          "type": "paragraph",
+          "html": "<p>L’équivalence αS commute aux foncteurs h : si f : F → S est un objet de C/S , <br> hf : hT → hS est un objet de Cb/hS dont le transformé par αS n’est autre que hC/S (f ), <br> où <br> d <br> hC : C/S −→ C <br> /S <br> /S</p>"
+        },
+        {
+          "id": "4.5",
+          "type": "paragraph",
+          "html": "<p>6</p>"
+        },
+        {
+          "id": "4.6",
+          "type": "paragraph",
+          "html": "<p>est le foncteur canonique . En conséquence :</p>"
+        },
+        {
+          "id": "4.7",
+          "type": "proposition",
+          "html": "<p>Proposition 1.5.1. — Soit H : F → hS un objet de Cb/hS . Pour que αS (H) : C/S → <br> (Ens) soit représentable, il faut et il suffit que F : C → (Ens) soit représentable ; si <br> F ≃ hT , alors αS (H) est représentable par l’objet T → S de C/S . <br> L’équivalence αS est transitive en S : si T ∈ Ob(C/S ), on a un diagramme commutatif d’équivalence <br> αS /hT</p>"
+        },
+        {
+          "id": "4.8",
+          "type": "paragraph",
+          "html": "<p>(Cb/hS )/hT <br> ❏❏❏ <br> ❏❏❏ <br> ❏ <br> ∼ <br> = ❏❏%%</p>"
+        },
+        {
+          "id": "4.9",
+          "type": "paragraph",
+          "html": "<p>// (C <br> d <br> /S )/h</p>"
+        },
+        {
+          "id": "4.10",
+          "type": "paragraph",
+          "html": "<p>αhT</p>"
+        },
+        {
+          "id": "4.11",
+          "type": "paragraph",
+          "html": "<p>// (C <br> \\ <br> /S )/T <br> ✈ <br> ✈ <br> ✈ <br> ✈ <br> ✈✈ ∼ <br> {{✈✈ = <br> // C <br> d <br> , <br> /T</p>"
+        },
+        {
+          "id": "4.12",
+          "type": "paragraph",
+          "html": "<p>T</p>"
+        },
+        {
+          "id": "4.13",
+          "type": "paragraph",
+          "html": "<p>αT</p>"
+        },
+        {
+          "id": "4.14",
+          "type": "paragraph",
+          "html": "<p>Cb/hT</p>"
+        },
+        {
+          "id": "4.15",
+          "type": "paragraph",
+          "html": "<p>où αS /hT désigne (provisoirement) la restriction (cf. 1.6) du foncteur αS aux objets <br> au-dessus de hT . <br> 1.6. Changement de base dans un foncteur. — Pour tout S ∈ Ob(C ), on a un foncteur canonique <br> iS : C/S −→ C <br> défini par iS (f ) = T si f est la flèche T → S. Si f : T → S est un objet de C/S , on <br> note iT/S = if : <br> iT/S : (C/S )/T −→ C/S , <br> et on a le diagramme commutatif : <br> (C/S )/T</p>"
+        },
+        {
+          "id": "4.16",
+          "type": "paragraph",
+          "html": "<p>iT/S</p>"
+        },
+        {
+          "id": "4.17",
+          "type": "paragraph",
+          "html": "<p>// C/S</p>"
+        },
+        {
+          "id": "4.18",
+          "type": "paragraph",
+          "html": "<p>▼▼▼ <br> ▼▼▼ <br> ∼ <br> = ▼▼▼ <br> &&</p>"
+        },
+        {
+          "id": "4.19",
+          "type": "paragraph",
+          "html": "<p>7</p>"
+        },
+        {
+          "id": "4.20",
+          "type": "paragraph",
+          "html": "<p>C/T</p>"
+        },
+        {
+          "id": "4.21",
+          "type": "paragraph",
+          "html": "<p>iS</p>"
+        },
+        {
+          "id": "4.22",
+          "type": "paragraph",
+          "html": "<p>::// C <br> tt <br> t <br> t <br> tt <br> tt iT <br> t <br> t</p>"
+        },
+        {
+          "id": "4.23",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "4.24",
+          "type": "paragraph",
+          "html": "<p>c’est-à-dire, en identifiant (C/S )/T à C/T comme nous le ferons désormais <br> iS ◦ iT/S = iT . <br> De la même manière, si on identifie C et C/e , lorsque C possède un objet final e, alors <br> iS/e : C/S → C/e s’identifie à iS .</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "5",
+      "title": "Page 5",
+      "blocks": [
+        {
+          "id": "5.1",
+          "type": "paragraph",
+          "html": "<p>1. GÉNÉRALITÉS</p>"
+        },
+        {
+          "id": "5.2",
+          "type": "paragraph",
+          "html": "<p>5</p>"
+        },
+        {
+          "id": "5.3",
+          "type": "paragraph",
+          "html": "<p>Pour X ∈ Ob(C ) (resp. X ∈ Ob(C/S )), soit pS (X) (resp. pT/S (X)) l’objet de C/S <br> (resp. de C/T ) lorsqu’il existe, défini par X × S (resp. X ×S T) muni de sa deuxième <br> projection : <br> X ×S T</p>"
+        },
+        {
+          "id": "5.4",
+          "type": "paragraph",
+          "html": "<p>X×S <br> resp.</p>"
+        },
+        {
+          "id": "5.5",
+          "type": "paragraph",
+          "html": "<p>pS (X)</p>"
+        },
+        {
+          "id": "5.6",
+          "type": "paragraph",
+          "html": "<p>pT/S (X)</p>"
+        },
+        {
+          "id": "5.7",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> T</p>"
+        },
+        {
+          "id": "5.8",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> S</p>"
+        },
+        {
+          "id": "5.9",
+          "type": "paragraph",
+          "html": "<p>.</p>"
+        },
+        {
+          "id": "5.10",
+          "type": "paragraph",
+          "html": "<p>Le foncteur (partiellement défini) pS (resp. pT/S ) s’appelle foncteur de changement de <br> base. C’est par définition du produit (resp. du produit fibré) le foncteur adjoint du <br> foncteur iS (resp. iT/S ) . On note également <br> pS (X) = XS</p>"
+        },
+        {
+          "id": "5.11",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "5.12",
+          "type": "paragraph",
+          "html": "<p>pT/S (X) = XT .</p>"
+        },
+        {
+          "id": "5.13",
+          "type": "paragraph",
+          "html": "<p>Le foncteur iS définit un foncteur (restriction) <br> d <br> i∗S : Cb −→ C <br> /S ;</p>"
+        },
+        {
+          "id": "5.14",
+          "type": "paragraph",
+          "html": "<p>où on note FS = i∗S (F) = F ◦ i◦S . On a évidemment <br> i∗T/S ◦ i∗S = i∗T , <br> c’est-à-dire pour tout foncteur F ∈ Ob(Cb), <br> (FS )T = FT . <br> La notation demande une justification que voici :</p>"
+        },
+        {
+          "id": "5.15",
+          "type": "paragraph",
+          "html": "<p>8</p>"
+        },
+        {
+          "id": "5.16",
+          "type": "proposition",
+          "html": "<p>Proposition 1.6.1. — Pour que le foncteur (hX )S : (C/S )◦ → (Ens) soit représentable, <br> il faut et il suffit que le produit X × S existe. On a alors <br> (hX )S ≃ hXS . <br> Ceci montre que FS a deux interprétations : restriction du foncteur F à C/S , foncteur obtenu par changement de base e ← S. Ceci conduit à la notation suivante : <br> F</p>"
+        },
+        {
+          "id": "5.17",
+          "type": "paragraph",
+          "html": "<p>FS</p>"
+        },
+        {
+          "id": "5.18",
+          "type": "paragraph",
+          "html": "<p>FT</p>"
+        },
+        {
+          "id": "5.19",
+          "type": "paragraph",
+          "html": "<p>e oo</p>"
+        },
+        {
+          "id": "5.20",
+          "type": "paragraph",
+          "html": "<p>S oo</p>"
+        },
+        {
+          "id": "5.21",
+          "type": "paragraph",
+          "html": "<p>T</p>"
+        },
+        {
+          "id": "5.22",
+          "type": "paragraph",
+          "html": "<p>qui rend bien compte des deux interprétations précédentes. <br> Remarquons que l’on a <br> Γ(FS ) ≃ Hom(hS , F) ≃ F(S), <br> en particulier <br> Γ(XS ) ≃ Hom(S, X).</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "6",
+      "title": "Page 6",
+      "blocks": [
+        {
+          "id": "6.1",
+          "type": "paragraph",
+          "html": "<p>6</p>"
+        },
+        {
+          "id": "6.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "6.3",
+          "type": "heading",
+          "html": "<p>1.7. Objets Hom, Isom, ... — Soient F et G deux objets de Cb. Nous allons définir <br> un autre objet de Cb de la manière suivante :</p>"
+        },
+        {
+          "id": "6.4",
+          "type": "paragraph",
+          "html": "<p>Hom(F, G)(S) = HomCd (FS , GS ) ≃ HomCb/h (F × hS , G × hS ) ≃ HomCb(F × hS , G). <br> /S</p>"
+        },
+        {
+          "id": "6.5",
+          "type": "paragraph",
+          "html": "<p>9</p>"
+        },
+        {
+          "id": "6.6",
+          "type": "paragraph",
+          "html": "<p>S</p>"
+        },
+        {
+          "id": "6.7",
+          "type": "paragraph",
+          "html": "<p>L’objet Hom(F, G) défini ci-dessus possède les propriétés suivantes : <br> (i) Hom(e, G) ≃ G <br> (ii) La formation de Hom commute à l’extension de la base : <br> Hom(FS , GS ) ≃ Hom(F, G)S . <br> (iii) (F, G) 7→ Hom(F, G) est un bifoncteur, contravariant en F et covariant en <br> G. <br> Ces trois propriétés sont évidentes sur les définitions. <br> Soit E un troisième objet de Cb. Nous allons définir un morphisme de trifoncteurs <br> Hom(E × F, G) −→ Hom(E, Hom(F, G)).</p>"
+        },
+        {
+          "id": "6.8",
+          "type": "paragraph",
+          "html": "<p>Soit f : E × F → G ; nous devons lui associer un morphisme de E dans Hom(F, G). <br> Soit donc S′ → S une flèche de C . On a des applications <br> f (S′ )</p>"
+        },
+        {
+          "id": "6.9",
+          "type": "paragraph",
+          "html": "<p>E(S) × F(S′ ) −→ E(S′ ) × F(S′ ) −−−→ G(S′ ). <br> Un élément de E(S) définit donc pour tout S′ → S une application de F(S′ ) → G(S′ ) <br> fonctorielle en S′ , donc un élément de Hom(F, G)(S). Nous laissons au lecteur le soin <br> de vérifier que l’on a bien construit ainsi un morphisme de trifoncteurs. <br> Proposition 1.7.1. — Le morphisme de foncteurs <br> Hom(E × F, G) −→ Hom(E, Hom(F, G)) <br> est un isomorphisme. <br> Indiquons seulement un principe de démonstration. Considérons les deux membres <br> comme des foncteurs en E. Le résultat annoncé est vrai si E = hX ; en effet, ce <br> n’est autre en ce cas que la définition du foncteur Hom(F, G). D’autre part les deux <br> membres comme foncteurs en E transforment limites inductives en limites projectives. <br> Enfin, tout objet de Cb est limite inductive d’objets de la forme hX . <br> 10</p>"
+        },
+        {
+          "id": "6.10",
+          "type": "paragraph",
+          "html": "<p>Corollaire. — On a Hom(E, Hom(F, G)) ≃ Hom(F, Hom(E, G)). <br> En particulier, faisant E = e, et compte tenu de Hom(e, G) ≃ G, on a <br> Γ(Hom(F, G)) ≃ Hom(F, G). <br> Notons que la composition des Hom fournit des morphismes fonctoriels <br> Hom(F, G) × Hom(G, H) −→ Hom(F, H). <br> Si F et G sont deux objets de Cb, on note Isom(F, G) le sous-ensemble de <br> Hom(F, G) formé des isomorphismes de F sur G. On définit alors un sous-objet <br> Isom(F, G) de Hom(F, G) par : <br> Isom(F, G)(S) = Isom(FS , GS ).</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "7",
+      "title": "Page 7",
+      "blocks": [
+        {
+          "id": "7.1",
+          "type": "paragraph",
+          "html": "<p>1. GÉNÉRALITÉS</p>"
+        },
+        {
+          "id": "7.2",
+          "type": "paragraph",
+          "html": "<p>7</p>"
+        },
+        {
+          "id": "7.3",
+          "type": "paragraph",
+          "html": "<p>On a alors des isomorphismes <br> Γ(Isom(F, G)) ≃ Isom(F, G), <br> Isom(F, G) ≃ Isom(G, F). <br> Dans le cas particulier où F = G, on pose <br> End(F) = Hom(F, F) ,</p>"
+        },
+        {
+          "id": "7.4",
+          "type": "paragraph",
+          "html": "<p>End(F) = Hom(F, F) ≃ Γ(End(F)),</p>"
+        },
+        {
+          "id": "7.5",
+          "type": "paragraph",
+          "html": "<p>Aut(F) = Isom(F, F) ,</p>"
+        },
+        {
+          "id": "7.6",
+          "type": "paragraph",
+          "html": "<p>Aut(F) = Isom(F, F) ≃ Γ(Aut(F)).</p>"
+        },
+        {
+          "id": "7.7",
+          "type": "paragraph",
+          "html": "<p>La formation des objets Hom, Isom, Aut, End commute aux changements de base. <br> Remarquons que l’on peut construire un objet isomorphe à Isom(F, G) de la manière suivante : on a un morphisme <br> Hom(F, G) × Hom(G, F) −→ End(F); <br> permutant F et G, on déduit un morphisme <br> Hom(F, G) × Hom(G, F) −→ End(F) × End(G). <br> D’autre part, le morphisme identique de F est un élément de End(F) et définit <br> donc un morphisme e → End(F). Faisant de même avec G et effectuant le produit, <br> on trouve un morphisme <br> e −→ End(F) × End(G). <br> Il est alors immédiat que le produit fibré de e et de Hom(F, G) × Hom(G, F) <br> au-dessus de End(F) × End(G) est isomorphe à Isom(F, G). <br> Toutes ces définitions s’appliquent en particulier au cas où F = hX , G = hY . <br> Dans le cas où Hom(hX , hY ) est représentable par un objet de C , on note cet objet <br> Hom(X, Y). Il possède la propriété suivante : si Z × X existe, alors <br> Hom(Z, Hom(X, Y)) ≃ Hom(Z × X, Y). <br> Cette propriété le caractérise lorsque les produits existent dans C . <br> On définit de même (lorsqu’ils veulent bien exister) des objets <br> Isom(X, Y)</p>"
+        },
+        {
+          "id": "7.8",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "7.9",
+          "type": "paragraph",
+          "html": "<p>End(X)</p>"
+        },
+        {
+          "id": "7.10",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "7.11",
+          "type": "paragraph",
+          "html": "<p>Aut(X);</p>"
+        },
+        {
+          "id": "7.12",
+          "type": "paragraph",
+          "html": "<p>remarquons simplement que d’après la construction donnée plus haut, Isom(X, Y) <br> existe chaque fois que les produit fibrés existent dans C et que Hom(X, Y), Hom(Y, X), <br> End(X) et End(Y) existent. <br> Ceci s’applique également à des catégories de la forme C/S . Les objets correspondant seront notés de manière aussi explicite que possible par des symboles appropriés : <br> par exemple, si T et T′ sont deux objets de C au-dessus de S, on notera HomS (T, T′ ) <br> l’objet HomC/S (T/S, T′ /S) qui sera donc un objet de C au-dessus de S, ...</p>"
+        },
+        {
+          "id": "7.13",
+          "type": "paragraph",
+          "html": "<p>11</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "8",
+      "title": "Page 8",
+      "blocks": [
+        {
+          "id": "8.1",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "8.2",
+          "type": "paragraph",
+          "html": "<p>8</p>"
+        },
+        {
+          "id": "8.3",
+          "type": "heading",
+          "html": "<p>1.8. Objets constants. — Soit C une catégorie où les sommes directes et les produits <br> fibrés existent et où les sommes directes commutent aux changements de base (par <br> exemple la catégorie des schémas ). Pour tout ensemble E et pour tout objet S de C , <br> soit ES la somme directe d’une famille (Si )i∈E d’objets de C tous isomorphes à S. Cet <br> objet est caractérisé par la formule <br> Hom(ES , T) = Hom(E, Hom(S, T)),</p>"
+        },
+        {
+          "id": "8.4",
+          "type": "paragraph",
+          "html": "<p>T ∈ Ob(C ),</p>"
+        },
+        {
+          "id": "8.5",
+          "type": "paragraph",
+          "html": "<p>où le second Hom est pris dans la catégorie des ensembles. <br> L’objet ES est muni d’une projection canonique sur S, de telle façon que E 7→ ES <br> est en fait un foncteur de (Ens) dans C/S . Supposons que, ∅ désignant un objet initial <br> de C , le diagramme <br> 99 S ❖❖❖ <br> ❖❖❖ <br> rrr <br> r <br> '' <br> r <br> r <br> ∅ ▲▲ <br> S⊔S <br> ▲▲▲ <br> ♦♦77 <br> ▲%% ♦♦♦♦♦ <br> S <br> soit cartésien (c’est le cas de la catégorie des schémas). Alors le foncteur E 7→ ES <br> commute aux limites projectives finies. En particulier : <br> ES × FS = (E × F)S . <br> S</p>"
+        },
+        {
+          "id": "8.6",
+          "type": "paragraph",
+          "html": "<p>′</p>"
+        },
+        {
+          "id": "8.7",
+          "type": "paragraph",
+          "html": "<p>Si S → S est une flèche de C , on a <br> ES′ = (ES )S′ . <br> En particulier, si C possède un objet final e, on a <br> ES = (Ee )S . <br> Un objet de la forme ES sera dit objet constant. Remarquons que l’on a un monomorphisme fonctoriel en E : <br> E −→ Γ(ES /S)</p>"
+        },
+        {
+          "id": "8.8",
+          "type": "paragraph",
+          "html": "<p>13</p>"
+        },
+        {
+          "id": "8.9",
+          "type": "paragraph",
+          "html": "<p>qui associe à chaque i ∈ E, la section de ES sur S définie par l’isomorphisme de S sur <br> Si . <br> Si C est la catégorie des schémas, alors Γ(ES /S) s’identifie aux applications localement constantes de l’espace topologique S dans l’ensemble E, l’application précédente <br> associant à chaque élément de E l’application constante correspondante. Remarquons <br> qu’il résulte de ce qu’on vient de dire que ES peut aussi être défini comme représentant <br> le foncteur qui à tout S′ au-dessus de S associe l’ensemble des fonctions localement <br> constantes de l’espace topologique S′ dans l’ensemble E.</p>"
+        },
+        {
+          "id": "8.10",
+          "type": "paragraph",
+          "html": "<p>2. Structures algébriques <br> Etant donnée une espèce de structure algébrique dans la catégorie des ensembles, <br> nous nous proposons de l’étendre à la catégorie C . Traitons d’abord un exemple : le <br> cas des groupes.</p>"
+        },
+        {
+          "id": "8.11",
+          "type": "paragraph",
+          "html": "<p>12</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "9",
+      "title": "Page 9",
+      "blocks": [
+        {
+          "id": "9.1",
+          "type": "paragraph",
+          "html": "<p>2. STRUCTURES ALGÉBRIQUES</p>"
+        },
+        {
+          "id": "9.2",
+          "type": "paragraph",
+          "html": "<p>9</p>"
+        },
+        {
+          "id": "9.3",
+          "type": "heading",
+          "html": "<p>2.1. Structures de groupe. — Nous gardons les notations du paragraphe précédent. <br> Définition 2.1.1. — Soit G ∈ Ob(Cb). On appelle structure de Cb-groupe sur G la <br> donnée pour tout S ∈ Ob(C ) d’une structure de groupe sur l’ensemble G(S), de telle <br> manière que pour toute flèche f : S′ → S′′ de C , l’application G(f ) : G(S′′ ) → G(S′ ) <br> soit un homomorphisme de groupes. Si G et H sont deux Cb-groupes, on appelle morphisme de Cb-groupes de G dans H tout morphisme u ∈ Hom(G, H) tel que pour tout <br> S ∈ Ob(C ) l’application d’ensembles u(S) : G(S) → H(S) soit un homomorphisme de <br> groupes. <br> On note HomCb-Gr. (G, H) l’ensemble des morphismes de Cb-groupes de G dans H <br> et (Cb-Gr.) la catégorie des Cb-groupes. <br> Exemples. — Soit E ∈ Ob(Cb) ; l’objet Aut(E) est muni de manière évidente d’une <br> structure de Cb-groupe. L’objet final e possède une structure de Cb-groupe unique qui <br> en fait un objet final de (Cb-Gr.). <br> Pour tout S ∈ Ob(C ), soit eG (S) l’élément unité de G(S). La famille des eG (S) <br> définit un élément eG ∈ Γ(G) = Hom(e, G) qui est en fait un morphisme de Cbgroupes e → G et que l’on appelle section unité de G. <br> Remarquons que se donner une structure de Cb-groupe sur G revient à se donner <br> une loi de composition sur G, c’est-à-dire un Cb-morphisme <br> πG : G × G −→ G <br> telle que pour tout S ∈ Ob(C ), πG (S) munisse G(S) d’une structure de groupe. <br> De la même manière, u : G → H est un morphisme de Cb-groupes si et seulement <br> si le diagramme suivant est commutatif : <br> G×G</p>"
+        },
+        {
+          "id": "9.4",
+          "type": "paragraph",
+          "html": "<p>πG</p>"
+        },
+        {
+          "id": "9.5",
+          "type": "paragraph",
+          "html": "<p>f</p>"
+        },
+        {
+          "id": "9.6",
+          "type": "paragraph",
+          "html": "<p>(f,f )</p>"
+        },
+        {
+          "id": "9.7",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> H×H</p>"
+        },
+        {
+          "id": "9.8",
+          "type": "paragraph",
+          "html": "<p>// G</p>"
+        },
+        {
+          "id": "9.9",
+          "type": "paragraph",
+          "html": "<p>πH</p>"
+        },
+        {
+          "id": "9.10",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> // H</p>"
+        },
+        {
+          "id": "9.11",
+          "type": "paragraph",
+          "html": "<p>.</p>"
+        },
+        {
+          "id": "9.12",
+          "type": "paragraph",
+          "html": "<p>Un sous-objet H de G tel que, pour tout S ∈ Ob(C ), H(S) soit un sous-groupe de <br> G(S) possède évidemment une structure de Cb-groupe induite par celle de G : c’est la <br> seule pour laquelle le monomorphisme H → G soit un morphisme de Cb-groupes. Le <br> Cb-groupe H muni de cette structure est appelé sous-Cb-groupe de G. <br> Si G et H sont deux Cb-groupes, le produit G × H est muni d’une structure de <br> Cb-groupe évidente : pour tout S ∈ Ob(C ), on munit G(S) × H(S) de la structure <br> de groupe produit des structures de groupes données sur G(S) et H(S). Le Cb-groupe <br> G × H muni de cette structure sera dit Cb-groupe produit de G et de H (c’en est <br> d’ailleurs le produit dans la catégorie des Cb-groupes).</p>"
+        },
+        {
+          "id": "9.13",
+          "type": "paragraph",
+          "html": "<p>14</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "10",
+      "title": "Page 10",
+      "blocks": [
+        {
+          "id": "10.1",
+          "type": "paragraph",
+          "html": "<p>10</p>"
+        },
+        {
+          "id": "10.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "10.3",
+          "type": "paragraph",
+          "html": "<p>d <br> Si G est un Cb-groupe, alors pour tout S ∈ Ob(C ), GS est un C <br> /S -groupe. Si G et <br> b <br> b <br> H sont deux C -groupes, on définira l’objet HomCb-Gr. (G, H) de C par : <br> HomCb-Gr. (G, H)(S) = HomCd -Gr. (GS , HS ) <br> /S</p>"
+        },
+        {
+          "id": "10.4",
+          "type": "paragraph",
+          "html": "<p>15</p>"
+        },
+        {
+          "id": "10.5",
+          "type": "paragraph",
+          "html": "<p>(Nota : HomCb-Gr. n’est pas en général un Cb-groupe, ni a fortiori l’objet Hom dans <br> la catégorie (Cb-Gr.)). <br> On définit de même les objets <br> IsomCb-Gr. (G, H) ,</p>"
+        },
+        {
+          "id": "10.6",
+          "type": "paragraph",
+          "html": "<p>EndCb-Gr. (G)</p>"
+        },
+        {
+          "id": "10.7",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "10.8",
+          "type": "paragraph",
+          "html": "<p>AutCb-Gr. (G).</p>"
+        },
+        {
+          "id": "10.9",
+          "type": "definition",
+          "html": "<p>Définition 2.1.2. — Soit G ∈ Ob(C ). On appelle structure de C -groupe sur G une <br> structure de Cb-groupe sur hG ∈ Ob(Cb). On appelle morphisme du C -groupe G dans <br> le C -groupe H un élément u ∈ Hom(G, H) ≃ Hom(hG , hH ) qui définit un morphisme <br> de Cb-groupe de hG dans hH . <br> On note (C -Gr.) la catégorie des C -groupes. Notons qu’il existe dans (Cat) un <br> carré cartésien <br> (C -Gr.)</p>"
+        },
+        {
+          "id": "10.10",
+          "type": "paragraph",
+          "html": "<p>// (Cb-Gr.)</p>"
+        },
+        {
+          "id": "10.11",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> \u000f\u000f <br> h <br> // Cb <br> C <br> . <br> Toutes les définitions et constructions précédentes se transportent donc aussitôt à <br> (C -Gr.) chaque fois que les foncteurs qu’elles font intervenir (produits, objets Hom, <br> . . .) sont représentables. Elles s’appliquent aussi aux catégories C/S . En ce cas, nous <br> noterons HomS-Gr. pour HomCd -Gr. , etc... <br> /S</p>"
+        },
+        {
+          "id": "10.12",
+          "type": "paragraph",
+          "html": "<p>16</p>"
+        },
+        {
+          "id": "10.13",
+          "type": "heading",
+          "html": "<p>2.2. — Plus généralement, si (T) est une espèce de structure sur n ensembles de <br> base définie par limites projectives finies (par exemple, par des commutativités de <br> diagrammes construits avec des produits cartésiens : structures de monoı̈de, groupe, <br> d’ensemble à opérateurs, de module sur un anneau, d’algèbre de Lie sur un anneau. . .) <br> la construction précédente permet de définir la notion de « structure d’espèce (T) sur <br> n objets F1 , . . . , Fn de Cb » : une telle structure sera la donnée pour chaque S de C , <br> d’une structure d’espèce (T) sur les ensembles F1 (S), . . . , Fn (S) de telle manière que <br> pour toute flèche S′ → S′′ de C , la famille d’application (Fi (S′′ )) → (Fi (S′ )) soit un <br> poly-homomorphisme pour l’espèce de structure (T). On définit de manière semblable <br> les morphismes de l’espèce de structure (T), d’où une catégorie (Cb× Cb · · · × Cb)(T) . Le <br> foncteur pleinement fidèle (h × h × · · · × h) permet alors de définir par image inverse <br> la catégorie (C × C · · · × C )(T) , puis, comme il commute aux limites projectives, d’y <br> transporter toutes les propriétés, notions et notations fonctorielles introduites dans <br> Cb. Supposons maintenant que dans C les produits fibrés existent, et soit (T) une <br> espèce de structure algébrique définie par la donnée de certains morphismes entre <br> produits cartésiens satisfaisant à des axiomes consistant en certaines commutativités <br> de diagrammes construits à l’aide des flèches précédentes. Une structure d’espèce (T) <br> sur une famille d’objets de C sera donc définie par certains morphismes entre produits</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "11",
+      "title": "Page 11",
+      "blocks": [
+        {
+          "id": "11.1",
+          "type": "paragraph",
+          "html": "<p>2. STRUCTURES ALGÉBRIQUES</p>"
+        },
+        {
+          "id": "11.2",
+          "type": "paragraph",
+          "html": "<p>11</p>"
+        },
+        {
+          "id": "11.3",
+          "type": "paragraph",
+          "html": "<p>cartésiens satisfaisant à certaines conditions de commutation. Il en résulte que si C <br> et C ′ sont deux catégories possédant des produits et f : C → C ′ est un foncteur <br> commutant aux produits, alors pour toute famille d’objets (Fi ) de C munie d’une <br> structure d’espèce (T), la famille (f (Fi )) d’objets de C ′ sera par là-même munie elle <br> aussi d’une structure d’espèce (T). Tout C -groupe sera transformé en C ′ -groupe, tout <br> couple (C -anneau, C -module sur ce C -anneau) en un couple analogue dans C ′ . . . <br> Soit en particulier C une catégorie satisfaisant aux conditions énoncées dans 1.8 ; <br> le foncteur E 7→ ES défini loc. cit. commute aux limites projectives ; il transforme <br> donc groupe en S-groupe (i.e. C/S groupe), anneau en S-anneau. . . <br> Remarque. — Il est bon de remarquer que le procédé de construction précédent appliqué à la catégorie Cb redonne bien les notions que l’on y a déjà définies ; en d’autres <br> termes, il revient de même de se donner sur un objet de Cb une structure d’espèce (T) <br> quand on considère cet objet comme un foncteur sur C , ou de se donner une structure <br> d’espèce (T) sur le foncteur représentable sur Cb défini par cet objet.</p>"
+        },
+        {
+          "id": "11.4",
+          "type": "paragraph",
+          "html": "<p>Nous allons encore traiter deux cas particuliers de la construction précédente, le <br> cas des structures à groupe d’opérateurs et le cas des modules.</p>"
+        },
+        {
+          "id": "11.5",
+          "type": "paragraph",
+          "html": "<p>17</p>"
+        },
+        {
+          "id": "11.6",
+          "type": "heading",
+          "html": "<p>2.3. Structures à groupes d’opérateurs. — <br> Définition 2.3.1. — Soient E ∈ Ob(Cb) et G ∈ Ob(Cb-Gr.). Une structure d’objet à <br> Cb-groupe d’opérateurs G (ou de G-objet) sur E est la donnée sur E(S), pour tout <br> S ∈ Ob(C ), d’une structure d’ensemble à groupes d’opérateurs G(S) de telle manière <br> que, pour toute flèche S′ → S′′ de C , l’application d’ensembles E(S′′ ) → E(S′ ) soit <br> compatible avec l’homomorphisme d’opérateurs G(S′′ ) → G(S′ ). <br> Comme d’habitude, il revient au même de se donner un morphisme <br> µ : G × E −→ E <br> qui pour tout S munisse E(S) d’une structure d’ensemble à opérateurs G(S). Mais <br> Hom(G × E, E) ≃ Hom(G, End(E)), donc µ définit un morphisme G → End(E) <br> et il est immédiat que celui-ci applique G dans Aut(E) et que c’est un morphisme <br> de Cb-groupes. En conséquence : se donner sur E une structure d’objet à Cb-groupe <br> d’opérateurs G est équivalent à se donner un morphisme de Cb-groupes <br> ρ : G −→ Aut(E).</p>"
+        },
+        {
+          "id": "11.7",
+          "type": "paragraph",
+          "html": "<p>En particulier, tout élément g ∈ G(S) définit un automorphisme ρ(g) du foncteur ES , <br> c’est-à-dire un automorphisme de E × hS commutant à la projection E × hS → hS , <br> et en particulier un automorphisme de l’ensemble E(S′ ) pour tout S′ → S. <br> Définition 2.3.2. — On note EG le sous-objet de E défini comme suit : <br> EG (S) = {x ∈ E(S), xS′ invariant sous G(S′ ) pour tout S′ −→ S}, <br> où xS′ désigne l’image de x par E(S) → E(S′ ). <br> Alors EG (« sous-objet des invariants de G ») est le plus grand sous-objet de E sur <br> lequel G opère trivialement.</p>"
+        },
+        {
+          "id": "11.8",
+          "type": "paragraph",
+          "html": "<p>18</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "12",
+      "title": "Page 12",
+      "blocks": [
+        {
+          "id": "12.1",
+          "type": "paragraph",
+          "html": "<p>12</p>"
+        },
+        {
+          "id": "12.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "12.3",
+          "type": "definition",
+          "html": "<p>Définition 2.3.3. — Soit F un sous-objet de E. On note NormG F et CentrG F <br> sous-Cb-groupes de G définis par</p>"
+        },
+        {
+          "id": "12.4",
+          "type": "paragraph",
+          "html": "<p>les</p>"
+        },
+        {
+          "id": "12.5",
+          "type": "paragraph",
+          "html": "<p>( NormG F)(S) = {g ∈ G(S) | ρ(g)FS ⊂ FS }</p>"
+        },
+        {
+          "id": "12.6",
+          "type": "paragraph",
+          "html": "<p>= {g ∈ G(S) | ρ(g)F(S′ ) ⊂ F(S′ ),</p>"
+        },
+        {
+          "id": "12.7",
+          "type": "paragraph",
+          "html": "<p>pour tout S′ −→ S},</p>"
+        },
+        {
+          "id": "12.8",
+          "type": "paragraph",
+          "html": "<p>( CentrG F)(S) = {g ∈ G(S) | ρ(g)|FS = identité} <br> = {g ∈ G(S) | ρ(g)|F(S′ ) = identité, pour tout S′ −→ S}, <br> où la barre verticale après ρ(g) désigne la restriction. <br> Définition 2.3.4. — Si G est un C -groupe et E un objet de Cb (resp. E un objet de <br> C ) une structure de G-objet sur E (resp. sur E) est une structure de hG -objet sur E <br> (resp. hE ). <br> Vu cette définition, toutes les notions et notations définies ci-dessus se transportent <br> à C , lorsqu’elles ne font intervenir que des foncteurs représentables : par exemple si <br> NormhG (E) est représentable, alors il existe un et un seul sous-objet de G qui le <br> représente et qui est alors un sous-C -groupe de G, on le note NormG (E) . . .</p>"
+        },
+        {
+          "id": "12.9",
+          "type": "paragraph",
+          "html": "<p>19</p>"
+        },
+        {
+          "id": "12.10",
+          "type": "definition",
+          "html": "<p>Définition 2.3.5. — a) On dit que le Cb-groupe G opère sur le Cb-groupe H si H est <br> muni d’une structure de G-objet telle que, pour tout g ∈ G(S), l’automorphisme de <br> H(S) défini par g soit un automorphisme de groupe. <br> Il revient au même de dire que pour tout g ∈ G(S), l’automorphisme ρ(g) de HS <br> d <br> b <br> est un automorphisme de C <br> /S -groupes, ou encore que le morphisme de C -groupes <br> G → Aut(H) applique G dans AutCb-Gr. (H). <br> b) Dans la situation ci-dessus, il existe sur le produit H × G une structure de Cbgroupe unique telle que, pour tout S, H × G(S) soit le produit semi-direct des groupes <br> H(S) et G(S) relativement à l’opération donnée de G(S) sur H(S). On notera ce Cbgroupe H · G et l’appellera produit semi-direct de H par G. On a donc par définition <br> (H · G)(S) = H(S) · G(S). <br> Soit G un Cb-groupe. Pour toute flèche S′ → S de C et tout g ∈ G(S), soit Int(g) <br> l’automorphisme de G(S′ ) défini par Int(g)h = ghg −1 . Cette définition se prolonge en <br> celle d’un morphisme de Cb-groupes <br> Int : G −→ AutCb-Gr. (G) ⊂ Aut(G).</p>"
+        },
+        {
+          "id": "12.11",
+          "type": "paragraph",
+          "html": "<p>La définition 2.3.3 s’applique donc et on a des sous-Cb-groupes de G <br> NormG (E) et</p>"
+        },
+        {
+          "id": "12.12",
+          "type": "paragraph",
+          "html": "<p>CentrG (E)</p>"
+        },
+        {
+          "id": "12.13",
+          "type": "paragraph",
+          "html": "<p>pour tout sous-objet E de G. <br> Définition 2.3.6. — On appelle centre de G et on note Centr(G) le sous-Cb-groupe <br> CentrG (G) de G. On dit que G est commutatif si Centr(G) = G ou, ce qui revient <br> au même, si G(S) est commutatif pour tout S. On dit que le sous-Cb-groupe H de</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "13",
+      "title": "Page 13",
+      "blocks": [
+        {
+          "id": "13.1",
+          "type": "paragraph",
+          "html": "<p>3. LA CATÉGORIE DES O-MODULES, LA CATÉGORIE DES G-O-MODULES</p>"
+        },
+        {
+          "id": "13.2",
+          "type": "paragraph",
+          "html": "<p>13</p>"
+        },
+        {
+          "id": "13.3",
+          "type": "paragraph",
+          "html": "<p>G est invariant dans G si NormG (H) = G, ou, ce qui revient au même, si H(S) est <br> invariant dans G(S) pour tout S. <br> Beaucoup de définitions et de propositions de la théorie élémentaire des groupes se <br> transposent aisément. Signalons simplement la suivante qui nous sera utile : <br> Proposition 2.3.7. — Soit f : W → G un morphisme de Cb-groupes. Posons H(S) = <br> Ker f (S). Soit u : G → W un morphisme de Cb-groupes qui soit une section de f <br> (et qui est alors nécessairement un monomorphisme). Alors W s’identifie au produit <br> semi-direct de H par G pour l’opération de G sur H définie par (g, h) 7→ Int(u(g))h <br> pour g ∈ G(S), h ∈ H(S), S ∈ Ob(C ).</p>"
+        },
+        {
+          "id": "13.4",
+          "type": "paragraph",
+          "html": "<p>20</p>"
+        },
+        {
+          "id": "13.5",
+          "type": "paragraph",
+          "html": "<p>L’ensemble de ces définitions et propositions se transporte comme d’habitude à C . <br> On définit en particulier le produit semi-direct de deux C -groupes H et G (G opérant <br> sur H) lorsque le produit cartésien H × G existe, et on a l’analogue de la proposition <br> 2.3.7 sous la forme suivante : <br> i</p>"
+        },
+        {
+          "id": "13.6",
+          "type": "paragraph",
+          "html": "<p>f</p>"
+        },
+        {
+          "id": "13.7",
+          "type": "proposition",
+          "html": "<p>Proposition 2.3.8. — Soit H − <br> →W− <br> → G une suite de morphismes de C -groupes telle <br> que pour tout S ∈ Ob(C ), (H(S), i(S)) soit un noyau de f (S) : W(S) → G(S). Soit <br> u : G → W un morphisme de C -groupes qui soit une section de f . Alors W s’identifie <br> au produit semi-direct de H par G pour l’opération de G sur H telle que si S ∈ Ob(C ), <br> si g ∈ G(S) et h ∈ H(S), on ait Int(u(g))i(h) = i(g h). <br> 3. La catégorie des O-modules, la catégorie des G-O-modules <br> Définition 3.1. — Soient O et F deux objets de Cb. On dit que F est un Cb-module sur <br> le Cb-anneau O, ou en abrégé un O-module, si, pour tout S ∈ Ob(C ), on a muni O(S) <br> d’une structure d’anneau et F(S) d’une structure de module sur cet anneau de telle <br> manière que pour toute flèche S′ → S′′ de C , O(S′′ ) → O(S′ ) soit un homomorphisme <br> d’anneaux et F(S′′ ) → F(S′ ) un homomorphisme de groupes abéliens compatible avec <br> cet homomorphisme d’anneaux. <br> Si O est fixé, on définit de manière habituelle un morphisme des O-modules F <br> et F′ , d’où le groupe commutatif HomO (F, F′ ), et la catégorie des O-modules notée <br> (O-Mod.). Remarquons que si O0 est le Cb-anneau défini par O0 (S) = Z (qu’il ne <br> faut pas confondre avec le foncteur associé à l’objet constant Z), alors la catégorie des <br> O0 -modules est isomorphe à la catégorie des Cb-groupes commutatifs. La catégorie <br> (O-Mod.) est abélienne. <br> Remarquons que, si F est un O-module, alors pour tout S ∈ Ob(C ), FS est un <br> OS -module. On peut donc définir un Cb-groupe abélien HomO (F, F′ ) par <br> HomO (F, F′ )(S) = HomOS (FS , F′S ).</p>"
+        },
+        {
+          "id": "13.8",
+          "type": "paragraph",
+          "html": "<p>On définira de même des objets <br> IsomO (F, F′ ), EndO (F) , AutO (F), <br> le dernier étant un Cb-groupe pour la structure induite par la composition des automorphismes.</p>"
+        },
+        {
+          "id": "13.9",
+          "type": "paragraph",
+          "html": "<p>21</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "14",
+      "title": "Page 14",
+      "blocks": [
+        {
+          "id": "14.1",
+          "type": "paragraph",
+          "html": "<p>14</p>"
+        },
+        {
+          "id": "14.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "14.3",
+          "type": "definition",
+          "html": "<p>Définition 3.2. — Soient O un Cb-anneau, F un O-module et G un Cb-groupe. On <br> appelle structure de G-O-module sur F une structure de G-objet telle que pour S ∈ <br> Ob(C ) et tout g ∈ G(S), l’automorphisme de F(S) défini par g soit un automorphisme <br> de sa structure de O(S)-module. <br> Il revient au même de dire que le morphisme de Cb-groupes <br> ρ : G −→ Aut(F) <br> défini en 2.3 applique G dans le sous-Cb-groupe AutO (F) de Aut(F). Se donner une <br> structure de G-O-module sur le O-module F, c’est donc se donner un morphisme de <br> Cb-groupes <br> ρ : G −→ AutO (F).</p>"
+        },
+        {
+          "id": "14.4",
+          "type": "paragraph",
+          "html": "<p>On définit de manière naturelle le groupe abélien <br> HomG-O (F, F′ ),</p>"
+        },
+        {
+          "id": "14.5",
+          "type": "paragraph",
+          "html": "<p>22</p>"
+        },
+        {
+          "id": "14.6",
+          "type": "paragraph",
+          "html": "<p>donc la catégorie additive des G-O-modules notée (G-O-Mod.). Le lecteur remarquera <br> que cette dernière peut également se définir comme la catégorie des O[G]-modules, <br> où O[G] est l’algèbre du Cb-groupe G sur le Cb-anneau O, dont la définition est claire.</p>"
+        },
+        {
+          "id": "14.7",
+          "type": "paragraph",
+          "html": "<p>Toutes les constructions de ce paragraphe se spécialisent aussitôt au cas où G (ou <br> O, ou les deux) sont représentables par des objets de C qui sont par là-même munis <br> des structures algébriques correspondantes.</p>"
+        },
+        {
+          "id": "14.8",
+          "type": "paragraph",
+          "html": "<p>Nous avons traité succinctement le cas des principales structures algébriques rencontrées dans la suite de ce séminaire. Pour les autres (structure de O-algèbre de Lie <br> par exemple), nous croyons que le lecteur aura eu suffisamment d’exemples dans ce <br> paragraphe pour pouvoir dans chaque cas particulier faire fonctionner lui-même le <br> mécanisme général esquissé dans 2.2. <br> Nous allons maintenant appliquer ce que nous venons de faire à la catégorie des <br> schémas notée (Sch) et plus généralement aux catégories (Sch)/S .</p>"
+        },
+        {
+          "id": "14.9",
+          "type": "paragraph",
+          "html": "<p>4. Structures algébriques dans la catégorie des schémas <br> Nous nous permettrons, chaque fois qu’il n’y aura pas d’ambiguı̈té, les abus de lanf <br> gage suivants : on désignera par T l’objet T − <br> → S de C/S , la donnée de f (« morphisme <br> structural de T ») étant sous-entendue, et on identifiera C à une sous-catégorie de Cb. <br> Compte tenu des compatibilités énoncées aux paragraphes précédents, ces identifications peuvent se faire sans danger. <br> Nous simplifierons d’autre part les appellations sur le modèle suivant : un (Sch)groupe sera aussi appelé schéma en groupes, un (Sch)/S -groupe schéma en groupes <br> sur S, ou S-schéma en groupes, ou S-groupe, ou A-groupe lorsque S sera le spectre de <br> l’anneau A.</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "15",
+      "title": "Page 15",
+      "blocks": [
+        {
+          "id": "15.1",
+          "type": "paragraph",
+          "html": "<p>4. STRUCTURES ALGÉBRIQUES DANS LA CATÉGORIE DES SCHÉMAS</p>"
+        },
+        {
+          "id": "15.2",
+          "type": "paragraph",
+          "html": "<p>15</p>"
+        },
+        {
+          "id": "15.3",
+          "type": "heading",
+          "html": "<p>4.1. Schémas constants. — La catégorie des schémas satisfait aux conditions exigées <br> en 1.8. On peut donc y définir les objets constants ; pour tout ensemble E, on a un <br> schéma EZ et pour tout schéma S, un S-schéma ES = (EZ )S . Rappelons que pour <br> tout schéma T, Hom(T, ES ) est l’ensemble des applications localement constantes de <br> l’espace topologique T dans E. <br> Le foncteur <br> E 7→ ES <br> commute aux limites projectives finies. En particulier si G est un groupe, GS est un <br> S-schéma en groupes ; si O est un anneau, OS est un S-schéma en anneaux. . . <br> 4.2. S-groupes affines. — Rappelons un certain nombre de choses sur les S-schémas <br> affines (EGA II, § 1). On dit que le S-schéma T est affine sur S si l’image réciproque <br> de tout ouvert affine de S est affine. La OS -algèbre f∗ (OT ), que l’on désigne par A (T), <br> est alors quasi-cohérente (f désigne le morphisme structural de T). Réciproquement, à <br> toute OS -algèbre quasi-cohérente A , on peut faire correspondre un S-schéma affine sur <br> S noté Spec(A ). Ces foncteurs T 7→ A (T) et A → Spec(A ) sont des équivalences <br> quasi-inverses l’une de l’autre entre la catégorie des S-schémas affines sur S et la <br> catégorie opposée à celle des OS -algèbres quasi-cohérentes. <br> Il en résulte que se donner une structure algébrique sur un S-schéma affine T est <br> équivalent à se donner la structure correspondante sur A (T) dans la catégorie opposée <br> à celle des OS -algèbres quasi-cohérentes. En particulier, si G est un S-groupe affine <br> sur S, A (G) est munie d’une structure de OS -bigèbre augmentée, c’est-à-dire que l’on <br> a deux morphismes de OS -algèbres <br> ∆ : A (G) −→ A (G) ⊗OS A (G) , <br> ε : A (G) −→ OS <br> , <br> correspondant aux morphismes de S-schémas <br> π : G × G −→ G, <br> eG : S −→ G. <br> Les applications ∆ et ε vérifient les conditions suivantes (qui expriment que G est un <br> S-monoı̈de) : <br> (HA 1) ∆ est co-associatif : le diagramme suivant est commutatif <br> A (G) ⊗OS A (G) <br> ◗◗◗ <br> ♠66 <br> ◗◗◗ <br> ♠♠♠ <br> ◗◗Id◗⊗∆ <br> ∆♠♠♠♠ <br> ◗◗◗ <br> ♠ <br> ♠♠ <br> ◗◗◗ <br> ♠ <br> ♠ <br> ♠ <br> ◗◗(( <br> ♠ <br> ♠ <br> ♠ <br> A (G) ⊗ A (G) ⊗ A (G) <br> A (G) ◗ <br> ◗◗◗ <br> ♠♠66 <br> ◗◗◗ <br> ♠♠♠ <br> ♠ <br> ◗◗◗ <br> ♠ <br> ◗◗◗ <br> ♠♠♠ <br> ∆ <br> ◗◗◗ <br> ♠♠♠ ∆⊗Id <br> ♠ <br> ♠ <br> ◗◗(( <br> ♠♠ <br> . <br> A (G) ⊗OS A (G)</p>"
+        },
+        {
+          "id": "15.4",
+          "type": "paragraph",
+          "html": "<p>23</p>"
+        },
+        {
+          "id": "15.5",
+          "type": "paragraph",
+          "html": "<p>24</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "16",
+      "title": "Page 16",
+      "blocks": [
+        {
+          "id": "16.1",
+          "type": "paragraph",
+          "html": "<p>16</p>"
+        },
+        {
+          "id": "16.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "16.3",
+          "type": "paragraph",
+          "html": "<p>(HA 2) : ∆ est compatible avec ε : les deux composés suivants sont l’identité <br> ∆</p>"
+        },
+        {
+          "id": "16.4",
+          "type": "paragraph",
+          "html": "<p>Id ⊗ε</p>"
+        },
+        {
+          "id": "16.5",
+          "type": "paragraph",
+          "html": "<p>∼</p>"
+        },
+        {
+          "id": "16.6",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "16.7",
+          "type": "paragraph",
+          "html": "<p>∆</p>"
+        },
+        {
+          "id": "16.8",
+          "type": "paragraph",
+          "html": "<p>ε⊗Id</p>"
+        },
+        {
+          "id": "16.9",
+          "type": "paragraph",
+          "html": "<p>∼</p>"
+        },
+        {
+          "id": "16.10",
+          "type": "paragraph",
+          "html": "<p>.</p>"
+        },
+        {
+          "id": "16.11",
+          "type": "paragraph",
+          "html": "<p>→ A (G) <br> A (G) −→ A (G) ⊗OS A (G)−−−→A (G) ⊗OS OS − <br> → A (G) <br> A (G) −→ A (G) ⊗OS A (G) −−−→OS ⊗OS A (G) −</p>"
+        },
+        {
+          "id": "16.12",
+          "type": "paragraph",
+          "html": "<p>25</p>"
+        },
+        {
+          "id": "16.13",
+          "type": "paragraph",
+          "html": "<p>Profitons de la circonstance pour remarquer une fois encore qu’il résulte de la <br> définition d’une structure de S-groupe que pour se donner une telle structure sur un <br> S-schéma G affine sur S, il n’est pas nécessaire de vérifier quoi ce soit sur A (G), mais <br> simplement de munir chaque G(S′ ) pour S′ au-dessus de S d’une structure de groupe <br> fonctorielle en S′ . Cette remarque s’applique mutatis mutandis aux morphismes. <br> 4.3. Les groupes Ga et Gm . L’anneau O <br> 4.3.1. — Soit Ga le foncteur de (Sch)◦ dans (Ens) défini par <br> Ga (S) = Γ(S, OS ) <br> d <br> muni de la structure de (Sch)-groupe <br> définie par la structure de groupe additif de <br> l’anneau Γ(S, OS ). Il est représentable par un schéma affine que l’on notera Ga , et qui <br> est donc un schéma en groupes <br> Ga = Spec Z[T]. <br> En effet, Ga (S) = Hom(S, Ga ) = HomAlg. (Z[T], Γ(S, OS )) ≃ Γ(S, OS ). <br> Pour tout schéma S, on a donc un S-groupe affine sur S Ga,S , qui correspond à la <br> OS -bigèbre OS [T], avec l’application diagonale et l’augmentation définies par : <br> ∆(T) = T ⊗ 1 + 1 ⊗ T,</p>"
+        },
+        {
+          "id": "16.14",
+          "type": "paragraph",
+          "html": "<p>εT = 0.</p>"
+        },
+        {
+          "id": "16.15",
+          "type": "heading",
+          "html": "<p>4.3.2. — Soit Gm le foncteur de (Sch)◦ dans (Ens) défini par <br> Gm (S) = Γ(S, OS )× , <br> où Γ(S, OS )× désigne le groupe multiplicatif des éléments inversibles de l’anneau <br> Γ(S, OS ), muni de sa structure naturelle de ( d <br> Sch)-groupe. Il est représentable par <br> un schéma affine noté Gm <br> Gm = Spec Z[T, T−1 ] = Spec Z[Z], <br> 26</p>"
+        },
+        {
+          "id": "16.16",
+          "type": "paragraph",
+          "html": "<p>où Z[Z] désigne l’algèbre du groupe Z sur l’anneau Z. En effet <br> Gm (S) = HomAlg. (Z[T, T−1 ], Γ(S, OS )) ≃ Γ(S, OS )× . <br> Pour tout schéma S, on a donc un S-groupe affine sur S noté Gm,S qui correspond <br> à la OS -algèbre OS [Z], avec l’application diagonale et l’augmentation définies par : <br> ∆(x) = x ⊗ x,</p>"
+        },
+        {
+          "id": "16.17",
+          "type": "paragraph",
+          "html": "<p>ε(x) = 1,</p>"
+        },
+        {
+          "id": "16.18",
+          "type": "paragraph",
+          "html": "<p>x ∈ Z.</p>"
+        },
+        {
+          "id": "16.19",
+          "type": "paragraph",
+          "html": "<p>d <br> 4.3.3. — Soit O le foncteur Ga muni de sa structure de (Sch)-anneau. <br> Il est représenté <br> par le schéma Spec Z[T] que l’on notera O lorsqu’on le considèrera comme muni de <br> sa structure de schéma d’anneaux.</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "17",
+      "title": "Page 17",
+      "blocks": [
+        {
+          "id": "17.1",
+          "type": "paragraph",
+          "html": "<p>4. STRUCTURES ALGÉBRIQUES DANS LA CATÉGORIE DES SCHÉMAS</p>"
+        },
+        {
+          "id": "17.2",
+          "type": "paragraph",
+          "html": "<p>17</p>"
+        },
+        {
+          "id": "17.3",
+          "type": "paragraph",
+          "html": "<p>Pour tout S, on a donc un S-anneau affine sur S noté OS . (Nota : dans EGA II <br> 1.7.13, OS est noté S[T]). <br> 4.4. Groupes diagonalisables <br> 4.4.1. — La construction de Gm se généralise comme suit : soit M un groupe commutatif et MS le S-schéma en groupes qui lui est associé par le procédé de 4.1. <br> Considérons le foncteur défini par <br> D(M)(S) = Homgroupes (M, Gm (S)) ≃ HomS-Gr. (MS , Gm,S ). <br> C’est un ( d <br> Sch)-groupe commutatif qui est représentable par un schéma en groupes <br> que l’on notera D(M) ; on aura donc par définition : <br> D(M) ≃ Hom(Sch)-Gr. (MZ , Gm ). <br> Posons en effet</p>"
+        },
+        {
+          "id": "17.4",
+          "type": "paragraph",
+          "html": "<p>27</p>"
+        },
+        {
+          "id": "17.5",
+          "type": "paragraph",
+          "html": "<p>D(M) = Spec Z[M], <br> où Z[M] est l’algèbre du groupe M sur l’anneau Z ; on a <br> D(M)(S) = HomAlg. (Z[M], Γ(S, OS )) ≃ Homgroupes(M, Γ(S, OS )× ) <br> par définition même de l’algèbre Z[M]. <br> 4.4.2. — Pour tout schéma S on a donc un S-schéma en groupes affine sur S <br> DS (M) = D(M)S = Hom(Sch)-Gr. (MZ , Gm )S = HomS-Gr. (MS , Gm,S ). <br> Il est associé à la OS -bigèbre OS [M], munie de l’application diagonale et de l’augmentation définies par <br> ∆(x) = x ⊗ x et</p>"
+        },
+        {
+          "id": "17.6",
+          "type": "paragraph",
+          "html": "<p>ε(x) = 1,</p>"
+        },
+        {
+          "id": "17.7",
+          "type": "paragraph",
+          "html": "<p>x ∈ M.</p>"
+        },
+        {
+          "id": "17.8",
+          "type": "heading",
+          "html": "<p>4.4.3. — Si f : M → N est un homomorphisme de groupes commutatifs, on définit de <br> manière évidente un morphisme de S-groupes <br> DS (f ) : DS (N) −→ DS (M) , <br> d’où un foncteur <br> DS : M 7→ DS (M) <br> de la catégorie des groupes abéliens dans la catégorie des S-groupes affines sur S, <br> que l’on peut aussi définir comme composé du foncteur M 7→ MS et du foncteur <br> MS 7→ HomS-Gr. (MS , Gm,S ). Ce foncteur commute aux extensions de la base. <br> Un S-groupe isomorphe à un groupe de la forme DS (M) est dit diagonalisable. <br> Notons que les éléments de M s’interprètent comme certains caractères de DS (M), <br> c’est-à-dire certains éléments de HomS-Gr. (DS (M), Gm,S ). (Confer VIII 1).</p>"
+        },
+        {
+          "id": "17.9",
+          "type": "paragraph",
+          "html": "<p>28</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "18",
+      "title": "Page 18",
+      "blocks": [
+        {
+          "id": "18.1",
+          "type": "paragraph",
+          "html": "<p>18</p>"
+        },
+        {
+          "id": "18.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "18.3",
+          "type": "heading",
+          "html": "<p>4.4.4. — Donnons quelques exemples de groupes diagonalisables. On a d’abord <br> D(Z) = Gm</p>"
+        },
+        {
+          "id": "18.4",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "18.5",
+          "type": "paragraph",
+          "html": "<p>D(Zr ) = (Gm )r .</p>"
+        },
+        {
+          "id": "18.6",
+          "type": "paragraph",
+          "html": "<p>On pose <br> µ n = D(Z/nZ), <br> et on le nomme groupe des racines n-ièmes de l’unité. En effet, on a <br> µ n (S) = Homgroupes (Z/nZ, Γ(S, OS )∗ ) = {f ∈ Γ(S, OS ), f n = 1}. <br> Le S-groupe µ n,S correspond à la OS -algèbre OS [T]/(Tn − 1). Supposons en particulier que S soit le spectre d’un corps k de caractéristique p = n. En posant T − 1 = s, <br> on trouve <br> k[T]/(Tp − 1) = k[s]/(sp ), <br> ce qui montre que l’espace topologique sous-jacent à µ p,k est réduit à un point, l’anneau local de ce point étant la k-algèbre artinienne k[s]/(sp ). (Dans le même ordre <br> d’idées, signalons que les S-schémas Ga,S , Gm,S , OS sont lisses sur S, que DS (M) est <br> plat sur S et qu’il est formellement lisse (resp. lisse) sur S si et seulement si aucune <br> caractéristique résiduelle de S ne divise la torsion de M (resp. et si de plus M est de <br> type fini), cf. Exp. VIII, 2.1). <br> 29</p>"
+        },
+        {
+          "id": "18.7",
+          "type": "heading",
+          "html": "<p>4.5. Autres exemples de groupes. — Le procédé précédent s’applique aux « groupes <br> classiques » (GLn , Spn , On . . .). On définira par exemple GLn comme représentant le <br> foncteur GLn tel que : <br> GLn (S) = GL(n, Γ(S, OS )) = AutOS (OSn ). <br> On pourra le construire par exemple comme l’ouvert de Spec Z[Tij ] 0 ⩽ i, j ⩽ n défini <br> par la fonction f = dét((Tij )), c’est-à-dire Spec Z[Tij , f −1 ]. <br> 4.6. Foncteurs-modules dans la catégorie des schémas. — Nous nous proposons d’associer à tout OS -module sur le schéma S, un OS -module (où OS désigne le foncteuranneau introduit en 4.3.3). Ceci peut se faire de deux manières différentes. De façon <br> précise <br> Définition 4.6.1. — Soit S un schéma. Pour tout OS -module F on note V(F ) et <br> W(F ) les foncteurs sur (Sch)/S définis par : <br> V(F )(S′ ) = HomOS′ (F ⊗OS OS′ , OS′ ), <br> W(F )(S′ ) = Γ(S′ , F ⊗OS OS′ ) <br> (où F ⊗OS OS′ désigne l’image inverse sur S′ du OS -Module F ). <br> Alors V(F ) et W(F ) sont munis de manière évidente d’une structure de OS modules (on rappelle que OS (S′ ) = Γ(S′ , OS′ ) = W(OS )(S′ )), de telle façon que l’on a <br> en fait défini deux foncteurs V et W de la catégorie des OS -modules dans la catégorie <br> des OS -modules, V étant contravariant et W covariant.</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "19",
+      "title": "Page 19",
+      "blocks": [
+        {
+          "id": "19.1",
+          "type": "paragraph",
+          "html": "<p>4. STRUCTURES ALGÉBRIQUES DANS LA CATÉGORIE DES SCHÉMAS</p>"
+        },
+        {
+          "id": "19.2",
+          "type": "paragraph",
+          "html": "<p>30</p>"
+        },
+        {
+          "id": "19.3",
+          "type": "paragraph",
+          "html": "<p>19</p>"
+        },
+        {
+          "id": "19.4",
+          "type": "paragraph",
+          "html": "<p>Nous nous restreignons dans la suite de ce paragraphe au cas où les OS -modules <br> en question sont quasi-cohérents, c’est-à-dire que nous considérons V et W comme <br> des foncteurs de la catégorie (OS -Mod.q.c.) des OS -modules quasi-cohérents dans la <br> catégorie des OS -modules <br> V : (OS -Mod.q.c.)◦ −→ (OS -Mod.), <br> W : (OS -Mod.q.c.) −→ (OS -Mod.). <br> (Nota : le lecteur remarquera que, dans la suite, toutes les propositions qui ne font <br> intervenir que le foncteur W sont valables sans cette restriction). <br> Proposition 4.6.2. — (i) Les foncteurs V et W commutent à l’extension de la base : <br> si S′ est au-dessus de S et si F est un OS -Module quasi-cohérent, on a <br> V(F ⊗ OS′ ) ≃ V(F )S′</p>"
+        },
+        {
+          "id": "19.5",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "19.6",
+          "type": "paragraph",
+          "html": "<p>W(F ⊗ OS′ ) ≃ W(F )S′ .</p>"
+        },
+        {
+          "id": "19.7",
+          "type": "paragraph",
+          "html": "<p>(ii) Les foncteurs V et W sont pleinement fidèles : les application canoniques <br> HomOS (F , F ′ ) −→ HomOS (V(F ′ ), V(F )) <br> HomOS (F , F ′ ) −→ HomOS (W(F ), W(F ′ )) <br> sont bijectives. <br> (iii) Les foncteurs V et W sont additifs : <br> V(F ⊕ F ′ ) ≃ V(F ) × V(F ′ ) <br> S</p>"
+        },
+        {
+          "id": "19.8",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "19.9",
+          "type": "paragraph",
+          "html": "<p>W(F ⊕ F ′ ) ≃ W(F ) × W(F ′ ). <br> S</p>"
+        },
+        {
+          "id": "19.10",
+          "type": "paragraph",
+          "html": "<p>Les parties (i) et (iii) sont évidentes sur les définition. Pour (ii), on prend pour S′ <br> des ouverts de S. Nous laissons la démonstration au lecteur (pour V, utiliser EGA II, <br> 1.7.14). <br> 4.6.3. — On a des morphismes canoniques dans (OS -Mod.) : <br> W(Hom OS (F , F ′ )) −→ HomOS (W(F ), W(F ′ )), <br> W(Hom OS (F , F ′ )) −→ HomOS (V(F ′ ), V(F )). <br> Cela résulte immédiatement de (i) et (ii). <br> Considérons maintenant W(F ) et V(F ) comme des foncteurs au-dessus de S. On <br> sait (EGA II, 1.7.8) que V(F ) est représentable par un S-schéma affine sur S que l’on <br> note V(F ) et que l’on appelle fibré vectoriel défini par F , <br> V(F ) = Spec(S(F )), <br> où S(F ) désigne l’algèbre symétrique du OS -module F . <br> Proposition 4.6.4. — Soient F et F ′ deux OS -modules quasi-cohérents, A une OS algèbre quasi-cohérente. On a un isomorphisme fonctoriel : <br> ∼</p>"
+        },
+        {
+          "id": "19.11",
+          "type": "paragraph",
+          "html": "<p>HomS (Spec(A ), HomOS (W(F ), W(F ′ ))) −→ HomOS (F , A ⊗OS F ′ ).</p>"
+        },
+        {
+          "id": "19.12",
+          "type": "paragraph",
+          "html": "<p>31</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "20",
+      "title": "Page 20",
+      "blocks": [
+        {
+          "id": "20.1",
+          "type": "paragraph",
+          "html": "<p>20</p>"
+        },
+        {
+          "id": "20.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "20.3",
+          "type": "paragraph",
+          "html": "<p>En effet, si on note S′ = Spec(A ), le premier membre est canoniquement isomorphe <br> à HomOS (W(F ), W(F ′ )(S′ ), c’est-à-dire par définition à <br> HomOS′ (W(F )S′ , W(F ′ )S′ ) ≃ HomOS′ (W(F ⊗ OS′ ), W(F ′ ⊗ OS′ )) <br> 32</p>"
+        },
+        {
+          "id": "20.4",
+          "type": "paragraph",
+          "html": "<p>(cf. 4.6.2 (i)), ce qui par 4.6.2 (ii) peut aussi s’écrire <br> HomOS′ (F ⊗ OS′ , F ′ ⊗ OS′ ) = HomOS (F , f∗ (f ∗ (F ′ ))), <br> où on note f : S′ → S le morphisme structural. Mais, par EGA II, 1.4.7, on a <br> f∗ (f ∗ (F ′ )) ≃ F ′ ⊗ A , ce qui achève la démonstration. <br> Corollaire. — On a un isomorphisme canonique <br> W(A ⊗ F ) ≃ HomS (Spec(A ), W(F )). <br> En effet, on prend F = OS dans la formule précédente ; puis on fait varier S. <br> Proposition 4.6.5. — Si F et F ′ sont deux OS -modules localement libres de type fini, <br> les morphismes de 4.6.3 sont des isomorphismes. <br> En effet, pour tout S′ → S, on a <br> W(Hom OS (F , F ′ ))(S′ ) = Γ(S′ , Hom OS (F , F ′ )⊗OS′ ) = HomOS′ (F ⊗OS′ , F ′ ⊗OS′ ). <br> Mais le second membre est bien isomorphe à HomOS (W(F ), W(F ′ ))(S′ ) et à <br> HomOS (V(F ′ ), V(F ))(S′ ), par 4.6.2 (i) et (ii).</p>"
+        },
+        {
+          "id": "20.5",
+          "type": "paragraph",
+          "html": "<p>33</p>"
+        },
+        {
+          "id": "20.6",
+          "type": "paragraph",
+          "html": "<p>Corollaire 4.6.5.1. — Soit F un OS -module localement libre de type fini. Posons F ∨ = <br> Hom OS (F , OS ). On a des isomorphismes canoniques : <br> W(F ∨ ) ≃ HomOS (W(F ), OS ) ≃ V(F ), <br> V(F ∨ ) ≃ HomOS (V(F ), OS ) ≃ W(F ). <br> On a enfin la proposition suivante : <br> Proposition 4.6.6. — Soit f : F → F ′ un morphisme de OS -modules localement libres <br> de rang fini. Pour que W(f ) : W(F ) → W(F ′ ) soit un monomorphisme, il faut et <br> il suffit que f identifie F localement à un facteur direct de F ′ . <br> La proposition directe est essentiellement contenue dans (EGA 0.5.5.5). La proposition réciproque est pratiquement évidente. <br> 4.7. La catégorie des G-OS -modules. — Soit G un S-groupe affine sur S et F un <br> OS -Module quasi-cohérent ; alors W(F ) est muni d’une structure de OS -module. <br> Définition 4.7.1. — On appelle structure de G-OS -module sur F une structure de <br> hG -OS -module sur W(F ). (cf. 3.2).</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "21",
+      "title": "Page 21",
+      "blocks": [
+        {
+          "id": "21.1",
+          "type": "paragraph",
+          "html": "<p>4. STRUCTURES ALGÉBRIQUES DANS LA CATÉGORIE DES SCHÉMAS</p>"
+        },
+        {
+          "id": "21.2",
+          "type": "paragraph",
+          "html": "<p>21</p>"
+        },
+        {
+          "id": "21.3",
+          "type": "paragraph",
+          "html": "<p>Un morphisme de G-OS -Modules est par définition un morphisme des hG -OS modules associés. On peut donc dire que l’on a construit la catégorie (G-OS -Mod.) <br> que l’on vient de définir par le carré cartésien : <br> // (hG -OS -Mod.)</p>"
+        },
+        {
+          "id": "21.4",
+          "type": "paragraph",
+          "html": "<p>(G-OS -Mod.) <br> \u000f\u000f <br> OS -Mod.</p>"
+        },
+        {
+          "id": "21.5",
+          "type": "paragraph",
+          "html": "<p>W</p>"
+        },
+        {
+          "id": "21.6",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> // OS -Mod.</p>"
+        },
+        {
+          "id": "21.7",
+          "type": "paragraph",
+          "html": "<p>La catégorie (G-OS -Mod.) est abélienne.</p>"
+        },
+        {
+          "id": "21.8",
+          "type": "paragraph",
+          "html": "<p>34</p>"
+        },
+        {
+          "id": "21.9",
+          "type": "heading",
+          "html": "<p>4.7.2. — Se donner une structure de G-OS -Module sur F , c’est donc par 3.2 se donner <br> d /S -groupes <br> un morphisme de (Sch) <br> hG −→ AutOS (W(F )). <br> En vertu de 4.6.4, la donnée d’un morphisme de S-foncteurs <br> ρ : hG −→ EndOS (W(F )) <br> équivaut à celle d’un morphisme de OS -Modules <br> µ : F −→ A (G) ⊗OS F . <br> d /S -groupes équivaut alors à dire que µ satisfait <br> Dire que ρ est un morphisme de (Sch) <br> aux axiomes suivants : <br> (CM 1) le diagramme suivant est commutatif <br> µ</p>"
+        },
+        {
+          "id": "21.10",
+          "type": "paragraph",
+          "html": "<p>F</p>"
+        },
+        {
+          "id": "21.11",
+          "type": "paragraph",
+          "html": "<p>// F ⊗O A (G) <br> S</p>"
+        },
+        {
+          "id": "21.12",
+          "type": "paragraph",
+          "html": "<p>µ</p>"
+        },
+        {
+          "id": "21.13",
+          "type": "paragraph",
+          "html": "<p>Id⊗∆</p>"
+        },
+        {
+          "id": "21.14",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> F ⊗OS A (G)</p>"
+        },
+        {
+          "id": "21.15",
+          "type": "paragraph",
+          "html": "<p>µ⊗Id</p>"
+        },
+        {
+          "id": "21.16",
+          "type": "paragraph",
+          "html": "<p>\u000f\u000f <br> // F ⊗O A (G) ⊗O A (G) . <br> S</p>"
+        },
+        {
+          "id": "21.17",
+          "type": "paragraph",
+          "html": "<p>S</p>"
+        },
+        {
+          "id": "21.18",
+          "type": "paragraph",
+          "html": "<p>(CM 2) le composé <br> µ</p>"
+        },
+        {
+          "id": "21.19",
+          "type": "paragraph",
+          "html": "<p>Id ⊗ε</p>"
+        },
+        {
+          "id": "21.20",
+          "type": "paragraph",
+          "html": "<p>F − <br> → F ⊗ A (G) −−−→ F ⊗ OS −→ F <br> est l’identité. <br> Ces axiomes (CM 1) et (CM 2) sont ceux de la structure de comodule sur la bigèbre <br> A (G). En résumé : <br> Proposition 4.7.2. — La construction précédente fournit une équivalence de la catégorie des G-OS -modules quasi-cohérents (resp. G-OS -modules) sur la catégorie des <br> comodules quasi-cohérents (resp. comodules) sur la OS -bigèbre A (G).</p>"
+        },
+        {
+          "id": "21.21",
+          "type": "paragraph",
+          "html": "<p>35</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "22",
+      "title": "Page 22",
+      "blocks": [
+        {
+          "id": "22.1",
+          "type": "paragraph",
+          "html": "<p>22</p>"
+        },
+        {
+          "id": "22.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "22.3",
+          "type": "heading",
+          "html": "<p>4.7.3. — Supposons maintenant que G soit un groupe diagonalisable, c’est-à-dire que <br> A (G) soit l’algèbre d’un groupe commutatif M sur le faisceau d’anneaux OS . Si F <br> est un OS -module, on a <br> a <br> F ⊗ mOS . <br> F ⊗ A (G) = <br> m∈M</p>"
+        },
+        {
+          "id": "22.4",
+          "type": "paragraph",
+          "html": "<p>Se donner un morphisme de OS -modules <br> µ : F −→ F ⊗ A (G) <br> est donc équivalent à se donner des OS -endomorphismes (µm )m∈M de F , tels que <br> pour toute <br> ` section x de F sur un ouvert de S, (µm (x)) soit une section de la somme <br> directe m∈M F (cela veut dire que sur tout ouvert suffisamment petit, il n’y ait <br> qu’un nombre fini de restrictions des µm (x) qui soient non nulles). <br> Pour que µ définie par <br> µ(x) =</p>"
+        },
+        {
+          "id": "22.5",
+          "type": "paragraph",
+          "html": "<p>X</p>"
+        },
+        {
+          "id": "22.6",
+          "type": "paragraph",
+          "html": "<p>µm (x) ⊗ m</p>"
+        },
+        {
+          "id": "22.7",
+          "type": "paragraph",
+          "html": "<p>m∈M</p>"
+        },
+        {
+          "id": "22.8",
+          "type": "paragraph",
+          "html": "<p>vérifie (CM 1) (resp. (CM 2)) il faut et il suffit que l’on ait <br> X <br> µm ◦ µm′ = δmm′ µm , (resp. <br> µm = IdF ), <br> m∈M</p>"
+        },
+        {
+          "id": "22.9",
+          "type": "paragraph",
+          "html": "<p>36</p>"
+        },
+        {
+          "id": "22.10",
+          "type": "paragraph",
+          "html": "<p>ce qui signifie que les µm sont des projecteurs deux à deux orthogonaux de somme <br> l’identité. On a donc prouvé : <br> Proposition 4.7.3. — Si G = DS (M) est un S-groupe diagonalisable, la catégorie des <br> G-OS -modules quasi-cohérents (resp. des G-OS -modules) est équivalente à la catégorie <br> des OS -Modules quasi-cohérents (resp. des OS -modules) gradués de type M. <br> Remarque. — Si F est muni d’une structure de OS -algèbre conservée par les opérations de G, alors la graduation de G est une graduation d’algèbre. Plus précisément : <br> Le foncteur A 7→ Spec A induit une équivalence entre la catégorie des OS -algèbres <br> quasi-cohérentes graduées de type M et la catégorie opposée à celle des S-schémas <br> affines sur S à S-schéma en groupes d’opérateurs G = DS (M). <br> Proposition 4.7.4. — Soit G un S-groupe diagonalisable. Si 0 → F1 → F2 → F3 → 0 <br> est une suite exacte de G-OS -modules quasi-cohérents qui se scinde comme suite de <br> OS -modules, alors elle se scinde également comme suite de G-OS -modules. <br> En effet chacun des Fi est gradué par des (Fi )m et pour chaque m ∈ M la suite <br> 0 −→ (F1 )m −→ (F2 )m −→ (F3 )m −→ 0 <br> de OS -modules est scindée. La proposition précédente entraı̂ne alors le résultat.</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "23",
+      "title": "Page 23",
+      "blocks": [
+        {
+          "id": "23.1",
+          "type": "paragraph",
+          "html": "<p>5. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "23.2",
+          "type": "paragraph",
+          "html": "<p>23</p>"
+        },
+        {
+          "id": "23.3",
+          "type": "paragraph",
+          "html": "<p>5. Cohomologie des groupes <br> 37</p>"
+        },
+        {
+          "id": "23.4",
+          "type": "heading",
+          "html": "<p>5.1. Le complexe standard. — Soient C une catégorie, G un Cb-groupe, O un Cbanneau et F un G-O-module. On pose <br> Cn (G, F) = Hom(Gn , F) ,</p>"
+        },
+        {
+          "id": "23.5",
+          "type": "paragraph",
+          "html": "<p>Cn (G, F) = Hom(Gn , F) , <br> n</p>"
+        },
+        {
+          "id": "23.6",
+          "type": "paragraph",
+          "html": "<p>0</p>"
+        },
+        {
+          "id": "23.7",
+          "type": "paragraph",
+          "html": "<p>n ⩾ 0,</p>"
+        },
+        {
+          "id": "23.8",
+          "type": "paragraph",
+          "html": "<p>n</p>"
+        },
+        {
+          "id": "23.9",
+          "type": "paragraph",
+          "html": "<p>où G est l’objet final e. Alors C (G, F) (resp. C (G, F)) est muni de manière évidente d’une structure de O-module (resp. de Γ(O)-module) et on a <br> Cn (G, F) ∼ <br> = Γ(Cn (G, F)) , Cn (G, F)(S) = Cn (GS , FS ). <br> Se donner un élément de Cn (G, F), c’est se donner pour chaque S ∈ Ob(C ) une <br> n-cochaine de G(S) dans F(S), fonctoriellement en S. L’opérateur bord <br> ∂ : Cn (G(S), F(S)) −→ Cn+1 (G(S), F(S)), <br> qui, rappelons-le, est donné par la formule <br> ∂f (g1 , . . . , gn+1 ) = g1 f (g2 , . . . , gn+1 ) +</p>"
+        },
+        {
+          "id": "23.10",
+          "type": "paragraph",
+          "html": "<p>i=n <br> X</p>"
+        },
+        {
+          "id": "23.11",
+          "type": "paragraph",
+          "html": "<p>(−1)n f (g1 , . . . , gi gi+1 , . . . , gn )</p>"
+        },
+        {
+          "id": "23.12",
+          "type": "paragraph",
+          "html": "<p>i=1</p>"
+        },
+        {
+          "id": "23.13",
+          "type": "paragraph",
+          "html": "<p>+ (−1)n+1 f (g1 , . . . , gn ), <br> est fonctoriel en S et définit donc un homomorphisme : <br> ∂ : Cn (G, F) −→ Cn+1 (G, F) <br> tel que ∂ ◦∂ = 0. On a donc défini un complexe de groupes abéliens (et même de Γ(O)modules) noté C∗ (G, F). On définit de la même manière le complexe de O-modules <br> C∗ (G, F) et on a : <br> C∗ (G, F) = Γ(C∗ (G, F)). <br> On note Hn (G, F) (resp. Hn (G, F)) les groupes (resp. les Cb-groupes) d’homologie du <br> complexe C∗ (G, F) (resp. C∗ (G, F)). <br> On a en particulier <br> H0 (G, F) = FG</p>"
+        },
+        {
+          "id": "23.14",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "23.15",
+          "type": "paragraph",
+          "html": "<p>H0 (G, F) = Γ(FG ).</p>"
+        },
+        {
+          "id": "23.16",
+          "type": "paragraph",
+          "html": "<p>Nous nous proposons maintenant de montrer que les foncteurs Hn (resp. Hn ) sont <br> bien les foncteurs dérivés de H0 (resp. H0 ). Soit P un O-module ; considérons l’objet <br> Hom(G, P) de Cb. On peut le munir d’une structure de G-O-module en faisant opérer <br> G sur le premier facteur et O sur le second. <br> De manière précise on a Hom(G, P)(S) = HomS (GS , PS ), et on fait opérer g ∈ <br> G(S) et a ∈ O(S) par les formules : <br> (g f )(x) = f (xg)</p>"
+        },
+        {
+          "id": "23.17",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "23.18",
+          "type": "paragraph",
+          "html": "<p>(a f )(x) = af (x) ,</p>"
+        },
+        {
+          "id": "23.19",
+          "type": "paragraph",
+          "html": "<p>x ∈ G(S′ ).</p>"
+        },
+        {
+          "id": "23.20",
+          "type": "paragraph",
+          "html": "<p>Soit maintenant F un G-O-module ; notons E(F) l’objet Hom(G, F) muni de sa structure de G-O-module précédente. Il existe un morphisme de G-O-module <br> µF : F −→ E(F) <br> défini de la manière suivante : à toute flèche S′ → S′′ de C , il faut associer de manière <br> fonctorielle une application de F(S′ ) dans l’ensemble Hom(G(S′ ), F(S′ )) ; pour ce faire, <br> on associe à tout f ∈ F(S′ ) l’application kf définie par kf (g) = gf . On vérifie aussitôt</p>"
+        },
+        {
+          "id": "23.21",
+          "type": "paragraph",
+          "html": "<p>38</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "24",
+      "title": "Page 24",
+      "blocks": [
+        {
+          "id": "24.1",
+          "type": "paragraph",
+          "html": "<p>24</p>"
+        },
+        {
+          "id": "24.2",
+          "type": "paragraph",
+          "html": "<p>EXPOSÉ I. STRUCTURES ALGÉBRIQUES. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "24.3",
+          "type": "paragraph",
+          "html": "<p>que µF est bien compatible avec les structures de G-O-modules et que c’est même un <br> monomorphisme. <br> 39</p>"
+        },
+        {
+          "id": "24.4",
+          "type": "proposition",
+          "html": "<p>Proposition 5.2.1. — Si G est représentable, les foncteurs Hn (G, ) (resp. Hn (G, )) <br> sont les foncteurs dérivés du foncteur exact à gauche H0 (G, ) (resp. H0 (G, )) sur <br> la catégorie des G-O-modules. <br> En vertu des résultats généraux bien connus, il suffit de vérifier que les Hn (G, ) <br> (resp. Hn (G, )) forment un foncteur cohomologique effaçable en dimensions > 0. Or <br> Cn (G, ) considéré comme foncteur sur (G-O-Mod.) à valeurs dans la catégorie des <br> complexes de (O-Mod.) est exact. Ceci montre que les Hn (G, ) forment bien un <br> foncteur cohomologique. Comme le foncteur Γ est exact, il en est de même pour les <br> Hn (G, ). Il nous suffira maintenant de démontrer : <br> Lemme 5.2.2. — Pour tout P ∈ Ob(O-Mod.), on a : <br> Hn (G, Hom(G, P)) = 0</p>"
+        },
+        {
+          "id": "24.5",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "24.6",
+          "type": "paragraph",
+          "html": "<p>Hn (G, Hom(G, P)) = 0,</p>"
+        },
+        {
+          "id": "24.7",
+          "type": "paragraph",
+          "html": "<p>n > 0.</p>"
+        },
+        {
+          "id": "24.8",
+          "type": "paragraph",
+          "html": "<p>Il nous suffit de démontrer que C∗ (G, Hom(G, P)) et C∗ (G, Hom(G, P)) sont homotopiquement triviaux en dimensions > 0. Il suffit même de le faire pour le second, <br> le résultat correspondant pour le premier s’en déduisant par changement de base. Or <br> on a l’opérateur d’homotopie suivant : <br> (sf )(g1 , g2 , . . . , gn )(g) = f (g, g0 , g1 , . . . , gn )(e) <br> où e désigne l’élément unité de G(S) et f une (n + 1)-cochaine de G(S) dans <br> Hom(G, P)(S). <br> 5.3. Cohomologie des G-OS -modules. — Soient S un schéma, G un S-groupe affine <br> sur S et F un G-OS -module quasi-cohérent. On définit les groupes de cohomologie de <br> G à valeurs dans F par <br> Hn (G, F ) = Hn (hG , W(F )). <br> 40</p>"
+        },
+        {
+          "id": "24.9",
+          "type": "paragraph",
+          "html": "<p>(pour les notations, cf. 4.6). <br> Vu la proposition 4.6.4, cette cohomologie se calcule de la façon suivante : Hn (G, F ) <br> est le n-ième groupe d’homologie du complexe Cn (G, F ) défini comme suit : <br> Cn (G, F ) = Γ(S, Cn (G, F ))</p>"
+        },
+        {
+          "id": "24.10",
+          "type": "paragraph",
+          "html": "<p>,</p>"
+        },
+        {
+          "id": "24.11",
+          "type": "paragraph",
+          "html": "<p>Cn (G, F ) = F ⊗ A (G) ⊗ · · · ⊗ A (G) . <br> {z <br> } <br> | <br> n fois</p>"
+        },
+        {
+          "id": "24.12",
+          "type": "paragraph",
+          "html": "<p>Si f (resp. ai ) est une section de F (resp. de A (G)) sur un ouvert de S, on a <br> ∂(f ⊗ a1 ⊗ · · · ⊗ an ) = µF (f ) ⊗ a1 ⊗ a2 ⊗ · · · ⊗ an <br> +</p>"
+        },
+        {
+          "id": "24.13",
+          "type": "paragraph",
+          "html": "<p>i=n <br> X</p>"
+        },
+        {
+          "id": "24.14",
+          "type": "paragraph",
+          "html": "<p>(−1)i f ⊗ a1 ⊗ · · · ⊗ ∆ai ⊗ · · · ⊗ an</p>"
+        },
+        {
+          "id": "24.15",
+          "type": "paragraph",
+          "html": "<p>i=1</p>"
+        },
+        {
+          "id": "24.16",
+          "type": "paragraph",
+          "html": "<p>+ (−1)n+1 f ⊗ a1 ⊗ a2 · · · ⊗ an ⊗ 1, <br> où µF : F → F ⊗ A (G) et ∆ : A (G) → A (G) ⊗ A (G) décrivent la structure de <br> comodule de F . Remarquons en passant que la cohomologie de G à valeurs dans F</p>"
+        }
+      ],
+      "footnotes": []
+    },
+    {
+      "id": "25",
+      "title": "Page 25",
+      "blocks": [
+        {
+          "id": "25.1",
+          "type": "paragraph",
+          "html": "<p>5. COHOMOLOGIE DES GROUPES</p>"
+        },
+        {
+          "id": "25.2",
+          "type": "paragraph",
+          "html": "<p>25</p>"
+        },
+        {
+          "id": "25.3",
+          "type": "paragraph",
+          "html": "<p>ne dépend donc que de la structure de comodule de F , et en particulier que de la <br> structure de S-monoı̈de de G. <br> On a en particulier <br> H0 (G, F ) = Γ(S, F G ), <br> où F G , le faisceau des invariants de F , est défini comme le faisceau dont les sections <br> sur l’ouvert U de S sont des sections de F sur U dont l’image inverse dans tout S′ <br> au-dessus de U est invariante par G(S′ ). <br> Théorème 5.3.1. — Soient S un schéma affine, G un S-groupe affine et plat sur S. <br> Les foncteurs Hn (G, ) sont les foncteurs dérivés de H0 (G, ) sur la catégorie des <br> G-OS -modules quasi-cohérents.</p>"
+        },
+        {
+          "id": "25.4",
+          "type": "paragraph",
+          "html": "<p>41</p>"
+        },
+        {
+          "id": "25.5",
+          "type": "paragraph",
+          "html": "<p>Comme S est affine, et comme G est affine et plat, on voit aussitôt que C∗ (G, ) <br> est bien un foncteur exact sur la catégorie précédente. <br> Il ne reste plus qu’à construire pour tout F un monomorphisme de F dans un <br> G-OS -module E(F ) tel que Hn (G, E(F )) = 0, n > 0. Or considérons E(F ) = <br> A (G) ⊗ F muni de la structure de G-OS -module définie par celle de A (G). Considérons l’homomorphisme canonique µF : F → E(F ) ; l’axiome (CM 1) de 4.7.2 <br> dit exactement que µF est un morphisme de G-OS -modules. Il suffit de remarquer maintenant que l’image de µF par le foncteur W n’est autre que l’effacement <br> µW(F ) : W(F ) → E(W(F )) défini dans 5.2 (comparer avec le corollaire 1 à la <br> proposition 4.6.4). <br> Remarquons maintenant que l’axiome (CM 2) montre que considéré comme OS module, F est un facteur direct de E(F ). Cela entraı̂ne : <br> Proposition 5.3.2. — Soient S un schéma affine et G un S-groupe affine et plat ; supposons que toute suite exacte 0 → F1 → F2 → F3 → 0 de G-OS -modules quasicohérents, qui se scinde comme suite de OS -modules, se scinde également comme <br> suite de G-OS -modules. <br> Les foncteurs Hn (G, ), n > 0, sont nuls (ou ce qui revient au même, le foncteur <br> 0 <br> H (G, ) est exact ). <br> En effet, d’après l’hypothèse, la suite 0 → F → E(F ) → E(F )/F → 0 est <br> scindée ; F est donc facteur direct dans E(F ), or la cohomologie de ce dernier est <br> nulle. <br> On tire immédiatement de là et de la proposition 4.7.4 : <br> Théorème 5.3.3. — Soient S un schéma affine et G un S-groupe diagonalisable. Pour <br> tout G-OS -module quasi-cohérent F , on a Hn (G, F ) = 0, n > 0. <br> Remarque. — La proposition 5.3.2 reste valable, lorsque G n’est pas nécessairement <br> plat sur S ; la démonstration fait alors appel à la cohomologie relative.</p>"
+        },
+        {
+          "id": "25.6",
+          "type": "paragraph",
+          "html": "<p>42</p>"
+        }
+      ],
+      "footnotes": []
+    }
+  ]
+}

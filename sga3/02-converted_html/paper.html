@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Generic entry page for the translation-viewer. Copy this to your project root as
+     paper.html (next to your data/ folder) — it needs no per-project edits. Everything
+     project-specific (title, languages, UI strings, MathJax macros) lives in
+     data/config.json; the <title>, #book-title and #lang-switch below are filled by
+     viewer.js from that file at runtime. Assumes the submodule is mounted at
+     translation-viewer/ in the project root. -->
+<title>translation-viewer</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../translation-viewer/viewer.css">
+<style>
+html.single-pane #lang-switch {
+  display: none;
+}
+
+html.single-pane #panes {
+  max-width: 980px;
+}
+
+html.single-pane #panes::before {
+  display: none;
+}
+
+html.single-pane .align-row {
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 0;
+}
+
+html.single-pane .cell-right {
+  display: none;
+}
+</style>
+<script>
+(function () {
+  'use strict';
+
+  var nativeFetch = window.fetch.bind(window);
+
+  function requestUrl(input) {
+    return new URL(typeof input === 'string' ? input : input.url, window.location.href);
+  }
+
+  function jsonResponse(data, source) {
+    var headers = new Headers(source.headers);
+    headers.set('Content-Type', 'application/json');
+    return new Response(JSON.stringify(data), {
+      status: source.status,
+      statusText: source.statusText,
+      headers: headers
+    });
+  }
+
+  function availableManifest(lang) {
+    return nativeFetch('data/' + encodeURIComponent(lang) + '/manifest.json')
+      .then(function (response) { return response.ok; })
+      .catch(function () { return false; });
+  }
+
+  function adaptConfig(response) {
+    return response.clone().json().then(function (config) {
+      var rightLangs = config.rightLangs || [];
+      return Promise.all(rightLangs.map(availableManifest)).then(function (available) {
+        config.rightLangs = rightLangs.filter(function (_, index) { return available[index]; });
+        if (config.rightLangs.length === 0) {
+          document.documentElement.classList.add('single-pane');
+        }
+        return jsonResponse(config, response);
+      });
+    });
+  }
+
+  function chapterUrl(lang, chapterId) {
+    return 'data/' + encodeURIComponent(lang) + '/chapters/' +
+      encodeURIComponent(chapterId) + '.json';
+  }
+
+  function loadChapter(lang, chapterId) {
+    return nativeFetch(chapterUrl(lang, chapterId)).then(function (response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status + ' for ' + chapterId);
+      return response.json();
+    });
+  }
+
+  function manifestLang(url) {
+    var match = url.pathname.match(/\/data\/([^/]+)\/manifest\.json$/);
+    return match ? decodeURIComponent(match[1]) : 'fr';
+  }
+
+  function addAnchor(index, key, pageId) {
+    if (key && pageId && !Object.prototype.hasOwnProperty.call(index, key)) {
+      index[key] = pageId;
+    }
+  }
+
+  function adaptManifest(response, url) {
+    return response.clone().json().then(function (manifest) {
+      if (manifest.chapters && manifest.default_page_id) {
+        return jsonResponse(manifest, response);
+      }
+
+      var lang = manifestLang(url);
+      var toc = manifest.toc || [];
+      return Promise.all(toc.map(function (entry) {
+        return loadChapter(lang, entry.page_id).then(function (chapter) {
+          var pages = chapter.pages || [];
+          var pageIds = pages.map(function (page) { return page.id; });
+          return {
+            entry: entry,
+            chapter: {
+              id: chapter.chapter_id || entry.page_id,
+              title: chapter.title || entry.title || entry.page_id,
+              number: chapter.number || entry.chapter_number || null,
+              page_ids: pageIds
+            },
+            pages: pages
+          };
+        });
+      })).then(function (items) {
+        var anchorIndex = manifest.anchor_index || {};
+        var expandedToc = toc.slice();
+        var seenTocPages = {};
+
+        expandedToc.forEach(function (entry) {
+          seenTocPages[entry.page_id] = true;
+        });
+
+        items.forEach(function (item, chapterOrder) {
+          var landing = item.chapter.page_ids[0];
+          addAnchor(anchorIndex, item.entry.page_id, landing);
+          addAnchor(anchorIndex, item.chapter.id, landing);
+          addAnchor(anchorIndex, item.chapter.number, landing);
+
+          item.pages.forEach(function (page, pageIndex) {
+            addAnchor(anchorIndex, page.id, page.id);
+            if (!seenTocPages[page.id]) {
+              expandedToc.push({
+                page_id: page.id,
+                title: page.title || page.id,
+                level: (item.entry.level || 0) + 1,
+                order: chapterOrder + ((pageIndex + 1) / 1000),
+                is_numbered_chapter: false,
+                chapter_number: item.chapter.number
+              });
+              seenTocPages[page.id] = true;
+            }
+
+            (page.blocks || []).forEach(function (block) {
+              addAnchor(anchorIndex, block.id, page.id);
+            });
+            (page.footnotes || []).forEach(function (footnote) {
+              addAnchor(anchorIndex, footnote.id, page.id);
+            });
+          });
+        });
+
+        manifest.chapters = items.map(function (item) { return item.chapter; });
+        manifest.toc = expandedToc;
+        manifest.anchor_index = anchorIndex;
+        manifest.default_page_id = manifest.default_page_id ||
+          (manifest.chapters[0] && manifest.chapters[0].page_ids[0]);
+        return jsonResponse(manifest, response);
+      });
+    });
+  }
+
+  window.fetch = function (input, init) {
+    var url = requestUrl(input);
+    return nativeFetch(input, init).then(function (response) {
+      if (!response.ok) return response;
+      if (url.pathname.endsWith('/data/config.json')) {
+        return adaptConfig(response);
+      }
+      if (url.pathname.match(/\/data\/[^/]+\/manifest\.json$/)) {
+        return adaptManifest(response, url);
+      }
+      return response;
+    });
+  };
+})();
+</script>
+<!-- Fetches data/config.json, configures + injects the vendored MathJax/XyJax, and
+     exposes window.TVConfigPromise for viewer.js. Repoint data-config if your
+     config lives elsewhere. -->
+<script src="../../translation-viewer/viewer-bootstrap.js" data-config="data/config.json"></script>
+</head>
+<body>
+<header id="topbar">
+  <button id="menu-toggle" aria-label="Menu">☰</button>
+  <a id="home-link" href="index.html" title="Home" aria-label="Home">⌂</a>
+  <h1 id="book-title"></h1>
+  <div id="lang-switch" aria-label="Right-pane language"></div>
+  <button id="cmt-toggle" aria-label="Flagged errors / comments" title="Flagged errors / comments">
+    💬 Comments<span id="cmt-count" hidden></span>
+  </button>
+</header>
+<div id="layout">
+  <nav id="sidebar" aria-label="Contents"></nav>
+  <main id="content">
+    <!-- viewer.js fills this with one .align-row per block pair (base | translation) -->
+    <div id="panes"></div>
+    <!-- viewer.js fills this with a prev/next pager after each page render -->
+    <div id="pager"></div>
+  </main>
+</div>
+<script src="../../translation-viewer/viewer.js"></script>
+<script src="../../translation-viewer/comments.js"></script>
+</body>
+</html>

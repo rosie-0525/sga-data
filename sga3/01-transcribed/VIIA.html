@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 3 — Exposé VII A. Étude infinitésimale des schémas en groupes</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="VIIA">EXPOSÉ VII A<br>ÉTUDE INFINITÉSIMALE DES SCHÉMAS EN GROUPES<span class="author">par P. Gabriel</span></h1>
+
+<p>Dans l'exposé II nous nous étions limités à l'étude des invariants différentiels du
+premier ordre et nous n'avions pas abordé certains phénomènes spéciaux à la
+caractéristique \(p > 0\) ou à la caractéristique 0. Notre objet dans la partie A de cet
+exposé est de combler cette lacune. D'ailleurs, l'étude infinitésimale d'ordre quelconque
+d'un schéma en groupes est reliée à celle du groupe formel associé&nbsp;; l'objet de la
+deuxième partie de cet exposé est de présenter les premières définitions et propriétés
+concernant les groupes formels.</p>
+
+<h2 id="VIIA.A">A) Opérateurs différentiels et <em>p</em>-Algèbres de Lie<sup>(*)</sup></h2>
+
+<h2 id="VIIA.1">1. Opérateurs différentiels</h2>
+
+<p>Dans les paragraphes 1, 2 et 3 qui suivent, S désigne un schéma et les produits
+considérés sont des produits cartésiens dans la catégorie des S-schémas. Si X est un
+S-schéma, nous notons \(p_{X/S}\), \(p_X\) ou simplement \(p\) le morphisme structural de X dans
+S.</p>
+
+<h3 id="VIIA.1.1">1.1.</h3>
+<p>Soit \(u : Y \to X\) un morphisme de S-schémas et munissons l'image directe
+\(u_*(\mathscr{O}_Y)\) du faisceau structural de Y de la structure de \(\mathscr{O}_X\)-Module induite par \(u\). Le
+faisceau \(\mathscr{H} = \underline{\mathrm{Hom}}_{p_X^{-1}(\mathscr{O}_S)}(\mathscr{O}_X, u_*(\mathscr{O}_Y))\) des homomorphismes de \(p_X^{-1}(\mathscr{O}_S)\)-Modules
+de \(\mathscr{O}_X\) dans \(u_*(\mathscr{O}_X)\) est donc muni naturellement d'une structure de \(\mathscr{O}_X\)-bi-Module&nbsp;:
+si U est un ouvert de X, \(f\) et \(d\) des sections de \(\mathscr{O}_X\) et \(\mathscr{H}\) sur U, \(fd\) et \(df\) sont
+respectivement les morphismes \(x \mapsto f\,d(x)\) et \(x \mapsto d(fx)\) de \(\mathscr{O}_X\) dans \(u_*(\mathscr{O}_Y)\). Nous
+écrirons désormais \((\mathrm{ad}\,f)d\) au lieu de \(fd - df\).</p>
+<p>Une S-<em>déviation</em> d'ordre \(\leqslant n\) est par définition un couple \(\mathrm{D} = (u,d)\) formé d'un
+morphisme de S-schémas \(u : Y \to X\) et d'un morphisme de \(p^{-1}(\mathscr{O}_S)\)-Modules
+\(d : \mathscr{O}_X \to u_*(\mathscr{O}_Y)\) tel que
+\[
+(\mathrm{ad}\,f_0)(\mathrm{ad}\,f_1)\cdots(\mathrm{ad}\,f_n)d = 0 \tag{\(*\)}
+\]
+pour tout ouvert U de X et toutes les suites de \(n+1\) sections \(f_0,\ldots,f_n\) de \(\mathscr{O}_X\) sur U. Si
+les égalités \((*)\) sont vérifiées, nous dirons aussi que \(d\) est une S-<em>déviation de \(u\) d'ordre
+\(\leqslant n\)</em>. En particulier, une S-déviation d'ordre \(\leqslant 0\) est un morphisme de \(\mathscr{O}_X\)-Modules
+de \(\mathscr{O}_X\) dans \(u_*(\mathscr{O}_Y)\).</p>
+<p>Un morphisme de \(p^{-1}(\mathscr{O}_S)\)-Modules \(d\) de \(\mathscr{O}_X\) dans \(u_*(\mathscr{O}_Y)\) est une S-<em>déviation de
+\(u\)</em> si, pour tout point \(y\) de Y, il existe un voisinage ouvert U de \(u(y)\) dans X et un
+voisinage ouvert V de \(y\) dans Y vérifiant les conditions suivantes&nbsp;: a) \(u(\mathrm{V}) \subset \mathrm{U}\)&nbsp;; b)
+si \(v : \mathrm{V} \to \mathrm{U}\) est le morphisme induit par \(u\), il y a un entier \(n\) tel que le morphisme
+\(\mathscr{O}_\mathrm{U} \to v_*(\mathscr{O}_\mathrm{V})\) induit par \(d\) soit une S-déviation d'ordre \(\leqslant n\). Si \(d\) est une S-déviation
+de \(u\), nous disons aussi que le couple \(\mathrm{D} = (u,d)\) est une S-déviation et il nous arrivera
+d'écrire \(\mathrm{Y} \xrightarrow{\ \mathrm{D}\ } \mathrm{X}\) ou \(\mathrm{Y} \xrightarrow[u]{\ d\ } \mathrm{X}\). Lorsque \(d\) est l'homomorphisme d'algèbres qui définit \(u\),
+nous écrirons aussi \(u\) au lieu de D.</p>
+
+<h3 id="VIIA.1.2">1.2.</h3>
+<p>Considérons maintenant deux S-déviations \(\mathrm{D} = (u,d)\) et \(\mathrm{E} = (v,e)\)&nbsp;:
+\[
+\xymatrix{ Z \ar[r]^-{v}_-{e} & Y \ar[r]^-{u}_-{d} & X }.
+\]</p>
+<p>Lorsque U parcourt les ouverts de X, les applications composées
+\[
+\Gamma(v^{-1}u^{-1}\mathrm{U}, \mathscr{O}_\mathrm{Z}) \xleftarrow{\ e(u^{-1}\mathrm{U})\ } \Gamma(u^{-1}\mathrm{U}, \mathscr{O}_\mathrm{Y}) \xleftarrow{\ d(\mathrm{U})\ } \Gamma(\mathrm{U}, \mathscr{O}_\mathrm{X})
+\]
+définissent une S-déviation de \(uv\) que nous noterons \(de\)&nbsp;; lorsque \(d\) est d'ordre \(\leqslant m\) et
+\(e\) d'ordre \(\leqslant n\), \(de\) est d'ordre \(\leqslant m+n\). Nous écrirons aussi \(\mathrm{D} \circ \mathrm{E} = (uv, de)\) et nous
+dirons que \(\mathrm{D} \circ \mathrm{E}\) ou DE est la S-déviation <em>composée</em>. Lorsque \(d\) est l'homomorphisme
+d'Algèbres définissant \(u\) (\(\mathrm{D} = u\) avec la convention ci-dessus), on dit aussi que DE est
+<em>l'image de E par \(u\)</em>.</p>
+<p>L'application \((\mathrm{D},\mathrm{E}) \mapsto \mathrm{D} \circ \mathrm{E}\) que nous venons de définir nous permettra désormais de parler de la
+<em>catégorie des S-déviations</em> qui a pour objets les S-schémas, pour morphismes les S-déviations.</p>
+
+<h3 id="VIIA.1.2.1">1.2.1.</h3>
+<p>Supposons par exemple Y égal à \(\mathrm{I}_\mathrm{Z} = \mathrm{Spec}\ \mathscr{O}_\mathrm{Z}[\mathrm{T}]/(\mathrm{T}^2)\) et \(v\) égal à la section
+définie par l'homomorphisme d'Algèbres de \(\mathscr{O}_\mathrm{Z}[\mathrm{T}]/(\mathrm{T}^2)\) dans \(\mathscr{O}_\mathrm{Z}\) qui s'annule sur la
+classe \(t\) de T modulo \(\mathrm{T}^2\). On peut prendre alors pour \(e\) le morphisme de \(\mathscr{O}_\mathrm{Z}\)-Modules
+qui s'annule sur la section unité de \(\mathscr{O}_\mathrm{Z}[\mathrm{T}]/(\mathrm{T}^2)\) et qui envoie \(t\) sur la section unité de
+\(\mathscr{O}_\mathrm{Z}\). Si l'on pose \(\mathrm{D} = u\) et \(w = uv\), \(de\) est alors simplement une S-<em>dérivation</em> de \(\mathscr{O}_\mathrm{X}\)
+dans \(w_*(\mathscr{O}_\mathrm{Z})\)&nbsp;; pour tout S-morphisme \(w : \mathrm{Z} \to \mathrm{X}\) on obtient ainsi une <em>correspondance
+biunivoque</em> entre les S-dérivations de \(\mathscr{O}_\mathrm{X}\) dans \(w_*(\mathscr{O}_\mathrm{Z})\) et les S-déviations de \(w\) de la
+forme \(u \circ \mathrm{E}\), où \(u\) parcourt les morphismes de \(\mathrm{I}_\mathrm{Z}\) dans X prolongeant \(w\).</p>
+
+<h3 id="VIIA.1.2.2">1.2.2.</h3>
+<p>Si \(d\) est une S-déviation de \(u\), \(d\) est évidemment une S′-déviation de \(u\) pour
+tout morphisme \(s : \mathrm{S} \to \mathrm{S}'\). D'autre part, soient \(t : \mathrm{T} \to \mathrm{S}\) un morphisme de but S,
+\(u_\mathrm{T} : \mathrm{Y}_\mathrm{T} \to \mathrm{X}_\mathrm{T}\) le morphisme déduit de \(u\) par changement de base et \(t_\mathrm{Y}\), \(t_\mathrm{X}\) les
+projections canoniques de \(\mathrm{Y}_\mathrm{T}\), \(\mathrm{X}_\mathrm{T}\) dans Y, X. Il existe alors une T-déviation de \(u_\mathrm{T}\) et une
+seule que nous noterons \(d_\mathrm{T}\) ou \(d \times \mathrm{T}\) et qui vérifie l'égalité \(t_\mathrm{X} d_\mathrm{T} = d\,t_\mathrm{Y}\). Si l'on pose
+\(\mathrm{D} = (u,d)\), on écrira aussi \(\mathrm{D}_\mathrm{T} = (u_\mathrm{T}, d_\mathrm{T})\) et nous dirons que \(d_\mathrm{T}\) et \(\mathrm{D}_\mathrm{T}\) sont déduits de \(d\) et
+D par changement de base.</p>
+<p>Soient par exemple \(u : \mathrm{Y} \to \mathrm{X}\) et \(v : \mathrm{Z} \to \mathrm{T}\) deux S-morphismes, \(d\) et \(e\) des S-
+déviations de \(u\) et \(v\). Nous noterons \(d \times e\) (<em>produit de \(d\) et \(e\)</em>) la S-déviation de \(u \times v\)
+égale à \(d_\mathrm{T} \circ e_\mathrm{Y} = e_\mathrm{X} \circ d_\mathrm{Z}\). Si l'on pose \(\mathrm{D} = (u,d)\) et \(\mathrm{E} = (v,e)\), nous écrirons aussi
+\(\mathrm{D} \times \mathrm{E} = (u \times v, d \times e)\).</p>
+
+<h3 id="VIIA.1.3">1.3.</h3>
+<p>Supposons maintenant Y égal à S&nbsp;; alors \(u : \mathrm{S} \to \mathrm{X}\) est une section de \(p : \mathrm{X} \to \mathrm{S}\),
+c'est-à-dire une immersion&nbsp;; on peut alors donner des S-déviations de \(u\) l'interprétation
+que voici&nbsp;: soient \(\mathrm{I}_u\) le noyau de l'homomorphisme de \(u^{-1}(\mathscr{O}_\mathrm{X})\) dans \(\mathscr{O}_\mathrm{S}\) qui définit \(u\),
+\(d\) un morphisme de \(p^{-1}(\mathscr{O}_\mathrm{S})\)-Modules de \(\mathscr{O}_\mathrm{X}\) dans \(u_*(\mathscr{O}_\mathrm{S})\) et \(d' : u^{-1}(\mathscr{O}_\mathrm{X}) \to \mathscr{O}_\mathrm{S}\) le
+morphisme associé canoniquement à \(d\). <em>Alors \(d\) est une S-déviation de \(u\) d'ordre \(\leqslant n\)
+si et seulement si \(d'\) s'annule sur \(\mathrm{I}_u^{n+1}\).</em></p>
+<p>Cette interprétation peut être généralisée comme suit&nbsp;: soient \(u : \mathrm{Y} \to \mathrm{X}\) un S-
+morphisme quelconque et \(\Gamma u\) le graphe de \(u\), c'est-à-dire le morphisme \(\mathrm{Y} \to \mathrm{Y} \times \mathrm{X}\)
+de composantes \(\mathrm{Id}_\mathrm{Y}\) et \(u\). Pour toute S-déviation \(d\) de \(u\) d'ordre \(\leqslant n\), on obtient par
+composition&nbsp;:
+\[
+\xymatrix{ Y \ar[r]^-{\mathrm{diag.}} & Y\times Y \ar[r]^-{d_Y}_-{u_Y} & Y \times X }
+\]
+une Y-déviation de \(\Gamma u\) d'ordre \(\leqslant n\) que nous noterons \(\Gamma d\) (<em>le graphe de \(d\)</em>). On obtient
+ainsi une bijection \(d \mapsto \Gamma d\) de l'ensemble des S-déviations de \(u\) d'ordre \(\leqslant n\) sur
+l'ensemble des Y-déviations de \(\Gamma u\) d'ordre \(\leqslant n\). La bijection réciproque associe à une
+Y-déviation \(\mathrm{Y} \xrightarrow[\Gamma u]{\ e\ } \mathrm{Y} \times \mathrm{X}\) la S-déviation composée
+\[
+\xymatrix{ Y \ar[r]^-{e}_-{\Gamma u} & Y\times X \ar[r]^-{\mathrm{pr}_2} & X }.
+\]</p>
+<p>Appelons J le noyau de l'homomorphisme d'Algèbres
+\[
+(\Gamma u)^{-1}(\mathscr{O}_{Y\times X}) \longrightarrow \mathscr{O}_Y
+\]
+qui définit \(\Gamma u\). Tenant compte de ce qui précède, on voit alors que les S-déviations
+de \(u\) d'ordre \(\leqslant n\) correspondent canoniquement aux morphismes de \(\mathscr{O}_Y\)-Modules de
+\((\Gamma u)^{-1}(\mathscr{O}_{Y\times X})\) dans \(\mathscr{O}_Y\) qui s'annulent sur \(\mathrm{J}^{n+1}\).</p>
+
+<h3 id="VIIA.1.4">1.4.</h3>
+<p>Soit X un S-schéma. On appelle S-<em>opérateur différentiel</em> (resp. S-<em>opérateur
+différentiel d'ordre \(\leqslant n\)</em>) sur X toute S-déviation (resp. toute S-déviation d'ordre \(\leqslant n\))
+du morphisme identique de X. D'après 1.1, un S-opérateur différentiel d'ordre \(\leqslant n\)
+est donc un endomorphisme de \(p^{-1}(\mathscr{O}_\mathrm{S})\)-Module de \(\mathscr{O}_\mathrm{X}\) qui vérifie les égalités \((*_n)\) de
+1.1.</p>
+<p>Nous désignerons par \(\mathrm{Dif}^n_{X/S}\) le \(\Gamma(\mathscr{O}_\mathrm{S})\)-module formé des S-opérateurs différentiels
+d'ordre \(\leqslant n\), par \(\mathrm{Dif}_{X/S}\) celui formé de tous les S-opérateurs différentiels. Comme nous
+l'avons vu en 1.2, on peut composer les S-déviations de \(\mathrm{Id}_\mathrm{X}\), ce qui munit \(\mathrm{Dif}_{X/S}\) d'une
+structure de \(\Gamma(\mathscr{O}_\mathrm{S})\)-algèbre&nbsp;; nous dirons que c'est <em>l'algèbre des opérateurs différentiels
+de X/S</em>. De même, nous noterons \(\mathscr{D}\mathrm{if}_{X/S}\) le faisceau \(\mathrm{U} \mapsto \mathrm{Dif}_{X\times \mathrm{U}/\mathrm{U}}\), où U parcourt
+les ouverts de S.</p>
+
+<h3 id="VIIA.1.4.1">1.4.1.</h3>
+<p>Comme nous l'avons vu en 1.3, on peut interpréter les opérateurs différentiels
+de X/S au moyen du graphe du morphisme identique de X, c'est-à-dire du morphisme
+diagonal \(\Delta = \Delta_{X/S}\) de X dans \(\mathrm{X} \times \mathrm{X}\). Traduisons dans le contexte actuel les énoncés
+de 1.3&nbsp;:</p>
+<p>Munissons \(\mathscr{O}_{X\times X}\) de la structure de \(\mathrm{pr}_1^{-1}(\mathscr{O}_\mathrm{X})\)-Algèbre définie par \(\mathrm{pr}_1\), de sorte que
+\(\Delta^{-1}(\mathscr{O}_{X\times X})\) est muni d'une structure d'Algèbre sur \(\mathscr{O}_\mathrm{X} = \Delta^{-1}\mathrm{pr}_1^{-1}(\mathscr{O}_\mathrm{X})\). Soient
+\(\mathrm{I}_{X/S}\) le noyau de l'homomorphisme
+\[
+\Delta_{X/S}^a : \Delta^{-1}(\mathscr{O}_{X\times X}) \longrightarrow \mathscr{O}_X
+\]
+définissant \(\Delta\) et \(\mathrm{P}^m_{X/S}\) la \(\mathscr{O}_\mathrm{X}\)-Algèbre \(\Delta^{-1}(\mathscr{O}_{X\times X})/\mathrm{I}_{X/S}^{m+1}\).</p>
+<p>Si V est un ouvert affine de S et U un ouvert affine de X au-dessus de V, l'ensemble
+des sections de \(\mathrm{P}^m_{X/S}\) sur U est donc égal à \(\mathrm{A} \otimes_k \mathrm{A}/\mathrm{I}^{m+1}\), où l'on a posé \(k = \Gamma(\mathrm{V}, \mathscr{O}_\mathrm{S})\),
+\(\mathrm{A} = \Gamma(\mathrm{U}, \mathscr{O}_\mathrm{X})\) et où I est l'idéal engendré par les éléments \(a \otimes 1 - 1 \otimes a\), \(a \in \mathrm{A}\).</p>
+<p>Ceci étant, on a d'après 1.3 un isomorphisme canonique
+\[
+j_X : \mathrm{Dif}^m_{X/S} \xrightarrow{\ \sim\ } \mathrm{Hom}_{\mathscr{O}_X}(\mathrm{P}^m_{X/S}, \mathscr{O}_X)
+\]
+qu'on peut définir comme suit&nbsp;: si \(d\) appartient à \(\mathrm{Dif}^m_{X/S}\) et si \(c\) est une section de
+\(\mathrm{P}^m_{X/S}\) sur U de la forme \(a \otimes b + \mathrm{I}^{m+1}\), on a \(j_X(d)(c) = a \cdot d(b)\).</p>
+
+<h3 id="VIIA.1.4.2">1.4.2.</h3>
+<p>Soient \(d\) un opérateur différentiel et \(u\) une section de X sur S. Nous appelons
+<em>valeur de \(d\) en \(u\)</em> la S-déviation composée
+\[
+\xymatrix{ S \ar[r]^-{u} & X \ar[r]^-{d}_-{\mathrm{id}_X} & X }.
+\]</p>
+<p>D'après 1.3 et 1.4.1, si \(d\) est un opérateur différentiel d'ordre \(\leqslant n\), \(du\) et \(d\) sont
+associés canoniquement à des morphismes
+\[
+d' : u^{-1}(\mathscr{O}_X)/\mathrm{I}_u^{m+1} \longrightarrow \mathscr{O}_S \qquad \text{et} \qquad d'' : \mathrm{P}^m_{X/S} \longrightarrow \mathscr{O}_X.
+\]</p>
+<p>Il est clair qu'on peut construire \(d'\) à partir de \(d''\) de la manière suivante&nbsp;: le carré
+\[
+\xymatrix{
+X \simeq S\times X \ar[r]^-{u\times X} \ar[d]_-{p} & X\times X \ar[d]^-{\mathrm{pr}_1} \\
+S \ar[r]_-{u} & X
+}
+\]
+est cartésien, ce qui permet d'identifier X à \(\mathrm{S} \times_\mathrm{X} (\mathrm{X} \times \mathrm{X})\), \(u\) à \(\mathrm{S} \times_\mathrm{X} \Delta\), donc \(u^*(\mathrm{P}^m_{X/S})\)
+à \(u^{-1}(\mathscr{O}_X)/\mathrm{I}_u^{m+1}\). On identifie ainsi \(u^*(d'')\) à un morphisme \(u^{-1}(\mathscr{O}_X)/\mathrm{I}_u^{m+1} \to \mathscr{O}_S\), qui
+n'est autre que \(d'\).</p>
+
+<h3 id="VIIA.1.5">1.5.</h3>
+<p>Posons comme d'habitude \(\mathrm{I}_S = \mathrm{Spec}\ \mathscr{O}_S[\mathrm{T}]/(\mathrm{T}^2)\). Soient \(s : \mathrm{S} \to \mathrm{I}_\mathrm{S}\) la section
+zéro (II 2.1) et \(\sigma\) la déviation canonique de \(s\) que nous avons définie en 1.2.1&nbsp;: la
+déviation \(\sigma\) est donc l'homomorphisme de \(\mathscr{O}_\mathrm{S}\)-Modules qui s'annule sur la section
+unité de \(\mathscr{O}_\mathrm{S}[\mathrm{T}]/(\mathrm{T}^2)\) et qui envoie la classe \(t\) de T modulo \(\mathrm{T}^2\) sur la section unité de
+\(\mathscr{O}_\mathrm{S}\).</p>
+<p>Soit X un S-schéma. A tout \(\mathrm{I}_\mathrm{S}\)-automorphisme \(u\) de \(\mathrm{I}_\mathrm{S} \times \mathrm{X}\) induisant l'identité sur
+X est associé par composition un opérateur différentiel \(\mathrm{D}_u\) de X&nbsp;:
+\[
+\xymatrix{ X \simeq S\times X \ar[r]^-{\sigma\times X} & I_S\times X \ar[r]^-{u} & I_S \times X \ar[r]^-{\mathrm{pr}_2} & X }.
+\]</p>
+<p>D'après II 4.11, l'application \(u \mapsto \mathrm{D}_u\) est un isomorphisme de l'algèbre de Lie du
+foncteur en groupes \(\underline{\mathrm{Aut}}\ \mathrm{X}\) sur l'algèbre de Lie des \(p^{-1}(\mathscr{O}_\mathrm{S})\)-dérivations de \(\mathscr{O}_\mathrm{X}\). L'isomorphisme réciproque associe à toute dérivation D l'automorphisme de \(\mathrm{I}_\mathrm{S} \times \mathrm{X}\) correspondant à l'automorphisme \(a + bt \mapsto a + (\mathrm{D}a + b)t\) de \(\mathscr{O}_\mathrm{S}[\mathrm{T}]/(\mathrm{T}^2)\).</p>
+
+<h2 id="VIIA.2">2. Opérateurs différentiels invariants sur les schémas en groupes</h2>
+
+<h3 id="VIIA.2.1">2.1.</h3>
+<p>Soit G un S-schéma en groupes. Nous désignons par \(\varepsilon\) ou \(\varepsilon_\mathrm{G} : \mathrm{S} \to \mathrm{G}\) la section
+unité de G et par U(G) le \(\Gamma(\mathscr{O}_\mathrm{S})\)-module des S-déviations de \(\varepsilon_\mathrm{G}\) (ou S-<em>déviations de
+l'origine</em>) (cf. 1.1). Si \(d\) et \(e\) sont deux éléments de U(G), \(d \times e\) est une S-déviation
+de \(\varepsilon \times \varepsilon : \mathrm{S} \simeq \mathrm{S} \times \mathrm{S} \to \mathrm{G} \times \mathrm{G}\). L'image de \(d \times e\) par le morphisme multiplication
+\(m : \mathrm{G} \times \mathrm{G} \to \mathrm{G}\) (cf. 1.2) sera appelé le <em>produit</em> de \(d\) et \(e\) et sera noté \(d \cdot e\). Le \(\Gamma(\mathscr{O}_\mathrm{S})\)-
+module U(G) se trouve ainsi muni d'une structure de \(\Gamma(\mathscr{O}_\mathrm{S})\)-algèbre associative qui
+a \(\varepsilon_\mathrm{G}\) pour élément unité (1.1). Nous dirons que U(G) est <em>l'algèbre infinitésimale</em> de
+G. Lorsque T parcourt les schémas au-dessus de S, l'algèbre infinitésimale \(\mathrm{U}(\mathrm{G}_\mathrm{T})\) du
+T-groupe \(\mathrm{G} \times \mathrm{T}\) varie évidemment de façon contravariante en T, de sorte que nous
+pourrons parler du foncteur algèbre infinitésimale. En particulier, lorsque T parcourt
+les ouverts de S, le foncteur \(\mathrm{T} \mapsto \mathrm{U}(\mathrm{G}_\mathrm{T})\) est un faisceau d'algèbres que nous noterons
+\(\mathscr{U}(\mathrm{G})\) et que nous appellerons <em>l'Algèbre infinitésimale</em>.</p>
+<p>L'algèbre U(G) est aussi un foncteur covariant en G&nbsp;: si \(u : \mathrm{G} \to \mathrm{H}\) est un homomorphisme de S-groupes et \(d\) une S-déviation de \(\varepsilon_\mathrm{G}\), l'image de \(d\) par \(u\) est un élément
+\(\mathrm{U}(u)(d) = ud\) de U(H). L'application \(\mathrm{U}(u) : \mathrm{U}(\mathrm{G}) \to \mathrm{U}(\mathrm{H})\) ainsi définie est évidemment
+un homomorphisme de \(\Gamma(\mathscr{O}_\mathrm{S})\)-algèbres. On définit de même un homomorphisme \(\mathscr{U}(u)\)
+de \(\mathscr{U}(\mathrm{G})\) dans \(\mathscr{U}(\mathrm{H})\).</p>
+
+<h3 id="VIIA.2.2">2.2.</h3>
+<p>Soient maintenant \(d\) une S-déviation de l'origine de G et \(d \times \mathrm{G}\) la S-déviation
+de \(\varepsilon \times \mathrm{G} : \mathrm{G} \simeq \mathrm{S} \times \mathrm{G} \to \mathrm{G} \times \mathrm{G}\) obtenue à partir de \(d\) par changement de base. L'image
+de \(d \times \mathrm{G}\) par le morphisme multiplication \(m : \mathrm{G} \times \mathrm{G} \to \mathrm{G}\) est un opérateur différentiel
+\(d^\mathrm{G}\) de G sur S. De plus, l'application \(d \mapsto d^\mathrm{G}\) est évidemment \(\Gamma(\mathscr{O}_\mathrm{S})\)-linéaire et le
+diagramme «&nbsp;commutatif&nbsp;»
+\[
+\xymatrix{
+& & G\times G\times G \ar[rr]^-{m\times G} \ar[dl]_-{d\times G\times G} \ar[dr]^-{\varepsilon\times G\times G} & & G\times G \ar[dl]^-{G\times m} \ar[dd]^-{m} & \\
+& G\times G \ar[dl]_-{\varepsilon\times G} \ar[dr]^(.4){m} & & G\times G \ar[dl]_(.4){d\times G} \ar[dr]^-{\varepsilon\times G} & & \\
+G \ar[rr]_-{e^G}^-{\mathrm{Id}\,G} & & G \ar[rr]_-{d^G}^-{\mathrm{Id}\,G} & & G &
+}
+\]
+montre qu'on a \((d \cdot e)^\mathrm{G} = d^\mathrm{G} \cdot e^\mathrm{G}\)&nbsp;: la commutativité des deux triangles du bas résulte
+en effet de la définition de \(d^\mathrm{G}\) et \(e^\mathrm{G}\)&nbsp;; d'autre part, la S-déviation composée de \(e \times \mathrm{G}\),
+\(d \times \mathrm{G} \times \mathrm{G}\) et \(m \times \mathrm{G}\) coïncide avec \((d \cdot e) \times \mathrm{G}\)&nbsp;; son image par \(m\) est donc égale à \((d \cdot e)^\mathrm{G}\).</p>
+<p>On obtient ainsi un homomorphisme, appelé <em>translation à droite</em>, de la \(\Gamma(\mathscr{O}_\mathrm{S})\)-
+algèbre U(G) dans \(\mathrm{Dif}_{G/S}\). Si \(\mathscr{D}\mathrm{if}_{G/S}\) désigne le faisceau \(\mathrm{U} \mapsto \mathrm{Dif}_{G\times \mathrm{U}/\mathrm{U}}\) sur S (1.4),
+on définit de même une «&nbsp;Translation à droite&nbsp;» du faisceau \(\mathscr{U}(\mathrm{G})\) dans \(\mathscr{D}\mathrm{if}_{G/S}\).</p>
+
+<h3 id="VIIA.2.3">2.3.</h3>
+<p>Nous allons maintenant caractériser les opérateurs différentiels de G sur S de
+la forme \(d^\mathrm{G}\)&nbsp;: soient \(g : \mathrm{S} \to \mathrm{G}\) une section du morphisme structural de G et \(g_\mathrm{G}\) la
+translation à droite de G par \(g\), c'est-à-dire le morphisme composé
+\[
+\xymatrix{ G \simeq G\times S \ar[r]^-{G\times g} & G\times G \ar[r]^-{m} & G }.
+\]</p>
+<p>Pour tout opérateur différentiel D de G sur S, nous notons alors \(\mathrm{D}^g\) l'opérateur
+\(g_\mathrm{G}^{-1}\mathrm{D}g_\mathrm{G}\) (1.2). Nous disons que D est <em>invariant à droite</em> si, pour tout changement de base
+\(t : \mathrm{T} \to \mathrm{S}\) et toute section \(g : \mathrm{T} \to \mathrm{G} \times \mathrm{T}\), on a \((\mathrm{D}_\mathrm{T})^g = \mathrm{D}_\mathrm{T}\).</p>
+
+<div class="thm thm-plain lemme" id="VIIA.2.3.lemme">
+  <div class="thm-head"><span class="thm-name">Lemme</span></div>
+  <div class="thm-body"><p>Pour tout opérateur différentiel D de G sur S, les assertions suivantes
+sont équivalentes&nbsp;:</p>
+<p>(i) D <em>est invariant à droite.</em></p>
+<p>(ii) <em>Si \(m\) est le morphisme multiplication de G, on a</em> \(\mathrm{D}m = m(\mathrm{D} \times \mathrm{G})\).</p></div>
+</div>
+
+<p>(ii) \(\Rightarrow\) (i)&nbsp;: comme la condition (ii) est stable par changement de base, il suffit de
+montrer que (ii) entraîne l'égalité \(\mathrm{D}^g = \mathrm{D}\) pour toute section \(g : \mathrm{S} \to \mathrm{G}\). Ceci résulte
+du diagramme commutatif
+\[
+\xymatrix{
+G \ar[d]_-{\mathrm{D}}^-{\mathrm{Id}\,G} & G\times G \ar[l]_-{m} \ar[d]_-{\mathrm{D}\times G}^-{\mathrm{Id}(G\times G)} & G \ar[l]_-{h} \ar[d]^-{\mathrm{D}}_-{\mathrm{Id}\,G} \\
+G & G\times G \ar[l]^-{m} & G \ar[l]^-{h}
+}
+\]
+où \(h\) est le morphisme
+\[
+\xymatrix{ G \ar[r]^-{\sim} & G\times S \ar[r]^-{G\times g} & G\times G }
+\]
+et \(m \circ h\) la translation à droite par \(g\).</p>
+<p>(i) \(\Rightarrow\) (ii)&nbsp;: prenons en effet pour \(t : \mathrm{T} \to \mathrm{S}\) le morphisme structural \(p : \mathrm{G} \to \mathrm{S}\),
+pour section \(g : \mathrm{T} \to \mathrm{G} \times \mathrm{T}\) le morphisme diagonal \(\Delta : \mathrm{G} \to \mathrm{G} \times \mathrm{G}\). La translation
+à droite de \(\mathrm{G} \times \mathrm{G}\) par \(\Delta\) est alors le morphisme de \(\mathrm{G} \times \mathrm{G}\) dans \(\mathrm{G} \times \mathrm{G}\) qui a pour
+composantes \(m\) et \(\mathrm{pr}_2\). L'égalité \((\mathrm{D}_\mathrm{G})^\Delta = \mathrm{D}_\mathrm{G}\) équivaut alors à la commutativité du
+premier carré du diagramme suivant
+\[
+\xymatrix{
+G\times G \ar[r]^-{\Delta_{G\times G}} \ar[d]_-{\mathrm{D}_G}^-{\mathrm{Id}\,G\times G} & G\times G \ar[r]^-{\mathrm{pr}_1} \ar[d]_-{\mathrm{D}_G}^-{\mathrm{Id}\,G\times G} & G \ar[d]^-{\mathrm{D}}_-{\mathrm{Id}\,G} \\
+G\times G \ar[r]_-{\Delta_{G\times G}} & G\times G \ar[r]_-{\mathrm{pr}_1} & G
+}
+\]
+L'égalité (ii) résulte donc de ce que \(m = \mathrm{pr}_1 \circ \Delta_{G\times G}\).</p>
+<p>Considérons par exemple un élément \(d\) de l'algèbre infinitésimale U(G). Les deux
+carrés du diagramme
+\[
+\xymatrix{
+G\times G \ar[r]^-{d\times G\times G}_-{\varepsilon\times G\times G} \ar[d]_-{m} & G\times G\times G \ar[r]^-{m\times G} \ar[d]^-{G\times m} & G\times G \ar[d]^-{m} \\
+G \ar[r]_-{d\times G}^-{\varepsilon\times G} & G\times G \ar[r]_-{m} & G
+}
+\]
+sont alors commutatifs. Comme on a \(m \circ (d\times \mathrm{G}) = d^\mathrm{G}\) et \((m\times \mathrm{G}) \circ (d\times \mathrm{G}\times \mathrm{G}) = d^\mathrm{G}\times \mathrm{G}\),
+on a aussi \(d^\mathrm{G} \circ m = m \circ (d^\mathrm{G} \times \mathrm{G})\). Pour toute S-déviation \(d\) de l'origine, \(d^\mathrm{G}\) est donc
+un opérateur différentiel invariant à droite.</p>
+
+<div class="thm thm-plain theoreme" id="VIIA.2.4">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.4</span></div>
+  <div class="thm-body"><p>L'application \(d \mapsto d^\mathrm{G}\) est un isomorphisme de l'algèbre infinitésimale U(G) sur la sous-algèbre \(\mathrm{Dif}^\mathrm{G}_{G/S}\) de \(\mathrm{Dif}_{G/S}\) formée des opérateurs différentiels
+invariants à droite.</p></div>
+</div>
+
+<p>Soit en effet D un opérateur différentiel quelconque de G sur S et désignons par \(\mathrm{D}_0\)
+sa <em>valeur à l'origine</em>, c'est-à-dire la déviation composée \(\mathrm{S} \xrightarrow{\ \varepsilon\ } \mathrm{G} \xrightarrow[\mathrm{id}_G]{\ \mathrm{D}\ } \mathrm{G}\). L'opérateur
+différentiel invariant à droite \((\mathrm{D}_0)^\mathrm{G}\) est alors obtenu par composition&nbsp;:
+\[
+\xymatrix{ G \simeq S\times G \ar[r]^-{\varepsilon\times G} & G\times G \ar[r]^-{\mathrm{D}\times G}_-{\mathrm{id}_{G\times G}} & G\times G \ar[r]^-{m} & G }.
+\]</p>
+<p>Si D est invariant à droite, on a \(\mathrm{D}m = m(\mathrm{D} \times \mathrm{G})\), d'où \(\mathrm{D} = \mathrm{D}m(\varepsilon \times \mathrm{G}) =
+m(\mathrm{D} \times \mathrm{G})(\varepsilon \times \mathrm{G}) = \mathrm{D}_0^\mathrm{G}\). En particulier, l'application \(d \mapsto d^\mathrm{G}\) est surjective.</p>
+<p>Réciproquement, soit \(d\) une S-déviation de l'origine. On a alors un carré commutatif
+\[
+\xymatrix{
+G\times G & G \ar[l]_-{d\times G} \\
+G\times S \simeq G \ar[u]^-{G\times\varepsilon} & S \ar[l]^-{d} \ar[u]_-{\varepsilon}
+}
+\]
+d'où il résulte que \(d = m(\mathrm{G} \times \varepsilon)d = m(d\times \mathrm{G})\varepsilon = (d^\mathrm{G})_0\). <em>A fortiori</em>, l'application
+\(d \mapsto d^\mathrm{G}\) est injective.</p>
+<p>Lorsque S varie, le théorème 2.4 implique évidemment que la Translation à droite
+\(\mathscr{U}(\mathrm{G}) \to \mathscr{D}\mathrm{if}_{G/S}\) est un isomorphisme de \(\mathscr{O}_\mathrm{S}\)-Algèbres de \(\mathscr{U}(\mathrm{G})\) sur la sous-Algèbre
+\(\mathscr{D}\mathrm{if}^\mathrm{G}_{G/S} : \mathrm{U} \mapsto \mathrm{Dif}^{G_U}_{G_U/U}\).</p>
+
+<div class="thm thm-remark remarque" id="VIIA.2.4.1">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.4.1</span></div>
+  <div class="thm-body"><p>Considérons le diagramme commutatif
+\[
+\xymatrix{
+G \ar@<0.5ex>[d]^-{p} & G\times G \ar[l]_-{\eta} \ar@<0.5ex>[d]^-{\mathrm{pr}_1} \\
+S \ar@<0.5ex>[u]^-{\varepsilon} & G \ar[l]^-{p} \ar@<0.5ex>[u]^-{\Delta}
+}\ ,
+\]
+où \(\eta\) désigne le morphisme «&nbsp;\((x,y) \mapsto yx^{-1}\)&nbsp;». Celui-ci induit des morphismes
+\[
+\eta' : \eta^{-1}(\mathscr{O}_G) \longrightarrow \mathscr{O}_{G\times G} \qquad \text{et} \qquad \Delta^{-1}(\eta') : p^{-1}\varepsilon^{-1}(\mathscr{O}_G) \longrightarrow \Delta^{-1}(\mathscr{O}_{G\times G}).
+\]</p>
+<p>Pour tout entier \(n \geqslant 1\), \(\Delta^{-1}(\eta')\) définit par passage au quotient un homomorphisme
+de faisceaux&nbsp;:
+\[
+\eta^n : p^{-1}(p^n_{G/S}) \longrightarrow \mathrm{P}^n_{G/S},
+\]
+où nous avons posé \(p^n_{G/S} = \varepsilon^{-1}(\mathscr{O}_G)/\mathrm{I}_\varepsilon^{n+1}\) (confer 1.3 et 1.4 pour les notations). Comme le
+carré formé par les morphismes \(\eta\), \(p\), \(\mathrm{pr}_1\) et \(p\) est cartésien, \(\eta^n\) induit un
+<em>isomorphisme de \(p^*(p^n_{G/S})\) sur \(\mathrm{P}^m_{G/S}\)</em>.</p>
+<p>Les opérateurs différentiels de G sur S d'ordre \(\leqslant n\) correspondent donc biunivoquement aux morphismes de \(\mathscr{O}_\mathrm{G}\)-Modules \(p^*(p^n_{G/S}) \longrightarrow \mathscr{O}_\mathrm{G}\), c'est-à-dire aux morphismes
+de \(\mathscr{O}_\mathrm{S}\)-Modules
+\[
+p^n_{G/S} \longrightarrow p_*(\mathscr{O}_G).
+\]
+Dans cette bijection, les opérateurs différentiels invariants à droite sont associés aux
+flèches composées
+\[
+\xymatrix{ p^n_{G/S} \ar[r] & \mathscr{O}_S \ar[r]^-{\mathrm{can.}} & p_*(\mathscr{O}_G) }.
+\]
+On retrouve ainsi l'isomorphisme du théorème 2.4.</p></div>
+</div>
+
+<h3 id="VIIA.2.5">2.5.</h3>
+<p>Soit \(\gamma : \mathrm{G} \to \underline{\mathrm{Aut}}\ \mathrm{G}\) l'homomorphisme de foncteurs en groupes qui associe
+à un S-morphisme \(g : \mathrm{T} \to \mathrm{G}\) la translation <em>à gauche</em> de \(\mathrm{G}_\mathrm{T}\) par \(g\), c'est-à-dire le
+morphisme composé
+\[
+\xymatrix{ G_T \simeq T\times_T G_T \ar[r]^-{g\times G_T} & G_T\times_T G_T \ar[r]^-{m_T} & G_T }.
+\]</p>
+<p>Cet homomorphisme \(\gamma\) définit le diagramme d'ensembles ci-dessous
+\[
+\xymatrix{
+\mathrm{Lie}\,G \ar[r]^-{\mathrm{Lie}\,\gamma} & \mathrm{Lie}(\underline{\mathrm{Aut}}\,G) \ar[d]^-{\beta} \\
+U(G) \ar[r]_-{\delta} & \mathrm{Dif}_{G/S}
+}
+\]
+où l'on désigne par \(\beta\) l'application \(u \mapsto \mathrm{D}_u\) de 1.5, par \(\delta\) la translation à droite définie
+en 2.2. Si \(x\) est un élément de \(\mathrm{Lie}\,\mathrm{G}\), c'est-à-dire un morphisme de \(\mathrm{I}_\mathrm{S}\) dans G tel qu'on
+ait \(xs = \varepsilon_\mathrm{G}\) avec les notations de 1.5, on a le carré commutatif suivant qui détermine
+l'image de \(x\) par \(\mathrm{Lie}\,\gamma\)&nbsp;:
+\[
+\xymatrix{
+I_S\times G \ar[r]^-{(\mathrm{Lie}\,\gamma)(x)} \ar[d]_-{x\times G} & I_S\times G \ar[d]^-{\mathrm{pr}_2} \\
+G\times G \ar[r]_-{m} & G
+}.
+\]</p>
+<p>D'après 1.5, l'image de \((\mathrm{Lie}\,\gamma)(x)\) par \(\beta\) est la déviation composée
+\[
+\xymatrix{ G \simeq S\times G \ar[r]^-{\sigma\times G}_-{\mathrm{Id}} & I_S\times G \ar[r]^-{x\times G} & G\times G \ar[r]^-{m} & G }.
+\]
+D'après 2.2, cette déviation composée n'est autre que \((x\sigma)^\mathrm{G}\). En notant \(\alpha\) l'application
+\(x \mapsto x\sigma\) de \(\mathrm{Lie}\,\mathrm{G}\) dans U(G), on a donc
+\[
+\beta(\mathrm{Lie}\,\gamma) = \delta\alpha.
+\]</p>
+<p>En particulier, \(\alpha\) est un homomorphisme injectif de \(\mathrm{Lie}\,\mathrm{G}\) dans l'algèbre de Lie sous-
+jacente à l'algèbre infinitésimale U(G).</p>
+
+<h2 id="VIIA.3">3. Coalgèbres et dualité de Cartier</h2>
+
+<h3 id="VIIA.3.1">3.1.</h3>
+<p>Soit S un schéma (ou, plus généralement, un espace annelé). Une \(\mathscr{O}_S\)-<em>Coalgèbre</em>
+est un couple \((\mathscr{U}, \Delta_\mathscr{U})\) formé d'un \(\mathscr{O}_\mathrm{S}\)-Module \(\mathscr{U}\) et d'un morphisme de \(\mathscr{O}_\mathrm{S}\)-Modules
+\(\Delta_\mathscr{U} : \mathscr{U} \to \mathscr{U} \otimes_{\mathscr{O}_S} \mathscr{U}\) (dit <em>morphisme diagonal</em>) tels que&nbsp;:</p>
+<p>(i) \(\sigma \circ \Delta_\mathscr{U} = \Delta_\mathscr{U}\), où \(\sigma(a\otimes b) = b\otimes a\).</p>
+<p>(ii) Le carré
+\[
+\xymatrix{
+U \ar[r]^-{\Delta_U} \ar[d]_-{\Delta_U} & U\otimes_{\mathscr{O}_S} U \ar[d]^-{\mathrm{id}_U\otimes\Delta_U} \\
+U\otimes_{\mathscr{O}_S} U \ar[r]_-{\Delta_U\otimes\mathrm{id}_U} & U\otimes_{\mathscr{O}_S} U\otimes_{\mathscr{O}_S} U
+}
+\]
+soit commutatif.</p>
+<p>(iii) Il existe un morphisme de \(\mathscr{O}_\mathrm{S}\)-Modules \(\varepsilon_\mathscr{U} : \mathscr{U} \to \mathscr{O}_S\), dit <em>augmentation</em>, tel
+que les morphismes composés
+\[
+\xymatrix{ U \ar[r]^-{\Delta_U} & U\otimes\mathscr{O}_S U \ar[r]^-{\mathrm{id}_U\otimes\varepsilon_U} & U\otimes_{\mathscr{O}_S}\mathscr{O}_S \simeq U }
+\]
+\[
+\xymatrix{ U \ar[r]^-{\Delta_U} & U\otimes\mathscr{O}_S U \ar[r]^-{\varepsilon_U\otimes\mathrm{id}_U} & \mathscr{O}_S\otimes_{\mathscr{O}_S} U \simeq U }
+\]
+soient le morphisme identique de \(\mathscr{U}\).</p>
+<p>Si \(\varepsilon_\mathscr{U}\) et \(\varepsilon'_\mathscr{U}\) sont deux augmentations, on a \(\varepsilon_\mathscr{U} \simeq (\varepsilon_\mathscr{U}\otimes\varepsilon'_\mathscr{U})\circ\Delta_\mathscr{U} \simeq \varepsilon'_\mathscr{U}\)&nbsp;; l'augmentation est donc déterminée de façon unique par (iii).</p>
+<p>Si \((\mathscr{U},\Delta_\mathscr{U})\) et \((\mathscr{V},\Delta_\mathscr{V})\) sont deux \(\mathscr{O}_\mathrm{S}\)-Coalgèbres, un morphisme de la première
+dans la seconde est un morphisme de \(\mathscr{O}_\mathrm{S}\)-Modules \(f : \mathscr{U} \to \mathscr{V}\) tel que les diagrammes
+\[
+\xymatrix{
+U \ar[r]^-{f} \ar[d]_-{\Delta_U} & V \ar[d]^-{\Delta_V} \\
+U\otimes U \ar[r]_-{f\otimes f} & V\otimes V
+}
+\qquad \text{et} \qquad
+\xymatrix{
+U \ar[rr]^-{f} \ar[dr]_-{\varepsilon_U} & & V \ar[dl]^-{\varepsilon_V} \\
+& \mathscr{O}_S &
+}
+\]
+soient commutatifs. Les morphismes de Coalgèbres se composent comme les morphismes de \(\mathscr{O}_\mathrm{S}\)-Modules de sorte que nous pourrons parler de la <em>catégorie des \(\mathscr{O}_\mathrm{S}\)-
+Coalgèbres</em>.</p>
+<p>Cette catégorie possède des produits finis&nbsp;: l'objet final est le \(\mathscr{O}_\mathrm{S}\)-Module \(\mathscr{O}_\mathrm{S}\), le morphisme diagonal étant l'identité&nbsp;; le produit de deux Coalgèbres \((\mathscr{U},\Delta_\mathscr{U})\) et \((\mathscr{V},\Delta_\mathscr{V})\)
+est le produit tensoriel \(\mathscr{U} \otimes_{\mathscr{O}_S} \mathscr{V}\), le morphisme diagonal étant le morphisme composé
+\[
+\xymatrix{ U\otimes V \ar[r]^-{\Delta_U\otimes\Delta_V} & U\otimes U\otimes V\otimes V \ar[r]^-{\mathrm{id}_U\otimes\sigma\otimes\mathrm{id}_V} & U\otimes V\otimes U\otimes V }
+\]
+où \(\sigma(a\otimes b) = b\otimes a\)&nbsp;; les projections canoniques de \(\mathscr{U} \otimes \mathscr{V}\) sur les facteurs \(\mathscr{U}\) et \(\mathscr{V}\)
+sont les morphismes \(\mathrm{id}_U\otimes\varepsilon_V\) et \(\varepsilon_U\otimes\mathrm{id}_V\).</p>
+
+<h3 id="VIIA.3.1.1">3.1.1.</h3>
+<p>Soit \(\mathscr{A}\) une \(\mathscr{O}_\mathrm{S}\)-Algèbre commutative, localement libre et de type fini en tant
+que \(\mathscr{O}_\mathrm{S}\)-Module. Si nous posons
+\[
+\mathscr{A}^* = \underline{\mathrm{Hom}}_{\mathscr{O}_S\text{-Mod.}}(\mathscr{A}, \mathscr{O}_S),
+\]
+le morphisme canonique \(\varphi\) de \(\mathscr{A}^* \otimes_{\mathscr{O}_S} \mathscr{A}^*\) dans \((\mathscr{A} \otimes_{\mathscr{O}_S} \mathscr{A})^*\) est inversible. Si
+\(m : \mathscr{A} \otimes \mathscr{A} \to \mathscr{A}\) est le morphisme définissant la multiplication de \(\mathscr{A}\), on obtient par
+composition un morphisme diagonal
+\[
+\xymatrix{ \Delta_{\mathscr{A}^*} : \mathscr{A}^* \ar[r]^-{m^*} & (\mathscr{A}\otimes\mathscr{A})^* \ar[r]^-{\varphi^{-1}} & \mathscr{A}^*\otimes\mathscr{A}^* }.
+\]</p>
+<p>Ce morphisme diagonal fait évidemment de \(\mathscr{A}^*\) une \(\mathscr{O}_\mathrm{S}\)-Coalgèbre qui a pour augmentation le morphisme transposé du morphisme \(\mathscr{O}_\mathrm{S} \to \mathscr{A}\) défini par la section unité
+de \(\mathscr{A}\). De plus, il est clair que <em>le foncteur \(\mathscr{A} \mapsto \mathscr{A}^*\) est une antiéquivalence de la
+catégorie des \(\mathscr{O}_\mathrm{S}\)-Algèbres, qui sont localement libres et de type fini en tant que \(\mathscr{O}_\mathrm{S}\)-
+Modules, sur la catégorie des \(\mathscr{O}_\mathrm{S}\)-Coalgèbres localement libres et de type fini en tant
+que \(\mathscr{O}_\mathrm{S}\)-Modules.</em></p>
+
+<h3 id="VIIA.3.1.2">3.1.2.</h3>
+<p>A toute \(\mathscr{O}_\mathrm{S}\)-Coalgèbre \(\mathscr{U}\) est associée canoniquement un S-foncteur
+\(\mathrm{Spec}^*\,\mathscr{U} : (\mathbf{Sch}/\mathrm{S})^\circ \to (\mathbf{Ens})\)&nbsp;: remarquons en effet que, pour tout S-schéma
+\(q : \mathrm{T} \to \mathrm{S}\), \(q^*(\mathscr{U} \otimes_{\mathscr{O}_S} \mathscr{U})\) s'identifie à \(q^*(\mathscr{U}) \otimes_{\mathscr{O}_T} q^*(\mathscr{U})\), de sorte que \(q^*(\Delta_\mathscr{U})\)
+fait de \(\mathscr{U}_\mathrm{T} = q^*(\mathscr{U})\) une \(\mathscr{O}_\mathrm{T}\)-Coalgèbre&nbsp;; nous pouvons donc poser par définition et avec un
+abus de notation évident&nbsp;:
+\[
+(\mathrm{Spec}^*\,\mathscr{U})(\mathrm{T}) = \{x \in \Gamma(\mathrm{T},\mathscr{U}_T) \mid \varepsilon_{\mathscr{U}_T}(x) = 1 \ \text{et} \ \Delta_{\mathscr{U}_T}(x) = x\otimes x\}.
+\]</p>
+<p>Les sections \(x\) de \(\mathscr{U}_\mathrm{T}\) correspondent évidemment aux morphismes de \(\mathscr{O}_\mathrm{T}\)-Modules
+\(\xi : \mathscr{O}_\mathrm{T} \to \mathscr{U}_\mathrm{T}\)&nbsp;; les conditions \(\varepsilon(x) = 1\) et \(\Delta(x) = x\otimes x\) expriment simplement que \(\xi\)
+est un morphisme de Coalgèbres. On a donc également&nbsp;:
+\[
+(\mathrm{Spec}^*\,\mathscr{U})(\mathrm{T}) = \mathrm{Hom}_{\mathscr{O}_T\text{-coalg.}}(\mathscr{O}_T, \mathscr{U}_T).
+\]</p>
+<p>En particulier, si \(\mathscr{A}\) est une \(\mathscr{O}_\mathrm{S}\)-Algèbre commutative qui est localement libre de
+type fini en tant que \(\mathscr{O}_\mathrm{S}\)-Module, on a des isomorphismes
+\[
+(\mathrm{Spec}^*\,\mathscr{A}^*)(\mathrm{T}) = \mathrm{Hom}_{\mathscr{O}_T\text{-coalg.}}(\mathscr{O}_T, \mathscr{A}^*_T) \simeq \mathrm{Hom}_{\mathscr{O}_T\text{-alg.}}(\mathscr{A}_T, \mathscr{O}_T) \simeq (\mathrm{Spec}\ \mathrm{A})(\mathrm{T})
+\]
+et
+\[
+\mathrm{Spec}^*\,\mathscr{A}^* \simeq \mathrm{Spec}\ \mathscr{A}.
+\]</p>
+
+<h3 id="VIIA.3.2">3.2.</h3>
+<p>Une \(\mathscr{O}_\mathrm{S}\)-<em>Coalgèbre en groupes</em>, c'est-à-dire un groupe de la catégorie des \(\mathscr{O}_\mathrm{S}\)-
+Coalgèbres, consiste en la donnée d'une \(\mathscr{O}_\mathrm{S}\)-Coalgèbre \((\mathscr{U},\Delta_\mathscr{U})\) et d'un morphisme
+de \(\mathscr{O}_\mathrm{S}\)-Coalgèbres \(m_\mathscr{U} : \mathscr{U} \otimes \mathscr{U} \to \mathscr{U}\). Un tel morphisme est un morphisme de
+\(\mathscr{O}_\mathrm{S}\)-Modules rendant commutatifs les diagrammes suivants</p>
+<p>(iv)
+\[
+\xymatrix{
+U\otimes U\otimes U\otimes U \ar[d]_-{\mathrm{id}_U\otimes\sigma\otimes\mathrm{id}_U} & U\otimes U \ar[l]_-{\Delta_U\otimes\Delta_U} \ar[ddr]^-{m_U} \\
+U\otimes U\otimes U\otimes U \ar[r]_-{m_U\otimes m_U} & U\otimes U \ar[dr]_-{\Delta_U} \\
+& & U
+}
+\]</p>
+<p>(v)
+\[
+\xymatrix{
+U\otimes U \ar[rr]^-{m_U} \ar[dr]_-{\varepsilon_U\otimes\varepsilon_U} & & U \ar[dl]^-{\varepsilon_U} \\
+& \mathscr{O}_S &
+}
+\]</p>
+<p>Le morphisme de \(\mathscr{O}_\mathrm{S}\)-Coalgèbres \(m_\mathscr{U}\) doit en outre vérifier les conditions (ii)\(^*\), (iii)\(^*\)
+et (vi) ci-dessous&nbsp;:</p>
+<p>(ii)\(^*\) Le carré
+\[
+\xymatrix{
+U\otimes U\otimes U \ar[r]^-{\mathrm{id}_U\otimes m_U} \ar[d]_-{m_U\otimes\mathrm{id}_U} & U\otimes U \ar[d]^-{m_U} \\
+U\otimes U \ar[r]_-{m_U} & U
+}
+\]
+est commutatif.</p>
+<p>(iii)\(^*\) Il existe un morphisme de \(\mathscr{O}_\mathrm{S}\)-Coalgèbres \(\eta_\mathscr{U} : \mathscr{O}_S \to \mathscr{U}\) tel que les morphismes
+composés
+\[
+\xymatrix{ U \simeq U\otimes\mathscr{O}_S \ar[r]^-{\mathrm{id}_U\otimes\eta_U} & U\otimes U \ar[r]^-{m_U} & U }
+\]
+\[
+\text{et} \qquad \xymatrix{ U \simeq \mathscr{O}_S\otimes U \ar[r]^-{\eta_U\otimes\mathrm{id}_U} & U\otimes U \ar[r]^-{m_U} & U }
+\]
+soient les morphismes identiques de \(\mathscr{U}\).</p>
+<p>(vi) Il existe un morphisme de \(\mathscr{O}_\mathrm{S}\)-Coalgèbres \(c_\mathscr{U} : \mathscr{U} \to \mathscr{U}\) tel que le morphisme
+composé
+\[
+\xymatrix{ U \ar[r]^-{\Delta_U} & U\otimes U \ar[r]^-{c_U\otimes\mathrm{id}_U} & U\otimes U \ar[r]^-{m_U} & U }
+\]
+soit égal à \(\eta_\mathscr{U} \circ \varepsilon_\mathscr{U}\).</p>
+
+<h3 id="VIIA.3.2.1">3.2.1.</h3>
+<p>Les morphismes \(\eta_\mathscr{U}\) et \(c_\mathscr{U}\) de (iii)\(^*\) et (vi) sont évidemment uniques. Les
+conditions (ii)\(^*\) et (iii)\(^*\) expriment simplement que \(m_\mathscr{U}\) fait de \(\mathscr{U}\) une \(\mathscr{O}_\mathrm{S}\)-algèbre qui a
+pour section unité l'image par \(\eta_\mathscr{U}\) de la section unité de \(\mathscr{O}_\mathrm{S}\). La condition (iv) exprime
+aussi que le morphisme diagonal \(\Delta_\mathscr{U}\) est compatible avec la multiplication&nbsp;; et en effet,
+\(\Delta_\mathscr{U} : \mathscr{U} \to \mathscr{U} \otimes \mathscr{U}\) doit être un homomorphisme de Coalgèbres en groupes, ce qui
+implique également la commutativité du triangle</p>
+<p>(v)\(^*\)
+\[
+\xymatrix{
+& \mathscr{O}_S \ar[dl]_-{\eta_U} \ar[dr]^-{\eta_U\otimes\eta_U} & \\
+U \ar[rr]_-{\Delta_U} & & U\otimes U
+}\ .
+\]</p>
+<p>D'autre part, comme dans toute catégorie, l'antipodisme \(c_\mathscr{U}\) est un isomorphisme
+de \(\mathscr{U}\) sur la Coalgèbre en groupes opposée&nbsp;; en particulier, \(c_\mathscr{U}\) induit un isomorphisme
+d'algèbres de \(\mathscr{U}\) sur l'algèbre opposée \(\mathscr{U}^\circ\).</p>
+
+<h3 id="VIIA.3.2.2">3.2.2.</h3>
+<p>Comme le foncteur \(\mathscr{U} \mapsto \mathrm{Spec}^*\,\mathscr{U}\) commute aux produits finis, il transforme
+une Coalgèbre en groupes en un S-foncteur en groupes&nbsp;; et en effet, pour tout S-schéma
+T, les éléments \(x \in \Gamma(\mathrm{T}, \mathscr{U}_T)\) appartenant à \((\mathrm{Spec}^*\,\mathscr{U})(\mathrm{T})\) forment un groupe pour la
+multiplication de l'algèbre \(\Gamma(\mathrm{T}, \mathscr{U}_T)\)&nbsp;; l'inverse de \(x\) n'est autre que \(c_\mathscr{U}(x)\).</p>
+<p>Soient par exemple \(\mathfrak{g}\) une \(\mathscr{O}_\mathrm{S}\)-Algèbre de Lie et \(\mathscr{U}(\mathfrak{g})\) l'Algèbre enveloppante de
+\(\mathfrak{g}\), c'est-à-dire le faisceau sur S associé au préfaisceau qui attribue à tout ouvert V
+l'algèbre enveloppante \(\mathrm{U}(\Gamma(\mathrm{V},\mathfrak{g}))\) de l'algèbre de Lie \(\Gamma(\mathrm{V},\mathfrak{g})\).</p>
+<p>Tout homomorphisme de \(\mathfrak{g}\) dans l'Algèbre de Lie sous-jacente à une \(\mathscr{O}_\mathrm{S}\)-Algèbre
+se factorise d'une façon et d'une seule à travers le morphisme canonique de \(\mathfrak{g}\) dans
+\(\mathscr{U}(\mathfrak{g})\)&nbsp;; en outre, cette propriété universelle entraîne, outre la fonctorialité de \(\mathscr{U}(\mathfrak{g})\) en
+\(\mathfrak{g}\), que l'Algèbre enveloppante d'un produit d'Algèbres de Lie s'identifie au produit
+tensoriel des Algèbres enveloppantes.</p>
+<p>En particulier, le morphisme diagonal \(\delta : \mathfrak{g} \to \mathfrak{g} \times \mathfrak{g}\) induit un homomorphisme
+d'Algèbres \(\Delta : \mathscr{U}(\mathfrak{g}) \to \mathscr{U}(\mathfrak{g}\times\mathfrak{g}) \simeq \mathscr{U}(\mathfrak{g}) \otimes \mathscr{U}(\mathfrak{g})\). Le morphisme nul \(\mathfrak{g} \to 0\) induit
+un homomorphisme \(\varepsilon : \mathscr{U}(\mathfrak{g}) \to \mathscr{U}(0) \simeq \mathscr{O}_S\). L'isomorphisme \(x \mapsto -x\) de \(\mathfrak{g}\) sur
+l'algèbre de Lie opposée \(\mathfrak{g}^\circ\) induit un antiisomorphisme \(c\) de l'algèbre \(\mathscr{U}(\mathfrak{g})\). On vérifie
+alors facilement que la multiplication \(m\) de l'Algèbre \(\mathscr{U}(\mathfrak{g})\) fait de \((\mathscr{U}(\mathfrak{g}),\Delta)\) une \(\mathscr{O}_\mathrm{S}\)-
+Coalgèbre en groupes qui a \(\varepsilon\) pour augmentation et \(c\) pour antipodisme.</p>
+
+<h3 id="VIIA.3.2.3">3.2.3.</h3>
+<p>Soit \(\mathscr{U}\) une \(\mathscr{O}_\mathrm{S}\)-Coalgèbre en groupes. On vérifie facilement que \(\mathrm{G} = \mathrm{Spec}^*\,\mathscr{U}\)
+est un bon S-groupe (II 4.6). Comme on a
+\[
+\Gamma(\mathrm{I}_S, \mathscr{U}_{I_S}) \simeq \Gamma(\mathrm{S},\mathscr{U}) \oplus d\,\Gamma(\mathrm{S},\mathscr{U}),
+\]
+un élément \(u_0+du_1\) de \(\Gamma(\mathrm{I}_S,\mathscr{U}_{I_S})\) appartient à \((\mathrm{Spec}^*\,\mathscr{U})(\mathrm{I}_S)\) si et seulement si l'on a
+\[
+\Delta(u_0+du_1) = (u_0+du_1)\otimes(u_0+du_1) \qquad \text{et} \qquad \varepsilon(u_0+du_1) = 1,
+\]
+d'où \(\Delta u_0 + d\Delta u_1 = u_0\otimes u_0 + (u_1\otimes u_0 + u_0\otimes u_1)d\) et \(\varepsilon(u_0)+d\varepsilon(u_1) = 1\) c'est-à-dire
+\[
+\Delta u_0 = u_0\otimes u_0, \qquad u_1 = u_1\otimes u_0 + u_0\otimes u_1 \qquad \text{et} \qquad \varepsilon(u_0)=1,\ \varepsilon(u_1)=0.
+\]</p>
+<p>En particulier, \((\mathrm{Lie}\,\mathrm{G})(\mathrm{T})\) est l'ensemble des éléments primitifs de \(\Gamma(\mathrm{T},\mathscr{U}_T)\), c'est-
+à-dire des éléments \(u\) tels qu'on ait \(\Delta u = u\otimes 1 + 1\otimes u\) (avec l'abus de notation évident
+déjà signalé).</p>
+<p>La structure de \(\Gamma(\mathrm{T},\mathscr{O}_T)\)-module de \((\mathrm{Lie}\,\mathrm{G})(\mathrm{T})\) est évidemment induite par celle
+de \(\Gamma(\mathrm{T},\mathscr{U}_T)\). D'autre part, considérons deux éléments primitifs \(u\) et \(v\) de \((\mathrm{Lie}\,\mathrm{G})(\mathrm{S})\)
+et posons \(\mathrm{I} = \mathrm{Spec}\ \mathscr{O}_S[d]/(d^2)\) et \(\mathrm{I}' = \mathrm{Spec}\ \mathscr{O}_S[d']/(d'^2)\). Comme la loi de composition
+de \(\mathrm{G}(\mathrm{I}\times \mathrm{I}')\) est induite par la multiplication de l'Algèbre \(\mathscr{U}_{I\times I'}\), on a
+\[
+(1+ud)(1+vd')(1+ud)^{-1}(1+vd')^{-1} = (1+ud)(1+vd')(1-ud)(1-vd)
+\]
+\[
+= 1 + (uv-vu)dd'
+\]
+D'où l'égalité \([u,v] = uv-vu\), qui prouve que G est très bon (II 4.10).</p>
+
+<h3 id="VIIA.3.3">3.3.</h3>
+<p>Supposons enfin que \(\mathscr{U}\) soit une \(\mathscr{O}_\mathrm{S}\)-Coalgèbre en groupes commutatifs, c'est-
+à-dire que le triangle</p>
+<p>(i)\(^*\)
+\[
+\xymatrix{
+U\otimes U \ar[rr]^-{\sigma} \ar[dr]_-{m_U} & & U\otimes U \ar[dl]^-{m_U} \\
+& U &
+}
+\]</p>
+<p>soit commutatif, ou encore que \(m_\mathscr{U}\) fasse de \(\mathscr{U}\) une \(\mathscr{O}_\mathrm{S}\)-Algèbre commutative. Les
+conditions (i), (ii), (iii), (iv), (v), (vi), (i)\(^*\), (ii)\(^*\), (iii)\(^*\) et (v)\(^*\) signifient alors aussi que
+\(\mathscr{U}\) est un cogroupe dans la catégorie des \(\mathscr{O}_\mathrm{S}\)-Algèbres commutatives. En particulier,
+<em>si de plus \(\mathscr{U}\) est un \(\mathscr{O}_\mathrm{S}\)-Module quasi-cohérent, \(\mathrm{Spec}\ \mathscr{U}\) est un S-schéma en groupes
+commutatifs.</em></p>
+<p>Un homomorphisme de S-groupes de \(\mathrm{Spec}\ \mathscr{U}\) dans \(\mathbb{G}_{m,S}\) (I 4.3.2) est alors induit
+par un homomorphisme de \(\mathscr{O}_\mathrm{S}\)-Algèbres unitaires
+\[
+\varphi : \mathscr{O}_S[\mathrm{T},\mathrm{T}^{-1}] \longrightarrow \mathscr{U}
+\]
+tel que \((\varphi\otimes\varphi)\circ\Delta' = \Delta_U\circ\varphi\) (le morphisme diagonal \(\Delta'\) de \(\mathscr{O}_S[\mathrm{T},\mathrm{T}^{-1}]\) envoie
+T sur \(\mathrm{T}\otimes\mathrm{T}\)). Un tel homomorphisme \(\varphi\) est déterminé par l'image \(\varphi(\mathrm{T})\) qui doit
+être un élément inversible \(x\) de \(\mathscr{U}\) tel que \(\Delta_\mathscr{U} x = x\otimes x\)&nbsp;; comme \(\varphi\) commute alors
+nécessairement avec l'augmentation, on a \(\varepsilon_\mathscr{U} x = 1\) (l'augmentation de \(\mathscr{O}_S[\mathrm{T},\mathrm{T}^{-1}]\)
+envoie T sur 1). On a donc
+\[
+\mathrm{Hom}_{S\text{-gr.}}(\mathrm{Spec}\ \mathscr{U}, \mathbb{G}_{m,S}) \simeq (\mathrm{Spec}^*\,\mathscr{U})(\mathrm{S}).
+\]
+Comme cette formule reste valable après tout changement de base, on a finalement
+
+\[
+\mathrm{Spec}^*\,\mathscr{U} = \underline{\mathrm{Hom}}_{S\text{-gr.}}(\mathrm{Spec}\ \mathscr{U}, \mathbb{G}_m)
+\]
+pour toute \(\mathscr{O}_\mathrm{S}\)-Coalgèbre en groupes commutatifs quasi-cohérente \(\mathscr{U}\).</p>
+
+<h3 id="VIIA.3.3.1">3.3.1.</h3>
+<p>Si l'on suppose de plus que \(\mathscr{U}\) est un \(\mathscr{O}_\mathrm{S}\)-Module localement libre de type
+fini, \(\mathrm{Spec}^*\,\mathscr{U}\) est également représentable et l'on a (cf. 3.1.2)&nbsp;:
+\[
+\mathrm{Spec}^*\,\mathscr{U} \simeq \mathrm{Spec}\ \mathscr{U}^*.
+\]
+Le foncteur \(\mathscr{U} \mapsto \mathscr{U}^* = \underline{\mathrm{Hom}}_{\mathscr{O}_S\text{-Mod.}}(\mathscr{U},\mathscr{O}_S)\) induit donc une <em>dualité</em><sup>(*)</sup> de la catégorie
+des S-schémas en groupes commutatifs qui sont finis localement libres sur S (c'est
+la <em>dualité de Cartier</em>). D'après 3.3, cette dualité associe \(\underline{\mathrm{Hom}}_{S\text{-gr.}}(\mathrm{G},\mathbb{G}_{m,S})\) à un
+S-groupe G.</p>
+<p><small>(*) Une dualité d'une catégorie \(\mathscr{C}\) est un couple \((\mathrm{D},\varphi)\) formé d'un foncteur contravariant D de \(\mathscr{C}\)
+dans \(\mathscr{C}\) et d'un isomorphisme fonctoriel \(\varphi : \mathrm{Id}_{\mathscr{C}} \to \mathrm{DD}\) tel que les isomorphismes \(\varphi\mathrm{D} : \mathrm{D} \to \mathrm{DDD}\) et
+\(\mathrm{D}\varphi : \mathrm{DDD} \to \mathrm{D}\) soient réciproques l'un de l'autre.</small></p>
+
+<h2 id="VIIA.4">4. « Frobeniuseries »</h2>
+<p>Soient \(p\) un nombre premier fixé et \((\mathbf{Sch}/\mathbb{F}_p)\) la catégorie des schémas de caractéristique \(p\), c'est-à-dire des schémas au-dessus du corps premier \(\mathbb{F}_p\). Suivant les conventions générales de ce séminaire, nous identifions \((\mathbf{Sch}/\mathbb{F}_p)\) à une sous-catégorie de
+\(\widehat{(\mathbf{Sch}/\mathbb{F}_p)}\) au moyen du foncteur \(\mathbf{h}\) de I 1.1. Nous profitons de même de l'isomorphisme
+de \(\mathrm{Hom}(\mathbf{h}_X, \mathrm{F})\) sur \(\mathrm{F}(\mathrm{X})\) défini en I 1.1 pour identifier ces deux ensembles chaque
+fois que X est un \(\mathbb{F}_p\)-schéma et F un objet de \(\widehat{(\mathbf{Sch}/\mathbb{F}_p)}\). Si T est un \(\mathbb{F}_p\)-schéma, un
+T-foncteur est un morphisme \(q : \mathrm{F} \to \mathrm{T}\) de \(\widehat{(\mathbf{Sch}/\mathbb{F}_p)}\) qui a T pour but&nbsp;; pour tout T-schéma
+\(r : \mathrm{X} \to \mathrm{T}\), l'ensemble des morphismes \(s : \mathrm{X} \to \mathrm{F}\) tels que \(q\circ s = r\) sera alors noté \(q(r)\),
+\(q(\mathrm{X}/\mathrm{T})\), \(\mathrm{F}(r)\) ou \(\mathrm{F}(\mathrm{X}/\mathrm{T})\) (ou même \(\mathrm{F}(\mathrm{X})\) lorsqu'aucune confusion ne sera possible avec
+\(\mathrm{Hom}(\mathbf{h}_X, \mathrm{F})\)).</p>
+
+<h3 id="VIIA.4.1">4.1.</h3>
+<p>Pour tout schéma S de caractéristique \(p\), nous notons \(\mathrm{fr}(\mathrm{S})\) ou \(\mathrm{fr}\) l'endomorphisme de S qui induit l'identité sur l'espace topologique sous-jacent à S et qui associe
+\(x^p\) à une section \(x\) de \(\mathscr{O}_\mathrm{S}\) sur un ouvert U. Alors l'application \(\mathrm{fr} : \mathrm{S} \mapsto \mathrm{fr}(\mathrm{S})\) est un endomorphisme du foncteur identique de \((\mathbf{Sch}/\mathbb{F}_p)\), ce qui implique les résultats suivants&nbsp;:
+soit E un \(\mathbb{F}_p\)-foncteur, c'est-à-dire un objet de \(\widehat{(\mathbf{Sch}/\mathbb{F}_p)}\)&nbsp;; l'application qui associe à
+tout \(\mathbb{F}_p\)-schéma S l'endomorphisme \(\mathrm{E}(\mathrm{fr}(\mathrm{S}))\) de \(\mathrm{E}(\mathrm{S})\), est un endomorphisme fonctoriel
+de E que nous noterons \(\mathrm{fr}(\mathrm{E})\) ou \(\mathrm{fr}\)&nbsp;; cette notation est compatible avec l'identification
+de \((\mathbf{Sch}/\mathbb{F}_p)\) à une sous-catégorie de \(\widehat{(\mathbf{Sch}/\mathbb{F}_p)}\)&nbsp;; de plus, l'application \(\mathrm{E} \mapsto \mathrm{fr}(\mathrm{E})\) est un
+endomorphisme du foncteur identique de \(\widehat{(\mathbf{Sch}/\mathbb{F}_p)}\) (que nous noterons encore fr).</p>
+<p>Pour tout schéma S de caractéristique \(p\) et tout S-foncteur \(q : \mathrm{X} \to \mathrm{S}\), nous notons
+\(\mathrm{X}^{(p/S)}\) ou \(\mathrm{X}^{(p)}\) l'image réciproque \(\mathrm{S} \times_{\mathrm{fr},q} \mathrm{X}\) de X par le changement de base \(\mathrm{fr}(\mathrm{S})\). Le
+carré commutatif
+\[
+\xymatrix{
+X \ar[r]^-{\mathrm{fr}(X)} \ar[d]_-{q} & X \ar[d]^-{q} \\
+S \ar[r]_-{\mathrm{fr}(S)} & S
+}
+\]
+induit alors un S-morphisme \(\mathrm{Fr}(\mathrm{X}/\mathrm{S})\) ou Fr de X dans \(\mathrm{X}^{(p/S)}\) tel que \(\mathrm{fr}(\mathrm{X}) = \mathrm{pr}_2 \circ
+\mathrm{Fr}(\mathrm{X}/\mathrm{S})\). Nous dirons que \(\mathrm{Fr}(\mathrm{X}/\mathrm{S})\) est le <em>morphisme de Frobenius de X relativement
+à S</em>&nbsp;; il est clair que l'application \(\mathrm{Fr} : \mathrm{X} \mapsto \mathrm{Fr}(\mathrm{X}/\mathrm{S})\) est un homomorphisme fonctoriel.</p>
+<p>D'après les définitions, pour tout S-schéma \(\mathrm{K} : \mathrm{T} \to \mathrm{S}\), l'application \(\mathrm{Fr}(\mathrm{X}/\mathrm{S})(\mathrm{K})\)
+peut donc être caractérisée par la commutativité du triangle</p>
+<p>(†)
+\[
+\xymatrix{
+& X^{(p/S)}(K) \ar[dr]^-{\sim} & \\
+X(K) \ar[ur]^-{\mathrm{Fr}(X/S)(K)} \ar[rr]_-{X(\mathrm{fr}(T))} & & X(\mathrm{fr}(S)\circ K) = X(K\circ \mathrm{fr}(T))
+}\ .
+\]</p>
+<p>Par exemple, si X est le sous-schéma de S défini par un Idéal quasi-cohérent \(\mathscr{I}\),
+alors \(\mathrm{X}^{(p)}\) est le sous-schéma de S défini par l'Idéal \(\mathscr{I}^{\{p\}}\) engendré par les puissances
+\(p\)-ièmes des sections de \(\mathscr{I}\)&nbsp;; en outre, \(\mathrm{Fr}(\mathrm{X}/\mathrm{S})\) est alors l'immersion canonique de
+\(\mathrm{Spec}(\mathscr{O}_X/\mathscr{I})\) dans \(\mathrm{Spec}(\mathscr{O}/\mathscr{I}^{\{p\}})\).</p>
+
+<h3 id="VIIA.4.1.1">4.1.1.</h3>
+<p>Considérons maintenant un changement de base \(t : \mathrm{T} \to \mathrm{S}\). Comme le carré
+\[
+\xymatrix{
+T \ar[r]^-{\mathrm{fr}(T)} \ar[d]_-{t} & T \ar[d]^-{t} \\
+S \ar[r]_-{\mathrm{fr}(S)} & S
+}
+\]
+est commutatif, l'image réciproque de \(\mathrm{X} \times \mathrm{T}\) par \(\mathrm{fr}(\mathrm{T})\) s'identifie à l'image réciproque
+de \(\mathrm{X} \times \mathrm{S}\) par \(t\)&nbsp;; autrement dit, on a un isomorphisme canonique de \(\mathrm{X}_T^{(p/T)}\) sur
+\((\mathrm{X}^{(p/S)})_T\). Il est clair que, dans cette identification, \(\mathrm{Fr}(\mathrm{X}_T/\mathrm{T})\) s'identifie à l'image
+réciproque \(\mathrm{Fr}(\mathrm{X}/\mathrm{S})_T\) de \(\mathrm{Fr}(\mathrm{X}/\mathrm{S})\).</p>
+<p>En particulier, si S est le spectre du corps premier \(\mathbb{F}_p\), \(\mathrm{X}^{(p/S)}\) est égal à X et
+\(\mathrm{Fr}(\mathrm{X}/\mathrm{S})\) à \(\mathrm{fr}(\mathrm{X})\). Par conséquent, \(\mathrm{X}_T^{(p/T)}\) s'identifie à \(\mathrm{X}_T\) et \(\mathrm{Fr}(\mathrm{X}_T/\mathrm{T})\) à \(\mathrm{fr}(\mathrm{X})_T\).
+Soient par exemple E un ensemble et \(\mathrm{E}_\mathrm{T}\) le T-schéma constant de type E&nbsp;; on a alors
+\(\mathrm{E}_T^{(p/T)} \simeq \mathrm{E}_T\) et \(\mathrm{Fr}(\mathrm{E}_T/\mathrm{T}) \simeq \mathrm{Id}_{E_T}\).</p>
+
+<h3 id="VIIA.4.1.2">4.1.2.</h3>
+<p>Le foncteur \(\mathrm{X} \mapsto \mathrm{X}^{(p/S)}\) commute évidemment aux produits&nbsp;; il transforme
+donc un S-groupe G en un S-groupe \(\mathrm{G}^{(p/S)}\)&nbsp;; de plus, comme Fr est un homomorphisme
+fonctoriel, \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})\) est un homomorphisme de S-groupes. Nous noterons \(\mathrm{Fr}\,\mathrm{G}\) le noyau
+de cet homomorphisme&nbsp;: si \(q : \mathrm{T} \to \mathrm{S}\) est un schéma au-dessus de S, il résulte de 4.1 que
+la valeur de \(\mathrm{Fr}\,\mathrm{G}\) en \(q\) est le noyau de l'homomorphisme \(\mathrm{G}(\mathrm{fr}(\mathrm{T})) : \mathrm{G}(q) \to \mathrm{G}(q\circ\mathrm{fr}(\mathrm{T}))\).
+Par exemple, lorsque T est le schéma \(\mathrm{I}_\mathrm{R}\) des nombres duaux sur un S-schéma R, \(\mathrm{fr}(\mathrm{I}_R)\)
+se factorise comme suit
+\[
+\xymatrix{ I_R \ar[r]^-{\mathrm{can.}} & R \ar[r]^-{\mathrm{fr}(R)} & R \ar[r]^-{\mathrm{can.}} & I_R }.
+\]
+Ceci montre que \((\mathrm{Fr}\,\mathrm{G})(\mathrm{I}_R)\) contient le noyau du morphisme \(\mathrm{G}(\mathrm{I}_R) \to \mathrm{G}(\mathrm{R})\) et qu'on
+a \(\mathrm{Lie}\ \mathrm{G}/\mathrm{S} = \mathrm{Lie}(\mathrm{Fr}\,\mathrm{G}/\mathrm{S})\).</p>
+
+<h3 id="VIIA.4.1.3">4.1.3.</h3>
+<p>Plus généralement, pour tout S-foncteur X, nous définissons le S-foncteur
+\(\mathrm{X}^{(p^n)}\) par récurrence sur \(n\) à l'aide des formules
+\[
+\mathrm{X}^{(p)} = \mathrm{X}^{(p/S)} \qquad \text{et} \qquad \mathrm{X}^{(p^n)} = (\mathrm{X}^{(p^{n-1})})^{(p)}.
+\]
+De même, \(\mathrm{Fr}^n(\mathrm{X}/\mathrm{S})\) ou \(\mathrm{Fr}^n\) désignent l'homomorphisme fonctoriel composé
+\[
+\xymatrix{ X \ar[r]^-{\mathrm{Fr}(X/S)} & X^{(p)} \ar[r]^-{\mathrm{Fr}(X^{(p)}/S)} & X^{(p^2)} \ar[r] & \cdots \ar[r] & X^{(p^{n-1})} \ar[r]^-{\mathrm{Fr}(X^{(p^{n-1})}/S)} & X^{(p^n)} }.
+\]</p>
+<p>Si G est un S-foncteur en groupes, \(\mathrm{G}^{(p^n)}\) en est un également et \(\mathrm{Fr}^n(\mathrm{G}/\mathrm{S})\) est
+un homomorphisme de S-foncteurs en groupes. Nous noterons \(\mathrm{Fr}_n\,\mathrm{G}\) le noyau de \(\mathrm{Fr}^n(\mathrm{G}/\mathrm{S})\)
+et nous dirons que G <em>est de hauteur \(\leqslant n\)</em> si \(\mathrm{Fr}^n(\mathrm{G}/\mathrm{S})\) est nul, c'est-à-dire si \(\mathrm{Fr}_n\,\mathrm{G} = \mathrm{G}\).</p>
+
+<p>Le sous-foncteur en groupes \(\mathrm{Fr}_n\,\mathrm{G}\) de G est caractéristique, en ce sens que, pour
+tout S-schéma T, tout endomorphisme \(f\) du T-foncteur en groupes \(\mathrm{G}_\mathrm{T}\) induit un
+endomorphisme de \((\mathrm{Fr}_n\,\mathrm{G})_T\)&nbsp;: en effet, comme la construction de \(\mathrm{G}^{(p^n)}\) et de \(\mathrm{Fr}^n(\mathrm{G}/\mathrm{S})\)
+commute aux changements de base d'après 4.1.1, on peut supposer \(\mathrm{T} = \mathrm{S}\)&nbsp;; dans ce
+cas, l'assertion résulte de ce que \(\mathrm{Fr}^n(\mathrm{G}/\mathrm{S})\) est un homomorphisme fonctoriel. On notera
+enfin que \(\mathrm{F}(\mathrm{X}^{(p)}/\mathrm{S})\) coïncide avec \(\mathrm{F}(\mathrm{X}/\mathrm{S})^{(p)}\).</p>
+
+<h3 id="VIIA.4.1.4">4.1.4.</h3>
+<p>Voici quelques exemples&nbsp;:</p>
+<p><strong>a)</strong> Considérons d'abord un groupe abélien «&nbsp;abstrait&nbsp;» M et le groupe diagonalisable \(\mathrm{G} = \mathbf{D}_S(\mathrm{M})\) de type M (I 4.4)&nbsp;: pour tout S-schéma T, \(\mathrm{G}(\mathrm{T})\) est donc le groupe
+abélien \(\mathrm{Hom}_{(Ab)}(\mathrm{M}, \Gamma(\mathrm{T},\mathscr{O}_T)^\times)\). Comme G est l'image réciproque du groupe diagonalisable
+\(\mathbf{D}(\mathrm{M})\) sur \(\mathbb{F}_p\), \(\mathrm{G}^{(p)}\) s'identifie à G et \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})(\mathrm{T})\) s'identifie à l'endomorphisme
+\(x \mapsto x^p\) de \(\mathrm{G}(\mathrm{T})\) (4.1.1). En particulier, lorsque M est égal à \(\mathbb{Z}\), on a \(\mathbf{D}_S(\mathrm{M}) = \mathbb{G}_{m,S}\),
+de sorte que \(\mathrm{Fr}\,\mathbb{G}_{m,S}\) est le S-groupe \(\boldsymbol{\mu}_{p,S}\) qui associe à tout S-schéma T le groupe des
+racines \(p\)-ièmes de l'unité de \(\Gamma(\mathrm{T},\mathscr{O}_T)\).</p>
+<p><strong>b)</strong> Considérons maintenant un schéma S de caractéristique \(p\) et un faisceau de
+modules E sur S. D'après I 4.6.2, on a un isomorphisme canonique
+\[
+\mathbf{W}(E)^{(p)} \simeq \mathbf{W}(E^{(p)}),
+\]
+où \(\mathrm{E}^{(p)}\) est l'image réciproque de E par \(\mathrm{fr}(\mathrm{S})\). De plus, d'après 4.1, l'application
+\(\mathrm{Fr}(\mathbf{W}(E))(q)\) est déterminée pour tout S-schéma T par le triangle commutatif
+\[
+\xymatrix{
+\Gamma(T, q^*\mathrm{fr}(S)_*E) \ar[rr]^-{\sim}_-{\mathrm{can.}} & & \Gamma(T,\mathrm{fr}(T)_*q^*E) \\
+& \Gamma(T,q^*E) \ar[ul]^-{\mathrm{Fr}(\mathbf{W}(E)/S)(q)} \ar[ur]_-{f'} &
+}\ ,
+\]
+où \(f'\) est l'application induite par \(\mathrm{fr}(\mathrm{T})\).</p>
+<p>En particulier, si E est égal à \(\mathscr{O}_S\), \(\mathbf{W}(E)\) s'identifie au groupe additif \(\mathbb{G}_{a,S}\). Dans
+ce cas, on a \(\mathrm{E}^{(p)} = \mathrm{E} = \mathscr{O}_S\) et le morphisme de Frobenius \(\mathrm{Fr}(\mathbb{G}_{a,S}/\mathrm{S})\) applique
+\(x \in \Gamma(\mathrm{T},\mathscr{O}_T)\) sur \(x^p\). Le noyau \(\boldsymbol{\alpha}_{p,S}\) du morphisme de Frobenius de \(\mathbb{G}_{a,S}\) associe donc
+à tout S-schéma T l'ensemble des sections \(x\) de \(\mathscr{O}_T\) telles que \(x^p = 0\).</p>
+<p><strong>c)</strong> On verrait de même que, pour toute \(\mathscr{O}_\mathrm{S}\)-Algèbre quasi-cohérente \(\mathscr{A}\), \((\mathrm{Spec}\ \mathscr{A})^{(p)}\)
+s'identifie au spectre \(\mathrm{Spec}\ \mathscr{A}^{(p)}\) de l'image réciproque de \(\mathscr{A}\) par \(\mathrm{fr}(\mathrm{S})\). Si \(\pi\) désigne
+l'endomorphisme \(x \mapsto x^p\) du faisceau d'anneaux \(\mathscr{O}_\mathrm{S}\), on a donc \(\mathscr{A}^{(p)} = \mathscr{A} \otimes_\pi \mathscr{O}_S\)
+et il est clair que \(\mathrm{Fr}((\mathrm{Spec}\ \mathscr{A})/\mathrm{S})\) est induit par l'homomorphisme \(a \otimes_\pi x \mapsto a^p x\) de
+\(\mathscr{A} \otimes_\pi \mathscr{O}_S\) dans \(\mathscr{A}\).</p>
+<p>Pour tout \(\mathscr{O}_\mathrm{S}\)-Module quasi-cohérent E enfin, on a des isomorphismes canoniques
+\[
+\mathbb{V}(E)^{(p)} \simeq \mathbb{V}(E^{(p)}) \qquad \text{et} \qquad \mathscr{S}(E)^{(p)} \simeq \mathscr{S}(E^{(p)}),
+\]
+où \(\mathscr{S}(E)\) désigne l'Algèbre symétrique du \(\mathscr{O}_\mathrm{S}\)-Module E.</p>
+
+<p><strong>d)</strong> Soient \(\mathscr{U}\) une \(\mathscr{O}_\mathrm{S}\)-Coalgèbre (3.1) et T un schéma de caractéristique \(p\). Si \(\mathscr{U}^{(p/S)}\)
+ou \(\mathscr{U}^{(p)}\) désignent l'image réciproque de la Coalgèbre \(\mathscr{U}\) par \(\mathrm{fr}(\mathrm{S})\), on a comme en b)
+un isomorphisme canonique&nbsp;:
+\[
+(\mathrm{Spec}^*\,\mathscr{U})^{(p)} \simeq \mathrm{Spec}^*\,\mathscr{U}^{(p)}.
+\]</p>
+<p>Si \(\mathscr{U}\) est une Coalgèbre en groupes, la valeur de \(\mathrm{Fr}(\mathrm{Spec}^*\,\mathscr{U})\) pour un S-schéma T
+est donc l'ensemble des éléments \(\gamma\) de \(\Gamma(\mathrm{T},\mathscr{U}_T)\) tels que
+\[
+\varepsilon_{\mathscr{U}_T}(x) = 1, \qquad \Delta_{\mathscr{U}_T}x = x\otimes x, \qquad \text{et} \qquad \gamma\otimes_{\mathrm{fr}(T)} 1 = 1.
+\]</p>
+
+<h3 id="VIIA.4.2">4.2.</h3>
+<p>Nous allons maintenant nous occuper d'une construction voisine de la précédente&nbsp;: soient S un schéma de caractéristique \(p\), X un S-schéma et \(\mathrm{X}^p_S\) le produit
+dans la catégorie \((\mathbf{Sch}/\mathrm{S})\) de \(p\) exemplaires de X. Nous désignons alors par \(\mathrm{U}^p(\mathrm{X})\) le
+sous-schéma ouvert de \(\mathrm{X}^p_S\) qui est la réunion des produits \(\mathrm{U}^p_S\), lorsque U parcourt les
+ouverts affines de X. Un point \(x\) de \(\mathrm{X}^p_S\) appartient donc à \(\mathrm{U}^p(\mathrm{X})\) si et seulement si les
+projections \(\mathrm{pr}_i\,x\) de \(x\) sur les facteurs de \(\mathrm{X}^p_S\) appartiennent à un même ouvert affine
+de X. Par exemple, si toute partie finie de X est contenue dans un ouvert affine, on a
+\(\mathrm{U}^p(\mathrm{X}) = \mathrm{X}^p_S\).</p>
+<p>Le groupe symétrique \(\mathfrak{S}_p\) d'ordre \(p\) opère sur \(\mathrm{X}^p_S\) par permutation des facteurs et
+laisse stable l'ouvert \(\mathrm{U}^p(\mathrm{X})\). Nous appellerons <em>produit symétrique \(p\)-uple</em> de X et nous
+noterons \(\Sigma^p\mathrm{X}\) le quotient de \(\mathrm{X}^p_S\) par \(\mathfrak{S}_p\) dans la catégorie de tous les espaces
+annelés. La projection canonique \(q : \mathrm{X}^p_S \to \Sigma^p\mathrm{X}\) applique \(\mathrm{U}^p(\mathrm{X})\) sur un ouvert \(\mathrm{V}^p(\mathrm{X})\)
+du produit symétrique, qu'on peut décrire comme suit (confer V 4.1)&nbsp;: le faisceau
+structural de \(\Sigma^p\mathrm{X}\) induit sur \(\mathrm{V}^p(\mathrm{X})\) une structure de schéma&nbsp;; le morphisme
+\(q' : \mathrm{U}^p(\mathrm{X}) \to \mathrm{V}^p(\mathrm{X})\) induit par \(q\) est affine et même entier&nbsp;; lorsque U parcourt les ouverts
+affines de X qui se projettent dans un ouvert affine variable V de S, les \(\Sigma^p\mathrm{U}\) forment un
+recouvrement affine de \(\mathrm{V}^p(\mathrm{X})\)&nbsp;; si \(k\) désigne l'algèbre affine de V et A celle de U, \(\Sigma^p\mathrm{U}\) a pour
+algèbre affine la sous-algèbre \(\Sigma^p\mathrm{A}\) de \(\bigotimes^p_k \mathrm{A}\) formé des tenseurs symétriques.</p>
+<p>Considérons maintenant le morphisme diagonal \(\delta\) de X dans \(\mathrm{U}^p(\mathrm{X})\). La restriction
+de \(\delta\) à l'ouvert U ci-dessus est définie par l'homomorphisme d'algèbres \(\eta : a_1\otimes\cdots\otimes
+a_p \mapsto a_1\cdot a_2\cdots a_p\) de \(\bigotimes^p_k \mathrm{A}\) dans A. On a donc, si N est l'opérateur de symétrisation
+\[
+\eta(\mathrm{N}(a_1\otimes\cdots\otimes a_p)) = \eta\Big(\sum_{\sigma\in\mathfrak{S}_p} a_{\sigma(1)}\otimes\cdots\otimes a_{\sigma(p)}\Big) = p!\ a_1\cdots a_p = 0.
+\]</p>
+<p>Autrement dit, \(\eta\) s'annule sur le sous-espace \(\mathrm{N}(\bigotimes^p_k \mathrm{A})\) de \(\Sigma^p\mathrm{A}\) formé des tenseurs
+symétrisés. De plus, si \(f\) est un tenseur symétrique, on a évidemment \(\mathrm{N}(fa) = f\mathrm{N}(a)\),
+ce qui montre que \(\mathrm{N}(\bigotimes^p_k \mathrm{A})\) est un idéal de \(\Sigma^p\mathrm{A}\).</p>
+<p>Nous noterons désormais \(\mathrm{U}^{[p/S]}\) le spectre premier de l'algèbre \(\Sigma^p\mathrm{A}/\mathrm{N}(\otimes^p_k\mathrm{A})\). Ce
+spectre est un sous-schéma fermé de \(\Sigma^p(\mathrm{U}) = \mathrm{V}^p(\mathrm{U})\) et la réunion des \(\mathrm{U}^{[p/S]}\) est un
+sous-schéma fermé \(\mathrm{X}^{[p/S]}\) de \(\mathrm{V}^p(\mathrm{X})\).</p>
+<p>De plus, si \(i(\mathrm{X})\) désigne l'inclusion de \(\mathrm{X}^{[p/S]}\) dans \(\mathrm{V}^p(\mathrm{X})\), nous venons de voir que
+\(q' \circ \delta\) se factorise à travers \(\mathrm{X}^{[p/S]}\)&nbsp;:</p>
+<p>\[
+\xymatrix{
+X^p_S & \supset & U^p(X) \ar[d]^-{q'(X)} & X \ar[l]_-{\delta(X)} \ar[d]^-{F^{[p]}(X/S)} \\
+& & \Sigma^p(X) \supset V^p(X) & X^{[p/S]} \ar[l]^-{i(X)}
+}\ .
+\]</p>
+<p>Il est clair que \(\mathrm{X}^{[p/S]}\) est fonctoriel en X et que l'application \(\mathrm{F}^{[p]} : \mathrm{X} \mapsto \mathrm{F}^{[p]}(\mathrm{X}/\mathrm{S})\)
+est un homomorphisme fonctoriel.</p>
+
+<h3 id="VIIA.4.2.1">4.2.1.</h3>
+<p>Les schémas \(\mathrm{X}^{[p/S]}\) et \(\mathrm{X}^{(p/S)}\) sont évidemment reliés&nbsp;: soient V un ouvert affine de S d'anneau affine \(k\) et U un ouvert affine de X au-dessus de V&nbsp;; soit A l'algèbre
+affine de U. Si \(\pi\) désigne l'endomorphisme \(x \mapsto x^p\) de \(k\), \(\mathrm{X}^{(p/S)}\) a alors \(k_\pi \otimes \mathrm{A}\) pour algèbre affine. On vérifie en outre que l'application \(\lambda\otimes a \mapsto (\lambda a\otimes\cdots\otimes a \mod \mathrm{N}(\otimes^p_k\mathrm{A}))\) définit un homomorphisme de \(k\)-algèbres de \(\mathrm{A}\otimes_\pi k\) dans \(\Sigma^p\mathrm{A}/\mathrm{N}(\otimes^p_k \mathrm{A})\)&nbsp;; cet homomorphisme induit un morphisme \(\varphi(\mathrm{U}) : \mathrm{U}^{[p/S]} \to \mathrm{U}^{(p/S)}\) tel que \(\varphi(\mathrm{U})\circ \mathrm{F}^{[p]}(\mathrm{U}/\mathrm{S}) = \mathrm{Fr}(\mathrm{U}/\mathrm{S})\).</p>
+<p>«&nbsp;Recollant les morceaux&nbsp;», on obtient alors un triangle commutatif
+\[
+\xymatrix{
+& X \ar[dl]_-{F^{[p]}(X/S)} \ar[dr]^-{\mathrm{Fr}(X/S)} & \\
+X^{[p/S]} \ar[rr]_-{\varphi(X)} & & X^{(p/S)}
+}\ .
+\]</p>
+<p>Par exemple, si X est le sous-schéma de S défini par un Idéal quasi-cohérent \(\mathscr{I}\),
+\(\mathrm{F}^{[p]}(\mathrm{X}/\mathrm{S})\) s'identifie au morphisme identique de X, de sorte que \(\varphi(\mathrm{X})\) est l'immersion
+canonique de \(\mathrm{Spec}(\mathscr{O}_S/\mathscr{I})\) dans \(\mathrm{Spec}(\mathscr{O}_S/\mathscr{I}^{\{p\}})\). On voit ainsi que \(\varphi(\mathrm{X})\) n'est pas un
+isomorphisme en général. Toutefois, lorsque M est un \(k\)-module libre, il est clair que
+l'application \(\lambda\otimes m \mapsto (\lambda m\otimes\cdots\otimes m \pmod{\mathrm{N}(\otimes^p_k \mathrm{M})})\) de \(k_\pi \otimes \mathrm{M}\) dans
+\(\Sigma^p\mathrm{M}/\mathrm{N}(\otimes^p_k \mathrm{M})\) est bijective&nbsp;; cette application reste donc bijective lorsque M est
+\(k\)-plat, parce que tout module plat est une limite inductive filtrante de modules libres
+(Lazard<sup>(*)</sup>). Il s'ensuit que <em>\(\varphi(\mathrm{X}) : \mathrm{X}^{[p/S]} \to \mathrm{X}^{(p/S)}\) est un isomorphisme lorsque X est un S-schéma
+plat.</em></p>
+<p><small>(*) D. Lazard, C.R. Acad. Sc. Paris <u>258</u>, 1964, p. 6313-6316.</small></p>
+
+<h3 id="VIIA.4.3">4.3.</h3>
+<p>Considérons enfin un S-<em>schéma en groupes abéliens</em> G. Alors, le morphisme
+composé \(\mu(\mathrm{G}) : \mathrm{U}^p(\mathrm{G}) \xrightarrow{\ \mathrm{incl.}\ } \mathrm{G}^p_S \to \mathrm{G}\), qui est défini par la multiplication, se factorise
+à travers \(\mathrm{V}^p(\mathrm{G})\), de sorte qu'on a le diagramme commutatif suivant&nbsp;:
+\[
+\xymatrix{
+G & U^p(G) \ar[l]_-{\mu(G)} \ar[d]_-{q'(G)} \ar[r]^-{\delta(G)} & G \ar[dl]^-{F^{[p]}(G/S)} \ar@/^3pc/[dd]^-{\mathrm{Fr}(G/S)} \\
+V^p(G) \ar[u]_-{\nu(G)} \ar[r]_-{i(G)} & G^{[p/S]} \ar[dr]_-{\varphi(G)} & \\
+& & G^{(p/S)} \ar@{-->}@/^3pc/[uull]_-{\mathrm{Ver}(G/S)}
+}\ .
+\]</p>
+<p><em>Lorsque G est S-plat</em>, \(\varphi(\mathrm{G})\) est un isomorphisme et l'on peut définir un morphisme
+(dit <em>Verschiebung</em>)
+\[
+\mathrm{Ver}(\mathrm{G}/\mathrm{S}) : \ \mathrm{G}^{(p/S)} \longrightarrow \mathrm{G}
+\]
+à l'aide de la formule \(\mathrm{Ver}(\mathrm{G}/\mathrm{S}) = \nu(\mathrm{G})\circ i(\mathrm{G})\circ\varphi(\mathrm{G})^{-1}\). Lorsque G parcourt les S-
+schémas plats en groupes abéliens, l'application \(\mathrm{Ver} : \mathrm{G} \mapsto \mathrm{Ver}(\mathrm{G}/\mathrm{S})\) est évidemment
+un homomorphisme fonctoriel&nbsp;; par conséquent, \(\mathrm{Ver}(\mathrm{G}/\mathrm{S})\) est un <em>homomorphisme de
+groupes</em>. Pour tout S-schéma T enfin, l'application composée
+\[
+\xymatrix{ G(T) \ar[r]^-{\delta(G)(T)} & U^p(G)(T) \ar[r]^-{\mu(G)(T)} & G(T) }
+\]
+applique \(x \in \mathrm{G}(\mathrm{T})\) sur \(p \cdot x\). Nous pouvons écrire \(p \cdot \mathrm{id}_G\) au lieu de \(\mu(\mathrm{G})\circ\delta(\mathrm{G})\),
+obtenant ainsi la formule classique&nbsp;:
+\[
+\mathrm{Ver}(\mathrm{G}/\mathrm{S}) \circ \mathrm{Fr}(\mathrm{G}/\mathrm{S}) = p \cdot \mathrm{id}_G. \tag{\(*\)}
+\]</p>
+
+<h3 id="VIIA.4.3.1">4.3.1.</h3>
+<p>Par exemple, lorsque G est un S-schéma constant en groupes abéliens, nous
+savons que \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})\) s'identifie au morphisme identique de G (4.1.1). On a donc
+\(\mathrm{Ver}(\mathrm{G}/\mathrm{S}) = p\).</p>
+<p>Lorsque G est le S-groupe diagonalisable de type M, \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})\) est égal à \(p\) d'après
+4.1.2&nbsp;; on voit facilement que \(\mathrm{Ver}(\mathrm{G}/\mathrm{S})\) est le morphisme identique de G.</p>
+<p>Lorsque E est un \(\mathscr{O}_\mathrm{S}\)-Module plat et que G est le S-groupe \(\mathbb{V}(\mathscr{E})\), le morphisme
+\(\mathrm{Ver}(\mathrm{G}/\mathrm{S})\) est nul ainsi que \(p \cdot \mathrm{id}_G\). On verra dans l'exposé <a class="ref" href="#VIIB">VII B</a> qu'un groupe algébrique commutatif G sur un corps \(k\) est «&nbsp;unipotent&nbsp;» si et seulement si l'homomorphisme
+composé
+\[
+\xymatrix{ G^{(p^n)} \ar[r]^-{\mathrm{Ver}(G^{(p^{n-1})}/S)} & G^{(p^{n-1})} \ar[r] & \cdots \ar[r] & G^{(p)} \ar[r]^-{\mathrm{Ver}(G/S)} & G }
+\]
+est nul pour un certain \(n\) (on a posé \(\mathrm{G}^{(p^n)} = (\mathrm{G}^{(p^{n-1})})^{(p)}\)).</p>
+
+<h3 id="VIIA.4.3.2">4.3.2.</h3>
+<p>Comme l'application \(\mathrm{Ver} : \mathrm{G} \mapsto \mathrm{Ver}(\mathrm{G}/\mathrm{S})\) est un homomorphisme fonctoriel
+lorsque G parcourt les S-schémas plats en groupes commutatifs, le carré
+\[
+\xymatrix{
+G^{(p)} \ar[r]^-{\mathrm{Ver}(G/S)} \ar[d]_-{\mathrm{Fr}(G/S)^{(p)}} & G \ar[d]^-{\mathrm{Fr}(G/S)} \\
+G^{(p^2)} \ar[r]_-{\mathrm{Ver}(G^{(p)}/S)} & G^{(p)}
+}
+\]
+est commutatif (où \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})^{(p)}\) désigne l'image réciproque de \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})\) pour le changement de base \(\mathrm{fr}(\mathrm{S})\)). Comme il résulte directement des définitions que \(\mathrm{Fr}(\mathrm{G}/\mathrm{S})^{(p)}\)
+est égal à \(\mathrm{Fr}(\mathrm{G}^{(p)}/\mathrm{S})\), on a aussi
+\[
+\mathrm{Fr}(\mathrm{G}/\mathrm{S}) \circ \mathrm{Ver}(\mathrm{G}/\mathrm{S}) = \mathrm{Ver}(\mathrm{G}^{(p)}/\mathrm{S}) \circ \mathrm{Fr}(\mathrm{G}^{(p)}/\mathrm{S}) = p \cdot \mathrm{id}_{G^{(p)}}. \tag{\(**\)}
+\]</p>
+
+<h3 id="VIIA.4.3.3">4.3.3.</h3>
+<p>Supposons enfin que G soit un S-groupe commutatif, fini et localement libre&nbsp;;
+soient A la \(\mathscr{O}_\mathrm{S}\)-Algèbre affine de G et \(\pi\) l'endomorphisme du faisceau d'anneaux \(\mathscr{O}_\mathrm{S}\)
+qui envoie une section \(x\) de \(\mathscr{O}_\mathrm{S}\) sur \(x^p\). On a alors un diagramme commutatif</p>
+<p>\((\mathscr{A})\)
+\[
+\xymatrix{
+& \mathscr{A} \ar[rr]^-{\Delta^p(\mathscr{A})} \ar[dl]_-{a(\mathscr{A})} & & \displaystyle\bigotimes^p_{\mathscr{O}_S}\mathscr{A} \ar[rr]^-{m^p(\mathscr{A})} \ar[dr]^-{q(\mathscr{A})} & & \mathscr{A} \\
+\Sigma^p\mathscr{A} \ar[urrr]^(.3){i(\mathscr{A})} \ar[dr]_-{r(\mathscr{A})} & & & & \mathscr{S}^p(\mathscr{A}) \ar[ul]_(.3){b(\mathscr{A})} \ar[dl]^-{j(\mathscr{A})} & \\
+& & \mathscr{A}\otimes_\pi \mathscr{O}_S & &
+}\ .
+\]</p>
+<p>où les différentes lettres ont les significations suivantes&nbsp;: \(m^p(\mathrm{A})\) est induit par la
+multiplication de A&nbsp;; le morphisme \(\Delta^p(\mathrm{A})\) est associé au morphisme \(\mu(\mathrm{G})\) dont il est
+question plus haut (il est donc défini par le morphisme diagonal de la Coalgèbre A)&nbsp;;
+on désigne par \(\Sigma^p\mathrm{A}\) la sous-Algèbre de \(\bigotimes^p_{\mathscr{O}_S} \mathrm{A}\) formée des sections invariantes sous
+l'action du groupe symétrique, par \(i(\mathrm{A})\) l'inclusion de \(\Sigma^p\mathrm{A}\) dans le produit tensoriel&nbsp;;
+de même, \(\mathscr{S}^p(\mathrm{A})\) est la composante de degré \(p\) de l'algèbre symétrique de A et \(q(\mathrm{A})\) est
+la projection canonique. Comme \(\Sigma^p\mathrm{A}\) est l'algèbre affine de \(\mathrm{V}^p(\mathrm{A})\) avec les notations
+ci-dessus, le morphisme composé \(i(\mathrm{G})\circ\varphi(\mathrm{G})^{-1}\) induit un homomorphisme d'Algèbres
+\(r(\mathrm{A})\)&nbsp;; cet homomorphisme s'annule sur les sections de la forme
+\[
+\sum_{\sigma\in\mathfrak{S}_p} a_{\sigma(1)}\otimes\cdots\otimes a_{\sigma(p)}
+\]
+et envoie \(x\otimes\cdots\otimes x\) sur \(1\otimes x\). De même, \(j(\mathrm{A})\) est le morphisme de \(\mathscr{O}_\mathrm{S}\)-Modules
+\(1\otimes x \mapsto q(x\otimes\cdots\otimes x)\). Le composé \(r(\mathrm{A})\circ a(\mathrm{A})\) est donc associé au morphisme
+Verschiebung \(\mathrm{Ver}(\mathrm{G}/\mathrm{S})\), tandis que \(b(\mathrm{A})\circ j(\mathrm{A})\) est associé au morphisme de Frobenius
+\(\mathrm{Fr}(\mathrm{G}/\mathrm{S})\) (\(a(\mathrm{A})\) et \(b(\mathrm{A})\) sont tels que \(i(\mathrm{A})\circ a(\mathrm{A}) = \Delta^p(\mathrm{A})\) et \(b(\mathrm{A})\circ q(\mathrm{A}) = m^p(\mathrm{A})\)).</p>
+<p>Le diagramme commutatif \((\mathscr{A})\) ci-dessus est <em>autodual</em>&nbsp;; soit en effet D le foncteur
+qui associe à tout \(\mathscr{O}_\mathrm{S}\)-Module M le \(\mathscr{O}_\mathrm{S}\)-Module dual \(\underline{\mathrm{Hom}}_{\mathscr{O}_S}(\mathrm{M},\mathscr{O}_S)\)&nbsp;; il est clair que
+l'image de \((\mathscr{A})\) par le foncteur D n'est autre que le diagramme \((\mathrm{D}\mathscr{A})\), les morphismes
+\(\mathrm{D}r(\mathrm{A})\), \(\mathrm{D}a(\mathrm{A})\), \(\mathrm{D}j(\mathrm{A})\) et \(\mathrm{D}b(\mathrm{A})\) s'identifiant respectivement à \(j(\mathrm{D}\mathscr{A})\), \(b(\mathrm{D}\mathscr{A})\), \(r(\mathrm{D}\mathscr{A})\)
+et \(a(\mathrm{D}\mathscr{A})\). On voit donc que <em>la dualité de Cartier (3.3.1) échange morphisme de
+Frobenius et Verschiebung</em>.</p>
+
+<h2 id="VIIA.5">5. <em>p</em>-Algèbres de Lie</h2>
+<p>Rappelons d'abord quelques résultats du Séminaire Sophus Lie&nbsp;:</p>
+
+<h3 id="VIIA.5.1">5.1.</h3>
+<p>Soient \(p\) un nombre premier, R un anneau commutatif de caractéristique \(p\)
+et A une R-algèbre associative, mais non nécessairement commutative. Si \(a\) et \(b\) sont
+deux éléments de A, nous posons \([a,b] = ab-ba\) et \(ab = \mathrm{L}_a(b) = \mathrm{R}_b(a)\). On a alors&nbsp;:
+\[
+(\mathrm{ad}\,x^p)(y) = [x^p,y] = (\mathrm{L}_x^p - \mathrm{R}_x^p)(y) = (\mathrm{L}_x-\mathrm{R}_x)^p(y) = (\mathrm{ad}\,x)^p(y)
+\]
+d'où la <em>première formule de Jacobson</em>
+\[
+\mathrm{ad}(x^p) = (\mathrm{ad}\,x)^p \tag{i}
+\]
+De même, si \(a_1,\ldots,a_p\) sont \(p\) éléments arbitraires de A on a (confer 4.2)&nbsp;:
+\[
+\mathrm{N}(a_1\otimes\cdots\otimes a_p) = \sum_\sigma a_{\sigma(1)}\cdots a_{\sigma(p)} = \sum_\tau [a_{\tau(1)}[a_{\tau(2)}[\cdots[a_{\tau(p-1)},a_p]\cdots]]] \tag{\(*\)}
+\]
+où \(\sigma\) parcourt les permutations de \(p\) lettres et \(\tau\) celles de \((p-1)\) lettres. Le deuxième
+membre vaut en effet
+\[
+\sum_\tau \sum_{r=0}^{p-1} (-1)^s\, a_{\tau(i_1)} a_{\tau(i_2)}\cdots a_{\tau(i_r)}\, a_p\, a_{\tau(j_s)}\cdots a_{\tau(j_1)}
+\]
+où \(\tau\) parcourt les permutations de \(p-1\) lettres, \(i_1,\ldots,i_r\) les suites strictement croissantes
+d'entiers de l'intervalle \([1,p-1]\) et où \(j_1,\ldots,j_s\) désigne la suite strictement croissante
+dont les valeurs sont les entiers de \([1,p-1]\) différents de \(i_1,\ldots,i_r\). Pour une valeur fixée
+de \(r\), la somme des termes \((-1)^s a_{\tau(i_1)}\cdots a_{\tau(i_r)}\, a_p\, a_{\tau(j_s)}\cdots a_{\tau(j_1)}\) vaut évidemment
+\[
+(-1)^s \binom{p-1}{s} \sum_\rho a_{\rho(1)}\cdots a_{\rho(r)}\, a_p\, a_{\rho(r+1)}\cdots a_{\rho(p-1)}
+\]
+où \(\rho\) parcourt les permutations de \(p-1\) lettres. Les égalités
+\[
+(x-1)^p = x^p-1 = (x-1)(x^{p-1}+\cdots+1) \qquad \text{et} \qquad (x-1)^{p-1} = x^{p-1}+\cdots+1
+\]
+montrent d'autre part que \((-1)^s\binom{p-1}{s}\) est égal à 1 en caractéristique \(p\), ce qui prouve
+\((*)\).</p>
+<p>En particulier, si \(x_0\) et \(x_1\) sont deux éléments de A, on a
+\[
+(x_0+x_1)^p = x_0^p + x_1^p + \sum x_{z(1)}x_{z(2)}\cdots x_{z(p)},
+\]
+où \(z\) parcourt les applications non constantes de \([1,p]\) dans \(\{0,1\}\). On en tire
+\[
+(x_0+x_1)^p = x_0^p + x_1^p + \sum_{0&lt;r&lt;p} \frac{1}{r!(p-r)!}\, \mathrm{N}(x_0,x_0,\ldots,x_0,x_1,\ldots,x_1),
+\]
+d'où la <em>deuxième formule de Jacobson</em>
+\[
+(x_0+x_1)^p = x_0^p + x_1^p - \sum_{0&lt;r&lt;p} \sum_t \frac{1}{r}\big[x_{t(1)}\big[x_{t(2)}\big[\cdots\big[x_{t(p-1)},x_1\big]\cdots\big]\big]\big] \tag{ii}
+\]
+où \(t\) parcourt les applications \([1,p-1] \to \{0,1\}\) prenant \(r\) fois la valeur 0.</p>
+
+<h3 id="VIIA.5.2">5.2.</h3>
+<p>Soit maintenant \(\mathfrak{g}\) une R-algèbre de Lie. On dit qu'une application \(x \mapsto x^{(p)}\) de
+\(\mathfrak{g}\) dans \(\mathfrak{g}\) fait de \(\mathfrak{g}\) une <em>p-algèbre de Lie</em> sur R si les conditions suivantes sont vérifiées&nbsp;:</p>
+<p>(0) \((\lambda x)^{(p)} = \lambda^p \cdot x^{(p)}\), \(\lambda \in \mathrm{R}\), \(x \in \mathfrak{g}\)</p>
+<p>(i) \(\mathrm{ad}\,x^{(p)} = (\mathrm{ad}\,x)^p\), \(x \in \mathfrak{g}\)</p>
+<p>(ii) \((x_0+x_1)^{(p)} = x_0^{(p)} + x_1^{(p)} - \displaystyle\sum_{0&lt;r&lt;p}\sum_t \frac{1}{r}\big[x_{t(1)}\big[x_{t(2)}\big[\cdots\big[x_{t(p-1)},x_1\big]\cdots\big]\big]\big]\)</p>
+<p>où \(t\) parcourt les applications \([1,p-1] \to \{0,1\}\) prenant \(r\) fois la valeur 0 (\(x_0,x_1\in\mathfrak{g}\)).</p>
+<p>Par exemple, si A est une R-algèbre, nous avons vu en 5.1 qu'on obtenait une
+\(p\)-algèbre de Lie \(\mathrm{A}_\mathfrak{g}\) en prenant le R-module sous-jacent à A et en posant
+\[
+[x,y] = xy-yx\ , \qquad x^{(p)} = x^p\ , \qquad x,y \in \mathrm{A}
+\]
+Nous dirons que \(\mathrm{A}_\mathfrak{g}\) est la \(p\)-algèbre de Lie <em>sous-jacente</em> à A. Dans la suite nous
+considèrerons surtout des sous-\(p\)-algèbres de Lie de \(p\)-algèbres de la forme \(\mathrm{A}_\mathfrak{g}\)&nbsp;; en
+voici un exemple&nbsp;: soient S un schéma de caractéristique \(p > 0\) et X un S-schéma.
+On rappelle qu'une <em>dérivation</em> de X sur S est un endomorphisme D du faisceau en
+groupes abéliens \(\mathscr{O}_\mathrm{X}\) tel que
+\[
+\mathrm{D}(\lambda\cdot s) = \lambda\cdot \mathrm{D}(s) \qquad \text{et} \qquad \mathrm{D}(s\cdot t) = (\mathrm{D}s)t + s(\mathrm{D}t)
+\]
+lorsque \(\lambda\) parcourt les sections de \(\mathscr{O}_\mathrm{S}\), \(s\) et \(t\) les sections de \(\mathscr{O}_\mathrm{X}\) sur des ouverts tels
+que les formules aient un sens. La formule de Leibniz
+\[
+\mathrm{D}^n(s\cdot t) = \sum_{i=0}^n \binom{n}{i} (\mathrm{D}^i s)(\mathrm{D}^{n-i}t)
+\]
+montre que \(\mathrm{D}^p\) est encore une dérivation de X sur S, compte-tenu de l'égalité \(\binom{p}{i} \equiv 0
+\pmod p\) pour \(i \neq 0, p\). Il s'ensuit que <em>l'Algèbre \(\mathrm{Dér}_{X/S}\) des dérivations de X sur S
+est une p-sous-algèbre de Lie de l'algèbre sur \(\Gamma(\mathrm{S},\mathscr{O}_S)\) des opérateurs différentiels de
+X sur S.</em></p>
+
+<h3 id="VIIA.5.2.1">5.2.1.</h3>
+<p>Si \(\mathfrak{g}\) et \(\mathfrak{h}\) sont deux \(p\)-algèbres de Lie, un homomorphisme \(h : \mathfrak{g} \to \mathfrak{h}\) est
+une application R-linéaire de \(\mathfrak{g}\) dans \(\mathfrak{h}\) telle que \(h([x,y]) = [h(x),h(y)]\) et \(h(x^{(p)}) =
+h(x)^{(p)}\) si \(x,y \in \mathfrak{g}\). L'application composée de deux homomorphismes est encore un
+homomorphisme, de sorte que nous pourrons parler de la <em>catégorie des \(p\)-algèbres de
+Lie sur R</em>. De même, si \((\mathrm{X},\mathscr{R})\) est un espace annelé, nous dirons qu'un \(\mathscr{R}\)-Module \(\mathfrak{g}\)
+est muni d'une structure de \(p\)-Algèbre de Lie sur \(\mathscr{R}\) si, pour tout ouvert U, \(\Gamma(\mathrm{U},\mathfrak{g})\)
+est muni d'une structure de \(p\)-algèbre de Lie sur \(\Gamma(\mathrm{U},\mathscr{R})\) et si les restrictions sont des
+homomorphismes.</p>
+
+<h3 id="VIIA.5.3">5.3.</h3>
+<p>Nous nous intéressons maintenant au foncteur adjoint à gauche du foncteur
+\(\mathrm{A} \mapsto \mathrm{A}_\mathfrak{g}\) de 5.2&nbsp;: soient \(\mathfrak{g}\) une \(p\)-algèbre de Lie sur l'anneau R de caractéristique \(p\),
+\(\mathrm{U}(\mathfrak{g})\) l'algèbre enveloppante de l'algèbre de Lie sous-jacente à \(\mathfrak{g}\) (cf. Bourbaki, algèbre de
+Lie, §2) et \(i_\mathfrak{g}\) ou \(i : \mathfrak{g} \to \mathrm{U}(\mathfrak{g})\) l'application canonique. On sait que tout homomorphisme
+d'algèbres de Lie \(h\) de \(\mathfrak{g}\) dans l'algèbre de Lie sous-jacente à une R-algèbre unitaire
+A, se prolonge d'une manière et d'une seule en un homomorphisme de R-algèbres
+unitaires \(g\) de \(\mathrm{U}(\mathfrak{g})\) dans A (\(gi = h\)). En outre, \(h\) est un homomorphisme de \(p\)-algèbres de
+Lie si et seulement si \(g\) s'annule sur les éléments \(i(x)^p - i(x^{(p)})\), lorsque \(x\) parcourt
+\(\mathfrak{g}\). Par conséquent, si \(\mathrm{U}_p^R(\mathfrak{g})\) ou \(\mathrm{U}_p(\mathfrak{g})\) désigne le quotient de \(\mathrm{U}(\mathfrak{g})\) par l'idéal bilatère
+engendré par les éléments \(i(x)^p - i(x^{(p)})\), et si \(j_\mathfrak{g}\) ou \(j : \mathfrak{g} \to \mathrm{U}_p(\mathfrak{g})\) est l'application
+composée de \(i : \mathfrak{g} \to \mathrm{U}(\mathfrak{g})\) et de l'application canonique de \(\mathrm{U}(\mathfrak{g})\) dans \(\mathrm{U}_p(\mathfrak{g})\), on voit
+que tout homomorphisme de \(p\)-algèbres de Lie de \(\mathfrak{g}\) dans \(\mathrm{A}_\mathfrak{g}\) se prolonge d'une manière
+et d'une seule en un homomorphisme d'algèbres unitaires \(g : \mathrm{U}_p(\mathfrak{g}) \to \mathrm{A}\) (\(gj = h\)).</p>
+<p>On dit que \(\mathrm{U}_p(\mathfrak{g})\) est l'<em>algèbre enveloppante restreinte</em> de \(\mathfrak{g}\).</p>
+
+<h3 id="VIIA.5.3.1">5.3.1.</h3>
+<p>Avec les notations de 5.3, posons maintenant \(\underline{p}(x) = i(x)^p - i(x^{(p)})\). Pour
+tout élément \(y\) de \(\mathfrak{g}\), on a
+\[
+\underline{p}(x)i(y) = i(y)\underline{p}(x) + [\underline{p}(x),i(y)] = i(y)\underline{p}(x) + i((\mathrm{ad}\,x)^p y) - (\mathrm{ad}\,i(x))^p(i(y)) = i(y)\underline{p}(x),
+\]
+de sorte que \(\underline{p}(x)\) appartient au centre de \(\mathrm{U}(\mathfrak{g})\)&nbsp;; en particulier, l'idéal à gauche en-
+gendré par les éléments \(\underline{p}(x)\) est déjà bilatère. De plus, on a \(\underline{p}(\lambda x) = \lambda^p \underline{p}(x)\) et
+\(\underline{p}(x+y) = \underline{p}(x)+\underline{p}(y)\), si \(\lambda \in \mathrm{R}\) et \(x,y \in \mathfrak{g}\)&nbsp;; en particulier, si \((x_\alpha)\) est une famille de
+générateurs du R-module \(\mathfrak{g}\), l'idéal à gauche engendré par les éléments \(\underline{p}(x)\) est déjà
+engendré par les \(\underline{p}(x_\alpha)\).</p>
+
+<h3 id="VIIA.5.3.2">5.3.2.</h3>
+<p>Lorsque \(\mathfrak{g}\) est une R-algèbre de Lie dont le R-module sous-jacent est libre
+de base \((x_\alpha)\), on peut définir comme suit une structure de \(p\)-algèbre de Lie sur \(\mathfrak{g}\)&nbsp;:
+identifions \(\mathfrak{g}\) à un sous-module de \(\mathrm{U}(\mathfrak{g})\) au moyen de \(i\) (Bourbaki, Alg. de Lie, I, §2.7)
+et soit \(\pi\) l'application \(r \mapsto r^p\) de R dans R. Si \((y_\alpha)\) est une famille quelconque
+d'éléments de \(\mathfrak{g}\) tels que \(\mathrm{ad}\,y_\alpha = (\mathrm{ad}\,x_\alpha)^p\), il existe alors une application R-linéaire \(\underline{q}\)
+de \(\mathrm{R}\otimes_\pi \mathfrak{g}\) dans \(\mathrm{U}(\mathfrak{g})\) qui envoie \(1\otimes x_\alpha\) sur \(x_\alpha^p - y_\alpha\)&nbsp;; de plus, comme on a
+\[
+(\mathrm{ad}\,x_\alpha^p)(x) = (\mathrm{ad}\,x_\alpha)^p(x) = (\mathrm{ad}\,y_\alpha)(x)
+\]
+pour tout \(x \in \mathfrak{g}\), \(\underline{q}\) applique \(\mathfrak{g}^{(p)}\) dans le centre de \(\mathrm{U}(\mathfrak{g})\).</p>
+<p>Posant alors \(x^{\{p\}} = x^p - \underline{q}(1\otimes x)\) pour tout \(x \in \mathfrak{g}\), on vérifie sans peine que \(x^{\{p\}}\)
+appartient à \(\mathfrak{g}\) et que l'application \(x \mapsto x^{\{p\}}\) fait de \(\mathfrak{g}\) une \(p\)-algèbre de Lie. Autrement
+dit, <em>si \((x_\alpha)\) est une base du module sous-jacent à une algèbre de Lie \(\mathfrak{g}\) sur R, les
+structures de p-algèbre de Lie sur \(\mathfrak{g}\) correspondent biunivoquement aux familles \((y_\alpha)\)
+de \(\mathfrak{g}\) telles que \(\mathrm{ad}\,y_\alpha = (\mathrm{ad}\,x_\alpha)^p\)</em>.</p>
+
+<div class="thm thm-plain proposition" id="VIIA.5.3.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.3.3</span></div>
+  <div class="thm-body"><p>Soit \(\mathfrak{g}\) une \(p\)-algèbre de Lie sur R dont le module sous-jacent
+est libre de base \((x_\alpha)\). Alors l'application \(j : \mathfrak{g} \to \mathrm{U}_p(\mathfrak{g})\) est injective et, si l'on pose
+\(z_\alpha = j(x_\alpha)\), \(\mathrm{U}_p(\mathfrak{g})\) a pour base les monômes \(\prod_\alpha z^{n_\alpha}\) (\(0 \leqslant n_\alpha < p\)&nbsp;; les \(n_\alpha\) sont supposés
+nuls hormis un nombre fini d'entre eux&nbsp;; on suppose la base totalement ordonnée et
+les produits effectués dans l'ordre croissant).</p></div>
+</div>
+
+<p>Soit en effet \(n = (n_\alpha)\) une famille d'entiers naturels qui sont nuls hormis un nombre
+fini d'entre eux. Identifions \(\mathfrak{g}\) à un sous-module de l'algèbre enveloppante \(\mathrm{U}(\mathfrak{g})\) au
+moyen de l'application canonique \(i\)&nbsp;; posons \(|n| = \sum_\alpha n_\alpha\), \(x^n = \prod_\alpha x^{n_\alpha}\) et soit \(\mathrm{U}^r\) le
+sous-module de \(\mathrm{U}(\mathfrak{g})\) qui est engendré par les \(x^n\) tels que \(|n| \leqslant r\). Posons enfin \(s = |n|\),
+\(n_\alpha = m_\alpha + p\ell_\alpha\), avec \(0 \leqslant m_\alpha < p\), et \(\mathrm{T}n = \prod_\alpha x^{m_\alpha}\underline{p}(x_\alpha)^{\ell_\alpha}\) (confer 5.3.1). Il est clair
+que \(\mathrm{T}n - \prod_\alpha x^{n_\alpha}\) appartient à \(\mathrm{U}^{s-1}\). D'après le théorème de Poincaré-Birkhoff-Witt,
+les \(\mathrm{T}n\) tels que \(|n| = s\) forment donc une base de \(\mathrm{U}^s\) modulo \(\mathrm{U}^{s-1}\). Lorsque \(s = |n|\)
+varie, les \(\mathrm{T}n\) forment une base de \(\mathrm{U}(\mathfrak{g})\). Or le noyau J de l'application canonique
+de \(\mathrm{U}(\mathfrak{g})\) dans \(\mathrm{U}_p(\mathfrak{g})\) est l'idéal à gauche de \(\mathrm{U}(\mathfrak{g})\) qui est engendré par les éléments
+centraux \(\underline{p}(x_\alpha)\) (5.3.1)&nbsp;; par conséquent, les \(\mathrm{T}n\) tels que \(\ell = (\ell_\alpha) \neq 0\) forment une base
+de J&nbsp;; les \(\mathrm{T}n\), tels que \(n_\alpha < p\) pour tout \(\alpha\), forment une base de \(\mathrm{U}(\mathfrak{g})\) modulo J, cqfd</p>
+
+<h3 id="VIIA.5.3.3bis">5.3.3 bis.</h3>
+<p>Soient \(\mathfrak{g}\) une \(p\)-algèbre de Lie sur R et \(f : \mathrm{R} \to \mathrm{R}'\) une extension de
+l'anneau de base. Je dis <em>qu'il existe sur le R′-module \(\mathrm{R}' \otimes_\mathrm{R} \mathfrak{g}\) une structure de \(p\)-
+algèbre de Lie et une seule telle que</em>
+\[
+[\lambda\otimes x, \mu\otimes y] = \lambda\mu\otimes[x,y] \qquad \text{et} \qquad (\lambda\otimes x)^{(p)} = \lambda^p\otimes x^{(p)}.
+\]</p>
+<p>Il en résultera en particulier, que le foncteur \(\mathfrak{g} \mapsto \mathrm{R}'\otimes_\mathrm{R}\mathfrak{g}\) est adjoint à gauche
+au foncteur «&nbsp;restriction des scalaires de R′ à R&nbsp;».</p>
+<p>L'unicité de la structure de \(p\)-algèbre de Lie de \(\mathrm{R}'\otimes_\mathrm{R}\mathfrak{g}\) étant claire, prouvons
+l'existence&nbsp;: lorsque \(\mathfrak{g}\) est libre de base \((x_\alpha)\) il existe d'après 5.3.1 une et une seule
+structure de \(p\)-algèbre de Lie sur l'algèbre de Lie \(\mathrm{R}'\otimes_\mathrm{R}\mathfrak{g}\) telle que \((1\otimes x_\alpha)^{(p)} =
+1\otimes(x_\alpha^{(p)})\)&nbsp;;cette structure est celle que nous cherchons. Lorsque \(\mathfrak{g}\) est une \(p\)-algèbre de
+Lie arbitraire, il existe une \(p\)-algèbre de Lie libre (en tant que R-module) \(\mathrm{L}_0\) et un
+homomorphisme surjectif \(q_0 : \mathrm{L}_0 \to \mathfrak{g}\)&nbsp;; il suffit par exemple de prendre pour \(\mathrm{L}_0\) la
+\(p\)-algèbre de Lie \(\mathrm{R}\otimes_{\mathbb{F}_p} \mathfrak{g}\), où \(\mathbb{F}_p\) désigne le corps premier de caractéristique \(p\), pour \(q_0\)
+l'homomorphisme \(\lambda\otimes x \mapsto \lambda\cdot x\) (\(\mathfrak{g}\) est libre sur \(\mathbb{F}_p\)&nbsp;!). Le noyau de \(q_0\) est alors un
+\(p\)-idéal de \(\mathrm{L}_0\), c'est-à-dire un idéal de l'algèbre de Lie \(\mathrm{L}_0\) qui est stable pour l'endomorphisme \(x \mapsto x^{(p)}\)&nbsp;; il y a donc également une \(p\)-algèbre de Lie libre (en tant que
+R-module) \(\mathrm{L}_1\) et un homomorphisme \(q_1 : \mathrm{L}_1 \to \mathrm{L}_0\) dont l'image est \(\mathrm{Ker}\,q_0\)&nbsp;:
+\[
+\xymatrix{ L_1 \ar[r]^-{q_1} & L_0 \ar[r]^-{q_0} & \mathfrak{g} \ar[r] & 0 }.
+\]
+On en déduit une suite exacte de R′-algèbres de Lie
+\[
+\xymatrix{ R'\otimes_R L_1 \ar[r]^-{R'\otimes_R q_1} & R'\otimes_R L_0 \ar[r]^-{R'\otimes_R q_0} & R'\otimes_R \mathfrak{g} \ar[r] & 0 }.
+\]
+Comme \(\mathrm{R}'\otimes_\mathrm{R} q_1\) est manifestement un homomorphisme de \(p\)-algèbres de Lie, le noyau
+de \(\mathrm{R}'\otimes_\mathrm{R} q_0\) est un \(p\)-idéal, de sorte que l'opération puissance \(p\)-ième symbolique de
+\(\mathrm{R}'\otimes_\mathrm{R} \mathrm{L}_0\) induit par passage au quotient une application de \(\mathrm{R}'\otimes_\mathrm{R} \mathfrak{g}\) dans \(\mathrm{R}'\otimes_\mathrm{R} \mathfrak{g}\)
+(utiliser la formule (ii) de 5.2.)&nbsp;; cette dernière munit \(\mathfrak{g}\) de la structure de \(p\)-algèbre de
+Lie cherchée.</p>
+
+<h3 id="VIIA.5.3.4">5.3.4.</h3>
+<p>L'application canonique \(j_\mathfrak{g}\) de \(\mathfrak{g}\) dans l'algèbre enveloppante restreinte \(\mathrm{U}_p(\mathfrak{g})\)
+induit, pour toute extension \(f : \mathrm{R} \to \mathrm{R}'\) de l'anneau de base, un homomorphisme
+\[
+\mathrm{R}'\otimes_\mathrm{R} j_\mathfrak{g} : \ \mathrm{R}'\otimes_\mathrm{R}\mathfrak{g} \longrightarrow \mathrm{R}'\otimes_\mathrm{R}\mathrm{U}_p(\mathfrak{g}),
+\]
+d'où un homomorphisme \(h\) de \(\mathrm{U}_p(\mathrm{R}'\otimes_\mathrm{R}\mathfrak{g})\) dans \(\mathrm{R}'\otimes_\mathrm{R}\mathrm{U}_p(\mathfrak{g})\) tel que \(h \circ j_{R'\otimes\mathfrak{g}} =
+\mathrm{R}'\otimes_\mathrm{R} j_\mathfrak{g}\). Il résulte évidemment des propriétés universelles de \(\mathrm{R}'\otimes_\mathrm{R}\mathfrak{g}\) et de l'algèbre
+enveloppante restreinte que \(h\) est un <em>isomorphisme</em>, ce qui nous permettra d'identifier
+\(\mathrm{U}_p(\mathrm{R}'\otimes_\mathrm{R}\mathfrak{g})\) à \(\mathrm{R}'\otimes_\mathrm{R}\mathrm{U}_p(\mathfrak{g})\).</p>
+<p>En particulier, si \(r\) est un élément de R et si R′ est l'anneau localisé \(\mathrm{R}_r\), on voit
+que \(\mathfrak{g}_r \simeq \mathrm{R}_r\otimes_\mathrm{R}\mathfrak{g}\) est muni canoniquement d'une structure de \(p\)-algèbre de Lie sur
+\(\mathrm{R}_r\), de sorte que le faisceau \(\widetilde{\mathfrak{g}}\) sur \(\mathrm{Spec}\ \mathrm{R}\) est une \(p\)-Algèbre de Lie quasi-cohérente
+sur \(\mathrm{Spec}\ \mathrm{R}\). De plus, l'algèbre enveloppante restreinte \(\mathrm{U}_p^R(\mathfrak{g}_r)\) s'identifie à \(\mathrm{U}_p(\mathfrak{g})_r\)
+de sorte que le faisceau associé au préfaisceau \(\mathrm{V} \mapsto \mathrm{U}_p(\Gamma(\mathrm{V},\mathfrak{g}))\) est quasi-cohérent.
+Plus généralement, si S est un schéma de caractéristique \(p\) et \(\mathscr{G}\) une \(p\)-Algèbre de
+Lie quasi-cohérente sur \(\mathscr{O}_\mathrm{S}\), le faisceau associé au préfaisceau \(\mathrm{V} \mapsto \mathrm{U}_p(\Gamma(\mathrm{V},\mathscr{G}))\) est
+quasi-cohérent&nbsp;; il sera noté \(\mathscr{U}_p(\mathscr{G})\) et appelé <em>l'Algèbre enveloppante restreinte</em> de \(\mathscr{G}\).
+Si V est affine, \(\mathrm{U}_p(\Gamma(\mathrm{V},\mathscr{G}))\) s'identifie à l'ensemble des sections de \(\mathscr{U}_p(\mathscr{G})\) sur V.</p>
+
+<h3 id="VIIA.5.4">5.4.</h3>
+<p>Le caractère universel de \(\mathrm{U}_p(\mathfrak{g})\) entraîne que \(\mathrm{U}_p(\mathfrak{g})\) est fonctoriel en \(\mathfrak{g}\)&nbsp;: tout
+homomorphisme de \(p\)-algèbres de Lie \(h : \mathfrak{g} \to \mathfrak{h}\) induit un homomorphisme d'algèbres
+unitaires \(\mathrm{U}_p(h)\) et un seul tel que \(j_\mathfrak{h}\circ h = \mathrm{U}_p(h)\circ j_\mathfrak{g}\). Voici quelques exemples&nbsp;:</p>
+<p><strong>a)</strong> Si \(\mathfrak{h} = 0\), \(\mathrm{U}_p(\mathfrak{h})\) s'identifie à l'anneau de base et \(\mathrm{U}_p(h)\) est un homomorphisme
+d'algèbres \(\varepsilon_\mathfrak{g} : \mathrm{U}_p(\mathfrak{g}) \to \mathrm{R}\) appelé <em>augmentation</em>.</p>
+<p><strong>b)</strong> Prenons maintenant pour \(\mathfrak{h}\) l'algèbre \(\mathfrak{g}^\circ\) opposée à \(\mathfrak{g}\)&nbsp;: \(\mathfrak{g}^\circ\) a même module sous-
+jacent que \(\mathfrak{g}\), même puissance \(p\)-ième symbolique, le crochet de deux éléments dans
+\(\mathfrak{g}^\circ\) étant l'opposé du crochet dans \(\mathfrak{g}\). Il est clair que nous pouvons identifier \(\mathrm{U}_p(\mathfrak{g}^\circ)\)
+à l'algèbre opposée à \(\mathrm{U}_p(\mathfrak{g})\). De plus, l'isomorphisme \(x \mapsto -x\) de \(\mathfrak{g}\) sur \(\mathfrak{g}^\circ\) induit un
+isomorphisme \(c_\mathfrak{g}\) de \(\mathrm{U}_p(\mathfrak{g})\) sur \(\mathrm{U}_p(\mathfrak{g}^\circ) \simeq \mathrm{U}_p(\mathfrak{g})^\circ\). On dit que \(c_\mathfrak{g}\) est <em>l'antipodisme</em> de
+\(\mathrm{U}_p(\mathfrak{g})\).</p>
+<p><strong>c)</strong> Soient enfin \(\mathfrak{f}\) et \(\mathfrak{g}\) deux \(p\)-algèbres de Lie et \(\mathfrak{h}\) la \(p\)-algèbre de Lie <em>produit</em>
+\(\mathfrak{f} \times \mathfrak{g}\) qui a pour R-module sous-jacent le produit direct \(\mathfrak{f} \times \mathfrak{g}\), le crochet et la
+puissance symbolique étant définis par les formules
+\[
+\big[(x,y),(x',y')\big] = \big([x,x'],[y,y']\big) \qquad \text{et} \qquad (x,y)^{(p)} = (x^{(p)},y^{(p)}).
+\]</p>
+<p>Si \(h_1 : \mathfrak{f} \to \mathfrak{k}\) et \(h_2 : \mathfrak{g} \to \mathfrak{k}\) sont deux homomorphismes de \(p\)-algèbres de Lie tels
+que \([h_1(x),h_2(y)] = 0\) pour tout \(x\) de \(\mathfrak{f}\) et tout \(y\) de \(\mathfrak{g}\), l'application \(h_1+h_2 : (x,y) \to
+h_1(x)+h_2(y)\) est un homomorphisme de \(p\)-algèbres de Lie&nbsp;; réciproquement, tout
+homomorphisme de \(\mathfrak{f}\times\mathfrak{g}\) dans \(\mathfrak{k}\) est de ce type, ce qui permet de caractériser \(\mathfrak{f}\times\mathfrak{g}\)
+comme solution d'un problème universel. Par exemple, les applications \(h_1 : x \mapsto
+i_\mathfrak{f}(x)\otimes 1\) et \(h_2 : y \mapsto 1\otimes i_\mathfrak{g}(y)\) induisent un homomorphisme \(h_1+h_2\) de \(\mathfrak{f} \times \mathfrak{g}\)
+dans la \(p\)-algèbre de Lie sous-jacente à \(\mathrm{U}_p(\mathfrak{f})\otimes \mathrm{U}_p(\mathfrak{g})\). Il résulte des caractères universels
+de \(\mathfrak{f}\times\mathfrak{g}\) et des algèbres enveloppantes restreintes que \(h_1+h_2\) se prolonge en un
+isomorphisme \(\varphi\) de \(\mathrm{U}_p(\mathfrak{f}\times\mathfrak{g})\) sur le produit tensoriel \(\mathrm{U}_p(\mathfrak{f})\otimes \mathrm{U}_p(\mathfrak{g})\).</p>
+<p>Si \(\mathfrak{f} = \mathfrak{g}\), l'application diagonale \(\delta : x \mapsto (x,x)\) de \(\mathfrak{g}\) dans \(\mathfrak{g}\times\mathfrak{g}\) induit un homomorphisme de \(\mathrm{U}_p(\mathfrak{g})\) dans \(\mathrm{U}_p(\mathfrak{g}\times\mathfrak{g})\). Nous noterons \(\Delta_\mathfrak{g}\) le composé de cet
+homomorphisme avec \(\varphi\)&nbsp;; on voit facilement que \(\Delta_\mathfrak{g}\) et la multiplication de l'algèbre
+\(\mathrm{U}_p(\mathfrak{g})\) font de \((\mathrm{U}_p(\mathfrak{g}),\Delta_\mathfrak{g})\) une R-<em>coalgèbre en groupes</em> (3.2) qui a \(\varepsilon_\mathfrak{g}\) pour augmentation
+et \(c_\mathfrak{g}\) pour antipodisme.</p>
+
+<h3 id="VIIA.5.4.1">5.4.1.</h3>
+<p>De même, soient S un schéma de caractéristique \(p\) et \(\mathscr{G}\) une \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre
+de Lie. Lorsque V parcourt les ouverts de S, les structures de coalgèbres en groupes
+définies précédemment sur les ensembles \(\mathrm{U}_p(\Gamma(\mathrm{V},\mathscr{G}))\) induisent sur l'algèbre enveloppante restreinte \(\mathscr{U}_p(\mathscr{G})\) une structure de \(\mathscr{O}_\mathrm{S}\)-\(p\)-Coalgèbre en groupes. D'après 5.3.1,
+le S-foncteur en groupes correspondant \(\mathrm{Spec}^*\,\mathscr{U}_p(\mathscr{G})\) associe à tout S-schéma T l'ensemble des sections \(x\) de \(\mathscr{U}_p(\mathscr{G}\otimes_{\mathscr{O}_S}\mathscr{O}_T)\) telles que
+\[
+\varepsilon(x) = 1 \qquad \text{et} \qquad \Delta x = x\otimes x.
+\]</p>
+<p>Ici \(\varepsilon\) désigne l'augmentation de \(\mathscr{U}_p(\mathscr{G}\otimes_{\mathscr{O}_S}\mathscr{O}_T)\), \(\Delta\) le morphisme diagonal, et \(x\otimes x\)
+l'image canonique de \((x,x)\) dans \(\Gamma(\mathrm{T},\mathscr{U}_p(\mathscr{G}_T)\otimes_{\mathscr{O}_T}\mathscr{U}_p(\mathscr{G}_T))\).</p>
+<p>Lorsque \(\mathscr{G}\) est localement libre de type fini en tant que \(\mathscr{O}_\mathrm{S}\)-Module, \(\mathrm{Spec}^*\,\mathscr{U}_p(\mathscr{G})\)
+est <em>représentable par un S-schéma fini, localement libre</em> (5.3.3 et 3.1.2).</p>
+
+<h2 id="VIIA.6">6. <em>p</em>-Algèbre de Lie d'un S-schéma en groupes</h2>
+<p>Soit S un schéma de caractéristique \(p > 0\). Au paragraphe 5 nous avons associé à
+toute \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre de Lie quasi-cohérente \(\mathscr{G}\) un S-foncteur en groupes \(\mathrm{Spec}^*\,\mathscr{U}_p(\mathscr{G})\).
+Nous allons voir maintenant que, pour tout S-schéma en groupes G, l'Algèbre de Lie
+\(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})\) définie en II 4.11 est munie naturellement d'une structure de \(\mathbf{O}_\mathrm{S}\)-\(p\)-algèbre
+de Lie.</p>
+
+<h3 id="VIIA.6.1">6.1.</h3>
+<p>Identifions tout d'abord \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) et \(\underline{\mathrm{Lie}}(\underline{\mathrm{Aut}}\ \mathrm{G}/\mathrm{S})(\mathrm{S})\) respectivement à
+des sous-algèbres de Lie de \(\mathrm{U}(\mathrm{G})\) et \(\mathrm{Dif}_{G/S}\) au moyen des injections \(\alpha\) et \(\beta\) de 2.5.
+L'Algèbre de Lie de \(\underline{\mathrm{Aut}}\ \mathrm{G}\) est donc identifiée à l'algèbre de Lie des S-dérivations de
+\(\mathscr{O}_\mathrm{X}\). D'après 5.2, cette dernière est une sous-\(p\)-algèbre de Lie de \(\mathrm{Dif}_{G/S}\).</p>
+<p>D'autre part, d'après II 4.1.4, l'image de \(\mathrm{L} = \underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) par la translation à droite
+\(r : \mathrm{U}(\mathrm{G}) \to \mathrm{Dif}_{G/S}\) est formée des dérivations invariantes à droite. Si \(x\) appartient à
+L, \(r(x)^p\) n'est autre que \(r(x^p)\) d'après 2.2. Comme \(r(x)^p\) est encore une dérivation,
+on voit que \(x^p\) appartient à \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\), qui <em>est donc une sous-p-algèbre de Lie de
+l'algèbre infinitésimale</em> U(G).</p>
+
+<h3 id="VIIA.6.1.1">6.1.1.</h3>
+<p>Soit \(h : \mathrm{G} \to \mathrm{H}\) un homomorphisme de S-schémas en groupes. Il est clair
+que les homomorphismes \(\underline{\mathrm{Lie}}(h/\mathrm{S})(\mathrm{S})\) et \(\mathrm{U}(h)\) sont compatibles avec les identifications
+de \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) et \(\underline{\mathrm{Lie}}(\mathrm{H}/\mathrm{S})(\mathrm{S})\) à des sous-\(p\)-algèbres de Lie de \(\mathrm{U}(\mathrm{G})\) et \(\mathrm{U}(\mathrm{H})\).
+Comme \(\mathrm{U}(h)\) est un homomorphisme d'algèbres, on voit donc que \(\underline{\mathrm{Lie}}(h/\mathrm{S})(\mathrm{S})\) est un
+homomorphisme de \(p\)-algèbres de Lie.</p>
+<p>De même, si \(s : \mathrm{T} \to \mathrm{S}\) est un changement de base, l'application de \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\)
+dans \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{T})\), qui est induite par \(s\), est un homomorphisme de \(p\)-algèbres de Lie.</p>
+<p>On peut traduire cela en disant que le foncteur \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})\) est muni d'une structure de
+\(\mathbf{O}_\mathrm{S}\)-\(p\)-algèbre de Lie. En particulier, lorsque T parcourt les ouverts de S, on voit que
+le faisceau \(\mathscr{L}ie(\mathrm{G}/\mathrm{S})\) est muni d'une structure de \(\mathscr{O}_\mathrm{S}\)-\(p\)-algèbre de Lie.</p>
+
+<h3 id="VIIA.6.2">6.2.</h3>
+<p>Suivant une idée de Demazure, nous allons maintenant généraliser ce qui précède à certains S-foncteurs en groupes non nécessairement représentables. Pour cela,
+nous allons d'abord donner une autre définition de la puissance \(p\)-ième symbolique
+dans l'algèbre de Lie d'un S-schéma en groupes G.</p>
+<p>Soit D une dérivation de G à l'origine, c'est-à-dire la déviation de l'origine obtenue
+en composant la déviation canonique \(\delta : \mathrm{S} \to \mathrm{I}_\mathrm{S}\) de 1.5 avec un prolongement \(x\) à \(\mathrm{I}_\mathrm{S}\)
+de la section unité \(\varepsilon : \mathrm{S} \to \mathrm{G}\). D'après la définition que nous avons donnée en 2.1, \(\mathrm{D}^p\)
+est la déviation composée suivante
+\[
+\xymatrix{ S \simeq \underbrace{S\times S\times\cdots\times S}_{p} \ar[r]^-{\delta\times\cdots\times\delta} & I_S\times\cdots\times I_S \ar[r]^-{x\times\cdots\times x} & G\times\cdots\times G \ar[r]^-{m^{(p)}} & G }
+\]
+où \(m^{(p)}\) est le morphisme induit par la multiplication \(m : \mathrm{G} \times \mathrm{G} \to \mathrm{G}\). Comme
+\(\mathrm{I}_\mathrm{S}\times\cdots\times \mathrm{I}_\mathrm{S}\) est affine sur S et a pour Algèbre affine \(\mathscr{O}_S[d_1,\ldots,d_p]/(d_1^2,\ldots,d_p^2)\), la
+déviation \(\delta\times\cdots\times\delta\) est définie par un morphisme de \(\mathscr{O}_\mathrm{S}\)-Modules
+\[
+\mathscr{O}_S[d_1,\ldots,d_p]/(d_1^2,\ldots,d_p^2) \longrightarrow \mathscr{O}_S
+\]
+qui applique le monôme \(d_1d_2\cdots d_p\) sur 1 et les autres monômes \(d_{i_1}\cdots d_{i_r}\) sur 0 \((r&lt;p)\).
+D'autre part, si \(\mathrm{pr}_i\) désigne la projection de \(\mathrm{I}_S^p\) sur le \(i\)-ième facteur et si \(x_i\) est l'image
+de \(x\) dans \(\mathrm{G}(\mathrm{I}_S^p)\) par \(\mathrm{G}(\mathrm{pr}_i)\), le morphisme composé \(m^{(p)} \circ (x\times\cdots\times x)\) n'est autre que
+le produit \(x_1x_2\cdots x_p\). Par conséquent, \(\mathrm{D}^p\) est aussi la déviation composée suivante
+\[
+\xymatrix{ S \ar[r]^-{\delta\times\cdots\times\delta} & I_S\times\cdots\times I_S \ar[r]^-{x_1x_2\cdots x_p} & G }.
+\]</p>
+<p>Cette description nous permet de redémontrer que \(\mathrm{D}^p\) est une dérivation de G à
+l'origine&nbsp;: en effet, comme G est un très bon groupe (II 4.11), les images \(\mathrm{G}(\mathrm{pr}_1)(x)\) et
+\(\mathrm{G}(\mathrm{pr}_2)(x)\) de \(x\) dans \(\mathrm{G}(\mathrm{I}_S\times \mathrm{I}_S)\) commutent entre elles. Il s'ensuit que les éléments \(x_i\)
+de \(\mathrm{G}(\mathrm{I}_S^p)\) commutent deux à deux, autrement dit que, pour toute permutation \(\sigma\) des
+facteurs de \(\mathrm{I}_S^p\), on a \((x_1\cdots x_p)\circ\sigma = x_1\cdots x_p\)&nbsp;; il s'ensuit que \(x_1\cdots x_p\) se factorise à
+travers la projection canonique de \(\mathrm{I}_S^p\) dans le produit symétrique \(\Sigma^p \mathrm{I}_S\) (4.2).</p>
+<p>Le produit symétrique \(\Sigma^p \mathrm{I}_S\) a pour Algèbre affine une sous-Algèbre A de
+\(\mathscr{O}_S[d_1,\ldots,d_p]/(d_1^2,\ldots,d_p^2)\) qui a pour base sur \(\mathscr{O}_S\) les fonctions symétriques élémentaires \(1=\sigma_0,\sigma_1,\ldots,\sigma_p\) de \(d_1,\ldots,d_p\). Nous désignons par \(q\) l'homomorphisme de A
+dans \(\mathscr{O}_S[d]/(d^2)\) qui annule \(\sigma_1,\ldots,\sigma_{p-1}\) et envoie \(\sigma_p\) sur \(d\), par \(i\) l'immersion fermée
+de \(\mathrm{I}_\mathrm{S}\) dans \(\Sigma^p \mathrm{I}_S\) qui est associée à \(q\). On a alors un diagramme commutatif&nbsp;:
+\[
+\xymatrix{
+S \ar[d]_-{\delta} \ar[r]^-{\delta\times\cdots\times\delta} \ar@/^2pc/[rr]^-{D^p} & I_S^p \ar[d]^-{\mathrm{can.}} \ar[r]^-{x_1\cdots x_p} & G \ar@{=}[d] \\
+I_S \ar[r]_-{i} & \Sigma^p I_S \ar[r]_-{y} & G
+}
+\]
+qui montre que \(\mathrm{D}^p\) est de la forme \(y \circ \delta\), cqfd</p>
+
+<h3 id="VIIA.6.3">6.3.</h3>
+<p>Soient \(\mathfrak{S}_p\) le groupe symétrique d'ordre \(p\) et \(\mathrm{I}_S^p \times \mathfrak{S}_p\) la somme directe d'une
+famille d'exemplaires de \(\mathrm{I}_S^p\) indexés par \(\mathfrak{S}_p\). Nous notons \(\pi : \mathrm{I}_S^p\times\mathfrak{S}_p \to \mathrm{I}_S^p\) la projection
+canonique et \(k : \mathrm{I}_S^p\times\mathfrak{S}_p \to \mathrm{I}_S^p\) le morphisme définissant l'opération de \(\mathfrak{S}_p\) sur \(\mathrm{I}_S^p\) (si
+\(\sigma\) est un élément de \(\mathfrak{S}_p\), la restriction de \(k\) à \(\mathrm{I}_S^p\times\sigma\) a \(\mathrm{pr}_{\sigma j}\) pour \(j\)-ième composante).
+Ceci étant, nous disons qu'un foncteur \(\mathrm{X} : (\mathbf{Sch}/\mathrm{S})^\circ \to (\mathbf{Ens})\) vérifie la condition (F) si
+X transforme les sommes directes finies en produits directs et si, pour tout S-schéma
+T, la suite
+\[
+\xymatrix{ X(T\times_S \Sigma^p I_S) \ar[r] & X(T\times_S I_S^p) \ar@<0.7ex>[r]^-{X(T\times_S \pi)} \ar@<-0.7ex>[r]_-{X(T\times_S k)} & X(T\times_S I_S^p\times \mathfrak{S}_p) }
+\]
+est exacte. Tout S-schéma vérifie (F)&nbsp;; si \(\mathscr{F}\) est un \(\mathscr{O}_\mathrm{S}\)-Module, \(\mathbf{W}(\mathscr{F})\) vérifie (F)&nbsp;;
+toute limite projective de foncteurs vérifiant (F), vérifie aussi (F)&nbsp;; si \(\underline{\mathrm{Y}}\) vérifie (F) et
+si X est un S-foncteur quelconque, \(\underline{\mathrm{Hom}}_S(\mathrm{X},\mathrm{Y})\) vérifie (F).</p>
+<p>Soit X <em>un très bon groupe</em> (II 4.10) <em>vérifiant la condition (F)</em>. Désignant par \(x :
+\mathrm{I}_S \to \mathrm{X}\) un morphisme qui prolonge la section unité de X et reprenant les notations
+de 6.2, on voit comme ci-dessus que \(x_1\cdots x_p : \mathrm{I}_S^p \to \mathrm{X}\) se factorise à travers \(\Sigma^p \mathrm{I}_S\)&nbsp;:
+\[
+\xymatrix{
+I_S^p \ar[d]_-{\mathrm{can.}} \ar[rr]^-{x_1\cdots x_p} & & X \\
+\Sigma^p I_S \ar[urr]_-{\tau} & &
+}
+\]
+et définit par composition un morphisme
+\[
+x^{(p)} : \ I_S \xrightarrow{\ i\ } \Sigma^p I_S \xrightarrow{\ \tau\ } X
+\]
+que nous appellerons la <em>puissance \(p\)-ième symbolique</em> de \(x\). L'endomorphisme \(x \mapsto
+x^{(p)}\) de \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) est évidemment compatible avec les changements de base et est
+fonctoriel en G. Il serait intéressant de savoir pour quels G cet endomorphisme fait de
+\(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) une \(p\)-algèbre de Lie.</p>
+
+<h3 id="VIIA.6.4">6.4.</h3>
+<p>La dernière définition de la puissance \(p\)-ième symbolique, que nous venons de
+donner, est particulièrement bien adaptée au calcul. Voici quelques exemples&nbsp;:</p>
+
+<h3 id="VIIA.6.4.1">6.4.1.</h3>
+<p>Soient M un groupe abélien «&nbsp;abstrait&nbsp;» et \(\mathbf{D}_S(\mathrm{M})\) le S-groupe diagonalisable de type M (I 4.4.2). Pour tout S-schéma T, on a donc \(\mathbf{D}_S(\mathrm{M})(\mathrm{T}) =
+\mathrm{Hom}_{(Ab)}(\mathrm{M}, \mathbf{O}(\mathrm{T})^*)\). Soit \(x\) un élément de \(\underline{\mathrm{Lie}}(\mathbf{D}_S(\mathrm{M})/\mathrm{S})(\mathrm{S})\), c'est-à-dire un homomorphisme de groupes abéliens
+\[
+\xymatrix{ M \ar[r]^-{x} & \Gamma(S,\mathscr{O}_S+d\mathscr{O}_S)^* }
+\]
+de la forme \(m \mapsto 1+d\,\xi(m)\), où \(\xi \in \mathrm{Hom}_{(Ab)}(\mathrm{M},\mathbf{O}(\mathrm{S}))\). Avec les notations de 6.2 et
+6.3, le produit \(x_1\cdots x_p\) associe à un élément \(m\) de M l'expression
+\[
+(1+d_1\xi(m))\cdots(1+d_p\xi(m))
+\]
+c'est-à-dire \(1+\sigma_1\xi(m)+\sigma_2(\xi(m))^2+\cdots+\sigma_p(\xi(m))^p\).</p>
+<p>Cette expression appartient bien à \(\mathbf{O}(\Sigma^p \mathrm{I}_S)\). Projetant l'Algèbre affine A de
+\(\Sigma^p \mathrm{I}_S\) dans \(\mathscr{O}_S[d]/(d^2)\) en annulant \(\sigma_1,\ldots,\sigma_{p-1}\) et en envoyant \(\sigma_p\) sur \(d\), on voit
+que \(x^{(p)}\) est l'homomorphisme
+\[
+m \mapsto 1+d(\xi(m))^p
+\]
+de M dans \(\Gamma(\mathrm{S},\mathscr{O}_S+d\mathscr{O}_S)\).</p>
+<p>En résumé, si l'on identifie \(\underline{\mathrm{Lie}}(\mathbf{D}_S(\mathrm{M})/\mathrm{S})(\mathrm{S})\) à \(\mathrm{Hom}_{(Ab)}(\mathrm{M},\mathbf{O}(\mathrm{S})^*)\) comme en 5.1,
+la puissance \(p\)-ième symbolique associe à \(\xi\) l'homomorphisme \(\xi^{(p)} : m \mapsto \xi(m)^p\).</p>
+
+<h3 id="VIIA.6.4.2">6.4.2.</h3>
+<p>Soient \(\mathscr{F}\) un \(\mathscr{O}_\mathrm{S}\)-Module et G le S-foncteur en groupes abéliens \(\mathbf{W}(\mathscr{F})\) (cf. I
+4.6). Soient \(y\) un élément de \(\mathbf{W}(\mathscr{F})(\mathrm{S}) = \Gamma(\mathrm{S},\mathscr{F})\) et \(y'\) l'image canonique de \(y\) dans
+\(\mathbf{W}(\mathscr{F})(\mathrm{I}_S)\). On sait que l'application \(y \mapsto d\,y'\) est une bijection de \(\mathbf{W}(\mathscr{F})(\mathrm{S})\) sur
+\(\underline{\mathrm{Lie}}(\mathbf{W}(\mathscr{F})/\mathrm{S})(\mathrm{S})\). Si l'on pose \(x = d\,y'\), la quantité \(x_i\) de 6.2 n'est autre que \(d_i\,y''\), où
+\(y''\) désigne l'image canonique de \(x\) dans \(\mathbf{W}(\mathscr{F})(\mathrm{I}_S^p)\). Par conséquent le produit \(x_1\cdots x_p\)
+est égal à \((d_1+\cdots+d_p)y''\) et appartient à \(\mathbf{W}(\mathscr{F})(\Sigma^p \mathrm{I}_S)\). Comme l'application de
+\(\mathbf{O}(\Sigma^p \mathrm{I}_S)\) dans \(\mathbf{O}(\mathrm{I}_S)\), qui définit le morphisme \(i\) de 6.1, annule \(d_1+\cdots+d_p\), on voit
+que \(x^{(p)}\) est nul.</p>
+<p>Pour tout \(\mathscr{O}_\mathrm{S}\)-Module \(\mathscr{F}\), <em>l'opération puissance p-ième symbolique dans
+l'algèbre de Lie de \(\mathbf{W}(\mathscr{F})\) est donc nulle.</em></p>
+
+<h3 id="VIIA.6.4.3">6.4.3.</h3>
+<p>Soient X un S-schéma, G le S-foncteur en groupes \(\underline{\mathrm{Aut}}_S \mathrm{X}\) et D une S-
+dérivation du faisceau structural \(\mathscr{O}_\mathrm{X}\). D'après 6.1, D peut être identifié à un \(\mathrm{I}_S\)-
+automorphisme \(x\) de \(\mathrm{X}_{I_S}\) qu'on peut décrire comme suit&nbsp;: si \(s\) est une section de
+\(\mathscr{O}_S[d]/(d^2)\) de la forme \(a+db\), posons \(\mathrm{D}_{I_S} s = \mathrm{D}a + d(\mathrm{D}b)\)&nbsp;; autrement dit, \(\mathrm{D}_{I_S}\) est
+déduit de D par le changement de base \(\mathrm{I}_S \to \mathrm{S}\)&nbsp;; l'automorphisme en question de \(\mathrm{X}_{I_S}\)
+est alors associé à l'endomorphisme \(s \mapsto s+d(\mathrm{D}_{I_S} s)\) de \(\mathscr{O}_S[d]/(d^2)\).</p>
+<p>De même, soit \(\mathrm{D}_{I_S^p}\) l'opérateur différentiel de \(\mathrm{X}_{I_S^p}\) déduit de D par le changement de
+base \(\mathrm{I}_S^p \to \mathrm{S}\). Avec les notations de 6.2, l'automorphisme \(x_i\) de \(\mathrm{X}_{I_S^p}\) est alors associé à
+l'endomorphisme \(s \mapsto s+d_i(\mathrm{D}_{I_S^p}(s))\) de \(\mathscr{O}_S[d_1,\ldots,d_p]/(d_1^2,\ldots,d_p^2)\). Le produit \(x_1\cdots x_p\)
+est donc associé à l'endomorphisme
+\[
+(1+d_1\mathrm{D}_{I_S^p})(1+d_2\mathrm{D}_{I_S^p})\cdots(1+d_p\mathrm{D}_{I_S^p})
+\]
+c'est-à-dire à \(1+\sigma_1\mathrm{D}_{I_S^p}+\sigma_2(\mathrm{D}_{I_S^p})^2+\cdots+\sigma_p(\mathrm{D}_{I_S^p})^p\).</p>
+<p>Le coefficient de \(\sigma_p\) est \((\mathrm{D}_{I_S^p})^p\), ce qui signifie que la bijection \(\mathrm{D} \mapsto x\) de l'algèbre
+de Lie des S-dérivations de \(\mathscr{O}_\mathrm{X}\) sur l'algèbre de Lie de \(\underline{\mathrm{Aut}}_S \mathrm{X}\) est un isomorphisme de
+\(p\)-algèbres de Lie.</p>
+
+<h3 id="VIIA.6.4.4">6.4.4.</h3>
+<p>En utilisant la même méthode, on voit que, pour tout \(\mathscr{O}_\mathrm{S}\)-Module \(\mathscr{F}\), la bijection décrite en II 4.5 est un isomorphisme de \(p\)-algèbres de Lie de \(\mathrm{End}_{\mathscr{O}_S\text{-mod.}} \mathbf{W}(\mathscr{F})\)
+sur \(\underline{\mathrm{Lie}}(\underline{\mathrm{Aut}}_{\mathscr{O}_S\text{-mod.}} \mathbf{W}(\mathscr{F})/\mathrm{S})(\mathrm{S})\).</p>
+<p>De même, si \(\mathscr{U}\) est une \(\mathscr{O}_\mathrm{S}\)-Coalgèbre en groupes quasi-cohérente, et si G est le
+foncteur en groupes \(\mathrm{Spec}^*\,\mathscr{U}\), on voit facilement que l'injection canonique de \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\)
+dans \(\Gamma(\mathrm{S},\mathscr{U})\), qui identifie \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) à l'ensemble des éléments primitifs de \(\Gamma(\mathrm{S},\mathscr{U})\),
+est compatible avec la puissance \(p\)-ième.</p>
+<h2 id="VIIA.7">7. Groupes radiciels de hauteur 1</h2>
+<p>Soit S un schéma de caractéristique \(p>0\). Nous dirons qu'une \(\mathscr{O}_\mathrm{S}\)-Algèbre \(\mathscr{A}\)
+(resp. une \(\mathscr{O}_\mathrm{S}\)-\(p\)-algèbre de Lie \(\mathscr{L}\)) est <em>finie localement libre</em> si le \(\mathscr{O}_\mathrm{S}\)-Module sous-
+jacent à \(\mathscr{A}\) (resp. \(\mathscr{L}\)) est localement libre et de type fini. Si \(\mathscr{L}\) est une \(\mathscr{O}_\mathrm{S}\)-\(p\)-algèbre
+de Lie finie localement libre, nous savons que le S-foncteur en groupes
+\[
+\mathrm{G}_p(\mathscr{L}) = \mathrm{Spec}^*\,\mathscr{U}_p(\mathscr{L})
+\]
+est représentable par un S-schéma fini, localement libre (5.4.1). Nous allons voir que ce
+S-schéma est solution d'un problème universel et nous allons caractériser les S-schémas
+en groupes de la forme \(\mathrm{Spec}^*\,\mathscr{U}_p(\mathscr{L})\).</p>
+
+<h3 id="VIIA.7.1">7.1.</h3>
+<p>Considérons d'abord une \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre de Lie quasi-cohérente \(\mathscr{L}\). Lorsque
+V parcourt les ouverts de S, les applications \(j : \Gamma(\mathrm{V},\mathscr{L}) \to \mathrm{U}_p(\Gamma(\mathrm{V},\mathscr{L}))\) de 5.3
+définissent un morphisme \(\underline{j} : \mathscr{L} \to \mathscr{U}_p(\mathscr{L})\). D'autre part, d'après 3.2.3, la \(\mathscr{O}_\mathrm{S}\)-Algèbre
+de Lie du S-foncteur en groupes \(\mathrm{G}_p(\mathscr{L})\) est le noyau du morphisme
+\[
+\Delta - \mathrm{in}_1 - \mathrm{in}_2 : \ \mathscr{U}_p(\mathscr{L}) \longrightarrow \mathscr{U}_p(\mathscr{L}) \otimes_{\mathscr{O}_S} \mathscr{U}_p(\mathscr{L}),
+\]
+où \(\Delta\) désigne le morphisme diagonal et où \(\mathrm{in}_1\), \(\mathrm{in}_2\) sont les injections \(x \mapsto x\otimes 1\) et
+\(x \mapsto 1\otimes x\). Il est clair que l'image de \(\underline{j}\) est contenue dans le noyau \(\mathscr{L}ie\,\mathrm{G}_p(\mathscr{L})\) de
+\(\Delta - \mathrm{in}_1 - \mathrm{in}_2\)&nbsp;; c'est pourquoi nous noterons \(\underline{j}_\mathscr{L} : \mathscr{L} \to \underline{\mathrm{Lie}}\,\mathcal{G}_p(\mathscr{L})\) le morphisme de
+\(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbres de Lie qui est induit par \(\underline{j}\) (6.4.4).</p>
+<p>Considérons maintenant un très bon S-foncteur en groupes G vérifiant la condition
+(F) de 6.3 et soit \(h : \mathrm{G}_p(\mathscr{L}) \to \mathrm{G}\) un homomorphisme de S-foncteurs en groupes.
+D'après 6.3, le morphisme \(\mathscr{L}ie\,h : \mathscr{L}ie\,\mathrm{G}_p(\mathscr{L}) \to \mathscr{L}ie\,\mathrm{G}\) est un homomorphisme de
+\(\mathscr{O}_\mathrm{S}\)-Algèbres de Lie qui est compatible avec l'élévation à la puissance \(p\)-ième symbolique. Il en va donc de même pour le morphisme composé \((\mathscr{L}ie\,h)\circ \underline{j}_\mathscr{L}\). Si nous notons
+\(\mathrm{Hom}_p(\mathscr{L},\mathscr{L}ie\,\mathrm{G})\) l'ensemble des homomorphismes de \(\mathscr{O}_\mathrm{S}\)-Algèbres de Lie, qui sont
+compatibles avec l'élévation à la puissance \(p\)-ième symbolique, on a donc une application
+\(\mathrm{J}(\mathscr{L},\mathrm{G}) : h \mapsto (\mathscr{L}ie\,h)\circ \underline{j}_\mathscr{L}\) de \(\mathrm{Hom}_{S\text{-Gr.}}(\mathrm{G}_p(\mathscr{L}), \mathrm{G})\) dans \(\mathrm{Hom}_p(\mathscr{L}, \underline{\mathrm{Lie}}\,\mathrm{G})\).</p>
+
+<div class="thm thm-plain theoreme" id="VIIA.7.2">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">7.2</span></div>
+  <div class="thm-body"><p>Si \(\mathscr{L}\) est une \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre de Lie finie localement libre, l'application
+\[
+\mathrm{J}(\mathscr{L},\mathrm{G}) : \ \mathrm{Hom}_{S\text{-gr.}}(\mathrm{G}_p(\mathscr{L}), \mathrm{G}) \longrightarrow \mathrm{Hom}_p(\mathscr{L}, \underline{\mathrm{Lie}}\,\mathrm{G})
+\]
+est bijective dans chacun des cas suivants&nbsp;:</p>
+<p>(i) G est un S-schéma en groupes&nbsp;;</p>
+<p>(ii) G est de la forme \(\underline{\mathrm{Aut}}_S\ \mathrm{X}\), où X est un S-schéma&nbsp;;</p>
+<p>(iii) G est de l'une des formes \(\mathbf{W}(\mathscr{F})\) ou \(\underline{\mathrm{Aut}}_{\mathscr{O}_S\text{-mod}}\ \mathbf{W}(\mathscr{F})\), où \(\mathscr{F}\) désigne un
+\(\mathscr{O}_\mathrm{S}\)-Module quasi-cohérent.</p></div>
+</div>
+
+<p>La démonstration du théorème s'appuie sur le lemme suivant&nbsp;:</p>
+
+<div class="thm thm-plain lemme" id="VIIA.7.2.lemme1">
+  <div class="thm-head"><span class="thm-name">Lemme</span></div>
+  <div class="thm-body"><p>Si \(\mathscr{L}\) est une \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre de Lie finie localement libre, le S-groupe \(\mathrm{G}_p(\mathscr{L})\)
+est annulé par le morphisme de Frobenius de \(\mathrm{G}_p(\mathscr{L})\) relativement à S.</p></div>
+</div>
+
+<p>Soient en effet \(\mathscr{U}\) l'Algèbre enveloppante restreinte de \(\mathscr{L}\) et posons \(\mathscr{A} = \mathscr{U}^* =
+\underline{\mathrm{Hom}}_{\mathscr{O}_S}(\mathscr{U},\mathscr{O}_S)\). Alors \(\mathscr{A}\) est l'Algèbre affine de \(\mathrm{G}_p(\mathscr{L})\). De plus, si \(\mathscr{J}\) est l'idéal
+d'augmentation de \(\mathscr{U}\), c'est-à-dire l'Idéal engendré par l'image de \(\underline{j}_\mathscr{L} : \mathscr{L} \to \mathscr{U}\), nous
+notons \(\mathscr{I}\) l'orthogonal de \(\mathscr{J}\) dans \(\mathscr{A}\). On a donc \(\mathscr{A}/\mathscr{I} \simeq \mathscr{O}_S\) et l'Idéal \(\mathscr{I}\) définit la
+section unité de \(\mathrm{G}_p(\mathscr{L})\).</p>
+<p>Si \(\pi\) est l'endomorphisme \(x \mapsto x^p\) de \(\mathscr{O}_\mathrm{S}\), nous devons montrer que le morphisme
+\(\Phi : a\otimes x \mapsto ax^p\) de \(\mathscr{O}_S \otimes_\pi \mathscr{A}\) dans \(\mathscr{A}\) s'annule sur \(\mathscr{O}_S \otimes_\pi \mathscr{I}\). Or \(\Phi\) n'est autre
+que le composé suivant
+\[
+\xymatrix{ \mathscr{O}_S\otimes_\pi \mathscr{A} \ar[r]^-{j(\mathscr{A})} & \mathscr{S}^p\mathscr{A} \ar[r]^-{b(\mathscr{A})} & \mathscr{A} }
+\]
+où \(b(\mathscr{A})\) et \(j(\mathscr{A})\) sont définis comme en 4.3.3. Comme le \(\mathscr{O}_\mathrm{S}\)-Module dual de \(\mathscr{S}^p\mathscr{A}\) n'est
+autre que le sous-Module \(\Sigma^p\mathscr{U}\) de \(\bigotimes^p\mathscr{U}\) formé des sections invariantes sous l'action
+du groupe symétrique d'ordre \(p\), on voit que le transposé \(\Phi^*\) de \(\Phi\) est le morphisme
+composé suivant&nbsp;:
+\[
+\xymatrix{ \mathscr{U} \ar[r]^-{a(\mathscr{U})} & \Sigma^p\mathscr{U} \ar[r]^-{r(\mathscr{U})} & \mathscr{U}\otimes_\pi \mathscr{O}_S }
+\]
+où \(a(\mathscr{U})\) est induit par le morphisme \((\Delta\otimes\mathscr{U}\otimes\cdots\otimes\mathscr{U})\cdots(\Delta\otimes\mathscr{U})\Delta\) de \(\mathscr{U}\) dans
+\(\bigotimes^p\mathscr{U}\) (\(\Delta\) est le morphisme diagonal de \(\mathscr{U}\))&nbsp;; de même, \(r(\mathscr{U})\) s'annule sur les tenseurs
+symétrisés et applique une section \(x\otimes\cdots\otimes x\) sur \(x\otimes_\pi 1\) (confer 4.3.3).</p>
+<p>Il reste maintenant à montrer que \(\Phi^*\) annule l'idéal d'augmentation \(\mathscr{J}\). Comme
+\(\Phi^*\) est un homomorphisme d'Algèbres, il suffit de voir que \(\Phi^*\) s'annule sur \(\mathrm{Im}\,\underline{j}_\mathscr{L}\). Ceci
+résulte de la formule \(\Delta s = s\otimes 1 + 1\otimes s\), lorsque \(s \in \mathrm{Im}\,\underline{j}_\mathscr{L}\).</p>
+
+<h3 id="VIIA.7.2.1">7.2.1.</h3>
+<p>Posons \(\mathrm{G}_p = \mathrm{G}_p(\mathscr{L})\). Nous allons d'abord prouver l'assertion (ii) du théorème 7.2 en conservant les notations ci-dessus. Comme tout élément de \(\mathscr{I}\) a une
+puissance \(p\)-ième nulle et que \(\mathscr{I}\) est un \(\mathscr{O}_\mathrm{S}\)-Module de type fini, \(\mathscr{I}\) est localement
+nilpotent. On a donc \((\mathrm{G}_p)_{\mathrm{réd}} = \mathrm{S}_{\mathrm{réd}}\). Or les homomorphismes \(h\) de \(\mathrm{G}_p\) dans \(\underline{\mathrm{Aut}}\ \mathrm{X}\)
+correspondent biunivoquement aux opérations à gauche \(h' : \mathrm{G}_p \times \mathrm{X} \to \mathrm{X}\) de \(\mathrm{G}_p\) sur
+X. Pour une telle opération, si \(\varepsilon\) est la section unité de \(\mathrm{G}_p\), le morphisme composé
+\[
+\xymatrix{ X \simeq S\times X \ar[r]^-{\varepsilon\times X} & G_p\times X \ar[r]^-{h'} & X }
+\]
+doit être l'identité. Comme \((\mathrm{G}_p\times \mathrm{X})_{\mathrm{réd}}\) s'identifie à \(\mathrm{X}_{\mathrm{réd}}\), on voit que \(h'\) doit induire
+l'identité sur les schémas réduits associés. En particulier, \(h'\) induit une opération de
+\(\mathrm{G}_p\) sur tous les ouverts de X, de sorte qu'on se ramène facilement au cas où S et
+X sont affines, ou plus généralement au cas où X est affine au-dessus de S. Dans ce
+dernier cas, on applique le lemme suivant&nbsp;:</p>
+
+<div class="thm thm-plain lemme" id="VIIA.7.2.1.lemme">
+  <div class="thm-head"><span class="thm-name">Lemme</span></div>
+  <div class="thm-body"><p>Soient X un S-schéma affine d'Algèbre \(\mathscr{C}\) et \(\mathrm{G}_p\) un S-schéma en groupes
+fini localement libre d'Algèbre \(\mathscr{A}\). Si nous posons \(\mathscr{U} = \mathscr{A}^* = \underline{\mathrm{Hom}}_{\mathscr{O}_S}(\mathscr{A},\mathscr{O}_S)\), les
+opérations de \(\mathrm{G}_p\) à gauche sur X correspondent biunivoquement aux représentations
+de l'algèbre \(\mathscr{U}\) dans le \(\mathscr{O}_\mathrm{S}\)-Module \(\mathscr{C}\) telles qu'on ait
+\[
+u(1_\mathscr{C}) = \varepsilon(u)\cdot 1_\mathscr{C} \qquad \text{et} \qquad u(xy) = \sum_i v_i(x)w_i(y) \quad \text{si} \quad \Delta u = \sum_i v_i\otimes w_i.
+\]</p></div>
+</div>
+
+<p>Dans ces formules, \(u\) désigne une section quelconque de \(\mathscr{U}\) sur un ouvert affine V,
+\(x\) et \(y\) des sections de \(\mathscr{C}\) sur V&nbsp;; on désigne par \(1_\mathscr{C}\) la section unité de \(\mathscr{C}\), par \(\varepsilon\) et \(\Delta\)
+l'augmentation et le morphisme diagonal de \(\mathscr{U}\). Une opération \(h'\) de G à gauche sur
+X est définie par un homomorphisme d'Algèbres \(\lambda : \mathscr{C} \to \mathscr{A} \otimes_{\mathscr{O}_S} \mathscr{C}\). Nous noterons
+\(\mu\) le morphisme composé
+\[
+\xymatrix{ \mathscr{U}\otimes_{\mathscr{O}_S} \mathscr{C} \ar[r]^-{U\otimes\lambda} & \mathscr{U}\otimes_{\mathscr{O}_S}\mathscr{A}\otimes_{\mathscr{O}_S}\mathscr{C} \ar[r]^-{\gamma\otimes\mathscr{C}} & \mathscr{O}_S\otimes_{\mathscr{O}_S}\mathscr{C} \simeq \mathscr{C} }
+\]
+où \(\gamma\) est la «&nbsp;contraction&nbsp;» de \(\mathscr{A}^*\otimes_{\mathscr{O}_S}\mathscr{A}\) dans \(\mathscr{O}_S\). On sait que l'application
+\(\lambda \mapsto (\gamma\otimes\mathscr{C})(\mathscr{U}\otimes\lambda)\) est une bijection de \(\mathrm{Hom}_{\mathscr{O}_S}(\mathscr{C},\mathscr{A}\otimes\mathscr{C})\) sur \(\mathrm{Hom}_{\mathscr{O}_S}(\mathscr{U}\otimes\mathscr{C},\mathscr{C})\). De
+plus, on voit facilement que \(\lambda\) est un homomorphisme d'Algèbres unitaires définissant
+une opération de \(\mathrm{G}_p\) sur X si et seulement si \(\mu\) satisfait aux conditions du lemme.</p>
+<p>Il est d'ailleurs clair que, pour toute représentation de \(\mathscr{U}\) dans le \(\mathscr{O}_\mathrm{S}\)-Module \(\mathscr{C}\),
+les sections \(u\) de \(\mathscr{U}\) qui vérifient les conditions du lemme précédent forment une
+sous-Algèbre de \(\mathscr{U}\). Dans le cas particulier qui nous intéresse, ces conditions sont
+donc satisfaites pour toutes les sections \(u\), si elles sont vraies pour les sections \(u\) de
+\(\mathrm{Im}\,\underline{j}_\mathscr{L}\). Si \(u\) est une section de \(\mathrm{Im}\,\underline{j}_\mathscr{L}\), ces conditions signifient que \(u(1_\mathscr{C}) = 0\) et
+que \(u(xy) = u(x)y+xu(y)\). Tout homomorphisme \(h\) de \(\mathrm{G}_p = \mathrm{G}_p(\mathscr{L})\) dans \(\underline{\mathrm{Aut}}\ \mathrm{X}\)
+définit donc un homomorphisme H de \(\mathscr{U}\) dans \(\mathrm{Hom}_{\mathscr{O}_S}(\mathscr{C},\mathscr{C})\) qui envoie \(\mathrm{Im}\,\underline{j}_\mathscr{L}\) dans
+l'ensemble des \(\mathscr{O}_\mathrm{S}\)-dérivations de \(\mathscr{C}\). L'application \(\mathrm{H}\circ \underline{j}_\mathscr{L}\) est un homomorphisme de
+\(p\)-Algèbres de Lie de \(\mathscr{L}\) dans le faisceau \(\mathrm{D\acute{e}r}_{X/S}\) des \(\mathscr{O}_\mathrm{S}\)-dérivations de \(\mathscr{C}\). De plus,
+l'application \(h \mapsto \mathrm{H}\circ \underline{j}_\mathscr{L}\) est évidemment bijective&nbsp;; il resterait à vérifier qu'en
+identifiant \(\mathrm{D\acute{e}r}_{X/S}\) à \(\underline{\mathrm{Lie}}(\mathrm{Aut}\ \mathrm{X}/\mathrm{S})\) comme en 2.5, on identifie l'application \(h \mapsto \mathrm{H}\circ \underline{j}_\mathscr{L}\)
+à celle du théorème 7.2.</p>
+
+<h3 id="VIIA.7.2.2">7.2.2.</h3>
+<p>Montrons maintenant comment l'assertion (i) du théorème 7.2 résulte de
+(ii)&nbsp;: si T est un S-schéma et \(x\) un élément de \(\mathrm{G}(\mathrm{T})\), nous notons \(\ell_x^T\) (resp. \(r_x^T\)) la
+translation à gauche (resp. à droite) de \(\mathrm{G}_\mathrm{T}\) qui est définie par \(x\). Les applications
+\(\ell^T : x \mapsto \ell_x^T\) déterminent donc un homomorphisme \(\ell\) de G dans \(\underline{\mathrm{Aut}}\ \mathrm{G}\). Soit d'autre
+part \(f\) un T-automorphisme de \(\mathrm{G}_\mathrm{T}\)&nbsp;; on définit alors \({}^xf\) comme étant égal à
+\((r_x^T)^{-1}f r_x^T\)&nbsp;; de cette façon G opère à gauche sur le S-foncteur \(\underline{\mathrm{Aut}}\ \mathrm{G}\), donc aussi sur
+les foncteurs \(\mathrm{T} \mapsto \mathrm{Hom}_{T\text{-Gr.}}(\mathrm{G}_p(\mathscr{L}_T), \underline{\mathrm{Aut}}\ \mathrm{X}_T)\) et \(\mathrm{T} \mapsto \mathrm{Hom}_p(\mathscr{L}_T, \underline{\mathrm{Lie}}(\underline{\mathrm{Aut}}\ \mathrm{X}_T/\mathrm{T}))\).
+D'autre part, l'homomorphisme \(\ell\) induit des carrés commutatifs
+\[
+\xymatrix{
+\mathrm{Hom}_{T\text{-Gr.}}(G_p(\mathscr{L}_T), G_T) \ar[r] \ar[d] & \mathrm{Hom}_p(\mathscr{L}_T, \underline{\mathrm{Lie}}(G_T/T)) \ar[d] \\
+\mathrm{Hom}_{T\text{-Gr.}}(G_p(\mathscr{L}_T), \underline{\mathrm{Aut}}\ G_T) \ar[r] & \mathrm{Hom}_p(\mathscr{L}_T, \mathscr{L}ie(\underline{\mathrm{Aut}}\ G_T/T))
+}
+\]
+Les images des deux flèches verticales sont les sous-foncteurs formés des invariants
+sous l'action du S-groupe G. Comme la deuxième flèche horizontale est inversible
+d'après 7.2.1 et qu'elle est compatible avec l'action de G, la première flèche horizontale
+est aussi inversible.</p>
+
+<h3 id="VIIA.7.2.3">7.2.3.</h3>
+<p>Considérons enfin le cas de \(\underline{\mathrm{Aut}}_{\mathscr{O}_S\text{-mod.}}\ \mathbf{W}(\mathscr{F})\) (le cas de \(\mathbf{W}(\mathscr{F})\) est analogue). Posons \(\mathrm{G}_p = \mathrm{G}_p(\mathscr{L})\). Un homomorphisme de \(\mathrm{G}_p\) dans \(\underline{\mathrm{Aut}}_{\mathscr{O}_S\text{-mod.}}\ \mathbf{W}(\mathscr{F})\) est un homomorphisme multiplicatif de \(\mathrm{G}_p\) dans \(\underline{\mathrm{End}}_{\mathscr{O}_S\text{-mod.}}\ \mathbf{W}(\mathscr{F})\) qui est compatible avec les sections unités de \(\mathrm{G}_p\) et de \(\underline{\mathrm{End}}_{\mathscr{O}_S\text{-mod.}}\ \mathbf{W}(\mathscr{F})\). Or un morphisme de S-foncteurs \(h : \mathrm{G}_p \to \underline{\mathrm{End}}_{\mathscr{O}_S\text{-mod.}}\ \mathbf{W}(\mathscr{F})\) est par définition un endomorphisme de \(\mathbf{W}(\mathscr{O}_{\mathrm{G}_p}\otimes_{\mathscr{O}_S}\mathscr{F})\)&nbsp;; d'après I 4.6.2 (ii), un tel endomorphisme est induit par un endomorphisme de \(\mathscr{O}_{\mathrm{G}_p}\otimes_{\mathscr{O}_S}\mathscr{F}\), c'est-à-dire un endomorphisme \(\mathscr{A}\)-linéaire du faisceau \(\mathscr{A}\otimes_{\mathscr{O}_S}\mathscr{F}\), où \(\mathscr{A}\) est l'Algèbre affine de \(\mathrm{G}_p\). Un tel endomorphisme est de la forme \(a\otimes x \mapsto a\lambda(x)\), où \(\lambda\) est un morphisme de \(\mathscr{O}_\mathrm{S}\)-Modules de \(\mathscr{F}\) dans \(\mathscr{A}\otimes_{\mathscr{O}_S}\mathscr{F}\). Si l'on pose \(\mu = (\gamma\otimes\mathscr{F})(\mathscr{U}\otimes\lambda)\) comme en 7.2.1, \(h\) est finalement déterminé par \(\mu : \mathscr{U}\otimes_{\mathscr{O}_S}\mathscr{F} \to \mathscr{F}\). Les hypothèses faites sur \(h\) se traduisent en disant que \(\mu\) définit une structure de Module sur \(\mathscr{F}\). Une telle structure de Module est définie par un homomorphisme de \(p\)-Algèbres de Lie de \(\mathscr{L}\) dans \(\underline{\mathrm{End}}_{\mathscr{O}_S}(\mathscr{F})\), qui égale \(\underline{\mathrm{Lie}}(\underline{\mathrm{Aut}}_{\mathscr{O}_S\text{-mod.}}\ \mathbf{W}(\mathscr{F})/\mathrm{S})\).</p>
+
+<div class="thm thm-plain lemme" id="VIIA.7.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.3</span></div>
+  <div class="thm-body"><p>Si \(\mathscr{L}\) est une \(\mathscr{O}_\mathrm{S}\)-\(p\)-algèbre de Lie finie localement libre, le morphisme \(\underline{j}_\mathscr{L} : \mathscr{L} \to \underline{\mathrm{Lie}}\,\mathrm{G}_p(\mathscr{L})\) de 7.1 est inversible.</p></div>
+</div>
+
+<p>Le problème est en effet local sur S. Nous pouvons donc supposer que S est affine d'anneau R et que \(\mathscr{L}\) est le faisceau associé à une R-\(p\)-algèbre de Lie de base \(x_1,\ldots,x_r\). Nous pouvons alors utiliser les notations de 5.3.3 et poser \(z^n = \prod_i z_i^{n_i}\) pour tout r-uplet \((n_1,\ldots,n_r)\) formé d'entiers naturels tels que \(0 \leqslant n_i < p\). Posant en outre \(n! = \prod_i (n_i)!\) et munissant le monoïde \(\mathbb{N}^r\) de l'ordre produit, on voit facilement qu'on a
+\[
+\Delta z^n = \sum \frac{z^m}{m!}\otimes\frac{z^{n-m}}{(n-m)!}
+\]
+la somme étant étendue à tous les \(m\) de \(\mathbb{N}^r\) tels que \(0\leqslant m\leqslant n\) (\(\Delta\) est le morphisme diagonal de \(\mathrm{U}_p(\mathfrak{g})\)). Comme les \(z^n\) forment une base de \(\mathrm{U}_p(\mathfrak{g})\), il est clair qu'on a \(\Delta x = x\otimes 1+1\otimes x\) si et seulement si \(x\) est combinaison linéaire de \(z_1,\ldots,z_r\), cqfd</p>
+
+<h3 id="VIIA.7.4">7.4.</h3>
+<p>Pour terminer l'exposé, nous allons donner une caractérisation des S-schémas en groupes de la forme \(\mathrm{G}_p(\mathscr{L})\), où \(\mathscr{L}\) est une \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre de Lie finie localement libre.</p>
+<p>Soient G un S-schéma en groupes, \(\varepsilon_\mathrm{G}\) la section unité et \(\mathrm{I}\) le noyau du morphisme de \(\varepsilon_\mathrm{G}^{-1}(\mathscr{O}_\mathrm{G})\) dans \(\mathscr{O}_\mathrm{S}\) qui définit \(\varepsilon_\mathrm{G}\). L'image canonique de \(\mathrm{Lie}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) dans \(\mathrm{U}(\mathrm{G})\) (2.5) s'identifie d'après 1.3 aux morphismes de \(\mathscr{O}_\mathrm{S}\)-Modules de \(\varepsilon_\mathrm{G}^{-1}(\mathscr{O}_\mathrm{G})\) dans \(\mathscr{O}_\mathrm{S}\) qui s'annulent sur la section unité de \(\varepsilon_\mathrm{G}^{-1}(\mathscr{O}_\mathrm{G})\) et sur \(\mathrm{I}^2\). On retrouve ainsi l'isomorphisme canonique de \(\mathrm{Lie}(\mathrm{G}/\mathrm{S})(\mathrm{S})\) sur \(\mathrm{Hom}_{\mathscr{O}_S}(\mathrm{I}/\mathrm{I}^2, \mathscr{O}_\mathrm{S})\) de l'exposé II. Nous poserons d'ailleurs \(\omega_{\mathrm{G}/\mathrm{S}} = \mathrm{I}/\mathrm{I}^2\) comme dans l'exposé II, de sorte que le faisceau \(\underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})\) s'identifie à \(\underline{\mathrm{Hom}}_{\mathscr{O}_S}(\omega_{\mathrm{G}/\mathrm{S}}, \mathscr{O}_\mathrm{S})\).</p>
+
+<div class="thm thm-plain theoreme" id="VIIA.7.4.theoreme">
+  <div class="thm-head"><span class="thm-name">Théorème</span></div>
+  <div class="thm-body"><p>Si G est un schéma en groupes sur un schéma S de caractéristique \(p>0\), les assertions suivantes sont équivalentes&nbsp;:</p>
+<p>(i) Il existe une \(\mathscr{O}_\mathrm{S}\)-\(p\)-Algèbre de Lie finie localement libre \(\mathscr{L}\) telle que G soit isomorphe à \(\mathrm{G}_p(\mathscr{L})\).</p>
+<p>(ii) G est affine sur S&nbsp;; \(\omega_{\mathrm{G}/\mathrm{S}}\) est un \(\mathscr{O}_\mathrm{S}\)-Module localement libre de type fini et l'Algèbre affine de G est localement isomorphe au quotient de l'Algèbre symétrique \(\mathscr{S}_{\mathscr{O}_S}(\omega_{\mathrm{G}/\mathrm{S}})\) par l'Idéal engendré par les puissances \(p\)-ièmes des sections de \(\omega_{\mathrm{G}/\mathrm{S}}\).</p>
+<p>(iii) G est localement de présentation finie sur S, de hauteur \(\leqslant 1\) (4.1.3) et \(\omega_{\mathrm{G}/\mathrm{S}}\) est localement libre.<sup>(*)</sup></p></div>
+</div>
+
+<p><small>(*) La condition sur \(\omega_{\mathrm{G}/\mathrm{S}}\) est en fait inutile, comme on voit aisément en se ramenant au cas où S est local de corps résiduel \(k\), et en appliquant le théorème au cas du Groupe \(\mathrm{G}_k\).</small></p>
+
+<h3 id="VIIA.7.4.1">7.4.1.</h3>
+<p>L'implication (ii) \(\Rightarrow\) (iii) étant claire, montrons d'abord que (i) entraîne (ii)&nbsp;: nous considérons pour cela la suite exacte
+\[
+(*) \qquad 0 \longrightarrow \mathscr{L} \xrightarrow{\ \underline{j}_\mathscr{L}\ } \mathscr{J} \xrightarrow{\ \delta\ } \mathscr{J}\otimes_{\mathscr{O}_S}\mathscr{J},
+\]
+où \(\mathscr{J}\) est l'Idéal d'augmentation de \(\mathscr{U} = \mathscr{U}_p(\mathscr{L})\) et où \(\delta\) est le morphisme induit par \(\Delta - \mathrm{in}_1 - \mathrm{in}_2\). Si \(q\) est la projection de \(\mathscr{U}\) sur \(\mathscr{J}\) qui s'annule sur la section unité de \(\mathscr{U}\), \(\delta\) peut aussi être caractérisé par le carré commutatif
+\[
+\xymatrix{
+\mathscr{U} \ar[r]^-{\Delta} \ar[d]_-{q} & \mathscr{U}\otimes_{\mathscr{O}_S}\mathscr{U} \ar[d]^-{q\otimes q} \\
+\mathscr{J} \ar[r]_-{\delta} & \mathscr{J}\otimes_{\mathscr{O}_S}\mathscr{J}.
+}
+\]</p>
+<p>De plus, la suite (*) reste exacte après tout changement de base&nbsp;; par conséquent (Bourb., Alg. Comm. II §3, prop. 6), la suite (*) se scinde et donne par dualité une suite exacte
+\[
+\mathscr{I}\otimes_{\mathscr{O}_S}\mathscr{I} \xrightarrow{\ m\ } \mathscr{I} \longrightarrow \mathrm{Hom}_{\mathscr{O}_S}(\mathscr{L},\mathscr{O}_S) \longrightarrow 0,
+\]
+où \(\mathscr{I}\) désigne toujours l'Idéal d'augmentation de l'Algèbre affine \(\mathscr{A}\) de \(\mathrm{G}_p(\mathscr{L})\) et où \(m\) est induit par la multiplication de \(\mathscr{A}\). Ceci montre que \(\omega_{\mathrm{G}/\mathrm{S}}\) est le dual de \(\mathscr{L}\), donc est fini localement libre.</p>
+<p>Supposons maintenant S affine. Il y a alors une section \(\sigma : \omega_{\mathrm{G}/\mathrm{S}} \to \mathscr{I}\) de la projection canonique de \(\mathscr{I}\) sur \(\mathscr{I}/\mathscr{I}^2\)&nbsp;; une telle section induit (lemme 7.2) un homomorphisme d'algèbres \(h : \mathscr{S}_{\mathscr{O}_S}[\omega_{\mathrm{G}/\mathrm{S}}]/(x^p)_{x\in\omega_{\mathrm{G}/\mathrm{S}}} \to \mathscr{A}\). Si l'on filtre \(\mathscr{A}\) (resp. \(\mathscr{S}_{\mathscr{O}_S}[\omega]/(x^p)_{x\in\omega}\)) par les puissances de \(\mathscr{I}\) (resp. l'Idéal engendré par \(\omega_{\mathrm{G}/\mathrm{S}}\)), il est clair que \(h\) induit un épimorphisme des gradués associés. Donc \(h\) est un épimorphisme de \(\mathscr{O}_\mathrm{S}\)-Modules localement libres de même rang&nbsp;; donc \(h\) est un isomorphisme.</p>
+
+<h3 id="VIIA.7.4.2">7.4.2.</h3>
+<p>Montrons enfin que (iii) entraîne (i)&nbsp;: comme le morphisme de Frobenius annule G, il est clair que la section unité de G induit un homéomorphisme de l'espace topologique sous-jacent à S sur l'espace sous-jacent à G. Nous pouvons donc identifier S au sous-schéma fermé de G défini par un certain Idéal \(\mathscr{I}\) de \(\mathscr{O}_\mathrm{G}\). Comme G est localement de présentation finie sur S et que toute section de \(\mathscr{I}\) a une puissance \(p\)-ième nulle, \(\mathscr{I}\) est localement nilpotent et G est affine sur S (EGA I, 5.1.9), donc fini sur S.</p>
+<p>Soit donc \(\mathscr{A}\) la \(\mathscr{O}_\mathrm{S}\)-Algèbre affine de G&nbsp;; posons \(\mathscr{L} = \underline{\mathrm{Lie}}(\mathrm{G}/\mathrm{S})\), \(\mathscr{A}_p = \mathscr{U}_p(\mathscr{L})^*\) et soit \(\mathrm{G}_p = \mathrm{G}_p(\mathscr{L})\) le spectre de \(\mathscr{A}_p\). D'après le théorème 7.2, l'identité de \(\mathscr{L}\) est définie par un homomorphisme de groupes \(h : \mathrm{G}_p(\mathscr{L}) \to \mathrm{G}\), donc par un homomorphisme de \(\mathscr{O}_\mathrm{S}\)-Algèbres \(a : \mathscr{A} \to \mathscr{A}_p\). Il s'agit de montrer que \(a\), qui induit par définition un homomorphisme de \(\omega_{\mathrm{G}/\mathrm{S}}\) sur \(\omega_{\mathrm{G}_p/\mathrm{S}}\), est un isomorphisme&nbsp;:</p>
+<p>Pour cela, on peut se restreindre au cas où S est affine. Il y a alors une section \(\tau\) de la projection canonique de \(\mathscr{I}\) sur \(\omega_{\mathrm{G}/\mathrm{S}}\). Comme toute section de \(\mathscr{I}\) a une puissance \(p\)-ième nulle, \(\tau\) induit un homomorphisme de \(\mathscr{O}_\mathrm{S}\)-Algèbres
+\[
+b : \mathscr{S}_{\mathscr{O}_S}(\omega_{\mathrm{G}/\mathrm{S}})/\mathscr{K} \longrightarrow \mathscr{A}.
+\]
+Il est clair que \(b\) est un épimorphisme de \(\mathscr{O}_\mathrm{S}\)-Modules (confer 7.4.1). D'autre part, nous avons vu en 7.4.1 que \(ab\) est un isomorphisme. Il en va donc de même pour \(a\), cqfd</p>
+
+
+<h2 id="VIIA.8">8. Cas d'un corps de base</h2>
+<h3 id="VIIA.8.1">8.1.</h3>
+<p>Résumons maintenant les résultats obtenus dans le cas où S est le spectre d'un corps \(k\) de caractéristique \(p>0\). Disons alors qu'un S-schéma en groupes est <em>algébrique</em> si le schéma sous-jacent est de type fini sur S&nbsp;: d'après le théorème 7.2 le foncteur \(\mathrm{G}_p\), qui associe à toute \(k\)-\(p\)-algèbre de Lie de dimension finie sur \(k\) le \(k\)-groupe \(\mathrm{G}_p(\mathscr{L})\), est alors adjoint à gauche au foncteur qui associe à tout \(k\)-groupe algébrique sa \(p\)-algèbre de Lie sur \(k\). D'après 7.3 et le théorème 7.4.1, le foncteur \(\mathrm{G}_p : \mathscr{L} \mapsto \mathrm{G}_p(\mathscr{L})\) induit une équivalence de la catégorie des \(k\)-\(p\)-algèbres de Lie de dimension finie, sur celle des \(k\)-groupes algébriques de hauteur \(\leqslant 1\). Comme \(\mathrm{G}_p\) est un foncteur adjoint à gauche, il commute aux limites inductives&nbsp;; comme l'inclusion de la catégorie des \(k\)-groupes algébriques de hauteur \(\leqslant 1\) dans celle de tous les groupes algébriques commute manifestement aux limites projectives finies, on voit finalement que \(\mathrm{G}_p\) est un foncteur exact&nbsp;: par exemple, si \(i : \mathscr{L}_0 \to \mathscr{L}_1\) et \(q : \mathscr{L}_1 \to \mathscr{L}_2\) sont des homomorphismes de \(k\)-\(p\)-algèbres de Lie et si la suite
+\[
+0 \longrightarrow \mathscr{L}_0 \xrightarrow{\ i\ } \mathscr{L}_1 \xrightarrow{\ q\ } \mathscr{L}_2 \longrightarrow 0,
+\]
+formée par les espaces vectoriels sous-jacents, est exacte, alors \(\mathrm{G}_p(i)\) est un isomorphisme de \(\mathrm{G}_p(\mathscr{L}_0)\) sur le noyau de \(\mathrm{G}_p(q)\)&nbsp;; l'image de \(\mathrm{G}_p(i)\) est donc un sous-groupe distingué de \(\mathrm{G}_p(\mathscr{L}_1)\) et \(\mathrm{G}_p(q)\) induit un isomorphisme du quotient de \(\mathrm{G}_p(\mathscr{L}_1)\) par ce sous-groupe distingué sur \(\mathrm{G}_p(\mathscr{L}_2)\).</p>
+
+<div class="thm thm-plain proposition" id="VIIA.8.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.2</span></div>
+  <div class="thm-body"><p>Considérons une suite exacte de groupes algébriques sur un corps \(k\) de caractéristique \(p>0\)
+\[
+1 \longrightarrow \mathrm{G}' \xrightarrow{\ v\ } \mathrm{G} \xrightarrow{\ u\ } \mathrm{G}'' \longrightarrow 1
+\]
+et les assertions suivantes&nbsp;:</p>
+<p>(i) Le morphisme \(u\) est lisse.</p>
+<p>(ii) \(\mathrm{G}'\) est lisse.</p>
+<p>(iii) Pour tout entier \(n>0\), la suite
+\[
+1 \longrightarrow {}_{\mathrm{Fr}^n}\mathrm{G}' \xrightarrow{\ {}_{\mathrm{Fr}^n}v\ } {}_{\mathrm{Fr}^n}\mathrm{G} \xrightarrow{\ {}_{\mathrm{Fr}^n}u\ } {}_{\mathrm{Fr}^n}\mathrm{G}'' \longrightarrow 1
+\]
+est exacte.</p>
+<p>(iv) Le morphisme \({}_{\mathrm{Fr}^n}u : {}_{\mathrm{Fr}^n}\mathrm{G} \to {}_{\mathrm{Fr}^n}\mathrm{G}''\) est un épimorphisme.</p>
+<p>(v) Le morphisme \(\underline{\mathrm{Lie}}(u) : \underline{\mathrm{Lie}}(\mathrm{G}) \to \underline{\mathrm{Lie}}(\mathrm{G}'')\) est surjectif (II 4.11).</p>
+<p>Alors on a les implications (i) \(\Leftrightarrow\) (ii) \(\Rightarrow\) (iii) \(\Rightarrow\) (iv) \(\Leftrightarrow\) (v) et toutes les assertions sont équivalentes lorsque G est lisse sur \(k\).</p></div>
+</div>
+
+<p>En effet, (i) équivaut à (ii) d'après l'exposé VI&nbsp;: rappelons en effet que (i) entraîne (ii) d'après SGA II 1.3&nbsp;; d'autre part (ii) signifie que \(u\) est lisse à l'origine (SGA II 2.1&nbsp;; \(u\) est plat parce qu'épimorphique), donc partout.</p>
+<p>De même, l'équivalence de (iv) et (v) résulte de l'équivalence définie en 8.1 entre la catégorie des \(k\)-groupes algébriques de hauteur \(\leqslant 1\) et celle des \(p\)-algèbres de Lie de dimension finie sur \(k\).</p>
+<p>L'implication (ii) \(\Rightarrow\) (iii) résulte du diagramme
+\[
+\xymatrix{
+1 \ar[r] & \mathrm{G}' \ar[r]^-{v} \ar[d]_-{\mathrm{Fr}^n(\mathrm{G}'/k)} & \mathrm{G} \ar[r]^-{u} \ar[d]_-{\mathrm{Fr}^n(\mathrm{G}/k)} & \mathrm{G}'' \ar[r] \ar[d]^-{\mathrm{Fr}^n(\mathrm{G}''/k)} & 1 \\
+1 \ar[r] & \mathrm{G}'^{(p^n)} \ar[r]_-{v^{(p^n)}} & \mathrm{G}^{(p^n)} \ar[r]_-{u^{(p^n)}} & \mathrm{G}''^{(p^n)} \ar[r] & 1
+}
+\]
+dont les deux lignes sont exactes&nbsp;: comme \(\mathrm{Fr}^n(\mathrm{G}'/k)\) est un épimorphisme d'après le corollaire 8.3.1 ci-dessous, \(u\) induit un épimorphisme de \({}_{\mathrm{Fr}^n}\mathrm{G}\) sur \({}_{\mathrm{Fr}^n}\mathrm{G}''\) (généraliser le lemme du serpent aux faisceaux en groupes non nécessairement commutatifs).</p>
+<p>Enfin, lorsque G est lisse sur \(k\), \(\mathrm{Fr}(\mathrm{G}/k)\) est un épimorphisme. Si, de plus, \({}_{\mathrm{Fr}^n}u\) est un épimorphisme, le même lemme du serpent appliqué au diagramme ci-dessus pour \(n=1\) montre que \(\mathrm{Fr}(\mathrm{G}'/k)\) est un épimorphisme, donc que \(\mathrm{G}'\) est lisse sur \(k\) (8.3.1 ci-dessous).</p>
+
+<div class="thm thm-plain proposition" id="VIIA.8.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.3</span></div>
+  <div class="thm-body"><p>Si G est un groupe algébrique sur un corps \(k\) de caractéristique \(p>0\), il existe un entier \(n_0\) tel que \(\mathrm{G}/{}_{\mathrm{Fr}^n}\mathrm{G}\) soit lisse sur \(k\) pour \(n \geqslant n_0\).</p></div>
+</div>
+
+<p>Comme la construction de \(\mathrm{G}/{}_{\mathrm{Fr}^n}\mathrm{G}\) commute à l'extension du corps de base (4.1.1 et VI<sub>A</sub>, 4.7), nous pouvons supposer \(k\) parfait (SGA II 5.5). Dans ce cas, \(\mathrm{G}_{\mathrm{r\acute{e}d}}\) est un sous-groupe algébrique de G (VI<sub>A</sub> 0.2) et l'on a le diagramme commutatif et exact
+\[
+\xymatrix{
+1 \ar[r] & \mathrm{G}_{\mathrm{r\acute{e}d}} \ar[r] \ar[d]_-{\mathrm{Fr}^n(\mathrm{G}_{\mathrm{r\acute{e}d}}/k)} & \mathrm{G} \ar[r] \ar[d]_-{\mathrm{Fr}^n(\mathrm{G}/k)} & \mathrm{H} \ar[d]^-{\mathrm{Fr}^n(\mathrm{H}/k)} \\
+1 \ar[r] & \mathrm{G}_{\mathrm{r\acute{e}d}}^{(p^n)} \ar[r] & \mathrm{G}^{(p^n)} \ar[r] & \mathrm{H}^{(p^n)}\ ,
+}
+\]
+où l'on a posé \(\mathrm{H} = \mathrm{G}_{\mathrm{r\acute{e}d}}\backslash\mathrm{G}\). Or H est le spectre d'une \(k\)-algèbre finie, locale, de corps résiduel \(k\) (VI<sub>B</sub>). Par conséquent, il existe un entier \(n_0\) tel que \(\mathrm{Fr}^n(\mathrm{H}/k)\) se factorise à travers l'unique section de \(\mathrm{Spec}\ k\) dans \(\mathrm{H}^{(p^n)}\), lorsque \(n\geqslant n_0\). Il s'ensuit que, pour \(n\geqslant n_0\), \(\mathrm{Fr}^n(\mathrm{G}/k)\) se factorise à travers \(\mathrm{G}_{\mathrm{r\acute{e}d}}^{(p^n)}\)&nbsp;; l'homomorphisme \(h : \mathrm{G}/{}_{\mathrm{Fr}^n}\mathrm{G} \to \mathrm{G}_{\mathrm{r\acute{e}d}}\), qui est défini par cette factorisation, est un monomorphisme (VI<sub>A</sub> 5.4) et induit un homéomorphisme des espaces topologiques sous-jacents&nbsp;; c'est donc un isomorphisme (VI<sub>B</sub>, \(\mathrm{G}_{\mathrm{r\acute{e}d}}^{(p^n)}\) est réduit). Comme \(\mathrm{G}_{\mathrm{r\acute{e}d}}^{(p^n)}\) est lisse sur \(k\) (VI<sub>A</sub>, 1.3.1), \(\mathrm{G}/{}_{\mathrm{Fr}^n}\mathrm{G}\) est lisse sur \(k\), lorsque \(n\geqslant n_0\).</p>
+
+<div class="thm thm-plain corollaire" id="VIIA.8.3.1">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">8.3.1</span></div>
+  <div class="thm-body"><p>Soit \(n\) un entier \(\geqslant 1\). Alors G est lisse sur \(k\) si et seulement si \(\mathrm{Fr}^n(\mathrm{G}/k)\) est un épimorphisme.</p></div>
+</div>
+
+<p>Si G est lisse sur \(k\), G est réduit et \(\mathrm{Fr}^n(\mathrm{G}/k)\) est surjectif, donc est un épimorphisme.</p>
+<p>Réciproquement, comme \(\mathrm{Fr}^n(\mathrm{G}/k)^{(p^n)}\) coïncide avec \(\mathrm{Fr}^n(\mathrm{G}^{(p^n)}/k)\) (confer 4.1.3), alors \(\mathrm{Fr}^{nm}(\mathrm{G}/k)\) est un épimorphisme pour tout \(m\) si \(\mathrm{Fr}^n(\mathrm{G}/k)\) en est un. On a alors \(\mathrm{G}/{}_{\mathrm{Fr}^{nm}}\mathrm{G} \simeq \mathrm{G}^{(p^{nm})}\). Comme \(\mathrm{G}/{}_{\mathrm{Fr}^{nm}}\mathrm{G}\) est lisse sur \(k\) pour \(m\) grand, \(\mathrm{G}^{(p^{nm})}\) et G le sont également.</p>
+
+<h3 id="VIIA.8.4">8.4.</h3>
+<p>Dans les deux énoncés qui terminent cet exposé, nous revenons au cas d'un corps \(k\) de caractéristique quelconque.</p>
+<p>Lorsque \(k\) est de caractéristique 0 (resp. \(p>0\)), soit \(n\) un entier \(\geqslant 1\) (resp. un entier \(\geqslant 1\) et premier à \(p\))&nbsp;: dans les deux cas, nous disons simplement que \(n\) est premier à la caractéristique de \(k\). De plus, si G est un schéma en groupes sur \(k\), nous notons \(n_\mathrm{G} : \mathrm{G} \to \mathrm{G}\) le morphisme de \(k\)-schémas qui applique un élément \(x\) de \(\mathrm{G}(\mathrm{T})\) sur \(x^n \in \mathrm{G}(\mathrm{T})\), lorsque T est un \(k\)-schéma.</p>
+
+<div class="thm thm-plain proposition" id="VIIA.8.4.proposition">
+  <div class="thm-head"><span class="thm-name">Proposition</span></div>
+  <div class="thm-body"><p>Soient G un groupe algébrique sur un corps \(k\) et \(n\) un entier premier à la caractéristique de \(k\). Alors \(n_\mathrm{G} : \mathrm{G} \to \mathrm{G}\) est un morphisme étale à l'origine.</p></div>
+</div>
+
+<p>Soient en effet A l'anneau local de G à l'origine et I l'idéal maximal de A. D'après II 3.9, l'application \(\underline{\mathrm{Lie}}\ n_\mathrm{G} : \underline{\mathrm{Lie}}\ \mathrm{G} \to \underline{\mathrm{Lie}}\ \mathrm{G}\), qui est induite par \(n_\mathrm{G}\), est l'homothétie de rapport \(n\). C'est donc un isomorphisme ainsi que l'endomorphisme induit par \(n_\mathrm{G}\) sur \(\mathrm{I}/\mathrm{I}^2\). Si \(k\) est de caractéristique 0, G est lisse sur \(k\) (VI<sub>B</sub> 1.6.1&nbsp;; voir aussi VII<sub>B</sub> §3)&nbsp;; donc A est régulier et \(n\) induit un automorphisme du gradué associé à A, donc aussi un automorphisme du complété \(\widehat{\mathrm{A}}\) de A.</p>
+<p>Si la caractéristique est \(p>0\) et si G est de hauteur \(\leqslant 1\), A est isomorphe au quotient de l'algèbre symétrique de \(\omega_{\mathrm{G}/k} = \mathrm{I}/\mathrm{I}^2\) par l'Idéal engendré par les puissances \(p\)-ièmes des éléments de \(\omega_{\mathrm{G}/k}\) (7.4)&nbsp;; on peut appliquer alors le «&nbsp;même&nbsp;» raisonnement qu'en caractéristique 0.</p>
+<p>Si G est de hauteur \(\leqslant r\) et si nous supposons notre assertion démontrée pour les groupes de hauteur \(\leqslant r-1\), soient B, A et C les algèbres affines de \({}_{\mathrm{Fr}^r}\mathrm{G}\), G et \(\mathrm{G}_{\mathrm{Fr}} = {}_{\mathrm{Fr}}\mathrm{G}\backslash\mathrm{G}\). Appelons \(n_\mathrm{B}\), \(n_\mathrm{A}\) et \(n_\mathrm{C}\) les morphismes de B, A et C qui sont induits par \(n_{{}_{\mathrm{Fr}^r}\mathrm{G}}\), \(n_\mathrm{G}\) et \(n_{\mathrm{G}_{\mathrm{Fr}}}\). Comme \(n_\mathrm{C}\) est un isomorphisme d'après l'hypothèse de récurrence et que A est plat sur C (VI<sub>A</sub> 3.2), \(n_\mathrm{A}\) est une bijection si et seulement si \(n_\mathrm{A}\otimes_\mathrm{C}(\mathrm{C}/\mathfrak{r})\) en est une (\(\mathfrak{r}\) désigne le radical de C)&nbsp;; or \(n_\mathrm{A}\otimes_\mathrm{C}(\mathrm{C}/\mathfrak{r})\) n'est autre que \(n_\mathrm{B}\)&nbsp;!</p>
+<p>Enfin, lorsque G est un groupe algébrique quelconque sur un corps de caractéristique \(p>0\), ce qui précède montre que \(n_\mathrm{G}\) induit des automorphismes des \(k\)-schémas \({}_{\mathrm{Fr}^r}\mathrm{G}\)&nbsp;; ces schémas sont affines sur \(k\) et ont pour algèbres les quotients de l'algèbre locale A par l'idéal \(\mathrm{I}^{\{p^r\}}\) engendré par les puissances \(p^r\)-ièmes des éléments de I. Comme \(n_\mathrm{G}\) définit des automorphismes des algèbres \(\mathrm{A}/\mathrm{I}^{\{p^r\}}\), on voit par passage à la limite projective, que \(n\) induit un automorphisme de \(\widehat{\mathrm{A}}\).</p>
+
+<div class="thm thm-plain proposition" id="VIIA.8.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.5</span></div>
+  <div class="thm-body"><p>Soit G un groupe algébrique fini, de rang \(n\) sur le corps \(k\). Alors \(n_\mathrm{G} : \mathrm{G} \to \mathrm{G}\) est le morphisme nul de G (confer 8.4).</p></div>
+</div>
+
+<p>Soit F un sous-groupe distingué de G de rang \(m\) sur \(k\). Avec les notations de VI<sub>A</sub>, 3.2 le carré
+\[
+\xymatrix{
+\mathrm{F}\times\mathrm{G} \ar[r]^-{\lambda} \ar[d]_-{\mathrm{pr}_2} & \mathrm{G} \ar[d]^-{\mathrm{can.}} \\
+\mathrm{G} \ar[r]_-{\mathrm{can.}} & \mathrm{F}\backslash\mathrm{G}
+}
+\]
+est cartésien. Comme \(\mathrm{G} \to \mathrm{F}\backslash\mathrm{G}\) est fidèlement plat, quasi-compact (VI<sub>A</sub> 3.2), et \(\mathrm{pr}_2\) est localement libre de rang \(m\), il résulte de EGA IV 2.5.2, que \(\mathrm{G} \to \mathrm{F}\backslash\mathrm{G}\) est localement libre de rang \(m\). On a donc \(\mathrm{rg}_k(\mathrm{F}\backslash\mathrm{G}) \times \mathrm{rg}_k\mathrm{F} = \mathrm{rg}_k\mathrm{G}\).</p>
+<p>D'un autre côté, on a une suite exacte de groupes «&nbsp;abstraits&nbsp;»
+\[
+1 \longrightarrow \mathrm{F}(\mathrm{T}) \longrightarrow \mathrm{G}(\mathrm{T}) \longrightarrow (\mathrm{F}\backslash\mathrm{G})(\mathrm{T})
+\]
+quel que soit le \(k\)-schéma T&nbsp;; il est donc clair que \(n_\mathrm{G}\) est nul si \(m_\mathrm{F}\) et \((nm^{-1})_{\mathrm{F}\backslash\mathrm{G}}\) le sont. Si F est la composante connexe de l'origine de G, \(\mathrm{F}\backslash\mathrm{G}\) est étale (VI<sub>B</sub>), de sorte qu'on peut supposer G étale sur \(k\) ou connexe.</p>
+<p>Si G est étale, on se ramène, par extension du corps de base, au cas où \(k\) est algébriquement clos. Dans ce cas, G est un groupe constant (I 4.1), et l'énoncé est classique.</p>
+<p>Si G est connexe et non nul, la caractéristique \(p\) de \(k\) est nécessairement \(>0\) (VI<sub>B</sub>&nbsp;; VII<sub>B</sub> §3)&nbsp;; les sous-groupes \({}_{\mathrm{Fr}^r}\mathrm{G}\) forment alors une suite de composition de G, dont les quotients sont de hauteur \(\leqslant 1\).</p>
+<p>Ceci nous ramène au cas où G est de hauteur \(\leqslant 1\)&nbsp;: soient alors A l'algèbre affine de G et L son algèbre de Lie&nbsp;; si \([\mathrm{L}:k]=r\), le rang de G sur \(k\) est \(p^r\) (VII<sub>A</sub> 5.3.3)&nbsp;; nous allons donc étudier le morphisme \(p_\mathrm{G} : \mathrm{G} \to \mathrm{G}\) défini par l'élévation à la puissance \(p\)-ième.</p>
+<p>Ce morphisme \(p_\mathrm{G}\) définit des endomorphismes \(p_\mathrm{A}\) et \(p_\mathrm{U}\) de A et de l'algèbre enveloppante restreinte \(\mathrm{U} = \mathrm{U}_p(\mathrm{L})\) de L. L'application \(p_\mathrm{U}\) se décompose comme suit&nbsp;:
+\[
+\xymatrix{ \mathrm{U} \ar[r]^-{\Delta_\mathrm{U}^p} & \bigotimes\nolimits^p\mathrm{U} \ar[r]^-{m_\mathrm{U}^p} & \mathrm{U} }
+\]
+où \(\Delta_\mathrm{U}^p\) désigne l'homomorphisme d'algèbres qui applique \(x \in \mathrm{L}\subset \mathrm{U}\) sur \(x\otimes 1\otimes\cdots\otimes 1 + 1\otimes x\otimes\cdots\otimes 1 + \cdots + 1\otimes 1\otimes\cdots\otimes x\), tandis que \(m_\mathrm{U}^p\) est l'application linéaire qui envoie \(u_1\otimes u_2\otimes\cdots\otimes u_p\) sur le produit \(u_1u_2\cdots u_p\). Si \(x_1,x_2,\ldots,x_t\) sont \(t\) éléments de \(\mathrm{L}\subset\mathrm{U}\), on a donc
+\[
+p_\mathrm{U}(x_1x_2\cdots x_t) = m_\mathrm{U}^p\left(\ \prod_{j=1}^t\ \sum_{i=1}^p 1\otimes\cdots\otimes\overset{i}{x_j}\otimes\cdots\otimes 1\ \right)
+\]</p>
+<p>Il est clair que l'expression \(\prod_j\sum_i 1\otimes\cdots\otimes x_j\otimes\cdots\otimes 1\) est une somme de \(p^t\) termes \(x_h\) indexés par les applications \(h\) de \(\{1,2,\ldots,t\}\) dans \(\{1,2,\ldots,p\}\). Une telle application définit un préordre sur \(\{1,2,\ldots,t\}\) tel qu'on ait \(i\leqslant j\) si et seulement si \(h(i)\leqslant h(j)\)&nbsp;; de plus, on a \(m_\mathrm{U}^p(x_h) = m_\mathrm{U}^p(x_\ell)\) si \(h\) et \(\ell\) définissent le même préordre, de sorte que nous pouvons écrire \(m_\mathrm{U}^p(x_h) = x_\mathfrak{o}\), où \(\mathfrak{o}\) est le préordre défini par \(h\). On a par conséquent
+\[
+p_\mathrm{U}(x_1x_2\cdots x_t) = \sum_\mathfrak{o} \binom{p}{s(\mathfrak{o})}\cdot x_\mathfrak{o},
+\]
+où \(\mathfrak{o}\) parcourt les relations de préordre sur \(\{1,\ldots,t\}\) telles que l'ensemble ordonné associé ait au plus \(p\) éléments, et où \(s(\mathfrak{o})\) est le cardinal de l'ensemble ordonné associé à \(\mathfrak{o}\).</p>
+<p>Lorsque \(t < p\), tous les termes \(\binom{p}{s(\mathfrak{o})}\), sont nuls, de sorte que \(p_\mathrm{U}(x_1\cdots x_t) = 0\). Autrement dit, \(p_\mathrm{U}\) s'annule sur le sous-espace vectoriel \(\mathrm{U}^+_{p-1}\) de U, qui est engendré par les produits \(x_1\cdots x_t\), \(t&lt;p\), \(x_i\in\mathrm{L}\). Or, il résulte facilement de 7.3 que l'isomorphisme canonique du dual \(\mathrm{U}^*\) sur A, qui est décrit en 7.4, identifie l'orthogonal de \(\mathrm{U}^+_{p-1}\) à \(\mathrm{I}_\mathrm{A}^p\) (\(\mathrm{I}_\mathrm{A}\) = idéal d'augmentation de A&nbsp;; confer aussi <a class="ref" href="#VIIB.1.3.6">VII<sub>B</sub> 1.3.6</a> et <a class="ref" href="#VIIB.4.3">4.3</a>). L'isomorphisme de \(\mathrm{U}^*\) sur A, permet aussi d'identifier \(p_\mathrm{A}\) à l'application transposée de \(p_\mathrm{U}\), de sorte que l'application composée
+\[
+\xymatrix{ \mathrm{I}_\mathrm{A} \ar[r]^-{p_\mathrm{A}} & \mathrm{I}_\mathrm{A} \ar[r]^-{\mathrm{can.}} & \mathrm{I}_\mathrm{A}/\mathrm{I}_\mathrm{A}^p }
+\]
+est nulle. Donc \(p_\mathrm{A}\) applique \(\mathrm{I}_\mathrm{A}\) dans \(\mathrm{I}_\mathrm{A}^p\) et \((p_\mathrm{A})^r\) applique \(\mathrm{I}_\mathrm{A}\) dans \(\mathrm{I}_\mathrm{A}^{p^r}\). Comme \(\mathrm{I}_\mathrm{A}^{r(p-1)+1}\) est nul d'après le théorème 7.4, l'égalité \(p^r > r(p-1)\) montre que \(p_\mathrm{A}^r\) annule \(\mathrm{I}_\mathrm{A}\), cqfd</p>
+
+</body>
+</html>
