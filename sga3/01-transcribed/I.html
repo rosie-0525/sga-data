@@ -360,10 +360,10 @@ Si F et G sont deux objets de \(\widehat{\mathscr{C}}\), on note \(\mathrm{Isom}
 \]
 Dans le cas particulier où \(F = G\), on pose
 \[
-\mathrm{End}(F) = \mathrm{Hom}(F,F) \ , \qquad \underline{\mathrm{End}}(F) = \underline{\mathrm{Hom}}(F,F) \simeq \Gamma(\underline{\mathrm{End}}(F)),
+\underline{\mathrm{End}}(F) = \underline{\mathrm{Hom}}(F,F) \ , \qquad \mathrm{End}(F) = \mathrm{Hom}(F,F) \simeq \Gamma(\underline{\mathrm{End}}(F)),
 \]
 \[
-\mathrm{Aut}(F) = \mathrm{Isom}(F,F) \ , \qquad \underline{\mathrm{Aut}}(F) = \underline{\mathrm{Isom}}(F,F) \simeq \Gamma(\underline{\mathrm{Aut}}(F)).
+\underline{\mathrm{Aut}}(F) = \underline{\mathrm{Isom}}(F,F) \ , \qquad \mathrm{Aut}(F) = \mathrm{Isom}(F,F) \simeq \Gamma(\underline{\mathrm{Aut}}(F)).
 \]
 La formation des objets \(\underline{\mathrm{Hom}}\), \(\underline{\mathrm{Isom}}\), \(\underline{\mathrm{Aut}}\), \(\underline{\mathrm{End}}\) commute aux changements de base.
 Remarquons que l'on peut construire un objet isomorphe à \(\underline{\mathrm{Isom}}(F,G)\) de la manière suivante&nbsp;: on a un morphisme
@@ -621,9 +621,9 @@ où la barre verticale après \(\rho(g)\) désigne la restriction.</p></div>
 
 <div class="thm thm-remark definition" id="I.2.3.4">
   <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">2.3.4</span></div>
-  <div class="thm-body"><p>Si G est un \(\widehat{\mathscr{C}}\)-groupe et E un objet de \(\widehat{\mathscr{C}}\) (resp. E un objet de \(\mathscr{C}\))
+  <div class="thm-body"><p>Si G est un \(\mathscr{C}\)-groupe et E un objet de \(\widehat{\mathscr{C}}\) (resp. E un objet de \(\mathscr{C}\))
 une structure de G-objet sur E (resp. sur E) est une structure de \(h_G\)-objet sur E
-(resp. sur E). (cf. <a class="ref" href="#I.3.2">3.2</a>).
+(resp. \(h_E\)).
 Vu cette définition, toutes les notions et notations définies ci-dessus se transportent
 à \(\mathscr{C}\), lorsqu'elles ne font intervenir que des foncteurs représentables&nbsp;: par exemple si
 \(\underline{\mathrm{Norm}}_{h_G}(E)\) est représentable, alors il existe un et un seul sous-objet de G qui le
@@ -707,7 +707,7 @@ cet homomorphisme d'anneaux.
 Si O est fixé, on définit de manière habituelle un morphisme des O-modules F et
 F', d'où le groupe commutatif \(\mathrm{Hom}_O(F,F')\), et la catégorie des O-modules notée
 \((O\text{-Mod.})\). Remarquons que si \(O_0\) est le \(\widehat{\mathscr{C}}\)-anneau défini par \(O_0(S) = \mathbb{Z}\) (qu'il ne
-faut pas confondre avec le foncteur constant associé à l'objet constant \(\mathbb{Z}\)), alors la
+faut pas confondre avec le foncteur associé à l'objet constant \(\mathbb{Z}\)), alors la
 catégorie des \(O_0\)-modules est isomorphe à la catégorie des \(\widehat{\mathscr{C}}\)-groupes commutatifs. La
 catégorie \((O\text{-Mod.})\) est abélienne.
 Remarquons que, si F est un O-module, alors pour tout \(S \in \mathrm{Ob}(\mathscr{C})\), \(F_S\) est un
@@ -782,7 +782,7 @@ S-schéma en groupes&nbsp;; si O est un anneau, \(O_S\) est un S-schéma en anne
 affines (EGA II, §1). On dit que le S-schéma T est <em>affine sur S</em> si l'image réciproque
 de tout ouvert affine de S est affine. La \(\mathscr{O}_S\)-algèbre \(f_*(\mathscr{O}_T)\), que l'on désigne par
 \(\mathscr{A}(T)\), est alors quasi-cohérente (\(f\) désigne le morphisme structural de T). Réciproquement, à toute \(\mathscr{O}_S\)-algèbre quasi-cohérente \(\mathscr{A}\), on peut faire correspondre un S-schéma
-affine sur S noté \(\mathrm{Spec}\ \mathscr{A}\). Ces foncteurs \(T \mapsto \mathscr{A}(T)\) et \(\mathscr{A} \mapsto \mathrm{Spec}\ \mathscr{A}\) sont quasi-inverses l'une de l'autre entre la catégorie des S-schémas affines sur S et la catégorie
+affine sur S noté \(\mathrm{Spec}\ \mathscr{A}\). Ces foncteurs \(T \mapsto \mathscr{A}(T)\) et \(\mathscr{A} \mapsto \mathrm{Spec}\ \mathscr{A}\) sont des équivalences quasi-inverses l'une de l'autre entre la catégorie des S-schémas affines sur S et la catégorie
 opposée à celle des \(\mathscr{O}_S\)-algèbres quasi-cohérentes.
 Il en résulte que se donner une structure algébrique sur un S-schéma affine T est
 équivalente à se donner la structure correspondante sur \(\mathscr{A}(T)\) dans la catégorie opposée
@@ -865,8 +865,8 @@ la \(\mathscr{O}_S\)-algèbre \(\mathscr{O}_S[\mathbb{Z}]\), avec l'application 
 représenté par le schéma \(\mathrm{Spec}\ \mathbb{Z}[T]\) que l'on notera \(\mathbb{O}\) lorsqu'on le considérera comme
 muni de sa structure de <em>schéma d'anneaux</em>.</p>
 
-<p>Pour tout schéma S, on a donc un S-anneau affine sur S noté \(\mathscr{O}_S\). (<em>Nota</em>&nbsp;: dans EGA
-II 1.7.13, \(\mathscr{O}_S\) est noté \(S[T]\)).</p>
+<p>Pour tout schéma S, on a donc un S-anneau affine sur S noté \(\mathbb{O}_S\). (<em>Nota</em>&nbsp;: dans EGA
+II 1.7.13, \(\mathbb{O}_S\) est noté \(S[T]\)).</p>
 
 <h3 id="I.4.4">4.4. Groupes diagonalisables</h3>
 <h4 id="I.4.4.1">4.4.1.</h4>
@@ -936,7 +936,7 @@ Le S-groupe \(\boldsymbol{\mu}_{n,S}\) correspond à la \(\mathscr{O}_S\)-algèb
 k[T]/(T^p - 1) = k[s]/(s^p),
 \]
 ce qui montre que l'espace topologique sous-jacent à \(\boldsymbol{\mu}_{p,k}\) est réduit à un point, l'anneau local de ce point étant la k-algèbre artinienne \(k[s]/(s^p)\). (Dans le même ordre
-d'idées, signalons que les S-schémas \(\mathbb{G}_{a,S}\), \(\mathbb{G}_{m,S}\), \(\mathscr{O}_S\) sont lisses sur S, que \(\mathbf{D}_S(M)\) est
+d'idées, signalons que les S-schémas \(\mathbb{G}_{a,S}\), \(\mathbb{G}_{m,S}\), \(\mathbb{O}_S\) sont lisses sur S, que \(\mathbf{D}_S(M)\) est
 <em>plat</em> sur S et qu'il est formellement lisse (resp. lisse) sur S si et seulement si aucune
 caractéristique résiduelle de S ne divise la torsion de M (resp. et si de plus M est de
 type fini), cf. Exp. VIII, 2.1).</p>
@@ -1109,11 +1109,11 @@ La catégorie \((G\text{-}\mathscr{O}_S\text{-Mod.})\) est abélienne.</p>
 <p>Se donner une structure de G-\(\mathscr{O}_S\)-Module sur \(\mathscr{F}\), c'est donc (par <a class="ref" href="#I.3.2">3.2</a>) se
 donner un morphisme de \((\mathrm{Sch})_{/S}\)-groupes
 \[
-h_G \longrightarrow \underline{\mathrm{Aut}}_{\mathscr{O}_S}(\mathbf{W}(\mathscr{F})).
+h_G \longrightarrow \underline{\mathrm{Aut}}_{\mathbf{O}_S}(\mathbf{W}(\mathscr{F})).
 \]
 En vertu de <a class="ref" href="#I.4.6.4">4.6.4</a>, la donnée d'un morphisme de S-foncteurs
 \[
-\rho : h_G \longrightarrow \underline{\mathrm{End}}_{\mathscr{O}_S}(\mathbf{W}(\mathscr{F}))
+\rho : h_G \longrightarrow \underline{\mathrm{End}}_{\mathbf{O}_S}(\mathbf{W}(\mathscr{F}))
 \]
 équivaut à celle d'un morphisme de \(\mathscr{O}_S\)-Modules
 \[
@@ -1201,7 +1201,7 @@ un \(\widehat{\mathscr{C}}\)-anneau et F un G-O-module. On pose
 \[
 \mathrm{C}^n(G,F) = \mathrm{Hom}(G^n, F) \ , \qquad \underline{\mathrm{C}}^n(G,F) = \underline{\mathrm{Hom}}(G^n, F), \qquad n \geqslant 0,
 \]
-où \(G^0\) est l'objet final \(\underline{e}\). Alors \(\mathrm{C}^n(G,F)\) (resp. \(\underline{\mathrm{C}}^n(G,F)\)) est muni de manière évidente d'une structure de O-module (resp. \(\Gamma(O)\)-module) et on a
+où \(G^0\) est l'objet final \(\underline{e}\). Alors \(\underline{\mathrm{C}}^n(G,F)\) (resp. \(\mathrm{C}^n(G,F)\)) est muni de manière évidente d'une structure de O-module (resp. \(\Gamma(O)\)-module) et on a
 \[
 \mathrm{C}^n(G,F) \cong \Gamma(\underline{\mathrm{C}}^n(G,F)) \ , \qquad \underline{\mathrm{C}}^n(G,F)(S) = \mathrm{C}^n(G_S, F_S).
 \]
@@ -1328,7 +1328,7 @@ G-\(\mathscr{O}_S\)-module \(\mathrm{E}(\mathscr{F})\) tel que \(\mathrm{H}^n(G,
 \mathscr{A}(G) \otimes \mathscr{F}\) muni de la structure de G-\(\mathscr{O}_S\)-module définie par celle de \(\mathscr{A}(G)\).
 Considérons l'homomorphisme canonique \(\mu_{\mathscr{F}} : \mathscr{F} \to \mathrm{E}(\mathscr{F})\)&nbsp;; l'axiome (CM 1) de
 <a class="ref" href="#I.4.7.2">4.7.2</a> dit exactement que \(\mu_{\mathscr{F}}\) est un morphisme de G-\(\mathscr{O}_S\)-modules. Il suffit de remarquer maintenant que l'image de \(\mu_{\mathscr{F}}\) par le foncteur \(\mathbf{W}\) n'est autre que l'effacement
-\(\mu_{\mathbf{W}(\mathscr{F})} : \mathbf{W}(\mathscr{F}) \to \mathrm{E}(\mathbf{W}(\mathscr{F}))\) défini dans <a class="ref" href="#I.5.2">5.2</a> (comparer avec le corollaire 1 à la
+\(\mu_{\mathbf{W}(\mathscr{F})} : \mathbf{W}(\mathscr{F}) \to \mathrm{E}(\mathbf{W}(\mathscr{F}))\) défini dans <a class="ref" href="#I.5">5.2</a> (comparer avec le corollaire 1 à la
 proposition <a class="ref" href="#I.4.6.4">4.6.4</a>).
 Remarquons maintenant que l'axiome (CM 2) montre que, considéré comme
 \(\mathscr{O}_S\)-module, \(\mathscr{F}\) est un facteur direct dans \(\mathrm{E}(\mathscr{F})\). Cela entraîne&nbsp;:</p></div>
@@ -1338,7 +1338,7 @@ Remarquons maintenant que l'axiome (CM 2) montre que, considéré comme
 <div class="thm thm-plain proposition" id="I.5.3.2">
   <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.3.2</span></div>
   <div class="thm-body"><p>Soient S un schéma affine et G un S-groupe affine et plat&nbsp;; supposons
-que toute suite exacte \(0 \to \mathscr{F}_1 \to \mathscr{F}_2 \to \mathscr{F}_3 \to 0\) de G-\(\mathscr{O}_S\)-modules quasi-cohérents, se scinde également comme suite de \(\mathscr{O}_S\)-modules.
+que toute suite exacte \(0 \to \mathscr{F}_1 \to \mathscr{F}_2 \to \mathscr{F}_3 \to 0\) de G-\(\mathscr{O}_S\)-modules quasi-cohérents, qui se scinde comme suite de \(\mathscr{O}_S\)-modules, se scinde également comme suite de G-\(\mathscr{O}_S\)-modules.
 Les foncteurs \(\mathrm{H}^n(G,\ )\), \(n > 0\), sont nuls (ou ce qui revient au même, le foncteur
 \(\mathrm{H}^0(G,\ )\) est exact).</p>
   <p>En effet, d'après l'hypothèse, la suite \(0 \to \mathscr{F} \to \mathrm{E}(\mathscr{F}) \to \mathrm{E}(\mathscr{F})/\mathscr{F} \to 0\) est

@@ -388,7 +388,7 @@ définition que l'ensemble des S'-morphismes \(X' \to Y'\) compatibles avec les 
 recollement canoniques.</p>
 <p>Notons que, par définition des images inverses Y', Y'', on a des bijections canoniques
 \[
-\mathrm{Hom}_{S'}(X',Y') \simeq \mathrm{Hom}_S(X',Y) \ , \qquad \mathrm{Hom}_{S''}(X'',Y) \simeq \mathrm{Hom}_S(X'',Y),
+\mathrm{Hom}_{S'}(X',Y') \simeq \mathrm{Hom}_S(X',Y) \ , \qquad \mathrm{Hom}_{S''}(X'',Y'') \simeq \mathrm{Hom}_S(X'',Y),
 \]
 de sorte que l'exactitude du diagramme (x) équivaut à celle de
 \[
@@ -427,7 +427,7 @@ morphismes de descente, tels les suivants&nbsp;:</p></div>
   <div class="thm-body"><p>Soit \(f : S' \to S\) un morphisme de descente (par exemple un épi-
 morphisme effectif universel). Alors&nbsp;:</p>
   <ol class="enumerate">
-  <li><span class="item-label">a)</span> <p>Pour tout S-morphisme \(u : X \to Y\), \(u'\) est un isomorphisme (resp. un monom.)
+  <li><span class="item-label">a)</span> <p>Pour tout S-morphisme \(u : X \to Y\), \(u\) est un isomorphisme (resp. un monom.)
 si et seulement si \(u' : X' \to Y'\) l'est.</p></li>
   <li><span class="item-label">b)</span> <p>Soient X,Y deux sous-objets de S, X' et Y' les sous-objets de S' images
 inverses des précédents. Pour que X soit majoré par Y (resp. soit égal à Y), il faut et
@@ -953,9 +953,9 @@ universel est un morphisme de descente. On a donc un morphisme
 \[
 R \longrightarrow X\underset{Y}{\times}X.
 \]</p>
-<p>Pour démontrer R est (M)-effective et que Y est isomorphe à X/R, il suffit de
+<p>Pour démontrer que R est (M)-effective et que Y est isomorphe à X/R, il suffit de
 prouver que ce morphisme est un isomorphisme. Or il le devient par extension de la
-base S à S', car R' est effective, c'est donc un isomorphisme pour la même raison
+base de S à S', car R' est effective, c'est donc un isomorphisme pour la même raison
 que précédemment (<a class="ref" href="#IV.2.4">2.4</a>).</p>
 <p>Remarquons que l'hypothèse du texte est vérifiée si on prend pour (M) la famille
 \((\mathrm{M}_0)\) des épimorphismes effectifs universels et si \(\mathscr{C}\) possède des produits fibrés (<a class="ref" href="#IV.1.10">1.10</a>).
@@ -1481,7 +1481,7 @@ phisme pour tout raffinement R de S.</p>
 <p>(iii) Soient \(u\) et \(v\) deux morphismes \(\mathrm{LP} \to F\) tels que \(u\ell_{\mathrm{P}} = v\ell_{\mathrm{P}}\). Pour montrer
 \(u = v\), il suffit de voir que \(uf = vf\) pour tout \(f : S \to \mathrm{LP}\) où S est représentable. Or
 il existe un raffinement R de S et un morphisme \(g : R \to P\) avec \(f = z_{\mathrm{R}}(g)\). Alors \(uf\)
-et \(vf\) coïncident sur R avec \(u\ell_{\mathrm{P}}g = v\ell_{\mathrm{P}}g\). Alors F est séparé, on a
+et \(vf\) coïncident sur R avec \(u\ell_{\mathrm{P}}g = v\ell_{\mathrm{P}}g\), donc coïncident sur R. Si F est séparé, on a
 donc \(uf = vf\). Supposons maintenant que F soit un faisceau&nbsp;; on a alors le diagramme
 commutatif
 \[
@@ -1842,7 +1842,7 @@ teur \(a\) du morphisme \(i(R) \to i(X) \times_{i(X/R)} i(X)\) ou, comme \(i(X)/
 (ii)) donc \(i(X)/i(R) \to i(X/R)\) est un monomorphisme, du morphisme canonique
 \(i(R) \to i(X) \times_{i(X)/i(R)} i(R)\).</p>
 <p>On est donc ramené à démontrer la même assertion dans la catégorie des pré-
-faisceaux. Mais \(i(X)/i(R)\) est le préfaisceau \(S \mapsto X(S)/R(S)\) et on ramené à
+faisceaux. Mais \(i(X)/i(R)\) est le préfaisceau \(S \mapsto X(S)/R(S)\) et on est ramené à
 démontrer l'assertion analogue dans la catégorie des ensembles, où elle est immédiate.</p></div>
 </div>
 
@@ -2182,7 +2182,7 @@ R\times Y \ar@<0.6ex>[r] \ar@<-0.6ex>[r] & X\times Y \ar[r] & Q\times Y \\
 \]
 où le carré est cartésien. Il est immédiat par <a class="ref" href="#IV.4.4.11">4.4.11</a> que Z est un sous-Y-faisceau de
 \(X \times Y\), stable par \(R \times Y\), dont le quotient est Y, et que, réciproquement, tout Z de ce
-type provient d'une unique section du \(Q \times Y\) sur Y. Prenant d'abord Y représentable,
+type provient d'une unique section de \(Q \times Y\) sur Y. Prenant d'abord Y représentable,
 on en tire un isomorphisme \(Q \simeq F\). Prenant ensuite Y quelconque, on en tire la
 forme annoncée de Hom(Y,F). Considérant enfin le morphisme canonique \(X \to Q\), on
 voit aussitôt qu'il correspond au sous-X-faisceau R de \(X \times X\), ce qui achève la
@@ -2264,7 +2264,7 @@ sous-S-faisceaux Z de \(X_S\) stables par \(R_S\) et tels que la relation d'équ
 ait pour quotient S. Soit \(F_0\) le sous-foncteur de F défini comme suit&nbsp;: \(F_0(S)\) est formé
 des \(Z \in F(S)\) <em>représentables</em>, c'est-à-dire des sous-\(\mathscr{C}_{/S}\)-objets de \(X_S\) stables par \(R_S\) et
 tels que la relation d'équivalence induite soit (M)-effective et ait comme quotient S
-(c'est-à-dire \(R_Z \simeq X \times_S Z\) et \(Z \to S\) élément de (M)). Alors&nbsp;:</p>
+(c'est-à-dire \(R_Z \simeq Z \times_S Z\) et \(Z \to S\) élément de (M)). Alors&nbsp;:</p>
 <p>(i) Le morphisme \(p \in \mathrm{Hom}(X,F) = F(X)\) défini par le sous-objet R de \(X \times X\)
 identifie F au faisceau-quotient <em>de</em> X <em>par</em> R.</p>
 <p>(ii) Les conditions suivantes sont équivalentes&nbsp;:</p>
@@ -2276,14 +2276,14 @@ identifie F au faisceau-quotient <em>de</em> X <em>par</em> R.</p>
 que pour toute famille couvrante \(\{S_i \to S\}\) et toute famille \(\{T_i \to S_i\}\) de morphismes
 de (N), toute donnée de descente sur les \(T_i\) relative à \(\{S_i \to S\}\) soit effective. Supposons
 X quarrable et le morphisme \(R \to X \times X\) élément de (N). Alors \(F_0 = F\).</p>
-<p><em>Démonstration.</em> (i) a déjà été démontré (<a class="ref" href="#IV.4.6.1">4.6.1</a>). Il reste à prouver que b) ou c) implique
+<p><em>Démonstration.</em> (i) a déjà été démontré (<a class="ref" href="#IV.4.6.1">4.6.1</a>). (ii) On a vu l'équivalence de a) et de c) ainsi que \(F = X/R\). Il reste à prouver que b) ou c) implique
 \(F_0 = F\). Remarquons d'abord, comme il est d'ailleurs affirmé
 dans l'énoncé, que \(F_0\) est bien un sous-foncteur de F&nbsp;; en effet pour tout \(S \in \mathrm{Ob}\,\mathscr{C}\)
 et tout \(Z \in F_0(S)\), le morphisme \(Z \to S\) est quarrable, donc \(Z \times_S S'\) élément de
 \(F_0(S')\) pour tout \(S' \to S\). Comme \(R \in F(X)\) appartient à \(F_0(X)\), <a class="ref" href="#IV.4.6.2">4.6.2</a> montre que b)
 \(\Rightarrow F_0 = F\). Supposons maintenant c) vérifié. Le morphisme \(X \to Q\) est élément de
 (M) et, pour tout \(S \in \mathrm{Ob}\,\mathscr{C}\) et tout \(Z \in F(S)\), le diagramme (*) de <a class="ref" href="#IV.4.6.1">4.6.1</a> montre que
-\(Z = S \times_{(X/R \times S)} X\) est élément de \(F_0(S)\).</p>
+\(Z = S \times_{(X/R \times S)} X \times S\) est représentable, donc élément de \(F_0(S)\).</p>
 <p>(iii) Soit \(f \in \mathrm{Hom}(S,F)\) correspondant à \(Z \in F(S)\). On doit montrer que \(f\) se
 factorise par \(F_0\), c'est-à-dire que Z est représentable. C'est d'abord clair si \(f\) se factorise
 par X en vertu de&nbsp;:</p></div>
@@ -2302,8 +2302,7 @@ Z \ar[u] \ar[r] & R_S \ar[u] \ar[r] & R
 <p>Ce lemme résulte aussitôt de la description du morphisme \(X \to F\).</p>
 <p><em>Revenons à la démonstration du théorème.</em> Si \(f\) se factorise par X, alors Z est repré-
 sentable et le morphisme \(Z \to X_S\) élément de (N). En général, \(f\) ne se factorise pas
-nécessairement par X&nbsp;; mais, comme \(X \to F\) est couvrant (<a class="ref" href="#IV.4.4.3">4.4.3</a>), il existe pour chaque
-S une famille couvrante \(\{S_i \to S\}\) et pour chaque \(i\) un morphisme \(S_i \to X\) rendant
+nécessairement par X&nbsp;; mais, comme \(X \to F\) est couvrant (<a class="ref" href="#IV.4.4.3">4.4.3</a>), il existe par <a class="ref" href="#IV.4.4.7">4.4.7</a> une famille couvrante \(\{S_i \to S\}\) et pour chaque \(i\) un morphisme \(S_i \to X\) rendant
 commutatif le diagramme
 \[
 \xymatrix{
@@ -2325,12 +2324,12 @@ par un objet \(T_i\). Alors la famille des \(T_i\) est munie d'une donnée de de
 relative à \(S_i \to S\). Pour que F soit représentable, il faut et il suffit que cette donnée
 soit <em>effective</em>&nbsp;; s'il en est ainsi l'objet «&nbsp;descendu&nbsp;» représente F.</p>
 <p>Remarquons d'abord que d'après <a class="ref" href="#IV.4.4.3">4.4.3</a>, \(S_i \to S\) est une famille épimorphique effec-
-tive universelle dans \(\widehat{\mathscr{C}}\), donc une famille de <em>descente</em> dans \(\widehat{\mathscr{C}}\). Si F est représentable
+tive universelle dans \(\widetilde{\mathscr{C}}\), donc une famille de <em>descente</em> dans \(\widetilde{\mathscr{C}}\). Si F est représentable
 par l'objet T, alors \(T \times_S S_i\) (considéré comme faisceau) est isomorphe à \(F \times_S S_i\), donc
 la donnée de descente sur les \(T_i\) est effective et l'objet descendu (unique) est iso-
 morphe à F. Réciproquement, supposons que la donnée de descente canonique sur
 les \(T_i\) soit effective et soit T l'objet descendu. Comme la famille \(\{S_i \to S\}\) est une
-famille de descente dans \(\widehat{\mathscr{C}}\), il existe un S-morphisme \(T \to F\) qui par extension de la
+famille de descente dans \(\widetilde{\mathscr{C}}\), il existe un S-morphisme \(T \to F\) qui par extension de la
 base à chaque \(S_i\) redonne le morphisme canonique \(T_i \to F \times_S S_i\). Ce morphisme est
 localement un isomorphisme&nbsp;; comme T et F sont des faisceaux, il résulte de <a class="ref" href="#IV.4.5.8">4.5.8</a> que
 c'est un isomorphisme.</p></div>
@@ -2385,6 +2384,8 @@ sente le foncteur suivant&nbsp;: X/R(S) est l'ensemble des sous-\(\mathscr{C}_{/
 par \(R_S\) et tels que la relation d'équivalence induite soit effective universelle et ait
 comme quotient S.</p></div>
 </div>
+
+<p>De même, pour une topologie quelconque&nbsp;:</p>
 
 <div class="thm thm-plain corollaire" id="IV.4.6.14">
   <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.6.14</span></div>
@@ -2559,7 +2560,7 @@ dans l'un et l'autre cas, \(\mathrm{P} \to \mathrm{S}\) est élément de (M), do
 la représentabilité des produits fibrés \(\mathrm{H} \times_S \mathrm{P}\) et \(\mathrm{P} \times_S \mathrm{P}\). Il est clair que (ii) entraîne
 (iii), car on peut prendre comme S' P lui-même, l'hypothèse que P est formellement
 principal homogène entraînant que \(\mathrm{P} \times_S \mathrm{P}\) est trivial sous \(\mathrm{H} \times_S \mathrm{P}\) (<a class="ref" href="#IV.5.1.4">5.1.4</a>), car il a une
-section (la section diagonale). Il est clair que (iii) entraîne (i), car \(\{\mathrm{S}' \to \mathrm{S}\}\) soit une
+section (la section diagonale). Il est clair que (iii) entraîne (i), car \(\{\mathrm{S}' \to \mathrm{S}\}\) est une
 famille couvrante, par l'axiome \((d_{\mathscr{T}})\). Il reste donc à montrer que (i) entraîne (ii). Le
 morphisme de <em>faisceaux</em> \(\mathrm{P} \times_S \mathrm{H} \to \mathrm{P} \times_S \mathrm{P}\) est localement un isomorphisme, donc un
 isomorphisme (<a class="ref" href="#IV.4.5.8">4.5.8</a>)&nbsp;; P est donc formellement principal homogène. Le morphisme
@@ -2728,7 +2729,7 @@ sous-faisceaux en groupes de G'. Dans cette correspondance, les sous-faisceaux e
 groupes invariants de G correspondent aux sous-faisceaux invariants de G'.</p>
 <p>La première partie résulte facilement de <a class="ref" href="#IV.4.4.11">4.4.11</a> et de <a class="ref" href="#IV.3.2.4">3.2.4</a>. Il reste à voir que K
 est invariant dans G si et seulement si K' est invariant dans G'. Si K est invariant
-dans G, alors le préfaisceau \(i(\mathrm{K})/i(\mathrm{H})\) est invariant dans \(i(\mathrm{G})/i(\mathrm{H})\), en vertu de
+dans G, alors le préfaisceau \(i(\mathrm{K})/i(\mathrm{H})\) est invariant dans \(i(\mathrm{G})/i(\mathrm{H})\). Il en est de même des faisceaux associés, en vertu de
 l'argument habituel. Si réciproquement K' est invariant dans G', alors le produit fibré
 \(\mathrm{K} \times_{G'} \mathrm{G}\) est invariant dans G, comme on le voit immédiatement.</p>
 <p>Si maintenant L est un sous-faisceau en groupes quelconque de G, soit \(\bar{L}\) le saturé
@@ -2794,7 +2795,7 @@ commute à celle de G. Les conditions suivantes sont équivalentes&nbsp;:</p>
 <h3 id="IV.5.3">5.3. Utilisation de critères d'effectivité&nbsp;: théorème de Noether</h3>
 <p>Soient \(\mathscr{C}\), \(\mathscr{T}\) et
 (M) comme d'habitude. Soit (N) une famille de morphismes vérifiant les axiomes (a)
-et \((\mathrm{f}_{\mathrm{M}})\).</p>
+et \((\mathrm{f}_{\mathrm{M}})\) de <a class="ref" href="#IV.4.7">4.7</a>.</p>
 <p>Mettant ensemble <a class="ref" href="#IV.5.2.7">5.2.7</a> et <a class="ref" href="#IV.4.7.2">4.7.2</a>, on obtient&nbsp;:</p>
 
 <div class="thm thm-plain proposition" id="IV.5.3.1">

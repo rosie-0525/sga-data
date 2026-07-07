@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 3 — Exposé XXI. Données radicielles</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+.thm-remark .thm-body { font-style: normal; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="XXI">EXPOSÉ XXI<br>DONNÉES RADICIELLES<span class="author">par M. Demazure</span></h1>
+
+<p>par \(M\). Demazure
+</p>
+<p>Cet exposé rassemble, en l'absence de référence convenable, des résultats connus        85
+sur les données radicielles (= systèmes de racines « abstraits ») dont la plupart seront
+utilisés par la suite.
+</p>
+<p>Notations. — On désigne par Q+ l'ensemble des nombres rationnels positifs (ou nuls)&nbsp;;
+on a \(Z\) \cap Q+ = N. Soit \(V\) un \(\mathbb{Q}\)-espace vectoriel&nbsp;; si A (resp. \(B\)) est une partie de Q
+(resp. \(V\)), on note A · \(B\) l'image de A \otimes \(B\) par le morphisme Q \otimes \(V\) \to \(V\), autrement
+dit l'ensemble des combinaisons linéaires d'éléments de \(B\) à coefficients dans A. On
+note -\(B\) = {-1}\(B\). On désigne par \(E\) - \(F\) l'ensemble ∁\(F\)     \(E\).
+</p>
+<h2 id="XXI.1">1. Généralités</h2>
+<h3 id="XXI.1.1">1.1. Définitions, premières propriétés</h3>
+<div class="thm thm-plain definition" id="XXI.1.1.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.1.1</span></div>
+  <div class="thm-body"><p>Soient \(M\) et \(M\)^* deux \(Z\)-modules libres de type fini en dualité. On
+note \(V\) = \(M\) \otimes Q, \(V\)^* = \(M\)^* \otimes Q&nbsp;; ce sont deux \(\mathbb{Q}\)-espaces vectoriels en dualité. On
+identifie \(M\) (resp. \(M\)^* ) à une partie de \(V\) (resp \(V\)^* ). La forme bilinéaire canonique sur
+\(M\)^* \times \(M\) (resp \(V\)^* \times \(V\)) est notée ( , ).
+Soit \(R\) une partie finie de \(M\). Donnons-nous une application \alpha \mapsto \alpha^* de \(R\) dans \(M\)^*&nbsp;;           86
+l'ensemble des \alpha^* , \alpha \in \(R\), est noté \(R\)^* . À chaque \alpha \in \(R\), on associe l'endomorphisme
+s\alpha (resp. s^*\alpha ) de \(M\) et \(V\) (resp. \(M\)^* et \(V\)^* ) donné par les formules&nbsp;:
+<div class="displaymath" id="eq-XXI-1)">
+\[ s\alpha (\(x\)) = \(x\) - (\alpha^* , \(x\))\alpha,    i.e.     s\alpha = id -\alpha^* \otimes \alpha&nbsp;; \]
+</div>
+(1^* )               s^*\alpha (u) = u - (u, \alpha)\alpha^* ,   i.e.     s^*\alpha = id -\alpha \otimes \alpha^* .
+On dit que le couple (\(R\), \(R\)^* ) (plus précisément le couple (\(R\), \(R\) \to \(M\)^* )) est une donnée
+radicielle dans (\(M\), \(M\)^* ), ou que (\(M\), \(M\)^* , \(R\), \(R\)^* ) est une donnée radicielle, si les axiomes
+suivants sont vérifiés&nbsp;:
+(DR I) Pour chaque \alpha \in \(R\), on a            (\alpha^* , \alpha) = 2.
+(DR II) Pour chaque \alpha \in \(R\), on a            s\alpha (\(R\)) \subset \(R\),     s^*\alpha (\(R\)^* ) \subset \(R\)^* .
+</div></div>
+<p>On dit que \(R\) est le système de racines de la donnée radicielle \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* ). Les
+éléments de \(R\) (resp. \(R\)^* ) sont dits les racines (resp. coracines) de la donnée radicielle.
+</p>
+<div class="thm thm-remark remarque" id="XXI.1.1.2">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.1.2</span></div>
+  <div class="thm-body"><p>\(L\)'axiome (DR I) est équivalent à l'une quelconque des propriétés
+suivantes&nbsp;:
+<div class="displaymath" id="eq-XXI-2)">
+\[ s\alpha s\alpha = id         ,        (2^* ) s^*\alpha s^*\alpha = id, \]
+</div>
+<div class="displaymath" id="eq-XXI-3)">
+\[ s\alpha (\alpha) = -\alpha        ,        (3^* ) s^*\alpha (\alpha^* ) = -\alpha^* . \]
+</div>
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.1.1.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.1.3</span></div>
+  <div class="thm-body"><p>Les axiomes (DR I) et (DR II) entraı̂nent
+\(R\) = -\(R\),        \(R\)^* = -\(R\)^* ,       0 6\in \(R\),      0 6\in \(R\)^* .
+</div></div>
+<!-- p.87 -->
+<div class="thm thm-plain lemme" id="XXI.1.1.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.1.4</span></div>
+  <div class="thm-body"><p>\(L\)'application \(R\) \to \(R\)^* est une bijection. Plus généralement, si
+(\alpha^* , \(x\)) = (\beta ^* , \(x\)) pour tout \(x\) \in \(R\), alors \alpha = s.
+</div></div>
+<p>On a alors s\beta (\alpha) = \alpha - 2\beta, s\alpha (s) = \beta - 2\alpha. On en déduit aussitôt s\beta s\alpha (\alpha) =
+\alpha + 2(s - \alpha), s\beta s\alpha (s - \alpha) = \beta - \alpha, d'où (s\beta s\alpha )n \alpha = \alpha + 2n(\beta - \alpha) \in \(R\) par (DR II).
+Comme \(R\) est fini, on a \beta - \alpha = 0.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.1.1.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.1.5</span></div>
+  <div class="thm-body"><p>\(L\)'application inverse \(R\)^* \to \(R\) définit une donnée radicielle
+\(R\) ^* = (\(M\)^* , \(M\), \(R\)^* , \(R\))
+dite duale de \(R\).
+</div></div>
+<div class="thm thm-plain definition" id="XXI.1.1.6">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.1.6</span></div>
+  <div class="thm-body"><p>On note \Gamma0 (\(R\)) le sous-groupe de \(M\) engendré \(R\). On note \(V\) (\(R\))
+le sous-espace vectoriel de \(V\) engendré par \(R\), c'est-à-dire \Gamma0 (\(R\)) \otimes Q. Appliquant ces
+définitions à \(R\) ^* , on construit de même \Gamma0 (\(R\)^* ), \(V\) (\(R\)^* ).
+On appelle rang réductif de \(R\) le nombre
+rgred(\(R\)) = rang(\(M\)) = dim(\(V\)) = dim(\(V\)^* ) = rang(\(M\)^* ) = rgred(\(R\) ^* ).
+On appelle rang semi-simple de \(R\) le nombre
+rgss(\(R\)) = rang(\(R\)) = rang \Gamma0 (\(R\))) = dim(\(V\) (\(R\))).
+On verra ci-dessous que rgss(\(R\)) = rgss(\(R\) ^* ), c'est-à-dire que \(V\) (\(R\)) et \(V\) (\(R\)^* ) ont
+même dimension.
+On a donc rgss(\(R\)) \leqslant rgred(\(R\)).
+</div></div>
+<!-- p.88 -->
+<div class="thm thm-plain definition" id="XXI.1.1.7">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.1.7</span></div>
+  <div class="thm-body"><p>On dit que \(R\) est semi-simple (resp. triviale) si rgss(\(R\)) =
+rgred(\(R\)) (resp. rgss(\(R\)) = 0). Pour que \(R\) soit triviale, il est donc nécessaire et
+suffisant que \(R\) soit vide. La donnée radicielle triviale de rang réductif nul est notée
+<!-- p.0 -->
+= ({0}, {0}, \emptyset, \emptyset).
+</div></div>
+<div class="thm thm-plain definition" id="XXI.1.1.8">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.1.8</span></div>
+  <div class="thm-body"><p>On note \(W\)(\(R\)) le groupe de transformations de \(M\) engendré par
+les s\alpha , \alpha \in \(R\). On l'appelle le groupe de Weyl de \(R\). On note
+\(W\)^* (\(R\)) = \(W\)(\(R\) ^* ).
+</div></div>
+<h2 id="XXI.1">1. GÉNÉRALITÉS                                 55</h2>
+<p>Alors \(W\)(\(R\)) opère dans \(R\), \Gamma0 (\(R\)), \(V\) (\(R\)), \(M\) et \(V\). Si w \in \(W\)(\(R\)) et \(x\) \in \(M\) (resp. \(x\) \in \(V\)),
+on a wx - \(x\) \in \Gamma0 (\(R\)) (resp. wx - \(x\) \in \(V\) (\(R\))), c'est immédiat sur la formule (1). De
+même pour \(W\)^* (\(R\)).
+</p>
+<div class="thm thm-plain lemme" id="XXI.1.1.9">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.1.9</span></div>
+  <div class="thm-body"><p>Pour tous \alpha \in \(R\), \(x\) \in \(V\), u \in \(V\)^* , on a
+<div class="displaymath" id="eq-XXI-4)">
+\[ (s^*\alpha (u), s\alpha (\(x\))) = (u, \(x\)). \]
+</div>
+En effectuant le produit scalaire de (1) et (1^* ), on trouve que le premier membre
+est égal à (u, \(x\)) + (u, \alpha)(\alpha^* , \(x\)) (\alpha^* , \alpha) - 2 = (u, \(x\)).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.1.1.10">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.1.10</span></div>
+  <div class="thm-body"><p>Si on suppose 0 6\in \(R\), 0 6\in \(R\)^* , alors 1.1.9 est équivalent à (DR I).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.1.1.11">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.1.11</span></div>
+  <div class="thm-body"><p>Notons h \mapsto h\vee l'isomorphisme de GL(\(M\)) sur GL(\(M\)^* ) qui as-
+socie à h son contragrédient. Alors la formule (4) s'écrit aussi
+<div class="displaymath" id="eq-XXI-5)">
+\[ (s\alpha )\vee = s^*\alpha . \]
+</div>
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.1.1.12">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.1.12</span></div>
+  <div class="thm-body"><p>\(L\)'isomorphisme précédent induit un isomorphisme de \(W\)(\(R\)) sur          89
+\(W\)^* (\(R\)).
+</div></div>
+<div class="thm thm-plain scholie" id="XXI.1.1.13">
+  <div class="thm-head"><span class="thm-name">Scholie</span> <span class="thm-num">1.1.13</span></div>
+  <div class="thm-body"><p>En vertu du résultat précédent, nous identifierons \(W\) et \(W\)^* , et
+nous considérerons \(W\) comme un groupe de transformations de \(R\), \(R\)^* , \(M\), \(M\)^* , \Gamma0 (\(R\)),
+\Gamma0 (\(R\)^* ), \(V\), \(V\)^* , \(V\) (\(R\)), \(V\) (\(R\)^* ). Nous écrirons s\alpha pour s^*\alpha .
+</div></div>
+<h3 id="XXI.1.2">1.2. \(L\)'application p</h3>
+<div class="thm thm-plain lemme" id="XXI.1.2.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.2.1</span></div>
+  <div class="thm-body"><p>Soit p&nbsp;: \(M\) \to \(M\)^* (resp. \(V\) \to \(V\)^* ) l'application linéaire définie par
+\(X\)
+<div class="displaymath" id="eq-XXI-6)">
+\[ p(\(x\)) =      (u, \(x\))u. \]
+</div>
+u\in\(R^*\)
+</div></div>
+<p>Notons ℓ(\(x\)) = (p(\(x\)), \(x\)). On a les propriétés suivantes&nbsp;:
+</p>
+<div class="displaymath" id="eq-XXI-7)">
+\[ ℓ(\(x\)) \geqslant 0,       ℓ(\alpha) > 0       pour \alpha \in \(R\). \]
+</div>
+<div class="displaymath" id="eq-XXI-8)">
+\[ ℓ(w \(x\)) = ℓ(\(x\)),          pour w \in \(W\). \]
+</div>
+<div class="displaymath" id="eq-XXI-9)">
+\[ (p(\(x\)), \(y\)) = (p(\(y\)), \(x\)),        pour \(x\), \(y\) \in \(V\). \]
+</div>
+<div class="displaymath" id="eq-XXI-10)">
+\[ ℓ(\alpha)\alpha^* = 2p(\alpha),           pour \alpha \in \(R\). \]
+</div>
+<p>Les trois premières relations sont immédiates . Démontrons la dernière. On a par
+</p>
+<div class="displaymath" id="eq-XXI-1)">
+\[ , pour u \in \(V\)^*&nbsp;: \]
+</div>
+<p>(u, \alpha)2 \alpha^* = (u, \alpha) u - (u, \alpha) s\alpha (u)
+= (u, \alpha) u + (u, s\alpha (\alpha)) s\alpha (u)
+= (u, \alpha) u + (s\alpha (u), \alpha) s\alpha (u)        (car s2\alpha = id).
+Comme s\alpha est une permutation de \(R\)^* (par (DR II)), il n'\(y\) a plus qu'à sommer sur            90
+u \in \(R\)^* pour conclure.
+</p>
+<div class="thm thm-plain scholie" id="XXI.1.2.2">
+  <div class="thm-head"><span class="thm-name">Scholie</span> <span class="thm-num">1.2.2</span></div>
+  <div class="thm-body"><p>La relation (10) dit que \alpha \mapsto ℓ(\alpha)\alpha^* est la restriction à \(R\) d'une
+application linéaire de \(M\) dans \(M\)^* . En particulier, on a
+(-\alpha)^* = -\alpha^* .
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.1.2.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.3</span></div>
+  <div class="thm-body"><p>\(L\)'application p induit un isomorphisme de \(V\) (\(R\)) sur \(V\) (\(R\))^* .
+</div></div>
+<p>En effet, p envoie \(V\) (\(R\)) sur \(V\) (\(R\)^* ). On a donc
+dim(\(V\) (\(R\))) \geqslant dim(\(V\) (\(R\)^* )).
+En appliquant cette formule à la donnée radicielle duale, on en déduit
+dim(\(V\) (\(R\))) = dim(\(V\) (\(R\)^* )),
+mais p étant surjectif est aussi bijectif.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.1.2.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.4</span></div>
+  <div class="thm-body"><p>On a dim(\(V\) (\(R\))) = dim(\(V\) (\(R\)^* )), donc
+rgss(\(R\)) = rgss(\(R\) ^* ).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.1.2.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.5</span></div>
+  <div class="thm-body"><p>La forme bilinéaire (u, \(x\)) est non dégénérée sur \(V\) (\(R\)^* ) \times \(V\) (\(R\)),
+donc met ces \(\mathbb{Q}\)-espaces vectoriels en dualité.
+</div></div>
+<p>En effet, si (u, \(x\)) = 0 pour tout u \in \(R\)^* , alors p(\(x\)) = 0.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.1.2.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.6</span></div>
+  <div class="thm-body"><p>La forme bilinéaire symétrique (p(\(x\)), \(y\)) est positive non dégénérée
+sur \(V\) (\(R\)).
+</div></div>
+<!-- p.91 -->
+<div class="thm thm-plain corollaire" id="XXI.1.2.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.7</span></div>
+  <div class="thm-body"><p>\(W\) opère fidèlement dans \(R\) (et donc dans les autres ensembles de
+1.1.13).
+</div></div>
+<p>En effet, soit u \in \(V\)^* . Soit w \in \(W\), supposons que w(\alpha) = \alpha pour \alpha \in \(R\) et prouvons
+que w(u) = u. On a
+</p>
+<p>(w(u) - u, \alpha) = (w(u), \alpha) - (u, \alpha) = (u, w-1 (\alpha)) - (u, \alpha) = 0.
+Mais w(u) - u \in \(V\) (\(R\)^* ). \(S\)'il est orthogonal à toutes les racines, il est nul par 1.2.5.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.1.2.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.8</span></div>
+  <div class="thm-body"><p>Le groupe \(W\) est fini.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.1.2.9">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.2.9</span></div>
+  <div class="thm-body"><p>Les opérations de \(W\) respectent la correspondance entre racines
+et coracines. En d'autres termes, pour \alpha \in \(R\) et w \in \(W\), on a
+w(\alpha^* ) = w(\alpha)^* .
+</div></div>
+<p>Il suffit de le vérifier pour w = s\beta , \beta \in \(R\), c'est-à-dire de vérifier la formule
+s\beta (\alpha^* ) = s\beta (\alpha)^* .
+</p>
+<h2 id="XXI.2">2. RELATIONS ENTRE DEUX RACINES                             57</h2>
+<p>Or on a successivement
+s\beta (\alpha)^* = 2ℓ(s\beta (\alpha))-1 p(s\beta (\alpha))
+\(X\)
+= 2ℓ(\alpha)-1      (u, s\beta (\alpha))u
+u\in\(R^*\)
+\(X\)
+= 2ℓ(\alpha)-1            (s\beta (u), s\beta (\alpha))s\beta (u)
+u\in\(R^*\)
+\(X\)
+= 2ℓ(\alpha)-1            (u, \alpha) s\beta (u)
+u\in\(R^*\)
+</p>
+<p>= 2ℓ(\alpha)-1 s\beta (p(\alpha)) = s\beta (\alpha^* ).
+</p>
+<div class="thm thm-plain corollaire" id="XXI.1.2.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.10</span></div>
+  <div class="thm-body"><p>Si \alpha \in \(R\) et w \in \(W\), on a                                                92
+-1
+ws\alpha w        = sw(\alpha) .
+En effet,
+ws\alpha w-1 (\(x\)) = \(x\) - (\alpha^* , w-1 (\(x\)))w(\alpha)
+= \(x\) - (w(\alpha^* ), \(x\))w(\alpha)
+= \(x\) - (w(\alpha)^* , \(x\))w(\alpha) = sw(\alpha) (\(x\)).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.1.2.11">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2.11</span></div>
+  <div class="thm-body"><p>Soit \(R\)′ \subset \(R\). Pour que (\(M\), \(M\)^* , \(R\)′ , \(R\)′^* ) soit une donnée radi-
+cielle, il faut et il suffit que \alpha, \beta \in \(R\)′ entraı̂ne s\alpha (\beta) \in \(R\)′ .
+</div></div>
+<h2 id="XXI.2">2. Relations entre deux racines</h2>
+<h3 id="XXI.2.1">2.1. Racines proportionnelles</h3>
+<div class="thm thm-plain proposition" id="XXI.2.1.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.1.1</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines. Les conditions suivantes sont équi-
+valentes&nbsp;:
+(i) Il existe \(k\) \in Q avec \alpha = \(k\) \beta.
+(ii) s\alpha = s\beta .
+De plus, sous ces conditions, on a \alpha^* = \(k\) -1 \beta ^* et \(k\) est égal à l'un des nombres 1,
+-1, 2, -2, 1/2, -1/2.
+Supposons d'abord (i). On a d'abord
+\alpha^* = ℓ(\alpha)-1 2 p(\alpha) = \(k\) -2 ℓ(\beta)-1 2 \(k\) p(\beta) = \(k\) -1 \beta ^* .
+Cela entraı̂ne aussitôt s\alpha = s\beta . Réciproquement, si l'on a s\alpha = s\beta , alors
+\alpha = s\alpha (-\alpha) = s\beta (-\alpha) = (\beta ^* , \alpha) \beta - \alpha,
+donc (ii) entraı̂ne (i). Enfin, si \alpha = \(k\) \beta, alors
+(\alpha^* , \beta) = 2k -1 ,          (\beta ^* , \alpha) = 2k,
+donc 2k et 2k -1 sont des entiers et on a terminé.                                         93
+</div></div>
+<p>Application 2.1.2. — Les données radicielles \(R\) telles que rgss(\(R\)) = 1 sont de l'un des
+deux types suivants&nbsp;:
+</p>
+<p>(i) Type A1&nbsp;: il existe un \alpha \in \(M\) tel que les racines soient \alpha et -\alpha.
+Les coracines sont alors \alpha^* et -\alpha^* .
+(ii) Type A′1&nbsp;: il existe un \alpha \in \(M\) tel que les racines soient \alpha, -\alpha, 2\alpha, -2\alpha.
+Les coracines sont alors \alpha^* , -\alpha^* , \alpha^* /2, -\alpha^* /2.
+</p>
+<div class="thm thm-plain definition" id="XXI.2.1.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">2.1.3</span></div>
+  <div class="thm-body"><p>On dit que \alpha \in \(R\) est indivisible si \alpha/2 6\in \(R\). On dit que \(R\) est
+réduite si toute racine est indivisible.
+Pour que \(R\) soit réduite, il faut et il suffit que \(R\) ^* le soit. Si \alpha est indivisible et si
+w \in \(W\), alors w(\alpha) est indivisible.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.2.1.4">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">2.1.4</span></div>
+  <div class="thm-body"><p>Soit \alpha \in \(R\). Si \alpha est indivisible, on pose ind(\alpha) = \alpha. Sinon, on
+pose ind(\alpha) = \alpha/2.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.2.1.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.1.5</span></div>
+  <div class="thm-body"><p>Si \alpha \in \(R\) est indivisible et si \(k\) \alpha \in \(R\), où \(k\) \in Q, alors \(k\) \in \(Z\).
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.2.1.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.1.6</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle. Alors
+ind(\(R\)) = (\(M\), \(M\)^* , ind(\(R\)), ind(\(R\))^* )
+est une donnée radicielle réduite, et l'on a
+\(W\)(ind(\(R\))) = \(W\)(\(R\)).
+En effet, ind(\(R\)) est une donnée radicielle par 1.2.11, car le groupe de Weyl permute
+les racines indivisibles. La seconde assertion résulte de 2.1.1.
+<!-- p.94 -->
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.2.1.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.1.7</span></div>
+  <div class="thm-body"><p>On n'a pas ind(\(R\))^* = ind(\(R\)^* ), donc pas ind(\(R\) ^* ) = ind(\(R\))^* non
+plus, si \(R\) n'est pas réduite.
+</div></div>
+<h3 id="XXI.2.2">2.2. Racines orthogonales</h3>
+<div class="thm thm-plain lemme" id="XXI.2.2.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.2.1</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines. On a
+<div class="displaymath" id="eq-XXI-11)">
+\[ ℓ(\alpha) (\alpha^* , \beta) = ℓ(\beta) (\beta ^* , \alpha). \]
+</div>
+Cela résulte aussitôt de 1.2.1, formules (9) et (10).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.2.2.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.2.2</span></div>
+  <div class="thm-body"><p>Les conditions suivantes sont équivalentes&nbsp;:
+(i)    (\alpha^* , \beta) = 0,                     (i bis)   (\beta ^* , \alpha) = 0,
+(ii) (p(\alpha), \beta) = 0,
+(iii) s\alpha (\beta) = \beta,                        (iii bis) s\beta (\alpha) = \alpha,
+(iv) s\alpha (\beta ^* ) = \beta ^* ,                   (iv bis) s\beta (\alpha^* ) = \alpha^* ,
+(v) s\alpha 6= s\beta et s\alpha et s\beta commutent.
+Toutes les équivalences sont immédiates, sauf celles qui portent sur (v). Montrons
+que (i) (et (i bis)) entraı̂nent (v). On a
+</div></div>
+<p>s\alpha s\beta (\(x\)) = \(x\) - (\beta ^* , \(x\)) \beta - (\alpha^* , \(x\)) \alpha + (\beta ^* , \(x\)) (\alpha^* , \beta) \alpha.
+Si (\alpha^* , \beta) = 0, alors (\beta ^* , \alpha) = 0 et s\alpha s\beta (\(x\)) = s\beta s\alpha (\(x\)).
+Supposons réciproquement (v). On a alors
+s\alpha = s\beta s\alpha s\beta = ss\beta (\alpha)       (par 1.2.10).
+</p>
+<h2 id="XXI.2">2. RELATIONS ENTRE DEUX RACINES                           59</h2>
+<p>Par 2.1, il existe \(k\) \in Q^* tel que \alpha = \(k\) s\beta (\alpha) = \(k\) \alpha - \(k\) (\beta ^* , \alpha) \beta. Comme s\alpha 6= s\beta , \beta
+et \alpha ne sont pas proportionnelles par 2.1.1, donc (\beta ^* , \alpha) = 0.
+</p>
+<div class="thm thm-plain definition" id="XXI.2.2.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">2.2.3</span></div>
+  <div class="thm-body"><p>Deux racines vérifiant les conditions équivalentes de 2.2.2 sont
+dites orthogonales.
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.2.2.4">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.2.4</span></div>
+  <div class="thm-body"><p>Les racines \alpha et \beta sont orthogonales si et seulement si les coracines        95
+\alpha^* et \beta ^* sont orthogonales.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.2.2.5">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.2.5</span></div>
+  <div class="thm-body"><p>Si \alpha et \beta sont deux racines orthogonales, alors \alpha + \beta \in \(R\) si et
+seulement si \alpha - \beta \in \(R\).
+En effet s\beta (\alpha + \beta) = s\beta (\alpha) + s\beta (\beta) = \alpha - \beta.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.2.2.6">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.2.6</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines non orthogonales. Si on définit ℓ(\gamma ^* ) pour
+une coracine \gamma ^* comme ℓ de la racine \gamma ^* de \(R\) ^* , on a la relation
+<div class="displaymath" id="eq-XXI-12)">
+\[ ℓ(\alpha)ℓ(\alpha^* ) = ℓ(\beta)ℓ(\beta ^* ). \]
+</div>
+En effet, si on multiplie la formule (11) par la formule correspondante de la donnée
+transposée, on trouve&nbsp;:
+(\beta ^* , \alpha) (\alpha^* , \beta) ℓ(\alpha) ℓ(\alpha^* ) = (\beta ^* , \alpha) (\alpha^* , \beta) ℓ(\beta) ℓ(\beta ^* ).
+</div></div>
+<h3 id="XXI.2.3">2.3. Cas général</h3>
+<div class="thm thm-plain proposition" id="XXI.2.3.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.3.1</span></div>
+  <div class="thm-body"><p>Si \alpha et \beta sont deux racines quelconques, on a
+<div class="displaymath" id="eq-XXI-13)">
+\[ 0 \leqslant (\alpha^* , \beta)(\beta ^* , \alpha) \leqslant 4. \]
+</div>
+Si \alpha et \beta ne sont ni proportionnelles, ni orthogonales, on a
+<!-- p.1 -->
+\leqslant (\alpha^* , \beta)(\beta ^* , \alpha) \leqslant 3.
+En effet, on a 4 (p(\alpha), \beta)2 = ℓ(\alpha)ℓ(\beta)(\alpha^* , \beta)(\beta ^* , \alpha) et la forme bilinéaire (p(\(x\)), \(y\))
+est positive non dégénérée (1.2.6) sur \(V\) (\(R\)).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.2.3.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.3.2</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines non orthogonales. Si ℓ(\alpha) = ℓ(\beta), il
+existe w \in \(W\) avec w(\alpha) = \beta.
+En effet, si \alpha et \beta sont proportionnelles, on a \alpha = \beta ou \alpha = -\beta&nbsp;; en ce cas on              96
+prend w = 1 ou w = s\alpha . Si \alpha et \beta ne sont ni proportionnelles, ni orthogonales, on
+a (\beta ^* , \alpha) = (\alpha^* , \beta) = \pm1 (2.3.1 et formule (11)).Si (\beta ^* , \alpha) = (\alpha^* , \beta) = 1, on prend
+w = s\beta s\alpha s\beta . Si (\beta ^* , \alpha) = (\alpha^* , \beta) = -1, on prend w = s\alpha s\beta .
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.2.3.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.3.3</span></div>
+  <div class="thm-body"><p>Si \alpha et \beta sont deux racines, si \alpha 6= \beta et (\beta ^* , \alpha) > 0 (resp. si
+\alpha 6= -\beta et (\beta ^* , \alpha) < 0), alors \alpha - \beta (resp. \alpha + \beta) est racine.
+Le second cas se déduit du premier en changeant \beta en -\beta. Si \alpha et \beta sont propor-
+tionnelles et si (\beta ^* , \alpha) > 0, alors on a \beta = \alpha, 2\beta = \alpha ou \beta = 2\alpha. Le premier cas
+est exclu. Dans les autres, on a respectivement \alpha - \beta = \beta \in \(R\) ou \alpha - \beta = -\alpha \in \(R\).
+Si \alpha et \beta ne sont pas proportionnelles, (\alpha^* , \beta) et (\beta ^* , \alpha) sont deux entiers stricte-
+ment positifs de produit au plus 3. \(L\)'un d'eux est donc égal à 1. Si (\beta ^* , \alpha) = 1, on a
+\alpha - \beta = s\beta (\alpha) \in \(R\)&nbsp;; si (\alpha^* , \beta) = 1, on a \alpha - \beta = -s\alpha (\beta) \in \(R\).
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.2.3.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.3.4</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines non proportionnelles. Si \beta - \alpha n'est pas
+racine, alors \beta + \(k\) \alpha \in \(R\) pour \(k\) = -(\alpha^* , \beta), mais pas pour \(k\) = -(\alpha^* , \beta) + 1.
+</div></div>
+<p>En effet, on a s\alpha (\beta) = \beta - (\alpha^* , \beta) \alpha,
+s\alpha (\beta - \alpha) = \beta + (-(\alpha^* , \beta) + 1)\alpha.
+</p>
+<div class="thm thm-plain proposition" id="XXI.2.3.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.3.5</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines non proportionnelles. \(L\)'ensemble
+des entiers \(k\) tels que \beta + \(k\) \alpha \in \(R\) est un intervalle [p, q] (p \leqslant 0, q \geqslant 0) et on a
+p + q = -(\alpha^* , \beta).
+</div></div>
+<!-- p.97 -->
+<p>Pour prouver la première assertion, il suffit par exemple de prouver que si \beta + \(k\) \alpha \in
+\(R\), \(k\) entier > 0, alors \beta + (\(k\) - 1) \alpha \in \(R\). Si \(k\) = 1, c'est trivial. Si \(k\) \geqslant 2, on a
+(\alpha^* , \beta + \(k\) \alpha) = (\alpha^* , \beta) + 2k \geqslant -3 + 4 > 0,
+et on conclut par 2.3.3. Soit donc [p, q] l'intervalle en question. Appliquant 2.3.4 à
+\beta + p \alpha, on trouve
+q - p = -(\alpha^* , \beta + p \alpha) = -(\alpha^* , \beta) + 2p.
+</p>
+<div class="thm thm-remark remarque" id="XXI.2.3.6">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.3.6</span></div>
+  <div class="thm-body"><p>La formule précédente contient les énoncés qualitatifs 2.2.5 et
+2.3.3.
+</div></div>
+<h2 id="XXI.3">3. Racines simples, racines positives</h2>
+<h3 id="XXI.3.1">3.1. Systèmes de racines simples</h3>
+<div class="thm thm-plain lemme" id="XXI.3.1.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.1.1</span></div>
+  <div class="thm-body"><p>Soient \alpha et \alphai , i = 1, . . . , n, des racines. Supposons \alpha distincts des
+\alphai . Si l'on a une relation
+n
+\(X\)
+\alpha=          qi \alphai ,      qi \in Q+ ,
+i=1
+</div></div>
+<p>il existe un i avec qi 6= 0, (\alpha^* , \alphai ) > 0, \alpha - \alphai \in \(R\).
+Pn
+En effet, on écrit 2 = (\alpha^* , \alpha) = i=1 qi (\alpha^* , \alphai ), ce qui prouve les deux premières
+assertions. La troisième résulte alors de 2.3.3.
+</p>
+<div class="thm thm-plain proposition" id="XXI.3.1.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.1.2</span></div>
+  <div class="thm-body"><p>Soient \alpha et \alphai , i = 1, . . . , n, des racines. Si
+n
+\(X\)
+\alpha=          mi \alphai ,        m i \in N+ ,
+i=1
+</div></div>
+<!-- p.98 -->
+<p>il existe une suite \beta1 , . . . , \betam de racines prises parmi les \alphai (non nécessairement deux
+à deux distinctes) telle que si l'on note
+p
+\(X\)
+\gammap =         \betai ,       p = 1, . . . , m,
+i=1
+</p>
+<p>on ait \gammap \in \(R\) et \gammam = \alpha.
+</p>
+<h2 id="XXI.3">3. RACINES SIMPLES, RACINES POSITIVES                          61</h2>
+<p>mi = m′ . Si \alpha est égal à l'un des \alphai ,
+\(P\)
+Raisonnons par récurrence sur l'entier
+′
+soit \alphai0 (ce qui est automatique si m = 1), on prend m = 1, \beta1 = \alphai0 . Sinon, on
+applique le lemme précédent et il existe un i tel que mi 6= 0 et \alpha - \alphai racine. On a
+alors (mi - 1) \in N et
+\(X\)
+\alpha - \alphai = (mi - 1) \alphai +       mj \alphaj .
+j6=i
+</p>
+<p>Il n'\(y\) a plus qu'à appliquer l'hypothèse de récurrence à \alpha - \alphai .
+</p>
+<div class="thm thm-plain corollaire" id="XXI.3.1.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.1.3</span></div>
+  <div class="thm-body"><p>Soit \(R\)′ \subset \(R\). Les conditions suivantes sont équivalentes&nbsp;:
+(i) Si \alpha, \beta \in \(R\)′ et \alpha + \beta \in \(R\), alors \alpha + \beta \in \(R\)′ .
+(ii) (N · \(R\)′ ) \cap \(R\) \subset \(R\)′ .
+En effet, on clairement (ii)\Rightarrow (i). La réciproque résulte aussitôt de la proposition.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.3.1.4">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.1.4</span></div>
+  <div class="thm-body"><p>Un ensemble de racines vérifiant les conditions de 3.1.3 est dit
+clos.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.3.1.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.1.5</span></div>
+  <div class="thm-body"><p>Soit \Delta \subset \(R\) un ensemble de racines. Les conditions suivantes
+sont équivalentes&nbsp;:
+(i) Les éléments de \Delta sont indivisibles, linéairement indépendants et                 99
+</div></div>
+<p>\(R\) \subset (Q+ · \Delta) \cup (-Q+ · \Delta).
+(ii) Les éléments de \Delta sont linéairement indépendants et
+\(R\) \subset (N · \Delta) \cup (-N · \Delta).
+(iii) Toute racine s'écrit de manière unique comme une combinaison linéaire à
+coefficients entiers tous de même signe des éléments de \Delta.
+On a évidemment (ii) \Leftrightarrow (iii). Prouvons (iii) \Rightarrow (i). Il suffit de montrer que (iii)
+entraı̂ne que les éléments de \Delta sont indivisibles. Soit donc \beta \in \Delta divisible. On a
+\beta/2 \in \(R\), d'où
+\beta    \(X\)
+=      mi \alphai , mi \in \(Z\), \alphai \in \Delta;
+2
+mais on aussi \beta/2 = (1/2)\beta, ce qui est contradictoire avec le fait que les éléments de
+\Delta sont linéairement indépendants (sur Q). Prouvons (i) \Rightarrow (ii). Soit \alpha \in \(R\). Notons
+\alpha1 , \alpha2 , · · · \alphan les éléments (distincts) de \Delta. On a donc une écriture unique
+\(X\)
+\epsilon\alpha =      qi \alphai    qi \in Q+ , \epsilon = \pm1.
+Montrons que les qi sont entiers. Cela est certainement vrai s'ils sont tous nuls sauf
+un (cf. 2.1.5). Sinon, \alpha est distinct des \alphai et en appliquant 3.1.1, on trouve un i0 tel
+que \alpha′ = \epsilon\alpha - \alphai0 \in \(R\) et qi0 6= 0. Cela donne
+\(X\)
+\alpha′ = (qi0 - 1) \alphai0 +    qi \alphai .
+i6=i0
+</p>
+<p>Comme l'un au moins des qi , i 6= i0 est non nul, (i) entraı̂ne que qi0 - 1 > 0. On          100
+recommence l'opération pour \alpha′ et au bout d'un nombre fini de pas, on a démontré
+que les qi sont entiers.
+</p>
+<div class="thm thm-plain definition" id="XXI.3.1.6">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.1.6</span></div>
+  <div class="thm-body"><p>Un ensemble \Delta de racines vérifiant les conditions de 3.1.5 est dit
+système de racines simples, ou base de \(R\).
+Si w \in \(W\) et si \Delta est un système de racines simples, alors w(\Delta) est un système de
+racines simples.
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.1.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.1.7</span></div>
+  <div class="thm-body"><p>Cette définition ne fait intervenir que \(R\) et non \(R\), elle ne fait
+même intervenir en fait que ind(\(R\)).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.1.8">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.1.8</span></div>
+  <div class="thm-body"><p>Si \Delta est un système de racines simples, \Delta est une base du groupe
+abélien libre \Gamma0 (\(R\)). On a donc Card(\Delta) = rgss(\(R\)).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.1.9">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.1.9</span></div>
+  <div class="thm-body"><p>Les conditions de 3.1.5 sont alors évidemment équivalentes aux
+suivantes&nbsp;:
+(i′ ) Les éléments de \Delta sont indivisibles, en nombre \leqslant rgss(\(R\)) et \(R\) \subset (Q+ · \Delta) \cup
+(-Q+ · \Delta).
+(ii′ ) On a Card(\Delta) \leqslant rgss(\(R\)) et \(R\) \subset (N · \Delta) \cup (-N · \Delta).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.1.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.1.10</span></div>
+  <div class="thm-body"><p>Si \Delta est un système de racines simples, alors ind(\Delta^* ) est un
+système de coracines simples (i.e. un système de racines simples de \(R\)^* ).
+En effet, si
+\(X\)
+\alpha=         ai \alphai
+\(X\)        ℓ(ai ) ^*
+\alpha^* =        ai         \alpha ,
+ℓ(\alpha) i
+<!-- p.101 -->
+ce qui démontre que ind(\Delta^* ) vérifie (i′ ). De plus
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.1.11">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.1.11</span></div>
+  <div class="thm-body"><p>Si \Delta est un système de racines simples et si
+\(X\)
+\beta=        a\alpha \alpha,    a\alpha \in \(Z\)
+\alpha\in\Delta
+</div></div>
+<p>est l'écriture de \beta suivant \Delta, alors 4 a\alpha ℓ(\alpha) est divisible par ℓ(\beta) (et même par 4 ℓ(\beta)
+si \alpha est indivisible).
+Avant de continuer à énoncer les propriétés des systèmes de racines simples, mon-
+trons qu'il en existe.
+</p>
+<h3 id="XXI.3.2">3.2. Systèmes de racines positives</h3>
+<div class="thm thm-plain definition" id="XXI.3.2.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.2.1</span></div>
+  <div class="thm-body"><p>Un ensemble \(R\)+ \subset \(R\) est dit un système de racines positives de
+\(R\) s'il vérifie les conditions suivantes&nbsp;:
+(\(P\) 1) \(R\)+ \cap -\(R\)+ = \emptyset.
+(\(P\) 2) \(R\)+ \cup -\(R\)+ = \(R\).
+(\(P\) 3) (Q+ · \(R\)+ ) \cap \(R\) \subset \(R\)+ .
+En particulier, un tel ensemble est clos. On verra plus tard qu'en fait un ensemble
+clos vérifiant (\(P\) 1) et (\(P\) 2) vérifie aussi (\(P\) 3), donc est un système de racines positives.
+Si w \in \(W\) et si \(R\)+ est un système de racines positives, alors w(\(R\)+ ) est un système
+de racines positives.
+</div></div>
+<h2 id="XXI.3">3. RACINES SIMPLES, RACINES POSITIVES                         63</h2>
+<div class="thm thm-remark remarque" id="XXI.3.2.2">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.2.2</span></div>
+  <div class="thm-body"><p>Cette définition ne fait intervenir que \(R\). On dira aussi que \(R\)+          102
+est un système de racines positives de \(R\).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.2.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.2.3</span></div>
+  <div class="thm-body"><p>De (\(P\) 1) et (\(P\) 2), on tire aussitôt
+Card(\(R\)+ ) = Card(\(R\))/2.
+Il en résulte que si \(R\)+ et \(R\)′+ sont deux systèmes de racines positives et si \(R\)+ \subset \(R\)′+ ,
+alors \(R\)+ = \(R\)′+ .
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.2.4">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.2.4</span></div>
+  <div class="thm-body"><p>Si \(R\)+ est un système de racines positives, \(R\)^*+ est un système de
+coracines positives (i.e. un système de racines positives de \(R\)^* ).
+</div></div>
+<p>Cela résulte aussitôt de 1.1.4 et 1.2.2.
+</p>
+<div class="thm thm-plain definition" id="XXI.3.2.5">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.2.5</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples. On pose
+\(P\)(\Delta) = (Q+ · \Delta) \cap \(R\) = (N+ · \Delta) \cap \(R\).
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.3.2.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.2.6</span></div>
+  <div class="thm-body"><p>Si \Delta est un système de racines simples, \(P\)(\Delta) est un système de
+racines positives. Si \Delta est un système de racines simples et \(R\)+ un système de racines
+positives, on a l'équivalence&nbsp;:
+\Delta \subset \(R\)+ ⇐\Rightarrow \(R\)+ = \(P\)(\Delta).
+</div></div>
+<p>La première assertion est immédiate. Si \Delta \subset \(R\)+ , alors \(P\)(\Delta) \subset \(R\)+ par (\(P\) 3),
+donc \(P\)(\Delta) = \(R\)+ par 3.2.3. Le reste est trivial.
+</p>
+<div class="thm thm-remark remarque" id="XXI.3.2.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.2.7</span></div>
+  <div class="thm-body"><p>Il existe des systèmes de racines positives&nbsp;: soit \geqslant une structure
+d'espace vectoriel totalement ordonné sur \(V\) (\(R\)). \(L\)'ensemble des racines \geqslant 0 pour
+cette relation d'ordre est un système de racines positives.
+</div></div>
+<div class="thm thm-plain theoreme" id="XXI.3.2.8">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">3.2.8</span></div>
+  <div class="thm-body"><p>Soit \(R\)+ un système de racines positives. Il existe un unique sys-        103
+tème de racines simples \(S\) (\(R\)+ ) tel que \(S\) (\(R\)+ ) \subset \(R\)+ , i.e. \(R\)+ = \(P\)(\(S\) (\(R\)+ )).
+</div></div>
+<p>\(L\)'unicité résulte aussitôt de&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.2.9">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.2.9</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples. Alors pour que \alpha \in \(P\)(\Delta)
+appartienne à \Delta, il faut et il suffit que \alpha ne soit pas somme de deux éléments de
+\(P\)(\Delta).
+</div></div>
+<p>Ce lemme résulte aussitôt des définitions et de 3.1.2.
+Démontrons maintenant l'existence de \(S\) (\(R\)+ ). Considérons l'ensemble des parties
+\(T\) de \(R\)+ telles que \(T\) = ind(\(T\)) et que (Q+ · \(T\)) \supset \(R\)+ . Cet ensemble est non vide,
+car il contient ind(\(R\)+ ). Soit \Delta un élément minimal de cet ensemble pour la relation
+d'inclusion. Montrons que \Delta est un système de racines simples, c'est-à-dire par 3.1.5
+(i), que \Delta est une partie libre de \(M\).
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.2.10">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.2.10</span></div>
+  <div class="thm-body"><p>Si \alpha, \beta \in \Delta, m, n \in Q et m\alpha + n\beta \in \(R\), alors mn \geqslant 0.
+</div></div>
+<p>Si mn < 0, on peut écrire (quitte à échanger \alpha et \beta)
+a\alpha - b\beta \in \(R\)+ , a, b \in Q+ , a · b 6= 0,
+donc il existe par hypothèse une relation
+\(X\)
+a\alpha - b\beta =        c(\gamma)\gamma,                   c(\gamma) \in Q+ .
+\gamma\in\Delta
+</p>
+<p>Si a \leqslant c(\alpha), elle s'écrit
+\(X\)
+-\beta = b-1 (c(\alpha) - a)\alpha +                     b-1 c(\gamma)\gamma \in Q+ · \(R\)+ \cap \(R\),
+\gamma\in\Delta\gamma6=\alpha
+</p>
+<p>ce qui, par (\(P\) 3) et (\(P\) 1) donne \beta \in \(R\)+ \cap -\(R\)+ = \emptyset.
+Si, au contraire a > c(\alpha), on écrit
+\(X\)
+\alpha = (a - c(\alpha)-1 )b\beta +     (a - c(\alpha))-1 c(\gamma)\gamma,
+\gamma\in\Delta\gamma6=\alpha
+</p>
+<!-- p.104 -->
+<p>ce qui prouve que \Delta \subset Q+ · (\Delta - {\alpha}), contrairement au caractère minimal de \Delta.
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.2.11">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.2.11</span></div>
+  <div class="thm-body"><p>Si \alpha, \beta \in \Delta, alors (\beta ^* , \alpha) \leqslant 0.
+En effet, s\beta (\alpha) = \alpha - (\beta ^* , \alpha) \beta \in \(R\), et on conclut par 3.2.10.
+Démontrons maintenant que \Delta est libre. Si on a une relation linéaire entre éléments
+de \Delta, on peut supposer l'avoir écrite
+\(X\)          \(X\)
+\(x\)=      m\alpha \alpha =      n\beta \beta
+\alpha\inI             \beta\inJ
+</div></div>
+<p>avec I \subset \Delta&nbsp;; J \subset \Delta&nbsp;; I \cap J = \emptyset&nbsp;; I 6= \emptyset&nbsp;; m\alpha , n\beta \in Q+ .
+On a alors                              \(X\)
+2p(\(x\)) =       n\beta ℓ(\beta)\beta ^* ,
+\beta\inJ
+donc                                             \(X\)
+<!-- p.0 -->
+\leqslant 2(p(\(x\)), \(x\)) =                   m\alpha n\beta ℓ(\beta)(\beta ^* , \alpha) \leqslant 0.
+\alpha\inI\beta\inJ
+Par 1.2.6 cela entraı̂ne \(x\) = 0, donc une relation non triviale.
+\(X\)
+m(\alpha)\alpha = 0,      m(\alpha) \in Q+ .
+\alpha\in\Delta
+</p>
+<p>Si m(\alpha0 ) 6= 0, on a -\alpha0 \in Q+ · \(R\)+ \cap -\(R\)+ = \emptyset.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.3.2.12">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.2.12</span></div>
+  <div class="thm-body"><p>On a les relations
+\Delta \subset \(R\)+           ⇐\Rightarrow     \(R\)+ = \(P\)(\Delta)            ⇐\Rightarrow       \Delta = \(S\) (\(R\)+ )
+^*              ^*
+\(P\)(ind(\Delta )) = \(P\)(\Delta) ,                          \(S\) (\(R\)^*+ ) = ind(\(S\) (\(R\)+ )^* );
+\(S\) (w(\(R\)+ )) = w(\(S\) (\(R\)+ )),                       \(P\)(w(\Delta)) = w(\(P\)(\Delta)).
+<!-- p.105 -->
+</div></div>
+<div class="thm thm-plain definition" id="XXI.3.2.13">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.2.13</span></div>
+  <div class="thm-body"><p>Si on a choisi un système de racines simples \Delta, les éléments
+de \(P\)(\Delta) seront dits positifs. Si on a choisi un système de racines positives \(R\)+ , les
+éléments de \(S\) (\(R\)+ ) seront dits simples.
+</div></div>
+<h2 id="XXI.3">3. RACINES SIMPLES, RACINES POSITIVES                               65</h2>
+<div class="thm thm-plain corollaire" id="XXI.3.2.14">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.2.14</span></div>
+  <div class="thm-body"><p>Soit \(R\)+ un système de racines positives. Soit \alpha \in \(R\)+ . Les condi-
+tions suivantes sont équivalentes&nbsp;:
+(i) \alpha est simple (i.e. \alpha \in \(S\) (\(R\)+ )).
+(ii) \alpha n'est pas somme de deux éléments de \(R\)+ .
+(iii) \(R\)+ - {\alpha} est clos.
+\(L\)'équivalence de (i) et (ii) résulte aussitôt de 3.2.9. \(L\)'équivalence de (ii) et (iii) est
+immédiate.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.3.2.15">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.2.15</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples. La somme des coefficients
+de la décomposition d'une racine \alpha suivant \Delta s'appelle l'ordre de \alpha relativement à \Delta
+et se note ord\Delta (\alpha).
+On a les équivalences&nbsp;:
+\alpha \in \(P\)(\Delta) ⇐\Rightarrow ord\Delta (\alpha) > 0,                \alpha \in \Delta ⇐\Rightarrow ord\Delta (\alpha) = 1.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.3.2.16">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.2.16</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples. Soit \alpha \in \(R\)+ . Il existe une
+suite \alphai \in \Delta, i = 1, 2, . . . , m, avec
+\alpha1 + \alpha2 + · · · + \alphap \in \(P\)(\Delta) pour p = 1, . . . m,
+\alpha1 + \alpha2 + · · · + \alpham = \alpha.
+De plus, pour toute suite \alphai vérifiant ces conditions, on a m = ord\Delta (\alpha).
+Trivial par 3.1.2.
+</div></div>
+<h3 id="XXI.3.3">3.3. Caractérisation et conjugaison des systèmes de racines positives</h3>
+<p>106
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.3.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.3.1</span></div>
+  <div class="thm-body"><p>Si \alpha \in \(P\)(\Delta), \beta \in \Delta et si \alpha et \beta ne sont pas proportionnelles, alors
+s\beta (\alpha) \in \(P\)(\Delta).
+En effet, s\beta (\alpha) = \alpha-(\beta ^* , \alpha) \beta. Comme il \(y\) a au moins une racine simple autre que \beta
+qui intervient dans la décomposition de \alpha avec un coefficient non nul (donc strictement
+positif), donc aussi dans la décomposition de s\beta (\alpha) avec le même coefficient, s\beta (\alpha)
+est aussi positive.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.3.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.2</span></div>
+  <div class="thm-body"><p>Si \beta \in \Delta, la symétrie s\beta échange les éléments de \(P\)(\Delta) non
+proportionnels à \beta.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.3.3.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.3.3</span></div>
+  <div class="thm-body"><p>Si \alpha \in \(P\)(\Delta), \alpha 6\in \Delta, \alpha indivisible, il existe un \beta \in \Delta avec s\beta (\alpha) \in
+\(P\)(\Delta), ord\Delta (s\beta (\alpha)) < ord\Delta (\alpha).
+En effet, il existe d'après 3.1.1 un \beta \in \Delta avec (\beta ^* , \alpha) > 0. Comme \alpha est indivisible
+et 6\in \Delta, il ne peut être proportionnel à \beta.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.3.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.4</span></div>
+  <div class="thm-body"><p>Si \alpha \in \(P\)(\Delta) est indivisible, il existe une suite \betap , p = 1, 2, . . . q,
+\betap \in \Delta avec
+\alphap = s\beta1 s\beta2 · · · s\betap (\alpha) \in \(P\)(\Delta),   p = 1, . . . q,
+et \alphaq \in \Delta.
+Cela résulte de 3.3.3 par récurrence sur ord\Delta (\alpha).
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.3.3.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.3.5</span></div>
+  <div class="thm-body"><p>Le groupe de Weyl est engendré par les s\alpha , \alpha \in \Delta. Toute racine
+indivisible est conjuguée d'une racine simple par un élément du groupe de Weyl.
+</div></div>
+<!-- p.107 -->
+<p>La seconde assertion résulte aussitôt de 3.3.4. La première en résulte par 1.2.10 et
+2.1.1.
+</p>
+<div class="thm thm-plain proposition" id="XXI.3.3.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.3.6</span></div>
+  <div class="thm-body"><p>Soit \(R\)+ un système de racines positives. Soit \(P\)′ \subset \(R\) vérifiant
+(\(P\) 2) et clos. Alors il existe un w \in \(W\) tel que w(\(R\)+ ) \subset \(P\)′ .
+</div></div>
+<p>Énonçons tout de suite les corollaires.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.3.3.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.7</span></div>
+  <div class="thm-body"><p>Le groupe de Weyl opère transitivement sur l'ensemble des sys-
+tèmes de racines positives (resp. des systèmes de racines simples).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.3.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.8</span></div>
+  <div class="thm-body"><p>Pour qu'une partie \(P\) de \(R\) soit un système de racines positives,
+il faut et il suffit qu'elle vérifie (\(P\) 1) et (\(P\) 2) et soit close.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.3.9">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.3.9</span></div>
+  <div class="thm-body"><p>Si l'on munit \Gamma0 (\(R\)) d'une structure de groupe ordonné telle que
+toute racine soit > 0 ou < 0, l'ensemble des racines positives pour cette structure
+d'ordre est un système de racines positives.
+</div></div>
+<p>Démontrons maintenant 3.3.6. On peut trouver un w \in \(W\) tel que Card(w(\(R\)+ )\capP′ )
+soit maximum, donc en remplaçant \(R\)+ par w(\(R\)+ ), supposer que
+Card(\(R\)+ \cap \(P\)′ ) \geqslant Card(\(R\)+ \cap s\alpha (\(P\)′ ))
+pour tout \alpha \in \(S\) (\(R\)+ ) = \Delta. Prouvons que \(R\)+ \subset \(P\)′ . Sinon, \(P\)′ étant clos, il existe
+\alpha \in \Delta, \alpha 6\in \(P\)′ . Mais \(P\)′ vérifiant (\(P\) 2), on a alors -\alpha \in \(P\)′ (donc -2\alpha \in \(P\)′ si 2\alpha
+est racine). Pour tout \beta \in \(R\)+ \cap \(P\)′ , on a \beta 6= \alpha&nbsp;; si 2\alpha n'est pas racine, on a alors
+s\alpha (\beta) \in \(R\)+ (par 3.3.1), donc
+s\alpha (\(R\)+ \cap \(P\)′ ) \subset \(R\)+ \cap s\alpha (\(P\)′ );
+mais \(R\)+ \cap s\alpha (\(P\)′ ) contient aussi \alpha = s\alpha (-\alpha), ce qui contredit l'inégalité supposée. Si
+2\alpha est racine, on raisonne de même.
+Pour étudier les ensembles de racines vérifiant (\(P\) 2) et clos, on est donc ramené
+au cas où ils contiennent l'ensemble des racines positives.
+</p>
+<!-- p.108 -->
+<div class="thm thm-plain proposition" id="XXI.3.3.10">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.3.10</span></div>
+  <div class="thm-body"><p>Soit \(R\)+ un système de racines positives. Soit \(P\)′ clos, \(R\)+ \subset
+\(P\)′ \subset \(R\). Si on note \(T\) = \(S\) (\(R\)+ ) \cap -\(P\)′ , alors \(P\)′ est la réunion de \(R\)+ et de l'ensemble
+des racines qui sont combinaison linéaire à coefficients négatifs des éléments de \(T\).
+</div></div>
+<p>Démontrons l'assertion par récurrence sur l'ordre d'une racine u \in \(P\)′ - \(R\)+ . Posons
+\Delta = \(S\) (\(R\)+ ). Si ord\Delta (u) = -1, alors -u \in \(S\) (\(R\)+ ) et u \in -\(T\). Si ord\Delta (u) > -1, il
+existe s \in \(S\) (\(R\)+ ) telle que u + s \in \(R\) et ord\Delta (u + s) > ord\Delta (u) (on applique 3.1.4 à
+-u). Comme u + s est la somme de deux racines de \(P\)′ , c'est un élément de \(P\)′ , donc
+par l'hypothèse de récurrence une combinaison linéaire des éléments de \(T\). Il suffit de
+vérifier que s \in -\(P\)′ . Or -s = u - (u + s), mais u \in \(P\)′ et -(u + s) est positive donc
+appartient à \(P\)′ .
+</p>
+<h2 id="XXI.3">3. RACINES SIMPLES, RACINES POSITIVES                             67</h2>
+<div class="thm thm-plain scholie" id="XXI.3.3.11">
+  <div class="thm-head"><span class="thm-name">Scholie</span> <span class="thm-num">3.3.11</span></div>
+  <div class="thm-body"><p>Soit \(P\)′ un ensemble de racines vérifiant (\(P\) 2) et clos. Il existe un
+système de racines simples \Delta, une partie \(T\) de \Delta tel que
+\(P\)′ = [N · \Delta \cup -N · \(T\)] \cap \(R\).
+Si on note \(R\)(\(T\)) = \(Z\) · \(T\) \cap \(R\), qui est une partie close et symétrique de \(R\), \(P\)′ est donc
+la réunion disjointe de \(R\)(\(T\)) et de la partie close de \(P\)(\Delta) formée des \alpha \in \(P\)(\Delta),
+\alpha 6\in N · \(T\), i.e. des racines positives qui dans la décomposition sur \Delta « contiennent au
+moins une racine de \Delta - \(T\) ».
+</div></div>
+<h3 id="XXI.3.4">3.4. Ensembles de racines clos et symétriques</h3>
+<div class="thm thm-plain proposition" id="XXI.3.4.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.4.1</span></div>
+  <div class="thm-body"><p>Soit \(R\)′ \subset \(R\) un ensemble de racines de la donnée radicielle
+^*
+\(R\). Supposons \(R\)′ clos et symétrique (i.e. \(R\)′ = -\(R\)′ ). Alors (\(M\), \(M\)^* , \(R\)′ , \(R\)′ ) est une
+donnée radicielle&nbsp;; pour tout système de racines positives \(R\)+ de \(R\), \(R\)′+ = \(R\)+ \cap \(R\)′ est          109
+^*
+un système de racines positives de \(R\)′&nbsp;; le groupe de Weyl WR′ , de (\(M\), \(M\)^* , \(R\)′ , \(R\)′ ) est
+le sous-groupe de \(W\)(\(R\)) engendré par les s\alpha , \alpha \in \(R\)′ .
+</div></div>
+<p>La première assertion est triviale par 1.2.11, la seconde résulte de 3.3.8, la troisième
+est évidente.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.3.4.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.4.2</span></div>
+  <div class="thm-body"><p>Soit w \in WR , \(L\)'ordre de w est le plus petit entier > 0 n tel que
+wn (\alpha′ ) = \alpha′ pour tout \alpha′ \in \(R\)′ .
+^*
+Il suffit d'appliquer 1.2.7 à la donnée radicielle (\(M\), \(M\)^* , \(R\)′ , \(R\)′ ).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.4.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.4.3</span></div>
+  <div class="thm-body"><p>Soient \alpha et \beta deux racines non proportionnelles. Soit n le plus
+petit entier positif tel que (s\alpha s\beta )n (\alpha) = \alpha et (s\alpha s\beta )n (\beta) = \beta. Alors le sous-groupe
+\(W\)\alpha,\beta de \(W\) engendré par s\alpha et s\beta est défini par les relations&nbsp;:
+s2\alpha = 1,      s2\beta = 1,        (s\alpha s\beta )n = 1.
+</div></div>
+<p>Compte tenu de 3.4.2, il suffit de vérifier&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.4.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.4.4</span></div>
+  <div class="thm-body"><p>Soit \(G\) le groupe engendré par deux éléments \(x\) et \(y\) soumis aux
+relations x2 = \(y\) 2 = 1. Tout sous-groupe invariant de \(G\) ne contenant ni \(x\) ni \(y\) est
+engendré (comme sous-groupe invariant ) par un élément de la forme (xy)n .
+</div></div>
+<p>En effet, un élément quelconque de \(G\) s'écrit (xy)n , où \(y\)(xy)n , ou (xy)n \(x\), n entier
+\geqslant 0. Or le second élément est conjugué à \(x\), le troisième à \(y\).
+</p>
+<div class="thm thm-remark remarque" id="XXI.3.4.5">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.4.5</span></div>
+  <div class="thm-body"><p>On calcule immédiatement l'entier n&nbsp;: si on pose
+(\alpha^* , \beta) = p,        (\beta ^* , \alpha) = q,
+on a                                                                                             110
+(s\alpha s\beta )(\alpha) = (pq - 1) \alpha - q \beta,          (s\alpha s\beta )(\beta) = p \alpha - \beta.
+\(L\)'entier n est donc l'ordre de la matrice
+          
+pq - 1 p
+.
+-q -1
+</div></div>
+<p>On trouve
+pq = 0 =\Rightarrow n = 2,
+pq = 1 =\Rightarrow n = 3,
+pq = 2 =\Rightarrow n = 4,
+pq = 3 =\Rightarrow n = 6.
+</p>
+<p>N. \(B\). En écrivant que l'ordre de la matrice précédente est fini, on retrouve l'inégalité
+</p>
+<div class="displaymath" id="eq-XXI-13)">
+\[ . \]
+</div>
+<div class="thm thm-plain definition" id="XXI.3.4.6">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.4.6</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples et \Delta′ \subset \Delta. On note
+\(R\)\Delta′ = \(R\) \cap (Q · \(S\)′ ) = \(R\) \cap (\(Z\) · \Delta′ ).
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.3.4.7">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.4.7</span></div>
+  <div class="thm-body"><p>\(R\)\Delta′ est clos et symétrique, \Delta′ est un système de racines simples de
+la donnée radicielle (\(M\), \(M\)^* , \(R\)\Delta′ , \(R\)^*\Delta′ ), dont le groupe de Weyl est le sous-groupe \(W\)\Delta′
+de \(W\) engendré par les s\alpha , pour \alpha \in \Delta′ . On a \Delta \cap \(R\)′ = \Delta′ .
+Trivial.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.3.4.8">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.4.8</span></div>
+  <div class="thm-body"><p>Soit \(R\)′ \subset \(R\). Les conditions suivantes sont équivalentes&nbsp;:
+(i) Il existe un sous-espace vectoriel \(V\)′ de \(V\) (ou de \(V\) (\(R\))) tel que \(R\)′ = \(R\) \cap \(V\)′ .
+(ii) Il existe un système de racines simples \Delta de \(R\) et une partie \Delta′ de \Delta telle que
+′
+\(R\) = \(R\)\Delta′ .
+<!-- p.111 -->
+Plus précisément, sous ces conditions, tout système de racines simples \Delta′ de
+(\(M\), \(M\)^* , \(R\)′ , \(R\)′^* ) est contenu dans un système de racines simples \Delta de \(R\) et \(R\)′ = \(R\)\Delta′ .
+On a évidemment (ii) \Rightarrow (i). Supposons (i) vérifiée&nbsp;: alors \(R\)′ est clos et symé-
+trique, donc (\(M\), \(M\)^* , \(R\)′ , \(R\)′^* ) est une donnée radicielle. Soient \Delta′ un système de ra-
+cines simples de cette donnée et \(R\)′+ = \(P\)(\Delta′ ). Si \(V\)′ = \(V\), alors \Delta′ est un système de
+racines simples de \(R\) et on a terminé. Sinon, il existe un \(x\) \in \(V\)^* avec
+(\(x\), \(V\)′ ) = {0},       (\(x\), \alpha) 6= 0   pour tout \alpha \in \(R\) - \(R\)′ .
+Soit P0 = {\alpha \in \(R\) | (\(x\), \alpha) > 0}. Posons \(P\) = P0 \cup \(P\)′ . Pour un \alpha \in \(R\), on a les
+équivalences
+(\(x\), \alpha) > 0 ⇐\Rightarrow \alpha \in P0 ,
+(\(x\), \alpha) < 0 ⇐\Rightarrow \alpha \in -P0 ,
+(\(x\), \alpha) = 0 ⇐\Rightarrow \alpha \in \(R\)′ .
+Il résulte aussitôt de 3.3.8 que \(P\) est un système de racines positives de \(R\). Posons
+\(S\) = \(S\) (\(P\)). Il suffit évidemment de prouver \(S\)′ \subset \(S\). Sinon soit \alpha \in \(S\)′ , \alpha 6\in \(S\). Alors,
+par 3.2.14, il existe \beta, \gamma \in \(P\) avec \alpha = \beta + \gamma. Si \beta, \gamma \in P0 , on a \alpha \in P0 , ce qui est
+idiot. Si \beta ou \gamma, par exemple \beta, appartient à \(P\)', alors \gamma = \alpha - \beta \in \(R\)′ \cap \(P\) = \(P\)′&nbsp;; mais
+alors \alpha n'est pas simple dans \(P\)′ .
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.3.4.9">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.4.9</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, soit \alpha \in \(P\)(\Delta), \alpha 6\in \(R\)′ . Pour tout
+w \in \(W\)\Delta′ , on a w(\alpha) \in \(P\)(\Delta), w(\alpha) 6\in \(R\)′ .
+</div></div>
+<h2 id="XXI.3">3. RACINES SIMPLES, RACINES POSITIVES                              69</h2>
+<p>Il suffit en effet de le vérifier pour w = s\beta , \beta \in \Delta′ , auquel cas c'est trivial (3.3.1).
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.4.10">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.4.10</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, les conditions suivantes sur un              112
+w \in \(W\) sont équivalentes&nbsp;:
+(i) w \in \(W\)\Delta .
+(ii) Pour tout m \in \(M\), w(m) - m \in \(V\)′ .
+(iii) Pour tout \alpha \in \(R\), w(\alpha) - \alpha \in \(V\)′ .
+On a évidement (i) \Rightarrow (ii) \Rightarrow (iii). Prouvons (iii) \Rightarrow (i). Soit donc un w \in \(W\),
+w 6\in \(W\)\Delta , w(\alpha) - \alpha \in \(V\)′ pour tout \alpha \in \(R\). Ecrivons w comme un produit de symétries
+s\alpha0 s\alpha1 . . . s\alphan , avec \alphai \in \Delta. Quitte à remplacer w par un produit partiel de s\alphai , on
+peut supposer que w′ = s\alpha1 . . . s\alphan \in \(W\)\Delta′ . On a alors
+-1
+w(\alpha) - r = w′ (\alpha) - r - (w′          (\alpha^*0 ), \alpha)\alpha0 .
+-1
+Prenant \alpha = w′ (\alpha0 ), on trouve 2\alpha0 \in \(V\)′ , donc \alpha0 \in \Delta′ , donc enfin w = s\alpha0
+w′ \in \(W\)\Delta , contrairement à l'hypothèse.
+</div></div>
+<h3 id="XXI.3.5">3.5. Remarques diverses</h3>
+<div class="thm thm-plain proposition" id="XXI.3.5.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.5.1</span></div>
+  <div class="thm-body"><p>Soit \(R\)+ un système de racines positives. Notons
+<!-- p.1 -->
+\(X\)
+\rhoR+ =              \alpha.
+2
+\alpha\inind(\(R\)+ )
+^*
+Alors (\beta , \rhoR+ ) = 1 pour tout \beta \in \(S\) (\(R\)+ ).
+En effet, on peut écrire
+\(X\)
+2\rhoR+ = \beta +                  \alpha,
+\alpha\inind(\(R\)+ )
+\alpha6=\beta
+</div></div>
+<p>donc s\beta (2\rhoR+ ) = 2\rhoR+ - 2\beta, par 3.3.2.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.3.5.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.5.2</span></div>
+  <div class="thm-body"><p>Posons \rho^*\(R\)+ = 12 \alpha^* \inind(\(R\)^* ) \alpha^* . Alors&nbsp;:
+\(P\)
+113
++
+</div></div>
+<p>(i) (\rho^*\(R\)+ , \alpha) > 0 pour tout \alpha \in \(R\)+ (i.e. \rho^*\(R\)+ \in C (\(R\)+ ), cf. 3.6.8).
+(ii) Pour tout \alpha \in \(R\), on a ordS (\(R\)+ ) (\alpha) = (\rho^*\(R\)+ , \alpha).
+</p>
+<div class="thm thm-remark remarque" id="XXI.3.5.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.5.3</span></div>
+  <div class="thm-body"><p>Si w \in \(W\), on a \rhow(\(R\)+ ) = w(\rhoR+ ) et \rho^*w(\(R\)+ ) = w(\rho^*\(R\)+ ) .
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.3.5.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.5.4</span></div>
+  <div class="thm-body"><p>Soient \alpha et \gamma deux racines non proportionnelles, \alpha étant supposée
+indivisible. Il existe un système de racines simples contenant \alpha et une racine \beta telle
+que \gamma = a\alpha + b\beta, avec a, b \in N.
+En effet, construisons une base de l'espace vectoriel \(V\) (\(R\)) contenant \alpha1 = \alpha, \alpha2 =
+\gamma. Considérons l'ordre lexicographique par rapport à cette base. \(L\)'ensemble des racines
+> 0 étant noté \(R\)+ , il est clair que \(R\)+ est un système de racines positives et que les
+deux plus petits éléments de \(R\)+ sont simples. Or le plus petit est \alpha, le suivant est de
+la forme
+\beta = a\alpha + b\gamma,     0 < b \leqslant 1.
+</div></div>
+<p>On a donc \gamma = b-1 \beta - b-1 a\alpha et b-1 > 0, donc aussi -b-1 a > 0.
+Faisons enfin deux remarques sur le groupe \Gamma0 (\(R\)).
+</p>
+<div class="thm thm-plain proposition" id="XXI.3.5.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.5.5</span></div>
+  <div class="thm-body"><p>Soient \(G\) un groupe abélien et f&nbsp;: \(R\) \to \(G\) une application vérifiant
+les deux conditions suivantes&nbsp;:
+(i) Si \alpha \in \(R\), f (-\alpha) = -f (\alpha).
+(ii) Si \alpha, \beta, \alpha + \beta \in \(R\), f (\alpha + \beta) = f (\alpha) + f (\beta).
+Alors il existe un homomorphisme de groupes unique f&nbsp;: \Gamma0 (\(R\)) \to \(G\) tel que f (\alpha) =
+f (\alpha) pour \alpha \in \(R\).
+114
+\(P\) En effet, si \Delta est un système de racines simples de   \(P\) \(R\), et si \beta \in \(R\) s'écrit
+\alpha\in\Delta a(\alpha)\alpha, il résulte aussitôt de 3.2.16 que f (\beta) =  \alpha\in\Delta a(\alpha)f (\alpha). Or \Delta est
+une base de \Gamma0 (\(R\)).
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.3.5.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.5.6</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples. Il existe sur \Gamma0 (\(R\)) une
+structure de groupe totalement ordonné telle que les racines > 0 soient les éléments
+de \(P\)(\Delta) et que \alpha \mapsto ord\Delta (\alpha) soit une fonction croissante.
+Soient en effet \alpha1 , \alpha2 , . . . , \alphan (n = rgss(\(R\))), les éléments de \Delta. Pour \(x\) \in \Gamma0 (\(R\)),
+on a une décomposition
+Xn
+\(x\)=      mi (\(x\))\alphai .
+i=1
+\(P\)
+Il suffit de prendre l'ordre lexicographique relativement aux fonctions            mi , mn ,
+mn-1 , . . . , m2 .
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.5.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.5.7</span></div>
+  <div class="thm-body"><p>Les premières racines sont dans l'ordre&nbsp;:
+\alpha1 , \alpha2 , . . . , \alphan&nbsp;;
+on a ensuite (si ce sont des racines) 2\alpha1 , \alpha1 + \alpha2 , \alpha1 + \alpha3 , . . ..
+</div></div>
+<h3 id="XXI.3.6">3.6. Chambres de Weyl</h3>
+<div class="thm thm-plain lemme" id="XXI.3.6.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.6.1</span></div>
+  <div class="thm-body"><p>Soit \(V\) un \(R\)-espace vectoriel de dimension finie. Soient fi des formes
+linéaires indépendantes. Posons
+C = {\(x\) \in \(V\) | fi (\(x\)) > 0} .
+Alors C est une partie convexe maximale de \(X\) = \(V\) - i fi-1 (0).
+\(S\)
+</div></div>
+<p>Trivial.
+<!-- p.115 -->
+</p>
+<div class="thm thm-plain definition" id="XXI.3.6.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.6.2</span></div>
+  <div class="thm-body"><p>Une partie C de \(V\) pouvant se décrire par le procédé de 3.6.1 sera
+appelée (ici) une chambre de \(V\).
+</div></div>
+<div class="thm thm-plain definition" id="XXI.3.6.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.6.3</span></div>
+  <div class="thm-body"><p>On dit que l'hyperplan \(H\) de \(V\) est un mur de C si \(H\) \cap (C - C)
+contient une partie ouverte non vide de \(H\).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.3.6.4">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.6.4</span></div>
+  <div class="thm-body"><p>Pour une partie convexe, l'adhérence se décrit sans faire appel à la
+topologie de \(V\)&nbsp;: c'est l'ensemble des extrémités de tous les segments ouverts contenus
+dans la partie donnée.
+</div></div>
+<h2 id="XXI.3">3. RACINES SIMPLES, RACINES POSITIVES                           71</h2>
+<div class="thm thm-plain lemme" id="XXI.3.6.5">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.6.5</span></div>
+  <div class="thm-body"><p>Sous les conditions de 3.6.1, on a
+C = {\(x\) \in \(V\) | fi (\(x\)) \geqslant 0} .
+Les murs de C sont les plans fi-1 (0).
+</div></div>
+<p>\(S\) C'est
+-1
+clair pour la première assertion. La seconde résulte alors de ce que C - C \subset
+f
+i i   (0) et de ce que les fi-1 (0) sont évidemment des murs de C.
+</p>
+<div class="thm thm-plain proposition" id="XXI.3.6.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.6.6</span></div>
+  <div class="thm-body"><p>Soit C une chambre de \(V\). Si Hi , i = 1, 2, . . . n, sont les murs
+distincts de C, pour tout système de formes linéaires {ui } tel que Hi = u-1i (0), il
+existe des \epsiloni \in {-1, +1} tels que C soit définie par
+C = {\(x\) \in \(V\) | \epsiloni ui (\(x\)) > 0}.
+Pour tout mur \(H\) de C, on a \(H\) \cap C = \emptyset et \(H\) \cap C = CH , où CH est une chambre dans
+\(H\). Les murs de CHi sont les Hj \cap Hi , pour j 6= i.
+</div></div>
+<p>Cela résulte trivialement du lemme.
+</p>
+<div class="thm thm-plain definition" id="XXI.3.6.7">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.6.7</span></div>
+  <div class="thm-body"><p>Les CHi sont les faces de C.
+</div></div>
+<p>Soit maintenant \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* ) une donnée radicielle. On pose V\(R^*\) = \(M\)^* \otimes \(R\).
+</p>
+<div class="thm thm-plain definition" id="XXI.3.6.8">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.6.8</span></div>
+  <div class="thm-body"><p>Pour tout \alpha \in \(R\), on pose
+\(H\)\alpha = {\(x\) \in V\(R^*\) | (\(x\), \alpha) = 0}.
+On note \(X\) = V\(R^*\) -
+\(S\)
+\alpha\inR \(H\)\alpha . Pour tout \(x\) \in \(X\), on pose                                      116
+</div></div>
+<p>\(R\)+ (\(x\)) = {\alpha \in \(R\) | (\(x\), \alpha) > 0}.
+Pour tout système de racines positives \(R\)+ , on note
+C (\(R\)+ ) = {\(x\) \in V\(R^*\) | (\(x\), \alpha) > 0 pour tout \alpha \in \(R\)+ }.
+</p>
+<div class="thm thm-plain proposition" id="XXI.3.6.9">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.6.9</span></div>
+  <div class="thm-body"><p>(i) Pour tout \(x\) \in \(X\), \(R\)+ (\(x\)) est un système de racines positives.
+Pour tout système de racines positives \(R\)+ , C (\(R\)+ ) est une chambre dans V\(R^*\) . Les
+C (\(R\)+ ) sont les parties convexes maximales de \(X\).
+(ii) Soit \Delta un système de racines simples. On a
+C (\(P\)(\Delta)) = {\(x\) \in V\(R^*\) | (\(x\), \alpha) > 0        pour tout   \alpha \in \Delta}.
+-1
+Les murs de C (\(P\)(\Delta)) sont les plans \(H\)\alpha = \alpha           (0), pour \alpha \in \Delta&nbsp;; ses faces sont les
+C\alpha = {\(x\) \in V\(R^*\) | (\(x\), \alpha) = 0,     (\(x\), \beta) > 0    pour   \beta \in \Delta, \beta 6= \alpha}.
+(iii) On a l'équivalence
+\(R\)+ (\(x\)) = \(R\)+      ⇐\Rightarrow      \(x\) \in C (\(R\)+ ).
+</div></div>
+<p>Il est d'abord clair que \(R\)+ (\(x\)) est un système de racines positives. Comme \(x\) \in
+C (\(R\)+ (\(x\))), la réunion des C (\(R\)+ (\(x\))) est \(X\). La propriété (iii) est immédiate&nbsp;; il en
+résulte que les C (\(R\)+ ) forment une partition de \(X\). La première assertion de (ii) est
+</p>
+<p>évidente. Il en résulte aussitôt que C (\(R\)+ ) est une chambre dans \(V\), ce qui prouve le
+reste de (ii). Il ne reste qu'à remarquer que
+\(S\) -1          \(S\) -1
+\alpha (0) =        \alpha (0)
+\alpha\inR            \alpha\in\Delta
+</p>
+<p>pour achever la démonstration de (i) par 3.6.1.
+</p>
+<div class="thm thm-plain definition" id="XXI.3.6.10">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.6.10</span></div>
+  <div class="thm-body"><p>Les C (\(R\)+ ) sont appelées les chambres de Weyl de la donnée
+radicielle.
+</div></div>
+<!-- p.117 -->
+<div class="thm thm-plain corollaire" id="XXI.3.6.11">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.6.11</span></div>
+  <div class="thm-body"><p>Les applications \(R\)+ \mapsto C (\(R\)+ ) et C \mapsto \(R\)+ (\(x\)) pour un \(x\) \in C
+quelconque, réalisent une correspondance bijective entre systèmes de racines positives
+et chambres de Weyl.
+</div></div>
+<p>Cette correspondance est invariante par le groupe de Weyl&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXI.3.6.12">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.6.12</span></div>
+  <div class="thm-body"><p>Si w \in \(W\)(\(R\)), on a C (w(\(R\)+ )) = w(C (\(R\)+ )).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.3.6.13">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.6.13</span></div>
+  <div class="thm-body"><p>Les correspondances \Delta ↔ \(R\)+ ↔ C sont des isomorphismes
+d'espaces homogènes sous \(W\)(\(R\)).
+</div></div>
+<p>On verra plus loin que ces espaces homogènes sont principaux (5.5).
+</p>
+<div class="thm thm-remark remarque" id="XXI.3.6.14">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.6.14</span></div>
+  <div class="thm-body"><p>Si C est une chambre de Weyl, alors -C en est aussi une, dite
+l'opposée de C. Il existe donc un w0 \in \(W\) (et en fait un seul, cf. 5.5) tel que w0 (C) =
+-C, on l'appelle la symétrie de la donnée radicielle relativement à la chambre de Weyl
+C (ou à \(P\)(C) ou à \(S\) (\(P\)(C)) . . .).
+</div></div>
+<h2 id="XXI.4">4. Données radicielles réduites de rang semi-simple 2</h2>
+<p>Soit \(R\) une donnée radicielle de rang semi-simple 2. Soit {\alpha, \beta} un système de ra-
+cines simples. Supposons ℓ(\alpha) \leqslant ℓ(\beta). On a alors par 2.3.1 et 3.2.1 quatre possibilités&nbsp;:
+Type      ℓ(\beta)/ℓ(\alpha)   ℓ(\beta ^* )/ℓ(\alpha^* )   (\beta ^* , \alpha)   (\alpha^* , \beta)
+A1 + A1         -             -              0           0
+A2           1             1            -1          -1
+B2           2            1/2           -1          -2
+G2           3            1/3           -1          -3
+<!-- p.118 -->
+Il résulte alors de 3.4.5 que l'ordre de s\alpha s\beta est respectivement 2, 3, 4, 6.
+Étudions séparément chacun de ces systèmes et donnons la liste des racines indi-
+visibles.
+Type A1 +A1 . Les racines indivisibles sont \alpha, \beta, -\alpha, -\beta. Les coracines correspondantes
+sont \alpha^* , \beta ^* , -\alpha^* , -\beta ^* .
+Type A2 . Les racines indivisibles sont comme suit&nbsp;:
+</p>
+<!-- p.73 -->
+<p>racine \gamma              \alpha         \beta                   \alpha+\beta
+ℓ(\gamma)/ℓ(\alpha)              1         1                       1
+^*              ^*         ^*
+coracine \gamma                 \alpha        \beta                \alpha + \beta^*
+^*
+</p>
+<p>ℓ(\gamma ^* )/ℓ(\beta ^* )            1         1                       1
+La demi-somme des racines indivisibles positives est \rho = \alpha + \beta.
+</p>
+<p>Type B2 . Les racines indivisibles sont les suivantes&nbsp;:
+</p>
+<p>racine \gamma             \alpha           \beta             \alpha+\beta                         2\alpha + \beta
+ℓ(\gamma)/ℓ(\alpha)             1          2                     1                           2
+^*        ^*              ^*             ^*           ^*
+coracine \gamma             \alpha           \beta        2\alpha + \beta                           \alpha + \beta^*
+^*
+</p>
+<p>ℓ(\gamma ^* )/ℓ(\beta ^* )         2          1                     2                           1
+</p>
+<p>Type G2 . Les racines indivisibles sont les suivantes&nbsp;:
+</p>
+<p>racine \gamma         \alpha          \beta       \alpha+\beta              2\alpha + \beta                   3\alpha + \beta              3\alpha + 2\beta
+ℓ(\gamma)/ℓ(\alpha)         1          3           1                 1                           3                3
+^*      ^*         ^*       ^*       ^*         ^*               ^*           ^*           ^*
+coracine \gamma        \alpha       \beta       \alpha + 3\beta              2\alpha + 3\beta                   \alpha +\beta                \alpha + 2\beta ^*
+^*
+</p>
+<p>ℓ(\gamma ^* )/ℓ(\beta ^* )    3          1           3                 3                           1                1
+La demi-somme des racines indivisibles positives est \rho = 5\alpha + 3\beta.                                                          119
+</p>
+<div class="thm thm-plain proposition" id="XXI.4.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.1</span></div>
+  <div class="thm-body"><p>Soit n l'ordre de s\alpha s\beta . Posons u0 = 0 et, pour p \in \(Z\)+ ,
+(
+u2p+1 = u2p + (s\alpha s\beta )p (\alpha)&nbsp;;
+u2p+2 = u2p+1 + (s\alpha s\beta )p s\alpha (\beta).
+</div></div>
+<p>Alors&nbsp;:
+(i) uk+2n = uk ,           \(k\) \in \(Z\)+
+(ii) u0 = 0, u1 = \alpha, u2n-1 = \beta, u2n = 0.
+(iii) Si 1 < \(k\) < 2n - 1, on a uk = ak \alpha + bk \beta,                                ak , bk \in N.
+</p>
+<p>\(L\)'assertion (i) résulte aussitôt de (s\alpha s\beta )n = 1 et u2n = 0. Prouvons (ii) et (iii). Le
+calcul donne aussitôt dans les quatre cas les suites de valeurs&nbsp;:
+</p>
+<p>Type A1 + A1&nbsp;: 0, \alpha, \alpha + \beta, \beta, 0.
+Type A2&nbsp;: 0, \alpha, 2\alpha + \beta, 2\alpha + 2\beta, \alpha + 2\beta, \beta, 0.
+Type B2&nbsp;: 0, \alpha, 2\alpha + \beta, 3\alpha + 3\beta, 3\alpha + 4\beta, 2\alpha + 4\beta, \alpha + 3\beta, \beta, 0.
+Type G2&nbsp;: 0, \alpha, 2\alpha + \beta, 4\alpha + 4\beta, 5\alpha + 6\beta, 6\alpha + 9\beta, 6\alpha + 10\beta,
+5\alpha + 10\beta, 4\alpha + 9\beta, 2\alpha + 6\beta, \alpha + 4\beta, \beta, 0.
+</p>
+<div class="thm thm-plain lemme" id="XXI.4.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">4.2</span></div>
+  <div class="thm-body"><p>(^*) Posons w2p = (s\beta s\alpha )p , w2p+1 = s\alpha (s\beta s\alpha )p , de telle sorte que les
+<!-- p.120 -->
+wi , i = 0, . . . , 2n - 1, sont les éléments distincts de \(W\). Soit u \in \(V\)^* . On a
+wk (u) - u = nk \alpha^* + mk \beta ^* ,           nk , mk \in Q,
+avec nk + mk = -(u, uk ).
+La démonstration se fait par récurrence sur \(k\). Si \(k\) = 0, la formule est trivialement
+vérifiée. Effectuons par exemple le passage de w2p à w2p+1 . On a w2p+1 = s\alpha w2p , d'où
+w2p+1 (\(x\))-\(x\) = s\alpha w2p (\(x\))-w2p (\(x\))+w2p (\(x\))-\(x\) = -(w2p (\(x\)), \alpha) \alpha^* +n2p \alpha^* +m2p \beta ^* .
+D'où
+n2p+1 + m2p+1 = n2p + m2p - ((s\beta s\alpha )p (\(x\)), \alpha)
+= -(\(x\), u2p ) - (\(x\), (s\alpha s\beta )p (\alpha)) = -(\(x\), u2p+1 ).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.4.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.3</span></div>
+  <div class="thm-body"><p>Si (u, \alpha) \geqslant 0, (u, \beta) \geqslant 0, et si on pose
+w(u) - u = aw r + bw s,
+on a aw + bw \geqslant 0. Si de plus (u, \alpha) > 0 (resp. (u, s) > 0), aw + bw > 0 pour w 6= 1,
+s\beta (resp. w 6= 1, s\alpha ).
+Cela résulte aussitôt de 4.1 et 4.2.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.4.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.4</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle quelconque et soit \Delta un système de
+racines simples. Soient \gamma une racine positive, \alpha et \beta deux racines simples. Si
+ord\Delta (s\alpha (\gamma)) < ord\Delta (\gamma),             ord\Delta (s\beta (\gamma)) \leqslant ord\Delta (\gamma),
+<!-- p.121 -->
+alors ord\Delta (w(\gamma)) \leqslant ord\Delta (\gamma) pour tout w \in \(W\)\alpha,\beta (sous-groupe de \(W\) engendré par s\alpha
+et s\beta ) et ord\Delta (w(\gamma)) < ordS (\gamma) pour tout w \in \(W\)\alpha \beta , w 6= 1, w 6= s\beta .
+En effet, considérons la donnée radicielle duale \(R\) ^* , puis la donnée (\(M\)^* , \(M\), \(R\)′^* , \(R\)′ ),
+où \(R\)′ est l'ensemble des racines combinaisons linéaires rationnelles de \alpha et de \beta.
+Appliquant 4.3 à cette donnée, on trouve le corollaire annoncé.
+</div></div>
+<h2 id="XXI.5">5. Le groupe de Weyl&nbsp;: générateurs et relations</h2>
+<p>Soit \(R\) une donnée radicielle. Comme le groupe de Weyl est le même pour cette
+donnée et pour la donnée réduite correspondante, on peut la supposer réduite pour
+étudier le groupe de Weyl.
+Soit \Delta un système de racines simples dont les éléments seront notés
+\alpha1 , \alpha2 , . . . \alphan , n = rgss(\(R\)). Soit nij l'ordre de l'élément s\alphai s\alphaj de \(W\). En particu-
+lier, on a nii = 1 et on a vu en 3.4.2 et 3.4.3 que le sous-groupe Wij de \(W\) engendré
+par s\alphai et s\alphaj était défini par les relations&nbsp;:
+s2\alphai = s2\alphaj = (s\alphai s\alphaj )nij = 1.
+</p>
+<p>(^*) Les lemmes suivants 4.2 et 4.4 sont utilisés dans la démonstration de 5.1. Il \(y\) a actuellement des
+</p>
+<p>démonstrations plus simples de 5.1 (voir Bourbaki, Groupes et algèbres de Lie, Ch. IV).
+</p>
+<h2 id="XXI.5">5. LE GROUPE DE WEYL&nbsp;: GÉNÉRATEURS ET RELATIONS                       75</h2>
+<div class="thm thm-plain theoreme" id="XXI.5.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">5.1</span></div>
+  <div class="thm-body"><p>Le groupe \(W\) est le groupe engendré par les éléments s\alphai , i =
+1, 2, . . . n, soumis aux relations (s\alphai s\alphaj )nij = 1.
+Nous avons déjà vu que le théorème est vrai lorsque n = 2&nbsp;; nous nous servirons de
+cette remarque dans le cours de la démonstration. Introduisons le groupe \(W\) engendré
+par des éléments Ti , i = 1, 2, . . . , n, soumis aux relations (Ti Tj )nij = 1. On a en    122
+particulier nii = 1, d'où T2i = 1. Soit p&nbsp;: \(W\) \to \(W\) le morphisme de groupes qui envoie
+Ti sur s\alphai . On sait que p est surjectif, on va montrer qu'il est injectif.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.5.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">5.2</span></div>
+  <div class="thm-body"><p>On peut définir de manière unique pour chaque \alpha \in \(P\)(\Delta) un élément
+\(T\)\alpha \in \(W\) de telle manière que l'on ait les propriétés suivantes&nbsp;:
+(i) p(\(T\)\alpha ) = s\alpha ,
+(ii) \(T\)\alphai = Ti ,
+(iii) si \beta et \alpha sont deux racines positives telles que s\alphai (\alpha) = \beta, alors Ti \(T\)\alpha Ti = \(T\)\beta .
+Remarquons d'abord qu'il résulte de 1.2.10 et 3.3.6 que (i) est une conséquence
+de (ii) et (iii) et que (ii) et (iii) déterminent parfaitement les \(T\)\alpha . Nous allons faire
+la construction par récurrence sur ord\Delta (\alpha). Si ord\Delta (\alpha) = 1, alors \alpha \in \Delta et on pose
+\(T\)\alpha = Ti si \alpha = \alphai . Considérons l'hypothèse&nbsp;:
+(Hp ) il existe des \(T\)\alpha , pour \alpha \in \(P\)(\Delta), ord\Delta (\alpha) \leqslant p, vérifiant (ii) et la
+condition (iii) chaque fois que ord\Delta (\alpha) \leqslant p, ord\Delta (\beta) \leqslant p.
+Celle-ci est vérifiée pour p = 1&nbsp;: en effet si \alpha et s\alphai (\alpha) = \beta sont simples, \alphai et \alpha
+sont orthogonales, \beta = \alpha = \alphaj , ce qui donne
+Ti Tj Ti = Ti ,
+par nij = 2.
+Supposons (Hp-1 ) vérifiée.
+A) Construction des \(T\)\alpha pour ord\Delta (\alpha) \leqslant p. Il suffit évidemment de le faire pour           123
+ord\Delta (\alpha) = p. Il existe alors \alphai \in \Delta, avec s\alphai (\alpha) \in \(P\)(\Delta), ord\Delta (s\alphai (\alpha)) < p (3.3.3).
+On posera alors
+(⋆)                                \(T\)\alpha = Ti Ts\alphai (\alpha) Ti .
+Vérifions que \(T\)\alpha ne dépend que de \alpha. Soit donc \alphaj \in \Delta avec s\alphaj (\alpha) \in \(P\)(\Delta) et
+ord\Delta (s\alphaj (\alpha)) < p. Prouvons que
+(+)                           Ti Ts\alphai (\alpha) Ti = Tj Ts\alphaj (\alpha) Tj .
+Distinguons deux cas.
+<div class="displaymath" id="eq-XXI-1)">
+\[ Supposons \alpha combinaison linéaire de \alphai et de \alphaj . Il en est alors de même de \]
+</div>
+s\alphai (\alpha) et s\alphaj (\alpha) et par (Hp-1 ), Ts\alphai (\alpha) et Ts\alphaj (\alpha) s'écrivent comme des mots en Ti
+et Tj . Comme la projection de (+) dans \(W\) est vérifiée et que le théorème est vrai
+pour n = 2, donc que p est injectif sur le sous-groupe de \(W\) engendré par Ti et Tj ,
+(+) est bien vérifiée.
+<div class="displaymath" id="eq-XXI-2)">
+\[ Supposons \alpha non combinaison linéaire de \alphai et de \alphaj . Alors si w \in \(W\)\alphai \alphaj , les \]
+</div>
+w(\alpha) seront tous positifs (cf. 3.4.9). La relation à vérifier s'écrit aussi
+</div></div>
+<p>(++)                   (Ti Tj )nij -1 Ts\alphai (\alpha) (Tj Ti )nij -1 = Ts\alphaj (\alpha) .
+Or il résulte de 4.4 que les w(\alpha) sont tous d'ordre < p pour w \in \(W\)\alphai \alphaj , w 6= 1. On
+peut donc appliquer 2(nij - 1) fois l'hypothèse (Hp-1 ) et on a terminé.
+<!-- p.124 -->
+\(B\)) Vérification de (Hp ). Il ne reste plus qu'à vérifier l'assertion suivante&nbsp;: si
+ord\Delta (\alpha) = p, ord\Delta (s\alphai (\alpha)) < p, ord\Delta (s\alphaj (\alpha)) = p, on a
+(+++)                        Tj Ti Ts\alphai (\alpha) Ti Tj = Ti Ts\alphai (\alpha) Ti .
+Cela se fait exactement comme précédemment.
+</p>
+<div class="thm thm-plain lemme" id="XXI.5.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">5.3</span></div>
+  <div class="thm-body"><p>Soit h \in \(W\). Écrivons-le
+h = Ti1 · · · Tip · · · Tim
+de telle manière que m soit minimum. Alors
+p(h)(\alpham ) \in -\(P\)(\Delta).
+En effet, comme h(Tim )(\alphamm ) = s\alpham (\alpham ) = -\alpham , si p(h)(\alpham ) était positif, il
+existerait un \(k\), 1 \leqslant \(k\) \leqslant m - 1 avec
+u = s\alphak+1 · · · s\alpham (\alpham ) = -s\alphak+1 · · · s\alpham-1 (\alpham ) \in -\(P\)(\Delta),           s\alphak (u) \in \(P\)(\Delta).
+Mais alors on a nécessairement u = -\alphak (3.3.1), d'où
+s\alphak+1 . . . s\alpham-1 (\alpham ) = \alphak ,
+ce qui entraı̂ne par (iii)
+Tk Tk+1 · · · Tm-1 Tm = Tk+1 · · · Tm-1 ,
+et contredit le caractère minimal de m.
+<!-- p.125 -->
+Soit maintenant h \in \(W\) avec p(h)(\(P\)(\Delta)) \subset \(P\)(\Delta). Par le lemme 5.3, on a p(h) = 1,
+ce qui démontre le théorème 5.1 et en outre le
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.5.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.4</span></div>
+  <div class="thm-body"><p>Si \(R\)+ est un système de racines positives et si w \in \(W\) est tel que
+w(\(R\)+ ) = \(R\)+ , alors w = 1.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.5.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.5</span></div>
+  <div class="thm-body"><p>Le groupe de Weyl opère librement et transitivement dans l'ensemble
+des système de racines positives (resp. des systèmes de racines simples, resp. des
+chambres de Weyl, resp. . .).
+Choisissons maintenant un système de racines simples \Delta. Posons \(R\)+ = \(P\)(\Delta).
+Pour tout couple de racines simples (\alpha, \beta) \in \Delta \times \Delta, notons \(R\)\alpha,\beta l'ensemble des
+racines combinaison linéaire de \alpha et \beta. Notons \(R\)+          +
+\alpha,\beta = \(R\) \cap \(R\)\alpha,\beta et soit \(W\)\alpha,\beta le
+groupe de Weyl de \(R\)\alpha,\beta , c'est-à-dire le sous-groupe de \(W\) engendré par s\alpha et s\beta .
+Théorème 5.6 (Tits). — Soient \alpha et \beta deux racines simples et soit w \in \(W\) tel que
+w(\alpha) = \beta. Il existe une suite de racines simples \alpha0 , . . . , \alpham et une suite w0 , . . . , wm-1
+d'éléments de \(W\) vérifiant les conditions suivantes&nbsp;:
+(i) On a \alpha0 = \alpha, \alpham = \beta.
+(ii) On a w = wm-1 wm-2 · · · w0 .
+</div></div>
+<!-- p.77 -->
+<p>(iii) On a wi (\alphai ) = \alphai+1 , pour 0 \leqslant i \leqslant m - 1.
+(iv) Pour tout i, 0 \leqslant i \leqslant m - 1, tel que \alphai 6= \alphai+1 , on a wi \in \(W\)\alphai ,\alphai+1 .
+(v) Pour tout i, 0 \leqslant 1 \leqslant m - 1, tel que \alphai = \alphai+1 , il existe une racine simple \betai
+telle que wi \in \(W\)\alphai ,\betai .
+Posons \(M\)(w) = Card(\(P\) \cap w-1 (-\(P\))). Si \(M\)(w) = 0, alors w = 1 par 5.4 et le                    126
+théorème est trivial (m = 0, les assertions (iii) à (v) sont vides). Raisonnons par
+récurrence sur \(M\)(w). Si \(M\)(w) > 0, il existe \beta0 \in \(S\) avec w(\beta0 ) \in \(P\). Posons \alpha0 = \alpha.
+Considérons l'ensemble
+A = w-1 (\(P\)) \cap \(R\)\alpha0 \beta0 .
+C'est un système de racines positives de \(R\)\alpha0 \beta0 . Il existe donc w0 \in \(W\)\alpha0 \beta0 avec
+w0-1 (\(P\)\alpha0 \beta0 ) = A.
+Posons w′ = ww0-1 . Par 3.4.9, on a aussitôt
+\(P\) - \(P\)\alpha0 \beta0 = w0 (\(P\) - \(P\)\alpha0 \beta0 ),
+d'où
+w-1 (-\(P\)) = (\(P\) - \(P\)\alpha0 \beta0 )       w′-1 (-\(P\)).
+\(T\)                              \(T\)
+(\(P\) - \(P\)\alpha0 \beta0 )
+D'autre part
+\(P\)\alpha0 \beta0 \cap w′-1 (-\(P\)) = \(P\)\alpha0 \beta0 \cap w0 (-A) = \(P\)\alpha0 \beta0 \cap -\(P\)\alpha0 \beta0 = \emptyset,
+tandis que
+\beta0 \in \(P\)\alpha0 \beta0 \cap w-1 (-\(P\)).
+On a donc prouvé que \(M\)(w′ ) < \(M\)(w). Posons \alphai = w0 (\alpha0 ), montrons que \alpha1 \in \(S\),
+c'est-à-dire \alpha0 \in w0-1 (\(S\)). On sait que w(\alpha0 ) \in \(S\), donc que \alpha0 \in w-1 (\(S\)), donc aussi
+que \alpha0 \in w-1 (\(S\))\capR\alpha0 \beta0 , donc que \alpha0 est une racine simple de A = w0-1 (\(P\)\alpha0 \beta0 ), donc
+appartient à w0-1 (\(S\) \cap \(P\)\alpha0 \beta0 ) \in w0-1 (\(S\)) (voir 3.4.8). On sait donc que \alpha1 est simple et
+\in \(R\)\alpha0 \beta0 . Si \alpha0 6= \alpha1 , on a donc \beta0 = \alpha1 . On a \beta = w′ (\alpha1 ), avec \(M\)(w′ ) < \(M\)(w) et on
+conclut par récurrence.
+</p>
+<h2 id="XXI.6">6. Morphismes de données radicielles</h2>
+<p>127
+</p>
+<h3 id="XXI.6.1">6.1. Définition. — Soient \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)) et \(R\) ′ = (\(M\)′ , \(M\)′^* , \(R\)′ , \(R\)′^* ) deux données</h3>
+<p>radicielles. Soit f&nbsp;: \(M\)′ \to \(M\) une application linéaire et t f&nbsp;: \(M\)^* \to \(M\)′^* l'application
+transposée.
+</p>
+<div class="thm thm-plain definition" id="XXI.6.1.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.1.1</span></div>
+  <div class="thm-body"><p>On dit que f est un morphisme de \(R\) ′ dans \(R\) et on note
+f&nbsp;: \(R\) ′ \to \(R\), si f induit une bijection de \(R\)′ sur \(R\) et t f une bijection de \(R\)^* sur
+\(R\)′^* .
+Alors t f est un morphisme des données radicielles duales&nbsp;:
+t
+f&nbsp;: \(R\) ^* -\to \(R\) ′^* .
+On voit facilement que si f est un morphisme de \(R\) ′ dans \(R\), et si on note \alpha = f (\alpha′ )
+pour \alpha′ \in \(R\)′ , on a \alpha′^* = t f (\alpha^* ). En effet, on voit immédiatement que si on note p et
+p′ les applications de 1.2.1 respectives à \(R\) et \(R\) ′ , on a p′ = t f \circ p \circ f , et l'assertion
+</div></div>
+<p>cherchée en résulte aussitôt. Nous laissons au lecteur le soin de démontrer les énoncés
+qui suivent et qui sont presque tous triviaux.
+</p>
+<div class="thm thm-plain proposition" id="XXI.6.1.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.1.2</span></div>
+  <div class="thm-body"><p>Soit f&nbsp;: \(R\) ′ \to \(R\) un morphisme de données radicielles. Si \alpha′ \in \(R\)′
+et \alpha = f (\alpha′ ), alors \alpha′^* = t f (\alpha^* ). De plus, f induit des isomorphismes&nbsp;:
+∼                   ∼                          ∼
+\(R\)′ -\to \(R\),         \Gamma0 (\(R\)′ ) -\to \Gamma0 (\(R\)),        \(V\) (\(R\)′ ) -\to \(V\) (\(R\)),
+t
+f induit des isomorphismes&nbsp;:
+∼                      ∼                               ∼
+\(R\)^* -\to \(R\)′^* ,       \Gamma0 (\(R\)^* ) -\to \Gamma0 (\(R\)′^* ),       \(V\) (\(R\)^* ) -\to \(V\) (\(R\)′^* ),
+<!-- p.128 -->
+le dernier étant le transposé du morphisme correspondant induit par f . \(L\)'application
+∼
+s\alpha′ \mapsto sf (\alpha′ ) se prolonge en un isomorphisme \(W\)(\(R\) ′ ) -\to \(W\)(\(R\)) compatible avec les
+opérations de ces deux groupes dans les ensembles de 1.1.13.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.1.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.1.3</span></div>
+  <div class="thm-body"><p>Les applications
+\Delta′ \mapsto f (\Delta′ ),      \(R\)′+ \mapsto f (\(R\)′+ ),       C′ \mapsto (t f \otimes Q)-1 (C′ )
+définissent des correspondances bijectives entre systèmes de racines simples, systèmes
+de racines positives et chambres de Weyl pour \(R\) ′ et \(R\). Ces correspondances sont
+compatibles avec l'action des groupes de Weyl et avec les correspondances
+\(S\) (\(R\)+ ) ↔ \(R\)+ ↔ C (\(R\)+ ).
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.1.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.1.4</span></div>
+  <div class="thm-body"><p>Les morphismes se composent. Pour que le morphisme f&nbsp;: \(R\) ′ \to \(R\)
+soit un isomorphisme, il faut et il suffit que f&nbsp;: \(M\)′ \to \(M\) soit bijectif.
+</div></div>
+<h3 id="XXI.6.2">6.2. Isogénies</h3>
+<div class="thm thm-plain definition" id="XXI.6.2.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.2.1</span></div>
+  <div class="thm-body"><p>Un morphisme f&nbsp;: \(R\) ′ \to \(R\) de données radicielles est dit une
+isogénie si f&nbsp;: \(M\)′ \to \(M\) est injectif de conoyau fini.
+</div></div>
+<p>Si f est une isogénie, alors t f est une isogénie.
+f
+</p>
+<div class="thm thm-plain definition" id="XXI.6.2.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.2.2</span></div>
+  <div class="thm-body"><p>Soit f&nbsp;: \(R\) ′ \to \(R\) une isogénie. On pose \(K\)(f ) = Coker(\(M\)′ -
+\to \(M\)).
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.2.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.2.3</span></div>
+  <div class="thm-body"><p>On a un accouplement naturel
+\(K\)(f ) \times \(K\)(t f ) \to Q/\(Z\),
+qui met ces deux groupes finis en dualité.
+</div></div>
+<p>C'est classique.
+</p>
+<!-- p.129 -->
+<div class="thm thm-plain lemme" id="XXI.6.2.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.2.4</span></div>
+  <div class="thm-body"><p>Si f&nbsp;: \(R\) ′ \to \(R\) est un morphisme, alors rgss(\(R\) ′ ) = rgss(\(R\)). Si de
+plus f est une isogénie, on a aussi rgred(\(R\) ′ ) = rgred(\(R\)).
+</div></div>
+<p>Trivial.
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.2.5">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.2.5</span></div>
+  <div class="thm-body"><p>Tout morphisme de données radicielles semi-simples est une isogénie.
+</div></div>
+<!-- p.79 -->
+<p>Cela résulte aussitôt du fait que f doit induire un isomorphisme de \(V\)′ = \(V\) (\(R\)′ )
+sur \(V\) = \(V\) (\(R\)).
+Si \(R\) ′ et \(R\) sont semi-simples, toute isogénie f&nbsp;: \(R\) ′ \to \(R\) définit un diagramme
+commutatif&nbsp;:
+∼
+\Gamma0 (\(R\)′ )         / \Gamma0 (\(R\))
+_                _
+</p>
+<p>                 
+     f
+\(M\)′              / \(M\).
+Si \(M\) = \Gamma0 (\(R\)), alors f est nécessairement un isomorphisme.
+</p>
+<div class="thm thm-plain definition" id="XXI.6.2.6">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.2.6</span></div>
+  <div class="thm-body"><p>Une donnée radicielle est dite adjointe (resp. simplement connexe)
+si \(M\) = \Gamma0 (\(R\)), resp. \(M\)^* = \Gamma0 (\(R\)^* ).
+Une donnée radicielle adjointe ou simplement connexe est donc semi-simple. \(R\) est
+adjointe (resp. s. connexe) si et seulement si \(R\) ^* est s. connexe (resp. adjointe). En
+vertu du résultat précédent, on a&nbsp;:
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.2.7">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.2.7</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle semi-simple. Les conditions sui-
+vantes sont équivalentes&nbsp;:
+(i) \(R\) est adjointe (resp. simplement connexe).
+(ii) Toute isogénie \(R\) ′ \to \(R\) (resp. \(R\) \to \(R\) ′ ) est un isomorphisme.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.2.8">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.2.8</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle adjointe (resp. simplement con-
+nexe). Toute racine (resp. coracine) indivisible est un élément indivisible de \(M\) (resp.
+de \(M\)^* ).
+En effet, toute racine indivisible fait partie d'une base de \Gamma0 (\(R\)), par 3.3.5.           130
+</div></div>
+<h3 id="XXI.6.3">6.3. Radical et coradical</h3>
+<p>Soit \(R\) une donnée radicielle. Posons
+N = {\(x\) \in \(M\) | (\alpha^* , \(x\)) = 0 pour tout \alpha^* \in \(R\)^* };
+N^* = {\(M\)^* /\(V\) (\(R\)^* ) \cap \(M\)^* }.
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.3.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.3.1</span></div>
+  <div class="thm-body"><p>Considérons les morphismes canoniques&nbsp;:
+N -\to \(M\),            \(M\)^* -\to N^* .
+Ils sont transposés l'un de l'autre et N^* s'identifie au dual de N.
+C'est immédiat, compte tenu de 1.2.5.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.6.3.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.3.2</span></div>
+  <div class="thm-body"><p>On appelle coradical de \(R\) et on note corad(\(R\)) la donnée radicielle
+triviale
+corad(\(R\)) = (N, N^* , \emptyset, \emptyset).
+Si on pose \(R\) 0 = (\(M\), \(M\)^* , \emptyset, \emptyset) (c'est une donnée radicielle triviale), on a donc un
+morphisme
+corad(\(R\)) -\to \(R\) 0 .
+</div></div>
+<div class="thm thm-plain definition" id="XXI.6.3.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.3.3</span></div>
+  <div class="thm-body"><p>On appelle radical de \(R\) et on note rad(\(R\)) la donnée radicielle
+triviale&nbsp;:
+rad(\(R\)) = corad(\(R\) ^* )^* .
+On a donc un diagramme
+corad(\(R\))                    / rad(\(R\))
+❋❋                       =
+❋❋                   ③③
+❋❋              ③③③
+❋❋          ③③
+❋"      ③③
+R0            ,
+</div></div>
+<!-- p.131 -->
+<p>dont le transposé est le diagramme correspondant pour \(R\) ^* .
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.3.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.3.4</span></div>
+  <div class="thm-body"><p>Le morphisme canonique u&nbsp;: corad(\(R\)) \to rad(\(R\)) est une isogénie.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.6.3.5">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.3.5</span></div>
+  <div class="thm-body"><p>On pose N(\(R\)) = \(K\)(u) = \(M\) (\(V\) (\(R\)) \cap \(M\)) + \alpha\inR Ker(\alpha^* ) . On
+             \(T\)             
+</div></div>
+<p>a alors un accouplement canonique
+N(\(R\)) \times N(\(R\) ^* ) -\to Q/\(Z\).
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.3.6">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.3.6</span></div>
+  <div class="thm-body"><p>On a rgred(rad(\(R\))) = rgred(corad(\(R\))) = rgred(\(R\)) - rgss(\(R\)), et
+les conditions suivantes sont équivalentes&nbsp;:
+(i) \(R\) est semi-simple,
+(ii) rad(\(R\)) = 0,
+(iii) corad(\(R\)) = 0.
+</div></div>
+<h3 id="XXI.6.4">6.4. Produits de données radicielles</h3>
+<div class="thm thm-plain definition" id="XXI.6.4.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.4.1</span></div>
+  <div class="thm-body"><p>Soient \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* ) et \(R\) ′ = (\(M\)′ , \(M\)′^* , \(R\)′ , \(R\)′^* ) deux
+données radicielles. On appelle donnée radicielle produit de \(R\) et de \(R\) ′ et on
+note \(R\) ′′ = \(R\) \times \(R\) ′ la donnée radicielle (\(M\)′′ , \(M\)′′^* , \(R\)′′ , \(R\)′′^* ) où \(M\)′′ = \(M\) \times \(M\)′ ,
+\(M\)′′^* = \(M\)^* \times \(M\)′^* , \(R\)′′ = \(R\) \times 0 \cup 0 \times \(R\)′ , \(R\)′′^* = \(R\)^* \cup \(R\)′^* (on considère \(R\)′′ \subset \(M\)′′
+et \(R\)′′^* \subset \(M\)′′^* de la manière évidente,. . .),l'application \alpha \mapsto \alpha^* étant l'application
+évidente.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.4.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.4.2</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes on a des isomorphismes cano-
+niques
+\Gamma0 (\(R\)′′ ) \simeq \Gamma0 (\(R\)) \times \Gamma0 (\(R\)′ ),          \(V\) (\(R\)′′ ) \simeq \(V\) (\(R\)) \times \(V\) (\(R\)′ ),
+\(W\)(\(R\) ′′ ) \simeq \(W\)(\(R\)) \times \(W\)(\(R\) ′ ),
+<!-- p.132 -->
+etc..., et des relations
+rgred(\(R\) ′′ ) = rgred(\(R\)) + rgred(\(R\) ′ ),          rgss(\(R\) ′′ ) = rgss(\(R\)) + rgss(\(R\) ′ ).
+On a également un isomorphisme canonique de données radicielles
+(\(R\) \times \(R\) ′ )^* \simeq \(R\) ^* \times \(R\) ′^* .
+Les définitions précédentes se généralisent aussitôt à un produit de plusieurs fac-
+teurs. On a aussitôt&nbsp;:
+</div></div>
+<!-- p.81 -->
+<div class="thm thm-plain proposition" id="XXI.6.4.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.4.3</span></div>
+  <div class="thm-body"><p>Soit \(R\) = R1 \times R2 \times · · · \times Rn un produit de données radicielles.
+Les conditions suivantes sont équivalentes&nbsp;:
+(i) \(R\) est semi-simple (resp. simplement connexe, resp. adjointe, resp. réduite).
+(ii) Chaque Ri est semi-simple (resp. simplement connexe, resp. adjointe, resp. ré-
+duite).
+Considérons le cas particulier suivant&nbsp;: soit R0 une donnée radicielle triviale et R1
+une donnée radicielle semi-simple. On a alors un diagramme commutatif
+R0< \times \(R\)❊❊1
+③③③       ❊❊
+③            ❊❊
+③③③               ❊❊
+③        id
+"
+R1                     / R1 .
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.4.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.4.4</span></div>
+  <div class="thm-body"><p>On a des isomorphismes canoniques
+∼        / rad(R0 \times R1 )
+corad(R0 \times R1 )
+❋❋
+❋❋                           ③<
+❋❋                      ③③③
+❋❋                   ③
+\simeq ❋❋                ③③
+❋❋          ③③③ \simeq
+❋"      ③③
+R0                .
+</div></div>
+<p>En particulier, N(R0 \times R1 ) = 0.
+Nous verrons plus tard que si réciproquement N(\(R\)) = 0, alors la donnée radicielle
+\(R\) est produit d'une donnée semi-simple par une donnée triviale.
+</p>
+<h3 id="XXI.6.5">6.5. Données radicielles induites et coinduites                                                 133</h3>
+<p>Soit \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* ) une donnée radicielle. Soit N \subset \(M\) un sous-groupe conte-
+nant les racines, i.e. , soit
+\Gamma0 (\(R\)) \subset N \subset \(M\).
+\(L\)'application linéaire canonique iN&nbsp;: N \to \(M\) donne par transposition une application
+linéaire
+t
+iN&nbsp;: \(M\)^* -\to N^* .
+Posons RN = \(R\) et \(R\)^*N = t iN (\(R\)^* ).
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.5.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.5.1</span></div>
+  <div class="thm-body"><p>RN = (N, N^* , RN , \(R\)^*N ) est une donnée radicielle, et iN un mor-
+phisme.
+Montrons d'abord que t iN induit un isomorphisme de \(R\)^* sur \(R\)^*N . Si \alpha, \beta \in \(R\) et
+t
+iN (\alpha^* ) = t iN (\beta ^* ), on a (\alpha^* , \(x\)) = (\beta ^* , \(x\)) pour tout \(x\) \in N, en particulier pour \(x\) \in \(R\),
+ce qui donne \alpha = \beta par 1.1.4. Le reste s'en déduit sans difficultés.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.6.5.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.5.2</span></div>
+  <div class="thm-body"><p>RN est dite la donnée radicielle induite par \(R\) sur N.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.5.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.5.3</span></div>
+  <div class="thm-body"><p>Soit f&nbsp;: \(R\) ′ \to \(R\) un morphisme. Posons N = f (\(M\)′ ) \subset \(M\). Alors f
+se factorise de manière unique par iN .
+</div></div>
+<p>En particulier, les isogénies \(R\) ′ \to \(R\), à isomorphisme près, correspondent biunivo-
+quement aux sous-groupes d'indice fini de \(M\)/\Gamma0 (\(R\)), ce qui précise 6.2.7.
+Soit maintenant N^* un sous-groupe de \(M\)^* contenant \(R\)^* . On définit la donnée
+coinduite par \(R\) sur N^* par
+^*
+\(R\) N = (RN^* ^*
+^*) ,
+</p>
+<!-- p.134 -->
+<p>et on a un morphisme canonique&nbsp;:
+^*               ^*
+pN&nbsp;: \(R\) -\to \(R\) N .
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.5.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.5.4</span></div>
+  <div class="thm-body"><p>Soit f&nbsp;: \(R\) ′ -\to \(R\) un morphisme. Il existe un N \subset \(M\), un N′^* \subset \(M\)′^*
+tels que f se factorise en
+f
+\(R\)′                               /\(R\)
+O
+′
+pN                                      iN
+
+′^*           f0
+\(R\) ′N                     ∼
+/ RN ,
+</div></div>
+<p>où f0 est un isomorphisme.
+En effet, on commence comme dans 6.5.3. Le morphisme \(M\)′ \to N obtenu est
+surjectif, donc son transposé injectif. On prend l'image de ce dernier comme N′^* .
+Traitons maintenant certains cas particuliers. Si on prend N = \Gamma0 (\(R\)), on notera
+RN = ad(\(R\)). Si on prend N = \(V\) (\(R\)) \cap \(M\), on notera RN = ss(\(R\)). On a donc un
+diagramme&nbsp;:
+ad(\(R\)) -\to ss(\(R\)) -\to \(R\).
+Par dualité, on en déduit de même un diagramme \(R\) \to dér(\(R\)) \to scon(\(R\)) où
+dér(\(R\)) = ss(\(R\) ^* )^* , scon(\(R\)) = ad(\(R\) ^* )^* .
+</p>
+<div class="thm thm-plain proposition" id="XXI.6.5.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.5.5</span></div>
+  <div class="thm-body"><p>(i) Dans le diagramme
+ad(\(R\))        / ss(\(R\))                            / dér(\(R\))    / scon(\(R\))
+❉❉
+❉❉                        ① ①<
+❉❉                    ①①
+❉❉                ①①
+"             ①①
+\(R\)
+les quatre données de la première ligne sont semi-simples et les trois morphismes des
+isogénies.
+<!-- p.135 -->
+(ii) ad(\(R\)) est une donnée adjointe. \(R\) est adjointe si et seulement si ad(\(R\)) \to \(R\)
+est un isomorphisme.
+(iii) scon(\(R\)) est une donnée simplement connexe. \(R\) est simplement connexe si et
+seulement si \(R\) \to scon(\(R\)) est un isomorphisme.
+(iv) Les conditions suivantes sont équivalentes&nbsp;:
+(a) \(R\) est semi-simple,
+(b) ss(\(R\)) \to \(R\) est un isomorphisme,
+(c) \(R\) \to dér(\(R\)) est un isomorphisme.
+</div></div>
+<!-- p.83 -->
+<p>Arrêtons-nous un instant sur le morphisme ss(\(R\)) \to dér(\(R\)). En se reportant à la
+construction de ss(\(R\)) et de dér(\(R\)), il est aisé de démontrer le
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.5.6">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.5.6</span></div>
+  <div class="thm-body"><p>Soit h&nbsp;: ss(\(R\)) \to dér(\(R\)) l'isogénie canonique. On a \(K\)(h) \simeq N(\(R\)).
+</div></div>
+<p>6.5.7. — Considérons maintenant d'autres cas particuliers de données induites. Po-
+sons
+N = {\(x\) \in \(M\) | (\alpha^* , \(x\)) = 0 pour \alpha \in \(R\)} \times \Gamma0 (\(R\));
+on sait que la somme est directe par 1.2.5. Il en résulte que la donnée radicielle RN
+s'identifie au produit ad(\(R\)) \times corad(\(R\)).
+On peut faire de même en remplaçant \Gamma0 (\(R\)) par \(V\) (\(R\)) \cap \(M\), puis dualiser ces deux
+constructions. On obtient ainsi un diagramme de données radicielles&nbsp;:
+ad(\(R\))               / ss(\(R\))                     / dér(\(R\))            / scon(\(R\))
+</p>
+<p>                                                                            
+ad(\(R\)) \times corad(\(R\))       / ss(\(R\)) \times corad(\(R\))     /\(R\)        / dér(\(R\)) \times rad(\(R\))    / scon(\(R\)) \times rad(\(R\))
+</p>
+<p>                                                                            
+ad(\(R\))                  / ss(\(R\))                         / dér(\(R\))            / scon(\(R\));
+qui est commutatif, comme on le vérifie aussitôt. Ce diagramme est auto-dual en un                136
+sens évident. Les morphismes horizontaux sont des isogénies. Les composés des flèches
+verticales sont l'identité.
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.5.8">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.5.8</span></div>
+  <div class="thm-body"><p>Soient h1 et h2 les isogénies canoniques&nbsp;:
+h1         h2
+ss(\(R\)) \times corad(\(R\))            /\(R\)         / dér(\(R\)) \times rad(\(R\)).
+</div></div>
+<p>On a \(K\)(h1 ) \simeq \(K\)(h2 ) \simeq N(\(R\)).
+C'est trivial sur les définitions.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.6.5.9">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.5.9</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle. Les conditions suivantes sont équi-
+valentes&nbsp;:
+(i) N(\(R\)) = 0, i.e. corad(\(R\)) \to rad(\(R\)) est un isomorphisme.
+(ii) h est un isomorphisme.
+(iii) h1 est un isomorphisme.
+(iv) h2 est un isomorphisme.
+(v) \(R\) est le produit d'une donnée semi-simple et d'une donnée triviale.
+Énonçons également une conséquence triviale des remarques précédentes&nbsp;:
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.6.5.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.5.10</span></div>
+  <div class="thm-body"><p>Pour toute donnée radicielle \(R\), il existe des isogénies
+ad(\(R\)) \times R0 -\to \(R\) -\to scon(\(R\)) \times R0 ,
+où R0 est « la » donnée radicielle triviale de rang rgred(\(R\)) - rgss(\(R\)).
+Signalons enfin un résultat qui peut être utile&nbsp;:
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.5.11">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.5.11</span></div>
+  <div class="thm-body"><p>Soient \(R\) une donnée radicielle, \Delta un système de racines simples,
+\Delta′ une partie de \Delta, considérons la donnée radicielle (cf. 3.4.7)
+\(R\)\Delta′ = (\(M\), \(M\)^* , \(R\)\Delta′ , \(R\)^*\Delta′ ).
+<!-- p.137 -->
+(i) Si \(R\) est simplement connexe, alors dér(\(R\)\Delta′ ) est simplement connexe.
+(ii) Si \(R\) est adjointe, alors ss(\(R\)\Delta′ ) est adjointe.
+</div></div>
+<p>Les deux assertions sont évidemment équivalentes par dualité. La seconde se ramène
+à vérifier la formule&nbsp;:
+\(M\) \cap \(V\) (\(R\)\Delta′ ) = \Gamma0 (\(R\)\Delta′ );
+or, si \(M\) = \Gamma0 (\(R\)), les deux membres sont égaux au sous-groupe de \(M\) engendré par
+\Delta′ .
+</p>
+<h3 id="XXI.6.6">6.6. Poids</h3>
+<div class="thm thm-plain definition" id="XXI.6.6.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.6.1</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle. On pose
+\Gamma(\(R\)) = {\(x\) \in \(V\)(\(R\)) | (\alpha^* , \(x\)) \in \(Z\) pour tout \alpha^* \in \(R\)^* }.
+Les éléments de \Gamma(\(R\)) sont appelés les poids de \(R\). Les poids de \(R\) ^* sont appelés les
+copoids de \(R\).
+</div></div>
+<p>On a \Gamma0 (\(R\)) \subset \Gamma(\(R\)) et \Gamma(\(R\)) est stable sous \(W\)(\(R\)).
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.6.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.6.2</span></div>
+  <div class="thm-body"><p>\(L\)'application bilinéaire \(V\)^* \times \(V\) \to Q induit une dualité
+\Gamma0 (\(R\) ^* ) \times \Gamma(\(R\)) -\to \(Z\).
+</div></div>
+<p>Trivial.
+</p>
+<div class="thm thm-plain corollaire" id="XXI.6.6.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.3</span></div>
+  <div class="thm-body"><p>Soit \Delta^* = (\alpha^*1 , . . . , \alpha^*n ) un système de coracines simples. Soient
+pi , i = 1, 2, . . . n, les éléments de \(V\) (\(R\)) définis par
+(\alpha^*i , pj ) = \deltaij ,
+<!-- p.138 -->
+(d'où s\alphai (pi ) = pi - \alphai et s\alphai (pj ) = pj pour i 6= j) (^*) . Alors \Gamma(\(R\)) est le groupe
+abélien libre engendré par les pi .
+</div></div>
+<p>Les pi sont les poids fondamentaux correspondant au système de coracines simples
+\Delta^* .
+</p>
+<div class="thm thm-plain corollaire" id="XXI.6.6.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.4</span></div>
+  <div class="thm-body"><p>Pour tout \alpha^* \in \Delta^* , on a donc (\alpha^* , i pi ) = 1, donc i pi = \rhoR+
+\(P\)                \(P\)
+(cf. 3.5.1), où \(R\)+ = \(P\)(ind(\Delta)).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.6.6.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.5</span></div>
+  <div class="thm-body"><p>Pour tout \(x\) \in \(V\) (\(R\)), on a \(x\) = i (\alpha^*i , \(x\)) pi .
+\(P\)
+</div></div>
+<p>(^*) Attention&nbsp;: si la donnée n'est pas réduite, les \alpha ne forment pas un système de racines simples.
+i
+</p>
+<!-- p.85 -->
+<div class="thm thm-plain corollaire" id="XXI.6.6.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.6</span></div>
+  <div class="thm-body"><p>Remarquons que \(R\)^* \subset \Gamma0 (\(R\)^* ), \(R\) \subset \Gamma(\(R\)), donc que (\Gamma(\(R\)),
+\Gamma0 (\(R\)^* ), \(R\), \(R\)^* ) est une donnée radicielle.
+\(P\) ^* Le morphisme canonique \Gamma0 (\(R\) ) \to \(M\)
+^*        ^*
+</div></div>
+<p>est le transposé du morphisme \(x\) \mapsto i (\alphai , \(x\))pi qui définit un morphisme de données
+radicielles et on a un diagramme commutatif&nbsp;:
+scon(\(R\))
+❣❣❣ ❣❣❣❣❣3
+❣❣
+\(R\)❣
+❲❲❲❲❲               ≀
+❲❲❲❲+       
+(\Gamma(\(R\)), \Gamma0 (\(R\)^* ), \(R\), \(R\)^* ).
+</p>
+<p>On a donc une description explicite de scon(\(R\)) en termes des poids de \(R\). De
+même, on trouve un diagramme commutatif&nbsp;:
+ad(\(R\)) ❲❲❲
+❲❲❲❲
+❲❲❲❲+
+≀                 ❥❥4 \(R\)
+❥ ❥❥❥❥❥❥
+     ❥❥
+(\Gamma0 (\(R\)), \Gamma(\(R\) ^* ), \(R\), \(R\)^* )       .
+</p>
+<div class="thm thm-plain corollaire" id="XXI.6.6.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.7</span></div>
+  <div class="thm-body"><p>Pour que \(R\) soit simplement connexe, il faut et il suffit que \(M\) =
+\Gamma(\(R\)).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.6.6.8">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.6.8</span></div>
+  <div class="thm-body"><p>On a \Gamma(\(R\)) \cap \(M\) = \(V\) (\(R\)) \cap \(M\). Pour que \(R\) soit semi-simple, il est            139
+donc nécessaire et suffisant que \(M\) \subset \Gamma(\(R\)).
+</div></div>
+<p>Des résultats de 6.5 il résulte aussi&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXI.6.6.9">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.9</span></div>
+  <div class="thm-body"><p>Pour que \(R\) soit produit d'une donnée simplement connexe par
+une donnée triviale, il faut et il suffit que \(M\) \supset \Gamma(\(R\)).
+Considérons maintenant l'isogénie canonique
+f&nbsp;: ad(\(R\)) -\to scon(\(R\)),
+et posons \(Z\)(\(R\)) = \(K\)(f ). On a \(Z\)(\(R\)) \simeq \(Z\)(scon \(R\)) \simeq \(Z\)(ad \(R\)).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.6.6.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.10</span></div>
+  <div class="thm-body"><p>On a un isomorphisme canonique \(Z\)(\(R\)) = \Gamma(\(R\))/\Gamma0 (\(R\)). Plus
+précisément, on a une suite exacte de \(W\)(\(R\))-modules&nbsp;:
+<!-- p.0 -->
+-\to \Gamma0 (\(R\)) -\to \Gamma(\(R\)) -\to \(Z\)(\(R\)) -\to 0.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.6.6.11">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6.11</span></div>
+  <div class="thm-body"><p>On a un accouplement canonique
+\(Z\)(\(R\) ^* ) \times \(Z\)(\(R\)) -\to Q/\(Z\)
+qui met ces groupes en dualité.
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.6.6.12">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.6.12</span></div>
+  <div class="thm-body"><p>On a \(Z\)(\(R\) \times \(R\) ′ ) \simeq \(Z\)(\(R\)) \times \(Z\)(\(R\) ′ ). Considérons en particulier des
+données simplement connexes Ri , i = 1, 2, · · · , n et une donnée triviale R0 . Posons
+\(R\) = R0 \times R1 \times · · · \times Rn . Soient \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* ), R0 = (\(M\)^*0 , \(M\)^*0 , \emptyset, \emptyset). On a
+\(M\)/\Gamma0 (\(R\)) \simeq M0 \times \(Z\)(R1 ) \times · · · \times \(Z\)(Rn ).
+</div></div>
+<h3 id="XXI.6.7">6.7. Automorphismes</h3>
+<p>Un automorphisme de \(R\), c'est, d'après 6.1.4, un automorphisme de \(M\), soit u, tel
+que u(\(R\)) = \(R\), t u(\(R\)^* ) = \(R\)^* . En particulier, tout élément w de \(W\)(\(R\)) définit un
+<!-- p.140 -->
+automorphisme de \(R\).
+</p>
+<div class="thm thm-plain lemme" id="XXI.6.7.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.7.1</span></div>
+  <div class="thm-body"><p>\(W\)(\(R\)) est un sous-groupe invariant de Aut(\(R\)). Plus précisément,
+si u \in Aut(\(R\)) et \alpha \in \(R\), on a
+us\alpha u-1 = su(\alpha) .
+La démonstration est la même que celle de 1.2.10.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.7.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.7.2</span></div>
+  <div class="thm-body"><p>Soit \Delta un système de racines simples. Posons
+\(E\)\Delta (\(R\)) = {u \in Aut(\(R\)) | u(\Delta) = \Delta}.
+Alors Aut(\(R\)) est le produit semi-direct de \(W\)(\(R\)) par \(E\)\Delta (\(R\)).
+Cela résulte aussitôt de ce que \(W\)(\(R\)) opère de façon simplement transitive sur les
+systèmes de racines simples et de ce que si \Delta est un système de racines simples de \(R\),
+alors u(\Delta) est un système de racines simples pour tout automorphisme u de \(R\).
+Nous verrons plus tard une description plus simple de \(E\)\Delta (\(R\)) dans le cas des
+données radicielles réduites et irréductibles .
+</div></div>
+<div class="thm thm-plain definition" id="XXI.6.7.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.7.3</span></div>
+  <div class="thm-body"><p>On note Auts (\(R\)) l'ensemble des u \in Aut(\(R\)), tel que le dia-
+gramme suivant soit commutatif&nbsp;:
+u        /\(R\)
+\(R\)❇
+❇❇             ⑤⑤
+❇❇          ⑤
+❇❇      ⑤⑤
+❇ ~⑤⑤⑤
+rad(\(R\))       .
+</div></div>
+<!-- p.141 -->
+<p>On note Es\Delta (\(R\)) = \(E\)\Delta (\(R\)) \cap Auts (\(R\)).
+</p>
+<div class="thm thm-remark remarque" id="XXI.6.7.4">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.7.4</span></div>
+  <div class="thm-body"><p>Si u \in Aut(\(R\)), on a donc u \in Auts (\(R\)) si et seulement si
+(u - id)(\(M\)) \subset \(V\) (\(R\)). En particulier \(W\)(\(R\)) \subset Auts (\(R\)). Il en résulte aussitôt&nbsp;:
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.7.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.7.5</span></div>
+  <div class="thm-body"><p>Le groupe Auts (\(R\)) est le produit semi-direct de \(W\)(\(R\)) par
+Es\Delta (\(R\)), pour tout système de racines simples \Delta.
+À tout automorphisme de \(R\) est associé par fonctorialité un automorphisme de
+ad(\(R\)). On a donc un morphisme canonique
+Aut(\(R\)) -\to Aut(ad(\(R\))).
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.7.6">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.7.6</span></div>
+  <div class="thm-body"><p>Le morphisme Auts (\(R\)) \to Aut(ad(\(R\))) est injectif.
+Soit en effet u un automorphisme de \(M\) tel que (u-id)(\(M\)) \subset \(V\) (\(R\)) et que t u(\alpha^* ) =
+\alpha^* pour \alpha^* \in \(R\)^* . Pour tout \(x\) \in \(M\), on a
+(\alpha^* , u(\(x\)) - \(x\)) = (t u(\alpha^* ) - \alpha^* , \(x\)) = 0,
+donc u(\(x\)) - \(x\) = 0, par 1.2.5.
+</div></div>
+<!-- p.87 -->
+<div class="thm thm-plain lemme" id="XXI.6.7.7">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.7.7</span></div>
+  <div class="thm-body"><p>Le groupe Auts (\(R\)) est fini.
+En effet, il nous suffit de prouver que Aut(\(R\)) est fini si \(R\) est adjoint. Comme \(M\)
+est engendré alors par \(R\), tout automorphisme de \(R\) est déterminé par la permutation
+de \(R\) qu'il définit.
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.6.7.8">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.7.8</span></div>
+  <div class="thm-body"><p>On voit aussitôt que Aut(\(R\)) (resp. \(E\)\Delta (\(R\))) est fini si et seulement
+si rgred(\(R\)) - rgss(\(R\)) \leqslant 1.
+</div></div>
+<h3 id="XXI.6.8">6.8. p-morphismes de données radicielles réduites</h3>
+<p>142
+Dans ce numéro, p est un nombre entier > 0 fixé une fois pour toute.
+</p>
+<div class="thm thm-plain definition" id="XXI.6.8.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.8.1</span></div>
+  <div class="thm-body"><p>Soient \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* ) et \(R\) = (\(M\)′ , \(M\)′^* , \(R\)′ , \(R\)′^* ) deux données
+radicielles réduites. On dit qu'un morphisme de groupes
+f&nbsp;: \(M\)′ -\to \(M\)
+est un p-morphisme de \(R\) ′ dans \(R\), si les conditions suivantes sont vérifiées&nbsp;: il existe
+une bijection
+∼
+u&nbsp;: \(R\) -\to \(R\)′
+et une application q&nbsp;: \(R\) \to {pn , n \in N} telles que&nbsp;:
+(i) on a f (u(\alpha)) = q(\alpha)\alpha pour tout \alpha′ \in \(R\)′ .
+(ii) on a t f (\alpha^* ) = q(\alpha)u(\alpha)^* pour tout \alpha \in \(R\).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.6.8.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.8.2</span></div>
+  <div class="thm-body"><p>Un 1-morphisme n'est autre qu'un morphisme.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.6.8.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.8.3</span></div>
+  <div class="thm-body"><p>Le transposé d'un p-morphisme est un p-morphisme.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.6.8.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.8.4</span></div>
+  <div class="thm-body"><p>Si w \in \(W\)(\(R\)), \alpha \in \(R\), on a q(w(\alpha)) = q(\alpha). \(L\)'application s\alpha \mapsto su(\alpha)
+se prolonge en un isomorphisme u&nbsp;: \(W\)(\(R\)) \to \(W\)(\(R\) ′ ) tel que
+
+u(w(\alpha)) = u(w) u(\alpha) .
+Il suffit de prouver que pour \alpha, \beta \in \(R\), on a u(s\alpha (\beta)) = su(\alpha) u(\beta) et q(s\alpha (\beta)) =
+q(\beta). Or on a successivement&nbsp;:
+f su(\alpha) u(\beta) = f (u(\beta)) - (u(\alpha)^* , u(\beta))f (u(\alpha))
+
+</div></div>
+<p>= q(\beta)\beta - q(\beta)q(\alpha)-1 (\alpha^* , \beta)q(\alpha)\alpha
+= q(\beta) \beta - (\alpha^* , \beta)\alpha = q(\beta)s\alpha (\beta).
+
+</p>
+<p>Si \gamma = u-1 (su(\alpha) u(\beta)), on a donc q(\gamma)\gamma = q(\beta)s\alpha (\beta). Les deux racines \gamma et s\alpha (\beta)           143
+sont donc proportionnelles (sur Q), donc égales ou opposées, mais q(\gamma) et q(\beta) sont
+positifs. On a donc q(\gamma) = q(\beta) et \gamma = s\alpha (\beta).
+</p>
+<div class="thm thm-plain definition" id="XXI.6.8.5">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">6.8.5</span></div>
+  <div class="thm-body"><p>Les q(\alpha) sont dits les exposants radiciels de f .
+</div></div>
+<div class="thm thm-remark exemple" id="XXI.6.8.6">
+  <div class="thm-head"><span class="thm-name">Exemple</span> <span class="thm-num">6.8.6</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle réduite et q = pn . Alors q&nbsp;: \(M\) \to \(M\)
+(q(\(x\)) = qx) est un p-morphisme
+q&nbsp;: \(R\) -\to \(R\),
+dont tous les exposants radiciels sont égaux à q.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.6.8.7">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.8.7</span></div>
+  <div class="thm-body"><p>Dans les notations de 6.8.1, u réalise un isomorphisme de l'en-
+semble des systèmes de racines simples (resp. de racines positives) de \(R\) sur l'ensemble
+correspondant pour \(R\)′ .
+Cela résulte aussitôt de 3.1.5 (resp. 3.2.1).
+</div></div>
+<h2 id="XXI.7">7. Structure</h2>
+<p>144
+</p>
+<h3 id="XXI.7.1">7.1. Décomposition d'une donnée radicielle</h3>
+<div class="thm thm-plain proposition" id="XXI.7.1.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.1.1</span></div>
+  <div class="thm-body"><p>Soient \(R\) une donnée radicielle, \Delta un système de racines simples.
+(i) Soient \(R\)′ et \(R\)′′ deux ensembles de racines clos et symétriques formant une
+partition de \(R\). Si on note \Delta′ = \Delta \cap \(R\)′ , \Delta′′ = \Delta \cap \(R\)′′ , alors \(R\)′ = \(R\)\Delta′ , \(R\)′′ = \(R\)\Delta′′ ,
+et toute racine de \Delta′ est orthogonale à toute racine de \Delta′′ .
+(ii) Soient \Delta′ et \Delta′′ deux sous-ensembles de \Delta faisant une partition de \Delta et or-
+thogonaux. Alors \(R\)′ = \(R\)\Delta′ et \(R\)′′ = \(R\)\Delta′′ forment une partition de \(R\).
+Prouvons d'abord (i).
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.7.1.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.1.2</span></div>
+  <div class="thm-body"><p>Sous les conditions de (i), si \alpha, \beta et \alpha + \beta sont racines, elles appar-
+tiennent toutes les trois à \(R\)′ ou toutes les trois à \(R\)′′ .
+Supposons par exemple \alpha + \beta \in \(R\)′ . Alors on ne peut avoir \alpha, \beta \in \(R\)′′ , car \(R\)′′ est
+clos&nbsp;; supposons donc \alpha \in \(R\)′ . Alors -\alpha \in \(R\)′ et \beta = (\beta + \alpha) - \alpha \in \(R\)′ .
+Montrons maintenant que \(R\)′ = \(R\)\Delta′ par récurrence sur l'ordre d'une racine \alpha \in
+\(R\) \cap \(P\)(\Delta). Si ord\Delta (\alpha) = 1, alors \alpha \in \(R\)′ \cap \Delta = \Delta′ . Si ord\Delta (\alpha) > 1, il existe \beta \in \Delta
+′
+</div></div>
+<p>avec \alpha - \beta \in \(R\). Par le lemme, on a \beta \in \Delta′ , \alpha - \beta \in \(R\)′ , donc \alpha - \beta \in \(R\)\Delta′ par
+récurrence et enfin \alpha = (\alpha - \beta) + \beta \in \(R\)\Delta′ .
+Montrons enfin que \Delta′ et \Delta′′ sont orthogonaux. Si \alpha \in \Delta′ et \beta \in \Delta′′ , alors
+(\beta , \alpha) \leqslant 0. Si (\beta ^* , \alpha) 6= 0, alors \beta + \alpha est racine, contrairement au lemme.
+^*
+</p>
+<!-- p.145 -->
+<p>Démontrons (ii). Si \Delta′ ou \Delta′′ est vide, c'est immédiat. Sinon, et si \(R\)\Delta′ et \(R\)\Delta′′ ne
+forment pas une partition de \(R\), il existe une racine \alpha de la forme
+\(X\)             \(X\)
+\alpha=         m′i \alpha′i +    m′′j \alpha′′j , m′i \in \(Z\)+ , m′′j \in \(Z\)+ ,
+où on note \alpha′i (resp. \alpha′′j ) des éléments de \Delta′ (resp. \Delta′′ ). Appliquant 3.1.2, on en déduit
+une relation de la forme (quitte à inverser \Delta′ et \Delta′′ )&nbsp;:
+\delta = \gamma + \beta,    \gamma \in \(R\)\Delta′ ,      \beta \in \Delta′′ ,   \delta \in \(R\).
+Mais comme (\beta ^* , \gamma) = 0, \gamma - \beta est aussi racine par 2.2.5, ce qui est impossible.
+</p>
+<div class="thm thm-plain proposition" id="XXI.7.1.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.1.3</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle. Les conditions suivantes sont équi-
+valentes&nbsp;:
+(i) Il n'existe pas de partition non triviale de \(R\) en deux sous-ensembles clos et
+symétriques.
+(ii) Pour un (resp. tout ) système de racines simples \Delta de \(R\), il n'existe pas de
+partition de \Delta en deux sous-ensembles non vides orthogonaux.
+</div></div>
+<h2 id="XXI.7">7. STRUCTURE                                       89</h2>
+<p>(iii) La représentation naturelle de \(W\)(\(R\)) dans \(V\) (\(R\)) est irréductible.
+(iv) Pour tout couple (\alpha, \beta) de racines, il existe une suite de racines \alpha0 , \alpha1 , \alpha2 ,
+. . . , \alphan , avec \alpha = \alpha0 , \alphan = \beta, les racines \alphai et \alphai+1 (i = 0, . . . , n - 1) étant non
+orthogonales.
+</p>
+<p>On a (i) \Leftrightarrow (ii) par 7.1.1. On a évidemment (iv) \Rightarrow (ii). Réciproquement, si (ii)
+est vérifiée pour \Delta, la condition (iv) est vérifiée si \alpha, \beta \in \Delta. Or pour tout racine, il
+existe une racine simple qui ne lui soit pas orthogonale (3.1.1 par exemple). D'autre
+part (iii) \Rightarrow (i). En effet sous les conditions de 7.1.1, \(V\) (\(R\)′ ) est stable par \(W\)(\(R\)). Il       146
+reste à prouver (i) \Rightarrow (iii).
+Soit donc \(H\) un sous-espace vectoriel de \(V\) (\(R\)), stable par \(W\)(\(R\)). Pour tout \alpha \in \(R\),
+l'équation s\alpha (\(H\)) = \(H\) donne aussitôt \alpha \in \(H\), ou \alpha^* \in \(H\)\perp (orthogonal de \(H\) dans \(V\) (\(R\)^* )
+en dualité avec \(V\) (\(R\))). Si on pose \(R\)′ = {\alpha \in \(R\) | \alpha \in \(H\)} et \(R\)′′ = {\alpha \in \(R\) | \alpha^* \in \(H\)\perp },
+on a réalisé une partition de \(R\) en deux sous-ensembles clos et symétriques.
+</p>
+<div class="thm thm-plain definition" id="XXI.7.1.4">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">7.1.4</span></div>
+  <div class="thm-body"><p>Une donnée radicielle (resp. un système de racines) vérifiant les
+conditions équivalentes de 7.1.3 et de rang semi-simple 6= 0 est dite irréductible.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.7.1.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.1.5</span></div>
+  <div class="thm-body"><p>Pour toute donnée radicielle \(R\), il existe une partition unique (à
+l'ordre près) de \(R\) en sous-ensembles clos, symétriques et irréductibles.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.7.1.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.1.6</span></div>
+  <div class="thm-body"><p>Toute donnée radicielle adjointe (resp. simplement connexe) est
+produit de données radicielles adjointes (resp. simplement connexes) irréductibles.
+Il suffit de le voir dans le cas adjoint. \(L\)'assertion résulte alors de ce que sous les
+conditions de 7.1.1, on a
+\Gamma0 (\(R\)) = \Gamma0 (\(R\)′ ) \times \Gamma0 (\(R\)′′ ).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.7.1.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.1.7</span></div>
+  <div class="thm-body"><p>Pour toute donnée radicielle (resp. et réduite) \(R\), il existe une
+isogénie \(R\) \to \(R\) ′ , où \(R\) ′ est produit d'une donnée radicielle triviale et de données
+simplement connexes irréductibles (resp. et réduites).
+</div></div>
+<h3 id="XXI.7.2">7.2. Propriétés des données radicielles irréductibles</h3>
+<p>147
+</p>
+<div class="thm thm-plain definition" id="XXI.7.2.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">7.2.1</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle irréductible. Pour tout \alpha \in \(R\), on
+pose
+long(\alpha) = ℓ(\alpha)/ℓ(\alpha0 );
+où \alpha0 \in \(R\) est telle que ℓ(\alpha0 ) soit minimum&nbsp;; on dit que long(\alpha) est la longueur de \alpha.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.7.2.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.2.2</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle irréductible. Le groupe de Weyl opère
+transitivement dans l'ensemble des racines de même longueur.
+En effet, soient \alpha, \beta \in \(R\). Comme la représentation de \(W\) dans \(V\) (\(R\)) est irréductible,
+\alpha ne peut être orthogonale à tous les w(\beta), w \in \(W\). Il existe donc w \in \(W\), avec w(\beta)
+non orthogonale à \alpha. Or ℓ(w(\beta)) = ℓ(\beta) et on conclut par 2.3.2
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.7.2.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.2.3</span></div>
+  <div class="thm-body"><p>Si \(R\) est irréductible et réduite, alors long(\(R\)) est {1}, {1, 2}, ou
+{1, 3}.
+</div></div>
+<p>En vertu de la remarque utilisée ci-dessus, pour tout \alpha, \beta \in \(R\), il existe toujours un
+w \in \(W\) tel que w(\beta) ne soit pas orthogonale à \beta. On a donc ℓ(\alpha)/ℓ(\beta) = 1, 2, 3, 1/2
+ou 1/3 (par 2.3.1). On a donc long(\alpha) = 1, 2, ou 3, mais si long(\alpha) = 2, long(\beta) = 3,
+alors ℓ(\alpha)/ℓ(\beta) = 2/3, ce qui est impossible.
+</p>
+<div class="thm thm-remark remarque" id="XXI.7.2.4">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.2.4</span></div>
+  <div class="thm-body"><p>En raisonnant de manière semblable, on prouve le résultat sui-
+vant&nbsp;: si \(R\) est irréductible et non réduit avec rgss(\(R\)) > 1, on a long(\(R\)) = {1, 2, 4}.
+Si on pose long-1 (i) = Ri , alors ind(\(R\)) = R1 \cup R2 , R4 = 2R1 et deux racines non
+proportionnelles de R1 sont orthogonales. Réciproquement si \(R\) est un système ir-
+réductible et réduit tel que long(\(R\)) = {1, 2}, posons long-1 (i) = Ri et supposons
+que deux racines non proportionnelles de R1 soient orthogonales&nbsp;; alors \(R\) \cup 2 R1 est
+irréductible, non réduit et ind(\(R\) \cup 2R1 ) = \(R\).
+<!-- p.148 -->
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.7.2.5">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.2.5</span></div>
+  <div class="thm-body"><p>Si \(R\) est une donnée radicielle irréductible, \(R\) ^* l'est aussi et long(\alpha)
+long(\alpha^* ) = Cte.
+Cela résulte aussitôt de 7.1.3 (iv) et 2.2.6.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.7.2.6">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">7.2.6</span></div>
+  <div class="thm-body"><p>Soit \(R\) une donnée radicielle quelconque. On appelle longueur de
+\alpha \in \(R\) et on note long(\alpha) la longueur de \alpha dans sa composante irréductible.
+</div></div>
+<div class="thm thm-plain lemme" id="XXI.7.2.7">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.2.7</span></div>
+  <div class="thm-body"><p>Il existe un unique homomorphisme de groupes u&nbsp;: \Gamma0 (\(R\)) \to \Gamma0 (\(R\)^* )
+tel que u(\alpha) = long(\alpha)\alpha^* pour \alpha \in \(R\).
+En vertu de 3.5.5, il suffit de vérifier que si \alpha, \beta, \alpha + \beta \in \(R\), on a
+long(\alpha)\alpha^* + long(\beta)\beta ^* = long(\alpha + \beta)(\alpha + \beta).
+Mais \alpha, \beta et \alpha + \beta sont dans la même composante irréductible de \(R\) par 7.1.2 et on
+est ramené à 1.2.2.
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.7.2.8">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.2.8</span></div>
+  <div class="thm-body"><p>Pour \alpha, \beta \in \(R\), on a (u(\alpha), \beta) = (u(\beta), \alpha). En effet, cela revient
+à
+long(\alpha)(\alpha^* , \beta) = long(\beta)(\beta ^* , \alpha)
+qui est évidemment vérifiée si \alpha et \beta sont orthogonales. Si \alpha et \beta ne sont pas ortho-
+gonales, alors elles sont dans la même composante irréductible de \(R\), et on est ramené
+à 1.2.1, formule (9).
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.7.2.9">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.2.9</span></div>
+  <div class="thm-body"><p>La forme bilinéaire symétrique (u(\(x\)), \(y\)) est positive non dégénérée
+sur \Gamma0 (\(R\)).
+En effet, soient Ri les composantes irréductibles de \(R\). On a
+\(Y\)
+\Gamma0 (\(R\)) =     \Gamma0 (Ri ),
+i
+</div></div>
+<p>et la forme bilinéaire (u(\(x\)), \(y\)) est le produit des formes
+2-1 ℓ(\alphai )-1 (p(\(x\)), \(y\))
+<!-- p.149 -->
+sur les \Gamma0 (Ri ), où ℓ(\alphai ) est le minimum de ℓ(\alpha) pour \alpha \in Ri . Or ces différentes formes
+bilinéaires symétriques sont positives non dégénérées (1.2.6).
+</p>
+<h2 id="XXI.7">7. STRUCTURE                                          91</h2>
+<h3 id="XXI.7.3">7.3. Matrice de Cartan</h3>
+<p>Soit \(R\) une donnée radicielle. Si \Delta est un système de racines simples, on appelle
+matrice de Cartan de \(R\) relativement à \Delta la matrice carrée sur l'ensemble d'indices
+\Delta définie par
+a\alpha,\beta = (\alpha^* , \beta); \alpha, \beta \in \Delta.
+Remarquons d'abord que si \Delta′ est un autre système de racines simples et w un élément
+de \(W\)(\(R\)) tel que w(\Delta) = \Delta′ , on a
+(w(\alpha)^* , w(\beta)) = (\alpha^* , \beta),
+donc que la matrice de Cartan de \(R\) relativement à \Delta′ s'obtient à partir de celle
+relative à \Delta par l'isomorphisme \Delta \to \Delta′ sur l'ensemble d'indices défini par w. Il en
+résulte qu'à un isomorphisme près sur l'ensemble d'indices, la matrice de Cartan ne
+dépend que de \(R\).
+</p>
+<div class="thm thm-plain proposition" id="XXI.7.3.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.3.1</span></div>
+  <div class="thm-body"><p>La matrice de Cartan possède les propriétés suivantes&nbsp;:
+(i) a\alpha,\alpha = 2,       a\alpha,\beta \leqslant 0 pour \alpha 6= \beta.
+(ii) a\alpha,\beta = 0 entraı̂ne a\beta,\alpha = 0.
+(iii) Il existe des entiers strictement positifs m\alpha (= long(\alpha)) tels que la matrice
+(m\alpha a\alpha,\beta )
+soit symétrique, positive et non dégénérée.
+(iv) Les mineurs diagonaux de a\alpha,\beta , i.e. les déterminants                                      150
+</div></div>
+<p>dét(a\alpha,\beta )\alpha,\beta\in\Delta′    pour \Delta′ \subset \Delta,
+sont strictement positifs.
+(v) On a s\alpha (\beta) = \beta - a\alpha,\beta \alpha et s\alpha (\beta ^* ) = \beta ^* - a\beta,\alpha \alpha^* .
+En effet, (v) est une définition, (i) résulte de 3.2.11, (ii) de 2.2.2, (iii) de 7.2.9, (iv)
+se déduit aussitôt de (iii) par la relation
+ \(Y\)        
+dét(m\alpha a\alpha,\beta )\alpha,\beta\in\Delta′ =          m\alpha dét(a\alpha,\beta )\alpha,\beta\in\Delta′ .
+\alpha\in\Delta′
+</p>
+<div class="thm thm-plain proposition" id="XXI.7.3.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.3.2</span></div>
+  <div class="thm-body"><p>Soient \(R\) et \(R\) ′ deux données radicielles simplement connexes
+(resp. adjointes) et réduites.
+Soient\Delta (resp. \Delta′ ) un système de racines simples de \(R\) (resp. \(R\) ′ ), et u&nbsp;: \Delta \to \Delta′
+un isomorphisme tel que si on note (a\alpha,\beta ) et (a′\alpha′ \beta ′ ) les matrices de Cartan de \(R\) et
+\(R\) ′ relativement à \Delta et \Delta′ , on ait&nbsp;:
+a′u(\alpha),u(\beta) = a\alpha,\beta .
+Alors, il existe un unique isomorphisme de \(R\) sur \(R\) ′ qui induise u sur \Delta.
+</div></div>
+<p>Il suffit évidemment de faire la démonstration dans le cas adjoint. Alors \(M\) = \Gamma0 (\(R\))
+et \(M\)′ = \Gamma0 (\(R\)′ ) sont les groupes abéliens libres engendrés par \Delta et \Delta′ . Il existe donc un
+unique isomorphisme de groupes de \(M\) sur \(M\)′ qui induise u sur \Delta. Notons-le aussi u.
+</p>
+<p>Montrons que u(\(R\)) \subset \(R\)′ . Toute racine \alpha de \(R\) s'écrit s\alpha1 · · · s\alphan (\alphan+1 ) avec \alphai \in \Delta.
+On a évidemment
+u(\alpha) = su(\alpha1 ) · · · su(\alphan ) (u(\alphan+1 )),
+en vertu de l'hypothèse sur u et des relations (v) de 7.3.1.
+<!-- p.151 -->
+Il reste à prouver que t u(\(R\)′^* ) \subset \(R\)^* , ce qui résulte de ce que les éléments de
+\(M\) (resp. \(M\)′^* ) sont déterminés par la dualité avec \(R\) ou \Delta (resp. \(R\)′ ou \Delta′ ), par 1.2.5.
+^*
+</p>
+<div class="thm thm-plain corollaire" id="XXI.7.3.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.3.3</span></div>
+  <div class="thm-body"><p>Une donnée radicielle réduite simplement connexe ou adjointe est
+déterminée à isomorphisme près par sa matrice de Cartan.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.7.3.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.3.4</span></div>
+  <div class="thm-body"><p>Soient \(R\) une donnée radicielle réduite et simplement connexe
+(resp. adjointe), et \Delta un système de racines simples. Le groupe \(E\)\Delta (\(R\)) s'identifie au
+groupe des automorphismes de l'ensemble \Delta qui invarient la matrice de Cartan.
+</div></div>
+<div class="thm thm-remark remarque" id="XXI.7.3.5">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.3.5</span></div>
+  <div class="thm-body"><p>La question de l'existence d'une donnée radicielle correspondant
+à une matrice de Cartan donnée vérifiant (i) (ii) et (iv) (par exemple) ne se résoud
+pas facilement directement, sans utiliser la classification.
+</div></div>
+<h3 id="XXI.7.4">7.4. Diagrammes de Dynkin</h3>
+<div class="thm thm-plain definition" id="XXI.7.4.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">7.4.1</span></div>
+  <div class="thm-body"><p>On appelle structure de diagramme de Dynkin (le mot « schéma »
+a été banni pour des raisons évidentes) sur un ensemble fini \Delta la donnée d'un ensemble
+de couples d'éléments distincts de \Delta, dits couples liés, et d'une application de \Delta dans
+l'ensemble {1, 2, 3}. La notion d'isomorphisme de telles structures est évidente.
+</div></div>
+<div class="thm thm-plain definition" id="XXI.7.4.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">7.4.2</span></div>
+  <div class="thm-body"><p>Soient \(R\) une donnée radicielle et \Delta un système de racines simples.
+<!-- p.152 -->
+On appelle diagramme de Dynkin de \(R\) relativement à \Delta, l'ensemble \Delta, deux racines
+simples étant liées si et seulement si elles ne sont pas orthogonales, à chaque racine
+étant associée sa longueur.
+</div></div>
+<div class="thm thm-plain proposition" id="XXI.7.4.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.4.3</span></div>
+  <div class="thm-body"><p>Diagramme de Dynkin et matrice de Cartan se déterminent bi-
+univoquement.
+En effet l'équivalence
+\alpha et \beta ne sont pas liés ⇐\Rightarrow a\alpha,\beta = 0,
+et la relation
+long(\alpha) a\alpha,\beta = long(\beta) a\beta \alpha ,
+(avec inf long(\alpha) = 1 dans chaque composante connexe du diagramme) déterminent
+les a\alpha,\beta en fonction des liaisons et des longueurs, et réciproquement (le détail de la
+vérification est laissé au lecteur).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.7.4.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.4.4</span></div>
+  <div class="thm-body"><p>Une donnée radicielle réduite simplement connexe ou adjointe est
+déterminée par son diagramme de Dynkin.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXI.7.4.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.4.5</span></div>
+  <div class="thm-body"><p>Soient \(R\) une donnée radicielle réduite simplement connexe ou
+adjointe et \Delta un système de racines simples. Le groupe \(E\)\Delta (\(R\)) s'identifie au groupe
+des automorphismes du diagramme de Dynkin de \(R\) relativement à \Delta, c'est-à-dire au
+groupe des permutations de \Delta conservant les longueurs et les liaisons.
+</div></div>
+<h2 id="XXI.7">7. STRUCTURE                                        93</h2>
+<div class="thm thm-remark remarque" id="XXI.7.4.6">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.4.6</span></div>
+  <div class="thm-body"><p>On classifie avec la méthode habituelle (^*) les divers diagrammes
+de Dynkin connexes, et on montre que chacun correspond effectivement à une donnée
+radicielle réduite simplement connexe irréductible. On trouve les types bien connus&nbsp;:            153
+</div></div>
+<!-- p.1 -->
+<p>1      1 ...    1       1       1
+An ,        n \geqslant 1.
+</p>
+<!-- p.2 -->
+<p>2      2 ...    2       2       1
+Bn ,        n \geqslant 2.
+</p>
+<!-- p.1 -->
+<p>1      1 ...    1       1       2
+Cn ,       n \geqslant 3.
+1
+<!-- p.1 -->
+1      1 ...    1
+<!-- p.1 -->
+Dn ,        n \geqslant 4.
+</p>
+<!-- p.1 -->
+<p>1 ...    1       1       1
+En ,       n = 6, 7, 8.
+</p>
+<p>1
+<!-- p.1 -->
+1       2       2
+F4 .
+</p>
+<!-- p.1 -->
+<p>3
+G2 .
+</p>
+<p>Par 7.4.5, on trouve aussitôt le groupe \(E\)\Delta (\(R\)) correspondant&nbsp;:
+\(E\)\Delta (\(R\)) = {e} pour A1 , Bn , Cn , E7 , E8 , F4 , G2 .
+\(E\)\Delta (\(R\)) = \(Z\)/2Z pour An (n \geqslant 2), Dn (n \geqslant 5), E6 .
+\(E\)\Delta (\(R\)) = S3 pour D4 .
+Â
+</p>
+<h3 id="XXI.7.5">7.5. Compléments sur les p-morphismes</h3>
+<p>∼
+Il est clair sur les définitions que la bijection u&nbsp;: \(R\) -\to \(R\)′ associée à un p-morphisme
+(6.8) fait se correspondre systèmes de racines simples, systèmes de racines positives,
+composantes irréductibles (etc.) de \(R\) et de \(R\)′ . Supposons donc pour simplifier \(R\) et
+\(R\)′ irréductibles.
+</p>
+<div class="thm thm-plain lemme" id="XXI.7.5.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.5.1</span></div>
+  <div class="thm-body"><p>Si \(R\) et \(R\)′ sont irréductibles, alors il existe \(k\) \in Q avec pour tout
+\alpha\inR
+\(k\) long(u(\alpha)) = q(\alpha)2 long(\alpha).
+En effet, on a long(\alpha) (\alpha^* , \beta) = long(\beta) (\beta ^* , \alpha) et, de même,
+long(u(\alpha)) (u(\alpha)^* , u(\beta)) = long(u(\beta)) (u(\beta)^* , u(\alpha)).
+On en déduit aussitôt que pour \alpha et \beta non orthogonales, on a                                     154
+</div></div>
+<p>(^*) Confer Bourbaki, Groupes et algèbres de Lie, chap. VI n\circ 4.2 ou Séminaire Sophus Lie.
+</p>
+<p>q(\alpha)2 long(\alpha)   q(\beta)2 long(\beta)
+=
+long(u(\alpha))      long(u(\beta))
+et l'on conclut alors par 7.1.3 (iv).
+</p>
+<div class="thm thm-remark remarque" id="XXI.7.5.2">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.5.2</span></div>
+  <div class="thm-body"><p>Il résulte de 7.2.2 et 6.8.4 que q(\alpha) ne dépend que de long(\alpha). On
+voit alors facilement que si q(\alpha) n'est pas constant, alors q(\alpha) long(\alpha) est constant,
+ce qui montre qu'alors p = 2 ou 3. Un coup d'oeil sur les diagrammes du numéro
+précédent montre qu'il \(y\) a quatre cas possibles (on désigne par la même lettre un
+diagramme de Dynkin et la donnée radicielle simplement connexe réduite correspon-
+dante)&nbsp;:
+f1              f2
+p = 2,      Bn -\to Cn ,      Cn -\to Bn            (avec C2 = B2 ).
+g
+p = 2,      F4 -
+\to F4 .
+h
+p = 3,      G2 -
+\to G2 .
+Le lecteur remarquera que f1 \circ f2 , f2 \circ f1 , g \circ g et h \circ h sont des p-morphismes de la
+forme décrite en 6.8.6.
+</div></div>
+<p>7.5.3. — On voit aussitôt sur la description précédente que si \(R\) et \(R\) ′ sont deux
+données radicielles réduites de rang semi-simple \leqslant 2 et si on a un p-morphisme de \(R\) ′
+dans \(R\), alors \(R\) et \(R\) ′ sont de même type. Plus précisément, on a le tableau suivant.
+<!-- p.155 -->
+Notations&nbsp;: Soit f&nbsp;: \(R\) ′ \to \(R\) un p-morphisme. On désigne par q (resp. q1 ) une
+puissance positive quelconque de p. On utilise pour les systèmes de rang 2 les notations
+du numéro 4 (on désigne par \alpha une racine simple courte).
+</p>
+<p>Type                 p        valeurs de f              valeurs de t f
+Trivial        quelconque             -                          -
+A1           quelconque       f (\alpha′ ) = q\alpha         t
+f (\alpha^* ) = q\alpha′^*
+A1 + A1         quelconque       f (\alpha′ ) = q\alpha         t
+f (\alpha^* ) = q\alpha′^*
+f (\beta ′ ) = q1 \beta       t
+f (\beta ^* ) = q1 \beta ′^*
+A2 , B2 , G2     quelconque       f (\alpha′ ) = q\alpha         t
+f (\alpha^* ) = q\alpha′^*
+f (\beta ′ ) = q\beta        t
+f (\beta ^* ) = q\beta ′^*
+B2                p=2        f (\alpha′ ) = q\beta         t
+f (\alpha^* ) = 2q\beta ′^*
+f (\beta ′ ) = 2q\alpha        t
+f (\beta ^* ) = q\alpha′^*
+G2                 p=3        f (\alpha′ ) = q\beta         t
+f (\alpha^* ) = 3q\beta ′^*
+f (\beta ′ ) = 3q\alpha        t
+f (\beta ^* ) = q\alpha′^*
+</p>
+
+</body>
+</html>

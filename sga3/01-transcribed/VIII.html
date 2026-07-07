@@ -235,11 +235,11 @@ fini, alors \(\underline{\mathrm{Hom}}_{S\text{-gr.}}(G,H)\) est représentable.
   <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.6</span></div>
   <div class="thm-body"><p>Sous les conditions de 1.5, si S est connexe, on a
 \[
-\underline{\mathrm{Hom}}_{S\text{-gr.}}(\mathrm{D}_S(N), \mathrm{D}_S(M)) \xrightarrow{\ \sim\ } \mathrm{Hom}_{\mathrm{gr.}}(M, N)
+\mathrm{Hom}_{S\text{-gr.}}(\mathrm{D}_S(N), \mathrm{D}_S(M)) \xrightarrow{\ \sim\ } \mathrm{Hom}_{\mathrm{gr.}}(M, N)
 \]
 et
 \[
-\underline{\mathrm{Isom}}_{S\text{-gr.}}(\mathrm{D}_S(N), \mathrm{D}_S(M)) \xrightarrow{\ \sim\ } \mathrm{Isom}_{\mathrm{gr.}}(M, N).
+\mathrm{Isom}_{S\text{-gr.}}(\mathrm{D}_S(N), \mathrm{D}_S(M)) \xrightarrow{\ \sim\ } \mathrm{Isom}_{\mathrm{gr.}}(M, N).
 \]</p></div>
 </div>
 
@@ -935,7 +935,7 @@ les \(u_i(J) \subseteq A\), où les \(u_i : B \to A\) sont les formes coordonné
 choisie. On constate aussitôt que \(T = V(K) = \mathrm{Spec}(A/K)\) satisfait à la condition
 voulue, ce qui achève la démonstration.</p>
 
-<p><em>Exemples 6.5.</em> — Donnons des exemples importants de foncteurs qui se ramènent à des
+<p id="VIII.6.5"><em>Exemples 6.5.</em> — Donnons des exemples importants de foncteurs qui se ramènent à des
 foncteurs \(\prod_{Z/S} Y/Z\) du type envisagé dans 6.4 et pour lesquels il est utile par la
 suite d'avoir des critères de représentabilité. On désigne par S un préschéma, par X,
 Y, Z etc. des préschémas sur S.</p>
@@ -1177,15 +1177,15 @@ sous-groupe de H.</p></div>
 </div>
 
 <p>La démonstration est immédiate et laissée au lecteur.<sup class="footnote-ref"><a id="fnref-s3" href="#fn-s3">**</a></sup> Appliquant ceci à
-la situation H, \(G_{s0}\), on voit que le monomorphisme \(u : G \to H\) se factorise en
+la situation H, \(G_{s'}\), on voit que le monomorphisme \(u : G \to H\) se factorise en
 \(G \to L \to H\), où L est un sous-groupe de H qui est un sous-préschéma fermé, plat
 sur S, et où \(G \to L\) induit un isomorphisme pour les fibres génériques. Alors \(u : G \to H\)
-est une immersion (resp. une immersion fermée) si et seulement si \(u_0 : G \to L\) l'est.
-Cela nous ramène donc au cas où H est plat sur S et \(u_{s0} : G_{s0} \to H_{s0}\) un isomorphisme,
+est une immersion (resp. une immersion fermée) si et seulement si \(u' : G \to L\) l'est.
+Cela nous ramène donc au cas où H est plat sur S et \(u_{s'} : G_{s'} \to H_{s'}\) un isomorphisme,
 (sous réserve que les hypothèses supplémentaires que nous aurions à formuler sur
 G, H, u soient respectées lorsqu'on remplace H par un sous-préschéma en groupes
-fermé). Comme alors H est l'adhérence schématique de \(H_{s0}\), si u est une immersion,
-alors \(u(G)\) sera un sous-préschéma<sup class="footnote-ref"><a id="fnref36" href="#fn36">36</a></sup> de H qui majore \(H_{s0}\), donc son adhérence sché-
+fermé). Comme alors H est l'adhérence schématique de \(H_{s'}\), si u est une immersion,
+alors \(u(G)\) sera un sous-préschéma<sup class="footnote-ref"><a id="fnref36" href="#fn36">36</a></sup> de H qui majore \(H_{s'}\), donc son adhérence sché-
 matique sera également H, et par suite \(u(G)\) sera un sous-préschéma ouvert de H. Par
 suite, nous devrons prouver en fait que u est une immersion ouverte, (resp. un iso-
 morphisme si nous voulions établir que u est une immersion fermée). Comme G et H
@@ -1221,7 +1221,7 @@ les corps résiduels de S de caractéristique nulle. Alors u est une immersion.<
 
 <p>Lorsque \(\kappa(s)\) est de caractéristique \(p>0\), nous allons nous borner au cas où G <em>est
 commutatif</em>. Alors (avec les réductions faites) H est également commutatif, car c'est
-l'adhérence schématique de \(H_{s0}\) qui est isomorphe à \(G_{s0}\) donc commutatif. Pour tout
+l'adhérence schématique de \(H_{s'}\) qui est isomorphe à \(G_{s'}\) donc commutatif. Pour tout
 entier \(n \geqslant 0\), nous posons \(S_n = \mathrm{Spec}(V/\mathfrak{m}^{n+1})\), (où V est l'anneau de valuation qui
 définit S et \(\mathfrak{m}\) son idéal maximal), \(G_n = G \times_S S_n\), \(H_n = H \times_S S_n\). Pour tout entier
 \(m>0\), nous introduisons aussi les sous-groupes \({}_mG\) et \({}_mH\) de G et H, noyaux de
@@ -1365,8 +1365,8 @@ s'ensuit que le deuxième membre est fini sur S. Pour vérifier alors que \({}_{
 sont aussi plats sur S, il suffit de vérifier qu'il en est ainsi de \({}_{p^\nu}G_n\) et \({}_{p^\nu}H_n\) pour
 tout n, ce qui est contenu dans 7.5. Enfin, la suite exacte de 7.8 provient des suites
 exactes 7.7 pour n variable.</p>
-<p>Prenant les fibres génériques dans la suite exacte 7.8 et se rappelant que \(u_{s0} :
-G_{s0} \to H_{s0}\) est un isomorphisme, on trouve \(Q_{s0}\) = groupe unité, d'où (puisque Q est
+<p>Prenant les fibres génériques dans la suite exacte 7.8 et se rappelant que \(u_{s'} :
+G_{s'} \to H_{s'}\) est un isomorphisme, on trouve \(Q_{s'}\) = groupe unité, d'où (puisque Q est
 plat sur S) Q = groupe unité, d'où \(Q_s\) = groupe unité, donc \(u_s : G_s \to H_s\) est un
 isomorphisme. Donc&nbsp;:</p>
 

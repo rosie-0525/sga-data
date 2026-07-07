@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 3 — Exposé XXIV. Automorphismes des groupes réductifs</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+.thm-remark .thm-body { font-style: normal; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="XXIV">EXPOSÉ XXIV<br>AUTOMORPHISMES DES GROUPES RÉDUCTIFS<span class="author">par M. Demazure</span></h1>
+
+<p>par \(M\). Demazure
+</p>
+<p>La première partie de cet exposé (nos 1 à 5) est une conséquence directe de l'exis-        323
+tence pour un groupe réductif de « suffisamment d'automorphismes extérieurs », ré-
+sultat qui est une conséquence de la forme la plus faible du théorème d'isomorphisme
+des groupes épinglés. La seconde partie (nos 6 et 7) expose deux applications des ré-
+sultats plus précis de l'exposé précédent&nbsp;; en particulier, le n\circ 7 utilise le théorème de
+générateurs et relations sous sa forme explicite. Enfin, nous avons donné en appendice
+(n\circ 8) des résultats de cohomologie « galoisienne » utilisés dans le texte.
+Précisons nos notations cohomologiques&nbsp;: si \(S\) est un préschéma et \(G\) un \(S\)-
+préschéma en groupes, on notera H1 (\(S\), \(G\)) le premier ensemble de cohomologie de
+\(S\) à coefficients dans \(G\), calculé pour la topologie (fpqc)&nbsp;; c'est aussi l'ensemble des
+classes d'isomorphisme de faisceaux (fpqc) principaux homogènes sous \(G\). On notera
+H1ét (\(S\), \(G\)) l'ensemble correspondant pour la topologie étale&nbsp;; c'est donc la partie de
+H1 (\(S\), \(G\)) formée des classes de faisceaux homogènes sous \(G\) qui sont quasi-isotriviaux
+(= localement triviaux pour la topologie étale). On notera Fib(\(S\), \(G\)) la partie de
+H1 (\(S\), \(G\)) formée des classes de faisceaux représentables (fibrés principaux homogènes).
+On a donc les inclusions                                                                           324
+1
+Hét (\(S\), \(G\)) \subset H1 (\(S\), \(G\)),
+Fib(\(S\), \(G\)) \subset H1 (\(S\), \(G\)).
+Si tout faisceau principal homogène sous \(G\) est représentable (par exemple si \(G\) est
+quasi-affine sur \(S\) cf. SGA VIII 7.9), on a donc Fib(\(S\), \(G\)) = H1 (\(S\), \(G\)).
+Si \(S\)′ \to \(S\) est un morphisme couvrant pour la topologie (fpqc), on note H1 (\(S\)′ /\(S\), \(G\))
+le noyau de l'application canonique H1 (\(S\), \(G\)) \to H1 (\(S\)′ , GS′ ). On sait que H1 (\(S\)′ /\(S\), \(G\))
+peut se calculer de manière simpliciale (TDTE II, § A.4), ce qui implique que lorsque
+1
+\(S\)′ \to \(S\) est couvrant pour la topologie étale, c'est aussi le noyau de Hét         (\(S\), \(G\)) \to
+<!-- p.1 -->
+′
+Hét (\(S\) , GS ).
+′
+</p>
+<p>Enfin, on appelle « théorème 90 » l'assertion suivante&nbsp;: « tout faisceau principal ho-
+mogène sous Gm, \(S\) est représentable et localement trivial. » (Exp. VIII, 4.5), assertion
+équivalente à « H1 (\(S\), Gm, \(S\) ) = Pic(\(S\)) », ou encore à « H1 (\(S\), Gm, \(S\) ) = 0 pour \(S\) local
+(resp. semi-local) ».
+</p>
+<h2 id="XXIV.1">1. Schéma des automorphismes d'un groupe réductif</h2>
+<h3 id="XXIV.1.0">1.0. — Il convient d'abord de préciser certaines définitions de l'exposé précédent.</h3>
+<p>Soient \(S\) un préschéma non vide, \(G\) un \(S\)-groupe réductif, \(R\) = (\(M\), \(M\)^* , \(R\), \(R\)^* , R0 )
+une donnée radicielle réduite épinglée. On appelle épinglage de \(G\) de type \(R\), ou \(R\)-
+épinglage de \(G\), la donnée&nbsp;:
+(i) d'un isomorphisme de DS (\(M\)) sur un tore maximal \(T\) de \(G\) (ou, ce qui revient
+<!-- p.325 -->
+au même, d'un monomorphisme DS (\(M\)) \to \(G\) dont l'image soit un tore maximal \(T\) de
+\(G\)), identifiant \(R\) à un système de racines de \(G\) relativement à \(T\) (Exp. XIX, 3.6) et
+\(R\)^* à l'ensemble des coracines correspondantes,
+(ii) pour chaque \alpha \in R0 , d'un \(X\)\alpha \in \Gamma(\(S\), g\alpha )^* .
+Pour que \(G\) possède un \(R\)-épinglage, il faut et il suffit qu'il soit déployable et de type
+\(R\) (Exp. XXII, 2.7).
+Si u&nbsp;: \(G\) \to \(G\)′ est un isomorphisme de \(S\)-groupes réductifs, à tout \(R\)-épinglage
+\(E\) de \(G\) correspond par « transport de structure » un \(R\)-épinglage u(\(E\)) de \(G\)′ . Si
+v&nbsp;: \(R\) ′ \to \(R\) est un isomorphisme de données radicielles épinglées, à tout \(R\) ′ -épinglage
+\(E\) de \(G\)′ correspond par transport de structure un \(R\)-épinglage v(\(E\)) de \(G\).
+Appelons groupe épinglé un triplet (\(G\), \(R\), \(E\)) où \(G\) est un \(S\)-groupe réductif, \(R\)
+une donnée radicielle réduite épinglée, et \(E\) un épinglage de \(G\) de type \(R\). On appelle
+isomorphisme du groupe épinglé (\(G\), \(R\), \(E\)) sur le groupe épinglé (\(G\)′ , \(R\) ′ , \(E\) ′ ) un couple
+(u, v) où u est un isomorphisme u&nbsp;: \(G\) \to \(G\)′ et v un isomorphisme de données
+radicielles épinglées v&nbsp;: \(R\) ′ \to \(R\), tels que u(\(E\)) = v(\(E\) ′ ).
+N. \(B\). Si \(S\) est non vide, v est uniquement déterminé par u, et on dira aussi par abus
+de langage que u est un isomorphisme des groupes épinglés. En particulier, si (\(G\), \(R\), \(E\))
+est un groupe épinglé, un automorphisme de (\(G\), \(R\), \(E\)) est donc un automorphisme
+u de \(G\) tel qu'il existe un automorphisme v de \(R\) tel que u(\(E\)) = v(\(E\))&nbsp;; c'est donc
+<!-- p.326 -->
+un automorphisme de \(G\), normalisant \(T\), induisant sur \(T\) un automorphisme de la
+forme DS (h), où h est un automorphisme de \(M\), et permutant entre eux les éléments
+\(X\)\alpha , \alpha \in R0 . (Comme on le voit facilement, les conditions précédentes caractérisent
+d'ailleurs les automorphismes de (\(G\), \(R\), \(E\))).
+On a un foncteur contravariant évident
+\Phi:     (\(G\), \(R\), \(E\)) \mapsto \(R\),       (u, v) \mapsto v
+et le résultat principal de l'exposé précédent (Exp. XXIII, 4.1) nous montre que c'est
+un foncteur pleinement fidèle (nous verrons d'ailleurs dans l'exposé suivant que c'est
+une équivalence de catégories). Il s'ensuit en particulier que le groupe des automor-
+phismes de (\(G\), \(R\), \(E\)) est canoniquement isomorphe au groupe des automorphismes de
+la donnée radicielle épinglée \(R\) (cf. Exp. XXIII, 5.5).
+</p>
+<h3 id="XXIV.1.1">1.1. — Soit \(S\) un préschéma&nbsp;; munissons (Sch)/\(S\) de la topologie (fpqc) et considérons</h3>
+<p>le \(S\)-faisceau en groupes AutS-gr. (\(G\)), où \(G\) est un \(S\)-préschéma en groupes. On a une
+suite exacte de \(S\)-faisceaux en groupes
+/ Centr(\(G\))          /\(G\)     int   / Aut
+<!-- p.1 -->
+\(S\)-gr. (\(G\))
+</p>
+<!-- p.195 -->
+<p>qui définit un monomorphisme
+j&nbsp;: \(G\)/ Centr(\(G\)) -\to AutS-gr. (\(G\)).
+Le faisceau image de j est le faisceau des automorphismes intérieurs de \(G\)&nbsp;; pour
+qu'un automorphisme u de \(G\) soit intérieur, il faut et il suffit qu'il existe une famille
+couvrante {Si \to \(S\)} et pour chaque i un gi \in \(G\)(Si ) tel que int(gi ) = uSi . Si v est un
+autre automorphisme de \(G\), on voit aussitôt que int(v)u = vuv -1 est l'automorphisme
+intérieur défini par la famille gi′ = v(gi ). Il s'ensuit que l'image de j est distinguée   327
+dans AutS-gr. (\(G\)). Le faisceau en groupes quotient, noté Autext(\(G\)), est le faisceau des
+automorphismes extérieurs de \(G\). On a donc une suite exacte
+<!-- p.1 -->
+-\to \(G\)/ Centr(\(G\)) -\to AutS-gr. (\(G\)) -\to Autext(\(G\)) -\to 1.
+Les définitions précédentes sont toutes compatibles avec les changements de base.
+Elles sont naturellement valables dans tout site.
+</p>
+<h3 id="XXIV.1.2">1.2. — Soient \(S\) un préschéma et (\(G\), \(R\), \(E\)) un \(S\)-groupe réductif épinglé. Soit \(E\) le</h3>
+<p>groupe (abstrait) des automorphismes de la donnée radicielle épinglée \(R\), i.e. le groupe
+des automorphismes de \(R\) normalisant R0 . Par Exp. XXIII, 5.5, on a un monomor-
+phisme canonique
+\(E\) -\to AutS-gr. (\(G\))
+qui associe à h \in \(E\) l'unique automorphisme du groupe épinglé \(G\) tel que \Phi(u) = h.
+Ce monomorphisme définit canoniquement un monomorphisme de faisceaux
+a:     ES -\to AutS-gr. (\(G\)).
+Pour qu'un automorphisme u de \(G\) soit une section du faisceau image de a, il faut et
+il suffit que les conditions suivantes soient vérifiées&nbsp;:
+(i) u normalise \(T\). On sait alors que u permute les racines de \(G\) relativement à \(T\).
+Si \alpha \in \(R\), alors u(\alpha)&nbsp;: t \mapsto \alpha(u-1 (t)) est donc localement sur \(S\) de la forme t \mapsto \beta(t),
+\beta \in \(R\). La seconde condition s'écrit alors comme suit&nbsp;:
+(ii) Si \alpha \in R0 et si \(U\) est un ouvert de \(S\) tel que u(\alpha)\(U\) \in \(R\), alors u(\alpha)\(U\) \in R0 et           328
+on a
+Lie(uU )(\(X\)\alpha )\(U\) = (Xu(\alpha) )\(U\) .
+Il résulte aussitôt des définitions que les sections de a(ES ) normalisent les sous-
+groupes de \(G\) définis par l'épinglage&nbsp;: \(T\), \(B\), \(B\)- , \(U\), \(U\)- .
+Ces définitions posées, on a&nbsp;:
+</p>
+<div class="thm thm-plain theoreme" id="XXIV.1.3">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">1.3</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. Considérons la
+suite exacte canonique de \(S\)-faisceaux en groupes
+p
+<!-- p.1 -->
+/ ad(\(G\))        / Aut                   / Autext(\(G\))   / 1.
+\(S\)-gr. (\(G\))
+</div></div>
+<p>(i) AutS-gr. (\(G\)) est représentable par un \(S\)-préschéma lisse et séparé.
+(ii) Autext(\(G\)) est représentable par un \(S\)-préschéma constant tordu à engendre-
+ment fini (Exp. \(X\), 5.1).
+</p>
+<p>(iii) Si \(G\) est déployable, la suite exacte précédente est scindée. Plus précisément,
+pour tout épinglage de \(G\), le morphisme (cf. 1.2 )
+p\circa:       ES -\to Autext(\(G\))
+est un isomorphisme.
+Montrons d'abord comment le théorème se déduit de&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXIV.1.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.4</span></div>
+  <div class="thm-body"><p>Dans les notations de 1.2, AutS-gr. (\(G\)) est le produit semi-direct a(ES )·
+int(\(G\)).
+Le lemme entraı̂ne aussitôt le théorème lorsque \(G\) est déployable. Comme \(G\) est
+<!-- p.329 -->
+localement déployable pour la topologie étale (Exp. XXII, 2.3), donc aussi pour la
+topologie (fppf), et que celle-ci est « de descente effective » pour la catégorie fibrée
+des morphismes constants tordus (Exp. \(X\), 5.5), on en déduit (ii) dans le cas général
+(cf. Exp. IV, 4.6.8). Pour en déduire (i), on remarque que int(\(G\)) \simeq ad(\(G\)) est affine
+sur \(S\), donc le morphisme p affine lorsque AutS-gr. (\(G\)) est représentable, et on conclut
+par descente des schémas affines.
+Il ne nous reste donc qu'à prouver 1.4. Pour ce faire, il suffit de prouver&nbsp;:
+</div></div>
+<div class="thm thm-plain lemme" id="XXIV.1.5">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">1.5</span></div>
+  <div class="thm-body"><p>Si (\(R\), \(E\)) et (\(R\) ′ , \(E\) ′ ) sont deux épinglages du \(S\)-groupe réductif \(G\), il
+existe un unique automorphisme intérieur u de \(G\) sur \(S\) transformant un épinglage
+∼
+en l'autre (i.e. tel qu'il existe v&nbsp;: \(R\) ′ -\to \(R\) avec u(\(E\)) = v(\(E\) ′ ), cf. 1.0).
+</div></div>
+<p>1.5.1. Unicité. — Il suffit de prouver que si \(G\) est un \(S\)-groupe épinglé et si int(g) est
+un automorphisme de groupe épinglé (g \in \(G\)(\(S\))), alors int(g) = id. Or on a d'abord
+int(g)\(T\) = \(T\), int(g)\(B\) = \(B\), donc g \in NormG (\(T\))(\(S\)) \cap NormG (\(B\))(\(S\)) = \(T\)(\(S\)) (cf. par
+exemple Exp. XXII, 5.6.1). Il s'ensuit que int(g) normalise chaque \(U\)\alpha et que
+Lie(int(g))\(X\)\alpha = Ad(g)\(X\)\alpha = \alpha(g) \(X\)\alpha
+\(T\)
+pour \alpha \in R0 . On a donc \alpha(g) = 1 pour \alpha \in R0 , donc g \in                         \alpha\inR0 (Ker \alpha)(\(S\))
+=
+Centr(\(G\))(\(S\)) (Exp. XXII, 4.1.8).                                                         C.Q.\(F\).D.
+</p>
+<p>1.5.2. Existence. — Il suffit de la prouver localement pour la topologie (fpqc). Soient
+(\(T\), \(M\), \(R\), R0 , (\(X\)\alpha )\alpha\inR0 ) et (\(T\)′ , \(M\)′ , \(R\)′ , \(R\)′0 , (\(X\)′\alpha′ )\alpha′ \inR′0 )
+<!-- p.330 -->
+les deux épinglages. Par conjugaison des tores maximaux, on peut supposer \(T\) =
+\(T\)′ . Quitte à restreindre \(S\), on peut supposer que l'isomorphisme DS (\(M\)) \simeq DS (\(M\)′ )
+provient d'un isomorphisme \(M\) \simeq \(M\)′ transportant \(R\) sur \(R\)′ , et on est ramené à la
+situation \(T\) = \(T\)′ , \(M\) = \(M\)′ , \(R\) = \(R\)′ . Comme les systèmes de racines simples sont
+conjugués par le groupe de Weyl (Exp. XXI, 3.3.7), on peut également supposer R0 =
+\(R\)′0 . Il existe alors pour chaque \alpha \in R0 un scalaire \(z\)\alpha \in Gm (\(S\)) tel que \(X\)′\alpha = \(z\)\alpha \(X\)\alpha ,
+et il suffit de construire localement pour (fpqc) une section t de \(T\) telle que \alpha(t) = \(z\)\alpha
+pour chaque \alpha \in R0 . Mais le morphisme \(T\) \to (Gm, \(S\) )R0 de composantes {\alpha, \alpha \in R0 }
+est le dual d'une injection ZR0 \to \(M\), donc est fidèlement plat, ce qui achève la
+démonstration de 1.5.2 et donc de 1.3.
+</p>
+<!-- p.197 -->
+<div class="thm thm-plain corollaire" id="XXIV.1.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.6</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. Les conditions
+suivantes sont équivalentes&nbsp;:
+(i) AutS-gr. (\(G\)) est affine (resp. de type fini, resp. de présentation finie, resp. quasi-
+compact ) sur \(S\).
+(ii) Autext(\(G\)) est fini sur \(S\).
+(iii) Pour tout s \in \(S\), on a rgred(Gs ) - rgss(Gs ) \leqslant 1.
+En effet, comme ad(\(G\)) est affine, plat et de présentation finie sur \(S\), le morphisme
+p est affine, fidèlement plat et de présentation finie.
+Si Autext(\(G\)) est fini sur \(S\), il est affine sur \(S\), donc aussi AutS-gr. (\(G\)), ce qui prouve
+(ii) \Rightarrow (i). Si AutS-gr. (\(G\)) est quasi-compact sur \(S\), il est de présentation finie sur \(S\)
+(étant de toute façon localement de présentation finie et séparé sur \(S\))&nbsp;; par Exp. \(V\),       331
+9.1, Autext(\(G\)) est alors de présentation finie sur \(S\), donc fini, ce qui prouve (i) \Rightarrow (ii).
+Enfin, pour prouver l'équivalence de (ii) et (iii), on peut supposer \(G\) déployé, et on
+est ramené à Exp. XXI, 6.7.8.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.7</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. Alors AutS-gr. (\(G\))0
+= int(\(G\)) \simeq ad(\(G\)).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.8</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(H\) un \(S\)-préschéma
+en groupes lisse, affine et à fibres connexes sur \(S\). Alors le \(S\)-foncteur
+IsomS-gr. (\(G\), \(H\))
+est représentable par un \(S\)-préschéma lisse et séparé (qui est affine sur \(S\) si \(G\) est
+semi-simple).
+En effet, soit \(U\) l'ensemble des points t de \(S\) tels que Ht soit réductif&nbsp;; c'est un
+ouvert (Exp. XIX, 2.6)&nbsp;; si \(S\)′ est un \(S\)-préschéma, HS′ est réductif si et seulement si
+\(S\)′ \to \(S\) se factorise par \(U\). Il s'ensuit que le morphisme canonique IsomS-gr. (\(G\), \(H\)) \to \(S\)
+se factorise par \(U\). On peut donc supposer \(S\) = \(U\) et on est ramené à&nbsp;:
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.9">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.9</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) et \(G\)′ deux \(S\)-groupes réductifs. Alors
+\(F\) = IsomS-gr. (\(G\), \(G\)′ )
+est représentable par un \(S\)-préschéma lisse et séparé (affine si \(G\) ou \(G\)′ est semi-
+simple). De plus, \(S\) se décompose en somme de deux sous-préschémas ouverts S1 et               332
+S2 tels que FS1 = \emptyset et que FS2 soit un fibré principal homogène à gauche (resp. droite)
+sous AutS2 -gr. (\(G\)′S2 ) (resp. AutS2 -gr. (GS2 )).
+En effet, soit S2 l'ensemble des points de \(S\) où \(G\) et \(G\)′ sont de même type, et soit
+S1 son complémentaire.
+Comme le type d'un groupe réductif est une fonction localement constante, S1 et
+S2 sont ouverts. Il est clair que FS1 = \emptyset, et on peut supposer \(S\) = S2 . Par Exp. XXIII,
+5.6, \(F\) est un faisceau principal homogène sous AutS-gr. (\(G\)), localement trivial pour la
+topologie étale. Il s'ensuit que F0 = \(F\)/ ad(\(G\)) est un faisceau principal homogène sous
+Autext(\(G\)), localement trivial pour la topologie étale, donc représentable (Exp. \(X\),
+5.5). Comme ad(\(G\)) est affine, \(F\) est donc aussi représentable.
+</div></div>
+<p>Remarquons qu'en cours de démonstration, on a obtenu&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.1.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.10</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) et \(G\)′ deux \(S\)-groupes réductifs de même
+type en chaque s \in \(S\). Alors ad(\(G\)) opère librement (à droite) dans IsomS-gr. (\(G\), \(G\)′ ),
+le faisceau quotient
+Isomext(\(G\), \(G\)′ ) = IsomS-gr. (\(G\), \(G\)′ )/ ad(\(G\))
+est représentable par un \(S\)-préschéma constant tordu, qui est un fibré principal ho-
+mogène sous Autext(\(G\)) (et qui est donc fini sur \(S\) si \(G\) est semi-simple). De plus,
+l'isomorphisme
+IsomS-gr. (\(G\), \(G\)′ ) \simeq IsomS-gr. (\(G\)′ , \(G\))
+défini par u \mapsto u-1 induit un isomorphisme
+Isomext(\(G\), \(G\)′ ) \simeq Isomext(\(G\)′ , \(G\)).
+<!-- p.333 -->
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.1.11">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.11</span></div>
+  <div class="thm-body"><p>Si Isomext(\(G\), \(G\)′ )(\(S\)) 6= \emptyset, on dit que \(G\) est une forme tordue
+intérieure de \(G\)′&nbsp;; alors \(G\)′ est une forme tordue intérieure de \(G\)&nbsp;; on peut alors
+réduire le groupe structural de IsomS-gr. (\(G\), \(G\)′ ) à ad(\(G\)). Plus précisément, soit
+u \in Isomext(\(G\), \(G\)′ )(\(S\)), considéré comme une section u&nbsp;: \(S\) \to Isomext(\(G\), \(G\)′ ). No-
+tons
+Isomintu (\(G\), \(G\)′ )
+l'image réciproque par le morphisme canonique IsomS-gr. (\(G\), \(G\)′ ) \to Isomext(\(G\), \(G\)′ ) du
+sous-préschéma fermé de Isomext(\(G\), \(G\)′ ) image de u. \(L\)'opération naturelle de ad(\(G\))
+sur Isomintu (\(G\), \(G\)′ ) munit ce préschéma d'une structure de fibré principal homogène&nbsp;;
+par extension du groupe structural ad(\(G\)) \to Autext(\(G\)), Isomintu (\(G\), \(G\)′ ) redonne
+IsomS-gr. (\(G\), \(G\)′ ).
+Par le lemme de Hensel (Exp. XI, 1.11), 1.8 donne aussitôt&nbsp;:
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.12">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.12</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma local hensélien, \(G\) un \(S\)-groupe réductif, \(G\)′
+un \(S\)-groupe lisse affine à fibres connexes, s le point fermé de \(S\). Si Gs et \(G\)′s sont des
+\(k\)(s)-groupes algébriques isomorphes, \(G\) et \(G\)′ sont isomorphes. Plus précisément, tout
+\(k\)(s)-isomorphisme Gs \simeq \(G\)′s provient d'un \(S\)-isomorphisme \(G\) \simeq \(G\)′ .
+Appliquant maintenant 1.7 (resp. 1.12) au schéma des nombres duaux sur un corps,
+on a par Exp. III, 2.10 (resp. 3.1)&nbsp;:
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.13">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.13</span></div>
+  <div class="thm-body"><p>Soient \(k\) un corps et \(G\) un \(k\)-groupe réductif. Alors
+H1 (\(G\), Lie(\(G\)/\(k\))) = H2 (\(G\), Lie(\(G\)/\(k\))) = 0.
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.1.14">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.14</span></div>
+  <div class="thm-body"><p>(i) \(L\)'assertion concernant le H1 était connue (CHEVALLEY)&nbsp;;
+<!-- p.334 -->
+celle concernant le H2 a été démontrée dans la plupart des cas de la classification par
+CHEVALLEY.
+(ii) En fait, la conjonction de 1.13 et du théorème d'unicité sur un corps algébrique-
+ment clos est essentiellement équivalente au théorème d'unicité. Une démonstration
+directe de 1.13 donnerait donc une manière de déduire le théorème d'unicité général
+du théorème d'unicité de CHEVALLEY sur un corps.
+</div></div>
+<!-- p.199 -->
+<p>\(L\)'existence de groupes réductifs de tous les types sur tous les préschémas
+(Exp. XXV) montre que les obstructions au relèvement d'un \(k\)-groupe réductif \(G\)
+au-dessus des anneaux artiniens à corps résiduel \(k\) (qui par Exp. III, 3.8 sont des
+éléments de H3 (\(G\), Lie(\(G\)/\(k\))) \(V\)) où \(V\) est un certain \(k\)-espace vectoriel)sont nulles.
+Ceci semble suggérer que H3 (\(G\), Lie(\(G\)/\(k\))) = 0. Là encore, une démonstration di-
+recte de ce fait (s'il est vrai) donnerait sans doute une manière de déduire le théorème
+d'existence général du théorème d'existence sur un corps (Tôhoku de Chevalley).
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.1.15">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.15</span></div>
+  <div class="thm-body"><p>Soient \(k\) un préschéma, \(G\) un \(k\)-groupe réductif. Considérons \(k\)
+comme \(G\)-module trivial. Alors
+H1 (\(G\), \(k\)) = H2 (\(G\), \(k\)) = 0.
+Considérons en effet le \(k\)-groupe réductif \(H\) = \(G\) \timesk Gm, \(k\) . On a Lie(\(H\)/\(k\)) =
+Lie(\(G\)/\(k\)) ⊕ \(k\), décomposition stable sous \(H\). Pour un \(H\)-Module quelconque \(M\), on
+a Hi (\(H\), \(M\)) = Hi (\(G\), H0 (Gm, \(k\) , \(M\))) (cela résulte de la caractérisation des Hi (\(H\), -)
+comme foncteurs dérivés de H0 (\(H\), -) = H0 (\(G\), H0 (Gm, \(k\) , -)), et du fait que le fonc-
+teur H0 (Gm, \(k\) , -) est exact, cf. Exp. I, n\circ 5). En particulier, on a                         335
+\(L\)
+Hi (\(H\), Lie(\(H\)/\(k\))) = Hi (\(G\), Lie(\(G\)/\(k\))) Hi (\(G\), \(k\)) pour i > 0.
+On conclut alors en appliquant 1.13 au groupe réductif \(H\).
+</div></div>
+<div class="thm thm-plain definition" id="XXIV.1.16">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.16</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. On appelle forme
+de \(G\) sur \(S\) un \(S\)-préschéma en groupes \(G\)′ localement isomorphe à \(G\) pour (fpqc) (il
+revient au même de dire (cf. Exp. XXIII, 5.6), que \(G\)′ est localement isomorphe à \(G\)
+pour (ét), ou encore que \(G\)′ est un \(S\)-groupe réductif de même type que \(G\) en chaque
+point de \(S\)).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.17">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.17</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. Le foncteur
+\(G\)′ \mapsto IsomS-gr. (\(G\), \(G\)′ )
+est une équivalence entre la catégorie des formes de \(G\) sur \(S\) et la catégorie des fibrés
+principaux homogènes sous AutS-gr. (\(G\)).
+Si \(S\)′ \to \(S\) est un morphisme couvrant, formes de \(G\) trivialisées par \(S\)′ et fibrés
+trivialisés par \(S\)′ se correspondent. Tout faisceau principal homogène sous AutS-gr. (\(G\))
+est représentable et quasi-isotrivial (localement trivial pour la topologie étale).
+La première assertion est formelle dans la catégorie des faisceaux (pour (fpqc) par
+exemple). D'autre part, tout faisceau localement isomorphe à \(G\) (pour (fpqc)) est
+représentable (car \(G\) est affine sur \(S\)) et localement isomorphe à \(G\) pour (ét). Enfin,
+pour toute forme \(G\)′ de \(G\), le \(S\)-faisceau IsomS-gr. (\(G\), \(G\)′ ) est représentable (1.8). Le
+corollaire en résulte aussitôt.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.18">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.18</span></div>
+  <div class="thm-body"><p>\(L\)'ensemble des classes d'isomorphisme de formes du groupe ré-
+ductif \(G\) sur \(S\) est isomorphe à
+1
+H1 (\(S\), AutS-gr. (\(G\))) = Hét (\(S\), AutS-gr. (\(G\))) = Fib(\(S\), AutS-gr. (\(G\))).
+Si \(S\)′ \to \(S\) est un morphisme couvrant, le sous-ensemble formé des formes trivialisées          336
+par \(S\)′ est isomorphe à H1 (\(S\)′ /\(S\), AutS-gr. (\(G\))).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.1.19">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.19</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma et \(R\) une donnée radicielle réduite épinglée
+telle que ÉpS (\(R\)) existe (condition automatiquement vérifiée, Exp. XXV). Notons
+AS (\(R\)) = AutS-gr. (ÉpS (\(R\))) = ad(ÉpS (\(R\))) · \(E\)(\(R\))\(S\) .
+(i) \(L\)'ensemble des classes d'isomorphisme de \(S\)-groupes réductifs de type \(R\)
+(Exp. XXII, 2.7, cf. Exp. XXIII, 5.12) est isomorphe à
+H1 (\(S\), AS (\(R\))) = H1ét (\(S\), AS (\(R\))) = Fib(\(S\), AS (\(R\))).
+(ii) Si \(S\)′ \to \(S\) est un morphisme couvrant, le sous-ensemble formé des classes de
+groupes déployables sur \(S\)′ est isomorphe à H1 (\(S\)′ /\(S\), AS (\(R\))).
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.1.20">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.20</span></div>
+  <div class="thm-body"><p>Avec les notations précédentes, à tout \(S\)-groupe réductif de type
+\(R\) est associé canoniquement un fibré principal homogène à droite sous AS (\(R\))&nbsp;:
+</div></div>
+<p>IsomS-gr. (ÉpS (\(R\)), \(G\)) = \(P\).
+Remarquons que \(P\) s'interprète comme le « schéma des épinglages de \(G\) de type \(R\) »
+(cf. 1.0). D'ailleurs \(P\) est également un fibré principal homogène (à gauche) sous
+AutS-gr. (\(G\)), structure qui apparaı̂t aussitôt dans la description ci-dessus.
+</p>
+<div class="thm thm-plain proposition" id="XXIV.1.21">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.21</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma local hensélien, s son point fermé. Le fonc-
+teur
+\(G\) \mapsto Gs
+<!-- p.337 -->
+induit une bijection de la classification des \(S\)-groupes réductifs sur celle des \(k\)(s)-
+groupes réductifs.
+En particulier, pour tout \(S\)-groupe réductif \(G\), il existe un morphisme étale fini
+surjectif \(S\)′ \to \(S\) tel que GS′ soit déployable.
+</div></div>
+<p>Utilisant l'existence des ÉpS (\(R\)) (Exp. XXV), on est ramené à prouver que si on
+note \(H\) = AS (\(R\)), l'application canonique
+Fib(\(S\), \(H\)) -\to Fib(\(k\)(s), Hs )
+est bijective (et que tout élément de Fib(\(S\), \(H\)) a la propriété indiquée ci-dessus). Or,
+toute partie finie de \(H\) est contenue dans un ouvert affine (c'est en effet trivial pour
+un groupe constant, et \(H\) est affine au-dessus d'un groupe constant)&nbsp;; on peut donc
+utiliser le résultat démontré en appendice (8.1).
+</p>
+<h2 id="XXIV.2">2. Automorphismes et sous-groupes</h2>
+<p>Introduisons une notation&nbsp;: si \(H\) = AutS-gr. (\(G\)), et si \(X\) est un sous-foncteur de \(G\),
+on note
+AutS-gr. (\(G\), \(X\)) = NormH (\(X\)),
+AutS-gr. (\(G\), idX ) = CentrH (\(X\)).
+On définit de même AutS-gr. (\(G\), \(X\), \(Y\)), . . ., IsomS-gr. (\(G\), \(X\); \(G\)′ , \(X\)′ ), . . ..
+</p>
+<!-- p.201 -->
+<div class="thm thm-plain proposition" id="XXIV.2.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(T\) un tore maximal
+<!-- p.338 -->
+de \(G\) (resp. \(B\) un groupe de Borel de \(G\), resp. \(B\) \supset \(T\) un couple de Killing de \(G\)). Notons
+Tad (resp. Bad ) le tore maximal (resp. le groupe de Borel ) de ad(\(G\)) correspondant à
+\(T\) (resp. \(B\))&nbsp;:
+Bad \simeq \(B\)/ Centr(\(G\)) = \(B\)/ Centr(\(B\)),
+Tad \simeq \(T\)/ Centr(\(G\)).
+Alors AutS-gr. (\(G\), \(T\)) (resp. AutS-gr. (\(G\), \(B\)), resp. AutS-gr. (\(G\), \(B\), \(T\))) est représentable
+par un sous-préschéma fermé de AutS-gr. (\(G\)), lisse sur \(S\), et la suite exacte de1.3
+induit une suite exacte
+e -\to Normad(\(G\)) (Tad ) -\to AutS-gr. (\(G\), \(T\)) -\to Autext(\(G\)) -\to e
+(resp.
+e -\to Bad -\to AutS-gr. (\(G\), \(B\)) -\to Autext(\(G\)) -\to e,
+resp.
+e -\to Tad -\to AutS-gr. (\(G\), \(B\), \(T\)) -\to Autext(\(G\)) -\to e).
+Par descente des sous-préschémas fermés, on se ramène aussitôt au cas où \(G\) est
+épinglé et où \(B\) \supset \(T\) est son couple de Killing canonique (cf. Exp. XXII, 5.5.5 (iv)).
+Comme le groupe \(E\) de 1.2 normalise \(B\) et \(T\), le résultat se déduit aussitôt des théo-
+rèmes de normalisation dans ad(\(G\)) (Exp. XXII, 5.3.12 et 5.6.1).
+Utilisant maintenant les théorèmes de conjugaison (cf. Exp. XXIII, 5.12), et rai-
+sonnant comme au n\circ 1, on en déduit&nbsp;:
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.2.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) et \(G\)′ deux \(S\)-groupes réductifs de même
+type en chaque point. Soit \(B\) \supset \(T\) (resp. \(B\)′ \supset \(T\)′ ) un couple de Killing de \(G\) (resp. \(G\)′ ).
+(i) Le \(S\)-foncteur IsomS-gr. (\(G\), \(T\); \(G\)′ , \(T\)′ ) est représentable par un sous-préschéma
+fermé lisse de IsomS-gr. (\(G\), \(G\)′ ) qui est principal homogène sous AutS-gr. (\(G\), \(T\)).          339
+De plus, Normad(\(G\)) (Tad ) opère librement sur ce préschéma, et on a un isomor-
+phisme canonique
+IsomS-gr. (\(G\), \(T\); \(G\)′ , \(T\)′ )/ Normad(\(G\)) (Tad ) \simeq Isomext(\(G\), \(G\)′ ).
+</div></div>
+<p>(ii) Le \(S\)-foncteur IsomS-gr. (\(G\), \(B\); \(G\)′ , \(B\)′ ) est représentable par un sous-préschéma
+fermé lisse de IsomS-gr. (\(G\), \(G\)′ ) qui est principal homogène sous AutS-gr. (\(G\), \(B\)).
+De plus, Bad opère librement sur ce préschéma et on a un isomorphisme canonique
+IsomS-gr. (\(G\), \(B\); \(G\)′ , \(B\)′ )/Bad \simeq Isomext(\(G\), \(G\)′ ).
+(iii) Le \(S\)-foncteur IsomS-gr. (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ ) est représentable par un sous-
+préschéma fermé lisse de IsomS-gr. (\(G\), \(G\)′ ) qui est principal homogène sous
+AutS-gr. (\(G\), \(B\), \(T\)).
+De plus, Tad opère librement sur ce préschéma et on a un isomorphisme canonique
+IsomS-gr. (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ )/Tad \simeq Isomext(\(G\), \(G\)′ ).
+Raisonnant encore comme au n\circ 1, on en déduit&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.2.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.3</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(B\) \supset \(T\) un couple
+de Killing de \(G\). Le foncteur
+(\(G\)′ , \(T\)′ ) \mapsto IsomS-gr. (\(G\), \(T\); \(G\)′ , \(T\)′ ),
+resp.
+(\(G\)′ , \(B\)′ ) \mapsto IsomS-gr. (\(G\), \(B\); \(B\)′ , \(B\)′ ),
+resp.
+(\(G\)′ , \(B\)′ , \(T\)′ ) \mapsto IsomS-gr. (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ ),
+<!-- p.340 -->
+est une équivalence entre la catégorie des couples (\(G\)′ , \(T\)′ ) (resp. des couples (\(G\)′ , \(B\)′ ),
+resp. des triplets (\(G\)′ , \(B\)′ , \(T\)′ )), où \(G\)′ est une forme de \(G\) et \(T\)′ un tore maximal de \(G\)′
+(resp. \(B\)′ un groupe de Borel de \(G\)′ , resp. \(B\)′ \supset \(T\)′ un couple de Killing de \(G\)′ ), et la
+catégorie des fibrés principaux homogènes sous le \(S\)-groupe \(H\), où \(H\) = AutS-gr. (\(G\), \(T\))
+(resp. \(H\) = AutS-gr. (\(G\), \(B\)), resp. \(H\) = AutS-gr. (\(G\), \(B\), \(T\))).
+De plus, tout faisceau principal homogène sous \(H\) est représentable et quasi-
+isotrivial, de sorte qu'on a
+H1 (\(S\), \(H\)) = Hét
+1
+(\(S\), \(H\)) = Fib(\(S\), \(H\)).
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.2.4">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.4</span></div>
+  <div class="thm-body"><p>Sous les conditions de 2.2, le morphisme noté ensemblistement u \mapsto
+u(\(T\)) (resp. u \mapsto u(\(B\)), resp. u \mapsto (u(\(B\)), u(\(T\)))) induit un isomorphisme
+IsomS-gr. (\(G\), \(G\)′ )/ AutS-gr. (\(G\), \(T\)) \simeq Tor(\(G\)′ )
+resp.    IsomS-gr. (\(G\), \(G\)′ )/ AutS-gr. (\(G\), \(B\)) \simeq Bor(\(G\)′ ),
+resp.    IsomS-gr. (\(G\), \(G\)′ )/ AutS-gr. (\(G\), \(B\), \(T\)) \simeq Kil(\(G\)′ ).
+La démonstration est immédiate&nbsp;: il suffit de la faire localement pour (fpqc), on
+peut donc supposer \(G\) \simeq \(G\)′ , et on est ramené à Exp. XXII, 5.8.3 (iii).
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.2.5">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.5</span></div>
+  <div class="thm-body"><p>Les résultats précédents s'interprètent aussitôt en termes de res-
+triction du groupe structural&nbsp;: si \(G\)′ est une forme de \(G\), correspondant au fibré
+principal IsomS-gr. (\(G\), \(G\)′ ), se donner une restriction du groupe structural de ce fibré
+à AutS-gr. (\(G\), \(T\)) revient à se donner un tore maximal \(T\)′ de \(G\)′ , les bijections suggé-
+<!-- p.341 -->
+rées ci-dessus étant celle de 2.4 d'une part, l'application \(T\)′ \mapsto IsomS-gr. (\(G\), \(T\); \(G\)′ , \(T\)′ )
+d'autre part. De même pour groupes de Borel et couples de Killing.
+</div></div>
+<div class="thm thm-plain proposition" id="XXIV.2.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.6</span></div>
+  <div class="thm-body"><p>Sous les conditions du corollaire 2.2 (i), Tad opère librement sur
+IsomS-gr. (\(G\), \(T\); \(G\)′ , \(T\)′ ), le quotient
+\(P\) = IsomS-gr. (\(G\), \(T\); \(G\)′ , \(T\)′ )/Tad
+est représentable&nbsp;; c'est un fibré principal homogène sous
+A = AutS-gr. (\(G\), \(T\))/Tad ,
+où A est représentable par un \(S\)-préschéma constant tordu, extension de Autext(\(G\))
+par Wad(\(G\)) (Tad ) = Normad(\(G\)) (Tad )/Tad . De plus, si on fait opérer A sur \(T\) de la
+manière évidente, le fibré associé à \(P\) n'est autre que \(T\)′ .
+</div></div>
+<!-- p.203 -->
+<p>La première partie de la proposition résulte aussitôt des résultats précédents. Pour
+prouver la seconde, on remarque qu'il \(y\) a un morphisme évident \(P\) \timesS \(T\) \to \(T\)′ (défini
+par (u, t) \mapsto u(t))&nbsp;; pour démontrer qu'après passage au quotient par A il induit un
+isomorphisme, on peut encore une fois supposer (\(G\), \(T\)) \simeq (\(G\)′ , \(T\)′ ), auquel cas c'est
+immédiat.
+De manière absolument semblable, on a&nbsp;:
+</p>
+<div class="thm thm-plain proposition" id="XXIV.2.7">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.7</span></div>
+  <div class="thm-body"><p>Sous les conditions du corollaire 2.2 (ii), si on fait opérer
+AutS-gr. (\(G\), \(B\), \(T\))/Tad \simeq Autext(\(G\)) de la manière évidente sur \(T\), le fibré associé
+à Isomext(\(G\), \(G\)′ ) n'est autre que \(T\)′ .
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.2.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.8</span></div>
+  <div class="thm-body"><p>Soient \(G\) et \(G\)′ deux \(S\)-groupes réductifs qui sont des formes tordues
+intérieures l'un de l'autre&nbsp;; soit \(B\) \supset \(T\) (resp. \(B\)′ \supset \(T\)′ ) un couple de Killing de \(G\)                    342
+(resp. \(G\)′ ). Alors \(T\) et \(T\)′ sont isomorphes .
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.2.9">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.9</span></div>
+  <div class="thm-body"><p>Il n'est pas vrai en général que \(B\) et \(B\)′ soient isomorphes&nbsp;; ce sont
+cependant des formes tordues intérieures l'un de l'autre (cf. n\circ 5).
+On peut développer des variantes « Isomint » des résultats précédents. Signalons-
+en une&nbsp;:
+</div></div>
+<div class="thm thm-plain proposition" id="XXIV.2.10">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.10</span></div>
+  <div class="thm-body"><p>Sous les conditions de 2.2 (iii), soit u \in Isomext(\(G\), \(G\)′ )(\(S\))&nbsp;; consi-
+dérons
+Isomintu (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ ) = IsomS-gr. (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ ) \cap Isomintu (\(G\), \(G\)′ ).
+C'est un \(S\)-préschéma lisse et affine qui est un fibré principal homogène sous Tad . En
+particulier, Isomintu (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ )(\(S\)) 6= \emptyset si et seulement l'élément correspon-
+dant de H1 (\(S\), Tad ) est nul.
+Pour terminer ce n\circ , démontrons deux résultats qui nous seront utiles par la suite&nbsp;:
+</div></div>
+<div class="thm thm-plain proposition" id="XXIV.2.11">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.11</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(T\) un tore maxi-
+mal de \(G\). Le morphisme évident
+∼
+Tad -\to AutS-gr. (\(G\), idT )
+est un isomorphisme.
+Cela résulte des énoncés précédents&nbsp;; d'ailleurs, on a donné une démonstration
+directe au cours de la preuve de 1.5.2.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.2.12">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.12</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, il existe une équivalence entre la               343
+catégorie des couples (\(G\)′ , f ), où \(G\)′ est une forme de \(G\) et f un isomorphisme de \(T\)
+sur un tore maximal de \(G\)′ , et la catégorie des fibrés principaux homogènes sous Tad .
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.2.13">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.13</span></div>
+  <div class="thm-body"><p>Si H1 (\(S\), Tad ) = 0, et si \(G\)′ est une forme de \(G\) possédant un tore
+maximal isomorphe à \(T\), \(G\)′ est isomorphe à \(G\).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.2.14">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.14</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma tel que Pic(\(S\)) = 0, et \(G\) un \(S\)-groupe
+réductif de type constant. Pour que \(G\) soit déployable, il faut et il suffit que \(G\) possède
+un tore maximal trivial.
+</div></div>
+<p>Soient \(G\) un groupe réductif, rad(\(G\)) son radical (Exp. XXII, 4.3.9)&nbsp;; comme rad(\(G\))
+est central et caractéristique dans \(G\), on a un morphisme canonique
+q:    Autext(\(G\)) -\to AutS-gr. (rad(\(G\))).
+</p>
+<div class="thm thm-plain proposition" id="XXIV.2.15">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.15</span></div>
+  <div class="thm-body"><p>Soit \(G\) un \(S\)-groupe réductif. La suite suivante est exacte&nbsp;:
+p               q
+e -\to ad(\(G\)) -\to AutS-gr. (\(G\); id.sur rad(\(G\))) -
+\to Autext(\(G\)) -
+\to AutS-gr. (rad(\(G\))).
+De plus, Ker(q) = Im(p) est un sous-préschéma ouvert et fermé de Autext(\(G\)), fini
+sur \(S\).
+On peut supposer \(G\) déployé. La première assertion est immédiate&nbsp;; la seconde
+résulte de Exp. XXI, 6.7.5 et 6.7.7.
+Notant \(H\) = AutS-gr. (\(G\), id. sur rad(\(G\))), on en déduit&nbsp;:
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.2.16">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.16</span></div>
+  <div class="thm-body"><p>Il existe une équivalence entre la catégorie des couples (\(G\)′ , f ), où
+<!-- p.344 -->
+\(G\)′ est une forme de \(G\) et f un isomorphisme de rad(\(G\)) sur le radical de \(G\)′ , et la
+catégorie des fibrés principaux sous un certain \(S\)-préschéma en groupes \(H\), où \(H\) est
+tel qu'il existe une suite exacte
+<!-- p.1 -->
+-\to ad(\(G\)) -\to \(H\) -\to \(F\) -\to 1,
+où le \(S\)-groupe \(F\) est étale et fini sur \(S\).
+</div></div>
+<h2 id="XXIV.3">3. Schéma de Dynkin d'un groupe réductif. Groupes quasi-déployés</h2>
+<h3 id="XXIV.3.1">3.1. — On rappelle (Exp. XXI, 7.4.1) qu'un diagramme de Dynkin est un ensemble</h3>
+<p>fini muni de la structure définie par un ensemble de couples d'éléments distincts
+(liaisons) et d'une application dans {1, 2, 3} (longueurs). À chaque donnée radicielle
+réduite épinglée \(R\) est associé un diagramme de Dynkin D(\(R\)), dont l'ensemble sous-
+jacent est l'ensemble des racines simples.
+</p>
+<h3 id="XXIV.3.2">3.2. — Soit \(S\) un préschéma. Un \(S\)-schéma de Dynkin est un \(S\)-schéma constant tordu</h3>
+<p>fini D, muni de la structure définie par un sous-schéma \(L\) de D \timesS D d'intersection
+vide avec la diagonale, et d'un morphisme D \to {1, 2, 3}\(S\). Pour chaque \(S\)′ \to \(S\) , D(\(S\)′ )
+est muni naturellement d'une structure de diagramme de Dynkin.
+On définit aussitôt les notions suivantes&nbsp;: isomorphisme de deux schémas de Dynkin,
+extension de la base d'un schéma de Dynkin, schéma de Dynkin constant associé à
+<!-- p.345 -->
+un diagramme de Dynkin. Toute donnée de descente sur un schéma de Dynkin pour
+la topologie étale est effective.
+</p>
+<h3 id="XXIV.3.3">3.3. — On se propose d'associer à chaque \(S\)-groupe réductif \(G\) un \(S\)-schéma de Dyn-</h3>
+<p>kin. Supposons d'abord \(G\) déployable sur \(S\)&nbsp;; pour tout épinglage \(E\) de \(G\), notons D(\(E\))
+le schéma de Dynkin constant associé à la donnée radicielle épinglée définie par \(E\)&nbsp;; si
+\(E\) et \(E\) ′ sont deux épinglages de \(G\), il existe par 1.5 un unique automorphisme intérieur
+de \(G\) sur \(S\) transformant \(E\) en \(E\) ′&nbsp;; cet automorphisme de \(G\) définit un isomorphisme
+∼
+aEE ′&nbsp;: D(\(E\)) -\to D(\(E\) ′ )&nbsp;; les aEE ′ forment évidemment un système transitif, de sorte
+qu'on peut identifier les D(\(E\)) (i.e. prendre la limite inductive)&nbsp;; le résultat est un
+</p>
+<h2 id="XXIV.3">3. SCHÉMA DE DYNKIN D'UN GROUPE RÉDUCTIF. GROUPES QUASI-DÉPLOYÉS              205</h2>
+<p>schéma de Dynkin constant noté Dyn(\(G\)). Si maintenant \(G\) est un \(S\)-groupe réductif
+quelconque, il existe une famille couvrante pour la topologie étale {Si \to \(S\)} telle que
+GSi soit déployable. Raisonnant comme précédemment, on a donc une donnée de des-
+cente canonique sur les Dyn(GSi ), permettant de construire par descente un \(S\)-schéma
+de Dynkin Dyn(\(G\)).
+</p>
+<h3 id="XXIV.3.4">3.4. — Cette construction vérifie les propriétés suivantes (qui d'ailleurs la caracté-</h3>
+<p>risent essentiellement)&nbsp;:
+(i) À chaque \(S\)-groupe réductif est associé un schéma de Dynkin Dyn(\(G\))&nbsp;; à tout
+∼
+isomorphisme u&nbsp;: \(G\) -\to \(G\)′ est associé fonctoriellement un isomorphisme Dyn(u)&nbsp;:
+∼
+Dyn(\(G\)) -\to Dyn(\(G\)′ ).
+(ii) Si \(S\)′ est un \(S\)-préschéma et \(G\) un \(S\)-groupe réductif, on a                           346
+′                ′
+Dyn(\(G\) \times \(S\) ) \simeq Dyn(\(G\)) \times \(S\) .
+\(S\)                \(S\)
+</p>
+<p>(iii) Si \(E\) est un épinglage de \(G\), définissant la donnée radicielle épinglée de dia-
+gramme de Dynkin D, on a
+Dyn(\(G\)) \simeq DS .
+(iv) Si u est un automorphisme intérieur de \(G\), Dyn(u) est l'automorphisme iden-
+tique de Dyn(\(G\)).
+</p>
+<h3 id="XXIV.3.5">3.5. — Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. Il est clair que le foncteur</h3>
+<p>AutDyn (Dyn(\(G\))) des automorphismes de Dyn(\(G\)) pour la structure de schéma de
+Dynkin est représentable par un \(S\)-schéma constant tordu fini. Par 3.4 (i) et (ii), on a
+un morphisme canonique
+AutS-gr. (\(G\)) -\to AutDyn (Dyn(\(G\))),
+qui, en vertu de (iv), se factorise par un morphisme
+Autext(\(G\)) -\to AutDyn (Dyn(\(G\))).
+Plus généralement, si \(G\) et \(G\)′ sont deux \(S\)-groupes réductifs, on a un morphisme
+canonique
+Isomext(\(G\), \(G\)′ ) -\to IsomDyn (Dyn(\(G\)), Dyn(\(G\)′ ));
+en particulier, si \(G\)′ est une forme tordue intérieure de \(G\) (1.11), les schémas de Dynkin
+Dyn(\(G\)) et Dyn(\(G\)′ ) sont isomorphes.
+</p>
+<h3 id="XXIV.3.6">3.6. — Si \(G\) est semi-simple (resp. adjoint ou simplement connexe), le morphisme</h3>
+<p>Autext(\(G\)) -\to AutDyn (Dyn(\(G\)))
+est un monomorphisme (resp. un isomorphisme). En effet, on peut supposer \(G\) épin-             347
+glé et on est ramené au résultat correspondant pour les données radicielles réduites
+épinglées (cf. Exp. XXI, 7.4.5).
+On a un résultat analogue pour les Isom&nbsp;; d'où il résulte en particulier que deux
+\(S\)-groupes semi-simples adjoints (resp. simplement connexes) sont des formes tordues
+intérieures l'un de l'autre si et seulement si leurs schémas de Dynkin sont isomorphes.
+</p>
+<h3 id="XXIV.3.7">3.7. — On peut donner une construction différente du schéma de Dynkin associé à</h3>
+<p>un groupe réductif. Soient \(R\) une donnée radicielle réduite épinglée, \(G\) un \(S\)-groupe ré-
+ductif de type \(R\)&nbsp;; notons D(\(R\)) le diagramme de Dynkin défini par la donnée radicielle
+\(R\). On a (3.5) un morphisme canonique
+AS (\(R\)) = AutS-gr. (ÉpS (\(R\))) -\to AutDyn (D(\(R\))\(S\) ).
+Le \(S\)-groupe réductif \(G\) correspond d'après le corollaire 1.17 à un fibré principal homo-
+gène IsomS-gr. (ÉpS (\(R\)), \(G\)) sous AS (\(R\)). Le fibré sous AutDyn (D(\(R\))\(S\) ) associé corres-
+pond à une forme sur \(S\) de D(\(R\))\(S\)&nbsp;: c'est Dyn(\(G\))&nbsp;; en d'autres termes, ce fibré associé
+n'est autre que IsomDyn (D(\(R\))\(S\) , Dyn(\(G\))). Sous cette dernière forme, la démonstration
+est immédiate.
+</p>
+<h3 id="XXIV.3.8">3.8. Schéma de Dynkin et couples de Killing. — Soient \(S\) un préschéma, \(G\) un \(S\)-</h3>
+<p>groupe réductif, \(B\) \supset \(T\) un couple de Killing de \(G\). Il existe un morphisme canonique
+i&nbsp;: Dyn(\(G\)) -\to HomS-gr. (\(T\), Gm, \(S\) )
+<!-- p.348 -->
+qui identifie Dyn(\(G\)) au « schéma des racines simples de \(B\) relativement à \(T\) »&nbsp;; ce mor-
+phisme se définit aussitôt par descente à partir du cas épinglé. Remarquons d'ailleurs
+que la donnée de \(T\) et de i permet de reconstruire \(B\) (« correspondance biunivoque
+entre systèmes de racines simples et systèmes de racines positives »).
+Il résulte de la description précédente de D = Dyn(\(G\)), qu'il existe une racine ca-
+nonique de BD par rapport à TD&nbsp;: cette racine \alphaD est l'image par i(D) du morphisme
+identique de D. On en déduit un OD -Module inversible canonique gD&nbsp;:
+gD = (g \otimesOS OD )\alphaD .
+Dans le cas épinglé, on a                   a
+D=          \(S\)\alpha ,
+\alpha\inR0
+où chaque \(S\)\alpha est une copie de \(S\), et gD est le OD -Module qui induit g\alpha sur \(S\)\alpha , pour
+tout \alpha \in R0 .
+</p>
+<h3 id="XXIV.3.9">3.9. Quasi-épinglages. Groupes quasi-épinglés. — Si \(G\) est un \(S\)-groupe réductif, on</h3>
+<p>appelle quasi-épinglage de \(G\) la donnée&nbsp;:
+(i) d'un couple de Killing \(B\) \supset \(T\) de \(G\),
+(ii) d'une section \(X\) \in \Gamma(Dyn(\(G\)), gD )^* .
+On dit qu'un \(S\)-groupe réductif est quasi-déployable s'il possède un quasi-épinglage.
+On appelle groupe quasi-épinglé un groupe réductif muni d'un quasi-épinglage.
+<!-- p.349 -->
+Si \(B\) \supset \(T\) est un couple de Killing du \(S\)-groupe réductif \(G\), \(G\) est quasi-épinglable
+relativement à ce couple de Killing si et seulement si gD possède une section non nulle
+en chaque point, i.e. si l'élément de Pic(Dyn(\(G\))) défini par gD est nul. Supposons en
+particulier \(S\) semi-local&nbsp;; alors Dyn(\(G\)) est également semi-local, donc Pic(Dyn(\(G\))) =
+</p>
+<h2 id="XXIV.0">0. Utilisant en outre Exp. XXII, 5.9.7, on en déduit&nbsp;:</h2>
+<div class="thm thm-plain proposition" id="XXIV.3.9.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.9.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma semi-local, \(G\) un \(S\)-groupe réductif. Pour
+que \(G\) soit quasi-déployable, il faut et il suffit qu'il possède un groupe de Borel.
+</div></div>
+<h2 id="XXIV.3">3. SCHÉMA DE DYNKIN D'UN GROUPE RÉDUCTIF. GROUPES QUASI-DÉPLOYÉS                      207</h2>
+<p>Remarquant maintenant que pour un \(S\)-groupe réductif quelconque le \(S\)-préschéma
+Bor(\(G\)) est lisse et projectif (Exp. XXII, 5.8.3), donc possède des sections après ex-
+tension étale finie surjective de la base (EGA IV, § 24), on en déduit le
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.3.9.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.9.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma semi-local, \(G\) un \(S\)-groupe réductif. Il existe
+un morphisme \(S\)′ \to \(S\) étale fini et surjectif tel que GS′ soit quasi-déployable.
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.3.9.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.9.3</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, soit \(T\) un tore maximal de \(G\)
+(cf. Exp. XIV, 3.20)&nbsp;; alors on peut supposer en outre que GS′ est quasi-déployable
+relativement à TS′&nbsp;: il suffit d'appliquer le raisonnement précédent au « schéma des
+groupes de Borel contenant \(T\) », qui est fini et étale sur \(S\) (Exp. XXII, 5.5.5 (ii)).
+</div></div>
+<h3 id="XXIV.3.10">3.10. — Soient \(E\) et \(E\) ′ deux quasi-épinglages du \(S\)-groupe réductif \(G\). Il existe un</h3>
+<p>unique automorphisme intérieur de \(G\) transformant \(E\) en \(E\) ′ . En effet, on se ramène                  350
+aussitôt au cas déployé, où l'assertion a déjà été démontrée (1.5, il suffit de remarquer
+en effet qu'il revient au même pour un automorphisme intérieur de \(G\) de respecter
+un épinglage ou le quasi-épinglage sous-jacent). On en conclut comme au n\circ 1 qu'un
+quasi-épinglage du \(S\)-groupe réductif \(G\) définit un scindage h de la suite exacte&nbsp;:
+</p>
+<p>o   h
+<!-- p.1 -->
+/ ad(\(G\))        / Aut                       / Autext(\(G\))   / 1,
+\(S\)-gr. (\(G\))       p
+</p>
+<p>l'image de h étant le sous-groupe de AutS-gr. (\(G\)) qui laisse invariant le quasi-épinglage.
+De même si \(G\) et \(G\)′ sont deux \(S\)-groupes quasi-épinglés, on définit de manière
+naturelle le sous-foncteur
+IsomS-gr. q-ép. (\(G\), \(G\)′ )
+</p>
+<p>de IsomS-gr. (\(G\), \(G\)′ )&nbsp;; la projection de IsomS-gr. (\(G\), \(G\)′ ) sur Isomext(\(G\), \(G\)′ ) induit un
+isomorphisme
+∼
+IsomS-gr. q-ép. (\(G\), \(G\)′ ) -\to Isomext(\(G\), \(G\)′ ).
+</p>
+<div class="thm thm-plain theoreme" id="XXIV.3.11">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">3.11</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(R\) une donnée radicielle réduite épinglée
+telle que ÉpS (\(R\)) existe (cf. Exp. XXV), \(E\) le groupe de ses automorphismes. Consi-
+dérons les trois catégories suivantes&nbsp;:
+(i) La catégorie Rev des revêtements principaux galoisiens de \(S\) de groupe \(E\) (les
+morphismes sont les isomorphismes).
+(ii) La catégorie Redext dont les objets sont les \(S\)-groupes réductifs de type \(R\) (Exp.
+XXII, 2.7), les morphismes de \(G\) dans \(G\)′ étant les éléments de Isomext(\(G\), \(G\)′ )(\(S\)).
+(iii) La catégorie Qép des \(S\)-groupes réductifs quasi-épinglés de type \(R\) (les mor-             351
+phismes sont les isomorphismes respectant les quasi-épinglages).
+</div></div>
+<p>Ces trois catégories sont équivalentes&nbsp;: plus précisément, on a un diagramme de
+foncteurs, commutatif à isomorphismes près
+qép
+Rev                        / Qép
+a❇❇
+❇❇               ④
+❇            ④④
+rev ❇❇❇      ④④④i
+❇ }④④④
+Redext          .
+</p>
+<p>Nous allons décrire ci-dessous ces trois foncteurs, en laissant au lecteur le soin de
+vérifier la commutativité du diagramme.
+3.11.1. Le foncteur i. — C'est le foncteur évident&nbsp;: i(\(G\)) = \(G\), i(f ) = image de f par
+le morphisme décrit en 3.10.
+</p>
+<p>3.11.2. Le foncteur qép. — Soit \(S\)′ un revêtement principal galoisien de \(S\) de groupe
+\(E\). \(L\)'homomorphisme canonique
+h&nbsp;: \(E\) -\to AutS′ -gr. (ÉpS′ (\(R\))) = A(\(R\))(\(S\)′ )
+définit une opération de \(E\) sur ÉpS′ (\(R\)), opération qui respecte le quasi-épinglage
+canonique de ÉpS (\(R\)). Comme \(S\)′ \to \(S\) est couvrant pour la topologie (fpqc), c'est un
+morphisme de descente effective pour la catégorie fibrée des morphismes affines, et on
+note
+qép(\(S\)′ ) = Q-Ép ′ (\(R\))
+\(S\) /\(S\)
+le \(S\)-groupe quasi-épinglé obtenu par descente galoisienne.
+</p>
+<!-- p.352 -->
+<p>3.11.3. Le foncteur rev. — Soit \(G\) un \(S\)-groupe réductif de type \(R\). On note
+rev(\(G\)) = Isomext(ÉpS (\(R\)), \(G\)),
+c'est un fibré principal homogène sous ES (cf. 1.10 et 1.19), c'est-à-dire un objet de
+Rev.
+Développons un des corollaires de 3.11&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.3.12">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.12</span></div>
+  <div class="thm-body"><p>Pour tout \(S\)-groupe réductif \(G\), il existe un \(S\)-groupe quasi-
+épinglé Gq-ép. et un « isomorphisme extérieur » u \in Isomext(Gq-ép. , \(G\))(\(S\)). Le couple
+(Gq-ép. , u) est unique à un isomorphisme unique près.
+En effet, on peut supposer \(G\) de type constant \(R\), et on prend Gq-ép. =
+Q-Éprev(\(G\))/\(S\) (\(R\)).
+3.12.1. — Remarquons que la donnée du couple (Gq-ép. , u) permet de définir de ma-
+nière canonique le \(S\)-préschéma (cf. 1.11)
+Q = Isomint(Gq-ép. , \(G\)),
+qui est un fibré principal homogène sous ad(Gq-ép. ), et dont la donnée « équivaut »
+à celle de la forme tordue intérieure \(G\) de Gq-ép. . D'ailleurs Q n'est autre que le
+</div></div>
+<h2 id="XXIV.3">3. SCHÉMA DE DYNKIN D'UN GROUPE RÉDUCTIF. GROUPES QUASI-DÉPLOYÉS            209</h2>
+<p>« schéma des quasi-épinglages de \(G\) », définition qui rend compte de sa structure de
+fibré principal homogène (à gauche) sous ad(\(G\)) (3.10) – comparer avec 1.20.
+</p>
+<div class="thm thm-plain proposition" id="XXIV.3.13">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.13</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe semi-simple adjoint (resp.
+simplement connexe), \(B\) \supset \(T\) un couple de Killing de \(G\), Dyn(\(G\)) le \(S\)-schéma de                353
+Dynkin de \(G\). Il existe un isomorphisme canonique de \(S\)-préschémas en groupes
+∼
+\(Y\)
+\(T\) -\to            Gm, Dyn(\(G\)) .
+Dyn(\(G\))/\(S\)
+</div></div>
+<p>(On rappelle (cf. Exp. II, § 1) que le second membre est par définition le \(S\)-foncteur
+qui à \(S\)′ \to \(S\) associe Gm (Dyn(\(G\)) \timesS \(S\)′ ), ou, ce qui revient au même, Gm (Dyn(GS′ )).)
+</p>
+<p>Première démonstration. Faisons-la pour simplifier dans le cas adjoint. Considérons
+le morphisme composé
+\(Y\)          \(Y\)
+\(T\) -\to      TD -\to        Gm, D ,
+D/\(S\)          D/\(S\)
+Q
+où le premier morphisme est le morphisme canonique, le second est D/\(S\) \alphaD (on a
+noté D = Dyn(\(G\))). Pour vérifier que ce morphisme est un isomorphisme, on peut
+supposer \(G\) déployé&nbsp;; or, dans ce cas, ce n'est autre que le morphisme \(T\) \to (Gm, \(S\) )R0
+de composantes \alpha, \alpha \in R0 , et celui-ci est un isomorphisme (Exp. XXII, 4.3.8).
+Deuxième démonstration. D'après 2.8, 3.5 et 3.11, on peut supposer que \(G\) =
+Q-ÉpS′ /\(S\) (\(R\)), \(T\) étant le tore maximal canonique. Sur \(S\)′ , on a par Exp. XXII 4.3.8,
+∼
+un isomorphisme TS′ -\to (Gm, \(S\)′ )R0 , défini par les racines simples (resp. les coracines
+simples). Le groupe \(E\) opère au second membre par permutation de R0 . Or le fibré
+associé à \(S\)′ /\(S\) par \(E\) \to Aut(R0 ) est Dyn(\(G\)) (3.7), et on conclut aussitôt.
+Utilisant 8.1, on en tire&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.3.14">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.14</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, on a
+∼                      ∼
+H1 (\(S\), \(T\)) -\to H1 (Dyn(\(G\)), Gm ) -\to Pic(Dyn(\(G\))).
+</div></div>
+<p>En particulier, H1 (\(S\), \(T\)) = 0 lorsque \(S\) est semi-local.                                   354
+</p>
+<div class="thm thm-remark remarque" id="XXIV.3.15">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.15</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) (resp. \(G\)′ ) un \(S\)-groupe réductif, \(B\) \supset \(T\)
+(resp. \(B\)′ \supset \(T\)′ ) un couple de Killing de \(G\) (resp. \(G\)′ ), u \in Isomext(\(G\), \(G\)′ )(\(S\)). Posons
+(cf. 2.10)
+\(P\) = Isomintu (\(G\), \(B\), \(T\); \(G\)′ , \(B\)′ , \(T\)′ );
+c'est un fibré principal homogène sous Tad (par (f, t) \mapsto f \circ int(t)).
+Soit d'autre part D = Dyn(\(G\)) = Dyn(\(G\)′ ) (identifiés grâce à u (3.5)), et soit
+\(L\) = IsomD (gD , g′D ) le fibré principal homogène sous Gm, D défini par le OD -Module
+inversible
+HomOD (gD , g′D ) = g′D \otimes (gD )\vee .
+</div></div>
+<p>Chaque f \in \(P\)(\(S\)′ ) définit un isomorphisme de gD \otimesOS OS′ sur g′D \otimesOS OS′ , d'où un
+morphisme canonique                       \(Y\)
+\(P\) -\to     \(L\) .
+D/\(S\)
+Ce morphisme est un isomorphisme, compatible avec l'isomorphisme d'opérateurs
+\(Y\)
+Tad -\to     Gm, D
+D/\(S\)
+</p>
+<p>défini ci-dessus. En effet, il suffit de le vérifier dans le cas où les deux groupes sont
+épinglés, où c'est facile.
+Il s'ensuit en particulier que dans l'isomorphisme
+∼
+H1 (\(S\), Tad ) -\to Pic(Dyn(\(G\)))
+D
+de 3.14, la classe du fibré \(P\) est transformée en cℓ(g′ ) - cℓ(gD ). Le fibré \(P\) est donc
+trivial si et seulement si g′D et gD sont isomorphes.
+<!-- p.355 -->
+Si (\(G\), \(B\), \(T\)) est quasi-déployable, par exemple si on prend pour \(G\) le groupe \(G\)′q-ép. ,
+avec son couple de Killing canonique, il s'ensuit que l'image de la classe de \(P\) n'est
+autre que l'obstruction au quasi-déploiement de \(G\)′ définie en 3.9.
+</p>
+<h3 id="XXIV.3.16">3.16. Symétries</h3>
+<p>3.16.1. — Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(B\) \supset \(T\) un couple de Killing
+de \(G\). On rappelle (Exp. XXII, 5.9.1) qu'il existe un unique groupe de Borel \(B\)- de
+\(G\) tel que \(B\) \cap \(B\)- = \(T\). Si \(X\) \in \Gamma(D, gD )^* définit un quasi-épinglage de \(G\) relativement
+à (\(B\), \(T\)) (3.9), alors \(Y\) = -\(X\)-1 \in \Gamma(D, (gD )\vee )^* définit un quasi-épinglage de \(G\)
+relativement à (\(B\)- , \(T\))&nbsp;; on dit que c'est le quasi-épinglage opposé.
+Si \(R\) est une donnée radicielle réduite épinglée et si \(E\) est un \(R\)-épinglage du \(S\)-
+groupe réductif \(G\), on définit un \(R\)-épinglage \(E\) - dit opposé à \(E\) de la manière suivante&nbsp;:
+∼
+on garde le même tore maximal \(T\), on prend l'opposé de l'isomorphisme DS (\(M\)) -\to \(T\),
+-1         -\alpha ^*
+et on « épingle » par \(Y\)\alpha = -\(X\)\alpha \in \Gamma(\(S\), g ) , pour \alpha \in R0 . Le quasi-épinglage sous-
+jacent à \(E\) - est le quasi-épinglage opposé au quasi-épinglage sous-jacent à \(E\).
+Remarque. — Dans les notations de Exp. XIX, 3.1, si on pose
+w\alpha (\(X\)\alpha ) = exp(\(X\)\alpha ) exp(-\(X\)-1
+\alpha ) exp(\(X\)\alpha ),
+</p>
+<p>on a w\alpha (\(X\)\alpha ) = w-\alpha (\(Y\)\alpha ) (loc. cit., 3.1 (vi)).
+</p>
+<div class="thm thm-plain proposition" id="XXIV.3.16.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.16.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif.
+(i) Soit \(T\) un tore maximal de \(G\)&nbsp;; il existe un unique
+
+iT \in AutS-gr. (\(G\), \(T\))/Tad (\(S\)) \subset AutS-gr. (\(T\))
+<!-- p.356 -->
+tel que iT (t) = t-1 pour toute section t de \(T\).
+(ii) Soit (\(B\), \(T\)) un couple de Killing de \(G\)&nbsp;; il existe une unique section
+wB,\(T\) \in (NormG (\(T\))/\(T\))(\(S\)) = WG (\(T\))(\(S\))
+telle que int(wB,\(T\) )(\(B\)) = \(B\)- (avec l'abus de langage évident ).
+</div></div>
+<h2 id="XXIV.3">3. SCHÉMA DE DYNKIN D'UN GROUPE RÉDUCTIF. GROUPES QUASI-DÉPLOYÉS             211</h2>
+<p>(iii) Soit Q = (\(B\), \(T\), \(X\)) un quasi-épinglage de \(G\), Q- = (\(B\)- , \(T\), \(Y\)) le quasi-
+épinglage opposé&nbsp;; il existe un unique automorphisme intérieur de \(G\)
+nQ \in Normad(\(G\)) (Tad )(\(S\)) \subset AutS-gr. (\(G\))
+tel que nQ (Q) = Q- , c'est-à-dire&nbsp;: nQ (\(T\)) = \(T\), nQ (\(B\)) = \(B\)- , nQ (\(X\)) = \(Y\).
+(iv) Soit (\(R\), \(E\)) un épinglage de \(G\), (\(R\), \(E\) - ) l'épinglage opposé&nbsp;; il existe un unique
+automorphisme de \(G\)
+uE \in AutS-gr. (\(G\), \(T\)) \subset AutS-gr. (\(G\))
+tel que uE (\(E\)) = \(E\) - , c'est-à-dire uE (t) = t-1 pour toute section t de \(T\), Ad(uE )\(X\)\alpha =
+\(Y\)\alpha pour \alpha \in R0 .
+</p>
+<div class="proof">
+<p><em>Démonstration.</em> — (ii) résulte de Exp. XXII, 5.5.5 (ii), puis (iii) résulte de 3.10, et (iv)
+résulte de Exp. XXIII, 4.1. Enfin pour prouver (i), on peut supposer \(G\) épinglé. \(L\)'exis-
+tence résulte de (iv) par exemple, l'unicité du fait qu'un automorphisme de \(G\) qui
+induit l'identité sur \(T\) est donné par une section de Tad (2.11).
+</div>
+<div class="thm thm-plain corollaire" id="XXIV.3.16.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.16.3</span></div>
+  <div class="thm-body"><p>On a                                                                      357
+</div></div>
+<p>i2T = wB,\(T\)
+2
+= n2Q = u2E = e .
+De plus, iT (resp. uE ) est 6= e si \(G\) 6= e, et wB,\(T\) (resp. nQ ) est 6= e si \(G\) n'est pas un
+tore.
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.3.16.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.16.4</span></div>
+  <div class="thm-body"><p>Dans la situation de (iii) (resp. (iv)), nQ se projette sur wB,\(T\)
+(resp. uE se projette sur iT ) par le morphisme canonique
+Normad(\(G\)) (Tad ) -\to Wad(\(G\)) (Tad ) \simeq WG (\(T\)) ,
+resp.
+AutS-gr. (\(G\), \(T\)) -\to AutS-gr. (\(G\), \(T\))/Tad .
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.3.16.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.16.5</span></div>
+  <div class="thm-body"><p>Les définitions précédentes sont compatibles avec l'extension de
+la base, et sont fonctorielles par isomorphisme (en un sens évident ).
+</div></div>
+<div class="thm thm-plain proposition" id="XXIV.3.16.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.16.6</span></div>
+  <div class="thm-body"><p>(i) On peut définir de manière unique pour chaque groupe ré-
+ductif \(G\) sur un préschéma \(S\) un élément
+sG \in Autext(\(G\))(\(S\))
+de telle manière que cette construction soit fonctorielle en \(G\) par isomorphisme, soit
+compatible avec les changements de base et que chaque fois que \(T\) est un tore maximal
+du \(S\)-groupe réductif \(G\), sG soit l'image de iT par le morphisme canonique
+AutS-gr. (\(G\), \(T\))/Tad -\to Autext(\(G\)).
+(ii) On a s2G = e, sG est un élément central de Autext(\(G\)).
+(iii) Sous les conditions de 3.16.2 (ii), si on identifie AutS-gr. (\(G\), \(B\), \(T\))/Tad à          358
+Autext(\(G\)) (2.2), on a
+wB,\(T\) iT = iT wB,\(T\) = sG .
+</div></div>
+<p>(iv) Sous les conditions de 3.16.2 (iv), si on identifie AutS-gr.-ép (\(G\), \(R\), \(E\)) à
+Autext(\(G\)) (1.3 (iii)), on a
+n \(E\) u \(E\) = u \(E\) n \(E\) = sG .
+</p>
+<div class="proof">
+<p><em>Démonstration.</em> — (i) se prouve sans difficulté par descente. D'autre part, comme iT est
+évidemment une section centrale et de carré e dans AutS-gr. (\(T\)), (ii) en résulte immé-
+diatement&nbsp;; (iii) est une conséquence de (iv) par descente. Enfin, sous les conditions de
+(iv), il est clair que nE uE = uE nE et que cet automorphisme de \(G\) respecte l'épinglage&nbsp;;
+modulo l'identification faite, il est donc égal à son image dans Autext(\(G\))&nbsp;; mais nE
+est intérieur et uE se projette sur sG .
+</div>
+<div class="thm thm-remark remarque" id="XXIV.3.16.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.16.7</span></div>
+  <div class="thm-body"><p>(i) On détermine explicitement aG dans chacun des cas de la
+classification grâce à (iii)&nbsp;: il suffit pour chaque donnée radicielle irréductible épinglée
+de composer la symétrie par rapport à l'origine avec la symétrie dans le groupe de
+Weyl (i.e. l'élément du groupe de Weyl tel que w(R0 ) = -R0 ). On trouve les résultats
+suivants&nbsp;: on a sG = e sauf pour An (n \geqslant 2), Dn (n impair) et E6 , auquel cas sG est
+l'unique « automorphisme extérieur » non trivial.
+(ii) \(L\)'automorphisme uE est celui qui sert à fabriquer « les formes réelles com-
+pactes » dans la théorie des algèbres de Lie semi-simples.
+<!-- p.359 -->
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.3.16.8">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.16.8</span></div>
+  <div class="thm-body"><p>On a défini en 3.16.1 une involution dans le \(S\)-préschéma Q =
+Isomint(Gq-ép. , \(G\)) des quasi-épinglages de \(G\) (cf. 3.12.1)&nbsp;; par transport de structure de
+Gq-ép. à \(G\), on voit aussitôt que cette involution est donnée par l'action d'un élément
+de ad(Gq-ép. )(\(S\))&nbsp;: l'élément n0 défini (3.16.2 (iii)) par le quasi-épinglage canonique de
+Gq-ép. .
+De la même manière, on a défini une involution dans le \(S\)-préschéma
+\(P\) = IsomS-gr. (ÉpS (\(R\)), \(G\))
+des \(R\)-épinglages de \(G\) (cf. 1.20). Raisonnant comme précédemment, on voit que cette
+involution est donnée par l'action de l'automorphisme u0 de ÉpS (\(R\)) défini (3.16.2
+(iv)) par l'épinglage canonique de ÉpS (\(R\)).
+</div></div>
+<h2 id="XXIV.4">4. Isotrivialité des groupes réductifs et des fibrés principaux sous les groupes réduc-</h2>
+<p>tifs
+</p>
+<h3 id="XXIV.4.1">4.1. Définitions. Théorème d'isotrivialité</h3>
+<div class="thm thm-plain definition" id="XXIV.4.1.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">4.1.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-préschéma en groupes, \(P\) un fi-
+bré principal homogène sous \(G\). On dit que \(P\) est localement isotrivial (resp. semi-
+localement isotrivial ) si pour tout point s \in \(S\) (resp. tout ensemble fini \(F\) de points de
+\(S\) contenu dans un ouvert affine) il existe un ouvert \(U\) de \(S\) contenant s (resp. \(F\)) et
+un morphisme étale fini surjectif \(S\)′ \to \(U\) tel que PS′ soit trivial.
+</div></div>
+<div class="thm thm-plain definition" id="XXIV.4.1.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">4.1.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif. On dit que \(G\) est
+<!-- p.360 -->
+loc.isot. (resp. semi-loc.isot.) si pour tout point s \in \(S\) (resp. tout ensemble fini \(F\) de
+points de \(S\) contenu dans un ouvert affine) il existe un ouvert \(U\) de \(S\) contenant s
+(resp. \(F\)) et un morphisme étale fini surjectif \(S\)′ \to \(U\) tel que GS′ soit déployable.
+</div></div>
+<h2 id="XXIV.4">4. ISOTRIVIALITÉ DES GROUPES RÉDUCTIFS ET LEURS FIBRÉS PRINCIPAUX                  213</h2>
+<div class="thm thm-remark remarque" id="XXIV.4.1.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">4.1.3</span></div>
+  <div class="thm-body"><p>(i) \(L\)'équivalence de catégories de 1.17 respecte par définition
+l'isotrivialité locale (resp. semi-locale.)
+(ii) Ajoutons aux conditions de 4.1.1&nbsp;: \(G\) localement de présentation finie sur \(S\).
+Alors le fibré principal \(P\) (ou le groupe réductif \(G\)) est localement isotrivial (resp. semi-
+localement isotrivial) si et seulement si pour tout \(S\)′ \to \(S\), \(S\)′ local (resp. semi-local),
+PS′ est isotrivial (ou GS′ isotrivial), c'est-à-dire s'il existe \(S\)′′ \to \(S\)′ étale fini surjectif
+tel que PS′′ soit trivial (ou GS′′ déployé).
+(iii) Dans le cas des tores, la définition 4.1.2 coı̈ncide avec celle de Exp. IX, 1.1.
+</div></div>
+<p>4.1.4. — Rappelons (Exp. XXII, 4.3 et 6.2) que pour tout groupe réductif \(G\), nous
+avons introduit les groupes rad(\(G\)), corad(\(G\)) et dér(\(G\)). Les groupes rad(\(G\)) et
+corad(\(G\)) sont des tores, qui sont triviaux lorsque \(G\) est déployé&nbsp;; de plus, il existe une
+isogénie rad(\(G\)) \to corad(\(G\)). Le \(S\)-groupe dér(\(G\)) est semi-simple, on a \(G\)/ dér(\(G\)) =
+corad(\(G\))&nbsp;; il s'ensuit que pour tout fibré principal homogène \(P\) sous \(G\), \(P\)/ dér(\(G\)) est
+un fibré principal homogène sous corad(\(G\)). Ceci dit, on a&nbsp;:
+</p>
+<div class="thm thm-plain theoreme" id="XXIV.4.1.5">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">4.1.5</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif de type constant.               361
+(i) Les conditions suivantes sont équivalentes&nbsp;:
+(a) \(G\) est localement (resp. semi-localement ) isotrivial.
+(b) Le tore rad(\(G\)) l'est.
+(b′ ) Le tore corad(\(G\)) l'est.
+(c) Le revêtement galoisien de \(S\) associé à \(G\) (3.11) l'est.
+Si \(T\) est un tore maximal de \(G\), ces conditions sont également équivalentes à
+(d) Le tore \(T\) est localement (resp. semi-localement ) isotrivial
+(ii) Soit \(P\) un fibré principal homogène sous \(G\)&nbsp;; pour que \(P\) soit localement
+(resp. semi-localement ) isotrivial, il faut et il suffit que le corad(\(G\))-fibré principal
+\(P\)/ dér(\(G\)) le soit.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.4.1.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.1.6</span></div>
+  <div class="thm-body"><p>Les conditions de (i) sont vérifiées lorsque \(G\) est semi-simple ou
+lorsque \(S\) est localement noethérien et normal (ou plus généralement géométriquement
+unibranche). Les conditions de (ii) sont vérifiées lorsque \(G\) est localement (resp. semi-
+localement ) isotrivial.
+</div></div>
+<p>Pour (i), la première assertion est triviale sur (b), la seconde résulte de (c) et Exp.
+\(X\), 5.14 et 5.15. Pour (ii), il suffit de remarquer qu'en vertu du théorème 90, un fibré
+principal sous un tore trivial est semi-localement isotrivial.
+</p>
+<h3 id="XXIV.4.2">4.2. Démonstration&nbsp;: le cas semi-simple</h3>
+<p>Démontrons d'abord, en vue d'une référence ultérieure&nbsp;:
+</p>
+<div class="thm thm-plain proposition" id="XXIV.4.2.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.2.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(T\) un tore maxi-             362
+mal de \(G\) (resp. \(B\) un groupe de Borel, resp. \(B\) \supset \(T\) un couple de Killing de \(G\)), \(P\)
+</div></div>
+<p>un fibré principal homogène sous \(G\), \(G\)′ la forme tordue de \(G\) associée à \(P\) (via le
+morphisme int&nbsp;: \(G\) \to AutS-gr. (\(G\))). On a un isomorphisme canonique
+∼
+\(P\)/ NormG (\(T\)) -\to Tor(\(G\)′ )
+∼
+(resp. \(P\)/\(B\) -\to Bor(\(G\)′ ),
+∼
+resp. \(P\)/\(T\) -\to Kil(\(G\)′ )).
+Par construction, \(G\)′ est le quotient de \(P\) \timesS \(G\) par une certaine opération de \(G\)
+((p, g ′ )g = (pg, g -1 g ′ g))&nbsp;; on a donc un morphisme \(P\) \timesS \(G\) \to \(G\)′ , c'est-à-dire un
+morphisme
+\(P\) -\to HomS (\(G\), \(G\)′ ),
+qui, comme on le voit aussitôt, se factorise par un morphisme
+f&nbsp;: \(P\) -\to IsomS-gr. (\(G\), \(G\)′ ),
+(pour vérifier cette assertion, on peut supposer \(G\) = \(P\), auquel cas on a \(G\)′ = \(G\),
+f = int). \(L\)'application ensembliste p \mapsto f (p)(\(T\)) définit un morphisme
+\(P\) -\to Tor(\(G\)′ ).
+∼
+Pour vérifier que ce morphisme induit un isomorphisme \(P\)/ NormG (\(T\)) -\to Tor(\(G\)′ )
+comme annoncé, on peut de nouveau supposer \(P\) = \(G\) auquel cas on est ramené à
+Exp. XXII, 5.8.3 (iii). (En fait, loc. cit. devrait être remplacé par l'énoncé ci-dessus).
+On raisonne de même pour Bor et Kil.
+<!-- p.363 -->
+</p>
+<div class="thm thm-plain proposition" id="XXIV.4.2.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.2.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma semi-local, \(G\) un \(S\)-groupe semi-simple de
+type constant.
+(i) \(G\) est isotrivial.
+(ii) Tout fibré principal sous \(G\) est isotrivial.
+Prouvons (i). Quitte à faire une extension étale finie surjective de la base, on peut,
+par 3.9.2, supposer \(G\) quasi-déployé. Mais alors \(G\) est isotrivial par construction (3.11,
+le groupe \(E\) est fini). Pour prouver (ii), on peut, en vertu de (i), supposer \(G\) déployé&nbsp;;
+on est alors ramené à&nbsp;:
+</div></div>
+<div class="thm thm-plain lemme" id="XXIV.4.2.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">4.2.3</span></div>
+  <div class="thm-body"><p>Soit \(S\) un schéma semi-local. Tout fibré principal sous un groupe
+réductif déployé est isotrivial.
+En effet, avec les notations de 4.2.1, où \(B\) \supset \(T\) désigne le couple de Killing canonique
+de \(G\) déployé, le \(S\)-préschéma Kil(\(G\)′ ) possède une section, après extension étale finie
+surjective de la base, en vertu de 3.9.2. On peut donc réduire le groupe structural de
+\(G\) à \(T\), or \(T\) est trivial, donc H1 (\(S\), \(T\)) = 0 (théorème 90).
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.4.2.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.2.4</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma et
+<!-- p.1 -->
+-\to \(G\) -\to \(G\)′ -\to \(G\)′′ -\to 1
+une suite exacte de \(S\)-préschémas en groupes (pour (fpqc)), \(G\) étant semi-simple de
+type constant. Soit \(P\) un fibré principal homogène sous \(G\)′ , supposons le fibré associé
+\(P\)/\(G\) représentable (par exemple \(G\)′′ affine sur \(S\)). Pour que \(P\) soit localement isotrivial
+</div></div>
+<h2 id="XXIV.4">4. ISOTRIVIALITÉ DES GROUPES RÉDUCTIFS ET LEURS FIBRÉS PRINCIPAUX                  215</h2>
+<p>(resp. semi-localement isotrivial ), il faut et il suffit que \(P\)/\(G\) le soit (comme fibré sous
+\(G\)′ ).
+Si \(P\) est trivial, \(P\)/\(G\) l'est aussi, ce qui montre que la condition est nécessaire.              364
+Réciproquement, supposons \(S\) local (resp. semi-local) et \(P\)/\(G\) isotrivial, donc trivialisé
+par une extension \(S\)′ de \(S\) étale finie et surjective. Étendant la base à \(S\)′ , on peut réduire
+le groupe structural de PS′ à GS′ . Mais \(S\)′ est encore semi-local et GS′ semi-simple de
+type constant, donc le fibré obtenu est isotrivial (4.2.2).
+</p>
+<h3 id="XXIV.4.3">4.3. Démonstration&nbsp;: cas général. — Remarquons d'abord que 4.1.5 (ii) résulte aus-</h3>
+<p>sitôt de l'application de 4.2.4 à la suite exacte
+<!-- p.1 -->
+-\to dér(\(G\)) -\to \(G\) -\to corad(\(G\)) -\to 1 .
+Démontrons donc (i). Si \(G\) est déployé, rad(\(G\)) et corad(\(G\)) sont triviaux, ainsi que
+rev(\(G\))&nbsp;; on a donc (a) \Rightarrow (b), (b′ ), (c).
+4.3.1. — On a (c) \Rightarrow (a). Soit \(R\) le type de \(G\)&nbsp;; on a une suite exacte
+<!-- p.1 -->
+-\to ad(ÉpS (\(R\))) -\to AS (\(R\)) -\to ES -\to 1 .
+</p>
+<p>Appliquant 4.2.4 au fibré \(P\) = IsomS-gr. (ÉpS (\(R\)), \(G\)) et au fibré associé rev(\(G\)) =
+\(P\)/ ad(ÉpS (\(G\))), on a (c) \Rightarrow (a).
+</p>
+<p>4.3.2. — On a (b) \Rightarrow (a). Il nous suffit de prouver que si rad(\(G\)) est trivial, \(G\) est
+semi-localement isotrivial. Or soit G0 = ÉpS (\(R\))&nbsp;; considérons la catégorie des couples
+(\(G\)′ , f ), où \(G\)′ est une forme de G0 et f un isomorphisme de rad(G0 ) sur rad(\(G\)).
+On sait (2.16) que cette catégorie est équivalente à la catégorie des fibrés principaux    365
+homogènes sous un certain \(S\)-groupe \(H\) extension d'un groupe constant tordu fini par
+un groupe semi-simple. Il nous suffit de prouver que tout fibré principal sous \(H\) est
+semi-localement isotrivial, or cela résulte aussitôt de 4.2.4.
+</p>
+<p>4.3.3. — On a (b′ ) \Rightarrow (a). On peut raisonner comme précédemment (ce sera d'ailleurs
+le même groupe \(H\) qui s'introduira). On peut aussi voir que (b) et (b′ ) sont équiva-
+lentes&nbsp;: un tore isogène à un tore localement trivial est également localement trivial
+(cf. Exp. IX, 2.11 (iii)).
+</p>
+<p>4.3.4. — On a (d) \Rightarrow (a). Il suffit de prouver qu'un groupe de type constant possédant
+un tore maximal trivial est semi-localement isotrivial&nbsp;; or cela résulte aussitôt de 2.14.
+</p>
+<p>4.3.5. — On a (a) \Rightarrow (d). Il suffit de prouver qu'un tore maximal d'un groupe déployé
+est semi-localement isotrivial. Or on a plus précisément&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXIV.4.3.6">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">4.3.6</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma semi-local, \(G\) un \(S\)-groupe réductif, T0 un tore
+maximal trivial de \(G\), W0 = NormG (T0 )/T0 (c'est un \(S\)-groupe localement constant,
+et constant si \(G\) est de type constant, par 2.14), \(T\) un tore maximal de \(G\).
+</div></div>
+<p>Il existe un morphisme \(S\)′ \to \(S\) qui est principal homogène sous W0 (donc étale fini
+et surjectif, et même principal galoisien si \(G\) est de type constant ), tel que TS′ soit
+conjugué à (T0 )\(S\)′ par un élément de \(G\)(\(S\)′ ) (et donc en particulier trivial ).
+</p>
+<!-- p.366 -->
+<p>En effet, on sait que TranspG (T0 , \(T\)) est un fibré principal homogène sous
+NormG (T0 ) (cf. par exemple Exp. XI, 5.4 bis). Posons \(S\)′ = TranspG (T0 , \(T\))/T0&nbsp;; c'est
+un fibré principal homogène sous W0 . Étendant la base de \(S\) à \(S\)′ , on peut réduire
+le groupe structural de TranspG (T0 , \(T\)) à T0 . Or \(S\)′ est semi-local et T0 trivial, donc
+TranspG (T0 , \(T\)) possède une section sur \(S\)′ .                                 C.Q.\(F\).D.
+</p>
+<h3 id="XXIV.4.4">4.4. Utilisation de l'existence de tores maximaux</h3>
+<p>En utilisant le théorème d'existence de tores maximaux de Grothendieck (Exp.
+XIV, 3.20), on peut préciser considérablement les résultats précédents. Énonçons tout
+de suite&nbsp;:
+</p>
+<div class="thm thm-plain theoreme" id="XXIV.4.4.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">4.4.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma semi-local, \(R\) une donnée radicielle réduite
+épinglée, \(W\) son groupe de Weyl, \(E\) le groupe de ses automorphismes. (On rappelle
+que \(E\) opère naturellement sur \(W\) et que le produit semi-direct A = \(W\) · \(E\) s'identifie
+au groupe des automorphismes de \(R\) non épinglée, cf. Exp. XXI, 6.7.2).
+(i) Tout fibré principal homogène sous ÉpS (\(R\)) est trivialisé par un revêtement
+principal galoisien \(S\)′ \to \(S\) de groupe \(W\).
+(ii) Soit \(G\) un \(S\)-groupe réductif de type \(R\)&nbsp;; soit rev(\(G\)) = Isomext(ÉpS (\(R\)), \(G\)) le
+revêtement galoisien de \(S\) de groupe \(E\) associé. Soit W0 la forme de WS associée à
+rev(\(G\)). Il existe un morphisme \(S\)′ \to \(S\), qui est un fibré principal homogène sous W0 ,
+tel que GS′ soit quasi-déployable (i.e. possède un groupe de Borel ).
+<!-- p.367 -->
+(iii) Tout \(S\)-groupe réductif de type \(R\) est déployé par un revêtement principal ga-
+loisien \(S\) \to \(S\) de groupe A.
+</div></div>
+<p>Énonçons d'abord&nbsp;:
+</p>
+<div class="thm thm-plain proposition" id="XXIV.4.4.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.4.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(T\) un tore maxi-
+mal de \(G\), \(P\) un fibré principal homogène sous \(G\), \(G\)′ la forme tordue de \(G\) associée à
+∼
+\(P\) (on a alors, cf. 4.2.1, un isomorphisme canonique \(P\)/ NormG (\(T\)) -\to Tor(\(G\)′ )). Soit
+\(T\)′ un tore maximal de \(G\)′ , définissant un morphisme composé
+∼
+\(S\) -\to Tor(\(G\)′ ) -\to \(P\)/ NormG (\(T\)).
+Considérons les morphismes canoniques
+\(P\) -\to \(P\)/\(T\) -\to \(P\)/ NormG (\(T\))
+et prenons-en les images réciproques par le morphisme précédent&nbsp;:
+PO          / \(P\)/\(T\)           / \(P\)/ Norm (\(T\))
+O                   O \(G\)
+</div></div>
+<p>\(H\)            / \(S\)′                 / \(S\).
+</p>
+<h2 id="XXIV.4">4. ISOTRIVIALITÉ DES GROUPES RÉDUCTIFS ET LEURS FIBRÉS PRINCIPAUX            217</h2>
+<p>Alors \(S\)′ (resp. \(H\)) est un fibré principal homogène au-dessus de \(S\) (resp. \(S\)′ ) sous
+WG (\(T\)) (resp. TS′ ). De plus, si on fait opérer WG (\(T\)) sur \(T\) de la manière évidente,
+le fibré associé à \(S\)′ est isomorphe à \(T\)′ .
+</p>
+<p>Les deux premières assertions sont triviales, la dernière se prouve comme l'assertion
+correspondante de 2.6.
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.4.4.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.4.3</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma semi-local, \(G\) un \(S\)-groupe réductif, \(T\) un
+tore maximal de \(G\). Supposons l'une des deux conditions suivantes satisfaites&nbsp;:               368
+(i) \(T\) est trivial.
+(ii) \(T\) est contenu dans un groupe de Borel de \(G\), et \(G\) est soit adjoint, soit sim-
+plement connexe.
+Soit en outre \(P\) un fibré principal homogène sous \(G\). Il existe un \(S\)-préschéma \(S\)′ ,
+qui est un fibré principal homogène sous WG (\(T\)), tel que PS′ soit trivial.
+</div></div>
+<p>En effet, si \(G\)′ est la forme de \(G\) associée à \(P\), \(G\)′ possède un tore maximal \(T\)′
+(Exp. XIV, 3.20). Reprenant les notations de la proposition précédente, on voit que
+H1 (\(S\)′ , TS′ ) = 0 (en vertu du théorème 90 pour (i), de 3.14 pour (ii)). Le morphisme
+\(H\) \to \(S\)′ possède une section, donc PS′ possède aussi une section sur \(S\)′ .       C.Q.\(F\).D.
+Démontrons maintenant le théorème. \(L\)'assertion (i) est un cas particulier du corol-
+laire précédent (prendre \(G\) = ÉpS (\(R\)), muni de son tore trivial canonique). Prouvons
+(ii). On sait (3.12), que \(G\) est une forme tordue intérieure de
+G0 = Q · Ép             (\(R\)).
+rev(\(G\))/\(S\)
+</p>
+<p>Si T0 est le tore maximal canonique de G0 , WG0 (T0 ) est bien le groupe W0 décrit dans
+l'énoncé. La forme \(G\) de G0 correspond à un fibré principal homogène \(P\) sous ad(G0 )
+(\(P\) = Isomint(G0 , \(G\))). Le groupe Wad(G0 ) (Tad   0 ) est canoniquement isomorphe à W0 ,
+et on obtient le résultat voulu en appliquant 4.4.3 à la situation (ad(G0 ), Tad 0 , \(P\)),
+l'hypothèse (ii) de 4.4.3 étant bien vérifiée. Démontrons enfin (iii). Reprenons les    369
+notations de (ii)&nbsp;; on a un diagramme
+rev(\(G\))
+</p>
+<p>ES
+
+So   W0
+\(S\)′ .
+</p>
+<p>On sait que GS′ est isomorphe à (G0 )\(S\)′ et que (G0 )rev(\(G\)) est déployable. Si on pose
+\(S\) = \(S\)′ \timesS rev(\(G\)), GS est bien déployable, et il ne reste plus qu'à vérifier que \(S\) est
+bien un revêtement principal galoisien de \(S\) de groupe A, ce qui résulte du lemme plus
+général suivant (naturellement valable dans tout site)&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXIV.4.4.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">4.4.4</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) et \(H\) deux \(S\)-préschémas en groupes, \(G\) \to
+AutS-gr. (\(H\)) une opération de \(G\) sur \(H\), \(E\) un \(G\)-fibré principal homogène, \(F\) un H0 -
+fibré principal homogène, où H0 est la forme de \(H\) associée à \(E\). Alors \(E\) \timesS \(F\) est muni
+</div></div>
+<p>naturellement d'une structure de fibré principal homogène sous le produit semi-direct
+\(H\) · \(G\).
+Notons (e, g) \mapsto eg (resp. (f, u) \mapsto f u) l'opération (à droite) de \(G\) sur \(E\) (resp. de
+H0 sur \(F\)). Notons
+p&nbsp;: \(E\) \times \(H\) -\to H0
+\(S\)
+la projection canonique (H0 est par définition le quotient de \(E\) \timesS \(H\) par \(G\) \(y\) opérant
+suivant la formule (e, h)g = (eg, g -1 hg). Considérons le morphisme
+r:     \(E\) \times \(F\) \times \(H\) \times \(G\) -\to \(E\) \times \(F\)
+\(S\)    \(S\)     \(S\)              \(S\)
+</p>
+<p>défini ensemblistement par
+r(e, f, h, g) = (eg, f p(e, h)).
+<!-- p.370 -->
+Le morphisme r définit bien une opération du produit semi-direct \(H\) · \(G\) sur \(E\) \timesS \(F\).
+En effet, on a ensemblistement
+r(r(e, f, h, g), h′ , g ′ ) = (egg ′ , f p(e, h)p(eg, h′));
+Mais
+p(e, h)p(eg, h′ ) = p(e, h)p(e, gh′ g -1 ) = p(e, hgh′ g -1 ),
+d'où
+r(r(e, f, h, g), h′ , g ′ ) = r(e, f, hgh′ g -1 , gg ′ ),
+ce qu'il fallait démontrer.
+Pour prouver maintenant que cette loi est bien une loi de fibré principal homogène,
+on peut supposer que \(E\) et \(F\) sont triviaux, auquel cas on voit aussitôt que \(E\) \timesS \(F\) est
+également un fibré trivial.
+</p>
+<h2 id="XXIV.5">5. Décomposition canonique d'un groupe adjoint ou simplement connexe</h2>
+<p>Dans ce numéro, nous allons utiliser les résultats du n\circ 1 pour généraliser au cas
+des préschémas une décomposition classique des groupes adjoints (resp. simplement
+connexe). Pour ne pas surcharger indéfiniment la rédaction, les démonstrations sont
+esquissées et le détail en est laissé au lecteur&nbsp;; en fait il s'agit toujours de démons-
+trations absolument standard de théorie des fibrés principaux&nbsp;: réduction du groupe
+structural, torsion, . . ..
+</p>
+<h3 id="XXIV.5.1">5.1. — Rappelons (Exp. XXI, 7.4) qu'un diagramme de Dynkin est réunion disjointe</h3>
+<!-- p.371 -->
+<p>de ses composantes connexes, qui sont des diagrammes de Dynkin. De plus, tout
+diagramme de Dynkin connexe non vide correspondant à une donnée radicielle est
+isomorphe à l'un des diagrammes type (An , Bn , . . . , G2 ) qui ont été exhibés en Exp.
+XXI, 7.4.6. Dans la suite, nous ne nous intéresserons qu'à des diagrammes de Dynkin
+dont les composantes connexes sont de l'un des types précédents. Soit \(T\) l'ensemble
+de ces diagrammes type. Pour tout diagramme de Dynkin D, soit n(t) le nombre de
+composantes
+\(P\)              connexes de D isomorphes à t, où t \in \(T\). Le type de D est par définition
+t\inT n(t) t.
+</p>
+<h2 id="XXIV.5">5. GROUPES ADJOINTS OU SIMPLEMENT CONNEXES                            219</h2>
+<p>Un diagramme de Dynkin de type t est dit simple de type t, un diagramme de
+Dynkin de type n t est dit isotypique de type t. Soit D0 l'ensemble des composantes
+connexes de D et soit
+a&nbsp;: D0 -\to \(T\)
+\(P\)
+l'application évidente. Le type de D n'est autre que        \(x\)\inD0 a(\(x\)).
+</p>
+<h3 id="XXIV.5.2">5.2. — Soient \(S\) un préschéma, D un \(S\)-schéma de Dynkin (vérifiant la condition</h3>
+<p>restrictive énoncée ci-dessus). Le conoyau du couple de morphismes \(R\) \Rightarrow D (\(R\) =
+schéma des liaisons de D) est noté D0 . C'est le « schéma des composantes connexes »
+de D (il existe trivialement lorsque D est constant&nbsp;; le cas général s'en déduit par
+descente)&nbsp;; c'est un \(S\)-schéma constant tordu fini. On a un morphisme canonique
+a&nbsp;: D0 -\to TS .
+Pour t \in \(T\), posons a-1 (t) = D0,t&nbsp;; c'est un sous-schéma de D0 , dont l'image réci-
+proque dans D, notée Dt , est la composante isotypique de type t du schéma de Dynkin
+D. Chaque Dt est un sous-schéma de D, et on a                                                  372
+a
+D=       Dt .
+t\inT
+</p>
+<p>Remarquons
+\(P\)              que le degré de D0,t en s \in \(S\) est n(s, t), si le type de D en s est
+t n(s, t) t.
+</p>
+<h3 id="XXIV.5.3">5.3. — Dans la suite, nous ne considérerons que des groupes semi-simples adjoints</h3>
+<p>(resp. simplement connexes). Pour simplifier le langage, nous énoncerons les résultats
+pour des groupes adjoints&nbsp;; tous les énoncés resteront valables si on \(y\) substitue partout
+simplement connexe à adjoint.
+Rappelons qu'une donnée radicielle réduite adjointe est déterminée à isomorphisme
+près par le type de ses diagrammes de Dynkin. On dira donc qu'une     \(P\) donnée radicielle
+adjointe \(R\) (resp. un groupe semi-simple adjoint \(G\)) est de type             n(t) t si ses dia-
+grammes de Dynkin \(P\)     le sont (resp. si son type  est donné  par  une  donnée  radicielle
+adjointe de type     n(t) t). On dira que \(R\) ou \(G\) est simple de type t (resp. isotypique
+de type t), si son type est t (resp. n t, n \geqslant 0).
+Si \(G\) est un groupe semi-simple adjoint, on utilisera les symboles Dyn0 (\(G\)) et
+Dyn0,t (\(G\)) dans le sens défini en 5.2.
+</p>
+<h3 id="XXIV.5.4">5.4. — Soient ti , i = 1, 2, . . . , n, des éléments distincts de \(T\), et soit Ri une donnée</h3>
+<p>radicielle adjointe épinglée isotypique de type ti . Considérons le produit \(R\) = R1 \times
+· · ·\timesRn (Exp. XXI, 6.4.1). Soit \(S\) un préschéma tel que les différents ÉpS (Ri ) existent
+(cf. Exp. XXV). On vérifie aussitôt qu'il existe un isomorphisme canonique
+</p>
+<p>(^*)                       ÉpS (\(R\)) = ÉpS (R1 ) \times · · · \times ÉpS (Rn ).
+\(S\)     \(S\)
+</p>
+<p>De plus, si Ei désigne le groupe des automorphismes de Ri , \(E\) le groupe des auto-              373
+</p>
+<p>morphismes de \(R\), Di (resp. D) le diagramme de Dynkin de Ri (resp. \(R\)), on a des
+isomorphismes&nbsp;:
+a            \(Y\)
+D=       Di , \(E\) =   Ei ,
+\(E\) \simeq Aut(D),      Ei \simeq Aut(Di ).
+Combinant avec (^*) et 1.4, on voit que (^*) induit un isomorphisme
+AS (\(R\)) \simeq AS (R1 ) \times · · · \times AS (Rn ).
+\(S\)      \(S\)
+</p>
+<div class="thm thm-plain proposition" id="XXIV.5.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.5</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe semi-simple adjoint. Il
+existe une décomposition unique
+\(Y\)
+\(G\)\simeq       Gt ,
+t\inT
+</div></div>
+<p>où Gt est un \(S\)-groupe semi-simple adjoint isotypique de type t. De plus, la décompo-
+sition précédente induit des isomorphismes
+\(Y\)
+Dynt (\(G\)) \simeq Dyn(Gt ),     AutS-gr. (\(G\)) \simeq    AutS-gr. (Gt ).
+t\inT
+</p>
+<p>Cela a en effet été démontré ci-dessus lorsque \(G\) est déployé. Dans le cas général,
+on peut supposer \(G\) de type constant \(R\). Utilisant la décomposition précédente de
+AS (\(R\)) et 1.17, on en déduit la décomposition voulue de \(G\). Les autres résultats se
+prouvent alors par descente.
+</p>
+<!-- p.374 -->
+<div class="thm thm-remark remarque" id="XXIV.5.6">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">5.6</span></div>
+  <div class="thm-body"><p>Plus généralement, si \(G\) et \(H\) sont deux groupes semi-simples ad-
+joints, on a comme suit des isomorphismes canoniques (le diagramme est commutatif)&nbsp;:
+</div></div>
+<p>IsomS-gr. (\(G\), \(H\))
+∼        / Q Isom
+\(S\)-gr. (Gt , Ht )
+t\inT
+</p>
+<p>
+/ Q Isomext(Gt , Ht )
+∼                    
+Isomext(\(G\), \(H\))
+t\inT
+</p>
+<p>≀
+≀
+
+/ Q
+∼                     
+IsomDyn (Dyn(\(G\)), Dyn(\(H\)))                     IsomDyn (Dyn(Gt ), Dyn(Ht )).
+t\inT
+</p>
+<div class="thm thm-remark remarque" id="XXIV.5.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">5.7</span></div>
+  <div class="thm-body"><p>On peut donner une caractérisation intrinsèque de Gt , que nous
+énonçons ci-après sans démonstration&nbsp;: c'est le plus grand sous-groupe réductif de \(G\)
+invariant (et d'ailleurs caractéristique) et isotypique de type t.
+</div></div>
+<p>La proposition précédente permet de ramener l'étude des groupes semi-simples
+adjoints à celle des groupes semi-simples adjoints isotypiques. C'est cette étude que
+nous allons faire ci-dessous.
+</p>
+<h2 id="XXIV.5">5. GROUPES ADJOINTS OU SIMPLEMENT CONNEXES                            221</h2>
+<h3 id="XXIV.5.8">5.8. — Soient \(R\) une donnée radicielle réduite épinglée adjointe simple de type t, I</h3>
+<p>un ensemble fini non vide, \(R\) I la donnée radicielle produit de copies Ri de \(R\), pour
+i \in I. Notons \(E\) le groupe des automorphismes de \(R\), qui s'identifie au groupe des
+automorphismes du diagramme de Dynkin D de \(R\). Le diagramme de Dynkin de \(R\) I
+s'identifie à DI , ce qui montre que l'on a une suite exacte&nbsp;:
+<!-- p.1 -->
+-\to Aut(D)I -\to Aut(DI ) -\to Aut(I) -\to 1 ,
+où Aut(I) désigne le groupe des permutations de I. Il s'ensuit que l'isomorphisme            375
+canonique
+ÉpS (\(R\))I \simeq ÉpS (\(R\) I )
+induit une suite exacte
+<!-- p.1 -->
+-\to AS (\(R\))I -\to AS (\(R\) I ) -\to Aut(IS ) -\to 1 ,
+le dernier groupe étant le \(S\)-groupe constant associé à Aut(I). Remarquons d'autre
+part que I s'identifie canoniquement à l'ensemble des composantes connexes de DI .
+Si \(G\) est un \(S\)-groupe semi-simple de type \(R\) I , définissant (cf. 1.17) un fibré principal
+homogène \(P\) sous AS (\(R\) I ), la définition de Dyn(\(G\)) par descente (3.7), et celle de
+Dyn0 (\(G\)) (5.2), montre que le fibré associé à \(P\) par le morphisme AS (\(R\) I ) \to Aut(IS )
+n'est autre que IsomS (IS , Dyn0 (\(G\))), correspondant à la forme Dyn0 (\(G\)) de IS . Utilisant
+à nouveau l'équivalence de catégories 1.17 et la suite exacte précédente, on en déduit
+par un raisonnement formel qu'il existe un Dyn0 (\(G\))-groupe réductif de type \(R\), soit
+Q
+G0 , et un \(S\)-isomorphisme \(G\) \simeq Dyn (\(G\))/\(S\) G0 .
+0
+</p>
+<div class="thm thm-plain proposition" id="XXIV.5.9">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.9</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe semi-simple adjoint isoty-
+pique de type t. Il existe un Dyn0 (\(G\))-groupe semi-simple adjoint G0 simple de type
+t, et un \(S\)-isomorphisme (uniques)
+\(Y\)
+\(G\)\simeq             G0 .
+Dyn (\(G\))/\(S\)
+0
+</div></div>
+<p>De plus, cet isomorphisme induit une suite exacte
+\(Y\)
+<!-- p.1 -->
+-\to           AutS-gr. (G0 ) -\to AutS-gr. (\(G\)) -\to AutS (Dyn0 (\(G\))) -\to 1 .
+Dyn0 (\(G\))/\(S\)
+</p>
+<p>On peut évidemment supposer \(G\) de type constant n t. La première assertion a déjà      376
+été démontrée (l'assertion d'unicité est évidente). La seconde se déduit alors du cas
+déployé par descente.
+On peut regrouper 5.5 et 5.9&nbsp;:
+</p>
+<div class="thm thm-plain proposition" id="XXIV.5.10">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.10</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe semi-simple adjoint, D =
+Dyn(\(G\)) son schéma de Dynkin.
+(i) Il existe une décomposition canonique
+\(Y\) \(Y\)                      \(Y\)
+\(G\)\simeq            G0,t \simeq                  G0 ,
+t\inT D0,t /\(S\)          Dyn (\(G\))/\(S\)
+0
+</div></div>
+<p>où chaque G0,t est un Dyn0,t (\(G\))-groupe simple adjoint de type t (resp. où G0 est un
+Dyn0 (\(G\))-groupe semi-simple adjoint dont le type en \(x\) \in Dyn0 (\(G\)) est a(\(x\)) \in \(T\) (le
+morphisme a&nbsp;: Dyn0 (\(G\)) \to TS a été défini en 5.2)).
+(ii) Les décompositions précédentes induisent des suites exactes isomorphes (notées
+verticalement )&nbsp;:
+</p>
+<!-- p.1 -->
+<p>1
+</p>
+<p>Q      Q                     ∼   /      Q         
+Autgr. (G0,t )                        Autgr. (G0 )
+t\inT D0,t /\(S\)                            Dyn0 (\(G\))/\(S\)
+</p>
+<p>                                            
+AutS-gr. (\(G\))                        / Aut
+\(S\)-gr. (\(G\))
+</p>
+<p>Q                           ∼
+
+AutS (Dyn0,t (\(G\)))               / Aut
+\(S\),a (Dyn0 (\(G\)))
+t\inT
+</p>
+<p>                                     
+<!-- p.1 -->
+1
+<!-- p.377 -->
+où AutS,a (D0 ) dénote le schéma des automorphismes de Dyn0 (\(G\)) qui commutent au
+morphisme a&nbsp;: Dyn0 (\(G\)) \to TS .
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.5.11">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.11</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, les trois catégories suivantes sont
+équivalentes&nbsp;:
+(i) la catégorie des fibrés principaux homogènes sous \(G\).
+(ii) la catégorie des fibrés principaux homogènes sous G0 .
+(iii) la catégorie produit, pour t \in \(T\), des catégories des fibrés principaux homogènes
+sous les G0,t .
+</div></div>
+<p>Cela se déduit formellement des décompositions précédentes et de 8.4.
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.5.12">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.12</span></div>
+  <div class="thm-body"><p>On a des isomorphismes canoniques
+\(Y\) \(Y\)                    \(Y\)
+Tor(\(G\)) \simeq          Tor(G0,t ) \simeq                                    Tor(G0 ),
+t\inT D0,t /\(S\)                   Dyn (\(G\))/\(S\)
+0
+</div></div>
+<p>et de même en remplaçant Tor par Bor (resp. Kil).
+</p>
+<p>Trivial à partir du cas déployé.
+</p>
+<div class="thm thm-remark remarque" id="XXIV.5.13">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">5.13</span></div>
+  <div class="thm-body"><p>Le morphisme canonique
+Dyn(\(G\)) -\to Dyn0 (\(G\))
+</div></div>
+<!-- p.223 -->
+<p>permet de considérer Dyn(\(G\)) comme un Dyn0 (\(G\))-schéma de Dynkin&nbsp;; en fait c'est le
+schéma de Dynkin Dyn(G0 ) de G0 .
+De même si \(T\) \subset \(B\) est un couple de Killing de \(G\), correspondant canoniquement au
+couple de Killing T0 \subset B0 de G0 , on vérifie que les obstructions au quasi-déploiement
+de \(G\) et G0 , qui se trouvent (3.9) dans Pic(Dyn(\(G\))) = Pic(Dyn(G0 )) coı̈ncident. On
+en déduit&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.5.14">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.14</span></div>
+  <div class="thm-body"><p>Les conditions suivantes sont équivalentes&nbsp;:                           378
+(i) \(G\) est quasi-déployable,
+(ii) G0 est quasi-déployable,
+(iii) chaque G0,t , t \in \(T\), est quasi-déployable.
+</div></div>
+<h2 id="XXIV.6">6. Automorphismes des groupes de Borel des groupes réductifs</h2>
+<div class="thm thm-plain lemme" id="XXIV.6.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, (\(G\), \(T\), \(M\), \(R\)) un \(S\)-groupe déployé, R0 un sys-
+tème de racines simples de \(R\), \(B\) le groupe de Borel correspondant. Alors Bu est
+engendré comme faisceau (fppf) en groupes par les \(U\)\alpha , \alpha \in R0 .
+Soit \(H\) le sous-faisceau en groupes de Bu engendré par les \(U\)\alpha , \alpha \in R0 . Prouvons
+\(H\) \supset \(U\)\beta par récurrence sur l'entier > 0, ordR0 (\beta) (cf. Exp. XXI, 3.2.15). \(L\)'assertion
+est vérifiée par hypothèse pour ord(\beta) = 1. Supposons donc ord(\beta) > 1 et \(U\)\gamma \subset \(H\)
+dès que ord(\gamma) < ord(\beta). Il existe \alpha \in R0 tel que \beta - \alpha \in \(R\)+ (Exp. XXI, 3.1.1). Soit
+p le plus grand entier tel que \beta - p \alpha = \beta ′ \in \(R\)+ . On a \(U\)\alpha , \(U\)\beta ′ \subset \(H\), \beta ′ - \alpha 6\in \(R\). On
+est donc ramené à prouver&nbsp;:
+</div></div>
+<div class="thm thm-plain lemme" id="XXIV.6.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">6.2</span></div>
+  <div class="thm-body"><p>Reprenons les notations de Exp. XXIII, 6.4. Supposons p = 1, c'est-à-
+dire \beta - \alpha non racine. Si \(H\) est un sous-faisceau en groupes de Bu tel que \(U\)\alpha , \(U\)\beta \subset \(H\),
+alors Ui\alpha+j\beta \subset \(H\) chaque fois que i\alpha + j\beta \in \(R\), i > 0, j > 0.
+Distinguons quatre cas suivant la valeur de q = 0, 1, 2, 3. Dans la suite \(x\) et \(y\)
+désignent deux sections arbitraires de Ga, \(S\)′ , \(S\)′ \to \(S\).
+Si q = 0, il n'\(y\) a rien à démontrer.
+Si q = 1, on a p\alpha+\beta (\pmx) = p\beta (-1)p\alpha (-\(x\))p\beta (1)p\alpha (\(x\)) \in \(H\)(\(S\)′ ), donc \(U\)\alpha+\beta \subset \(H\).         379
+Si q = 2, on a de même
+p\alpha+\beta (\pmxy)p2\alpha+\beta (\pmx2 \(y\)) = p\beta (-\(y\))p\alpha (-\(x\))p\beta (\(y\))p\alpha (\(x\)) \in \(H\)(\(S\)′ ),
+d'où, quitte à changer certains signes
+\(F\)(\(x\), \(y\)) = p\alpha+\beta (xy)p2\alpha+\beta (x2 \(y\)) \in \(H\)(\(S\)′ ).
+Or on a aussitôt \(F\)(\(x\), 1)\(F\)(-1, \(x\)) = p2\alpha+\beta (x2 -\(x\)). Si a \in Ga (\(S\)), l'équation X2 -\(X\) = a
+définit une extension libre et surjective de \(S\) (c'est Spec OS [\(X\)]/(X2 - \(X\) - a))&nbsp;; on a
+donc p2\alpha+\beta (a) \in \(H\)(\(S\)′ ) donc U2\alpha+\beta \subset \(H\), donc aussi \(U\)\alpha+\beta \subset \(H\) (car \(F\)(1, a) \in \(H\)(\(S\)′ )).
+Si q = 3, on a de même
+\(F\)(\(x\), \(y\)) = p\alpha+\beta (xy)p2\alpha+\beta (x2 \(y\))p3\alpha+\beta (x3 \(y\))p3\alpha+2\beta (x3 \(y\) 2 ) \in \(H\)(\(S\)′ );
+mais
+p3\alpha+2\beta (\pmx) = \(F\)(1, 1)-1 p\beta (-\(x\))\(F\)(1, 1)p\beta (\(x\)) \in \(H\)(\(S\)′ ),
+</div></div>
+<p>donc aussi
+\(K\)(\(x\), \(y\)) = p\alpha+\beta (xy)p2\alpha+\beta (x2 \(y\))p3\alpha+\beta (x3 \(y\)) \in \(H\)(\(S\)′ ).
+On a donc déjà prouvé U3\alpha+2\beta \subset \(H\). Calculant alors
+</p>
+<p>\(K\)(\(x\) + \(y\), 1)\(K\)(-\(x\), 1)\(K\)(1, \(y\))-1
+</p>
+<p>modulo U3\alpha+2\beta , on trouve
+</p>
+<p>p2\alpha+\beta (2x2 + \(y\) 2 + 2xy - \(y\))p3\alpha+\beta (\(y\) 3 + 3xy 2 + 3x2 \(y\) - \(y\)) \in \(H\)(\(S\)′ ).
+</p>
+<p>Si a \in Ga (\(S\)), les « équations »
+</p>
+<p>x2 = -xy - \(y\) + 1 - a
+\(y\) 2 = 3y - 2 + 3a
+</p>
+<!-- p.380 -->
+<p>définissent une extension libre et surjective de \(S\)&nbsp;; l'expression précédente donne alors
+p3\alpha+\beta (a) \in \(H\)(\(S\)′ ). On a donc prouvé
+</p>
+<p>U3\alpha+\beta ,   U3\alpha+2\beta \subset \(H\),         p\alpha+\beta (xy)p2\alpha+\beta (xy 2 ) \in \(H\)(\(S\)′ ),
+</p>
+<p>et on est ramené au calcul précédent.
+</p>
+<div class="thm thm-remark remarque" id="XXIV.6.2.1">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.2.1</span></div>
+  <div class="thm-body"><p>La démonstration précédente montre qu'on aurait pu remplacer
+l'hypothèse « \(H\) \supset \(U\)\alpha , \(U\)\beta » par « \(H\) \supset \(U\)\alpha ou \(U\)\beta , et \(H\) est invariant sous int(\(U\)\alpha ) et
+int(\(U\)\beta ) ».
+</div></div>
+<div class="thm thm-plain theoreme" id="XXIV.6.3">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">6.3</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) et \(G\)′ deux \(S\)-groupes semi-simples, \(B\)
+∼
+(resp. \(B\)′ ) un sous-groupe de Borel de \(G\) (resp. \(G\)′ ). Tout isomorphisme \(B\) -\to \(B\)′ est
+∼    ′
+induit par un unique isomorphisme \(G\) -\to \(G\) .
+</div></div>
+<p>\(L\)'assertion est locale pour la topologie étale et on peut supposer \(G\) déployé&nbsp;:
+\(G\) = (\(G\), \(T\), \(M\), \(R\)), \(B\) étant défini par le système de racines positives \(R\)+ de \(R\). \(L\)'iso-
+∼
+morphisme donné u&nbsp;: \(B\) -\to \(B\)′ induit un isomorphisme de \(T\) sur un tore maximal
+\(T\)′ de \(B\)′ , donc de \(G\)′ . \(L\)'isomorphisme donné \(T\) \simeq DS (\(M\)) donne un isomorphisme
+\(T\)′ \simeq DS (\(M\)) dans lequel les éléments de \(R\)+ deviennent les racines constantes de \(B\)′
+par rapport à \(T\)′ , donc les éléments de \(R\) les racines constantes de \(G\)′ par rapport
+à \(T\)′ . Comme \(G\) et \(G\)′ sont semi-simples, les coracines sont déterminées par dualité
+(Exp. XXI, 1.2.5), ce qui prouve que (\(T\)′ , \(M\), \(R\)) est un déploiement de \(G\)′ tel que
+\(R\)(\(G\)) = \(R\)(\(G\)′ ).
+<!-- p.381 -->
+Appliquant Exp. XXIII, 5.1 (Théorème d'unicité), on en déduit qu'il existe un
+∼
+unique isomorphisme \(G\) -\to \(G\)′ coı̈ncidant avec u sur \(T\) et les \(U\)\alpha , \alpha \in R0 . Par 5.1, la
+restriction de cet isomorphisme à \(B\) est u.                                  C.Q.\(F\).D.
+</p>
+<div class="thm thm-remark remarque" id="XXIV.6.3.1">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.3.1</span></div>
+  <div class="thm-body"><p>(i) Utilisant Exp. XXII, 4.1.9 et raisonnant comme dans loc. cit.
+4.2.12, on peut dans l'énoncé du théorème remplacer « isomorphisme » par « isogénie »
+(resp. « isogénie centrale »).
+</div></div>
+<!-- p.225 -->
+<p>(ii) Le théorème est faux pour les groupes réductifs. Prendre par exemple \(G\) =
+\(G\)′ = SL2 \times Gm identifié au groupe des matrices
+                                    
+ ab0                                  
+ c d 0  ad - bc = 1, h inversible&nbsp;;
+                                      
+00h
+prendre pour \(B\) = \(B\)′ le groupe de Borel défini par c = 0 et pour u l'automorphisme
+de \(B\)&nbsp;: u(a, b, d, h) = (a, b, d, ah).
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.6.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.4</span></div>
+  <div class="thm-body"><p>Le foncteur (\(G\), \(B\)) \mapsto \(B\) de la catégorie des couples&nbsp;: (\(S\)-groupes
+semi-simples, groupe de Borel ) dans la catégorie des \(S\)-préschémas en groupes (les
+morphismes sont les isomorphismes) est pleinement fidèle.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.6.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.5</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe semi-simple, \(B\) un groupe
+de Borel de \(G\), \(B\)′ un \(S\)-groupe localement isomorphe à \(B\) pour (fpqc). Alors \(B\)′ est
+localement isomorphe à \(B\) pour la topologie étale finie locale et il existe un \(S\)-groupe
+semi-simple \(G\)′ dont \(B\)′ soit un groupe de Borel&nbsp;; \(G\)′ est unique à un unique isomor-
+phisme près induisant l'identité sur \(B\)′ .
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.6.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.6</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe semi-simple, \(B\) un groupe                382
+de Borel de \(G\). Alors AutS-gr. (\(B\)) est représentable par un \(S\)-préschéma affine et lisse,
+Autext(\(B\)) est représentable par un \(S\)-préschéma étale et fini, et les morphismes évi-
+dents induisent un isomorphisme de suites exactes
+/ Bad         / Aut                    / Autext(\(G\))            /1
+<!-- p.1 -->
+\(S\)-gr. (\(G\), \(B\))
+</div></div>
+<p>≀                      ≀                  ≀
+                                          
+<!-- p.1 -->
+/ Bad          / Aut                    / Autext(\(B\))          / 1.
+\(S\)-gr. (\(G\))
+</p>
+<p>Cela résulte aussitôt de 2.1 et des résultats précédents. On laisse au lecteur le soin
+de développer les analogues des résultats des Nos 1,2,3,4 dans le cadre ci-dessus.
+</p>
+<div class="thm thm-remark remarque" id="XXIV.6.7">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">6.7</span></div>
+  <div class="thm-body"><p>Si \(S\) est un préschéma et \(B\) un \(S\)-groupe, \(B\) ne peut donc être groupe
+de Borel que d'un unique groupe semi-simple, bien déterminé par \(B\). Il reste donc à
+caractériser les \(S\)-groupes \(B\) qui sont bien groupes de Borel de groupes semi-simples.
+La question ne semble pas comporter de réponse simple. Signalons par exemple qu'il
+existe des \(S\)-groupes lisses, affines, extension d'un tore trivial et de groupes additifs
+(définissant même un demi-système de racines), dont toutes les fibres sont des groupes
+de Borel de groupes semi-simples, mais qui ne sont pas groupe de Borel d'un groupe
+semi-simple. Par exemple, prenons le groupe de Borel canonique d'un groupe de type
+B2 déployé sur le schéma des nombres duaux sur un corps \(k\), et modifions la constante
+<!-- p.2 -->
+de la seconde relation de commutation de Exp. XXIII, 3.3.1 (iii) en la remplaçant             383
+par un scalaire différent, égal à 2 sur la fibre spéciale. La fibre spéciale du groupe
+obtenu sera bien un groupe de Borel d'un groupe semi-simple, mais le groupe lui-
+même n'en sera pas un. La traduction cohomologique de ce fait (cf. Exp. III, 3.10) est
+le suivant&nbsp;:
+</div></div>
+<p>soient \(k\) un corps, \(G\) un \(k\)-groupe semi-simple de type B2 , \(B\) un sous-groupe de
+Borel de \(G\)&nbsp;; alors H2 (\(B\), Lie(\(B\)/\(k\))) 6= 0.
+</p>
+<h2 id="XXIV.7">7. Représentabilité des foncteurs HomS-gr. (\(G\), \(H\)), pour \(G\) réductif</h2>
+<h3 id="XXIV.7.1">7.1. Le cas déployé</h3>
+<p>7.1.1. — Soient \(S\) un préschéma, \(G\) un \(S\)-groupe épinglé, \(T\) son tore maximal, R0
+l'ensemble des racines simples et, pour \alpha \in R0 ,
+u\alpha \in \(U\)^*\alpha (\(S\)),         w\alpha \in NormG (\(T\))(\(S\)),
+les éléments définis par l'épinglage.
+Soit d'autre part \(H\) un \(S\)-préschéma en groupes&nbsp;; nous nous intéressons au foncteur
+HomS-gr. (\(G\), \(H\)), et plus précisément au morphisme
+q:    HomS-gr. (\(G\), \(H\)) -\to HomS-gr. (\(T\), \(H\)).
+Soit donc
+fT&nbsp;: \(T\) -\to \(H\)
+un \(S\)-homomorphisme, considérons q -1 (fT ) = \(F\) . C'est le foncteur défini par
+\(F\) (\(S\)′ ) = {f \in HomS′ -gr. (GS′ , HS′ ) | f = (fT )\(S\)′ sur TS′ }.
+<!-- p.384 -->
+On a un morphisme de \(S\)-foncteur
+i&nbsp;: \(F\) -\to H2n ,
+où n = Card(R0 ), défini ensemblistement par i(f ) = (f (u\alpha ), f (w\alpha )). En vertu de
+Exp. XXIII, 1.9, i est d'ailleurs un monomorphisme.
+</p>
+<div class="thm thm-plain proposition" id="XXIV.7.1.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.1.2</span></div>
+  <div class="thm-body"><p>Si \(H\) est séparé sur \(S\), \(F\) est représentable et i est une immersion
+fermée.
+</div></div>
+<p>La technique habituelle de représentabilité relative nous montre qu'il suffit de
+prouver qu'étant données des sections
+v\alpha , h\alpha \in \(H\)(\(S\)),      pour \alpha \in R0 ,
+les \(S\)-préschémas \(S\)′ tels qu'il existe un \(S\)′ -homomorphisme
+f&nbsp;: GS′ -\to HS′
+prolongeant (fT )\(S\)′ et vérifiant f (u\alpha ) = v\alpha , f (w\alpha ) = h\alpha , sont exactement ceux qui se
+factorisent par un certain sous-préschéma fermé de \(S\). On peut évidemment supposer
+\(S\) affine.
+Pour simplifier la suite, disons qu'un morphisme \(X\) \to \(Y\) de schémas affines vérifie
+la condition (\(L\)) si \(Y\) est le spectre d'une O(\(X\))-algèbre qui est un O(\(X\))-module libre.
+Il est clair que si l'on se restreint à la catégorie des schémas affines, un produit, ou un
+composé de morphismes vérifiant (\(L\)) vérifie (\(L\)) et que (\(L\)) est stable par extension
+de la base.
+</p>
+<h2 id="XXIV.7">7. REPRÉSENTABILITÉ DES FONCTEURS HomS-gr. (\(G\), \(H\)), POUR \(G\) RÉDUCTIF            227</h2>
+<div class="thm thm-plain lemme" id="XXIV.7.1.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.1.3</span></div>
+  <div class="thm-body"><p>Supposons \(S\) affine, et soit \alpha \in R0 . Considérons le morphisme
+a&nbsp;: \(T\) \times \(T\) -\to Ga, \(S\)
+\(S\)
+</div></div>
+<p>défini ensemblistement par a(t, t ) = \alpha(t) + \alpha(t′ ).
+′
+385
+(i) a est fidèlement plat et de présentation finie.
+(ii) Soit \(R\) le carré fibré de a. Le morphisme structural \(R\) \to \(S\) vérifie (\(L\)).
+Il est d'abord clair que le morphisme a est surjectif, \alpha&nbsp;: \(T\) \to Gm,\(S\) l'étant. Il est
+trivial que a est de présentation finie. Comme \alpha vérifie (\(L\)), il suffit, pour prouver (i)
+et (ii) de montrer que le morphisme
+u&nbsp;: G2m, \(S\) -\to Ga, \(S\)
+défini ensemblistement par u(\(x\), \(y\)) = \(x\) + \(y\) vérifie (\(L\)). Autrement dit, il suffit de
+vérifier que pour tout anneau A, l'anneau A[\(X\), \(Y\), \(X\)-1 , \(Y\)-1 ] est un module libre sur
+son sous-anneau A[\(X\) + \(Y\)]. Or les éléments (XY)p , (XY)p \(X\), p \in \(Z\) forment une base.
+En effet, il suffit de vérifier que pour tout q \in \(Z\), et toute famille {aij \in A | i, j \in \(Z\)},
+il existe des éléments bn,p , cn,p \in A, 0 \leqslant n \leqslant q, p \in \(Z\), uniques, tels que
+\(X\)                      \(X\)                                                  
+aij Xi Yj =         bn,p (\(X\) + \(Y\))n (XY)p \(X\) + cn,p (\(X\) + \(Y\))n (XY)p .
+-q\leqslanti-j\leqslantq+1              0\leqslantn\leqslantq
+p\inZ
+</p>
+<p>Démontrons cette assertion par récurrence ascendante sur q. Elle est triviale pour
+q \leqslant -1&nbsp;; supposons q \geqslant 0 (et donc q + 1 > -q) et supposons l'assertion vraie pour
+q - 1. Prenant dans les deux membres les termes de la forme Xa Yb avec a - b = q + 1,
+puis avec a - b = -q, on obtient immédiatement
+aq+i+1,i = bq,i           et     qi,i+p = cq,i .
+Cela démontre d'abord que s'il \(y\) a une solution, alors les bq,i et cq,i sont déterminés     386
+par les relations précédentes. Soustrayant alors des deux membres
+bq,i (\(X\) + \(Y\))q (XY)i \(X\) + cq,i (\(X\) + \(Y\))q (XY)i ,
+on est ramené aux assertions d'existence et d'unicité déjà prouvées par l'hypothèse
+de récurrence.
+</p>
+<div class="thm thm-plain lemme" id="XXIV.7.1.4">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.1.4</span></div>
+  <div class="thm-body"><p>Soit \alpha \in R0 , et soit b&nbsp;: \(T\) \timesS \(T\) \to \(H\) le morphisme défini ensemblis-
+tement par                                                   
+b(t, t′ ) = int(fT (t))v\alpha int(fT (t′ ))v\alpha .
+Soit f\alpha&nbsp;: \(U\)\alpha \to \(H\) un \(S\)-morphisme. Les conditions suivantes sont équivalentes&nbsp;:
+(i) f\alpha est un morphisme de groupes&nbsp;; on a f\alpha (u\alpha ) = v\alpha&nbsp;; on a
+fT (t)f\alpha (\(x\))fT (t)-1 = f\alpha (\alpha(t)\(x\))
+pour tous t \in \(T\)(\(S\)′ ), \(x\) \in \(U\)\alpha (\(S\)′ ), \(S\)′ \to \(S\).
+(ii) On a f\alpha (u\alpha ) = v\alpha et la relation
+
+f\alpha a(t, t′ )u\alpha = b(t, t′ )
+pour tous t, t′ \in \(T\)(\(S\)′ ), \(S\)′ \to \(S\).
+</div></div>
+<p>Si f\alpha vérifie (i), on a f\alpha (\alpha(t)u\alpha ) = int(fT (t))v\alpha , ce qui entraı̂ne aussitôt (ii).
+Réciproquement, supposons (ii) vérifiée et démontrons les différentes conditions de
+(i)&nbsp;; prouvons d'abord la dernière. Comme a est couvrant pour (fpqc), il suffit de
+<!-- p.387 -->
+prouver que si t, t′ , t′′ \in \(T\)(\(S\)′ ), on a
+                                
+fT (t)f\alpha a(t′ , t′′ )u\alpha fT (t)-1 = f\alpha \alpha(t)a(t′ , t′′ )u\alpha&nbsp;;
+or ceci s'écrit aussi
+fT (t)b(t′ , t′′ )fT (t)-1 = b(tt′ , tt′′ ),
+propriété évidente sur la définition de b. Reste à prouver que f\alpha est un morphisme de
+groupes. Or la propriété précédente donne aussitôt
+                                                       
+f\alpha \alpha(t)u\alpha f\alpha \alpha(t′ )u\alpha = int(fT (t))f\alpha (u\alpha ) · int(fT (t′ ))f\alpha (u\alpha )
+
+= b(t, t′ ) = f\alpha \alpha(t)u\alpha + \alpha(t)\alpha(t)v\alpha .
+On a donc f\alpha (\(x\) + \(x\)′ ) = f\alpha (\(x\))f\alpha (\(x\)′ ), chaque fois que \(x\) et \(x\)′ sont des sections de
+l'ouvert \(U\)^*\alpha de \(U\)\alpha , qui est schématiquement dense&nbsp;; on conclut alors par Exp. XVIII,
+1.4.
+</p>
+<p>7.1.5. — Fixons-nous provisoirement un \alpha \in R0 . Le morphisme a est fidèlement plat
+quasi-compact, donc Ga, \(S\) s'identifie au quotient de \(T\) \timesS \(T\) par la relation d'équiva-
+lence \(R\) définie par a. Soit
+i1
+/
+\(R\)                / \(T\) \timesS \(T\)
+i2
+</p>
+<p>cette relation d'équivalence.
+Pour que le morphisme b se factorise par a, il faut et il suffit que b \circ i1 = b \circ i2&nbsp;;
+autrement dit, si on note \(K\) le noyau du couple de morphismes
+b\circi1
+/
+\(R\)                  /\(H\),
+b\circi2
+</p>
+<p>il faut et il suffit que \(K\) = \(R\). Or \(H\) est supposé séparé sur \(S\), donc \(K\) est un sous-
+préschéma fermé de \(R\). D'autre part, \(R\) est essentiellement libre sur \(S\) (7.1.3).
+</p>
+<!-- p.388 -->
+<p>7.1.6. — Si \(S\)′ est un \(S\)-préschéma, pour qu'il existe sur \(S\)′ un f\alpha vérifiant les conditions
+de 7.1.4 (i) (et alors nécessairement unique), il faut et il suffit que KS′ = RS′ , et que
+le morphisme f\alpha obtenu vérifie f\alpha (u\alpha ) = v\alpha .
+La première condition est équivalente au fait que \(S\)′ \to \(S\) se factorise par un certain
+sous-préschéma fermé de \(S\) (Exp. VIII, 6.4 )&nbsp;; si on remplace \(S\) par ce sous-préschéma
+fermé, la seconde condition définit à nouveau un sous-préschéma fermé de \(S\) (égalité
+de deux sections de \(H\), or \(H\) est supposé séparé sur \(S\)).
+Quitte à remplacer \(S\) par ce sous-préschéma fermé, on peut donc supposer qu'il
+existe un morphisme f\alpha&nbsp;: \(U\)\alpha \to \(H\) vérifiant les conditions de 7.1.4 (i). Prenant
+l'intersection des sous-préschémas de \(S\) obtenus pour chaque \alpha \in R0 , on peut supposer
+cette condition vérifiée pour tout \alpha \in R0 .
+</p>
+<h2 id="XXIV.7">7. REPRÉSENTABILITÉ DES FONCTEURS HomS-gr. (\(G\), \(H\)), POUR \(G\) RÉDUCTIF           229</h2>
+<p>7.1.7. — De même, considérons pour chaque \alpha \in R0 les deux morphismes de \(S\)-
+groupes
+fT \circ int(w\alpha ), int(h\alpha ) \circ fT&nbsp;: \(T\) -\to \(H\).
+Comme \(H\) est séparé sur \(S\) et \(T\) essentiellement libre sur \(S\), le même raisonnement
+que précédemment montre que, quitte à remplacer \(S\) par un sous-préschéma fermé,
+on peut supposer que pour tout \alpha \in R0 on a
+fT \circ int(w\alpha ) = int(h\alpha ) \circ fT .
+</p>
+<p>7.1.8. — Utilisant maintenant le théorème de générateurs et relations (Exp. XXIII,
+3.5), on voit qu'il existe un homomorphisme de groupes f&nbsp;: \(G\) \to \(H\) vérifiant les               389
+conditions exigées si et seulement si un certain ensemble fini de relations algébriques
+Ri ((h\alpha ), (v\alpha ), (fT (\alpha^* (-1)))) = e
+(entre les sections h\alpha , v\alpha , fT (\alpha^* (-1)) (\alpha \in R0 , ) de \(H\)) est vérifié. Comme \(H\) est
+séparé sur \(S\), cela définit encore un sous-préschéma fermé de \(S\), et on a terminé.
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.7.1.9">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.1.9</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif déployé, \(T\) son
+tore maximal, \(H\) un \(S\)-préschéma en groupes séparé sur \(S\). Soit d'autre part \(P\) une
+propriété de morphismes telle que&nbsp;:
+(i) Une immersion fermée vérifie \(P\).
+(ii) Le composé de deux morphismes vérifiant \(P\) vérifie aussi \(P\).
+(iii) \(P\) est stable par changement de base.
+(iv) Le morphisme structural \(H\) \to \(S\) vérifie \(P\).
+Alors le morphisme canonique
+HomS-gr. (\(G\), \(H\)) -\to HomS-gr. (\(T\), \(H\))
+est représentable par des morphismes séparés vérifiant \(P\).
+En effet, on peut supposer \(G\) épinglé&nbsp;; le morphisme structural H2n \to \(S\) vérifie \(P\)
+et on conclut par 7.1.2.
+</div></div>
+<div class="thm thm-plain corollaire" id="XXIV.7.1.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.1.10</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif déployé, et \(H\) un
+\(S\)-préschéma en groupes lisse et quasi-séparé sur \(S\) à fibres affines. Alors le foncteur
+HomS-gr. (\(G\), \(H\)) est représentable par un \(S\)-préschéma localement de présentation finie
+et séparé sur \(S\).
+En effet, comme \(H\) est lisse et quasi-séparé sur \(S\), on peut considérer sa composante     390
+neutre H0 , qui est séparée, de présentation finie et à fibres affines (Exp. VI). Comme
+\(G\) est à fibres connexes, on peut remplacer \(H\) par H0 . Comme \(G\) et \(H\) sont alors de
+présentation finie, on peut supposer \(S\) noethérien, et on applique 7.1.9 en prenant pour
+\(P\) la propriété « de type fini ». Mais, par Exp. XV, 8.9, on sait que HomS-gr. (\(T\), \(H\))
+est représentable par un \(S\)-préschéma séparé et localement de type fini.
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.7.1.11">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.1.11</span></div>
+  <div class="thm-body"><p>Si \(H\) est affine sur \(S\), on peut remplacer la référence à Exp. XV
+par Exp. IX, 4.2.
+</div></div>
+<h3 id="XXIV.7.2">7.2. Cas général</h3>
+<div class="thm thm-plain proposition" id="XXIV.7.2.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.2.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(T\) un tore maxi-
+mal de \(G\). Soit d'autre part \(H\) un \(S\)-préschéma en groupes, tel que le morphisme
+structural \(H\) \to \(S\) vérifie la condition suivante&nbsp;:
+(+) Chaque point s \in \(S\) possède un voisinage ouvert \(U\) tel que le morphisme
+HU \to \(U\) soit quasi-projectif.
+Alors le morphisme canonique
+HomS-gr. (\(G\), \(H\)) -\to HomS-gr. (\(T\), \(H\))
+est représentable par des morphismes vérifiant (+).
+Lorsque \(G\) est déployable relativement à \(T\), on applique 7.1.9 en prenant pour \(P\) la
+<!-- p.391 -->
+propriété (+) ci-dessus. Lorsque \(G\) est localement isotrivial, par exemple semi-simple
+(4.2.2), on remarque que l'assertion du théorème est locale pour la topologie étale
+finie locale (en effet, la propriété d'être quasi-projectif est locale pour la topologie
+étale finie globale et assure l'effectivité de la descente pour cette topologie, cf. SGA 1,
+VIII, 7.7). Enfin, dans le cas général, on utilise le lemme suivant&nbsp;:
+</div></div>
+<div class="thm thm-plain lemme" id="XXIV.7.2.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.2.2</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(T\) un tore maximal
+de \(G\), \(G\)′ le groupe dérivé de \(G\) (Exp. XXII, 6.2), \(T\)′ = \(T\) \cap \(G\) le tore maximal de \(G\)′
+correspondant à \(T\) (Exp. XXII, 6.2.8). Alors le diagramme
+</div></div>
+<p>OG
+o         GO ′
+</p>
+<p>To           \(T\)′
+est une somme amalgamée dans la catégorie des \(S\)-faisceaux en groupes&nbsp;: c.-à-d., pour
+tout \(S\)-faisceau en groupe \(H\), le carré suivant est cartésien&nbsp;:
+HomS-gr. (\(G\), \(H\))        / HomS-gr. (\(G\)′ , \(H\))
+</p>
+<p>                         
+HomS-gr. (\(T\), \(H\))        / HomS-gr. (\(T\)′ , \(H\)).
+</p>
+<p>En effet, si rad(\(G\)) est le radical de \(G\), alors rad(\(G\)) \subset \(T\), donc
+rad(\(G\)) \cap \(G\)′ = rad(\(G\)) \cap \(T\)′ = \(K\),
+et le produit dans \(G\) induit des isogénies (Exp. XXII, 6.2)
+i&nbsp;: \(G\)′ \times rad(\(G\)) -\to \(G\),       j&nbsp;: \(T\)′ \times rad(\(G\)) -\to \(T\) .
+\(S\)                                 \(S\)
+′                                   ′
+<!-- p.392 -->
+Soient fG′&nbsp;: \(G\) \to \(H\), fT&nbsp;: \(T\) \to \(H\), et fT′&nbsp;: \(T\) \to \(H\) des homomorphismes tels que
+fG′ |\(T\)′ = fT |\(T\)′ = fT′ . Montrons qu'il existe un unique homomorphisme f&nbsp;: \(G\) \to \(H\)
+induisant fG′ et fT . Soit frad = fT |rad(\(G\)) et soit
+f1 = fG′ · frad&nbsp;:    \(G\)′ \times rad(\(G\)) -\to \(H\).
+\(S\)
+</p>
+<h2 id="XXIV.7">7. REPRÉSENTABILITÉ DES FONCTEURS HomS-gr. (\(G\), \(H\)), POUR \(G\) RÉDUCTIF              231</h2>
+<p>Pour que f existe (et il sera évidemment unique), il faut et il suffit que f1 induise
+l'identité sur le noyau de i, c'est-à-dire que fG′ et frad coı̈ncident sur \(K\)&nbsp;; mais l'exis-
+tence de fT montre par le même raisonnement que fT′ et frad coı̈ncident sur \(K\). Il n'\(y\)
+a plus qu'à remarquer que fG′ et fT′ coı̈ncident évidemment sur \(K\) \subset \(T\)′ .
+Raisonnant maintenant comme en 7.1.10, on déduit de 7.2.1&nbsp;:
+</p>
+<div class="thm thm-plain corollaire" id="XXIV.7.2.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.2.3</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma, \(G\) un \(S\)-groupe réductif, \(H\) un \(S\)-préschéma
+en groupes, lisse et quasi-projectif sur \(S\) à fibres affines. Alors HomS-gr. (\(G\), \(H\)) est
+représentable par un \(S\)-préschéma localement de présentation finie et séparé sur \(S\).
+</div></div>
+<h3 id="XXIV.7.3">7.3. Phénomènes particuliers à la caractéristique 0</h3>
+<p>Si \(G\) et \(H\) sont deux \(S\)-groupes lisses, g et h leurs Algèbres de Lie, on a un morphisme
+canonique
+Lie&nbsp;: HomS-gr. (\(G\), \(H\)) -\to HomOS -Alg. de Lie (g, h),
+où le second membre a une définition évidente.
+</p>
+<div class="thm thm-plain proposition" id="XXIV.7.3.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.3.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un préschéma de caractéristique 0 (i.e. un Q-présché-         393
+ma), \(G\) un \(S\)-groupe réductif, \(H\) un \(S\)-préschéma en groupes lisse et quasi-projectif sur
+\(S\) à fibres affines.
+(i) HomS-gr. (\(G\), \(H\)) est représentable par un \(S\)-préschéma lisse et séparé sur \(S\).
+(ii) Si \(G\) est semi-simple, ce préschéma est affine et de présentation finie sur \(S\).
+(iii) Si \(G\) est simplement connexe (Exp. XXII, 4.3.3), le morphisme canonique
+Lie&nbsp;: HomS-gr. (\(G\), \(H\)) -\to HomOS -Alg. de Lie (g, h)
+est un isomorphisme.
+</div></div>
+<div class="thm thm-plain lemme" id="XXIV.7.3.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.3.2</span></div>
+  <div class="thm-body"><p>Soient \(k\) un corps de caractéristique 0, \(G\) un \(k\)-groupe réductif, \(V\)
+un \(k\)-espace vectoriel de dimension finie, \(G\) \to GL(\(V\)) une représentation linéaire de
+\(G\) dans \(V\). On a
+H0 (\(G\), \(V\)) = H0 (g, \(V\)),       Hi (\(G\), \(V\)) = 0,    pour i > 0.
+La première relation est vraie en général pour un groupe lisse et connexe (Exp. VI)&nbsp;;
+dans le cas d'un groupe réductif, on peut la démontrer comme suit&nbsp;: on peut supposer
+\(k\) algébriquement clos, donc \(G\) déployable, donc \(G\) engendré par des sous-groupes
+isomorphes à Gm, \(k\) , et il suffit de vérifier l'assertion pour ce groupe, ce qui est facile.
+De cette première relation résulte que H0 (\(G\), \(V\)) est un foncteur exact en \(V\) lorsque
+\(G\) est semi-simple&nbsp;; g est en effet alors une Algèbre de Lie semi-simple et on applique          394
+Bourbaki, Lie, chapitre I, § 6, exercice 1, (b). \(L\)'assertion reste vraie lorsque \(G\) est
+réductif&nbsp;; en effet, si l'on introduit le radical \(R\) de \(G\) et le quotient \(G\)/\(R\) qui est
+semi-simple, on a H0 (\(G\), \(V\)) = H0 (\(G\)/\(R\), H0 (\(R\), \(V\))), et H0 (\(G\), -) est composé de deux
+foncteurs exacts. Appliquant alors Exp. I, 5.3.1, on en déduit Hi (\(G\), \(V\)) = 0 pour i > 0.
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.7.3.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.3.3</span></div>
+  <div class="thm-body"><p>Sous les conditions précédentes, si \(G\) est semi-simple, on a
+H1 (g, \(V\)) = H2 (g, \(V\)) = 0, cf. [BLie], loc. cit. (b) et (d).
+</div></div>
+<p>7.3.4. — Démontrons maintenant la proposition. On sait déjà, par 7.2.3, que
+HomS-gr. (\(G\), \(H\)) est représentable par un \(S\)-préschéma localement de présentation finie
+et séparé sur \(S\)&nbsp;; pour montrer qu'il est lisse, il suffit de prouver qu'il est infinitési-
+malement lisse (Exp. XI, 1.8) , ce qui résulte de Exp. III, 2.8 (i) par 7.3.2. On a donc
+prouvé (i).
+Montrons que (ii) résulte de (iii). Il suffit d'abord de prouver que HomS-gr. (\(G\), \(H\))
+est affine sur \(S\), il sera alors de présentation finie sur \(S\), car il est lisse sur \(S\) par (i)&nbsp;;
+de toutes façons HomOS -Alg. de Lie (g, h) est représentable par un sous-préschéma fermé
+de
+HomOS -Mod. (g, h) \simeq \(W\)(g\vee \otimesOS h)
+qui est un \(S\)-préschéma affine, et la conclusion voulue apparaı̂t lorsque \(G\) est simple-
+ment connexe.
+Dans le cas général, on peut supposer \(G\) déployé, donc \(G\) \simeq ÉpS (\(R\))&nbsp;; introduisant
+la donnée radicielle simplement connexe scon(\(R\)) (Exp. XXI, 6.5.5), et utilisant le
+théorème d'existence (Exp. XXV, 1.1), on construit un \(S\)-groupe simplement connexe
+\(G\) et une isogénie centrale \(G\) \to \(G\). Le noyau \(K\) de cette isogénie est un \(S\)-groupe
+<!-- p.395 -->
+diagonalisable fini (donc un \(S\)-groupe constant tordu, \(S\) étant de caractéristique 0) et
+HomS-gr. (\(K\), \(H\)) est (trivialement) représentable par un \(S\)-préschéma séparé (si \(K\) \simeq
+n
+(\(Z\)/nZ)\(S\) , alors HomS-gr. (\(K\), \(H\)) est isomorphe à Ker(\(H\) -     \to \(H\))). On a une suite exacte
+de « \(S\)-préschémas pointés »&nbsp;:
+/ Hom                u   / Hom                   / Hom
+<!-- p.1 -->
+\(S\)-gr. (\(G\), \(H\))             \(S\)-gr. (\(G\), \(H\))            \(S\)-gr. (\(K\), \(H\)),
+</p>
+<p>donc u est une immersion fermée, donc HomS-gr. (\(G\), \(H\)) est affine sur \(S\).
+</p>
+<p>7.3.5. — Démontrons enfin (iii). Raisonnant comme dans la démonstration de (i) et
+utilisant 7.3.3, on peut montrer que le \(S\)-préschéma HomOS -Alg. de Lie (g, h) est lisse sur
+\(S\). Pour démontrer (iii), on peut donc supposer que \(S\) = Spec(\(k\)), où \(k\) est un corps
+algébriquement clos de caractéristique 0&nbsp;; il suffit même de prouver que Lie est bijectif
+sur les points à valeurs dans \(k\) et qu'il induit une bijection sur les espaces tangents en
+deux points correspondants. Montrons d'abord que
+Homk-gr. (\(G\), \(H\)) -\to Homk-Alg. de Lie (g, h)
+est bijectif.
+Si u est un homomorphisme de \(G\) dans \(H\), le graphe de u est un sous-groupe connexe
+de \(G\) \timesk \(H\) qui est déterminé par son algèbre de Lie qui est le graphe de Lie(u)&nbsp;;
+l'application est donc injective. Réciproquement, si v&nbsp;: g \to h est un homomorphisme
+d'Algèbres de Lie, le graphek de v est une sous-algèbre de Lie de g \times h&nbsp;; comme g est sa
+propre algèbre dérivée, \(k\) est sa propre algèbre dérivée, donc (CHEVALLEY, Théorie
+<!-- p.396 -->
+des groupes de Lie, Tome 2, § 14, Th. 15) est algébrique. Elle est donc l'algèbre de Lie
+d'un sous-groupe connexe \(K\) de \(G\) \timesk \(H\). Comme
+dim(\(K\)) = dim(\(k\)) = dim(g) = dim(\(G\))
+et comme \(K\) \cap \(H\) est fini (car son algèbre de Lie est nulle), le morphisme canonique
+pr1&nbsp;: \(K\) \to \(G\) est fini et dominant&nbsp;; comme \(G\) est connexe, il est surjectif&nbsp;; c'est donc
+</p>
+<h2 id="XXIV.7">7. REPRÉSENTABILITÉ DES FONCTEURS HomS-gr. (\(G\), \(H\)), POUR \(G\) RÉDUCTIF               233</h2>
+<p>une isogénie. Comme \(G\) est simplement connexe, c'est un isomorphisme (cf. Exp. XXI,
+6.2.7) et \(K\) est le graphe d'un homomorphisme de \(k\)-groupes u&nbsp;: \(G\) \to \(H\) tel que
+Lie(u) = v.
+Enfin, soit u&nbsp;: \(G\) \to \(H\) un homomorphisme. \(L\)'espace tangent à Homk-gr. (\(G\), \(H\)) en u
+s'identifie à Z1 (\(G\), h) (cf. Exp. II, 4.2&nbsp;; \(G\) opère sur h par AdH \circu)&nbsp;; de la même manière,
+on peut prouver que l'espace tangent à Homk-Alg. de Lie (g, h) en Lie(u) s'identifie à
+Z1 (g, h). Il nous faut donc prouver que l'application canonique Z1 (\(G\), h) \to Z1 (g, h) est
+bijective. Mais H1 (\(G\), h) = H1 (g, h) = 0 (7.3.2 et 7.3.3) et cette application s'identifie
+à l'application évidente
+h/H0 (\(G\), h) -\to h/H0 (g, h),
+et on conclut par 7.3.2.
+</p>
+<div class="thm thm-remark remarque" id="XXIV.7.3.6">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">7.3.6</span></div>
+  <div class="thm-body"><p>Il est vraisemblable que si \(S\) est un préschéma localement noethé-
+rien, \(G\) un \(S\)-groupe semi-simple simplement connexe, \(H\) un \(S\)-préschéma en groupes
+lisse, Gb et b
+\(H\) leurs complétés formels le long de la section unité, tout homomorphisme
+de bG dans \(H\) b provient d'un unique homomorphisme de \(G\) dans \(H\), ce qui généraliserait
+7.3.1 (iii). Lorsque \(S\) est le spectre d'un corps et \(H\) est affine et de type fini, cela
+résulte d'un théorème de Dieudonné (Lie groups and Lie hyperalgebras. . ., VI, Am.
+J. of Maths, 1957, p. 369, th. 4). On notera cependant que, si \(S\) n'est pas de carac-              397
+téristique nulle, la conjecture précédente devient fausse si on abandonne l'hypothèse
+que \(S\) est localement noethérien (car autrement on en déduirait que HomS-gr. (\(G\), \(H\))
+serait toujours affine sur \(S\), ce qui n'est pas le cas, comme nous le verrons dans 7.4
+ci-dessous).
+</div></div>
+<h3 id="XXIV.7.4">7.4. Un exemple</h3>
+<p>À titre d'exemple, nous allons déterminer                                                    398
+</p>
+<p>HomS-gr. (SL2, \(S\) , SL2, \(S\) ).
+</p>
+<p>7.4.1. — On rappelle
+   (Exp. XX, n\circ 5), que SL2, \(S\) est le \(S\)-schéma en groupes formé
+a b
+des matrices c d sur \(S\) vérifiant ad - bc = 1. Un tore maximal \(T\) est défini par le
+monomorphisme \alpha^*&nbsp;: Gm, \(S\) \to SL2, \(S\)
+        
+^*        z0
+\alpha (\(z\)) =            .
+<!-- p.0 -->
+\(z\) -1
+Une racine de \(G\) par rapport à \(T\) est définie par \alpha(\alpha^* (\(z\))) = \(z\) 2 , un monomorphisme
+p&nbsp;: Ga, \(S\) -\to SL2, \(S\)
+correspondant étant défini par                
+1x
+p(\(x\)) =     .
+01
+Enfin, le représentant du groupe de Weyl correspondant à u = p(1) est
+       
+01
+w=           .
+-1 0
+</p>
+<p>Rappelons d'autre part (Exp. XX, 6.2) que SL2, \(S\) est engendré par \(T\), p(Ga, \(S\) ) et w,
+<!-- p.399 -->
+soumis aux relations
+\alpha^* (\(z\))p(\(x\))\alpha^* (\(z\) -1 ) = p(\(z\) 2 \(x\)),
+w\alpha^* (\(z\))w-1 = \alpha^* (\(z\) -1 ),
+w2 = \alpha^* (-1),
+(wu)3 = 1.
+</p>
+<p>7.4.2. — Soit f un endomorphisme de SL2, \(S\) . Il définit d'abord un homomorphisme
+f \circ \alpha^*&nbsp;: Gm, \(S\) \to SL2, \(S\) . Le noyau Ker(f \circ \alpha^* ) est un sous-groupe fermé de Gm, \(S\) , donc
+est localement sur \(S\) égal à un µ n, \(S\) (n \geqslant 1) ou à Gm, \(S\) . Quitte à restreindre \(S\), on
+peut donc supposer qu'il existe un n \in N et un monomorphisme
+f ′&nbsp;: Gm, \(S\) -\to SL2, \(S\)
+tels que f \circ \alpha^* (\(z\)) = f ′ (\(z\) n ).
+En vertu de la conjugaison des monomorphismes Gm, \(S\) \to SL2, \(S\) , on peut, après
+extension couvrante pour (ét) de la base, trouver une section g de \(G\) telle que f \circ
+\alpha^* (\(z\)) = int(g) \circ \alpha^* (\(z\) n ). Transformant f par int(g), on est donc ramené au cas où il
+existe un n \in N tel que f \circ \alpha^* (\(z\)) = \alpha^* (\(z\) n ).
+</p>
+<p>7.4.3. — Considérons maintenant le morphisme
+f \circ p&nbsp;: Ga, \(S\) -\to SL2, \(S\) .
+Il vérifie la condition
+\alpha^* (\(z\) n )(f \circ p)(\(x\))\alpha^* (sn )-1 = (f \circ p)(\(z\) 2 \(x\)).
+Si n = 0, il s'ensuit aussitôt que f \circ p est invariant sous les homothéties de Ga, \(S\) , donc
+<!-- p.400 -->
+constant. Si n 6= 0, on peut appliquer Exp. XXII, 4.1.9&nbsp;; \(x\) \mapsto xn est un endomorphisme
+de Ga, \(S\) , il existe un \lambda \in Gm, \(S\) tel que
+f \circ p(\(x\)) = p(\lambda xn );
+cette relation est d'ailleurs valable pour n = 0, en prenant \lambda = 1. Quitte à de nouveau
+étendre \(S\), on peut trouver un \(z\) \in Gm, \(S\) avec \(z\) 2 = \lambda. Remplaçant f par int(\alpha^* (\(z\))) \circ f ,
+on est donc ramené au cas où l'on a
+f \circ \alpha^* (\(z\)) = \alpha^* (\(z\) n ),          f \circ p(\(x\)) = p(xn ).
+</p>
+<p>7.4.4. — Enfin, on doit avoir f (w)\alpha^* (\(z\) n )f (w)-1 = \alpha^* (\(z\) n )-1 et (f (w)u)3 = 1. En
+vertu de Exp. XX, 3.8, cela entraı̂ne f (w) = wn . Comme \(G\) est engendré par \(T\),
+p(Ga, \(S\) ) et w cela entraı̂ne que pour tout ac db \in \(G\)(\(S\)′ ), \(S\)′ \to \(S\), on a
+   n n
+ab        a b
+f        = n n .
+cd         c d
+</p>
+<p>Q
+</p>
+<h2 id="XXIV.8">8. APPENDICE&nbsp;: COHOMOLOGIE SUR UN ANNEAU HENSÉLIEN. FONCTEUR                                  235</h2>
+<p>7.4.5. — Résumant la discussion précédente, on voit que localement sur \(S\) pour la
+topologie étale, on peut trouver pour tout endomorphisme f de SL2, \(S\) un automor-
+phisme (intérieur) φ de SL2, \(S\) , et un entier n \geqslant 0 tel que f = φ \circ Fn , où
+   n n
+ab        a b
+Fn         = n n .
+cd        c d
+Remarquons que si f = φ \circ Fn , l'entier n est bien déterminé par une fibre fs de f , par
+exemple par Ker(fs ). Il s'ensuit que n est une fonction localement constante sur \(S\).
+</p>
+<p>7.4.6. — On en déduit aussitôt que si f est un endomorphisme de SL2, \(S\) , \(S\) se décom-                      401
+pose canoniquement en somme de sous-préschémas ouverts et fermés S0 , S1 , Spn (où
+pn décrit l'ensemble des puissances > 0 des nombres premiers) tels que&nbsp;:
+(i) fS0 est le morphisme nul,
+(ii) fS1 est un isomorphisme (= un automorphisme intérieur),
+(iii) Spn est de caractéristique p, fSpn se décompose de manière unique sous la forme
+φ \circ Fnp , où φ est un automorphisme intérieur et Fp l'endomorphisme de Frobenius de
+SL2, Fp .
+</p>
+<p>7.4.7. — En d'autres termes, HomZ-gr. (SL2, \(Z\) , SL2, \(Z\) ) est le préschéma somme&nbsp;:
+(i) d'un schéma isomorphe à Spec(\(Z\)),
+(ii) d'un schéma isomorphe à AutZ-gr. (SL2, \(Z\) ) \simeq ad(SL2, \(Z\) ),
+(iii) pour chaque nombre p et chaque entier > 0 d'un schéma isomorphe à
+AutFp -gr. (SL2, Fp ) \simeq ad(SL2, Fp ).
+</p>
+<p>7.4.8. — Il s'ensuit en particulier que
+(i) HomFp -gr. (SL2, Fp , SL2, Fp ) a un nombre infini de composantes connexes, et donc
+n'est pas quasi-compact.
+(ii) Si \(S\) est un schéma d'inégales caractéristiques, HomS-gr. (SL2, \(S\) , SL2, \(S\) ) n'est pas
+plat sur \(S\).
+</p>
+<h2 id="XXIV.8">8. Appendice&nbsp;:QCohomologie d'un groupe lisse sur un anneau hensélien. Cohomologie</h2>
+<p>et foncteur
+402
+</p>
+<div class="thm thm-plain proposition" id="XXIV.8.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.1</span></div>
+  <div class="thm-body"><p>Soient \(S\) un schéma local hensélien, s son point fermé, \(G\) un \(S\)-
+schéma en groupes lisse tel que tout sous-ensemble fini de \(G\) soit contenu dans un
+ouvert affine (^*) . Alors
+(i) Si \(P\) est un fibré principal homogène sous \(G\), il existe un \(S\)′ \to \(S\) étale fini et
+1
+surjectif qui trivialise \(P\). On a Fib(\(S\), \(H\)) \simeq Hét (\(S\), \(H\)).
+</div></div>
+<p>(^*) Cette dernière condition est en fait inutile (cf. Grothendieck, Groupe de Brauer III, in Dix Exposés
+</p>
+<p>sur la cohomologie des schémas, North-Holland, 1968, théorème 11.7 et remarques 11.8.3).
+</p>
+<p>(ii) Pour tout morphisme \(S\)′ \to \(S\) étale fini et surjectif, l'application canonique
+H1 (\(S\)′ /\(S\), \(G\)) -\to H1 (\(S\)′ \otimesS \(k\)(s)/\(k\)(s), Gs )
+est bijective.
+(iii) \(L\)'application canonique
+Fib(\(S\), \(G\)) -\to Fib(\(k\)(s), Gs )
+est bijective.
+</p>
+<p>8.1.2. — Si \(K\) est une extension séparable finie de \(k\)(s), il existe un \(S\)′ \to \(S\) étale fini
+surjectif tel que \(K\) \simeq \(S\)′ \otimesS \(k\)(s). Si \(P\) est un fibré principal homogène sous \(G\), \(P\) est
+lisse sur \(S\), donc Ps lisse sur \(k\)(s)&nbsp;; il existe donc une extension séparable finie \(K\) de
+\(k\)(s) tel que PK possède une section. Représentant \(K\) comme il a été dit ci-dessus,
+on voit que PS′ possède une section par le « lemme de Hensel » , ce qui prouve la
+première partie de (i).
+<!-- p.403 -->
+Réciproquement, si \(P\) est un faisceau principal homogène sous \(G\) pour la topologie
+étale, il existe un \(S\)′ \to \(S\) étale fini surjectif qui trivialise \(P\) (en effet toute famille
+couvrante d'un schéma local hensélien pour la topologie étale est majorée par une
+famille réduite à un morphisme \(S\)′ \to \(S\) de la forme voulue).
+En vertu de l'hypothèse de descente faite sur \(G\), \(P\) est représentable (SGA 1, VIII,
+7.6), ce qui achève de prouver (i), et montre que (ii) entraı̂ne (iii). Il ne nous reste
+donc qu'à prouver (ii).
+</p>
+<p>8.1.3. — \(L\)'application de (ii) est injective&nbsp;: soient \(P\) et Q deux fibrés princi-
+paux homogènes sous \(G\) trivialisés par \(S\)′ . Considérons le \(S\)-faisceau en groupes
+\(H\) = IsomG-fibrés (\(P\), Q)&nbsp;; comme HS′ est isomorphe à GS′ , \(H\) est représentable, en
+vertu de la deuxième hypothèse sur \(G\), cf. ci-dessus. Si \(H\)(\(k\)(s)) 6= \emptyset, \(H\)(\(S\)) 6= \emptyset par le
+lemme de Hensel, donc \(P\) et Q sont isomorphes.
+</p>
+<p>8.1.4. — Prouvons enfin que l'application de (ii) est surjective, ou encore que l'appli-
+cation canonique
+Z1 (\(S\)′ /\(S\), \(G\)) -\to Z1 (\(S\)′ \otimesS \(k\)(s)/\(k\)(s), Gs )
+est surjective. Soit Z1 le \(S\)-foncteur défini par
+Z1 (\(T\)) = Z1 (\(S\)′ \times \(T\)/\(T\), GT );
+\(S\)
+</p>
+<p>l'application précédente s'identifie à l'application
+Z1 (\(S\)′ ) -\to Z1 (\(S\)′ \otimesS \(k\)(s));
+par une nouvelle application du lemme de Hensel, il suffit de prouver que Z1 est
+représentable par un \(S\)-préschéma lisse.
+</p>
+<p>Q
+</p>
+<h2 id="XXIV.8">8. APPENDICE&nbsp;: COHOMOLOGIE SUR UN ANNEAU HENSÉLIEN. FONCTEUR                 237</h2>
+<!-- p.404 -->
+<p>8.1.5. — Prouvons que Z1 est représentable par un \(S\)-préschéma localement de pré-
+sentation finie. Soit Ci , i = 0, 1, . . ., le \(S\)-foncteur défini par
+Ci (\(T\)) = Ci (\(S\)′ \times \(T\)/\(T\), GT ),
+\(S\)
+</p>
+<p>c'est-à-dire
+Ci (\(T\)) = \(G\)((\(S\)′ \times \(T\)/\(T\))i+1 ) = \(G\)((\(S\)′ /\(S\))i+1 \times \(T\)),
+\(S\)                           \(S\)
+ou encore
+Ci = HomS ((\(S\)′ /\(S\))i+1 , \(G\)).
+Comme Z1 est obtenu à partir de C1 et C2 par produits fibrés, il suffit de prouver que
+Ci , i = 1, 2, est représentable par un \(S\)-préschéma localement de présentation finie.
+</p>
+<p>8.1.6. — Si \(T\) \to \(S\) est un morphisme étale fini surjectif qui décompose \(S\)′ , alors
+Ci \times \(T\) = HomT ((\(S\)′ \times \(T\)/\(T\))i+1 , GT )
+\(S\)                      \(S\)
+</p>
+<p>est représentable par un produit de n copies de GT , où n est le degré de (\(S\)′ /\(S\))i+1 .
+Appliquant une nouvelle fois l'hypothèse sur \(G\), on en déduit que Ci est bien repré-
+sentable par un \(S\)-préschéma localement de présentation finie (SGA 1, VIII, loc. cit.).
+</p>
+<p>8.1.7. — Pour prouver que Z1 est lisse, il nous faut maintenant, par définition, prouver
+que si \(T\) est un \(S\)-schéma affine, T0 le sous-préschéma fermé défini par l'Idéal J de
+carré nul, l'application canonique
+Z1 (\(T\)) -\to Z1 (T0 )
+est surjective. Comme \(G\) est lisse, l'application canonique \(G\)(\(T\)) \to \(G\)(T0 ) est surjec-        405
+tive, et il suffit de prouver que l'application canonique
+H1 (\(S\)′ \times \(T\)/\(T\), GT ) -\to H1 (\(S\)′ \times T0 /T0 , GT0 )
+\(S\)                           \(S\)
+</p>
+<p>est bijective.
+</p>
+<p>Changeant légèrement de notations et généralisant les hypothèses, il nous suffit
+maintenant de prouver&nbsp;:
+</p>
+<div class="thm thm-plain lemme" id="XXIV.8.1.8">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">8.1.8</span></div>
+  <div class="thm-body"><p>Soient \(S\) et \(S\)′ deux schémas affines, \(S\)′ \to \(S\) un morphisme fidèlement
+plat, J un Idéal de carré nul sur \(S\), S0 le sous-préschéma fermé qu'il définit, \(G\) un
+\(S\)-groupe lisse. Posons \(S\)′0 = \(S\)′ \timesS S0 , G0 = \(G\) \timesS S0 . \(L\)'application canonique
+H1 (\(S\)′ /\(S\), \(G\)) -\to H1 (\(S\)′0 /S0 , G0 )
+est bijective.
+</div></div>
+<div class="thm thm-remark remarque" id="XXIV.8.1.9">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">8.1.9</span></div>
+  <div class="thm-body"><p>Si on suppose \(G\) commutatif, la même assertion est valable pour
+tous les Hi , i > 0, avec une démonstration analogue.
+</div></div>
+<p>Soit M0 le OS0 -Module quasi-cohérent
+M0 = Lie(G0 /S0 ) \otimesOS0 J .
+Pour chaque S0 -préschéma T0 (resp. chaque \(S\)-préschéma \(T\)), posons
+M0 (T0 ) = H0 (T0 , M0 \otimesOS0 OT0 ),
+Q
+(resp. \(M\)(\(T\)) = M0 (T0 ). Soit d'autre part \(G\) = \(S\)/S0 G0 le \(S\)-foncteur en groupes
+défini par \(G\)(\(T\)) = G0 (T0 ). On sait (Exp. III, n\circ 0), qu'il existe pour tout \(S\)-schéma
+<!-- p.406 -->
+affine \(T\) une suite exacte, fonctorielle en \(T\)&nbsp;:
+<!-- p.1 -->
+-\to \(M\)(\(T\)) -\to \(G\)(\(T\)) -\to \(G\)(\(T\)) -\to 1
+Nous avons à étudier l'application
+H1 (\(S\)′ /\(S\), \(G\)) -\to H1 (\(S\)′0 /S0 , G0 ) = H1 (\(S\)′ /\(S\), \(G\)).
+Supposons d'abord \(G\) commutatif. On a alors une suite exacte de cohomologie
+H1 (\(S\)′ /\(S\), \(M\)) -\to H1 (\(S\)′ /\(S\), \(G\)) -\to H1 (\(S\)′ /\(S\), \(G\)) -\to H2 (\(S\)′ /\(S\), \(M\));
+mais
+Hi (\(S\)′ /\(S\), \(M\)) = Hi (\(S\)′0 /S0 , M0 ) = Hi (\(S\)′0 /S0 , M0 ),
+et on sait (TDTE II, \(B\), Lemme 1.1), que Hi (\(S\)′0 /S0 , M0 ) = 0 pour i 6= 0.
+Si maintenant \(G\) n'est pas commutatif, il nous faut utiliser la suite exacte de coho-
+mologie non abélienne. Si u \in Z1 (\(S\)′ /\(S\), \(G\)), on sait que les éléments de H1 (\(S\)′ /\(S\), \(G\)) qui
+ont même image dans H1 (\(S\)′ /\(S\), \(G\)) que la classe de u sont dans l'image de l'application
+cobord correspondante&nbsp;:
+H1 (\(S\)′ /\(S\), Mu ) -\to H1 (\(S\)′ /\(S\), \(G\)),
+où Mu est le \(S\)-foncteur \(M\) « tordu par u ». De même, si v est un élément de Z1 (\(S\)′ /\(S\), \(G\)),
+il existe un « cobord »
+\Delta(v) \in H2 (\(S\)′ /\(S\), Mv ),
+où Mv est le \(S\)-foncteur \(M\) « tordu par v », tel que \Delta(v) = 0 si et seulement si
+la classe de v est dans l'image de H1 (\(S\)′ /\(S\), \(G\)). Il nous suffit de prouver que l'on a
+H1 (\(S\)′ /\(S\), Mu ) = H2 (\(S\)′ /\(S\), Mv ) = 0.
+<!-- p.407 -->
+Or rappelons (Exp III, n\circ 0) que l'opération de \(G\) sur \(M\) définie par la suite exacte
+n'est autre que celle qui se déduit fonctoriellement de la représentation adjointe de
+G0&nbsp;:
+ad&nbsp;: G0 -\to AutOS0 (Lie(G0 /S0 )).
+\(L\)'élément u (resp. v) opère donc dans MS′ \timesS \(S\)′ par l'intermédiaire d'un \(S\)′0 \timesS0 \(S\)′0 -
+automorphisme de Lie(G0 /S0 ). Comme u (resp. v) est un cocycle, cet automorphisme
+est une donnée de descente&nbsp;; notons Lu (resp. Lv ) le OS0 -Module quasi-cohérent ob-
+tenu. On vérifie aussitôt que pour \(T\) \to \(S\), on a
+Mu (\(T\)) = H0 (T0 , Lu \otimesOS0 J \otimesOS0 OT0 )
+</p>
+<p>Q
+</p>
+<h2 id="XXIV.8">8. APPENDICE&nbsp;: COHOMOLOGIE SUR UN ANNEAU HENSÉLIEN. FONCTEUR                       239</h2>
+<p>et la même relation en remplaçant u par v. On a donc
+H1 (\(S\)′ /\(S\), Mu ) = H1 (\(S\)′0 /S0 , Lu \otimes J )
+H2 (\(S\)′ /\(S\), Mv ) = H2 (\(S\)′0 /S0 , Lv \otimes J ),
+et les deux sont bien nuls en vertu du résultat déjà utilisé.
+</p>
+<div class="thm thm-plain proposition" id="XXIV.8.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.2</span></div>
+  <div class="thm-body"><p>Soient C une catégorie possédant des produits fibrés, munie d'une
+topologie moins fine que la topologie canonique, \(S\)′ \to Q      \(S\) un morphisme de C , \(G\)′
+un \(S\) -faisceau en groupes, \(G\) le \(S\)-faisceau en groupes \(S\)′ /\(S\) \(G\)′ . Soit H1S (\(S\)′ , \(G\)′ ) \subset
+′
+</div></div>
+<p>H1 (\(S\)′ , \(G\)′ ) l'ensemble des classes de faisceaux principaux homogènes sous \(G\)′ qui sont
+trivialisés par un crible de \(S\)′ obtenu par changement de base à partir d'un crible
+couvrant convenable de \(S\). \(L\)'application canonique H1 (\(S\), \(G\)) \to H1 (\(S\)′ , \(G\)′ ) définie par
+le foncteur
+\(P\) \mapsto \(P\) \times \(S\)′
+\(S\)
+induit une bijection                                                                             408
+∼
+\(H\) (\(S\), \(G\)) -\to H1S (\(S\)′ , \(G\)′ );
+1
+Q
+la bijection réciproque est définie par le foncteur \(P\)′ \mapsto \(S\)′ /\(S\) \(P\)′ .
+</p>
+<p>Pour tout objet \(X\) de C/\(S\) , on a par définition un isomorphisme fonctoriel en \(X\)
+∼
+HomS (\(X\), \(G\)) -\to HomS′ (\(X\) \times \(S\)′ , \(G\)′ ).
+\(S\)
+</p>
+<p>On a donc pour chaque \(S\)-objet \(T\) une bijection fonctorielle en \(T\)
+∼
+H1 (\(T\)/\(S\), \(G\)) -\to H1 (\(T\)′ /\(S\)′ , \(G\)′ ).
+Remplaçant maintenant l'unique morphisme \(T\) \to \(S\) par une famille couvrante quel-
+conque de \(S\) et passant à la limite inductive, on en déduit la première partie de
+l'énoncé. La seconde partie s'en déduit sans difficultés.
+</p>
+<div class="thm thm-plain lemme" id="XXIV.8.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">8.3</span></div>
+  <div class="thm-body"><p>Sous les conditions de 8.2, l'assertion H1S (\(S\)′ , \(G\)′ ) = H1 (\(S\)′ , \(G\)′ ) est locale
+sur \(S\)&nbsp;: supposons qu'il existe une famille couvrante {Si \to \(S\)} telle que pour tout i, on
+ait H1Si (\(S\)′ \timesS Si , \(G\)′ ) = H1 (\(S\)′ \timesS Si , \(G\)′ ). Alors H1S (\(S\)′ , \(G\)′ ) = H1 (\(S\)′ , \(G\)′ ).
+</div></div>
+<p>En effet, soit \(P\)′ un faisceau principal homogène sous \(G\)′ . Pour tout i, posons \(P\)′i =
+\(P\) \timesS′ (\(S\)′ \timesS Si )&nbsp;; en vertu de l'hypothèse, il existe une famille couvrante {Sij \to Si }
+telle que pour chaque j, \(P\)′ \timesS′ (\(S\)′ \timesS Sij ) possède une section. Mais {Sij \to \(S\)} est une
+famille couvrante de \(S\), et \(P\)′ est bien trivialisé par la famille couvrante de \(S\)′ obtenue
+à partir de celle-là par changement de base.
+</p>
+<div class="thm thm-plain proposition" id="XXIV.8.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.4</span></div>
+  <div class="thm-body"><p>Soit \(S\)′ \to \(S\) un morphisme étale Q     fini de préschémas. Soient \(G\)′ un      409
+\(S\) -faisceau en groupes, \(G\) le \(S\)-faisceau en groupes \(S\)′ /\(S\) \(G\)′ . Pour la topologie étale
+′
+</div></div>
+<p>(resp. étale finie locale, resp. (fpqc)), les foncteurs
+\(P\)            \mapsto \(P\) \timesS \(S\)′
+Q             ′
+\(S\)′ /\(S\) \(P\)       ←-[       \(P\)′
+</p>
+<p>induisent des bijections réciproques l'une de l'autre&nbsp;:
+H1 (\(S\), \(G\)) \simeq H1 (\(S\)′ , \(G\)′ ).
+Par 8.2, il suffit de montrer que H1S (\(S\)′ , \(G\)′ ) = H1 (\(S\)′ , \(G\)′ ). Par 8.3, il suffit de le faire
+localement pour la topologie étale finie locale&nbsp;; on peut donc supposer que \(S\)′ est une
+somme directe finie de copies de \(S\), soit IS , où I est un ensemble fini convenable. Alors
+\(G\)′ est donné par une famille (Gi )i\inI de faisceaux sur \(S\) et
+\(Y\)
+H1 (\(S\)′ , \(G\)′ ) \simeq      H1 (\(S\), Gi ).
+i\inI
+D'autre part                                     \(Y\)
+H1 (\(S\), \(G\)) \simeq          H1 (\(S\), Gi ),
+i\inI
+d'où, en vertu de 8.2, H1S (\(S\)′ , \(G\)′ ) = H1 (\(S\)′ , \(G\)′ ).                                 C.Q.\(F\).D.
+Remarques 8.5. — On peut interpréter 8.2 et 8.3 par la suite exacte suivante (f est
+le morphisme \(S\)′ \to \(S\) donné)
+<!-- p.1 -->
+-\to H1 (\(S\), f^* (\(G\)′ )) -\to H1 (\(S\)′ , \(G\)′ ) -\to H0 (\(S\), R1 f^* (\(G\)′ )).
+<!-- p.410 -->
+Dans le cas commutatif, cette suite exacte résulte de la suite spectrale de Leray&nbsp;; elle
+est encore valable dans le cas non commutatif (cf. Thèse de Giraud ).
+Sous cette forme, on voit que le résultat est encore valable si f est seulement
+supposé fini, ou simplement entier, la topologie étant la topologie étale, car pour tout
+\(G\)′ , on a
+R1 f^* (\(G\)′ ) = faisceau final,
+en vertu de SGA 4, VIII, 5.3.
+D'autre part, ce résultat devient faux si on prend une topologie telle que (fpqc) ou
+(fppf), même si \(S\) = Spec(\(k\)), \(k\) corps algébriquement clos de caractéristique p 6= 0,
+\(S\)′ = Spec(\(k\)[t]/t2 ), \(G\)′ = µ p ou \alpha p .
+De même, 8.2 devient faux, même pour la topologie étale, si on \(y\) supprime l'hypo-
+thèse que f est fini, comme on le voit en prenant pour f une immersion ouverte&nbsp;; par
+exemple si \(S\) = Spec(\(V\)), \(V\) anneau de valuation discrète complet à corps résiduel algé-
+briquement clos, \(S\)′ étant l'ouvert induit au point générique, et \(G\)′ le groupe constant
+(\(Z\)/nZ)\(S\)′ , avec n premier à la caractéristique résiduelle de \(V\), on a H1 (\(S\), \(G\)) = 0,
+H1 (\(S\)′ , \(G\)′ ) 6= 0. Remplaçant d'ailleurs \(S\)′ par \(S\) ∐ \(S\)′ , on en déduit un exemple ana-
+logue, avec \(S\)′ \to \(S\) étale surjectif, donc couvrant pour la topologie envisagée.
+</p>
+
+</body>
+</html>

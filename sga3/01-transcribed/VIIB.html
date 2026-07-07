@@ -915,12 +915,12 @@ Nous noterons \(\omega_{G/k}\) le k-module pseudocompact \(I_A/\overline{I_A^2}\
 <h3 id="VIIB.2.2">2.2.</h3>
 <p>Soit \(\mathbf{H}\) un groupe de la catégorie des Coalgèbres sur \(\mathbf{O}_k\) (<a class="ref" href="#VIIB.1.2.2">1.2.2</a>). Pour toute
 k-algèbre \(C\in\mathrm{Alf}/k\), \(\mathbf{H}(C)\) est donc muni d'une structure de C-coalgèbre en groupes
-(<a class="ref" href="#VIIA.3.1">VII<sub>A</sub> 3.1</a>&nbsp;; à la suite de Manin, nous dirons <em>bialgèbre</em> au lieu de coalgèbre en groupes)&nbsp;;
+(<a class="ref" href="#VIIA.3.2">VII<sub>A</sub> 3.2</a>&nbsp;; à la suite de Manin, nous dirons <em>bialgèbre</em> au lieu de coalgèbre en groupes)&nbsp;;
 de plus, si \(\varphi : C \to D\) est un morphisme de \(\mathrm{Alf}/k\), l'application \(d\otimes x \mapsto d\cdot(\mathbf{H}(\varphi))(x)\)
 de \(D\otimes_C \mathbf{H}(C)\) dans \(\mathbf{H}(D)\) est un homomorphisme de bialgèbres sur D. Nous résumerons
 ces propriétés en disant que \(\mathbf{H}\) est <em>une bialgèbre sur \(\mathbf{O}_k\)</em>.</p>
 <p>Il est clair que le foncteur \(\mathbf{H} \mapsto \mathrm{Spf}^*\mathbf{H}\) de <a class="ref" href="#VIIB.1.3.5">1.3.5</a> commute aux produits finis. Il
-transforme donc bialgèbre sur \(\mathbf{O}_k\) en un k-foncteur en groupes&nbsp;; c'est-à-dire, pour toute
+transforme donc une bialgèbre sur \(\mathbf{O}_k\) en un k-foncteur en groupes, c'est-à-dire en un foncteur de \(\mathrm{Alf}/k\) dans la catégorie des groupes&nbsp;; et en effet, pour toute
 k-algèbre de longueur finie C, les éléments x de \(\mathbf{H}(C)\) appartenant à \((\mathrm{Spf}^*\mathbf{H})(C)\)
 forment un groupe pour la multiplication de l'algèbre \(\mathbf{H}(C)\) (confer <a class="ref" href="#VIIA.3.2.2">VII<sub>A</sub> 3.2.2</a>)&nbsp;:
 rappelons que ces éléments x sont tels que \(\varepsilon_{\mathbf{H}(C)}(x) = 1\) et \(\Delta_{\mathbf{H}(C)}(x) = x\otimes x\). La
@@ -1080,7 +1080,7 @@ on sait en effet que le couple
 \[
 F\times G \underset{\lambda}{\overset{\mathrm{pr}_2}{\rightrightarrows}} G
 \]
-est un couple d'équivalence (cf. V, 2.a et VII<sub>A</sub>, 3.1). Si F est topologiquement plat
+est un couple d'équivalence (cf. V, 2.a et VI<sub>A</sub>, 3.1). Si F est topologiquement plat
 sur k, \(\mathrm{pr}_2\) est topologiquement plat et nous pouvons appliquer le théorème <a class="ref" href="#VIIB.1.4">1.4</a>&nbsp;:
 <em>la projection canonique p de G sur la variété \(F\backslash G\) des classes à gauche de G modulo
 F est donc topologiquement plate</em>&nbsp;; d'autre part, le morphisme \(F\times G \to G\times_{F\backslash G} G\)
@@ -1143,7 +1143,7 @@ donc un sous-groupe ouvert de \(\Gamma\)). Associons enfin à toute variété fo
 k la limite inductive \(X(k_s)\) des ensembles \(X(\ell)\), \(\ell\) parcourant les extensions finies de
 \(\overline{k}\) contenues dans \(k_s\). Il est clair que \(\Gamma\) opère continûment dans \(X(k_s)\) et il résulte
 de SGA 1, I 8.3, que le foncteur \(X \mapsto X(k_s)\) est une équivalence de la catégorie des
-variétés formelles des groupes étales sur k sur celle des \(\Gamma\)-ensembles.</p>
+variétés formelles étales sur k sur celle des \(\Gamma\)-ensembles.</p>
 <p>Ce foncteur \(X \mapsto X(k_s)\) <em>induit donc une équivalence de la catégorie des groupes
 formels étales sur k (local) sur celle des \(\Gamma\)-groupes</em>, c'est-à-dire des groupes de la
 catégorie des \(\Gamma\)-ensembles (un tel \(\Gamma\)-groupe consiste donc en la donnée d'un groupe
@@ -1750,7 +1750,7 @@ est exacte&nbsp;; autrement dit, r induit un isomorphisme de \(F\backslash G\) s
   </ol>
   </div>
 </div>
-<p>L'assertion (i) signifie simplement que B est contenu dans le noyau du couple \((\mathrm{in}_2,(q\widehat{\otimes}A)\Delta_A)\). Par conséquent, la démonstration de la réciproque «&nbsp;(i) entraîne (ii)&nbsp;» occupe les paragraphes <a class="ref" href="#VIIB.5.1.1">5.1.1</a> à 5.1.5.</p>
+<p>L'assertion (i) signifie simplement que B est contenu dans le noyau du couple \((\mathrm{in}_2,(q\widehat{\otimes}A)\Delta_A)\). Par conséquent (ii) entraîne (i). La démonstration de la réciproque occupe les paragraphes <a class="ref" href="#VIIB.5.1.1">5.1.1</a> à 5.1.5.</p>
 
 <h4 id="VIIB.5.1.1">5.1.1.</h4>
 <p>Considérons d'abord la catégorie (Cou) qui suit&nbsp;: un objet de (Cou) est un couple (C,J) formé d'une k-algèbre profinie C et d'un idéal fermé J de C&nbsp;; un morphisme \(\psi : (C,I)\to(D,J)\) de (Cou) est un homomorphisme continu de l'algèbre C dans l'algèbre D qui applique I dans J. Si l'on associe à (C,I) le couple \((\mathrm{Spf}(C/I),\mathrm{Spf}\,C)\), on obtient évidemment une antiéquivalence de (Cou) sur la catégorie des couples (Z,Y) formés d'une k-variété formelle Y et d'une sous-variété formelle Z.</p>
@@ -1801,7 +1801,7 @@ soit exacte, le morphisme \((A_0\widehat{\otimes}_kA'_n)\to(A_n)\) de composante
 \[
 A_1\widehat{\otimes}_{A_0}A_1\widehat{\otimes}_{A_0}\cdots\widehat{\otimes}_{A_0}A_1 \longrightarrow A_n
 \]
-définie par la multiplication est surjective. Comme on a \(A_1 \simeq A_0\widehat{\otimes}_kA'_1\) et \(A_n \simeq A_0\widehat{\otimes}_k(A'_1\widehat{\otimes}_k\cdots\widehat{\otimes}_kA'_1)\), on voit que l'application \(A'_1\widehat{\otimes}_k\cdots\widehat{\otimes}_kA'_1 \to A'_n\), qui est induite par la multiplication de \((A'_n)\), est surjective&nbsp;; autrement dit, \((A'_n)\) est engendrée par ses termes de degré 1.</p>
+définie par la multiplication est surjective. Comme on a \(A_1 \simeq A_0\widehat{\otimes}_kA'_1\) et \(A_n \simeq A_0\widehat{\otimes}_kA'_n\), donc aussi \(A_1\widehat{\otimes}_{A_0}A_1\widehat{\otimes}_{A_0}\cdots\widehat{\otimes}_{A_0}A_1 \simeq A_0\widehat{\otimes}_k(A'_1\widehat{\otimes}_k\cdots\widehat{\otimes}_kA'_1)\), on voit que l'application \(A'_1\widehat{\otimes}_k\cdots\widehat{\otimes}_kA'_1 \to A'_n\), qui est induite par la multiplication de \((A'_n)\), est surjective&nbsp;; autrement dit, \((A'_n)\) est engendrée par ses termes de degré 1.</p>
 <p>Désignons maintenant par Gr(B) et Gr'(B) les gradués associés à B pour la filtration induite par celle de A et pour la filtration définie par les adhérences \(\overline{I_B^n}\) des puissances de \(I_B\). Comme le diagramme
 \[
 \xymatrix{
@@ -1867,7 +1867,7 @@ nous notons \(((x^{p^r}))_{x\in\omega_r}\) l'idéal fermé de \(k[[\omega]]\) qu
 où l'on a posé \(\overline{\omega}=J/\overline{J^2}\) et où les applications u, v, w sont induites par l'application linéaire \(x\widehat{\otimes}a \mapsto x^pa\) de \({}_\pi B\) dans \(B^p\). Si l'on pose \(J_n=\{x\in J\mid x^{p^n}=0\}\) et \(\overline{\omega}_n=\delta(I_n)\), il est clair qu'on a \(J_n=v({}_\pi I_{n+1})\) et \(\overline{\omega}_n=w(\omega_{n+1})\). De plus, comme u et v sont des surjections, w est une surjection et a pour noyau l'image \(\omega_0\) du noyau de v. La section \({}_\pi\sigma : {}_\pi\omega \to {}_\pi I\), qui est induite par la section \(\sigma\) de <a class="ref" href="#VIIB.5.2.1">5.2.1</a>, définit donc par passage au quotient une section \(\tau : \overline{\omega}\to J\) qui est compatible avec les filtrations de J et \(\overline{\omega}\). Par hypothèse de récurrence, cette section induit un isomorphisme \(s'\) de \(B'' = k[[\overline{\omega}]]/((x^{p^r}))_{x\in{}_r\overline{\omega}}\) sur \(B^p\). Comme \(B''\) s'identifie manifestement à \(B'^p\) et \(s'\) à \(s^p\), notre théorème est donc démontré quand B est de hauteur finie.</p>
 
 <h4 id="VIIB.5.2.5">5.2.5.</h4>
-<p>Il reste à considérer le cas où B est de hauteur infinie, et où la projection canonique de I sur \(\omega\) possède une section compatible avec les filtrations de \(\omega\) et I. Il suffit de montrer que pour tout r, l'application \(s_r : B'_r\to B_r\) induite par s est inversible. Or B est un facteur direct du B-module pseudocompact A (<a class="ref" href="#VIIB.1.3.2">1.3.2</a>). Si l'on pose \(L=((x^{p^r}))_{x\in{}_r(B)}\), on peut donc identifier \(B/BL\) à une sous-algèbre fermée de \(A/AL\)&nbsp;; la proposition <a class="ref" href="#VIIB.5.1">5.1</a> montre que \(A/AL\) est l'algèbre affine d'un sous-groupe formel \(G_r\) de G et que \(B/BL\) est l'algèbre affine d'un espace homogène de \(G_r\).</p>
+<p>Il reste à considérer le cas où B est de hauteur infinie, et où la projection canonique de I sur \(\omega\) possède une section compatible avec les filtrations de \(\omega\) et I. Il suffit de montrer que pour tout r, l'application \(s_r : B'_r\to B_r\) induite par s est inversible. Or B est un facteur direct du B-module pseudocompact A (<a class="ref" href="#VIIB.1.3.2">1.3.2</a>). Si l'on pose \(L=((x^{p^r}))_{x\in\mathfrak{r}(B)}\), on peut donc identifier \(B/BL\) à une sous-algèbre fermée de \(A/AL\)&nbsp;; la proposition <a class="ref" href="#VIIB.5.1">5.1</a> montre que \(A/AL\) est l'algèbre affine d'un sous-groupe formel \(G_r\) de G et que \(B/BL\) est l'algèbre affine d'un espace homogène de \(G_r\).</p>
 <p>Posons \(M=I/BL\)&nbsp;; la projection canonique de B sur \(B_r\) induit évidemment un isomorphisme de \(\omega=I/\overline{I^2}\) sur \(M/\overline{M^2}\), qui nous permet d'identifier ces deux espaces. Soit alors \(\omega_n^r\) l'image dans \(\omega\) de l'ensemble \(M_n=\{x\in M\mid x^{p^n}=0\}\)&nbsp;; soit \(I_n^r\) l'image réciproque de \(M_n\) dans I. La suite exacte
 \[
 0 \longrightarrow I_n^r\cap\overline{I^2} \longrightarrow I_n^r \longrightarrow \omega_n^r \longrightarrow 0

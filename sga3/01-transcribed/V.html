@@ -524,11 +524,11 @@ locaux.</p>
 \(\underline{d} : \underline{P} \to \underline{Q}\) l'application induite par un morphisme \(d : P \to Q\).</p>
 <p>On peut alors traduire b) en disant que l'application
 \[
-\underline{d_0\boxtimes d_1} : \underline{X_1} \longrightarrow \underline{X_0\times_Y X_0}
+\underline{d_0}\boxtimes\underline{d_1} : \underline{X_1} \longrightarrow \underline{X_0}\times_{\underline{Y}}\underline{X_0}
 \]
 de composantes \(\underline{d_0}\) et \(\underline{d_1}\) est surjective&nbsp;; or cette application se factorise comme suit
 \[
-\underline{X_1} \xrightarrow{\ \underline{d_0\boxtimes d_1}\ } \underline{X_0}\times\underline{X_0} \xrightarrow{\ q\ } \underline{X_0\times_Y X_0}
+\underline{X_1} \xrightarrow{\ \underline{d_0\boxtimes d_1}\ } \underline{X_0\times_Y X_0} \xrightarrow{\ q\ } \underline{X_0}\times_{\underline{Y}}\underline{X_0}
 \]
 q étant l'application canonique&nbsp;; l'image de \(d_0\boxtimes d_1\) contient donc tous les points v
 de \(X_0\times_Y X_0\) tels que \(\{v\} = q^{-1}(q(v))\). Cette dernière condition<sup>(1)</sup> sera réalisée
@@ -738,7 +738,7 @@ et p est fidèlement plat.</p></li>
 donc q et r les épimorphismes canoniques de U et V dans Y&nbsp;:
 \[
 \xymatrix{
-& X_0 & & \mathrm{V} \ar[ll]_{v} \ar[rr]^{u} \ar[dr]^{r} & & \mathrm{U} \ar[dl]_{q} \\
+& X_0 \ar[drrr]_{p} & & \mathrm{V} \ar[ll]_{v} \ar[rr]^{u} \ar[dr]^{r} & & \mathrm{U} \ar[dl]_{q} \\
 & & & & \mathrm{Y} & &
 }
 \]
@@ -763,7 +763,7 @@ de ce que R est noethérien et A entier sur B.</p>
 base v, on a un double carré cartésien
 \[
 \xymatrix{
-X_1 & \mathrm{V}_1 \ar[l]_{d_0\boxtimes d_1} \ar[r]^{v_0\boxtimes v_1} \ar[d] & \mathrm{U}_1 \ar[d]^{u_0\boxtimes u_1} \\
+X_1 \ar[d]_{d_0\boxtimes d_1} & \mathrm{V}_1 \ar[l] \ar[r] \ar[d]|{v_0\boxtimes v_1} & \mathrm{U}_1 \ar[d]^{u_0\boxtimes u_1} \\
 X_0\times_Y X_0 & \mathrm{V}_0\times_Y \mathrm{V}_0 \ar[l]^{v\times v} \ar[r]_{u\times u} & \mathrm{U}_0\times_Y \mathrm{U}_0
 }
 \]
@@ -879,7 +879,7 @@ au faisceau structural \(\mathscr{O}_{v^{-1}(z)}\) de \(v^{-1}(z)\) (les \(y_i\)
 l'anneau local de \(v^{-1}(z)\) au point \(y_i\), l'idéal maximal de \(\mathscr{O}_i\) soit formé de diviseurs
 de 0). Si t est l'image de z dans T, \(u(v^{-1}(z))\) est une partie constructible infinie de la
 fibre de t dans X. Il existe donc un point x fermé dans cette fibre, appartenant à
-\(u(v^{-1}z)\) et distincte de \(u(y_1),\ldots,u(y_n)\). Alors \(\mathrm{X}-\{x\}\) est un voisinage ouvert de
+\(u(v^{-1}z)\) et distincte de \(u(y_1),\ldots,u(y_n)\). Alors \(\mathrm{X}-\overline{\{x\}}\) est un voisinage ouvert de
 \(u(y_1),\ldots,u(y_n)\), donc contient un voisinage ouvert de la forme \(\mathrm{D}_+(f)\), où f est un
 élément homogène de degré d de S (les notations sont celles de EGA II, § 2.3). Par
 conséquent, le sous-schéma fermé \(\mathrm{X}_1 = \mathrm{V}_+(f)\) défini par f contient x et évite les
@@ -923,8 +923,8 @@ de F par \(d_0\) et \(d_0d_0' = d_0d_1'\), et par \(\widetilde{d}_0, \widetilde{
 \(d_0, d_1\ldots\) On a donc un diagramme commutatif
 \[
 \xymatrix{
-\mathrm{F}_2 \ar@<1.1ex>[r]^{\widetilde{d}_0'} \ar[r]|-{\widetilde{d}_1'} \ar@<-1.1ex>[r]_{\widetilde{d}_2'} \ar[d] & \mathrm{F}_1 \ar[r]^{\widetilde{d}_0} \ar[d]_{\widetilde{d}_1} & \mathrm{F} \ar[d] \\
-X_1 \ar@<0.6ex>[r]^{d_0} \ar@<-0.6ex>[r]_{d_1} & X_0 & {}
+\mathrm{F}_2 \ar@<0.6ex>[r]^{\widetilde{d}_1'} \ar@<-0.6ex>[r]_{\widetilde{d}_0'} \ar[d]_{\widetilde{d}_2'} & \mathrm{F}_1 \ar[r]^{\widetilde{d}_0} \ar[d]_{\widetilde{d}_1} & \mathrm{F} \\
+X_1 \ar@<0.6ex>[r]^{d_1} \ar@<-0.6ex>[r]_{d_0} & X_0 & {}
 }
 \]
 où les deux carrés de gauche sont cartésiens et où la première ligne est exacte
@@ -1041,8 +1041,8 @@ nous permet de reprendre les notations du <a class="ref" href="#V.7.3">lemme 7.3
 images réciproques de F dans \(X_1\) et \(X_2\), etc...
 \[
 \xymatrix{
-\mathrm{F}_2 \ar@<1.1ex>[r]^{\widetilde{d}_0'} \ar[r]|-{\widetilde{d}_1'} \ar@<-1.1ex>[r]_{\widetilde{d}_2'} \ar[d] & \mathrm{F}_1 \ar[r]^{\widetilde{d}_0} \ar[d]_{\widetilde{d}_1} & \mathrm{F} \ar[d] \\
-X_1 \ar@<0.6ex>[r]^{d_0} \ar@<-0.6ex>[r]_{d_1} & X_0 & {}
+\mathrm{F}_2 \ar@<0.6ex>[r]^{\widetilde{d}_1'} \ar@<-0.6ex>[r]_{\widetilde{d}_0'} \ar[d]_{\widetilde{d}_2'} & \mathrm{F}_1 \ar[r]^{\widetilde{d}_0} \ar[d]_{\widetilde{d}_1} & \mathrm{F} \\
+X_1 \ar@<0.6ex>[r]^{d_1} \ar@<-0.6ex>[r]_{d_0} & X_0 & {}
 }
 \]
 On montre alors comme en 7.3 que \(\widetilde{d}_1\) est quasi-fini aux points de \(\widetilde{d}_1^{-1}(z)\) de sorte
@@ -1132,7 +1132,7 @@ isomorphisme \(\mathrm{C} \simeq \mathrm{C}_{i_0}\otimes_{\mathrm{B}_{i_0}} \mat
 \xymatrix{
 \mathrm{B} \ar[r] & \mathrm{C} \\
 \mathrm{B}_i \ar[u] \ar[r] & \mathrm{C}_i \ar[u] \\
-& \mathrm{A} \ar[u]
+\mathrm{A} \ar[u] & {}
 }
 \]
 Comme C est fidèlement plat sur B, on tire de EGA IV 11 l'existence d'un

@@ -779,12 +779,13 @@ G contenant \(\underline{G^0}\).</p></div>
 </div>
 
 <p>La section unité \(\varepsilon\) étant une immersion, \(\varepsilon(S)\) est un sous-espace quasi-compact de
-G. Puisque S est quasi-compact et quasi-séparé, il existe un ouvert quasi-compact V de
-G qui contient \(\varepsilon(S)\). Puisque S est quasi-séparé, et que V est quasi-compact sur S
-(EGA IV<sub>1</sub>, 1.2.4), donc \(V\times_S V\) est quasi-compact. Posons \(V_s = V\cap G_s\), \(V^0_s =
+G, donc il existe un ouvert quasi-compact V de
+G qui contient \(\varepsilon(S)\). Puisque S est quasi-séparé, et que V est quasi-compact, V est
+quasi-compact sur S (EGA IV<sub>1</sub>, 1.2.4), donc \(V\times_S V\) est quasi-compact sur S, donc
+quasi-compact. Alors \(V\cdot V = (V\times_S V)\) est quasi-compact. Posons \(V_s = V\cap G_s\), \(V^0_s =
 V\cap G^0_s\). Alors \(V^0_s\) est un ouvert de \(G^0_s\), dense dans \(G^0_s\) puisque \(G^0_s\) est irréductible
 (<a class="ref" href="#VIA.4">VI<sub>A</sub> 4</a>), donc \(V^0_s\cdot V^0_s = G^0_s\) (<a class="ref" href="#VIA.0.5">VI<sub>A</sub> 0.5</a>), ce qui montre que \(V_{s.s}\supset G^0_s\), donc
-\(V\cdot V\supset \underline{G^0}\). Enfin, puisque \(V\cdot V\) est quasi-compact, il existe un ouvert U de G
+\(V\cdot V\supset \underline{G^0}\). Enfin, puisque \(V\cdot V\) est quasi-compact, il existe un ouvert quasi-compact U de G
 contenant \(V\cdot V\) et a fortiori \(\underline{G^0}\).</p>
 
 <div class="thm thm-plain corollaire" id="VIB.3.6">
@@ -823,12 +824,12 @@ dans \(W\times_T W\). Ce qui montre que \(\underline{G^0}\) est ind-constructibl
 
 <p>Supposons maintenant S quasi-compact et quasi-séparé et G quasi-séparé sur S&nbsp;;
 alors (<a class="ref" href="#VIB.3.5">3.5</a>), il existe un ouvert quasi-compact U de G contenant \(\underline{G^0}\). Puisque G est
-quasi-séparé sur S, G est quasi-séparé, donc l'ouvert U est rétrocompact dans U (EGA
+quasi-séparé sur S, G est quasi-séparé, donc l'ouvert U est rétrocompact (EGA
 IV<sub>1</sub>, 1.2.7), et il suffit de montrer que \(\underline{G^0}\) est constructible dans U (EGA 0<sub>III</sub>, 9.1.8).
 De plus, U étant quasi-compact, donc quasi-compact sur S (EGA IV<sub>1</sub>, 1.2.4), et quasi-
 séparé sur S, la restriction de \(\pi\) à U est de présentation finie, et d'après (EGA IV<sub>3</sub>,
-9.7.12), \(\underline{G^0}\) est localement constructible dans U, puisque U est quasi-compact et
-quasi-séparé (EGA IV<sub>1</sub>, 1.8.1).</p>
+9.7.12), \(\underline{G^0}\) est localement constructible dans U, donc constructible dans U, puisque U est
+quasi-compact et quasi-séparé (EGA IV<sub>1</sub>, 1.8.1).</p>
 
 <div class="thm thm-plain corollaire" id="VIB.3.8">
   <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.8</span></div>
@@ -874,12 +875,12 @@ c'est donc un morphisme radiciel et étale&nbsp;; donc une immersion ouverte (EG
   <li><span class="item-label">(ii)</span> <p>G est plat et localement de présentation finie sur S aux points de la section
 unité, et pour tout \(s\in S\), \(G_s\) est lisse sur \(\kappa(s)\).</p></li>
   <li><span class="item-label">(iii)</span> <p>Il existe un sous-schéma en groupes ouvert G' de G, lisse sur S.</p></li>
-  <li><span class="item-label">(iv)</span> <p>\(G^0\) est représentable par un sous-schéma en groupes ouvert de G, lisse sur S.</p></li>
+  <li><span class="item-label">(iv)</span> <p>\(G^0\) est représentable par un sous-schéma ouvert de G, lisse sur S.</p></li>
   </ol>
   </div>
 </div>
 
-<p>Il est clair que (iv) entraîne (iii), que (iii) entraîne (i), que (i) entraîne (ii) (<a class="ref" href="#VIB.2.4">2.4</a>)
+<p>Il est clair que (iv) entraîne (iii), que (iii) entraîne (i), que (i) entraîne (iii) (<a class="ref" href="#VIB.2.4">2.4</a>)
 et que (i) équivaut à (ii) (<a class="ref" href="#VIB.1.3.1">1.3.1</a> et EGA IV 17.5.1).</p>
 <p>Montrons enfin que (iii) entraîne (iv). Le lemme <a class="ref" href="#VIB.3.10.1">3.10.1</a> ci-dessous montre que
 G' contient \(\underline{G^0}\) et que \(\underline{G'^0} = \underline{G^0}\). Comme il suffit de montrer que \(\underline{G^0}\) est ouvert
@@ -892,11 +893,11 @@ de \(\pi''^{-1}(t)\) contenant \(\varepsilon''(t)\). Puisque \(\pi\) est lisse, 
 réduit et de présentation finie&nbsp;: alors (EGA IV 15.6.5), la réunion \(W^0\) des \(W\cap G^0_t\)
 pour \(t\in T\) est ouverte dans W. Mais il résulte de (<a class="ref" href="#VIA.0.5">VI<sub>A</sub> 0.5</a>) que \(W^0\cdot W^0\) est égal
 à \(\underline{G^0}\cap\pi^{-1}(T)\). Pour montrer que \(\underline{G^0}\) est ouvert, il suffit de montrer que tout
-\(s\in S\) possède un voisinage T dans S tel que \(\underline{G^0}\cap\pi^{-1}(T)\) soit ouvert dans G. Nous
+\(s\in S\) possède un voisinage T dans S tel que \(\underline{G^0}\cap\pi^{-1}(T)\) soit ouvert dans \(\pi^{-1}(T)\). Nous
 pouvons donc supposer désormais que \(T = S\)&nbsp;; il reste à montrer que \(W^0\cdot W^0\) est ouvert
 dans G. Puisque \(\pi\) est universellement ouvert, il en est de même de \(\mu\) (<a class="ref" href="#VIA.1">VI<sub>A</sub> 1</a>).
-Donc \(W^0\times_S W^0\) est ouvert dans \(G\times_S G\), et puisque \(\mu\) est ouvert, \(W^0\cdot W^0 =
-\mu(W^0\times_S W^0)\) est ouvert dans G.</p>
+Donc puisque \(W^0\) est ouvert dans G, il en est de même de \(W^0\cdot W^0 =
+\mu(W^0\times_S W^0)\).</p>
 <p>Ce résultat sera amélioré en <a class="ref" href="#VIB.4.4">4.4</a>.</p>
 
 <div class="thm thm-plain lemme" id="VIB.3.10.1">
@@ -924,8 +925,8 @@ tation finie, donc ouvert (EGA 2.4.6), donc le morphisme \(u^0_s : G^0_s \to H^0
 Puisque \(G^0_s\) est de type fini sur \(\kappa(s)\) (<a class="ref" href="#VIA.4">VI<sub>A</sub> 4</a>) et que \(H_s\) est séparé sur \(\kappa(s)\)
 (<a class="ref" href="#VIA.2">VI<sub>A</sub> 2</a>), \(u^0_s\) est quasi-compact (EGA I, 6.6.4) donc surjectif (<a class="ref" href="#VIB.1.2">1.2</a>). Donc \(u^0\) est surjectif.</p>
 <p>Réciproquement, supposons \(u^0\) surjectif, G plat sur S et H à fibres réduites. Alors,
-pour tout \(s\in S\), \(u^0_s\) est surjectif, et \(H_s\) est réduit et intègre&nbsp;; donc \(H^0_s\) est locale-
-ment noethérien et intègre, et \(u^0_s\) est de type fini, donc plat au point générique de \(G^0_s\)
+pour tout \(s\in S\), \(u^0_s\) est surjectif, et \(H_s\) est réduit&nbsp;; donc \(H^0_s\) est locale-
+ment noethérien et intègre, et \(u^0_s\) est de type fini, donc plat au point générique de \(G_s\)
 (EGA IV 6.9.1), donc \(u_s\) est plat (<a class="ref" href="#VIB.1.3">1.3</a>), si bien que u est plat (EGA IV 11.3.11).</p>
 
 <h2 id="VIB.4">4. Dimension des fibres des groupes localement de présentation finie</h2>
@@ -1005,7 +1006,7 @@ présentation finie est universellement ouvert (EGA IV<sub>2</sub>, 2.4.6).</p>
 
 <div class="thm thm-plain corollaire" id="VIB.4.4">
   <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.4</span></div>
-  <div class="thm-body"><p>Soit G un S-groupe localement de présentation finie aux points
+  <div class="thm-body"><p>Soit G un S-groupe localement de présentation finie sur S aux points
 de la section unité. Considérons les conditions&nbsp;:</p>
   <ol class="enumerate">
   <li><span class="item-label">(i)</span> <p>G est lisse sur S aux points de la section unité (cf. <a class="ref" href="#VIB.3.10">3.10</a>).</p></li>
@@ -1081,7 +1082,7 @@ soit dense dans \(H_s\). Alors H est séparé sur S.</p></div>
 
 <div class="thm thm-plain corollaire" id="VIB.5.4">
   <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.4</span></div>
-  <div class="thm-body"><p>Soient S, G, H comme ci-dessus et, supposons de plus que H à fibres
+  <div class="thm-body"><p>Soient S, G, H comme ci-dessus et, supposons de plus H à fibres
 connexes, alors X est séparé sur S et quasi-compact sur S.</p></div>
 </div>
 
@@ -1128,7 +1129,7 @@ avec V' fini sur S et V'' au-dessus de \(S-s\), de sorte que V' est spectre d'un
 local. Montrons que \(V'\to S\) est surjectif. Pour cela, on peut remplacer S par le sous-
 schéma fermé réduit sous-jacent à une composante irréductible de S, puis supposer S
 normal, donc géométriquement unibranche. Comme f est universellement ouvert en
-z, il existe une composante irréductible \(\mathfrak{z}\) de X contenant z et équidimensionnelle
+z, il existe une composante irréductible \(\mathfrak{z}\) de X contenant z et équidimensionnelle sur S
 (de dimension relative n) au point z. Comme u est quasi-fini et Y de dimension relative
 n, nécessairement \(\mathfrak{z}\) domine Y. Toujours parce que u est quasi-fini, \(\mathfrak{z}\) va être aussi
 équidimensionnelle sur Y au point x. Comme \(\mathscr{O}_{Y,u(x)}\) est géométriquement unibranche
@@ -1152,7 +1153,7 @@ certains des points \(a_i\) ont des corps résiduels qui sont des extensions (n�
 radicielles finies) non triviales de \(\kappa(s)\), quitte à faire une suite finie d'extensions plates,
 finies, de présentation finie, du type \(\mathscr{O}_{S,s}\to\mathscr{O}_{S,s}[T]/(T^p - x)\) (\(x\in\mathscr{O}_{S,s}\)), on voit que
 l'on peut supposer les \(a_i\) rationnels. L'hypothèse faite sur H entraîne qu'il existe,
-pour \(i=0,1,\ldots,n\), des points \(b'_i\) de \(G_s\times X_s\) qui s'en vont, par le morphisme
+pour \(i=0,1,\ldots,n\), des points fermés \(b'_i\) de \(G_s\times X_s\) qui s'en vont, par le morphisme
 canonique, sur les points \((a_i,a_0)\) de \(X_s\times X_s\). Procédant comme plus haut, on peut
 supposer les \(b'_i\) rationnels, donc de la forme \((b_i,h_0)\), où \(b_i\in G_s(\kappa(s))\) est tel que
 \(a_i = b_i\cdot a_0\). Soit alors \(W_s\) l'ouvert de \(G_s\) image réciproque de \(U_s\) par le morphisme&nbsp;:
@@ -1163,7 +1164,7 @@ a_i\in b_s\cdot U_s \Longleftrightarrow b_s^{-1}b_i\cdot a_0\in U_s \Longleftrig
 \]
 Comme \(W_s\) est dense dans \(G_s\), il en est de même des \(b_i W_s^{-1}\) et de leur intersection. On
 peut donc trouver un point fermé x de \(V_s\cap[\cap_i b_i W_s^{-1}]\). Quitte à faire une extension
-finie surjective, de présentation finie, d'après le lemme 1, qu'il existe une section b de G
+finie surjective, de présentation finie, on peut supposer, d'après le lemme 1, qu'il existe une section b de G
 passant par x. Il est clair que la section b répond à la question.</p>
 
 <div class="thm thm-plain lemme" id="VIB.5.6.3">
@@ -1439,21 +1440,22 @@ majorant chacun des \(f_{i,S}\).</p></li>
 
 <p>Remarquons tout d'abord que, pour démontrer (i) et (iii), en définissant X et f
 comme dans (ii), on est ramené au cas où I est réduit à un élément.</p>
-<p>Soit H le sous-schéma réduit de G d'ensemble sous-jacent \(\overline{\bigcup_{n>1} f^n(X^n)}\). Alors H est
+<p>Soit H le sous-schéma réduit de G d'ensemble sous-jacent \(\overline{\bigcup_{n\geqslant 1} f^n(X^n)}\). Alors H est
 séparable (EGA IV 11.10.7). Il est clair que tout sous-schéma fermé de G qui domine
 f domine aussi H. Donc pour montrer (i) et (ii), il suffit de montrer que H est un
-sous-groupe de G, donc que la restriction de c à H et \(H\times_k H\) se factorisent à travers
-l'injection \(H\to G\). Puisque H est séparable, \(H\times_k H\) est
+sous-schéma en groupes de G, donc que la restriction de c à H et la restriction de \(\mu\) à
+\(H\times_k H\) se factorisent à travers l'injection \(H\to G\). Puisque H est séparable, \(H\times_k H\) est
 réduit, et il suffit de vérifier que \(c(H)\subset H\) et que \(\mu(H\times_k H)\subset H\) (ensemblistement).
 Mais d'après EGA IV<sub>3</sub>, 11.10.6, la réunion des \(f^n_{(H)}(X^n\times_k H)\) est dense dans \(H\times_k H\).
 De même, quel que soit \(n\geqslant 1\), la réunion des \(f^m_{(X^n)}(X^n\times_k X^m)\), pour \(m\geqslant 1\), est
 dense dans \(X^n\times_k H\). Donc il suffit de montrer que \(\mu(f^n_{(H)}(f^m_{(X^n)}(X^n\times_k X^m)))\subset H\)
-et que \(c(f^n(X^n))\subset H\)&nbsp;; et, puisque \(c(f^1(X^1))\subset f^1(X^1)\), on a, quel que soit n, \(c(f^n(X^n))\subset
+et que \(c(f^n(X^n))\subset H\). Or \(\mu(f^n_{(H)}(f^m_{(X^n)}(X^n\times_k X^m))) = \mu((f^n\times_k f^m)(X^n\times_k X^m)) =
+f^{n+m}(X^{n+m})\subset H\)&nbsp;; et, puisque \(c(f^1(X^1))\subset f^1(X^1)\), on a, quel que soit n, \(c(f^n(X^n))\subset
 f^n(X^n)\subset H\). Ceci démontre (i) et (ii).</p>
 <p>Montrons maintenant (iii). Soit G' un sous-schéma en groupes fermé de \(G_S\) ma-
 jorant \(f_S\)&nbsp;; il s'agit de montrer que G' majore \(H_S\), ou, ce qui revient au même, que
 \(H_S = H_S\times_{G_S} G'\). Posons \(H'_S = H_S\times_{G_S} G' = G'\cap H_S\). Puisque G' et \(H_S\) majorent tous
-les deux \(f^2_S\), il en est de même de \(H'_S\). Or (EGA IV<sub>3</sub>, 11.10.6), puisque la famille des
+deux les \(f^n_S\), il en est de même de \(H'_S\). Or (EGA IV<sub>3</sub>, 11.10.6), puisque la famille des
 \(f^n : X^n \to H\) est schématiquement dominante, il en est de même de la famille des
 \(f^n_S : X^n_S \to H_S\), si bien que \(H'_S\), qui majore chacun des \(f^n_S\), est égal à \(H_S\) (EGA IV<sub>3</sub>,
 11.10.1 c)). Montrons maintenant la seconde assertion de (iii) dans le cas où G est
@@ -1495,7 +1497,7 @@ m tel que \(f'^m(X'^m) = \Gamma_G(f)\).</p>
   <p>(vi) Il résulte de la remarque précédente que, <em>si X est un k-schéma séparable et
 géométriquement connexe, et si \(f : X \to G\) est un k-morphisme tel que \(f(X)\) contienne
 l'élément neutre de G, alors le k-groupe \(\Gamma_G(f)\) est connexe</em>. En effet, chacun des \(X'^n\)
-est alors connexe, si on note que la réunion des \(f'^n(X'^n)\) (qui contiennent chacun e)
+est alors connexe, si bien que la réunion des \(f'^n(X'^n)\) (qui contiennent chacun e)
 est connexe, il en est donc de même de son adhérence \(\Gamma_G(f)\).</p>
   <p>(vii) Soient A et B deux sous-k-schémas en groupes séparables d'un k-groupe G.
 On appelle <em>sous-schéma en groupes des commutateurs de A et B dans G</em> et on note
@@ -1504,7 +1506,7 @@ morphisme \(\nu : A\times_k B \to G\) défini par&nbsp;: \((a,b)\mapsto a\cdot b
 \(b\in B(S)\). Lorsque G est séparable sur k, on appelle <em>groupe dérivé de</em> G, et on note
 \(\underline{\mathrm{Der}}(G)\), le k-groupe \((G,G)\). Pour qu'un k-groupe séparable G soit commutatif, il faut
 et il suffit que \(\underline{\mathrm{Der}}(G)\) soit le k-groupe unité.</p>
-  <p>(viii) Il nous arrivera de poser \(\Gamma'_G = \bigcup_{n\geqslant 1} f^n(X^n)\) (avec les notations de <a class="ref" href="#VIB.7.1">7.1</a> (ii)).
+  <p>(viii) Il nous arrivera de poser \(\Gamma'_G = \bigcup_{n>1} f^n(X^n)\) (avec les notations de <a class="ref" href="#VIB.7.1">7.1</a> (ii)).
 Notons que \(\Gamma'_G(f)\) est une partie de G stable pour la loi de groupe (au sens de <a class="ref" href="#VIB.3.0">3.0</a>).</p></div>
 </div>
 
@@ -1531,7 +1533,7 @@ sont invariants (resp. caractéristiques), il en est de même de (A,B).</p>
 
 <p>Montrons (i). Posons \(H = \Gamma_G(f)_S\) et \(H' = u^{-1}(H)\). D'après <a class="ref" href="#VIB.7.1">7.1</a> (iii), il suf-
 fit de montrer que \(f_S\) se factorise à travers H'. Par hypothèse, \(u\circ f_S\) appartient à
-\(u(f_S(X_S))(X)\), donc à \((f_S(X_S))(X)\), ce qui signifie que \(u\circ f_S\) se factorise à travers
+\(u(f_S(X_S))(X)\), donc à \((f_S(X_S))(X)\), donc a fortiori à \(H(X)\), ce qui signifie que \(u\circ f_S\) se factorise à travers
 l'injection canonique de H dans \(G_S\), donc que \(f_S\) se factorise à travers H', cqfd.</p>
 <p>Il est clair que (i bis) est une conséquence de (i).</p>
 <p>Montrons (ii). Puisque G est séparé sur k (<a class="ref" href="#VIA.0.2">VI<sub>A</sub> 0.2</a>) \(G_S\) est séparé sur S, donc la
@@ -1541,7 +1543,7 @@ symétrie) de \(G_S\)). Par hypothèse, le préfaisceau \(\mathrm{Ker}(\mu\circ(
 \(f_S(X_S)\), donc \(\mathrm{Ker}(\mu\circ(u,c))\) contient \(\Gamma_G(f)_S\) (<a class="ref" href="#VIB.7.1">7.1</a> (iii)).</p>
 <p>Montrons (iii). Rappelons (<a class="ref" href="#VIB.6.2">6.2</a> (iii)) que \(\underline{\mathrm{Centr}}_G \Gamma_G(g)\) (resp. \(\underline{\mathrm{Norm}}_G \Gamma_G(g)\)) est
 représentable par un sous-schéma en groupes fermé de G. Par hypothèse compte
-tenu de (ii) (i), \(\underline{\mathrm{Centr}}_G \Gamma_G(g)\) (resp. \(\underline{\mathrm{Norm}}_G \Gamma_G(g)\)) contient \(f(X)\) en tant que
+tenu de (ii) (resp. (i)), \(\underline{\mathrm{Centr}}_G \Gamma_G(g)\) (resp. \(\underline{\mathrm{Norm}}_G \Gamma_G(g)\)) contient \(f(X)\) en tant que
 préfaisceau, il contient donc \(\Gamma_G(f)\), cqfd.</p>
 <p>L'assertion (iv) est un cas particulier de (iii), où l'on prend pour f et g l'injection
 du schéma réduit de G ayant pour espace sous-jacent le point fermé \(\{x\}\) dans G. Ce
@@ -1570,9 +1572,9 @@ la remarque (<a class="ref" href="#VIB.7.2">7.2</a> (v)), il suffit de montrer q
 <p><strong>Premier cas.</strong> Supposons X irréductible. Alors les \(\overline{f'^n(X'^n)}\) forment une suite crois-
 sante de fermés irréductibles dans l'espace G, qui est noethérien, puisque \(G = G^0\)
 est de type fini sur k (<a class="ref" href="#VIA.2.4">VI<sub>A</sub> 2.4</a>). Donc cette suite est stationnaire, et il existe un
-entier m tel que \(\overline{f'^m(X'^m)} = \Gamma_G(f)\). Par conséquent, puisque X et G sont de type fini sur
-k, les \(f'^n\) sont constructibles dans G (EGA IV<sub>1</sub>, 1.8.5), donc contient un ouvert U de son
-adhérence \(\Gamma_G(f)\) (EGA 0<sub>IV</sub>, 9.2.3). Alors (<a class="ref" href="#VIA.0.5">VI<sub>A</sub> 0.5</a>), on a \(\Gamma_G(f)\subset U\cdot U \subset f'^{2m}(X'^{2m})\subset \Gamma_G(f)\), si bien que
+entier m tel que \(\overline{f'^m(X'^m)} = \Gamma_G(f)\). De plus, puisque X et G sont de type fini sur
+k, les \(f'^n\) sont de type fini sur k. Par conséquent, \(f'^m(X'^m)\) est constructible dans G
+(EGA IV<sub>1</sub>, 1.8.5), donc contient un ouvert U de son adhérence \(\Gamma_G(f)\) (EGA 0<sub>IV</sub>, 9.2.3). Alors (<a class="ref" href="#VIA.0.5">VI<sub>A</sub> 0.5</a>), on a \(\Gamma_G(f)\subset U\cdot U \subset f'^{2m}(X'^{2m})\subset \Gamma_G(f)\), si bien que
 \(f'^{2m}(X'^{2m}) = \Gamma_G(f)\).</p>
 
 <p><strong>Deuxième cas.</strong> Supposons que X ait deux composantes irréductibles \(A_1\) et \(A_2\). Alors
@@ -1587,7 +1589,7 @@ et
 g = \mu\circ\Bigl((\mu\circ(f'^1_{11}\underset{k}{\times}f'^1_{12}))\underset{k}{\times}(\mu\circ(f'^1_{22}\underset{k}{\times}f'^1_{21}))\Bigr).
 \]
 Alors Y est irréductible, réduit et de type fini, donc on vient de voir qu'il existe un
-entier m tel que \(g'^m(Y^m) = \Gamma_G(g)\). Mais on a en fait \(f'^1(X'^1)\subset g(Y)\subset f'^4(X'^4)\), si
+entier m tel que \(g'^m(Y'^m) = \Gamma_G(g)\). Mais on a en fait \(f'^1(X'^1)\subset g(Y)\subset f'^4(X'^4)\), si
 bien que \(\Gamma_G(f) = \Gamma_G(g)\) et que \(f'^{4m}(X'^{4m}) = \Gamma_G(f)\).</p>
 
 <p><strong>Cas général.</strong> Raisonnons par récurrence sur le nombre des composantes irréductibles
@@ -1597,7 +1599,7 @@ et supposons qu'il en ait r, à savoir \(A_1,\ldots,A_r\). Alors e appartient à
 supposons par exemple que \(e\in A_1\). Posons alors \(Y = \Gamma_G(f_r)\), où \(f_r\) désigne la
 restriction de f au sous-schéma réduit \(A_1\cup\cdots\cup A_{r-1}\) (nous supposons la numérotation
 des \(A_i\) choisie de façon que ce schéma soit connexe, ce qui est toujours possible).
-Posons \(Z = \overline{f(A_r)}\). Y est un sous-groupe irréductible réduit et fermé de G (<a class="ref" href="#VIB.7.2">7.2</a>
+Posons \(Z = \overline{f(A_r)}\). Alors Y est un sous-groupe irréductible réduit et fermé de G (<a class="ref" href="#VIB.7.2">7.2</a>
 (vi)). Soit alors \(T = Y\cup Z\) et i l'injection du sous-schéma fermé réduit T de G. Il est
 clair (<a class="ref" href="#VIB.7.2">7.2</a> (ii)) que \(\Gamma_G(i) = \Gamma_G(f)\) et que T est connexe (car puisque X est connexe,
 \(A_1\cup\cdots\cup A_{r-1}\) et \(A_r\) ont en commun un point a, et Y et Z ont en commun le point
@@ -1652,7 +1654,8 @@ X^{\infty}\times_k X^{\infty} \to \Gamma_G(f)\) est couvrant (<a class="ref" hre
 isomorphe à \(X^{n+m}\), et que dans cet isomorphisme, \(\mu\circ(f^n\times_k f^m)\) correspond à \(f^{n+m}\),
 il est clair que \(\mu\circ(f^{\infty}\times_k f^{\infty})\) se factorise à travers \(f^{\infty}\), si bien que \(f^{\infty}\) est couvrant.
 Enfin, dire que \(f^{\infty}\) est surjectif revient à dire que \(\bigcup_{n\geqslant 1} f^n(X^n) = \Gamma_G(f)\). Si G donc
-\(\Gamma_G(f)\) est de type fini, on en conclut qu'il existe n avec \(f^n(X^n) = \Gamma_G(f)\) (EGA IV 1.8.4)
+\(\Gamma_G(f)\) est de type fini, on en conclut qu'il existe n avec \(f^n(X^n) = \Gamma_G(f)\), car les
+\(f^n(X^n)\) sont des parties ind-constructibles des \(\Gamma_G(f)\) (EGA IV 1.8.4)
 de réunion \(\Gamma_G(f)\), et on applique EGA IV 1.9.9. Cela achève de prouver <a class="ref" href="#VIB.7.6">7.6</a>.</p>
 
 <div class="thm thm-remark remarque" id="VIB.7.6.1">
@@ -1760,7 +1763,7 @@ tels que \(x\in A\), \(y\in B\) et \(x\cdot y = z\), si bien que \((A\cdot B)_0 
 <p>Pour montrer la seconde assertion, remarquons que, \(f^n\) étant localement de type
 fini, \(f^n(X^n)\) est une partie ind-constructible de G (EGA IV<sub>4</sub>, 1.9.5). La première
 assertion permet alors de montrer par récurrence que si on pose \(A = f(X)_0\), on a&nbsp;:
-\(f^n(X^n)_0 = (A\cup A^{-1})^n\), et par conséquent, \((\Gamma'_G(f))_0 = \bigcup_{n\geqslant 1}(A\cup A^{-1})^n\), qui est le
+\(f^n(X^n)_0 = (A\cup A^{-1})^n\), et par conséquent, \((\Gamma'_G(f))_0 = \bigcup_{n\geqslant 1}(f^n(X^n))_0 = \bigcup_{n\geqslant 1}(A\cup A^{-1})^n\), qui est le
 sous-groupe de \(G_0\) engendré par \(A = f(X)_0\).</p>
 <p>La troisième assertion résulte de la seconde et des définitions.</p>
 
@@ -1794,17 +1797,17 @@ groupes sur \(\mathscr{C}\), n un entier positif ou nul. Les conditions suivante
   <li><span class="item-label">(ii)</span> <p>Si on pose \(K'_0 = G\), et pour \(p\geqslant 1\), \(K'_p = \underline{\mathrm{Comm}}_{\mathscr{T}}(K'_{p-1},K'_{p-1})\) (resp. \(K'_p =
 \underline{\mathrm{Comm}}_{\mathscr{T}}(G,K'_{p-1})\)), alors \(K'_n\) est le faisceau en groupes unité.</p></li>
   <li><span class="item-label">(iii)</span> <p>Il existe une suite \(H_0 = G, H_1,\ldots,H_n\) de sous-faisceaux invariants de G,
-telle que, quel que soit i, le faisceau quotient \(H_i/H_{i+1}\) (resp. central dans \(G/H_{i+1}\))
+telle que, quel que soit i, le faisceau quotient \(H_i/H_{i+1}\) (resp. \(G/H_i\))
 soit commutatif (resp. central dans \(G/H_{i+1}\)), et que \(H_n\) soit le faisceau unité.</p></li>
   </ol>
   </div>
 </div>
 
 <p>Il est clair que \(K_n\subset K'_n\)&nbsp;; par conséquent (ii) entraîne (i). Montrons que (i) entraîne
-(ii). Il résulte de (IV, Remarque 4.4.7) que si on note \(\overline{A}\) le faisceau associé au
+(ii). Il résulte de (IV, Remarque 4.4.7) que si on note \(\overline{A}\) le faisceau associé à un
 préfaisceau A, et si A et B sont deux sous-préfaisceaux en groupes de G, alors on
 a&nbsp;: \(\underline{\mathrm{Comm}}_{\mathscr{T}}(\overline{A},\overline{B})\subset \overline{\underline{\mathrm{Comm}}(A,B)}\). On en déduit aisément par récurrence qu'on a
-\(K'_p\subset \overline{K_p}\)&nbsp;; par conséquent, si \(K_n\) est le préfaisceau unité, \(\overline{K_n} = K_n\)
+\(K'_p\subset \overline{K_p}\), donc \(K'_n\subset \overline{K_n}\)&nbsp;; par conséquent, si \(K_n\) est le préfaisceau unité, \(\overline{K_n} = K_n\)
 est le faisceau unité, donc \(K'_n\) est le faisceau unité.</p>
 <p>Enfin les conditions (ii) et (iii) sont équivalentes d'après la remarque (<a class="ref" href="#VIB.8.1">8.1</a>).</p>
 <p>Lorsque ces conditions sont satisfaites, le faisceau G est dit <em>résoluble de classe n</em>
@@ -1845,9 +1848,10 @@ alors T est fermé dans S.</p></div>
 
 <p>Il est clair qu'on peut supposer S affine d'anneau A. Il existe alors, d'après <a class="ref" href="#VIB.10.1">10.1</a> et
 <a class="ref" href="#VIB.10.10">10.10</a> b),<sup>(*)</sup> un sous-anneau noethérien A' de A et un A'-groupe de type fini G' tel
-que \(G'\otimes_{A'} A\) soit isomorphe à G. De plus (EGA 10.8.5 et 11.2.6), si G est plat
-et séparé sur S, on peut supposer G' plat et séparé sur \(\mathrm{Spec}\,A'\). De même (EGA
-9.7.7 et 9.3.3), d'autre part puisque, si \(s'\) désigne l'image de s dans \(\mathrm{Spec}\,A'\), on a&nbsp;:
+que \(G'\otimes_{A'} A\) soit isomorphe à G. De plus (EGA IV 10.8.5 et 11.2.6), si G est plat
+et séparé sur S, on peut supposer G' plat et séparé sur \(\mathrm{Spec}\,A'\). De même (EGA IV,
+9.7.7 et 9.3.3), on peut supposer que, pour tout \(s'\in S'\), \(G'_{s'}\) est lisse sur \(\kappa(s')\).
+D'autre part puisque, si \(s'\) désigne l'image de s dans \(\mathrm{Spec}\,A'\), on a&nbsp;:
 \(G'_{s'}\otimes_{\kappa(s')}\kappa(s)\simeq G_s\), pour que \(G_s\) soit résoluble (resp. nilpotent), il faut et il suffit
 qu'il en soit de même de \(G'_{s'}\) (<a class="ref" href="#VIB.8.3">8.3</a>). Nous somme donc ramenés au cas où S est un
 schéma affine noethérien.</p>
@@ -1866,10 +1870,10 @@ alors stationnaire puisque \(G_\eta\) est noethérien&nbsp;; il existe donc un e
 tout \(p\geqslant n\), on ait&nbsp;: \(K^p_\eta = K^n_\eta\).</p>
 <p>D'autre part, nous verrons en <a class="ref" href="#VIB.10.12">10.12</a> et <a class="ref" href="#VIB.10.13">10.13</a> qu'il existe un ouvert non vide S' de
 S et un S'-groupe <em>de présentation finie</em> D tel que pour tout \(s\in S'\), on ait&nbsp;: \(D_s = K^n_s\) et
-\((D_s,D_s) = D_s\) (resp. \((G,D_s) = D_s\)). Nous pouvons supposer que \(S' = S\). Alors, quel
+\((D_s,D_s) = D_s\) (resp. \((G_s,D_s) = D_s\)). Nous pouvons supposer que \(S' = S\). Alors, quel
 que soit \(s\in S\), et quel que soit \(p\geqslant n\), on a \(D_s = K^p_s\), si bien que \(G_s\) est résoluble
 (resp. nilpotent) si et seulement si \(D_s\) est isomorphe au \(\kappa(s)\)-groupe unité.</p>
-<p>Mais d'après EGA IV<sub>3</sub>, 9.6.1 (xi), l'ensemble des \(s\in S'\) tels le morphisme
+<p>Mais d'après EGA IV<sub>3</sub>, 9.6.1 (xi), l'ensemble des \(s\in S'\) tels que le morphisme
 structural \(D_s \to \mathrm{Spec}\,\kappa(s)\) soit un isomorphisme est constructible, donc ou bien est
 rare, ou bien contient un ouvert non vide de S.</p>
 <p>Montrons que si G est plat et séparé sur S, T est fermé&nbsp;; puisque T est localement
@@ -2060,7 +2064,7 @@ localement de présentation finie sur S, alors p est couvrant pour la topologie 
 table est souvent délicate&nbsp;; dans ce séminaire nous démontrons la représentabilité de
 certains quotients particuliers.</p>
   <p>En général, pour pouvoir affirmer que le quotient G/G' est représentable, il ne suffit
-pas de supposer G et G' de présentation finie sur S et G' plat sur S. car même lorsque
+pas de supposer G et G' de présentation finie sur S et G' plat sur S, car même lorsque
 G et G' sont lisses sur S, il se peut que G soit à fibres connexes, et que G' ne soit pas
 fermé dans G&nbsp;; par suite G/G' devrait être séparé (<a class="ref" href="#VIB.5.3">5.3</a> ce qui est en contradiction avec
 <a class="ref" href="#VIB.9.2">9.2</a> (x)). Pour obtenir un tel contre-exemple, on peut prendre pour S le spectre d'un
@@ -2069,7 +2073,7 @@ anneau de valuation discrète, poser \(G = \mathbb{G}_{m,S}\). Considérons d'au
 sur S (cf. VII<sub>A</sub>). Soit G' le sous-groupe ouvert de \(\boldsymbol{\mu}_n\) obtenu en ôtant de \(\boldsymbol{\mu}_n\) la partie
 fermée de la fibre fermée de \(\boldsymbol{\mu}_n\) complémentaire de l'origine. Alors G' n'est pas fermé
 dans G, donc G/G' n'est pas représentable. (On peut aussi fabriquer de tels exemples
-où G' est lisse et G' à fibres connexes.)</p>
+où G' est lisse à fibres connexes.)</p>
   <p>b) Il n'est pas exclu que G/G' soit représentable en revanche, lorsque G et G' sont
 <em>de présentation finie</em> sur S, et que G' est plat sur S et fermé dans G.<sup>(*)</sup> Sous ces
 hypothèses, on sait que G/G' est représentable dans les cas particuliers suivants&nbsp;:</p>
@@ -2112,7 +2116,7 @@ indice \(j\in I\), deux \(S_j\)-schémas de présentation finie \(X_j\) et \(Y_j
 \(u_j : X_j \to Y_j\), pour que \(u = u_j\times_{S_j} S\) ait la propriété \(\mathscr{P}\), il faut et il suffit qu'il existe
 un indice \(i\in I\) tel que \(j\leqslant i\) et que \(u_i = u_j\times_{S_j} S_i\) ait la propriété \(\mathscr{P}\). Il en est ainsi
 dans le cas où \(\mathscr{P}\) est l'une des propriétés suivantes pour un morphisme&nbsp;: être séparé,
-surjectif, radiciel, affine, quasi-affine, fini, propre, projectif, quasi-projectif, un
+surjectif, radiciel, affine, quasi-affine, fini, quasi-fini, propre, projectif, quasi-projectif, un
 isomorphisme, un monomorphisme, une immersion, une immersion ouverte, une
 immersion fermée, lisse, non ramifié ou étale (EGA IV 8.10.5, 11.2.6 et 17.7.6).</p>
 <p>Remarquons qu'il en est encore ainsi <em>dans le cas où \(\mathscr{P}\) est la propriété d'être
@@ -2152,7 +2156,7 @@ donnée en <a class="ref" href="#VIB.6.7">6.7</a> des monomorphismes de groupes 
 <div class="thm thm-plain corollaire" id="VIB.10.5">
   <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">10.5</span></div>
   <div class="thm-body"><p>Soit \(j\in I\), et soit \(G_j\) un \(S_j\)-groupe de présentation finie. Pour
-que \(G = G_j\times_{S_j} S\) soit commutatif, il faut et il suffit qu'il existe \(i\in I\), \(i\geqslant j\), telle que
+que \(G = G_j\times_{S_j} S\) soit commutatif, il faut et il suffit qu'il existe \(i\in I\), \(i\geqslant j\), tel que
 \(G_i = G_j\times_{S_j} S_i\) soit commutatif.</p></div>
 </div>
 
@@ -2174,7 +2178,7 @@ représentable.</p></div>
   <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">10.7</span></div>
   <div class="thm-body"><p>Soit \(\mathscr{T}\) la topologie (fppf) ou (fpqc)&nbsp;; soient \(j\in I\), \(X_j\) un \(S_j\)-schéma
 de présentation finie, et \(R_j\) une relation d'équivalence sur \(X_j\) définie par un \(S_j\)-
-monomorphisme \(v_j : R_j \to X_j\times_{S_j} X_j\) tel que le morphisme \(\mathrm{pr}_1\circ v_j : R_j \to X_j\)
+monomorphisme \(v_j : R_j \to X_j\times_{S_j} X_j\) tel que le morphisme \(\mathrm{pr}_{1,j}\circ v_j : R_j \to X_j\)
 déduit de \(v_j\) par composition avec la première projection \(X_j\times_{S_j} X_j \to X_j\) soit plat et
 de présentation finie. Alors, pour que le faisceau quotient \((X_j\times_{S_j} S)/(R_j\times_{S_j} S)\) pour
 la topologie \(\mathscr{T}\) soit représentable, il faut et il suffit qu'il existe \(i\in I\), \(i\geqslant j\), le faisceau
@@ -2226,7 +2230,7 @@ il suffit qu'il existe \(i\in I\), \(i\geqslant j\), tel que \((G_i)^0 = (G_j\ti
 <p>La condition est suffisante (<a class="ref" href="#VIB.3.3">3.3</a>).</p>
 <p>Montrons que la condition est nécessaire. En effet, \(G^0\) est de présentation finie sur
 S et ouvert dans G (<a class="ref" href="#VIB.3.9">3.9</a>). D'après (<a class="ref" href="#VIB.10.0">10.0</a>), il existe \(i\in I\), \(i\geqslant j\), et un sous-schéma en
-groupes ouvert \(G^0_i\) de \(G_i\) tel que \(G^0_i\times_S S = G^0\). Le morphisme structural \(G^0 \to S\) est
+groupes ouvert \(G^0_i\) de \(G_i\) tel que \(G^0_i\times_{S_i} S = G^0\). Le morphisme structural \(G^0 \to S\) est
 connexe (i.e. à fibres géométriquement connexes (<a class="ref" href="#VIA.1.1">VI<sub>A</sub> 1.1</a>)). Alors, (EGA IV 9.3.3 et
 9.7.7), quitte à augmenter i, on peut supposer que le morphisme structural \(G^0_i \to S\) est
 connexe, donc que l'espace sous-jacent à \(G^0_i\) n'est autre que \(\underline{(G_i)^0}\) (<a class="ref" href="#VIB.3.10.1">3.10.1</a>), donc
@@ -2261,7 +2265,7 @@ de G'.</p></li>
 schéma en groupes de G (<a class="ref" href="#VIB.1.4.2">1.4.2</a>))&nbsp;; alors il existe un ouvert non vide S' de S tel que
 si on note G' (resp. H', resp. K') la restriction de G (resp. H, resp. K) au-dessus de
 l'ouvert S' de S, le foncteur \(\underline{\mathrm{Transp}}_{G'}(H',K')\) (resp. \(\underline{\mathrm{Norm}}_{G'} K'\)) soit représentable par
-un sous-S'-schéma fermé de présentation finie \(T'_2\) (resp. \(N'_2\)) de G'.</p></li>
+un sous-S'-schéma fermé de présentation finie \(T'_2\) (resp. \(N'\)) de G'.</p></li>
   <li><span class="item-label">(iii)</span> <p>supposons que \(H_\eta\) et \(K_\eta\) soient fermés dans \(G_\eta\) (ce qui est le cas si H et K
 sont des sous-schémas en groupes de G (<a class="ref" href="#VIB.1.4.2">1.4.2</a>))&nbsp;; alors il existe un ouvert non vide S'
 de S tel que si on note G' (resp. H', resp. K') la restriction de G (resp. H, resp. K)
@@ -2272,12 +2276,12 @@ un sous-S'-schéma fermé de présentation finie de G'.</p></li>
 </div>
 
 <p>Puisque \(G_\eta\), \(X_\eta\), \(H_\eta\), \(K_\eta\) sont plats sur le corps \(\kappa(\eta)\), et que \(G_\eta\) est séparé sur \(\kappa(\eta)\)
-(<a class="ref" href="#VIA.2">VI<sub>A</sub> 2</a>), d'après (<a class="ref" href="#VIB.10.2">10.2</a>, <a class="ref" href="#VIB.10.10">10.10</a> a) et EGA IV 8.8.2 et 8.10.5), il existe un ouvert affine S' de
+(<a class="ref" href="#VIA.2">VI<sub>A</sub> 2</a>), d'après (<a class="ref" href="#VIB.10.2">10.2</a>, <a class="ref" href="#VIB.10.10">10.10</a> a), EGA IV 8.8.2 et 8.10.5), il existe un ouvert affine S' de
 S tel que G' soit un S'-groupe de présentation fini, plat et séparé sur S', et que X', H'
 et K' soit plats et de présentation finie sur S'. Si on suppose \(H_\eta\), (resp. \(K_\eta\)) fermé dans
 \(G_\eta\), on peut choisir S' de sorte que H' (resp. K') soit fermé dans G'. D'après (EGA IV
-11.3.15), quitte à remplacer S' par un ouvert affine de S', on peut supposer que G', X',
-H' et K' sont essentiellement libres sur S' (au sens de VIII (6.1)). Il résulte alors
+11.3.15), quitte à remplacer S' par un ouvert affine de S', on peut supposer que G',
+H', K' et X' sont essentiellement libres sur S' (au sens de VIII (6.1)). Il résulte alors
 de (VIII 5.5 b) et e))<sup>(*)</sup> que, sous les hypothèses de l'énoncé, les foncteurs considérés
 sont représentables par des sous-schémas fermés (donc de présentation finie sur S') de
 G'.</p>
@@ -2298,7 +2302,7 @@ particulier, pour tout \(s\in S'\), on a \(D'_s = (A_s,B_s)\) avec les notations
 
 <p>Soit \(\eta\) le point générique de S&nbsp;; posons \(D'_\eta = (A_\eta,B_\eta)\). D'après <a class="ref" href="#VIB.7.8">7.8</a> (resp. <a class="ref" href="#VIB.7.3">7.3</a> v)),
 \(D'_\eta\) est connexe (resp. invariant dans \(G_\eta\)). D'après <a class="ref" href="#VIB.10.1">10.1</a> et <a class="ref" href="#VIB.10.10">10.10</a> a), il existe un ouvert
-non vide S' de S et un sous-S'-schéma en groupes fermé D' de G', à fibres séparables
+non vide S' de S et un sous-S'-schéma en groupes D' de présentation finie et fermé dans G', à fibres séparables
 (EGA IV 9.7.7 et 9.3.3), ayant \(D'_\eta\) pour fibre au point \(\eta\), et tel que D' soit à fibres
 connexes (i.e. géométriquement connexes (<a class="ref" href="#VIA.1.1">VI<sub>A</sub> 1.1</a>)) (resp. soit invariant dans G')
 (EGA IV 9.7.7 et 9.3.3 (resp. <a class="ref" href="#VIB.10.4">10.4</a>)). De plus, nous avons vu, au cours de la démonstration
@@ -2335,15 +2339,15 @@ d'un S-schéma de présentation finie à groupe d'opérateurs G. De façon préc
 et \(G'_j\) deux \(S_j\)-groupes de présentation finie, \(H_j\) (resp. \(H'_j\)) un \(S_j\)-schéma de pré-
 sentation finie à groupe d'opérateurs \(G_j\) (resp. \(G'_j\)). Posons, pour \(i\in I\), \(i>
 j\), \(G_i = G_j\times_{S_j} S_i\) et \(G = G_j\times_{S_j} S\), et définissons de même \(G'_i\), G', \(H_i\), H,
-\(H'_i\) et H'. Notons \(\mathrm{Dihoms}_{S\text{-gr.}}((G,H),(G',H'))\) l'ensemble des di-morphismes de S-
+\(H'_i\) et H'. Notons \(\mathrm{Dihom}_{S\text{-gr.}}((G,H),(G',H'))\) l'ensemble des di-morphismes de S-
 groupes et de S-schémas à groupe d'opérateurs du couple (G,H) dans le couple
-(G',H'). Alors l'application canonique de \(\varinjlim_{i\geqslant j}\mathrm{Dihoms}_{S_i\text{-gr.}}((G_i,H_i),(G'_i,H'_i))\) dans
-\(\mathrm{Dihoms}_{S\text{-gr.}}((G,H),(G',H'))\) est bijective.</p>
+(G',H'). Alors l'application canonique de \(\varinjlim_{i\geqslant j}\mathrm{Dihom}_{S_i\text{-gr.}}((G_i,H_i),(G'_i,H'_i))\) dans
+\(\mathrm{Dihom}_{S\text{-gr.}}((G,H),(G',H'))\) est bijective.</p>
 
 <p>(ii) Dans la situation rappelée au début de (<a class="ref" href="#VIB.10.0">10.0</a>), soient G un S-groupe de pré-
 sentation finie et H un S-schéma de présentation finie à groupe d'opérateurs G&nbsp;; il
 existe alors un indice \(j\in J\), un \(S_j\)-groupe de présentation finie \(G_j\), un \(S_j\)-schéma de
-présentation finie \(H_j\) à groupe d'opérateurs \(G_j\) et di-isomorphisme de S-groupes
+présentation finie \(H_j\) à groupe d'opérateurs \(G_j\) et un di-isomorphisme de S-groupes
 et de S-schémas à groupes d'opérateurs de \((G_j\times_{S_j} S, H_j\times_{S_j} S)\) sur (G,H).</p>
 
 <div class="thm thm-remark definition" id="VIB.10.15">
@@ -2360,7 +2364,7 @@ H est un S-schéma en espaces homogènes sous G pour la topologie \(\mathscr{T}\
 dire que le morphisme canonique \(G\times_S H \to H\times_S H\) défini comme précédemment est
 couvrant pour la topologie \(\mathscr{T}\) (IV 4.3).</p>
 <p>De même, dire qu'un S-schéma H à groupe d'opérateurs un S-groupe G est un
-<em>fibré principal homogène</em> sous G pour la topologie \(\mathscr{T}\) (IV 5.1.6) revient à dire (IV 5.1.6
+<em>fibré principal homogène</em> sous G pour la topologie \(\mathscr{T}\) (IV 1.5) revient à dire (IV 5.1.6
 (ii)) que le morphisme canonique \(G\times_S H \to H\times_S H\) est un isomorphisme et que le
 morphisme structural \(H\to S\) est couvrant pour la topologie \(\mathscr{T}\).</p>
 
@@ -2404,11 +2408,11 @@ est quasi-compact et quasi-séparé sur S, et, ou bien S' est plat sur S (cas c)
 <p>D'après (EGA II 1.2.7), f se factorise à travers v au moyen d'un morphisme \(p :
 G \to S'\), et on a&nbsp;: \(X\times_S Y = X\times_{S'} Y'\) et \(p_*(\mathscr{O}_X) = \mathscr{O}_{S'}\). Puisque v et f sont quasi-
 compacts et quasi-séparés, il en est de même de p (EGA IV 1.2.2 et 1.2.4). Ou bien
-Y est plat sur S (cas b) et alors Y' est plat sur S' (cas a) et b)), ou bien X est affine
+Y est plat sur S (cas b) et c)) et alors Y' est plat sur S', ou bien X est affine
 sur S (cas a)), et alors p est un isomorphisme. Dans le premier cas, on peut de nouveau
 appliquer (EGA III 1.4.15 et IV 1.2.7), et dans les deux cas, on trouve&nbsp;: \(p'_*(\mathscr{O}_{X\times_S Y}) =
 g'^*p_*(\mathscr{O}_X) = g'^*(\mathscr{O}_{S'}) = \mathscr{O}_{Y'}\), où \(p' = p\times_{S'} Y'\).</p>
-<p>D'où&nbsp;: \(v_*g'_*p'_*(\mathscr{O}_{X\times_S Y}) = v_*g'_*(\mathscr{O}_{Y'}) = v_*(\mathscr{A}(Y)\otimes_{\mathscr{O}_S}\mathscr{O}_{S'}) =
+<p>D'où&nbsp;: \(\mathscr{A}(X\times_S Y) = v_*g'_*p'_*(\mathscr{O}_{X\times_S Y}) = v_*g'_*(\mathscr{O}_{Y'}) = v_*(\mathscr{A}(Y)\otimes_{\mathscr{O}_S}\mathscr{O}_{S'}) =
 \mathscr{A}(Y)\otimes_{\mathscr{O}_S}\mathscr{A}(X)\) d'après (EGA II 1.4.7).</p>
 
 <div class="thm thm-plain corollaire" id="VIB.11.2">
@@ -2432,7 +2436,7 @@ le S-foncteur des morphismes de S-foncteurs de \(\mathbb{V}(\mathscr{F})\) dans 
 \mathbb{V}(\mathscr{E}))\) le sous-S-foncteur de \(\mathrm{Hom}_S(\mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))\) formé des \(\mathscr{O}_S\)-homomorphismes de
 \(\mathscr{O}_S\)-foncteurs en modules (cf. <a class="ref" href="#I">I</a>). Alors \(\mathrm{Hom}_{\mathscr{O}_S}(\mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))(T)\) est en correspon-
 dance biunivoque canonique avec \(\mathrm{Hom}_{\mathscr{O}_S\text{-Mod.}}(\mathscr{E}\otimes_{\mathscr{O}_S}\mathscr{O}_T, \mathscr{F}\otimes_{\mathscr{O}_S}\mathscr{O}_T)\), i.e. on a
-\(\mathrm{Hom}_{\mathscr{O}_S}(\mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))\simeq \mathrm{Hom}_{\mathscr{O}_S}(\mathbb{W}(\mathscr{F}),\mathbb{W}(\mathscr{E}))\).</p>
+\(\mathrm{Hom}_{\mathscr{O}_S}(\mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))\simeq \mathrm{Hom}_{\mathscr{O}_S}(\mathbb{W}(\mathscr{E}),\mathbb{W}(\mathscr{F}))\).</p>
 <p>Soit X un S-schéma. Alors l'ensemble des morphismes de S-foncteurs de X dans
 \(\mathrm{Hom}_S(\mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))\) est en correspondance biunivoque avec \(\mathrm{Hom}_S(X\times_S \mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))\),
 donc l'ensemble des morphismes de S-foncteurs de X dans \(\mathrm{Hom}_{\mathscr{O}_S}(\mathbb{V}(\mathscr{F}),\mathbb{V}(\mathscr{E}))\) est
@@ -2552,7 +2556,7 @@ qu'en général l'application canonique \(\mathbb{W}(\mathscr{E}_0) \to \mathbb{
 \(\mathscr{A}(G)\) soit un \(\mathscr{O}_S\)-Module libre \(\mathscr{A}\) de base \((\varphi_i)\), \(\mathscr{E}\) un \(\mathscr{O}_S\)-Module quasi-cohérent. On
 suppose soit que G est affine sur S, soit que G et \(\mathscr{E}\) sont plats sur S. Soit \(\rho : \mathscr{E} \to \mathscr{A}\otimes\mathscr{E}\)
 un homomorphisme définissant une opération de G sur \(\mathscr{E}\), et soit \(x\in \Gamma(S,\mathscr{E})\). Posons
-\(\rho(x) = \sum \varphi_i\otimes x_i\) (les \(x_i\) sont bien déterminés par cette relation). Alors
+\(\rho(x) = \sum \varphi_i\otimes x_i\), où les \(x_i\in\Gamma(S,\mathscr{E})\) sont bien déterminés par cette relation. Alors
 le sous-module \(\mathscr{F}\) de \(\mathscr{E}\) engendré par les \(x_i\) est stable sous \(\rho\), quasi-cohérent et de
 type fini sur \(\mathscr{O}_S\), et \(x\in \Gamma(S,\mathscr{F})\).</p></div>
 </div>
@@ -2626,8 +2630,8 @@ compact et quasi-séparé sur k, il opère aussi sur le vectoriel \(\Gamma(X,\ma
 que la formation de \(f_*(\mathscr{O}_X)\) (\(f : X \to \mathrm{Spec}\,k\) le morphisme structural) commute à tout
 changement de base \(S\to \mathrm{Spec}\,k\) (EGA IV 1.7.12)&nbsp;; donc il opère sur l'enveloppe affine
 \(X' = \mathrm{Spec}(\Gamma(X,\mathscr{O}_X))\), et le morphisme canonique \(X\to X'\) est évidemment compatible
-avec l'action de G&nbsp;; ceci dit, si X est affine i.e. \(X\to X'\) est une immersion ouverte,
-et si G opère fidèlement sur X', ou ce qui revient au même,
+avec l'action de G&nbsp;; ceci dit, si X est quasi-affine i.e. \(X\to X'\) est une immersion ouverte,
+et si G opère fidèlement sur X, il opère fidèlement sur X', ou ce qui revient au même,
 sur le vectoriel \(V = \Gamma(X,\mathscr{O}_X)\), ce qui prouve l'implication (iii)⇒(iv).</p>
 <p>Supposons maintenant (iv), i.e. que G opère fidèlement sur le vectoriel V. Alors, en
 vertu de <a class="ref" href="#VIB.11.10">11.10</a>, V est limite inductive de sous-espaces vectoriels \(V_i\) de dimension finie,
@@ -2681,7 +2685,7 @@ est limite projective d'un système filtrant croissant de k-groupes affines de t
 dont les morphismes de transition sont fidèlement plats.</p></div>
 </div>
 
-<p>Comme l'ensemble des sous-k-algèbres de A stables par \(\Delta\) et u est stable
+<p>Comme l'ensemble des sous-k-algèbres de type fini de A stables par \(\Delta\) et u est stable
 par engendrement, A est limite inductive d'une famille filtrante croissante \((B_i)_{i\in I}\) de
 sous-k-algèbres de type fini de A stables par \(\Delta\) et u. Alors, chaque algèbre \(B_i\), munie
 de l'homomorphisme \(B_i \to B_i\otimes_k B_i\) déduit de \(\Delta\) et de la restriction de u à \(B_i\) est munie
@@ -2701,7 +2705,7 @@ correspondant. Pour que u soit fidèlement plat, il faut et il suffit que \(u^{\
 qu'elle est suffisante. Posons \(K = \mathrm{Ker}\,u\). Alors G/K est un k-groupe de type fini
 (<a class="ref" href="#VIA.2">VI<sub>A</sub> 2</a>), et u se factorise en \(G \xrightarrow{\ p\ } G/K \xrightarrow{\ v\ } H\), où p est fidèlement plat (<a class="ref" href="#VIA.2">VI<sub>A</sub> 2</a>) et
 où v est un monomorphisme de k-groupes de type fini, donc une immersion fermée
-(<a class="ref" href="#VIB.1.4.2">1.4.2</a>). Puisque H est un schéma affine, G/K est un schéma affine (EGA I 4.2.3), et, si
+(<a class="ref" href="#VIB.1.4.2">1.4.2</a>). Puisque H est un schéma affine, et que v est une immersion fermée, G/K est un schéma affine (EGA I 4.2.3), et, si
 on note C l'algèbre de G/K, l'homomorphisme \(v^{\natural} : B \to C\) est surjectif (loc. cit.). Or,
 puisque \(u^{\natural}\) est injectif, et que \(u^{\natural} = p^{\natural}\circ v^{\natural}\), \(v^{\natural}\) est aussi injectif&nbsp;: c'est un isomorphisme,
 donc v est un isomorphisme, et, puisque p est fidèlement plat, il en est de même de u.</p>
@@ -2715,7 +2719,7 @@ sous-espace vectoriel \(kv\) est stable sous G.</p></div>
 
 <p>Notons A l'algèbre de G, et \(\rho : V \to A\otimes_k V\) l'application linéaire qui définit
 l'opération de G sur V. Dire que v est semi-invariant sous G revient à dire qu'il existe
-\(\lambda\in A\) tel que, pour tout \(w\in kv\), \(\rho(w) = \lambda\otimes w\). Lorsque \(v\neq 0\), l'élément \(\lambda\in A\)
+\(\lambda\in A\) tel que, pour tout \(w\in kv\), \(\rho(w) = \lambda\otimes w\). Lorsque \(v\neq 0\), l'élément \(\lambda\in A\) est
 bien déterminé par cette relation, on l'appellera <em>poids</em> de l'élément semi-invariant \(v\).</p>
 <p>Dire que v est semi-invariant d'invariant \(\lambda\) revient à dire que \(\varphi(g,v) = \lambda(g)v\) pour
 tout \(g\in G(k)\), où \(\lambda : G \to \mathbb{G}_{m,k}\) est le morphisme défini par \(\lambda\). On voit donc que \(\lambda\)
@@ -2742,7 +2746,7 @@ k de dimension finie, dont nous noterons d la dimension. Puisque V contient tous
 les \(g_i\), W engendre l'idéal I. Notons \(p : A \to A/I = B\) l'application canonique, et
 \(q = p\otimes\mathrm{id}_A : A\otimes_k A \to (A/I)\otimes_k A\). Alors l'action de H sur A est déterminée par
 \(q\circ\Delta : A \to B\otimes_k A\). Puisque H est un sous-schéma en groupes de G, l'application
-diagonale \(A/I \to (A/I)\otimes_k(A/I)\) se déduit de \(q\circ\Delta\) par passage au quotient, ce qui montre
+diagonale \(A/I \to (A/I)\otimes_k(A/I) = ((A/I)\otimes_k A)/((A/I)\otimes_k I)\) se déduit de \(q\circ\Delta\) par passage au quotient, ce qui montre
 que \((q\circ\Delta)(I) \subset (A/I)\otimes_k I\), autrement dit, I est stable sous H. Puisque V est
 stable sous G, donc sous H, on voit que W est stable sous H.</p>
 <p>Posons \(E = \bigwedge^d V\), soit \((w_1,\ldots,w_d)\) une base de W sur k, et soit \((e_0,\ldots,e_n)\) une
@@ -2759,7 +2763,7 @@ vecteurs linéairement indépendants, dont on peut supposer qu'il se note \((a_1
 Alors les \(a_i\), \(i=1,\ldots,m\) sont linéairement indépendants, semi-invariants sous H, et
 de même poids.</p>
 <p>Réciproquement, soit H' un sous-schéma en groupes fermé de G sous lequel chacun
-des \(a_i\) (\(1\leqslant i\leqslant m\)) est semi-invariant. Montrons que \(H^1 = H\). Il existe même un
+des \(a_i\) (\(1\leqslant i\leqslant m\)) est semi-invariant. Montrons que \(H^1 = H\). Il existe de même un
 idéal I' de A tel que l'algèbre B' de H' soit isomorphe à A/I'&nbsp;; notons \(p' : A \to A/I'\)
 l'application canonique, et \(q' = p'\otimes\mathrm{id}_A\). Par hypothèse, pour \(1\leqslant i\leqslant m\), il existe
 \(\lambda_i \in B'\) tel que \(q'\circ\Delta(a_i) = \sum p'(a_j)\otimes a^i_j = \lambda_i\otimes a_i\). Or l'axiome (CM 2) de (I,
@@ -2770,7 +2774,7 @@ si bien que \(a_i \in I'\) pour \(1\leqslant i\leqslant n\). Donc, si on pose \(
 \sum p'(a_i)\otimes e_i\) est proportionnel à \(e_0\), de sorte que \(q'\circ\Delta(W) \subset (A/I')\otimes_k W\), autrement
 dit que W est stable sous H'. Puisque W engendre l'idéal I, I est stable sous H', donc
 \(q'\circ\Delta(I) \subset (A/I')\otimes_k I\), et \(q'\circ\Delta\) définit par passage au quotient une application linéaire
-\(A/I \to (A/I')\otimes_k(A/I)\) donc la restriction à \(H'\times_k H\) du morphisme de multiplication
+\(A/I \to (A/I')\otimes_k(A/I) = ((A/I')\otimes_k A)/((A/I')\otimes_k I)\) donc la restriction à \(H'\times_k H\) du morphisme de multiplication
 de G se factorise à travers H, ce qui implique que H' est un sous-schéma en groupes de H, cqfd.</p>
 
 <div class="thm thm-plain theoreme" id="VIB.11.17">
@@ -2785,17 +2789,18 @@ k-groupe affine.</p></div>
 de l'injection \(H \to G\) existe, le morphisme canonique \(p : G \to K\) est couvrant pour la
 topologie (fpqc), et K représente le faisceau quotient G/H pour la topologie (fpqc)&nbsp;;
 il s'agit donc de montrer que K est affine.</p>
-<p>Supposons k algébriquement clos, G réduit et connexe et H réduit. D'après
+<p>Supposons d'abord k algébriquement clos, G réduit et connexe et H réduit. D'après
 (<em>BIBLE</em> 4, cor. du th. 1), il existe une représentation linéaire de dimension finie
-\(\rho : G \to \mathrm{GL}(V)\) telle que \((\mathrm{Ker}\,\rho)_{\mathrm{r\acute{e}d}} = H\). Par <a class="ref" href="#VIB.11.11">11.11</a>, \(G/\mathrm{Ker}\,\rho\) est affine, donc aussi
+\(\rho : G \to \mathrm{GL}(V)\) telle que \((\mathrm{Ker}\,\rho)_{\mathrm{r\acute{e}d}} = H\). Par <a class="ref" href="#VIB.11.11">11.11</a>, \(G/\mathrm{Ker}\,\rho\) est affine donc \((G/H)/(\mathrm{Ker}\,\rho/H)\) est affine, donc aussi
 \(G/H\), le groupe \(\mathrm{Ker}\,\rho/H\) étant fini.</p>
 <p>Si k est algébriquement clos, et G et H réduits, alors \((G/H)/(G^0/H\cap G^0)\) est fini,
 comme quotient de \(G/G^0\), et \(G^0/H\cap G^0\) est affine, donc G/H est affine.</p>
-<p>Dans le cas où k est algébriquement clos et G et H quelconques, \((G_{\mathrm{r\acute{e}d}})\times_k(H_{\mathrm{r\acute{e}d}})\) est
-isomorphe à \((G_{\mathrm{r\acute{e}d}})/(H_{\mathrm{r\acute{e}d}})\), donc \((G_{\mathrm{r\acute{e}d}})/(H_{\mathrm{r\acute{e}d}})\) est affine, et il en est de même de G/H
-(EGA I 5.1.10), car, puisque G est de type fini sur k, son nilradical est nilpotent.</p>
+<p>Dans le cas où k est algébriquement clos, et G et H quelconques, \((G\times_k H)_{\mathrm{r\acute{e}d}}\) est
+isomorphe à \((G_{\mathrm{r\acute{e}d}})\times_k(H_{\mathrm{r\acute{e}d}})\), donc \((G_{\mathrm{r\acute{e}d}})/(H_{\mathrm{r\acute{e}d}})\) est isomorphe à \((G/H)_{\mathrm{r\acute{e}d}}\).
+Puisque \((G_{\mathrm{r\acute{e}d}})/(H_{\mathrm{r\acute{e}d}})\) est affine, il en est de même de G/H
+(EGA I 5.1.10), car, puisque G/H est de type fini sur k, son nilradical est nilpotent.</p>
 <p>Dans le cas où k est quelconque, \((G\otimes_k \overline{k})/(H\otimes_k \overline{k})\) est isomorphe à \((G/H)\otimes_k \overline{k}\)
-(<a class="ref" href="#VIB.9.2">9.2</a> v)), donc puisque le cas où k est algébriquement clos est affine, il en est de même
+(<a class="ref" href="#VIB.9.2">9.2</a> v)), donc puisque le premier est affine, il en est de même
 du second, donc G/H est affine.</p>
 <p><strong>Deuxième cas</strong>&nbsp;: Cas général. D'après (<a class="ref" href="#VIB.11.13">11.13</a>), l'algèbre A de G est limite inductive
 d'une famille filtrante croissante \((A_i)_{i\in I}\) de sous-algèbres de type fini de A stables

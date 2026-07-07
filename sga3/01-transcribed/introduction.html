@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 3 — Introduction</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+sup.footnote-ref { font-size: 0.75em; line-height: 0; }
+sup.footnote-ref a { text-decoration: none; }
+#footnotes { margin-top: 3em; border-top: 1px solid #ccc; padding-top: 0.6em; font-size: 0.85em; color: #333; }
+#footnotes ol { padding-left: 1.4em; }
+#footnotes li { margin: 0.4em 0; }
+#footnotes .backref { margin-left: 0.3em; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<h1 id="introduction">INTRODUCTION</h1>
+
+<!-- p.iii -->
+
+<h2 id="introduction.1">1. —</h2>
+
+<p>Le but du présent séminaire est double.</p>
+
+<p>D'une part, nous visons à donner des fondements commodes pour la théorie des
+schémas en groupes en général. Les exposés I à IV donneront à cet égard les indispen&shy;sables exercices préliminaires de syntaxe schématique et catégorique. Pour obtenir un
+langage qui «&nbsp;colle&nbsp;» sans effort à l'intuition géométrique, et éviter des circonlocutions
+insupportables à la longue, nous identifions toujours un préschéma \(X\) sur un autre \(S\)
+au foncteur \((\mathrm{Sch})^\circ_{/S} \to (\mathrm{Ens})\) qu'il représente<sup class="footnote-ref"><a id="fnref1" href="#fn1">∗</a></sup>,
+et il est nécessaire de donner de
+nombreuses définitions de telle façon qu'elles s'appliquent à des foncteurs quelconques,
+représentable ou non. D'ailleurs, presque tous les foncteurs que nous aurons à utili&shy;ser seront des «&nbsp;faisceaux&nbsp;» (pour la «&nbsp;topologie fidèlement plate quasi-compacte&nbsp;»)&nbsp;;
+l'exposé IV, qui ne traite des groupes que de façon accessoire, donne une esquisse
+du langage de la «&nbsp;localisation&nbsp;» et des faisceaux, qui s'avère également fort com&shy;mode dans les questions de représentabilité des foncteurs. Cet exposé nous fournira
+surtout, pour les questions de passage au quotient, le cadre le plus commode pour
+la suite. L'exposé V donne quelques résultats généraux sur l'existence de quotients,
+repris dans l'exposé VI<sub>A</sub> dans le cas du quotient d'un groupe algébrique sur un corps
+(ou plus généralement, sur un anneau artinien) par un sous-groupe<sup class="footnote-ref"><a id="fnref2" href="#fn2">∗∗</a></sup>.
+Ce dernier
+exposé et l'exposé VI<sub>B</sub> qui lui fait suite contiennent également divers résultats élé&shy;mentaires spéciaux aux groupes algébriques sur un corps, couramment utilisés par la
+suite. L'exposé VII étudie certains faits liés à la caractéristique du corps de base et
+développe notamment avec la généralité qui convient la correspondance entre sché&shy;mas en groupes radiciels de hauteur 1 et \(p\)-algèbres de Lie restreintes. Enfin, l'exposé</p>
+
+<!-- p.iv -->
+
+<p>XVIII contient la généralisation, en théorie des schémas, du théorème de Weil sur la
+définition «&nbsp;birationnelle&nbsp;» des groupes algébriques.</p>
+
+<p>D'autre part, nous nous proposons de généraliser aux groupes sur un préschéma de
+base quelconque, la théorie de structure de Borel-Chevalley des groupes algébriques
+affines. Il est d'ailleurs apparu à l'occasion de la rédaction des notes du séminaire que
+l'hypothèse affine était inutile pour de nombreux résultats de la théorie. Les résultats
+les plus complets sont obtenus évidemment dans les cas des «&nbsp;schémas en groupes semi-simples&nbsp;» ou plus généralement «&nbsp;réductifs&nbsp;», dont nous nous occuperons exclusivement
+à partir de l'exposé XIX. Chevalley lui-même avait déjà donné la construction des
+groupes «&nbsp;de Tôhoku&nbsp;» au-dessus de l'anneau des entiers, construction qui sera reprise
+dans le présent séminaire. Le théorème d'unicité principal donne une caractérisation
+simple des variantes «&nbsp;tordues&nbsp;» de ces groupes de Tôhoku, sur un préschéma de base
+\(S\)&nbsp;: ce sont les groupes affines et lisses sur \(S\), dont les fibres géométriques sont des
+groupes semi-simples connexes au sens habituel<sup class="footnote-ref"><a id="fnref3" href="#fn3">∗∗∗</a></sup>.</p>
+
+<h2 id="introduction.2">2. —</h2>
+
+<p>Comme dans le cas de la théorie connue sur un corps algébriquement clos, un
+rôle crucial est joué par les sous-tores des schémas en groupes envisagés. Aussi l'étude
+préliminaire des tores, et plus généralement des «&nbsp;schémas en groupes de type multi&shy;plicatif&nbsp;», (tant du point de vue intrinsèque que du point de vue des sous-groupes de
+type multiplicatif d'un groupe donné), prend une assez large place dans ce Séminaire
+(exposés VIII à XII). Leur remarquable rigidité (plus grande même à certains égards
+que celle des schémas abéliens, ou des schémas semi-simples) en fait des instruments
+de travail très efficaces pour l'étude de certains groupes plus généraux.</p>
+
+<h2 id="introduction.3">3. —</h2>
+
+<p>À partir de l'exposé XII (à l'exclusion de l'exposé XVIII déjà mentionné) nous
+utiliserons couramment la théorie des groupes algébriques affines sur un corps algé&shy;briquement clos, que le lecteur trouvera dans le Séminaire CHEVALLEY 1956, plus
+particulièrement dans les exposés IV à IX de ce Séminaire. Nous utiliserons également,
+mais dans une moindre mesure, les exposés ultérieurs du Séminaire CHEVALLEY,
+consacrés à la structure des groupes algébriques semi-simples. En effet, nous repren&shy;drons la théorie de CHEVALLEY directement dans le cadre des schémas&nbsp;: on verra
+que de cette façon (même sur un corps de base) l'exposé gagne en simplicité et en
+précision.</p>
+
+<h2 id="introduction.4">4. —</h2>
+
+<p>L'objet principal du présent Séminaire est évidemment de développer des tech&shy;niques qui s'appliquent à l'étude des schémas en groupes sur une base quelconque,
+i.e. essentiellement à l'étude des familles de groupes algébriques. À ce titre, les pro&shy;priétés infinitésimales de telles familles, et en particulier le cas d'un schéma de base
+artinien, jouent un rôle important. Ces propriétés interviennent même pour l'étude
+des groupes algébriques sur un corps \(k\), dans le cas où ce dernier n'est pas parfait,
+pour pouvoir notamment appliquer la technique de descente dans le cas non galoisien.</p>
+
+<!-- p.v -->
+
+<p>Parmi les résultats nouveaux obtenus dans ce cas, signalons l'existence de tores maxi&shy;maux et de sous-groupes de Cartan dans un groupe algébrique lisse quelconque, la
+rationalité de la variété des tores maximaux, et divers résultats connexes (Exp. XIV),
+ou la correspondance entre les «&nbsp;formes&nbsp;» d'un groupe semi-simple et les fibrés prin&shy;cipaux homogènes sous un groupe algébrique semi-simple (en général non connexe)
+convenable (Exp. XXIV). De façon générale, on peut dire que les méthodes requises
+pour travailler sur un corps de base non parfait sont essentiellement celles utilisées
+pour les préschémas de base quelconques, et par là sortent du cadre de la géométrie
+algébrique classique.</p>
+
+<h2 id="introduction.5">5. —</h2>
+
+<p>Il n'a pas semblé utile d'indiquer en tête des exposés rédigés la date ou les
+dates des exposés oraux correspondants du Séminaire. Contentons-nous de dire que
+l'ordre des exposés multigraphiés (de I à XXVI) correspond bien à l'ordre des exposés
+oraux. Par ailleurs, la rédaction du texte définitif est parfois nettement postérieure
+à celle de l'exposé oral, et souvent en diffère assez substantiellement, le texte rédigé
+étant généralement plus détaillé et plus complet (tels les Exp. IV et VII<sub>B</sub>), voire
+sensiblement plus général (tel l'Exp. XII ou VII<sub>B</sub>) que l'exposé oral. D'autres exposés
+rédigés ne correspondent à aucun exposé oral (VI<sub>B</sub>, VII<sub>A</sub>, XV, XVI, XVII, et l'essentiel
+de XXVI), et ont été rédigés et insérés dans le Séminaire multigraphié, soit pour
+fournir des références commodes pour divers autres exposés (c'est notamment le cas de
+VI<sub>B</sub>), soit parce qu'ils constituent un prolongement naturel des notions et techniques
+déjà développées. On notera comme conséquence que la lecture des exposés VII<sub>A</sub>,
+VII<sub>B</sub>, XV, XVI, XVII n'est pas nécessaire pour l'étude du reste du Séminaire, et
+notamment pour la partie de ce Séminaire consacrée aux schémas en groupes réductifs.</p>
+
+<h2 id="introduction.6">6. —</h2>
+
+<p>De la théorie des schémas, nous utiliserons surtout le langage général des sché&shy;mas, exposé dans EGA I, les notions de morphisme plat, morphisme étale, morphisme
+lisse, exposées dans SGA 1, I à V, enfin la théorie de la descente fidèlement plate de
+SGA 1, VIII. Nous avons dans la mesure du possible évité de formuler des hypothèses
+noethériennes inutiles, ce qui nous a obligés en revanche à remplacer l'habituelle hy&shy;pothèse «&nbsp;de type fini&nbsp;» par l'hypothèse «&nbsp;de présentation finie&nbsp;». Pour la notion de
+morphisme de présentation finie, le lecteur consultera EGA IV 1<sup class="footnote-ref"><a id="fnref4" href="#fn4">∗∗∗∗</a></sup>.
+Les résultats
+de SGA 1, I à IV, énoncés le plus souvent dans le contexte noethérien, seront déve&shy;loppés dans le cas général dans EGA IV<sup class="footnote-ref"><a id="fnref4b" href="#fn4">∗∗∗∗</a></sup>,
+où seront développées également en
+détail des méthodes standard pour réduire certains types d'énoncés (faisant interve&shy;nir des hypothèses de présentation finie) au cas noethérien (EGA, paragraphes 8, 9,
+11). Le lecteur qui ne voudra pas admettre ces résultats de EGA IV pourra simplifier
+certains énoncés ou leur démonstration en supposant le préschéma de base localement
+noethérien. Il s'expose cependant à des difficultés dans les cas où la démonstration
+procède par descente de \(\widehat{A}\) à \(A\), où \(\widehat{A}\) est le complété d'un anneau local noethérien \(A\),
+car cette méthode amène à introduire l'anneau (en général non noethérien) \(\widehat{A} \otimes_A \widehat{A}\).</p>
+
+<!-- p.vi -->
+
+<h2 id="introduction.7">7. —</h2>
+
+<p>Les références se feront suivant le système décimal habituel&nbsp;: la référence 5.7.11
+renvoie à la proposition (ou lemme, définition…) de ce nom dans le même exposé&nbsp;;
+dans la référence XVII 7.8 le chiffre romain indique le numéro de l'exposé. Nous
+utiliserons les sigles suivants pour nos références standard&nbsp;:</p>
+
+<table class="tabular">
+<tr>
+  <td>BIBLE</td>
+  <td>=</td>
+  <td>Séminaire CHEVALLEY «&nbsp;Groupes de Lie algébriques&nbsp;»,
+  1956/58</td>
+</tr>
+<tr>
+  <td>EGA X.Y.Z</td>
+  <td>=</td>
+  <td>J. DIEUDONNÉ et A. GROTHENDIECK, <em>Éléments de Géo&shy;métrie Algébrique</em>, Chap. X, par. Y, N° Z.</td>
+</tr>
+<tr>
+  <td>SGA X Y</td>
+  <td>=</td>
+  <td>Séminaire de Géométrie Algébrique du Bois-Marie, année X,
+  exposé Y.</td>
+</tr>
+<tr>
+  <td>TDTE</td>
+  <td>=</td>
+  <td>A. GROTHENDIECK, <em>Techniques de descente et Théorèmes
+  d'existence en Géométrie Algébrique</em>, exposés dans le Séminaire
+  Bourbaki entre 1959 et 1962.</td>
+</tr>
+</table>
+
+<div id="footnotes">
+<ol>
+<li id="fn1"><p>(∗) Un tel point de vue semble avoir été envisagé pour la première fois il y a huit ou neuf ans à propos
+de la théorie des groupes formels par P. Cartier, qui n'a pas pris la peine malheureusement de le
+préciser et de le systématiser comme il le méritait. <a class="backref" href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>(∗∗) Pour une étude plus approfondie du passage au quotient, notamment par les groupes réductifs,
+voir l'importante étude de D. MUMFORD, <em>Geometric Invariant Theory</em>, Ergebnisse der Mathematik,
+Bd 34, Springer 1965. Observons que sur un point important, la terminologie de ce livre ne concorde
+pas avec la nôtre, car sur un corps de caractéristique \(p > 0\), les groupes que Mumford appelle
+«&nbsp;réductifs&nbsp;», sont les groupes lisses de type multiplicatif au sens du Séminaire. On peut sans doute
+considérer que l'acception de Mumford du sens du mot «&nbsp;réductif&nbsp;», qui perd sa signification sur une
+base qui n'est pas un corps, a été adoptée par lui à titre provisoire et comme une sorte de pis aller
+(et c'est aussi à peu près ce qu'explique Mumford pour d'autres motifs, dès le second alinéa de sa
+préface&nbsp;!). <a class="backref" href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>(∗∗∗) C'est là le résultat essentiel de la thèse de M. Demazure (<em>schémas en groupes réductifs</em>, Bull. de
+la Soc. Math. de France, 1965, p. 369–413). <a class="backref" href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>(∗∗∗∗) Depuis la rédaction de cette introduction, les quatre parties (§§ 1 à 21) de EGA IV sont parues. <a class="backref" href="#fnref4">↩</a></p></li>
+</ol>
+</div>
+
+</body>
+</html>

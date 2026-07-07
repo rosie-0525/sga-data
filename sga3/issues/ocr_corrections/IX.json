@@ -1,0 +1,146 @@
+[
+ {
+  "where": "IX.3.3bis",
+  "before": "tel que \\(H''_0 = \\mathrm{int}(g_0)(H_0)\\)",
+  "after": "tel que \\(H'_0 = \\mathrm{int}(g_0)(H_0)\\)",
+  "evidence": "PDF p. 39: Corollaire 3.3 bis reads « Soit g_0 ∈ G_0(S_0) tel que H'_0 = int(g_0)(H_0) » — only H and H′ are defined in 3.2 bis, no H″."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4, paragraph 'On a donc un diagramme commutatif à lignes exactes :')",
+  "before": "(display diagram missing in fr JSON — paragraph ended at 'lignes exactes :' and next block began 'où toutes les flèches verticales…')",
+  "after": "appended the xymatrix diagram 0 → K^i_m → A_m → O(T^i_m) → 0 over 0 → K^i_n → A_n → O(T^i_n) → 0 with surjective vertical arrows",
+  "evidence": "PDF p. 44 shows the two-row exact-sequence diagram; 01-transcribed/IX.html lines 452–457 already contained it — it was dropped during HTML→JSON conversion. Fixed in fr JSON only."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "(i.e. \\(\\mathrm{T} = \\bigcap_{i \\in J} \\mathrm{T}^i\\)) où \\(\\mathrm{K}_n\\) désigne l'image de K dans \\(A_n\\).",
+  "after": "(i.e. \\(\\mathrm{T} = \\bigcap_{i \\in J} \\mathrm{T}^i\\)). Notons alors que pour tout n, on a \\(\\mathrm{K}_n = \\sum_{i \\in J} \\mathrm{K}^i_n\\), où \\(\\mathrm{K}_n\\) désigne l'image de K dans \\(A_n\\).",
+  "evidence": "PDF p. 44: « Notons alors que pour tout n, on a K_n = Σ_{i∈J} K^i_n où K_n désigne l'image de K dans A_n » — the sentence had been dropped, leaving a dangling 'où' clause."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "Rappelons que \\(f^i\\) désigne l'image de \\(f\\) dans \\(\\mathscr{O}(Z^i)\\) dans \\(\\mathscr{O}(Z^i_n)\\)",
+  "after": "Rappelons que \\(f^i\\) désigne l'image de \\(f \\in B = \\mathscr{O}(X)\\) dans \\(\\mathscr{O}(Z^i)\\)",
+  "evidence": "PDF p. 44: « Rappelons que f^i désigne l'image de f ∈ B = O(X) dans O(Z^i) » — the double 'dans' was a garble."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "Notant \\(f''_n\\) l'image de \\(f\\) dans \\(B''_{(n)} = B''/\\mathfrak{m}^{n+1}B''\\)",
+  "after": "Notant \\(f''\\) l'image de \\(f\\) dans \\(B'' = B \\otimes_A A''\\), et \\(f''_{(n)}\\) son image dans \\(B''_{(n)} = B''/\\mathfrak{m}^{n+1}B''\\)",
+  "evidence": "PDF p. 45: « Notant f″ l'image de f dans B″ = B ⊗_A A″, et f″_{(n)} son image dans B″_{(n)} = B″/m^{n+1}B″ »."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "l'image \\(s''\\) de \\(s'\\) dans S″ est le point fermé de l'idéal maximal \\(\\mathfrak{m}''\\) de B″",
+  "after": "l'image \\(s''\\) de \\(s'\\) dans S″ est le point fermé de S″, correspondant à l'idéal maximal \\(\\mathfrak{m}''\\) de B″",
+  "evidence": "PDF p. 45: « l'image s″ de s′ dans S″ est le point fermé de S″, correspondant à l'idéal maximal m″ de B″ »."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "\\(Z^{i\\prime\\prime}_n = Z^i \\times_{S''_n} \\mathrm{Spec}(B''_n)\\)",
+  "after": "\\(Z^{i\\prime\\prime}_n = Z^i \\times_S S''_n = \\mathrm{Spec}(B''_n)\\)",
+  "evidence": "PDF p. 45: « Z″^i_n = Z^i ×_S S″_n = Spec(B″_n) »."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "s'annule sur \\(Z^i_n\\), pour tout i",
+  "after": "s'annule sur \\(Z^{i\\prime\\prime}_n\\), pour tout i",
+  "evidence": "PDF p. 45: « l'image f″_n de f″_{(n)} dans B″_n s'annule sur Z^{i″}_n, pour tout i »."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4, displayed equation)",
+  "before": "Z^{i\\prime\\prime}_0 = Z^{i\\prime\\prime}_n \\times_{S''_n} \\kappa(s'') = Z^i_s \\times_{\\kappa(s)} \\kappa(s'') = X_s \\times_{\\kappa(s)} \\kappa(s'')",
+  "after": "Z^{i\\prime\\prime}_0 = Z^{i\\prime\\prime}_n \\times_{S''_n} \\kappa(s'') = Z^i_s \\times_{\\kappa(s)} \\kappa(s'')  (and the following prose becomes X''_0 = X''_n ×_{S''_n} κ(s'') = X_s ×_{κ(s)} κ(s''))",
+  "evidence": "PDF p. 45: the display ends at Z^i_s ×_{κ(s)} κ(s″); « = X_s ×_{κ(s)} κ(s″) » belongs to the fiber X″_0 equation in the prose, where X′_0 was also a garble for X″_0."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4)",
+  "before": "Donc \\(S''_n, X''_n, (Z^{i\\prime\\prime}_n)\\), et \\(S''_0\\) vérifient les hypothèses du lemme 4.2 ; il s'ensuit donc que \\(f''_n \\in \\mathfrak{m}''^{n+1}B''\\)",
+  "after": "Donc \\(S''_n, X''_n, (Z^{i\\prime\\prime}_n)_{i \\in I}\\), et \\(S''_0 = \\mathrm{Spec}\\,\\kappa(s'')\\) vérifient les hypothèses du lemme 4.2 ; il s'ensuit donc que \\(f''_n = 0\\), i.e. \\(f'' \\in \\mathfrak{m}''^{n+1}B''\\)",
+  "evidence": "PDF p. 45: « Donc S″_n, X″_n, (Z^{i″}_n)_{i∈I}, et S″_0 = Spec κ(s″) vérifient les hypothèses du lemme 4.2 ; il s'ensuit donc que f″_n = 0, i.e. f″ ∈ m″^{n+1}B″ »."
+ },
+ {
+  "where": "IX-4 (proof of Lemme 4.4, setup)",
+  "before": "et \\(X'', Z''_{i,n}\\) déduits de X, \\(Z_i\\) par le changement de base",
+  "after": "et \\(X'', Z^{i\\prime\\prime}_n\\) déduits de X, \\(Z^i\\) par le changement de base",
+  "evidence": "PDF p. 42: « on considère S″ = Spec(A″) et X″, Z^{i″}_n déduits de X, Z^i par le changement de base S″ → S »."
+ },
+ {
+  "where": "IX-4 first paragraph (footnote * )",
+  "before": "fr JSON references footnote IX-fn-s1 but its text is absent from the page's footnotes array",
+  "after": "left unchanged (structure must mirror fr); footnote text exists in 01-transcribed/IX.html line 956",
+  "evidence": "unverified suspicion — HTML→JSON build artifact (starred footnotes not collected), not an OCR issue; en file mirrors fr structure."
+ },
+ {
+  "where": "IX.4.7 a)",
+  "before": "on peut supposer k algébriquement clos, i.e. de la forme D_k(M)",
+  "after": "on peut supposer k algébriquement clos et G diagonalisable, i.e. de la forme D_k(M)",
+  "evidence": "PDF p. 47: « on peut supposer k algébriquement clos et G diagonalisable, i.e. de la forme Dk(M) »."
+ },
+ {
+  "where": "IX.4.5 (end of proof)",
+  "before": "ce qui résulte de EGA IV_3, 11.9.10.",
+  "after": "ce qui résulte de EGA IV_3, 11.9.10 b).",
+  "evidence": "PDF p. 46: « ce qui résulte de EGA IV3, 11.9.10 b) »."
+ },
+ {
+  "where": "IX.4.6 (proof)",
+  "before": "E_i contient l'ensemble Ass O_{(X_i)_s} des points « associés »…",
+  "after": "E_i est l'ensemble des s ∈ S_i tels que (U_i)_s contienne l'ensemble Ass O_{(X_i)_s} des points « associés »…",
+  "evidence": "PDF p. 46: « E_i est l'ensemble des s ∈ Si tels que (Ui)s contienne l'ensemble Ass O(Xi)s des points “associés” au faisceau structural de (Xi)s »."
+ },
+ {
+  "where": "IX.5.0 (proof)",
+  "before": "un sous-schéma fermé d'un ouvert de H. Mais K, donc U, comme le morphisme H → S est fini…",
+  "after": "un sous-schéma fermé d'un ouvert U de H. Mais K, donc U, contient la fibre K_s = H_s ; comme le morphisme H → S est fini…",
+  "evidence": "PDF p. 48: « c'est a priori un sous-schéma fermé d'un ouvert U de H. Mais K, donc U contient la fibre Ks = Hs ; comme le morphisme H → S est fini, donc fermé… »."
+ },
+ {
+  "where": "IX.5.0 (proof)",
+  "before": "il en est séparé pour la topologie m-adique",
+  "after": "il est séparé pour la topologie m-adique",
+  "evidence": "PDF p. 48: « comme B est un A-module fini, il est séparé pour la topologie m-adique »."
+ },
+ {
+  "where": "IX.5.1 b)",
+  "before": "nous pouvons encore supposer S local du point fermé s",
+  "after": "nous pouvons encore supposer S local de point fermé s",
+  "evidence": "PDF p. 49."
+ },
+ {
+  "where": "IX.5.1 b)",
+  "before": "entraîne u′ ∘ f_H = v′ ∘ f_H, puisque f_H est un épimorphisme",
+  "after": "entraîne u′ ∘ f_H = v′ ∘ f_H, d'où u = v, puisque f_H est un épimorphisme",
+  "evidence": "PDF p. 49: « entraîne u′ ◦ fH = v′ ◦ fH, d'où u = v, puisque fH est un épimorphisme »."
+ },
+ {
+  "where": "IX.5.1 b)",
+  "before": "on peut supposer H diagonalisable",
+  "after": "on peut supposer de plus H diagonalisable",
+  "evidence": "PDF p. 49."
+ },
+ {
+  "where": "IX.5.1 b)",
+  "before": "Notons H_i = D_{S_i}(M) provient, pour tout i, du groupe diagonalisable H_i = D_{S_i}(M).",
+  "after": "Notons que H = D_S(M) provient, pour tout i, du groupe diagonalisable H_i = D_{S_i}(M).",
+  "evidence": "PDF p. 49: « Notons que H = DS(M) provient, pour tout i, du groupe diagonalisable Hi = DSi(M) »."
+ },
+ {
+  "where": "IX.5.1 b)",
+  "before": "ρ_s égale la deuxième projection, il en est de même pour ρ_i",
+  "after": "ρ_s = ρ_i ×_{κ(s_i)} κ(s) égale la deuxième projection, il en est donc de même pour ρ_i",
+  "evidence": "PDF p. 49: « ρs = ρi ×κ(si) κ(s) égale la deuxième projection, il en est donc de même pour ρi »."
+ },
+ {
+  "where": "IX.5.1 b)",
+  "before": "De même, comme u_s = v_s, d'où aussitôt la conclusion annoncée.",
+  "after": "De même, comme u_s = v_s, on a (u_i)_{s_i} = (v_i)_{s_i}. On peut alors appliquer a) à la situation sur S_i, d'où aussitôt la conclusion annoncée.",
+  "evidence": "PDF p. 49: « De même, comme us = vs on a (ui)si = (vi)si. On peut alors appliquer a) à la situation sur Si, d'où aussitôt la conclusion annoncée »."
+ },
+ {
+  "where": "IX footnote 29",
+  "before": "Car K = H équivaut à K_Ŝ = H_Ŝ",
+  "after": "Car K = H si K_Ŝ = H_Ŝ",
+  "evidence": "PDF p. 49 footnote (29): « Car K = H si K_Ŝ = H_Ŝ, cf. SGA 1, VIII 5.4 »."
+ }
+]
