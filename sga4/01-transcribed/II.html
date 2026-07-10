@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 4 — Exposé II. Topologies et faisceaux</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="II">EXPOSÉ II<br>TOPOLOGIES ET FAISCEAUX<span class="author">par J.L. Verdier</span></h1>
+
+<p>Après la définition des topologies et prétopologies (n° 1) et des faisceaux
+d'ensembles (n° 2), on aborde dans le n° 3 le théorème central de cet exposé (3.4)&nbsp;:
+l'existence du faisceau associé à un préfaisceau. Afin de couvrir tous les cas rencontrés
+dans la pratique, l'existence de ce foncteur est démontrée pour les préfaisceaux sur un
+\(\mathcal{U}\)-site (3.0.2). Les n° 4 et n° 5 tirent les conséquences de ce théorème sur le
+comportement des limites inductives et projectives dans les catégories de faisceaux. Au
+n° 6 on définit et étudie les faisceaux à valeurs dans des catégories quelconques, pour
+porter tout de suite l'attention sur les faisceaux d'anneaux, de groupes, de modules
+etc... .</p>
+
+<h2 id="II.1">1. Topologies, familles couvrantes, prétopologies</h2>
+
+<div class="thm thm-remark definition" id="II.1.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.1</span></div>
+  <div class="thm-body">
+  <p>Une <em>topologie</em> sur une catégorie \(C\) est la donnée, pour tout objet \(X\) de \(C\),
+d'un ensemble \(J(X)\) de cribles de \(X\), cette donnée étant soumise aux axiomes suivants&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(T 1)</span> <p>(Stabilité par changement de base). Pour tout objet \(X\) de \(C\), tout crible
+\(R \in J(X)\), tout morphisme \(f : Y \to X\) (\(Y \in \mathrm{ob}\,(C)\)), le crible \(R \times_X Y\) de \(Y\)
+appartient à \(J(Y)\).</p></li>
+  <li><span class="item-label">(T 2)</span> <p>(Caractère local). Si \(R\) et \(R'\) sont deux cribles de \(X\), si \(R \in J(X)\), et
+si pour tout \(Y \in \mathrm{ob}\,(C)\) et tout morphisme \(Y \to R\) le crible \(R' \times_X Y\) appartient à
+\(J(Y)\), alors \(R'\) appartient à \(J(X)\).</p></li>
+  <li><span class="item-label">(T 3)</span> <p>Pour tout objet \(X\) de \(C\), \(X\) appartient à \(J(X)\).</p></li>
+  </ol>
+  </div>
+</div>
+
+<h3 id="II.1.1.1">1.1.1.</h3>
+<p>Les cribles appartenant à \(J(X)\) seront appelés les <em>cribles couvrant \(X\)</em>, ou
+encore les <em>raffinements de \(X\)</em>. Des axiomes (T1), (T2), (T3), on déduit immédiatement que
+l'ensemble des cribles couvrant \(X\) est stable par intersections finies, et que tout crible
+contenant un crible couvrant est un crible couvrant. L'ensemble \(J(X)\), ordonné par
+inclusion, est donc cofiltrant (I 8).</p>
+
+<h3 id="II.1.1.2">1.1.2.</h3>
+<p>Soient \(C\) une catégorie, \(T\) et \(T'\) deux topologies sur \(C\). La topologie \(T\) est dite
+<em>plus fine que la topologie \(T'\)</em> si pour tout objet \(X\) de \(C\), tout raffinement de \(X\) pour la
+topologie \(T'\) est un raffinement de \(X\) pour la topologie \(T\). On définit, de cette façon, une
+structure d'ordre sur l'ensemble des topologies.</p>
+
+<h3 id="II.1.1.3">1.1.3.</h3>
+<p>Soit \((T_i)_{i \in I}\) une famille de topologies sur \(C\). Les ensembles, pour tout objet \(X\)
+de \(C\), des cribles de \(X\) qui sont couvrants pour toutes les topologies \(T_i\), vérifient les
+axiomes (T 1), (T 2) et (T 3) et définissent donc une topologie&nbsp;: la <em>topologie intersection</em>
+des \(T_i\), i.e. la borne inférieure des \(T_i\). C'est la plus fine des topologies qui soit moins
+fine que toutes les topologies \(T_i\). La famille \((T_i)_{i \in I}\) admet par suite une <em>borne
+supérieure</em>&nbsp;: la topologie intersection des topologies plus fines que chacune des \(T_i\).</p>
+
+<h3 id="II.1.1.4">1.1.4.</h3>
+<p>En particulier la donnée \(J(X) = \) l'ensemble de tous les cribles de \(X\), est une
+topologie plus fine que toute topologie sur \(C\), que nous appellerons <em>topologie discrète</em>.</p>
+<p>Il existe une topologie moins fine que toute topologie sur \(C\)&nbsp;; la topologie pour
+laquelle \(J(X) = \{X\}\) pour tout \(X\) de \(C\). Cette topologie est appelée la <em>topologie grossière</em>
+ou <em>chaotique</em>.</p>
+
+<h3 id="II.1.1.5">1.1.5.</h3>
+<p>Une catégorie \(C\) munie d'une topologie est appelée un <em>site</em>. La catégorie \(C\) est
+appelée la <em>catégorie sous-jacente au site</em>.</p>
+
+<div class="thm thm-remark definition" id="II.1.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.2</span></div>
+  <div class="thm-body"><p>Soient \(C\) un site, \(X\) un objet de \(C\). Une famille de morphismes
+\((f_\alpha : X_\alpha \to X)\), \(\alpha \in A\), est dite <em>couvrante</em> si le crible engendré par la famille \(f_\alpha\)
+(I 4.3.3) est un crible couvrant \(X\).</p></div>
+</div>
+
+<h3 id="II.1.1.6">1.1.6.</h3>
+<p>Soit \(C\) une catégorie. Donnons-nous pour chaque objet \(X\) de \(C\), un ensemble de
+familles de morphismes de but \(X\). Il existe alors une topologie \(T\) qui est la moins fine des
+topologies pour lesquelles les familles données soient couvrantes, à savoir l'intersection
+(1.1.3) de toutes les topologies en question. On appelle cette topologie la <em>topologie
+engendrée par les ensembles de familles de morphismes donnés</em>. Il est malaisé de décrire,
+en général, tous les cribles couvrants de cette topologie. Cependant la situation est plus
+agréable dans le cas suivant&nbsp;:</p>
+
+<div class="thm thm-remark definition" id="II.1.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">1.3</span></div>
+  <div class="thm-body">
+  <p>Soit \(C\) une catégorie. Une <em>prétopologie</em> sur \(C\) est la donnée, pour chaque
+objet \(X\) de \(C\), d'un ensemble \(\mathrm{Cov}(X)\) de familles de morphismes de but \(X\), cette donnée
+étant soumise aux axiomes suivants&nbsp;:</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(PT 0)</span> <p>Pour tout objet \(X\) de \(C\), les morphismes des familles de morphismes de
+\(\mathrm{Cov}(X)\) sont quarrables. (Rappelons qu'un morphisme \(Y \to X\) est dit <em>quarrable</em> si pour
+tout morphisme \(Z \to X\) le produit fibré \(Z \times_X Y\) est représentable).</p></li>
+  <li><span class="item-label">(PT 1)</span> <p>Pour tout objet \(X\) de \(C\), toute famille \((X_\alpha \to X)_{\alpha \in A}\) appartenant
+à \(\mathrm{Cov}(X)\), et tout morphisme \(Y \to X\) (\(Y \in \mathrm{ob}\,(C)\)), la famille&nbsp;:
+\((X_\alpha \times_X Y \to Y)_{\alpha \in A}\) appartient à \(\mathrm{Cov}(Y)\). (Stabilité par changement de base).</p></li>
+  <li><span class="item-label">(PT 2)</span> <p>Si \((X_\alpha \to X)_{\alpha \in A}\) appartient à \(\mathrm{Cov}(X)\) et si pour chaque
+\(\alpha \in A\), \((X_{\beta_\alpha} \to X_\alpha)_{\beta_\alpha \in B_\alpha}\) appartient à \(\mathrm{Cov}(X_\alpha)\), alors la famille
+\((X_\gamma \to X)_{\gamma \in \coprod_{\alpha \in A} B_\alpha}\) (où pour tout \(\gamma = (\alpha, \beta_\alpha)\), \(\alpha \in A\), \(\beta_\alpha \in B_\alpha\), le
+morphisme \(X_\gamma \to X\) est le morphisme composé&nbsp;: \(X_\gamma = X_{\beta_\alpha} \to X_\alpha \to X\)) appartient
+à \(\mathrm{Cov}(X)\). (Stabilité par composition).</p></li>
+  <li><span class="item-label">(PT 3)</span> <p>La famille&nbsp;: \(X \xrightarrow{\ \mathrm{id}_X\ } X\) appartient à \(\mathrm{Cov}(X)\).</p></li>
+  </ol>
+  </div>
+</div>
+
+<h3 id="II.1.3.1">1.3.1.</h3>
+<p>La définition de 1.1.6 nous permet de considérer, pour une <em>prétopologie</em> donnée sur
+\(C\), la <em>topologie</em> sur \(C\) engendrée par cette prétopologie. Notons que si \(C\) est une catégorie
+où les produits fibrés sont représentables, alors toute topologie \(T\) de \(C\) peut être définie
+par une prétopologie, savoir celle pour laquelle \(\mathrm{Cov}(X)\) est formé de <em>toutes</em> les familles
+couvrant \(X\) pour la topologie \(T\).</p>
+
+<div class="thm thm-plain proposition" id="II.1.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.4</span></div>
+  <div class="thm-body"><p>Soient \(C\) une catégorie, \(E\) une prétopologie sur \(C\), \(T\)
+la topologie définie par la prétopologie \(E\) (1.1.6), \(X\) un objet de \(C\). Désignons par \(J_E(X)\)
+l'ensemble des cribles de \(X\) engendrés par les familles de la prétopologie, et par \(J_T(X)\)
+l'ensemble des raffinements de \(X\) pour la topologie \(T\). Alors \(J_E(X)\) est cofinal dans \(J_T(X)\).
+En d'autres termes, pour qu'un crible \(R\) de \(X\) appartienne à \(J_T(X)\), il faut et il suffit qu'il
+existe un crible \(R' \in J_E(X)\) tel que \(R' \subset R\).</p></div>
+</div>
+
+<p>Preuve. Soit, pour tout objet \(X\) de \(C\), \(J'(X)\) l'ensemble des cribles de \(X\) qui
+contiennent un crible de \(J_E(X)\). On a évidemment \(J'(X) \subset J_T(X)\). Pour montrer que
+\(J'(X) = J_T(X)\), il suffit de montrer que la donnée des \(J'(X)\) définit une topologie sur \(C\). Or
+les \(J'(X)\) vérifient évidemment les axiomes (T 1) et (T 3). Il reste donc à vérifier (T 2). Pour
+cela il suffit de démontrer que si \(R'\) est un sous-crible de \(R \in J_E(X)\) tel que pour tout
+\(Y \to R\), le crible \(R' \times_X Y\) de \(Y\) appartienne à \(J'(X)\), le crible \(R'\) appartient à \(J'(X)\). Or le
+crible \(R\) est engendré par une famille \((X_\alpha \to X)\) appartenant à \(\mathrm{Cov}(X)\), et pour tout \(\alpha\) le
+crible \(R' \times_X X_\alpha\) contient un crible engendré par une famille \((X_{\beta_\alpha} \to X_\alpha)\) appartenant
+à \(\mathrm{Cov}(X_\alpha)\). On en déduit que le crible \(R'\) contient un crible engendré par la famille
+\((X_{\beta_\alpha} \to X)\). Donc, d'après l'axiome (PT 2), \(R'\) contient un crible de \(J_E(X)\) et par suite
+appartient à \(J'(X)\), cqfd.</p>
+
+<h2 id="II.2">2. Faisceaux d'ensembles</h2>
+
+<div class="thm thm-remark definition" id="II.2.1">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">2.1</span></div>
+  <div class="thm-body"><p>Soit \(C\) un site dont la catégorie sous-jacente est une
+\(\mathcal{U}\)-catégorie. Un préfaisceau \(F\) à valeurs dans \(\mathcal{U}\text{-Ens}\) est dit <em>séparé</em> (resp. est un
+<em>faisceau</em>) si pour tout crible \(R\) couvrant \(X\), objet de \(C\), l'application&nbsp;:
+\[
+\mathrm{Hom}_{\widehat{C}}(X,F) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R,F)
+\]
+est une injection (resp. une bijection). La sous-catégorie pleine de \(\widehat{C}\) dont les objets
+sont les faisceaux est appelée la <em>catégorie des faisceaux d'ensembles sur \(C\)</em>, et est notée le
+plus souvent \(\widetilde{C}\) <sup class="footnote-ref"><a id="fnref1" href="#fn1">(1)</a></sup>. Lorsqu'aucune ambiguïté n'en résultera, nous dirons
+simplement <em>catégorie des faisceaux sur \(C\)</em>&nbsp;; en revanche nous préciserons quelquefois en
+disant catégorie des faisceaux à valeur dans \(\mathcal{U}\text{-Ens}\) ou encore catégorie des
+\(\mathcal{U}\)-faisceaux.</p></div>
+</div>
+
+<div class="thm thm-plain proposition" id="II.2.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.2</span></div>
+  <div class="thm-body"><p>Soient \(C\) une \(\mathcal{U}\)-catégorie, \(\mathscr{F} = (F_i)_{i \in I}\) une famille
+de \(\mathcal{U}\)-préfaisceaux sur \(C\). Désignons, pour chaque objet \(X\) de \(C\), par \(J_{\mathscr{F}}(X)\) l'ensemble des
+cribles \(R \hookrightarrow X\) de \(C\) tels que pour tout morphisme \(Y \to X\) de \(C\) de but \(X\), le crible
+\(R \times_X Y\) possède la propriété suivante&nbsp;: l'application
+\[
+\mathrm{Hom}_{\widehat{C}}(Y,F_i) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R \times_X Y, F_i)
+\]
+est bijective (resp. injective) pour tout \(i \in I\). Alors les ensembles \(J_{\mathscr{F}}(X)\) définissent une
+topologie sur \(C\), qui est la plus fine des topologies pour laquelle chacun des \(F_i\) soit un
+faisceau (resp. un préfaisceau séparé).</p></div>
+</div>
+
+<p>Preuve. Les \(J_{\mathscr{F}}(X)\) vérifient évidemment des axiomes (T 1) et (T 3). Il reste à
+montrer qu'ils vérifient (T 2). Pour cela il suffit de montrer que&nbsp;:</p>
+<p>1) Si \(R' \hookrightarrow R \hookrightarrow X\) sont deux cribles de \(X\), tels que \(R \in J_{\mathscr{F}}(X)\) et tels que pour
+tout \(Y \to R\) (où \(Y\) est un objet de \(C\)) le crible \(R' \times_X Y\) appartienne à \(J_{\mathscr{F}}(Y)\), alors le
+crible \(R'\) appartient à \(J_{\mathscr{F}}(X)\).</p>
+<p>2) Si \(R' \hookrightarrow R \hookrightarrow X\) sont deux cribles de \(X\) tels que \(R' \in J_{\mathscr{F}}(X)\), alors le crible \(R\)
+appartient à \(J_{\mathscr{F}}(X)\).</p>
+<p>Notons que, dans le cas 2), pour tout \(Y \to R\) (où \(Y\) est un objet de \(C\)) le crible
+\(R' \times_X Y\) appartient à \(J_{\mathscr{F}}(Y)\). Or, dans les cas 1) et 2), \(R\) est limite inductive des \(Y\), objets
+de \(C\), au-dessus de \(R\) (I 3.4). Les limites inductives dans \(\widehat{C}\) sont universelles (I 3.3). Par
+suite dans les cas 1) et 2), \(R'\) est limite inductive des \(R' \times_X Y\). Or, dans les cas 1) et (2),
+\(R' \times_X Y\) appartient à \(J_{\mathscr{F}}(Y)\). On en déduit, en passant à la limite inductive sur les objets \(Y\)
+de \(C\) au-dessus de \(R\), que l'application
+\[
+\mathrm{Hom}_{\widehat{C}}(R,F_i) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R',F_i)
+\]
+est une bijection (resp. une injection) pour tout \(i \in I\). Par suite les applications
+\[
+\mathrm{Hom}_{\widehat{C}}(X,F_i) \to \mathrm{Hom}_{\widehat{C}}(R',F_i) \quad\text{et}\quad \mathrm{Hom}_{\widehat{C}}(X,F_i) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R,F_i)
+\]
+sont, dans les cas 1) et 2), des bijections (resp. des injections). De plus, les hypothèses 1)
+et 2) sont visiblement stables par changement de base quelconque \(Y \to X\) (\(Y\) objet de \(C\)). On
+en déduit alors que pour tout objet \(Y\) de \(C\) au-dessus de \(X\) et tout \(i \in I\), les applications
+\[
+\mathrm{Hom}_{\widehat{C}}(Y,F_i) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R \times_X Y, F_i)
+\]
+\[
+\mathrm{Hom}_{\widehat{C}}(Y,F_i) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R' \times_X Y, F_i)
+\]
+sont dans les deux cas des bijections (resp. des injections)&nbsp;; ce qui montre que \(R'\) et \(R\)
+appartiennent à \(J_{\mathscr{F}}(X)\), cqfd.</p>
+
+<div class="thm thm-plain corollaire" id="II.2.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.3</span></div>
+  <div class="thm-body"><p>Soient \(C\) une \(\mathcal{U}\)-catégorie, et pour tout \(X\) de \(C\) un ensemble
+\(K(X)\) de cribles de \(X\). On suppose que les \(K(X)\) vérifient l'axiome (T 1) de (1.1). Pour qu'un
+préfaisceau \(F\) soit un faisceau (resp. un préfaisceau séparé) pour la topologie engendrée
+(1.1.6) par les \(K(X)\), il faut et il suffit que pour tout objet \(X\) de \(C\) et tout crible \(R \in K(X)\),
+l'application
+\[
+\mathrm{Hom}_{\widehat{C}}(X,F) \longrightarrow \mathrm{Hom}_{\widehat{C}}(R,F)
+\]
+soit une bijection (resp. une injection).</p></div>
+</div>
+
+<div class="thm thm-plain corollaire" id="II.2.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.4</span></div>
+  <div class="thm-body"><p>En particulier, soit \(C\) une \(\mathcal{U}\)-catégorie munie d'une
+prétopologie. Pour qu'un préfaisceau \(F\) soit un faisceau (resp. un préfaisceau séparé), il
+faut et il suffit que pour tout objet \(X\) de \(C\) et pour toute famille \((X_\alpha \to X)\) appartenant à
+\(\mathrm{Cov}(X)\), le diagramme d'ensembles
+\[
+F(X) \longrightarrow \prod_{\alpha \in A} F(X_\alpha) \rightrightarrows \prod_{(\alpha,\beta) \in A \times A} F(X_\alpha \times_X X_\beta)
+\]
+soit exact (resp. l'application
+\[
+F(X) \longrightarrow \prod_{\alpha \in A} F(X_\alpha)
+\]
+soit injective).</p></div>
+</div>
+
+<p>Preuve. On applique 2.3, puis (I 3.5) et (I 2.12).</p>
+<p>On retrouve avec le corollaire 2.4 la définition donnée dans [1].</p>
+
+<div class="thm thm-remark definition" id="II.2.5">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">2.5</span></div>
+  <div class="thm-body"><p>Soit \(C\) une \(\mathcal{U}\)-catégorie. On appelle <em>topologie canonique</em>
+de \(C\) la topologie la plus fine pour laquelle les foncteurs représentables soient des faisceaux
+(2.2). Un crible couvrant \(X\) pour la topologie canonique sera appelé <em>crible épimorphique
+strict universel</em>. Une famille couvrante pour la topologie canonique sera appelée <em>famille
+épimorphique stricte universelle</em>. Lorsque de plus les morphismes de la famille couvrante
+sont quarrables, la famille sera dite <em>épimorphique effective universelle</em> [2].</p></div>
+</div>
+
+<div class="thm thm-remark remarque" id="II.2.5.1">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.5.1</span></div>
+  <div class="thm-body"><p>Pour presque tous les sites qu'on a eu à utiliser jusqu'à
+présent, la topologie est <em>moins fine</em> que la topologie canonique, en d'autres termes, les
+foncteurs représentables sur \(C\) sont des faisceaux, i.e. les familles couvrantes de \(C\) sont
+épimorphiques strictes universelles. La seule exception à cette règle est le site \(\widehat{C}\) étudié au
+n° 5 (dont la topologie est <em>plus fine</em>, et le plus souvent strictement plus fine, que la
+topologie canonique).</p></div>
+</div>
+
+<div class="thm thm-plain proposition" id="II.2.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.6</span></div>
+  <div class="thm-body"><p>Pour qu'un crible \(R \hookrightarrow X\) soit épimorphique strict
+universel, il faut et il suffit que pour tout objet \(Y \to X\) de \(C\) au-dessus de \(X\), et pour tout
+objet \(Z\) de \(C\), l'application&nbsp;:
+\[
+\mathrm{Hom}_C(Y,Z) \longrightarrow \varprojlim_{\widehat{C}/(Y \times_X R)} \mathrm{Hom}_C(\,\cdot\,, Z)
+\]
+soit une bijection.</p></div>
+</div>
+
+<p>Preuve. Immédiat en appliquant 2.2 puis (I 5.3).</p>
+
+<div class="thm thm-remark remarque" id="II.2.7">
+  <div class="thm-head"><span class="thm-name">Remarques</span> <span class="thm-num">2.7</span></div>
+  <div class="thm-body">
+  <p>1) La proposition 2.6 donne une caractérisation des cribles épimorphiques
+stricts universels d'une catégorie \(C\), indépendante de l'univers dans lequel les préfaisceaux
+prennent leurs valeurs, à la seule condition que les ensembles de morphismes \(\mathrm{Hom}(X,Y)\) de
+\(C\) appartiennent à cet univers. Elle permet ainsi de définir la topologie canonique pour
+toute catégorie \(C\), sans qu'il soit pour cela nécessaire de préciser les univers.</p>
+  <p>2) Soient \(C\) un site dont la catégorie sous-jacente soit une \(\mathcal{U}\)-catégorie, \(F\) un
+\(\mathcal{U}\)-préfaisceau et \(\mathcal{V}\) un univers contenant \(\mathcal{U}\). La catégorie sous-jacente à \(C\) est une
+\(\mathcal{V}\)-catégorie, et \(F\) peut être considéré comme un \(\mathcal{V}\)-préfaisceau. Le \(\mathcal{U}\)-préfaisceau \(F\) est un
+faisceau (resp. un préfaisceau séparé) si et seulement si le \(\mathcal{V}\)-préfaisceau \(F\) est un faisceau
+(resp. un préfaisceau séparé). En d'autres termes, la condition pour un préfaisceau \(F\) d'être
+un faisceau (resp. un préfaisceau séparé) ne dépend pas (au sens qu'on vient de préciser) de
+l'univers dans lequel le préfaisceau \(F\) prend ses valeurs. En particulier soient \(C\) un site et \(F\)
+un \(\mathcal{U}\)-préfaisceau&nbsp;; on dit que \(F\) est un faisceau (resp. un préfaisceau séparé) s'il existe un
+univers \(\mathcal{V}\) contenant \(\mathcal{U}\) tel que la catégorie \(C\) soit une \(\mathcal{V}\)-catégorie et tel que \(F\) soit un
+\(\mathcal{V}\)-faisceau (resp. un \(\mathcal{V}\)-préfaisceau séparé). Cette propriété ne dépend pas de l'univers \(\mathcal{V}\).</p>
+  </div>
+</div>
+
+</body>
+</html>
