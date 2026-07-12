@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 4 — Exposé VIII. Foncteurs fibres, supports, étude cohomologique des morphismes finis</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="VIII">EXPOSÉ VIII<br>FONCTEURS FIBRES, SUPPORTS, ÉTUDE COHOMOLOGIQUE DES MORPHISMES FINIS<span class="author">par A. Grothendieck</span></h1>
+
+<h2 id="VIII.1">1. Invariance topologique du topos étale</h2>
+
+<div class="thm thm-plain theorem" id="VIII.1.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">1.1</span></div>
+  <div class="thm-body"><p>Soit \(f : X' \to X\) un morphisme entier surjectif
+  radiciel. Alors le foncteur changement de base
+  \[
+  f^* : X_{\text{ét}} \to X'_{\text{ét}}
+  \]
+  est une équivalence de sites (i.e. une équivalence de catégorie, qui est
+  continue ainsi que tout foncteur quasi-inverse). Par suite les foncteurs
+  \[
+  f_* : \widetilde{X}_{\text{ét}} \to \widetilde{X'}_{\text{ét}}
+  \]
+  \[
+  f^* : \widetilde{X}_{\text{ét}} \to \widetilde{X'}_{\text{ét}}
+  \]
+  sont des équivalences de catégories, quasi-inverses l'une de l'autre.</p></div>
+</div>
+
+<p>La première assertion est bien connue (SGA IX 4.10 et 4.11)
+lorsque \(f\) est de présentation finie ou que \(f\) est plat; le cas général
+se réduit à celui où \(f\) est de présentation finie. En effet, on sait déjà
+que le foncteur \(f^*\) est pleinement fidèle (SGA 1 IX 3.4). Il suffit
+de prouver que \(f^*\) est essentiellement surjectif, i.e. que tout \(Z'\) étale sur \(X'\)
+"provient" d'un \(Z\) étale sur \(X\). Utilisant le fait que \(f\) est un
+homéomorphisme universel, et la pleine fidélité de \(f^*\), on est ramené au
+cas où \(X\), \(X'\), \(Z'\) sont affines, spectres d'anneaux \(A\), \(A'\), \(B'\). Ecrivant
+\(A'\) comme limite inductive de ses sous-\(A\)-algèbres de type fini \(A'_i\), \(B'\)
+provient d'une algèbre étale \(B'_i\) sur un \(A'_i\) (cf. EGA IV 8), ce qui nous
+ramène au cas où \(A'\) est entière et de type fini sur \(A\), donc finie sur
+\(A\). On a alors un \(A\) isomorphisme \(A' \simeq A''/J\), ou \(A'' \simeq A[t_1, \ldots t_n]\) et
+\(J\) est un idéal de \(A''\). Ecrivant \(J\) comme limite inductive de ses sous-idéaux
+\(J_i\) de type fini, et posant \(A'_i = A''/J_i\), on aura encore
+\(A' = \varinjlim_i A'_i\), donc \(B'\) provient d'une algèbre étale \(B'_i\) sur un \(A'_i\) (loco
+citato). D'autre part, comme \(\operatorname{Spec} A' \to \operatorname{Spec} A\) est surjectif, il en est
+de même \(\operatorname{Spec} A'_i \to \operatorname{Spec} A\), et de plus on vérifie facilement que puisque
+\(\operatorname{Spec} A' \to \operatorname{Spec} A\) est radiciel, il en est de même de \(\operatorname{Spec} A'_i \to \operatorname{Spec} A\)
+pour \(i\) assez grand (appliquer EGA IV 1.9.9 à \(\operatorname{Spec} A\)<sup class="footnote-ref"><a id="fnref1" href="#fn1">(∗)</a></sup>). Cela nous ramène
+au cas où \(A'\) est un des \(A'_i\), donc de présentation finie sur \(A\).</p>
+
+<p>Cela prouve la première assertion de 2.1. Le fait que \(f_*\) et
+\(f^*\) soient des équivalences quasi-inverses l'une de l'autre en résulte
+aussitôt.</p>
+
+<div class="thm thm-plain corollary" id="VIII.1.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">1.2</span></div>
+  <div class="thm-body"><p>Soient \(F\) un faisceau abélien sur \(X\), \(F'\) son image
+  inverse sur \(X'\), alors les homomorphismes canoniques
+  \[
+  (*) \qquad H^i(X,F) \to H^i(X',F')
+  \]
+  sont des isomorphismes. De même, si \(F'\) est un faisceau abélien sur \(X'\),
+  \(F\) son image sur \(X\), les homomorphismes canoniques \((*)\) sont des isomor\-phismes.</p></div>
+</div>
+
+<h3 id="VIII.1.3">Exemples 1.3</h3>
+<p>Voici des exemples d'application fréquents de 1.1&nbsp;:</p>
+<p>a) \(X'\) est un sous-schéma de \(X\) ayant même ensemble sous-jacent
+que \(X\), i.e. défini par un nil-Idéal \(I\).</p>
+<p>b) \(X\) est un schéma sur un corps séparablement clos \(k\), \(k'\) est
+une clôture algébrique de \(k\), et \(X' = X \otimes_k k'\).</p>
+<p>c) Soit \(X\) un schéma géométriquement unibranche (par exemple
+une courbe algébrique sur un corps \(k\), n'ayant comme singularités que
+des singularités "cuspidales", à l'exclusion en particulier de points
+doubles ordinaires). Alors, si \(X'\) est le normalisé de \(X_{\text{red}}\), par défi\-nition
+\(X' \to X\) est radiciel, donc 2.1 s'applique.</p>
+
+<h3 id="VIII.1.4">Remarques 1.4</h3>
+<p>Un morphisme \(f\) comme dans 1.1 est un homéomorphisme
+universel, i.e. est un homéomorphisme et reste tel par toute extension de
+la base. Réciproquement, si \(f\) est un homéomorphisme universel
+on prouve que \(f\) satisfait aux hypothèses de 2.1 <sup class="footnote-ref"><a id="fnref2" href="#fn2">(∗)</a></sup>, ce qui explique
+le titre du présent numéro.</p>
+<p>Signalons expressément, à propos de l'exemple 2.3 c), que si
+\(X\) est une courbe algébrique (sur un corps algébriquement clos \(k\) pour
+fixer les idées) ayant au moins un point singulier qui n'est pas "uni\-branche"
+(par exemple un point double ordinaire), alors (\(X'\) désignant
+le normalisé de \(X_{\text{red}}\)) la conclusion de 2.2 est déjà en défaut pour les
+\(H^1\) et des coefficients constants (comparer SGA 1 I 11 a) et SGA 1 IX 5).</p>
+
+<!-- MORE -->
+
+</body>
+</html>
