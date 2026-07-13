@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 4 — Exposé X. Dimension cohomologique : premiers résultats</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="X">EXPOSÉ X<br>DIMENSION COHOMOLOGIQUE : PREMIERS RÉSULTATS<span class="author">par M. Artin</span></h1>
+
+<h3 id="X.sommaire">Sommaire</h3>
+<p>1. Introduction<br>
+2. Résultats auxiliaires pour un corps<br>
+3. Corps des fractions d'un anneau strictement local<br>
+4. Dimension cohomologique : cas \(\ell\) inversible dans \(\mathcal{O}_X\)<br>
+5. Dimension cohomologique : cas \(\ell = p\).<br>
+6. Dimension cohomologique pour un préschéma de type fini sur Spec \(\mathbb{Z}\).</p>
+
+<h2 id="X.1">1. Introduction</h2>
+
+<p>Dans cet exposé on convient, sauf mention expresse du contraire,
+que "faisceau" signifie "faisceau abélien".</p>
+
+<p>Soient \(X\) un schéma et \(\ell \in \mathbb{P}\). "Rappelons" qu'on appelle
+<u>\(\ell\)-dimension cohomologique</u> de \(X\) le plus grand entier \(\operatorname{cd}_\ell X = n\)
+(ou \(= \infty\) si ce nombre n'existe pas) tel que \(H^n(X,F) \neq 0\) pour au moins
+un faisceau de \(\ell\)-torsion \(F\) sur \(X\). Si \(X = \operatorname{Spec} A\), nous écrivons
+\(\operatorname{cd}_\ell A = \operatorname{cd}_\ell \operatorname{Spec} A\). Tenant compte du dictionnaire (VIII 2) on retrouve
+ainsi la notion "classique" de \([\mathrm{CG}]\) dans le cas où \(A = k\) est un corps.
+Comme on a évidemment la formule
+\[
+\operatorname{cd}_\ell \left( \coprod_i X_i \right) = \sup_i \operatorname{cd}_\ell X_i
+\]
+on peut, de façon évidente, étendre la théorie classique à un anneau
+artinien quelconque. Cette théorie est exposée dans \((\mathrm{CG}) = \) "cohomologie
+Galoisienne" de Serre. Nous y apporterons quelques précisions dans le
+n° 2.</p>
+
+<p>Prenons par exemple le cas d'une variété \(X\) algébrique irré-
+ductible, de dimension \(n\), sur un corps séparablement clos \(k\), et fi-
+xons \(\ell \neq \operatorname{car} k\). Un théorème qu'on trouvera dans le n° 4 donne pour la
+dimension cohomologique la majoration \(2n\), qui est la dimension "véri-
+table" de \(X\) (suggérée par l'analogie topologique dans le cas où
+\(k = \mathbb{C}\)). Ce résultat est assez élémentaire à partir de la théorie pour
+les corps, et en fait la majoration par \(2n\) peut être améliorée sauf
+dans le cas où \(X\) est complète : il existe une autre majoration,
+\(2n-1\), qui est vraie chaque fois que dans \(X\) il "manque au moins un
+point". Cette dernière majoration est la bonne "majoration stable", dans le sens
+que chaque \(X\) de dimension \(n\) contient un ouvert de dimension coho-
+mologique \(2n-1\). Une troisième majoration est obtenue pour une variété
+affine, où on obtient \(n\) comme dimension cohomologique. C'est une géné-
+ralisation d'un des théorèmes de Lefschetz pour les sections hyperplanes.
+Ces deux dernières assertions sont plus profondes et ne pourront être
+démontrées que plus tard (XIV).</p>
+
+<p>Notons que la dimension cohomologique n'est pas une notion
+locale (contrairement à ce qui a lieu dans les espaces paracompacts).
+Par exemple un anneau hensélien à corps résiduel séparablement clos est
+de dimension cohomologique nulle, mais si on enlève le point fermé, on
+peut obtenir un nombre arbitrairement grand, savoir \(2n-1\) si \(n = \dim A\)
+dans les cas les plus importants; ce qui est également en accord avec
+l'analogie topologique fournie par la cohomologie de \(U - \{x\}\), où \(U\)
+est un petit voisinage ouvert d'un point \(x\) d'un espace analytique
+complexe.</p>
+
+<h2 id="X.2">2. Résultats auxiliaires sur un corps</h2>
+
+<p>On a le suivant</p>
+
+<div class="thm thm-plain theorem" id="X.2.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.1</span></div>
+  <div class="thm-body"><p>Soit \(k'/k\) une extension de type fini d'un corps \(k\),
+  et soit \(\ell \in \mathbb{P}\). Alors
+  \[
+  \operatorname{cd}_\ell k' \leqslant \operatorname{cd}_\ell k + \operatorname{deg.tr.}(k'/k) ,
+  \]
+  Si l'inégalité stricte est vraie et si \(\ell \neq \operatorname{car} k\), alors \(\ell = 2\),
+  \(k\) est ordonnable, et \(k'\) n'est pas ordonnable (i.e. \(-1\) est une somme
+  de carrés dans \(k'\)).</p></div>
+</div>
+
+<p>Rappelons que lorsque \(\ell = \operatorname{car} k\) on a \(\operatorname{cd}_\ell k \leqslant 1\)
+(CG II 2.2) donc la question d'égalité dans 2.1 ne se pose guère.
+De plus, on a \(\operatorname{cd}_2 k = \infty\) si \(k\) est ordonnable. En effet la clôture
+algébrique \(\bar{k}\) de \(k\) contient une sous-extension \(\tilde{k}\) (un sous-corps
+maximal ordonné de \(\bar{k}\)) avec \([\bar{k}:\tilde{k}] = 2\). Evidemment, \(\operatorname{cd}_2 \tilde{k} = \infty\), et
+\(\operatorname{cd}_2 \tilde{k} \leqslant \operatorname{cd}_2 k\) d'après (CG I Prop. 14).</p>
+
+<p>Démonstration. C'est presque tout bien connu. L'inégalité
+ainsi que l'égalité si \(\operatorname{cd}_\ell k' < \infty\), sont des résultats de Tate
+(CG II 4.1.2). Il reste à démontrer que \(\operatorname{cd}_\ell k' < \infty\) et \(\operatorname{cd}_\ell k = \infty\)
+implique \(k\) ordonnable et \(\ell = 2\), et il suffit de traiter les deux cas
+suivants :</p>
+
+<ol class="enumerate">
+<li><span class="item-label">a)</span> \([k':k] < \infty\),</li>
+<li><span class="item-label">b)</span> \(k' = k(x)\) avec \(x\) transcendant sur \(k\).</li>
+</ol>
+
+<p>Dans le cas a) on peut supposer \(k'/k\) séparable. Alors le groupe de
+Galois \(H = G(\bar{k}/k')\) est un sous-groupe ouvert de \(G = G(\bar{k}/k)\) et
+d'après un résultat de Serre [5] on a \(\operatorname{cd} H = \operatorname{cd} G\) sauf si \(G\)
+contient un élément d'ordre \(\ell\). Comme un corps algébriquement clos \(\bar{k}\)
+ne peut pas avoir un sous-corps \(\tilde{k}\) d'indice fini sauf si \(\ell = 2\) et
+\(\tilde{k}\) est ordonnable [7], on trouve le résultat.</p>
+
+<p>Traitons le cas b). Soit \(R\) le hensélisé de \(\operatorname{Spec} k[x]\) au
+point \(x = 0\), qui est un anneau de valuation discrète, et soit \(K\) le
+corps des fractions de \(R\). Alors \(\operatorname{cd}_\ell k(x) < \infty\) implique \(\operatorname{cd}_\ell K < \infty\). Il
+suffit donc de démontrer que \(\operatorname{cd}_\ell K < \infty\) implique \(\operatorname{cd}_\ell k < \infty\),
+ce qui est conséquence du théorème suivant :</p>
+
+<div class="thm thm-plain theorem" id="X.2.2">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.2</span><sup class="footnote-ref"><a id="fnref1" href="#fn1">(∗)</a></sup></div>
+  <div class="thm-body"><p>Soit \(R\) un anneau de valuation discrète hensélien,
+  à corps de fractions \(K\) et corps résiduel \(k\). Soit \(\ell \in \mathbb{P}\). On a
+  \[
+  \operatorname{cd}_\ell K = \operatorname{cd}_\ell k + 1
+  \]
+  dans les deux situations suivantes :</p>
+  <ol class="enumerate">
+  <li><span class="item-label">(i)</span> \(\ell \neq \operatorname{car} k\).</li>
+  <li><span class="item-label">(ii)</span> \(\ell = \operatorname{car} K\), \(k\) parfait, et \(\operatorname{cd}_\ell k < \infty\).</li>
+  </ol></div>
+</div>
+
+<div class="thm thm-plain remark" id="X.2.2.rem">
+  <div class="thm-head"><span class="thm-name">Remarque</span></div>
+  <div class="thm-body"><p>Naturellement, si \(\ell = \operatorname{car} K\) on a \(\operatorname{cd}_\ell K \leqslant 1\) en tous cas
+  (CG II 2.2). Il reste donc à étudier la relation de \(\operatorname{cd}_\ell K\) avec,
+  peut-être, le module des différentielles absolues \(\Omega^1_k\) (EGA IV 20.4.3),
+  dans le cas d'inégales caractéristiques lorsque \(\operatorname{car} k = \ell\), \(k\) non parfait.</p></div>
+</div>
+
+<p>Démonstration du théorème. Comme pour le théorème (2.1), la
+plupart est due à Tate. Le cas (ii) est traité explicitement dans
+(CG II Prop. 12) si \(R\) est complet, et on se réduit à ce cas au moyen
+du lemme suivant :</p>
+
+<div class="thm thm-plain lemma" id="X.2.2.1">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.2.1</span></div>
+  <div class="thm-body"><p>Soit \(R\) un anneau de valuation discrète hensélien, à
+  corps des fractions \(K\), et soit \(\hat{K}\) le corps des fractions du complété
+  \(\hat{R}\) de \(R\). Alors
+  \[
+  G(\overline{\hat{K}}/\hat{K}) \simeq G(\overline{K}/K) .
+  \]</p></div>
+</div>
+
+<p>Démonstration. Cela veut dire que le foncteur \(L \longmapsto \hat{L} = L \otimes_K \hat{K}\)
+de la catégorie des \(K\)-algèbres étales dans la catégorie des \(\hat{K}\)-algèbres
+étales est une équivalence. Or chaque algèbre étale \(\hat{K}'\) de \(\hat{K}\) est induite
+par une algèbre étale convenable \(K'\) de \(K\). En effet, si \(\hat{K}' = \hat{K}[\alpha]\)
+où \(\alpha\) satisfait à l'équation irréductible séparable \(f(T) = 0\) à
+coefficients dans \(\hat{R}\), il suffit de prendre pour \(K'\) l'algèbre
+\(K[\alpha_0]\), où \(\alpha_0\) est racine d'une équation \(f_0(T) = 0\) à coefficients
+dans \(R\) avec \(f_0 \equiv f \ (\hat{\mathfrak{m}}^N)\), \(N\) grand et \(\hat{\mathfrak{m}}\) l'idéal maximal de \(\hat{R}\).
+C'est l'application de la "méthode de Newton" habituelle (Bourbaki,
+Alg. Comm. III 4.5). Il reste à démontrer que le foncteur est pleine-
+ment fidèle (il est évidemment fidèle), et il revient au même de démon-
+trer que si \(K'\) est un <u>corps</u>, il en est de même de \(\hat{K}'\). Soit \(R'\) le
+normalisé de \(R\) dans \(K'\), qui est fini sur \(R\) puisque \(K'/K\) est sé-
+parable. L'anneau \(R'\) est un anneau de valuation discrète, et le
+complété de \(R'\) est \(\hat{R}' = R' \otimes_R \hat{R}\). Donc \(\hat{R}'\) est un anneau de valua-
+tion discrète, et comme \(\hat{K}'\) en est l'anneau total des fractions, il est
+bien un corps.</p>
+
+<p>Traitons l'assertion i) de 2.2. Si \(\operatorname{cd}_\ell k < \infty\) on
+est encore ramené par 2.2.1 à (CG II Prop. 12) (l'hypothèse faite dans
+l'énoncé de cette proposition que \(k\) soit parfait n'est utilisé dans
+la démonstration que dans le cas de caractéristique résiduelle \(\ell\)).
+Il reste donc à démontrer que \(\operatorname{cd}_\ell K < \infty\) implique \(\operatorname{cd}_\ell k < \infty\).</p>
+
+<p>Soit \(\overline{G} = G(\bar{k}/k) = G(\widetilde{K}/K)\) où \(\widetilde{K}\) est l'extension non ramifiée
+maximale de \(K\) (i.e. le corps des fractions de l'anneau de valuation
+discrète \(\widetilde{R}\), à corps résiduel séparablement clos, hensélisé strict de
+\(R\)), \(G = G(\overline{K}/K)\), \(H = G(\overline{K}/\widetilde{K})\), donc \(\overline{G} = G/H\). Soit \(\overline{G}' \subset \overline{G}\) un
+\(\ell\)-sous-groupe de Sylow, et soient \(k'/k\), \(K'/K\) les extensions corres-
+pondant à \(\overline{G}'\). On a \(\operatorname{cd}_\ell k < \infty\) si et seulement si \(\operatorname{cd}_\ell k' < \infty\)
+(CG I Prop. 14), donc en remplaçant \(R\) par son normalisé dans \(K'\), on
+se réduit au cas où \(\overline{G}\) est un \(\ell\)-groupe. Il suffit alors de démontrer
+que si \(\operatorname{cd}_\ell G < \infty\), alors \(H^N(\overline{G}, \mathbb{Z}/\ell) = 0\) pour \(N\) assez grand
+(CG I Prop. 20).</p>
+
+<p>On a \(\operatorname{cd}_\ell H = 1\) d'après la partie de i) déjà démontrée,
+appliquée à \(\widetilde{R}\). De plus, on a</p>
+
+<p>(2.2.2)
+\[
+H^1(H, \mu_\ell) = H^1(\operatorname{Spec} \widetilde{K}, \mu_\ell) = \widetilde{K}^*/\widetilde{K}^{*\ell} = \mathbb{Z}/\ell .
+\]</p>
+
+<p>En effet, \(H^1(\operatorname{Spec} \widetilde{K}, \mu_\ell) = \widetilde{K}^*/\widetilde{K}^{*\ell}\) d'après la théorie de Kummer
+IX 3.2. On a une suite exacte
+\[
+0 \longrightarrow \widetilde{R}^* \longrightarrow \widetilde{K}^* \longrightarrow \mathbb{Z} \longrightarrow 0 ,
+\]
+et \(\widetilde{R}^*\) est divisible par \(\ell\) puisque \(\widetilde{R}\) est strictement local et \(\ell\)
+inversible dans \(\widetilde{R}\), d'où (2.2.2).</p>
+
+<p>Considérons la suite spectrale de Hochschild-Serre
+\[
+E_2^{pq} = H^p(\overline{G}, H^q(H, \mu_\ell)) \Longrightarrow H^{p+q}(G, \mu_\ell) .
+\]</p>
+
+<p>On a \(E_2^{pq} = 0\) si \(q > 1\). Si de plus \(\operatorname{cd}_\ell G < \infty\), le morphisme
+"cobord"
+\[
+H^{n-1}(\overline{G}, H^1(H, \mu_\ell)) \longrightarrow H^{n+1}(\overline{G}, \mu_\ell)
+\]
+doit être bijectif pour \(n\) assez grand, et il faut démontrer qu'alors
+\[
+H^{n-1}(\overline{G}, H^1(H, \mu_\ell)) = H^{n-1}(\overline{G}, \mathbb{Z}/\ell) = 0 .
+\]</p>
+
+<p>Posons \(R' = R[x']\) avec \(x'^\ell = x\), \(x\) le paramètre local de
+\(R\), et soient \(K'\) le corps des fractions de \(R'\), \(G' = G(\overline{K}/K')\), etc...
+Le corps résiduel de \(R'\) est \(k\), puisque nous avons supposé \(\overline{G}\) un \(\ell\)-groupe,
+donc que les racines \(\ell\).èmes de l'unité sont dans \(K\). On a un diagramme
+\[
+\xymatrix{
+H' \ar[r] \ar[d] & G' \ar[r] \ar[d] & \overline{G} \ar@{=}[d] \\
+H \ar[r] & G \ar[r] & \overline{G}
+}
+\]
+d'où un morphisme de suites spectrales de Hochschild-Serre, qui donne un
+diagramme commutatif
+\[
+\xymatrix@R=3em{
+H^{n-1}(\overline{G}, H^1(H', \mu_\ell)) \ar[dr] & \\
+& H^{n+1}(\overline{G}, \mu_\ell) \\
+H^{n-1}(\overline{G}, H^1(H, \mu_\ell)) \ar[uu]^{\varepsilon} \ar[ur] &
+}
+\]
+Comme \(\operatorname{cd}_\ell G < \infty\) implique \(\operatorname{cd}_\ell G' < \infty\), tous les morphismes dans ce
+diagramme sont des isomorphismes pour \(n\) grand. Mais le morphisme
+\[
+\mathbb{Z}/\ell = H^1(H, \mu_\ell) \longrightarrow H^1(H', \mu_\ell) = \mathbb{Z}/\ell
+\]
+qui induit la flèche \(\varepsilon\) est évidemment nul, donc \(H^{n-1}(\overline{G}, \mathbb{Z}/\ell) = 0\),
+cqfd.</p>
+
+<div class="thm thm-plain theorem" id="X.2.3">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.3</span></div>
+  <div class="thm-body"><p>Soient \(A\) un anneau noethérien hensélien de dimension
+  1, et \(\ell \in \mathbb{P}\) inversible dans \(A\). Soient \(k\) le corps résiduel de
+  \(A\) et \(R(A)\) l'anneau des fonctions rationnelles sur \(\operatorname{Spec} A\). On a
+  \[
+  \operatorname{cd}_\ell R(A) \leqslant \operatorname{cd}_\ell k + 1 ,
+  \]
+  et l'égalité est vraie si \(\ell \neq 2\) ou si \(k\) n'est pas ordonnable.</p></div>
+</div>
+
+<p>Démonstration. En remplaçant \(A\) par \(A/P\) pour un idéal pre-
+mier minimal \(P\) de \(A\) et en appliquant (VIII 1) on voit qu'on peut
+supposer \(A\) intègre. Soient \(K\) son corps des fractions, \(R\) son norma-
+lisé, qui est local et hensélien, donc un anneau de valuation discrète
+(il est noethérien d'après Krull-Akizuki (Bourbaki, Alg. Comm. Chap. 7,
+§ 2, prop. 5)) et soit \(k'\) le corps résiduel de \(R\). Il est connu que
+\([k':k] < \infty\) (loc. cit.). Or \(K\) est le corps des fractions de \(R\) et
+on a donc
+\[
+\operatorname{cd}_\ell K = \operatorname{cd}_\ell k' + 1 \leqslant \operatorname{cd}_\ell k + 1
+\]
+d'après 2.2, avec l'égalité sous la dernière hypothèse de 2.3,
+d'après 2.1.</p>
+
+<div class="thm thm-remark example" id="X.2.3.ex">
+  <div class="thm-head"><span class="thm-name">Exemple</span></div>
+  <div class="thm-body"><p>L'égalité n'est pas vraie pour \(\ell = 2\), \(A\) étant le hensélisé
+  à l'origine de \(\mathbb{R}[x,y]/(x^2+y^2)\).</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="X.2.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.4</span></div>
+  <div class="thm-body"><p>Soit \(A\) un anneau local noethérien à corps résiduel
+  \(k\), et soit \(\ell \in \mathbb{P}\) inversible dans \(A\). Supposons que \(\ell \neq 2\) où
+  qu'aucun corps résiduel de \(\operatorname{Spec} A\) ne soit ordonnable. Alors on a
+  \[
+  \operatorname{cd}_\ell R(A) \geqslant \operatorname{cd}_\ell k + \dim A ,
+  \]
+  où \(R(A)\) est l'anneau des fonctions rationnelles sur \(\operatorname{Spec} A\).</p></div>
+</div>
+
+<p>Démonstration. On peut supposer \(A\) intègre, à corps des
+fractions \(R(A) = K\). Soit \(x \in \mathfrak{r}A\) un élément qui n'est pas diviseur
+de zéro. Alors \(\dim A/(x) = \dim A - 1\). Par récurrence sur \(\dim A\), on a
+\[
+\operatorname{cd}_\ell R(A/(x)) \geqslant \operatorname{cd}_\ell k + \dim A - 1 .
+\]
+Soit \(k'\) un corps résiduel de \(R(A/(x))\) tel que \(\operatorname{cd}_\ell k' = \operatorname{cd}_\ell R(A/(x))\)
+(cf VIII 1), et soit \(P\) l'idéal premier, noyau de \(A \longrightarrow k'\). L'anneau \(A_P\)
+est de dimension 1. Il suffit donc de démontrer le corollaire pour l'an-
+neau local \(A_P\), c'est-à-dire, on est réduit au cas où \(\dim A = 1\).
+Soit \(\widetilde{A}\) le hensélisé de \(A\). Chaque corps résiduel de \(R(\widetilde{A})\) s'identifie
+à une extension séparable de \(R(\widetilde{A}) = K\), et on a donc
+\[
+\operatorname{cd}_\ell R(A) = \operatorname{cd}_\ell K \geqslant \operatorname{cd}_\ell R(\widetilde{A}) .
+\]
+On est ainsi ramené au cas où \(A\) est de dimension 1 et hensélien, ce
+qui est conséquence de 2.3.</p>
+
+<div class="thm thm-plain corollary" id="X.2.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.5</span></div>
+  <div class="thm-body"><p>Soit \(X\) un schéma noethérien et soit \(\ell \in \mathbb{P}\)
+  inversible sur \(X\). Alors
+  \[
+  \operatorname{cd}_\ell R(X) \geqslant \dim X .
+  \]</p></div>
+</div>
+
+<p>En effet, soit \(x \in X\) un point tel que \(\dim X = \dim \mathcal{O}_{X,x}\)
+(ou tel que \(\dim \mathcal{O}_{X,x}\) est très grand si \(\dim X = \infty\)). Soit \(A\) le
+hensélisé strict de \(\mathcal{O}_{X,x}\). Alors on a \(\operatorname{cd}_\ell R(X) \geqslant \operatorname{cd}_\ell R(\mathcal{O}_{X,x}) \geqslant \operatorname{cd}_\ell R(A)\)
+d'après le raisonnement habituel. De plus, \(\dim A = \dim X\) (resp. est très
+grand). Si \(\ell = 2\), et si \(\ell\) est inversible sur \(X\), alors l'équation
+\(T^2+ 1 = 0\) est séparable sur \(A\), donc \(-1\) est un carré dans \(A\) parce
+que \(A\) est strictement local, donc les corps résiduels de \(A\) sont non
+ordonnables. Donc les hypothèses de 2.4 sont satisfaites pour \(A\) en
+tout cas, et on a \(\operatorname{cd}_\ell R(A) \geqslant \dim A\), d'où le résultat.</p>
+
+<h2 id="X.3">3. Corps des fractions d'un anneau strictement local</h2>
+
+<h3 id="X.3.0">3.0</h3>
+<p>Nous aurons un besoin essentiel, pour les numéros suivants,
+de la connaissance de \(\operatorname{cd}_\ell R(A)\), où \(A\) est un anneau strictement local,
+c'est-à-dire hensélien à corps résiduel séparablement clos. Malheureuse-
+ment on ne connaît pas \(\operatorname{cd}_\ell R(A)\) dans le cas général, par exemple si
+\(A = \hat{\mathbb{Z}}_p[[x]]\) \((p \neq \ell)\).</p>
+
+<p>On conjecture cependant que si \(A\) est noethérien et \(\ell\) est
+inversible dans \(A\), on aura</p>
+
+<p>(3.1)
+\[
+\operatorname{cd}_\ell R(A) = \dim A \qquad (\ell \text{ inversible dans } A) ,
+\]</p>
+
+<p>du moins dans les cas les plus importants, par exemple si \(A\) est un an-
+neau <u>excellent</u> (EGA IV 7.8.2).</p>
+
+<p>Notons que si \(\dim A = 1\), (3.1) est vrai d'après 2.3. De
+plus, on a l'inégalité \(\geqslant\) d'après 2.5 en tout cas. Nous démontrerons
+plus tard (XIX) que (3.1) est aussi vrai si \(A\) est excellent de
+caractéristique résiduelle nulle, en utilisant la résolution des singu-
+larités [3]. Ici nous démontrerons (3.1) seulement dans le cas facile
+3.2. ci-dessous.</p>
+
+<p>Naturellement on a \(\operatorname{cd}_\ell R(A) \leqslant 1\) si \(A\) est de caractéristi-
+que \(\ell\), donc ce cas est trivial. Il reste de plus à analyser le cas
+d'inégales caractéristiques, avec caractéristique résiduelle \(\ell\), et on
+ne s'attend pas à ce que 3.1 soit vrai dans ce cas là. Il faudra cer-
+tainement tenir compte du rang du module \(\Omega^1_k\) (\(k\) le corps résiduel),
+i.e. du degré \([k:k^\ell]\).</p>
+
+<div class="thm thm-plain proposition" id="X.3.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.2</span></div>
+  <div class="thm-body"><p>Soit \(X\) un préschéma de type fini sur le spectre
+  d'un corps \(k\) ou sur le spectre d'un anneau de valuation discrète \(R\),
+  et soit \(\ell \in \mathbb{P}\) inversible dans \(k\) (resp. \(R\)). Alors 3.1 est vrai
+  pour chaque anneau \(A\) qui est un localisé strict de \(X\).</p></div>
+</div>
+
+<p>Démonstration. Prenons \(X\) intègre (on se réduit à ce cas comme
+d'habitude), et soit \(n = \dim X\).</p>
+
+<p>Supposons que \(X\) soit défini sur un corps séparablement clos
+\(k\). Alors pour chaque anneau \(A\) qui est un localisé strict de \(X\) en un
+point fermé, on a \(\dim A = n\). Comme chaque corps résiduel \(K\) de \(R(A)\)
+s'identifie à une extension algébrique de \(R(X)\) et comme
+\[
+\operatorname{deg.tr.}(R(X)/k) = \dim X = n ,
+\]
+on a \(\operatorname{cd}_\ell K \leqslant n\) d'après 2.1, d'où \(\operatorname{cd}_\ell R(A) \leqslant n\). L'inégalité opposée
+est conséquence de 2.5.</p>
+
+<p>Supposons maintenant que \(X\) soit de type fini sur \(\operatorname{Spec} R\),
+\(R\) un anneau de valuation discrète, et soit \(A\) le localisé strict de \(X\)
+en un point \(x\). Si \(x\) n'est pas au-dessus du point fermé de \(\operatorname{Spec} R\),
+on se réduit immédiatement au cas où \(X\) est de type fini sur un corps
+(en localisant \(R\)). On peut aussi pour la même raison supposer que le
+morphisme \(X \longrightarrow \operatorname{Spec} R\) est dominant.</p>
+
+<p>Supposons pour l'instant que de plus \(R\) est un anneau de
+valuation discrète <u>strictement local</u> et que le point \(x\) est <u>fermé</u> dans
+\(X\). Alors on a \(\dim A = \dim X = n\) (EGA IV 5.6.5). Comme chaque corps
+résiduel \(K\) de \(R(A)\) s'identifie à une extension séparable de \(R(X)\)
+on a
+\[
+\begin{aligned}
+\operatorname{cd}_\ell R(A) \leqslant \operatorname{cd}_\ell R(X) &\leqslant \operatorname{cd}_\ell L + \operatorname{deg.tr.}(R(X)/L) \\
+&= 1 + (n-1) = n
+\end{aligned}
+\]
+d'après 2.1 et 2.2, où \(L\) est le corps des fractions de \(R\), d'où
+le résultat dans ce cas, compte tenu de 2.5.</p>
+
+<p>On déduit le cas général de ces cas particuliers au moyen du
+lemme suivant :</p>
+
+<div class="thm thm-plain lemma" id="X.3.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">3.3</span></div>
+  <div class="thm-body">
+  <p>(i) Soit \(X\) de type fini sur le spectre d'un corps \(k\) et soit \(A\)
+  un anneau localisé strict de \(X\) en un point \(x\). Alors il existe un
+  corps \(k'\) séparablement clos, un schéma \(X'\) de type fini sur \(\operatorname{Spec} k'\),
+  et un point \(x'\) fermé dans \(X'\) tel que \(A\) soit isomorphe à un anneau
+  localisé strict de \(X'\) en \(x'\).</p>
+
+  <p>(ii) Soit \(X\) de type fini sur \(\operatorname{Spec} R\), \(R\) un anneau de valuation
+  discrète, soit \(x\) un point de \(X\) au-dessus du point fermé de \(\operatorname{Spec} R\) et
+  soit \(A\) un localisé strict de \(X\) en \(x\). Il existe un anneau de valua-
+  tion discrète strictement local \(R'\), un schéma \(X'\) de type fini sur
+  \(\operatorname{Spec} R'\), et un point fermé \(x'\) de \(X'\) au-dessus du point fermé de
+  \(\operatorname{Spec} R'\), tel que \(A\) soit isomorphe à un localisé strict de \(X'\) en \(x'\).</p>
+  </div>
+</div>
+
+<p>Démonstration. (i) On peut prendre \(X\) affine.
+Soit \(Y\) l'adhérence de \(x\) dans \(X\), avec la structure induite réduite,
+et soit \(d = \dim Y\). Par le lemme de normalisation ([2] Chap. V § 3
+n° 1), il existe un morphisme
+\[
+X \longrightarrow \operatorname{Spec} k[y_1,\dots ,y_d] = T
+\]
+induisant un morphisme <u>fini</u> \(Y \longrightarrow T\). Par suite l'anneau localisé strict
+de \(\mathcal{O}_{X,x}\) est isomorphe au localisé strict de \(\mathcal{O}_{X',x'}\), où
+\(X' = X \times_T \operatorname{Spec} \overline{R}(T)\), et où \(x'\) est un point fermé dans \(X'\).</p>
+
+<p>(ii) Ce cas se traite d'une façon analogue. On peut supposer \(X\) affine,
+d'anneau \(A\). Soit \(Y\) l'adhérence de \(x\) dans \(X\) avec la structure in-
+duite réduite, qui est un sous-schéma fermé de la fibre fermée \(X_0\) de \(X\)
+sur \(\operatorname{Spec} R\), et soit \(d = \dim Y\). Alors, on relevant les éléments
+\(y_1,\dots,y_d\) de \(A \otimes_R k\) envisagés dans i) en des éléments de \(A\), on
+trouve un morphisme
+\[
+X \longrightarrow \operatorname{Spec} R[y_1,\dots,y_d] = T
+\]
+induisant un morphisme <u>fini</u> \(Y \longrightarrow T_0\). Soit \(R'\) le localisé strict de
+\(R[y_1,\dots,y_d] = B\) en l'idéal premier \(\underline{\mathfrak{m}}B\). Alors \(R'\) est un anneau de
+valuation discrète strictement local, et on peut prendre \(X' = X \times_T \operatorname{Spec} R'\),
+et \(x'\) un point fermé de \(X'\) au-dessus de \(x\).</p>
+
+<h2 id="X.4">4. Dimension cohomologique : cas \(\ell\) inversible dans \(\mathcal{O}_X\)</h2>
+
+<div class="thm thm-plain theorem" id="X.4.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">4.1</span></div>
+  <div class="thm-body">
+  <p>Soit \(X\) un schéma noethérien, \(\ell \in \mathbb{P}\), et
+  \(\varphi\) une fonction sur \(X\), à valeurs dans \(\mathbb{N}\), et satisfaisant aux
+  conditions suivantes :</p>
+  <p>(i) Pour chaque \(x \in X\), \(\operatorname{cd}_\ell k(x) \leqslant \varphi(x)\).</p>
+  <p>(ii) Soit \(x \in X\) et \(y \in Y = \) adhérence de \(x\), \(y \neq x\). Soit \(K\) l'anneau
+  des fonctions rationnelles d'un localisé strict de \(Y\) au-dessus de \(y\).
+  On a \(\operatorname{cd}_\ell K < \varphi(x) - \varphi(y)\).</p>
+  <p>Alors pour chaque faisceau de \(\ell\)-torsion \(F\) sur \(X\) on a
+  \[
+  H^q(X,F) = 0
+  \]
+  si
+  \[
+  q > \varphi(F) \underset{\text{déf}}{=} \operatorname{Sup} \{ \varphi(x) \mid x \in X,\ F_{\bar{x}} \neq 0 \} .
+  \]</p>
+  </div>
+</div>
+
+<p>Démonstration. Les hypothèses seront aussi vérifiées pour la
+fonction restriction de \(\varphi\), à un sous-préschéma quelconque de \(X\), donc
+par récurrence noethérienne nous pouvons supposer le théorème vrai pour
+chaque sous-préschéma fermé de \(X\) distinct de \(X\). Soit \(F\) donné et
+écrivons \(F = \varinjlim F_i\) où les \(F_i\) sont les sous-faisceaux constructibles
+de \(F\) (IX 2.9 <u>(iii)</u>).</p>
+
+<p>Pour chaque \(F_i\), l'ensemble des \(x \in X\) tels que \(F_x \neq 0\) est construc-
+tible dans \(X\), et nous pouvons appliquer l'hypothèse de récurrence à
+chaque \(F_i\) dont le support n'est pas dense. On voit ainsi que l'hypothèse
+de récurrence implique en fait que le théorème est vrai pour chaque \(F\)
+qui est nul en au moins un des points maximaux de \(X\). Nous allons donc
+supposer que \(F\) ne satisfait pas à cette condition.</p>
+
+<p>Soit maintenant \(i : \operatorname{Spec} R(X) \longrightarrow X\) l'inclusion, où \(R(X)\)
+est l'anneau des fonctions rationnelles de \(X\), et considérons la suite
+exacte suivante, où \(K\) et \(C\) sont définis comme noyau et conoyau
+respectivement :
+\[
+0 \longrightarrow K \longrightarrow F \longrightarrow i_* i^* F \longrightarrow C \longrightarrow 0 .
+\]</p>
+
+<p>Ici \(K\) et \(C\) sont nuls en chaque point maximal de \(X\), donc d'après
+(ii), \(\varphi(K)\) (resp. \(\varphi(C)\)) est strictement plus petit que
+\(n = \varphi(F)\), d'où \(H^q(X,K) = H^q(X,C) = 0\) pour \(q \geqslant n\). Donc pour démon-
+trer \(H^q(X,F) = 0\) pour \(q > n\), il suffit, grâce aux suites exactes de
+cohomologie, de démontrer \(H^q(X,i_* i^* F) = 0\), donc nous pouvons supposer
+que \(F\) est de la forme \(i_* G\), pour un \(\ell\)-faisceau convenable \(G\) sur
+\(\operatorname{Spec} R(X)\).</p>
+
+<p>Examinons la suite spectrale de Leray.
+\[
+E_2^{p,q} = H^p(X, R^q i_* G) \Longrightarrow H^{p+q}(\operatorname{Spec} R(X), G) .
+\]</p>
+
+<p>Or \(R(X)_{\text{réd}}\) est produit des corps \(k(x)\) pour \(x\) maximal dans \(X\),
+donc \(\operatorname{cd}_\ell R(X) \leqslant n\) d'après (i), donc l'aboutissement de la suite
+spectrale est nul en \(\dim > n\).</p>
+
+<p>Nous voulons démontrer que \(E_2^{p0} = 0\) pour \(p > n\). En examinant la suite
+spectrale, on voit qu'il suffit de démontrer que \(E_2^{pq} = 0\) si \(q > 0\)
+et si \(p > n-q-1\). Donc, par récurrence, il suffit
+de démontrer que \(\varphi(R^q i_* G) < n - q\) pour \(q > 0\). Mais d'après
+VIII 5.2 la fibre de \(R^q i_* G\) en un point géométrique \(\bar{y}\) au-dessus d'un
+point \(y \in X\) n'est autre que \(H^q(\operatorname{Spec} K, G_K)\), où \(K\) est l'anneau des
+fonctions rationnelles du localisé strict de \(X\) en \(\bar{y}\), et \(G_K\) est le
+faisceau induit sur \(\operatorname{Spec} K\). On a \(\operatorname{cd}_\ell K < n - \varphi(y)\) d'après (ii),
+d'où \((R^q i_* G)_{\bar{y}} = 0\) si \(q \geqslant n - \varphi(y)\), ce qui donne le résultat
+cherché.</p>
+
+<div class="thm thm-plain corollary" id="X.4.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.2</span></div>
+  <div class="thm-body">
+  <p>Soient \(X\) un schéma noethérien, \(\ell \in \mathbb{P}\), \(n \in \mathbb{N}\),
+  et supposons que les conditions suivantes soient satisfaites :</p>
+  <p>(i) Pour chaque point \(y\) de \(X\) de codimension \(c\), on a
+  \(\operatorname{cd}_\ell k(y) \leqslant n - 2c\).</p>
+  <p>(ii) Pour chaque anneau \(A\), localisé strict d'un sous-schéma fermé
+  irréductible \(Y\) de \(X\), on a \(\operatorname{cd}_\ell R(A) \leqslant \dim A\).</p>
+  <p>Alors
+  \[
+  \operatorname{cd}_\ell X \leqslant n .
+  \]</p>
+  <p>Plus précisément, si \(F\) est un \(\ell\)-faisceau qui est nul en chaque point
+  \(y\) de codimension \(< s\), on a
+  \[
+  H^q(X,F) = 0 \quad \text{si} \quad q > n - 2s .
+  \]</p>
+  </div>
+</div>
+
+<p>En effet, on peut prendre \(\varphi(y) = n-2\operatorname{codim} y\) et appliquer
+4.1, dont la condition (i) (resp. (ii)) résulte de la condition corres-
+pondante de (i) (resp. (ii)) de (4.2), compte tenu pour (ii) de l'iné-
+galité \(\dim \mathcal{O}_{Y,y} + \dim \mathcal{O}_{X,x} \leqslant \dim \mathcal{O}_{X,y}\).</p>
+
+<div class="thm thm-plain corollary" id="X.4.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.3</span></div>
+  <div class="thm-body"><p>Soit \(X\) de type fini et de dimension \(n\) sur un corps
+  \(k\) et soit \(\ell \neq \operatorname{car} k\). Alors \(\operatorname{cd}_\ell X \leqslant 2n + \operatorname{cd}_\ell k\).</p></div>
+</div>
+
+<p>On applique le corollaire précédent, en y remplaçant \(n\) par
+\(2n + \operatorname{cd}_\ell k\), et utilisant 2.1 et 3.2 pour vérifier les conditions (i) et (ii)
+de 4.2, et tenant compte pour (i) de l'inégalité
+\[
+\operatorname{deg.tr.} k(y)/k + \dim \mathcal{O}_{X,y} \leqslant \dim X .
+\]</p>
+
+<div class="thm thm-plain corollary" id="X.4.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.4</span></div>
+  <div class="thm-body"><p>Soit \(X\) noethérien, et \(\ell \in \mathbb{P}\) inversible sur \(X\).
+  Supposons que la condition (ii) de 4.2 est satisfaite, et que de plus
+  \(\ell \neq 2\) où qu'aucun corps résiduel de \(X\) ne soit ordonnable. Alors on a
+  \[
+  \operatorname{cd}_\ell X \leqslant \operatorname{cd}_\ell R(X) + \dim X \leqslant 2\operatorname{cd}_\ell R(X) .
+  \]</p></div>
+</div>
+
+<p>On pose \(n = \operatorname{cd}_\ell R(X) + \dim X\) dans 4.2, et on applique
+2.4, qui implique la condition (i) de 4.2, car
+\[
+\operatorname{cd}_\ell k(y) \leqslant \operatorname{cd}_\ell R(\mathcal{O}_{X,y}) - \dim \mathcal{O}_{X,y} \leqslant \operatorname{cd}_\ell R(X) - \dim \mathcal{O}_{X,y} \leqslant n - 2 \dim \mathcal{O}_{X,y} .
+\]
+La deuxième inégalité dans 4.4 résulte de 2.5.</p>
+
+<div class="thm thm-remark example" id="X.4.5">
+  <div class="thm-head"><span class="thm-name">Exemple</span> <span class="thm-num">4.5</span></div>
+  <div class="thm-body"><p>L'hypothèse inélégante sur les corps résiduels faite dans 4.4,
+  est nécessaire, comme on voit avec \(X = \operatorname{Spec} \mathbb{R}[x,y,z]/(x^2+ y^2+ z^2)\), où
+  toutes les autres conditions sont satisfaites, avec \(\dim X = \operatorname{cd}_\ell R(X) = \ell = 2\),
+  mais le faisceau \(\mathbb{Z}/2\) concentré au point \((0,0,0)\) a une cohomologie
+  non nulle en chaque dimension, donc \(\operatorname{cd}_\ell X = + \infty\).</p></div>
+</div>
+
+<h3 id="X.4.6">4.6</h3>
+<p>On est tenté aussi d'essayer dans 4.2 de mettre des hypothèses
+seulement sur les points fermés de \(X\), mais ce n'est pas possible. Par
+exemple il existe des anneaux de valuation discrète à corps résiduel
+algébriquement clos et à corps de fonctions ayant une dimension cohomolo-
+gique arbitrairement grande<sup class="footnote-ref"><a id="fnref2" href="#fn2">(∗)</a></sup>. Le spectre d'un tel anneau aura aussi
+une dimension cohomologique très grande.</p>
+
+<h2 id="X.5">5. Dimension cohomologique : cas \(\ell = p\)</h2>
+
+<h3 id="X.5.0">5.0</h3>
+<p>En utilisant la théorie d'Artin - Schreier (IX 3.5) on obtient
+une meilleure majoration que 4.3 pour la \(p\)-dimension cohomologique
+d'un schéma \(X\) de caractéristique \(p\). Soit \(\operatorname{cdqc} X\) le plus grand
+nombre \(n\) tel que \(H^n(X,F) \neq 0\) pour au moins un faisceau de Modules \(F\)
+<u>quasi-cohérent</u> sur \(X\) (au sens de Zariski). On a le</p>
+
+<div class="thm thm-plain theorem" id="X.5.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">5.1</span></div>
+  <div class="thm-body"><p>Soit \(X\) un schéma noethérien de caractéristique
+  \(p > 0\). Alors
+  \[
+  \operatorname{cd}_p X \leqslant \operatorname{cdqc} X + 1 .
+  \]
+  En particulier, la \(p\)-dimension cohomologique d'un schéma noethérien
+  affine \(X\) de caractéristique \(p > 0\) est au plus égale à 1.</p></div>
+</div>
+
+<p>Démonstration. Appliquons IX 5.5 :
+Tenant compte du fait que les \(R^q f_* F\), \(q > 0\), sont nuls pour un mor-
+phisme \(f\) fini et pour un faisceau abélien \(F\) (VIII 5.5) (resp. un
+faisceau \(F\) quasi-cohérent), on se ramène à démontrer que
+\(H^q(X,i_!(\mathbb{Z}/p)_U) = 0\) pour \(i : U \longrightarrow X\) une immersion ouverte et pour
+\(q > \operatorname{cdqc} X\).</p>
+
+<p>Or soit \(Y\) un sous-préschéma fermé de \(X\) de support \(X - U\)
+et soit \(J\) le faisceau cohérent d'idéaux définissant \(Y\). Le morphisme
+\(\wp : f \longmapsto f^p - f\) (IX 3.5) induit un morphisme \(J \longrightarrow J\). En examinant la
+suite exacte IX 3.5 et la suite exacte
+\[
+0 \longrightarrow i_!(\mathbb{Z}/p)_U \longrightarrow (\mathbb{Z}/p)_X \longrightarrow (\mathbb{Z}/p)_Y \longrightarrow 0 ,
+\]
+on voit qu'on a en fait une suite exacte
+\[
+(*) \qquad 0 \longrightarrow i_!(\mathbb{Z}/p)_U \longrightarrow J \longrightarrow J \longrightarrow 0 .
+\]</p>
+
+<p>Puisque \(J\) est cohérent on a \(H^q(X,J) = 0\) pour \(q > \operatorname{cdqc} X\), d'où le
+résultat par la suite exacte de cohomologie.</p>
+
+<p>Pour un schéma quasi-projectif sur un corps \(k\) séparablement
+clos, on peut réduire cette majoration dans certain cas par 1.
+On a en fait</p>
+
+<div class="thm thm-plain corollary" id="X.5.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.2</span></div>
+  <div class="thm-body"><p>Soit \(X\) un schéma de type fini sur un corps \(k\)
+  de caractéristique \(p > 0\). On a
+  \[
+  \operatorname{cd}_p X \leqslant \dim X + 1 ,
+  \]
+  et si \(k\) est séparablement clos et \(X\) quasi-projectif<sup class="footnote-ref"><a id="fnref3" href="#fn3">(∗)</a></sup>, on a
+  \[
+  \operatorname{cd}_p X \leqslant \dim X .
+  \]</p></div>
+</div>
+
+<p>En effet, la première assertion est claire, puisque
+\(\operatorname{cdqc} X \leqslant \dim X\) ([6] 4.15.2). Traitons la deuxième : Pour un tel \(X\),
+les groupes de cohomologie \(H^n(X,F)\) (\(n = \dim X\)), pour un faisceau
+cohérent \(F\), sont des espaces vectoriels de dimension finie sur \(k\).
+Soit \(V = H^n(X,J)\), où \(J\) est le faisceau d'idéaux qui figure dans la
+suite exacte (∗). Le morphisme \(\varphi : V \longrightarrow V\) déduit de (∗) est évidem-
+ment de la forme \(\varphi = \varepsilon - \operatorname{id}\) où \(\varepsilon\) satisfait à \(\varepsilon(rv) = r^p \varepsilon(v)\) pour
+\(r \in k\) et \(v \in V\). La jacobienne de l'application \(\Phi\) du schéma affine
+déduit de \(\varphi\) est donc \(-I\), \(I\) la matrice identique. Par suite \(\Phi\) est
+étale, donc surjectif parce que additif, et il s'ensuit que \(\Phi\) est
+surjectif puisque \(k\) est séparablement clos, d'où aussitôt la
+conclusion.</p>
+
+<h2 id="X.6">6. Dimension cohomologique pour un préschéma de type fini sur Spec \(\mathbb{Z}\)</h2>
+
+<div class="thm thm-plain proposition" id="X.6.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.1</span></div>
+  <div class="thm-body"><p>Soit \(X\) quasi-fini au-dessus de \(\operatorname{Spec} \mathbb{Z}\).
+  Supposons que \(\ell \neq 2\) où que chaque corps résiduel de \(X\) de caracté-
+  ristique zéro est totalement imaginaire. Alors \(\operatorname{cd}_\ell X \leqslant 3\).</p></div>
+</div>
+
+<p>C'est une conséquence de Théorème 2.2 (ii), du Corollaire
+4.2 et du fait qu'un corps de nombres (totalement imaginaire si
+\(\ell = 2\)) est de \(\ell\)-dimension cohomologique \(\leqslant 2\) (CG II 4.4).</p>
+
+<p>Il s'ensuit en fait de la théorie des corps de classes qu'on a
+l'égalité si le morphisme \(X \longrightarrow \operatorname{Spec} \mathbb{Z}\) est propre et surjectif.</p>
+
+<p>Malheureusement les résultats du n° 4 ne s'appliquent pas tels
+quels si \(X\) est seulement de type fini sur \(\operatorname{Spec} \mathbb{Z}\), parce que l'hypo-
+thèse (ii) de (4.2) n'est pas en général vérifiée pour les anneaux locaux
+de caractéristique résiduelle \(\ell\). On doit donc utiliser le résultat (5.1)
+pour obtenir la bonne majoration; on va maintenant se payer pour le
+théorème (5.1).</p>
+
+<div class="thm thm-plain theorem" id="X.6.2">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">6.2</span></div>
+  <div class="thm-body"><p>Soit \(X\) de type fini sur \(\operatorname{Spec} \mathbb{Z}\), et soit \(\ell \in \mathbb{P}\).
+  Supposons, si \(\ell = 2\), qu'aucun corps résiduel de \(X\) n'est ordonnable.
+  Alors
+  \[
+  \operatorname{cd}_\ell X \leqslant 2 \dim X + 1 .
+  \]
+  Plus précisément, soit \(F\) un faisceau de \(\ell\)-torsion tel que pour tout
+  point \(x\) de \(X\) tel que \(F_{\bar{x}} \neq 0\), on ait
+  \[
+  \dim \{\bar{x}\} \leqslant \begin{cases} (N-1)/2 & \text{si } \ell \neq \operatorname{car} k(x) \\ N-1 & \text{si } \ell = \operatorname{car} k(x) \end{cases}
+  \]
+  (\(\{\bar{x}\}\) est l'adhérence de \(\{x\}\)); alors
+  \[
+  H^p(X,F) = 0 \quad \text{si} \quad p > N .
+  \]</p></div>
+</div>
+
+<p>Démonstration. Par récurrence sur \(X\), nous pouvons supposer
+le théorème vrai pour chaque sous-préschéma fermé distinct de \(X\). Si \(F\)
+est comme dans l'énoncé et si on écrit \(F = \varinjlim F_i\) où les \(F_i\) sont les
+sous-faisceaux constructibles de \(F\) (IX 2.9 (iii)), chaque \(F_i\) vérifie
+aussi les mêmes hypothèses. Il suffit donc de démontrer le théorème
+lorsque \(F\) est constructible.</p>
+
+<p>Or dans ce cas l'ensemble \(E\) des \(x \in X\) tels que \(F_{\bar{x}} \neq 0\)
+est un sous-ensemble constructible, et l'hypothèse de récurrence implique
+que le théorème est vrai pour chaque \(F\) tel que \(E\) ne soit pas dense.
+De plus, le théorème est une conséquence de 5.1 pour un faisceau
+concentré sur la fibre en le point \((\ell)\) de \(\operatorname{Spec} \mathbb{Z}\), et de 4.3
+pour un faisceau concentré sur la fibre en \((p)\), où \(p \neq \ell\), compte tenu
+que \(\operatorname{cd}_\ell \mathbb{Z}/p\mathbb{Z} = 1\) (CG II 2.2).</p>
+
+<p>Prenons \(X\) réduit, et soit \(X = X_0 \cup X_1\) où \(X_1\) est le sous-
+ensemble fermé, réunion des composantes irréductibles de \(X\) de caracté-
+ristique \(\ell\), et où \(X_0\) est la réunion des autres composantes irréduc-
+tibles, \(X_0\) et \(X_1\) étant munis des structures induites réduites.
+Soient \(j_\nu : X_\nu \to X\) les inclusions et soit \(d_\nu = \dim X_\nu\), et
+\(N = \sup\{2d_0+1, d_1+1\}\). Pour tout \(F\) constructible sur \(X\) on a une
+suite exacte
+\[
+(*) \qquad 0 \longrightarrow F \longrightarrow j_{0*} j_0^* F \oplus j_{1*} j_1^* F \longrightarrow C \longrightarrow 0 ,
+\]
+où \(C\) est concentré sur \(X_0 \cap X_1\), qui est de caractéristique \(\ell\) et
+de dimension \(\leqslant d_1-1\). Il s'ensuit que
+\[
+H^q(X,C) = 0 \quad \text{si} \quad q > N - 1 ,
+\]
+car en vertu de 5.1 on a \(\operatorname{cd}_\ell(X_0 \cap X_1) \leqslant \dim X_0 \cap X_1 + 1 \leqslant d_1 \leqslant N-1\).
+En examinant la suite exacte de cohomologie relative de (∗), on se
+ramène au cas \(X = X_0\) où \(X = X_1\), et ce dernier est conséquence de
+5.1, comme on l'a déjà signalé.</p>
+
+<p>Supposons donc que chaque point maximal de \(X\) est de caracté-
+ristique différente de \(\ell\), et soient \(i_\nu : x_\nu \longrightarrow X\) les inclusions des
+points maximaux. En examinant la suite exacte
+\[
+0 \longrightarrow K \longrightarrow F \longrightarrow \bigoplus_\nu i_{\nu*} i_\nu^* F \longrightarrow C \longrightarrow 0
+\]
+on se réduit par récurrence au cas \(F = i_{\nu*} i_\nu^* F\), c'est-à-dire \(F\) de
+la forme \(i_* G\) pour un faisceau \(G\) convenable sur \(\operatorname{Spec} k(x)\), \(x\) un
+point de \(X\). On peut donc supposer \(X\) irréductible et réduit, à point
+générique \(x\), et que la caractéristique de \(k(x)\) est zéro d'après 4.3.</p>
+
+<p>Examinons la suite spectrale
+\[
+(**) \qquad H^p(X, R^q i_* G) \Longrightarrow H^{p+q}(\operatorname{Spec} k(x), G) .
+\]</p>
+
+<p>Soit \(s = \dim X\). Il nous faut démontrer que
+\[
+(+) \qquad E_2^{p0} = 0 \quad \text{pour } p > 2s + 1 .
+\]</p>
+
+<p>Or \(k(x)[i]\) est de degré de transcendance \(s-1\) au-dessus de \(\mathbb{Q}[i]\)
+qui est un corps de dimension cohomologique 2. Puisque \(k(x)\) n'est pas
+ordonnable si \(\ell = 2\), il s'ensuit de 2.1 qu'on a \(\operatorname{cd}_\ell k(x) = s + 1\).
+Ça implique que le but de la suite spectrale est nul pour \(n > s + 1\).
+Il suffit donc pour (+) de démontrer que dans (∗∗) on a
+\[
+(++) \qquad E_2^{pq} = 0 \quad \text{si } p > 2s - q \quad \text{et } q > 0 .
+\]</p>
+
+<p>Soit \(y\) un point de \(X\) et \(K\) l'anneau des fractions d'un
+localisé strict en un point géométrique \(\tilde{y}\) de \(X\) au-dessus de \(y\).
+Alors \(K\) est produit direct de corps dont chacun est de degré de
+transcendance \(s-1\) sur un localisé strict de \(\mathbb{Z}\), et on a donc, d'après
+2.1 et 2.2, \(\operatorname{cd}_\ell K \leqslant s\). De plus on peut appliquer 3.2 si la
+caractéristique résiduelle de \(y\) n'est pas \(\ell\). On a donc</p>
+
+<p>(")
+\[
+(R^q i_* G)_{\tilde{y}} = 0 \begin{cases} \text{si } q > \operatorname{codim} y, \text{ i.e. } \dim \bar{y} > s-q, \text{ et } \ell \neq \operatorname{car} k(y), \\ \text{ou si } q > s \text{ en tout cas.} \end{cases}
+\]</p>
+
+<p>En particulier on a \(E_2^{pq} = 0\) si \(q > s\). Pour vérifier (++) dans le
+cas \(0 < q \leqslant s\), on applique l'hypothèse de récurrence aux faisceaux \(R^q i_*(G)\).</p>
+
+<p>D'après l'énoncé et ("), il faut poser \(N' = 2s - q\) et vérifier les
+deux inégalités
+\[
+s - q \leqslant (N'-1)/2
+\]
+\[
+s-1 = \dim X_\ell \leqslant N'-1 ,
+\]
+où \(X_\ell\) est le fibré de \(X\) au-dessus du point \((\ell)\) de \(\operatorname{Spec} \mathbb{Z}\).
+Elles sont bien vraies si \(0 < q \leqslant s\), cqfd.</p>
+
+<h2 id="X.biblio">Bibliographie</h2>
+
+<p>[1] AX, J. <em>Proof of some conjectures of Serre on cohomological
+dimension</em>, Proc. Amer. Math. Society 16 (1965) 1214-1221.</p>
+
+<p>[2] BOURBAKI, N. <em>Algèbre Commutative</em>, Paris (1960).</p>
+
+<p>[3] HIRONAKA, H. <em>Resolution of singularities of an algebraic
+surface over a field of characteristic zero</em>, Annals of Math. Vol. 79,
+No. 1,2 (1964).</p>
+
+<p>[4] NAGATA, M. <em>Local Rings</em>, New York (1962).</p>
+
+<p>[5] SERRE, J.-P. <em>Sur la dimension cohomologique de groupes
+profinis</em>, Topology Vol. 3, p. 413 (1965).</p>
+
+<p>[6] GODEMENT, R. <em>Théorie des Faisceaux</em>, Paris (1958).</p>
+
+<p>[7] E. ARTIN et A. SCHREIER — <em>Eine Kennzeichnung der reell
+abgeschlossenen Körper</em>, Hamb. Abh. 5 (1927) pp. 225-231.</p>
+
+<p>[8] SERRE, J.P. <em>Cohomologie Galoisienne</em>, Lecture Notes n°5 (Springer).</p>
+
+<div id="footnotes">
+<ol>
+<li id="fn1"><p>(∗) Ce théorème a été démontré récemment par Ax [1]. <a class="backref" href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>(∗) Pour s'en convaincre, il suffit de noter que si \(X\) est un schéma algébrique lisse sur un corps \(k\), admettant un point \(x \in X(k)\), alors on peut trouver un "arc de courbe formel" passant par \(x\) dont "l'enveloppe algébrique" soit \(X\), et dont le corps des fonctions contient donc celui \(K\) de \(X\), et \(y\) induit une valuation discrète dont le corps résiduel est \(k\). <a class="backref" href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>(∗) Utilisant le lemme de Chow, il est facile de remplacer la condition "\(X\) quasi-projectif" par "\(X\) séparé". <a class="backref" href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+
+</body>
+</html>

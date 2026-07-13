@@ -93,7 +93,7 @@ aussitôt.</p>
   (*) \qquad H^i(X,F) \to H^i(X',F')
   \]
   sont des isomorphismes. De même, si \(F'\) est un faisceau abélien sur \(X'\),
-  \(F\) son image sur \(X\), les homomorphismes canoniques \((*)\) sont des isomor\-phismes.</p></div>
+  \(F\) son image sur \(X\), les homomorphismes canoniques \((*)\) sont des isomorphismes.</p></div>
 </div>
 
 <h3 id="VIII.1.3">Exemples 1.3</h3>
@@ -105,7 +105,7 @@ une clôture algébrique de \(k\), et \(X' = X \otimes_k k'\).</p>
 <p>c) Soit \(X\) un schéma géométriquement unibranche (par exemple
 une courbe algébrique sur un corps \(k\), n'ayant comme singularités que
 des singularités "cuspidales", à l'exclusion en particulier de points
-doubles ordinaires). Alors, si \(X'\) est le normalisé de \(X_{\text{red}}\), par défi\-nition
+doubles ordinaires). Alors, si \(X'\) est le normalisé de \(X_{\text{red}}\), par définition
 \(X' \to X\) est radiciel, donc 2.1 s'applique.</p>
 
 <h3 id="VIII.1.4">Remarques 1.4</h3>
@@ -116,12 +116,1540 @@ on prouve que \(f\) satisfait aux hypothèses de 2.1 <sup class="footnote-ref"><
 le titre du présent numéro.</p>
 <p>Signalons expressément, à propos de l'exemple 2.3 c), que si
 \(X\) est une courbe algébrique (sur un corps algébriquement clos \(k\) pour
-fixer les idées) ayant au moins un point singulier qui n'est pas "uni\-branche"
+fixer les idées) ayant au moins un point singulier qui n'est pas "unibranche"
 (par exemple un point double ordinaire), alors (\(X'\) désignant
 le normalisé de \(X_{\text{red}}\)) la conclusion de 2.2 est déjà en défaut pour les
 \(H^1\) et des coefficients constants (comparer SGA 1 I 11 a) et SGA 1 IX 5).</p>
 
-<!-- MORE -->
+<h2 id="VIII.2">2. Faisceaux sur le spectre d'un corps</h2>
+
+<div class="thm thm-plain proposition" id="VIII.2.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.1</span></div>
+  <div class="thm-body"><p>Soient \(k\) un corps, \(\bar{k}\) une clôture séparable de \(k\),
+  \(\pi = \operatorname{Gal}(\bar{k}/k)\) son groupe de Galois topologique, \(X = \operatorname{Spec} k\), \(\overline{X} = \operatorname{Spec} \bar{k}\)
+  (sur lequel \(\pi\) opère à gauche). Considérons le foncteur canonique
+  \[
+  i : X_{\text{ét}} \to \widetilde{X}_{\text{ét}}
+  \]
+  (défini par \(i(X')(X'') = \operatorname{Hom}_X(X',X'')\)), et le foncteur canonique
+  \[
+  j : \widetilde{X}_{\text{ét}} \to \mathscr{B}_\pi
+  \]
+  de la catégorie des faisceaux sur \(X_{\text{ét}}\) dans la catégorie \(\mathscr{B}_\pi\) (cf. IV 2.7)
+  des ensembles (discrets) sur lesquels \(\pi\) opère continûment à gauche, défini
+  par
+  \[
+  j(F) = \varinjlim_\alpha F(\operatorname{Spec} k_\alpha) ,
+  \]
+  où \(k_\alpha\) parcourt les sous-extensions finies de \(\bar{k}\). Alors \(i\) et \(j\) sont
+  des équivalences de catégories. (Par suite, le topos \(\widetilde{X}_{\text{ét}}\) est équivalent
+  (IV 3.4) au "topos classifiant" \(\mathscr{B}_\pi\).)</p></div>
+</div>
+
+<p>Le foncteur composé
+\[
+ji: X_{\text{ét}} \to \widetilde{X}_{\text{ét}} \to (\pi\text{-Ens})
+\]
+est une équivalence de catégories, d'après le théorème fondamental de la
+théorie de Galois (sous la forme de SGA 1 V). Comme \(\mathscr{B}_\pi\) est évidemment
+un topos (II 4.14), il en est donc de même de \(\widetilde{X}_{\text{ét}}\). D'ailleurs une
+famille \((X_i \to X)\) de morphismes dans \(X_{\text{ét}}\) est couvrante si et seulement
+si elle est surjective, i.e. son image dans \(\mathscr{B}_\pi\) est surjective, ou ce qui revient au même, couvrante pour la topologie canonique
+de \(\mathscr{B}_\pi\) ce qui montre que la topologie de \(X_{\text{ét}}\) est bien sa topologie canonique. Par suite \(i\) est
+une équivalence, et il en est donc de même de \(j\).</p>
+
+<div class="thm thm-plain corollary" id="VIII.2.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.2</span></div>
+  <div class="thm-body"><p>Le foncteur \(j\) de 2.1 induit une équivalence de la
+  catégorie des faisceaux abéliens sur \(X = \operatorname{Spec} k\), et la catégorie des
+  \(\pi\)-modules galoisiens.</p></div>
+</div>
+
+<p>En effet, ces derniers sont justement les "groupes abéliens"
+du topos \(\mathscr{B}_\pi\). On voit de même, par "transport de structure"&nbsp;:</p>
+
+<div class="thm thm-plain corollary" id="VIII.2.3">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.3</span></div>
+  <div class="thm-body"><p>Soient \(F\) un faisceau abélien sur \(X = \operatorname{Spec} k\), \(M = j(F)\)
+  le \(\pi\)-module galoisien associé, alors on a un isomorphisme canonique de
+  \(\partial\)-foncteurs en \(F\)&nbsp;:
+  \[
+  H^*(X,F) \simeq H^*(\pi,M) ,
+  \]
+  (où le deuxième membre désigne la cohomologie galoisienne, étudiée par
+  exemple dans le cours de Serre C.G.).</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="VIII.2.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.4</span></div>
+  <div class="thm-body"><p>Supposons \(k\) séparablement clos. Alors le foncteur
+  \[
+  \Gamma : \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})
+  \]
+  est une équivalence de catégorie. Si \(F\) est un faisceau abélien sur
+  \(X = \operatorname{Spec} k\), on a \(H^i(X,F) = 0\) pour \(i \neq 0\). (En d'autres termes, le topos
+  \(\widetilde{X}_{\text{ét}}\) est un "topos ponctuel" (IV 2.2).)</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="VIII.2.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.5</span></div>
+  <div class="thm-body"><p>Soit \(k'\) une extension séparablement close d'un corps
+  séparablement clos \(k\), \(X = \operatorname{Spec} k\), \(X' = \operatorname{Spec} k'\), \(u : X' \to X\) le morphisme
+  canonique. Alors le foncteur
+  \[
+  u^* : \widetilde{X}_{\text{ét}} \to \widetilde{X'}_{\text{ét}}
+  \]
+  est une équivalence de catégories.</p></div>
+</div>
+
+<h2 id="VIII.3">3. Foncteurs fibres relatifs aux points géométriques d'un schéma</h2>
+
+<h3 id="VIII.3.1">3.1</h3>
+<p>Soit \(X\) un schéma. Nous appellerons <u>point géométrique</u> de \(X\)
+tout \(X\) schéma \(\xi\) qui est le spectre d'un corps \(\Omega\) <u>séparablement clos</u>.
+La donnée d'un tel point équivaut donc à celle d'un point ordinaire \(x \in X\),
+et d'une extension <u>séparablement close</u> \(\Omega\) du corps résiduel \(k(x)\) de \(X\).
+Le cas le plus fréquent pour nous sera celui où \(\Omega\) est une <u>clôture séparable</u>
+de \(k(x)\), que nous dénoterons alors généralement par \(\overline{k(x)}\), le
+point géométrique correspondant de \(X\) étant alors noté \(\bar{x}\). Pour \(x \in X\)
+donné, les \(\overline{k(x)}\) (resp. \(\bar{x}\)) sont déterminés à \(k\)-isomorphisme (resp. \(X\)-isomorphisme)
+<u>non unique</u> près.</p>
+
+<h3 id="VIII.3.2">Remarques 3.2</h3>
+<p>Dans la plupart des questions géométriques, il est plus
+naturel de se borner au cas \(\Omega\) <u>algébriquement clos</u>. La convention différente
+utilisée ici est spéciale à l'étude de la topologie étale.
+C'est la convention que nous avions adoptée dans la définition du groupe
+fondamental SGA 1 V 7. Mais on notera que les développements de loco
+citato sont également valables avec la convention adoptée ici (car la
+propriété de \(\Omega\) qui y est utilisée est que tout revêtement étale du
+spectre \(\Omega\) est trivial, i.e. justement que \(\Omega\) est séparablement clos).</p>
+
+<div class="thm thm-plain definition" id="VIII.3.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">3.3</span></div>
+  <div class="thm-body"><p>Soient \(X\) un schéma, \(\xi\) un point géométrique de
+  \(X\), \(u : \xi \to X\) son morphisme structural. On appelle <u>foncteur fibre</u>
+  (géométrique) relatif à \(\xi\), et on note \(F \mapsto F_\xi\), le foncteur
+  \[
+  \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})
+  \]
+  composé de
+  \[
+  \widetilde{X}_{\text{ét}} \xrightarrow{\ u^*\ } \widetilde{\xi}_{\text{ét}} \xrightarrow{\ \Gamma_\xi\ } (\mathrm{Ens}) .
+  \]</p></div>
+</div>
+
+<p>On peut dire aussi que, grâce à 2.4, un point géométrique \(\xi\)
+de \(X\) définit un point du topos \(\widetilde{X}_{\text{ét}}\) (IV 6.1), dont on prend simplement le
+foncteur fibre associé (loc.cit).</p>
+
+<h3 id="VIII.3.4">3.4</h3>
+<p>Comme le foncteur \(\Gamma_\xi\) (foncteur sections sur \(\xi\)) est une équivalence
+de catégories (12.4), la connaissance des foncteurs fibres
+\(F \mapsto F_\xi\) équivaut essentiellement à celle des foncteurs images réciproques
+\(u^*\). Notons d'ailleurs qu'il résulte aussitôt de 2.5 que si \(\xi\)
+est un point géométrique de \(X\) tel qu'il existe un \(X\)-morphisme
+\(\xi' \to \xi\) (i.e. \(\xi'\) correspond à une extension séparablement close \(\Omega'\)
+de \(\Omega\)) alors l'homomorphisme canonique \(F_\xi \to F_{\xi'}\) est un <u>isomorphisme</u>
+<u>fonctoriel</u>
+\[
+F_\xi \xrightarrow{\ \sim\ } F_{\xi'} .
+\]
+Cela montre que pour l'étude des foncteurs fibres, on peut (quitte à
+remplacer \(\Omega\) par la clôture algébrique séparable de \(k\) dans \(\Omega\)) se
+borner au cas où \(\Omega = k(\xi)\) est une clôture séparable \(\overline{k(x)}\) de \(k(x)\),
+et que les foncteurs fibres correspondant aux points géométriques de \(X\)
+localisés en un même \(x \in X\) sont isomorphes entre eux (de façon non
+unique).</p>
+<p>On désignera, conformément aux conventions de 3.1, par \(F_{\bar{x}}\)
+un foncteur fibre correspondant au choix d'une clôture séparable
+\(\overline{k(x)}\) de \(k(x)\).</p>
+<p>Signalons une propriété de transitivité évidente (qui montre
+l'utilité technique à ne pas se borner exclusivement à des points géométriques
+définis par des clôtures séparables de corps résiduels)&nbsp;:
+Soient \(f = X' \to X\) un morphisme de schémas, \(u' : \xi' \to X'\) un
+point géométrique de \(X'\), alors \(u = f u' : \xi' \to X\) est un point géométrique
+de \(X\) que nous noterons \(\xi\)&nbsp;; relativement à ces points géométriques
+on a un isomorphisme fonctoriel en \(F \in \mathrm{Ob}\, \widetilde{X}_{\text{ét}}\)&nbsp;:
+\[
+f^*(F)_{\xi'} \simeq F_\xi .
+\]
+Cela résulte en effet de la formule de transitivité des foncteurs images
+inverses
+\[
+(fu)^* \xrightarrow{\ \sim\ } u^* f^* .
+\]</p>
+
+<div class="thm thm-plain theorem" id="VIII.3.5">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">3.5</span></div>
+  <div class="thm-body"><p>Soit \(X\) un schéma.</p>
+  <p>a) Pour tout point géométrique \(\xi\) de \(X\), le foncteur fibre
+  \(F \mapsto F_\xi : \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})\) commute aux \(\varinjlim\) quelconques (indexées par des
+  catégories \(\in \mathcal{U}\)) et aux \(\varprojlim\) finies <sup class="footnote-ref"><a id="fnref3" href="#fn3">(∗)</a></sup>. En particulier, il transforme
+  faisceaux en groupes (resp. faisceaux abéliens, etc...) en groupes
+  (resp. groupes abéliens, etc...).</p>
+  <p>b) Lorsque \(x\) parcourt les points de \(X\), les foncteurs fibres
+  \(F_{\bar{x}}\) forment une famille de foncteurs "conservative", i.e. si \(u : F \to G\)
+  est un homomorphisme de faisceaux sur \(X\), \(u\) est un isomorphisme si et
+  seulement si pour tout \(x \in X\), l'homomorphisme correspondant
+  \(u_{\bar{x}} : F_{\bar{x}} \to G_{\bar{x}}\) l'est <sup class="footnote-ref"><a id="fnref4" href="#fn4">(∗∗)</a></sup>.</p></div>
+</div>
+
+<p>Notons tout de suite, compte tenu des propriétés d'exactitude
+de a), les conséquences formelles suivantes de b)&nbsp;:</p>
+
+<div class="thm thm-plain corollary" id="VIII.3.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.6</span></div>
+  <div class="thm-body"><p>Soit \(u : F \to G\) un homomorphisme de faisceaux.
+  Alors \(u\) est un monomorphisme (resp. un épimorphisme) si et seulement
+  si pour tout \(x \in X\), \(u_{\bar{x}} : F_{\bar{x}} \to G_{\bar{x}}\) est injectif (resp. surjectif).</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="VIII.3.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.7</span></div>
+  <div class="thm-body"><p>Soient \(u, v : F \to G\) deux morphismes de faisceaux sur
+  \(X\), alors \(u = v\) si et seulement si pour tout \(x \in X\), on a
+  \(u_{\bar{x}} = v_{\bar{x}} : F_{\bar{x}} \to G_{\bar{x}}\). En particulier, si \(u,v\) sont deux sections de \(F\),
+  on a \(u = v\) si et seulement si on a \(u_{\bar{x}} = v_{\bar{x}}\) dans \(F_{\bar{x}}\) pour tout \(x \in X\).</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="VIII.3.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">3.8</span></div>
+  <div class="thm-body"><p>Soit \(F \to G \to H\) une suite de deux homomorphismes
+  de faisceaux sur \(X\), alors la suite est exacte si et seulement si pour
+  tout \(x \in X\), la suite correspondante \(F_{\bar{x}} \to G_{\bar{x}} \to H_{\bar{x}}\) l'est.</p></div>
+</div>
+
+<p>Nous laisserons au lecteur le soin de déduire les corollaires<sup class="footnote-ref"><a id="fnref5" href="#fn5">(∗)</a></sup>, qui seront
+d'ailleurs prouvés partiellement dans la démonstration qui suit.</p>
+
+<p>L'assertion a) résulte des propriétés d'exactitude déjà signalées dans
+(VII 1.4) pour tout foncteur image réciproque, tel \(u^* : \widetilde{X}_{\text{ét}} \xrightarrow{\ \sim\ } \widetilde{\xi}_{\text{ét}}\),
+et du fait que \(\widetilde{\xi}_{\text{ét}} \to (\mathrm{Ens})\) est une équivalence. Pour prouver b),
+notons la formule suivante, qui donne un procédé de calcul des foncteurs
+fibres&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIII.3.9">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">3.9</span><sup class="footnote-ref"><a id="fnref6" href="#fn6">(∗∗)</a></sup></div>
+  <div class="thm-body"><p>Soit \(\xi \xrightarrow{\ u\ } X\) un point géométrique de \(X\), et soit
+  \(C_\xi\) la catégorie des "\(X\)-schémas étales \(\xi\)-ponctués", i.e. des couples
+  \((X', u')\), ou \(X' \in \mathrm{Ob}\, X_{\text{ét}}\) est un schéma étale sur \(X\), et \(u'\)
+  un \(X\)-morphisme \(\xi \to X'\). Alors la catégorie opposée \(C_\xi^o\) est filtrante
+  et pour un faisceau \(F\) (resp. préfaisceau \(P\)) variable
+  sur \(X\), on a un isomorphisme fonctoriel canonique
+  \[
+  F_\xi \simeq \varinjlim_{C_\xi^o} F(X'), \qquad (\text{resp. } (aP)_\xi \simeq \varinjlim_{C_\xi^o} P(X') ),
+  \]
+  (où \(aP = \) faisceau associé à \(P\)).</p></div>
+</div>
+
+<p>En effet, notons d'abord que pour tout préfaisceau \(P\) sur \(\xi_{\text{ét}}\),
+si \(aP\) est le faisceau associé, l'homomorphisme naturel
+\[
+P(\xi) \to aP(\xi)
+\]
+est un isomorphisme, comme il résulte par exemple aussitôt du calcul
+explicite de \(aP\) comme \(L(LP)\) (II 3.19.). Soit \(\varphi : \widetilde{X}_{\text{ét}} \to \widetilde{\xi}_{\text{ét}}\) le
+foncteur "image réciproque", alors \(u^* = \varphi^*\) n'est autre (III 2.3.(d))
+que le composé \(a\, \varphi'\, i\), où \(i : \widetilde{X}_{\text{ét}} \to \widehat{X}_{\text{ét}}\) est le foncteur inclusion,
+et \(a : \widehat{\xi}_{\text{ét}} \to \widetilde{\xi}_{\text{ét}}\) le foncteur "faisceau associé". Par la remarque
+précédente on trouve
+\[
+u^*(F)(\xi) = (\varphi'i(F))(\xi) ,
+\]
+de sorte qu'il suffit d'appliquer l'expression explicite de \(\varphi'\) donnée
+dans la démonstration de&nbsp;. Le cas resp., où on part avec un
+préfaisceau \(P\) sur \(X\), se prouve de même, en utilisant l'isomorphisme
+fonctoriel \(\varphi^*a(P) \simeq a \varphi(P)\)&nbsp;. Le fait que la catégorie \(C_\xi\)
+est filtrante (qui reste valable pour <u>tout</u> \(X\)-schéma \(\xi\), pas nécessairement
+réduit à un point géométrique) résulte aussitôt du fait que dans
+\(C_\xi\) les limites projectives finies existent, ce qui résulte du fait
+que \(X_{\text{ét}}\) est une sous-catégorie de \((\mathrm{Sch})_{/X}\) stable par limites projectives
+finies.</p>
+
+<p>Soit maintenant \(u : F \to G\) un homomorphisme de faisceaux sur
+\(X\), tel que pour tout \(x \in X\), \(u_{\bar{x}} : F_{\bar{x}} \to G_{\bar{x}}\) soit un monomorphisme,
+prouvons que \(u\) est un monomorphisme. Pour ceci, on doit prouver que si
+\(X' \in \mathrm{Ob}\, X_{\text{ét}}\), \(\varphi, \psi \in F(X')\) sont tels que \(u(\varphi) = u(\psi)\), on a
+\(\varphi = \psi\). Remplaçant \(X\) par \(X'\) et utilisant la transitivité des foncteurs
+fibres, on peut supposer \(X = X'\). Pour tout \(x \in X\), on aura
+\(u(\varphi)_{\bar{x}} = u(\psi)_{\bar{x}}\) i.e. \(u_{\bar{x}}(\varphi_{\bar{x}}) = u_{\bar{x}}(\psi_{\bar{x}})\), donc \(\varphi_{\bar{x}} = \psi_{\bar{x}}\) puisque
+\(u_{\bar{x}}\) est un monomorphisme. Utilisant 3.9 il s'ensuit qu'il existe
+\(X'_x \in \mathrm{Ob}\, X_{\text{ét}}\), dont l'image contient \(x\), tel \(\varphi\) et \(\psi\) aient même image
+inverse sur \(X'_x\). Comme pour \(x\) variable dans \(X\), les \(X'_x\) forment une
+famille couvrante de \(X\), il s'ensuit que \(\varphi = \psi\).</p>
+
+<p>Cela prouve que si les \(u_{\bar{x}}\) sont des monomorphismes, il en est
+de même de \(u\). Supposons de plus que les \(u_{\bar{x}}\) soient des épimorphismes,
+prouvons qu'il en est de même de \(u\), donc que \(u\) est un isomorphisme.
+Il reste à prouver que pour tout \(X' \in \mathrm{Ob}\, X_{\text{ét}}\), et tout \(\psi \in G(X')\), il
+existe \(\varphi \in F(X')\) tel que \(u(X')(\varphi) = \psi\). On peut encore supposer
+\(X'=X\), et utilisant 3.9 on voit que pour tout \(x \in X\), existe \(X'_x \in \mathrm{Ob}\, X_{\text{ét}}\)
+tel que l'image de \(X'_x\) dans \(X\) contienne \(x\), et un \(\varphi_x \in F(X'_x)\) dont
+l'image dans \(G(X'_x)\) soit l'image inverse de \(\psi\). Utilisant le fait que
+\(u\) est un monomorphisme, on voit que les \(\varphi_x\) coïncident sur les
+\(X'_x \times_X X'_y\) (\(x,y \in X\)) donc proviennent d'un \(\varphi \in F(X)\) bien déterminé,
+et on aura alors \(u(\varphi) = \psi\) puisque les images inverses sur les \(X'_x\)
+coïncident. c q f d.</p>
+
+<div class="thm thm-plain" id="VIII.3.10">
+  <div class="thm-head"><span class="thm-name">Scholie</span> <span class="thm-num">3.10</span></div>
+  <div class="thm-body"><p>Le théorème 3.5 implique que la collection des "foncteurs
+  fibres" pour la topologie étale jouit des mêmes propriétés essentielles
+  que dans la théorie des faisceaux habituelle sur un espace topologique.
+  Nous utiliserons très fréquemment 3.5 et ses corollaires, et pour cette
+  raison nous dispenserons généralement d'y référer explicitement.</p></div>
+</div>
+
+<h3 id="VIII.3.11">3.11</h3>
+<p>Pour tout \(x \in X\) nous désignerons aussi, par abus de langage,
+par \(x\) le \(X\)-schéma \(\operatorname{Spec} k(x)\), pour le morphisme structural habituel
+\[
+i_x : x = \operatorname{Spec} k(x) \to X .
+\]
+Il donne lieu à un foncteur canonique
+\[
+i_x^* : \widetilde{X}_{\text{ét}} \to \widetilde{x}_{\text{ét}} .
+\]
+Si \(F\) est un faisceau sur \(X\), nous poserons \(F_x = i_x^*(F)\), c'est donc un
+faisceau sur \(x = \operatorname{Spec} k(x)\) (et à ce titre peut s'identifier aussi à un
+schéma étale sur \(x\), en vertu de 2.1). Il dépend fonctoriellement de
+\(F\), et le foncteur \(i_x^* : F \mapsto F_x\) commute encore aux \(\varinjlim\) quelconques,
+et \(\varprojlim\) finies, en vertu de VII 1.4.</p>
+<p>Si \(\bar{x} = \operatorname{Spec} \overline{k(x)}\), le foncteur fibre \(F \mapsto F_{\bar{x}}\) est canoniquement
+isomorphe au composé du foncteur \(F \mapsto F_x\) et du foncteur \(j\) de 1.1
+(compte tenu que ce dernier est isomorphe au foncteur fibre relatif au
+point géométrique \(\operatorname{Spec} \bar{k}\) de \(\operatorname{Spec} k\)). Il résulte aussitôt de ceci et de
+3.5 que le système des foncteurs \((F \mapsto F_x)\) (\(x \in X\)) est encore conservatif.
+D'ailleurs, si \(k(x)\) est séparablement clos, i.e. \(x = \bar{x}\), les
+notations \(F_x\) et \(F_{\bar{x}}\) sont en toute rigueur contradictoires (la première
+désignant un objet de \(\widetilde{x}_{\text{ét}}\), la deuxième un ensemble), mais en vertu de
+1.1 c'est là une contradiction inessentielle.</p>
+
+<h3 id="VIII.3.12">3.12</h3>
+<p>On voit par les remarques qui précèdent que si \(\bar{x} = \operatorname{Spec} \overline{k(x)}\),
+alors pour tout faisceau \(F\) sur \(X\), le groupe \(\pi_x = \operatorname{Gal}(\overline{k(x)}/k(x))\)
+opère de façon naturelle (à gauche) sur l'ensemble fibre \(F_{\bar{x}}\), de sorte
+que \(F \mapsto F_{\bar{x}}\) peut en fait être considéré comme un foncteur
+\[
+\widetilde{X}_{\text{ét}} \to \mathscr{B}_{\pi_x}
+\]
+dont la connaissance équivaut essentiellement (grâce à 1.1) à celle du
+foncteur \(F \mapsto F_x\).</p>
+<p>Cela montre, dans un cas particulier important, que contrairement
+à ce qui a lieu dans le cas des faisceaux sur les espaces topologiques,
+les "foncteurs fibres" admettent en général des automorphismes
+non triviaux. De façon générale, nous déterminerons dans 7.9 tous les
+homomorphismes d'un foncteur fibre dans un autre.</p>
+
+<div class="thm thm-plain" id="VIII.3.13">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">3.13</span></div>
+  <div class="thm-body"><p>Voici une généralisation parfois utile de 3.5 b). Considérons
+  une partie \(E\) de \(X\) telle que pour tout morphisme étale
+  \(f : X' \to X\), \(E' = f^{-1}(E)\) soit "très dense" dans \(X'\) (EGA IV 10.1.3),
+  i.e. que pour tout \(f\) comme ci-dessus, tout ouvert \(U\) de \(X'\) qui contient
+  \(E'\) soit égal à \(X'\). Alors les foncteurs fibres \(F_{\bar{x}}\) sur \(\widetilde{X}_{\text{ét}}\), pour
+  \(x \in E\), forment déjà une "famille conservative" (et par suite les corollaires
+  3.6, 3.7 et 3.8 restent valables en se bornant à y choisir
+  \(x \in E\)). Cela se voit immédiatement en reprenant la démonstration donnée
+  de 3.5 b). Le résultat précédent s'applique notamment dans les
+  situations suivantes&nbsp;:</p>
+  <p>a) \(X\) est un schéma de Jacobson (EGA IV 10.4.1.), par exemple
+  localement de type fini sur un corps, ou sur \(\operatorname{Spec}(\mathbf{Z})\), et \(E\) est l'ensemble
+  des points fermés de \(X\).</p>
+  <p>b) \(X\) est localement de type fini sur un schéma \(S\), et \(E\) est
+  l'ensemble des points de \(X\) qui sont fermés dans leur fibre.</p>
+  <p>c) \(X\) est localement noethérien, et \(E\) est l'ensemble des \(x \in X\)
+  tels que \(\bar{x}\) soit un ensemble fini (i.e. un schéma semi-local de dimension
+  \(\leqslant 1\)) cf. EGA IV 10.5.3 et 10.5.5.</p></div>
+</div>
+
+<h2 id="VIII.4">4. Anneaux et schémas strictement locaux</h2>
+
+<h3 id="VIII.4.1">4.1</h3>
+<p>Rappelons qu'on dit, avec Azumaya, qu'un anneau local \(A\) est
+<u>hensélien</u> s'il satisfait aux conditions équivalentes suivantes&nbsp;:</p>
+<p>(i) Toute algèbre \(B\) finie sur \(A\) est composée directe \(\prod_i B_i\)
+d'anneaux locaux (les \(B_i\) sont alors nécessairement isomorphes aux
+\(B_{\mathfrak{m}_i}\), où \(\mathfrak{m}_i\) parcourt les idéaux maximaux de \(B\)).</p>
+<p>(ii) Toute algèbre \(B\) sur \(A\) qui est localisée d'une algèbre de
+type fini \(C\) sur \(A\) en un idéal premier \(\mathfrak{p}\) au-dessus de l'idéal maximal \(\mathfrak{M}\)
+de \(A\), et telle que \(B/\mathfrak{M}B\) soit fini sur \(k = A/\mathfrak{M}\), est finie sur \(A\).</p>
+<p>(iii) Comme (ii). mais en supposant \(C\) étale sur \(A\) en \(\mathfrak{p}\) et
+\(k \to B/\mathfrak{M}B\) un isomorphisme.</p>
+<p>(iv) Le "lemme de Hensel" sous la forme classique est valable
+pour \(A\), i.e. pour tout polynôme unitaire \(F \in A[T]\), désignant par
+\(\dot{F} \in k[T]\) le polynome réduit correspondant, et pour toute décomposition
+\[
+\dot{F} = \dot{F}_1 \dot{F}_2
+\]
+de \(\dot{F}\) en produit de deux polynomes unitaires étrangers, \(\dot{F}_1\) et \(\dot{F}_2\) se
+relèvent (de façon nécessairement unique) en des \(F_1, F_2 \in A[T]\), tels
+que \(F = F_1 F_2\).</p>
+<p>Pour la démonstration de ces équivalences et les propriétés
+générales des anneaux henséliens, cf. EGA IV 18.5.11. Rappelons que si \(A\) est
+un anneau local quelconque, on montre (Nagata) que l'on peut trouver un
+homomorphisme local,
+\[
+A \to A^h
+\]
+avec \(A^h\) hensélien, qui est <u>universel</u> pour les homomorphismes locaux
+de \(A\) dans des anneaux locaux noethériens. L'anneau \(A^h\) est appelé le
+hensélisé de \(A\). La construction donnée dans EGA IV 18.6 (différente
+de celle de Nagata) consiste à poser
+\[
+A^h = \varinjlim_i A_i ,
+\]
+où \(A_i\) parcourt les \(A\)-algèbres essentiellement de type fini et
+essentiellement étales sur \(A\) (i.e. localisées d'une algèbre étale sur \(A\))
+telles que \(A \to A_i\) soit un homomorphisme local et l'extension résiduelle
+\(k(A_i)/k(A)\) soit triviale. Cette construction montre en particulier que
+\(A^h\) est plat sur \(A\) et que si \(A\) est noethérien, il en est de même de sa
+clôture hensélienne.</p>
+
+<div class="thm thm-plain definition" id="VIII.4.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">4.2</span></div>
+  <div class="thm-body"><p>Un anneau local \(A\) est dit <u>strictement local</u> s'il
+  satisfait l'une des conditions équivalentes suivantes&nbsp;:</p>
+  <p>(i) \(A\) est hensélien (4.1) et son corps résiduel est séparablement
+  clos.</p>
+  <p>(ii) Tout homomorphisme local \(A \to B\), où \(B\) est localisé
+  d'une algèbre étale sur \(A\), est un isomorphisme.</p>
+  <p>Un schéma est dit <u>schéma strictement local</u> s'il est isomorphe
+  au spectre d'un anneau strictement local.</p></div>
+</div>
+
+<p>L'équivalence de (i) et (ii) résulte aussitôt de 4.1. Notons que,
+sous forme géométrique, 4.2 (ii) (resp. 4.1 (iii)) s'exprime en disant
+que pour tout schéma étale \(X\) sur \(Y = \operatorname{Spec} A\), et tout point \(x\) de la
+fibre \(X_y\) (respectivement tout point de \(X_y\) rationnel sur \(k(y)\)), où \(y\)
+est le point fermé de \(Y\), il existe une section de \(X\) sur \(Y\) passant par
+\(y\) (section qui est d'ailleurs nécessairement unique).</p>
+
+<div class="thm thm-plain definition" id="VIII.4.3">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">4.3</span></div>
+  <div class="thm-body"><p>Soient \(X\) un schéma, \(\mathcal{O}_{X_{\text{ét}}}\) le faisceau sur \(X_{\text{ét}}\)
+  défini par
+  \[
+  \mathcal{O}_{X_{\text{ét}}}(X') = \Gamma(X', \mathcal{O}_{X'})
+  \]
+  (comparer VII 2. c) ), \(u : \xi = \operatorname{Spec}(\Omega) \to X\) un point géométrique de \(X\).
+  On appelle <u>anneau strictement local</u> de \(X\) en \(\xi\), et on note \(\mathcal{O}_{X,\xi}\), ou
+  simplement \(\mathcal{O}_\xi\), la fibre du faisceau \(\mathcal{O}_{X_{\text{ét}}}\) en le point \(\xi\). Son spectre
+  est appelé <u>localisé strict</u> de \(X\) en \(\xi\).</p></div>
+</div>
+
+<p>En vertu de 3.9, on a la description de la fibre \(\mathcal{O}_{X,\xi}\)&nbsp;:
+\[
+(*) \qquad \mathcal{O}_{X,\xi} = \varinjlim \Gamma(X', \mathcal{O}_{X'}) ,
+\]
+où \(X'\) parcourt la catégorie filtrante opposée de la catégorie des
+schémas étales sur \(X\) qui sont \(\xi\)-ponctués, i.e. munis d'un
+\(X\)-morphisme \(\xi \to X'\). D'après la transitivité des limites inductives,
+on peut remplacer au deuxième membre \(\Gamma(X', \mathcal{O}_{X'})\) par \(\mathcal{O}_{X',x'}\), ou \(x'\)
+est l'image de \(\xi\) dans \(X'\), et on trouve l'expression
+\[
+(**) \qquad \mathcal{O}_{X,\xi} = \varinjlim_i A_i
+\]
+où \(A_i\) parcourt les algèbres essentiellement de type fini et étales sur
+\(A = \mathcal{O}_{X,x}\) munies d'un \(k\)-homomorphisme \(k(A_i) \to \Omega\). (N.B. \(x\) désigne
+l'image de \(\xi\) dans \(X\)). Bien entendu les homomorphismes de transition
+entre les \(A_i\) sont les homomorphismes locaux de \(A\)-algèbres \(A_i \to A_j\)
+qui rendent commutatif le triangle correspondant
+\[
+\xymatrix{
+k(A_i) \ar[r] \ar[dr] & k(A_j) \ar[d] \\
+& \Omega
+}
+\]
+ce qui implique que s'il existe un homomorphisme admissible de \(A_i\) dans
+\(A_j\), ce dernier est unique. Donc la limite inductive \((**)\) est une limite
+relative à un ensemble d'indices ordonné filtrant croissant.</p>
+
+<h3 id="VIII.4.4">4.4</h3>
+<p>La description \((**)\) montre que l'anneau local strict de \(X\) en \(\xi\)
+ne dépend essentiellement que de l'anneau local habituel \(A = \mathcal{O}_{X,x}\) (\(x=u(\xi)\)),
+et de l'extension \(\Omega\) de \(k = k(A)\). On l'appelle aussi <u>anneau hensélisé</u>
+<u>strict</u> de \(A\) (relativement à l'extension séparablement close considérée \(\Omega\)
+de \(k\)) et on le notera \(A^{hs}\). On renvoie à EGA IV 18.8 pour les propriétés
+générales de \(A^{hs}\). Signalons simplement que la construction donnée montre
+encore que \(A^{hs}\) est plat sur \(A\), et qu'il est noethérien si \(A\) l'est.
+D'autre part, on montre facilement (loc. cit.) que l'homomorphisme local
+\[
+A \to A^{hs}
+\]
+muni du \(k\)-homomorphisme
+\[
+k(A^{hs}) \to \Omega
+\]
+est solution du problème universel, relatif à la donnée de \(A\) et de
+l'extension \(\Omega\) de \(k\), correspondant à la recherche des homomorphismes
+locaux
+\[
+A \to A' ,
+\]
+avec \(A'\) strictement local, munis d'un \(k\)-homomorphisme
+\[
+k(A') \to \Omega .
+\]
+En particulier, \(A^{hs}\) est bien un anneau strictement local (ce qui justifie
+la terminologie 4.3).</p>
+
+<h3 id="VIII.4.5">4.5</h3>
+<p>Gardons les notations des 4.3 et choisissons un voisinage
+ouvert affine \(U\) de \(x\). Notons que dans 3.9 on peut évidemment se borner
+aux \(X'\) qui sont affines au-dessus de \(U\). Ces derniers forment alors
+un système projectif pseudo-filtrant de schémas affines, de sorte que nous
+sommes dans la situation générale de VII 5 (cf. VII 5.12 b). En vertu de
+l'expression \((*)\) pour \(\mathcal{O}_{X,\xi}\), on aura un \(X\)-isomorphisme
+\[
+(***) \qquad \varprojlim_{\substack{X'\ \text{étale} \\ \text{affine sur } U, \\ X'\ \xi\text{-ponctué}}} X' \simeq \operatorname{Spec} \mathcal{O}_{X,\xi}
+\]
+ce qui précise la signification géométrique intuitive de \(\operatorname{Spec}(\mathcal{O}_{X,\xi})\)
+comme "<u>limite des voisinages étales</u> de \(\xi\)".</p>
+
+<div class="thm thm-plain proposition" id="VIII.4.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.6</span></div>
+  <div class="thm-body"><p>Soit \(X\) un schéma strictement local, \(x\) son point
+  fermé, qui est donc un point géométrique de \(X\). Alors le foncteur
+  \(F \mapsto \Gamma(X,F) : \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})\) est canoniquement isomorphe au foncteur
+  fibre \(F \mapsto F_x\), et par suite commute aux \(\varinjlim\) quelconques <sup class="footnote-ref"><a id="fnref7" href="#fn7">(∗)</a></sup>.</p></div>
+</div>
+
+<p>En effet, en vertu de déf. 4.2 (ii), l'objet final \(X\) de la
+catégorie des \(X'\) étales \(x\)-ponctués sur \(X\) envisagée dans 3.9 majore
+tous les autres objets, donc \(\varinjlim F(X')\) est canoniquement isomorphe à \(F(X)\),
+cqfd.</p>
+
+<p>En particulier, le foncteur induit par \(\Gamma\) sur la catégorie des
+faisceaux abéliens est exact, donc on conclut</p>
+
+<div class="thm thm-plain corollary" id="VIII.4.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.7</span></div>
+  <div class="thm-body"><p>Sous les conditions des 4.6 on a pour tout faisceau
+  abélien \(F\) sur \(X\)&nbsp;:
+  \[
+  H^q(X,F) = 0 \quad \text{pour } q \neq 0 .
+  \]</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="VIII.4.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.8</span></div>
+  <div class="thm-body"><p>Soient \(X\) un schéma, \(\xi\) un point géométrique de \(X\),
+  \(\overline{X} = \operatorname{Spec} \mathcal{O}_{X,x}\) le schéma localisé strict correspondant, \(F\) un faisceau
+  variable sur \(X\), \(\overline{F}\) son image inverse sur \(\overline{X}\), alors on a un isomorphisme
+  fonctoriel
+  \[
+  F_\xi \simeq \Gamma(\overline{X},\overline{F}) .
+  \]</p></div>
+</div>
+
+<p>En effet, \(\xi\) peut être considéré comme un point géométrique de \(\overline{X}\) également,
+et il suffit d'appliquer 4.6 et la transitivité des fibres (3.4).</p>
+
+<h2 id="VIII.5">5. Application au calcul des fibres des \(R^q f_*\)</h2>
+
+<h3 id="VIII.5.1">5.1</h3>
+<p>Soient
+\[
+f : X \to Y
+\]
+un morphisme de schémas, \(F\) un faisceau abélien sur \(X\), on se propose
+de déterminer les \(R^q f_*(F)\). En vertu de 3.5, il revient au même, à
+peu de choses près, de connaître les fibres géométriques \(R^q f_*(F)_{\bar{y}}\), pour
+\(y \in Y\). Or (V 5.1) \(R^q f_*(F)\) est le faisceau associé au préfaisceau
+\[
+\mathscr{H}^q : Y' \mapsto H^q(X \times_Y Y', F)
+\]
+sur \(Y\), et par suite (3.9)
+\[
+R^q f_*(F)_{\bar{y}} = \varinjlim_{Y'} \mathscr{H}^q(Y'),
+\]
+où la limite inductive est prise suivant la catégorie filtrante opposée
+de la catégorie des \(Y'\) étales sur \(Y\) ponctués par \(\bar{y}\). Choisissant un
+voisinage ouvert affine \(U\) de \(y\), on peut se limiter dans la limite du
+deuxième membre à la catégorie cofinale des \(Y'\) qui sont affines et au-dessus
+de \(U\). On obtient ainsi
+\[
+(5.1.1) \qquad R^q f_*(F)_{\bar{y}} \simeq \varinjlim H^q(X \times_Y Y', F),
+\]
+où \(Y'\) varie dans la catégorie précédente.
+Introduisons
+\[
+\overline{Y} = \operatorname{Spec}(\mathcal{O}_{Y,\bar{y}}) = \varprojlim Y'
+\]
+(cf 4.5), et
+\[
+\overline{X} = X \times_Y \overline{Y} .
+\]</p>
+
+<p>Notons que dans le système projectif des \(X \times_Y Y'\) (déduit de celui des \(Y'\)
+par changement de base \(X \to Y\)) les morphismes de transition sont affines,
+on est donc dans les conditions générales de VII 5.1, et on voit aussitôt,
+par construction de \(\varprojlim\) dans loc.cit., que l'on a un isomorphisme
+canonique
+\[
+\overline{X} = \varprojlim X \times_Y Y' .
+\]
+Désignons par \(\overline{F}\) le faisceau sur \(\overline{X}\) image réciproque de \(F\), alors on
+obtient un homomorphisme canonique
+\[
+\varinjlim_{Y'} H^q(X \times_Y Y', F) \to H^q(\overline{X},\overline{F})
+\]
+d'où en comparant avec 5.1.1, un homomorphisme canonique
+\[
+(5.1.2) \qquad R^q f_*(F)_{\bar{y}} \to H^q(\overline{X},\overline{F}),
+\]
+évidemment fonctoriel en \(F\).</p>
+
+<p>Supposons maintenant \(f : X \to Y\) quasi-compact et quasi-séparé,
+alors il en est de même de \(X' \times_Y Y' \to Y'\), et comme \(Y'\) est affine, les \(X \times_Y Y'\)
+sont quasi-compacts et quasi-séparés. Utilisant (5.1.1) et le théorème
+de passage à la limite VII 5.8, on obtient alors&nbsp;:</p>
+
+<div class="thm thm-plain theorem" id="VIII.5.2">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">5.2</span></div>
+  <div class="thm-body"><p>Soient \(f : X \to Y\) un morphisme quasi-compact et quasi-séparé
+  de schémas, \(F\) un faisceau abélien sur \(X\), \(y\) un point de
+  \(Y\), \(\bar{y}\) le point géométrique au-dessus de \(y\), relatif à une clôture
+  séparable \(k(\bar{y})\) de \(k(y)\), \(\overline{Y} = \operatorname{Spec}(\mathcal{O}_{Y,\bar{y}})\) le schéma localisé strict correspondant,
+  \(\overline{X} = X \times_Y \overline{Y}\), \(\overline{F}\) l'image inverse de \(F\) sur \(\overline{X}\). Alors homomorphisme
+  canonique (5.1.2) est un isomorphisme&nbsp;:
+  \[
+  R^q f_*(F)_{\bar{y}} \xrightarrow{\ \sim\ } H^q(\overline{X},\overline{F}) .
+  \]</p></div>
+</div>
+
+<p>Cet énoncé ramène pratiquement la détermination des fibres d'un
+faisceau \(R^q f_*(F)\) à la détermination de la cohomologie d'un préschéma au
+dessus d'un schéma strictement local, et sera constamment utilisé par la
+suite. Techniquement, c'est 5.2 qui explique le rôle important des
+anneaux henséliens et des anneaux strictement locaux dans l'étude de la
+cohomologie étale.</p>
+
+<div class="thm thm-plain" id="VIII.5.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">5.3</span></div>
+  <div class="thm-body"><p>L'énoncé reste valable pour \(R^0 f_*(F) = f_*(F)\), pour un
+  faisceau d'ensembles quelconque. D'autre part, 5.2 reste également
+  valable pour \(R^1 f_*(F)\), lorsque \(F\) est un faisceau en groupes (pas nécessairement
+  commutatif), en prenant la définition habituelle du \(R^1 f_*(F)\)
+  (cf. Thèse de Giraud).</p></div>
+</div>
+
+<h3 id="VIII.5.4">5.4</h3>
+<p>Supposons maintenant que \(f\) soit un morphisme <u>fini</u>. Alors
+\(\bar{f} : \overline{X} \to \overline{Y}\) est un morphisme fini, et comme \(\overline{Y}\) est strictement local,
+il s'ensuit que \(\overline{X}\) est une somme finie de schémas strictement locaux
+\(\overline{X}_i\). Par suite, utilisant 4.7 on trouve
+\[
+(5.4.1) \qquad H^q(\overline{X},\overline{F}) = 0 \quad \text{pour } q \neq 0 .
+\]
+D'autre part, notons que les composantes \(\overline{X}_i\) de \(\overline{X}\) correspondent aux
+points \(\bar{x}_i\) de \(\overline{X}\) au-dessus du point fermé \(\bar{y}\) de \(\overline{Y}\), i.e. aux points de
+\(\overline{X}_{\bar{y}} = X_y \otimes_{k(y)} k(\bar{y})\). D'ailleurs, ces points peuvent être considérés
+comme des points géométriques de \(X\), et \(\overline{X}_i\) n'est alors autre que le
+schéma localisé strict de \(X\) en \(\bar{x}_i\). On a donc (4.8)
+\[
+H^0(\overline{X}_i,\overline{F}) \simeq F_{\bar{x}_i} ,
+\]
+d'où
+\[
+(5.4.2) \qquad H^0(\overline{X},\overline{F}) = \prod_i F_{\bar{x}_i} ,
+\]
+qui est un isomorphisme fonctoriel en le faisceau d'ensembles \(F\) (inutile
+ici de se restreindre aux faisceaux abéliens). Tenant compte de 5.2 et
+5.3, les formules précédentes (5.4.1) et (5.4.2) donnent&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIII.5.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.5</span></div>
+  <div class="thm-body"><p>Soient \(f : X \to Y\) un morphisme fini de préschémas,
+  \(y\) un point de \(Y\). Alors pour tout faisceau \(F\) sur \(X\), on a un isomorphisme
+  (fonctoriel en \(F\))
+  \[
+  f_*(F)_{\bar{y}} \xrightarrow{\ \sim\ } \prod_{x \in X_y \otimes_{k(y)} k(\bar{y})} F_{\bar{x}} ,
+  \]
+  (par suite la formation de \(f_*(F)\) commute à tout changement de base
+  \(Y' \to Y\)), et si \(F\) est un faisceau abélien, on a
+  \[
+  R^q f_*(F) = 0 \quad \text{si } q > 0 .
+  \]</p></div>
+</div>
+
+<p>On notera que la première formule 5.5 est en fait indépendante
+de 5.2 et du théorème de passage à la limite général VII 5.7, et qu'elle
+implique (grâce à 3.5) que \(F \mapsto f_*(F)\) est un foncteur exact sur la
+catégorie des faisceaux abéliens, d'où encore \(R^q f_*(F) = 0\) pour \(q \neq 0\).
+Voici une légère variante de 5.5&nbsp;:</p>
+
+<div class="thm thm-plain corollary" id="VIII.5.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.6</span></div>
+  <div class="thm-body"><p>Soit \(f : X \to Y\) un morphisme entier. Alors pour tout
+  faisceau abélien \(F\) sur \(X\), on a
+  \[
+  R^q f_*(F) = 0 \quad \text{pour } q \neq 0 .
+  \]
+  De plus, le foncteur \(f_*\) sur les faisceaux d'ensembles commute à tout
+  changement de base \(Y' \to Y\).</p></div>
+</div>
+
+<p>En effet, on est ramené grâce à 5.2 à prouver que lorsque \(Y\)
+est strictement local, on a \(H^q(X,F) = 0\) pour tout faisceau abélien sur
+\(X\). Or on aura \(Y = \operatorname{Spec} A\), \(X = \operatorname{Spec} B\), \(B\) étant une algèbre entière, et
+écrivant \(B = \varinjlim B_i\), où \(B_i\) parcourt les sous-algèbres de type fini de
+\(B\), (qui sont même finies sur \(A\)), on aura \(X = \varprojlim_i X_i\), où \(X_i = \operatorname{Spec} B_i\).
+En vertu de VII 5.13, on est ramené à prouver que \(R^q f_*(F_i) = 0\) pour
+\(q \neq 0\), \(F_i\) un faisceau abélien sur \(X_i\), ce qui résulte de 5.5. La dernière
+assertion de 5.6 se prouve par la même méthode de réduction à 5.5.</p>
+
+<div class="thm thm-plain corollary" id="VIII.5.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.7</span></div>
+  <div class="thm-body"><p>Soit \(f : X \to Y\) un morphisme d'immersion. Alors pour
+  tout faisceau \(F\) sur \(X\), le morphisme canonique
+  \[
+  f^* f_*(F) \to F
+  \]
+  est un isomorphisme.</p></div>
+</div>
+
+<p>Comme \(f\) se factorise en le produit d'une immersion ouverte et
+d'une immersion fermée, et que 5.7 est trivial dans le cas d'une immersion
+ouverte (IV n° 3), on est ramené au cas où \(f\) est une immersion
+fermée. On est ramené à prouver que pour tout \(x \in X\), l'homomorphisme
+correspondant
+\[
+(f^* f_*(F))_{\bar{x}} \to F_{\bar{x}}
+\]
+est bijectif, or par transitivité des fibres (3.4) le premier membre
+n'est autre que la fibre \(f_*(F)_{\bar{x}}\), donc il faut vérifier que l'homomorphisme
+canonique
+\[
+f_*(F)_{\bar{x}} \to F_{\bar{x}}
+\]
+est bijectif, ce qui résulte aussitôt de 5.5.</p>
+
+<div class="thm thm-plain" id="VIII.5.8">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">5.8</span></div>
+  <div class="thm-body"><p>Utilisant 5.5 et procédant encore comme dans 5.6, on
+  prouve facilement que si \(f : X \to Y\) est un morphisme entier, \(F\) un
+  faisceau en groupes sur \(X\) (pas nécessairement commutatif), alors
+  \(R^1 f_*(F)\) est le faisceau final sur \(Y\) (comparer remarque 5.3).</p></div>
+</div>
+
+<h2 id="VIII.6">6. Supports</h2>
+
+<p>Soit \(U\) un ouvert de Zariski du schéma \(X\). Alors \(U \in \mathrm{Ob}\, X_{\text{ét}}\),
+et en fait \(U\) est un sous-objet de l'objet final \(X\) de \(X_{\text{ét}}\), donc définit
+un sous-objet \(\widetilde{U}\) de l'objet final de \(\widetilde{X}_{\text{ét}}\), i.e. un "ouvert" du topos
+étale \(\widetilde{X}_{\text{ét}}\) de \(X\) (IV 8.3).</p>
+
+<div class="thm thm-plain proposition" id="VIII.6.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">6.1</span></div>
+  <div class="thm-body"><p>L'application précédente \(U \mapsto \widetilde{U}\) est un isomorphisme de
+  l'ensemble ordonné des ouverts (au sens de Zariski) de \(X\), sur l'ensemble
+  des ouverts du topos étale \(\widetilde{X}_{\text{ét}}\).</p></div>
+</div>
+
+<p>Comme \(X_{\text{ét}} \to \widetilde{X}_{\text{ét}}\) est pleinement fidèle, on voit aussitôt que
+l'application \(U \mapsto \widetilde{U}\) conserve les structures d'ordre i.e. \((U \subset V) \Leftrightarrow (\widetilde{U} \subset \widetilde{V})\),
+en particulier l'application précédente est injective. Pour prouver qu'elle
+est surjective, considérons un sous-faisceau \(F\) du faisceau final \(\widetilde{X}\), et
+considérons les objets de \(X_{\text{ét}/F}\), i.e. les schémas étales \(X'\) sur \(X\)
+tels que \(F(X') \neq \varnothing\). Comme \(X' \to X\) est étale, c'est une application
+ouverte (EGA IV 2.4.6), en particulier son image (au sens ensembliste)
+\(\operatorname{Im}(X')\) est ouverte. Soit \(U\) l'ouvert réunion des \(\operatorname{Im}(X')\) (\(X' \in \mathrm{Ob}\, X_{\text{ét}/F}\)).
+Comme la famille des \(X' \to U\) (\(X' \in \mathrm{Ob}\, X_{\text{ét}/F}\)) est surjective, donc couvrante,
+on conclut que \(U \in \mathrm{Ob}\, X_{\text{ét}/F}\), donc \(X_{\text{ét}/F} = X_{\text{ét}/U}\), donc
+\(F = U\), cqfd.</p>
+
+<p>Compte tenu de 6.1, nous pouvons donc parler sans ambiguïté d'un
+"ouvert" de \(X\), sans préciser si nous entendons cette notion au sens
+habituel de Zariski ou au sens de la topologie étale.</p>
+
+<div class="thm thm-plain corollary" id="VIII.6.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.2</span></div>
+  <div class="thm-body"><p>Soient \(U\) un ouvert de \(X\), \(j : U \to X\) l'immersion canonique,
+  alors le foncteur
+  \[
+  j^* : \widetilde{X}_{\text{ét}} \to \widetilde{U}_{\text{ét}}
+  \]
+  induit une équivalence de catégories
+  \[
+  \widetilde{X}_{\text{ét}/\widetilde{U}} \to \widetilde{U}_{\text{ét}} .
+  \]</p></div>
+</div>
+
+<p>En effet on vérifie aussitôt que pour tout site \(C\) où les \(\varprojlim\)
+finies existent, et pour tout sous-objet \(U\) de l'objet final \(e\) de \(C\),
+considérant le foncteur \(j : C \to C_{/U}\) défini par \(j(S) = S \times U\), \(j\) est
+un morphisme de sites et \(j^* : \widetilde{C} \to \widetilde{C}_{/U}\) induit une équivalence
+\(\widetilde{C}_{/U} \to \widetilde{C}_{/U}\). Il suffit alors de conjuguer ce fait général et le fait
+que \(U_{\text{ét}}\) est canoniquement isomorphe à \(X_{\text{ét}/U}\).</p>
+
+<p>De façon imagée, on peut exprimer 6.2 en disant que les opérations
+de "s'induire sur un ouvert", au sens habituel des schémas
+d'une part, et au sens des topos de l'autre, sont compatibles.
+Voici une compatibilité analogue pour les opérations de "restriction
+à un fermé"&nbsp;:</p>
+
+<div class="thm thm-plain theorem" id="VIII.6.3">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">6.3</span></div>
+  <div class="thm-body"><p>Soient \(X\) un schéma, \(Y\) un sous-schéma fermé de
+  \(X\), \(U = X - Y\) muni de la structure induite, \(i : Y \to X\) et \(j : U \to X\)
+  les immersions canoniques. Alors le foncteur
+  \[
+  i_* : \widetilde{Y}_{\text{ét}} \to \widetilde{X}_{\text{ét}}
+  \]
+  est pleinement fidèle, et si \(F \in \mathrm{Ob}\, \widetilde{X}_{\text{ét}}\), \(F\) est isomorphe à un faisceau
+  de la forme \(i_*(G)\) sss \(j^*(F)\) est isomorphe au faisceau final \(\widetilde{U}\) sur \(U\).</p></div>
+</div>
+
+<p>Démonstration. Comme \(i_*\) et \(i^*\) sont adjoints l'un de l'autre,
+le fait que \(i_*\) soit pleinement fidèle équivaut aussi au fait que l'homomorphisme
+fonctoriel
+\[
+i^*(i_*(G)) \to G
+\]
+est un isomorphisme, ce qui n'est autre que 5.7. D'autre part, si
+\(G \in \mathrm{Ob}\, \widetilde{Y}_{\text{ét}}\), alors on vérifie trivialement grâce à 6.2 que
+\(j^*(i_*(G))\) est le faisceau final sur \(U\). Inversement, si \(F \in \mathrm{Ob}\, \widetilde{X}_{\text{ét}}\)
+est tel que \(j^*(F)\) soit le faisceau final, prouvons que \(F\) est isomorphe
+à un faisceau de la forme \(i_*(G)\), ou ce qui revient au même, que
+l'homomorphisme canonique
+\[
+G \to i_* i^*G
+\]
+est un isomorphisme. Or il suffit de vérifier encore que pour tout \(x \in X\),
+l'homomorphisme induit sur les fibres géométriques en \(\bar{x}\) est un isomorphisme.
+Lorsque \(x \in U\), cela n'est autre que l'hypothèse faite sur
+\(G\). Lorsque \(x \in Y\), par transitivité des fibres on est ramené à vérifier
+que l'homomorphisme sur les fibres en \(\bar{x}\) induit par
+\[
+i^*(G) \to i^*(i_*(i^*(G)))
+\]
+est un isomorphisme, or l'homomorphisme précédent est un isomorphisme
+d'après 5.7 appliqué à \(F = i^*G\) et à \(i\). Cela achève la démonstration
+de 6.3.</p>
+
+<div class="thm thm-plain corollary" id="VIII.6.4">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">6.4</span></div>
+  <div class="thm-body"><p>Le foncteur \(i_*\) induit une équivalence de la catégorie
+  des faisceaux abéliens sur \(Y\) avec la catégorie des faisceaux abéliens
+  sur \(X\) dont la restriction à \(U = X - Y\) est nulle.</p></div>
+</div>
+
+<p>Conformément à l'usage courant nous identifierons donc souvent
+un faisceau abélien sur \(Y\) à un faisceau abélien sur \(X\) nul sur \(U\).</p>
+
+<h3 id="VIII.6.5">6.5</h3>
+<p>En vertu de 6.1 nous savons donc (si \(X\) est un schéma)
+interpréter les "ouverts" du topos \(E = \widetilde{X}_{\text{ét}}\) comme ouverts \(U\) de \(X\) au
+sens habituel, et en vertu de 6.3 avec cette identification le "topos
+résiduel" \(E_{\complement U}\) de IV 3 est équivalent canoniquement au topos \(\widetilde{Y}_{\text{ét}}\),
+où \(Y = X - U\) est muni d'une structure induite quelconque, faisant de
+\(Y\) un schéma. Nous pouvons par suite appliquer à cette situation les
+résultats de IV 3., notamment la description IV 3.3 des faisceaux \(F\)
+sur \(X\) en terme des triplets \((F', F'', u)\) où \(F'\) est un faisceau sur \(Y\),
+\(F''\) un faisceau sur \(U\) et \(u\) un homomorphisme de \(F'\) dans \(i^*j_*(F'')\).
+Nous utiliserons librement par la suite les notations \(i^!\), \(j_!\) de IV.3,
+qui désignent des foncteurs
+\[
+j_! : (\widetilde{U}_{\text{ét}})_{ab} \to (\widetilde{X}_{\text{ét}})_{ab} ,
+\]
+\[
+i^! : (\widetilde{X}_{\text{ét}})_{ab} \to (\widetilde{Y}_{\text{ét}})_{ab} ,
+\]
+où l'indice "ab" dénote la catégorie des faisceaux abéliens. Ces foncteurs
+donnent lieu aux deux suites exactes IV 3.7.</p>
+
+<h3 id="VIII.6.6">6.6</h3>
+<p>Compte tenu des développements qui précèdent et de la terminologie
+générale introduite dans IV 8.5, il y a lieu d'introduire, pour
+un faisceau abélien \(F\) sur \(X\), ou une section \(\varphi\) d'un tel faisceau, la
+notion de <u>support de \(F\)</u> resp. <u>de \(\varphi\)</u>, comme étant le fermé (au sens
+habituel, i.e. de Zariski) complémentaire du plus grand ouvert sur lequel
+l'objet en question s'annule.</p>
+<p>Dans la situation actuelle, il s'impose également de remplacer
+les notations générales V 4.3 \(H^q(E_{\complement U}, F)\), \(H^q_{\complement U}(F)\) par les notations
+\(H^q_Y(X,F)\), \(\underline{H}^q_Y(F)\), le premier désignant un groupe abélien, le deuxième un
+faisceau abélien sur \(Y\) (ou encore un faisceau abélien sur \(X\), nul
+sur \(U\)). Ainsi, on a \(\underline{H}^q_Y = R^q i^!\) etc...</p>
+<p>Je renvoie à V 6 pour les propriétés générales des foncteurs
+précédents.</p>
+
+<h2 id="VIII.7">7. Morphismes de spécialisation des foncteurs fibres</h2>
+
+<h3 id="VIII.7.1">7.1</h3>
+<p>Nous avons vu au N° 4 comment on associe, à tout point géométrique
+\(\xi\) du schéma \(X\), un \(X\)-schéma strictement local
+\[
+\overline{X}(\xi) = \operatorname{Spec} \mathcal{O}_{X,\xi} ,
+\]
+ne dépendant, en fait, que du point géométrique au-dessus de l'image \(x\)
+de \(\xi\) défini par la clôture séparable \(\overline{k(x)}\) de \(k(x)\) dans \(\Omega = k(\xi)\).
+Nous nous restreindrons souvent par la suite aux points géométriques
+\(\xi = \operatorname{Spec} \Omega\) <u>algébriques séparables</u> sur \(X\), i.e. tels que \(\Omega\) soit une
+clôture séparable de \(k(x)\), i.e. \(\xi = \bar{x}\). Appelons un \(X\)-schéma \(Z\) un
+<u>localisé strict de \(X\)</u> s'il est \(X\)-isomorphe à un schéma de la forme
+\(\operatorname{Spec} \mathcal{O}_{X,\bar{x}}\), on voit donc que
+\[
+\xi \mapsto \operatorname{Spec} \mathcal{O}_{X,\xi} = \overline{X}(\xi)
+\]
+est une équivalence de la catégorie des points géométriques <u>algébriques</u>
+<u>séparables</u> sur \(X\), avec la catégorie des \(X\)-schémas qui sont des
+localisés stricts de \(X\), quand on prend comme morphismes dans l'une
+et l'autre catégorie les seuls isomorphismes.</p>
+<p>Ce dernier énoncé n'est plus exact quand on prend comme morphismes
+tous les \(X\)-morphismes, car dans la seconde catégorie il peut y
+avoir des \(X\)-morphismes qui ne sont pas des isomorphismes.
+On pose alors la</p>
+
+<div class="thm thm-plain definition" id="VIII.7.2">
+  <div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">7.2</span></div>
+  <div class="thm-body"><p>Soient \(\xi\), \(\xi'\) deux points géométriques du schéma
+  \(X\), on appelle <u>flèche de spécialisation</u> de \(\xi'\) à \(\xi\) tout \(X\)-morphisme
+  entre les localisés stricts correspondants
+  \[
+  \overline{X}(\xi') \to \overline{X}(\xi) .
+  \]</p></div>
+</div>
+
+<p>On dit que \(\xi\) est une <u>spécialisation</u> de \(\xi'\) ou que \(\xi'\) est une générisation
+de \(\xi\), s'il existe une flèche de spécialisation de \(\xi'\) à \(\xi\).</p>
+<p>On notera que les flèches de spécialisation se composent de
+façon évidente, de sorte qu'en prenant pour morphismes les flèches de
+spécialisation, les points géométriques de \(X\) forment une catégorie,
+équivalente (ainsi que la sous-catégorie pleine formée des points géométriques
+algébriques et séparables sur \(X\)) à la sous-catégorie pleine de
+\((\mathrm{Sch})_{/X}\) formée des localisés stricts de \(X\).</p>
+
+<div class="thm thm-plain lemma" id="VIII.7.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">7.3</span></div>
+  <div class="thm-body"><p>Soient \(X\) un schéma, \(Z\) un \(X\)-schéma qui est isomorphe
+  à une limite projective pseudo-filtrante de \(X\)-schémas étales \(X_i\),
+  avec des morphismes de transition affines (VII 5.1), \(\xi'\) un point
+  géométrique de \(X\), \(Z' = \overline{X}(\xi')\) le localisé strict correspondant. Alors&nbsp;:</p>
+  <p>a) L'application de restriction
+  \[
+  \operatorname{Hom}_X(Z',Z) \to \operatorname{Hom}_X(\xi',Z)
+  \]
+  est bijective.</p>
+  <p>b) Pour que les deux membres soient non vides, il faut et il suffit que
+  l'image \(x'\) de \(\xi'\) dans \(X\) soit dans celle de \(Z\).</p>
+  <p>c) Soit \(T\) un \(Z\)-schéma, pour que \(T\) soit un localisé strict de \(Z\),
+  il faut et il suffit qu'il soit un localisé strict de \(X\).</p></div>
+</div>
+
+<p>Démonstration. a) on est ramené aussitôt au cas où \(Z\) est
+un des \(X_i\), i.e. où \(Z\) est étale sur \(X\), et par le changement de base
+\(Z' \to X\) on peut supposer que \(Z' \simeq X\), d'où la conclusion par 4.2 (ii).
+b) On note que si \(x'\) est l'image d'un point \(z\) de \(Z\), alors \(k(z)\) est
+nécessairement une extension algébrique séparable de \(k(x')\), donc il existe
+un \(k(x')\)-homomorphisme de cette dernière dans \(k(\xi')\), d'où la conclusion.</p>
+
+<p>c) La démonstration est un exercice facile laissé au lecteur.</p>
+
+<p>On conclut de 7.2 et 7.3&nbsp;:</p>
+
+<div class="thm thm-plain proposition" id="VIII.7.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">7.4</span></div>
+  <div class="thm-body"><p>Soient \(\xi\), \(\xi'\) deux points géométriques du schéma
+  \(X\). Alors l'application de restriction définit une bijection de l'ensemble
+  \(\operatorname{Hom}_X(\overline{X}(\xi'), \overline{X}(\xi))\) des flèches de spécialisation de \(\xi'\) dans \(\xi\), avec
+  l'ensemble des \(X\)-morphismes de \(\xi'\) dans \(\overline{X}(\xi)\).</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="VIII.7.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.5</span></div>
+  <div class="thm-body"><p>Pour que \(\xi\) soit une spécialisation de \(\xi'\), il faut et
+  il suffit qu'il en soit de même pour les images \(x, x'\) de \(\xi\), \(\xi'\) dans
+  \(X\), i.e. que \(x\) appartienne à l'adhérence de \(\{x'\}\).</p></div>
+</div>
+
+<p>Comme \(\operatorname{Spec} \mathcal{O}_{X,\xi} \to \operatorname{Spec} \mathcal{O}_{X,x}\) est fidèlement plat (4.4)
+il est surjectif, et il suffit donc d'appliquer la deuxième assertion
+de 7.3.</p>
+
+<div class="thm thm-plain corollary" id="VIII.7.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.6</span></div>
+  <div class="thm-body"><p>Pour tout schéma \(X\), soit \(\operatorname{Pt}(X)\) la catégorie des
+  points géométriques sur \(X\) (ou encore, des points géométriques algébriques
+  séparables sur \(X\)), les morphismes étant les flèches de spécialisation.
+  Soit alors \(\xi\) un point géométrique d'un schéma \(X\), \(\overline{X}(\xi)\) le localisé
+  strict correspondant, on a alors une équivalence des catégories
+  \[
+  \operatorname{Pt}(\overline{X}(\xi)) \xrightarrow{\ \sim\ } \operatorname{Pt}(X)_{/\xi} ,
+  \]
+  obtenue en associant, à tout point géométrique \(\xi'\) de \(\overline{X}(\xi)\), le point
+  géométrique correspondant sur \(X\), avec le morphisme de spécialisation
+  dans \(\xi\) déduit du morphisme structural \(\xi' \to \overline{X}(\xi)\) grâce à 7.4.</p></div>
+</div>
+
+<p>En d'autres termes, la donnée d'une générisation \(\xi'\) du point
+géométrique \(\xi\) équivaut essentiellement à la donnée d'un point géométrique
+de \(\overline{X}(\xi)\). Notons d'ailleurs qu'en vertu de 7.3 c), l'homomorphisme
+correspondant \(\overline{X}(\xi') \to \overline{X}(\xi)\) fait de \(\overline{X}(\xi')\) le localisé strict de
+\(\overline{X}(\xi)\), relativement à \(\xi'\).</p>
+
+<h3 id="VIII.7.7">7.7</h3>
+<p>Interprétons maintenant, pour tout point géométrique \(\xi\) de \(X\) et
+tout faisceau \(F\) sur \(X\), la fibre \(F_\xi\) comme étant \(\Gamma(\overline{X}(\xi), \overline{F}(\xi))\), où
+\(\overline{F}(\xi)\) est l'image inverse de \(F\) sur \(\overline{X}(\xi)\) (4.8). Alors on voit que
+toute flèche de spécialisation
+\[
+u : \xi' \to \xi
+\]
+induit un homomorphisme, fonctoriel en \(F\)&nbsp;:
+\[
+u^* : F_\xi \to F_{\xi'} ,
+\]
+appelé <u>homomorphisme de spécialisation</u> associé à la flèche de spécialisation
+\(u\). Il est évident, d'après la transitivité des images inverses
+de faisceaux, que l'on a pour une flèche de spécialisation composée&nbsp;:
+\[
+(wu)^* = u^* w^* .
+\]</p>
+
+<h3 id="VIII.7.8">7.8</h3>
+<p>Si \(E\) est un topos, rappelons (IV&nbsp;) qu'on a appelé "foncteur
+fibre", ou (par abus de langage) "point" du topos \(E\), tout morphisme
+du "topos final" (Ens) (isomorphe à la catégorie des faisceaux sur un
+espace réduit à un point!) dans \(E\), i.e. tout foncteur
+\[
+\varphi = E \to (\mathrm{Ens})
+\]
+qui commute aux lim. inductives quelconques, et aux lim. projectives finies.
+Il y a lieu de considérer l'ensemble des foncteurs fibres de \(E\) comme
+l'ensemble des objets d'une sous-catégorie pleine de \(\operatorname{Hom}(E,(\mathrm{Ens}))\), appelée
+<u>catégorie des foncteurs fibres</u> du topos \(E\), dont l'opposée est appelée
+<u>catégorie des points</u> de \(E\), et notée \(\operatorname{Pt}(E)\), cf. (IV 6.1).</p>
+<p>Lorsque \(E\) est de la forme \(\widetilde{X}_{\text{ét}}\), où \(X\) est un schéma,
+nous avons défini dans 3.3 et 7.7 un foncteur
+\[
+(*) \qquad \operatorname{Pt}(X) \to \operatorname{Pt}(\widetilde{X}_{\text{ét}}) ,
+\]
+où le premier membre est défini dans 7.6. Ceci posé, on a le</p>
+
+<div class="thm thm-plain theorem" id="VIII.7.9">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">7.9</span></div>
+  <div class="thm-body"><p>Soit \(X\) un schéma. Le foncteur précédent \((*)\) est une
+  équivalence de la catégorie des points géométriques sur \(X\) (avec
+  comme morphismes les flèches de spécialisation) avec la catégorie des
+  points du topos étale \(\widetilde{X}_{\text{ét}}\) (opposée de celle des foncteurs fibres sur \(\widetilde{X}_{\text{ét}}\)).</p></div>
+</div>
+
+<p>Comme ce théorème ne servira plus dans la suite du séminaire,
+nous nous bornons ici à une esquisse de démonstration, où nous nous
+permettrons certaines libertés avec les questions d'univers.</p>
+
+<p>a) <u>Le foncteur envisagé est pleinement fidèle.</u> Pour tout
+\(X \in \mathrm{Ob}\, X_{\text{ét}}\), soit \(\check{X} : \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})\) défini par
+\[
+\check{X}(F) = \operatorname{Hom}(X,F) = F(X) .
+\]
+Notons que le foncteur fibre
+\[
+\mathscr{E}_\xi : F \mapsto F_\xi
+\]
+peut s'écrire
+\[
+\mathscr{E}_\xi \simeq \varinjlim_i \check{X}_i ,
+\]
+où les \(X_i\) sont des schémas affines étales sur \(X\), indexés par une
+certaine catégorie filtrante (cf. 4.3 et 4.5). On a donc pour
+tout foncteur \(\varphi : \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})\)&nbsp;:
+\[
+\operatorname{Hom}(\mathscr{E}_\xi, \varphi) \simeq \varprojlim_i \operatorname{Hom}(\check{X}_i, \varphi) ,
+\]
+d'autre part il est bien connu que l'on a un isomorphisme bifonctoriel
+\[
+\operatorname{Hom}(\check{X}_i, \varphi) \simeq \varphi(X_i) .
+\]</p>
+
+<p>Lorsque \(\varphi\) est de la forme \(\mathscr{E}_{\xi'}\), donc
+\[
+\varphi \simeq \varinjlim_j \check{X}_j ,
+\]
+on a donc une bijection naturelle
+\[
+(*) \qquad \operatorname{Hom}(\mathscr{E}_\xi, \mathscr{E}_{\xi'}) \simeq \varprojlim_i \varinjlim_j \operatorname{Hom}_X(X'_j, X_i) .
+\]
+D'autre part on a (dans la catégorie des schémas)
+\[
+\overline{X}(\xi) = \varprojlim_i X_i , \qquad \overline{X}(\xi') = \varprojlim_j X'_j ,
+\]
+d'où
+\[
+\operatorname{Hom}_X(\overline{X}(\xi'), \overline{X}(\xi)) \simeq \varprojlim_i \operatorname{Hom}_X(\overline{X}(\xi'), X_i) ,
+\]
+d'autre part, comme \(X_i\) est localement de présentation finie sur \(X\), on
+a
+\[
+\operatorname{Hom}_X(\overline{X}(\xi'), X_i) \simeq \varinjlim_j \operatorname{Hom}_X(X'_j, X_i) ,
+\]
+d'où
+\[
+(**) \qquad \operatorname{Hom}_X(\overline{X}(\xi'), \overline{X}(\xi)) \simeq \varprojlim_i \varinjlim_j \operatorname{Hom}_X(X'_j, X_i) .
+\]
+La comparaison de \((*)\) et \((**)\) donne la conclusion voulue (moyennant une
+vérification de compatibilités, laissée au lecteur).</p>
+
+<p>b) <u>Le foncteur envisagé est essentiellement surjectif.</u></p>
+
+<h3 id="VIII.7.9.1">7.9.1</h3>
+<p>Remarquons d'abord que si \(C\) est un site où les \(\varprojlim\) finies sont
+représentables, \(\widetilde{C} = E\) le topos correspondant, alors tout foncteur fibre
+\(\varphi\) sur \(E\) peut se représenter comme une "limite inductive filtrante"
+de foncteurs de la forme
+\[
+\check{Y}(F) = F(\widetilde{Y}) = \operatorname{Hom}(\widetilde{Y}, F), \qquad Y \in \mathrm{Ob}\, C ,
+\]
+(où \(\widetilde{Y}\) est le faisceau associé à \(Y\)), de la façon suivante <sup class="footnote-ref"><a id="fnref8" href="#fn8">(∗)</a></sup>. On considère
+la catégorie \(C_{/\varphi}\) des couples \((Y, \xi)\), avec \(Y \in \mathrm{Ob}\, C\), \(\xi \in \varphi(\widetilde{Y})\)
+(les morphismes se définissant de la façon évidente), et on note qu'on
+a un homomorphisme évident
+\[
+(*) \qquad \varinjlim_{(Y,\xi) \in C_{/\varphi}} \check{Y} \to \varphi
+\]
+en remarquant que
+\[
+\operatorname{Hom}(\varinjlim_{C_{/\varphi}} \check{Y}, \varphi) \simeq \varprojlim_{C_{/\varphi}} \operatorname{Hom}(\check{Y}, \varphi) \simeq \varprojlim_{C_{/\varphi}} \varphi(\widetilde{Y}) .
+\]
+Or on a un élément canonique dans \(\varprojlim_{C_{/\varphi}} \varphi(\widetilde{Y})\), en associant à tout
+\((Y, \xi)\) l'élément \(\xi\) de \(\varphi(\widetilde{Y})\). Utilisant le fait que les \(\varprojlim\) finies
+existent dans \(C\), et que le foncteur \(Y \mapsto \varphi(\widetilde{Y})\) y commute, on voit que dans
+\(C_{/\varphi}\) les \(\varprojlim\) finies existent; a fortiori \(C_{/\varphi}\) est filtrant.
+Utilisant que tout faisceau \(F\) est limite inductive des faisceaux de
+la forme \(\widetilde{Y}\), et utilisant le fait que \(\varphi\) commute aux limites inductives,
+on conclut aisément que l'homomorphisme de foncteurs \((*)\) est bijectif, et
+donne donc la représentation annoncée.</p>
+
+<h3 id="VIII.7.9.2">7.9.2</h3>
+<p>Remarquons également que si \(E\) est un topos, \(Y\) un objet de
+\(E\), d'où un topos \(E_{/Y}\), alors la donnée d'un foncteur fibre \(\varphi\) pour \(E_{/Y}\)
+équivaut à la donnée d'un couple \((\varphi, \xi)\), où \(\varphi\) est un foncteur fibre
+pour \(E\), et \(\xi \in \varphi(Y)\). Au foncteur fibre \(\psi : E_{/Y} \to (\mathrm{Ens})\) on associe
+le couple \((\varphi, \xi)\), où \(\varphi\) est le composé \(Z \mapsto \varphi(Z) = \psi(Z \times Y)\), et où
+\(\xi \in \varphi(Y) = \psi(Y \times Y)\) est l'image de l'unique élément de \(\psi(Y)\) par le
+morphisme diagonal de \(Y \times Y\).</p>
+
+<h3 id="VIII.7.9.3">7.9.3</h3>
+<p>Revenons maintenant au cas du site \(C = X_{\text{ét}}\), et soit
+\(\varphi : \widetilde{X}_{\text{ét}} \to (\mathrm{Ens})\) un foncteur fibre sur le topos étale de \(X\).
+Considérant la restriction de \(\varphi\) à la sous-catégorie pleine de \(X_{\text{ét}}\)
+formée des ouverts de ce topos, ou ce qui revient au même (6.1) des
+ouverts \(U\) de \(X\), on trouve une application
+\[
+\varphi_o : \mathcal{U}(X) \to \{0, 1\}
+\]
+commutant aux sup quelconques et aux inf finis. (On note que pour
+\(U \in \mathcal{U}(X)\), \(\varphi(U)\) est vide ou réduit à un point, et on prend \(\varphi_o(U) = 0\)
+ou 1 suivant qu'on est dans l'un ou l'autre cas).</p>
+<p>On voit facilement, grâce au fait que tout fermé irréductible de \(X\) a
+un point générique et un seul<sup class="footnote-ref"><a id="fnref9" href="#fn9">(∗)</a></sup>, que \(\varphi_o\) est défini à l'aide d'un unique
+\(x \in X\), par la condition
+\[
+\varphi_o(U) = 1 \quad \text{sss} \quad x \in U ,
+\]
+i.e.
+\[
+\varphi(U) \neq \varnothing \Longleftrightarrow x \in U .
+\]
+Soit \(F \in \mathrm{Ob}\, \widetilde{X}_{\text{ét}}\), alors l'image de \(F\) dans le faisceau final \(\widetilde{X}\) est
+un ouvert; et comme
+\[
+\varphi(F) \to \varphi(U)
+\]
+est surjectif, on voit que \(\varphi(F) \neq \varnothing\) sss \(\varphi(U) \neq \varnothing\), i.e. sss \(x \in U\).
+Soit alors \(C_{/\varphi}\) la catégorie des couples \((X', \xi)\) où \(X' \in \mathrm{Ob}\, X_{\text{ét}}\), et
+\(\xi \in \varphi(X')\). On a signalé dans 7.9.1 que \(C_{/\varphi}\) est filtrante connexe.
+De plus, grâce à 7.9.2 et à ce qui précède appliqué à \(X'\) au lieu de \(X\),
+si \((X', \xi) \in \mathrm{Ob}\, X_{\text{ét}}\), il lui est associé un unique point \(x' \in X'\), tel
+que pour un morphisme étale \(X'' \to X'\), \(\xi\) est dans l'image de
+\(\varphi(X'') \to \varphi(X')\) sss \(x'\) est dans celle de \(X''\). On conclut de ceci que
+le schéma \(\varprojlim\) des \(X'\) suivant la catégorie \(C\) des \((X', \xi)\) existe et
+est un localisé strict \(Z\) de \(X\), correspondant donc à un point géométrique \(\xi\)
+et un foncteur fibre \(\mathscr{E}_\xi\).</p>
+
+<p>Pour tout faisceau \(F\), on a alors
+\[
+\mathscr{E}_\xi(F) \simeq \varinjlim_{C_\varphi} F(X') .
+\]
+Compte tenu de 7.9.1 on en conclut que \(\varphi\) est isomorphe à \(\mathscr{E}_\xi\),
+ce qui achève la démonstration de 7.9.</p>
+
+<h2 id="VIII.8">8. Deux suites spectrales pour les morphismes entiers</h2>
+
+<div class="thm thm-plain proposition" id="VIII.8.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.1</span></div>
+  <div class="thm-body"><p>Soient \(f : X \to Y\) un morphisme entier surjectif,
+  \(F\) un faisceau abélien sur \(Y\). Pour tout entier \(i\), soit \(\mathscr{H}^i(F)\) le
+  préfaisceau sur \((\mathrm{Sch})_{/Y}\) défini par
+  \[
+  \mathscr{H}^i(F)(Z) = H^i(Z, F_Z) ,
+  \]
+  où \(F_Z\) est l'image inverse de \(F\) sur \(Z\). Alors il existe une suite
+  spectrale (fonctorielle en \(F\))
+  \[
+  H^*(X,F) \Longleftarrow E_2^{pq} = H^p(X/Y, \mathscr{H}^q(F))
+  \]
+  ("suite spectrale de descente").</p></div>
+</div>
+
+<p>Bien entendu, le symbole \(H^p(X/Y, G)\), pour un préfaisceau \(G\)
+sur \((\mathrm{Sch})_{/Y}\), désigne le \(p\).ème groupe de cohomologie de Čech relatif,
+défini à l'aide du complexe des \(C^n(X/Y,G) = G(X^{n+1})\), où \(X^m\) désigne la
+puissance \(m\).ième dans \((\mathrm{Sch})_{/Y}\). Pour établir 8.1, soit \(p_n : X^{n+1} \to Y\)
+la projection, et posons
+\[
+A^n = p_{n*}(\underline{\mathbf{Z}}_{X^{n+1}}) ,
+\]
+où \(\underline{\mathbf{Z}}_{X^{n+1}}\) désigne le faisceau constant \(\mathbf{Z}\) sur \(X^{n+1}\). Alors les \(A^n\) sont
+les composantes d'un faisceau abélien simplicial sur \(Y\), donc d'un
+complexe de faisceaux abéliens \(A^*\) sur \(Y\). Notons qu'on a un homomorphisme
+évident
+\[
+(*) \qquad \underline{\mathbf{Z}}_Y \to A^0 .
+\]
+Ceci posé, on a le</p>
+
+<div class="thm thm-plain lemma" id="VIII.8.2">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">8.2</span></div>
+  <div class="thm-body"><p>Le complexe \((A^*)\) muni de l'homomorphisme \((*)\) est une résolution
+  de \(\underline{\mathbf{Z}}_Y\). Plus généralement pour tout faisceau abélien \(F\) sur \(Y\),
+  \(A^* \otimes_{\mathbf{Z}} F\) est une résolution de \(F\).</p></div>
+</div>
+
+<p>Démonstration&nbsp;: On peut supposer \(Y\) affine, donc \(Y = \operatorname{Spec} A\),
+\(X = \operatorname{Spec} B\), où \(B\) est une \(A\) algèbre entière. On aura \(B = \varinjlim_i B_i\),
+où \(B_i\) parcourt les sous-algèbres de type fini donc finies de \(B\), d'où
+\(X = \varprojlim_i X_i\), où \(X_i = \operatorname{Spec} B_i\). Utilisant VII 5.11, on voit que le
+complexe augmenté \(A^*(X/Y)\) est alors la limite inductive des complexes
+augmentés \(A^*(X_i/Y)\). Cela nous ramène au cas où \(f\) est <u>fini</u>. Il suffit
+de prouver que pour tout point géométrique \(\bar{y}\) de \(Y\), le complexe \(A^*_{\bar{y}}\)
+est une résolution de \(\underline{\mathbf{Z}}_{\bar{y}}\), et le reste après tensorisation par un \(F\).
+Mais si \(X_{\bar{y}}\) est la fibre de \(X\) en \(\bar{y}\), il résulte de 5.5 que le
+complexe \(A^*_{\bar{y}}\) n'est autre que le complexe analogue \(A^*(X_{\bar{y}}/\bar{y})\). Cela nous
+ramène au cas où \(Y\) est le spectre d'un corps séparablement clos \(k\).
+Utilisant 1.3 a) et b), on peut même supposer \(k\) algébriquement clos,
+et \(X\) réduit, donc \(X\) de la forme \(I_Y\), où \(I\) est un ensemble fini.
+Mais alors le complexe \(A^* \otimes F\) s'identifie au complexe de cochaines trivial
+de l'ensemble d'indices \(I\) à coefficient dans \(F_{\bar{y}}\), donc c'est bien une
+résolution de \(F_{\bar{y}}\).</p>
+
+<p>Nous obtenons donc, comme conséquence de 8.2, une suite spectrale
+\[
+H^*(Y,F) \Longleftarrow E_2^{pq} = H^p(H^q(Y, A^* \otimes F)) ,
+\]
+et il reste à expliciter le terme initial. Or on a un homomorphisme
+canonique
+\[
+A^n \otimes F \to p_{n*} p_n^*(F) ,
+\]
+et ce dernier est un isomorphisme, comme on voit encore par réduction au
+cas \(f\) fini et passage aux fibres. Utilisant 5.5, on en conclut
+\[
+H^q(Y, A^n \otimes F) \simeq H^q(X^{n+1}, p_n^*(F)) = \mathscr{H}^q(F)(X^{n+1}),
+\]
+ce qui donne bien le terme initial annoncé dans 8.1.</p>
+
+<div class="thm thm-plain" id="VIII.8.3">
+  <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">8.3</span></div>
+  <div class="thm-body"><p>a) Lorsque l'on se donne un recouvrement <u>localement</u>
+  <u>fini</u> de \(Y\) par des ensembles fermés \(Y_i\), et qu'on pose \(X = \coprod_i Y_i\)
+  alors le morphisme canonique \(f : X \to Y\) est fini, et la suite spectrale
+  8.1 a un terme initial qui s'explicite comme la cohomologie du
+  complexe défini par les \(H^q(Y_{i_0 \ldots i_p}, F|Y_{i_0 \ldots i_p})\), où
+  \(Y_{i_0 \ldots i_p} = Y_{i_0} \cap \ldots \cap Y_{i_p}\). C'est donc là l'analogue de la suite spectrale
+  de Leray pour un recouvrement fermé localement fini d'un espace topologique
+  ordinaire (TF Chapitre II 5.2.4). Cette dernière peut d'ailleurs se
+  généraliser également en une suite spectrale relative à un morphisme "fini"
+  i.e. propre à fibres finies, en procédant comme dans 8.1.</p>
+  <p>b) On notera l'analogie de la suite spectrale de 8.1 avec
+  la suite spectrale de Leray d'un recouvrement \((X_i)\) de \(Y\) (en
+  l'occurrence par des \(X_i\) étales sur \(Y\)); cette dernière s'obtiendrait
+  formellement en écrivant la suite spectrale 8.1 pour \(X = \coprod_i X_i\).
+  Il est probable en fait que ces deux suites spectrales admettent une
+  généralisation commune, qui serait valable chaque fois qu'on aurait une
+  famille de morphismes \((X_i \to Y)\), qui soit "famille de descente effective
+  universelle" pour la catégorie fibrée des faisceaux étales sur un
+  schéma de base variable (cf n° 9 ci-dessous). La question analogue se
+  pose d'ailleurs en topologie ordinaire, à propos d'une généralisation commune
+  des deux espèces de suites spectrales de Leray d'un recouvrement, supposé
+  soit ouvert, soit fermé localement fini <sup class="footnote-ref"><a id="fnref10" href="#fn10">(∗)</a></sup>.</p></div>
+</div>
+
+<div class="thm thm-plain proposition" id="VIII.8.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.4</span></div>
+  <div class="thm-body"><p>Soient \(Y\) un schéma, \(\pi\) un groupe profini, \((\pi_i)_i\)
+  le système projectif des groupes quotients finis discrets de \(\pi\),
+  \((X_i)_{i \in I}\) un système projectif de revêtements principaux de \(Y\), <u>de</u>
+  <u>groupes les</u> \(\pi_i\), les homomorphismes de transition \(X_j \to X_i\) étant
+  compatibles avec les homomorphismes \(\pi_j \to \pi_i\) sur les groupes
+  d'opérateurs, \(X = \varprojlim X_i\) (cf. VII 5.1), de sorte que le groupe \(\pi\)
+  opère sur le \(Y\)-schéma \(X\), \(F\) un faisceau abélien sur \(Y\). Alors on a
+  une suite spectrale "de Hochschild-Serre" (fonctorielle en \(F\))
+  \[
+  H^*(Y,F) \Longleftarrow E_2^{pq} = H^p(\pi, \varinjlim_i H^q(X_i, F_{X_i})) ,
+  \]
+  où \(F_{X_i}\) est l'image inverse de \(F\) sur \(X_i\), et \(H^p(\pi, -)\) désigne la
+  cohomologie galoisienne.</p></div>
+</div>
+
+<p>Le terme \(E_2^{pq}\) écrit ici est également (par définition de
+\(H^p(\pi, -)\) et transitivité des limites inductives) isomorphe à
+\[
+E_2^{pq} = \varinjlim_i H^p(\pi_i, H^q(X_i, F_{X_i})) ,
+\]
+ce qui nous montre qu'il suffit de trouver un système inductif de suites
+spectrales (dépendant de l'indice \(i\))
+\[
+H^*(Y, F) \Longleftarrow {}^i E_2^{pq} = H^p(\pi_i, H^q(X_i, F_{X_i})) .
+\]
+Cela nous ramène à définir la suite spectrale dans le cas où \(\pi\) est fini.
+Alors \(f : X \to Y\) est un morphisme couvrant dans \(Y_{\text{ét}}\), donc on peut
+écrire la suite spectrale de Leray de ce morphisme. Compte tenu des isomorphismes
+canoniques&nbsp;:
+\[
+X^n \simeq X \times_\pi G^n ,
+\]
+un calcul bien connu montre alors que pour tout préfaisceau \(\mathscr{H}\) sur
+\(X_{\text{ét}}\), transformant somme en produits, \(C^*(X/Y, \mathscr{H})\) n'est autre que le
+complexe des cochaines homogènes de \(G\) à coefficients dans \(\mathscr{H}(X)\), d'où
+la forme annoncée pour le terme initial.</p>
+
+<p>Une variante de cette démonstration, évitant tout calcul,
+consiste à considérer \(E \mapsto X \times_\pi E\) comme un morphisme du site des
+\(\pi\)-ensembles finis dans le site étale de \(Y\), et à écrire la suite
+spectrale de Leray de ce morphisme. Enfin, lorsque \(\pi\) est fini,
+on peut également regarder la suite spectrale de Hochschild-Serre comme
+étant un cas particulier de 8.1 relativement au morphisme \(f : X \to Y\).</p>
+
+<div class="thm thm-plain corollary" id="VIII.8.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">8.5</span></div>
+  <div class="thm-body"><p>Supposons \(Y\) quasi-compact et quasi-séparé, alors la
+  suite spectrale de 8.4 s'écrit
+  \[
+  H^*(Y,F) \Longleftarrow E_2^{pq} = H^p(\pi, H^q(X,F_X)) .
+  \]</p></div>
+</div>
+
+<p>En effet, en vertu de VII 5.8, on a alors des isomorphismes
+canoniques
+\[
+\varinjlim_i H^q(X_i, F_{X_i}) \xrightarrow{\ \sim\ } H^q(X, F_X) .
+\]</p>
+
+<div class="thm thm-plain corollary" id="VIII.8.6">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">8.6</span></div>
+  <div class="thm-body"><p>Soient \(Y\) un schéma local hensélien de point fermé \(y\),
+  \(F\) un faisceau abélien sur \(Y\), \(F_o\) le faisceau induit sur \(Y_o = \operatorname{Spec}(k(y))\).
+  Alors les homomorphismes canoniques
+  \[
+  H^n(Y,F) \to H^n(Y_o, F_o)
+  \]
+  sont des isomorphismes.</p></div>
+</div>
+
+<p>Soit en effet \(\bar{y}\) un point géométrique sur \(y\), correspondant à
+une clôture séparable \(\overline{k(y)} = k(\bar{y})\) de \(k(y)\); comme \(Y\) est hensélien, le
+localisé strict \(X\) de \(Y\) en \(\bar{y}\) est la limite projective des revêtements
+étales galoisiens connexes \(\bar{y}\)-ponctués \(X_i\), de sorte qu'on est sous les
+conditions d'application de 8.5. Comme \(H^q(X, F_X) = 0\) pour \(q > 0\) en vertu
+de 4.7, on en conclut des isomorphismes
+\[
+H^n(Y,F) \xleftarrow{\ \sim\ } H^n(\pi, F(X)) ,
+\]
+où \(\pi\) est le "groupe de Galois" de \(X\) sur \(Y\), isomorphe à celui de
+\(\overline{k(y)}\) sur \(k = k(y)\). On trouve de même (ou par 2.3)
+\[
+H^n(Y_o, F_o) \xleftarrow{\ \sim\ } H^n(\pi, F_o(X_o)) ,
+\]
+où \(X_o = X \times_Y Y_o \simeq \operatorname{Spec}(\overline{k(y)})\). Or l'homomorphisme de restriction
+\(F(X) \to F_o(X_o)\) est un isomorphisme en vertu de 4.8, d'où résulte aussitôt
+la conclusion 8.6.</p>
+
+<h2 id="VIII.9">9. Descente de faisceaux étales</h2>
+
+<p>Le présent numéro ne servira plus dans la suite de ce Séminaire,
+et peut être omis en première lecture.</p>
+
+<div class="thm thm-plain proposition" id="VIII.9.1">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">9.1</span></div>
+  <div class="thm-body"><p>Soit \(f : X' \to X\) un morphisme surjectif (resp. universellement
+  submersif (SGA 1 IX 2.1)) de schémas. Alors le foncteur
+  \[
+  f^* : X_{\text{ét}} \to X'_{\text{ét}}
+  \]
+  est fidèle et "conservatif" (cf. 3.6) (resp. induit un foncteur pleinement
+  fidèle de la catégorie des faisceaux sur \(X_{\text{ét}}\) dans la catégorie des
+  faisceaux sur \(X'_{\text{ét}}\) munis d'une donnée de descente relativement à
+  \(f : X' \to X\)).</p></div>
+</div>
+
+<p>Le premier point résulte aussitôt de la transitivité des foncteurs
+fibres (3.4) et de (3.7), le deuxième (qui s'énonce aussi en disant
+que \(f\) est un <u>morphisme de descente</u> relativement à la catégorie
+fibrée des faisceaux étales sur des schémas variables), signifie aussi
+que pour deux faisceaux \(F, G\) sur \(Y\), le diagramme naturel
+\[
+(*) \qquad \operatorname{Hom}(F, G) \to \operatorname{Hom}(F', G') \rightrightarrows \operatorname{Hom}(F'', G'')
+\]
+est exact, où \(F'\) et \(G'\) (resp. \(F''\) et \(G''\)) sont les images inverses
+de \(F\) et \(G\) sur \(X'\) (resp. sur \(X'' = X' \times_X X'\)). Prenant pour \(F\) le
+faisceau final, l'énoncé donne le</p>
+
+<div class="thm thm-plain corollary" id="VIII.9.2">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">9.2</span></div>
+  <div class="thm-body"><p>Soit \(f : X' \to X\) un morphisme universellement submersif.
+  Alors pour tout faisceau \(F\) sur \(X\), le diagramme
+  \[
+  \Gamma(X, F) \to \Gamma(X', F') \rightrightarrows \Gamma(X'', F'')
+  \]
+  est exact, où \(X'' = X' \times_X X'\), et où \(F', F''\) sont les images inverses
+  de \(F\) sur \(X'\), \(X''\).</p></div>
+</div>
+
+<p>Nous prouverons 9.1 en utilisant le</p>
+
+<div class="thm thm-plain lemma" id="VIII.9.3">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">9.3</span></div>
+  <div class="thm-body"><p>Supposons \(f\) universellement submersif. Soit \(F\) un
+  faisceau sur \(X\), désignons par \(S(F)\) l'ensemble des sous-faisceaux de
+  \(X\), et définissons de façon analogue \(S(F')\), \(S(F'')\). Alors le diagramme
+  d'applications naturelles
+  \[
+  S(F) \to S(F') \rightrightarrows S(F'')
+  \]
+  est exact.</p></div>
+</div>
+
+<p>Démonstration. Le fait que \(S(F) \to S(F')\) est injectif résulte
+aussitôt du fait que le foncteur \(f^*\) est conservatif; car si \(F_i\)
+(\(i = 1, 2\)) sont deux sous-faisceaux de \(F\) tels que \(f^*(F_1) = f^*(F_2)\),
+alors les inclusions \(F_3 = F_1 \cap F_2 \to F_i\) (\(i = 1, 2\)) sont des isomorphismes,
+car elles deviennent telles après application du foncteur \(f^*\),
+donc \(F_1 = F_2\). Il reste à prouver que si \(G'\) est un sous-faisceau de
+\(F'\) tel que \(\mathrm{pr}_1^*(G') = \mathrm{pr}_2^*(G')\), alors \(G'\) est l'image inverse d'un
+sous-faisceau de \(F\). Notons que l'on peut trouver un épimorphisme
+\(F_1 \to F\) dans \(X_{\text{ét}}\), ou \(F_1\) est <u>représentable</u> par un schéma étale
+sur \(X\). Introduisons \(F_2 = F_1 \times_F F_1\), et de même \(F'_1\), \(F''_1\), \(F'_2\), \(F''_2\),
+faisceaux donnant lieu à un diagramme d'ensembles
+\[
+\xymatrix{
+S(F) \ar[r] \ar[d] & S(F') \ar@<0.5ex>[r] \ar@<-0.5ex>[r] \ar[d] & S(F'') \ar[d] \\
+S(F_1) \ar[r] \ar@<0.5ex>[d] \ar@<-0.5ex>[d] & S(F'_1) \ar@<0.5ex>[r] \ar@<-0.5ex>[r] \ar@<0.5ex>[d] \ar@<-0.5ex>[d] & S(F''_1) \ar@<0.5ex>[d] \ar@<-0.5ex>[d] \\
+S(F_2) \ar[r] & S(F'_2) \ar@<0.5ex>[r] \ar@<-0.5ex>[r] & S(F''_2)
+}
+\]
+dans lequel les colonnes sont exactes, grâce aux propriétés d'exactitude
+dans la catégorie des faisceaux sur \(X, X', X''\) respectivement. Un
+diagram-chasing standard montre alors que, pour prouver que la première
+ligne est exacte, il suffit de le prouver pour les lignes 2 et 3. Or
+pour la ligne 2 cela résulte du fait que \(F_1\) est représentable, \(X' \to X\)
+universellement submersif, et de SGA IX 2.3. D'autre part, \(F_2\) est également
+représentable, car c'est un sous-faisceau de \(F_1 \times_X F_1\) qui est représentable,
+et on applique 6.1. Donc la ligne 3 est aussi exacte, cqfd.</p>
+
+<p>Prouvons maintenant 9.1, i.e. que tout morphisme
+\(u' : F' \to G'\), compatible avec les données de descente sur \(F', G'\), \(u'\)
+provient d'un morphisme \(u : F \to G\). Soit \(H = F \times G\), donc \(H' = F' \times G'\),
+\(H'' = F'' \times G''\), alors le graphe de \(u'\) est un sous-faisceau \(\Gamma'\) de \(H'\),
+dont les deux images inverses sont égales au graphe d'un même morphisme
+\(u'' : F'' \to G''\). Donc en vertu de 9.3, \(\Gamma'\) provient d'un sous-faisceau
+\(\Gamma\) de \(H\). Je dis que \(\Gamma\) est le graphe d'un morphisme \(u : F \to G\),
+i.e. que le morphisme \(p : \Gamma \to F\) induit par \(\mathrm{pr}_1\) est un isomorphisme&nbsp;:
+en effet, il devient un isomorphisme après le changement de base \(X' \to X\),
+et on applique la partie déjà prouvée de 9.1. Le morphisme \(u : F \to G\)
+répond alors à la question, cqfd.</p>
+
+<div class="thm thm-plain theorem" id="VIII.9.4">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">9.4</span></div>
+  <div class="thm-body"><p>Soit \(f : X' \to X\) un morphisme surjectif de schémas.
+  On suppose que l'une des hypothèses suivantes est vérifiée&nbsp;:</p>
+  <p>a) \(f\) est entier.</p>
+  <p>b) \(f\) est propre.</p>
+  <p>c) \(f\) est plat et localement de présentation finie <sup class="footnote-ref"><a id="fnref11" href="#fn11">(∗)</a></sup>.</p>
+  <p>d) \(X\) est discret (p.ex. le spectre d'un corps).</p>
+  <p>Alors \(f\) est un morphisme de descente effective pour la catégorie
+  fibrée \(\mathscr{F}\) sur \((\mathrm{Sch})\) des faisceaux étales sur des schémas
+  variables, i.e. le foncteur \(f^*\) induit une équivalence de la catégorie
+  des faisceaux sur \(X\) avec la catégorie des faisceaux sur \(X'\), munis
+  d'une donnée de descente relativement à \(f : X' \to X\).</p></div>
+</div>
+
+<h3 id="VIII.9.4.1">9.4.1</h3>
+<p>Soit \(F'\) un faisceau sur \(X'\), muni d'une donnée de descente
+relativement à \(f : X' \to X\). On définit alors un foncteur
+\[
+G : X_{\text{ét}}^o \to (\mathrm{Ens})
+\]
+par la formule
+\[
+G(Y) = \operatorname{Ker}(F'(Y') \rightrightarrows F''(Y'')) .
+\]
+On constate aussitôt que \(G\) est un <u>faisceau</u> pour la topologie étale,
+d'autre part on a un homomorphisme canonique injectif \(G \to f_*(F')\),
+d'où un homomorphisme \(f^*(G) \to F'\), et ce dernier est évidemment compatible
+avec les données de descente. Il reste à examiner si cet homomorphisme
+est un <u>isomorphisme</u>. Noter que \(G\) est aussi définissable par
+l'exactitude de
+\[
+G \to f_*(F') \rightrightarrows g_*(F'') ,
+\]
+donc pour tout changement de base \(Y \xrightarrow{\ h\ } X\) <u>qui commute à la formation</u>
+<u>de</u> \(f_*(F')\) <u>et</u> \(g_*(F'')\), \(h^*(G) = G_Y\) s'identifie au faisceau "descendu"
+de \(F'_Y\), par \(Y' \to Y\), et bien entendu l'homomorphisme \(f_Y^*(G_Y) \to (F_Y)'\)
+est celui déduit de \(f^*(G) \to F'\) par changement de base. Or <u>supposons</u>
+<u>que le changement de base</u> \(f : Y = X' \to X\) <u>commute à la formation de</u>
+\(f_*(F')\) <u>et</u> \(g_*(F'')\), et notons que comme \(Y' = X' \times_X X'\) a une section sur
+\(Y' = X'\), donc \(Y' \to Y\) est un morphisme de descente <u>effective</u> pour
+toute catégorie fibrée, en particulier pour \(\mathscr{F}\), il s'ensuit que
+\(f_Y^*(G_Y) \to (F_Y)'\) est un isomorphisme, donc \(f^*(G) \to F'\) devient un
+isomorphisme après changement de base \(Y' = X' \times_X X' \to X'\). Comme ce
+dernier a une section, \(f^*(G) \to F'\) est un isomorphisme, donc la donnée
+de descente envisagée sur \(F'\) est effective.</p>
+
+<h3 id="VIII.9.4.2">9.4.2</h3>
+<p>Ceci prouve le théorème 9.4 dans le cas a), grâce à 5.6.
+Le cas b) résulte également du fait que si \(f\) est propre, alors \(f_*\)
+commute à <u>tout</u> changement de base \(Y' \to Y\), (qui sera prouvé dans un
+exposé ultérieur (XII 5.1 (i))).</p>
+
+<h3 id="VIII.9.4.3">9.4.3</h3>
+<p>Dans le cas c), la question étant locale sur \(X\) on peut supposer
+\(X\) affine, et qu'il existe un schéma affine \(X'_1\), de présentation
+finie, quasi fini et fidèlement plat sur \(X\), et un \(X\)-morphisme \(X'_1 \to X'\),
+ce qui nous ramène au cas où \(f\) est quasi-fini. Quitte à localiser encore
+sur \(X\), au sens de la topologie étale cette fois, on voit qu'il existera
+un ouvert \(X'_1\) de \(X'\) tel que \(X'_1 \to X\) soit fini et surjectif, ce qui
+nous ramène au cas où \(f\) est fini et surjectif, déjà traité dans a).</p>
+
+<h3 id="VIII.9.4.4">9.4.4</h3>
+<p>Dans le cas d), on peut supposer (en se localisant sur \(X\)) que
+\(X\) est réduit à un seul point, et même compte tenu de 1.1, qu'il est
+spectre d'un corps \(k\). De plus, \(f\) est universellement ouvert (EGA IV 2.4.9)
+donc on est sous les conditions de 9.1, et le raisonnement de 9.4.1 s'applique
+encore, en prenant un changement de base avec \(Y = \operatorname{Spec} k\), où \(k=k(x)\),
+pour un \(x \in X\). Mais alors il est encore vrai que \(f_*\) commute au changement
+de base \(Y \to X\), comme nous verrons ultérieurement (XVI 1.4 et 1.5).</p>
+
+<p>Ceci achève la démonstration de 9.4.</p>
+
+<div id="footnotes">
+<ol>
+<li id="fn1"><p>(∗) Soit \(S_i \subset \operatorname{Spec} A\) l'ensemble des \(s \in S\) tels que la fibre de \(X_i = \operatorname{Spec} A'_i\) en \(s\) soit de rang séparable 1. Alors, les \(S_i\) sont des parties constructibles de \(S\) (EGA IV 9.7.9) formant une famille croissante, leur réunion est \(S\) d'après l'hypothèse sur \(S' = \operatorname{Spec} A' \to S\) et le fait que les fibres de \(S'_i\) sont des schémas noethériens. On a donc \(S = S_i\) pour \(i\) assez grand, par EGA IV 1.9.9, cqfd. <a class="backref" href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>(∗) Cf. EGA IV 8.11.6 si \(f\) est de présentation finie, et EGA IV 18.12.11 dans le cas général. <a class="backref" href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>(∗) C'est donc bien un "foncteur fibre" au sens de Exp. IV. <a class="backref" href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>(∗∗) Il y a donc "suffisamment de foncteurs fibres" de la forme \(F \mapsto F_{\bar{x}}\), dans la terminologie de IV 6.5. <a class="backref" href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>(∗) Cf. IV 6.5.2. <a class="backref" href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>(∗∗) Cf. IV 6.8.3. <a class="backref" href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>(∗) pas nécessairement filtrantes&nbsp;! <a class="backref" href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>(∗) C'est un cas particulier de IV 6.8.3. <a class="backref" href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>(∗) i.e. \(X\) est <u>sobre</u> dans la terminologie de IV 4.2.1. L'assertion faite est un cas particulier de IV 4.2.3. <a class="backref" href="#fnref9">↩</a></p></li>
+<li id="fn10"><p>(∗) Depuis la rédaction de ces lignes, P.Deligne a fait une théorie générale des "suites spectrales de descente", cf. Exp. Vbis. <a class="backref" href="#fnref10">↩</a></p></li>
+<li id="fn11"><p>(∗) Il est probable que cette deuxième hypothèse est en fait superflue. <a class="backref" href="#fnref11">↩</a></p></li>
+</ol>
+</div>
 
 </body>
 </html>

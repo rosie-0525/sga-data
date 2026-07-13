@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 6 — Exposé 0. Esquisse d'un programme pour une théorie des intersections sur les schémas généraux</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="0">EXPOSÉ 0<br>ESQUISSE D'UN PROGRAMME POUR UNE THÉORIE DES INTERSECTIONS SUR LES SCHÉMAS GÉNÉRAUX<span class="author">par A. Grothendieck</span></h1>
+
+<p>Le présent exposé est de nature introductif, et sa lecture n'est pas
+logiquement indispensable pour l'étude du Séminaire. Il s'adresse plus
+particulièrement aux lecteurs au courant de la version provisoire du théorème
+de Riemann-Roch, telle qu'elle est exposée dans le rapport de Borel-Serre
+\([2]\) ou dans le rapport de Grothendieck déjà mentionné dans l'Introduction
+(cité \([\mathrm{RRR}]\) par la suite), et qui est reproduit sous forme d'appendice à
+la fin du présent exposé.</p>
+
+<p id="0.1"><strong>1.</strong> Rappelons la formule de Riemann-Roch pour un morphisme propre
+\[f\colon X \to Y\]
+de schémas quasi-projectifs et lisses sur un corps \(k\), et un faisceau
+cohérent \(F\) sur \(X\), dont la classe dans le groupe \(K(X)\) des classes de
+faisceaux cohérents sur \(X\) est notée par \(c\ell(F)\) :
+\[\operatorname{Todd}(T_Y)\, \operatorname{ch}_Y(f_*(c\ell(F))) = f_*(\operatorname{Todd}(T_X)\, \operatorname{ch}_X(F)) \tag{1.1}\]
+Cette formule est valable dans \(A(Y)\otimes_{\mathbb{Z}}\mathbb{Q}\), où \(A(Y)\) est l'anneau de Chow de \(Y\),
+le \(f_*\) du second membre étant déduit par tensorisation par \(\mathbb{Q}\) de l'homomor­phisme "image directe de cycles"
+\[f_*\colon A(X) \to A(Y) ,\]
+celui du premier membre étant la caractéristique d'Euler-Poincaré de \(F\) relativement
+à \(f\) :
+\[f_*(c\ell(F)) = \sum_i (-1)^i c\ell(R^i f_*(F)) ;\]
+\(\operatorname{ch}_X\), \(\operatorname{ch}_Y\) désignent les caractères de Chern sur \(X\) resp. sur \(Y\), et \(T_X,T_Y\)
+les fibrés tangents à \(X\) resp. à \(Y\). Comme on sait, \(\operatorname{Todd}(-)\) et \(\operatorname{ch}(-)\) sont
+des polynômes universels à coefficients dans \(\mathbb{Q}\) en les classes de Chern de
+l'argument. Le terme constant de \(\operatorname{Todd}(-)\) étant \(1\), c'est un élément inversi­ble
+pour toute valeur de l'argument, de sorte que la formule (1.1) prend
+après multiplication par \(\operatorname{Todd}(T_Y)^{-1}\) la forme équivalente, plus commode pour
+notre propos
+\[\operatorname{ch}_Y(f_*(c\ell(F))) = f_*(\operatorname{Todd}(T_f)\cdot\operatorname{ch}_X(F)) , \tag{1.2}\]
+où on a posé
+\[T_f = T_X - f^*(T_Y) \in K(X) , \tag{1.3}\]
+de sorte que \(T_f\) joue le rôle d'un <u>fibré tangent relatif virtuel</u> de \(X\) sur
+\(Y\). Dans le cas où le morphisme \(f\) est lisse (i.e. à application tangente
+partout surjective), on a simplement
+\[T_f = T_{X/Y} \quad \text{(fibré tangent le long des fibres)} ,\]
+tandis que dans le cas où \(f\colon X \to Y\) est une immersion, on trouve
+\[T_f = -\check{N}_{X/Y} ,\]
+où \(\check{N}_{X/Y}\) désigne le faisceau normal de \(X\) dans \(Y\).</p>
+
+<p>Un des buts principaux du Séminaire est de généraliser (1.2) simulta­nément
+dans deux directions :</p>
+
+<ol class="enumerate">
+<li><span class="item-label">a)</span> Se débarrasser de l'hypothèse de l'existence d'un corps de base \(k\).</li>
+<li><span class="item-label">b)</span> Remplacer les hypothèses de régularité sur \(Y,X\) par une hypothèse
+de "régularité locale" de \(f\).</li>
+</ol>
+
+<p>Enfin, chemin faisant nous nous occuperons également du problème :</p>
+
+<ol class="enumerate">
+<li><span class="item-label">c)</span> Eliminer les hypothèses de quasi-projectivité qui, en l'absence
+d'un corps de base, s'expriment par l'existence de Modules inversibles am­ples
+sur \(X\) et sur \(Y\).</li>
+</ol>
+
+<p id="0.2"><strong>2.</strong> Examinons d'abord la généralisation a), en gardant cependant les hypo­thèses
+de régularité et d'existence de Modules inversibles amples sur \(X\)
+et sur \(Y\).</p>
+
+<p>La définition de \(K(X),K(Y)\) et de l'homomorphisme \(f_*\colon K(X) \to K(Y)\)
+n'offre alors pas de nouveau problème, grâce au fait que \(X\) et \(Y\) sont régu­liers.
+La voie la plus naturelle pour donner un sens à (1.2) semble donc
+consister en la définition d'<u>anneaux de Chow</u> \(A(X),A(Y)\) et d'un homomorphis­me
+de groupes
+\[f_*\colon A(X) \to A(Y) ,\]
+en l'établissement d'une théorie des classes de Chern, fournissant des applications
+\[c_i\colon K(X) \to A(X) ,\]
+et de même pour \(Y\), et enfin en la description d'un élément fibré tangent
+relatif virtuel
+\[T_f \in K(X) .\]</p>
+
+<p id="0.2.1"><strong>2.1</strong> Pour ce qui est de cette dernière, une définition s'offre de façon
+assez évidente. On utilise le fait que le morphisme \(f\), grâce à l'hypothèse
+d'existence d'un Module inversible ample sur \(X\) et sur \(Y\), peut se factoriser
+en
+\[X \xrightarrow{\ i\ } X' \xrightarrow{\ f'\ } Y , \tag{2.1}\]
+où \(i\) est une immersion fermée, et \(f'\) un morphisme lisse ; par exemple on
+pourra prendre \(X' = \mathbb{P}^r_Y\) pour \(r\) convenable. On posera alors
+\[\check{T}_f = c\ell(\Omega^1_{X'/Y}) - c\ell(N_{X/X'}) , \tag{2.2}\]
+où \(\Omega^1_{X'/Y}\) est le Module localement libre des \(1\)-différentielles relatives de
+\(X'\) sur \(Y\) (ou Module cotangent relatif de \(X'\) sur \(Y\)), et \(N_{X/X'}\) le Module conor­mal
+de \(X\) dans \(X'\), égal par définition à \(J/J^2\), où \(J\) est l'Idéal sur \(X'\) défi­nissant
+le sous-schéma fermé \(X\) ; comme \(X\) et \(X'\) sont réguliers, on en con­clut
+d'ailleurs que \(N_{X/X'}\) est également localement libre. Enfin \(\check{T}_f\) désigne
+le dual de \(T_f\). On vérifie sans peine (Exp VIII) que l'élément \(T_f\) défini
+par (2.1) ne dépend pas de la factorisation de \(f\) choisie.</p>
+
+<p id="0.2.2"><strong>2.2</strong> Quant à une définition, sous les conditions envisagées, d'un anneau
+de Chow et d'une théorie des classes de Chern correspondante, bien qu'il
+soit plausible qu'une telle théorie doive pouvoir se développer sur le mo­dèle
+de celle déjà connue pour les schémas algébriques lisses et quasi-projec­tifs,
+il semble que ce travail n'ait pas été fait à l'heure actuelle, et à
+fortiori n'a pas été entrepris dans le Séminaire. On introduit par contre
+un autre anneau, qui jouera un rôle analogue à celui de l'anneau de Chow, et
+dont le produit tensoriel par \(\mathbb{Q}\) est effectivement isomorphe à \(A(X)\otimes_{\mathbb{Z}}\mathbb{Q}\) dans
+le cas où \(X\) est quasi-projectif et lisse sur un corps \(k\). Cet anneau est
+l'anneau gradué associé à \(K(X)\), pour une filtration convenable de cet anneau.
+Une première filtration naturelle de \(K(X)\), qui est celle envisagée dans
+\([\mathrm{RRR}]\), est la "<u>filtration topologique</u>" par la codimension du support des
+faisceaux cohérents, \(\operatorname{Filt}^i_{\mathrm{top}} K(X)\) étant engendré par les \(c\ell(F)\) avec \(F\) cohé­rent
+et \(\operatorname{codim}(\operatorname{supp} F) \geq i\). Une première question est celle de la compati­bilité
+de cette filtration avec la structure d'anneau, question résolue dans
+\([\mathrm{RRR}]\), dans le cas \(X\) lisse sur un corps \(k\), grâce au "moving lemma" de Chow.
+Ce point admis, on trouve donc un anneau gradué associé, que nous noterons
+ici \(\operatorname{Gr}'_{\mathrm{top}}(X)\). Dans \([\mathrm{RRR}]\) on définit un homomorphisme d'anneaux surjectif
+\[\delta\colon A(X) \to \operatorname{Gr}'_{\mathrm{top}}(X) ,\]
+(transformant la classe d'un cycle premier \(Z\) en \(c\ell(\mathcal{O}_Z)\),) dont il s'avère
+ensuite (Exp. XIV 4.2) que le noyau est un sous-groupe de torsion. De plus,
+on montre dans \([\mathrm{RRR}]\) comment les images dans \(\operatorname{Gr}'_{\mathrm{top}}(X)\) des classes de Chern
+\(c_i(F)\) peuvent se calculer directement en termes de \(c\ell(F) \in K(X)\) et des opé­rations
+\(\lambda^i\) de puissance extérieure dans \(K(X)\).</p>
+
+<p>Ceci montre que, pour \(X\) schéma noethérien régulier muni d'un Module
+inversible ample, l'anneau \(\operatorname{Gr}'_{\mathrm{top}}(X)\) est un substitut commode pour l'anneau
+de Chow hypothétique \(A(X)\) ; il a de plus l'avantage sur ce dernier que c'est
+directement dans cet anneau que se font certains calculs de \([\mathrm{RRR}]\) aboutis­sant
+à des formules importantes qui même pour \(X\) projectif et lisse sur un corps ne sont pas établies à l'heure actuelle dans
+\(A(X)\) lui-même (Exp. XIV, 4.3 et 4.4). Pour justifier entièrement ce point
+de vue, il faudrait cependant résoudre le problème signalé plus haut de la
+compatibilité de la filtration topologique de \(K(X)\) avec sa structure d'an­neau,
+problème qui semble essentiellement lié au "moving lemma" de Chow, qui
+lui-même est l'ingrédient technique essentiel de la théorie de l'anneau de
+Chow et que nous avons prétendu pouvoir éviter.</p>
+
+<p id="0.2.3"><strong>2.3</strong> Pour éviter ce problème, on munit \(K(X)\) d'une deuxième filtration,
+plus fine que la filtration topologique, et qui peut se décrire en termes
+purement algébriques à partir de la structure de \(\lambda\)-anneau augmenté de \(K(X)\).
+La définition de cette filtration est suggérée par l'expression donnée dans
+\([\mathrm{RRR}]\) des classes de Chern d'un \(x \in K(X)\) dans \(\operatorname{Gr}'_{\mathrm{top}}(X)\),
+\[c_i(x) = \gamma^i(x - \varepsilon(x)) \bmod \operatorname{Filt}^{i+1}_{\mathrm{top}} K(X) , \tag{2.3}\]
+où \(\gamma^i\) désigne une certaine combinaison linéaire des \(\lambda^j\) \((j \leq i)\) explicitée dans
+loc. cit., \(\varepsilon\) étant l'augmentation. On montre que \(\gamma^i(x - \varepsilon(x))\) est bien de
+filtration topologique \(\geq i\), ce qui donne un sens à la formule (2.3). On défi­nit
+alors la <u>\(\lambda\)-filtration</u> de \(K(X)\) par les idéaux \(\operatorname{Filt}^i K(X)\), où \(\operatorname{Filt}^i K(X)\)
+est formé par les sommes d'expression de la forme
+\[\gamma^{i_1}(x_1 - \varepsilon(x_1)) \cdots \gamma^{i_k}(x_k - \varepsilon(x_k)) , \quad i_1 + \cdots + i_k \geq i .\]
+L'anneau gradué associé à cette filtration sera noté \(\operatorname{Gr}'(X)\), et c'est lui
+qui remplacera dans le Séminaire l'anneau de Chow de \(X\). On peut d'ailleurs
+montrer que dans le cas envisagé ici l'homomorphisme canonique
+\[\operatorname{Gr}'(X) \to \operatorname{Gr}'_{\mathrm{top}}(X) \tag{2.4}\]
+est un isomorphisme modulo torsion, ce qui justifie le point de vue suivant
+lequel cet anneau tensorisé par \(\mathbb{Q}\) peut jouer en tous points le même rôle
+que l'anneau de Chow tensorisé par \(\mathbb{Q}\). D'autre part, on a fait exactement
+ce qu'il fallait pour que la formule (2.3) (où on remplace \(\operatorname{Filt}^i_{\mathrm{top}}\) par \(\operatorname{Filt}^i\))
+définisse une théorie des classes de Chern à valeurs dans \(\operatorname{Gr}'(X)\), dont les
+classes de Chern dans \(\operatorname{Gr}'_{\mathrm{top}}(X)\) se déduisent à l'aide de l'homomorphisme (2.4).
+On montre (Exp.V), grâce au fait (Exp.VI) que \(K(X)\) est un \(\lambda\)-anneau <u>spécial</u>
+au sens de \([\mathrm{RRR}]\) (i.e. un \(\lambda\)-anneau au sens de Exp.V) que cette notion de clas­se
+de Chern satisfait à toutes les propriétés formelles habituelles, passées
+en revue dans \([\mathrm{RRR}]\).</p>
+
+<p id="0.2.4"><strong>2.4</strong> On notera un avantage très appréciable de la définition de \(\operatorname{Gr}'(X)\) sur
+celle de \(A(X)\) et \(\operatorname{Gr}'_{\mathrm{top}}(X)\), c'est qu'elle garde un sens pour un schéma \(X\) abso­lument
+quelconque, et plus généralement pour un topos localement annelé
+quelconque \(X\), en prenant alors pour \(K(X)\) le groupe de classes construit avec
+les Modules localement libres sur \(X\), qui est encore un \(\lambda\)-anneau augmenté,
+donc muni d'une filtration correspondante, permettant de définir un gradué
+associé \(\operatorname{Gr}'(X)\). Comme prix de cette généralité, il faut cependant remarquer
+que lorsqu'on n'est pas disposé à négliger les phénomènes de torsion i.e. à
+tensoriser par \(\mathbb{Q}\), les propriétés de \(\operatorname{Gr}'(X)\) sont moins satisfaisantes à divers
+égards que celles de ses deux concurrents (Exp.XIV n° 4). C'est ainsi que,
+supposant à nouveau que \(f\colon X \to Y\) est un morphisme propre de schémas noethé­riens
+réguliers munis de Modules inversibles amples, il n'est pas vrai en général
+que l'homomorphisme \(f_*\colon K(X) \to K(Y)\) applique \(\operatorname{Filt}^i K(X)\) dans \(\operatorname{Filt}^{i-d} K(Y)\), où
+\(d\) est la dimension relative de \(X\) sur \(Y\), et définisse par suite par passage aux
+gradués associés un homomorphisme de degré \(-d\) de \(\operatorname{Gr}'(X)\) dans \(\operatorname{Gr}(Y)\). Cependant,
+on peut prouver (Exp.VII) qu'il en est ainsi à condition de tensoriser
+par \(\mathbb{Q}\), de sorte qu'on obtient un homomorphisme de degré \(-d\)
+\[f_*\colon \operatorname{Gr}'(X)_{\mathbb{Q}} \to \operatorname{Gr}'(Y)_{\mathbb{Q}} , \tag{2.5}\]
+jouant le rôle de l'homomorphisme "image directe de cycles" \(A(X) \to A(Y)\).</p>
+
+<p>Ceci posé, nous voyons donc que nous sommes en possession de tous les
+éléments de structure pour donner un sens à la formule (1.2) lorsqu'on ne
+postule pas l'existence d'un corps de base, \(f\colon X \to Y\) étant morphisme propre
+de schémas noethériens réguliers admettant des Modules inversibles amples.</p>
+
+<p id="0.3"><strong>3.</strong> Montrons maintenant comment on peut encore donner un sens à la formule
+(1.2) lorsqu'on abandonne l'hypothèse de régularité faite sur \(X,Y\), en la
+remplaçant par une hypothèse de nature locale sur le morphisme \(f\), que nous
+allons préciser.</p>
+
+<p id="0.3.1"><strong>3.1</strong> Une première difficulté provient du fait que l'observation qui avait
+servie de point de départ à la théorie \([\mathrm{RRR}]\), savoir que le groupe \(K(X)\) des
+classes de faisceaux sur \(X\) est le même, qu'on le définisse en termes de fais­ceaux
+cohérents, ou en termes de faisceaux localement libres, est liée de
+façon essentielle à l'hypothèse de régularité sur \(X\). Dans le cas où \(X\) est un
+schéma (disons, pour simplifier) général, il convient de distinguer entre ces
+deux groupes, que nous noterons respectivement \(K_{\bullet}(X)\) et \(K'(X)\), le premier
+ayant un caractère covariant en \(X\) pour les morphismes propres, le deuxième un
+caractère contravariant en \(X\) pour les morphismes quelconques. On notera
+que \(K'(X)\) est muni de façon naturelle d'une structure d'anneau (et même de
+\(\lambda\)-anneau augmenté), alors que sur \(K_{\bullet}(X)\) il n'y a plus en général une
+structure d'anneau, mais seulement une structure de module sur \(K'(X)\). L'homo­morphisme
+\(x \mapsto x\cdot c\ell(\mathcal{O}_X)\) (où \(c\ell(F)\) désigne la classe de \(F\) dans \(K_{\bullet}(X)\)) de
+\(K'(X)\) dans \(K_{\bullet}(X)\) n'est plus un isomorphisme en général. <u>Pour notre formula­tion
+du théorème de Riemann-Roch généralisé, nous travaillerons exclusive­ment
+avec \(K'(X), K'(Y)\), à l'exclusion de \(K_{\bullet}(X), K_{\bullet}(Y)\).</u> Comme nous avons signalé
+dans 2.3., ces \(\lambda\)-anneaux augmentés, munis de leur filtration naturelle,
+donnent naissance aux anneaux gradués \(\operatorname{Gr}'(X), \operatorname{Gr}'(Y)\), et des homomorphismes
+"classes de Chern"
+\[c_i\colon K'(X) \to \operatorname{Gr}'(X) ,\]
+et de même pour \(Y\). La difficulté vient cependant dans la définition d'un
+homomorphisme image directe
+\[f_*\colon K'(X) \to K'(Y) , \tag{3.1}\]
+qui ne peut plus être définie par la formule naïve
+\[f_*(c\ell(F)) = \sum_i (-1)^i c\ell(R^i f_*(F)) ,\]
+car même si \(F\) est localement libre, les Modules \(R^i f_*(F)\) ne sont plus en
+général localement libres, ni même de tor-dimension finie, et la formule
+précédente perd son sens. Une solution de cette difficulté est fournie par
+le point de vue des <u>catégories dérivées</u>. En effet, alors que les \(R^i f_*(F)\)
+sont en général des "mauvais" faisceaux, disons, auxquels on ne saurait
+associer de classe dans \(K'(Y)\), cependant le complexe
+\(Rf_*(F)\) sur \(Y\), image directe de \(F\) au sens des catégories dérivées, dont les
+\(R^i f_*(F)\) sont les faisceaux de cohomologie, a tendance à être excellent. De
+façon précise, supposons que \(F\) soit de tor-dimension finie sur \(\mathcal{O}_Y\), ce qui
+sera le cas si \(\mathcal{O}_X\) est de tor-dimension finie sur \(\mathcal{O}_Y\) et si de plus \(F\) est
+localement libre. Alors on montre (Exp. III) que le complexe \(Rf_*(F)\) est
+"<u>parfait</u>", par quoi on entend ici : à faisceaux de cohomologie cohérents
+(ce qu'on savait déjà de toutes façons) <u>et</u> de tor-dimension globale finie ;
+ou encore : sur tout ouvert affine \(U\) de \(Y\), ce complexe est isomorphe, dans
+la catégorie dérivée \(D(U)\), à un complexe à degrés bornés et localement
+libre de type fini en chaque degré. Du point de vue de l'Algèbre Homologique, les
+complexes parfaits sont "aussi bons" que les Modules localement libres, dont
+ils constituent la généralisation naturelle. Ils forment d'ailleurs une
+"sous-catégorie triangulée" de la catégorie dérivée \(D(Y)\), i.e. une sous-caté­gorie
+stable par les cônes (ou "mapping cylinders") de morphismes. D'au­tre
+part, à toute catégorie triangulée \(C\) on associe un groupe \(K(C)\) de classes,
+variante naturelle de la construction du groupe des classes d'une catégorie
+abélienne, en prenant le groupe libre engendré par les objets de \(C\), divisé
+par les relations
+\[c\ell(K) - c\ell(K') - c\ell(K'')\]
+pour tout triangle distingué
+\[\xymatrix@R=1em@C=1em{
+ & K'' \ar[dl] & \\
+ K' \ar[rr] & & K \ar[ul]
+}\]
+Ce qui remplace alors l'observation fondamentale de \([\mathrm{RRR}]\) dans le cas actuel
+est le fait que, lorsque le schéma \(Y\) admet un Module inversible ample, tout
+complexe parfait \(L_{\bullet}\) sur \(Y\) est globalement (et non seulement localement)
+isomorphe dans \(D(Y)\) à un complexe \(L'\) à degrés bornés et localement libre de
+type fini en chaque degré (Exp II) ; d'où il résulte facilement (Exp.IV) que
+l'homomorphisme canonique
+\[K'(X) \to K(\operatorname{Parf}(Y)) ,\]
+où \(\operatorname{Parf}(Y)\) est la catégorie triangulée des complexes parfaits sur \(Y\), est un
+isomorphisme. Donc à tout complexe parfait \(L_{\bullet}\) sur \(Y\) on peut associer une
+classe
+\[c\ell(L_{\bullet}) \in K'(Y) ,\]
+qui n'est d'ailleurs autre que
+\[c\ell(L_{\bullet}) = \sum_i (-1)^i c\ell(L'_i)\]
+où \(L'\) est comme ci-dessus, de sorte que les \(L'_i\) sont des Modules locale­ment
+libres sur \(Y\) dont on peut prendre les classes dans \(K'(Y)\).</p>
+
+<p>Ceci posé, on définit un homomorphisme (3.1) chaque fois que \(f\colon X \to Y\)
+est un morphisme <u>propre de tor-dimension finie</u> de schémas noethériens tels
+que \(Y\) admette un Module inversible ample, en posant simplement
+\[f_*(c\ell(F)) = c\ell(Rf_*(F)) \tag{3.2}\]
+pour tout Module localement libre \(F\) sur \(X\) (de sorte que \(Rf_*(F)\) est bien
+un complexe parfait sur \(Y\), et le deuxième membre est défini). Lorsque \(X\)
+également admet un Module inversible ample, alors \(K'(X)\) peut s'interpréter
+également comme \(K(\operatorname{Parf}(X))\), et l'homomorphisme (3.1) n'est autre que celui
+qui est associé, par fonctorialité, au foncteur exact de catégories trian­gulées
+induit par
+\[Rf_*\colon \operatorname{Parf}(X) \to \operatorname{Parf}(Y) .\]</p>
+
+<p id="0.3.2"><strong>3.2</strong> Pour donner un sens à (1.2), il reste encore à faire sur \(f\) une hypo­thèse
+permettant de donner un sens à l'homomorphisme (2.5)
+\[f_*\colon \operatorname{Gr}'(X)_{\mathbb{Q}} \to \operatorname{Gr}'(Y)_{\mathbb{Q}} , \tag{3.3}\]
+i.e. assurant que l'homomorphisme (3.1) qu'on vient de définir est (modulo
+un décalage et modulo torsion) compatible aux filtrations de ces anneaux ;
+et enfin à définir encore un élément "fibré tangent relatif virtuel"
+\[T_f \in K'(X) .\]
+Pour ce dernier, reprenant la définition proposée dans 2.1, on voit qu'il
+y a lieu de faire une hypothèse assurant que (avec les notations de loc.
+cit.) le Module conormal \(N_{X/X'}\) soit localement libre. L'hypothèse la plus
+naturelle à cet effet est celle où \(i\) soit une "<u>immersion régulière</u>", i.e.
+identifie \(X\) à un sous-schéma de \(X'\) défini par un Idéal qui localement peut
+être défini par une suite \(\mathcal{O}_{X'}\)-régulière de sections de \(\mathcal{O}_{X'}\). Cette hypo­thèse,
+de nature purement locale, ne dépend pas en fait du choix de la facto­risation
+de \(f\) en une immersion suivie d'un morphisme lisse (Exp. VIII), et
+comme plus haut, il est de même pour la classe \(T_f\) défini par la formule
+(2.1). Lorsque l'hypothèse qu'on vient d'envisager est vérifiée, on dit que
+le morphisme \(f\) est un morphisme "<u>localement d'intersection complète</u>"<sup class="footnote-ref"><a id="fnref1" href="#fn1">(∗)</a></sup>. Un
+tel morphisme est d'ailleurs localement de tor-dimension finie.</p>
+
+<p>Si \(f\) est un morphisme localement d'intersection complète, on introduit
+une notion naturelle de "dimension relative virtuelle" \(d(f)\) par la formule
+\[d(f)(x) = \dim_x(f'^{-1}f(x)) - \operatorname{codim}_x(X,X') .\]
+C'est une fonction à valeurs entières localement constante en le point \(x \in X\),
+donc constante si \(X\) est connexe, qui ne dépend d'ailleurs pas non plus du
+choix de la factorisation (2.1). Lorsque cette dimension relative virtuelle
+\(d\) est constante, que \(f\) est propre et que \(X\) et \(Y\) admettent des Modules inver­sibles
+amples, on peut montrer (Exp. VIII), encore que ce soit loin d'être
+un résultat trivial, que l'on a
+\[f_*(\operatorname{Filt}^i K'(X)_{\mathbb{Q}}) \subseteq \operatorname{Filt}^{i-d} K'(Y)_{\mathbb{Q}} , \tag{3.4}\]
+d'où un homomorphisme (3.3) de degré \(-d\).</p>
+
+<p id="0.3.3"><strong>3.3</strong> Nous avons donc réuni tous les éléments de structure pour donner
+un sens à la formule (1.2) <u>dans le cas d'un morphisme propre et localement
+d'intersection complète</u> de schémas noethériens \(X,Y\) <u>admettant tous deux des
+Modules inversibles amples</u>. Moyennant un peu de soin supplémentaire, cette
+formulation garde d'ailleurs un sens indépendamment de toute hypothèse noethé­rienne.</p>
+
+<p>Sous cette forme générale, cette formule de Riemann-Roch sera prouvée
+dans Exp. VIII. Le lecteur constatera que la démonstration donnée dans ce
+Séminaire combine des éléments des deux démonstrations qui figurent dans
+\([\mathrm{RRR}]\) et dont il a été question dans l'Introduction. La nécessité de recou­rir
+aux méthodes de la première de ces démonstrations, impliquant plus de
+\(\lambda\)-formalisme que la deuxième (suivie dans Borel-Serre), est due à la néces­sité
+d'une démonstration de l'inclusion (3.4), question qui ne se posait pas
+dans le cadre plus restreint de \([\mathrm{RRR}]\) et Borel-Serre \([2]\), où on pouvait tra­vailler
+avec l'anneau de Chow ou l'anneau \(\operatorname{Gr}'_{\mathrm{top}}\). De la deuxième démonstration,
+nous conservons l'introduction du schéma éclaté de \(Y\) le long de \(X\) dans le
+cas où \(f\) est une immersion. Cet artifice technique disparaîtra sans doute,
+et la démonstration du cas d'une immersion s'étendra au cas où on ne postule
+plus l'existence d'un Module inversible ample sur \(Y\), une fois résolue la
+question soulevée dans Exp. XIV n° 1 sur l'introduction d'opérations de puis­sances
+extérieures dans la catégorie dérivée \(D^-(Y)\).</p>
+
+<p id="0.4"><strong>4.</strong> Il nous faut enfin donner quelques indications sur la façon dont on
+peut encore donner un sens à (1.2) en l'absence d'une hypothèse d'existence
+de Modules inversibles amples sur \(X\) et \(Y\).</p>
+
+<p id="0.4.1"><strong>4.1</strong> Notons d'abord que <u>pour un schéma \(X\)</u> (ou plus généralement, <u>un topos
+localement annelé</u> quelconque), il semble hors de doute que le "bon" invariant
+qui doit remplacer l'anneau \(K(X)\) de \([\mathrm{RRR}]\) n'est pas <u>l'anneau \(K'(X)\)</u> considéré
+précédemment, défini en termes de Modules localement libres sur \(X\), mais bien
+le groupe \(K(\operatorname{Parf}(X))\), envisagé dans 3.1., défini en termes de complexes par­faits
+sur \(X\), et que nous distinguerons du groupe "naïf" de 3.1, que nous no­terons
+\(K'_{\mathrm{naif}}(X)\). Ce point de vue est imposé par la nécessité de définir un
+homomorphisme (3.1) image directe pour un morphisme \(f\colon X \to Y\) propre et de
+tor-dimension finie, de schémas noethériens disons (le cas non noethérien
+exigeant des propriétés de finitude locales un peu plus fortes sur \(f\), cf. Exp. III). Avec la définition de \(K'(X)\) adopté
+maintenant, cet homomorphisme \(f_*\) se définit en effet de façon triviale par
+la formule (3.2), où \(F\) est un complexe parfait quelconque sur \(X\), ce qui
+implique que \(Rf_*(F)\) est également parfait.</p>
+
+<p id="0.4.2"><strong>4.2</strong> Cette nouvelle définition de \(K'(X)\) soulève cependant un nouveau pro­blème
+d'algèbre homologique, qui est celui d'une définition d'une \(\lambda\)-struc­ture
+sur \(K'(X)\), compatible avec la structure d'anneau naturelle provenant du
+produit tensoriel dans la catégorie dérivée. (NB Si \(L_{\bullet}\) et \(L'\) sont deux com­plexes
+parfaits, il en est de même de leur produit tensoriel total \(L_{\bullet} \otimes L'\) ).
+Plus précisément, il y aurait lieu de définir des opérations "puissances
+extérieures" dans la catégorie dérivée \(D^-(X)\), transformant complexes parfaits
+en complexes parfaits. Cette question n'a pas encore été tiré au clair à
+l'heure actuelle, et comme il a été dit dans l'Introduction, elle constitue
+la lacune la plus sérieuse dans le Séminaire. Une fois cette question résolue,
+et procédant comme 2.3, on trouve une filtration naturelle sur \(K'(X)\),
+permettant de former l'anneau gradué associé \(\operatorname{Gr}'(X)\), qui jouera le rôle de
+l'anneau de Chow, et de définir une théorie des classes de Chern
+\[c_i\colon K'(X) \to \operatorname{Gr}'(X)\]</p>
+
+<p id="0.4.3"><strong>4.3</strong> Pour donner un sens à (1.2) pour un morphisme propre loca­lement
+d'intersection complète \(f\colon X \to Y\) de schémas noethériens, il faut encore
+inclure dans l'énoncé de cette formule les inclusions non triviales (3.4)
+(où \(d\) est la dimension relative virtuelle) pour permettre de définir (3.3),
+et de définir enfin la classe tangente relative virtuelle
+\[T_f \in K'(X)\]
+Lorsque \(f\) admet une factorisation (2.1) par une immersion dans un
+schéma relatif lisse, la définition de \(T_f\) n'offre pas de nouvelle difficul­té.
+On peut d'ailleurs la reformuler dans ce cas, d'une façon plus conforme
+à l'esprit "catégories dérivées", en considérant l'homomorphisme canonique
+\[N_{X/X'} \xrightarrow{\ d\ } \Omega^1_{X'/Y} \otimes_{\mathcal{O}_{X'}} \mathcal{O}_X \tag{4.1}\]
+induit par la différentielle extérieure
+\[d_{X'/X}\colon J \hookrightarrow \mathcal{O}_{X'} \to \Omega^1_{X'/Y} ,\]
+et le complexe de chaînes
+\[L^{X/Y}_{\bullet} \in \operatorname{Ob} D(X) \tag{4.2}\]
+défini grâce à (4.1) "en prolongeant par des zéros", complexe égal en degré
+\(1\) resp. \(0\) à la source resp. au but de l'homomorphisme (4.1). La formule (2.2)
+prend alors la forme plus sympathique
+\[\check{T}_f = c\ell(L^{X/Y}_{\bullet}) , \tag{4.3}\]
+formule qui a un sens dans \(K'(X)\) lorsque \(f\) est un morphisme localement d'in­tersection
+complète, puisque dans ce cas le complexe \(L^{X/Y}_{\bullet}\) est manifestement
+parfait. L'assertion d'invariance de \(T_f\) relativement à la factorisation choi­sie
+de \(f\) peut alors se préciser facilement en une assertion d'invariance
+pour le complexe \(L^{X/Y}_{\bullet}\) : modulo isomorphisme canonique dans la catégorie déri­vée
+\(D(X)\), ce complexe est également indépendant de la factorisation choisie
+(Exp. VIII).</p>
+
+<p id="0.4.4"><strong>4.4</strong> Lorsque \(f\colon X \to Y\) est un morphisme quelconque de schémas, on peut enco­re
+construire un objet canonique \(L^{X/Y}_{\bullet}\) de la catégorie dérivée \(D(X)\), défini
+à isomorphisme unique près, qui sur chaque ouvert affine de \(X\) au dessus d'un
+ouvert affine de \(Y\) soit un complexe construit suivant le principe exposé à
+l'alinéa précédent (où il convient cependant dans le cas général de
+remplacer "lisse" par "formellement lisse", de sorte que toute algèbre \(B\) sur
+un anneau \(A\) apparaît comme quotient d'une algèbre formellement lisse, par
+exemple une algèbre de polynômes). Pour une telle définition il n'est pas
+possible de procéder par simple "recollement" à partir des constructions
+affines, car les objets de la catégorie dérivée \(D(X)\) sont de nature essen­tiellement
+non recollables. Voici une construction générale de \(L^{X/Y}_{\bullet}\), vala­ble
+plus généralement pour tout morphisme \(f\colon X \to Y\) de topos (commutative­ment)
+annelés : Soit \(B = \mathcal{O}_X, A = f^{-1}(\mathcal{O}_Y)\), de sorte que \(A\) est un Anneau sur l'es­pace
+\(X\), et \(B\) une \(A\)-Algèbre. Soit \(T \to B\) un homomorphisme de faisceaux d'en­sembles
+qui engendre \(B\) comme \(A\)-Algèbre, i.e. tel que l'homomorphisme de
+\(A\)-Algèbres
+\[\phi\colon C = A[T] \to B\]
+correspondant soit un épimorphisme de faisceaux d'ensembles, où \(A[T]\) désigne
+la \(A\)-Algèbre commutative libre engendrée par \(T\) (i.e. le faisceau associé au
+préfaisceau \(U \mapsto A(U)[T(U)]\) de \(A\)-Algèbre commutative libre engendré par
+\(T(U)\) ). Soit \(J\) le noyau de \(\phi\), et considérons comme dans 4.3 le complexe de
+chaînes de longueur \(1\) défini par l'homomorphisme naturelle
+\[J/J^2 \xrightarrow{\ d\ } \Omega^1_{C/A} \otimes_C B .\]
+Il n'est pas difficile de voir que, à isomorphisme canonique près dans la
+catégorie \(D(X)\), le complexe ainsi construit est indépendant du choix de
+\(T\) et \(T \to B\), de sorte qu'il mérite la désignation de <u>complexe cotangent
+relatif</u> \(L^{X/Y}_{\bullet}\) de \(X\) sur \(Y\). On vérifie également que pour tout ouvert affine
+de \(X\) au dessus d'un ouvert affine de \(Y\), il est donné (à isomorphisme cano­nique
+près) par le procédé de 4.3.</p>
+
+<p>Dans le cas où \(f\) est localement d'intersection complète, on voit de
+plus que l'on obtient même un complexe <u>parfait</u>, ce qui permet alors de défi­nir
+encore un élément \(T_f\) dans \(K'(X)\) par la formule (4.3). Signalons qu'ici
+encore, il n'aurait pas été possible en général de définir \(T_f\) comme un élé­ment
+de \(K'_{\mathrm{naif}}(X)\), et rien ne permet de supposer que \(T_f\) soit <u>globalement</u>
+isomorphe dans \(D(X)\) à un complexe borné à composantes localement libres de
+type fini. Ceci est donc une justification supplémentaire du point de vue
+avancé dans 4.1 en faveur du \(K'(X)\) "sophistiqué", de préférence à \(K'_{\mathrm{naif}}(X)\).</p>
+
+<p id="0.4.5"><strong>4.5</strong> Sous réserve de la question soulevée dans 4.2, nous avons donc enco­re
+réuni tous les éléments de structure pour donner un sens à (1.2) pour
+un morphisme propre localement d'intersection complète de schémas quelcon­ques
+(l'hypothèse noethérienne faite implicitement dans les sections qui
+précédent pouvant en fait s'éliminer sans difficulté essentielle). Cela ne
+signifie pas malheureusement que, même sous cette réserve, la formule en
+question soit établie, même dans le cas où \(Y\) est le spectre d'un corps
+algébrique clos de caractéristique \(p > 0\), et que \(X\) est un schéma algébrique
+propre et lisse de dimension \(3\) disons. Voir commentaires dans Exp. XIV n° 2.</p>
+
+<p id="0.5"><strong>5.</strong> Sous la forme présentée dans le n° 4, la formule de Riemann-Roch (1.2)
+a également un sens pour un morphisme propre localement d'intersection com­plète
+d'espaces analytiques complexes (ou d'espaces rigide-analytiques au
+sens de Tate). Mais bien sûr la démonstration donnée dans \([\mathrm{RRR}]\) ne s'appli­que
+à ce cas que lorsqu'on suppose de plus que le morphisme \(f\) est projectif,
+et comme dans le cas algébrique, il semble qu'il faille une idée essentiel­lement
+nouvelle pour traiter le cas général. La formule que nous envisageons
+ici exige une formule à valeurs dans un "anneau de Chow analytique" \(\operatorname{Gr}'(X)\) ou
+plutôt \(\operatorname{Gr}'(X)_{\mathbb{Q}}\), construit suivant le principe expliqué dans 4.2 (la diffi­culté
+qui y est rencontrée s'évanouissant d'ailleurs du fait qu'on est en
+caractéristique nulle, comme on le signale dans Exp. XIV n° 1).</p>
+
+<p>Lorsque \(X\) et \(Y\) sont non singuliers, il est possible de donner une autre
+version de la formule de Riemann-Roch en procédant comme suit. Soit d'abord
+\(X\) un espace analytique complexe quelconque, \(X^{\mathrm{top}}\) le même espace muni du fais­ceau
+des fonctions complexes continues. On a un morphisme canonique
+d'espaces annelés
+\[X^{\mathrm{top}} \to X ,\]
+qui définit, grâce au caractère contravariant évident du foncteur \(K'(X)\) en
+l'espace annelé variable \(X\), un homomorphisme d'anneaux
+\[K'(X) \to K'(X^{\mathrm{top}}) . \tag{5.1}\]
+Supposons pour simplifier \(X^{\mathrm{top}}\) compact ; alors, comme dans le cas (déjà si­gnalé
+dans 3.1) d'un schéma admettant un module inversible ample, on voit
+(Exp.II) que tout complexe parfait sur \(X^{\mathrm{top}}\) est globalement isomorphe à un
+complexe borné localement libre en chaque degré, i.e. à un complexe de fi­brés
+vectoriels complexes sur \(X^{\mathrm{top}}\), et que par suite \(K'(X^{\mathrm{top}})\) est isomorphe
+canoniquement au groupe \(K(X^{\mathrm{top}})\) bien connu des topologues \([1]\), défini en
+termes de fibrés vectoriels complexes sur l'espace compact \(X^{\mathrm{top}}\). On peut
+donc interpréter l'homomorphisme (5.1) comme étant un homomorphisme du \(K'(X)\)
+défini en termes de la structure analytique, dans l'anneau bien connu \(K(X^{\mathrm{top}})\)
+des topologues. Si maintenant \(f\colon X \to Y\) est un morphisme d'espaces analytiques
+non singuliers compacts, on sait lui associer grâce à Atiyah-Hirzebruch
+\([1]\) un homomorphisme groupes
+\[f_*^{\mathrm{top}}\colon K'(X^{\mathrm{top}}) \to K'(Y^{\mathrm{top}}) . \tag{5.2}\]
+Utilisant de même l'homomorphisme \(f_*\) de (3.1) défini par la formule (3.2)
+(qui utilise ici implicitement le théorème de finitude de Grauert \([4]\) pour
+un morphisme propre d'espaces analytiques) on trouve un carré d'homomor­phismes
+naturels, ne faisant intervenir que des groupes du type \(K'\) (à l'ex­clusion
+d'anneaux du type anneaux de Chow ou de cohomologie) :
+\[\xymatrix@C=3em@R=2em{
+K'(X) \ar[r] \ar[d]_{f_*} & K'(X^{\mathrm{top}}) \ar[d]^{f_*^{\mathrm{top}}} \\
+K'(Y) \ar[r] & K'(Y^{\mathrm{top}})
+} \tag{5.3}\]
+La formule de type Riemann-Roch à laquelle nous faisions allusion con­siste
+à affirmer la commutativité de ce carré. On notera la différence de
+nature entre cette assertion (qui ne néglige pas les phénomènes de torsion,
+et se place dans un groupe \(K'(Y^{\mathrm{top}})\) de nature essentiellement discrète), et
+la formule de Riemann-Roch du type envisagé au n° 4, se plaçant dans un
+groupe du type "Chow" qui n'est plus de nature discrète, mais qu'on doit
+tensoriser en revanche par \(\mathbb{Q}\). La formule (5.3) est démontrée en tous cas
+lorsque \(X\) et \(Y\) sont des variétés projectives non singulières \([7]\), comme la
+formule du type envisagé au n° 4, qui est démontrée dans ce cas dans \([\mathrm{RRR}]\).
+Il s'agit là d'une variante plausible du théorème de l'index de Atiyah-Singer
+(et de ses généralisations dues à Shih \([7]\) et Atiyah), qui appelle évidem­ment
+une généralisation commune. Une fois prouvée la commutativité de (5.3),
+on en conclurait aussitôt, à l'aide du "théorème de Riemann-Roch différen­tiable"
+de Atiyah-Hirzebruch \([1]\), une variante cohomologique de la formule
+de Riemann-Roch analytique complexe, savoir la commutativité du carré
+\[\xymatrix@C=5em@R=2em{
+K'(X) \ar[r]^-{x \to \operatorname{ch}(x)\operatorname{Todd}(T_X)} \ar[d] & H^{2*}(X,\mathbb{Q}) \ar[d] \\
+K'(Y) \ar[r]^-{y \to \operatorname{ch}(y)\operatorname{Todd}(T_Y)} & H^{2*}(Y,\mathbb{Q})
+} \tag{5.4}\]
+où les flèches horizontales sont déduites des classes de Chern cohomologi­ques,
+déduites de l'homomorphisme (5.1) et de l'homomorphisme classe de
+Chern ordinaire
+\[K'(X^{\mathrm{top}}) \to H^{2*}(X,\mathbb{Z}) ,\]
+la première flèche verticale est la même que dans (5.3), et la deuxième est
+l'homomorphisme de Gysin en cohomologie rationnelle.</p>
+
+<p id="0.6"><strong>6.</strong> Dans tout ceci, il n'a été guère question que de l'invariant contra­variant
+\(K'(X)\), à l'exclusion de l'invariant covariant \(K_{\bullet}(X)\) dont l'existence
+a été signalé dans 3.1. Si on considère \(K'(X)\) comme donnant un analogue de
+l'anneau de <u>cohomologie</u> entière d'un espace topologique, on doit considérer
+\(K_{\bullet}(X)\) comme donnant un analogue de l'<u>homologie</u> entière, la structure de
+Module de \(K_{\bullet}(X)\) sur \(K'(X)\) correspondant alors à l'opération de cap-produit
+<sup class="footnote-ref"><a id="fnref2" href="#fn2">(∗)</a></sup>. Le fait que lorsque \(X\) est régulier, l'homomorphisme naturel \(K'(X) \to K_{\bullet}(X)\)
+soit un isomorphisme, doit être regardé comme l'analogue du théorème de dua­lité
+de Poincaré sur les variétés topologiques orientées, affirmant que le
+cap-produit avec la classe d'homologie fondamentale définit un isomorphisme
+de la cohomologie sur l'homologie. Ces analogies suggèrent d'ailleurs l'op­portunité
+de définir également, pour un polyèdre fini \(X\) mettons, un inva­riant
+\(K_{\bullet}(X)\) de nature covariante, dont les relations à l'homologie entière
+(suite spectrale, homomorphisme de Chern...) seraient analogues à celles
+existant entre \(K'(X)\) et la cohomologie entière ; et il ne semble pas non
+plus exclu qu'il puisse exister, en termes de ces groupes \(K_{\bullet}(X)\), des varian­tes
+du théorème de Riemann-Roch différentiable, valable pour des espaces
+plus généraux que des variétés différentiables compactes.</p>
+
+<p>Revenant au cas où \(X\) est un schéma noethérien quelconque, il convient
+de munir \(K_{\bullet}(X)\) d'une filtration croissante, \(\operatorname{Filt}_i K_{\bullet}(X)\) étant engendré par
+des classes \(c\ell(F)\), avec \(F\) faisceau cohérent sur \(X\) tel que \(\dim \operatorname{supp} F \leq i\).
+On prouvera (Exp. X) la compatibilité de cette filtration avec la structure
+de module et la filtration de \(K'(X)\), i.e. la formule
+\[\operatorname{Filt}^i K'(X) \cdot \operatorname{Filt}_j K_{\bullet}(X) \subseteq \operatorname{Filt}_{j-i} K_{\bullet}(X) , \tag{6.1}\]
+ce qui permet de munir le gradué associé au module filtré \(K_{\bullet}(X)\), noté
+\[\operatorname{Gr}_{\bullet}(X) ,\]
+d'une structure de module sur \(\operatorname{Gr}'(X)\). Ses éléments peuvent d'ailleurs
+s'interpréter comme des <u>classes de cycles algébriques</u> sur \(X\), (pour une
+relation d'équivalence moins fine que l'équivalence rationnelle, lorsque \(X\)
+est de type fini sur un corps de base \(K\)). Si
+\[f\colon X \to Y\]
+est un morphisme propre de schémas noethériens, alors
+\[f_*\colon K_{\bullet}(X) \to K_{\bullet}(Y) , \tag{6.2}\]
+est compatible avec les filtrations, et définit un homomorphisme de groupes
+gradués
+\[f_*\colon \operatorname{Gr}_{\bullet}(X) \to \operatorname{Gr}_{\bullet}(Y) , \tag{6.3}\]
+donnant lieu à une "formule de projection" i.e. qui est \(\operatorname{Gr}_{\bullet}(Y)\)-linéaire,
+formule qui se réduit par passage aux gradués de la formule de projection
+analogue pour l'homomorphisme (6.2) (qui est \(K'(Y)\)-linéaire).</p>
+
+<p><u>Dans le point de vue proposé dans le Séminaire, une théorie des in­tersections
+maniable, sur les schémas noethériens \(X\) pas nécessairement régu­liers,
+doit consister en l'étude combinée des invariants contravariants
+\(K'(X), \operatorname{Gr}'(X)\) et des invariants covariants \(K_{\bullet}(X), \operatorname{Gr}_{\bullet}(X)\)</u>, qui jouent des
+rôles de nature essentiellement différente, et dont les propriétés se com­plètent
+mutuellement. C'est ainsi que les groupes covariants \(K_{\bullet}(X), \operatorname{Gr}_{\bullet}(X)\)
+se calculent mieux pour certaines fibrations non propres, grâce à la "suite
+exacte d'homotopie" qu'on peut établir pour eux ( \([\mathrm{RRR}]\) et Exp. IX) ; par
+exemple on prouve (Exp. X) des isomorphismes canoniques tels que
+\[K_{\bullet}(X[t]) \cong K_{\bullet}(X) , \quad \operatorname{Gr}_{\bullet}(X[t]) \cong \operatorname{Gr}_{\bullet}(X) ,\]
+qui tombent en défaut en général pour \(K'\) lorsque \(X\) est un schéma non régu­lier.
+En revanche, \(K'(X)\) et \(\operatorname{Gr}'(X)\) se prêtent bien aux calculs grâce à leur
+structure d'anneau.</p>
+
+<p>Lorsqu'on considère des schémas \(X\) propres sur un corps, la projection
+\[f^X\colon X \to (\mathrm{point})\]
+définit un homomorphisme "caractéristique d'Euler-Poincaré"
+\[\chi_X = f_*^X\colon K_{\bullet}(X) \to K_{\bullet}(\mathrm{point}) = \mathbb{Z} , \tag{6.4}\]
+induisant sur le sous-groupe \(\operatorname{Gr}_0(X) = \operatorname{Filt}_0 K_{\bullet}(X)\) l'homomorphisme "degré des
+0-cycles"
+\[\deg_X\colon \operatorname{Gr}_0(X) \to \mathbb{Z} . \tag{6.5}\]
+L'homomorphisme de multiplication
+\[\operatorname{Gr}^i(X) \times \operatorname{Gr}_i(X) \to \operatorname{Gr}_0(X) ,\]
+composé avec l'homomorphisme degré (6.5), fournit alors un accouplement
+\[\operatorname{Gr}^i(X) \times \operatorname{Gr}_i(X) \to \mathbb{Z} , \tag{6.6}\]
+qui explique qu'à certains égards \(\operatorname{Gr}'(X)\) et \(\operatorname{Gr}_{\bullet}(X)\) jouent des rôles duals,
+tout comme la cohomologie et l'homologie. Ainsi, si \(f\colon X \to Y\) est un mor­phisme
+de schémas algébriques propres, les deux homomorphismes
+\[f^*\colon \operatorname{Gr}'(Y) \to \operatorname{Gr}'(X) \quad \text{et} \quad f_*\colon \operatorname{Gr}_{\bullet}(X) \to \operatorname{Gr}_{\bullet}(Y)\]
+sont formellement transposés l'un de l'autre, au sens des accouplements
+(6.6).</p>
+
+<p>Les homomorphismes (6.4) et (6.5) et l'accouplement (6.6) qu'on en
+déduit, peuvent être considérés comme la source des <u>relations numériques</u>
+en théorie des intersections sur les schémas algébriques propres sur un
+corps donné \(k\). Ce point de vue sera développé avec quelques détails dans
+Exp. X, indépendant pour l'essentiel des Exp. VI,VII,VIII (centrés sur la
+démonstration du théorème de Riemann-Roch) et de Exp. IX. On y donnera éga­lement
+quelques notions sur le <u>comportement de \(K'(X), \operatorname{Gr}'(X)\) par spéciali­sation</u>.</p>
+
+<p id="0.7"><strong>7.</strong> Comme dans toute théorie d'intersection, il importe de préciser la
+place que prend dans la théorie le <u>groupe de Picard</u>, ( ou groupe des <u>classes
+de diviseurs</u> dans la terminologie classique). Moyennant une légère restric­tion,
+automatiquement satisfaite lorsque \(X\) est par exemple quasi-compact,
+on établit dans Exp. X un isomorphisme canonique
+\[c_1\colon \operatorname{Pic}(X) \xrightarrow{\ \sim\ } \operatorname{Gr}^1(X) , \tag{7.1}\]
+qui montre le rôle exact du groupe de Picard dans la théorie que nous pro­posons.
+Ce rôle justifie une étude plus détaillée de ce groupe de Picard
+dans les exposés XII, XIII, qui sont logiquement indépendants du texte
+du Séminaire. Une étude de l'<u>équivalence numérique</u> et de certains <u>théorèmes
+de finitude pour le groupe de Picard</u> (annoncés sans démonstration dans \([6]\))
+est faite par Kleiman dans Exp. XIII, en utilisant des techniques de nature
+purement numérique (n'utilisant pas la théorie du foncteur de Picard et de
+sa représentabilité, dues à lui-même et à Mumford, nettement plus simples
+que les démonstrations initiales de Grothendieck. Le seul résultat réfrac­taire
+aux méthodes de Kleiman (et dont il est obligé de faire usage) est
+\([6, \text{C-07 (i)}]\), dont la démonstration et certains raffinements (incluant certains
+théorèmes de représentabilité pour le foncteur de Picard) occupe
+l'exposé XII. Ce dernier relève d'ailleurs d'un esprit et d'une technique
+entièrement étrangers au reste du Séminaire, se rattachant à \([5]\) ; cet ex­posé
+est logiquement indépendant de tous les autres.</p>
+
+<p>Enfin, dans Exp. XI, de nature nettement plus générale que XII et XIII
+et plus proche de l'esprit général du Séminaire, on étudie, sur un topos
+localement annelé quelconque, un foncteur remarquable appelé "<u>foncteur déter­minant</u>" :
+\[\det{}^*\colon \operatorname{Parf}(X) \to \operatorname{Inv}(X) \tag{7.2}\]
+de la catégorie des complexes parfaits sur \(X\), les morphismes étant les seuls
+isomorphismes au sens de la catégorie dérivée \(D(X)\), dans la catégorie des
+Modules inversibles sur \(X\). Ce foncteur est décrit à peu de choses près par
+l'exigence d'être de "nature locale", et d'être donné, pour un complexe \(L_{\bullet}\)
+borné et à composantes localement libres, par la formule
+\[\det{}^*(L_{\bullet}) \cong \bigotimes_i \det(L_i)^{(-1)^i} , \tag{7.3}\]
+où \(\det(L_i)\) désigne la puissance extérieure de degré maximum du Module locale­ment
+libre \(L_i\). Bien que cet exposé aussi soit logiquement indépendant du res­te
+du Séminaire à l'exception de l'exposé I, il constitue néanmoins un élément
+important du "yoga" général proposé dans le Séminaire, et développé pour l'es­sentiel
+dans les exposés I à XI.</p>
+
+<h2 id="0.biblio">Bibliographie</h2>
+
+<p>[1] M. ATIYAH et F. HIRZEBRUCH, <em>Vector bundles and homogeneous spaces</em>,
+Symposia in Pure Mathematics, vol. 3, Différential Geometry
+p. 7-38, 1961.</p>
+
+<p>[2] A. BOREL et J.P. SERRE, <em>Le théorème de Riemann-Roch</em>, Bull. Soc. math
+France, t.36, p. 97-136 (1958).</p>
+
+<p>[3] H. GRAUERT, <em>Ein Theorem der analytischen Garbentheorie</em>, Pub. Math.
+n° 5, p. 5-64 (1960).</p>
+
+<p>[4] A. GROTHENDIECK, <em>Classes de faisceaux et théorème de Riemann-Roch</em>,
+notes miméographiées, Princeton 1957, (cité \([\mathrm{RRR}]\) et reproduit
+en Appendice à l'Exp. O du Séminaire).</p>
+
+<p>[5] A. GROTHENDIECK, <em>Technique de descente et théorèmes d'existence en
+Géométrie Algébrique</em>, dans Fondements de la Géométrie Algébrique,
+Extraits du Séminaire Bourbaki 1957-1962, Secrétariat Mathéma­tique, Paris.</p>
+
+<p>[6] W. SHIH, <em>Séminaire de Topologie à l'IHES</em>, 1966/67.</p>
+
+<p>[7] M. ATIYAH et F. HIRZEBRUCH, <em>The Riemann-Roch theorem for analytic
+embeddings</em>, Topology, vol. 1, p. 151 - 166 (1962).</p>
+
+<div id="footnotes">
+<ol>
+<li id="fn1"><p>(∗) On se permettra également de supprimer le vocable "localement" dans cette terminologie, ce qui ne risque d'entraîner aucune confusion. <a class="backref" href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>(∗) Cette analogie n'est d'ailleurs pas purement verbale, et peut se préciser, après passage aux gradués \(\operatorname{Gr}'(X)\), \(\operatorname{Gr}_{\bullet}(X)\) associés, par une relation de compatibilité explicite entre la structure de module sur \(\operatorname{Gr}_{\bullet}(X)\) et l'opération "cap". <a class="backref" href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+
+<h2 id="0.app">Appendice. Classes de faisceaux et théorème de Riemann-Roch</h2>
+
+<p style="text-align:center;"><em>par A. Grothendieck</em></p>
+
+<p><em>(∗) Ceci est la reproduction textuelle du rapport cité dans l'Introduction
+du présent Séminaire. Les notes de bas de page indiquées par des signes
+(∗), (∗∗) ont été rajoutées en Octobre 1967.</em></p>
+
+<p><strong>Chap. I — \(\lambda\)-Anneaux</strong> (préliminaires formels)<br>
+1. Définitions<br>
+2. Exemples<br>
+3. Le \(\lambda\)-anneau défini par un anneau gradué<br>
+4. Les opérations \(\lambda^p(N,x)\)</p>
+
+<p><strong>Chap. II — Classes de faisceaux algébriques cohérents et classes de Chern</strong><br>
+1. La théorie de Chow<br>
+2. Définition des classes de Chern des faisceaux algébriques cohérents<br>
+3. Généralités fonctorielles sur \(K(X)\)<br>
+4. Quelques résultats techniques<br>
+5. Définition faisceautique des classes de Chern. Application à l'étude des morphismes d'injection<br>
+6. Le théorème de Riemann-Roch</p>
+
+<p>Démonstration du théorème de Riemann-Roch (1er Novembre 1957).</p>
+
+<h2 id="0.app.I">Chapitre I. \(\lambda\)-Anneaux (Préliminaires formels)</h2>
+
+<h3 id="0.app.I.1">§ 1. Définitions</h3>
+
+<p>On appelle <u>\(\lambda\)-anneau</u><sup class="footnote-ref"><a id="fnref3" href="#fn3">(∗)</a></sup> un anneau commutatif \(K\) avec unité, muni d'une
+famille d'applications
+\[\lambda^i \colon K \to K \tag{1.1}\]
+(\(i\) entier \(\geq 0\)) satisfaisant aux conditions suivantes :
+\[\lambda^0 x = 1, \quad \lambda^1 x = x, \quad \lambda^n(x + y) = \sum_{i=0}^n \lambda^i x \cdot \lambda^{n-i} y . \tag{1.2}\]
+Posons, pour tout \(x \in K\)
+\[\lambda_t(x) = \sum_{n \geq 0} \lambda^n(x) t^n \in K[[t]] ; \tag{1.3}\]
+les relations précédentes expriment alors que \(x \mapsto \lambda_t(x)\) est un homomor­phisme
+du groupe additif \(K\) dans le groupe multiplicatif \(1 + K[[t]]^+\) des
+séries formelles dans \(K\), d'augmentation \(1\), relevant l'homomorphisme cano­nique
+\(1 + \sum_{i>0} x_i t^i \mapsto x_1\).</p>
+
+<p>Ainsi, sur l'anneau \(\mathbb{Z}\) existe une unique \(\lambda\)-structure compatible avec
+sa structure d'anneau et telle que
+\[\lambda_t(1) = 1 + t . \tag{1.4}\]
+On a alors
+\[\lambda_t(n) = (1 + t)^n , \tag{1.5}\]
+d'où \(\lambda^i(n) = \binom{n}{i}\).</p>
+
+<p>La notion de \(\lambda\)-homomorphisme de \(\lambda\)-anneaux est claire ; un <u>\(\lambda\)-anneau
+augmenté</u> est un \(\lambda\)-anneau muni d'un \(\lambda\)-homomorphisme dans \(\mathbb{Z}\).</p>
+
+<p>Pour définir la notion de \(\lambda\)-anneau spécial, les considérations sui­vantes
+sont utiles. Soit \(k\) un anneau commutatif avec unité, soit
+\(K = 1 + k[[t]]^+\) le groupe des séries formelles à coefficients dans \(k\),
+d'augmentation \(1\) ; on va y introduire une loi de \(\lambda\)-anneau dont la structure
+additive soit la multiplication des séries formelles. La multiplication
+de cet anneau sera notée \(f \circ g\). Elle est entièrement déterminée par la
+condition que les coefficients \(c_n = c_n(f \circ g)\) de \(f \circ g\) soient donnés
+par des polynômes <u>universels</u> à coefficients entiers en les coefficients
+\(a_i = c_i(f)\) et \(b_i = c_i(g)\) de \(f\) et \(g\) respectivement :
+\[c_n = P_n(a_1,\dots,a_n; b_1,\dots,b_n) , \tag{1.6}\]
+qu'elle soit distributive par rapport à l' "addition" \(fg\), et soit donnée
+pour des facteurs linéaires par :
+\[(1 + at) \circ (1 + bt) = 1 + abt . \tag{1.7}\]
+Les \(P_n\) se calculent par des calculs de fonctions symétriques ; \(P_n\) est
+isobare de poids \(n\) en les \(a_i\) et isobare de poids \(n\) en les \(b_i\) (\(a_i\) et \(b_i\)
+étant de poids \(i\)) et d'ailleurs symétrique en \(a = (a_i)\) et \(b = (b_i)\).
+De même, les \(\lambda^i(f)\) sont déterminés sans ambiguïté par la condition que
+les coefficients \(c_n(\lambda^i(f)) = c_n\) de \(\lambda^i(f)\) se calculent au moyen de poly­nômes
+<u>universels</u> à coefficients entiers en les coefficients \(c_n(f) = a_n\)
+de \(f\):
+\[c_n = P_{i,n}(a_1,\dots,a_{in}) , \tag{1.8}\]
+que les relations (1.2) soient vérifiées, et que, pour \(i > 1\), on ait :
+\[\lambda^i(1 + at) = 1 \tag{1.9}\]
+(\(1\) est l'élément nul de l'anneau \(K = 1 + k[[t]]^+\)). Les \(P_{i,n}\) se calculent
+encore par des calculs de fonctions symétriques, et l'on constate que
+\(P_{i,n}\) est un polynôme isobare de poids \(in\) en les \(a_i\). Muni des opérations
+précédentes, \(K\) devient un \(\lambda\)-anneau, son élément nul est \(1\), son élément
+unité est \(1 + t\). Notons aussi la relation :
+\[(1 + at) \circ f = f(at) . \tag{1.7 bis}\]</p>
+
+<p>Soit maintenant \(K\) un \(\lambda\)-anneau quelconque. On dit que \(K\) est <u>spécial</u>
+si l'homomorphisme additif \(\lambda_t\) de \(K\) dans \(1 + K[[t]]^+\) est un \(\lambda\)-homomor­phisme.
+Cela signifie donc qu'on a les formules :
+\[\lambda_t(1) = 1 + t, \quad \lambda_t(xy) = \lambda_t(x) \circ \lambda_t(y), \quad \lambda_t(\lambda^i(x)) = \lambda^i(\lambda_t(x)) , \tag{1.10}\]
+ou encore, explicitement :
+\[\begin{cases}
+\lambda^i(1) = 0 & \text{si } i \geq 1 \\
+\lambda^n(xy) = P_n(\lambda^1 x,\dots,\lambda^n x; \lambda^1 y,\dots,\lambda^n y) \\
+\lambda^n(\lambda^i(x)) = P_{i,n}(\lambda^1 x,\dots,\lambda^n x) ,
+\end{cases} \tag{1.11}\]
+où les \(P_n\) et les \(P_{i,n}\) sont les polynômes universels envisagés plus haut.
+Il en résulte en particulier les formules (1.5). (On peut montrer que
+le \(\lambda\)-anneau \(1 + k[[t]]^+\) construit avec un anneau commutatif \(k\) est spé­cial ;
+mais nous n'aurons pas besoin de ce fait).</p>
+
+<h3 id="0.app.I.2">§ 2. Exemples</h3>
+
+<p>1) Soient \(G\) un groupe et \(k\) un anneau commutatif ; on considère le
+groupe \(K(G)\), quotient du groupe libre engendré par les classes de repré­sentations
+de \(G\) dans des \(k\)-modules de type fini par le sous-groupe engen­dré
+par les éléments de la forme \((\rho \oplus \rho') - (\rho) - (\rho')\) (on note \(\oplus\) la
+somme directe). Le produit tensoriel et les puissances extérieures défi­nissent
+dans \(K(G)\) une structure de \(\lambda\)-anneau. On peut aussi passer au
+quotient par les éléments de la forme \((\rho) - (\rho') - (\rho'')\) où \(\rho\) est une
+présentation extension de \(\rho'\) par \(\rho''\), triviale comme extension de \(k\)-modules.
+On obtient le groupe \(K_r(G)\) des classes réduites de représentations de \(G\),
+et l'on constate que la loi de \(\lambda\)-anneau passe au quotient.</p>
+
+<p>Lorsque \(k\) est un corps <u>algébriquement clos de caractéristique \(0\)</u><sup class="footnote-ref"><a id="fnref4" href="#fn4">(∗)</a></sup>,
+on peut montrer que \(K(G)\), et a fortiori \(K_r(G)\), est un \(\lambda\)-anneau spécial ;
+il n'en est plus de même si la caractéristique est \(\neq 0\), mais cependant
+si \(k\) est algébriquement clos <sup class="footnote-ref"><a id="fnref6" href="#fn6">(∗)</a></sup>, \(K_r(G)\) est encore un \(\lambda\)-anneau spécial.
+Pour le prouver, on est ramené au cas où \(G\) est un produit \(\mathrm{Gl}(m,k) \times \mathrm{Gl}(n,k)\)
+et où l'on ne considère que les <u>représentations rationnelles</u> de \(G\) ;
+notre assertion résulte de la <u>détermination explicite</u> de \(K_r(G)\) <u>qui
+sera faite plus bas</u> (exemple 3) ; enfin, lorsque \(k\) est de caractéristique
+\(0\), la complète réductibilité des représentations rationnelles de \(G\) montre
+que \(K(G) = K_r(G)\).</p>
+
+<p>Variantes de l'exemple précédent : \(G\) est un groupe algébrique défini
+sur \(k\) et l'on ne considère que les représentations rationnelles de \(G\) dé­finies
+sur \(k\) ; on peut considérer le cas d'un groupe topologique, ou
+de Lie, et des représentations continues, etc ... <sup class="footnote-ref"><a id="fnref5" href="#fn5">(¹)</a></sup></p>
+
+<p>2) Soit \(X\) une variété algébrique, irréductible ou non, définie sur
+le corps \(k\). On pourra considérer le groupe quotient du groupe libre en­gendré
+par les classes de fibrés vectoriels sur \(X\) (définis sur \(k\)), par
+le sous-groupe engendré par les éléments de la forme \((E \oplus E') - (E) - (E')\),
+sur lequel les opérations de \(\lambda\)-anneau seront définies par le produit
+tensoriel et les puissances extérieures. Si \(X\) est complète, c'est un
+groupe libre engendré par les fibrés vectoriels indécomposables sur \(X\)
+(grâce à Krull-Remak-Schmidt) ; la connaissance de cet anneau et de sa
+base équivaut à la classification complète des fibrés vectoriels sur
+\(X\) et la connaissance des opérations tensorielles élémentaires sur ces
+fibrés. Si \(k\) est algébriquement clos de caractéristique \(0\), toutes les
+autres opérations tensorielles sur les classes de fibrés sont alors con­nues,
+à l'aide de ce qui va suivre dans 3). On peut faire un passage au
+quotient plus draconien, par le groupe engendré par les éléments
+\((E) - (E') - (E'')\) où \(E\) est un fibré vectoriel extension de \(E'\) par \(E''\) ;
+on trouve alors un \(\lambda\)-anneau, noté \(K(\xi(X))\), où \(\xi(X)\) désigne la catégorie
+additive des fibrés vectoriels sur \(X\), définis sur \(k\). En utilisant les
+résultats de l'exemple 1), on montre que si \(k\) est algébriquement clos
+<sup class="footnote-ref"><a id="fnref6b" href="#fn6">(∗)</a></sup>, le \(\lambda\)-anneau \(K(\xi(X))\) est spécial, et qu'il en est de même du
+premier \(\lambda\)-anneau défini ici, si la caractéristique de \(k\) est \(0\), mais non
+dans le cas général.</p>
+
+<p>3) <u>Détermination de \(K(G)\) et de \(K_r(G)\) dans certains cas importants</u> :</p>
+
+<p>On suppose le corps \(k\) algébriquement clos, le groupe \(G\) algébrique <u>affine
+connexe</u> et "globalement <u>réductif</u>" (le radical de \(G\) est isomorphe à \((k^*)^s\))
+et l'on ne considère que les représentations linéaires rationnelles.
+En caractéristique \(0\), la complète réductibilité des représentations liné­aires
+rationnelles de \(G\) montre que \(K(G) = K_r(G)\) est le groupe libre
+engendré par les classes des représentations rationnelles irréductibles.
+Or, si \(T\) est un tore maximal de \(G\), on a \(K(T) = K_r(T) = \mathbb{Z}(\hat{T})\), algèbre
+du groupe \(\hat{T}\) des caractères rationnels de \(T\) ; on a \(\hat{T} \simeq \mathbb{Z}^r\) si \(r\) est le
+rang de \(G\) (ceci est indépendant de la caractéristique). Le groupe de
+Weyl \(W\) opère dans \(T\), donc dans \(K(T)\), d'une manière qui ne dépend que des
+opérations de \(W\) dans le groupe libre \(\hat{T}\). On a un homomorphisme évident
+de \(\lambda\)-anneaux, déduit de l'injection de \(T\) dans \(G\) :
+\[K_r(G) \to K_r(T)^W = K(T)^W , \tag{1.13}\]
+où \(K(T)^W\) dénote l'ensemble des points fixes de \(W\) dans \(K(T)\). La théorie
+des représentations linéaires de \(G\) <sup class="footnote-ref"><a id="fnref7" href="#fn7">(∗)</a></sup> démontre alors le théorème suivant :</p>
+
+<div class="thm thm-plain theorem" id="0.app.1.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">1.1</span></div>
+  <div class="thm-body"><p>L'homomorphisme (1.13) est un isomorphisme.</p></div>
+</div>
+
+<p>On voit donc que \(K_r(G)\), une fois connu le "type" de \(G\) (caractérisé
+par \(W\) opérant sur un groupe \(\mathbb{Z}^r\)), ne dépend pas de la caractéristique,
+et que c'est un \(\lambda\)-anneau spécial. On a une base canonique de \(K_r(G)\)
+correspondant aux orbites de \(W\) dans \(\hat{T}\) ; une autre base s'obtient ainsi :
+soient \((\rho_i)_{1 \leq i \leq r'}\), les classes de représentation de \(G\) correspondant aux
+représentations <u>fondamentales</u> de \(G/\operatorname{rad} G\), et \((\sigma_i)_{1 \leq i \leq r''}\) une base du
+groupe des homomorphismes rationnels de \(G\) dans \(k^*\) ; on a donc
+\(r' + r'' = r\) (rang de \(G\)).</p>
+
+<div class="thm thm-plain corollary" id="0.app.1.1.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>L'anneau \(K_r(G)\) s'identifie au sous-anneau
+  \(\mathbb{Z}[\rho_1,\dots,\rho_{r'}; \sigma_1,\dots,\sigma_{r''}; \sigma_1^{-1},\dots,\sigma_{r''}^{-1}]\) du corps des fonctions rationnelles
+  en les \(\rho_i\) et les \(\sigma_j\) à coefficients dans \(\mathbb{Q}\)<sup class="footnote-ref"><a id="fnref8" href="#fn8">(∗)</a></sup>.</p></div>
+</div>
+
+<p>En particulier, \(K_r(G)\) n'a pas de diviseurs de \(0\) ; si \(G = \prod_i \mathrm{Gl}(n_i,k)\),
+l'anneau \(K_r(G)\) s'explicite ainsi : soit \(\rho_i\) la représentation de \(G\) déduite
+de la représentation identique de \(\mathrm{Gl}(n_i,k)\) ; si l'on considère alors
+le corps des fonctions rationnelles sur \(\mathbb{Q}\) en des indéterminées \(\lambda^j(\rho_i)\)
+(\(1 \leq j \leq n_i\)), alors \(K_r(G)\) s'identifie au sous-anneau engendré par ces indé­terminées
+et les inverses des \(\lambda^{n_i}(\rho_i)\). Cela justifie notre assertion
+que, du moins en caractéristique \(0\), les opérations \(\lambda^i\) permettent de
+reconstituer toutes les opérations tensorielles sur les fibrés vectoriels ;
+ceci est encore vrai sur un corps algébriquement clos de caractéristique
+quelconque, pourvu qu'on prenne des classes réduites.</p>
+
+<p><u>Remarques</u> : a) Dans l'exemple 1), l'anneau \(K(G)\) est augmenté, l'aug­mentation
+étant définie par le degré des représentations, et par passage
+au quotient, cette augmentation définit une augmentation sur \(K_r(G)\). De
+même, les \(\lambda\)-anneaux envisagés dans l'exemple 2) sont augmentés lorsque
+\(X\) est \(k\)-irréductible ; dans \(K(\xi(X))\), l'augmentation est définie par le
+<u>rang d'un fibré vectoriel</u>, c'est-à-dire la dimension de ses fibres.</p>
+
+<p>b) Lorsque le corps \(k\) n'est pas algébriquement clos, il est plausible
+que \(K(G)\) est un \(\lambda\)-anneau spécial en caractéristique \(0\), et de même pour
+\(K_r(G)\) en toutes caractéristiques.</p>
+
+<p>c) En caractéristique non nulle, le théorème 1.1 m'a été gracieusement
+fourni par Chevalley.</p>
+
+<h3 id="0.app.I.3">§ 3. Le \(\lambda\)-anneau défini par un anneau gradué</h3>
+
+<p>Soit \(A\) un anneau gradué commutatif avec unité ; on supposera pour
+simplifier que les degrés de \(A\) sont positifs et que \(A^0 = \mathbb{Z}\). On désigne
+par \(\hat{A}\) le produit des \(A^i\) (c'est un anneau commutatif avec unité), par
+\(\hat{A}^+\) le noyau de l'augmentation évidente \(\hat{A} \to A^0 = \mathbb{Z}\). Alors \(1 + \hat{A}^+\) est
+un sous-groupe du groupe multiplicatif des éléments inversibles de \(\hat{A}\).
+Considérons le groupe abélien
+\[\tilde{A} = \mathbb{Z} \times (1 + \hat{A}^+) , \tag{1.14}\]
+dont les éléments seront notés \([n,x]\) avec \(n \in \mathbb{Z}\) et \(x = 1 + \sum_{i \geq 1} x_i \in 1 + \hat{A}^+\)
+(\(x_i \in A^i\)). Nous écrirons ce groupe additivement, ainsi :
+\[[n,x] + [n',x'] = [n + n', xx'] . \tag{1.15}\]
+L'élément nul de ce groupe est \([0,1]\). Nous allons y introduire une struc­ture
+de \(\lambda\)-anneau augmenté, compatible avec sa structure additive, l'aug­mentation
+étant \(\varepsilon\colon[n,x] \to n\). Le produit \([m,x][n,y]\) est complètement
+caractérisé par le fait qu'il s'écrive \([mn, x^n y^m (x \ast y)]\), où \(x \ast y\)
+est un élément de \(1 + \hat{A}^+\) dont les composantes s'expriment comme polynômes
+universels à coefficients entiers en les \(x^i\) et les \(y^i\) :
+\[(x \ast y)^i = Q_i(x^1,\dots,x^i; y^1,\dots,y^i) \quad (i \geq 1) \tag{1.16}\]
+le polynôme \(Q_i\) étant isobare de poids \(i\). De plus, \(x \ast y\) doit être distri­butif
+par rapport à l' "addition" \(xy\) et pour des facteurs "linéaires" doit
+se réduire à ce qui suit :
+\[[1, 1 + x^1][1, 1 + y^1] = [1, 1 + x^1 y^1] . \tag{1.17}\]
+Les polynômes \(Q_i\) s'évaluent par des calculs de fonctions symétriques
+élémentaires (il s'agit du calcul des classes de Chern d'un produit ten­soriel
+de fibrés vectoriels à l'aide des classes de Chern \(x^i\) et \(y^i\) des
+facteurs et de leurs dimensions respectives \(m\) et \(n\)). De (1.17) on déduit :
+\[(1 + x^1) \ast (1 + y^1) = (1 + x^1 y^1)/(1 + x^1)(1 + y^1) , \tag{1.17 bis}\]
+et un produit \(x \ast y\) quelconque se calcule terme à terme en décomposant
+"formellement" \(x\) en un produit \(\prod_{i=1}^n (1 + \alpha_i)\) et \(y\) en un produit \(\prod_{i=1}^n (1 + \beta_i)\),
+où les \(\alpha_i\) et les \(\beta_i\) sont de degré \(1\).</p>
+
+<p>De cette manière, \(\tilde{A}\) devient un anneau commutatif augmenté, avec
+une unité \([1,1]\), et on peut l'interpréter comme l'anneau obtenu par
+adjonction d'une unité à l'anneau \(1 + \hat{A}^+\). De plus, sur \(\tilde{A}\), on définit
+une <u>filtration</u> en posant \(\tilde{A}^0 = \tilde{A}\) et en notant \(\tilde{A}^n\) l'ensemble des \([0,x]\)
+avec \(x^i = 0\) pour \(1 \leq i < n\) ; cette filtration est compatible avec le produit,
+car on a
+\[\left(1 + \sum_{i \geq m} x^i\right) \ast \left(1 + \sum_{j \geq n} y^j\right) = 1 - \frac{(m+n-1)!}{(m-1)!(n-1)!} x^m y^n + \dots , \tag{1.18}\]
+les termes non écrits étant de degré \(> m + n\). Cette formule montre que
+l'anneau gradué \(G(\tilde{A})\) associé à \(\tilde{A}\) s'identifie à \(A\) au point de vue
+additif, mais non au point de vue multiplicatif ; on peut dire seulement
+que l'application \(\eta'\) de \(A\) dans \(G(\tilde{A})\) définie par
+\[\eta'(x^i) = (-1)^{i-1}(i - 1)! \, x^i \quad (x^i \in A^i) \tag{1.19}\]
+est un <u>homomorphisme d'anneaux</u>.</p>
+
+<p>On introduit dans \(\tilde{A}\) des opérations \(\lambda^i\) vérifiant les axiomes des
+\(\lambda\)-anneaux (§ 1, formules (1.2)), bien déterminées par la condition que
+les composantes de \(\lambda^i[0,x]\) se déduisent des composantes \(x^i\) de \(x\) par des
+polynômes universels à coefficients entiers
+\[\lambda^i[0,x] = [0, \lambda^i x] \qquad (\lambda^i x)^{(n)} = Q_{i,n}(x^1,\dots,x^n) \tag{1.20}\]
+(\(Q_{i,n}\) est isobare de poids \(n\)), et que l'on ait
+\[\lambda^i[1, 1 + x^1] = 0 \quad \text{pour } i > 1 . \tag{1.21}\]
+Les polynômes \(Q_{i,n}\) s'évaluent par un calcul de fonctions symétriques élé­mentaires,
+qui est le calcul des classes de Chern des puissances exté­rieures
+d'un fibré vectoriel, à l'aide des classes de Chern et du rang
+de ce dernier. On constate alors que \(\tilde{A}\) est un \(\lambda\)-anneau <u>spécial</u> augmenté
+et que les \(\tilde{A}^i\) sont stables par les opérations \(\lambda^j\).</p>
+
+<p>Le \(\lambda\)-anneau augmenté \(\tilde{A}\) peut être considéré comme un foncteur en \(A\) ;
+par suite l'automorphisme principal \(x = \sum_{i \geq 0} x^i \to \check{x} = \sum_{i \geq 0} (-1)^i x^i\)
+de \(A\) définit un automorphisme de \(\tilde{A}\), noté par le même symbole \(\vee\).</p>
+
+<div class="thm thm-plain proposition" id="0.app.1.2">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.2</span></div>
+  <div class="thm-body"><p>Pour \(x \in \tilde{A}\) de la forme \([n, 1 + x^1 + \dots + x^n]\) (on a
+  donc \(x^i = 0\) pour \(i > n\)), on a \(\lambda^i(x) = 0\) pour \(i > n\), on a \(\lambda^n(x) = [1, 1 + x^1]\)
+  et enfin
+  \[\sum_{i=0}^n (-1)^i \lambda^i(x) = [0, 1 - (n-1)! \, x^n + \dots] . \tag{1.22}\]</p></div>
+</div>
+
+<p>De cette proposition et du fait que les \(\tilde{A}^i\) sont stables par les
+opérations \(\lambda^j\), on déduit que la formule (1.22) est valable chaque fois
+que \(\varepsilon(x) = n\), que l'on ait ou non \(x^i = 0\) pour \(i > n\).</p>
+
+<p>La formule (1.22) admet les généralisations suivantes : soit \(K\) un
+\(\lambda\)-anneau quelconque et par ailleurs arbitraire ; pour \(x \in K\), on pose
+\[\gamma^n(x) = (-1)^n \sum_{i=0}^n (-1)^i \lambda^i(x + n) = \lambda^n(x + n - 1) , \tag{1.23}\]
+(l'identité des deux derniers membres résulte d'une récurrence immédiate).
+On a en particulier \(\gamma^0(x) = 1\) et \(\gamma^1(x) = x\) ; on pose ensuite :
+\[\gamma_t(x) = \sum_{n \geq 0} \gamma^n(x) t^n \in K[[t]] \tag{1.24}\]
+d'où l'on déduit la formule :
+\[\gamma_t(x) = \lambda_{t/(1-t)}(x) , \tag{1.25}\]
+ce qui équivaut à
+\[\lambda_s(x) = \gamma_{s/(1+s)}(x) . \tag{1.25 bis}\]
+Ceci prouve que les \(\lambda^i\) s'expriment à l'aide des \(\gamma^i\) et que
+\(\gamma_t(x+y) = \gamma_t(x)\gamma_t(y)\), et par suite que les applications \(\gamma^i\) définissent une
+nouvelle structure de \(\lambda\)-anneau sur \(K\). La formule (1.22) montre alors
+que pour \(K = \tilde{A}\) et tout \(x \in \tilde{A}\), on a
+\[\gamma^n(x - \varepsilon(x)) = [0, 1 + (-1)^{n-1}(n-1)! \, x^n + \dots] \tag{1.22 bis}\]
+et par suite, la <u>composante \(x^n\) s'obtient, au facteur \((-1)^{n-1}(n - 1)!\)
+près, en réduisant modulo</u> \(\tilde{A}^{n+1}\) <u>l'élément</u> \(\gamma^n(x - \varepsilon(x))\) <u>de</u> \(\tilde{A}^n\).</p>
+
+<p><u>L'homomorphisme de Chern</u> :</p>
+
+<p>Pour tout anneau gradué \(A\) vérifiant les conditions précédentes, on
+va définir un homomorphisme d'anneaux augmentés :
+\[\operatorname{ch} \colon \tilde{A} \to \hat{A} \otimes \mathbb{Q} . \tag{1.26}\]
+Cet homomorphisme est défini sans ambiguïté par la condition d'être un
+homomorphisme additif, de transformer \(1\) en \(1\), d'être tel que les compo­santes
+de \(\operatorname{ch}(x)\) en degré \(> 0\) soient données par des polynômes univer­sels
+isobares à coefficients rationnels en les composantes de \(x\), et que
+\[\operatorname{ch}([1, 1 + x^1]) = \exp x^1 = \sum_{n \geq 0} (x^1)^n/n! . \tag{1.27}\]
+On obtient alors aussitôt l'expression explicite de \(\operatorname{ch}\) : soit \(\eta\) l'endomor­phisme
+additif de \(\hat{A} \otimes \mathbb{Q}\) défini pour \(x^i\) de degré \(i\) par
+\[\eta(x^i) = \frac{1}{(-1)^{i-1}(i-1)!} \, x^i \tag{1.28}\]
+on a alors
+\[\operatorname{ch}\left(\left[n, 1 + \sum_{i \geq 1} x^i\right]\right) = n + \eta\left(\log\left(1 + \sum_{i \geq 1} x^i\right)\right) . \tag{1.29}\]
+Comme on peut "inverser" cette formule, du moins si \(A\) n'a qu'un nombre
+fini de composantes homogènes, on voit que dans ce cas, on a un <u>isomor­phisme</u>
+\(\operatorname{ch}\) de l'anneau \(\tilde{A} \otimes \mathbb{Q}\) <u>sur l'anneau</u> \(\hat{A} \otimes \mathbb{Q}\) (ce qui élucide complè­tement
+la structure de \(\tilde{A} \otimes \mathbb{Q}\)).</p>
+
+<p>Rappelons que d'après Hirzebruch [1], une série formelle \(f \in \mathbb{Q}[[t]]\)
+définit par des formules polynômiales universelles un homomorphisme addi­tif
+\(1 + \hat{A}^+ \to 1 + (\hat{A} \otimes \mathbb{Q})^+\), noté \(\mathscr{T}_f\) ; lorsque \(f(t) = t/(1 - \exp(-t))\),
+on pose simplement \(\mathscr{T}_f = \mathscr{T}\) (\(\mathscr{T}\) est l'initiale de Todd). On étend la défi­nition
+de \(\mathscr{T}(x)\) à \(x \in \tilde{A}\). Ceci dit, on a le résultat suivant :</p>
+
+<div class="thm thm-plain proposition" id="0.app.1.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.3</span></div>
+  <div class="thm-body"><p>Soit \(N \in \tilde{A}\) de la forme \([q, 1 + N^1 + \dots + N^q]\) (on a
+  \(N^i = 0\) pour \(i > q\)). Si l'on pose
+  \[\lambda_{-1}(N) = \sum_{i \geq 0} (-1)^i \lambda^i(N) = \sum_{i=0}^q (-1)^i \lambda^i(N) ,\]
+  on aura :
+  \[\operatorname{ch}(\lambda_{-1}(N)) = (-1)^q N^q \, \mathscr{T}(\check{N})^{-1} , \tag{1.30}\]
+  ce qui équivaut à :
+  \[\operatorname{ch}(\lambda_{-1}(\check{N})) = N^q \, \mathscr{T}(N)^{-1} . \tag{1.30 bis}\]</p></div>
+</div>
+
+<h3 id="0.app.I.4">§ 4. Les opérations \(\lambda^p(N,x)\)</h3>
+
+<p>Soit \(A\) l'anneau des séries formelles, à coefficients dans \(\mathbb{Z}\), en
+deux suites infinies d'indéterminées, notées \(\lambda^i N\) et \(\lambda^i x\) (\(i \geq 1\)). On pose
+\(\lambda^1 N = N\) et \(\lambda^1 x = x\), et l'on introduit sur \(A\) l'unique structure de \(\lambda\)-anneau
+spécial pour lequel on ait \(\lambda^i(N) = \lambda^i N\) et \(\lambda^i(x) = \lambda^i x\) et pour lequel les
+opérations \(\lambda^i\) soient "continues" (si l'on se bornait aux <u>polynômes</u> en des
+indéterminées \(\lambda^i N\) et \(\lambda^i x\), on aurait le "\(\lambda\)-anneau libre engendré par \(N\) et \(x\)" ;
+notre anneau \(A\) en est un complété). On peut alors former
+\[\lambda_{-1}(N) = \sum_{i \geq 0} (-1)^i \lambda^i N , \tag{1.31}\]
+qui est une série formelle de terme constant \(1\), donc inversible ; on
+peut donc définir sans ambiguïté un élément \(\lambda^p(N,x)\) de \(A\) en posant
+\[\lambda^p(N,x)\lambda_{-1}(N) = \lambda^p(x\lambda_{-1}(N)) . \tag{1.32}\]</p>
+
+<div class="thm thm-plain theorem" id="0.app.1.4">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">1.4</span></div>
+  <div class="thm-body"><p>Soit \(J_q\) l'idéal fermé de \(A\) engendré par les \(\lambda^i N\) avec
+  \(i > q\) ; identifions \(A/J_q\) à l'anneau des séries formelles en les \(\lambda^i x\) et les
+  \(\lambda^j N\) (\(1 \leq j \leq q\)). Alors \(\lambda^p(N,x)\) réduit modulo \(J_q\) est un polynôme, isobare
+  de poids \(p\) par rapport aux variables \(\lambda^i x\).</p></div>
+</div>
+
+<p>Soient \(N\) et \(F\) deux espaces vectoriels de dimensions finies \(q,q'\) sur
+un corps \(k\) algébriquement clos de caractéristique \(0\) ; soit \(N^{(p)}\) le noyau
+de l'application \((a_1,\dots,a_p) \to a_1 + \dots + a_p\) de \(N^p\) dans \(N\). On
+fait opérer le groupe symétrique \(\mathfrak{S}_p\) sur \(N^p\), donc sur \(N^{(p)}\) donc sur
+\({\textstyle\bigwedge}(N^{(p)})\), puis sur \(\bigotimes^p F\) et sur \({\textstyle\bigwedge}(N^{(p)}) \otimes \bigotimes^p F\). Considérons cet espace
+vectoriel comme un module gradué sur \(\mathfrak{S}_p \times \mathrm{Gl}(N) \times \mathrm{Gl}(F)\) et prenons
+sa "partie alternée" qui est un module gradué sur \(\mathrm{Gl}(N) \times \mathrm{Gl}(F) = G\).
+On a alors
+\[\lambda^p(N,F) = \mathrm{E}_G\left(\left({\textstyle\bigwedge}(N^{(p)}) \otimes \bigotimes^p F\right)^{\mathrm{alt}}\right) . \tag{1.33}\]
+N.B. Si \(M\) est un complexe de \(G\)-modules, on note \(\mathrm{E}_G(M)\) la somme al­ternée
+dans \(K(G)\) des classes des composantes de \(M\) ; c'est la caractéris­tique
+d'Euler-Poincaré de \(M\) ; dans la formule (1.33), le premier membre
+\(\lambda^p(N,F)\) désigne l'élément de l'anneau \(K(G)\) obtenu en substituant aux va­riables
+\(\lambda^i N\) et \(\lambda^i F\) les classes dans \(K(G)\) des \(G\)-modules \(\wedge^i(N)\) et \(\wedge^i(F)\)
+respectivement.</p>
+
+<p><u>Démonstration</u> : En développant le deuxième membre de (1.32) par la
+deuxième formule (1.11), on voit que la première assertion est prouvée
+si on prouve l'assertion analogue obtenue en faisant \(x = 1\), i.e. si l'on
+prouve que dans le \(\lambda\)-anneau \(\mathbb{Z}[\lambda^1 N,\dots,\lambda^q N]\) où \(\lambda^i N = 0\) pour \(i > q\), l'élé­ment
+\(\lambda^p(\lambda_{-1}(N))\) est divisible par \(\lambda_{-1}(N)\). A priori, le quotient
+\(\lambda^p(N,1) = \lambda^p(\lambda_{-1}(N))/\lambda_{-1}(N)\) est une série formelle contenue dans le corps
+des quotients \(K\) de l'anneau des séries formelles en les \(\lambda^i N\) pour
+\(1 \leq i \leq q\). D'autre part, désignons aussi par \(N\) un vectoriel de dimension
+\(q\) sur un corps algébriquement clos \(k\) de caractéristique \(0\), et con­sidérons
+l'élément \(\ell^p(N) = \mathrm{E}_G(({\textstyle\bigwedge}(N^{(p)}))^{\mathrm{alt}}) \in K(G)\), où maintenant
+l'on a \(G = \mathrm{Gl}(N)\). On sait (§ 2, théorème 1.1) que \(K(G)\) s'identifie
+au sous-anneau de \(K\) engendré par les \(\lambda^i N\) pour \(1 \leq i \leq q\) et par l'inverse
+de \(\lambda^q N\). D'autre part, on vérifie facilement dans cet anneau que l'on
+a \(\ell^p(N) \lambda_{-1}(N) = \lambda^p(\lambda_{-1}(N))\). Comme on est dans un grand corps \(K\) et que
+\(\lambda_{-1}(N) \neq 0\), on en conclut \(\ell^p(N) = \lambda^p(N,1)\) ; les deux membres sont dans
+l'intersection de \(K(G)\) et de l'anneau des séries formelles en les \(\lambda^i N\),
+donc sont des polynômes en les \(\lambda^i N\).</p>
+
+<p>Pour prouver (1.33) dans le cas général, on vérifie que le deuxième
+membre satisfait dans \(K(G)\) à la formule analogue à (1.32), c'est-à-dire
+que son produit par \(\lambda_{-1}(N)\) est \(\lambda^p(F \lambda_{-1}(N))\). De même, le produit de
+\(\lambda^p(N,F) \in K(G)\) par \(\lambda_{-1}(N)\) est \(\lambda^p(F \lambda_{-1}(N))\), comme il résulte du fait
+que \(K(G)\) est <u>spécial</u>. Comme \(K(G)\) est intègre (cf § 2) et que \(\lambda_{-1}(N) \neq 0\)
+(même référence), on a bien démontré la formule (1.33). cqfd.</p>
+
+<p><u>Remarques</u> : a) Lorsque la dimension \(q'\) de \(F\) est \(\geq p\), alors (1.33) carac­térise
+le polynôme \(\lambda^p(N,x)\) en les \(\lambda^i N\) (\(1 \leq i \leq q\)) et les \(\lambda^j x\) (\(1 \leq j \leq p\)).</p>
+
+<p>b) Il est plausible que (1.33) est encore vérifiée si le corps \(k\)
+n'est pas algébriquement clos<sup class="footnote-ref"><a id="fnref9" href="#fn9">(∗)</a></sup>. Il faudrait résoudre cette question
+si l'on voulait prouver le théorème de Riemann-Roch sur un corps de carac­téristique
+\(0\) non algébriquement clos par la méthode qu'on va exposer. Le
+passage d'un \(\mathfrak{S}_p\)-module à sa partie alternée n'a d'ailleurs de sens raison­nable
+que si le corps de base est de caractéristique \(0\).</p>
+
+<p>Soit maintenant \(K\) un \(\lambda\)-anneau <u>spécial</u> quelconque et soit \(N\) un élé­ment
+de \(K\) tel que \(\lambda^i N = 0\) pour \(i\) assez grand. On peut alors, pour tout
+\(x \in K\) et tout entier \(p \geq 1\), considérer les éléments \(\lambda^p(N,x)\), qui s'ex­priment
+par des polynômes universels à coefficients entiers en les
+\(\lambda^i N\) et les \(\lambda^j x\). On a \(\lambda^1(N,x) = x\) et l'on a la formule (1.32) <u>dans</u> \(K\). Pour
+exprimer les propriétés des opérations \(x \mapsto \lambda^p(N,x)\), il est commode
+d'introduite un nouvel \(\lambda\)-anneau noté \(K_N\). En tant qu'anneau commutatif
+\(K_N\) s'obtient par adjonction d'une unité à l'anneau dont le groupe addi­tif
+sous-jacent est \(K\) et dont la multiplication est donnée par
+\[x_N y = xy\mu \qquad (\mu = \lambda_{-1}(N)) . \tag{1.34}\]
+L'application \(\lambda_t\) de \(K_N\) dans \(K_N[[t]]\) est définie par :
+\[\lambda_t(n,x) = (1 + t)^n \sum_{p \geq 0} \lambda^p(N,x) t^p , \tag{1.35}\]
+où l'on a posé \(\lambda^0(N,x) = (1,0)\) (élément unité de \(K_N\)). Je dis que,
+<u>muni de ces opérations, \(K_N\) est un \(\lambda\)-anneau spécial</u>. Il s'agit donc de
+vérifier les formules \(\lambda_t(X + Y) = \lambda_t(X) \lambda_t(Y)\), \(\lambda_t(XY) = \lambda_t(X).\lambda_t(Y)\), et
+\(\lambda_t(\lambda^i(X)) = \lambda^i(\lambda_t(X))\) pour \(X,Y \in K_N\). On peut se borner à vérifier ces
+formules lorsque \(X\) et \(Y\) sont dans \(K\), et l'on constate qu'il suffit de
+le vérifier lorsque \(K\) est le \(\lambda\)-anneau spécial libre engendré par \(X,Y\)
+et \(N\) soumis aux relations \(\lambda^i N = 0\) pour \(i > q\). Mais l'homomorphisme de
+groupes
+\[K_N \to K , \tag{1.36}\]
+qui transforme unité en unité et sur \(K\) se réduit à l'homomorphisme \(x \to x\mu\),
+est un homomorphisme compatible avec les structures d'anneaux et les
+applications \(\lambda^i\), comme on le vérifie aussitôt. Dans le cas actuel,
+sa restriction à \(K\) est <u>injective</u> ; comme \(K\) est un \(\lambda\)-anneau spécial, il
+en résulte facilement que les relations ci-dessus sont bien vérifiées
+pour \(X,Y \in K\), et ceci achève de démontrer notre assertion.</p>
+
+<p>D'après la formule (1.23), il est naturel, pour \(x \in K\) et \(n \geq 1\), de
+poser
+\[\gamma^n(N,x) = \sum_{i=0}^{n-1} \binom{n-1}{i} \lambda^i(N,x) , \tag{1.37}\]
+en d'autres termes, on pose \(\gamma^n(N,x) = \gamma^n(x_N)\), où \(x_N\) désigne \(x\) consi­déré
+comme élément du \(\lambda\)-anneau \(K_N\).</p>
+
+<div class="thm thm-plain proposition" id="0.app.1.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.5</span></div>
+  <div class="thm-body"><p>Soient \(A\) un anneau gradué commutatif avec unité, \(N\)
+  un élément de \(\tilde{A}\) de la forme \(N = [q, 1 + N^1 + \dots + N^q]\) et \(x\) un élément
+  quelconque de \(\tilde{A}\) : \(x = [\nu, 1 + \sum_{i \geq 1} x^i]\). Alors, pour tout entier \(j \geq 0\),
+  on a \(\gamma^{q+j}(N,x) \in \tilde{A}^j\), et la composante de degré \(j\) de \(\gamma^{q+j}(N,x)\) est
+  de la forme
+  \[(\gamma^{q+j}(N,x))^{(j)} = (-1)^{j-1}(j - 1)! \, G_{q,j}(\nu,x^1,\dots,x^j; N^1,\dots,N^j) , \tag{1.38}\]
+  où \(G_{q,j}\) est un polynôme universel à coefficients entiers caractérisé par
+  la condition
+  \[G_{q,j}(\nu,x^1,\dots,N^j) \, N^q = (-1)^q (x \ast \lambda_{-1}(N))^{(q+j)} . \tag{1.39}\]</p></div>
+</div>
+
+<p><u>Démonstration</u>. On peut supposer que \(A\) est l'anneau des polynômes à coef­ficients
+entiers en des indéterminées \(x^i\) et \(N^j\) (avec \(1 \leq j \leq q\)). Comme
+on a évidemment, combinant (1.32) et (1.37)
+\[\gamma^n(N,x)\lambda_{-1}(N) = \gamma^n(x \lambda_{-1}(N)) , \tag{1.40}\]
+et que, pour \(n = q + j\), le deuxième membre est de filtration \(\geq q + j\)
+(utiliser la formule (1.22 bis) en tenant compte de ce que \(x \lambda_{-1}(N)\) est
+d'augmentation nulle), tandis que \(\lambda_{-1}(N)\) est de filtration \(q\) (formule
+(1.22)), il en résulte que \(\gamma^n(N,x)\) est de filtration \(j\), puisque en
+vertu de (1.18) le gradué associé à \(A\) est ici <u>intègre</u>. Utilisant les
+formules précédentes, on obtient immédiatement la forme indiquée pour
+\((\gamma^{q+j}(N,x))^{(j)}\). cqfd.</p>
+
+<h2 id="0.app.II">Chapitre II. Classes de faisceaux algébriques cohérents et classes de Chern</h2>
+
+<h3 id="0.app.II.1">§ 1. La théorie de Chow</h3>
+
+<p>Dans tout ce chapitre, on suppose fixé un <u>corps de base \(k\)</u> qu'on
+supposera algébriquement clos, pour simplifier. Une grande partie de ce
+qui va suivre, et peut-être tout, est cependant valable sans cette res­triction.
+Les espaces algébriques et les applications régulières considérés
+seront définis sur \(k\).</p>
+
+<p>Un espace algébrique est dit <u>quasi-projectif</u> s'il est isomorphe à
+une partie localement fermée d'un espace projectif.</p>
+
+<p>Soit \(X\) une variété non singulière quasi-projective connexe de dimen­sion
+\(n\). On désigne par \(A(X)\) et l'on appelle <u>anneau de Chow</u> de \(X\) l'anneau
+gradué des classes de cycles sur \(X\) à équivalence rationnelle près. (\(A^i(X)\)
+étant formé des classes de cycles de dimension \(n - i\)). Le fait que \(A(X)\)
+soit bien un anneau gradué résulte du théorème suivant de Chow :</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.1">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.1</span><sup class="footnote-ref"><a id="fnref10" href="#fn10">(∗)</a></sup></div>
+  <div class="thm-body"><p>Tout cycle sur \(X\) est rationnellement équivalent à un cycle
+  non singulier. Etant donnés des éléments de \(A^i(X)\) et \(A^j(X)\), on peut
+  trouver des représentants non singuliers de ces éléments, soient
+  \(Y^{n-i}\) et \(Z^{n-j}\), qui se coupent partout transversalement.</p></div>
+</div>
+
+<p>(Un cycle est dit non singulier si ses composantes sont des sous-variétés
+non singulières. On dit que deux cycles se coupent partout transversalement
+si toute composante de l'un coupe partout transversalement toute compo­sante
+de l'autre, i.e. si les deux variétés sécantes sont non singulières
+aux points d'intersections et si leurs variétés tangentes y sont en
+position générale ...)</p>
+
+<p>Soit \(f\) un morphisme (i.e. une application régulière) de \(X\) dans \(Y\)
+(\(X\) et \(Y\) étant quasi-projectives et non singulières), alors \(f\) définit
+(en utilisant le théorème précédent) un homomorphisme d'anneaux gradués :
+\[f^* \colon A(Y) \to A(X) \tag{2.1}\]
+(<u>image réciproque de classes de cycles</u>). Ainsi \(A(X)\) devient un foncteur
+contravariant en \(X\).</p>
+
+<p>Soit \(f\) un morphisme <u>propre</u> de \(X^n\) dans \(Y^m\) (i.e. dans la terminologie
+de Weil, le graphe de \(f\) est complet au-dessus de \(Y\), cf \([3]\)). Alors \(f\)
+définit aussi un homomorphisme additif
+\[f_* \colon A(X^n) \to A(Y^m) \tag{2.2}\]
+conservant la dimension des cycles, donc augmentant le degré de \(m - n\).</p>
+
+<p>Ainsi, relativement aux morphismes propres, et faisant abstraction des
+structures multiplicatives et des graduations, \(A(X)\) est un foncteur cova­riant
+en \(X\). Notons la formule classique
+\[f_*(x.f^*(y)) = f_*(x).y . \tag{2.3}\]</p>
+
+<p>Nous utiliserons aussi la théorie de Chow des classes de Chern. Elle
+consiste à attacher, à tout fibré vectoriel \(E\) sur \(X\) (toujours supposée
+quasi-projective non singulière) des <u>classes de Chern</u> \(C^i(E) \in A^i(X)\),
+(\(i \geq 1\)), de façon à satisfaire aux conditions suivantes ; on pose \(C^0(E) = 1\)
+et
+\[\tilde{C}(E) = \left[\operatorname{rang} E, \sum_{i \geq 0} C^i(E)\right] \in \tilde{A}(X) \tag{2.4}\]
+(voir chapitre I, § 3 pour la définition de \(\tilde{A}(X)\)). Les conditions à vé­rifier
+par une théorie des classes de Chern s'expriment alors ainsi :
+\[\tilde{C}(E) = \tilde{C}(E') + \tilde{C}(E'') \tag{2.5}\]
+si le fibré vectoriel \(E\) est extension de \(E'\) par \(E''\) (si l'on pose
+\(C(E) = \sum_{i \geq 0} C^i(E)\), cette condition s'exprime \(C(E) = C(E').C(E'')\)). La for­mule
+(2.5) permet d'étendre \(\tilde{C}\) en un homomorphisme additif de \(K(\xi(X))\)
+(cf. Chap. I, § 2, exemple 2) dans \(\tilde{A}(X)\) :
+\[\tilde{C} \colon K(\xi(X)) \to \tilde{A}(X) , \tag{2.6}\]
+et l'on veut que \(\tilde{C}\) soit un <u>\(\lambda\)-homomorphisme de \(\lambda\)-anneaux</u> ; cette dernière
+condition s'écrit aussi
+\[\tilde{C}(E \otimes F) = \tilde{C}(E) \tilde{C}(F) \qquad \tilde{C}(\wedge^i E) = \lambda^i \tilde{C}(E) , \tag{2.7}\]
+pour deux fibrés vectoriels \(E\) et \(F\) (bien entendu, \(\tilde{C}\) est automatiquement
+compatible avec les augmentations). Soient \(D\) un diviseur sur \(X\) et \(L(D)\)
+le fibré vectoriel qu'il définit ; on veut
+\[C^1(L(D)) = \ell(D) \qquad C^i(L(D)) = 0 \quad (i \geq 1) \tag{2.8}\]
+(où pour un cycle quelconque \(Z\), on note \(\ell(Z)\) sa classe dans \(A(X)\)). Enfin,
+on impose que les \(C^i\) soient <u>fonctoriels</u>, i.e. que si \(f\) est un morphisme
+de \(X\) dans \(Y\) et \(E\) un fibré vectoriel sur \(Y\), on ait
+\[C^i(f^!(E)) = f^*(C^i(E)) , \tag{2.9}\]
+où \(f^!(E)\) est l'image inverse de \(E\) sur \(X\). On peut aussi écrire (2.9) sous
+la forme suivante : la notion d'image inverse de fibré définit un \(\lambda\)-homo­morphisme
+de \(\lambda\)-anneaux augmentés<sup class="footnote-ref"><a id="fnref11" href="#fn11">(∗)</a></sup>
+\[f^! \colon K(Y) \to K(X) \tag{2.10}\]
+(on écrit ici \(K(X)\) au lieu de \(K(\xi(X))\)), et (2.9) signifie qu'on a commuta­tivité
+dans le diagramme :
+\[\xymatrix@C=3em@R=2.5em{
+K(Y) \ar[r]^{f^!} \ar[d]_{\tilde{C}_Y} & K(X) \ar[d]^{\tilde{C}_X} \\
+A(Y) \ar[r]_{f^*} & A(X)
+}\]
+(on a mis en indice au symbole \(\tilde{C}\) l'espace sur lequel on le considère.)</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.2">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.2</span></div>
+  <div class="thm-body"><p>Il existe une théorie des classes de Chern satisfaisant
+  aux conditions (2.5), (2.7), (2.8) et (2.9).</p></div>
+</div>
+
+<p>Nous admettrons aussi la proposition suivante :</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.3">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.3</span></div>
+  <div class="thm-body"><p>Soit \(Y\) une partie fermée de \(X\) et soit \(U\) son complémen­taire ;
+  si \(x\) est un élément de \(A(X)\) qui induit \(0\) sur \(U\), il existe un
+  représentant de \(x\) qui soit un cycle porté par \(Y\).</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="0.app.2.3.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>Soit \(p = \dim X - \dim Y\). Alors, si \(i < p\), l'homomorphisme
+  \(A^i(X) \to A^i(U)\) est bijectif. Tout élément du noyau de \(A^p(X) \to A^p(U)\)
+  est combinaisons linéaire de composantes de dimension \(n - p\) de \(Y\) (donc
+  est proportionnel à \(\ell(Y)\) si \(Y\) est irréductible)</p></div>
+</div>
+
+<h3 id="0.app.II.2">§ 2. Définition des classes de Chern des faisceaux algébriques cohérents</h3>
+
+<p>Soit \(\mathcal{C}\) une catégorie abélienne, et soit \(\mathcal{C}_o\) une sous-classe de \(\mathcal{C}\).
+On désigne par \(K(\mathcal{C}_o)\) le groupe quotient du groupe libre engendré par les
+classes (à isomorphisme près) d'éléments de \(\mathcal{C}_o\), par le sous-groupe engen­dré
+par les éléments de la forme \((E) - (E') - (E'')\), où \(E\) est une <u>extension</u>
+de \(E'\) par \(E''\) (\(E,E',E'' \in \mathcal{C}_o\)). On doit supposer que les classes d'éléments de
+\(\mathcal{C}_o\) pour la relation d'isomorphisme forment un ensemble. On désigne par
+\(\gamma_{\mathcal{C}_o}(E)\) la classe d'un \(E \in \mathcal{C}_o\) dans \(K(\mathcal{C}_o)\) et l'on omet l'indice \(\mathcal{C}_o\) quand
+il n'y a pas de risque de confusion. Le groupe \(K(\mathcal{C}_o)\) est solution d'un
+<u>problème universel</u> relatif aux fonctions \(E \to f(E)\) définies sur \(\mathcal{C}_o\), à
+valeurs dans un groupe abélien arbitraire \(A\), et qui sont <u>additives</u> en ce
+sens que \(f(E) = f(E') + f(E'')\) chaque fois que \(E\) est extension de \(E'\) par \(E''\).</p>
+
+<p>Soient \(F\) un foncteur additif de \(\mathcal{C}\) dans \(\mathcal{C}'\) et \(\mathcal{C}_o'\) une sous-classe de
+\(\mathcal{C}'\) satisfaisant à la même condition que \(\mathcal{C}_o\), tels que pour tout \(A \in \mathcal{C}_o\),
+les \(R^q F(A)\) soient dans \(\mathcal{C}_o'\) et nuls pour \(q\) assez grand (on suppose que dans \(\mathcal{C}\)
+existent des résolutions injectives, de sorte que les foncteurs dérivés
+\(R^q F\) de \(F\) existent) ; alors \(F\) définit un homomorphisme de \(K(\mathcal{C}_o)\) dans \(K(\mathcal{C}_o')\),
+noté encore \(F\), par la formule
+\[F(\gamma_{\mathcal{C}_o}(E)) = \sum_{i \geq 0} (-1)^i \gamma_{\mathcal{C}_o'}(R^i F(E)) \tag{2.11}\]
+Plus généralement, si on a un foncteur cohomologique \((F^i)\) de \(\mathcal{C}\) dans \(\mathcal{C}'\)
+tel que pour tout \(E \in \mathcal{C}_o\) les \(F^i(E)\) soient dans \(\mathcal{C}_o'\) et nuls sauf un nombre
+fini, on en déduit un homomorphisme de \(K(\mathcal{C}_o)\) dans \(K(\mathcal{C}_o')\). Ces remarques
+s'étendent aux multifoncteurs ; de plus, les suites spectrales "classiques"
+donnent des propriétés de transitivité que nous n'expliciterons pas.</p>
+
+<p>En particulier, si \(F\) est un foncteur exact, la formule (2.11) se
+simplifie :
+\[F(\gamma_{\mathcal{C}_o}(E)) = \gamma_{\mathcal{C}_o'}(F(E)) . \tag{2.11 bis}\]
+Ceci s'applique en particulier si \(\mathcal{C} = \mathcal{C}'\), si \(F\) est le foncteur identique
+et si \(\mathcal{C}_o \subset \mathcal{C}_o'\) : on a un homomorphisme canonique de \(K(\mathcal{C}_o)\) dans \(K(\mathcal{C}_o')\).</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.3bis">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.3</span></div>
+  <div class="thm-body"><p>Soient \(\mathcal{C}\) une catégorie abélienne et \(\mathcal{C}_o \subset \mathcal{C}_1\) deux sous-classes
+  telles que les classes (à isomorphisme près) d'objets de \(\mathcal{C}_1\) forment un
+  ensemble. On suppose les conditions suivantes satisfaites</p>
+  <p>(i) Pour toute suite exacte \(0 \to A' \to A \to A'' \to 0\) dans \(\mathcal{C}\) telle
+  que \(A\) et \(A''\) soient dans \(\mathcal{C}_o\) (resp. \(\mathcal{C}_1\)), on a \(A' \in \mathcal{C}_o\) (resp. \(A' \in \mathcal{C}_1\)).</p>
+  <p>(ii) Soient \(u \colon A \to B\) et \(v \colon C \to B\) avec \(A, B, C \in \mathcal{C}_1\) et \(u\) surjectif ;
+  alors il existe \(L \in \mathcal{C}_o\) et des homomorphismes \(u' \colon L \to C\) et \(v' \colon L \to A\)
+  tels que \(u'\) soit surjectif et \(vu' = uv'\) .</p>
+  <p>(iii) Pour tout \(A \in \mathcal{C}_1\), il existe un entier \(d = d(A)\) tel que pour
+  toute résolution gauche \(L\) de \(A\) par des objets de \(\mathcal{C}_o\), on ait \(Z_d(L) \in \mathcal{C}_o\)
+  (\(Z_d\) désigne les cycles de dimension \(d\)).</p>
+  <p>Dans ces conditions, l'homomorphisme canonique de \(K(\mathcal{C}_o)\) dans \(K(\mathcal{C}_1)\)
+  est un isomorphisme.</p></div>
+</div>
+
+<p><u>Principe de la démonstration</u> : soit \(A \in \mathcal{C}_1\) ; il existe en vertu de
+(ii) et (iii) une résolution finie \(L\) de \(A\) par des objets de \(\mathcal{C}_o\) ; posons
+alors \(f(A) = \sum_{i \geq 0} (-1)^i \gamma_{\mathcal{C}_o}(L^i)\). On montre que l'élément de \(K(\mathcal{C}_o)\) ainsi cons­truit
+ne dépend pas de la résolution \(L\) choisie : si on a une deuxième réso­lution
+\(L'\), on "coiffe" \(L\) et \(L'\) par une troisième résolution \(L''\), avec des
+homomorphismes <u>surjectifs</u> de \(L''\) dans \(L\) et \(L'\) (ce qui est possible grâce
+à (i) et (ii) ; on est alors ramené à prouver \(\mathrm{E}_{\mathcal{C}_o}(L) = \mathrm{E}_{\mathcal{C}_o}(L'')\). Or la
+différence des deux est \(\mathrm{E}_{\mathcal{C}_o}(N)\) où \(N\) est le noyau de l'homomorphisme sur­jectif
+de \(L''\) sur \(L\), noyau qui est dans \(\mathcal{C}_o\) d'après (i). Or \(N\) est un complexe
+acyclique en toutes dimensions, d'où \(\mathrm{E}_{\mathcal{C}_o}(N) = 0\), d'où la conclusion (N.B.
+\(\mathrm{E}_{\mathcal{C}_o}(L)\), pour un complexe fini à valeurs dans \(\mathcal{C}_o\), désigne la caractéristique
+d'Euler-Poincaré \(\sum_{i \geq 0} (-1)^i \gamma_{\mathcal{C}_o}(L^i)\) de \(L\)).</p>
+
+<p>On prouve de façon analogue que la fonction \(f \colon \mathcal{C}_1 \to K(\mathcal{C}_o)\) ainsi
+construite est <u>additive</u>, donc définit un homomorphisme de \(K(\mathcal{C}_1)\) dans \(K(\mathcal{C}_o)\),
+et il est immédiat que cet homomorphisme est inverse de l'homomorphisme
+canonique de \(K(\mathcal{C}_o)\) dans \(K(\mathcal{C}_1)\). cqfd.</p>
+
+<p><u>Remarque</u> : Pour vérifier (ii), il suffit de vérifier que \(\mathcal{C}_1\) est contenu
+dans une sous-classe \(\mathcal{C}_2\) de \(\mathcal{C}\) satisfaisant aux deux conditions</p>
+
+<p>(ii a) Tout \(A \in \mathcal{C}_2\) est isomorphe à un quotient d'un \(L \in \mathcal{C}_o\) .</p>
+
+<p>(ii b) Si \(u \colon A \to B\), avec \(A,B \in \mathcal{C}_2\), alors \(\operatorname{Ker} u \in \mathcal{C}_2\) .</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.3bis.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>Soit \(X\) un espace algébrique quasi-projectif. Soient \(\mathscr{F}(X)\)
+  la catégorie des faisceaux algébriques cohérents sur \(X\), \(\xi(X)\) la catégorie
+  des faisceaux algébriques cohérents localement libres (équivalente à la
+  catégorie des fibrés vectoriels sur \(X\)), \(\mathscr{F}_o(X)\) la catégorie des faisceaux
+  algébriques cohérents \(F\) tels que pour tout \(x \in X\), \(F_x\) soit un \(\mathcal{O}_x\)-module
+  de dimension cohomologique finie (on a donc \(\xi(X) \subset \mathscr{F}_o(X) \subset \mathscr{F}(X)\)). Alors
+  l'homomorphisme canonique
+  \[K(\xi(X)) \to K(\mathscr{F}_o(X)) \tag{2.12}\]
+  est un isomorphisme.</p></div>
+</div>
+
+<p>On va vérifier les conditions du théorème 2.3. Les conditions (i) et
+(iii) résultent de la définition de la dimension cohomologique et du fait
+qu'un module projectif de type fini sur l'anneau local noethérien \(\mathcal{O}_x\) est
+libre. Pour vérifier (ii), on va démontrer que \(\mathcal{C} = \mathscr{F}(X)\) satisfait aux
+conditions (ii a) et (ii b) de la remarque. La deuxième est triviale ;
+il reste donc à prouver le résultat suivant :</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.4">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.4</span> (Serre)</div>
+  <div class="thm-body"><p>Soit \(X\) un espace algébrique quasi-projectif. Alors
+  tout faisceau algébrique cohérent sur \(X\) est isomorphe au quotient d'un
+  faisceau algébrique localement libre.</p></div>
+</div>
+
+<p>Cette proposition est vraie si \(X\) est une partie fermée de l'espace
+projectif en vertu de \([2]\), puisque, pour \(n\) assez grand, \(F(n)\) est engendré
+par ses sections, ce qui signifie que \(F\) est un quotient d'un \(\mathcal{O}(-n)^k\). Dans le
+cas général, \(X\) est une partie ouverte d'une partie fermée d'un espace
+projectif, et il suffit d'utiliser le résultat suivant (dû à Cartier et
+Serre dans des cas particuliers) :</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.5">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.5</span></div>
+  <div class="thm-body"><p>Soit \(F\) un faisceau algébrique cohérent sur une partie
+  ouverte \(U\) d'un espace algébrique \(X\). Alors \(F\) est isomorphe à la restriction
+  d'un faisceau algébrique cohérent sur \(X\).</p></div>
+</div>
+
+<p>En zornifiant sur les ouverts contenant \(U\) sur lesquels on peut pro­longer
+\(F\), on est ramené au cas où \(X\) est affine. Soit \(\bar{F}\) le faisceau algé­brique
+sur \(X\) dont les sections sur un ouvert \(V\) sont les sections de \(F\) sur
+\(U \cap V\). On constate facilement que \(\bar{F}\) est <u>quasi-cohérent</u> (i.e. défini sur
+tout ouvert affine \(V\) — donc ici sur \(X\) tout entier — par un module, de type
+fini ou non, sur l'anneau de coordonnées de l'ouvert en question). C'est
+immédiat si \(U\) est lui-même affine, car \(\bar{F}\) est alors défini sur l'ouvert \(V\)
+par \(\Gamma(U \cap V,F)\) considéré comme module sur \(\Gamma(V,\mathcal{O}_X)\). Dans le cas général,
+\(U\) est réunion finie d'ouverts affines \(U_i\), donc \(\bar{F}\) le noyau d'un homomor­phisme
+évident de faisceaux quasi-cohérents :
+\[\sum_i \bar{F}\,|\,U_i \to \sum_{i,j} \bar{F}\,|\,U_i \cap U_j\]
+donc est lui-même quasi-cohérent. Comme \(X\) est supposé affine, \(\bar{F}\) est donc
+engendré par ses sections. Comme \(\bar{F}\,|\,U = F\) est cohérent, il existe un
+nombre fini de sections de \(\bar{F}\) qui engendrent \(\bar{F}\,|\,U\). Ces sections engendrent
+un sous-faisceau cohérent de \(\bar{F}\), dont la restriction à \(U\) est isomorphe à \(F\).
+cqfd.</p>
+
+<p>Supposons maintenant \(X\) quasi-projective <u>non singulière</u>. Alors, en
+vertu du théorème des syzygies, on a, avec les notations du corollaire au
+théorème 2.3, \(\mathscr{F}_o(X) = \mathscr{F}(X)\). Dans ce cas, on a donc :
+\[K(\xi(X)) = K(\mathscr{F}(X)) . \tag{2.13}\]
+On peut exprimer ainsi cet isomorphisme :</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.3bis.cor2">
+  <div class="thm-head"><span class="thm-name">Corollaire 2 au théorème 2.3</span></div>
+  <div class="thm-body"><p>Soit \(X\) une variété quasi-projective non singu­lière.
+  Pour tout groupe abélien \(A\), il y a correspondance biunivoque entre
+  les fonctions additives \(f\) de fibrés vectoriels sur \(X\), à valeurs dans \(A\), et
+  les fonctions additives \(g\) de faisceaux algébriques cohérents sur \(X\), à
+  valeurs dans \(A\). A toute \(f\) correspond l'unique \(g\) telle que l'on ait :
+  \[f(E) = g(\mathcal{O}_X(E)) \tag{2.14}\]
+  pour tout fibré vectoriel \(E\) sur \(X\), en notant \(\mathcal{O}_X(E)\) le faisceau des germes
+  de sections régulières de \(E\) sur \(X\).</p></div>
+</div>
+
+<p>Pour calculer \(g(F)\) pour un faisceau algébrique cohérent quelconque,
+on considère une résolution finie de \(F\) par des faisceaux de la forme \(\mathcal{O}_X(E_i)\),
+et l'on a alors :
+\[g(F) = \sum_{i \geq 0} (-1)^i f(E_i) . \tag{2.14 bis}\]
+En particulier, si \(X\) est connexe, on a envisagé au § 1 une fonction
+additive \(\tilde{C}(E)\) du fibré vectoriel \(E\), à valeurs dans le groupe \(\tilde{A} = \tilde{A}(X)\). On
+en déduit une fonction additive de faisceaux cohérents, soit \(\tilde{C}(F)\), et en
+passant aux composantes, des fonctions \(F \to C^i(F) \in A^i(X)\). Les \(C^i(F)\) sont
+appelées les <u>classes de Chern du faisceau cohérent</u> \(F\) ; elles se calculent
+théoriquement à partir des classes de Chern des fibrés vectoriels par
+(2.14 bis) (mais où il faut passer au deuxième membre à l'écriture multi­plicative).
+Quant à la composante de \(\tilde{C}(F)\) suivant \(\mathbb{Z}\), c'est le <u>rang</u> du
+faisceau \(F\), qui correspond au rang d'un module sur un anneau intègre :
+si \(X\) est affine (cas auquel on peut toujours se ramener), \(F\) est défini par
+un module de type fini sur l'anneau de coordonnées de \(X\), et l'on prend
+le rang de ce module ....</p>
+
+<h3 id="0.app.II.3">§ 3. Généralités fonctorielles sur \(K(X)\)</h3>
+
+<p>Si \(X\) est un espace algébrique, on pose pour abréger \(K(X) = K(\mathscr{F}(X))\),
+et lorsque \(X\) est quasi-projectif non singulier, on identifie ce groupe
+à \(K(\xi(X))\) en vertu du corollaire 2 au théorème 2.3. Comme \(K(\xi(X))\) est
+non seulement un groupe abélien, mais un \(\lambda\)-anneau, il s'ensuit par trans­port
+de structure que \(K(X)\) est aussi un \(\lambda\)-anneau, donc est muni d'une
+structure multiplicative et d'applications \(\lambda^i\). Il importe de définir ces
+structures directement, sans passer aux fibrés vectoriels, ce qui sera
+fait ci-dessous.</p>
+
+<p>Si \(E\) est un fibré vectoriel sur \(X\), on désigne par \(\gamma(E)\) sa classe
+dans \(K(X)\) ; si \(F\) est un faisceau algébrique cohérent sur \(X\), \(\gamma(F)\) désigne
+de même sa classe dans \(K(X)\). Si \(Y\) est une sous-variété irréductible de
+\(X\), on pose \(\gamma(Y) = \gamma(\mathcal{O}_Y)\), où \(\mathcal{O}_Y\) désigne le faisceau des anneaux locaux de
+\(Y\), considéré comme faisceau algébrique cohérent sur \(X\). On définit par
+linéarité le symbole \(\gamma(Y)\) lorsque \(Y\) est un cycle quelconque sur \(X\). Quand
+il y aura des risques de confusion, on écrira \(\gamma_X\) pour \(\gamma\).</p>
+
+<p>Soit \(X\) un espace algébrique quelconque. On introduit sur \(K(X)\) une
+<u>filtration</u>, en désignant par \(K(X)^i\) le sous-groupe de \(K(X)\) engendré par
+les \(\gamma(F)\) avec \(\dim.\operatorname{supp} F \leq n - i\) (où \(n\) est la dimension de \(X\)). Il résulte
+du "lemme de dévissage" de Serre, sous la forme donnée dans \([3]\), le résul­tat
+suivant :</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.6">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.6</span></div>
+  <div class="thm-body"><p>Le groupe \(K(X)^i\) est engendré par les \(\gamma(Y)\), où \(Y\) parcourt
+  l'ensemble des sous-variétés de dimension \(\leq n - i\) de \(X\). Si \(X\) est irréduc­tible,
+  on a \(G^o(K(X)) = \mathbb{Z}\) .</p></div>
+</div>
+
+<p>Ce dernier isomorphisme est donné par l'homomorphisme de \(K(X)\) dans
+\(\mathbb{Z}\) défini à l'aide de la notion de <u>rang</u> d'un faisceau algébrique cohérent.</p>
+
+<p>Supposons maintenant \(X\) <u>non singulière</u>. S'inspirant des développements
+du début du § 2, on définit une multiplication dans \(K(X)\) en posant
+\[\gamma(F) \gamma(G) = \sum_{i \geq 0} (-1)^i \gamma(\operatorname{Tor}_i(F,G)) \tag{2.15}\]
+(les \(\operatorname{Tor}_i\) étant pris, bien entendu, par rapport aux anneaux locaux de \(X\)).
+La suite exacte des \(\operatorname{Tor}_i\) montre que la formule (2.15) définit bien une
+application biadditive de \(K(X) \times K(X)\) dans \(K(X)\) ; l'associativité résulte
+de la suite spectrale des Tor multiples. On vérifie aussi de cette façon
+que l'on peut calculer le produit de plusieurs facteurs par la formule :
+\[\gamma(F_1)\dots\gamma(F_p) = \sum_{i \geq 0} (-1)^i \gamma(\operatorname{Tor}_i(F_1,\dots,F_p)) \tag{2.16}\]
+où, dans le deuxième membre, les \(\operatorname{Tor}_i\) sont des "Tor simultanés", calculés
+par résolution projective simultanée des arguments \(F_i\).</p>
+
+<p>Si l'on suppose dans (2.15) que \(G\) est <u>localement libre</u>, on trouve :
+\[\gamma(F) \gamma(G) = \gamma(F \otimes G) , \tag{2.15 bis}\]
+ce qui montre en particulier que \(\gamma(\mathcal{O}_X)\) est élément unité de \(K(X)\), et que
+l'homomorphisme canonique de \(K(\xi(X))\) dans \(K(X)\) est un homomorphisme d'anneaux.</p>
+
+<p>La formule (2.15) est évidemment suggérée par la "formule des Tor"
+de Serre en théorie des intersections. Cette formule prouve la deuxième
+partie de la proposition suivante, la première résultant immédiatement de
+la formule (2.15) et d'un calcul de \(\operatorname{Tor}_i\) locaux :</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.7">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.7</span></div>
+  <div class="thm-body"><p>Soient \(X\) une variété non singulière, \(Y\) et \(Z\) deux cycles
+  dans \(X\). Si \(Y\) et \(Z\) se coupent partout transversalement, on a :
+  \[\gamma(Y) \gamma(Z) = \gamma(Y.Z) \tag{2.17}\]
+  Si \(Y\) et \(Z\) sont homogènes et de dimension respective \(n - i\) et \(n - j\), et
+  s'ils se coupent sans composante excédentaire, on a alors :
+  \[\gamma(Y) \gamma(Z) = \gamma(Y.Z) \mod K(X)^{i+j+1} . \tag{2.18}\]</p></div>
+</div>
+
+<p>On fera attention à ce qu'on n'a pas en général égalité dans (2.18).
+On verra au § 4 que, si \(X\) est <u>quasi-projective non singulière</u>, la structure
+d'anneau de \(K(X)\) est compatible avec sa filtration et que l'anneau gradué
+associé \(G(K(X))\) s'identifie à un quotient de \(A(X)\) par un sous-groupe de
+torsion (peut-être toujours réduit à \(0\)<sup class="footnote-ref"><a id="fnref12" href="#fn12">(∗)</a></sup>).</p>
+
+<p>Je ne sais définir directement les \(\lambda^i(F)\) en termes de faisceaux que
+si le corps \(k\) est de caractéristique \(0\) (c'est la raison qui nous a empêché
+de démontrer le théorème de Riemann-Roch lorsque \(k\) n'est pas de caracté­ristique
+\(\neq 0\)). Soit \(F\) un faisceau algébrique cohérent sur \(X\) sur lequel
+opère le groupe \(\mathfrak{S}_p\) des permutations de \(p\) lettres ; on note alors \((F)^{\mathrm{alt}}\)
+l'ensemble des \(x \in F\) tels que \(s.x = \varepsilon(s)x\) pour tout \(s \in \mathfrak{S}_p\) (\(\varepsilon(s)\) est la
+<u>signature</u> de \(s\)). C'est évidemment un sous-faisceau algébrique cohérent
+de \(F\). Ceci dit, on a :</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.8">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.8</span></div>
+  <div class="thm-body"><p>Soit \(X\) une variété quasi-projective non singulière sur le
+  corps \(k\) de caractéristique \(0\). Soit \(F\) un faisceau algébrique cohérent sur
+  \(X\) ; on a alors
+  \[\lambda^p(\gamma(F)) = \sum_{i \geq 0} (-1)^i \gamma((\operatorname{Tor}_i(F,F,\dots,F))^{\mathrm{alt}}) \tag{2.19}\]</p></div>
+</div>
+
+<p>N.B. Il est clair que le groupe \(\mathfrak{S}_p\) agit sur le faisceau \(\operatorname{Tor}_i(F,F,\dots,F)\).</p>
+
+<p><u>Principe de la démonstration</u> : on considère une résolution finie \(L\) de \(F\)
+par des faisceaux localement libres \(L_i\), et l'on utilise le lemme général
+suivant :</p>
+
+<div class="thm thm-plain lemma" id="0.app.2.9">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.9</span></div>
+  <div class="thm-body"><p>Soit \(L = (L_i)\) un faisceau algébrique cohérent localement libre
+  gradué, ayant un nombre fini de composantes non nulles. On a dans \(K(X)\)
+  la formule :
+  \[\mathrm{E}\left(\left(\textstyle\bigotimes^p L\right)^{\mathrm{alt}}\right) = \lambda^p(\mathrm{E}(L)) \tag{2.20}\]</p></div>
+</div>
+
+<p>Dans cette formule, on considère \(\bigotimes^p L\) comme un faisceau où le groupe
+\(\mathfrak{S}_p\) opère en tenant compte des graduations (qui introduisent donc des signes
+de façon bien connue, cf Cartan-Eilenberg) ; de plus, si \(M\) est un faisceau
+algébrique cohérent gradué sur \(X\), on pose \(\mathrm{E}(M) = \sum_{i \geq 0} (-1)^i \gamma(M_i)\).</p>
+
+<p>Pour prouver la formule (2.20), on est ramené à prouver la formule
+analogue dans \(K(G)\), \(G\) étant un groupe algébrique (un produit de groupes
+\(\mathrm{Gl}(n,k)\) si l'on y tient) et \(L\) un \(G\)-module de dimension finie sur \(k\) (cf.
+Chap. I, § 2, exemple 2, pour la définition de \(K(G)\)). Dans ce cas, cette
+formule a déjà été utilisée dans le théorème 1.4, pour montrer que le
+deuxième membre de (1.33) satisfait la même équation fonctionnelle que
+le premier membre ; la vérification en est élémentaire. cqfd.</p>
+
+<p>Soit \(f\) un morphisme de \(X\) dans \(Y\), \(Y\) étant un espace algébrique. La
+notion d'image inverse de fibré vectoriel définit un homomorphisme
+\[f^! \colon K(\xi(Y)) \to K(\xi(X))\]
+de \(\lambda\)-anneaux. Identifiant les fibrés vectoriels à des faisceaux algébriques
+localement libres, la notion d'image réciproque de fibré vectoriel corres­pond
+à la notion d'image réciproque de faisceau algébrique (déjà utilisée
+dans [3, n° 8]). Dans le cas où \(Y\) est non singulière, on définit plus géné­ralement
+un homomorphisme de groupes :
+\[f^! \colon K(Y) \to K(X) \tag{2.21}\]
+par une formule faisant intervenir une somme alternée de Tor, inspirée par
+les développements du début du § 2, et que le lecteur explicitera. On a
+alors commutativité dans le diagramme suivant :
+\[\xymatrix@C=3em@R=2.5em{
+K(\xi(Y)) \ar[r]^{f^!} \ar[d] & K(\xi(X)) \ar[d] \\
+K(Y) \ar[r]_{f^!} & K(X)
+}\]
+ce qui montre en particulier, lorsque \(X\) et \(Y\) sont toutes deux non singu­lières
+et quasi-projectives, que les deux définitions de \(f^!\) coïncident
+moyennant l'identification de \(K(X)\) à \(K(\xi(X))\) et de \(K(Y)\) à \(K(\xi(Y))\).</p>
+
+<p>Un autre cas où l'on peut définir un homomorphisme (2.21), sans que
+\(Y\) soit nécessairement non singulier, est celui où le foncteur \(F \to f^!(F)\)
+de \(\mathscr{F}(Y)\) dans \(\mathscr{F}(X)\) est exact, i.e. lorsque les anneaux locaux de \(X\) sont
+des modules <u>plats</u> sur les anneaux locaux de \(Y\). Il suffit alors de poser
+\(f^!(\gamma_Y(F)) = \gamma_X(f^!(F))\). Ce cas se rencontre en particulier lorsque \(X\) est
+un espace fibré localement trivial sur \(Y\) (pour le voir, on est ramené
+au cas d'un produit \(X = T \times Y\)). Notons qu'on vérifie aussi que dans ce
+cas, on a \(f^!(\mathcal{O}_Z) = \mathcal{O}_{f^{-1}(Z)}\) si \(Z\) est une sous-variété irréductible de \(Y\),
+d'où :
+\[f^!(\gamma_Y(Z)) = \gamma_X(f^{-1}(Z)) \tag{2.22}\]
+si \(X\) est "plat" sur \(Y\). Sans cette dernière condition, la formule (2.22)
+devient inexacte en général, mais on a l'analogue suivant de la proposi­tion
+2.7 :</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.8p">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.8</span></div>
+  <div class="thm-body"><p>Soit \(f \colon X \to Y\) un morphisme de variétés non singulières,
+  et soit \(Z\) un cycle sur \(Y\). Si \(Z\) est partout transversal à \(f\), la formule
+  (2.22) est exacte ; si \(Z\) est homogène de codimension \(i\) et si \(f^{-1}(Z)\) n'a
+  pas de composante excédentaire, on a :
+  \[f^!(\gamma_Y(Z)) \equiv \gamma_X(f^{-1}(Z)) \mod K(X)^{i+1} . \tag{2.23}\]</p></div>
+</div>
+
+<p>Démonstration analogue à celle de la proposition 2.7.</p>
+
+<p>Signalons enfin qu'on verra au § 4 que, lorsque \(X\) et \(Y\) sont quasi-projectives
+et non singulières, alors \(f^!\) est compatible avec les filtrations
+de \(K(X)\) et de \(K(Y)\).</p>
+
+<p>Soient de nouveau \(X\) et \(Y\) deux espaces algébriques quelconques, et \(f\)
+un morphisme <u>propre</u> de \(X\) dans \(Y\). Pour tout faisceau algébrique cohérent
+\(F\) sur \(X\), le faisceau image directe \(f_!(F)\) est algébrique cohérent, et il
+en est de même plus généralement des faisceaux \(R^q f_!(F)\) (cf. [3]). Rappelons
+que, par définition, \(R^q f_!(F)\) est le faisceau sur \(Y\) associé au préfaisceau
+qui à l'ouvert \(U\) fait correspondre le groupe \(H^q(f^{-1}(U),F)\) ; on a en
+particulier :
+\[R^0 f_!(F) = f_!(F) , \quad R^q f_!(F) = 0 \quad (q > \dim X) , \tag{2.24}\]
+de plus :
+\[\Gamma(U,R^q f_!(F)) = H^q(f^{-1}(U),F) \tag{2.25}\]
+si l'ouvert \(U\) est affine. D'après le § 2, on définit un homomorphisme de
+\(K(X)\) dans \(K(Y)\), noté encore \(f_!\), par la formule
+\[f_!(\gamma_X(F)) = \sum_{q \geq 0} (-1)^q \gamma_Y(R^q f_!(F)) . \tag{2.26}\]
+Ainsi \(K(X)\) devient un <u>foncteur covariant en \(X\)</u>, relativement aux
+morphismes <u>propres</u>. La relation \((fg)_! = f_! g_!\) (tout comme la relation
+\((fg)^! = g^! f^!\) qu'on a oubliée de signaler en son lieu) est un cas parti­culier
+des relations de transitivité auxquelles nous avions fait allusion
+au § 2, et qui résultent des suites spectrales des foncteurs composés.</p>
+
+<p>Notons la formule suivante, valable pour \(Y\) non singulière (et parti­culièrement
+aisée à vérifier lorsque \(Y\) est de plus quasi-projective, en
+prenant pour \(y\) la classe d'un fibré vectoriel sur \(Y\)) :
+\[f_!(x.f^!(y)) = f_!(x).y \qquad (x \in K(X) , y \in K(Y)) . \tag{2.27}\]
+Dans le cas particulier où les images réciproques des points de \(Y\) par \(f\)
+sont finies, et contenues dans un ouvert affine<sup class="footnote-ref"><a id="fnref13" href="#fn13">(∗)</a></sup>, on constate que le
+foncteur \(F \to f_!(F)\) est exact et que \(R^q f_!(F) = 0\) pour \(q > 0\) ; dans
+ce cas, on a donc \(f_!(\gamma_X(F)) = \gamma_Y(f_!(F))\). En particulier, si \(X\) est un
+sous-espace algébrique de \(Y\) et si \(i\) est l'injection canonique de \(X\) dans
+\(Y\), on a :
+\[i_!(\gamma_X(F)) = \gamma_Y(F) , \tag{2.28}\]
+où, dans le deuxième membre, \(F\) est considéré comme un faisceau sur \(Y\) nul
+en dehors de \(X\).</p>
+
+<h3 id="0.app.II.4">§ 4. Quelques résultats techniques</h3>
+
+<p>Soit \(X\) un espace algébrique ; on a vu au § 3 que la projection \(p\) de
+\(X \times k\) sur \(X\) définit un homomorphisme
+\[p^! \colon K(X) \to K(X \times k) . \tag{2.29}\]</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.9p">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.9</span></div>
+  <div class="thm-body"><p>L'homomorphisme (2.29) est surjectif.</p></div>
+</div>
+
+<p>On raisonne par récurrence sur \(n = \dim X\) ; l'assertion est triviale
+si \(n < 0\) ; supposons \(n \geq 0\) ; en vertu de la proposition 2.6, il suffit de
+vérifier que pour toute partie fermée irréductible \(Y\) de \(X \times k\), \(\gamma(Y)\) est
+dans l'image de \(p^!\). Il suffit de continuer le raisonnement en supposant
+\(X\) irréductible ; si \(p(Y)\) n'est pas dense dans \(X\), notre assertion résulte
+de l'hypothèse de récurrence ; sinon, on a \(Y = X \times k\) et l'assertion est
+triviale, ou bien \(Y\) est une hypersurface dans \(X \times k\). Soit alors \(U\) un ouvert
+affine de \(X\) formé de points non singuliers ; si \(D\) est le diviseur sur
+\(U \times k\) induit par \(Y\), on sait (algèbre commutative) qu'il est linéairement
+équivalent à un diviseur de la forme \(D' \times k\), où \(D'\) est un diviseur sur \(U\).
+Alors \(\gamma_{U \times k}(D) - \gamma_{U \times k}(D' \times k)\) appartient à \(K(U \times k)^2\) (corollaire de la
+proposition 2.10), et d'après ce qu'on a déjà démontré, cet élément est
+de la forme \(p^!(x')\) avec \(x' \in K(U)\). Donc \(\gamma_{U \times k}(D) = p^!(y')\) avec
+\(y' = x' + \gamma_U(D')\) ; mais \(y'\) est restriction d'un élément \(y\) de \(K(X)\) (prop.
+2.10), et par suite la restriction de \(\gamma_{X \times k}(D) - p^!(y)\) à \(U \times k\) est nulle ;
+d'après la proposition 2.10, \(\gamma_{X \times k}(D) - p^!(y)\) provient d'un élément de
+\(K(X \times k - U \times k) = K(X' \times k)\) avec \(X' = X - U\). La démonstration s'achève
+en appliquant de nouveau l'hypothèse de récurrence. cqfd.</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.9p.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>Soient \(X\) un espace algébrique et \(p\) la projection de \(X \times k^n\) sur
+  \(X\) ; alors l'homomorphisme \(p^! \colon K(X) \to K(X \times k^n)\) est surjectif ; il est
+  même bijectif si \(X\) est non singulier.</p></div>
+</div>
+
+<p>Récurrence sur \(n\) pour la première assertion. Pour la deuxième, on
+pose \(f(x) = (x,0)\) d'où \(pf = 1\) et \(f^! p^! = 1\), ce qui prouve que \(p^!\) est injectif.</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.10">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.10</span></div>
+  <div class="thm-body"><p>Soient \(X\) un espace algébrique, \(U\) une partie ouverte de
+  \(X\) et \(Y\) son complémentaire dans \(X\). Alors la suite d'homomorphismes naturels :
+  \[K(Y) \to K(X) \to K(U) \to 0 \tag{2.30}\]
+  est exacte.</p></div>
+</div>
+
+<p>N.B. On comparera avec la proposition 2.3 .</p>
+
+<p>Le fait que \(K(X) \to K(U)\) soit surjectif résulte aussitôt de la
+proposition 2.5 (ou aussi de la proposition 2.6). Reste à prouver que si
+\(x \in K(X)\) a une restriction nulle à \(K(U)\), il est dans l'image de \(K(Y)\). Pour
+ceci, on revient à la définition explicite de \(K(X)\) et de \(K(U)\) : on a deux
+faisceaux algébriques cohérents \(F\) et \(G\) sur \(X\) avec \(x = \gamma_X(F) - \gamma_X(G)\) et
+\(\gamma_U(F) - \gamma_U(G) = 0\) ; cette dernière relation signifie qu'on peut trouver
+des faisceaux cohérents \(P'\) et \(Q'\) sur \(U\), munis de filtrations dont les
+facteurs soient deux à deux isomorphes sur \(U\), et tels que l'on ait un
+isomorphisme sur \(U\) :
+\[P = F + Q' \to Q = G + P' .\]
+En vertu de la proposition 2.5, les faisceaux \(P'\) et \(Q'\) sont des restric­tions
+à \(U\) de faisceaux cohérents sur \(X\) (notés par les mêmes lettres) ; de
+même, leurs filtrations proviennent de filtrations sur les faisceaux
+correspondants sur \(X\), en vertu du lemme 2.11 ci-dessous. On a alors :
+\[\gamma_X(F) - \gamma_X(G) = (\gamma_X(P) - \gamma_X(Q)) + (\gamma_X(P') - \gamma_X(Q')) .\]
+Introduisant les facteurs \(P'_i\) et \(Q'_j\) des filtrations de \(P'\) et \(Q'\) sur \(X\),
+le dernier terme est la somme de termes \(\gamma_X(P'_i) - \gamma_X(Q'_j)\), où \(P'_i|U \simeq Q'_j|U\).
+On est ainsi ramené à prouver le cas particulier suivant : si \(R\) et \(S\)
+sont des faisceaux cohérents sur \(X\) tels que \(R|U \simeq S|U\), alors \(\gamma_X(R) - \gamma_X(S)\)
+est dans l'image de \(K(Y)\). Or soit \(T\) le graphe de l'isomorphisme donné
+de \(R|U\) sur \(S|U\) ; c'est un sous-faisceau cohérent de \((R \times S)|U\), donc en
+vertu du lemme 2.11, c'est la restriction à \(U\) d'un sous-faisceau cohérent,
+noté encore \(T\), de \(R \times S\). On a alors \(\gamma_X(R) - \gamma_X(S) = (\gamma_X(R) - \gamma_X(T)) - (\gamma_X(S) - \gamma_X(T))\)
+et il suffit de prouver par exemple que le premier terme du second membre est
+dans l'image de \(K(Y)\). Or la projection \(u \colon T \to R\) est un isomorphisme sur \(U\),
+donc \(\gamma_X(R) - \gamma_X(T) = \gamma_X(\operatorname{Coker} u) - \gamma_X(\operatorname{Ker} u)\) et \(\operatorname{Ker} u\) et \(\operatorname{Coker} u\) ont leur
+support dans \(Y\).</p>
+
+<p>Il reste donc à prouver le lemme suivant :</p>
+
+<div class="thm thm-plain lemma" id="0.app.2.11">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.11</span></div>
+  <div class="thm-body"><p>Soient \(X\) un espace algébrique, \(F\) un faisceau algébrique cohérent
+  sur \(X\), \(U\) une partie ouverte de \(X\) et \(G\) un sous-faisceau cohérent de \(F|U\).
+  Alors \(G\) est la restriction à \(U\) d'un sous-faisceau cohérent de \(F\).</p></div>
+</div>
+
+<p>Soit \(\bar{G}\) le sous-faisceau de \(F\) dont les sections sur l'ouvert \(V\) de \(X\)
+sont les sections de \(F\) sur \(V\) dont la restriction à \(U \cap V\) est une section
+de \(G\). Tout revient à prouver que ce faisceau \(\bar{G}\) est cohérent. Pour ceci,
+on peut supposer \(X\) et \(U\) affines (car \(U\) est réunion d'ouverts affines \(U_i\),
+et \(\bar{G}\) est alors intersection des faisceaux analogues \(\overline{G|U_i}\)). Alors l'anneau
+de coordonnées de \(U\) est un anneau de fractions \(A_S\) de l'anneau de coordon­nées
+\(A\) de \(X\), et l'on vérifie aussitôt que si \(F\) est défini par le \(A\)-module
+\(M\), alors \(F|U\) est défini par le \(A_S\)-module \(M_S = A_S \otimes_A M\). Le sous-faisceau
+\(G\) de \(F|U\) est alors défini par un sous-module \(N'\) de \(M_S\), et l'on voit que
+\(\bar{G}\) est précisément défini par le sous-module \(N\) de \(M\), image inverse de \(N'\)
+par l'homomorphisme canonique de \(M\) dans \(M_S\). cqfd.</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.10.cor1">
+  <div class="thm-head"><span class="thm-name">Corollaire 1 à la proposition 2.10</span></div>
+  <div class="thm-body"><p>Soit \(x \in K(X)\). Pour que \(x\) soit de
+  filtration \(\leq i\), il faut et il suffit qu'il existe une partie fermée \(Y\) de
+  \(X\), de dimension \(\leq n - i\), telle que la restriction de \(x\) à \(X - Y\) soit nulle.</p></div>
+</div>
+
+<div class="thm thm-plain corollary" id="0.app.2.10.cor2">
+  <div class="thm-head"><span class="thm-name">Corollaire 2</span></div>
+  <div class="thm-body"><p>Supposons \(X\) connexe de dimension \(n\), sans singularités en
+  dimension \(n - 1\). Si \(D\) et \(D'\) sont deux diviseurs linéairement équivalents
+  sur \(X\), on a \(\gamma(D) \equiv \gamma(D') \mod K(X)^2\).</p></div>
+</div>
+
+<p>En vertu du corollaire 1, on peut supposer \(X\) non singulière ; le corol­laire
+résulte alors de la formule générale :
+\[\gamma(D) = 1 - \gamma(L(-D)) \mod K(X)^2 , \tag{2.31}\]
+où \(L(-D)\) désigne le fibré vectoriel de rang 1 défini par le diviseur \(-D\).
+Pour vérifier (2.31), on l'écrit sous la forme :
+\[\gamma(L(-D)) = 1 - \gamma(D) \mod K(X)^2 , \tag{2.31 bis}\]
+et l'on note que les deux membres sont des homomorphismes du groupe des
+diviseurs dans le groupe multiplicatif des éléments inversibles de l'anneau
+\(K(X)/K(X)^2\) (noter que \(K(X)^1/K(X)^2\) est de carré nul, ce qui se vérifie très
+facilement sur la formule explicite (2.15), en utilisant le corollaire 1).
+On est ainsi ramené au cas où \(D\) est une hypersurface irréductible. Plus
+généralement, si \(D\) est une hypersurface dont les composantes sont dis­jointes,
+on a l'égalité :
+\[\gamma(D) = 1 - \gamma(L(-D)) \tag{2.32}\]
+comme il résulte de la suite exacte de faisceaux
+\[0 \to \mathcal{O}_X(L(-D)) \to \mathcal{O}_X \to \mathcal{O}_D \to 0 .\]</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.12">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.12</span></div>
+  <div class="thm-body"><p>Soient \(X\) une variété quasi-projective non singulière, \(Z\) et
+  \(Z'\) deux cycles homogènes de codimension \(p\) sur \(X\) qui sont linéairement
+  équivalents. On a alors :
+  \[\gamma_X(Z) \equiv \gamma_X(Z') \mod K(X)^{p+1} . \tag{2.33}\]</p></div>
+</div>
+
+<p>Par hypothèse, on peut trouver un cycle \(Y\) de dimension \(n - p + 1\) sur
+\(X \times k\) (\(n\) est la dimension de \(X\)), et deux points \(a,a' \in k\) tels que l'on ait :
+\[Z = f_a^{-1}(Y) , \qquad Z' = f_{a'}^{-1}(Y) ,\]
+où l'on pose \(f_u(x) = (x,u)\). En vertu de la formule (2.23), on a alors :
+\[\gamma_X(Z) \equiv f_a^!(\gamma_{X \times k}(Y)) \mod K(X)^{p+1}\]
+et une formule analogue pour \(\gamma_X(Z')\). Il suffit alors de prouver que
+\(f_a^! = f_{a'}^!\), ce qui résulte aussitôt de la proposition 2.9. cqfd.</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.12.cor1">
+  <div class="thm-head"><span class="thm-name">Corollaire 1</span></div>
+  <div class="thm-body"><p>La filtration de \(K(X)\) est compatible avec sa structure
+  d'anneau, i.e. on a \(K(X)^i K(X)^j \subset K(X)^{i+j}\) quels que soient les entiers
+  \(i,j \geq 0\). On a de plus un homomorphisme surjectif naturel d'anneaux gradués :
+  \[\varphi \colon A(X) \to G(K(X)) \tag{2.34}\]
+  (où le deuxième membre désigne l'anneau gradué associé à \(K(X)\) muni de la
+  filtration \((K(X)^i)_{i \geq 0}\)) défini par la condition :
+  \[\varphi(Z^{n-p}) = \gamma(Z^{n-p}) \mod K(X)^{p+1} .\]</p></div>
+</div>
+
+<p>Ce corollaire résulte immédiatement du théorème 2.12, des proposi­tions
+2.6 et 2.7 et du théorème de Chow 2.1, par récurrence sur l'entier
+\(i + j\).</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.12.cor2">
+  <div class="thm-head"><span class="thm-name">Corollaire 2</span></div>
+  <div class="thm-body"><p>Soient \(X\) et \(Y\) deux variétés quasi-projectives non singulières
+  et \(f\) un morphisme de \(X\) dans \(Y\). Alors l'homomorphisme \(f^!\) de \(K(Y)\) dans \(K(X)\)
+  est compatible avec les filtrations, et l'on a un diagramme commutatif :
+  \[\xymatrix@C=3em@R=2.5em{
+  G(K(Y)) \ar[r]^{G(f^!)} & G(K(X)) \\
+  A(Y) \ar[r]_{f^*} \ar[u]^{\varphi_Y} & A(X) \ar[u]_{\varphi_X}
+  }\]</p></div>
+</div>
+
+<p>Utilisant le graphe de \(f\), on décompose \(f\) en produit d'une <u>immersion</u>
+de \(X\) dans \(X \times Y\) et d'une <u>projection</u> de \(X \times Y\) sur \(Y\). Pour cette dernière le
+corollaire est trivial, et pour une immersion, on procède comme pour le
+corollaire 1, en utilisant la proposition 2.8 à la place de la proposition
+2.7.</p>
+
+<div class="thm thm-plain proposition" id="0.app.2.13">
+  <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.13</span> ("décomposition cellulaire")</div>
+  <div class="thm-body"><p>Soit \(P\) un espace algébrique
+  (irréductible ou non), muni d'une famille croissante \(P^0 \subset P^1 \subset \dots \subset P^n = P\)
+  de parties fermées, telles que pour tout \(i\) avec \(0 \leq i \leq n\), les composantes con­nexes
+  de \(P^i - P^{i-1}\) soient des espaces algébriques \(V_{i,\alpha}\) isomorphes à \(k^i\)
+  (on pose \(P^{-1} = \emptyset\)). Alors :</p>
+  <p>a) Pour tout espace algébrique \(X\), l'application naturelle de
+  \(K(X) \otimes K(P)\) dans \(K(X \times P)\) déduite du produit tensoriel de faisceaux sur
+  \(X\) et \(P\), est surjective.</p>
+  <p>b) Les \(\gamma_P(V_{i,\alpha})\) forment un système de générateurs du groupe \(K(P)\).</p></div>
+</div>
+
+<p>La démonstration se fait par récurrence sur \(n\), en utilisant le corol­laire
+de la proposition 2.9 et la proposition 2.10. (N.B. Malheureusement,
+j'ignore si les \(\gamma_P(V_{i,\alpha})\) forment une base de \(K(P)\) et si l'homomorphisme
+envisagé dans a) est bijectif. Nous n'aurons pas besoin de le savoir pour
+la suite).</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.14">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.14</span></div>
+  <div class="thm-body"><p>Soient \(x_i\) (\(1 \leq i \leq q\)) et \(E_j\) (\(1 \leq j \leq r\)) des lettres, \(n_j\)
+  (\(1 \leq j \leq r\)) des entiers \(> 0\) ; considérons les symboles \(\lambda^k(x_i)\) avec \(k \geq 1\)
+  et \(\lambda^k(E_j)\) avec \(1 \leq k \leq n_j\) comme des indéterminées et soit \(R\) un polynôme à
+  coefficients entiers en ces indéterminées. On suppose que, pour tout anneau
+  gradué \(A\), lorsque l'on substitue dans \(R\) aux \(x_i\) des éléments \(\xi_i\) et aux
+  \(E_j\) des éléments \(\eta_j\) de \(\tilde{A}\) soumis aux restrictions \(\varepsilon(\xi_i) = 0\) et
+  \(\eta_j = [n_j, 1 + \eta_j^{(1)} + \dots + \eta_j^{(n_j)}]\) (donc \(\eta_j^{(k)} = 0\) pour \(k > n_j\)), on ait
+  \[R((\lambda^k(\xi_i)),(\lambda^k(\eta_j))) \in \tilde{A}^p\]
+  Soit alors \(X\) une variété quasi-projective irréductible non singulière.
+  Quels que soient les éléments \(x_i'\) de \(K(X)\) et les fibrés vectoriels \(E_j'\) de
+  dimension \(n_j\) sur \(X\) (\(1 \leq i \leq q\), \(1 \leq j \leq r\)), on a
+  \[R((\lambda^k(x_i')),(\lambda^k(\gamma(E_j')))) \in K(X)^p\]<sup class="footnote-ref"><a id="fnref14" href="#fn14">(∗)</a></sup>.</p></div>
+</div>
+
+<p><u>Démonstration</u> : En vertu du § 2, les \(x_i'\) sont eux-mêmes des différences
+d'éléments de la forme \(\gamma(E)\), \(E\) étant un fibré vectoriel. D'autre part, en
+supposant \(X\) localement fermé dans un espace projectif \(P\), il résulte du § 2
+et de la proposition 2.5 que, pour tout \(F \in \mathscr{F}(X)\), le faisceau \(F(n)\) est
+engendré par ses sections pour \(n\) assez grand. Si \(F\) est défini par un fibré
+vectoriel \(E\), cela prouve que \(E(n)\) est l'image réciproque du fibré vectoriel
+canonique sur une variété grasmannienne \(G\) par un morphisme de \(X\) dans \(G\).
+Considérant le morphisme correspondant de \(X\) dans \(P \times G\), on voit que \(E\) est
+l'image réciproque d'un fibré vectoriel sur \(P \times G\). On voit donc, appliquant
+ceci à tous les fibrés vectoriels qui interviennent, et utilisant le corol­laire
+2 du théorème 2.12, qu'<u>on est ramené au cas où \(X\) est un produit de
+grasmanniennes</u>. Dans ce cas, la conclusion résultera du lemme suivant :</p>
+
+<div class="thm thm-plain lemma" id="0.app.2.15">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.15</span></div>
+  <div class="thm-body"><p>Supposons que \(X\) soit un produit de grasmanniennes. Alors on peut
+  trouver un \(\lambda\)-homomorphisme de \(K(X)\) dans un \(\lambda\)-anneau sans torsion de la forme
+  \(\tilde{A}\) (où \(A\) est un anneau gradué), compatible avec les filtrations, et tel que
+  l'homomorphisme correspondant \(G(K(X)) \to G(A)\) soit injectif.</p></div>
+</div>
+
+<p>Pour le prouver le lemme, nous utiliserons la théorie de Chow des
+classes de Chern ; si l'on pouvait démontrer le lemme, ou le théorème 2.14
+directement, on en déduirait une théorie purement "faisceautique" des
+classes de Chern (cf. § 5).</p>
+
+<p>Nous considérerons l'homomorphisme \(\tilde{C}\) de \(K(X)\) dans \(\tilde{A}(X)\) et nous pose­rons
+\(A = A(X)\) ; il faut prouver que l'homomorphisme \(\psi = G(\tilde{C})\) de \(G(K(X))\)
+dans \(G(A(X)) \simeq A(X)\) est injectif. Le fait que \(\tilde{C}\) soit compatible avec les
+filtrations est vrai pour toute variété quasi-projective non singulière et
+résulte facilement du corollaire à la proposition 2.3. D'autre part comme
+\(X\) est un produit de grasmanniennes \(C_j\), on a sur \(X\) des fibrés vectoriels \(E_j\),
+images réciproques des fibrés canoniques sur les facteurs. Nous utiliserons
+les faits suivants (connus) :</p>
+
+<p>a) Sur \(X\), l'équivalence linéaire des cycles équivaut à l'équivalence
+numérique, et \(A(X)\) est un groupe de rang fini ;</p>
+
+<p>b) Les \(C^i(E_j)\) engendrent l'anneau \(A(X)\).</p>
+
+<p>De a) résulte que \(\varphi \colon A(X) \to G(K(X))\) est injective (donc bijective)
+en vertu du lemme suivant :</p>
+
+<div class="thm thm-plain lemma" id="0.app.2.15b">
+  <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.15</span></div>
+  <div class="thm-body"><p>Soient \(X^n\) une variété projective non singulière, \(Z^{n-p}\) un cycle
+  sur \(X\) tel que \(\varphi(Z) \in G^p(K(X))\) soit nul ; alors \(Z^{n-p}\) est numériquement équi­valent
+  à zéro.</p></div>
+</div>
+
+<p>Pour démontrer ce lemme, il suffit d'utiliser la fonction additive
+\(\chi(F) = \sum_{i \geq 0} (-1)^i \dim H^i(X,F)\) et le fait que cette fonction est égale à
+\(1\) pour \(F = \mathcal{O}_{(x)}\) pour tout \(x \in X\).</p>
+
+<p>Ainsi, \(A(X)\) et \(G(K(X))\) ont dans le cas envisagé même rang fini en
+tout degré, et \(G(K(X))\) est sans torsion, puisqu'il en est ainsi de \(A(X)\). De
+l'assertion b) ci-dessus résulte, de manière "formelle", que l'application
+\(\tilde{C}\) de \(K(X)\) dans \(\tilde{A}(X)\) est surjective, modulo des groupes finis. Il en
+résulte facilement, puisque \(G(K(X))\) et \(A(X)\) ont même rang fini en tout
+degré, que l'homomorphisme \(G(\tilde{C})\) de \(G(K(X))\) dans \(G(\tilde{A}(X))\) est bijectif modulo
+des groupes finis en tout degré (on utilisera une récurrence sur le degré).
+Comme \(G(K(X))\) est sans torsion, cet homomorphisme \(G(\tilde{C})\) est donc injectif.
+cqfd.</p>
+
+<p>N.B. L'homomorphisme \(\tilde{C}\) n'est pas surjectif en général, même si \(X\) est
+un espace projectif de dimension 2.</p>
+
+<h3 id="0.app.II.5">§ 5. Définition faisceautique des classes de Chern. Application à l'étude des morphismes d'injection</h3>
+
+<div class="thm thm-plain theorem" id="0.app.2.16">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.16</span></div>
+  <div class="thm-body"><p>Soit \(X\) une variété quasi-projective non singulière. Alors,
+  pour tout \(x \in K(X)\), et pour tout entier \(i \geq 0\), l'élément \(\gamma^i(x - \varepsilon(x))\) est
+  de filtration \(\geq i\). Soit \(c^i(x) \in G^i(K(X))\) la classe de cet élément modulo
+  \(K(X)^{i+1}\) ; si l'on pose :
+  \[\tilde{c}(x) = \left[\varepsilon(x), 1 + \sum_{i \geq 1} c^i(x)\right] \in G(K(X)) ,\]
+  alors \(\tilde{c}\) satisfait aux conditions analogues à celles du théorème 2.2.</p></div>
+</div>
+
+<p>La première assertion résulte du théorème 2.14, ainsi que le fait
+que \(x \to \tilde{c}(x)\) soit un homomorphisme de \(\lambda\)-anneaux (la formule (1.25) im­plique
+\(\gamma_t(x + y) = \gamma_t(x) \gamma_t(y)\), ce qui montre déjà que \(\tilde{c}\) est un homomor­phisme
+additif). La "fonctorialité" de \(\tilde{c}\) se vérifie immédiatement, et
+(2.8) résulte de (2.31). cqfd</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.16.cor1">
+  <div class="thm-head"><span class="thm-name">Corollaire 1</span></div>
+  <div class="thm-body"><p>On a \(c^i(x) = \varphi(C^i(x))\).</p></div>
+</div>
+
+<p>Ceci résulte d'un théorème d'unicité pour les classes de Chern, qui se
+démontre comme chez Hirzebruch par passage aux variétés de drapeaux. On
+doit seulement montrer que si \(Y\) est une variété de drapeaux associée à
+un fibré vectoriel sur \(X\), alors \(G(K(X)) \to G(K(Y))\) est injectif, ce qui
+se vérifie par la détermination explicite de \(K(Y)\) avec toutes ses structures
+à partir de \(K(X)\) (je ne donnerai pas les détails ici).</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.16.cor2">
+  <div class="thm-head"><span class="thm-name">Corollaire 2</span></div>
+  <div class="thm-body"><p>Supposons que pour tout élément \(Z \in A(X)\), il existe un morphisme
+  \(f\) de \(X\) dans un produit \(X'\) de grasmanniennes tel que \(Z\) soit dans l'ima­ge
+  de \(f^*\). Alors les homomorphismes canoniques
+  \[\varphi \colon A(X) \to G(K(X)) , \qquad \psi \colon G(K(X)) \to A(X) ,\]
+  vérifient en dimension \(i\) les relations suivantes :
+  \[\psi \varphi = (-1)^{i-1}(i-1)! \, 1 , \qquad \varphi \psi = (-1)^{i-1}(i-1)! \, 1 . \tag{2.35}\]</p></div>
+</div>
+
+<p>Comme \(\varphi\) est surjective, il suffit évidemment de prouver la première
+formule, et pour celle-ci, on peut supposer que \(X\) est un produit de gras­manniennes.
+Comme alors \(\varphi\) est injective, il suffit de prouver la deuxième
+formule (2.35), qui en vertu du corollaire 1, s'écrit
+\[\gamma^i(x - \varepsilon(x)) \equiv (-1)^{i-1}(i-1)! \, x \mod K(X)^{i+1}\]
+pour tout \(x \in K(X)^i\). Comme \(\psi\) est injective, il suffit de prouver la rela­tion
+analogue pour \(\tilde{C}(x) \in A(X)^i\), et c'est alors une conséquence de (1.22 bis).</p>
+
+<p><u>Remarque</u> : Le corollaire 2 rend plausible la validité de (2.35) dans tous
+les cas ; il devrait en exister une démonstration directe. On prouve en
+tout cas facilement la deuxième formule (2.35) modulo le sous-groupe de
+torsion de \(G(K(X))\), et en caractéristique \(0\), cette même formule est une
+conséquence du théorème de Riemann-Roch. L'intérêt de (2.35) (lorsqu'elle
+est vraie) tient à ce qu'elle montre que \(\varphi\) est injective modulo des groupes
+de torsion (peut-être toujours nuls !<sup class="footnote-ref"><a id="fnref15" href="#fn15">(∗)</a></sup>), de sorte qu'on "ne perd pas beau­coup"
+à définir les classes de Chern comme des éléments de \(G(K(X))\) ; si
+l'on fait le produit tensoriel par \(\mathbb{Q}\), comme on le fera plus loin pour le
+théorème de Riemann-Roch, les deux définitions des classes de Chern seraient
+alors identiques.</p>
+
+<p>Soit toujours \(X\) quasi-projective non singulière ; soit de plus \(Y\) une
+sous-variété non singulière de \(X\) et soit \(i\) l'injection de \(Y\) dans \(X\). On a
+alors, pour \(i^!\) et \(i_!\) les formules suivantes :</p>
+
+<p>(i) \(i^!\) est un homomorphisme de \(\lambda\)-anneaux</p>
+<p>(ii) \(i_!(x.i^!(y)) = i_!(x).y\), d'où en particulier
+\(i_!i^!(y) = \xi y\) avec \(\xi = i_!i^!(1) = \gamma_X(Y)\),</p>
+<p>(iii) \(i^!(i_!(x)) = x.\lambda_{-1}(N)\), d'où en particulier
+\(i^!(\xi) = i^!i_!(1) = \lambda_{-1}(N)\),</p>
+<p>(iv) \(i_!(x) i_!(x') = i_!(xx' \lambda_{-1}(N))\),</p>
+
+<p>où, par définition, \(N\) est la classe dans \(K(Y)\) du fibré conormal à \(Y\) dans
+\(X\). Les formules (i) et (ii) sont vraies pour des morphismes quelconques,
+non nécessairement des injections, et (iii) et (iv) se vérifient sur la
+définition (2.15) et la formule analogue pour les images inverses (en
+prenant pour \(x\) et \(x'\) des classes de fibrés vectoriels, et en se servant
+du fait que
+\[\operatorname{Tor}_i^{\mathcal{O}_X}(\mathcal{O}_Y, \mathcal{O}_Y) = \mathcal{O}_Y(\wedge^i N) . ) \tag{2.36}\]</p>
+
+<p>La formule (iv) exprime que \(i_!\) est un homomorphisme d'anneaux si l'on in­troduit
+sur \(K(Y)\) une nouvelle structure multiplicative, par la définition
+\(x_N x' = xx' \lambda_{-1}(N)\) (cf. Chapitre I, § 4). Elle se complète par la formule :</p>
+
+<p>(v) \(i_!(\lambda^p(N,x)) = \lambda^p(i_!(x))\) pour \(p \geq 1\),</p>
+
+<p>qui signifie que \(i_!\) définit un \(\lambda\)-homomorphisme de \(K(Y)_N\) dans \(K(X)\). Cette
+formule (v), certainement vraie dans tous les cas, n'est démontrée pour
+l'instant qu'en caractéristique \(0\), car elle résulte de la conjonction des
+théorèmes 1.4 et 2.8.</p>
+
+<p>On a des formules analogues pour \(i_*\) et \(i^*\) :</p>
+
+<p>(i bis) \(i^*\) est un homomorphisme d'anneaux gradués.</p>
+<p>(ii bis) \(i_*(x.i^*(y)) = i_*(x).y\), d'où en particulier
+\(i_*(i^*(y)) = \xi' y\) avec \(\xi' = i_*(1)\),</p>
+<p>(iii bis) \(i^*(i_*(x)) = x.(-1)^q N^q\), d'où en particulier
+\(i^*(\xi') = (-1)^q N^q\),</p>
+<p>(iv bis) \(i_*(x) i_*(x') = i_*(xx' (-1)^q N^q)\),</p>
+<p>(v bis) \(i_*\) augmente les degrés de \(q\) unités.</p>
+
+<p>Dans ces formules, \(q\) est la codimension de \(Y\) dans \(X\), et l'on pose
+\(N^i = C^i(N)\). Seules les formules (iii bis) et (iv bis) demandent une démons­tration ;
+j'ignore si elles sont bien connues (et même si elles sont
+vraies !!!) et me borne à noter qu'elles résultent par réduction des for­mules
+(ii) et (iv), <u>pourvu qu'on se place dans \(G(K(Y))\) et \(G(K(X))\) et non
+dans \(A(Y)\) et \(A(X)\)</u>. On utilise alors le fait que \(i_*\) et \(i^*\) proviennent par
+passage au quotient de \(i_!\) et \(i^!\), en notant que \(i_!\) décale la filtration de
+\(q\) unités.</p>
+
+<p>N.B. Toutes les formules "universelles" liant \(i_!\) et \(i^!\) (resp. \(i_*\) et \(i^*\))
+sont conséquences formelles des précédentes, comme on peut s'en convaincre
+sans grande difficulté.</p>
+
+<p>De la formule (v) résulte la formule
+\[i_!(\gamma^p(N,x)) = \gamma^p(i_!(x)) .\]
+La conjonction du théorème 2.14 et de la proposition 1.5 montre que \(\gamma^p(N,x)\)
+est, pour \(p = q + j\), de filtration \(\geq j\) ; si l'on note \(G_p(N,x)\) sa classe
+dans \(G^j(K(Y))\), le théorème 2.16 montre que l'on a
+\[i_*(G_p(N,x)) = c^p(i_!(x)) .\]
+Enfin, la proposition 1.5 jointe au théorème 2.14 permet d'exprimer \(G_p(N,x)\)
+comme un polynôme à coefficients entiers en les \(c^i(N)\), les \(c^i(x)\) et \(\varepsilon(x)\) ;
+on en déduit le théorème :</p>
+
+<div class="thm thm-plain theorem" id="0.app.2.17">
+  <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.17</span></div>
+  <div class="thm-body"><p>Supposons le corps \(k\) de caractéristique \(0\) et soit \(i \colon Y \to X\)
+  un morphisme d'injection de variétés quasi-projectives non singulières. On
+  a alors les formules (i) à (v), et de plus, pour tout entier \(j \geq 0\), la
+  formule :
+  \[c^{q+j}(i_!(x)) = i_*\!\left(\frac{\tilde{C}(x) \ast \lambda_{-1}(\tilde{C}(N))}{(-1)^q N^q}\right)^{(j)} . \tag{2.37}\]</p></div>
+</div>
+
+<p>Le deuxième membre de la formule (2.37) est une façon abrégée de dé­signer
+le polynôme en les composantes de \(\tilde{c}(x)\) et \(\tilde{C}(N)\) décrit dans la pro­position
+1.5.</p>
+
+<div class="thm thm-plain corollary" id="0.app.2.17.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>Dans les conditions précédentes, on a :
+  \[\operatorname{ch}(\tilde{c}(i_!(x))) = i_*(\operatorname{ch}(\tilde{c}(x)) \, \mathscr{T}(\check{N})^{-1}) \tag{2.38}\]
+  où \(\operatorname{ch}\) est l'homomorphisme de Chern défini par la formule (1.26).</p></div>
+</div>
+
+<p>Il suffit d'utiliser (2.37) écrit sous la forme :
+\[\tilde{c}(i_!(x)) = 1 + i_*\!\left(\frac{\tilde{C}(x) \ast \lambda_{-1}(c(N)) - 1}{(-1)^q N^q}\right) , \tag{2.37 bis}\]
+la formule explicite (1.29), la formule (iv bis) et enfin (1.30).</p>
+
+<p>On peut écrire (2.38) sous la forme
+\[\operatorname{ch}_X(F) = i_*(\operatorname{ch}_Y(F) \, \mathscr{T}(T_{X/Y})^{-1}) , \tag{2.38 bis}\]
+où \(F\) est un faisceau algébrique cohérent sur \(Y\) (considéré au premier membre
+comme un faisceau sur \(X\) nul en dehors de \(Y\)), \(\operatorname{ch}_X\) et \(\operatorname{ch}_Y\) sont les homomor­phismes
+de Chern pris respectivement sur \(X\) et \(Y\), et \(T_{X/Y}\) est le fibré
+normal à \(Y\) dans \(X\).</p>
+
+<p><u>Remarques</u> : Contrairement à (2.38), la formule (2.37) est une "formule sans
+dénominateur". Elle n'a été démontrée (même en caractéristique \(0\)) qu'en
+se plaçant dans \(G(K(X))\) et non dans \(A(X)\), ce qui n'est peut-être pas la
+même chose. Elle est certainement vraie en toute caractéristique et dans
+\(A(X)\). Notons que l'on vérifie tout de suite que les images des deux membres
+par \(i^*\) sont les mêmes, d'où résulte en appliquant \(i_*\) que le produit de leur
+différence par \(N^q\) est nulle. Cela suggère une méthode de démonstration
+complètement différente, en essayant d'obtenir \(Y\) comme image réciproque
+transversale d'une sous-variété \(Y'\) dans une variété \(X'\), qui soit telle qu'en
+dimension \(\leq n = \dim X\), la classe de \(Y'\) dans \(A(X')\) ne soit pas diviseur de
+\(0\).... Malheureusement on ne peut espérer que \(X'\) soit une grasmannienne ou
+quelque chose d'approchant.</p>
+
+<p>On notera que, si l'on néglige les éléments de torsion, la formule
+(2.38) est équivalente à (2.37).</p>
+
+<h3 id="0.app.II.6">§ 6. Le théorème de Riemann-Roch</h3>
+
+<p>Son énoncé est le suivant : soit \(f\) un morphisme propre d'une variété
+quasi-projective non singulière \(Y\) dans une variété \(X\) de même espèce. Alors,
+on a :
+\[f_*(\operatorname{ch}_Y(x) \, \mathscr{T}(Y)) = \operatorname{ch}_X(f_!(x)) \, \mathscr{T}(X) . \tag{2.39}\]
+(Les deux membres sont dans \(A(X) \otimes \mathbb{Q}\) et \(\mathscr{T}(X) = \mathscr{T}(C(T_X))\).)</p>
+
+<p>Il permet de calculer, aux éléments de torsion près, les classes de
+Chern de \(f_!(x)\) connaissant les classes de Chern de \(x\), celles de \(T_X\) et \(T_Y\)
+et l'homomorphisme \(f_*\). Ou encore, il permet de déterminer l'homomorphisme
+\(f_!\) de \(K(Y) \otimes \mathbb{Q}\) dans \(K(X) \otimes \mathbb{Q}\), lorsqu'on identifie au moyen des homomorphis­mes
+\(\operatorname{ch}_Y\) et \(\operatorname{ch}_X\) ces groupes respectivement à \(A(Y) \otimes \mathbb{Q}\) et \(A(X) \otimes \mathbb{Q}\) (si la
+formule (2.35) est vraie !), à l'aide de \(f_*\) et des classes de Chern de
+\(T_X\) et de \(T_Y\).</p>
+
+<p>Je ne sais démontrer la formule (2.39) qu'en caractéristique \(0\)<sup class="footnote-ref"><a id="fnref16" href="#fn16">(∗)</a></sup>,
+et comme égalité dans \(G(K(X)) \otimes \mathbb{Q}\). Pour ceci \(Y\) étant localement fermé dans
+un espace projectif \(P\), on décompose \(f\) en le produit d'un morphisme d'in­jection
+de \(Y\) dans \(P \times X\), et d'un morphisme de projection de \(P \times X\) sur \(X\),
+et l'on démontre (2.39) pour chacun de ces deux morphismes.</p>
+
+<p>Pour un morphisme d'injection, on voit immédiatement que les formules
+(2.38) et (2.39) sont équivalentes (l'hypothèse de caractéristique \(0\) est
+intervenue uniquement par l'intermédiaire du théorème 2.8 qui permet d'ex­primer
+les \(\lambda^i(\gamma(F))\), pour un faisceau algébrique cohérent \(F\), par des inva­riants
+cohomologiques <u>locaux</u> de \(F\)).</p>
+
+<p>Pour un morphisme de projection \(f \colon P \times X \to X\), on peut, grâce à la
+proposition 2.13, supposer que \(x\) est de la forme \(y \otimes z\), avec \(y \in K(P)\) et
+\(z \in K(X)\). Alors, la formule de Künneth donne \(f_!(x) = \chi(y)z\), où pour un
+faisceau algébrique cohérent \(F\) sur \(P\), l'on pose :
+\[\chi(F) = \sum_{i \geq 0} (-1)^i \dim H^i(P,F) .\]
+On est alors aussitôt ramené à prouver la formule
+\[\chi(F) = \varkappa_r(\operatorname{ch}_P(F) \, \mathscr{T}(P)) \tag{2.40}\]
+où \(\varkappa_r\) désigne la composante de degré \(r = \dim P\). En vertu de la proposition
+2.13, on peut supposer que \(F = \mathcal{O}_Q\), où \(Q\) est une sous-variété linéaire de \(P\).
+Alors \(\chi(F) = 1\), puisque c'est le genre arithmétique de \(Q\) ; reste à voir que
+le deuxième membre de la formule (2.40) vaut \(1\).</p>
+
+<p>Si en effet \(V\) est un hyperplan de \(P\) et si l'on pose \(\xi = \gamma_P(\mathcal{O}_V)\) et
+\(L = \ell(V)\), on aura :
+\[1 - \xi = \gamma_P(E(-L))\]
+(où \(E(-L)\) est le fibré vectoriel défini par \(-L\)), d'où :
+\[C_P(1 - \xi) = [1, 1 - L] ,\]
+et par suite
+\[\operatorname{ch}_P(1 - \xi) = e^{-L} , \quad \text{d'où} \quad \operatorname{ch}_P(\xi) = 1 - e^{-L} ,\]
+et donc
+\[\operatorname{ch}_P(\xi^p) = (1 - e^{-L})^p .\]
+Or si \(p\) est la dimension de \(Q\) dans \(P\), on a \(\xi^p = \gamma_P(Q)\) ; on en déduit
+\[\operatorname{ch}_P(F) \, \mathscr{T}(P) = (L/(1 - e^{-L}))^{r+1}(1 - e^{-L})^p\]
+et il faut vérifier que le coefficient de \(L^r\) dans cette série formelle
+en \(L\) vaut \(1\), ce qui résulte de la propriété caractéristique de la série
+formelle \(L/(1 - e^{-L})\), à savoir que le coefficient de \(L^q\) dans \((L/(1 - e^{-L}))^{q+1}\)
+vaut \(1\) (poser \(q = r + 1 - p\)).</p>
+
+<h3 id="0.app.refs">Références bibliographiques</h3>
+
+<p>[1] HIRZEBRUCH : <em>Neue topologischen Methoden in der algebraischen
+Geometrie</em>.</p>
+
+<p>[2] SERRE : <em>Faisceaux algébriques cohérents</em>, Ann. of Maths.</p>
+
+<p>[3] GROTHENDIECK : <em>Sur les faisceaux algébriques cohérents</em>, in Séminaire
+Cartan 1956/57.</p>
+
+<h2 id="0.app.demo">Démonstration du théorème de Riemann-Roch (Grothendieck, 1er Novembre 1957)</h2>
+
+<p><em>Les passages entre astérisques ∗ ... ∗ sont des interpolations du copiste.</em></p>
+
+<h3 id="0.app.demo.notations">∗ Rappel de notations</h3>
+
+<p>[Ce sont celles du "rapport sur Riemann-Roch", cité R.R.R. dans ce
+qui suit.]</p>
+
+<p>Toutes les variétés considérées sont non singulières et quasi-projec­tives
+(i.e. isomorphes à une sous-variété localement fermée d'un espace pro­jectif).
+Le corps de base est algébriquement clos, de caractéristique
+quelconque.</p>
+
+<p>Si \(X\) est une telle variété, on note \(K(X)\) le groupe abélien engendré
+par les classes de faisceaux cohérents sur \(X\) (modulo l'identification d'une
+extension à une somme) ; la somme alternée des Tor fait de \(K(X)\) un anneau.
+Si \(F\) est un faisceau (resp. un fibré \(E\) à fibre vectorielle, resp. une sous-variété
+\(Y\) de \(X\)), on note \(\gamma_X(F)\) (resp. \(\gamma_X(E)\), resp. \(\gamma_X(Y)\)) l'élément de \(K(X)\)
+correspondant à \(F\) (resp. à \(E\), resp. à \(\mathcal{O}_Y\)). (En fait, on écrit souvent \(F\), \(E\)
+au lieu de \(\gamma_X(F)\) ...).</p>
+
+<p>On note \(A(X)\) l'anneau gradué des classes de cycles de \(X\) (pour l'équi­valence
+rationnelle - cf. Chow) ; \(A^i(X)\) est formé des cycles de codimension \(i\).</p>
+
+<p>Si \(E\) est un fibré à fibre vectorielle, on note \(C(E) = \sum C^i(E)\),
+\(C^i(E) \in A^i(X)\), sa classe de Chern (définie comme image réciproque des
+cycles de Schubert) ; on en déduit par linéarité les \(C^i(y)\), pour tout
+\(y \in K(X)\). Si \(C(y) = \prod(1 + a_i)\), on pose suivant Hirzebruch :
+\[\operatorname{ch}(y) = \sum e^{a_i} , \qquad T(y) = \prod \frac{a_i}{1 - e^{-a_i}} .\]
+Ce sont des éléments de \(A(X) \otimes \mathbb{Q}\).</p>
+
+<p>Lorsque \(y\) est le fibré tangent à \(X\), on écrit \(T(X)\) au lieu de \(T(y)\).</p>
+
+<p>Si \(G\) est un fibré à fibre vectorielle, on note \(\lambda^p G\) sa puissance ex­térieure
+\(p\)-ème, et on pose \(\lambda_{-1}(G) = \sum (-1)^p \lambda^p(G)\) ; c'est un élément de \(K(X)\).</p>
+
+<p>Si \(f\) est une application régulière propre d'une variété \(Y\) dans une
+variété \(X\), on définit des homomorphismes (additifs) :
+\[f^* \colon A(X) \to A(Y) \quad \text{et} \quad f_* \colon A(Y) \to A(X) .\]
+Le premier est homogène de degré \(0\) et multiplicatif. Le second est
+homogène de degré \(\dim.X - \dim.Y\).</p>
+
+<p>On définit également des homomorphismes :
+\[f^! \colon K(X) \to K(Y) \quad \text{et} \quad f_! \colon K(Y) \to K(X) .\]
+Si \(F\) est un faisceau cohérent sur \(X\), \(f^!(F)\) est égal, par définition,
+à la somme alternée des \(\operatorname{Tor}_p^{\mathcal{O}_X}(\mathcal{O}_Y, F)\). Pour les fibrés à fibre vectorielle,
+c'est simplement l'opération d'image réciproque.</p>
+
+<p>Si \(G\) est un faisceau cohérent sur \(Y\), \(f_*(G)\) est cohérent sur \(X\). Si
+l'on note \(R^p f_*\) le \(p\)-ème foncteur dérivé du foncteur \(f\) ainsi défini, on a,
+par définition, \(f_!(G) = \sum (-1)^p R^p f_*(G)\). ∗</p>
+
+<div class="thm thm-plain theorem" id="0.app.demo.RR">
+  <div class="thm-head"><span class="thm-name">Théorème de Riemann-Roch</span></div>
+  <div class="thm-body"><p>Soit \(f \colon Y \to X\) un morphisme (∗ application ré­gulière ∗)
+  propre d'une variété quasi-projective non singulière \(Y\) dans
+  une autre \(X\), et soit \(y \in K(Y)\). On a :
+  \[f_*(\operatorname{ch}(y)T(Y)) = \operatorname{ch}(f_!(y))T(X) \quad \text{dans } A(X) \otimes \mathbb{Q} . \tag{1}\]</p></div>
+</div>
+
+<p><u>Démonstration</u> (∗ abrégée ∗).</p>
+
+<div class="thm thm-plain lemma" id="0.app.demo.L1">
+  <div class="thm-head"><span class="thm-name">Lemme 1</span></div>
+  <div class="thm-body"><p>Considérons des morphismes propres de variétés
+  \(Z \xrightarrow{g} Y \xrightarrow{f} X\). Si le théorème R.R. est vrai pour \(f\) et \(g\), il l'est pour \(f \circ g\).
+  S'il est vrai pour \(fg\) et \(g\), il l'est pour \(f\). Si \(f_*\) est injective, et si le
+  théorème R.R. est vrai pour \(fg\) et \(f\), il l'est pour \(g\).</p></div>
+</div>
+
+<p>Trivial. (∗ En fait, lorsqu'on suppose R.R. vrai pour \(fg\) et \(g\), il
+faut encore supposer que \(g_*\) est surjectif pour pouvoir affirmer que R.R.
+est vrai pour \(f\). ∗)</p>
+
+<p>Un morphisme propre étant composé d'une injection et d'une projection
+\(X \times P \to X\) (où \(P\) est un espace projectif), on est ramené à traiter séparé­ment
+ces deux cas. Le deuxième, on l'a vu, se ramène à du calcul standard,
+moyennant la proposition 2.13 ("décomposition cellulaire") de R.R.R. On
+va donc supposer \(Y \subset X\), avec le morphisme d'injection \(i\). La formule (1)
+devient alors :
+\[\operatorname{ch}(i_!(y)) = i_*(\operatorname{ch}(y) T(E)^{-1}) , \tag{2}\]
+où \(E = T_{X/Y}\) est le fibré normal à \(Y\) dans \(X\).</p>
+
+<div class="thm thm-plain lemma" id="0.app.demo.L2">
+  <div class="thm-head"><span class="thm-name">Lemme 2</span></div>
+  <div class="thm-body"><p>Supposons qu'il existe sur \(X\) un fibré \(G\) à fibre vectorielle de
+  rang \(p = \operatorname{codim}_X Y\), tel que :
+  \[\gamma_X(Y) = i_!(1) = \lambda_{-1}(G) ; \quad i^!(G) = \check{E} ; \quad (-1)^p C^p(G) = Y . \tag{3}\]
+  Si alors on a :
+  \[y = i^!(x) , \quad \text{avec } x \in K(X) , \tag{4}\]
+  la formule (2) est valable.</p></div>
+</div>
+
+<p>Démonstration immédiate, à partir du fait que \(\operatorname{ch}\) est un homomorphisme
+d'anneaux, et que l'on a :
+\[\operatorname{ch}(\lambda_{-1}(G)) = (-1)^p C^p(G) T(\check{G})^{-1} . \tag{5}\]</p>
+
+<div class="thm thm-plain corollary" id="0.app.demo.L2.cor">
+  <div class="thm-head"><span class="thm-name">Corollaire</span></div>
+  <div class="thm-body"><p>R.R. est vrai si \(Y\) est une hypersurface et si \(y\) est de la
+  forme \(i^!(x)\), avec \(x \in K(X)\).</p></div>
+</div>
+
+<div class="thm thm-plain lemma" id="0.app.demo.L3">
+  <div class="thm-head"><span class="thm-name">Lemme 3</span></div>
+  <div class="thm-body"><p>Supposons que \(X = Y \times P\), \(P\) étant un espace projectif, et que \(i\)
+  soit l'injection \(u \to (u,v_0)\) \(v_0 \in P\). Alors \(i_*\) est injectif et R.R. est vrai.</p></div>
+</div>
+
+<p>C'est du pur calcul standard.</p>
+
+<p>Supposons de nouveau \(X\), \(Y\), \(y\) quelconques (toujours avec \(Y \subset X\)). Soit
+\(X'\) la variété éclatée de \(X\) à l'aide de \(Y\), et \(Y'\) l'hypersurface image réci­proque
+de \(Y\). On a un diagramme d'applications canoniques (\(j\) étant l'appli­cation
+canonique) :
+\[\xymatrix@C=3em@R=2.5em{
+Y \ar[r]^{i} & X \\
+Y' \ar[r]_{j} \ar[u]^{g} & X' \ar[u]_{f}
+}\]
+L'image réciproque de \(E\) dans \(Y'\) admet un sous-fibré de rang 1, dont le dual
+est noté \(L\). D'ailleurs \(L^{-1}\) est aussi la restriction à \(Y'\) du fibré \(L(Y')\) défini
+sur \(X'\) par le diviseur \(Y'\). On pose \(F = E/L^{-1}\).</p>
+
+<p>Des calculs élémentaires donnent le :</p>
+
+<div class="thm thm-plain lemma" id="0.app.demo.L4">
+  <div class="thm-head"><span class="thm-name">Lemme 4</span></div>
+  <div class="thm-body"><p>On a les formules (où \(p = \operatorname{codim}_X Y\)) :
+  \[f^! i_!(y) = j_!(\lambda_{-1}(\check{F}) y) . \tag{6}\]
+  \[\lambda_{-1}(\check{F}) \equiv \gamma^{p-1}(E) \lambda^p(\check{E}) \mod (1-L) . \tag{7}\]
+  \[f_*(1) = 1 , \quad \text{d'où } f_* f^* = 1 . \tag{8}\]
+  \[f^* i_*(\alpha) \equiv j_*(\alpha C^{p-1}(F)) \mod \operatorname{Ker} f_* \quad \text{pour tout } \alpha \in A(Y) . \tag{9}\]</p></div>
+</div>
+
+<p>[Pour simplifier l'écriture, on a fait opérer \(K(Y)\) sur \(K(Y')\) et
+\(A(Y)\) sur \(A(Y')\) grâce aux homomorphismes \(g^!\) et \(g^*\). ∗ Dans la formule (7),
+il semble que \(\gamma^{p-1}(E)\) désigne \(\lambda^{p-1}(E - 2)\), c'est-à-dire \(\sum_{i+j=p-1} \binom{-p}{j} \lambda^i(E)\)<sup class="footnote-ref"><a id="fnref17" href="#fn17">(∗)</a></sup> ;
+la congruence a lieu dans \(K(Y')\). ∗]</p>
+
+<p>La formule (6) résulte de l'égalité :
+\[\operatorname{Tor}_i^{\mathcal{O}_X(v)}(\mathcal{O}_Y(v), \mathcal{O}_{Y'}(v')) = \wedge^i F(v') \quad (v' \in Y' , v = g(v')) . \tag{6 bis}\]</p>
+
+<p>La formule (7) résulte des formules
+\[g_!(L^{-i}) = 0 \quad \text{pour } 0 < i \leq p-1 , \quad g_!(1) = 1 , \tag{10}\]
+elles-mêmes conséquences de Künneth et de la cohomologie des espaces pro­jectifs.</p>
+
+<p>La formule (8) est triviale, enfin (9) résulte de \(g_*(C^{p-1}(F)) = 1\) qui
+se déduit, par exemple, des formules immédiates :
+\[g_*(\xi^i) = 0 \quad \text{si } 0 \leq i < p-1 , \quad g_*(\xi^{p-1}) = 1 , \tag{10 bis}\]
+avec \(\xi = C^1(L) \in A^1(Y')\).</p>
+
+<p>[En fait, (9) est très vraisemblablement une identité, et pas seule­ment
+une congruence.]</p>
+
+<p>De la formule (7) résulte aussitôt \(y \lambda_{-1}(\check{F}) \in j^!(K(X'))\) pourvu que
+l'on ait :
+\[y \gamma^{p-1}(E) \lambda^p(\check{E}) \in i^!(K(X)) . \tag{11}\]</p>
+
+<p>Supposons cette condition (11) satisfaite. D'après le corollaire au
+lemme 2, R.R. est vrai pour \((Y',X', y \lambda_{-1}(\check{F}))\). D'autre part, pour prouver
+(2), il suffit, en vertu de la formule (8), de prouver que
+\[f^* \operatorname{ch}(i_!(y)) \equiv f^*(i_*(\operatorname{ch}(y) T(E)^{-1})) \mod \operatorname{Ker} f_* . \tag{12}\]
+Or, cette dernière formule se vérifie aussitôt, utilisant (6), (9), R.R.
+pour \((Y',X', y \lambda_{-1}(\check{F}))\) et la formule :
+\[\operatorname{ch}(\lambda_{-1}(\check{F})) = C^{p-1}(F) T(F)^{-1} \quad \text{(cf. formule (5))} . \tag{13}\]</p>
+
+<p>Ainsi, R.R. est prouvé chaque fois que \(y \gamma^{p-1}(E) = 0\), en particulier
+(puisque \(\gamma^{p-1}(E)\) est de filtration \(\geq p-1\) ∗ dans \(K(Y)\) filtré par la codi­mension
+des supports ∗) chaque fois que \(p-1 > \dim Y\), i.e. chaque fois que
+\(\dim Y < \frac{\dim X - 1}{2}\). Or, on se ramène à ce cas, en conjuguant le lemme 1
+et le lemme 3 (prenant pour \(P\) un espace projectif de dimension \(r\) assez
+grande, par exemple \(r > \dim X + 1\)). C.Q.F.D.</p>
+
+<p>N.B. On s'est servi du fait que \(\gamma^{p-1}(E)\) était de filtration \(\geq p-1\). On peut
+prouver ce fait directement, sans passer par les grassmanniennes comme dans
+R.R.R. 2.16, par l'étude du fibré \(Y'\) en espaces projectifs associé à \(E\).
+Cette méthode donne plus généralement le th. 2.14 de R.R.R.</p>
+
+<h3 id="0.app.demo.lettre">Extrait d'une lettre de Grothendieck</h3>
+
+<p>...'moralement', la nouvelle méthode repose sur la détermination de \(K(X)\)
+et de \(A(X)\) lorsque \(X\) est, soit un fibré projectif associé à un fibré vec­toriel,
+soit une variété obtenu par éclatement d'une sous-variété non
+singulière. Dans ce deuxième cas, je n'ai pas fait la détermination com­plète,
+il manque un petit quelque chose. Avec les notations du petit papier,
+il faut prouver la formule (9) (mais comme <u>égalité</u>) :
+\[f^* i_*(\alpha) = j_*(\alpha C^{p-1}(F)) , \quad \alpha \in A(Y) . \tag{9}\]
+On constate que les deux membres ont même image par \(f_*\), et même image par
+\(j^*\), de sorte que la question est équivalente à :
+\[\operatorname{Ker} f_* \cap \operatorname{Ker} j^* = 0 . \tag{9 bis}\]
+En tout cas, (9) est vraie en réduisant à \(G(K(X'))\) (ce qui détruit un peu
+de torsion, tout au plus), car elle résulte alors de (6) ; il n'y a donc
+guère de doute qu'elle ne soit vraie.</p>
+
+<p>... Je te signale d'ailleurs que l'<u>égalité</u> (9) résulte très faci­lement
+de (6) sans passer par l'ennuyeuse (6 bis)...</p>
+
+<p style="text-align:right;">p.c.c. J-P.S.</p>
+
+<div id="app-footnotes">
+<ol>
+<li id="fn3"><p>(∗) Dans ce séminaire, nous disons plutôt <u>pré-\(\lambda\)-anneau</u> (V 2.1), réservant le nom de \(\lambda\)-anneau à ceux satisfaisant la condition supplémentaire de la page 3 (cf V 2.4). <a class="backref" href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>(∗) Il est inutile que \(k\) soit algébriquement clos, cf.(VI 3.3) pour un résultat encore plus général (englobant tous ceux qui seront utilisés dans le présent rapport). <a class="backref" href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>(¹) On peut construire d'autres exemples de \(\lambda\)-anneaux, par exemple l'ensemble des classes d'équivalence de formes quadratiques, l'ensemble des classes de représentations d'une algèbre de Lie, etc... Nous promettons que nous n'aurons pas besoin de tous ces exemples pour traiter le théorème de Riemann-Roch ! <a class="backref" href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>(∗) Condition inutile, cf. note de bas de page précédente. <a class="backref" href="#fnref6">↩</a> <a class="backref" href="#fnref6b">↩</a></p></li>
+<li id="fn7"><p>(∗) Cf. Séminaire Chevalley 1956/58 Groupes de Lie algébriques (Ecole Normale Supérieure). <a class="backref" href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>(∗) Il faut supposer le groupe dévisé \(G'\) de \(G\) simplement connexe pour que cet énoncé soit correct. <a class="backref" href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>(∗) Cela se prouve en effet par la même méthode. <a class="backref" href="#fnref9">↩</a></p></li>
+<li id="fn10"><p>(∗) Par suite d'un malentendu de la part de l'auteur, le théorème énonce plus qu'il n'est actuellement connu. En fait, on utilise seulement le "moving lemma" de Chow, disant qu'on peut bouger deux cycles dans leurs classes de sorte que leur intersection soit non excédentaire ; cf. Séminaire Chevalley 1958, Anneau de Chow et applications. <a class="backref" href="#fnref10">↩</a></p></li>
+<li id="fn11"><p>(∗) La notation \(f^!\) utilisée ici est en conflit avec celle utilisée en théorie de la dualité (cf par exemple R. Hartshorne, <em>Residues and Duality</em>, Lecture Notes in Math. n° 20, Springer, 1966). C'est pourquoi dans ce Séminaire nous la remplaçons par la notation \(f^*\). <a class="backref" href="#fnref11">↩</a></p></li>
+<li id="fn12"><p>(∗) Non ; pour un contre-exemple cf. ce Séminaire XIV 4.7. <a class="backref" href="#fnref12">↩</a></p></li>
+<li id="fn13"><p>(∗) Cette dernière condition est évidemment conséquence de la première (chose que l'auteur ignorait encore en 1957 !). <a class="backref" href="#fnref13">↩</a></p></li>
+<li id="fn14"><p>(∗) On prouve facilement que l'hypothèse faite implique, si \(R\) est exprimé en termes des \(\gamma^k(\xi_i)\), \(\gamma^k(E_i - \varepsilon(E_i))\), que tous les termes de \(R\) sont de poids \(\geq p\) (où \(\gamma^k\) est de poids \(k\)). Alors 2.14 est un cas particulier de X 1.3.2. <a class="backref" href="#fnref14">↩</a></p></li>
+<li id="fn15"><p>(∗) Non, cf. note de la page 30. <a class="backref" href="#fnref15">↩</a></p></li>
+<li id="fn16"><p>(∗) Voir plus bas une démonstration valable en toutes caractéristiques, basée sur un principe différent (p.51). <a class="backref" href="#fnref16">↩</a></p></li>
+<li id="fn17"><p>(∗) Cette formule inutilement compliquée peut se remplacer par exemple par VII 4.1. <a class="backref" href="#fnref17">↩</a></p></li>
+</ol>
+</div>
+
+</body>
+</html>
