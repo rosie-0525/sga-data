@@ -1750,7 +1750,7 @@ propriétés pour un topos \(E\)&nbsp;:
 \xymatrix@C=1.4em@R=2.2em{
 E\ \text{est noethérien} \ar@{=>}[r] \ar@{=>}[d] & E\ \text{est localement noethérien} \ar@{=>}[d] \ar@{=>}[ddr] & \\
 E\ \text{est cohérent} \ar@{=>}[r] & E\ \text{est algébrique} \ar@{=>}[d] & \\
-& \begin{array}{c} E\ \text{est loc. cohérent, i.e.} \\ E_{\mathrm{cohalg}}\ \text{engendre}\ E \end{array} \ar@{=>}[d] & E_{\text{prénoeth}}\ \text{engendre}\ E \ar@{=>}[ddl] \\
+& \substack{E\ \text{est loc. cohérent, i.e.} \\ E_{\mathrm{cohalg}}\ \text{engendre}\ E} \ar@{=>}[d] & E_{\text{prénoeth}}\ \text{engendre}\ E \ar@{=>}[ddl] \\
 & E_{\mathrm{coh}}\ \text{engendre}\ E \ar@{=>}[d] & \\
 & E_{\mathrm{qucpct}}\ \text{engendre}\ E &
 }
@@ -5968,10 +5968,10 @@ par récurrence transfinie sur \(e \in \overline{E}\) des raffinements \(Q_e\) d
 de l'un des \(Q_e(V_k)\).</p>
 <p>Supposons les \(Q_e\) déjà définis pour \(e' < e\). Si \(e\) est le premier élé­ment
 de \(E\), posons \(Q'_e = P\). Si \(e\) a un prédécesseur \(e-1\), posons \(Q'_e = Q_{e-1}\).
-Sinon, soit \(Q'_e\) le système projectif d'ensemble d'indices \(\bigcup_{e'<e} I_{e'}\), qui raffine les
+Sinon, soit \(Q'_e\) le système projectif d'ensemble d'indices \(\bigcup_{e'&lt;e} I_{e'}\), qui raffine les
 \(Q_{e'}\), pour \(e' < e\). Dans ce cas, on a
 \[
-Q'_e(\mathscr{F}) = \varinjlim_{e'<e} Q_{e'}(\mathscr{F})
+Q'_e(\mathscr{F}) = \varinjlim_{e'&lt;e} Q_{e'}(\mathscr{F})
 \]
 de sorte que, dans tous les cas, \(Q'_e\) raffine les \(Q_{e'}\), pour \(e' < e\) et vérifie
 \(a_{Q'_e} \neq a'_{Q'_e}\).</p>
