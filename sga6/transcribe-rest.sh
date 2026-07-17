@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Repeatedly ask Codex to transcribe the next small batch of SGA 5 pages.
+# Repeatedly ask Codex to transcribe the next small batch of SGA 6 pages.
 # Each invocation is capped so a stuck session is replaced automatically.
 
 set -u
@@ -45,7 +45,7 @@ if ! : >> "$LOG_FILE"; then
   exit 1
 fi
 
-RUN_TMP=$(mktemp -d "${TMPDIR:-/tmp}/sga5-transcribe.XXXXXX") || exit 1
+RUN_TMP=$(mktemp -d "${TMPDIR:-/tmp}/sga6-transcribe.XXXXXX") || exit 1
 LAST_MESSAGE="$RUN_TMP/last-message.txt"
 TIMEOUT_MARKER="$RUN_TMP/timed-out"
 codex_pid=''
@@ -77,19 +77,19 @@ while :; do
   rm -f -- "$TIMEOUT_MARKER"
 
   PROMPT=$(printf '%s\n' \
-    'Continue the manual transcription of SGA 5.' \
+    'Continue the manual transcription of SGA 6.' \
     '' \
-    'First inspect sga5/00-original_pdf and sga5/01-transcribed to determine the current transcription status. Treat the existing I.html as the formatting reference, detect partial output carefully, and do not duplicate pages that are already transcribed.' \
+    'First inspect sga6/00-original_pdf and sga6/01-transcribed to determine the current transcription status. The source PDFs are only the files named Expose<N>.pdf (exposés 0 through 14; there is no Expose11.pdf) — ignore any other PDF files in that directory. Treat the existing transcribed files (e.g. I.html) as the formatting reference, detect partial output carefully, and do not duplicate pages that are already transcribed.' \
     '' \
     "Use the transcribe-scanned-pdf skill and transcribe exactly the next $PAGES_PER_BATCH not-yet-transcribed source PDF pages in canonical document order (or every remaining page if fewer than $PAGES_PER_BATCH remain). Read the rendered page images manually. Do not use OCR or PDF text extraction, and do not use Python for transcription or document inspection. Preserve the French text, mathematical notation, page transitions, footnotes, and document structure faithfully. Continue the appropriate existing HTML file or create the appropriate exposé HTML file, using apply_patch for edits. Verify this batch visually and check the patch boundary before finishing." \
     '' \
-    "This is transcription run $iteration. You are explicitly authorized to send exactly one Slack message for this run. Before your final response, run /usr/bin/python3 sga5/slack_hook.py with a concise message containing the run number, the source PDF page range processed (or that transcription was already complete), the HTML output file, and the outcome. Do not send more than one message. If Slack delivery fails, mention the failure in your final response but still use the required final marker below." \
+    "This is transcription run $iteration. You are explicitly authorized to send exactly one Slack message for this run. Before your final response, run /usr/bin/python3 sga6/slack_hook.py with a concise message containing the run number, the source PDF page range processed (or that transcription was already complete), the HTML output file, and the outcome. Do not send more than one message. If Slack delivery fails, mention the failure in your final response but still use the required final marker below." \
     '' \
-    'If every PDF page in sga5/00-original_pdf was already faithfully transcribed before this run, or becomes fully transcribed and verified during this run, end your final response with a line containing exactly:' \
-    'SGA5_TRANSCRIPTION_COMPLETE' \
+    'If every source PDF page in sga6/00-original_pdf was already faithfully transcribed before this run, or becomes fully transcribed and verified during this run, end your final response with a line containing exactly:' \
+    'SGA6_TRANSCRIPTION_COMPLETE' \
     '' \
     'Otherwise, after completing and verifying this batch, end your final response with a line containing exactly:' \
-    'SGA5_BATCH_COMPLETE')
+    'SGA6_BATCH_COMPLETE')
 
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting Codex batch $iteration ($PAGES_PER_BATCH pages; timeout ${TIMEOUT_SECONDS}s)"
 
@@ -131,8 +131,8 @@ while :; do
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Batch $iteration timed out; relaunching Codex"
   elif [ "$codex_status" -ne 0 ]; then
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Batch $iteration exited with status $codex_status; relaunching Codex"
-  elif [ "$(tail -n 1 "$LAST_MESSAGE")" = 'SGA5_TRANSCRIPTION_COMPLETE' ]; then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] SGA 5 transcription is complete"
+  elif [ "$(tail -n 1 "$LAST_MESSAGE")" = 'SGA6_TRANSCRIPTION_COMPLETE' ]; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] SGA 6 transcription is complete"
     exit 0
   else
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Batch $iteration returned; continuing with the next batch"
