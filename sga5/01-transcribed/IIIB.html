@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 5 — Exposé III B. Calculs de termes locaux</title>
+<script>
+window.MathJax = {
+  loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none'
+  },
+  options: { enableMenu: true }, startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+table.tabular { border-collapse: collapse; width: 100%; }
+table.tabular td { padding: 0.15em 0.4em; vertical-align: top; }
+</style>
+</head>
+<body>
+
+<!-- Source PDF page 1 -->
+<h1 id="IIIB">EXPOSÉ III B<br>CALCULS DE TERMES LOCAUX<span class="author">par Luc Illusie</span></h1>
+
+<p>Cet exposé, rédigé en janvier 1977, ne correspond à aucun exposé oral du
+séminaire. Il comprend deux parties indépendantes. Dans la première, nous calculons
+les termes locaux de Lefschetz-Verdier pour des correspondances cohomologiques entre
+courbes lisses sur un corps algébriquement clos, à support dans des correspondances
+vérifiant certaines hypothèses de position générale. La formule que nous obtenons
+fournit comme corollaires la formule de Verdier [6] pour les endomorphismes
+transversaux (qui s'applique notamment au cas de l'endomorphisme de Frobenius), et la
+formule énoncée par Langlands dans ([4] 7.12). La méthode de démonstration est
+parallèle à celle suivie par Artin-Verdier dans [6]. On se ramène à prouver la nullité
+du terme local lorsque les complexes de faisceaux donnés ont une fibre nulle aux
+images du point fixe considéré, et l'on démontre en fait une propriété plus forte,
+à savoir qu'une certaine flèche de restriction est nulle (2.5). Pour établir cette
+propriété, on commence par se ramener au cas d'une ramification modérée par des
+revêtements de même degré des deux courbes données (afin de ne pas détruire les
+hypothèses de position générale), puis l'on traite directement ce cas à l'aide du
+lemme d'Abhyankar et du théorème de pureté relatif. La deuxième partie de cet exposé,
+de nature beaucoup plus technique, est inspirée de la méthode utilisée par
+Grothendieck pour établir la formule de Lefschetz pour certaines correspondances
+cohomologiques sur les courbes (voir XII et (SGA 4<sup>1/2</sup> Rapport)). Au n° 5,
+nous développons, pour les complexes de modules sur un topos, une théorie de traces
+non commutatives qui généralise la théorie commutative de (SGA 6 I) et redonne, dans
+le cas d'un topos ponctuel, la théorie non commutative développée par Grothendieck
+dans le séminaire oral (celle-ci était rédigée dans l'exposé XI, malheureusement
+disparu). Nous appliquons les techniques du n° 5 pour définir, au n° 6, des termes
+locaux de Lefschetz-Verdier pour des correspondances cohomologiques entre complexes
+de modules sur des</p>
+
+<!-- Source PDF page 2 (printed page 139) -->
+<p>anneaux non nécessairement commutatifs. Ces termes locaux se comportent comme des
+traces non commutatives, et permettent notamment, dans le cas où l'on prend comme
+anneau de base l'algèbre d'un groupe, de diviser canoniquement les termes locaux
+ordinaires attachés à des correspondances équivariantes. À titre d'application, nous
+démontrons la conjecture de divisibilité de Grothendieck de (XII 4.5), sous une forme
+plus générale. Nous montrons également que les termes locaux définis par
+Grothendieck dans la formule de Lefschetz de XII sont bien les termes locaux de
+Lefschetz-Verdier, et nous généralisons la formule de (loc. cit.).</p>
+
+<p>Je remercie P. Deligne pour les utiles suggestions qu'il m'a faites au cours de
+nombreux entretiens ; je lui suis particulièrement reconnaissant de m'avoir signalé
+et aidé à corriger une erreur dans une démonstration primitive du théorème 1.2.</p>
+
+<h2 id="IIIB.sommaire"><u>Sommaire.</u></h2>
+<table class="tabular">
+<tr><td>I</td><td>Correspondances en position générale entre courbes</td><td>3</td></tr>
+<tr><td>1.</td><td>Énoncé du théorème et corollaires</td><td>3</td></tr>
+<tr><td>2.</td><td>Réduction à un théorème d'annulation</td><td>9</td></tr>
+<tr><td>3.</td><td>Réduction au cas modéré</td><td>15</td></tr>
+<tr><td>4.</td><td>Fin de la démonstration de 1.2</td><td>20</td></tr>
+<tr><td>II</td><td>Correspondances équivariantes</td><td>25</td></tr>
+<tr><td>5.</td><td>Traces non commutatives</td><td>25</td></tr>
+<tr><td>6.</td><td>Correspondances équivariantes et divisibilité de termes locaux</td><td>46</td></tr>
+</table>
+
+<!-- Source PDF page 3 (printed page 140) -->
+<h2 id="IIIB.I"><u>I. — Correspondances en position générale entre courbes.</u></h2>
+
+<p>Dans cette partie, (S) désigne le spectre d'un corps algébriquement clos
+(k) de car. (p), Λ un anneau commutatif noethérien annulé par un entier premier
+à (p). Pour tout schéma (X) sur (S) on notera (D(X)) la catégorie dérivée des
+faisceaux de Λ-modules sur (X), (D_{ctf}(X)) la sous-catégorie pleine de (D(X))
+formée des complexes de tor-dimension finie et à cohomologie constructible.</p>
+
+<h2 id="IIIB.1"><u>1. — Énoncé du théorème et corollaires.</u></h2>
+
+<p id="IIIB.1.1"><span class="theorem-title">1.1.</span> Soient (X) (resp. (Y))
+un (S)-schéma localisé strict en un point fermé d'une (S)-courbe lisse et séparée,
+(A) (resp. (B)) un (S)-schéma strictement local,</p>
+\[
+a:A\longrightarrow X\times_S Y,\qquad b:B\longrightarrow X\times_S Y
+\]
+<p>des (S)-morphismes. On note (p_1:X\times_S Y\longrightarrow X),
+(p_2:X\times_S Y\longrightarrow Y) les projections, (a_i=p_i a),
+(b_i=p_i b), (x) (resp. (y)) le point fermé de (X) (resp. (Y)). On suppose
+(a_2) et (b_1) finis et surjectifs, et (A\times_{(X\times_S Y)}B) réduit au
+point fermé (z) d'image ((x,y)) dans (X\times_S Y).</p>
+
+<p>Soient (L\in\operatorname{ob}D_{ctf}(X)),
+(M\in\operatorname{ob}D_{ctf}(Y)),
+(u\in\operatorname{Hom}(a_1^*L,a_2^!M)),
+(v\in\operatorname{Hom}(b_2^*M,b_1^!L)). Notons</p>
+\[
+u_z\in\operatorname{Hom}(L_x,M_y)\qquad
+(\text{resp. }v_z\in\operatorname{Hom}(M_y,L_x))
+\]
+<p>l'homomorphisme composé</p>
+\[
+L_x=R\Gamma(X,L)\xrightarrow{a_1^*}R\Gamma(A,a_1^*L)
+\xrightarrow{R\Gamma(A,u)}R\Gamma(A,a_2^!M)
+\xrightarrow{a_{2*}}R\Gamma(Y,M)=M_y,
+\]
+<p>où (a_{2*}) est défini par la flèche d'adjonction
+(a_{2*}a_2^!M\longrightarrow M) (resp. l'homomorphisme composé analogue défini à
+l'aide de ((b,v))). Comme (L_x) et (M_y) sont des complexes parfaits de
+Λ-modules, on peut former le cup-produit (SGA 6 I 8.3)</p>
+\[
+(1.1.1)\qquad \langle u_z,v_z\rangle=\operatorname{Tr}(u_zv_z)
+=\operatorname{Tr}(v_zu_z)\in\Lambda.
+\]
+
+<p>Posons Λ<sub>X</sub>(1)[2] = (K_X), Λ<sub>Y</sub>(1)[2] = (K_Y).
+D'après (I 5) (ou (SGA 4<sup>1/2</sup> Dualité 1, ou Finitude 4.1)) le foncteur
+(D_X=R\underline{\operatorname{Hom}}(-,K_X)) (resp.
+(D_Y=R\underline{\operatorname{Hom}}(-,K_Y))) sur</p>
+
+<!-- Source PDF page 4 (printed page 141) -->
+<p>(D_{ctf}(X)) (resp. (D_{ctf}(Y))) est dualisant, i.e. pour tout
+(E\in\operatorname{ob}D_{ctf}(X)) (resp. (D_{ctf}(Y))), on a
+(E\xrightarrow{\sim}D_XD_XE) (resp. (E\xrightarrow{\sim}D_YD_YE)). On écrira
+parfois (D) au lieu de (D_X), (D_Y). Notons d'autre part (p_i^!) le foncteur
+(p_i^*(-)(1)[2]). On a trivialement</p>
+\[
+K_X\overset L\otimes_S M\xrightarrow{\sim}p_2^!M,\qquad
+L\overset L\otimes_S K_Y\xrightarrow{\sim}p_1^!L,
+\]
+<p>et il découle de (III 2.3), par passage à la limite, que les flèches de Künneth
+analogues à (III 3.1.1)</p>
+\[
+DL\overset L\otimes_S M\longrightarrow
+R\underline{\operatorname{Hom}}(p_1^*L,p_2^!M),\qquad
+L\overset L\otimes_S DM\longrightarrow
+R\underline{\operatorname{Hom}}(p_2^*M,p_1^!L)
+\]
+<p>sont des isomorphismes. Comme (a_2) est fini, (a) est fini, donc le foncteur
+(a^!) est défini, et l'on vérifie facilement que l'on a l'isomorphisme de
+transitivité (a^!p_2^!=a_2^!). Grâce à la formule d'induction pour (a)
+(SGA 4 XVIII 3.1.12.2), on a donc un isomorphisme canonique analogue à
+(III 3.2.1)</p>
+\[
+a^!R\underline{\operatorname{Hom}}(p_1^*L,p_2^!M)
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}(a_1^*L,a_2^!M),
+\]
+<p>d'où un isomorphisme</p>
+\[
+(*)\qquad \operatorname{Hom}(a_1^*L,a_2^!M)\xrightarrow{\sim}
+H^0(X\times_S Y,a_*a^!(DL\overset L\otimes_S M)).
+\]
+<p>On a de même un isomorphisme</p>
+\[
+(**)\qquad \operatorname{Hom}(b_2^*M,b_1^!L)\xrightarrow{\sim}
+H^0(X\times_S Y,b_*b^!(L\overset L\otimes_S DM)).
+\]
+<p>On définit, comme en (III 4.1.2), un accouplement naturel</p>
+\[
+(DL\overset L\otimes_S M)\overset L\otimes
+(L\overset L\otimes_S DM)\longrightarrow
+K_X\overset L\otimes_S K_Y=\Lambda_{X\times_S Y}(2)[4]
+\xrightarrow{\mathrm{dfn}}K_{X\times_S Y}.
+\]
+<p>Par composition avec l'accouplement analogue à (III 4.2.3)</p>
+\[
+a_*a^!P\overset L\otimes b_*b^!Q\longrightarrow c_*c^!(P\overset L\otimes Q),
+\]
+<p>où (P=DL\overset L\otimes_S M), (Q=L\overset L\otimes_S DM), et
+(c:z=A\times_{(X\times_S Y)}B\longrightarrow X\times_S Y) est la projection
+canonique, et compte tenu des isomorphismes (*), (**), on en déduit un accouplement
+analogue à (III 4.2.5)</p>
+\[
+\langle\ ,\ \rangle:\operatorname{Hom}(a_1^*L,a_2^!M)\otimes
+\operatorname{Hom}(b_2^*M,b_1^!L)\longrightarrow
+H^0(X\times_S Y,c_*c^!K_{X\times_S Y}).
+\]
+
+<!-- Source PDF page 5 (printed page 142) -->
+<p>On vérifie aisément, par passage à la limite, que
+(c^!K_{X\times_S Y}=\Lambda_z), de sorte que
+(H^0(X\times_S Y,c_*c^!K_{X\times_S Y})=\Lambda). On dispose donc d'un
+« cup-produit »</p>
+\[
+(1.1.2)\qquad \langle u,v\rangle\in\Lambda.
+\]
+
+<p id="IIIB.1.1.3"><span class="theorem-title">1.1.3</span> Soient (X')
+(resp. (Y')) une (S)-courbe lisse, (A') (resp. (B')) une (S)-courbe
+séparée, (a':A'\longrightarrow X'\times_S Y'),
+(b':B'\longrightarrow X'\times_S Y') des (S)-morphismes finis, (x')
+(resp. (y')) un point fermé de (X') (resp. (Y')), (z') un point fermé isolé
+de (A'\times_{(X'\times_S Y')}B'), d'image (s') (resp. (t')) dans (A')
+(resp. (B')), et tel que (a_2'(=p_2a')) (resp. (b_1'(=p_1b'))) soit
+quasi-fini en (s') (resp. (t')),</p>
+\[
+L'\in\operatorname{ob}D_{ctf}(X'),\quad M'\in\operatorname{ob}D_{ctf}(Y'),\quad
+u'\in\operatorname{Hom}(a_1'^*L',a_2'^!M'),\quad
+v'\in\operatorname{Hom}(b_2'^*M',b_1'^!L').
+\]
+<p>On peut alors considérer le terme local (III 4.2.7)
+(\langle u',v'\rangle_{z'}\in\Lambda). D'autre part, si (X), (Y), (A),
+(B) sont les localisés stricts de (X'), (Y'), (A'), (B') en (x'),
+(y'), (s'), (t'), (a:A\longrightarrow X\times_S Y),
+(b:B\longrightarrow X\times_S Y) les morphismes déduits de (a'), (b'),
+(L=L'|X), (M=M'|Y), (u\in\operatorname{Hom}(a_1^*L,a_2^!M)),
+(v\in\operatorname{Hom}(b_2^*M,b_1^!L)) les flèches déduites de (u'), (v'),
+les données ((X,Y,a,b,u,v)) vérifient les hypothèses du début de 1.1, donc un
+cup-produit 1.1.2 (\langle u,v\rangle\in\Lambda) est défini. Il découle de la
+compatibilité de la formation des termes locaux (III 4.2.7) à la localisation
+(III 4.2.6) que l'on a
+(\langle u',v'\rangle_{z'}=\langle u,v\rangle). Il est facile de voir, par
+ailleurs, que toute donnée ((X,Y,a,b,u,v)) vérifiant les hypothèses du début de
+1.1 est induite par une donnée
+((X',Y',a',b',x',y',z',s',t',u',v')) comme ci-dessus, où l'on peut supposer de
+plus, si on le désire, que (A'\times_{(X'\times_S Y')}B') est réduit à (z').</p>
+
+<p>En général, les cup-produits 1.1.1 et 1.1.2 sont inégaux. On a cependant le
+théorème suivant, qui est le résultat principal de cette première partie :</p>
+
+<div class="thm thm-plain theorem" id="IIIB.1.2">
+<div class="thm-head"><span class="thm-name"><u>Théorème</u></span>
+<span class="thm-num">1.2</span></div>
+<div class="thm-body"><p>Sous les hypothèses du début de 1.1, on suppose de plus
+que (A) et (B) sont en position générale, i.e. que l'intersection des cônes
+tangents en ((x,y)) aux images de (A) et (B) dans (X\times_S Y) est réduite
+à ((x,y)), et que de même (A) et (X\times\{y\}) sont en position générale,
+ainsi que {(x)} \(\times Y) et (B). Alors on a :</p>
+\[
+(1.2.1)\qquad \langle u_z,v_z\rangle=\langle u,v\rangle.
+\]
+</div></div>
+
+<!-- Source PDF page 6 (printed page 143) -->
+<p>Par la formule de Lefschetz-Verdier (III 4.7), compte tenu de 1.1.3, on
+en déduit :</p>
+
+<div class="thm thm-plain corollary" id="IIIB.1.3">
+<div class="thm-head"><span class="thm-name"><u>Corollaire</u></span>
+<span class="thm-num">1.3</span></div>
+<div class="thm-body"><p>Soit (F) un endomorphisme d'une courbe propre et lisse
+(X/S) tel que le schéma des points fixes (X^F) soit fini et formé de points
+où le graphe de (F) est transverse à la diagonale. Soient
+(L\in\operatorname{ob}D_{ctf}(X)), et
+(uinoperatorname{Hom}(F^*L,L)). Alors on a</p>
+\[
+\operatorname{Tr}((F,u),R\Gamma(X,L))=
+\sum_{x\in X^F}\operatorname{Tr}(u_x,L_x),
+\]
+<p>où la trace, aux deux membres, est prise au sens de (SGA 6 I 8).</p>
+</div></div>
+
+<p>Pour (L) concentré en degré 0, 1.3 est le résultat d'Artin-Verdier
+([6] 4.1). Par un passage à la limite expliqué dans XV, on déduit de 1.3 un
+résultat analogue en cohomologie ℓ-adique ([6] 1.1), (XV §2 n° 3 prop. 2) :</p>
+
+<div class="thm thm-plain corollary" id="IIIB.1.3.1">
+<div class="thm-head"><span class="thm-name"><u>Corollaire</u></span>
+<span class="thm-num">1.3.1</span></div>
+<div class="thm-body"><p>Avec (X) et (F) comme en 1.3, soient (L) un
+(\mathbb Q_\ell)-faisceau constructible sur (X) (ℓ premier ≠ (p)), et
+(u\in\operatorname{Hom}(F^*L,L)). Alors on a :</p>
+\[
+\sum_i(-1)^i\operatorname{Tr}((F,u),H^i(X,L))=
+\sum_{x\in X^F}\operatorname{Tr}(u_x,L_x).
+\]
+</div></div>
+
+<p>Les hypothèses de 1.3, 1.3.1 s'appliquent notamment au cas où ((F,u)) est
+une correspondance de Frobenius (XV 2), d'où la formule des traces de
+Grothendieck ([2] 5.1), (SGA 4<sup>1/2</sup> Rapport 3.2).</p>
+
+<p id="IIIB.1.4"><span class="theorem-title">1.4.</span> Avec les notations de
+1.1, supposons (b_2) et (a_1) finis et surjectifs (au lieu de (a_2) et
+(b_1)), et considérons les correspondances duales (III 5.1)</p>
+\[
+Du\in\operatorname{Hom}(a_2^*DM,a_1^!DL),\qquad
+Dv\in\operatorname{Hom}(b_1^*DL,b_2^!DM),
+\]
+<p>et les homomorphismes</p>
+\[
+(Du)_z\in\operatorname{Hom}((DM)_y,(DM)_x),\qquad
+(Dv)_z\in\operatorname{Hom}((DL)_x,(DM)_y).
+\]
+<p>Supposons ((A,\{x\}\times Y)) en position générale, ainsi que
+((X\times\{y\},B)), ((A,B)). Appliquant 1.2 à (Du,Dv), on obtient :</p>
+\[
+\langle Du,Dv\rangle=\langle(Du)_z,(Dv)_z\rangle,
+\]
+
+<!-- Source PDF page 7 (printed page 144) -->
+<p>d'où, par (III 5.1.6) et (III 4.2.6),</p>
+\[
+(1.4.1)\qquad \langle u,v\rangle=\langle(Du)_z,(Dv)_z\rangle.
+\]
+
+<p>De cette remarque et de 1.2 on déduit, par la formule de Lefschetz-Verdier
+(III 4.7) :</p>
+
+<div class="thm thm-plain corollary" id="IIIB.1.5">
+<div class="thm-head"><span class="thm-name"><u>Corollaire</u></span>
+<span class="thm-num">1.5</span></div>
+<div class="thm-body"><p>Soient (X,Y) des courbes propres et lisses sur (S),</p>
+\[
+a:A\longrightarrow X\times_S Y,\qquad b:B\longrightarrow X\times_S Y
+\]
+<p>des correspondances où (A) et (B) sont des courbes propres sur (S),
+(L\in\operatorname{ob}D_{ctf}(X)), (M\in\operatorname{ob}D_{ctf}(Y)),</p>
+\[
+u\in\operatorname{Hom}(a_1^*L,a_2^!M),\qquad
+v\in\operatorname{Hom}(b_2^*M,b_1^!L).
+\]
+<p>On suppose que (C=A\mathbin{\times_{(X\times_S Y)}}B) est fini sur (S)
+et de la forme (C=C_1\amalg C_2), avec les propriétés suivantes : pour
+(z\in C_1), les morphismes déduits de (a_2,b_1) par localisation stricte
+aux images de (z) sont finis, et, si ((x,y)) désigne l'image de (z) dans
+(X\times_S Y), chacun des couples ((A,B)), ((A,X\times\{y\})),
+((\{x\}\times Y,B)) est en position générale en ((x,y)) ; pour (z\in C_2),
+les morphismes déduits de (a_1,b_2) par localisation stricte aux images de
+(z) sont finis, et chacun des couples ((A,B)), ((A,\{x\}\times Y)),
+((B,X\times\{y\})) est en position générale en ((x,y)) (« position
+générale » signifiant que l'intersection des cônes tangents en ((x,y)) aux
+images des courbes du couple considéré est réduite à ((x,y))). Alors, si</p>
+\[
+u_*\in\operatorname{Hom}(R\Gamma(X,L),R\Gamma(Y,M)),\qquad
+v_*\in\operatorname{Hom}(R\Gamma(Y,M),R\Gamma(X,L))
+\]
+<p>sont les morphismes définis par (u,v) (III 3.7.6), on a, avec les notations
+de 1.1.1, (III 5.1.5),</p>
+\[
+(1.5.1)\qquad \langle u_*,v_*\rangle=
+\sum_{z\in C_1}\langle u_z,v_z\rangle+
+\sum_{z\in C_2}\langle(Du)_z,(Dv)_z\rangle.
+\]
+</div></div>
+
+<p id="IIIB.1.6"><span class="theorem-title">1.6.</span> Admettant le formalisme
+de la cohomologie ℓ-adique, on déduit de 1.5, par la technique de passage à la
+limite de XIV, que, sous les hypothèses de 1.5 sur (X,Y,a,b), on a, pour
+(L\in\operatorname{ob}D^b(X,\mathbb Q_\ell)) (ℓ premier ≠ (p)),
+(M\in\operatorname{ob}D^b(Y,\mathbb Q_\ell)),</p>
+\[
+u\in\operatorname{Hom}(a_1^*L,a_2^!M),\qquad
+v\in\operatorname{Hom}(b_2^*M,b_1^!L),
+\]
+<p>l'égalité analogue à 1.5.1 dans (\mathbb Q_\ell). Cette formule contient
+comme cas particulier la proposition 7.12 de Langlands [4] : appliquer la
+formule avec (X=Y), (M) le faisceau (F) considéré par Langlands,
+(L=\alpha M) ((\alpha\in\mathbb Q_\ell^*)), (A=) la diagonale de
+(X\times X), (b=) la correspondance φ de (loc. cit.)</p>
+
+<!-- Source PDF page 8 (printed page 145) -->
+<p>(u=) la correspondance à support dans (A) donnée par
+(\alpha^{-1}:L\longrightarrow M), (v=) la correspondance φ de (loc. cit.) ;
+avec les notations de (loc. cit.), (C_1) (resp. (C_2)) est l'ensemble des
+points fixes où (a&lt;d) (resp. (a&gt;d)).</p>
+
+<p id="IIIB.1.7"><span class="theorem-title">1.7.</span> Sous les hypothèses de
+1.2, prenons pour (u) (resp. (v)) la correspondance (cl(A)) (resp.
+(cl(B))) définie par</p>
+\[
+\operatorname{Tr}_{a_2}:a_{2*}\Lambda\longrightarrow\Lambda
+\qquad(\text{resp. }\operatorname{Tr}_{b_1}:b_{1*}\Lambda\longrightarrow\Lambda).
+\]
+<p>La formule 1.2.1 s'écrit</p>
+\[
+(1.7.1)\qquad \deg(a_2)\deg(b_1)=\langle cl(A),cl(B)\rangle,
+\]
+<p>où (\deg(a_2)) (resp. (\deg(b_1))) désigne le degré générique de (a_2)
+(resp. (b_1)). Compte tenu des hypothèses de position générale, le premier
+membre de 1.7.1 n'est autre que la multiplicité d'intersection en ((x,y)) des
+cycles (a_*A), (b_*B), images directes de (A) et (B). Il n'est pas
+difficile de déduire directement 1.7.1 de la compatibilité de la formation de la
+classe de cohomologie associée à un cycle avec les intersections
+(SGA 4<sup>1/2</sup> Cycle 2.3.8).</p>
+
+<!-- Source PDF page 9 (printed page 146) -->
+<h2 id="IIIB.2"><u>2. — Réduction à un théorème d'annulation.</u></h2>
+
+<p id="IIIB.2.1"><span class="theorem-title">2.1.</span> Sous les hypothèses de
+1.1, notons (s) (resp. (t)) l'image de (z) dans (A) (resp. (B)),
+(i:U=X-\{x\}\lhook\joinrel\longrightarrow X) et
+(j:V=Y-\{y\}\lhook\joinrel\longrightarrow Y) les inclusions canoniques.
+Comme (a_2) et (b_1) sont finis, on a (a_2^{-1}(y)=s),
+(b_1^{-1}(x)=t), donc (a_1^{-1}(U)\subset a_2^{-1}(V)),
+(b_2^{-1}(V)\subset b_1^{-1}(U)), et l'on a des diagrammes commutatifs</p>
+\[
+\xymatrix{
+U & a_1^{-1}(U)\ar[l]_{a'_1}\ar[r]^{a'_2}\ar[d] & V\ar[d]^j\\
+X\ar[u]^i & A\ar[l]^{a_1}\ar[r]_{a_2} & Y
+}\qquad (1)\quad(2),
+\]
+\[
+\xymatrix{
+U & b_2^{-1}(V)\ar[l]_{b'_1}\ar[r]^{b'_2}\ar[d] & V\ar[d]^j\\
+X\ar[u]^i & B\ar[l]^{b_1}\ar[r]_{b_2} & Y
+}\qquad (3)\quad(4),
+\]
+<p>où les carrés (1) et (4) sont cartésiens.</p>
+
+<div class="thm thm-plain lemma" id="IIIB.2.2">
+<div class="thm-head"><span class="thm-name"><u>Lemme</u></span>
+<span class="thm-num">2.2</span></div>
+<div class="thm-body"><p>Pour prouver 1.2, on peut se borner à considérer les
+deux cas suivants :</p>
+<p>a) (L_x=0, M_y=0) ; &nbsp; b) (L|U=0, M|V=0).</p>
+</div></div>
+
+<p>Considérons les filtrations décroissantes sur (L,M) définies par les
+sous-complexes</p>
+\[
+F^nL=\begin{cases}
+L&\text{si }n\leq0,\\
+i_!i^*L&\text{si }n=1,\\
+0&\text{si }n&gt;1,
+\end{cases}
+\qquad
+F^nM=\begin{cases}
+M&\text{si }n\leq0,\\
+j_!j^*M&\text{si }n=1,\\
+0&\text{si }n&gt;1.
+\end{cases}
+\]
+<p>Le complexe (a_{2*}a_1^*L) (resp. (b_{1*}b_2^*M)) est alors filtré
+par (F^na_{2*}a_1^*L=a_{2*}a_1^*F^nL). On a
+(F^na_{2*}a_1^*L=a_{2*}a_1^*L) pour (n\leq0), et 0 pour (n&gt;1) ; de plus,
+comme (a_2) est fini et le carré (1) cartésien, on a</p>
+\[
+F^1a_{2*}a_1^*L=j_!(a'_2)_!(a'_1)^*i^*L.
+\]
+
+<!-- Source PDF page 10 (printed page 147) -->
+<p>On a de même</p>
+\[
+F^nb_{1*}b_2^*M=
+\begin{cases}
+b_{1*}b_2^*M&\text{si }n\leq0,\\
+i_!(b'_1)_!(b'_2)^*j^*M&\text{si }n=1,\\
+0&\text{si }n&gt;1.
+\end{cases}
+\]
+
+<p>On peut supposer (u) (resp. (v)) défini par un homomorphisme de
+complexes</p>
+\[
+u:a_{2*}a_1^*L\longrightarrow M
+\qquad(\text{resp. }v:b_{1*}b_2^*M\longrightarrow L).
+\]
+<p>Les formules ci-dessus montrent que le composé</p>
+\[
+F^1a_{2*}a_1^*L\longrightarrow a_{2*}a_1^*L\xrightarrow{u}M
+\quad
+(\text{resp. }F^1b_{1*}b_2^*M\longrightarrow b_{1*}b_2^*M\xrightarrow{v}L)
+\]
+<p>se factorise (de manière unique) à travers (F^1M) (resp. (F^1L)), en
+d'autres termes que (u) (resp. (v)) est un homomorphisme de complexes
+filtrés. Ainsi (u) (resp. (v)) est sous-jacent à une correspondance filtrée
+(au sens de (III 4.13)), que nous noterons encore</p>
+\[
+u\in\operatorname{Hom}_{DF}(a_1^*L,a_2^!M)
+\qquad(\text{resp. }v\in\operatorname{Hom}_{DF}(b_2^*M,b_1^!L)).
+\]
+<p>Par l'additivité des cup-produits ([3] V 3.8.7), (III 4.13.1), on a</p>
+\[
+\langle u_z,v_z\rangle=
+\langle\operatorname{gr}^0u_z,\operatorname{gr}^0v_z\rangle+
+\langle\operatorname{gr}^1u_z,\operatorname{gr}^1v_z\rangle,
+\]
+\[
+\langle u,v\rangle=
+\langle\operatorname{gr}^0u,\operatorname{gr}^0v\rangle+
+\langle\operatorname{gr}^1u,\operatorname{gr}^1v\rangle.
+\]
+<p>Le lemme en résulte, car (\operatorname{gr}^1L=i_!i^*L) (resp.
+(\operatorname{gr}^1M=j_!j^*M)) a une fibre nulle en (x) (resp. (y)),
+tandis que (\operatorname{gr}^0L) (resp. (\operatorname{gr}^0M)) est
+concentré en (x) (resp. (y)).</p>
+
+<div class="thm thm-plain lemma" id="IIIB.2.3">
+<div class="thm-head"><span class="thm-name"><u>Lemme</u></span>
+<span class="thm-num">2.3</span></div>
+<div class="thm-body"><p>Sous les hypothèses de 1.1, supposons (L|U=0),
+(M|V=0). Alors on a (\langle u_z,v_z\rangle=\langle u,v\rangle).</p>
+</div></div>
+
+<p>L'idée de la démonstration est qu'alors (u) et (v) sont images directes
+de correspondances entre complexes concentrés aux points fermés et que la
+formule à établir ne fait qu'exprimer la formule de Lefschetz pour les
+projections (s\longrightarrow S), (y\longrightarrow S). Compte tenu de
+1.1.3, on peut remplacer les données de 1.1 par les suivantes : (X) (resp.
+(Y)) est une (S)-courbe lisse munie d'un point fermé (x) (resp. (y)),
+(A) (resp. (B)) est une (S)-courbe séparée,
+(a:A\longrightarrow X\times_S Y), (b:B\longrightarrow X\times_S Y) sont
+des (S)-morphismes finis tels que
+(A\mathbin{\times_{(X\times_S Y)}}B) soit réduit à un point fermé (z)
+au-dessus de ((x,y)),</p>
+\[
+u\in\operatorname{Hom}(a_1^*L,a_2^!M),\qquad
+v\in\operatorname{Hom}(b_2^*M,b_1^!L),
+\]
+<p>avec (L=h_{1*}L'), (M=h_{2*}M'),
+(L'\in\operatorname{ob}D_{ctf}(\{x\})),
+(M'\in\operatorname{ob}D_{ctf}(\{y\})),</p>
+
+<!-- Source PDF page 11 (printed page 148) -->
+<p>\(h_1:\{x\}\longrightarrow X\) et \(h_2:\{y\}\longrightarrow Y\) désignant les inclusions canoniques. Il s'agit de montrer que \(\langle u_z,v_z\rangle=\langle u,v\rangle_z\), où \(u_z\in\operatorname{Hom}(R\Gamma(X,L),R\Gamma(Y,M))\), \(v_z\in\operatorname{Hom}(R\Gamma(Y,M),R\Gamma(X,L))\) sont définis comme en 1.1, et \(\langle u,v\rangle_z\) est la valeur en \(z\) du cup-produit (III 4.2.7). On a \(R\Gamma(X,L)=R\Gamma_c(X,L)=L_x\), \(R\Gamma(Y,M)=R\Gamma_c(Y,M)=M_y\), et \(u_z\) (resp. \(v_z\)) n'est autre que l'image directe \(u_*\) (resp. \(v_*\)) de \(u\) (resp. \(v\)) sur \(S\) au sens de (III 3.7.6), comme le montre le procédé de calcul (III 3.5 b)). D'autre part, si \(h=h_1\times_S h_2:(x,y)\longrightarrow X\times_S Y\) est l'inclusion, et si \(a':A'\longrightarrow(x,y)\), \(b':B'\longrightarrow(x,y)\) désignent les fibres de \(a,b\) en \((x,y)\) (réduites chacune à un point), on a des isomorphismes canoniques</p>
+\[h_*a'_*a'^!(DL_x\mathbin{\overset L\otimes}_S M_y)\xrightarrow{\sim}a_*a^!(DL\mathbin{\overset L\otimes}_S M),\]
+\[h_*b'_*b'^!(L_x\mathbin{\overset L\otimes}_S DM_y)\xrightarrow{\sim}b_*b^!(L\mathbin{\overset L\otimes}_S DM),\]
+<p>et les flèches</p>
+\[h_*:\operatorname{Hom}(a_1'^*L_x,a_2'^!M_y)\longrightarrow\operatorname{Hom}(a_1^*L,a_2^!M),\]
+\[h_*:\operatorname{Hom}(b_2'^*M_y,b_1'^!L_x)\longrightarrow\operatorname{Hom}(b_2^*M,b_1^!L)\quad\text{(III 3.7.6)}\]
+<p>sont des isomorphismes. Les correspondances \(u\) et \(v\) s'écrivent donc (de manière unique)</p>
+\[(1)\qquad u=h_*u',\qquad v=h_*v',\]
+<p>avec \(u'\in\operatorname{Hom}(a_1'^*L_x,a_2'^!M_y)\), \(v'\in\operatorname{Hom}(b_2'^*M_y,b_1'^!L_x)\). Par la formule de Lefschetz (III 4.5.1) pour \((h_1,h_2,A'\longrightarrow A,B'\longrightarrow B)\), on a</p>
+\[(2)\qquad\langle u,v\rangle_z=\langle u',v'\rangle_z.\]
+<p>D'autre part, on a, d'après (1), \(u_*=u'_*\), \(v_*=v'_*\), d'où, par la formule de Lefschetz pour \(\{x\}\longrightarrow S\), \(\{y\}\longrightarrow S\),</p>
+\[(3)\qquad\langle u_*,v_*\rangle=\langle u',v'\rangle_z.\]
+<p>Compte tenu de la remarque faite plus haut, la conclusion découle de la conjugaison de (2) et (3).</p>
+
+<div class="thm thm-plain lemma" id="IIIB.2.4"><div class="thm-head"><span class="thm-name"><u>Lemme</u></span> <span class="thm-num">2.4</span></div><div class="thm-body"><p>Pour prouver 1.2, on peut supposer que \(a\) et \(b\) sont des immersions fermées, et il suffit de démontrer que, si \(L_x=0\), \(M_y=0\), la flèche de restriction</p>
+
+<!-- Source PDF page 12 (printed page 149) -->
+\[(2.4.1)\qquad H_A^0(X\times_S Y,DL\mathbin{\overset L\otimes}_S M)\longrightarrow H_z^0(B,b^*(DL\mathbin{\overset L\otimes}_S M))\]
+<p>est nulle.</p></div></div>
+<p>Posons \(X\times_S Y=Z\). Les sous-schémas fermés \(a':A'\longrightarrow Z\), \(b':B'\longrightarrow Z\), images de \(a\) et \(b\), vérifient les mêmes hypothèses que \(a\) et \(b\). Soit \(u'\) (resp. \(v'\)) la correspondance à support dans \(A'\) (resp. \(B'\)) image directe de \(u\) (resp. \(v\)) (par la flèche déduite de la flèche d'adjonction \(f_*f^!\longrightarrow1\) (resp. \(g_*g^!\longrightarrow1\)) où \(f:A\longrightarrow A'\) (resp. \(g:B\longrightarrow B'\)) est la projection). Il est immédiat que \(u_z=u'_z\), \(v_z=v'_z\). D'autre part, il découle aisément de la définition du cup-produit 1.1.2 que \(\langle u,v\rangle=\langle u',v'\rangle\), d'où la première assertion. D'après 2.2 et 2.3, on peut supposer que \(L_x=0\), \(M_y=0\), et la conclusion de 1.2 s'écrit alors \(\langle u,v\rangle=0\). Soient \(P,Q\in\operatorname{ob}D_{ctf}(Z)\). Le cup-produit</p>
+\[H_A^0(Z,P)\mathbin{\overset L\otimes}H_B^0(Z,Q)\longrightarrow H_z^0(Z,P\mathbin{\overset L\otimes}Q)\]
+<p>se décompose en</p>
+\[H_A^0(Z,P)\mathbin{\overset L\otimes}H_B^0(Z,Q)\xrightarrow{b^*\otimes1}H_z^0(B,b^*P)\mathbin{\overset L\otimes}H_B^0(Z,Q)\longrightarrow H_z^0(Z,P\mathbin{\overset L\otimes}Q),\]
+<p>où \(b^*\) est la restriction et la seconde flèche, variante du produit considéré dans (SGA 4<sup>1/2</sup> Cycle 1.2.1), dérive du produit évident au niveau des sections de faisceaux (cette assertion se vérifie aisément, par exemple à l'aide des résolutions flasques de (SGA 4 XVII 4.2) ; si \(a':\{z\}\longrightarrow B\), \(b':\{z\}\longrightarrow A\), \(c:\{z\}\longrightarrow Z\) sont les inclusions, on peut aussi invoquer la décomposition standard de la flèche de Künneth (III 4.2.1) \(a'^!P\mathbin{\overset L\otimes}_Zb'^!Q\longrightarrow c^!(P\mathbin{\overset L\otimes}Q)\) en une « flèche de changement de base » \(a'^!P\mathbin{\overset L\otimes}_Zb'^!Q\longrightarrow a'^!b^*P\mathbin{\overset L\otimes}a'^*b'^!Q\), suivie de « flèches de projection » \(a'^!b^*P\mathbin{\overset L\otimes}a'^*b'^!Q\longrightarrow a'^!(b^*P\mathbin{\overset L\otimes}b'^!Q)\longrightarrow a'^!b'^!(P\mathbin{\overset L\otimes}Q)\)). Prenant \(P=DL\mathbin{\overset L\otimes}_SM\), \(Q=L\mathbin{\overset L\otimes}_SDM\), et revenant à la définition de \(\langle u,v\rangle\) (III 4.2.5), on voit qu'il suffit de prouver que \(b^*u=0\), d'où la conclusion.</p>
+
+<!-- Source PDF page 13 (printed page 150) -->
+<p>Compte tenu de 2.4, 1.2 va donc découler du résultat plus précis suivant :</p>
+<div class="thm thm-plain proposition" id="IIIB.2.5"><div class="thm-head"><span class="thm-name"><u>Proposition</u></span> <span class="thm-num">2.5</span></div><div class="thm-body"><p>Sous les hypothèses de 1.2, on suppose que \(a\) et \(b\) sont des immersions fermées et que \(L_x=0\), \(M_y=0\). Désignons par \(T\) le localisé strict de \(X\times_S Y\) en \(z=(x,y)\), et identifions \(A,B\) à des sous-schémas fermés de \(T\). Alors les flèches de restriction</p>
+\[b^*:R\Gamma_A(T,(DL\mathbin{\overset L\otimes}_S M)|T)\longrightarrow R\Gamma_z(B,b^*(DL\mathbin{\overset L\otimes}_S M)),\]
+\[a^*:R\Gamma_B(T,(L\mathbin{\overset L\otimes}_S DM)|T)\longrightarrow R\Gamma_z(A,a^*(L\mathbin{\overset L\otimes}_S DM))\]
+<p>sont nulles.</p></div></div>
+<p id="IIIB.2.6"><span class="theorem-title">2.6.</span> La démonstration de 2.5 va occuper le reste du n° 2 et les n°s 3 et 4. Compte tenu de la symétrie de l'énoncé, on peut se borner à prouver l'assertion relative à \(b^*\). Nous allons la réexprimer sous une forme qui nous sera plus commode. Notons d'abord que</p>
+\[R\Gamma(T,(DL\mathbin{\overset L\otimes}_S M)|T)=(DL\mathbin{\overset L\otimes}_S M)_z=(DL)_x\mathbin{\overset L\otimes}M_y=0,\]
+<p>car \(M_y=0\), et que de même \(R\Gamma(B,b^*(DL\mathbin{\overset L\otimes}_SM))=(DL\mathbin{\overset L\otimes}_SM)_z=0\). Par suite, les triangles de cohomologie relative donnent des isomorphismes</p>
+\[R\Gamma(T-A,(DL\mathbin{\overset L\otimes}_SM)|T-A)\xrightarrow{\sim}R\Gamma_A(T,(DL\mathbin{\overset L\otimes}_SM)|T)[1],\]
+\[R\Gamma(B-z,(DL\mathbin{\overset L\otimes}_SM)|B-z)\xrightarrow{\sim}R\Gamma_z(B,b^*(DL\mathbin{\overset L\otimes}_SM))[1],\]
+<p>par lesquels la flèche \(b^*\) de 2.5, décalée de 1, s'identifie à la restriction</p>
+\[(2.6.1)\qquad b^*:R\Gamma(T-A,(DL\mathbin{\overset L\otimes}_SM)|T-A)\longrightarrow R\Gamma(B-z,(DL\mathbin{\overset L\otimes}_SM)|B-z).\]
+<p>Comme \(L_x=0\), \(M_y=0\), on peut écrire</p>
+\[(2.6.2)\qquad L=i_!DP,\qquad M=j_!Q,\]
+
+<!-- Source PDF page 14 (printed page 151) -->
+<p>où \(i:X-x\longrightarrow X\), \(j:Y-y\longrightarrow Y\) désignent les inclusions, et \(P\in\operatorname{ob}D_{ctf}(X-x)\), \(Q\in\operatorname{ob}D_{ctf}(Y-y)\). Par l'isomorphisme de dualité (SGA 4 XVIII 3.19.6) (plus un passage à la limite), on a \(DL=Ri_*DDP=Ri_*P\), donc \(DL\mathbin{\overset L\otimes}_SM=Ri_*P\mathbin{\overset L\otimes}_Sj_!Q\).</p>
+<p>Posons \(X\times_SY=Z\), et identifions \(X\times\{y\}\), \(\{x\}\times Y\) à des sous-schémas fermés de \(Z\) (resp. \(T\)), que nous noterons simplement \(X,Y\). Notons</p>
+\[f':Z-Y\lhook\joinrel\longrightarrow Z,\quad g':Z-(X\cup Y)\lhook\joinrel\longrightarrow Z-Y,\]
+\[f:T-Y\lhook\joinrel\longrightarrow T,\quad g:T-(X\cup Y)\lhook\joinrel\longrightarrow T-Y,\]
+<p>les inclusions. La formule de Künneth (III 1.6.4) donne, par passage à la limite, \(DL\mathbin{\overset L\otimes}_SM=Rf'_*g'_!(P\mathbin{\overset L\otimes}_SQ)\), d'où</p>
+\[(2.6.3)\qquad(DL\mathbin{\overset L\otimes}_SM)|T=Rf_*g_!((P\mathbin{\overset L\otimes}_SQ)|T-(X\cup Y)).\]
+<p>Avec cette identification, 2.6.1 s'écrit</p>
+\[(2.6.4)\qquad b^*:R\Gamma(T-(Y\cup A),g_!(E)|T-(Y\cup A))\longrightarrow R\Gamma(B-z,g_!(E)|B-z),\]
+<p>où \(E=(P\mathbin{\overset L\otimes}_SQ)|T-(X\cup Y)\).</p>
+<p>Dans les deux numéros qui suivent, nous allons montrer que la flèche 2.6.4 est nulle : nous nous ramènerons d'abord au cas où les faisceaux de cohomologie de \(E\) ont une ramification modérée (l'action de l'inertie se faisant plus précisément à travers un \(\ell\)-groupe, pour un nombre premier \(\ell\ne p\)), puis traiterons directement ce cas à l'aide d'un théorème de pureté.</p>
+
+<!-- Source PDF page 15 (printed page 152) -->
+<h2 id="IIIB.3"><u>3. — Réduction au cas modéré.</u></h2>
+<p id="IIIB.3.1"><span class="theorem-title">3.1.</span> Rappelons que l'anneau de base \(\Lambda\) est annulé par un entier premier à \(p\), donc est produit direct d'anneaux noethériens \(\Lambda_i\), chaque \(\Lambda_i\) étant annulé par une puissance d'un nombre premier \(\ell_i\ne p\). Pour tout schéma \(S'\) sur \(S\), la catégorie dérivée \(D(S',\Lambda)\) est produit des catégories \(D(S',\Lambda_i)\), de sorte que, pour prouver la nullité de 2.6.4, on peut supposer que \(\Lambda\) est annulé par une puissance d'un nombre premier \(\ell\ne p\). On peut supposer, d'autre part, que \(P\) (resp. \(Q\)) est borné et à composantes localement libres de type fini.</p>
+<p id="IIIB.3.2"><span class="theorem-title">3.2.</span> Posons \(X-x=U\), \(Y-y=V\). Soient \(U''/U\) un revêtement galoisien fini de groupe \(G\) qui trivialise les composantes de \(P\), \(H\) un \(\ell\)-sous-groupe de Sylow de \(G\), \(U'=U''/H\) le revêtement quotient, \(X'\) le trait strictement local normalisé de \(X\) dans \(U'\) : \(X'/X\) est un revêtement fini, connexe, de degré \(d_1\) premier à \(\ell\), et la représentation de \(\pi_1(U')\) définie par les composantes de \(P'=P|U'\) se factorise à travers un \(\ell\)-groupe fini. Procédant de même avec \(Q\), on trouve un revêtement fini, connexe, \(Y'/Y\) de degré \(d_2\) premier à \(\ell\), induisant sur \(V\) un revêtement étale \(V'\) tel que la représentation de \(\pi_1(V')\) définie par les composantes de \(Q'=Q|V'\) se factorise à travers un \(\ell\)-groupe fini. Soit \(d=d_1e_1=d_2e_2=\operatorname{ppcm}(d_1,d_2)\). Quitte à extraire une racine \(e_1\)-ième (resp. \(e_2\)-ième) d'une uniformisante de \(X'\) (resp. \(Y'\)), on peut supposer que \(X'\) (resp. \(Y'\)) a les mêmes propriétés que précédemment, avec de plus \(d_1=d_2=d\).</p>
+<p>Soient \(x'\) (resp. \(y'\)) le point fermé de \(X'\) (resp. \(Y'\)), \(T'\) le localisé strict de \(X'\times_SY'\) en \((x',y')\), \(z'\) le point fermé de \(T'\), \(A'\) (resp. \(B'\)) l'image inverse de \(A\) (resp. \(B\)) dans \(T'\),</p>
+\[E'=(P\mathbin{\overset L\otimes}_SQ)|T'-(X'\cup Y')=(P'\mathbin{\overset L\otimes}_SQ')|T'-(X'\cup Y').\]
+<p>On a alors un carré commutatif de flèches de restriction</p>
+\[\xymatrix{R\Gamma(T-(Y\cup A),g_!(E)|T-(Y\cup A))\ar[r]^{b^*}\ar[d]&R\Gamma(B-z,g_!(E)|B-z)\ar[d]\\R\Gamma(T'-(Y'\cup A'),g'_!(E')|T'-(Y'\cup A'))\ar[r]^{b'^*}&R\Gamma(B'-z',g'_!(E')|B'-z')}\tag{1}\]
+
+<!-- Source PDF page 16 (printed page 153) -->
+<p>où (b':B'\longrightarrow T'), (g':T'-(X'\cup Y')\longrightarrow T'-Y') sont les inclusions. Le revêtement (T'/T) est fini, de degré (d^2), et étale en dehors de (X\cup Y), donc induit un revêtement étale de degré (d^2) de (B'-z') sur (B-z). Le composé de (1) et du morphisme trace</p>
+\[R\Gamma(B'-z',g'_!(E')|B'-z')\longrightarrow R\Gamma(B-z,g_!(E)|B-z)\]
+<p>est donc la multiplication par (d^2), qui est un isomorphisme, puisque \(\ell\) ne divise pas (d). Pour prouver que la flèche 2.6.4 est nulle, il suffit donc de prouver que (b'^*=0). On sera donc ramené au cas où la représentation de \(\pi_1(U)\) (resp. \(\pi_1(V)\)) définie par les composantes de (P) (resp. (Q)) se factorise à travers un \(\ell\)-groupe fini, pourvu que l'on s'assure que (A',B') vérifient les hypothèses de position générale de 1.2. Cela va résulter du lemme suivant :</p>
+
+<div class="thm thm-plain lemma" id="IIIB.3.3"><div class="thm-head"><span class="thm-name"><u>Lemme</u></span> <span class="thm-num">3.3</span></div><div class="thm-body"><p>Sous les hypothèses de 1.2, (a) et (b) étant des immersions fermées, soient (X'/X), (Y'/Y) des revêtements finis de (S)-traits strictement locaux, de même degré (d), notons (A') (resp. (B')) l'image inverse de (A) (resp. (B)) dans (X'\times_S Y'). Alors les couples ((A',B')), ((A',X')), ((Y',B')) sont chacun en position générale (au sens de 1.2)<sup class="footnote-ref"><a id="fnref-IIIB-1" href="#fn-IIIB-1">(*)</a></sup>.</p></div></div>
+
+<p>La démonstration de 3.3 sera donnée après quelques préliminaires.</p>
+
+<div class="thm thm-plain lemma" id="IIIB.3.4"><div class="thm-head"><span class="thm-name"><u>Lemme</u></span> <span class="thm-num">3.4</span></div><div class="thm-body"><p>Soient (X\xleftarrow{s_1}W\xrightarrow{s_2}Y) des morphismes finis de (S)-traits, (s=(s_1,s_2):W\longrightarrow X\times_S Y), (u,v,w) des uniformisantes de (X,Y,W) respectivement, de sorte que</p>
+\[s_1^*u=aw^m\bmod w^{m+1},\qquad s_2^*v=bw^n\bmod w^{n+1},\]
+<p>avec (a,b\in k^*\). Alors : (i) Si (m&lt;n), (s(W)) est tangent à (X) en (z=(x,y)).</p>
+<p>(ii) Si (m=n), (s(W)) est tangent au sous-schéma de (X\times_S Y) d'équation (ap_2^*(v)-bp_1^*(u)=0).</p></div></div>
+
+<!-- Source PDF page 17 (printed page 154) -->
+<p>Soient (Z=X\times_S Y), (W') le sous-schéma fermé réduit image de (s). Dans l'espace tangent en (z) à (Z), la pente, par rapport à la tangente à (X), de la tangente à (W') est la valeur à l'origine de la fonction induite sur (W') par (p_2^*(v)/p_1^*(u)) ; c'est aussi la valeur à l'origine de la fonction induite par (p_2^*(v)/p_1^*(u)) sur (W), c'est donc (0) (resp. (b/a)) dans le cas (i) (resp. (ii)).</p>
+
+<p>Dans la situation de 3.4, nous définirons la <u>pente</u> de (W) par rapport à (((X,u),(Y,v))) comme l'élément de (k\cup\{\infty\}) égal à (0) si (m&lt;n), \(\infty\) si (m&gt;n), (b/a) si (m=n). Cet élément ne dépend pas du choix de (w).</p>
+
+<div class="thm thm-plain lemma" id="IIIB.3.5"><div class="thm-head"><span class="thm-name"><u>Lemme</u></span> <span class="thm-num">3.5</span></div><div class="thm-body"><p>Soient (f:X'\longrightarrow X), (g:Y'\longrightarrow Y) des morphismes finis de (S)-traits de même indice de ramification (d), (u,v,u',v') des uniformisantes de (X,Y,X',Y') respectivement. Il existe alors (C\in k^*) tel que, pour tout diagramme commutatif de morphismes finis de (S)-traits</p>
+\[\xymatrix{X'&W'\ar[l]_{s'_1}\ar[r]^{s'_2}\ar[d]^h&Y'\\X&W\ar[l]^{s_1}\ar[r]_{s_2}&Y\ar[u]_g}\qquad\text{où la flèche }X'\to X\text{ est }f,\]
+<p>on ait \(\lambda=C\lambda'^d\), où \(\lambda\) (resp. \(\lambda'\)) est la pente de (W) (resp. (W')) par rapport à (((X,u),(Y,v))) (resp. (((X',u'),(Y',v')))).</p></div></div>
+
+<p>Par hypothèse, on a</p>
+\[f^*u=\alpha u'^d\bmod u'^{d+1},\qquad g^*v=\beta v'^d\bmod v'^{d+1},\]
+<p>avec \(\alpha,\beta\in k^*\). Montrons que (C=\beta/\alpha) a les propriétés voulues. Soit (w) (resp. (w')) une uniformisante de (W) (resp. (W')). On a</p>
+\[s_1^*u=aw^m\bmod w^{m+1},\qquad s_2^*v=bw^n\bmod w^{n+1},\]
+\[s_1'^*u'=a'w'^{m'}\bmod w'^{m'+1},\qquad s_2'^*v'=b'w'^{n'}\bmod w'^{n'+1},\]
+\[h^*w=\gamma w'^r\bmod w'^{r+1},\]
+<p>avec (a,b,a',b',\gamma\in k^*\). La commutativité des carrés du diagramme entraîne</p>
+
+<!-- Source PDF page 18 (printed page 155) -->
+<p>(m'd=rm), (n'd=rn), d'où (m'/n'=m/n). Supposons d'abord (m=n). On a \(\lambda=b/a\), \(\lambda'=b'/a'\). Si l'on pose (N=m'd=rm=n'd=rn), les congruences ci-dessus fournissent</p>
+\[(fs'_1)^*u=\alpha a'^d w'^N\bmod w'^{N+1},\qquad (s_1h)^*u=a\gamma^m w'^N\bmod w'^{N+1},\]
+<p>d'où \(\alpha a'^d=a\gamma^m\). On obtient de même \(\beta b'^d=b\gamma^m\), d'où \(\lambda=C\lambda'^d\), pour \(\lambda\ne0,\infty\). Mais, comme (m'/n'=m/n), \(\lambda=0\) (resp. \(\infty\)) équivaut à \(\lambda'=0\) (resp. \(\infty\)), ce qui achève la démonstration.</p>
+
+<p>Prouvons maintenant 3.3. Soient (Z=X\times_S Y), (Z'=X'\times_S Y'), \(\widetilde A\) (resp. \(\widetilde B\)) le normalisé de (A) (resp. (B)), \(\widetilde A'\) (resp. \(\widetilde B'\)) le normalisé de (A') (resp. (B')). Comme \(\widetilde A'\) (resp. \(\widetilde B'\)) est aussi le normalisé de \(\widetilde A\times_Z Z'\) (resp. \(\widetilde B\times_Z Z'\)), on a des carrés commutatifs</p>
+\[\xymatrix{\widetilde A'\ar[r]\ar[d]&Z'\ar[d]&\widetilde B'\ar[l]\ar[d]\\\widetilde A\ar[r]&Z&\widetilde B\ar[l]}\tag{*}\]
+<p>Soient ((x_i)_{1\leq i\leq m}) (resp. ((y_j)_{1\leq j\leq n})) les points de \(\widetilde A\) (resp. \(\widetilde B\)) au-dessus de (x) (resp. (y)), ((x'_i)_{1\leq i\leq m'}) (resp. ((y'_j)_{1\leq j\leq n'})) les points de \(\widetilde A'\) (resp. \(\widetilde B'\)) au-dessus de (x') (resp. (y')). Comme (A) et (B) sont strictement locaux, on a des décompositions \(\widetilde A=\coprod_{1\leq i\leq m}A_i\), \(\widetilde B=\coprod_{1\leq j\leq n}B_j\), \(\widetilde A'=\coprod_{1\leq i\leq m'}A'_i\), \(\widetilde B'=\coprod_{1\leq j\leq n'}B'_j\), où (A_i,B_j,A'_i,B'_j) sont des traits strictement locaux de points fermés respectifs (x_i,y_j,x'_i,y'_j). Choisissons des uniformisantes (u,v,u',v'), de (X,Y,X',Y') respectivement, notons \(\lambda_i\) (resp. \(\mu_j\)) la pente de (A_i) (resp. (B_j)) par rapport à (((X,u),(Y,v))), \(\lambda'_i\) (resp. \(\mu'_j\)) celle de (A'_i) (resp. (B'_j)) par rapport à (((X',u'),(Y',v'))). Les hypothèses de position générale sur (A) et (B) s'expriment par</p>
+\[(1)\qquad \lambda_i\ne0\ \text{pour tout }i,\quad \mu_j\ne\infty\ \text{pour tout }j,\quad \lambda_i\ne\mu_j\ \text{pour tous }i,j,\]
+<p>et il s'agit de montrer que l'on a</p>
+\[(2)\qquad \lambda'_i\ne0\ \text{pour tout }i,\quad \mu'_j\ne\infty\ \text{pour tout }j,\quad \lambda'_i\ne\mu'_j\ \text{pour tous }i,j.\]
+
+<!-- Source PDF page 19 (printed page 156) -->
+<p>Soient (i'\in[1,m']), (j'\in[1,n']), (x_i) (resp. (y_j)) l'image de (x'_{i'}) (resp. (y'_{j'})). Le diagramme (*) fournit des carrés commutatifs de morphismes finis de (S)-traits</p>
+\[\xymatrix{X'&A'_{i'}\ar[l]\ar[r]\ar[d]&Y'\ar[d]\\X&A_i\ar[l]\ar[r]&Y}\qquad,\qquad
+\xymatrix{X'\ar[d]&B'_{j'}\ar[l]\ar[r]\ar[d]&Y'\\X&B_j\ar[l]\ar[r]&Y}.\]
+<p>D'après 3.5, il existe (C\in k^*) tel que \(\lambda_i=C\lambda_{i'}'^d\), \(\mu_j=C\mu_{j'}'^d\), donc (1) entraîne (2), ce qui achève la démonstration de 3.3.</p>
+
+<!-- Source PDF page 20 (printed page 157) -->
+<h2 id="IIIB.4"><u>4. — Fin de la démonstration de 1.2.</u></h2>
+
+<p id="IIIB.4.1"><span class="theorem-title">4.1</span> Pour achever la démonstration de 2.5, donc de 1.2, il reste à établir la nullité de 2.6.4 sous les hypothèses additionnelles suivantes : \(\Lambda\) est annulé par une puissance d'un nombre premier \(\ell\ne p\), (P) et (Q) sont bornés, à composantes localement libres de type fini, telles que les représentations correspondantes des groupes fondamentaux se factorisent à travers des \(\ell\)-groupes finis. On a</p>
+\[g_!(E)|T-(Y\cup A)=g_{1!}(E_1),\]
+<p>où (g_1:T-(X\cup Y\cup A)\longrightarrow T-(Y\cup A)) est l'inclusion, et (E_1=(P\mathbin{\overset L\otimes}_S Q)|T-(X\cup Y\cup A)). Or (E_1) est un complexe à cohomologie bornée, constructible, localement constante, telle que la représentation correspondante de \(\pi_1(T-(X\cup Y\cup A))\) se factorise à travers un \(\ell\)-groupe. L'assertion à démontrer va donc résulter de l'énoncé plus général suivant :</p>
+
+<div class="thm thm-plain proposition" id="IIIB.4.2"><div class="thm-head"><span class="thm-name"><u>Proposition</u></span> <span class="thm-num">4.2</span></div><div class="thm-body"><p>Soient (T) le localisé strict en un point fermé d'un (S)-schéma lisse de dimension 2, (t) le point fermé de (T), (A,B,X) des sous-schémas fermés de dimension 1 de (T), (i:T-(A\cup X)\longrightarrow T-A) l'inclusion. On suppose que (X) est régulier, et que (A) est en position générale par rapport à (B) et (X) (i.e. que l'intersection des cônes tangents en (t) à (A) et (B\cup X) est réduite à (t)). Soit d'autre part (E\in\operatorname{ob}D^b(T-(A\cup X))), tel que (H^*(E)) soit constructible, localement constant, et que la représentation correspondante de \(\pi_1(T-(A\cup X))\) se factorise à travers un \(\ell\)-groupe. Alors la flèche de restriction</p>
+\[R\Gamma(T-A,i_!(E))\longrightarrow R\Gamma(B-t,i_!(E)|B-t)\]
+<p>est nulle.</p></div></div>
+
+<p>La démonstration va s'appuyer sur le</p>
+
+<div class="thm thm-plain lemma" id="IIIB.4.3"><div class="thm-head"><span class="thm-name"><u>Lemme</u></span> <span class="thm-num">4.3</span></div><div class="thm-body"><p>Soient (Z) un schéma noethérien régulier connexe de dimension 2, de caractéristiques résiduelles premières à \(\ell\), (X,Y) des diviseurs réguliers se coupant transversalement en un point (z), d'où un diagramme d'inclusions</p>
+
+<!-- Source PDF page 21 (printed page 158) -->
+\[
+\xymatrix{
+Z-(X\cup Y) \ar[r]^{i'} \ar[d]_{j'} & Z-Y \ar[d]^j\\
+Z-X \ar[r]^i & Z\\
+Y-z \ar[u]^{m'} \ar[r]_{i_1} & Y \ar[u]_m
+}
+\]
+
+<p>On fait l'hypothèse de pureté :</p>
+\[
+\tag{P} R^qj_*(\mathbb Z/\ell)=0\qquad\text{pour }q&gt;1.
+\]
+<p>Soit d'autre part \(L\in\operatorname{ob}D^b(Z-(X\cup Y),\Lambda)\), à cohomologie constructible localement constante, telle que la représentation correspondante de \(\pi_1(Z-(X\cup Y))\) se factorise à travers un \(\ell\)-groupe. Alors :</p>
+
+<p>a) On a un isomorphisme canonique</p>
+\[
+i_1^*m'^*Rj'_*L\overset\sim\longrightarrow m^*Rj_*(i'_!L),
+\]
+<p>et le complexe \(m'^*Rj'_*L\) est à cohomologie constructible, localement constante.</p>
+
+<p>b) Supposons \(Y\) connexe, et soit \(\bar s\) un point géométrique de \(Y\) localisé en un point fermé \(s\ne z\). Alors la flèche de restriction</p>
+\[
+\tag{4.3.1}R\Gamma(Y,m^*Rj_*(i'_!L))\longrightarrow (Rj_*(i'_!L))_{\bar s}
+\]
+<p>est nulle.</p>
+
+<p>c) Sous les hypothèses de b), soit \(C\) un sous-schéma fermé de dimension 1 de \(Z\) tel que \(Y\cap C=s\), notons \(\widetilde C\) le localisé strict de \(C\) en \(\bar s\). Alors la flèche de restriction</p>
+\[
+\tag{4.3.2}R\Gamma(Z-Y,i'_!L)\longrightarrow R\Gamma(\widetilde C-\bar s,i'_!(L)|\widetilde C-\bar s)
+\]
+<p>est nulle.</p></div></div>
+
+<p>L'isomorphisme (trivial) \(i_1^*Rj_*i'_!L\overset\sim\longrightarrow Rj'_*(i'^*i'_!L)=Rj'_*L\) donne un</p>
+
+<!-- Source PDF page 22 (printed page 159) -->
+<p>isomorphisme \(m'^*Rj'_*L\overset\sim\longrightarrow i_1^*m^*Rj_*i'_!L\), d'où, par adjonction, une flèche</p>
+\[
+i_{1!}m'^*Rj'_*L\longrightarrow m^*Rj_*(i'_!L),
+\]
+<p>qui induit un isomorphisme hors de \(z\). Montrons qu'elle est un isomorphisme, i.e. que, si \(\bar z\) est un point géométrique au-dessus de \(z\),</p>
+\[
+Rj'_*(i'_!L)_{\bar z}=0.
+\]
+<p>On peut pour cela remplacer \(\Lambda\) par \(\mathbb Z/\ell^\nu\), où \(\ell^\nu\) annule \(\Lambda\), et l'on se ramène, par dévissage et passage à la limite, au cas où \(L\) est un \(\mathbb Z/\ell^\nu\)-Module localement constant de type fini, correspondant à une représentation du \(\pi_1\) à travers un \(\ell\)-groupe. Comme le seul groupe abélien fini de \(\ell\)-torsion qui est simple sous l'action d'un \(\ell\)-groupe est \(\mathbb Z/\ell\) avec action triviale, on se ramène, par un nouveau dévissage, au cas où \(L\) est le faisceau constant \(\mathbb Z/\ell\). Soient \(\widetilde Z\) le localisé strict de \(Z\) en \(\bar z\), \(\widetilde X=X\times_Z\widetilde Z\), \(\widetilde Y=Y\times_Z\widetilde Z\), \(i':\widetilde Z-(\widetilde X\cup\widetilde Y)\longrightarrow\widetilde Z-\widetilde Y\) l'inclusion. On a</p>
+\[
+Rj'_*(i'_!(\mathbb Z/\ell))_{\bar z}=R\Gamma(\widetilde Z-\widetilde Y,i'_!(\mathbb Z/\ell)),
+\]
+<p>de sorte qu'on est ramené à prouver que la flèche de restriction</p>
+\[
+H^n(\widetilde Z-\widetilde Y,\mathbb Z/\ell)\longrightarrow H^n(\widetilde X-z,\mathbb Z/\ell)
+\]
+<p>est un isomorphisme pour tout \(n\). Or, pour \(n\leq 1\), c'est une conséquence du lemme d'Abhyankar, et pour \(n&gt;1\) les deux membres sont nuls par l'hypothèse de pureté. La première assertion de a) est donc établie. Prouvons la seconde. Par dévissage, on peut supposer \(L\) concentré en degré 0. L'hypothèse (P) entraîne, par dévissage, \(R^qj'_*L=0\) pour \(q&gt;2\). Reste à prouver la constructibilité et la locale constance de \(m'^*R^qj'_*L\) pour \(q\leq1\), ce qui est standard. Pour la constructibilité, résolvant \(L\) à droite par des faisceaux du type \(p_*p^*L\), où \(p:Z'\longrightarrow Z\) est un revêtement fini modérément ramifié le long de \(Y\), on se ramène à \(L\) constant, de valeur \(L_0\) : on a alors \(m'^*j'_*L=(L_0)_{Y-z}\), et \(m'^*R^1j'_*L=(L_0)_{Y-z}(-1)\) par Abhyankar. Pour la locale constance, il s'agit de voir que les flèches de spécialisation sont des isomorphismes. On peut, pour cela,</p>
+
+<!-- Source PDF page 23 (printed page 160) -->
+<p>remplacer, comme plus haut, \(\Lambda\) par \(\mathbb Z/\ell^\nu\), et l'on se ramène par dévissage au cas où \(L\) est le faisceau constant \(\mathbb Z/\ell\) : on conclut à l'aide du lemme d'Abhyankar. On a donc démontré a). Prouvons b). Soit \(\bar\eta\) un point générique géométrique de \(Y\). Choisissons des flèches de spécialisation \(a:\bar\eta\longrightarrow Y(\bar z)\), \(b:\bar\eta\longrightarrow Y(\bar s)\) (où \(Y(\bar z)\) (resp. \(Y(\bar s)\)) est le localisé strict de \(Y\) en \(\bar z\) (resp. \(\bar s\))). Posons \(M=m^*Rj_*(i'_!L)\). Le carré commutatif</p>
+\[
+\xymatrix{
+Y & Y(\bar s)\ar[l]\\
+Y(\bar z)\ar[u] & \bar\eta\ar[l]_a\ar[u]^b
+}
+\]
+<p>induit un carré commutatif</p>
+\[
+\xymatrix{
+R\Gamma(Y,M)\ar[r]^{4.3.1}\ar[d] & M_{\bar s}\ar[d]^{b^*}\\
+M_{\bar z}\ar[r]_{a^*} & M_{\bar\eta}.
+}
+\]
+<p>Comme \(M|Y-z\) est à cohomologie localement constante, \(b^*\) est un isomorphisme. D'autre part, comme \(M=i_{1!}i_1^*M\), on a \(M_{\bar z}=0\), donc la flèche 4.3.1 est nulle.</p>
+
+<p>Reste à prouver c). On a \(\widetilde C=C\times_Z\widetilde Z\), où \(\widetilde Z\) désigne, comme plus haut, le localisé strict de \(Z\) en \(\bar z\). Posons \(\widetilde Y=Y\times_Z\widetilde Z\). On a alors un diagramme commutatif de flèches de restriction</p>
+\[
+\xymatrix{
+R\Gamma(Z-Y,i'_!L)=R\Gamma(Z,Rj_*(i'_!L))\ar[r]^{4.3.2}\ar[d] & R\Gamma(\widetilde C-\bar s,i'_!(L)|\widetilde C-\bar s)\ar[u]\\
+R\Gamma(Y,m^*Rj_*(i'_!L))\ar[r]^{4.3.1} & (Rj_*(i'_!L))_{\bar s}=R\Gamma(\widetilde Z-\widetilde Y,(i'_!L)|\widetilde Z-\widetilde Y),
+}
+\]
+<p>la nullité de 4.3.2 découle donc de b), ce qui achève la démonstration de 4.3.</p>
+
+<p>Prouvons 4.2. Soient \(f:T'\longrightarrow T\) l'éclatement de l'idéal maximal de \(T\), \(D=f^{-1}(z)\;(\sim\mathbb P^1_S)\) le diviseur exceptionnel, \(A',B',X'\) les transformés purs respectifs de \(A,B,X\). \(T'\) est donc régulier, connexe, de dimension 2, \(X'\) est un diviseur régulier coupant transversalement \(D\) en un point \(z'\), et les hypothèses de position générale sur \(A,B,X\) signifient que \(A'\) est disjoint de</p>
+
+<!-- Source PDF page 24 (printed page 161) -->
+<p>\(B'\cup X'\). Notons \(E'\) l'image inverse de \(E\) sur \(T'-(A'\cup D\cup X')\) et \(i':T'-(A'\cup D\cup X')\longrightarrow T'-(A'\cup D)\) l'inclusion. Il s'agit de prouver que la flèche de restriction</p>
+\[
+\tag{*}R\Gamma(T'-(A'\cup D),i'_!(E'))\longrightarrow R\Gamma(B'\cup D,i'_!(E')|B'-(B'\cup D))
+\]
+<p>est nulle. Mais \(B'\) est réunion disjointe de schémas strictement locaux \(B'_j\;(1\leq j\leq n)\), de dimension 1, tels que, pour chaque \(j\), \(B'_j\cap D\) soit réduit à un point \(b_j\). Appliquant 4.3 c) à \((Z=T'-A',\ X=X',\ Y=D-(D\cap A'),\ L=E',\ C=B'_j)\) (l'hypothèse (P) est vérifiée en vertu du théorème de pureté relatif (SGA 4 XVI 3) car \((Z,Y)\) est limite projective filtrante de couples lisses de codimension 1 sur \(S\), à morphismes de transition affines étales), on trouve que la flèche de restriction</p>
+\[
+R\Gamma(T'-(A'\cup D),i'_!(E'))\longrightarrow R\Gamma(B'_j-b_j,i'_!(E')|B'_j-b_j)
+\]
+<p>est nulle. Donc (*) est nulle, ce qui achève la démonstration de 4.2, donc de 2.5 et 1.2.</p>
+
+<!-- Source PDF page 25 (printed page 162) -->
+<h2 id="IIIB.II"><u>II. Correspondances équivariantes.</u></h2>
+
+<h2 id="IIIB.5"><u>5. — Traces non commutatives.</u></h2>
+
+<p>On fixe dans ce numéro un topos (T) et un anneau commutatif unitaire (K)
+de (T). Les anneaux considérés seront supposés associatifs et unitaires, mais pas
+nécessairement commutatifs. On appellera (K)-algèbre tout anneau (A) (associatif,
+unitaire) de (T) muni d'un homomorphisme (unitaire) (K\longrightarrow A) d'image contenue
+dans le centre.</p>
+
+<h3 id="IIIB.5.0"><u>5.0. — Introduction.</u></h3>
+
+<p>Soit (E) un (K)-module localement facteur direct d'un module libre de type
+fini. On dispose alors d'un homomorphisme <u>trace</u> (de nature locale)</p>
+\[
+\tag{5.0.1}\operatorname{Tr}_K:\underline{\operatorname{Hom}}_K(E,E)\longrightarrow K
+\]
+<p>défini par composition de la «flèche d'évaluation»</p>
+\[
+\tag{5.0.2}\underline{\operatorname{Hom}}_K(E,K)\otimes_KE\longrightarrow K,
+\qquad f\otimes x\longmapsto f(x),
+\]
+<p>avec l'inverse de l'isomorphisme canonique «produit tensoriel»</p>
+\[
+\tag{5.0.3}\underline{\operatorname{Hom}}_K(E,K)\otimes_KE\longrightarrow
+\underline{\operatorname{Hom}}_K(E,E),\qquad f\otimes y\longmapsto(x\longmapsto f(x)y).
+\]
+<p>Les flèches 5.0.2 et 5.0.3 sont définies plus généralement pour tout (K)-module (E),
+et l'on en déduit, pour tout complexe de (K)-modules (E), des homomorphismes de complexes</p>
+\[
+\tag{5.0.4}\underline{\operatorname{Hom}}_K^\bullet(E,K)\otimes_KE\longrightarrow K,
+\qquad f\otimes x\longmapsto f(x),
+\]
+\[
+\tag{5.0.5}\underline{\operatorname{Hom}}_K^\bullet(E,K)\otimes_KE\longrightarrow
+\underline{\operatorname{Hom}}_K^\bullet(E,E),\qquad f\otimes y\longmapsto(x\longmapsto f(x)y).
+\]
+<p>Par dérivation, 5.0.4, 5.0.5 donnent, pour (E\in\operatorname{ob}D^-(K)), des flèches de (D(K)) :</p>
+\[
+\tag{5.0.6}R\underline{\operatorname{Hom}}_K(E,K)\mathbin{\overset L\otimes}_KE\longrightarrow K,
+\]
+\[
+\tag{5.0.7}R\underline{\operatorname{Hom}}_K(E,K)\mathbin{\overset L\otimes}_KE\longrightarrow
+R\underline{\operatorname{Hom}}_K(E,E).
+\]
+
+<!-- Source PDF page 26 (printed page 163) -->
+<p>Si (E) est parfait (SGA 6 I), 5.0.7 est un isomorphisme (comme on le vérifie facilement
+par réduction au cas où (E=K)), et, en composant l'inverse de 5.0.7 avec 5.0.6, on obtient
+un homomorphisme trace, de nature <u>globale</u>,</p>
+\[
+\tag{5.0.8}\operatorname{Tr}_K:R\underline{\operatorname{Hom}}_K(E,E)\longrightarrow K,
+\]
+<p>qui généralise 5.0.1 (pour plus de détails, voir (SGA 6 I 7, 8)).</p>
+
+<p>Nous nous proposons ici d'examiner dans quelle mesure on peut, dans les constructions
+précédentes, remplacer (K) par une (K)-algèbre (A) (on s'intéressera surtout au cas où
+(A) est la (K)-algèbre d'un groupe fini ordinaire), et définir notamment une flèche trace
+analogue à 5.0.8, généralisant la notion de trace «non commutative» introduite par Stallings
+dans [5] et développée par Grothendieck dans l'exposé XI de ce séminaire (comme on l'a dit
+dans l'introduction, cet exposé, rédigé par I. Bucur, a malheureusement été perdu ; le lecteur
+pourra toutefois se reporter à l'exposé de Deligne (SGA 4<sup>1/2</sup> Rapport), où sont indiqués
+les points essentiels). Si le remplacement de (K) par (A) dans 5.0.3 ne présente pas de
+difficulté, il n'en va pas de même dans 5.0.2 : si (E) est un (A)-module à gauche, la flèche
+d'évaluation</p>
+\[
+\underline{\operatorname{Hom}}_A(E,A)\otimes_KE\longrightarrow A,
+\qquad f\otimes x\longmapsto f(x)
+\]
+<p>ne se factorise pas en général à travers
+(\underline{\operatorname{Hom}}_A(E,A)\otimes_AE), mais donne, par passage au quotient, une flèche</p>
+\[
+\tag{5.0.9}\underline{\operatorname{Hom}}_A(E,A)\otimes_AE\longrightarrow A_\natural,
+\]
+<p>où (A_\natural) est le (K)-module quotient de (A) par le sous-(K)-module engendré localement
+par les sections locales de la forme (ab-ba). Si (E) est localement facteur direct d'un
+(A)-module à gauche libre de type fini, la flèche produit tensoriel, analogue à 5.0.3,</p>
+\[
+\tag{5.0.10}\underline{\operatorname{Hom}}_A(E,A)\otimes_AE\longrightarrow
+\underline{\operatorname{Hom}}_A(E,E)
+\]
+<p>est un isomorphisme, et l'on obtient, en composant l'inverse de 5.0.10 avec 5.0.9,
+un homomorphisme trace</p>
+
+<!-- Source PDF page 27 (printed page 164) -->
+\[
+\tag{5.0.11}\operatorname{Tr}_A:\underline{\operatorname{Hom}}_A(E,E)\longrightarrow A_\natural,
+\]
+<p>qui se réduit à 5.0.1 quand (A=K). On vérifie facilement par ailleurs (voir 5.7)
+que, pour (T) ponctuel, 5.0.11 coïncide avec l'homomorphisme trace de Stallings et
+Grothendieck. Dans ce numéro, nous examinerons l'extension aux complexes et la dérivation
+des flèches 5.0.9, 5.0.10, 5.0.11, et le comportement des flèches obtenues vis-à-vis de
+l'extension et de la restriction des scalaires et de certains produits tensoriels externes.
+En fait, nous dériverons des flèches un peu plus générales que 5.0.9 et 5.0.10, afin que les
+constructions puissent s'appliquer à la définition, au n° 6, de termes locaux de
+Lefschetz-Verdier «non commutatifs».</p>
+
+<h3 id="IIIB.5.1"><u>5.1. — Notations.</u></h3>
+
+<p>Si (A) est une (K)-algèbre, on notera (A^o) l'algèbre opposée à (A), et
+(A^e=A\otimes_KA^o) l'algèbre enveloppante de (A). Il revient au même de se donner un
+(A)-bimodule, un (A^e)-module à gauche, ou un (A^e)-module à droite. En particulier,
+(A) est un (A)-bimodule, donc un (A^e)-module à gauche et un (A^e)-module à droite.
+Si (E) est un bimodule rappelons ([1] IX 4) que</p>
+\[
+H_o(A,E)=A\otimes_{A^e}E=E\otimes_{A^e}A
+\]
+<p>est le (K)-module quotient de (E) par le sous-(K)-module engendré localement par les
+sections locales de la forme (ax-xa), pour (x\in E, a\in A)<sup class="footnote-ref"><a id="fnref-IIIB-2" href="#fn-IIIB-2">(1)</a></sup>.
+On écrira parfois (E_\natural) au lieu de (H_o(A,E)). En particulier, (A_\natural) est le
+(K)-module défini en 5.0.9. Si (A=K[G]), où (G) est un groupe fini ordinaire,
+(A_\natural) n'est autre que le (K)-module libre sur l'ensemble (G_\natural) des classes
+de conjugaison de (G).</p>
+
+<p>Si (A,B) sont des (K)-algèbres, on utilisera la notation de Cartan-Eilenberg
+({}_A E, E_B, {}_A E_B) pour désigner respectivement un (A)-module à gauche, un
+(B)-module à droite, un module à gauche sur (A) et à droite sur (B). Enfin, on notera
+(D(A)) (resp. (D(A,B))) la catégorie dérivée de la catégorie des (A)-modules à gauche
+(resp. des (A)-(B)-bimodules, à gauche sur (A), à droite sur (B).</p>
+
+<!-- Source PDF page 28 (printed page 165) -->
+<p id="IIIB.5.2"><span class="theorem-title">5.2.</span> Soient (A,B) des (K)-algèbres.
+Rappelons que, dans la situation (({}_A E,{}_B F_A,{}_B G)), on a un isomorphisme canonique</p>
+\[
+\tag{5.2.1}\underline{\operatorname{Hom}}_A(E,\underline{\operatorname{Hom}}_B(F,G))
+\xrightarrow{\sim}\underline{\operatorname{Hom}}_B(F\otimes_AE,G),
+\quad f\longmapsto(y\otimes x\longmapsto f(x)(y)).
+\]
+<p>Celui-ci se dérive en un isomorphisme</p>
+\[
+\tag{5.2.2}R\underline{\operatorname{Hom}}_A(E,R\underline{\operatorname{Hom}}_B(F,G))
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}_B(F\mathbin{\overset L\otimes}_AE,G)
+\]
+<p>pour (E\in\operatorname{ob}D^-(A)), (F\in\operatorname{ob}D^-(B,A)),
+(G\in\operatorname{ob}D^+(B)). On peut en effet supposer (E) borné supérieurement et à
+composantes plates, (G) borné inférieurement et à composantes injectives, on a alors
+(R\underline{\operatorname{Hom}}_B(F\mathbin{\overset L\otimes}_AE,G)=
+\underline{\operatorname{Hom}}_B^\bullet(F\otimes_AE,G)),
+(R\underline{\operatorname{Hom}}_B(F,G)=\underline{\operatorname{Hom}}_B^\bullet(F,G)), et
+(R\underline{\operatorname{Hom}}_A(E,\underline{\operatorname{Hom}}_B^\bullet(F,G))=
+\underline{\operatorname{Hom}}_A^\bullet(E,\underline{\operatorname{Hom}}_B^\bullet(F,G)))
+car, si (E) est acyclique, (F\otimes_AE) est acyclique, donc
+(\underline{\operatorname{Hom}}_A^\bullet(E,\underline{\operatorname{Hom}}_B^\bullet(F,G))
+\simeq\underline{\operatorname{Hom}}_B^\bullet(F\otimes_AE,G)) est acyclique ; pour (E) et
+(G) comme ci-dessus, 5.2.2 est donné par l'isomorphisme de complexes</p>
+\[
+\underline{\operatorname{Hom}}_A^\bullet(E,\underline{\operatorname{Hom}}_B^\bullet(F,G))
+\xrightarrow{\sim}\underline{\operatorname{Hom}}_B^\bullet(F\otimes_AE,G)
+\]
+<p>défini par 5.2.1. Noter que, si (A) et (B) sont plats sur (K), 5.2.2 vaut encore sous
+les conditions (E\in\operatorname{ob}D(A)), (F\in\operatorname{ob}D^-(B,A)),
+(G\in\operatorname{ob}D^+(B)), comme on le voit en résolvant (F) par des
+((B\otimes_KA^o))-modules plats. On déduit de 5.2.2 un isomorphisme</p>
+\[
+\tag{5.2.3}\operatorname{Hom}_A(E,R\underline{\operatorname{Hom}}_B(F,G))
+\xrightarrow{\sim}\operatorname{Hom}_B(F\mathbin{\overset L\otimes}_AE,G).
+\]
+
+<p id="IIIB.5.3"><span class="theorem-title">5.3.</span> Soit (A) une (K)-algèbre.
+Dans la situation ((E_A,{}_A F)), on a un isomorphisme canonique</p>
+\[
+\tag{5.3.1}E\otimes_AF\xrightarrow{\sim}(E\otimes_KF)\otimes_{A^e}A,
+\qquad x\otimes y\longmapsto(x\otimes y)\otimes1.
+\]
+<p>D'autre part, dans la situation (({}_A E,{}_A F_A)), la flèche d'évaluation</p>
+\[
+\tag{5.3.2}\underline{\operatorname{Hom}}_A(E,F)\otimes_KE\longrightarrow F,
+\qquad f\otimes x\longmapsto f(x)
+\]
+<p>est (A^e)-linéaire, donc induit, via 5.3.1, par application de
+(-\otimes_{A^e}A), une flèche</p>
+\[
+\tag{5.3.3}\underline{\operatorname{Hom}}_A(E,F)\otimes_AE\longrightarrow
+F\otimes_{A^e}A\;(=F_\natural).
+\]
+
+<!-- Source PDF page 29 (printed page 166) -->
+<p>En d'autres termes, la flèche composée de 5.3.2 et de la flèche canonique
+(F\longrightarrow F_\natural, x\longmapsto x\otimes1), se factorise (de manière unique)
+à travers 5.3.3.</p>
+
+<p>Supposons (A) plat sur (K). Alors 5.3.1 se dérive en un isomorphisme</p>
+\[
+\tag{5.3.4}E\mathbin{\overset L\otimes}_AF\xrightarrow{\sim}
+(E\mathbin{\overset L\otimes}_KF)\mathbin{\overset L\otimes}_{A^e}A,
+\]
+<p>pour (E\in\operatorname{ob}D^-(A^o)), (F\in\operatorname{ob}D^-(A)) (résoudre (E) et
+(F) par des modules plats). D'autre part, 5.3.3 se dérive en une flèche de (D(K)), dite
+<u>flèche d'évaluation</u>,</p>
+\[
+\tag{5.3.5}R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_AE
+\longrightarrow F\mathbin{\overset L\otimes}_{A^e}A,
+\]
+<p>pour (E\in\operatorname{ob}D^-(A)), (F\in\operatorname{ob}D^b(A^e)) tel que
+(R\underline{\operatorname{Hom}}_A(E,F)\in\operatorname{ob}D^b(A^o)) : on dérive d'abord
+5.3.2 en une flèche de (D^-( (A^e)^o))</p>
+\[
+\tag{5.3.6}R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_KE
+\longrightarrow F,
+\]
+<p>en résolvant (E) par des modules plats et (F) par des (A^e)-modules injectifs, puis
+l'on applique le foncteur (-\mathbin{\overset L\otimes}_{A^e}A) à 5.3.6, en tenant compte
+de 5.3.4.</p>
+
+<p id="IIIB.5.4"><span class="theorem-title">5.4.</span> Soit (A) une (K)-algèbre.
+Dans la situation (({}_A E,{}_A F_A,{}_A G)), on a une flèche canonique</p>
+\[
+\tag{5.4.1}\underline{\operatorname{Hom}}_A(E,F)\otimes_AG\longrightarrow
+\underline{\operatorname{Hom}}_A(E,F\otimes_AG),\qquad
+u\otimes y\longmapsto(x\longmapsto u(x)\otimes y),
+\]
+<p>qui correspond par adjonction (5.2.1) à la flèche (A)-linéaire</p>
+\[
+E\otimes_K\underline{\operatorname{Hom}}_A(E,F)\otimes_AG\longrightarrow F\otimes_AG
+\]
+<p>définie par la flèche d'évaluation
+(E\otimes_K\underline{\operatorname{Hom}}_A(E,F)\longrightarrow F).</p>
+
+<p>La flèche 5.4.1 se dérive en une flèche de (D(K)), dite <u>flèche de produit tensoriel</u>,</p>
+\[
+\tag{5.4.2}R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_AG
+\longrightarrow R\underline{\operatorname{Hom}}_A(E,F\mathbin{\overset L\otimes}_AG),
+\]
+
+<!-- Source PDF page 30 (printed page 167) -->
+<p>pour \(E\in\operatorname{ob}D^-(A)\), \(F\in\operatorname{ob}D^+(A^e)\),
+\(G\in\operatorname{ob}D^-(A)\), avec
+\(F\mathbin{\overset L\otimes}_AG\in\operatorname{ob}D^+(A)\). Si \(E\) et \(G\)
+sont bornés supérieurement et à composantes plates, \(F\) borné inférieurement et à
+composantes injectives, le premier membre de 5.4.2 s'identifie en effet à
+\(\underline{\operatorname{Hom}}_A^\bullet(E,F)\otimes_AG\), et on l'envoie dans le second
+membre par le composé de 5.4.1 et de la flèche naturelle</p>
+\[
+\underline{\operatorname{Hom}}_A^\bullet(E,F\otimes_AG)\longrightarrow
+R\underline{\operatorname{Hom}}_A(E,F\otimes_AG)=
+R\underline{\operatorname{Hom}}_A(E,F\mathbin{\overset L\otimes}_AG).
+\]
+
+<p>La flèche 5.4.2 n'est pas en général un isomorphisme. Elle l'est cependant dans certains
+cas importants, par exemple si \(E\) est <u>parfait</u> (comme on le vérifie en se ramenant
+à \(E=A\)). Nous verrons plus loin un autre exemple intéressant (6.2.3).</p>
+
+<p>Les flèches 5.3.5 et 5.4.2 joueront un rôle essentiel dans toute la suite de l'exposé.
+Les exemples d'objets \(F\) que nous avons en vue sont : a) \(F=A\), ou \(F=A\) considéré
+comme \(A\)-module à droite de la manière naturelle et comme \(A\)-module à gauche par un
+homomorphisme de \(K\)-algèbres \(\varphi:A\longrightarrow A\) (cf. 5.13) ; b)
+\(F=M\mathbin{\overset L\otimes}_KA\), avec \(M\in\operatorname{ob}D^+(K)\) (au n° 6,
+\(M\) sera un complexe dualisant, voir notamment 6.3.2, 6.4.1, 6.5.6).</p>
+
+<p id="IIIB.5.5"><span class="theorem-title">5.5.</span> Notons \(DF(A)\) la catégorie
+dérivée des complexes de \(A\)-modules à gauche munis d'une filtration finie ([3] V).
+Alors, dans la situation de 5.2, on a un isomorphisme canonique de \(DF(K)\), analogue à
+5.2.2, pour \(E\in\operatorname{ob}D^-F(A)\),
+\(F\in\operatorname{ob}D^-F(B,A)\;(=D^-F(B\otimes_KA^o))\),
+\(G\in\operatorname{ob}D^+F(B)\). De même, on a des flèches «dérivées filtrées» analogues
+à 5.3.4, 5.3.5, 5.3.6, 5.4.2. Ces flèches sont compatibles avec le passage aux gradués
+associés, au sens de ([3] V 1,2).</p>
+
+<p id="IIIB.5.6"><span class="theorem-title">5.6.</span> On suppose \(A\) plat sur \(K\).
+Notons \(D(A)_{\mathrm{parf}}\) la sous-catégorie pleine de \(D(A)\) formée des complexes
+d'amplitude parfaite finie, i.e. parfaits et de tor-dimension finie (SGA 6 I). On définit
+une flèche canonique, dite <u>trace</u>,</p>
+\[
+\tag{5.6.1}\operatorname{Tr}_A=R\underline{\operatorname{Hom}}_A
+(E,F\mathbin{\overset L\otimes}_AE)\longrightarrow
+F\mathbin{\overset L\otimes}_{A^e}A,
+\]
+<p>pour \(E\in\operatorname{ob}D(A)_{\mathrm{parf}}\),
+\(F\in\operatorname{ob}D^b(A^e)\), en composant l'isomorphisme inverse de 5.4.2 pour
+\(G=E\) avec la flèche d'évaluation 5.3.5. On en déduit une flèche trace</p>
+
+<!-- Source PDF page 31 (printed page 168) -->
+\[
+\tag{5.6.2}\operatorname{Tr}_A:\operatorname{Hom}_A
+(E,F\mathbin{\overset L\otimes}_AE)\longrightarrow
+H^0(T,F\mathbin{\overset L\otimes}_{A^e}A).
+\]
+<p>Pour \(F=A\), composant avec la flèche canonique
+\(A\mathbin{\overset L\otimes}_{A^e}A\longrightarrow A\otimes_{A^e}A=A_\natural\)
+(5.1), on obtient des flèches, appelées encore traces,</p>
+\[
+\tag{5.6.3}\operatorname{Tr}_A:R\underline{\operatorname{Hom}}_A(E,E)\longrightarrow A_\natural,
+\]
+\[
+\tag{5.6.4}\operatorname{Tr}_A:\operatorname{Hom}_A(E,E)\longrightarrow H^0(T,A_\natural).
+\]
+<p>Noter que 5.6.4 est une flèche assez anodine, de nature locale, tandis que 5.6.3 est une
+flèche «sérieuse», de nature globale.</p>
+
+<p>Désignons par \(DF(A)_{\mathrm{parf}}\) la sous-catégorie pleine de \(DF(A)\) formée des
+complexes filtrés dont le gradué est d'amplitude parfaite finie. Alors on a une flèche de
+\(DF(K)\) analogue à 5.6.1 pour \(E\in\operatorname{ob}DF(A)_{\mathrm{parf}}\),
+\(F\in\operatorname{ob}D^bF(A^e)\), d'où des flèches analogues à 5.6.2, 5.6.3, 5.6.4.
+Il résulte des remarques de 5.5 que la flèche 5.6.1 filtrée est compatible avec le passage
+au gradué associé (cf. ([3] V 3.7.2)), et on en déduit, comme en (loc. cit.), que, si \(F\)
+est de filtration concentrée en degré 0, on a, pour
+\(u\in\operatorname{Hom}_{DF(A)}(E,F\mathbin{\overset L\otimes}_AE)\),</p>
+\[
+\tag{5.6.5}\operatorname{Tr}_A(u)=\sum_i\operatorname{Tr}_A\operatorname{gr}^i u.
+\]
+<p>Cette formule entraîne notamment que, pour \(E\in\operatorname{ob}D(A)_{\mathrm{parf}}\),
+\(F\in\operatorname{ob}D^b(A^e)\),
+\(u\in\operatorname{Hom}_A(E,F\mathbin{\overset L\otimes}_AE)\), on a</p>
+\[
+\tag{5.6.6}\operatorname{Tr}(u[1])=-\operatorname{Tr}(u),
+\]
+<p>où \(u[1]:E[1]\longrightarrow(F\mathbin{\overset L\otimes}_AE)[1]\) est la translatée
+de \(u\).</p>
+
+<p id="IIIB.5.7"><span class="theorem-title">5.7.</span> Les traces définies en 5.6
+généralisent tout à la fois les traces commutatives «usuelles» ((SGA 6 I), ([3] V 3)), et
+les traces «non commutatives» de Stallings [5] et Grothendieck.</p>
+
+<p>a) Supposons \(A=K\). Alors \(A^e=A_\natural=K\), la flèche 5.6.1 s'écrit</p>
+\[
+\operatorname{Tr}_K:R\underline{\operatorname{Hom}}_K
+(E,F\mathbin{\overset L\otimes}_KE)\longrightarrow F
+\]
+
+<!-- Source PDF page 32 (printed page 169) -->
+<p>et coïncide avec la flèche trace définie en ([3] V 3.7.1) (dans le cas particulier où
+le complexe \(K\) de (loc. cit.) est réduit à \(A\)). En particulier,
+\(\operatorname{Tr}_K:R\underline{\operatorname{Hom}}_K(E,E)\longrightarrow K\) coïncide
+avec la trace définie dans (SGA 6 I 8).</p>
+
+<p>b) On suppose à nouveau que \(A\) est une \(K\)-algèbre plate (non nécessairement
+commutative). On se propose d'expliciter 5.6.4 pour \(E\) strictement parfait (i.e. borné,
+à composantes localement facteurs directs de modules libres de type fini). Tout d'abord,
+prenons \(E=A\) ; \(R\underline{\operatorname{Hom}}_A(A,A)=
+\underline{\operatorname{Hom}}_A(A,A)\) s'identifie à \(A\) par
+\(f\longmapsto f(1)\), \(a\longmapsto(x\longmapsto xa)\), et 5.6.3 s'identifie à la
+projection canonique \(A\longrightarrow A_\natural\), que nous noterons
+\(a\longmapsto a_\natural\), donc si \(d_a\) désigne la multiplication à droite par \(a\),</p>
+\[
+\tag{5.7.1}\operatorname{Tr}_A(d_a)=a_\natural.
+\]
+<p>Soient, pour \(1\leq i\leq n\), \(E_i\) une copie de \(A\), et
+\(E=\bigoplus_{1\leq i\leq n}E_i\). L'isomorphisme 5.4.2 pour \(F=A\), \(G=E\) s'écrit</p>
+\[
+\bigoplus_{1\leq i,j\leq n}\underline{\operatorname{Hom}}_A(E_i,A)\otimes_AE_j
+\longrightarrow\underline{\operatorname{Hom}}_A(E,E),
+\]
+<p>et, pour \(u=\sum u_{ij}\otimes1\in\underline{\operatorname{Hom}}_A(E,E)\)
+(\(u_{ij}\otimes1\in\underline{\operatorname{Hom}}_A(E_i,A)\otimes_AE_j\)), on a</p>
+\[
+\tag{5.7.2}\operatorname{Tr}_A(u)=\sum_i u_{ii\natural},
+\]
+<p>par définition de la flèche d'évaluation 5.3.5. Prenons maintenant pour \(E\) un facteur
+direct de \(A^n\), image d'un projecteur \(p\), notons \(i:E\longrightarrow A^n\)
+l'inclusion ; alors, pour \(u\in\underline{\operatorname{Hom}}_A(E,E)\), on a</p>
+\[
+\tag{5.7.3}\operatorname{Tr}_A(u)=\operatorname{Tr}_A(iup),
+\]
+<p>comme on le voit soit à l'aide de 5.6.5, soit directement sur la définition. Enfin,
+supposons \(E\) strictement parfait ; si \(u\in\underline{\operatorname{Hom}}_A(E,E)\)
+est un homomorphisme de complexes, on a, par 5.6.5, 5.6.6,</p>
+\[
+\tag{5.7.4}\operatorname{Tr}_A(u)=\sum(-1)^i\operatorname{Tr}_A(u^i).
+\]
+
+<!-- Source PDF page 33 (printed page 170) -->
+<p>Le fait que 5.6.4 provienne, par application de \(H^0\), d'un homomorphisme de complexes
+\(\underline{\operatorname{Hom}}_A^\bullet(E,E)\longrightarrow A_\natural\) (5.6.3) entraîne que,
+si \(u,v\in\underline{\operatorname{Hom}}_A(E,E)\) sont homotopes, on a</p>
+\[
+\tag{5.7.5}\operatorname{Tr}_A(u)=\operatorname{Tr}_A(v).
+\]
+<p>Comme tout endomorphisme de \(E\) dans \(D(A)\) est localement défini par un
+endomorphisme de complexes, localement unique à homotopie près (SGA 6 I 4.10), les formules
+5.7.2 à 5.7.4 permettent donc le calcul de \(\operatorname{Tr}_A(u)\) pour tout endomorphisme
+\(u\) de \(E\) dans \(D(A)\), et, combinées à 5.7.5, fournissent une définition directe de
+\(\operatorname{Tr}_A(u)\). Dans le cas où le topos \(T\) est ponctuel, on retrouve la
+définition de (SGA 4<sup>1/2</sup> Rapport 4.3).</p>
+
+<p id="IIIB.5.8"><span class="theorem-title">5.8.</span> Soient \(P,Q\) des
+\(A\)-bimodules. Alors \(P\otimes_AQ\) et \(Q\otimes_AP\) sont des \(A\)-bimodules, et
+l'on a des isomorphismes canoniques</p>
+\[
+\tag{5.8.1}(P\otimes_AQ)\otimes_{A^e}A\xrightarrow{\sim}P\otimes_{A^e}Q
+\xleftarrow{\sim}(Q\otimes_AP)\otimes_{A^e}A\xleftarrow{\sim}
+A\otimes_{A^e}(P\otimes_KQ)\otimes_{A^e}A,
+\]
+<p>chacun des objets ci-dessus s'identifiant canoniquement au \(K\)-module quotient de
+\(P\otimes_KQ\) par le sous-module engendré par les sections de la forme
+\(axb\otimes y-x\otimes bya\), pour \(x\in P\), \(y\in Q\), \(a,b\in K\). Pour \(A\)
+plat sur \(K\), ces isomorphismes se dérivent en des isomorphismes</p>
+\[
+\tag{5.8.2}(P\mathbin{\overset L\otimes}_AQ)\mathbin{\overset L\otimes}_{A^e}A
+\simeq P\mathbin{\overset L\otimes}_{A^e}Q\simeq
+(Q\mathbin{\overset L\otimes}_AP)\mathbin{\overset L\otimes}_{A^e}A
+\simeq A\mathbin{\overset L\otimes}_{A^e}
+(P\mathbin{\overset L\otimes}_KQ)\mathbin{\overset L\otimes}_{A^e}A
+\]
+<p>pour \(P,Q\in\operatorname{ob}D^-(A^e)\). D'autre part, la flèche de composition au
+niveau des modules,</p>
+\[
+\underline{\operatorname{Hom}}_A(E,P\otimes_AF)\otimes_K
+\underline{\operatorname{Hom}}_A(F,Q\otimes_AE)\longrightarrow
+\underline{\operatorname{Hom}}_A(E,P\otimes_AQ\otimes_AE),
+\quad f\otimes g\longmapsto(P\otimes_Ag)f,
+\]
+<p>se dérive en</p>
+\[
+\tag{5.8.3}R\underline{\operatorname{Hom}}_A(E,P\mathbin{\overset L\otimes}_AF)
+\mathbin{\overset L\otimes}_K
+R\underline{\operatorname{Hom}}_A(F,Q\mathbin{\overset L\otimes}_AE)
+\longrightarrow R\underline{\operatorname{Hom}}_A
+(E,P\mathbin{\overset L\otimes}_AQ\mathbin{\overset L\otimes}_AE)
+\]
+
+<!-- Source PDF page 34 (printed page 171) -->
+<p>pour \(P,Q\in\operatorname{ob}D^b(A^e)\), \(E,F\in\operatorname{ob}D^b(A)\) tels que
+les produits tensoriels et \(R\underline{\operatorname{Hom}}\) figurant ci-dessus soient
+dans \(D^b\). Quand \(E\) et \(F\) sont parfaits, cette flèche s'identifie, via 5.4.2, à
+la flèche déduite de la flèche d'évaluation
+\(F\mathbin{\overset L\otimes}_K R\underline{\operatorname{Hom}}_A(F,Q)\longrightarrow Q\) ;
+on en déduit aisément que l'on a un carré commutatif</p>
+\[
+\tag{5.8.4}
+\xymatrix{
+R\underline{\operatorname{Hom}}_A(E,P\mathbin{\overset L\otimes}_AF)
+\mathbin{\overset L\otimes}_K R\underline{\operatorname{Hom}}_A
+(F,Q\mathbin{\overset L\otimes}_AE) \ar[r]^{(1)} \ar[d]_{(2)} &
+R\underline{\operatorname{Hom}}_A
+(E,P\mathbin{\overset L\otimes}_AQ\mathbin{\overset L\otimes}_AE)
+\ar[d]^{\operatorname{Tr}_A} \\
+R\underline{\operatorname{Hom}}_A
+(F,Q\mathbin{\overset L\otimes}_AP\mathbin{\overset L\otimes}_AF)
+\ar[r]_{\operatorname{Tr}_A} & P\mathbin{\overset L\otimes}_{A^e}Q,
+}
+\]
+<p>où (1) et (2) sont données par 5.8.3 (le point est que les deux flèches composées de
+5.8.4 sont définies par le produit tensoriel des flèches d'évaluation
+\(F\mathbin{\overset L\otimes}_K R\underline{\operatorname{Hom}}_A(F,Q)\longrightarrow Q\),
+\(E\mathbin{\overset L\otimes}_K R\underline{\operatorname{Hom}}_A(E,P)\longrightarrow P\)).
+Il en résulte que, pour
+\(u\in\operatorname{Hom}_A(E,P\mathbin{\overset L\otimes}_AF)\),
+\(v\in\operatorname{Hom}_A(F,Q\mathbin{\overset L\otimes}_AE)\), on a</p>
+\[
+\tag{5.8.5}\operatorname{Tr}_A(vu)=\operatorname{Tr}_A(uv).
+\]
+<p>On notera parfois \(\langle u,v\rangle_A\) la valeur commune de 5.8.5.</p>
+
+<h3 id="IIIB.5.9"><u>5.9. Traces et extension des scalaires.</u></h3>
+
+<p>Soit \(A\longrightarrow B\) un morphisme de \(K\)-algèbres plates. On en déduit un
+morphisme de \(K\)-algèbres \(A^e\longrightarrow B^e\), d'où un foncteur extension des
+scalaires \(-\mathbin{\overset L\otimes}_{A^e}B^e:D(A^e)\longrightarrow D(B^e)\).
+Pour \(E,F\) comme en 5.3.5, si
+\(F\mathbin{\overset L\otimes}_{A^e}B^e\in\operatorname{ob}D^b(B^e)\), et
+\(R\underline{\operatorname{Hom}}_B(B\mathbin{\overset L\otimes}_AE,
+F\mathbin{\overset L\otimes}_{A^e}B^e)\in\operatorname{ob}D^b(B^o)\), on a un carré
+commutatif de \(D(K)\)</p>
+\[
+\tag{5.9.1}
+\xymatrix{
+R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_AE
+\ar[r]^{(1)} \ar[d]_{(3)} & F\mathbin{\overset L\otimes}_{A^e}A \ar[d]^{(4)} \\
+R\underline{\operatorname{Hom}}_B(B\mathbin{\overset L\otimes}_AE,
+F\mathbin{\overset L\otimes}_{A^e}B^e)
+\mathbin{\overset L\otimes}_B(B\mathbin{\overset L\otimes}_AE)
+\ar[r]_{(2)} &
+(F\mathbin{\overset L\otimes}_{A^e}B^e)\mathbin{\overset L\otimes}_{B^e}B,
+}
+\]
+<p>où les flèches (1) et (2) sont définies par 5.3.6, (4) par \(A\longrightarrow B\), et
+(3) par la flèche canonique \(F\longrightarrow F\mathbin{\overset L\otimes}_{A^e}B^e\).
+La vérification est triviale. De même, pour \(E,F,G\) comme en 5.4.2, si
+\(F\mathbin{\overset L\otimes}_{A^e}B^e\in\operatorname{ob}D^+(B^e)\),
+\((F\mathbin{\overset L\otimes}_{A^e}B^e)\mathbin{\overset L\otimes}_AG
+\in\operatorname{ob}D^+(B)\), on</p>
+
+<!-- Source PDF page 35 (printed page 172) -->
+<p>a un carré commutatif de \(D(K)\)</p>
+\[
+\tag{5.9.2}
+\xymatrix{
+R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_AG
+\ar[r]^{(1)} \ar[d]_{(3)} &
+R\underline{\operatorname{Hom}}_A(E,F\mathbin{\overset L\otimes}_AG)
+\ar[d]^{(4)} \\
+R\underline{\operatorname{Hom}}_B(B\mathbin{\overset L\otimes}_AE,
+F\mathbin{\overset L\otimes}_{A^e}B^e)
+\mathbin{\overset L\otimes}_B(B\mathbin{\overset L\otimes}_AG)
+\ar[r]_{(2)} &
+R\underline{\operatorname{Hom}}_B(B\mathbin{\overset L\otimes}_AE,
+(F\mathbin{\overset L\otimes}_{A^e}B^e)
+\mathbin{\overset L\otimes}_B(B\mathbin{\overset L\otimes}_AG)).
+}
+\]
+<p>où (1) et (2) sont définies par 5.4.2, (3) et (4) par
+\(F\longrightarrow F\mathbin{\overset L\otimes}_{A^e}B^e\). On en déduit, pour
+\(E,F\) comme en 5.6.1, avec
+\(F\mathbin{\overset L\otimes}_{A^e}B^e\in\operatorname{ob}D^b(B^e)\), un carré
+commutatif de \(D(K)\), analogue aux précédents, où les flèches verticales sont
+définies par 5.6.1</p>
+\[
+\tag{5.9.3}
+\xymatrix{
+R\underline{\operatorname{Hom}}_A(E,F\mathbin{\overset L\otimes}_AE)
+\ar[r]^{\operatorname{Tr}_A} \ar[d] &
+F\mathbin{\overset L\otimes}_{A^e}A \ar[d] \\
+R\underline{\operatorname{Hom}}_B(B\mathbin{\overset L\otimes}_AE,
+(F\mathbin{\overset L\otimes}_{A^e}B^e)
+\mathbin{\overset L\otimes}_B(B\mathbin{\overset L\otimes}_AE))
+\ar[r]_{\operatorname{Tr}_B} &
+(F\mathbin{\overset L\otimes}_{A^e}B^e)\mathbin{\overset L\otimes}_{B^e}B.
+}
+\]
+<p>Enfin, si l'on se donne \(F'\in\operatorname{ob}D^b(B^e)\) tel que
+\(R\underline{\operatorname{Hom}}_A(E,F')\in\operatorname{ob}D^b(B^o)\), et
+\(f:F\mathbin{\overset L\otimes}_{A^e}B^e\longrightarrow F'\), on a une compatibilité
+légèrement plus générale que 5.9.1, qui s'exprime par un carré commutatif analogue,
+avec \(F'\) au lieu de \(F\mathbin{\overset L\otimes}_{A^e}B^e\) dans la ligne
+inférieure, et les flèches verticales définies par \(f\). On a de même des carrés
+commutatifs analogues à 5.9.2 et 5.9.3 avec \(F'\) au lieu de
+\(F\mathbin{\overset L\otimes}_{A^e}B^e\). Prenant notamment \(F=A\) et pour
+\(f:A\mathbin{\overset L\otimes}_{A^e}B^e\longrightarrow B\) la flèche définie par
+\(A\longrightarrow B\), on obtient un carré commutatif</p>
+\[
+\tag{5.9.4}
+\xymatrix{
+R\underline{\operatorname{Hom}}_A(E,E) \ar[r]^{\operatorname{Tr}_A} \ar[d] &
+A\mathbin{\overset L\otimes}_{A^e}A \ar[d] \\
+R\underline{\operatorname{Hom}}_B(B\mathbin{\overset L\otimes}_AE,
+B\mathbin{\overset L\otimes}_AE) \ar[r]_{\operatorname{Tr}_B} &
+B\mathbin{\overset L\otimes}_{B^e}B,
+}
+\]
+<p>où la flèche verticale de gauche (resp. droite) est donnée par l'extension des
+scalaires (resp. est la flèche canonique déduite de \(A\longrightarrow B\)).</p>
+
+<!-- Source PDF page 36 (printed page 173) -->
+<h3 id="IIIB.5.10"><u>5.10. Traces et restriction des scalaires.</u></h3>
+
+<p>Soit \(A\longrightarrow B\) un morphisme de \(K\)-algèbres plates tel que \(B\),
+en tant que \(A\)-module à gauche, soit plat et de présentation finie (i.e. localement
+facteur direct d'un \(A\)-module libre de type fini). C'est le cas par exemple si
+\(A\longrightarrow B\) est le morphisme \(K[H]\longrightarrow K[G]\) défini par un
+morphisme injectif de groupes discrets \(H\lhook\joinrel\longrightarrow G\), d'indice
+fini. L'homomorphisme restriction des scalaires
+\(\underline{\operatorname{Hom}}_B(B,B)\longrightarrow
+\underline{\operatorname{Hom}}_A(B,B)\), où \(B\) est considéré comme module à gauche,
+s'identifie, par les isomorphismes canoniques
+\(B\xrightarrow{\sim}\underline{\operatorname{Hom}}_B(B,B)\),
+\(\underline{\operatorname{Hom}}_A(B,A)\otimes_AB
+\xrightarrow{\sim}\underline{\operatorname{Hom}}_A(B,B)\), à une flèche (de
+\(B\)-bimodules)</p>
+\[
+\tag{5.10.1}B\longrightarrow\underline{\operatorname{Hom}}_A(B,A)\otimes_AB.
+\]
+<p>Le composé de 5.10.1 avec la flèche d'évaluation
+\(\underline{\operatorname{Hom}}_A(B,A)\otimes_AB\longrightarrow A_\natural\) (5.3.3)
+est l'homomorphisme \(f\longmapsto\operatorname{Tr}_A(f)\)
+(\(\overset{\mathrm{dfn}}=\operatorname{Tr}_A(d_f)\), où \(d_f\) est la multiplication
+à droite par \(f\)), donc par la formule
+\(\operatorname{Tr}_A(fg)=\operatorname{Tr}_A(gf)\) (5.8.5), se factorise à travers
+\(B_\natural\) en une flèche notée encore
+\(\operatorname{Tr}_{B/A}:B_\natural\longrightarrow A_\natural\) : on a donc un carré
+commutatif</p>
+\[
+\tag{5.10.2}
+\xymatrix{
+B \ar[r]^{\operatorname{Tr}_B} \ar[d]_{5.10.1} & B_\natural \ar[d]^{\operatorname{Tr}_{B/A}} \\
+\underline{\operatorname{Hom}}_A(B,A)\otimes_AB \ar[r]_{\mathrm{ev}} & A_\natural.
+}
+\]
+<p>Dans la situation \(({}_BE,{}_BP_A)\), on a un homomorphisme de \(B\)-modules à
+droite</p>
+\[
+\tag{5.10.3}
+\underline{\operatorname{Hom}}_B(E,P)\otimes_AB\longrightarrow
+\underline{\operatorname{Hom}}_A(E,P\otimes_AB),\quad
+u\otimes b\longmapsto(x\mapsto u(x)\otimes b),
+\]
+<p>qui est un isomorphisme, comme on le vérifie aussitôt (il suffit de voir que
+l'homomorphisme \(K\)-linéaire sous-jacent est un isomorphisme, et cela résulte de ce
+que \(B\) est localement facteur direct d'un \(A\)-module libre de type fini). Cet
+isomorphisme se dérive en un isomorphisme de \(D(B)\)</p>
+\[
+\tag{5.10.4}
+R\underline{\operatorname{Hom}}_B(E,P)\mathbin{\overset L\otimes}_AB
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}_A
+(E,P\mathbin{\overset L\otimes}_AB),
+\]
+
+<!-- Source PDF page 37 (printed page 174) -->
+<p>pour \(E\in\operatorname{ob}D^-(B)\),
+\(P\in\operatorname{ob}D^+(B\otimes_KA^o)\) (résoudre \(E\) par des modules de la
+forme \(B\otimes_AL\), où \(L\) est plat, et \(P\) par des
+\((B\otimes_KA^o)\)-modules injectifs, lesquels sont nécessairement injectifs comme
+\(B\)-modules, \(A\) étant plat sur \(K\) : cela permet « d'ôter le \(R\) » à gauche,
+et la résolution qu'on a prise pour \(E\) permet aussi de l'ôter à droite).</p>
+
+<p>Pour \(E\in\operatorname{ob}D^-(B)\), \(M\in\operatorname{ob}D^+(K)\),
+\(F\in\operatorname{ob}D^-(B)\), on définit une flèche de \(D(X)\)<a id="fnref-IIIB-3"
+href="#fn-IIIB-3"><sup>(*)</sup></a></p>
+\[
+\tag{5.10.5}
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BF\longrightarrow
+R\underline{\operatorname{Hom}}_A(E,A\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_AF,
+\]
+<p>comme composée des flèches</p>
+\[
+\begin{aligned}
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BF
+&\xrightarrow{(1)}R\underline{\operatorname{Hom}}_B
+(E,\underline{\operatorname{Hom}}_A(B,A)\mathbin{\overset L\otimes}_AB
+\mathbin{\overset L\otimes}_KM)\mathbin{\overset L\otimes}_BF\\
+&\xrightarrow{(2)}R\underline{\operatorname{Hom}}_B
+(E,\underline{\operatorname{Hom}}_A(B,A)\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_AF\\
+&\xrightarrow{(3)}R\underline{\operatorname{Hom}}_B
+(E,\underline{\operatorname{Hom}}_A(B,A\mathbin{\overset L\otimes}_KM))
+\mathbin{\overset L\otimes}_AF\\
+&\xrightarrow{(4)}R\underline{\operatorname{Hom}}_A
+(E,A\mathbin{\overset L\otimes}_KM)\mathbin{\overset L\otimes}_AF,
+\end{aligned}
+\]
+<p>où (1) est définie par 5.10.1, (2) par l'isomorphisme inverse de 5.10.4 avec
+\(P=\underline{\operatorname{Hom}}_A(B,A)\mathbin{\overset L\otimes}_KM\), (3) par
+l'isomorphisme canonique
+\(\underline{\operatorname{Hom}}_A(B,A)\mathbin{\overset L\otimes}_KM
+\xrightarrow{\sim}\underline{\operatorname{Hom}}_A
+(B,A\mathbin{\overset L\otimes}_KM)\) (5.4.2), et (4) par l'isomorphisme d'adjonction
+5.2.2.</p>
+
+<div class="thm" id="IIIB.5.10.6"><span class="thm-head"><u>Proposition 5.10.6</u> —
+Supposons que \(M\mathbin{\overset L\otimes}_KF\in\operatorname{ob}D^+(B)\). On a
+alors un carré commutatif de \(D(K)\)</span></div>
+\[
+\tag{5.10.7}
+\xymatrix{
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BF \ar[r]^{5.4.2} \ar[d]_{5.10.5} &
+R\underline{\operatorname{Hom}}_B(E,M\mathbin{\overset L\otimes}_KF) \ar[d] \\
+R\underline{\operatorname{Hom}}_A(E,A\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_AF \ar[r]_{5.4.2} &
+R\underline{\operatorname{Hom}}_A(E,M\mathbin{\overset L\otimes}_KF),
+}
+\]
+<p><u>où la flèche verticale de droite est la restriction des scalaires.</u></p>
+
+<!-- Source PDF page 38 (printed page 175) -->
+<p>Il s'agit de vérifier que l'on a un carré commutatif</p>
+\[
+\xymatrix{
+E\mathbin{\overset L\otimes}_K
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BF \ar[r] \ar[d]_{E\otimes 5.10.5} &
+M\mathbin{\overset L\otimes}_KF \ar[d]^{\text{restriction des scalaires}} \\
+E\mathbin{\overset L\otimes}_K
+R\underline{\operatorname{Hom}}_A(E,A\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_AF \ar[r] &
+M\mathbin{\overset L\otimes}_KF,
+}
+\]
+<p>où les flèches horizontales sont données par les évaluations (5.3.6). Ce carré se
+déduit par application de \(-\mathbin{\overset L\otimes}_BF\) du carré analogue avec
+\(F=B\), donc on peut supposer \(F=B\). La commutativité de 5.10.7 dans ce cas équivaut
+à celle du triangle</p>
+\[
+\tag{*}
+\xymatrix{
+&R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\ar[dl]_{(1)} \ar[dr]^{(2)}&\\
+R\underline{\operatorname{Hom}}_B(E,
+\underline{\operatorname{Hom}}_A(B,B\mathbin{\overset L\otimes}_KM))
+\ar[rr]_{(3)}&&
+R\underline{\operatorname{Hom}}_A(E,B\mathbin{\overset L\otimes}_KM),
+}
+\]
+<p>où (1) est défini par 5.10.1, (2) la restriction des scalaires, et (3)
+l'isomorphisme d'adjonction. Or la flèche
+\(B\mathbin{\overset L\otimes}_KM\longrightarrow
+\underline{\operatorname{Hom}}_A(B,B\mathbin{\overset L\otimes}_KM)\) donnée par
+5.10.1 n'est autre que la flèche d'adjonction correspondant aux foncteurs restriction
+des scalaires et \(\underline{\operatorname{Hom}}_A(B,-)\) ; la commutativité de (*) en
+découle aussitôt.</p>
+
+<p>Soient \(E\in\operatorname{ob}D^b(B)\), \(M\in\operatorname{ob}D^b(K)\) tels que
+\(R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\in\operatorname{ob}D^b(B^o)\). On dispose alors, par 5.3.5, d'une flèche
+d'évaluation</p>
+\[
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BE\longrightarrow
+M\mathbin{\overset L\otimes}_K(B\mathbin{\overset L\otimes}_{B^e}B),
+\]
+<p>qui donne, par composition avec la flèche canonique
+\(B\mathbin{\overset L\otimes}_{B^e}B\longrightarrow B_\natural\), une flèche</p>
+\[
+\tag{5.10.8}
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BE\longrightarrow M\mathbin{\overset L\otimes}_KB_\natural.
+\]
+
+<div class="thm" id="IIIB.5.10.9"><span class="thm-head"><u>Proposition 5.10.9 —
+Supposons \(A\) de présentation finie et plat en tant que \(K\)-module, et
+\(A_\natural\), \(B_\natural\) plats sur \(K\). Soient
+\(E\in\operatorname{ob}D^-(B)\), \(M\in\operatorname{ob}D^b(K)\) tels que
+\(R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\in\operatorname{ob}D^b(B^o)\). Alors
+\(R\underline{\operatorname{Hom}}_A(E,A\mathbin{\overset L\otimes}_KM)
+\in\operatorname{ob}D^b(A^o)\), et l'on a un carré commutatif</u></span></div>
+
+<!-- Source PDF page 39 (printed page 176) -->
+\[
+\tag{5.10.10}
+\xymatrix{
+R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BE \ar[r]^{5.10.8} \ar[d]_{5.10.5} &
+M\mathbin{\overset L\otimes}_KB_\natural
+\ar[d]^{M\otimes_K\operatorname{Tr}_{B/A}} \\
+R\underline{\operatorname{Hom}}_A(E,A\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_AE \ar[r]_{5.10.8} &
+M\mathbin{\overset L\otimes}_KA_\natural.
+}
+\]
+<p>(Les hypothèses supplémentaires sur \(A\) et \(B\) (vérifiées par exemple si
+\(A\) et \(B\) sont des \(K\)-algèbres de groupes finis) sont sans doute inutiles,
+et l'on devrait avoir un carré commutatif analogue à 5.10.10 avec \(A_\natural\)
+(resp. \(B_\natural\)) remplacé par
+\(A\mathbin{\overset L\otimes}_{A^e}A\) (resp.
+\(B\mathbin{\overset L\otimes}_{B^e}B\)).</p>
+
+<p>La première assertion de 5.10.9 est triviale. Prouvons la seconde. On peut
+supposer \(M\) à composantes injectives et \(E\) à composantes de la forme
+\(B\otimes_KL\), avec \(L\) plat. On a alors
+\(R\underline{\operatorname{Hom}}_B(E,B\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_BE=
+\underline{\operatorname{Hom}}_B(E,B\otimes_KM)\otimes_BE\),
+\(R\underline{\operatorname{Hom}}_A(E,A\mathbin{\overset L\otimes}_KM)
+\mathbin{\overset L\otimes}_AE=
+\underline{\operatorname{Hom}}_A(E,A\otimes_KM)\otimes_AE\), et les flèches de
+5.10.10 sont définies au niveau des complexes. On est donc ramené à vérifier que, si
+\(L,M\) sont des \(K\)-modules, \(E\) un \(B\)-module à gauche, on a un carré
+commutatif</p>
+\[
+\tag{*}
+\xymatrix{
+\underline{\operatorname{Hom}}_B(B\otimes_KL,B\otimes_KM)
+\otimes_B(B\otimes_KL) \ar[r]^{5.3.3} \ar[d]_{(1)} &
+M\otimes_KB_\natural \ar[d]^{M\otimes_K\operatorname{Tr}_{B/A}} \\
+\underline{\operatorname{Hom}}_A(B\otimes_KL,A\otimes_KM)
+\otimes_A(B\otimes_KL) \ar[r]_{5.3.3} & M\otimes_KA_\natural,
+}
+\]
+<p>où la flèche (1) est définie en envoyant \(B\otimes_KM\) dans
+\(\underline{\operatorname{Hom}}_A(B,A)\otimes_AB\otimes_KM\) par 5.10.1 et en
+composant avec un isomorphisme du type 5.10.3 et un isomorphisme d'adjonction. Comme
+\(A\) est plat et de présentation finie en tant que \(K\)-module, les flèches
+« produit tensoriel »</p>
+\[
+\tag{2}B\otimes_K\underline{\operatorname{Hom}}_K(L,M)
+=\underline{\operatorname{Hom}}_B(B,B)\otimes_K
+\underline{\operatorname{Hom}}_K(L,M)
+\longrightarrow\underline{\operatorname{Hom}}_B(B\otimes_KL,B\otimes_KM),
+\]
+\[
+\tag{3}\underline{\operatorname{Hom}}_A(B,A)\otimes_K
+\underline{\operatorname{Hom}}_K(L,M)
+\longrightarrow\underline{\operatorname{Hom}}_A(B\otimes_KL,A\otimes_KM)
+\]
+<p>sont des isomorphismes, par lesquels (1) s'identifie au produit tensoriel (sur
+\(K\)) de 5.10.1 par
+\(\underline{\operatorname{Hom}}_K(L,M)\otimes_KL\). D'autre part, la flèche
+horizontale supérieure (resp. inférieure de (*)) s'identifie par (2) (resp. (3)) au
+produit tensoriel (sur \(K\))</p>
+
+<!-- Source PDF page 40 (printed page 177) -->
+<p>de \(\operatorname{Tr}_B:B\longrightarrow B_\natural\) (resp.
+\(\operatorname{ev}:\underline{\operatorname{Hom}}_A(B,A)\otimes_A B
+\longrightarrow A_\natural\)) par la flèche d'évaluation
+\(\underline{\operatorname{Hom}}_K(L,M)\otimes_KL\longrightarrow M\). La
+commutativité de (*) découle donc de celle de 5.10.2, ce qui achève la
+démonstration de 5.10.9.</p>
+
+<div class="thm corollary" id="IIIB.5.10.11">
+<div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.10.11</span> — <u>Sous les hypothèses de 5.10.9, pour
+\(E\in\operatorname{ob}D(B)_{\mathrm{parf}}\), \(M\in\operatorname{ob}D^b(K)\), on a un carré commutatif de \(D(K)\)</u></div>
+<div class="thm-body">
+\[
+\tag{5.10.12}
+\xymatrix{
+R\underline{\operatorname{Hom}}_B(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]^{\operatorname{Tr}_B}\ar[d] & M\otimes_KB_\natural\ar[d]\\
+R\underline{\operatorname{Hom}}_A(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]_{\operatorname{Tr}_A} & M\otimes_KA_\natural,
+}
+\]
+<p><u>où la flèche verticale de gauche est la restriction des scalaires.</u></p></div>
+</div>
+
+<p>Il suffit en effet de conjuguer 5.10.6 et 5.10.9.</p>
+
+<h3 id="IIIB.5.11"><u>5.11. Application aux groupes finis : propriétés de divisibilité.</u></h3>
+
+<p>Soit \(G\) un groupe fini, d'élément neutre noté \(e\), posons \(K[G]=B\).
+Le \(K\)-module \(B_\natural\) est libre de base l'ensemble \(G_\natural\) des
+classes de conjugaison de \(G\) ; toute section \(s\) de \(B_\natural\) s'écrit
+de manière unique \(s=\sum_{x\in G_\natural}s(x)x\).</p>
+
+<div class="thm proposition" id="IIIB.5.11.1">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.11.1</span> — (cf. SGA 4<sup>1/2</sup> Rapport 4.5). <u>Soient
+\(E\in\operatorname{ob}D(B)_{\mathrm{parf}}\), \(M\in\operatorname{ob}D^b(K)\).
+Pour \(u\in\operatorname{Hom}_B(E,M\mathbin{\overset L\otimes}_KE)\), on a,
+dans \(H^0(T,M)\),</u></div>
+<div class="thm-body">
+\[\tag{*}\operatorname{Tr}_K(u)=|G|\,\operatorname{Tr}_B(u)(e).\]
+<p><sup class="footnote-ref"><a id="fnref-IIIB-4" href="#fn-IIIB-4">(*)</a></sup></p>
+<p>Il suffit en effet d'appliquer 5.10.11 avec \(A=K\), en notant que
+\(\operatorname{Tr}_{B/K}:B_\natural\longrightarrow K\) est donné par</p>
+\[
+\tag{5.11.2}
+\operatorname{Tr}_{B/K}(g)=
+\begin{cases}|G|&\text{si }g=e,\\0&\text{si }g\ne e.
+\end{cases}
+\]
+</div></div>
+
+<div class="thm proposition" id="IIIB.5.11.3">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.11.3</span> — <u>Sous les hypothèses de 5.11.1, soit \(g\in G\), notons \(Z_g\) le
+centralisateur de \(g\) dans \(G\), posons \(A=K[Z_g]\). Soit
+\(u\in\operatorname{Hom}_B(E,M\mathbin{\overset L\otimes}_KE)\), notons \(gu\in
+\operatorname{Hom}_A(E,M\mathbin{\overset L\otimes}_KE)\) le composé de l'image
+de \(u\) dans \(\operatorname{Hom}_A(E,M\mathbin{\overset L\otimes}_KE)\) avec
+la multiplication à gauche par \(g\). Alors on a, dans \(H^0(T,M)\),</u></div>
+
+<!-- Source PDF page 41 (printed page 178) -->
+<div class="thm-body">
+\[\operatorname{Tr}_A(gu)(e)=\operatorname{Tr}_B(u)(g^{-1}).\]
+<p>On va montrer plus généralement qu'on a un carré commutatif</p>
+\[
+\tag{5.11.4}
+\xymatrix{
+R\underline{\operatorname{Hom}}_B(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]^{\operatorname{Tr}_B}\ar[d] & M\otimes_KB_\natural
+ \ar[r]^-{x\mapsto x(g^{-1})} & M\ar@{=}[d]\\
+R\underline{\operatorname{Hom}}_A(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]_{\operatorname{Tr}_A} & M\otimes_KA_\natural
+ \ar[r]_-{x\mapsto x(e)} & M,
+}
+\]
+<p>où la flèche verticale de gauche est composée de la restriction des scalaires
+et de la multiplication à gauche par \(g\). Ce carré est le bord du diagramme</p>
+\[
+\xymatrix{
+R\underline{\operatorname{Hom}}_B(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]^{\operatorname{Tr}_B}\ar[d]_{\mathrm{rest}} & M\otimes_KB_\natural
+ \ar[r]^-{x\mapsto x(g^{-1})}\ar[d]^{\operatorname{Tr}_{B/A}} & M\ar@{=}[dd]\\
+R\underline{\operatorname{Hom}}_A(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]^{\operatorname{Tr}_A}\ar[d]_{R\underline{\operatorname{Hom}}_A(E,s_g)} &
+ M\otimes_KA_\natural\ar[d]^{s_g}\\
+R\underline{\operatorname{Hom}}_A(E,M\mathbin{\overset L\otimes}_KE)
+ \ar[r]_{\operatorname{Tr}_A} & M\otimes_KA_\natural
+ \ar[r]_-{x\mapsto x(e)} & M,
+}
+\]
+<p>où rest désigne la restriction des scalaires et \(s_g\) la multiplication à
+gauche par \(g\). Le carré (1) commute en vertu du 5.10.11, et (2) par définition
+de \(\operatorname{Tr}_A\). Il suffit donc de prouver la commutativité de (3), et
+pour cela il suffit de montrer que, pour \(h\in G\), on a</p>
+\[
+\operatorname{Tr}_A(x\longmapsto gxh)(e)=\text{valeur en }g^{-1}
+\text{ de l'image de }h\text{ dans }B_\natural,
+\]
+<p>i.e.</p>
+\[
+\tag{*}
+\operatorname{Tr}_A(x\longmapsto gxh)(e)=
+\begin{cases}1&\text{si }g^{-1}\text{ est conjugué à }h,\\0&\text{sinon.}\end{cases}
+\]
+<p>On peut pour cela remplacer \(T\) par le topos ponctuel et \(K\) par
+\(\mathbb Z\), et il suffit alors de prouver (*) après multiplication par
+\(|Z_g|\). Compte tenu de 5.11.1, on est donc ramené à montrer que</p>
+
+<!-- Source PDF page 42 (printed page 179) -->
+\[
+\operatorname{Tr}_{\mathbb Z}(x\longmapsto gxh)=
+\begin{cases}|Z_g|&\text{si }g^{-1}\text{ est conjugué à }h,\\0&\text{sinon.}\end{cases}
+\]
+<p>Mais cela résulte de ce que le premier membre est le nombre de points fixes de
+l'application \(x\longmapsto gxh\) de \(G\) dans \(G\), d'où la commutativité de
+5.11.4 et la conclusion de 5.11.3.</p>
+</div></div>
+
+<div class="thm corollary" id="IIIB.5.11.5">
+<div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">5.11.5</span> — <u>Sous les hypothèses de 5.11.3, on a</u></div>
+<div class="thm-body">
+\[\operatorname{Tr}_K(gu)=|Z_g|\operatorname{Tr}_B(u)(g^{-1})
+=|Z_g|\operatorname{Tr}_A(gu)(e).\]
+</div></div>
+
+<h3 id="IIIB.5.12"><u>5.12. Traces et produits tensoriels externes.</u></h3>
+
+<p>Soient, pour \(i=1,2\), \(A_i\) une \(K\)-algèbre plate,
+\(A=A_1\otimes_KA_2\). Soient \(E_i\in\operatorname{ob}D^-(A_i)\),
+\(F_i\in\operatorname{ob}D^b(A_i^e)\) tels que
+\(R\underline{\operatorname{Hom}}_{A_i}(E_i,F_i)\in
+\operatorname{ob}D^b(A_i^o)\), \(F=F_1\mathbin{\overset L\otimes}_KF_2
+\in\operatorname{ob}D^b(A^e)\),
+\(R\underline{\operatorname{Hom}}_A(E,F)\in\operatorname{ob}D^b(A^o)\), où
+\(E=E_1\mathbin{\overset L\otimes}_KE_2\). On a alors un carré commutatif</p>
+\[
+\tag{5.12.1}
+\xymatrix{
+(R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)\mathbin{\overset L\otimes}_{A_1}E_1)
+ \mathbin{\overset L\otimes}_K
+(R\underline{\operatorname{Hom}}_{A_2}(E_2,F_2)\mathbin{\overset L\otimes}_{A_2}E_2)
+ \ar[r]^{(1)}\ar[d]_{(2)} &
+(F_1\mathbin{\overset L\otimes}_{A_1^e}A_1)
+ \mathbin{\overset L\otimes}_K(F_2\mathbin{\overset L\otimes}_{A_2^e}A_2)
+ \ar[d]^{(3)}\\
+R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_AE
+ \ar[r] & F\mathbin{\overset L\otimes}_{A^e}A,
+}
+\]
+<p>où (1) est produit tensoriel des flèches 5.3.5, (2) est définie par la flèche
+produit tensoriel</p>
+\[
+\tag{5.12.2}
+R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)\mathbin{\overset L\otimes}_K
+R\underline{\operatorname{Hom}}_{A_2}(E_2,F_2)
+\longrightarrow R\underline{\operatorname{Hom}}_A(E,F),
+\]
+<p>et (3) est l'isomorphisme canonique évident. La vérification est essentiellement
+triviale. On vérifie de même que, pour \(E_i\in\operatorname{ob}D^-(A_i)\),
+\(F_i\in\operatorname{ob}D^+(A_i^e)\), \(G_i\in\operatorname{ob}D^-(A_i)\),
+avec \(F_i\mathbin{\overset L\otimes}_{A_i}G_i\in\operatorname{ob}D^b(A_i)\),
+\(R\underline{\operatorname{Hom}}_{A_i}(E_i,F_i)\in
+\operatorname{ob}D^b(A_i^o)\),
+\(R\underline{\operatorname{Hom}}_{A_i}(E_i,F_i)\mathbin{\overset L\otimes}_{A_i}G_i
+\in\operatorname{ob}D^b(K)\), \(F\mathbin{\overset L\otimes}_AG\in
+\operatorname{ob}D^b(A)\) (où \(G=G_1\mathbin{\overset L\otimes}_KG_2\)), on a
+un carré commutatif</p>
+
+<!-- Source PDF page 43 (printed page 180) -->
+\[
+\tag{5.12.3}
+\xymatrix{
+(R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)\mathbin{\overset L\otimes}_{A_1}G_1)
+\mathbin{\overset L\otimes}_K
+(R\underline{\operatorname{Hom}}_{A_2}(E_2,F_2)\mathbin{\overset L\otimes}_{A_2}G_2)
+ \ar[r]^{(1)}\ar[d]_{(2)} &
+R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1\mathbin{\overset L\otimes}_{A_1}G_1)
+\mathbin{\overset L\otimes}_K
+R\underline{\operatorname{Hom}}_{A_2}(E_2,F_2\mathbin{\overset L\otimes}_{A_2}G_2)
+ \ar[d]^{(3)}\\
+R\underline{\operatorname{Hom}}_A(E,F)\mathbin{\overset L\otimes}_AG
+ \ar[r]_{5.4.2} & R\underline{\operatorname{Hom}}_A(E,F\mathbin{\overset L\otimes}_AG),
+}
+\]
+<p>où (2) et (3) sont des flèches produits tensoriels du type 5.12.2, et (1) est
+produit tensoriel des flèches 5.4.2. De la commutativité des carrés 5.12.1 et
+5.12.3 il résulte que, pour \(E_i\in\operatorname{ob}D(A_i)_{\mathrm{parf}}\),
+\(F_i\in\operatorname{ob}D^b(A_i^e)\) tels que
+\(F=F_1\mathbin{\overset L\otimes}_KF_2\in\operatorname{ob}D^b(A^e)\), on a un
+carré commutatif</p>
+\[
+\tag{5.12.4}
+\xymatrix{
+R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1\mathbin{\overset L\otimes}_{A_1}E_1)
+\mathbin{\overset L\otimes}_K
+R\underline{\operatorname{Hom}}_{A_2}(E_2,F_2\mathbin{\overset L\otimes}_{A_2}E_2)
+ \ar[r]^{(1)}\ar[d]_{(2)} &
+(F_1\mathbin{\overset L\otimes}_{A_1^e}A_1)
+\mathbin{\overset L\otimes}_K(F_2\mathbin{\overset L\otimes}_{A_2^e}A_2)
+ \ar[d]^{(3)}\\
+R\underline{\operatorname{Hom}}_A(E,F\mathbin{\overset L\otimes}_AE)
+ \ar[r]_{5.6.1} & F\mathbin{\overset L\otimes}_{A^e}A,
+}
+\]
+<p>où (1) est produit tensoriel des flèches \(\operatorname{Tr}_{A_i}\) (5.6.1),
+(2) est défini par 5.12.2, et (3) est l'isomorphisme canonique figurant dans
+5.12.1. Par suite, pour
+\(u_i\in\operatorname{Hom}_{A_i}(E_i,F_i\mathbin{\overset L\otimes}_{A_i}E_i)\),
+on a</p>
+\[
+\tag{5.12.5}
+\operatorname{Tr}_A(u_1\mathbin{\overset L\otimes}_Ku_2)
+=\operatorname{Tr}_{A_1}(u_1)\operatorname{Tr}_{A_2}(u_2),
+\]
+<p>le produit au second membre étant défini par la flèche canonique</p>
+\[
+H^0(T,F_1\mathbin{\overset L\otimes}_{A_1^e}A_1)\otimes
+H^0(T,F_2\mathbin{\overset L\otimes}_{A_2^e}A_2)
+\longrightarrow H^0(T,F\mathbin{\overset L\otimes}_{A^e}A).
+\]
+
+<h3 id="IIIB.5.13"><u>5.13. Traces d'endomorphismes semi-linéaires.</u></h3>
+
+<p>Soient \(A\) une \(K\)-algèbre, \(\varphi\) un endomorphisme de \(A\). Si
+\(E,F\) sont des \(A\)-modules à gauche, rappelons qu'un homomorphisme additif
+\(u:E\longrightarrow F\) est dit \(\varphi\)-\(A\)-linéaire s'il vérifie
+\(u(ax)=\varphi(a)u(x)\) quels que soient \(a\in A\), \(x\in E\), i.e. si \(u\)
+est un homomorphisme \(A\)-linéaire de \(E\) dans le \(A\)-module
+\({}_{(\varphi)}F\) déduit de \(F\) par restriction des scalaires selon
+\(\varphi\). Si \(F\) est un \(A\)-bimodule,</p>
+
+<!-- Source PDF page 44 (printed page 181) -->
+<p>\(G\) un \(A\)-module à gauche, on a un isomorphisme évident
+\({}_{(\varphi)}F\otimes_AG\xrightarrow{\sim}{}_{(\varphi)}(F\otimes_AG)\), qui
+se dérive (trivialement) en
+\({}_{(\varphi)}F\mathbin{\overset L\otimes}_AG\xrightarrow{\sim}
+{}_{(\varphi)}(F\mathbin{\overset L\otimes}_AG)\).</p>
+
+<p>Supposons \(A\) plat sur \(K\). On déduit alors de 5.4.2 une flèche</p>
+\[
+\tag{5.13.1}
+R\underline{\operatorname{Hom}}_A(E,{}_{(\varphi)}F)
+\mathbin{\overset L\otimes}_AG\longrightarrow
+R\underline{\operatorname{Hom}}_A(E,{}_{(\varphi)}(F\mathbin{\overset L\otimes}_AG))
+\]
+<p>pour \(E\in\operatorname{ob}D^-(A)\), \(F\in\operatorname{ob}D^+(A^e)\),
+\(G\in\operatorname{ob}D^-(A)\), avec
+\(F\mathbin{\overset L\otimes}_AG\in\operatorname{ob}D^+(A)\). Pour
+\(E\in\operatorname{ob}D(A)_{\mathrm{parf}}\), 5.13.1 est un isomorphisme, ce
+qui permet de définir, par 5.3.5, une flèche trace</p>
+\[
+\tag{5.13.2}
+\operatorname{Tr}_{A,\varphi}:R\underline{\operatorname{Hom}}_A
+(E,{}_{(\varphi)}(F\mathbin{\overset L\otimes}_AE))
+\longrightarrow{}_{(\varphi)}F\mathbin{\overset L\otimes}_{A^e}A.
+\]
+<p>On en déduit notamment, pour \(F=A\), une flèche</p>
+\[
+\tag{5.13.3}
+\operatorname{Tr}_{A,\varphi}:\operatorname{Hom}_A(E,{}_{(\varphi)}E)
+\longrightarrow H^0(T,A_{\natural,\varphi})
+\]
+<p>où \(A_{\natural,\varphi}={}_{(\varphi)}A\otimes_{A^e}A\) est le \(K\)-module
+quotient de \(A\) par le sous-module engendré localement par les sections locales
+de la forme \(ab-\varphi(b)a\). Dans le cas où \(A=K[G]\), \(G\) un groupe
+discret, avec \(\varphi\) défini par un endomorphisme \(\varphi\) de \(G\),
+\(A_{\natural,\varphi}\) est le \(K\)-module libre de base \(G_{\natural,\varphi}\),
+où \(G_{\natural,\varphi}\) est le quotient de \(G\) par l'action
+\((g,x)\longmapsto\varphi(g)xg^{-1}\) (les orbites s'appellent parfois «classes
+de \(\varphi\)-conjugaison» de \(G\)). Les traces 5.14.2 coïncident, pour \(T\)
+ponctuel, avec celles considérées par Grothendieck, et dont il est question dans
+l'exposé XII.</p>
+
+<p>Dans la situation de 5.10, si \(\varphi\), \(\psi\) sont des endomorphismes
+respectifs de \(A\), \(B\), compatibles avec \(A\longrightarrow B\), il existe
+une unique flèche \(\operatorname{Tr}_A:B_{\natural,\psi}\longrightarrow
+A_{\natural,\varphi}\) rendant commutatif le carré (analogue à 5.10.2)</p>
+\[
+\tag{5.13.4}
+\xymatrix{
+{}_{(\psi)}B=\underline{\operatorname{Hom}}_B(B,{}_{(\psi)}B)
+ \ar[r]^{\operatorname{Tr}_{B,\psi}}\ar[d] & B_{\natural,\psi}
+ \ar[d]^{\operatorname{Tr}_A}\\
+\underline{\operatorname{Hom}}_A(B,{}_{(\varphi)}A)\otimes_AB
+ \ar[r]_{\operatorname{ev}} & A_{\natural,\varphi},
+}
+\]
+<p>où \(\operatorname{év}\) est la flèche d'évaluation, et la flèche verticale de
+gauche est la restriction des scalaires. On définit une flèche analogue à 5.10.5,
+avec \(A\otimes_KM\) (resp.</p>
+
+<!-- Source PDF page 45 (printed page 182) -->
+<p>\(B\otimes_KM\)) remplacé par
+\({}_{(\varphi)}A\otimes_KM\) (resp.
+\({}_{(\psi)}B\otimes_KM\)), et l'on a des compatibilités analogues à 5.10.6,
+5.10.9, 5.10.11, qu'on laisse au lecteur le soin d'énoncer.</p>
+
+<p>Soient \(G\) un groupe fini, \(\varphi\) un endomorphisme de \(G\). Pour
+\(g\in G\), notons \(Z_{g,\varphi}\) le \(\varphi\)-centralisateur de \(g\)
+dans \(G\), i.e. l'ensemble des \(x\in G\) tels que
+\(\varphi(x)gx^{-1}=g\). Posons \(A=K[G]\), soient
+\(E\in\operatorname{ob}D(A)_{\mathrm{parf}}\),
+\(N\in\operatorname{ob}D^b(K)\). On déduit aisément des compatibilités
+précédentes que l'on a, pour
+\(u\in\operatorname{Hom}_A(E,{}_{(\varphi)}(M\mathbin{\overset L\otimes}_KE))\),
+\(g\in G\),</p>
+\[
+\tag{5.13.5}
+\operatorname{Tr}_K(gu)=|Z_{g^{-1},\varphi}|\operatorname{Tr}_{A,\varphi}(u)(g^{-1}),
+\]
+<p>(les détails de la vérification sont laissés au lecteur).</p>
+
+<!-- Source PDF page 46 (printed page 183) -->
+<h2 id="IIIB.6"><u>6.- Correspondances équivariantes et divisibilité de termes locaux.</u></h2>
+
+<h3 id="IIIB.6.1"><u>6.1. Notations.</u></h3>
+
+<p>Dans ce numéro, \(S\) désigne le spectre d'un corps de car. \(p\), et
+\(\Lambda\) un anneau commutatif noethérien annulé par un entier non divisible
+par \(p\). Les \(S\)-schémas considérés seront supposés séparés et de type fini.
+Les \(\Lambda\)-algèbres considérées seront associatives, unitaires, et de type
+fini, mais non nécessairement commutatives. Le plus souvent, et notamment pour
+tout ce qui concerne les «termes locaux de Lefschetz-Verdier non commutatifs»,
+elles seront supposées plates (dans les applications, ce seront des algèbres de
+groupes finis). Si \(X\) est un \(S\)-schéma, et \(A\) une \(\Lambda\)-algèbre,
+on notera \(D({}_A X)\) (resp. \(D(X_A)\)) la catégorie dérivée de la catégorie
+des faisceaux de \(A\)-modules à gauche (resp. à droite) sur \(X\) ; pour \(A\)
+commutatif, on écrira aussi \(D(X,A)\) pour \(D({}_A X)\), et
+\(D(X)=D(X,\Lambda)\). On notera \(D_c(-)\) (resp. \(D_{ctf}(-)\)) la
+sous-catégorie pleine formée des complexes à cohomologie constructible (resp. de
+tor-dimension finie et à cohomologie constructible). Si \(A\), \(B\) sont des
+\(\Lambda\)-algèbres, on notera \(D({}_A X_B)\) la catégorie dérivée de celle
+des faisceaux de \((A,B)\)-bimodules (à gauche sur \(A\), à droite sur \(B\)).
+Enfin, on utilisera les notations \(A^o\), \(A^e\), \(A_\natural\) de 5.1.</p>
+
+<h3 id="IIIB.6.2">6.2.</h3>
+
+<p>Le formalisme de (III 1, 2, 3) s'étend sans peine au cas «non commutatif».
+Indiquons rapidement les principaux points de cette généralisation.</p>
+
+<p>Soient \(X\) un \(S\)-schéma, \(A\), \(B\) des \(\Lambda\)-algèbres. Si
+\(L\in\operatorname{ob}D_{ctf}({}_A X)\),
+\(M\in\operatorname{ob}D({}_A X_B)\), \(M\) étant de tor-dimension finie et à
+cohomologie constructible en tant qu'objet de \(D(X_B)\), alors
+\(L\mathbin{\overset L\otimes}_A M\in\operatorname{ob}D_{ctf}(X_B)\) (la
+vérification est immédiate). D'autre part, il découle de (SGA 4<sup>1/2</sup>
+Finitude 1.6) que, pour \(M\) comme ci-dessus, et
+\(L\in\operatorname{ob}D_{ctf}({}_A X)\), on a
+\(R\underline{\operatorname{Hom}}_A(L,M)\in\operatorname{ob}D_{ctf}(X_B)\).
+Il résulte également de (loc. cit.) que, si \(f\) est un \(S\)-morphisme,
+\(D_{ctf}({}_A-)\) est stable par les opérations
+\((f^*,f_*,f_!,f^!)\) (le cas de \(f^*\) étant trivial).</p>
+
+<p>Soient, pour \(i=1,2\), \(f_i:X_i\longrightarrow Y_i\) un \(S\)-morphisme,</p>
+
+<!-- Source PDF page 47 (printed page 184) -->
+<p>\(f=f_1\times_Sf_2:X=X_1\times_SX_2\longrightarrow
+Y=Y_1\times_SY_2\), \(A\) une \(\Lambda\)-algèbre. Pour
+\(L_1\in\operatorname{ob}D^-(X_{1A})\),
+\(L_2\in\operatorname{ob}D^-({}_A X_2)\), on a une flèche de Künneth (dans
+\(D^-(Y)\))</p>
+\[
+\tag{6.2.1}
+f_{1*}L_1\mathbin{\overset L\otimes}_{S,A}f_{2*}L_2
+\longrightarrow f_*(L_1\mathbin{\overset L\otimes}_{S,A}L_2)
+\]
+<p>(où \(L_1\mathbin{\overset L\otimes}_{S,A}L_2\overset{\mathrm{dfn}}=
+p_1^*L_1\mathbin{\overset L\otimes}_Ap_2^*L_2\)), dont on déduit de
+(loc. cit.), comme en (III 1.6), qu'elle est un isomorphisme. Si \(B\), \(C\)
+sont des \(\Lambda\)-algèbres, avec \(B\) ou \(C\) supposée plate sur
+\(\Lambda\) (pour pouvoir définir
+\(\mathbin{\overset L\otimes}_A:D^-({}_B-A)\times D^-({}_A-C)
+\longrightarrow D^-({}_B-C)\)), on a un isomorphisme analogue à 6.2.1, dans
+\(D^-({}_B Y_C)\), pour
+\(L_1\in\operatorname{ob}D^-({}_B X_{1A})\),
+\(L_2\in\operatorname{ob}D^-({}_A X_{2C})\). On vérifie de même que, pour
+\(M_1\in\operatorname{ob}D^-(Y_{1A})\),
+\(M_2\in\operatorname{ob}D^-({}_A Y_2)\), on a un isomorphisme de Künneth
+(dans \(D^-(X)\))</p>
+\[
+\tag{6.2.2}
+f_1^!M_1\mathbin{\overset L\otimes}_{S,A}f_2^!M_2
+\longrightarrow f^!(M_1\mathbin{\overset L\otimes}_{S,A}M_2)
+\]
+<p>(et un isomorphisme analogue dans \(D^-({}_B X_C)\) pour
+\(M_1\in\operatorname{ob}D^-({}_B Y_{1A})\),
+\(M_2\in\operatorname{ob}D^-({}_A Y_{2C})\)). Enfin, soient, pour \(i=1,2\),
+\(A_i\) une \(\Lambda\)-algèbre, \(A_2\) étant plate,
+\(E_1\in\operatorname{ob}D_{ctf}({}_{A_1}X_1)\),
+\(F_2\in\operatorname{ob}D^+({}_{A_2}X_2)\),
+\(F_1\in\operatorname{ob}D({}_{A_1}X_{1A_2})\), avec \(F_1\) de
+tor-dimension finie et à cohomologie constructible en tant qu'objet de
+\(D(X_{1A_2})\). Alors on a
+\(R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)\in
+\operatorname{ob}D_{ctf}^-(X_{1A_2})\), comme on l'a vu plus haut, et l'on
+dispose d'une flèche canonique de \(D^+(X)\) (\(D^+(X,A_2)\) quand \(A_2\) est
+commutatif)</p>
+\[
+\tag{6.2.3}
+R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)
+\mathbin{\overset L\otimes}_{S,A_2}F_2\longrightarrow
+R\underline{\operatorname{Hom}}_{A_1}(p_1^*E_1,
+p_1^*F_1\mathbin{\overset L\otimes}_{S,A_2}F_2),
+\]
+<p>définie par composition de la flèche «image inverse» (III 2.1.1)</p>
+\[
+p_1^*R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)
+\mathbin{\overset L\otimes}_{A_2}p_2^*F_2\longrightarrow
+R\underline{\operatorname{Hom}}_{A_1}(p_1^*E_1,p_1^*F_1)
+\mathbin{\overset L\otimes}_{A_2}p_2^*F_2
+\]
+<p>avec la flèche analogue à 5.4.2</p>
+\[
+R\underline{\operatorname{Hom}}_{A_1}(p_1^*E_1,p_1^*F_1)
+\mathbin{\overset L\otimes}_{A_2}p_2^*F_2\longrightarrow
+R\underline{\operatorname{Hom}}_{A_1}(p_1^*E_1,
+p_1^*F_1\mathbin{\overset L\otimes}_{A_2}p_2^*F_2)
+\]
+<p>(adjointe selon 5.2.3 de la flèche</p>
+\[
+p_1^*E_1\mathbin{\overset L\otimes}_{A_1}
+R\underline{\operatorname{Hom}}_{A_1}(p_1^*E_1,p_1^*F_1)
+\mathbin{\overset L\otimes}_{A_2}p_2^*F_2\longrightarrow
+p_1^*F_1\mathbin{\overset L\otimes}_{A_2}p_2^*F_2
+\]
+<p>définie par la flèche d'évaluation 5.3.6). On déduit de 6.2.1, comme en
+(III 2.3),</p>
+
+<!-- Source PDF page 48 (printed page 185) -->
+<p>que 6.2.3 est un isomorphisme. En particulier, pour \(A_2=\Lambda\),
+\(F_2=\Lambda_{X_2}\), 6.2.3 donne un isomorphisme</p>
+\[
+\tag{6.2.4}
+p_1^*R\underline{\operatorname{Hom}}_{A_1}(E_1,F_1)
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}_{A_1}
+(p_1^*E_1,p_1^*F_1).
+\]
+
+<h3 id="IIIB.6.3">6.3.</h3>
+
+<p>Si \(t:T\longrightarrow S\) est un \(S\)-schéma, et \(A\) une
+\(\Lambda\)-algèbre, nous poserons</p>
+\[
+\tag{6.3.1}
+t^!A=KA_T\qquad(\in\operatorname{ob}D^+({}_A T_A)).
+\]
+<p>Pour \(A=\Lambda\), nous écrirons \(K_T\) au lieu de \(K\Lambda_T\). Il
+résulte de 6.2.2 qu'on a un isomorphisme canonique (de \(D^+({}_A T_A)\))</p>
+\[
+\tag{6.3.2}
+K_T\mathbin{\overset L\otimes}_{\Lambda}A\xrightarrow{\sim}KA_T.
+\]
+<p>Nous noterons \(D_A\) le foncteur
+\(R\underline{\operatorname{Hom}}_A(-,KA_T)\) : il envoie
+\(D_{ctf}({}_A T)\) dans \(D_{ctf}(T_A)\) (et vice-versa), et la démonstration
+de (SGA 4<sup>1/2</sup> Th. Finitude 4) montre que, pour
+\(L\in\operatorname{ob}D_{ctf}({}_A T)\), la flèche canonique
+\(L\longrightarrow D_A D_A L\) est un isomorphisme. Pour \(A=\Lambda\), nous
+écrirons \(D\) au lieu de \(D_A\).</p>
+
+<h3 id="IIIB.6.4">6.4.</h3>
+
+<p>Soit \(A\) une \(\Lambda\)-algèbre plate, et soient, pour \(i=1,2\),
+\(X_i\) un \(S\)-schéma, \(X=X_1\times_SX_2\),
+\(p_i:X\longrightarrow X_i\) les projections,
+\(L_i\in\operatorname{ob}D_{ctf}({}_A X_i)\). Par 6.2.3 appliqué à
+\(A_1=A_2=A\), \(E_1=L_1\), \(F_2=L_2\), \(F_1=KA_{X_1}\), on a un
+isomorphisme</p>
+\[
+D_A L_1\mathbin{\overset L\otimes}_{S,A}L_2\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}_A(p_1^*L_1,
+KA_{X_1}\mathbin{\overset L\otimes}_{S,A}L_2),
+\]
+<p>d'où, en composant avec l'isomorphisme de Künneth 6.2.2
+\(KA_{X_1}\mathbin{\overset L\otimes}_{S,A}L_2\xrightarrow{\sim}p_2^!L_2\),
+un isomorphisme</p>
+\[
+\tag{6.4.1}
+D_A L_1\mathbin{\overset L\otimes}_{S,A}L_2\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}_A(p_1^*L_1,p_2^!L_2),
+\]
+<p>qui généralise (III 3.1.1). Soit \(c:C\longrightarrow X\) un
+\(S\)-morphisme, posons \(c_i=p_ic\). Par la formule d'induction (SGA 4 XVIII
+3.1.12.2), on a un isomorphisme canonique (analogue à (III 3.2.1))</p>
+\[
+\tag{6.4.2}
+c^!R\underline{\operatorname{Hom}}_A(p_1^*L_1,p_2^!L_2)
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}_A(c_1^*L_1,c_2^!L_2),
+\]
+<p>d'où, en composant avec 6.4.1, un isomorphisme</p>
+
+\[
+\tag{6.4.3}
+H^0(X,c_*c^!(D_A L_1\mathbin{\overset L\otimes}_{S,A}L_2))
+\xrightarrow{\sim}\operatorname{Hom}_A(c_1^*L_1,c_2^!L_2).
+\]
+<p>Les éléments de \(\operatorname{Hom}_A(c_1^*L_1,c_2^!L_2)\) s'appelleront
+<u>correspondances cohomologiques de \(L_1\) à \(L_2\) à support dans \(C\)</u>
+(la terminologie diffère légèrement de celle de (loc. cit.), les deux terminologies
+coïncident pour \(c\) propre, ce qui est le cas dans la pratique).</p>
+
+<p>Étant donné des \(S\)-morphismes \(f_i:X_i\longrightarrow Y_i\) (\(i=1,2\))
+et un carré commutatif (III 3.7.1) avec \(c\) propre, on définit comme en
+(loc. cit.) des flèches « image directe » analogues à (III 3.7.5), (III 3.7.6)
+(pour \(L_i\in\operatorname{ob}D_{ctf}(A_{X_i})\)).</p>
+
+<!-- Source PDF page 49 (printed page 186) -->
+<h3 id="IIIB.6.5">6.5.</h3>
+<p>Soient \(A\) une \(\Lambda\)-algèbre plate, \(X\) un \(S\)-schéma,
+\(X^2=X\times_S X\), \(p_1,p_2:X^2\rightrightarrows X\) les projections
+canoniques, \(\delta:X\longrightarrow X^2\) la diagonale,
+\(c:C\longrightarrow X^2\) un \(S\)-morphisme, \(c_i=p_ic\),
+\(X^c=C\times_{X^2}X\) le schéma des points fixes de \(c\), d'où un carré
+cartésien</p>
+\[
+\tag{6.5.1}
+\xymatrix{X^c\ar[r]^{i^c}\ar[d]_{\delta^c}&X\ar[d]^{\delta}\\
+C\ar[r]_c&X^2.}
+\]
+<p>Posons</p>
+\[
+\tag{6.5.2}
+KA_{X,L\natural}=K_X\mathbin{\overset L\otimes}_{\Lambda}(A\mathbin{\overset L\otimes}_{A^e}A),
+\qquad KA_{X,\natural}=K_X\mathbin{\overset L\otimes}_{\Lambda}A_{\natural}.
+\]
+<p>Soit \(L\in\operatorname{ob}D_{ctf}(A_X)\). On définit un homomorphisme
+« trace locale »</p>
+\[
+\tag{6.5.3}
+\operatorname{Tr}_A:\delta^*R\underline{\operatorname{Hom}}_A(p_1^*L,p_2^!L)
+\longrightarrow KA_{X,L\natural}
+\]
+<p>en composant l'isomorphisme</p>
+\[
+\tag{6.5.4}
+\delta^*R\underline{\operatorname{Hom}}_A(p_1^*L,p_2^!L)
+\xrightarrow{\sim}\delta^*(D_A L\mathbin{\overset L\otimes}_{S,A}L)
+\]
+<p>déduit de l'inverse de 6.4.1 (pour \(X_1=X_2\), \(L_1=L_2\)) par
+application de \(\delta^*\), l'isomorphisme trivial</p>
+\[
+\tag{6.5.5}
+\delta^*(D_A L\mathbin{\overset L\otimes}_{S,A}L)=D_A L\mathbin{\overset L\otimes}_A L,
+\]
+
+<!-- Source PDF page 50 (printed page 187) -->
+<p>et la flèche d'évaluation 5.3.5</p>
+\[
+\tag{6.5.6}
+D_A L\mathbin{\overset L\otimes}_A L\longrightarrow KA_{X,L\natural}
+\]
+<p>(où l'on a identifié \(KA_X\mathbin{\overset L\otimes}_{A^e}A\) à
+\(KA_{X,L\natural}\) grâce à 6.3.2
+\(K_X\mathbin{\overset L\otimes}_{\Lambda}A=KA_X\)). Il résulte aussitôt de la
+définition que, pour \(X=S\), 6.5.3 coïncide avec la flèche
+\(\operatorname{Tr}_A:R\underline{\operatorname{Hom}}_A(L,L)longrightarrow
+A\mathbin{\overset L\otimes}_{A^e}A\) de 5.6.1. Composant la flèche déduite de
+6.5.3 par application de \(i_*^ci^{c!}\) avec la flèche</p>
+\[
+\tag{6.5.7}
+\delta^*c_*R\underline{\operatorname{Hom}}_A(c_1^*L,c_2^!L)
+\longrightarrow i_*^ci^{c!}\delta^*R\underline{\operatorname{Hom}}_A(p_1^*L,p_2^!L)
+\]
+<p>déduite de 6.4.2 et de la flèche de changement de base
+\(\delta^*c_*c^!\longrightarrow i_*^ci^{c!}\delta^*\), on obtient une flèche</p>
+\[
+\tag{6.5.8}
+\operatorname{Tr}_A:\delta^*c_*R\underline{\operatorname{Hom}}_A(c_1^*L,c_2^!L)
+\longrightarrow i_*^ci^{c!}KA_{X,L\natural}=i_*^cKA_{X^c,L\natural},
+\]
+<p>d'où la flèche</p>
+\[
+\tag{6.5.9}
+\operatorname{Tr}_A:\operatorname{Hom}_A(c_1^*L,c_2^!L)
+\longrightarrow H^0(X^c,KA_{X^c,L\natural}).
+\]
+<p>On notera encore \(\operatorname{Tr}_A\) les flèches composées de 6.5.3,
+6.5.8, 6.5.9 avec les flèches déduites de la flèche canonique
+\(KA_{X,L\natural}\longrightarrow KA_{X,\natural}\). On vérifie facilement que,
+pour \(A=\Lambda\), on a, pour \(u\in\operatorname{Hom}(c_1^*L,c_2^!L)\),</p>
+\[
+\tag{6.5.10}\operatorname{Tr}(u)=\langle u,1\rangle,
+\]
+<p>avec la notation de (III 4.2.5), \(1\) désignant la correspondance diagonale
+(plus précisément, la flèche \(c_*R\underline{\operatorname{Hom}}(c_1^*L,c_2^!L)
+\longrightarrow\delta_*i_*^cK_{X^c}\) adjointe de 6.5.8 est celle définie par
+(III 4.2.4') (avec \(X_1=X_2\), \(L_1=L_2\), \(d=\delta\)) et la correspondance
+diagonale \(1\in\operatorname{Hom}(L,L)\)).</p>
+
+<h3 id="IIIB.6.6">6.6.</h3>
+<p>Soient \(A\) une \(\Lambda\)-algèbre plate, et, pour \(i=1,2\), \(X_i\) un
+\(S\)-schéma, \(X=X_1\times_SX_2\), \(L_i\in\operatorname{ob}D_{ctf}(A_{X_i})\).
+On définit un accouplement</p>
+\[
+\tag{6.6.1}
+R\underline{\operatorname{Hom}}_A(p_1^*L_1,p_2^!L_2)
+\mathbin{\overset L\otimes}_A
+R\underline{\operatorname{Hom}}_A(p_2^*L_2,p_1^!L_1)
+\longrightarrow KA_{X,L\natural}
+\]
+<p>de la manière suivante. On identifie le premier membre à</p>
+
+<!-- Source PDF page 51 (printed page 188) -->
+\[
+R\underline{\operatorname{Hom}}_A(p_1^*L_1,p_1^*KA_{X_1})
+\mathbin{\overset L\otimes}_A p_2^*L_2
+\mathbin{\overset L\otimes}_A
+R\underline{\operatorname{Hom}}_A(p_2^*L_2,p_2^*KA_{X_2})
+\mathbin{\overset L\otimes}_A p_1^*L_1
+\]
+<p>par les isomorphismes 6.4.1, puis à</p>
+\[
+A\mathbin{\overset L\otimes}_{A^e}R\underline{\operatorname{Hom}}_A( , )
+\mathbin{\overset L\otimes}_{\Lambda}p_2^*L_2
+\mathbin{\overset L\otimes}_{\Lambda}R\underline{\operatorname{Hom}}_A( , )
+\mathbin{\overset L\otimes}_{\Lambda}p_1^*L_1
+\mathbin{\overset L\otimes}_{A^e}A
+\]
+<p>par 5.3.1 ; on envoie cet objet dans
+\(A\mathbin{\overset L\otimes}_{A^e}(KA_{X_1}\mathbin{\overset L\otimes}_{\Lambda}
+KA_{X_2})\mathbin{\overset L\otimes}_{A^e}A=R\) par le produit tensoriel de
+flèches d'évaluation 5.3.6 ; on identifie enfin \(R\) à
+\(A\mathbin{\overset L\otimes}_{A^e}(KA_{X_1}\mathbin{\overset L\otimes}_{\Lambda}
+KA_{X_2})\) par 5.8.2, puis à \(KA_{X,L\natural}\) par 6.5.2 et (III 1.7.6).
+Si \(c:C\longrightarrow X\), \(d:D\longrightarrow X\) sont des correspondances,
+et \(e=c\times_Xd:E\longrightarrow X\), on déduit de 6.6.1, comme en (III 4.2),
+un accouplement</p>
+\[
+\tag{6.6.2}
+c_*R\underline{\operatorname{Hom}}_A(c_1^*L_1,c_2^!L_2)
+\mathbin{\overset L\otimes}_{\Lambda}
+d_*R\underline{\operatorname{Hom}}_A(d_2^*L_2,d_1^!L_1)
+\longrightarrow e_*KA_{E,L\natural},
+\]
+<p>d'où un « cup-produit »</p>
+\[
+\tag{6.6.3}
+\langle\ ,\ \rangle_A:\operatorname{Hom}_A(c_1^*L_1,c_2^!L_2)\otimes
+\operatorname{Hom}_A(d_2^*L_2,d_1^!L_1)\longrightarrow H^0(E,KA_{E,L\natural}).
+\]
+<p>Il n'est pas difficile d'étendre au cas non commutatif la notion de composition
+de correspondances étudiée en (III 5.2), et l'on vérifie que, pour
+\(u\in\operatorname{Hom}_A(c_1^*L_1,c_2^!L_2)\),
+\(v\in\operatorname{Hom}_A(d_2^*L_2,d_1^!L_1)\), on a la formule analogue à
+(III 5.2.9)</p>
+\[
+\tag{6.6.4}\langle u,v\rangle_A=\operatorname{Tr}_A(vu)=\operatorname{Tr}_A(uv).
+\]
+<p>La formule de Lefschetz (III 4.4) se généralise sans peine dans ce contexte :
+étant donné des \(S\)-morphismes propres \(f_i:X_i\longrightarrow Y_i\)
+(\(i=1,2\)), et un cube commutatif (III 4.4.0), on a, pour
+\(L_i\in\operatorname{ob}D_{ctf}(A_{X_i})\), un carré commutatif analogue à
+(III 4.4.1), avec \(K_C\) (resp. \(K_D\)) remplacé par
+\(KA_{C,L\natural}\) (resp. \(KA_{D,L\natural}\)), et une formule analogue à
+(III 4.5.1), dans \(H^0(D,KA_{D,L\natural})\) :</p>
+\[
+\tag{6.6.5}\langle f_*u,f_*v\rangle_A=g_*\langle u,v\rangle_A
+\]
+<p>(la flèche \(f_*c_*KA_{C,L\natural}\longrightarrow d_*KA_{D,L\natural}\)
+est déduite de la flèche (4) de (III 4.4.1) par tensorisation avec
+\(A\mathbin{\overset L\otimes}_{A^e}A\)).</p>
+
+<!-- Source PDF page 52 (printed page 189) -->
+<h3 id="IIIB.6.7">6.7.</h3>
+<p>Soient \(X\) et \(c\) comme en 6.5, et \(A\longrightarrow B\) un morphisme
+de \(\Lambda\)-algèbres plates. Vis-à-vis de l'extension et de la restriction des
+scalaires, les flèches \(\operatorname{Tr}_A\) (6.5.3, 6.5.8, 6.5.9) se comportent
+comme les flèches \(\operatorname{Tr}_A\) de 5.6.1, 5.6.2. Le point est que, si
+\(f\) est un \(S\)-morphisme, les foncteurs \((f^*,f_*,f_!,f^!)\) commutent à
+l'extension et à la restriction des scalaires, et que par conséquent l'étude du
+comportement de \(\operatorname{Tr}_A\) (6.5.3) vis-à-vis de l'extension et de la
+restriction des scalaires se ramène à celle du comportement de la flèche « produit
+tensoriel »</p>
+\[
+R\underline{\operatorname{Hom}}_A(p_1^*L,p_1^*KA_X)
+\mathbin{\overset L\otimes}_A p_2^*L\longrightarrow
+R\underline{\operatorname{Hom}}_A(p_1^*L,p_1^*KA_X
+\mathbin{\overset L\otimes}_A p_2^*L)
+\]
+<p>et de la flèche « d'évaluation »</p>
+\[
+R\underline{\operatorname{Hom}}_A(L,KA_X)\mathbin{\overset L\otimes}_A L
+\longrightarrow KA_{X,L\natural}.
+\]
+<p>Ainsi, la commutativité des carrés 5.9.1, 5.9.2 entraîne celle du carré</p>
+\[
+\tag{6.7.1}
+\xymatrix{
+\delta^*c_*R\underline{\operatorname{Hom}}_A(c_1^*L,c_2^!L)\ar[r]^{\operatorname{Tr}_A}\ar[d]&
+i_*^cKA_{X^c,L\natural}\ar[d]\\
+\delta^*c_*R\underline{\operatorname{Hom}}_B(c_1^*(B\mathbin{\overset L\otimes}_A L),c_2^!(B\mathbin{\overset L\otimes}_A L))\ar[r]^{\operatorname{Tr}_B}&
+i_*^cKB_{X^c,L\natural},}
+\]
+<p>où la flèche verticale de gauche est l'extension des scalaires et celle de droite
+est définie par la flèche canonique
+\(A\mathbin{\overset L\otimes}_{A^e}A\longrightarrow
+B\mathbin{\overset L\otimes}_{B^e}B\) ; il en résulte que, pour
+\(u\in\operatorname{Hom}_A(c_1^*L,c_2^!L)\), on a</p>
+\[
+\tag{6.7.2}
+\operatorname{Tr}_B(B\mathbin{\overset L\otimes}_A u)=\varphi\operatorname{Tr}_A(u),
+\]
+<p>où \(\varphi:H^0(X^c,KA_{X^c,L\natural})\longrightarrow
+H^0(X^c,KB_{X^c,L\natural})\) est l'application canonique.</p>
+
+<p>Supposons \(A\) de type fini et plat en tant que \(\Lambda\)-module, \(B\) de
+type fini et plat en tant que \(A\)-module à gauche, et \(A_{\natural}\),
+\(B_{\natural}\) plats sur \(\Lambda\). On dispose de
+\(\operatorname{Tr}_{B/A}:B_{\natural}\longrightarrow A_{\natural}\), on notera encore</p>
+\[
+\tag{6.7.3}
+\operatorname{Tr}_{B/A}:KB_{X,\natural}\longrightarrow KA_{X,\natural},
+\]
+<p>la flèche qui s'en déduit par application de
+\(K_X\mathbin{\overset L\otimes}_{\Lambda}-\) (6.5.2). Il découle de 5.10.6 et
+5.10.9 que, pour \(L\in\operatorname{ob}D_{ctf}(B_X)\), on a un carré commutatif</p>
+
+<!-- Source PDF page 53 (printed page 190) -->
+\[
+\tag{6.7.4}
+\xymatrix{
+\delta^*c_*R\underline{\operatorname{Hom}}_B(c_1^*L,c_2^!L)\ar[r]^{\operatorname{Tr}_B}\ar[d]&
+i_*^cKB_{X^c,\natural}\ar[d]^{\operatorname{Tr}_{B/A}}\\
+\delta^*c_*R\underline{\operatorname{Hom}}_A(c_1^*L,c_2^!L)\ar[r]^{\operatorname{Tr}_A}&
+i_*^cKA_{X^c,\natural},}
+\]
+<p>où la flèche verticale de gauche est la restriction des scalaires. Par suite, pour
+\(u\in\operatorname{Hom}_B(c_1^*L,c_2^!L)\), on a, dans
+\(H^0(X^c,KA_{X^c,\natural})\),</p>
+\[
+\tag{6.7.5}
+\operatorname{Tr}_A(u)=\operatorname{Tr}_{B/A}(\operatorname{Tr}_B(u)).
+\]
+
+<h3 id="IIIB.6.8">6.8.</h3>
+<p>Soient \(A,B\) des \(\Lambda\)-algèbres plates, \(X,Y\) des \(S\)-schémas,
+\(Z=X\times_S Y\), \(c:C\longrightarrow X^2\),
+\(d:D\longrightarrow Y^2\) des correspondances,
+\(e=c\times_Sd:E=C\times_SD\longrightarrow Z^2\) le produit. On a donc
+\(Z^e=X^c\times_SY^d\). Posons \(R=A\otimes_\Lambda B\). On définit comme en
+(III 5.3) le produit tensoriel externe</p>
+\[
+\tag{6.8.1}
+\operatorname{Hom}_A(c_1^*L,c_2^!L)\otimes\operatorname{Hom}_B(d_1^*M,d_2^!M)
+\mathbin{\overset L\otimes}_S\longrightarrow
+\operatorname{Hom}_R(e_1^*(L\mathbin{\overset L\otimes}_SM),
+e_2^!(L\mathbin{\overset L\otimes}_SM)),
+\]
+<p>et l'on déduit aisément de la commutativité des carrés 5.12.1, 5.12.3, que,
+pour \(u\in\operatorname{Hom}_A(c_1^*L,c_2^!L)\),
+\(v\in\operatorname{Hom}_B(d_1^*M,d_2^!M)\), on a, dans
+\(H^0(Z^e,KR_{Z^e,L\natural})\),</p>
+\[
+\tag{6.8.2}
+\operatorname{Tr}_R(u\mathbin{\overset L\otimes}_Sv)=
+\operatorname{Tr}_A(u)\operatorname{Tr}_B(v),
+\]
+<p>le produit au second membre étant défini par la flèche canonique</p>
+\[
+\tag{6.8.3}
+H^0(X^c,KA_{X^c,L\natural})\otimes H^0(Y^d,KB_{Y^d,L\natural})
+\longrightarrow H^0(Z^e,KR_{Z^e,L\natural}),
+\]
+<p>provenant de l'isomorphisme
+\(KA_{X^c,L\natural}\mathbin{\overset L\otimes}_S KB_{Y^d,L\natural}
+\longrightarrow K(A\otimes B)_{Z^d,L\natural}\) donné par (III 1.7.6) et la
+flèche (4) de 5.9.1).</p>
+
+<h3 id="IIIB.6.9">6.9.</h3>
+<p>Soit \(G\) un groupe fini. Si \(X\) est un \(G\)-\(S\)-schéma (i.e. un
+\(S\)-schéma muni d'une action de \(G\) par \(S\)-automorphismes<sup class="footnote-ref"><a id="fnref-IIIB-5" href="#fn-IIIB-5">(*)</a></sup>),
+et \(A\) une \(\Lambda\)-algèbre<sup class="footnote-ref"><a id="fnref-IIIB-6" href="#fn-IIIB-6">(**)</a></sup>, nous noterons \(D(G,{}_AX)\) la catégorie dérivée de celle des faisceaux de
+\(G\)-\(A\)-modules à gauche sur \(X\) (pour les notions de \(G\)-faisceau
+d'ensembles, d'anneaux, de modules, etc.) sur \(X\) (pour la topologie étale),
+nous renvoyons le lecteur à (X 1)), et nous</p>
+
+<!-- Source PDF page 54 (printed page 191) -->
+<p>désignerons par l'indice \(c\) (resp. \(ctf\)) la sous-catégorie pleine formée
+des complexes de \(G\)-\(A\)-modules qui, en tant que complexes de
+\(A\)-modules, sont à cohomologie constructible (resp. de tor-dimension finie et
+à cohomologie constructible). De même, si \(B\) est une \(\Lambda\)-algèbre,
+nous noterons \(D(G,{}_AX_B)\) la catégorie dérivée de celle des
+\(G\)-(\(A,B\))-bimodules sur \(X\). Si \(G\) agit trivialement sur \(X\), un
+\(G\)-\(A\)-module à gauche sur \(X\) n'est autre qu'un \(A[G]\)-module à gauche
+sur \(X\) (sans groupe d'opérateurs), donc
+\(D(G,{}_AX)=D({}_{A[G]}X)\) ; comme \(G\) est fini, on a de plus
+\(D_c({}_AX)=D_c({}_{A[G]}X)\), mais on a seulement une inclusion
+\(D_{ctf}({}_{A[G]}X)\subset D_{ctf}(G,{}_AX)\).</p>
+
+<p>Le formalisme de dualité de (SGA 4 XVII, XVIII) s'étend sans peine au cas
+des \(G\)-\(S\)-schémas. Comme le foncteur d'oubli de l'action de \(G\) est
+fidèle, il suffit d'étendre de façon naturelle la définition des « six
+opérations » (\(\mathbin{\overset L\otimes}\),
+\(R\underline{\operatorname{Hom}}\), \(f^*\), \(f_*\), \(f_!\), \(f^!\)) et
+des flèches canoniques envisagées en (loc. cit.) (changement de base, Künneth,
+dualité, etc.). Cette extension n'offre pas de difficulté (pour la définition
+des foncteurs \(f_!\), \(f^!\), il suffit d'utiliser des compactifications
+équivariantes). Nous laissons au lecteur le soin de paraphraser les définitions
+et résultats de 6.2 à 6.8 dans le cadre des \(G\)-\(S\)-schémas. Si, pour
+\(i=1,2\), \(X_i\) est un \(G\)-\(S\)-schéma,
+\(c:C\longrightarrow X=X_1\times_SX_2\) un \(G\)-\(S\)-morphisme, et
+\(L_i\in\operatorname{ob}D_{ctf}(G,{}_AX_i)\), les éléments de
+\(\operatorname{Hom}_A(c_1^*L_1,c_2^!L_2)\) (\(\operatorname{Hom}_A=\operatorname{Hom}\)
+dans la catégorie \(D(G,{}_A-)\)) s'appelleront <u>correspondances
+(cohomologiques) équivariantes de \(L_1\) à \(L_2\) à support dans \(c\)</u>.
+On notera que, lorsque \(G\) agit trivialement sur \(X_i\) (\(i=1,2\)) et que
+\(L_i\in\operatorname{ob}D_{ctf}({}_{A[G]}X_i)\), l'isomorphisme 6.4.1 (dans
+\(D(G,X)\)) se « raffine » en un isomorphisme</p>
+\[
+D_{A[G]}L_1\mathbin{\overset L\otimes}_{S,A[G]}L_2
+\mathbin{\mathop{\longrightarrow}^{\sim}}
+R\underline{\operatorname{Hom}}_{A[G]}(p_1^*L_1,p_2^!L_2).
+\]
+<p>Il en résulte que, dans une situation \(G\)-équivariante de type 6.5, avec
+action triviale de \(G\) sur les espaces, et
+\(L\in\operatorname{ob}D_{ctf}({}_{A[G]}X)\subset D_{ctf}(G,{}_AX)\), on peut,
+pour \(u\in\operatorname{Hom}_{A[G]}(c_1^*L,c_2^!L)\), définir un terme local
+\(\operatorname{Tr}_{A[G]}(u)\in H^0(X^c,KA[G]_{X^c,L\natural})\), plus fin (en
+un sens évident) que le terme local
+\(\operatorname{Tr}_A(u)\in H^0(G,X^c,KA_{X^c,L\natural})\) obtenu en utilisant
+seulement la tor-dimension finie de \(L\) par rapport à \(A\).</p>
+
+<!-- Source PDF page 55 (printed page 192) -->
+<h3 id="IIIB.6.10">6.10.</h3>
+<p>Soient \(X,c\) comme en 6.5, et
+\(L\in\operatorname{ob}D_{ctf}({}_{\Lambda[G]}X)\). Pour
+\(u\in\operatorname{Hom}_{\Lambda[G]}(c_1^*L,c_2^!L)\), on dispose, par 6.5.9,
+d'une trace locale</p>
+\[
+\tag{6.10.1}
+\operatorname{Tr}_{\Lambda[G]}(u)\in H^0(X^c,K\Lambda[G]_{X^c,\natural})
+=H^0(X^c;K_{X^c}\otimes\Lambda[G_\natural]),
+\]
+<p>où \(G_\natural\) est l'ensemble des classes de conjugaison de \(G\), et pour
+tout \(x\in G_\natural\), on peut considérer la « valeur de
+\(\operatorname{Tr}_{\Lambda[G]}(u)\) en \(x\) »,
+\(\operatorname{Tr}_{\Lambda[G]}(u)(x)\in H^0(X^c,K_{X^c})\), image de
+\(\operatorname{Tr}_{\Lambda[G]}(u)\) par la projection
+\(H^0(X^c,K_{X^c}\otimes\Lambda[G_\natural])\longrightarrow H^0(X^c,K_{X^c})\)
+définie par \(x\). Il résulte de 6.7.5 et 5.11.2 que l'on a</p>
+\[
+\tag{6.10.2}
+\operatorname{Tr}_\Lambda(u)=|G|\operatorname{Tr}_{\Lambda[G]}(u)(e),
+\]
+<p>où \(e\) désigne l'élément neutre de \(G\). Plus généralement, soit
+\(g\in G\), notons \(Z_g\) le centralisateur de \(g\), et
+\(gu\in\operatorname{Hom}_{\Lambda[Z_g]}(c_1^*L,c_2^!L)\) la correspondance
+composée de \(u\) avec la multiplication à gauche par
+\(g:c_1^*L\longrightarrow c_1^*L\). On a
+\(L\in\operatorname{ob}D_{ctf}({}_{\Lambda[Z_g]}X)\), et par suite 6.10.2
+entraîne</p>
+\[
+\tag{6.10.3}
+\operatorname{Tr}_\Lambda(gu)=|Z_g|\operatorname{Tr}_{\Lambda[Z_g]}(gu)(e).
+\]
+<p>Par le même raisonnement qu'en 5.11.3, on déduit de 6.7.4 la formule</p>
+\[
+\tag{6.10.4}
+\operatorname{Tr}_{\Lambda[Z_g]}(gu)(e)=
+\operatorname{Tr}_{\Lambda[G]}(u)(g^{-1}),
+\]
+<p>qui permet, si on le désire, de récrire 6.10.3 sous la forme</p>
+\[
+\tag{6.10.5}
+\operatorname{Tr}_\Lambda(gu)=|Z_g|\operatorname{Tr}_{\Lambda[G]}(u)(g^{-1}).
+\]
+
+<h3 id="IIIB.6.11">6.11.</h3>
+<p>Soient \(f:X\longrightarrow Y\) un \(G\)-\(S\)-morphisme propre, et</p>
+\[
+\tag{6.11.1}
+\xymatrix{X\times_SX& C\ar[l]_c\ar[d]\\
+Y\times_SY\ar[u]^{f\times_Sf}&D\ar[l]^d}
+\]
+<p>un carré commutatif \(G\)-équivariant de \(G\)-\(S\)-schémas, avec \(c\) et
+\(d\) propres. On suppose que \(G\) agit trivialement sur \(Y\) et \(D\). On
+note</p>
+
+<!-- Source PDF page 56 (printed page 193) -->
+\[
+\tag{6.11.2}
+f^{c/d}\ (\text{ou }f^c):X^c\longrightarrow Y^d
+\]
+<p>le morphisme induit par 6.11.1 sur les schémas des points fixes de \(c\) et
+\(d\), avec les notations de 6.5.1. Soient
+\(L\in\operatorname{ob}D_{ctf}(G,X)\), et
+\(u\in\operatorname{Hom}(c_1^*L,c_2^!L)\) une correspondance
+\(G\)-équivariante à support dans \(c\), d'où, par image directe, une
+correspondance \(G\)-équivariante
+\(f_*u\in\operatorname{Hom}_{\Lambda[G]}(d_1^*f_*L,d_2^!f_*L)\). Pour
+\(g\in G\), nous noterons \(Z_g\) le centralisateur de \(g\), et</p>
+\[
+\tag{6.11.3}
+gu\in\operatorname{Hom}((gc_1)^*L,c_2^!L)
+\]
+<p>la correspondance \(Z_g\)-équivariante à support dans</p>
+\[
+\tag{6.11.4}
+gc\mathrel{\mathop=^{\mathrm{dfn}}}(gc_1=c_1g,c_2):C\longrightarrow X\times_SX
+\]
+<p>définie comme composée des flèches</p>
+\[
+g^*(c_1^*L)\mathbin{\mathop{\longrightarrow}^{\alpha_g}}c_1^*L
+\mathbin{\mathop{\longrightarrow}^{u}}c_2^!L,
+\]
+<p>où \(\alpha_g\) est la flèche donnant l'action de \(G\) sur \(c_1^*L\). Il
+est clair que l'on a</p>
+\[
+\tag{6.11.5}
+f_*(gu)=g(f_*u).
+\]
+
+<div class="thm proposition" id="IIIB.6.12">
+<div class="thm-head"><span class="thm-name">Proposition</span>
+<span class="thm-num">6.12.</span> — Sous les hypothèses de 6.11, on suppose que
+l'on a \(f_*L\in\operatorname{ob}D_{ctf}({}_{\Lambda[G]}Y)\). Alors, pour tout
+\(g\in G\), on a</div>
+<div class="thm-body">
+\[
+\tag{6.12.1}
+f_*^{gc}\operatorname{Tr}_\Lambda(gu)=|Z_g|
+\operatorname{Tr}_{\Lambda[G]}(f_*u)(g^{-1}),
+\]
+<p>où \(f_*^{gc}:H^0(X^{gc},K_{X^{gc}})\longrightarrow H^0(Y^d,K_{Y^d})\)
+est le morphisme « de Gysin » défini par la flèche d'adjonction
+\(f_*^{gc}K_{X^{gc}}=f_*^{gc}f^{gc!}K_{Y^d}\longrightarrow K_{Y^d}\).</p>
+</div></div>
+
+<p>D'après 6.10.5 appliqué à \(f_*u\), et 6.11.5, on a en effet</p>
+\[
+\operatorname{Tr}_\Lambda(f_*(gu))=|Z_g|
+\operatorname{Tr}_{\Lambda[G]}(f_*u)(g^{-1}),
+\]
+<p>et par suite 6.12.1 résulte de la formule de Lefschetz (III 4.5.1).</p>
+
+<h3 id="IIIB.6.13">6.13.</h3>
+<p>Soit \(\ell\) un nombre premier \(\ne p\). Pour tout entier \(n\geq1\),
+posons \(\Lambda_n=\mathbb Z/\ell^n\). Sous les hypothèses de 6.11, soit
+\(L=(L_n)\) un système projectif</p>
+
+<!-- Source PDF page 57 (printed page 194) -->
+<p>d'objets de \(D_{ctf}(G,X,\Lambda_n)\) tel que
+\(L_m\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\mathbin{\mathop{\longrightarrow}^{\sim}}L_n\) pour \(m\geq n\), et soit
+\(u\in\operatorname{Hom}(c_1^*L,c_2^!L)\) un système projectif de
+correspondances équivariantes
+\(u_n\in\operatorname{Hom}(c_1^*L_n,c_2^!L_n)\) tel que, pour \(m\geq n\),
+\(u_m\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n=u_n\) modulo
+l'isomorphisme
+\(L_m\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n=L_n\). En vertu de la
+compatibilité des traces locales à l'extension des scalaires, les termes locaux
+(pour \(g\in G\))
+\(\operatorname{Tr}_{\Lambda_n}(gu_n)\in H^0(X^{gc},K\Lambda_{n,X^{gc}})\)
+définissent un élément</p>
+\[
+\operatorname{Tr}_{\mathbb Z_\ell}(gu)\in H^0(X^{gc},K_{\ell,X^{gc}})
+\mathrel{\mathop=^{\mathrm{dfn}}}\varprojlim_n
+H^0(X^{gc},K\Lambda_{n,X^{gc}}),
+\]
+<p>et les
+\(f_*^{gc}\operatorname{Tr}_{\Lambda_n}(gu_n)=
+\operatorname{Tr}_{\Lambda_n}(gf_*u_n)\) un élément</p>
+\[
+f_*\operatorname{Tr}_{\mathbb Z_\ell}(gu)\in H^0(Y^d,K_{\ell,Y^d})
+\mathrel{\mathop=^{\mathrm{dfn}}}\varprojlim_n H^0(Y^d,K\Lambda_{n,Y^d}).
+\]
+<p>Supposons de plus que
+\(f_*L_n\in\operatorname{ob}D_{ctf}({}_{\Lambda_n[G]}Y)\) pour tout \(n\).
+Alors les traces locales \(\operatorname{Tr}_{\Lambda_n[G]}(f_*u_n)\)
+définissent de même un élément</p>
+\[
+\operatorname{Tr}_{\mathbb Z_\ell[G]}(f_*u)\in
+H^0(Y^d,K\mathbb Z_\ell[G]_{Y^d,\natural})
+\mathrel{\mathop=^{\mathrm{dfn}}}\varprojlim_n
+H^0(Y^d,K\Lambda_n[G]_{Y^d,\natural}).
+\]
+<p>Il découle de 6.12 que l'on a</p>
+\[
+\tag{6.13.1}
+f_*^{gc}\operatorname{Tr}_{\mathbb Z_\ell}(gu)=|Z_g|
+\operatorname{Tr}_{\mathbb Z_\ell[G]}(f_*u)(g^{-1}).
+\]
+
+<h3 id="IIIB.6.14">6.14.</h3>
+<p>Soient \(X\) un \(G\)-\(S\)-schéma, \(j:U\longrightarrow X\) une immersion
+ouverte équivariante, \(c:C\longrightarrow X\times_SX\) un morphisme de
+\(G\)-\(S\)-schémas tel que \(c_2(=p_2c):C\longrightarrow X\) soit quasi-fini
+et de tor-dimension finie. On suppose que
+\(c_1^{-1}(U)\subset c_2^{-1}(U)\) ; on a donc des carrés commutatifs</p>
+\[
+\tag{6.14.1}
+\xymatrix{
+U&c_1^{-1}(U)\ar[l]\ar[d]&c_2^{-1}(U)\ar[l]\ar[r]\ar[d]&U\ar[d]\\
+X& C\ar[l]_{c_1}\ar[d]&C\ar[l]\ar[r]^{c_2}\ar[d]&X\ar[d]\\
+X-U&c_1^{-1}(X-U)\ar[l]&c_2^{-1}(X-U)\ar[l]\ar[r]&X-U.}
+\]
+
+<!-- Source PDF page 58 (printed page 195) -->
+<p>Le morphisme trace
+\(\operatorname{Tr}_{c_2}:c_{2!}c_2^!\Lambda_C\longrightarrow\Lambda_X\)
+définit alors une correspondance \(G\)-équivariante filtrée</p>
+\[
+\tag{6.14.2}
+\underline c\in\operatorname{Hom}(c_1^*\Lambda_X,c_2^!\Lambda_X),
+\]
+<p>\(\Lambda_X\) étant muni de la filtration définie par le sous-module
+\(i_!\Lambda_U\) (i.e. \(F^n\Lambda_X=\Lambda_X\) pour \(n\leq0\),
+\(F^1\Lambda_X=i_!\Lambda_U\), \(F^n\Lambda_X=0\) pour \(n\geq1\)). Le gradué
+associé se compose des deux correspondances \(G\)-équivariantes</p>
+\[
+\tag{6.14.3}
+\operatorname{gr}^0\underline c=\underline c_{X-U,X}
+\in\operatorname{Hom}(c_1^*(\Lambda_{X-U,X}),c_2^!(\Lambda_{X-U,X})),
+\]
+\[
+\operatorname{gr}^1\underline c=\underline c_{U,X}
+\in\operatorname{Hom}(c_1^*(\Lambda_{U,X}),c_2^!(\Lambda_{X-U,X})),
+\]
+<p>où l'on a posé \(\Lambda_{X-U,X}=j_*\Lambda_{X-U}\),
+\(\Lambda_{U,X}=i_!\Lambda_U\). On a</p>
+\[
+\tag{6.14.4}
+\underline c_{X-U,U}=j_*\underline c_{X-U},
+\]
+<p>où \(\underline c_{X-U}\in
+\operatorname{Hom}(c_1^*\Lambda_{X-U},c_2^!\Lambda_{X-U})\) est la
+correspondance définie par \(\operatorname{Tr}_{c_2,X-U}\). Nous écrirons
+\(\underline c_\Lambda\), \(\underline c_{U,X}\), etc., quand nous voudrons
+préciser l'anneau de base.</p>
+
+<p>Oublions l'action de \(G\). On a des termes locaux</p>
+\[
+\tag{6.14.5}
+\operatorname{Tr}_\Lambda(\underline c),\quad
+\operatorname{Tr}_\Lambda(\underline c_{U,X}),\quad
+\operatorname{Tr}_\Lambda(\underline c_{X-U,X})
+\in H^0(X^c,K_{X^c}),
+\]
+<p>qui, en vertu de l'additivité des traces (III 4.13.1), vérifient la relation</p>
+\[
+\tag{6.14.6}
+\operatorname{Tr}_\Lambda(\underline c)=
+\operatorname{Tr}_\Lambda(\underline c_{U,X})+
+\operatorname{Tr}_\Lambda(\underline c_{X-U,X}).
+\]
+<p>De plus, d'après 6.14.4, on a</p>
+\[
+\tag{6.14.7}
+\operatorname{Tr}_\Lambda(\underline c_{X-U,X})=
+j_*^c\operatorname{Tr}_\Lambda(\underline c_{X-U}),
+\]
+<p>où \(j_*^c:H^0((X-U)^c,K_{(X-U)^c})\longrightarrow
+H^0(X^c,K_{X^c})\) est le morphisme image directe défini par
+\(j^c:(X-U)^c\longrightarrow X^c\). Rappelons (III 4.3) que si \(X\) est
+lisse, \(c\) une immersion fermée et \(X^c\) fini,
+\(\operatorname{Tr}_\Lambda(\underline c)\) est l'image dans \(\Lambda\) de la
+multiplicité d'intersection \((C.X)\) de \(C\) avec la diagonale ; si de plus
+\(X-U\) est lisse, \(\operatorname{Tr}_\Lambda(\underline c_{X-U})\) est
+l'image dans \(\Lambda\) de \((c_2^{-1}(X-U).(X-U))\). Notons aussi que, si
+\(X-U\) est propre sur \(S\), et \(c|X-U\) est la diagonale, alors la formule
+de Lefschetz</p>
+
+<!-- Source PDF page 59 (printed page 196) -->
+<p>(III 4.7) entraîne que
+\(\int_{X-U}\operatorname{Tr}(\underline c_{X-U})\in\Lambda\) est la
+caractéristique d'Euler-Poincaré de \(X-U\) (à valeurs dans \(\Lambda\)).</p>
+
+<h3 id="IIIB.6.15">6.15.</h3>
+<p>Soient un diagramme \(G\)-équivariant 6.11.1 (avec \(f,c,d\) propres), et
+\(U\longrightarrow X\) une immersion ouverte \(G\)-équivariante. On suppose
+que \(c_2\) est quasi-fini et de tor-dimension finie,
+\(c_1^{-1}(U)\subset c_2^{-1}(U)\), que \(G\) agit trivialement sur \(C\) et
+\(D\), et que \(f|U:U\longrightarrow f(U)=V\) est un revêtement étale
+galoisien de groupe \(G\). Cette dernière hypothèse implique que
+\(Rf_*(\Lambda_{U,X})\in\operatorname{ob}D_{ctf}({}_{\Lambda[G]}Y)\) ; en fait
+\(Rf_*(\Lambda_{U,X})\) est concentré en degré 0 et prolongé par zéro d'un
+faisceau sur \(V\) localement isomorphe à \(\Lambda[G]\). On peut donc
+appliquer 6.12 à \(L=\Lambda_{U,X}\), \(u=\underline c_{U,X}\), et, compte
+tenu de 6.14.6, 6.14.7, on obtient la</p>
+
+<div class="thm proposition" id="IIIB.6.16"><div class="thm-head">
+<span class="thm-name">Proposition</span> <span class="thm-num">6.16.</span> —
+<u>Sous les hypothèses de 6.15, on a, pour tout \(g\in G\),</u></div>
+<div class="thm-body">
+\[
+\tag{6.16.1}
+f_*^{gc}\operatorname{Tr}_\Lambda(g\underline c)-
+(fj)_*^{gc}\operatorname{Tr}_\Lambda(g\underline c_{X-U})
+=|Z_g|\operatorname{Tr}_{\Lambda[G]}(f_*\underline c_{U,X})(g^{-1}),
+\]
+<p><u>où \(j:X-U\longrightarrow X\) est l'inclusion, et \(Z_g\) désigne le
+centralisateur de \(g\).</u></p></div></div>
+
+<p>Appliquant 6.16 au système projectif de correspondances
+\(\underline c_\ell=(\underline c^{\Lambda_n})\), où
+\(\Lambda_n=\mathbb Z/\ell^n\) (\(\ell\) premier \(\ne p\)), et tenant compte
+de ce que 6.14.6, 6.14.7 donnent, par passage à la limite et application de
+\(f_*^{gc}\),</p>
+\[
+f_*^{gc}\operatorname{Tr}_{\mathbb Z_\ell}(g\underline c_\ell)=
+f_*^{gc}\operatorname{Tr}_{\mathbb Z_\ell}(g\underline c_{\ell,U,X})+
+(fj)_*^{gc}\operatorname{Tr}_{\mathbb Z_\ell}(g\underline c_{\ell,X-U}),
+\]
+<p>on en déduit, d'après 6.13,</p>
+
+<div class="thm corollary" id="IIIB.6.17"><div class="thm-head">
+<span class="thm-name">Corollaire</span> <span class="thm-num">6.17.</span> —
+<u>Sous les hypothèses de 6.15, on a, pour tout \(g\in G\),</u></div>
+<div class="thm-body">
+\[
+\tag{6.17.1}
+f_*^{gc}\operatorname{Tr}_{\mathbb Z_\ell}(g\underline c_\ell)-
+(fj)_*^{gc}\operatorname{Tr}_{\mathbb Z_\ell}(g\underline c_{\ell,X-U})
+=|Z_g|\operatorname{Tr}_{\mathbb Z_\ell[G]}(f_*\underline c_{\ell,U,X})(g^{-1}),
+\]
+<p><u>avec les notations de 6.16.</u></p></div></div>
+
+<p>Compte tenu de la compatibilité des traces locales à la localisation et
+des remarques faites en 6.14, on voit que 6.17 résout affirmativement, dans
+une formulation plus générale, la conjecture de divisibilité de Grothendieck
+(XII 4.5), dans le cas où l'endomorphisme \(\varphi\) de \(G\) considéré dans
+(loc. cit.) est l'identité.</p>
+
+<!-- Source PDF page 60 (printed page 197) -->
+<p>En fait, il n'est pas difficile, en s'inspirant de 5.13, de donner des
+énoncés de divisibilité analogues à 6.12, 6.13, 6.16, 6.17, dans le cas où
+\(c\) n'est pas \(G\)-équivariante, mais telle que \(c_2\) le soit et que
+\(c_1\) vérifie \(c_1(xg)=c_1(x)\varphi(g)\), pour tout point \(x\) de \(G\),
+\(\varphi\) étant un endomorphisme donné de \(G\) : les formules de
+divisibilité s'écrivent comme plus haut, avec \(Z_g\) remplacé par le
+\(\varphi\)-centralisateur de \(g^{-1}\) (5.13.5).</p>
+
+<h3 id="IIIB.6.18">6.18.</h3>
+<p>Posons</p>
+\[
+\tag{6.18.1}
+N_G=\sum_{g\in G}g\in\Lambda[G].
+\]
+<p>Soit \(X\) un \(S\)-schéma. Pour
+\(L\in\operatorname{ob}D({}_{\Lambda[G]}X)\), la multiplication à gauche par
+\(N_G\) induit une flèche de \(D(X)\)</p>
+\[
+\tag{6.18.2}
+N_G:\Lambda\mathbin{\overset L\otimes}_{\Lambda[G]}L
+\longrightarrow R\operatorname{Hom}_{\Lambda[G]}(\Lambda,L),
+\]
+<p>où \(\Lambda\) est considéré comme \(\Lambda[G]\)-algèbre par
+l'augmentation naturelle (envoyant tout \(g\in G\) sur 1).</p>
+
+<div class="thm lemma" id="IIIB.6.18.3"><div class="thm-head">
+<span class="thm-name">Lemme</span> <span class="thm-num">6.18.3.</span> —
+<u>Si \(L\in\operatorname{ob}D_{ctf}({}_{\Lambda[G]}X)\), la flèche 6.18.2 est
+un isomorphisme.</u></div></div>
+
+<p>Par dévissage on se ramène en effet à supposer \(L\) parfait, puis
+\(L=\Lambda[G]\), et l'assertion découle de ce que \(N_G\) (6.18.1) est une
+base du module des invariants sous \(G\) du \(\Lambda[G]\)-module à gauche
+\(\Lambda[G]\).</p>
+
+<div class="thm proposition" id="IIIB.6.19"><div class="thm-head">
+<span class="thm-name">Proposition</span> <span class="thm-num">6.19.</span> —
+<u>Dans la situation de 6.11, soient \(M\in\operatorname{ob}D_{ctf}(Y)\),
+\(v\in\operatorname{Hom}(d_1^*M,d_2^!M)\),
+\(a:M\longrightarrow f_*L\) une flèche de
+\(D({}_{\Lambda[G]}Y)\) (\(M\) étant regardé comme objet de
+\(D({}_{\Lambda[G]}Y)\) par l'augmentation \(\Lambda[G]\longrightarrow
+\Lambda\)) tels que le carré</u></div>
+<div class="thm-body">
+\[
+\xymatrix{
+d_1^*M\ar[r]^v\ar[d]_{d_1^*a}&d_2^!M\ar[d]^{d_2^!a}\\
+d_1^*f_*L\ar[r]_{f_*u}&d_2^!f_*L}
+\]
+<p><u>soit commutatif. On suppose que
+\(f_*M\in\operatorname{ob}D_{ctf}({}_{\Lambda[G]}Y)\) et que \(a\) induit un
+isomorphisme
+\(M\xrightarrow{\sim}R\operatorname{Hom}_{\Lambda[G]}(\Lambda,f_*L)\).
+Alors on a</u></p></div></div>
+
+<!-- Source PDF page 61 (printed page 198) -->
+\[
+\tag{6.19.1}
+\operatorname{Tr}_\Lambda(v)=
+\sum_{g\in G_\natural}\operatorname{Tr}_{\Lambda[G]}(f_*u)(g^{-1}).
+\]
+<p>D'après 6.18.3, \(a\), composé avec \(N_G^{-1}\), donne un isomorphisme
+\(M\xrightarrow{\sim}\Lambda\mathbin{\overset L\otimes}_{\Lambda[G]}f_*L\),
+par lequel \(v\) s'identifie à
+\(\Lambda\mathbin{\overset L\otimes}_{\Lambda[G]}f_*u\). D'après 6.7.2,
+\(\operatorname{Tr}_\Lambda(v)\) est donc l'image de
+\(\operatorname{Tr}_{\Lambda[G]}(f_*u)\) par la flèche induite par
+l'augmentation \(\Lambda[G]\longrightarrow\Lambda\) ; or celle-ci, par
+définition, envoie chaque classe de conjugaison sur 1, d'où la conclusion.</p>
+
+<h3 id="IIIB.6.20">6.20.</h3>
+<p>Soient, pour \(i=1,2\), \(X_i\) un \(G\)-\(S\)-schéma,
+\(X=X_1\times_SX_2\), \(c:C\longrightarrow X\) un \(G\)-\(S\)-morphisme tel
+que \(c_2\) soit quasi-fini et de tor-dimension finie. Soient
+\(L_i\in\operatorname{ob}D^+(G,X_i)\). Le morphisme trace
+\(\operatorname{Tr}_{c_2}:c_{2!}c_2^*L_2\longrightarrow L_2\) définit par
+adjonction une flèche (de \(D(G,X)\)) notée encore</p>
+\[
+\tag{6.20.1}
+\operatorname{Tr}_{c_2}:c_2^*L_2\longrightarrow c_2^!L_2,
+\]
+<p>qui permet d'associer à tout morphisme (\(G\)-équivariant)
+\(u\in\operatorname{Hom}(c_1^*L_1,c_2^*L_2)\) une correspondance
+(\(G\)-équivariante)</p>
+\[
+\tag{6.20.2}
+u'=\operatorname{Tr}_{c_2}\circ u\in
+\operatorname{Hom}(c_1^*L_1,c_2^!L_2).
+\]
+
+<div class="thm proposition" id="IIIB.6.21"><div class="thm-head">
+<span class="thm-name">Proposition</span> <span class="thm-num">6.21.</span> —
+<u>Soient \(f:X\longrightarrow Y\) un \(G\)-\(S\)-morphisme propre, et un
+carré commutatif équivariant 6.11.1, avec action triviale de \(G\) sur \(Y\)
+et \(D\). On suppose \(c,d\) propres, \(c_2,d_2\) quasi-finis et de
+tor-dimension finie, et le carré</u></div><div class="thm-body">
+\[
+\xymatrix{C\ar[r]^{c_2}\ar[d]_h&X\ar[d]^f\\D\ar[r]_{d_2}&Y}
+\]
+<p><u>cartésien et tor-indépendant (SGA 6 III 1.5). Soient
+\(M\in\operatorname{ob}D_{ctf}(Y)\),
+\(v\in\operatorname{Hom}(d_1^*M,d_2^*M)\), d'où un homomorphisme
+\(G\)-équivariant
+\(h^*v\in\operatorname{Hom}(c_1^*f^*M,c_2^*f^*M)\), et des correspondances
+\(G\)-équivariantes \((h^*v)'\in
+\operatorname{Hom}(c_1^*f^*M,c_2^!f^*M)\),
+\(f_*((h^*v)')\in\operatorname{Hom}(d_1^*(f_*f^*M),d_2^!(f_*f^*M))\).
+On a alors un carré commutatif de flèches de
+\(D({}_{\Lambda[G]}Y)\) (\(M\) étant considéré comme objet de
+\(D({}_{\Lambda[G]}Y)\) par l'action triviale)</u></p></div></div>
+
+<!-- Source PDF page 62 (printed page 199) -->
+\[
+\xymatrix{
+d_1^*M\ar[r]^{v'}\ar[d]&d_2^!M\ar[d]\\
+d_1^*(f_*f^*M)\ar[r]_{f_*((h^*v)')}&d_2^!(f_*f^*M),}
+\]
+<p><u>où les flèches verticales sont données par la flèche d'adjonction
+\(M\longrightarrow f_*f^*M\).</u></p>
+
+<p>Posons \(h^*v=u\), \(f^*M=L\), et considérons le diagramme</p>
+\[
+\xymatrix{
+d_1^*M\ar[r]^v\ar[d]_{(1)}&d_2^*M\ar[r]^{\operatorname{Tr}_{d_2}}\ar[d]_{(2)}
+&d_2^!M\ar[d]^{(3)}\\
+d_1^*f_*L\ar[r]^{(4)}&h_*c_1^*L\ar[r]^{h_*u}&h_*c_2^*L
+\ar[r]^{h_*\operatorname{Tr}_{c_2}}&h_*c_2^!L\ar[r]^{(5)}&d_2^!f_*L,}
+\]
+<p>où (1) et (3) sont donnés par la flèche d'adjonction
+\(M\longrightarrow f_*L\), (2) par la flèche d'adjonction
+\(d_2^*M\longrightarrow h_*h^*(d_2^*M)=h_*c_2^*L\), (4) par la flèche de
+changement de base, et (5) est l'isomorphisme canonique (SGA 4 XVIII
+3.1.12.3). Par définition, \(v'\) est le composé de la ligne supérieure. Il
+découle d'autre part de l'interprétation de l'image directe d'une
+correspondance (III 3.5 b), 3.7) que \(f_*u'\) est le composé de la ligne
+inférieure. Il suffit donc de prouver la commutativité des carrés (A) et (B).
+Celle de (A) résulte aussitôt de la définition de la flèche de changement de
+base. Quant à celle de (B), elle découle de ce que, compte tenu de l'hypothèse
+de tor-indépendance, \(\operatorname{Tr}_{d_2}\) est compatible au changement
+de base par \(f\) (SGA 4<sup>1/2</sup> Cycle 2.3.3), d'où la conclusion.</p>
+
+<p>Appliquant 6.19, on en déduit :</p>
+
+<div class="thm corollary" id="IIIB.6.22"><div class="thm-head">
+<span class="thm-name">Corollaire</span> <span class="thm-num">6.22.</span> —
+<u>Sous les hypothèses de 6.21, on suppose que
+\(f_*f^*M\in\operatorname{ob}D_{ctf}({}_{\Lambda[G]}Y)\), et que la flèche
+d'adjonction \(M\longrightarrow f_*f^*M\) induit un isomorphisme
+\(M\xrightarrow{\sim}R\operatorname{Hom}_{\Lambda[G]}
+(\Lambda,f_*f^*M)\). Alors on a</u></div><div class="thm-body">
+\[
+\tag{6.22.1}
+\operatorname{Tr}_\Lambda(v')=
+\sum_{g\in G_\natural}\operatorname{Tr}_{\Lambda[G]}
+(f_*((f^*v)'))(g^{-1}).
+\]
+</div></div>
+
+<div class="thm proposition" id="IIIB.6.23"><div class="thm-head">
+<span class="thm-name">Proposition</span> <span class="thm-num">6.23.</span> —
+<u>Sous les hypothèses de 6.21, on suppose donné de plus une immersion ouverte
+\(i:V\longrightarrow Y\) telle que \((fc_1)^{-1}(V)\) soit connexe, que
+<!-- Source PDF page 63 (printed page 200) -->
+\(d_1^{-1}(V)\subset d_2^{-1}(V)\), et que \(f\) induise un revêtement principal
+galoisien de groupe \(G\), \(U=f^{-1}(V)\xrightarrow{f_V}V\). On suppose en outre
+que \(M\) est de la forme \(M=i_!E\), où \(E\in\operatorname{ob}D(V)\), et qu'on a
+un isomorphisme
+\(\alpha:f_V^*E\xrightarrow{\sim}\Lambda_X\otimes E_o\) de \(D(G,X)\), avec
+\(E_o\in\operatorname{ob}D(\Lambda[G])\), parfait sur \(\Lambda\). On se donne
+\(v\in\operatorname{Hom}(d_1^*M,d_2^*M)\) comme en 6.21, et l'on note
+\(v_o\in\operatorname{Hom}_{\Lambda[G]}(E_o,E_o)\) l'homomorphisme défini, grâce
+à \(\alpha\), par \(f^*v|_{c_1^{-1}(U)}\). Alors, si
+\(\underline c_{U,X}\) désigne la correspondance définie en 6.14.3, on a (avec
+la notation 6.20.2)</u></div><div class="thm-body">
+\[
+\tag{6.23.1}
+\operatorname{Tr}_\Lambda(v')=
+\sum_{g\in G_\natural}\operatorname{Tr}_{\Lambda[G]}
+(f_*\underline c_{U,X})(g^{-1})\operatorname{Tr}_\Lambda(gv_o).
+\]
+<p>(Noter que, grâce au caractère central de \(\operatorname{Tr}_\Lambda\), le
+second membre ne dépend pas du choix de \(\alpha\)).</p></div></div>
+
+<p>Par la formule de projection
+\(f_*f^*M\mathbin{\overset L\otimes}M\xrightarrow{\sim}f_*f^*M\) et 6.15,
+\(M\) vérifie les hypothèses de 6.22. D'autre part, \(\alpha\) définit un
+isomorphisme
+\(f^*M\xrightarrow{\sim}\Lambda_{U,X}\otimes E_o\) par lequel \((f^*v)'\)
+s'identifie au produit tensoriel externe \(\underline c_{U,X}\otimes v_o\).
+Par la formule de projection, \(f_*f^*M\) s'identifie donc à
+\(f_*(\Lambda_{U,X})\otimes E_o\), et \(f_*((f^*v)')\) au produit tensoriel
+externe \(f_*\underline c_{U,X}\otimes v_o\). Pour \(g\in G\), la
+correspondance (\(Z_g\)-équivariante) \(gf_*((f^*v)')\) s'identifie donc à
+\(gf_*\underline c_{U,X}\otimes gv_o\). Comme, d'après 6.10.4, on a</p>
+\[
+\operatorname{Tr}_{\Lambda[G]}(f_*((f^*v)'))(g^{-1})
+=\operatorname{Tr}_{\Lambda[Z_g]}(gf_*((f^*v)'))(e),
+\]
+<p>il suffit, compte tenu de 6.22.1, de prouver la formule</p>
+\[
+\operatorname{Tr}_{\Lambda[Z_g]}(gf_*\underline c_{U,X}\otimes gv_o)(e)
+=\operatorname{Tr}_{\Lambda[G]}(f_*\underline c_{U,X})(g^{-1})
+\operatorname{Tr}_\Lambda(gv_o),
+\]
+<p>ou, ce qui revient au même, d'après 6.10.4,</p>
+\[
+\tag{6.23.2}
+\operatorname{Tr}_{\Lambda[Z_g]}(gf_*\underline c_{U,X}\otimes gv_o)(e)
+=\operatorname{Tr}_{\Lambda[Z_g]}(gf_*\underline c_{U,X})(e)
+\operatorname{Tr}_\Lambda(gv_o).
+\]
+<p>Quitte à remplacer (G) par (Z_g), on peut supposer que (g=e), et,
+revenant à la définition des traces, on voit qu'il suffit d'établir le lemme
+suivant :</p>
+
+<!-- Source PDF page 64 (printed page 201) -->
+<div class="thm lemma" id="IIIB.6.23.3"><div class="thm-head">
+<span class="thm-name">Lemme</span> <span class="thm-num">6.23.3.</span> —
+<u>(cf. (SGA 4<sup>1/2</sup> Rapport 4.7)). Soient (P) un
+\(G_V\)-module localement facteur direct d'un module libre de type fini,
+\(P'=i_!P\), et (Q) un complexe de \(\Lambda[G]\)-modules, parfait sur
+\(\Lambda\). Alors \(P\mathbin{\overset L\otimes}Q\), considéré comme objet de
+\(D(\Lambda[G]^V)\) par l'action diagonale de (G), est parfait sur
+\(\Lambda[G]\), et l'on a un carré commutatif</u></div><div class="thm-body">
+\[
+\tag{*}
+\xymatrix{
+\delta^*R\underline{\operatorname{Hom}}_{\Lambda[G]}(p_1^*P',p_2^!P')
+\mathbin{\overset L\otimes}R\operatorname{Hom}_{\Lambda[G]}(Q,Q)
+\ar[r]^{(1)}\ar[d]_{(2)}&K_Y\ar@{=}[d]\\
+\delta^*R\underline{\operatorname{Hom}}_{\Lambda[G]}
+(p_1^*P'\mathbin{\overset L\otimes}Q,p_2^!P'\mathbin{\overset L\otimes}Q)
+\ar[r]^{(3)}&K_Y,}
+\]
+<p><u>où \(\delta:Y\longrightarrow Y\times_S Y\) est la diagonale, (1) est
+produit tensoriel des flèches</u></p>
+\[
+\delta^*R\underline{\operatorname{Hom}}_{\Lambda[G]}(p_1^*P',p_2^!P')
+\xrightarrow{6.5.3}K\Lambda[G]_{Y,M}\xrightarrow{x\mapsto x(e)}K_Y
+\]
+<p><u>et</u></p>
+\[
+R\operatorname{Hom}_{\Lambda[G]}(Q,Q)
+\xrightarrow{\operatorname{Tr}_\Lambda}\Lambda,
+\]
+<p><u>(2) est la flèche déduite du produit tensoriel externe par restriction
+selon la diagonale \(\Lambda[G]\longrightarrow\Lambda[G]\otimes\Lambda[G]\),
+et (3) est composé de 6.5.3 (définie car
+\(P'\mathbin{\overset L\otimes}Q\in\operatorname{ob}
+D_{ctf}(\Lambda[G]^Y)\)) et de \(x\longmapsto x(e)\)</u><sup><a
+href="#fn-IIIB-7" id="fnref-IIIB-7">(1)</a></sup><u>.</u></p></div></div>
+
+<p>La première assertion est évidente, car on se ramène à
+\(P=\Lambda[G]_V\), et \(P\mathbin{\overset L\otimes}_\Lambda Q\) est alors
+isomorphe au produit tensoriel de (P) par (Q) considéré comme muni de
+l'action triviale de (G). Pour la seconde, notons d'abord que, d'après
+6.5.4, 6.5.5, on a</p>
+\[
+\delta^*R\underline{\operatorname{Hom}}_{\Lambda[G]}(p_1^*P',p_2^!P')
+\xrightarrow{\sim}D_{\Lambda[G]}(i_!P)
+\mathbin{\overset L\otimes}_{\Lambda[G]}i_!P
+\xrightarrow{\sim}i_!\bigl(D_{\Lambda[G]}P
+\mathbin{\overset L\otimes}_{\Lambda[G]}P\bigr),
+\]
+<p>de sorte qu'on est ramené à vérifier que le carré induit par (*) sur (V)
+commute. On peut donc supposer que (V=Y). Le carré (*) s'écrit alors</p>
+
+<!-- Source PDF page 65 (printed page 202) -->
+\[
+\tag{**}
+\xymatrix{
+R\operatorname{Hom}_{\Lambda[G]}(P,K_Y\mathbin{\overset L\otimes}P)
+\mathbin{\overset L\otimes}R\operatorname{Hom}_{\Lambda[G]}(Q,Q)
+\ar[r]^{(1)}\ar[d]_{(2)}&K_Y\ar@{=}[d]\\
+R\operatorname{Hom}_{\Lambda[G]}(P\mathbin{\overset L\otimes}Q,
+K_Y\mathbin{\overset L\otimes}P\mathbin{\overset L\otimes}Q)
+\ar[r]^{(3)}&K_Y;}
+\]
+<p>où (2) est le produit tensoriel externe, (1) est donné par
+\(\operatorname{Tr}_{\Lambda[G]}(-)(e)\otimes\operatorname{Tr}_\Lambda\)
+(traces au sens du nº 5), (3) par
+\(\operatorname{Tr}_{\Lambda[G]}(-)(e)\). Par descente, on se ramène à
+\(P=\Lambda[G]_Y\), et, par la remarque du début, on peut alors supposer que
+\(G\) agit trivialement sur (Q). L'assertion est alors conséquence immédiate
+de 5.12.5.</p>
+
+<h3 id="IIIB.6.24">6.24.</h3>
+<p>Si \(\Lambda\) est annulé par une puissance d'un nombre premier
+\(\ell\ne p\), on peut récrire le second membre de 6.23.1 sous la forme</p>
+\[
+\sum_{g\in G_\natural}\operatorname{Tr}_{\mathbb Z_\ell[G]}
+(f_*\underline c_{U,U,X})(g^{-1})\operatorname{Tr}_\Lambda(gv_o),
+\]
+<p>avec les notations de 6.17. La formule 6.17.1 montre que les termes locaux
+définis par Grothendieck dans (XII 6.2) coïncident avec les termes locaux de
+Verdier, du moins quand l'endomorphisme \(\omega\) de (G) considéré en
+(loc. cit.) est l'identité (mais, comme on l'a déjà observé, cette restriction
+n'est pas sérieuse). Si (Y) est propre sur (S), on obtient, en conjuguant
+6.23.1 à la formule de Lefschetz pour \(Y\longrightarrow S\) (III 4.7), une
+formule qui généralise (XII 6.3) (et a fortiori la formule de Lefschetz pour
+Frobenius démontrée dans (SGA 4<sup>1/2</sup> Rapport) et la partie I du
+présent exposé).</p>
+
+<!-- Source PDF page 66 (printed page 203) -->
+<h2 id="IIIB.bibliographie"><u>BIBLIOGRAPHIE.</u></h2>
+
+<p>[1] Cartan, H. et Eilenberg, S. — Homological Algebra, Princeton University
+Press, 1956.</p>
+<p>[2] Grothendieck, A. — Formule de Lefschetz et rationalité des fonctions L,
+Séminaire Bourbaki 64/65, nº 279, in Dix exposés sur la cohomologie des
+schémas, North Holland, Pub. Co., 1968.</p>
+<p>[3] Illusie, L. — Complexe cotangent et déformations I, II, Lecture Notes in
+Mathematics 239, 283, Springer-Verlag, 1971, 1972.</p>
+<p>[4] Langlands, R.P. — Modular forms and \(\ell\)-adic representations, in
+Modular Functions of One Variable II, Lecture Notes in Mathematics 349,
+Springer-Verlag, 1973.</p>
+<p>[5] Stallings, J. — Centerless groups - an algebraic formulation of
+Gottlieb's theorem, Topology, 4, p. 129-134, 1965.</p>
+<p>[6] Verdier, J.-L. — The Lefschetz fixed point formula in étale cohomology,
+in Proceedings of a conference on local fields, Springer-Verlag, 1967.</p>
+
+<p>SGA 4<sup>1/2</sup> : Cohomologie étale, par P. Deligne, Lecture Notes in
+Mathematics 569, Springer-Verlag 1977.</p>
+<p>(Dans SGA 4<sup>1/2</sup> : Th. Finitude : Théorèmes de finitude en
+cohomologie \(\ell\)-adique.</p>
+<p style="margin-left: 4em;">Cycle : La classe de cohomologie associée à un
+cycle.</p>
+<p style="margin-left: 4em;">Rapport : Rapport sur la formule des traces).</p>
+
+<hr>
+<div class="footnotes">
+<p id="fn-IIIB-1"><a href="#fnref-IIIB-1">(*)</a> avec l'abus de notation habituel (X'=X'\times\{y'\}), etc. (où (x') (resp. (y')) est le point fermé de (X') (resp. (Y')).</p>
+<p id="fn-IIIB-2"><a href="#fnref-IIIB-2">(1)</a> Si (M) est un faisceau, la notation
+(x\in M) signifie que (x) est une section locale de (M).</p>
+<p id="fn-IIIB-3"><a href="#fnref-IIIB-3">(*)</a> Au n° 6, on appliquera les
+constructions qui suivent au cas où \(M\) est un complexe dualisant (6.7).</p>
+<p id="fn-IIIB-4"><a href="#fnref-IIIB-4">(*)</a> Si \(X\) est un ensemble, on note
+\(|X|\) le cardinal de \(X\).</p>
+<p id="fn-IIIB-5"><a href="#fnref-IIIB-5">(*)</a> On convient de faire opérer
+\(G\) à droite sur les espaces.</p>
+<p id="fn-IIIB-6"><a href="#fnref-IIIB-6">(**)</a> On s'intéresse surtout au cas
+de \(\Lambda\)-algèbres commutatives.</p>
+<p id="fn-IIIB-7"><a href="#fnref-IIIB-7">(1)</a> On devrait pouvoir remplacer
+\(P\) par un complexe parfait (sur \(\Lambda[G]\)) (voire \(P'\) par objet de
+\(D_{ctf}(\Lambda[G]^Y)\)).</p>
+</div>
+
+</body>
+</html>

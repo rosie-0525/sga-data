@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé X. Intersections sur les surfaces régulières</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="10">EXPOSÉ X<br><u>INTERSECTIONS SUR LES SURFACES RÉGULIÈRES</u><span class="author"><u>par P. Deligne</u></span></h1>
+
+<p>Dans la première partie de cet exposé, après quelques préliminaires de théorie des
+intersections (contenus dans [5] ∪ [7]), on donne la démonstration d'après Artin d'un cas
+particulier d'un théorème de Raynaud [9] (1.13), et une démonstration a priori d'un théorème
+que Néron [8] vérifiait cas par cas (1.15). De (1.13) résultent assez aisément les théorèmes
+de [9] utilisés dans [2] et par là dans IX.</p>
+
+<p>Dans la seconde partie, je poursuis sur ma lancée et raconte comment les "italiens" [1],
+[3] calculaient les nombres d'intersections, sur les surfaces. Les résultats principaux 2.9
+et 2.11 se trouvent par ailleurs dans Northcott [12] et [13]. Pour terminer, je donne en
+2.27, 2.30, 2.34 une relation conjecturale entre la dimension du schéma formel versel des
+modules d'une singularité d'une courbe réduite, l'invariant \(\delta\) de la singularité et
+un invariant mesurant sa symétrie.</p>
+
+<p>Cet exposé ne sera pas utilisé dans la suite du séminaire.</p>
+
+<h2 id="10.1">1. <u>Nombres d'intersection sur les surfaces arithmétiques</u></h2>
+
+<p id="10.1.0"><strong>1.0.</strong> On suppose donné dans ce § un schéma régulier \(X\) de
+dimension 2, un diviseur réduit \(Y\) de \(X\), et un sous-corps \(k\) de
+\(H^0(Y,\mathcal O_Y)\). On suppose que \(Y\) est une courbe (EGA II 7.4.1) propre sur
+\(k\). Voici trois exemples de cette situation.</p>
+
+<p id="10.1.1"><strong><u>Exemple 1.1.</u></strong> Soit \((S,\eta,s)\) un trait et \(X\) un
+\(S\)-schéma \(f:X\longrightarrow S\), régulier, propre et plat sur \(S\), à fibres purement
+de dimension un. On prend \(Y=(f^{-1}(s))_{\mathrm{red}}\) et \(k=k(s)\). On se restreindra
+à ce cas à partir de 1.10.</p>
+
+<p id="10.1.2"><strong><u>Exemple 1.2.</u></strong> Soient \(X_0\) le spectre d'un anneau local
+normal de dimension 2, \(s\) le point fermé de \(X_0\) et \(f:X\longrightarrow X_0\) un
+\(X_0\)-schéma régulier et connexe, propre sur \(X_0\), distinct de \(X_0\) mais coïncidant
+avec \(X_0\) au-dessus de \(X_0-\{s\}\). On prend \(Y=(f^{-1}(s))_{\mathrm{red}}\) et
+\(k=k(s)\).</p>
+
+<p id="10.1.3"><strong><u>Exemple 1.3.</u></strong> On prend pour \(X\) une surface régulière
+complète sur un corps \(k\) et pour \(Y\) une courbe réduite tracée sur \(X\).</p>
+
+<p>Rappelons le lemme suivant (SGA 6 IV ex. 1.9).</p>
+
+<div class="thm lemma" id="10.1.4">
+<div class="thm-head"><span class="thm-name"><u>Lemme 1.4.</u></span></div>
+<div class="thm-body"><p><u>Soit \(Z_0\) un sous-schéma fermé d'un schéma noethérien \(Z\).
+Alors, l'inclusion de \(Z_0\) dans \(Z\) induit un isomorphisme du groupe de Grothendieck de
+la catégorie des faisceaux cohérents de \(\mathcal O_{Z_0}\)-modules dans le groupe de
+Grothendieck de la catégorie des faisceaux cohérents sur \(Z\) à support dans \(Z_0\).</u></p></div>
+</div>
+
+<p>Ce lemme permet de définir la caractéristique d'Euler-Poincaré \(\chi(\mathcal F)\) d'un
+faisceau cohérent \(\mathcal F\) sur \(X\) à support dans \(Y\), de façon à ce que,</p>
+
+<ol class="enumerate">
+<li><span class="item-label">(i)</span> Si \(\mathcal F\) est un faisceau cohérent de
+\(\mathcal O_Y\)-modules, alors
+\[\chi(\mathcal F)=\dim_k H^0(\mathcal F)-\dim_k H^1(\mathcal F)\tag{1.4.1}\]</li>
+<li><span class="item-label">(ii)</span> \(\chi\) est additif relativement aux suites exactes
+courtes.</li>
+</ol>
+
+<p>Si les faisceaux de cohomologie d'un complexe \(K\) de \(\mathcal O_X\)-modules sont des
+faisceaux cohérents à support dans \(Y\), on pose
+\[\chi(K)=\sum_i(-1)^i\chi(\underline H^i(K)).\tag{1.4.2}\]</p>
+
+<p>Si \(\mathcal F\) est localisé en un point \(y\) de \(Y\), on a
+\[\chi(\mathcal F)=\lg_{\mathcal O_y}(\mathcal F_y)\cdot[k(y):k].\tag{1.4.3}\]</p>
+
+<p>Sous les hypothèses (1.1), (1.2) ou (1.3), on a
+\[\chi(\mathcal F)=\lg f_*\mathcal F-\lg R^1f_*\mathcal F.\tag{1.4.4}\]</p>
+
+<p>Soient \(D\) un diviseur \(\geq0\) concentré sur \(Y\), et \(\mathcal L\) un faisceau
+inversible sur \(D\). Il y a alors une et une seule façon de définir le degré
+\(\deg_D(\mathcal L)\) de sorte que
+\[\begin{cases}
+\deg_D(\mathcal L'\otimes\mathcal L'')=\deg_D(\mathcal L')+\deg_D(\mathcal L''),\\
+\text{pour }\mathcal L\subseteq\mathcal O,\quad \deg_D(\mathcal L)=-\chi(\mathcal O/\mathcal L).
+\end{cases}\tag{1.4.5}\]</p>
+
+<p>On a alors la formule de Riemann-Roch sur \(D\)
+\[\chi(\mathcal L)=\chi(\mathcal O_D)+\deg_D(\mathcal L).\tag{1.4.6}\]</p>
+
+<p>Soit \(D=\sum n_iD_i\) la décomposition de \(D\) en diviseurs irréductibles réduits ; on a
+\[\deg_D(\mathcal L)=\sum n_i\deg_{D_i}(\mathcal L).\tag{1.4.7}\]</p>
+
+<div class="thm definition" id="10.1.5">
+<div class="thm-head"><span class="thm-name"><u>Définition 1.5.</u></span></div>
+<div class="thm-body"><p><u>Soient \(D\) et \(E\) deux diviseurs \(\geq0\) sur \(X\), et
+supposons \(D\) concentré sur \(Y\). On définit le nombre d'intersection de \(D\) et \(E\)
+(relativement au corps \(k\) (1.0)) par :</u>
+\[(D,E)=\chi(\mathcal O_D\mathbin{\mathop\otimes^{\mathbf L}}\mathcal O_E)
+=\chi(\mathcal O_D\otimes\mathcal O_E)-
+\chi(\operatorname{Tor}^1(\mathcal O_D,\mathcal O_E)).\]</p>
+<p>Sous les hypothèses faites, on a en effet
+\(\operatorname{Tor}^2(\mathcal O_D,\mathcal O_E)=0\).</p></div>
+</div>
+
+<div class="thm proposition" id="10.1.6">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.6.</u></span> <u>Sous les
+hypothèses 1.5, on a :</u></div>
+<div class="thm-body">
+<ol class="enumerate">
+<li><span class="item-label">(i)</span> <u>Le nombre d'intersection \((D,E)\) est additif en les
+diviseurs \(D\) et \(E\) ; ceci permet, par linéarité, de définir le nombre d'intersection de
+deux diviseurs non nécessairement positifs.</u></li>
+<li><span class="item-label">(ii)</span> \((D,E)=\deg_D(\mathcal O(E))\).</li>
+<li><span class="item-label">(iii)</span> <u>Si \(D\) et \(E\) ne se coupent qu'en un nombre
+fini de points, alors</u> \((D,E)=\chi(\mathcal O_D\otimes\mathcal O_E)\geq0\), <u>l'égalité
+ne pouvant avoir lieu que si \(D\) et \(E\) sont disjoints.</u></li>
+<li><span class="item-label">(iv)</span> <u>Si \(D\) et \(E\) sont concentrés sur \(Y\), alors
+\((D,E)=(E,D)\).</u></li>
+<li><span class="item-label">(v)</span> <u>Si \(N\) est le faisceau conormal à \(D\), alors</u>
+\[(D)^2=(D,D)=-\deg_D(N).\]</li>
+<li><span class="item-label">(vi)</span> <u>Si \(E\), non nécessairement positif, est le
+diviseur d'une fonction méromorphe sur \(X\), alors \((D,E)=0\).</u></li>
+</ol>
+</div>
+</div>
+
+<p><u>Preuve.</u> Soit la suite exacte
+\[0\longrightarrow\mathcal O(-E)\longrightarrow\mathcal O_X
+\longrightarrow\mathcal O_E\longrightarrow0,\]
+elle fournit, par (1.4.5),
+\[\begin{aligned}
+(D,E)&\mathrel{\mathop=^{\mathrm{dfn}}}
+\chi(\mathcal O_D\mathbin{\mathop\otimes^{\mathbf L}}\mathcal O_E)\\
+&=\chi(\mathcal O_D\mathbin{\mathop\otimes^{\mathbf L}}\mathcal O_X)
+-\chi(\mathcal O_D\mathbin{\mathop\otimes^{\mathbf L}}\mathcal O(-E))\\
+&=\chi(\mathcal O_D)-\chi(\mathcal O(-E)|D)
+=-\deg_D(\mathcal O(-E))=\deg_D(\mathcal O(E)).
+\end{aligned}\]</p>
+
+<p>Ceci prouve (ii), (vi) et la biadditivité en vertu de (1.4.5) et (1.4.7). Sous les
+hypothèses (iii), on a \(\operatorname{Tor}^1(\mathcal O_D,\mathcal O_E)=0\), d'où la
+conclusion. Sous les hypothèses (v), on a
+\[\mathcal O_D\otimes\mathcal O_D=\mathcal O_D\quad\text{et}\quad
+\operatorname{Tor}^1(\mathcal O_D,\mathcal O_D)\simeq N\quad\text{(SGA 6 VII 2.5)},\]
+d'où
+\[(D,D)=\chi(\mathcal O_D)-\chi(N)=-\deg_D(N).\]</p>
+
+<p>Enfin, (iv) résulte de la symétrie du produit tensoriel.</p>
+
+<p>On notera que (ii), (iv) et (vi) restent vrais sans supposer les diviseurs positifs.</p>
+
+<div class="thm proposition" id="10.1.7">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.7.</u></span></div>
+<div class="thm-body"><p><u>Soient \((Y_i)_{1\leq i\leq k}\) les composantes irréductibles
+de \(Y\), \(f\) une fonction méromorphe sur \(X\), et</u>
+\[\operatorname{div}(f)=\sum_i n_iY_i+Z\]
+<u>son diviseur, avec \(|Z|\cap Y\) fini. Alors, posant \(D_i=n_iY_i\), on a, pour
+\((a_i)\in\mathbb Q^k\) :</u>
+\[\left(\sum_i a_iD_i\right)^2
+=-\sum_{i&lt;j}(a_i-a_j)^2(D_i,D_j)-\sum_i a_i^2(D_i,Z).\]</p></div>
+</div>
+
+<p><u>Preuve (d'après [7]).</u> En vertu de 1.6 (v) (vi), on a
+\[\begin{aligned}
+\left(\sum_i a_iD_i\right)^2
+&=\sum_i a_i\left(D_i,\sum_j a_jD_j\right)
+=\sum_i a_i\left(D_i,\sum_j a_jD_j-a_i\operatorname{div}f\right)\\
+&=\sum_i a_i\left(D_i,\sum_{j\ne i}(a_j-a_i)D_j-a_iZ\right)\\
+&=\sum_{i\ne j}a_i(a_j-a_i)(D_i,D_j)-\sum_i a_i^2(D_i,Z)\\
+&=-\sum_{i&lt;j}(a_i-a_j)^2(D_i,D_j)-\sum_i a_i^2(D_i,Z).
+\end{aligned}\]</p>
+
+<div class="thm corollary" id="10.1.8">
+<div class="thm-head"><span class="thm-name"><u>Corollaire 1.8.</u></span></div>
+<div class="thm-body"><p><u>Sous les hypothèses de l'exemple 1.1, prenons pour \(f\) une
+uniformisante \(\pi\) de \(S\). Ici, \(Z=0\) et</u>
+\[\left(\sum_i k_iY_i\right)^2
+=-\sum_{i&lt;j}\frac1{n_in_j}(k_in_j-k_jn_i)^2(Y_i,Y_j)\ ;\]
+<u>donc la forme d'intersection est négative, et si \(Y\) est connexe, son noyau est réduit
+aux multiples de \(\operatorname{div}(\pi)\).</u></p></div>
+</div>
+
+<div class="thm corollary" id="10.1.9">
+<div class="thm-head"><span class="thm-name"><u>Corollaire 1.9.</u></span> (Mumford [7]).</div>
+<div class="thm-body"><p><u>Sous les hypothèses de l'exemple 1.2, prenons pour \(f\) un élément
+non nul de l'idéal maximal de l'anneau local \(\mathcal O_s\). Ici, \(Z>0\), de sorte que la
+forme d'intersection est définie négative.</u></p></div>
+</div>
+
+<p id="10.1.10"><strong>1.10.</strong> <u>On se restreint, pour la suite, au cas considéré dans l'exemple (1.1).</u></p>
+
+<p>Lichtenbaum [5] a prouvé que, dans ce cas, \(X\) est automatiquement projectif sur \(S\),
+de sorte qu'il n'est pas fatigant de définir le complexe (Rf^!\mathcal O_S) ([4] III 8.7 p. 190).
+Puisque \(f\) est de dimension relative 1 et que \(X\) et \(S\) sont réguliers (Gorenstein
+suffirait) il existe ([4] V 8.3 et V 9.1) <strong>un faisceau</strong> inversible
+\(\omega_{X/S}\) sur \(S\), unique à isomorphisme unique près, tel que</p>
+\[(1.10.1)\qquad Rf^!\mathcal O_S\mathrel{\sim}\omega_{X/S}[1].\]
+
+<p>On désigne par \(K\) un quelconque diviseur (effectif ou non) tel que
+\(\omega\mathrel{\sim}\mathcal O(K)\).</p>
+
+<p>Soient \(D\) un diviseur \(\geq0\) concentré sur \(Y\) et \(N\) son faisceau conormal :</p>
+\[
+\begin{array}{ccc}
+D&\xrightarrow{\ i\ }&X\\[-2pt]
+&\searrow\scriptstyle g&\downarrow\scriptstyle f\\[-2pt]
+&&S
+\end{array}
+\]
+
+<p>On a</p>
+\[(1.10.2)\qquad Rg^!\mathcal O_S=Ri^!Rf^!\mathcal O_S
+=Ri^!\omega_{X/S}[1]=\omega_{X/S}|D\otimes N^\vee[0].\]
+<p>En vertu du théorème de dualité ([4] V 11.1 p. 210),</p>
+\[(1.10.3)\qquad Rg_*Rg^!\mathcal O_S\mathrel{\sim}
+R\operatorname{Hom}(Rg_*\mathcal O_D,\mathcal O_S).\]
+<p>De plus, pour tout \(\mathcal O_S\)-module \(M\) concentré au point fermé, on a</p>
+\[(1.10.4)\qquad \chi(R\operatorname{Hom}(M,\mathcal O_S))=-\chi(M)\]
+<p>de sorte qu'ici, utilisant (1.4.4) et (1.10.3), on obtient</p>
+\[\chi(Rg^!\mathcal O_S)=-\chi(\mathcal O_D).\]
+<p>Puisque (1.4.6)</p>
+\[\chi(Rg^!\mathcal O_S)=\chi(\mathcal O_D)+\deg_D(Rg^!\mathcal O_S),\]
+<p>on en conclut par (1.10.2) que</p>
+\[-2\chi(\mathcal O_D)=\deg_D(Rg^!\mathcal O_S)
+=\deg_D(\omega|D\otimes N^\vee)=\deg_D(\omega)-\deg_D(N),\]
+<p>ce qui, par 1.6 (ii) et (v) se réécrit</p>
+
+<div class="thm proposition" id="10.1.11">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.11.</u></span> <u>Sous les hypothèses (1.1), quelque soit le diviseur \(D\geq0\)
+concentré sur \(Y\), on a</u></div>
+<div class="thm-body">
+\[\chi(\mathcal O_D)=-\frac12(D,D+K).\]
+</div>
+</div>
+
+<p id="10.1.12"><strong>1.12.</strong> On désignera par \(d\) le pgcd des multiplicités géométriques des composantes
+irréductibles de \(X_s=f^{-1}(s)\), i.e. le pgcd des longueurs des anneaux locaux des points
+maximaux de la fibre spéciale géométrique de \(f\). Si \(X_\eta\) a un point rationnel,
+i.e. si \(f:X\longrightarrow S\) a une section \(x\), alors \(d=1\) ; plus précisément \(f\)
+est lisse en \(x(s)\). En effet, \(x\) est une immersion fermée de schémas réguliers, donc est
+une immersion régulière et on applique EGA IV 17.12.1.</p>
+
+<p>Voici la démonstration, d'après M. Artin, d'un cas particulier d'un théorème de M. Raynaud
+[9], qui suppose seulement \(d\) premier à la caractéristique \(p\) de \(k\).</p>
+
+<div class="thm theorem" id="10.1.13">
+<div class="thm-head"><span class="thm-name"><u>Théorème 1.13.</u></span> <u>Avec les notations précédentes, si \(Y\) est géométriquement
+connexe et si \(d=1\), alors \(X\) est cohomologiquement plat sur \(S\) en dimension 0
+(EGA III 7.8.1), plus précisément (EGA III 7.6.9 (ii)) on a</u></div>
+<div class="thm-body">
+\[k\mathrel{\sim}\longrightarrow H^0(X_s,\mathcal O_{X_s}).\]
+</div>
+</div>
+
+<p>On se ramène aisément au cas où \(S\) est strictement local. Comme \(Y\) est
+géométriquement connexe, \(H^0(Y,\mathcal O_Y)\) est une extension radicielle de \(k\), et
+puisque \((d,p)=1\), une au moins des composantes irréductibles de \(Y\) est géométriquement
+réduite, et on en déduit facilement que \(H^0(Y,\mathcal O_Y)=k\).</p>
+
+<p>Soit \(D\) un diviseur sur \(X\) tel que</p>
+\[Y\leq D&lt;X_s.\]
+<p>Puisque \(d=1\), \(D\) n'est pas multiple rationnel de \(X_s\), donc par 1.8</p>
+\[(D,X_s-D)=-(D,D)&gt;0.\]
+<p>Le diviseur \(Y\) a donc une composante irréductible \(E\) telle que</p>
+\[0&lt;E\leq X_s-D\quad\text{et}\quad(D,E)&gt;0.\]
+<p>Considérons le diagramme</p>
+\[
+\begin{array}{ccccccccc}
+0&\longrightarrow&\mathcal O(-D-E)&\longrightarrow&\mathcal O&\longrightarrow&\mathcal O_{D+E}&\longrightarrow&0\\
+&&\downarrow\scriptstyle\varphi&&\Vert&&\downarrow\scriptstyle\psi\\
+0&\longrightarrow&\mathcal O(-D)&\longrightarrow&\mathcal O&\longrightarrow&\mathcal O_D&\longrightarrow&0,
+\end{array}
+\]
+<p>le diagramme du serpent fournit un isomorphisme entre \(\operatorname{Ker}(\psi)\) et
+\(\operatorname{Coker}(\varphi)\). Ce conoyau n'est autre que la restriction de
+\(\mathcal O(-D)\) à \(E\), d'où une suite exacte</p>
+\[0\longrightarrow\mathcal O(-D)|E\longrightarrow\mathcal O_{D+E}
+\longrightarrow\mathcal O_D\longrightarrow0.\]
+<p>Par construction \(\deg_E(\mathcal O(-D))=-(D,E)&lt;0\), donc
+\(H^0(\mathcal O(-D)|E)=0\), et la flèche de restriction</p>
+\[0\longrightarrow H^0(\mathcal O_{D+E})\longrightarrow H^0(\mathcal O_D)\]
+<p>est injective. Ceci permet de construire par récurrence une suite de diviseurs</p>
+\[Y=D_0\leq D_1\leq\cdots\leq D_n=X_s\]
+<p>telle que \(H^0(\mathcal O_{D_i})\) s'injecte dans \(H^0(\mathcal O_{D_{i-1}})\), donc
+\(H^0(\mathcal O_{X_s})=H^0(\mathcal O_Y)=k\), ce qui achève la démonstration de 1.13.</p>
+
+<p>Le fait suivant est prouvé dans [5] ou [10].</p>
+
+<div class="thm theorem" id="10.1.14">
+<div class="thm-head"><span class="thm-name"><u>Théorème 1.14.</u></span> (Castelnuovo, Enriques,....). <u>Sous les hypothèses (1.1),
+soit \(D\) un diviseur réduit irréductible contenu dans \(Y\). Supposons que
+\(H^1(D,\mathcal O_D)=0\) et que, posant \(k'=H^0(D,\mathcal O_D)\), on ait</u></div>
+<div class="thm-body">
+\[(D,D)=-[k':k].\]
+<p><u>Alors, \(D\) est une droite projective sur \(k'\) et il existe un \(S\)-schéma régulier
+\(X_1\), un point fermé \(x_1\) de \(X_1\) de corps résiduel \(k'\) et un isomorphisme entre
+\(X\) et le \(S\)-schéma déduit de \(X_1\) par éclatement de \(x_1\), cet isomorphisme
+identifiant \(D\) à la fibre de \(x_1\) dans \(X_1\).</u></p>
+</div>
+</div>
+
+<p>On appelle un diviseur \(D\) possédant ces propriétés une <u>courbe exceptionnelle de
+première espèce</u>.</p>
+
+<p>Je ne résiste pas au plaisir de démontrer la proposition suivante de Néron [8] prop 1'
+p. 90 :</p>
+
+<div class="thm proposition" id="10.1.15">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.15.</u></span> <u>Supposons que \(X_\eta\) soit une courbe elliptique (en particulier
+ait une section) et que \(X\) ne contienne aucune courbe exceptionnelle de première espèce.
+Alors, avec la notation (1.10.1), on a</u></div>
+<div class="thm-body">
+\[f^*f_*\omega_{X/S}\mathrel{\sim}\longrightarrow\omega_{X/S}\]
+<p><u>universellement.</u></p>
+</div>
+</div>
+
+<p>Comme (d=1) (1.12), il suffit, d'après (1.13), de prouver que \(\omega_{X/S}\) est
+isomorphe à \(\mathcal O_X\) ; puisque \(\omega_{X/S}\) est trivial sur la courbe elliptique
+\(X_\eta\), on sait a priori que</p>
+\[\omega_{X/S}\mathrel{\sim}\mathcal O\left(\sum n_iY_i\right),\]
+<p>où les \(Y_i\) sont les composantes irréductibles de \(Y\), et puisque
+\(\operatorname{div}(\pi)\sim0\), on peut supposer les \(n_i\) positifs. Si
+\(\sum n_iY_i\) est proportionnel au diviseur \(\operatorname{div}(\pi)\), il est multiple
+entier de \(\operatorname{div}(\pi)\) et on a gagné. Sinon, on a</p>
+\[\left(\sum n_iY_i\right)^2&lt;0,\]
+<p>il existe \(i\) tel que</p>
+\[\left(Y_i,\sum n_jY_j\right)&lt;0,\]
+<p>et on applique le lemme suivant :</p>
+
+<div class="thm lemma" id="10.1.16">
+<div class="thm-head"><span class="thm-name"><u>Lemme 1.16.</u></span> <u>Sous les hypothèses 1.1, supposons que \(Y\) soit connexe et que \(Y\)
+soit réductible, ou que \(\chi(\mathcal O_Y)\leq0\). Alors, pour qu'une composante irréductible
+\(Y_i\) de \(Y\) soit une courbe exceptionnelle de première espèce, il faut et il suffit que
+\((Y_i,K)&lt;0\).</u></div>
+</div>
+
+<p>Soit \(k'=H^0(Y_i,\mathcal O_{Y_i})\). La formule de Riemann-Roch 1.11 fournit</p>
+\[\chi(\mathcal O_{Y_i})=[k':k]\left(1-\dim_{k'}H^1(Y_i,\mathcal O_{Y_i})\right)
+=-\frac12\left((Y_i,Y_i)+(Y_i,K)\right).\]
+<p>Si \(Y_i\) est exceptionnelle de première espèce, on a donc
+\((Y_i,K)=-[k':k]&lt;0\). Réciproquement, si \((Y_i,K)&lt;0\), alors
+\(\chi(\mathcal O_{Y_i})&gt;0\), ce qui implique que
+\(\chi(\mathcal O_{Y_i})=[k':k]\) et que \(Y\) soit réductible, de sorte que par 1.8,
+\((Y_i,Y_i)&lt;0\). Les nombres négatifs \((Y_i,Y_i)\) et \((Y_i,K)\) sont divisibles par
+\([k':k]\), de sorte qu'on doit avoir</p>
+\[(Y_i,Y_i)=(Y_i,K)=-[k':k].\]
+
+<p><u>Exercice (a).</u> Sous les hypothèses (1.1), on suppose que \(X_\eta\) est un espace
+principal homogène sous une courbe elliptique et que \(X\) ne contienne aucune courbe
+exceptionnelle de première espèce. Montrer que sur \(X\), la formule de Riemann-Roch (1.11)
+s'écrit</p>
+\[\chi(\mathcal O_D)=-\frac12(D,D)\]
+
+<p><u>Exercice (b).</u> Supposons en outre le corps résiduel \(k(s)\) algébriquement clos. Montrer
+que le diagramme des composantes irréductibles de \(X_s\) est multiple de l'un
+des diagrammes considérés par Néron [8] p. 124–125, 4è colonne (cas a à c 8).
+Ce diagramme détermine les genres des composantes irréductibles réduites,
+leur multiplicité dans \(X_s\), la nature et la disposition des singularités de
+\((X_s)_{\mathrm{red}}\).</p>
+
+<p>On traitera d'abord le cas où \(X_s\) est irréductible ; ce cas exclus,
+on prouvera que toute composante irréductible réduite est une droite projective
+de self-intersection \(-2\). Si \(X_s=\sum n_iD_i\) est la décomposition de
+\(X_s\) en diviseurs irréductibles réduits, on réécrira cette condition</p>
+\[(*)\qquad n_i=\frac12\sum_{j\ne i}n_j(D_i,D_j).\]
+
+<p>D'autre part, \(X_s\) est connexe, de sorte que :</p>
+
+<p>\((**)\) Quels que soient \(i\) et \(j\), il existe une chaîne
+\(i=i_1,i_2,\ldots,i_n=j\) avec \((D_{i_k},D_{i_{k+1}})\ne0\).</p>
+
+<p>On cherchera alors toutes les solutions en nombres entiers de
+\((*)+(**)\). On montrera d'abord que, sauf dans les cas b2 et c2 de Néron,
+les nombres d'intersection \((D_i,D_j)\) sont égaux à zéro ou un.</p>
+
+<h2 id="10.2"><u>2. Intersections italiennes</u></h2>
+
+<p>Soient \(S'\) et \(S\) deux surfaces projectives lisses sur un corps \(k\)
+et \(f:S'\longrightarrow S\) un morphisme birationnel. Si \(D\) et \(E\) sont deux diviseurs
+sur \(S\), on a</p>
+\[(D,E)=(f^*D,f^*E),\]
+<p>comme on le voit, par exemple, en faisant bouger \(D\) et \(E\).</p>
+
+<p>Il s'impose donc de donner une expression « birationnelle » pour
+le nombre d'intersection. On se propose d'expliquer comment procédaient
+les italiens pour ce faire. Ma principale source de renseignements est [1]
+où se trouve une longue bibliographie. Voir aussi Manin [6], et Northcott [12], [13].</p>
+
+<p id="10.2.0">(2.0) Soient \(S\) le spectre d'un anneau local régulier de dimension 2, \(s\) le point
+fermé de \(S\) et \(k\) un sous-corps de \(k(s)\) dont \(k(s)\) soit une extension finie. Les
+nombres d'intersections et les caractéristiques d'Euler-Poincaré seront calculés en terme de \(k\).</p>
+
+<p>Dans ce §, un \(S\)-schéma \(p:S'\longrightarrow S\) sera dit être un <u>transformé
+birationnel</u> de \(S\) s'il est régulier, connexe, et si \(p\) est propre et induit
+un isomorphisme de \(S'\setminus p^{-1}(s)\) sur \(S\setminus\{s\}\). Tout ce qui sera dit de \(S\)
+s'appliquera encore aux localisés de ses transformés birationnels en un point fermé.</p>
+
+<p id="10.2.1">(2.1) Soit \(f:(S'',p'')\longrightarrow(S',p')\) un morphisme de \(S\)-schémas entre transformés
+birationnels de \(S\). On sait alors [5] qu'il existe une et une seule factorisation de \(f\) :</p>
+\[f=f_n\cdots f_1,\qquad f_i:S_{i+1}\longrightarrow S_i\]
+<p>telle que \(S_{i+1}\) se déduise de \(S_i\) par éclatement d'un ensemble fini \(X_i\) de points fermés, et que
+\(f_i(X_{i+1})\subset X_i\). L'ensemble \(X_i\) est l'ensemble des points de \(S_i\) en lesquels la projection de
+\(S''\) sur \(S_i\) n'est pas un isomorphisme.</p>
+
+<p>En particulier, \(f\) induit un isomorphisme au-dessus du complémentaire d'une partie finie de \(S'\), qui contient
+les points génériques des composantes irréductibles de \(p'^{-1}(s)\). Dès lors, \(f\) définit une injection
+de l'ensemble \(\operatorname{Irr}(p'^{-1}(s))\) des composantes irréductibles de \(p'^{-1}(s)\) dans
+\(\operatorname{Irr}(p''^{-1}(s))\).</p>
+
+<p>Les transformés birationnels de \(S\) n'ont pas de \(S\)-automorphisme.
+On désignera ici par \(I\) l'ensemble des classes de \(S\)-isomorphie des transformés
+birationnels de \(S\), ordonné par la relation de domination. L'ensemble \(I\)
+est filtrant à droite, et de plus petit élément \(S\).</p>
+
+<div class="thm definition" id="10.2.2">
+<div class="thm-head"><span class="thm-name"><u>Définition 2.2.</u></span> <u>L'ensemble \(S^*\) des points de \(S\) infiniment voisins de \(s\) est
+l'ensemble limite inductive</u></div>
+<div class="thm-body">\[S^*=\varinjlim_I\operatorname{Irr}(p^{-1}(s)).\]</div>
+</div>
+
+<p>Si un élément \(t\in S^*\) est représenté sur un transformé birationnel
+\(S'\) de \(S\) par une courbe complète réduite irréductible \(T\), le corps
+\(H^0(T,\mathcal O_T)\) ne dépend que de \(t\), et non du choix de \(S'\) ; on l'appelle le <u>corps résiduel</u>
+\(k(t)\) de \(t\).</p>
+
+<p>Soit \(S_1\) l'éclaté de \(S\) le long de \(s\). La droite projective \(s^*\)
+image réciproque de \(\{s\}\) dans \(S_1\) s'appelle la <u>curvetta</u> de \(s\) et définit un
+élément \(s^*\) de \(S^*\) de corps résiduel \(k(s)\).</p>
+
+<p>Soient \(S'\) un transformé birationnel de \(S\), \(t\) un point fermé de
+\(S'\) et \(S'_t\) le spectre de l'anneau local de \(S'\) en \(t\). On définit de façon évidente
+une injection de \(S_t'^*\) dans \(S^*\) ; en particulier, \(t\) définit un élément
+\(t^*\) de \(S^*\), de même corps résiduel. On désigne par \(S'^{**}\) la réunion dans \(S^*\)
+des \(S_t'^*\) pour \(t\) fermé dans \(S'\).</p>
+
+<p>La proposition suivante résulte de la description 2.1 des transformés birationnels de \(S\) :</p>
+
+<div class="thm proposition" id="10.2.3">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.3.</u></span> <u>Quel que soit \(t\in S^*\), il existe une et une seule suite
+de transformés birationnels de \(S\), \((S_i)_{0\leq i\leq n+1}\), et de points fermés
+\(t_i\in S_i\), \((0\leq i\leq n)\), telle que</u></div>
+<div class="thm-body">
+<ol class="enumerate">
+<li><span class="item-label">(i)</span> <u>\(S_0=S\), et \(S_{i+1}\) est l'éclaté de \(S_i\) le long de \([t_i]\) ;</u></li>
+<li><span class="item-label">(ii)</span> <u>\(t_{i+1}\in t_i^*\), \((0\leq i&lt;n)\), et \(t=t_n^*\).</u></li>
+</ol>
+<p><u>De plus, quel que soit le transformé birationnel \((S',p')\) de \(S\),
+pour que \(t\) appartienne à l'image de \(\operatorname{Irr}(p'^{-1}(s))\) dans \(S^*\), il faut et il
+suffit que \(S'\) domine \(S_{n+1}\).</u></p>
+</div></div>
+
+<p>On appelle \(n\) l'ordre de \(t\). On désignera ici par \(S(t)\) (resp. par
+\(S_+(t)\)) le transformé birationnel \(S_n\) (resp. \(S_{n+1}\)) de \(S\). Par abus de notation, on désignera encore par \(t\) le point fermé \(t_n\) de \(S_n\) et par \(t^*\) son image réciproque \(t_n^*\) dans \(S_{n+1}\).</p>
+
+<p>On munit \(S^*\) de l'ordre suivant :</p>
+\[t_1\prec t_2\quad\Longleftrightarrow\quad S_+(t_2)\text{ domine }S_+(t_1).\]
+<p>Si \(t_1\prec t_2\), alors \(k(t_2)\) est une extension de \(k(t_1)\). L'ensemble ordonné \(S^*\)
+a pour plus petit élément \(s^*\), et toute partie majorée de \(S^*\) est finie et
+totalement ordonnée (\(S^*\) est un « arbre de souche \(s^*\) »). De plus, l'ordre \(n\) de \(t\in S^*\)
+est la distance, dans l'arbre \(S^*\), de \(s^*\) à \(t\) (\(n=\# [s^*,t[\)).</p>
+
+<p>La proposition suivante explicite la description 2.1 des transformés birationnels de \(S\).</p>
+
+<div class="thm proposition" id="10.2.4">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.4.</u></span> <u>La fonction qui à un transformé birationnel \(p:S'\longrightarrow S\)
+de \(S\) associe la partie \(\operatorname{Irr}(p^{-1}(s))\) de \(S^*\) induit une bijection entre l'ensemble
+\(I\) (2.1) et l'ensemble des parties finies de \(S^*\) qui, avec tout élément,
+contiennent ses prédécesseurs.</u></div>
+</div>
+
+<p>Soient \(D\) est un diviseur \(\geq0\) sur \(S\) et \(t\in S^*\). On dit que \(t\) <u>appartient</u>
+à \(D\) si le point fermé \(t\) de \(S(t)\) (2.3) appartient au transformé pur
+(= adhérence schématique de \(D-\{s\}\)) de \(D\) sur \(S(t)\).</p>
+
+<div class="thm definition" id="10.2.5">
+<div class="thm-head"><span class="thm-name"><u>Définition 2.5.</u></span> <u>Soient \(t,t'\in S^*\). On dit que \(t'\) est proche de \(t\) si \(t'\in S_+(t)^*\)
+(2.2) et appartient à la curvetta \(t^*\) de \(t\) (2.3).</u></div>
+</div>
+
+<p>Si \(t'\) est un successeur immédiat de \(t\), alors \(t'\) est proche de \(t\) ;
+si dans une suite \((t_i)_{0\leq i\leq n}\) chaque \(t_{i+1}\) est successeur immédiat de \(t_i\), et
+si \(t_n\) est proche de \(t_0\), alors \(t_i\) est proche de \(t_0\) pour \(0&lt;i\leq n\) et \(t_n\) n'est
+pas proche de \(t_i\) pour \(0&lt;i\leq n-1\).</p>
+
+<p id="10.2.6">(2.6) Soient \(A\) un anneau local noethérien de dimension \(n\), \(T\) son spectre,
+\(m\) son idéal maximal, \(k=A/m\) son corps résiduel et \(P=\sum_{0\leq i\leq n}a_iX^i\) son
+polynôme de Hilbert-Samuel :</p>
+\[P(r)=\dim_k(m^r/m^{r+1})\qquad\text{pour }r\text{ grand}.\]
+<p>Rappelons que la multiplicité \(\mu_s\) dans \(T\) du point fermé \(s\) vérifie par définition</p>
+\[a_{n-1}=\mu_s/(n-1)!\, .\]
+<p>Lorsque \(n=1\), on a donc simplement</p>
+\[\mu_s=\dim_k m^r/m^{r+1}\qquad\text{pour }r\text{ grand}.\]
+
+<p>En termes géométriques, \(\mu_s\) peut se définir comme le degré, dans l'espace
+projectif sur \(k\), \(\mathbb P_k(m/m^2)\), de la fibre spéciale de l'éclaté de \(T\) le long
+du sous-schéma \(\{s\}\).</p>
+
+<p>Rappelons que si \(Y\) et \(Z\) sont deux sous-schémas fermés d'un schéma
+\(X\), alors, le transformé pur de \(Y\) dans l'éclaté \(\widetilde X\) de \(X\) le long de \(Z\), adhérence
+schématique de \(Y\setminus Z\) dans \(\widetilde X\), n'est autre que l'éclaté de \(Y\) le long
+de \(Y\cap Z\).</p>
+
+<p>Supposons que \(T\) soit un sous-schéma fermé d'un schéma régulier \(U\).
+Soient \(p:U_1\longrightarrow U\) l'éclaté de \(U\) le long de \(\{s\}\), \(s^*\) l'image réciproque de
+\(s\) dans \(U_1\) et \(T'\) le transformé pur de \(T\) dans \(U_1\). Ce qui précède montre que la
+multiplicité de \(T\) en \(s\) est le degré dans l'espace projectif \(s^*\) du sous-schéma
+\(s^*\cap T'\).</p>
+
+<p>Supposons en outre que \(T\) soit un diviseur de \(U\), soit \(T^*\) son transformé
+total dans \(U_1\) (le diviseur image réciproque) et définissons \(\nu\) par la
+formule \(T^*=\nu s^*+T'\). Si \(X\) est une droite de \(s^*\), et si on calcule les
+caractéristiques d'Euler-Poincaré comme sommes alternées de dimension sur \(k\),
+on sait que</p>
+\[(2.6.1)\qquad (X,s^*)=\chi\left(X\mathbin{\overset{\mathbb L}{\otimes}}\mathcal O_{s^*}\right)
+=\deg_X\mathcal O(s^*)=-1\]
+<p>et on a vérifié que</p>
+\[(2.6.2)\qquad (X,T')=\chi\left(X\mathbin{\overset{\mathbb L}{\otimes}}\mathcal O_{T'}\right)
+=\deg_{s^*}(s^*\cap T')=\mu_s.\]
+<p>La formule de projection</p>
+\[Rp_*\left(\mathcal O_X\mathbin{\overset{\mathbb L}{\otimes}}\mathcal O_{T^*}\right)
+=Rp_*\left(\mathcal O_X\mathbin{\overset{\mathbb L}{\otimes}}Lp^*\mathcal O_T\right)
+=Rp_*\mathcal O_X\mathbin{\overset{\mathbb L}{\otimes}}\mathcal O_T\]
+<p>et son corollaire</p>
+\[(X,T^*)=\nu(X,s^*)+(X,T')=0\]
+<p>fournit, par (2.6.1), (2.6.2), l'identité</p>
+\[(2.6.3)\qquad \mu_s=\nu.\]
+
+<div class="thm proposition" id="10.2.7">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.7.</u></span> <u>Soient \(T\) un diviseur \(\geq0\) dans un schéma régulier \(U\), \(s\) un
+point fermé de \(U\), \(U_1\) l'éclaté de \(U\) le long de \(\{s\}\), \(s^*\) l'image réciproque
+de \(s\) dans \(U_1\), \(T'\) le transformé pur de \(T\) sur \(U_1\) et \(T^*\) son transformé total.
+Il y a identité entre</u></div>
+<div class="thm-body">
+<ol class="enumerate">
+<li><span class="item-label">(i)</span> <u>La multiplicité, au sens de Samuel, du point \(s\) de \(T\).</u></li>
+<li><span class="item-label">(ii)</span> <u>Le degré, dans l'espace projectif \(s^*\), de \(s^*\cap T'\).</u></li>
+<li><span class="item-label">(iii)</span> <u>La multiplicité de \(s^*\) dans le diviseur \(T^*\).</u></li>
+</ol>
+</div></div>
+
+<p id="10.2.8"><strong>2.8.</strong> Reprenons les hypothèses de 2.0. Soit \(D\) un diviseur \(\geq0\) sur \(S\) et
+\(t\in S^*\). La <u>multiplicité</u> \(\mu_t(D)\) de \(D\) en \(t\) est, par définition, la multiplicité
+en \(t\) du transformé pur de \(D\) sur \(S(t)\) (2.3). La fonction de \(t\), \(\mu_t(D)\) a
+pour support l'ensemble des points infiniment voisins de \(s\) qui appartiennent
+à \(D\) (2.4). Lorsque \(D\) est régulier, les nombres \(\mu_t(D)\cdot[k(t):k(s)]\)
+sont égaux à zéro ou un : en effet, les transformés purs \(D'\) de \(D\) sont isomorphes à \(D\), et on applique la définition (2.6) des multiplicités.</p>
+
+<p>Les nombres d'intersections se calculent en termes de multiplicités :</p>
+
+<div class="thm theorem" id="10.2.9">
+<div class="thm-head"><span class="thm-name"><u>Théorème 2.9.</u></span> <u>Si les diviseurs \(D\) et \(E\) ne se coupent qu'en \(s\), on a</u></div>
+<div class="thm-body">
+\[(D,E)=\sum_{t\in S^*}\mu_t(D)\mu_t(E)[k(t):k]]
+<p><u>la somme étant étendue aux points infiniment voisins de \(s\) communs à \(D\) et \(E\).</u></p>
+</div></div>
+
+<p><u>Preuve.</u> Soit \(p:S'\longrightarrow S\) un transformé birationnel de \(S\). On désigne par
+\(D^*\) et \(E^*\) (resp. par \(D'\) et \(E'\)) les transformés totaux (resp. purs) de \(D\) et \(E\).</p>
+
+<div class="thm lemma" id="10.2.9.1">
+<div class="thm-head"><span class="thm-name"><u>Lemme 2.9.1.</u></span></div>
+<div class="thm-body">
+<ol class="enumerate">
+<li><span class="item-label">(i)</span> <u>Le transformé total \(D^*\) est caractérisé par :</u>
+  <ol class="enumerate">
+  <li><span class="item-label">(a)</span> <u>\(D^*-D'\) est concentré sur \(f^{-1}(s)\)</u></li>
+  <li><span class="item-label">(b)</span> <u>si \(X\) est concentré sur \(f^{-1}(s)\), alors \((D^*,X)=0\).</u></li>
+  </ol>
+</li>
+<li><span class="item-label">(ii)</span> <u>\((D,E)=(D^*,E^*)=(D^*,E')=(D',E^*)\).</u></li>
+</ol>
+</div></div>
+
+<p>L'assertion (i)(a) est triviale, et (i)(b) résulte de 1.6 (vi).</p>
+
+<p>Que (a) et (b) déterminent \(D^*\) résulte de 1.9. Par construction, le conoyau
+de la flèche de \(\mathcal O_E\) dans \(f_*\mathcal O_{E'}\) est fini, d'où</p>
+\[(D^*,E')=\chi\left(f^*\mathcal O_D\mathbin{\overset{\mathbb L}{\otimes}}\mathcal O_{E'}\right)
+=\chi\left(\mathcal O_D\mathbin{\overset{\mathbb L}{\otimes}}f_*\mathcal O_{E'}\right)
+=\chi\left(\mathcal O_D\mathbin{\overset{\mathbb L}{\otimes}}\mathcal O_E\right)=(D,E)\]
+<p>ce qui, par (i), entraîne (ii).</p>
+
+<p>Prenons pour \(S'\) l'éclaté de \(S\) en \(s\). D'après (2.9.1), (2.6.3) et
+2.7, on a</p>
+\[(2.9.2)\qquad (D,E)=(D^*,E')=(D'+\mu_s(D)s^*,E')\]
+\[=(D',E')+\mu_s(D)(s^*,E')=(D',E')+\mu_s(D)\mu_s(E)[k(s):k].\]
+
+<p><strong>Le théorème 2.9. se prouve maintenant par récurrence sur \((D,E)\),</strong> par une
+application itérée de (2.9.2).</p>
+
+<p id="10.2.10"><strong>(2.10)</strong> Soient \(A\) un anneau local noethérien réduit de dimension un, \(s\) le
+point fermé de \(\operatorname{Spec}(A)\), \(\widetilde A\) le normalisé de \(A\) et \(k\) un corps dont \(k(s)\) soit
+extension finie. Supposons que \(\widetilde A\) soit fini sur \(A\) (i.e. que le complété \(\widehat A\)
+soit réduit). On appellera <u>invariant \(\delta\) de la singularité de \(\operatorname{Spec}(A)\) en \(s\)</u>
+la longueur, calculée sur \(k\), du \(A\)-module \(\widetilde A/A\).</p>
+
+<div class="thm theorem" id="10.2.11">
+<div class="thm-head"><span class="thm-name"><u>Théorème 2.11.</u></span> <u>Soit \(D\) une courbe réduite tracée sur \(S\). Alors :</u></div>
+<div class="thm-body">
+<ol class="enumerate">
+<li><span class="item-label">(i)</span> <u>Quel que soit \(t\in S^*\), on a, avec les notations 2.8</u>
+\[\mu_t(D)=\sum_{t'\text{ proche de }t}\mu_{t'}(D)[k(t'):k(t)].\]</li>
+<li><span class="item-label">(ii)</span> <u>Supposons le normalisé \(\widetilde D\) de \(D\) fini sur \(D\), et soit
+\(\delta=\chi(\mathcal O_{\widetilde D}/\mathcal O_D)\) l'invariant de la singularité de \(D\) en \(s\). Pour tous les \(t\in S^*\), à l'exception
+d'un nombre fini, \(\mu_t(D)\) est égal à zéro ou un, et on a</u>
+\[\delta=\sum_{t\in S^*}\frac12\mu_t(D)(\mu_t(D)-1)[k(t):k].\]</li>
+</ol>
+</div></div>
+
+<p>Soient \(p:S_1\longrightarrow S\) l'éclaté de \(S\) le long de \(\{s\}\), \(D^*\) le transformé
+total de \(D\) et \(D'\) son transformé pur. En vertu de (2.7), on a</p>
+\[(2.11.1)\qquad D^*=D'+\mu_s(D)s^*\qquad\text{et}]
+\[(2.11.2)\qquad \mu_s(D)=(s^*,D')\cdot[k(s):k]^{-1}.\]
+
+<p>La curvetta \(s^*\) est non singulière, de sorte que, par 2.8 et la
+définition 2.5, la formule 2.9, appliquée aux diviseurs \(s^*\) et \(D'\) de \(S_1\),
+s'écrit</p>
+\[(2.11.3)\qquad (s^*,D')=\sum_{t'\text{ proche de }s}\mu_{t'}(D)[k(t'):k].\]
+<p>L'assertion (i) pour \(s=t\) résulte de (2.11.2) et (2.11.3), et le cas général
+s'obtient en appliquant ce résultat au localisé en \(t\) de \(S(t)\) (2.3).</p>
+
+<p>Désignons par \(m\) l'idéal maximal qui définit \(\{s\}\), et soit \(n\geq0\).
+On sait (SGA VII 3.5) que</p>
+\[(2.11.4)\qquad p_*\mathcal O_{S_1}(-ns^*)=m^n\quad\text{et}\quad
+R^ip_*\mathcal O_{S_1}(-ns^*)=0\quad(i&gt;0).\]
+
+<p>On déduit de là, et de la suite exacte</p>
+\[0\longrightarrow\mathcal O_{S_1}(-ns^*)\longrightarrow\mathcal O_{S_1}
+\longrightarrow\mathcal O_{ns^*}\longrightarrow0\]
+<p>que</p>
+\[(2.11.5)\qquad p_*\mathcal O_{ns^*}=\mathcal O_S/m^n\quad\text{et}\quad
+R^ip_*\mathcal O_{ns^*}=0\quad(i&gt;0)\]
+<p>et que</p>
+\[(2.11.6)\qquad \chi(\mathcal O_{ns^*})=\chi(\mathcal O_S/m^n)
+=\frac{n(n+1)}2[k(s):k].\]
+
+<p>Faisons \(n=0\) dans (2.11.4). Quel que soit le complexe \(K\) de
+faisceaux cohérents sur \(S\), on a par la « formule de projection »</p>
+\[K\mathrel{\sim}\longrightarrow Rp_*Lp^*K
+\quad(\simeq K\mathbin{\overset{\mathbb L}{\otimes}}Rp_*\mathcal O_{S_1}).\]
+<p>En particulier, puisque \(Lf^*\mathcal O_D=f^*\mathcal O_D=\mathcal O_{D^*}\), on a</p>
+\[(2.11.7)\qquad p_*\mathcal O_{D^*}=\mathcal O_D\quad\text{et}\quad
+R^ip_*\mathcal O_{D^*}=0\quad(i&gt;0).\]
+
+<p>Posons \(E=\mu_s(D)s^*\). D'après (2.11.1), (2.9.1) (i) b et (2.6.1) on a</p>
+\[(2.11.8)\qquad \chi(\mathcal O_{D'\cap E})=(D',E)=(D^*-E,E)=-(E,E)
+=-\mu_s(D)^2(s^*,s^*)\]
+\[=\mu_s(D)^2[k(s):k].\]
+
+<p>La suite exacte</p>
+\[0\longrightarrow\mathcal O_{D^*}\longrightarrow\mathcal O_{D'}\oplus\mathcal O_E
+\longrightarrow\mathcal O_{D'\cap E}\longrightarrow0\]
+<p>fournit par image directe, grâce à (2.11.7) des suites exactes</p>
+\[0\longrightarrow\mathcal O_D\longrightarrow f_*\mathcal O_{D'}\oplus f_*\mathcal O_E
+\longrightarrow f_*\mathcal O_{D'\cap E}\longrightarrow0\]
+<p>et</p>
+\[0\longrightarrow f_*\mathcal O_D/\mathcal O_D\longrightarrow f_*\mathcal O_E
+\longrightarrow f_*\mathcal O_{D'\cap E}\longrightarrow0.\]
+
+<p>D'après (2.11.6) et (2.11.8), on a donc</p>
+\[(2.11.9)\qquad \chi(f_*\mathcal O_{D'}/\mathcal O_D)
+=\frac12\mu_s(D)(\mu_s(D)+1)[k(s):k]-\mu_s(D)^2[k(s):k]\]
+\[=\frac12\mu_s(D)(\mu_s(D)-1)[k(s):k].\]
+
+<p>Les schémas \(D\) et \(D'\) sont réduits, ne diffèrent qu'en \(s\), et \(D'\)
+est fini sur \(D\). Ces schémas ont donc même normalisé, et l'invariant \(\delta\) de
+la singularité de \(D\) en \(s\) est somme de \(\chi(f_*\mathcal O_{D'}/\mathcal O_D)\) et de la somme des invariants
+\(\delta\) des singularités de \(D'\) en les points de \(D'\cap s^*\). Prouvons 2.11 (ii)
+par récurrence sur \(\delta\). Si \(\mu_s(D)&gt;1\), l'hypothèse de récurrence s'applique
+à \(D'\), et 2.11 (ii) résulte de (2.11.9). Si \(\mu_s(D)=1\), alors \((D',s^*)=1\)
+et \(D'\cap s^*\) est un diviseur régulier de \(D'\) ; par (EGA IV 19.1.1), \(D'\) est
+régulier ; par (2.11.9), \(D=D'\) est lui-même régulier et 2.11 (ii) résulte
+de 2.8.</p>
+
+<p id="10.2.12"><strong>2.12.</strong> Soit \(t\in S^*\) et \(S'\) un transformé birationnel de \(S\) qui domine \(S_+(t)\) (2.3).
+On appellera <u>transformé total de \(t\) sur \(S'\)</u>, et on désignera encore par \(t^*\),
+le transformé total sur \(S'\) du diviseur \(t^*\) de \(S_+(t)\).</p>
+
+<p>Soit \(\nu\) une fonction à support fini de \(S^*\) dans \(\mathbb N\) et supposons que
+\(\nu\) vérifie, quel que soit \(t\in S^*\)</p>
+\[(2.12.1)\qquad \nu(t)\geq
+\sum_{t'\text{ proche de }t}\nu(t')[k(t'):k(t)]\]
+<p>(inégalité des points proches). Soient \(f:S'\longrightarrow S\) un transformé birationnel
+de \(S\) qui domine les \(S_+(t)\) pour \(t\) dans le support de \(\nu\), et \(\nu^*\) le diviseur
+\[\sum_{t\in S^*}\nu(t)t^*\quad\text{sur }S'.\]</p>
+
+<p>On désignera par \(I(\nu)\) l'idéal de \(\mathcal O_S\) image directe par (f) de l'idéal
+de \(\mathcal O_{S'}\) qui définit le diviseur \(\nu^*\) :</p>
+\[I(\nu)=f_*\mathcal O(-\nu^*).\]
+<p>D'après (2.11.4), cet idéal ne dépend pas du choix de \(S'\). Les idéaux de \(S\)
+obtenus par ce procédé sont ceux que Zariski [11] appelle « complets ».</p>
+
+<div class="thm theorem" id="10.2.13">
+<div class="thm-head"><span class="thm-name"><u>Théorème 2.13.</u></span> <u>Sous les hypothèses précédentes, on a</u></div>
+<div class="thm-body">
+\[\chi(\mathcal O_S/I(\nu))=\sum_{t\in S^*}\frac{\nu(t)(\nu(t)+1)}2[k(t):k]\]
+<p><u>et</u></p>
+\[R^if_*\mathcal O_{S'}(-\nu^*)=0\quad\text{pour }i&gt;0.\]
+</div></div>
+
+<p>En vieux français, on exprime ceci, brièvement, en disant que :</p>
+<p>« exiger qu'une courbe plane passe \(n\) fois par un point \(t\), projectif ou infiniment
+voisin, impose \(\frac{n(n+1)}2\) conditions, en général indépendantes, aux
+coefficients de son équation ».</p>
+
+<p>Prouvons tout d'abord le lemme</p>
+
+<div class="thm lemma" id="10.2.14">
+<div class="thm-head"><span class="thm-name"><u>Lemme 2.14.</u></span> <u>Soient \(p:S_1\longrightarrow S\) l'éclaté de \(S\) le long de \(\{s\}\), \(T\) un sous-schéma fermé de \(S_1\), d'idéal \(q\), \(D\) un diviseur, \(n\) un entier, \(J=\mathcal O(-s^*)\) l'idéal de \(S_1\) qui définit le diviseur \(s^*\), \(Y=\operatorname{Spec}(\mathcal O_{S_1}/J^nq)\), \(D\) un diviseur régulier sur \(S\) et \(D'\) son transformé pur sur \(S_1\). On suppose \(T\cap s^*\) et \(T\cap D'\) finis.</u></div>
+<div class="thm-body"><ol class="enumerate">
+<li><span class="item-label">(i)</span> <u>Si \(\lg_{k(s)}(T\cap s^*)\leq n+1\), on a</u>
+\[R^ip_*(qJ^n)=0\quad\text{pour }i&gt;0\quad\text{et, pour }T\text{ artinien},\]
+\[\lg_{k(s)}(\mathcal O_S/p_*(qJ^n))=\frac{n(n+1)}2+\lg_{k(s)}(T).\]</li>
+<li><span class="item-label">(ii)</span> <u>Si \(\lg_{k(s)}(T\cap s^*)\leq n\), on a</u>
+\[\lg_{k(s)}\bigl(D\cap\operatorname{Spec}(\mathcal O_S/p_*(qJ^n))\bigr)
+=n+\lg_{k(s)}(D'\cap T).\]</li>
+</ol></div></div>
+
+<p>Soit la suite exacte sur \(S_1\)</p>
+\[(2.14.1)\qquad0\longrightarrow J^nq\longrightarrow J^n
+\xrightarrow{u}J^n\otimes\mathcal O_T\longrightarrow0.\]
+<p>Pour prouver que \(R^ip_*J^nq=0\) \((i&gt;0)\), il suffit par (2.11.4), de montrer
+que la flèche \(p_*(u)\) est surjective. D'après le théorème des fonctions
+holomorphes, il suffit de prouver que les flèches</p>
+\[u_k:p_*(J^n\otimes\mathcal O/J^k)\longrightarrow
+p_*(J^n\otimes\mathcal O_T\otimes\mathcal O/J^k)\]
+<p>sont surjectives.</p>
+
+<p>On désignera par \(\operatorname{Gr}_J\) un gradué associé pour la filtration (J)-adique.
+Le module \(J^m/J^{m+1}\) est isomorphe à \(\mathcal O_{s^*}(m)\) ; on a donc \(R^1p_*J^m/J^{m+1}=0\) et
+la flèche de \(p_*(J^n/J^{n+k+1})\) dans \(p_*(J^n/J^{n+k})\) est surjective. Pour prouver,
+par récurrence sur (k), que les flèches \(u_k\) sont surjectives, il suffit donc
+de prouver, la surjectivité des \(v_k\) :</p>
+\[v_k:p_*(J^n\otimes\operatorname{Gr}_J^k(\mathcal O))\longrightarrow
+p_*(J^n\otimes\operatorname{Gr}_J^k(\mathcal O_T))\qquad(k\geq0).\]
+<p>Le module \(\operatorname{Gr}_J^k(\mathcal O_T)\) est un quotient de \(J^k/J^{k+1}\otimes\mathcal O_T\) ; il est donc de longueur
+sur \(k(s)\) au plus \(n+1\). Le noyau \(N\) de la flèche surjective</p>
+\[v'_k:J^n\otimes\operatorname{Gr}_J^k(\mathcal O)\simeq\mathcal O_{s^*}(n+k)
+\longrightarrow J^n\otimes\operatorname{Gr}_J^k(\mathcal O_T)\]
+<p>est donc un faisceau inversible sur la droite projective \(s^*\), de degré \(\geq-1\).
+On a \(R^1p_*N=0\) et \(v_k=p_*(v'_k)\) est surjectif.</p>
+
+<p>Si \(T\) est artinien, de la suite exacte (2.14.1), on déduit maintenant que</p>
+\[\lg_{k(s)}(p_*J^n/p_*(J^nq))=\lg_{k(s)}(\mathcal O_T),\]
+<p>et 2.14 (i) résulte de (2.11.4) et (2.11.6).</p>
+
+<p>Soit \(I_{D'\cap T}\) l'idéal (monogène de \(\mathcal O_D\)) qui définit \(D'\cap T\). Sous les
+hypothèses (ii), la suite exacte</p>
+\[0\longrightarrow I_{D'\cap T}\longrightarrow\mathcal O_{D'}
+\longrightarrow\mathcal O_{D'\cap T}\longrightarrow0\]
+<p>montre que \(D'\cap T\) vérifie l'hypothèse (i).</p>
+
+<p>La projection \(p\) établit un isomorphisme entre \(D\) et \(D'\) ; par cet
+isomorphisme, à l'idéal de \(\mathcal O_D\) qui définit le sous-schéma \(D\cap\operatorname{Spec}(\mathcal O_S/p_*(qJ^n))\)
+de \(D\) correspond l'idéal de \(D'\) engendré par les sections globales de \(qJ^n\)
+sur \(S_1\). Cet idéal est contenu dans l'idéal de \(D'\) qui définit \(D'\cap Y\). Il
+lui est en fait égal, car toute section de \(\mathcal O_{D'\cup Y}\) se prolonge en une section
+de \(\mathcal O_{S_1}\) : si \(I_{D'\cup Y}\) est l'idéal qui définit \(D'\cup Y\), l'obstruction au
+prolongement se trouve dans \(R^1p_*(I_{D'\cup Y})\). On a</p>
+\[I_{D'\cup Y}=\mathcal O(-D')\cap qJ^n=(\mathcal O(-D')\cap J^n)\cap qJ^n
+=\mathcal O(-D')J^n\cap qJ^n\]
+\[=(\mathcal O(-D')\cap q)\cdot J^n\]
+<p>et, d'après (i) appliqué à \(D'\cup T\), il n'y a pas d'obstruction.</p>
+
+<p>On a donc</p>
+\[(2.14.2)\qquad\lg_{k(s)}\bigl(D\cap\operatorname{Spec}(\mathcal O_S/p_*(qJ^n))\bigr)
+=\lg_{k(s)}(D'\cap Y).\]
+<p>De l'isomorphie</p>
+\[J^n\otimes\mathcal O_{D'}/q\mathcal O_{D'}
+\xrightarrow{\sim}\mathcal O_{D'}J^n/\mathcal O_{D'}qJ^n\]
+<p>on déduit que la suite suivante est exacte</p>
+\[0\longrightarrow J^n\otimes\mathcal O_{D'\cap T}
+\longrightarrow\mathcal O_{D'\cap Y}\longrightarrow\mathcal O_{D'\cap n s^*}\longrightarrow0,\]
+<p>de sorte que</p>
+\[(2.14.3)\qquad\lg_{k(s)}(D'\cap Y)=n(D',s^*)+\lg_{k(s)}(D'\cap T).\]
+<p>Puisque \((D',s^*)=1\), 2.14 (ii) résulte de (2.14.2) et (2.14.3).</p>
+
+<p>Prouvons maintenant, par récurrence sur le nombre d'éléments dans
+le support de \(\nu\), les assertions de 2.13 et l'assertion suivante :</p>
+\[(2.14.4)\qquad\text{Si }D\text{ est un diviseur régulier sur }S,\text{ alors,}\]
+\[\chi(D\cap\operatorname{Spec}(\mathcal O_S/I(\nu)))
+=\sum_{t\text{ sur }D}\nu(t)[k(t):k].\]
+
+<p>Si \(\nu=0\), alors \(\nu^*=0\), \(I(\nu)=\mathcal O_S\) et 2.13 et (2.14.4) sont triviaux
+(la seconde assertion de (2.13) résulte d'une application itérée de
+(2.11.4) pour \(n=0\)). Sinon, on a \(\nu(s)&gt;0\), et il existe un \(S\)-morphisme
+\(g:S'\longrightarrow S_1\). Pour chaque point fermé \(a\) de \(S_1\), soient \(S_{1a}\) le localisé de
+\(S_1\) en \(a\), \(\nu_a\) la restriction de \(\nu\) à \(S_{1a}^*\), \(S'_a\) le localisé \(S'=S'\times_{S_1}S_{1a}\),
+\[I(\nu_a)=g_*\mathcal O_{S'}(-\nu_a^*),\qquad T_a=\operatorname{Spec}(\mathcal O_{S_1}/I(\nu_a)),\qquad
+T=\bigcup T_a\quad\text{(réunion finie disjointe)}\]
+<p>et \(q\) l'idéal de \(T\). On a, avec les notations de 2.14</p>
+\[(2.14.5)\qquad g_*\mathcal O(-\nu^*)=qJ^{\nu(s)}.\]
+
+<p>L'hypothèse de récurrence s'applique aux \((S_{1a},S'_a,\nu_a)\).
+On a donc</p>
+\[(2.14.6)\qquad R^ig_*\mathcal O_{S'}(-\nu^*)=0\quad\text{pour }i&gt;0\]
+\[(2.14.7)\qquad \chi(T)=
+\sum_{t\in S^*-\{s\}}\frac{\nu(t)(\nu(t)+1)}2[k(t):k]\]
+<p>et, d'après (2.14.4) appliqué au diviseur \(s^*\) de \(S_1\) et l'hypothèse (2.12.1)</p>
+\[\lg_{k(s)}(T\cap s^*)=
+\sum_{t\text{ proche de }s}\nu(t)[k(t):k(s)]\leq\nu(s).\]
+
+<p>Cette inégalité nous permet d'appliquer 2.14 ; de (2.14.5), on tire</p>
+\[R^ip_*g_*\mathcal O(-\nu^*)=0\quad\text{pour }i&gt;0\]
+\[\lg_{k(s)}(\mathcal O_S/p_*g_*\mathcal O(-\nu^*))=
+\frac{\nu(s)(\nu(s)+1)}2+\lg_{k(s)}(T)\]
+<p>de sorte que les assertions (2.13) résultent de (2.14.6) et (2.14.7).</p>
+
+<p>Enfin, 2.14 (ii) fournit</p>
+\[\lg_{k(s)}(D\cap\operatorname{Spec}(\mathcal O_S/I(\nu)))=
+\nu(s)+\lg_{k(s)}(D'\cap T),\]
+<p>soit par (2.14.4) appliqué à (D'),</p>
+\[\chi(D\cap\operatorname{Spec}(\mathcal O_S/I(\nu)))=
+\nu(s)[k(s):k]+\sum_{t\text{ sur }D'}\nu(t)[k(t):k]
+=\sum_{t\text{ sur }D}\nu(t)[k(t):k].\]
+<p>Ceci achève la démonstration de 2.13.</p>
+
+<p id="10.2.15"><strong>(2.15)</strong> Des bribes de ce qui précède se généralisent en dimension supérieure.</p>
+
+<p>Soit (S) le spectre d'un anneau local régulier de dimension (n) de point fermé
+(s), (k(s)) étant une extension finie de (k). On peut encore considérer l'ensemble
+(I) des schémas (f:S'\longrightarrow S) déduit de (S) par éclatements successifs de points
+fermés et poser comme en 2.1</p>
+\[S^*=\varinjlim_{S'\in I}\operatorname{Irr}(f^{-1}(s)).\]
+<p>(S^*) s'appellera encore l'ensemble des <u>points de (S) infiniment voisins de (s)</u>.</p>
+
+<p>Si (X) est un sous-schéma fermé de (S), et si (t\in S^*), on définit
+comme en 2.8 la multiplicité de (X) en (t).</p>
+
+<p>Soient (f:S'\longrightarrow S) un composé de morphismes d'éclatement de
+points fermés, (D) un diviseur sur (S), (D^*=f^*D) son transformé total sur (S'),
+(E) une courbe sur (S), (E') son transformé pur sur (S') et supposons que (D\cap E)
+soit réduit à (s). La formule de projection donne encore</p>
+\[(2.16)\qquad (D,E)=(D^*,E')\]
+<p>Procédant comme en 2.9, on prouve à l'aide de (2.16) que</p>
+\[(2.17)\qquad (D,E)=\sum_{t\in S^*}\mu_t(D)\,\mu_t(E)[k(t):k].\]
+
+<p>Définissons les points proches comme en 2.5. Procédant comme
+en 2.11, on vérifie que</p>
+\[(2.18)\qquad \mu_t(E)=\sum_{t'\text{ proche de }t}\mu_{t'}(E)[k(t'):k].\]
+<p>Par contre, la formule 2.11 (ii) devient fausse en général (voir les exemples 2.25).</p>
+
+<p id="10.2.19"><strong>2.19.</strong> Soit (S) une surface projective et régulière sur un corps (k). On désigne
+par (S^*) la somme disjointe, étendue aux points fermés de (S)</p>
+\[S^*=\coprod_{s\in S}\operatorname{Spec}(\mathcal O_{S,s})^*\]
+<p>et on appelle (S^*) l'ensemble des <u>points infiniment voisins des points de (S)</u>.</p>
+
+<p>Soit (I) l'ensemble des surfaces déduites de (S) par éclatements
+successifs de points fermés. L'ensemble (I) est cofinal dans l'ensemble des
+modèles réguliers du corps des fonctions de (S), ordonné par domination. Pour
+(i\in I), on désigne par (S_i) la surface correspondante, munie de (p_i:S_i\longrightarrow S).
+On désignera par 
+\(\operatorname{Div}^{\pm}(S_i)\) le groupe des diviseurs, positifs ou non, sur (S_i).</p>
+
+<div class="thm definition" id="10.2.20"><div class="thm-head"><u>Définition 2.20.</u></div><div class="thm-body">
+<p>(i) <u>Le groupe des « courbes » sur (S) est l'ensemble limite inductive</u></p>
+\[\varinjlim_{i\in I}\operatorname{Div}^{\pm}(S_i).\]
+<p>(ii) <u>La catégorie des « faisceaux inversibles » sur (S) est la limite inductive
+(SGA 4 VI 6) des catégories de faisceaux inversibles sur les ((S_i)_{i\in I})</u>.</p>
+</div></div>
+
+<p>Ces objets sont des invariants birationnels de (S).</p>
+
+<p id="10.2.21"><u>Exemple 2.21.</u> (i) Chaque « courbe » (C) sur (S) définit un « faisceau inversible »
+(\mathcal O(C)) sur (S).</p>
+
+<p>(ii) Chaque diviseur (C) sur (S) définit une « courbe » sur (S), qu'on désignera
+par (C^*).</p>
+
+<p>(iii) Si (t\in S^*), on définit comme en 2.3 la surface (S_+(t)) et le diviseur
+(t^*) sur (S_+(t)) ; on désigne encore par (t^*) la « courbe » définie par (t^*).</p>
+
+<p id="10.2.22"><strong>(2.22)</strong> On vérifie facilement qu'une « courbe » (C) (resp. un « faisceau inver-
+sible » (\mathcal L)) s'écrit d'une et d'une seule façon sous la forme</p>
+\[C=C_0^*-\sum_{t\in S^*}i_t\,t^*
+\qquad\text{resp.}\qquad
+\mathcal L=\mathcal L_0\otimes\mathcal O\!\left(-\sum_{t\in S^*}i_t\,t^*\right)\]
+<p>où (C_0) (resp. (\mathcal L_0)) est un diviseur (resp. un faisceau inversible) sur (S) et
+où les (i_t) sont des nombres entiers presque tous nuls. On dit que (C) (resp. (\mathcal L))
+est la courbe (C_0), (resp. le faisceau inversible (\mathcal L_0)) affectée de multipli-
+cités virtuelles (i_t).</p>
+
+<p>Le complété (\widehat{\operatorname{Div}}{}^{\pm}(S)\times\mathbb Z^{S^*}) du groupe
+\(\operatorname{Div}^{\pm}(S)\times\mathbb Z^{(S^*)}) des « courbes »
+sur (S) est encore un invariant birationnel de (S) ; on l'appelle le groupe des
+« courbes généralisées » sur (S). Sur (S), une « courbe généralisée » (C) se repré-
+sente par un diviseur (C_0), affecté d'un nombre pouvant être infini de mul-
+tiplicités virtuelles.</p>
+
+<p>On définit de même les « faisceaux inversibles généralisés » sur (S).</p>
+
+<p id="10.2.23"><u>Exemple 2.23.</u> Supposons (k) parfait. Alors, le faisceau inversible (\Omega^2_{S/k}),
+affecté d'une multiplicité virtuelle (-1) en chaque point (t\in S^*), est un
+invariant birationnel de (S), soit (\Omega^{2*}_{S/k}).</p>
+
+<p id="10.2.24"><u>Exemple 2.24.</u> Soit (f:S_1\longrightarrow S_2) un morphisme dominant de surfaces pro-
+jectives régulières sur (k). On définit sans difficulté l'image inverse d'une
+« courbe » ou d'un « faisceau inversible » sur (S_2), en passant à un modèle de (S_2)
+où cette « courbe » ou « faisceau inversible » est diviseur ou faisceau inver-
+sible usuel. Par passage à la limite (je n'ai pas vérifié si ce passage à
+la limite était possible), on définit de même l'image réciproque d'une
+« courbe généralisée », ou d'un « faisceau inversible généralisé ». Supposons
+(k) parfait et (f) génériquement étale. La <u>différente</u> (\mathfrak D(f)) de (f) est alors le
+diviseur positif sur (S_1) qui vérifie</p>
+\[f^*\Omega^2_{S_2/k}(\mathfrak D(f))\mathrel{\sim}\Omega^2_{S_1/k}.\]
+<p>Cette différente n'est pas un invariant birationnel de (f) ; pour obtenir
+un invariant birationnel, il faut considérer la « courbe généralisée » de
+codifférences</p>
+\[\mathfrak D^*(f)=\mathfrak D(f)+\sum_{t\in S_1^*}t^*-f^*\!\left(\sum_{t\in S_2^*}t^*\right)\]
+<p>soit, brièvement</p>
+\[\mathfrak D^*(f)=\Omega^{2*}_{S_1/k}-f^*\Omega^{2*}_{S_2/k}.\]
+<p>Cette « courbe généralisée » a un support contenu dans le fermé de (S_2) où (f)
+n'est pas étale.</p>
+
+<p id="10.2.25"><strong>(2.25) <u>Exemple.</u></strong></p>
+
+<p>Soient (k) un corps algébriquement clos et (\mathbb E_n) l'espace affine à
+(n) dimensions sur (k). Soit (C) une courbe réduite dans (\mathbb E_n), présentant une sin-
+gularité à l'origine. À cette singularité on associe son « diagramme d'Enriques »
+(cf. [3]), qui est le graphe de sommets les points infiniment voisins de (0)
+<u>sur (C)</u> (2.4 et 2.15), chaque sommet étant joint par un trait à ceux qui lui
+sont proches (2.5 et 2.19). Ce diagramme détermine les multiplicités de
+ces points sur (C) (2.11 et 2.18) et, pour (n=2), l'invariant (\delta) (2.10 et 2.11)
+de la singularité de (C) à l'origine.</p>
+
+<p>Pour les singularités planes les plus simples, on trouve :</p>
+
+<table style="margin:1em auto;border-spacing:1.5em .35em">
+<tr><th>Dessin</th><th>équation</th><th>\(\delta\)</th><th>diagramme (avec multiplicités)</th></tr>
+<tr><td>────</td><td>\(y=0\)</td><td>0</td><td><u>1　1　1　1　1　1　1</u>……</td></tr>
+<tr><td>╳</td><td>\(xy=0\)</td><td>1</td><td>2　╱<u>1　1　1　1</u>……<br>　╲<u>1　1　1　1</u>……</td></tr>
+<tr><td>⌣</td><td>\(y(y-x^2)=0\)</td><td>2</td><td>2　2　╱<u>1　1　1</u>……<br>　　　╲<u>1　1　1</u>……</td></tr>
+<tr><td>⌁</td><td>\(y^2=x^3\)</td><td>1</td><td>2　1　1　1　1　……</td></tr>
+</table>
+
+<p>Si (n&gt;2), l'invariant (\delta) n'est plus déterminé par ce diagramme.
+Ainsi, la réunion de 3 droites concourantes coplanaires (resp. non coplanaires)
+a un invariant (\delta=3) (resp. (\delta=2)), alors que le diagramme d'Enriques est
+le même. J'ignore si ce phénomène se présente aussi pour des courbes
+unibranches.</p>
+
+<p>Voici deux exemples de diagrammes, relatifs au cas (n=3), qui
+ne peuvent se présenter pour des courbes planes (cf. 2.5).</p>
+
+<p>On donne successivement les équations de la courbe, les équations
+de la transformée pure après éclatement de l'origine, des équations para-
+métriques de la courbe, l'invariant \(\delta\) et le diagramme d'Enriques.</p>
+
+<div id="10.2.25.1">
+\[(2.25.1)\qquad
+\left\{\begin{array}{l}y^2=z^4\\z^3=x^2\end{array}\right.,\qquad
+\left\{\begin{array}{l}(y/z)^2=(x/z)^3\\z=(x/z)^2\end{array}\right.,\qquad
+\left\{\begin{array}{l}x=u^6\\y=u^7\\z=u^4\end{array}\right.,\qquad \delta=5,
+\]
+<pre style="text-align:center">4──2
+├╲╲│
+│ ╲1
+│  │
+╲──1
+   1──1──…</pre>
+</div>
+
+<div id="10.2.25.2">
+\[(2.25.2)\qquad
+\left\{\begin{array}{l}y^2=x^3\\z^3=y^2\end{array}\right.,\qquad
+\left\{\begin{array}{l}(y/z)^2=(x/z)^3\\z=(y/z)^2\end{array}\right.,\qquad
+\left\{\begin{array}{l}x=u^8\\y=u^9\\z=u^6\end{array}\right.,\qquad \delta=10.
+\]
+<pre style="text-align:center">6──2
+├╲╲│
+│╲╲1
+│ ╲1
+│  1
+╲──1
+   1──1──…</pre>
+</div>
+
+<p id="10.2.26"><strong>2.26.</strong> Le théorème 2.27 ci-dessous était énoncé sous la forme d'une conjec-
+ture fausse dans la première version (diffusée par l'IHES) de cet exposé.
+Il doit beaucoup à des conversations avec D. S. Rim, dont il englobe
+certains résultats (D. S. Rim, torsion differentials and deformations,
+theorem 2.7 (i)).</p>
+
+<p>Soit \(C\) une courbe projective réduite sur un corps algébriquement
+clos \(k\), et \(s\in C(k)\). On désignera par</p>
+<p>\(A_s\) : l'anneau local de \(C\) en \(s\) (ou son complété, cela reviendrait au
+même pour ce qui suit) ;<br>
+\(\widetilde A_s\) : le normalisé de \(A_s\) ;<br>
+\(\delta(s):\dim_k(\widetilde A_s/A_s)\) ;<br>
+\(m_0(s)\) : la dimension du schéma versel formel \(T\) des déformations de \(\operatorname{Spec}(A_s)\).</p>
+
+<p>Pour \(E\) une composante irréductible de \(T\), on posera encore
+\[m_0^E(s)=\dim(E).\]</p>
+
+<p>Les modules \(\tau^{\sim}\) des dérivations de \(\widetilde A_s\) et \(\tau\) des dérivations
+de \(A_s\) sont sans torsion ; ils s'injectent dans le module des dérivations
+du corps des fractions de \(A_s\), pour \(A_s\) intègre, et dans le module des
+dérivations de l'anneau total des fractions de \(A_s\) (un produit de corps)
+dans le cas général. De plus, via ces inclusions, \(\tau\) et \(\tau^{\sim}\) sont
+commensurables : \(\tau/\tau\cap\tau^{\sim}\) et \(\tau^{\sim}/\tau\cap\tau^{\sim}\) sont de dimension finie sur \(k\).
+On pose</p>
+\[m_1(s)=[\tau^{\sim}:\tau]=_{\mathrm{dfn}}
+\dim_k(\tau^{\sim}/\tau\cap\tau^{\sim})-\dim_k(\tau/\tau\cap\tau^{\sim}).\]
+
+<div class="thm theorem" id="10.2.27"><div class="thm-head"><span class="thm-name"><u>Théorème 2.27.</u></span>
+<u>Soit \(E\) une composante irréductible du schéma formel versel \(T\) des déformations de \(A_s\). Si « la déformation de \(A_s\) au-dessus du point générique \(e\) de \(E\) est lisse », i.e. si l'image du sous-schéma formel de non lissité (défini par un idéal jacobien : VI 5), fini sur \(T\), ne contient pas \(e\), alors</u></div>
+\[3\,\delta(s)=m_0^E(s)+m_1(s).\]
+</div>
+
+<p>La validité de 2.27 ne dépend que du complété de \(A_s\).
+Remplaçant \((C,s)\) par \((C',s)\) formellement isomorphe à \((C,s)\) en \(s\),
+on peut supposer que les conditions suivantes sont vérifiées</p>
+<ol class="enumerate"><li><span class="item-label">(a)</span> \(s\) est le seul point singulier de \(C\) ;</li>
+<li><span class="item-label">(b)</span> \(C\) n'a pas d'automorphismes infinitésimaux.</li></ol>
+
+<p>La condition (b) nous garantit que le foncteur des déformations
+de \(C\) est proreprésentable. Il est même effectivement pro-représentable,
+car il n'y a pas d'obstruction à relever un faisceau inversible (ample)
+donné sur \(C\). Soit \(f:X_0\longrightarrow T_0\) la déformation universelle de \(C\)
+et \(t_0\) le point fermé de \(T_0\) : \(C\simeq X_0{}_{t_0}\).</p>
+
+<div class="thm lemma" id="10.2.28"><div class="thm-head"><span class="thm-name"><u>Lemme 2.28.</u></span>
+<u>Il existe un schéma de type fini sur \(k\), \(T_1\), \(t_1\in T_1(k)\)
+et \(f:X_1\longrightarrow T_1\), propre et plat, de fibre \(C\) en \(t_1\) et tel que
+pour tout \(u\in T_1(k)\), le complété de \(T_1\) en \(u\) soit un schéma formel
+de modules pour la fibre \(X_{1u}\).</u></div></div>
+
+<p>Voici une démonstration directe de ce corollaire de résultats
+généraux d'Artin. Soit \(\mathcal L\) un faisceau inversible très ample sur \(C\),
+tel que \(H^1(C,\mathcal L)=0\), et \(\mathbb P=\mathbb P(H^0(C,\mathcal L))\). On a \(v:C\hookrightarrow\mathbb P\). Soit \(T_2\)
+le schéma de Hilbert, classifiant les sous-variétés de \(\mathbb P\) de même
+polynôme de Hilbert que \(v(C)\subset\mathbb P\). Soit \(t_2\in T_2\) correspondant à \(v(C)\).
+Le complété \(\widehat T_2\) de \(T_2\) en \(t_2\) est lisse sur \(S_0\), le fibré tangent
+vertical de \(\widehat T_2/T_0\) se déduisant du sous-fibré \(L\) du fibré tangent de \(T_2\)
+image de \(\operatorname{Lie}(\operatorname{Aut}(\mathbb P))\) pour l'action de \(\operatorname{Aut}(\mathbb P)\) sur \(T_2\). Au voisinage
+de \(t_2\), soit \(f_1,\ldots,f_n\), \(n=\dim\operatorname{Aut}(\mathbb P)\), équations définissant un
+sous-schéma \(T'_1\) de \(T_2\) passant par \(t_2\) et de complété en \(t_2\) étale sur \(T_0\).
+On prend pour \(T_1\) un voisinage de \(t_2\) dans \(T'_1\) où le fibré tangent soit
+transverse à \(L\).</p>
+
+<p id="10.2.29"><strong>2.29.</strong> Au morphisme de foncteur
+\[(\text{déformations de }C)\longrightarrow(\text{déformations de }A_s)\]
+correspond un morphisme \(p:T_0\longrightarrow T\). D'après VI 2.10, \(p\)
+est lisse. Soit \(t\) le point fermé de \(T\). L'espace tangent de Zariski
+de \(p^{-1}(t)\) en \(t_0\) classifie les déformations localement triviales de
+\(C\) sur \(k[\varepsilon]\) (\(\varepsilon^2=0\)). Posant \(E_0=p^{-1}(E)\), on a donc</p>
+\[(2.29.1)\qquad \dim(E_0)=\dim(E)+\dim H^1(C,\mathcal T^1_{C/k}).\]
+
+<p>Puisque \(X_0/T_0\) est plat, les fibres de \(X_0/T_0\) ont toutes
+le même genre arithmétique \(p\) (\(1-p=\chi(\mathcal O)\)). Par hypothèse, la fibre
+au point générique de \(E_0\) est lisse ; le schéma formel des modules d'une
+courbe propre et lisse étant lisse de dimension \(3p-3\), on déduit de
+2.28 que</p>
+\[(2.29.2)\qquad \dim(E)=3p-3.\]
+
+<p>Soit \(C^{\sim}\) la normalisée de \(C\), de genre arithmétique
+\(p^{\sim}=p-\delta(s)\). On a</p>
+\[(2.29.3)\qquad \dim H^1(C,\mathcal T^1_{C/k})=-\chi(C,\mathcal T^1_{C/k})
+=-\chi(C^{\sim},\mathcal T^1_{C^{\sim}/k})+m_1(s)
+=-[3(p-\delta(s))-3]+m_1(s).\]
+<p>Les formules (2.29.1) (2.29.2) (2.29.3) prouvent 2.27.</p>
+
+<div class="thm conjecture" id="10.2.30"><div class="thm-head"><span class="thm-name"><u>Conjecture 2.30.</u></span>
+<u>Toute courbe propre réduite a une déformation lisse.</u></div></div>
+<p>Cette conjecture implique, par 2.27 et 2.28, que le schéma formel
+versel des déformations de \(A_s\) est toujours équidimensionnel, de
+dimension \(3\delta(s)-m_1(s)\).</p>
+
+<p id="10.2.31"><strong>2.31.</strong> Soit \(C\) une courbe propre réduite sur \(k\), de genre arithmétique \(p\).
+On désignera par</p>
+<p>\(M_0\) : la dimension du schéma formel versel \(T\) des déformations de \(C\) ;<br>
+\(M_1\) : la dimension de l'algèbre de Lie de \(\operatorname{Aut}(C)\).</p>
+<p>Pour \(E\) une composante irréductible de \(T\), on notera \(M_0^E\)
+la dimension de \(E\).</p>
+<p>L'analogue global de 2.27 est le suivant.</p>
+
+<div class="thm proposition" id="10.2.32"><div class="thm-head"><span class="thm-name"><u>Proposition 2.32.</u></span>
+<u>Si la déformation de \(C\) au-dessus du point générique de \(E\) est lisse, on a</u></div>
+\[3p-3=M_0^E-M_1.\]
+</div>
+
+<p>Soit \(X\subset C(k)\) un ensemble fini de points lisses de \(C\), tel
+que tout champ de vecteur sur \(C\), s'annulant en tout point \(x\in X\), soit
+nul. Le foncteur des déformations de \((C,X)\) est proreprésentable, et
+vérifie une variante de 2.28. Le schéma formel des modules de \((C,X)\)
+est lisse sur \(T\), de dimension relative \(\#X-M_1\), et de l'analogue
+de 2.28 on déduit que</p>
+\[M_0+(\#X-M_1)=3p-3+\#X,\]
+<p>d'où 2.32.</p>
+
+<p>Supposons \(k\) de caractéristique 0. On a alors \(M_1=\dim\operatorname{Aut}(C)\).
+Voici une interprétation analogue de \(m_1(s)\).</p>
+
+<div class="thm lemma" id="10.2.33"><div class="thm-head"><span class="thm-name"><u>Lemme 2.33.</u></span>
+<u>Si \(k\) est de caractéristique 0, toute dérivation de \(A_s\)
+se prolonge en une dérivation de \(\widetilde A_s\).</u></div></div>
+
+<p>Si \(D\) est une dérivation de \(A_s\), \(\exp(Dt)=\sum D^n t^n/n!\) est
+un automorphisme du complété en \((s,0)\) de \(A_s\otimes_k k[t]\). Par transport de
+structure, cet automorphisme agit sur le normalisé \((\widetilde A_s\otimes_k k[t])^\wedge\) de
+cet anneau. Réduisant mod \(t^2\), on trouve un automorphisme \(1+Dt\) de
+\(\widetilde A_s{}^\wedge\otimes_k k[t]/(t^2)\), et \(D\) se trouve ainsi prolongé en une dérivation
+de \(\widetilde A_s{}^\wedge\). Puisqu'il se prolonge aussi au corps des fractions de \(A_s\)
+(anneau total des fractions si \(A_s\) n'est pas intègre), il se prolonge à \(\widetilde A_s\).</p>
+
+<p>Supposons \(s\) singulier. Un argument analogue montre alors que
+le champ de vecteur sur \(\operatorname{Spec}(\widetilde A_s)\) défini par \(D\) s'annulle en tout
+point au-dessus de \(s\).</p>
+
+<p>Soit \(c\) un idéal de \(\widetilde A_s\) contenu dans le conducteur de \(\widetilde A_s/A_s\).
+Soit \(\widetilde G_c=\operatorname{Aut}(\widetilde A_s/c)\) et soit \(G_c\) le sous-groupe de \(\widetilde G_c\) qui stabilise
+la sous-algèbre \(A_s/c\). Pour \(d\subset c\), \(\widetilde G_d\) stabilise \(c/d\) et s'envoie
+sur \(\widetilde G_c\) (remarquer que \(g\in\widetilde G_c\) est déterminé par \(g(t)\), pour \(t\) une
+uniformisante, et que \(g(t)\) est n'importe quelle uniformisante). L'espace
+homogène pointé \(\widetilde G_c/G_c\) est donc indépendant de \(c\). On note \(\widetilde G/G\).</p>
+
+<p>Soit \(\widetilde\tau_0\) le \(\widetilde A_s\)-module des champs de vecteurs sur \(\operatorname{Spec}(\widetilde A_s)\)
+qui s'annullent en les points au-dessus de \(s\). Pour \(s\) singulier, on a</p>
+\[
+\dim_k(\widetilde\tau/\widetilde\tau_0)=\text{nombre de branches}\ ;
+\]
+\[
+\widetilde\tau_0/\tau\simeq\text{espace tangent à l'origine de }\widetilde G/G.
+\]
+
+<div class="thm proposition" id="10.2.34"><div class="thm-head"><span class="thm-name"><u>Proposition 2.34.</u></span>
+<u>En caractéristique 0 et pour \(s\) singulier, l'entier
+\(m_1(s)\) est somme du nombre de branches et de la dimension de \(\widetilde G/G\).</u></div></div>
+
+<h2 id="10.bibliographie"><u>BIBLIOGRAPHIE</u></h2>
+
+<p>[1] P. Defrise. Étude locale des correspondances rationnelles entre
+surfaces algébriques — Thèse d'agrégation — Bruxelles 1949.</p>
+
+<p>[2] P. Deligne et D. Mumford. The irreducibility of the space of curves
+of a given genus — Publ. Math. IHES <u>36</u> (1969) p. 75–110.</p>
+
+<p>[3] Enriques — Chisini. Lezioni sulla teoria geometrica delle equazioni
+et delle funzioni algebriche — ed Zanichelli — Bologne 1924.</p>
+
+<p>[4] R. Hartshorne. Residues and duality — Lectures Notes in Math. <u>20</u> —
+Springer 1966.</p>
+
+<p>[5] S. Lichtenbaum. Curves over discrete valuation rings — Am. J. of Math.
+15 n° 2 April 1968. p. 380–405.</p>
+
+<p>[6] I. Manin. Rational surfaces over perfect fields — Publ. Math. IHES n° 30.
+p. 55–114.</p>
+
+<p>[7] D. Mumford. The topology of normal singularities of an algebraic
+surfaces and a criterion for simplicity — Publ. Math. IHES
+n° 9 p. 5–22.</p>
+
+<p>[8] A. Néron. Modèles minimaux des variétés abéliennes sur les corps
+locaux et globaux — Publ. Math. n° 21.</p>
+
+<p>[9] M. Raynaud. Spécialisation du foncteur de Picard. Critères numériques
+de représentabilité — CR Acad. Sci. Paris t. 264 p. 1001–1004 —
+Juin 1967.</p>
+
+<p>[10] Saint-Donat. Sur un théorème de G. Castelnuovo et F. Enriques — Thèse
+de 3° cycle — Lyon.</p>
+
+<p>[11] O. Zariski. On polynomial ideals defined by infinitely near base points
+Am. J. Math. vol. 60–1938 p. 151.</p>
+
+<p>[12] D.G. Northcott. On the genus formula for plane curves. J. London
+Math. Soc. 30 1955 — p. 376–382.</p>
+
+<p>[13] D.G. Northcott. Abstract dilatations and infinitely near points.
+Proc. Cambridge Philos. Soc. 52 1956 — p. 178–197.</p>
+
+<p>La notion de "point infiniment voisin" est discutée dans l'appendice
+par Lipman au chapitre II de</p>
+
+<p>[14] O. Zariski. Algebraic surfaces — Ergebnisse <u>61</u>, Springer Verlag.</p>
+
+</body>
+</html>

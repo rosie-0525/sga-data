@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>SGA 5 — Exposé VIII. Groupes de classes des catégories abéliennes et triangulées. Complexes parfaits</title>
+<script>window.MathJax={loader:{load:['[custom]/xypic.js'],paths:{custom:'../../translation-viewer/vendor/xyjax'}},tex:{packages:{'[+]':['xypic','ams','color','mathtools']},inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],tags:'none'},options:{enableMenu:true},startup:{typeset:false}};</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>body{max-width:46em;margin:2em auto;padding:0 1em;font-family:Georgia,"Times New Roman",serif;line-height:1.5}h1{text-align:center;font-size:1.3em}h1 .author{display:block;font-size:.8em;font-weight:normal;margin-top:.5em}h2{margin-top:2em}h3{margin-bottom:.3em}.thm{margin:1.2em 0}.thm-head{font-weight:bold}</style>
+</head><body>
+<!-- Source PDF page 1 -->
+<h1 id="VIII">EXPOSÉ VIII<br>GROUPES DE CLASSES DES CATÉGORIES ABÉLIENNES<br>ET TRIANGULÉES. COMPLEXES PARFAITS.<span class="author">par A. Grothendieck, rédigé par I. Bucur</span></h1>
+
+<p>Dans le présent exposé, nous esquissons rapidement les notions et résultats qui nous seront indispensables dans les exposés suivants, concernant notamment les complexes pseudo-cohérents et parfaits. Un exposé plus complet de ces derniers, avec des démonstrations plus détaillées, figurera dans les premiers exposés du séminaire sur le théorème de Riemann-Roch pour les schémas, qui feront suite au présent séminaire.<sup><a href="#fn1" id="fnref1">(*)</a></sup></p>
+
+<h2 id="VIII.1">1. <u>Cas des catégories abéliennes.</u></h2>
+<p>Soit \(C\) une catégorie abélienne et soit \(D\) une sous-catégorie pleine de \(C\). On dit qu'une fonction \(f\) de \(D\) dans un groupe abélien \(G\) est <u>additive</u> si, pour toute suite exacte de \(C\)</p>
+\[0\longrightarrow E'\longrightarrow E\longrightarrow E''\longrightarrow0,\]
+<p>telles que \(E'\), \(E''\), \(E\) soient des objets de \(D\), on a</p>
+\[f(E)=f(E')+f(E'').\]
+<p>Soit \(f\) une fonction additive de \(D\) dans un groupe abélien \(G\). Les propriétés suivantes sont des conséquences faciles de la définition :</p>
+<p>α) \(f(0)=0\).</p>
+<p>β) \(f(X)=f(Y)\) si \(X\) et \(Y\) sont isomorphes.</p>
+
+<!-- Source PDF page 2 (printed page 352) -->
+<p>γ) \(f(X\oplus Y)=f(X)+f(Y)\).</p>
+
+<p>δ) Soit \(E=(E^i,d^i)\) un complexe fini de \(D\) tel que les objets
+\(B^{i+1}=\operatorname{Im}(d^i)\), \(Z^i=\operatorname{Ker}(d^i)\) et
+\(H^i(E)=Z^i/B^i\) sont dans \(D\). Alors on a</p>
+\[\sum_i(-1)^if(E^i)=\sum_i(-1)^if(H^i(E)).\]
+
+<p>ε) Si \(F\in\operatorname{Ob}D\) a une filtration finie,</p>
+\[0=F_0\subset F_1\subset\cdots\subset F_n=F,\]
+<p>et si l'on suppose que pour \(0&lt;i\leq n\), \(F_i\) et \(F_i/F_{i-1}\)
+sont des objets de \(D\), alors</p>
+\[f(F)=\sum_{i=1}^n f(F_i/F_{i-1}).\]
+
+<p>φ) Si \(D\) est stable pour les sommes directes infinies, alors \(f=0\).</p>
+
+<p>Pour démontrer δ) on utilise les suites exactes :</p>
+\[0\longrightarrow Z^i\longrightarrow E^i\longrightarrow B^{i+1}\longrightarrow0\]
+\[0\longrightarrow B^i\longrightarrow Z^i\longrightarrow H^i(E)\longrightarrow0.\]
+
+<p>La démonstration de ε) se fait par récurrence sur \(n\) en utilisant la
+suite exacte \(0\longrightarrow F_{n-1}\longrightarrow F\longrightarrow
+F/F_{n-1}\longrightarrow0\).</p>
+
+<p>Pour démontrer φ) soient \(E\in\operatorname{Ob}D\) et
+\(F=\bigoplus_{n\in\mathbb Z^+}E_n\), \(E_n=E\), \(n\in\mathbb Z^+\). Alors
+\(E\oplus F\simeq F\) et en appliquant γ) on a</p>
+\[f(F)=f(F)+f(E)\quad\text{donc}\quad f(E)=0.\]
+
+<p>Si l'on considère, pour tout groupe abélien \(G\), le groupe abélien
+\(A_D(G)\) des fonctions additives de \(D\) dans \(G\), on obtient de manière
+évidente un foncteur covariant \(A_D:\mathbf{Ab}\longrightarrow\mathbf{Ab}\).
+Le foncteur \(A_D\) est représentable. Un couple de représentation
+\((K_D(C),\varphi)\) peut être obtenu de la manière suivante :</p>
+
+<!-- Source PDF page 3 (printed page 353) -->
+<p>Désignant par \(L\) le groupe abélien libre engendré par les objets de
+\(D\), soit \(R\) le sous-groupe de \(L\) engendré par les éléments de la forme
+\(E-E'-E''\) pour chaque suite exacte</p>
+\[0\longrightarrow E'\longrightarrow E\longrightarrow E''\longrightarrow0\]
+<p>de \(C\). On pose \(K_D(C)=L/R\). L'application \(\varphi\) s'obtient en
+composant les deux applications canoniques
+\(\operatorname{Ob}D\longrightarrow L\longrightarrow L/R\).</p>
+
+<p>Quand il n'y aura aucun danger de confusion, on peut abréger la notation :
+\(K_D(C)=K(D)\).</p>
+
+<h2 id="VIII.2">2. <u>Cas des catégories triangulées.</u></h2>
+<p>Soit \(C\) une catégorie triangulée et \(G\) un groupe abélien. On dit
+qu'une fonction \(f\) de \(C\) dans \(G\) est additive si pour tout triangle
+distingué</p>
+\[\xymatrix{&Z\ar[dl]_w\\X\ar[rr]_u&&Y\ar[ul]_v}\]
+<p>on a \(f(Y)=f(X)+f(Z)\).</p>
+
+<p>Étant donnée une fonction additive \(f\), les relations suivantes sont des
+conséquences immédiates de la définition :</p>
+<p style="margin-left:4em;">a) \(f(0)=0\)</p>
+<p style="margin-left:4em;">b) \(f(X[n])=(-1)^nf(X)\)</p>
+<p style="margin-left:4em;">c) \(f(X)=f(Y)\) si \(X\) et \(Y\) sont isomorphes.</p>
+<p style="margin-left:4em;">d) \(f(X\oplus Y)=f(X)+f(Y)\)</p>
+
+<!-- Source PDF page 4 (printed page 354) -->
+<p>En effet les triangles suivants sont distingués</p>
+\[\xymatrix@C=2.5em{&0\ar[dl]\\X\ar[rr]_{1_X}&&X\ar[ul]},\qquad
+\xymatrix@C=2.5em{&X[1]\ar[dl]\\X\ar[rr]&&0\ar[ul]},\qquad
+\xymatrix@C=2.5em{&0\ar[dl]\\X\ar[rr]^u&&Y\ar[ul]},\qquad
+\xymatrix@C=2.5em{&Y[1]\ar[dl]\\X\oplus Y\ar[rr]&&X\ar[ul]}\]
+<p>(\(u\) isomorphisme). Pour former le dernier triangle, nous avons utilisé le
+fait que la somme de deux triangles distingués est distinguée. Comme dans le
+cas des catégories abéliennes, on obtient de la manière évidente un foncteur
+\(A:\mathbf{Ab}\longrightarrow\mathbf{Ab}\), qui associe à chaque groupe
+abélien \(G\) le groupe abélien \(A(G)\) des fonctions additives sur \(C\) à
+valeurs dans \(G\). Ce foncteur est représentable et il est facile de construire
+un couple de représentation \((K(C),\operatorname{cl}_C)\). En effet, on
+considère tout d'abord le groupe abélien libre
+\(\mathbb Z^{(\operatorname{Ob}C)}\) engendré par les objets de \(C\) et puis le
+sous-groupe \(R\) engendré par les éléments de la forme \(X-Y-Z\), où</p>
+\[\xymatrix{&Z\ar[dl]\\Y\ar[rr]&&X\ar[ul]}\]
+<p>est un triangle distingué. Le groupe quotient
+\(\mathbb Z^{(\operatorname{Ob}C)}/R\) sera \(K(C)\) et
+\(\operatorname{cl}_C\) s'obtient en composant les deux applications canoniques :</p>
+\[\operatorname{Ob}C\longrightarrow\mathbb Z^{(\operatorname{Ob}C)}
+\longrightarrow K(C).\]
+
+<h2 id="VIII.3">3. <u>Caractère fonctoriel.</u></h2>
+<p>\(C\) et \(C'\) étant deux catégories triangulées, soit
+\(T:C\longrightarrow C'\) un foncteur exact de \(C\) dans \(C'\), c'est-à-dire
+un foncteur additif, « gradué » et transformant les triangles</p>
+
+<!-- Source PDF page 5 (printed page 355) -->
+<p>distingués en triangles distingués. Désignons comme plus haut par
+\(A,A':\mathbf{Ab}\longrightarrow\mathbf{Ab}\) les foncteurs associés aux
+catégories \(C\) et \(C'\). Il en résulte un morphisme fonctoriel
+\(A'\longrightarrow A\) de « composition avec \(T\) » donc un homomorphisme
+\(K(T):K(C)\longrightarrow K(C')\) unique tel que le diagramme</p>
+\[\xymatrix{\operatorname{Ob}C\ar[r]^T\ar[d]_{\operatorname{cl}_C}&
+\operatorname{Ob}C'\ar[d]^{\operatorname{cl}_{C'}}\\
+K(C)\ar[r]_{K(T)}&K(C')}\]
+<p>soit commutatif. Il en résulte que si les foncteurs
+\(T,T_1:C\longrightarrow C'\) sont isomorphes, alors \(K(T)=K(T_1)\). En
+particulier si le foncteur \(T\) est une équivalence de catégories, alors
+\(K(T)\) est un isomorphisme.</p>
+
+<p>Si \(C''\) est une troisième catégorie triangulée et
+\(F:C\times C'\longrightarrow C''\) un bifoncteur exact en chaque variable,
+alors il est clair qu'il en résulte une application bilinéaire</p>
+\[K(F):K(C)\times K(C')\longrightarrow K(C''),\]
+<p>telle que la relation suivante soit vraie :</p>
+\[K(F)(\operatorname{cl}_C(X),\operatorname{cl}_{C'}(X'))
+=\operatorname{cl}_{C''}(F(X,X')).\]
+
+<div class="thm proposition" id="VIII.3.1"><div class="thm-head"><span class="thm-name"><u>Proposition 3.1.</u></span></div><div class="thm-body">
+<p>Soit \(A\) une catégorie triangulée, \(B\) une sous-catégorie triangulée
+épaisse de \(A\), \(A/B\) la catégorie quotient de \(A\) par \(B\),
+\(Q:A\longrightarrow A/B\) le foncteur canonique de passage au quotient,
+\(i:B\longrightarrow A\) le foncteur d'inclusion. Alors la suite suivante est
+exacte :</p>
+
+<!-- Source PDF page 6 (printed page 356) -->
+\[K(B)\xrightarrow{K(i)}K(A)\xrightarrow{K(Q)}K(A/B)\longrightarrow0.\]
+</div></div>
+
+<p><u>Démonstration.</u> Il est clair qu'il existe un homomorphisme naturel</p>
+\[\operatorname{Coker}(K(i))\xrightarrow{\alpha}K(A/B).\]
+<p>D'autre part il existe une application évidente</p>
+\[\operatorname{Ob}(A/B)\xrightarrow{\gamma}\operatorname{Coker}(K(i)),\]
+<p>puisque \(\operatorname{Ob}(A/B)=\operatorname{Ob}(A)\). Soient
+\(X,Y\in\operatorname{Ob}(A/B)\) et supposons qu'ils sont isomorphes. Nous
+voulons démontrer que \(\gamma(X)=\gamma(Y)\). La catégorie \(A/B\) s'obtient
+par un calcul de fractions à droite ou à gauche, le système multiplicatif
+\(S\) étant constitué par l'ensemble des morphismes \(f\) qui sont contenus
+dans un triangle distingué \((X',Y',Z',f,g,h)\), où \(Z'\) est un objet de
+\(B\) (\(S\) est un système multiplicatif saturé). Il en résulte alors qu'il
+existe \(X_1\) et \(X_1\xrightarrow{s}X\), \(X_1\xrightarrow{t}Y\) tel que
+\(s,t\in S\). Il nous suffit donc de démontrer que
+\(\gamma(X)=\gamma(X_1)\), ce qui résulte du fait qu'il existe un triangle
+distingué de la forme \((X_1,X,Z,s,\ldots)\) avec \(Z\in\operatorname{Ob}B\).</p>
+
+<p>L'application \(\gamma\) est une fonction additive. En effet,
+\((X,Y,Z,f,g,h)\) étant un triangle distingué de \(A/B\), il faut démontrer
+que \(\gamma(X)+\gamma(Z)=\gamma(Y)\). Mais la relation s'ensuit maintenant,
+parce que le triangle \((X,Y,Z,f,g,h)\) est isomorphe à un triangle distingué
+de \(A\). Par conséquent, on obtient</p>
+\[\beta:K(A/B)\longrightarrow\operatorname{Coker}(K(i)),\]
+<p>et il est immédiat de vérifier que \(\beta\) est inverse de \(\alpha\).</p>
+
+<h2 id="VIII.4">4. <u>Comparaison avec le cas des catégories abéliennes.</u></h2>
+<p>\(C\) étant une catégorie abélienne, \(D(C)\) la catégorie dérivée de
+\(C\), on désigne comme d'habitude par \(D^b(C)\) la sous-catégorie pleine de
+\(D(C)\) engendrée par les complexes bornés. Si l'on associe à chaque objet
+\(X\) de \(C\) le complexe dont toutes les composantes sont nulles, sauf
+celle en dimension zéro qui est égale à \(X\), on obtient un homomorphisme</p>
+
+<!-- Source PDF page 7 (printed page 357) -->
+\[K(C)\xrightarrow{\mu}K(D^b(C)).\]
+<p>Cet homomorphisme est en fait un isomorphisme. En effet, nous pouvons
+utiliser la proposition 3.1 pour construire un inverse de \(\mu\), en tenant
+compte que</p>
+\[D^b(C)\simeq K^{b,b}(C)/K^{b,\varnothing}(C),\]
+<p>\(K^{b,\varnothing}(C)\) étant la sous-catégorie épaisse de
+\(K^{b,b}(C)\) des complexes acycliques. Soit
+\(X^\bullet=(X_i)\in\operatorname{Ob}(K^{b,b}(C))\). Si l'on pose</p>
+\[f(X^\bullet)=\sum_i(-1)^i\operatorname{cl}_C(X_i),\]
+<p>on obtient une fonction additive de \(K^{b,b}(C)\) à valeurs dans
+\(K(C)\). En effet, on observe tout d'abord que si \(X^\bullet\) et
+\(Y^\bullet\) sont homotopes, alors \(f(X^\bullet)=f(Y^\bullet)\), puisque
+\(f(X^\bullet)=f(H(X^\bullet))\). Il en résulte donc un homomorphisme</p>
+\[K(D^b(C))\xrightarrow{\lambda}K(C)\]
+<p>et il est immédiat de vérifier qu'il est l'inverse de \(\mu\).</p>
+
+<p>L'invariant \(K(C)\) étant souvent sans intérêt lorsque \(C\) est « trop
+grosse », il y a l'intérêt de le relativiser par rapport à une sous-catégorie
+\(C_0\) de \(C\). Soit donc \(C_0\) une sous-catégorie pleine de \(C\). Nous
+pouvons définir d'une part le groupe \(K_0(C)=K_{C_0}(C)\). Supposons d'autre
+part que la condition suivante soit remplie :</p>
+<p style="margin-left:4em;">(A) \(C_0\) est stable pour les sommes directes
+finies.</p>
+<p>Il est alors facile de définir la catégorie triangulée \(D_0^b(C)\) en
+utilisant les complexes (à cohomologie bornée) de \(C\) ayant comme
+composantes des objets de la sous-catégorie \(C_0\), et passant au</p>
+
+<!-- Source PDF page 8 (printed page 358) -->
+<p>quotient par les quasi-isomorphismes de tels complexes. Il en résulte comme
+plus haut un homomorphisme</p>
+\[(*)\qquad K_0(C)\longrightarrow K(D_0^b(C)).\]
+<p>Supposons que la sous-catégorie \(C_0\) satisfasse en plus à la condition
+(B) suivante :</p>
+<p style="margin-left:4em;">(B) Si \(X,Y\in\operatorname{Ob}C_0\) et
+\(X\xrightarrow{u}Y\) est un épimorphisme (dans \(C\) bien entendu), alors
+\(\operatorname{Ker}u\in\operatorname{Ob}C_0\).</p>
+<p>En raisonnant comme plus haut, on peut montrer que l'homomorphisme (*) est
+un isomorphisme.</p>
+
+<p>Le foncteur canonique d'inclusion \(D_0^b(C)\longrightarrow D^b(C)\)
+n'est pas en général pleinement fidèle. Cependant :</p>
+
+<div class="thm proposition" id="VIII.4.1"><div class="thm-head"><span class="thm-name"><u>Proposition 4.1.</u></span></div><div class="thm-body">
+<p>Supposons que la sous-catégorie \(C_0\) satisfasse aux conditions (A), (B)
+ainsi qu'à la condition (C) suivante :</p>
+<p style="margin-left:4em;">(C) Tout diagramme</p>
+\[\xymatrix{A\ar[r]^u&B&L\ar[l]^v}\]
+<p>où \(u\) est un épimorphisme et \(L\in\operatorname{Ob}C_0\), peut être
+complété en un diagramme commutatif :</p>
+\[\xymatrix{A\ar[r]^u&B\\L_1\ar[u]\ar[r]_w&L\ar[u]_v}\]
+<p>tel que \(L_1\in\operatorname{Ob}C_0\) et que \(w\) est un
+épimorphisme.</p>
+
+<!-- Source PDF page 9 (printed page 359) -->
+<p>Dans ces conditions, les foncteurs canoniques</p>
+\[D_0^b(C)\longrightarrow D^b(C)\]
+\[D_0^-(C)\longrightarrow D^-(C)\]
+<p>sont pleinement fidèles. En plus, l'image essentielle de \(D_0^b(C)\)
+(resp. \(D_0^-(C)\)) est stable par facteurs directs.</p>
+</div></div>
+
+<p>La démonstration de cette proposition utilise essentiellement un critère
+de Verdier ([2], 4-2 Théorème) et sera donnée dans le premier exposé du
+séminaire sur Riemann-Roch (SGA 6 I 2.7).</p>
+
+<div class="thm corollary" id="VIII.4.1.cor"><div class="thm-head"><span class="thm-name"><u>Corollaire.</u></span></div><div class="thm-body">
+<p>Supposons de plus que la sous-catégorie \(C_0\) est stable par Ker et
+Coker, donc une catégorie abélienne, et désignons par \(D^b(C)_0\) la
+sous-catégorie triangulée pleine de \(D^b(C)\) engendrée par les complexes de
+\(D^b(C)\) à objets de cohomologie isomorphes à des objets de \(C_0\). Alors
+le foncteur d'inclusion</p>
+\[D^b(C_0)\longrightarrow D^b(C)_0\]
+<p>est une équivalence entre les deux catégories, et par conséquent on obtient
+la suite d'isomorphismes</p>
+\[K(C_0)\simeq K_0(C)\simeq K(D_0^b(C))\simeq K(D^b(C)_0).\]
+<p style="text-align:right;"><sup><a href="#fn2" id="fnref2">(*)</a></sup></p>
+</div></div>
+
+<p><u>Observation.</u> Supposons que la sous-catégorie \(C_0\) satisfasse aux
+conditions (A) et (B) et que chaque objet de \(C\) admette une résolution
+finie à gauche par des éléments de \(C_0\). Dans ce cas, \(C_0\) satisfait
+aussi à la condition (C) et le foncteur canonique</p>
+\[D_0^b(C)\longrightarrow D^b(C)\]
+<p>est en fait une équivalence de catégories. Par conséquent, on a
+l'isomorphisme \(K_{C_0}(C)\simeq K(C)\).</p>
+
+<!-- Source PDF page 10 (printed page 360) -->
+<h2 id="VIII.5">5. <u>Complexes pseudo-cohérents.</u></h2>
+<p>Soient \(C\) une catégorie abélienne et \(C_0\) une sous-catégorie pleine
+de \(C\) satisfaisant aux conditions (A), (B), (C). Nous désignerons par
+\(D_0^-(C)_{\mathrm{coh}}\) l'image essentielle de \(D_0^-(C)\) par le
+foncteur canonique \(D_0^-(C)\longrightarrow D(C)\). Les objets de
+\(D_0^-(C)_{\mathrm{coh}}\) seront appelés des complexes
+\(C_0\)-<u>pseudo-cohérents</u>. Donc un complexe de \(C\) est
+\(C_0\)-pseudo-cohérent s'il est isomorphe dans \(D(C)\) à un complexe borné
+supérieurement et dont les composantes sont des objets de \(C_0\).</p>
+
+<p>La catégorie \(D_0^-(C)_{\mathrm{coh}}\) est une sous-catégorie triangulée
+de \(D(C)\), dans le sens que tout triangle distingué de \(D(C)\) dont deux
+des sommets sont des objets de la sous-catégorie
+\(D_0^-(C)_{\mathrm{coh}}\), est isomorphe à un triangle dont les trois objets
+sont des objets de la sous-catégorie \(D_0^-(C)_{\mathrm{coh}}\).</p>
+
+<p>Tout d'abord, il est clair que la sous-catégorie
+\(D_0^-(C)_{\mathrm{coh}}\) est stable par l'automorphisme de translation
+\(T:D(C)\longrightarrow D(C)\). Pour démontrer donc que
+\(D_0^-(C)_{\mathrm{coh}}\) est une sous-catégorie triangulée de \(D(C)\), il
+suffit de vérifier que si \(U^\bullet\), \(V^\bullet\) sont des objets de
+\(D_0^-(C)_{\mathrm{coh}}\) et si le triangle :</p>
+\[\xymatrix{&W^\bullet\ar[dl]_w\\U^\bullet\ar[rr]_u&&V^\bullet\ar[ul]_v}\]
+<p>est distingué (pour la structure de catégorie triangulée de \(D(C)\)),
+alors \(W^\bullet\) est aussi un objet de \(D_0^-(C)_{\mathrm{coh}}\). Par
+hypothèse, il existe des complexes \(X^\bullet\), \(Y^\bullet\), isomorphes
+dans \(D(C)\) à \(U^\bullet\) resp. \(V^\bullet\), dont les composantes sont
+des objets de \(C_0\). On obtient le carré</p>
+
+<!-- Source PDF page 11 (printed page 361) -->
+<p>commutatif (dans \(D(C)\)) :</p>
+\[\xymatrix{U^\bullet\ar[r]^u\ar[d]_{\sim}&V^\bullet\ar[d]^{\sim}\\X^\bullet\ar[r]_f&Y^\bullet}.\]
+<p>Mais, quitte à remplacer \(X^\bullet\) par un autre isomorphe, nous
+pouvons supposer, grâce au fait que le foncteur d'inclusion
+\(D_0^-(C)\longrightarrow D^-(C)\) est pleinement fidèle (prop. 4.1), que
+\(f\) est un véritable morphisme de complexes. Soit \(Z^\bullet\) le
+« mapping cylinder » de \(f\) et \(g:Y^\bullet\longrightarrow Z^\bullet\) le
+morphisme canonique. Par la construction même, les composantes de
+\(Z^\bullet\) sont des objets de \(C_0\) (condition (A)). D'autre part</p>
+\[\xymatrix{&Z^\bullet\ar[dl]_h\\X^\bullet\ar[rr]_f&&Y^\bullet\ar[ul]_g}\]
+<p>étant un triangle distingué dans \(D(C)\), il en résulte que
+\(Z^\bullet\) est isomorphe à \(W^\bullet\).</p>
+
+<p>La catégorie \(D_0^-(C)_{\mathrm{coh}}\) est munie donc d'une structure de
+catégorie triangulée : un triangle dans \(D_0^-(C)_{\mathrm{coh}}\) sera
+distingué si et seulement s'il est distingué dans la catégorie triangulée
+\(D(C)\).</p>
+
+<p>L'intersection de \(D_0^-(C)_{\mathrm{coh}}\) avec
+\(D^b(C)_{\mathrm{coh}}\) sera notée \(D_0^b(C)_{\mathrm{coh}}\).</p>
+
+<p>Un objet \(M\) de \(C\) sera appelé <u>pseudo-cohérent</u> s'il l'est comme
+complexe réduit au degré zéro ; on prouve qu'il faut et suffit</p>
+
+<!-- Source PDF page 12 (printed page 362) -->
+<p>pour cela qu'il admette une résolution à gauche dont les composantes sont
+des objets de \(C_0\).</p>
+
+<div class="thm thm-plain proposition" id="VIII.5.1">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.1.</span></div>
+<div class="thm-body"><p>Un complexe \(X\) est \(C_0\)-pseudo-cohérent si et
+seulement s'il est isomorphe à un complexe qui est limité à droite et dont
+les composantes sont \(C_0\)-pseudo-cohérentes.</p></div>
+</div>
+
+<p>La démonstration de cette proposition figurera dans le premier exposé du
+séminaire sur Riemann-Roch (SGA 6 I 2.7).</p>
+
+<h2 id="VIII.6">6. <u>Complexes parfaits.</u></h2>
+<p>Un objet de la catégorie \(D(C)\) sera appelé un complexe
+\(C_0\)-<u>parfait</u> s'il est isomorphe à un objet de \(D_0^b(C)\),
+c'est-à-dire à un complexe borné dont tous les composants sont dans \(C_0\).
+Nous désignerons par \(D_0(C)_{\mathrm{parf}}\) la sous-catégorie pleine de
+\(D(C)\) engendrée par les complexes parfaits.</p>
+
+<p>La catégorie \(D_0(C)_{\mathrm{parf}}\) n'est donc pas autre chose que
+l'image essentielle de \(D_0^b(C)\) par le foncteur d'inclusion
+\(D_0^b(C)\longrightarrow D(C)\). Il est facile de voir que
+\(D_0(C)_{\mathrm{parf}}\) est une sous-catégorie triangulée de \(D(C)\), et
+est munie par conséquent d'une structure de catégorie triangulée.</p>
+
+<h2 id="VIII.7">7. <u>Cas particulier important.</u></h2>
+<p>Soit \(A\) un anneau et \(C\) la catégorie des \(A\)-modules (à gauche par
+exemple). Désignons par \(C_0\) la sous-catégorie pleine de \(C\) engendrée
+par les \(A\)-modules projectifs de type fini. La sous-catégorie \(C_0\)
+satisfait les conditions (A), (B),</p>
+
+<!-- Source PDF page 13 (printed page 363) -->
+<p>(C). Nous utilisons dans ce cas les notations suivantes :</p>
+\[
+\begin{aligned}
+D^-(A)_{\mathrm{coh}}&=D_0^-(C)_{\mathrm{coh}},\\
+D^b(A)_{\mathrm{coh}}&=D_0^b(C)_{\mathrm{coh}},\\
+D(A)_{\mathrm{parf}}&=D_0(C)_{\mathrm{parf}}.
+\end{aligned}
+\]
+<p>Les complexes de \(D(C)\) qui sont \(C_0\)-pseudo-cohérents (resp.
+\(C_0\)-parfaits) seront appelés simplement des <u>complexes
+pseudo-cohérents</u> (resp. <u>parfaits</u>).</p>
+
+<p>Il sera intéressant de considérer les groupes suivants :</p>
+\[
+K_\bullet(A)=K\bigl(D^b(A)_{\mathrm{coh}}\bigr),
+\qquad K^\bullet(A)=K\bigl(D(A)_{\mathrm{parf}}\bigr).
+\]
+<p>En ce qui concerne le groupe \(K^\bullet(A)\), nous avons (prop. 4.1,
+corollaire) :</p>
+\[
+K^\bullet(A)=K\bigl(D(A)_{\mathrm{parf}}\bigr)\simeq K(D_0^b(C))\simeq
+K_{C_0}(C),
+\]
+<p>ce qui montre qu'il est donc aussi le classique « groupe des classes de
+modules projectifs de type fini » de \(A\).</p>
+
+<p>Dans le cas particulier d'un anneau \(A\) noethérien, le groupe
+\(K_\bullet(A)\) admet aussi une description classique. Soit pour cela
+\(C_1\) la catégorie abélienne des modules de type fini. On a alors</p>
+\[K_\bullet(A)\simeq K(C_1).\]
+<p>En effet, en utilisant la proposition 4.1, on a</p>
+\[K(C_1)\simeq K(D^b(C_1))\simeq K(D_{C_1}^b(C))\]
+
+<!-- Source PDF page 14 (printed page 364) -->
+<p>car on a aussitôt \(D^b(C_1)\simeq D_{C_1}^b(C)\).</p>
+
+<p>En fait, si \(A\) est noethérien et \(L^\bullet\in D^-(A)\), alors il
+résulte de la proposition 5.1 que \(L^\bullet\) est pseudo-cohérent si et
+seulement si les \(H^i(L^\bullet)\) sont de type fini.</p>
+
+<p>Pour un anneau \(A\) quelconque, on a un homomorphisme</p>
+\[K^\bullet(A)\xrightarrow{\gamma_A}K_\bullet(A),\]
+<p>qui provient du foncteur d'inclusion</p>
+\[(*)\qquad D(A)_{\mathrm{parf}}\longrightarrow D^b(A)_{\mathrm{coh}}.\]
+<p>En général, l'homomorphisme \(\gamma_A\) n'est ni injectif, ni surjectif.
+Dans le cas particulier d'un anneau \(A\) régulier, tout \(A\)-module \(M\)
+de type fini a une dimension projective finie et il en résulte, grâce à 5.1,
+que le foncteur d'inclusion (*) est en fait une équivalence entre les deux
+catégories. Dans ce cas, l'homomorphisme \(\gamma_A\) est donc un
+isomorphisme.</p>
+
+<h2 id="VIII.8">8. <u>Tor de complexes.</u></h2>
+<p>Soient \(A\) un anneau (non nécessairement commutatif) et \({}_AC\) (resp.
+\(C_A\)) la catégorie abélienne des \(A\)-modules à gauche (resp. à droite).
+Par \(K^-({}_AC)\) nous désignerons la catégorie triangulée des complexes de
+\({}_AC\) bornés supérieurement et par \({}_AD\) la sous-catégorie triangulée
+pleine de \(K^-({}_AC)\) des complexes dont les composantes sont des
+\(A\)-modules (à gauche) plats.</p>
+
+<p>Soit \(X^\bullet\) un objet de \(K^-(C_A)\), et considérons le foncteur</p>
+\[\Phi_{X^\bullet}=X^\bullet\otimes_A\mathord{:}K^-({}_AC)
+\longrightarrow K^-(\mathrm{Ab}).\]
+<p>Dans ces conditions, les pro-</p>
+
+<!-- Source PDF page 15 (printed page 365) -->
+<p>positions suivantes sont vraies :</p>
+
+<p>1) Tout objet acyclique de \({}_AD\) est transformé par
+\(\Phi_{X^\bullet}\) en un objet acyclique de \(K^-(\mathrm{Ab})\).</p>
+
+<p>En effet, \(N^\bullet\) étant un objet de \({}_AD\) tel que
+\(Z^i(N^\bullet)\), \(B^i(N^\bullet)\), \(H^i(N^\bullet)\) sont plats, on a
+l'isomorphisme classique :</p>
+\[
+\bigoplus_{p+q=n}H_p(X^\bullet)\otimes H_q(N^\bullet)
+\longrightarrow H_n(X^\bullet\otimes_A N^\bullet).
+\]
+
+<p>2) Tout objet \(Y^\bullet\) de \(K^-({}_AC)\) est le but d'un
+quasi-isomorphisme dont la source est un objet de \({}_AD\).</p>
+
+<p>Il suffit pour cela de prendre une résolution de Cartan-Eilenberg. Nous
+pouvons donc appliquer le théorème 2 du §2, n°2 de [2] pour conclure que
+\(\Phi_{X^\bullet}\) admet un foncteur dérivé à gauche :</p>
+\[L\Phi_{X^\bullet}:D^-({}_AC)\longrightarrow D^-(\mathrm{Ab}).\]
+
+<p>L'objet \(L\Phi_{X^\bullet}(Y)\) peut être obtenu, à un isomorphisme près,
+de la manière suivante :</p>
+
+<p>Soient \(P^\bullet\) un objet de \({}_AD\) et
+\(P^\bullet\longrightarrow Y^\bullet\) un quasi-isomorphisme. Alors
+\(L\Phi_{X^\bullet}(Y^\bullet)\) est isomorphe à
+\(Q(X^\bullet\otimes P^\bullet)\), où nous avons désigné comme d'habitude
+par \(Q\) le foncteur canonique \(K^-(\mathrm{Ab})\longrightarrow
+D^-(\mathrm{Ab})\). Il en résulte donc que pour chaque objet \(Y^\bullet\) de
+\(D^-({}_AC)\) le foncteur</p>
+\[
+\begin{array}{ccc}
+K^-(C_A)&\longrightarrow&D^-(\mathrm{Ab})\\
+X^\bullet&\longmapsto&L\Phi_{X^\bullet}(Y^\bullet)
+\end{array}
+\]
+<p>est exact et s'annule sur les complexes acycliques, d'où un bifonc-</p>
+
+<!-- Source PDF page 16 (printed page 366) -->
+<p>teur exact</p>
+\[
+\begin{array}{ccc}
+D^-(C_A)\times D^-({}_AC)&\longrightarrow&D^-(\mathrm{Ab})\\
+(X^\bullet,Y^\bullet)&\longmapsto&X^\bullet\mathbin{\overset L\otimes}_A Y^\bullet.
+\end{array}
+\]
+<p>En passant à l'homologie, on définit les \(\operatorname{Tor}_i^A(X^\bullet,Y^\bullet)\)
+(cf aussi [1], 6.3). Dans le cas particulier d'un anneau \(A\) commutatif on
+obtient en fait un bi-foncteur exact</p>
+\[D^-(C)\times D^-(C)\longrightarrow D^-(C),\]
+<p>le produit tensoriel au sens des catégories dérivées
+\((C=C_A={}_AC)\).</p>
+
+<div class="thm definition">
+<div class="thm-head"><span class="thm-name">Définition.</span></div>
+<div class="thm-body"><p>Nous dirons que le complexe \(X\) de \(D(C_A)\) est
+<u>de tor-dimension finie</u> s'il est dans \(D^-\) et s'il existe
+\(n_0\in\mathbb Z^+\) tel que \(\operatorname{Tor}_n^A(X,Y)=0\) quelque soit
+\(Y\in\operatorname{Ob}({}_AC)\) et \(n&gt;n_0\).</p></div>
+</div>
+
+<p>Nous utiliserons la notion de tor-dimension pour obtenir une
+caractérisation des complexes parfaits :</p>
+
+<div class="thm thm-plain proposition" id="VIII.8.1">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">8.1.</span></div>
+<div class="thm-body"><p>Soit \(A\) un anneau (non nécessairement commutatif)
+et \(L^\bullet\) un complexe de \(A\)-modules. Les conditions suivantes sont
+équivalentes :</p>
+<p>a) \(L^\bullet\) est parfait.</p>
+<p>b) \(L^\bullet\) est pseudo-cohérent, à cohomologie bornée, et de
+tor-dimension finie.<sup><a href="#fn3" id="fnref3">(*)</a></sup></p></div>
+</div>
+
+<p>Pour faire la démonstration, on utilise le lemme suivant :</p>
+
+<!-- Source PDF page 17 (printed page 367) -->
+<div class="thm thm-plain lemma">
+<div class="thm-head"><span class="thm-name"><u>Lemme.</u></span> (Bourbaki, Alg. Comm. I, §2, ex. 15).</div>
+<div class="thm-body"><p>Tout \(A\)-module \(E\) qui est plat et de présentation finie est projectif.</p></div>
+</div>
+
+<p><u>Démonstration du lemme.</u> Soit \(u:F\longrightarrow F'\) un épimorphisme. Il faut démontrer que
+\(\operatorname{Hom}_A(E,F)\longrightarrow\operatorname{Hom}_A(E,F')\) est un épimorphisme.</p>
+<p>Il nous suffit de démontrer que pour tout groupe divisible \(G\),</p>
+\[\operatorname{Hom}_{\mathbb Z}(\operatorname{Hom}_A(E,F'),G)\longrightarrow
+\operatorname{Hom}_{\mathbb Z}(\operatorname{Hom}_A(E,F),G)\]
+<p>est un monomorphisme. Or le diagramme</p>
+\[
+\xymatrix{
+\operatorname{Hom}_{\mathbb Z}(\operatorname{Hom}_A(E,F'),G)\ar[r]\ar[d]_{\sim}&
+\operatorname{Hom}_{\mathbb Z}(\operatorname{Hom}_A(E,F),G)\ar[d]^{\sim}\\
+\operatorname{Hom}_{\mathbb Z}(F',G)\otimes_A E\ar[r]&
+\operatorname{Hom}_{\mathbb Z}(F,G)\otimes_A E
+}
+\]
+<p>est commutatif, et les flèches verticales sont des isomorphismes, grâce à l'hypothèse faite sur \(E\).</p>
+
+<p><u>Démonstration de la proposition 5.2.</u> L'implication a) \(\Rightarrow\) b) est immédiate. Pour démontrer b) \(\Rightarrow\) a), soit</p>
+\[\cdots\longrightarrow P_n\xrightarrow{d_n}\cdots\longrightarrow P_i\longrightarrow0\longrightarrow\cdots\]
+<p>un complexe isomorphe à \(L^\bullet\) dans \(D(C)\), les \(P_j\) étant des \(A\)-modules projectifs de type fini. Le complexe \(L^\bullet\) étant de tor-dimension finie et sa cohomologie étant bornée, il en résulte qu'il existe \(n_0\in\mathbb Z\) tel que :</p>
+<p>I) La suite</p>
+\[\cdots\longrightarrow P_{n_0-p}\xrightarrow{d_{n_0-p}}\cdots\longrightarrow P_{n_0}\longrightarrow
+\operatorname{Ker}d_{n_0+1}\longrightarrow0\]
+<p>est exacte.</p>
+
+<!-- Source PDF page 18 (printed page 368) -->
+<p>II) \(\operatorname{Ker}d_{n_0+1}\) est plat.</p>
+<p>III) Le complexe</p>
+\[0\longrightarrow\operatorname{Ker}d_{n_0+1}\longrightarrow P_{n_0+1}\longrightarrow\cdots
+\longrightarrow P_i\longrightarrow0\longrightarrow\]
+<p>est isomorphe à \(L^\bullet\) dans \(D(C)\).</p>
+<p>Or \(\operatorname{Ker}d_{n_0+1}\) est de présentation finie, donc projectif de type fini grâce au lemme, ce qui prouve 8.1.</p>
+
+<p>Si \(A\) est un anneau <u>commutatif</u>, et si \(X^\bullet,Y^\bullet\) sont deux complexes parfaits, alors leur produit tensoriel
+\(X^\bullet\mathbin{\overset L\otimes}_A Y^\bullet\) (dans la catégorie dérivée) est encore un complexe parfait. On obtient un bifoncteur</p>
+\[D(A)_{\mathrm{parf}}\times D(A)_{\mathrm{parf}}\longrightarrow D(A)_{\mathrm{parf}}\]
+<p>exact en chaque variable. Par conséquent, on définit sur \(K^\bullet(A)\) un produit, et il est facile de voir que \(K^\bullet(A)\) est muni de cette façon d'une structure d'anneau commutatif, ayant un élément unité. En fait, \(K^\bullet(A)\) peut être muni d'une structure de \(\lambda\)-anneau (voir pour les détails le Séminaire sur Riemann-Roch faisant suite à celui-ci<sup><a href="#fn4" id="fnref4">(*)</a></sup>).</p>
+<p>Le produit tensoriel \(X^\bullet\mathbin{\overset L\otimes}_A Y^\bullet\) d'un complexe parfait \(X^\bullet\) et d'un complexe pseudo-cohérent borné \(Y^\bullet\) est un complexe pseudo-cohérent borné (\(A\) toujours un anneau commutatif). Par conséquent, on peut introduire sur \(K_\bullet(A)\) une structure de \(K^\bullet(A)\)-module.</p>
+
+<!-- Source PDF page 19 (printed page 369) -->
+<h2 id="VIII.9">9. <u>Propriétés fonctorielles.</u></h2>
+<p>a) Soient \(A\) et \(B\) deux anneaux (non nécessairement commutatifs) et \(u:A\longrightarrow B\) un homomorphisme. Tout \(B\)-module à gauche (resp. à droite) \(M\) peut être muni d'une structure de \(A\)-module à gauche (resp. à droite) qui sera désigné par \(M_{[u]}\). En particulier \(B_{[u]}\) est un \(A\)-module à droite.</p>
+<p>Le foncteur</p>
+\[E\longmapsto B_{[u]}\otimes_A E\]
+<p>permet de définir le foncteur exact</p>
+\[D(A)_{\mathrm{parf}}\longrightarrow D(B)_{\mathrm{parf}}\]
+<p>et par conséquent l'homomorphisme :</p>
+\[K^\bullet(A)\xrightarrow{u^*}K^\bullet(B).\]
+<p>On obtient en fait un foncteur covariant de la catégorie des anneaux (resp. des anneaux commutatifs) dans la catégorie des groupes abéliens (resp. des anneaux commutatifs).</p>
+
+<p>b) Supposons maintenant que le \(A\)-module à gauche \(B_{[u]}\) soit pseudo-cohérent. Il en résulte donc que le foncteur</p>
+\[F\longmapsto F_{[u]}\]
+<p>transforme un \(B\)-module libre de type fini en un \(A\)-module pseudo-cohérent. On obtient en utilisant la proposition 5.1 un foncteur exact :</p>
+\[D^b(B)_{\mathrm{coh}}\longrightarrow D^b(A)_{\mathrm{coh}}\]
+
+<!-- Source PDF page 20 (printed page 370) -->
+<p>et par conséquent un homomorphisme canonique</p>
+\[K_\bullet(B)\xrightarrow{u_*}K_\bullet(A).\]
+<p>Les homomorphismes \(u_*,u^*\) vérifient l'identité suivante ("<u>la formule de projection</u>") :</p>
+\[u_*\bigl(u^*(\alpha)\cdot\beta\bigr)=\alpha\bigl(u_*(\beta)\bigr)
+\quad\text{pour }\alpha\in K^\bullet(A),\ \beta\in K_\bullet(B).\]
+<p>Cette formule facile sera démontrée sous une forme plus générale dans les exposés du séminaire sur Riemann-Roch (SGA 6 IV 2.11.1.2).</p>
+
+<h2 id="VIII.10">10. <u>Construction relative.</u><sup><a href="#fn5" id="fnref5">(*)</a></sup></h2>
+<p>Soit \(u:A\longrightarrow B\) un homomorphisme d'anneaux, et</p>
+\[D(B)\longrightarrow D(A)\]
+<p>le foncteur exact associé. Nous pouvons considérer dans \(D(B)\) les complexes pseudo-cohérents relativement à \(A\), ceux de tor-dimension finie relativement à \(A\), et aussi les complexes parfaits relativement à \(A\). En spécial, il y a lieu de considérer les sous-catégories triangulées</p>
+\[D(B)_{A\text{-}\mathrm{parf}},\quad D^b(B)_{A\text{-}\mathrm{coh}}\]
+<p>de \(D(B)\), engendrées par les complexes parfaits (resp. pseudo-cohérents et bornés relativement à \(A\). Ces deux catégories triangulées permettent de définir les groupes suivants :</p>
+\[K^\bullet(B\mathrel{\mathrm{rel}}A)=K(D(B)_{A\text{-}\mathrm{parf}})\]
+\[K_\bullet(B\mathrel{\mathrm{rel}}A)=K(D^b(B)_{A\text{-}\mathrm{coh}}).\]
+
+<!-- Source PDF page 21 (printed page 371) -->
+<p><u>Exemples.</u> Soient \(G\) un groupe et \(\Lambda\) un anneau commutatif. L'homomorphisme \(\Lambda\xrightarrow{\varepsilon}\Lambda[G]\) permet donc de définir les groupes</p>
+\[K^\bullet(\Lambda[G]\mathrel{\mathrm{rel}}\Lambda),\quad K_\bullet(\Lambda[G]\mathrel{\mathrm{rel}}\Lambda),\]
+<p>qui seront désignés par \(R^\bullet_\Lambda(G)\), \(R^\Lambda_\bullet(G)\). En fait, \(R^\bullet_\Lambda(G)\) est un anneau commutatif et \(R^\Lambda_\bullet(G)\) un module sur ce dernier.</p>
+
+<p><u>Remarques.</u></p>
+<p style="margin-left:2em;">a) Si l'anneau \(\Lambda\) n'est pas nécessairement commutatif, on peut poser par définition \(\Lambda[G]=\Lambda\otimes_{\mathbb Z}\mathbb ZG\) et par conséquent, on obtient un homomorphisme \(\Lambda\xrightarrow{\varepsilon}\Lambda[G]\). De cette façon, on peut donner un sens aux groupes \(R^\bullet_\Lambda(G)\), \(R^\Lambda_\bullet(G)\) même dans le cas d'un anneau \(\Lambda\) non-commutatif.</p>
+<p style="margin-left:2em;">b) La construction précédente peut être généralisée au cas d'un préschéma en groupes (ou d'un pro-préschéma en groupes) \(G\) sur \(\operatorname{Spec}\Lambda\), en partant de la catégorie abélienne des \(\Lambda\)-modules sur lesquels \(G\) opère — qui ne s'explicite plus en termes de modules sur un anneau — et le foncteur naturel d'inclusion dans la catégorie des \(\Lambda\)-modules. (Si \(\Lambda\) est un corps, on peut l'expliciter en termes de modules sur un pro-anneau, et dans le cas général, en termes de comodules, du moins si \(G\) est affine sur \(\Lambda\), cf SGA3 I 4.7.2).</p>
+
+<h2 id="VIII.bibliographie"><u>Bibliographie.</u></h2>
+<p>[1] &emsp;A. Grothendieck et J. Dieudonné, Éléments de Géométrie Algébrique, Publ. Math. I.H.E.S. IV (Seconde Partie).</p>
+<p>[2] &emsp;J. L. Verdier, Catégories Dérivées, I.H.E.S., 1963.<sup><a href="#fn6" id="fnref6">(*)</a></sup></p>
+
+<hr>
+<div class="footnotes">
+<p id="fn1"><a href="#fnref1">(*)</a> SGA 6 I</p>
+<p id="fn2"><a href="#fnref2">(*)</a> cf. (SGA 6 IV 1.6).</p>
+<p id="fn3"><a href="#fnref3">(*)</a> cf. (SGA 6 I 5.8.1).</p>
+<p id="fn4"><a href="#fnref4">(*)</a> SGA 6 V 2.</p>
+<p id="fn5"><a href="#fnref5">(*)</a> cf. (SGA 6 III, IV).</p>
+<p id="fn6"><a href="#fnref6">(*)</a> publié dans (SGA 4<sup>1/2</sup>).</p>
+</div>
+</body></html>

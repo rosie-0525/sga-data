@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé XVI. La formule de Milnor</title>
+<script>
+window.MathJax = {
+  loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
+  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  options: { enableMenu: true }, startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+</style>
+</head>
+<body>
+
+<h1 id="16">EXPOSÉ XVI<br>LA FORMULE DE MILNOR<span class="author">par P. DELIGNE</span></h1>
+
+<p>Dans cet exposé, on transpose en caractéristique \(p\) la formule donnée par
+Milnor [3] (voir aussi [2]), qui permet dans certains cas de calculer des dimensions
+d’espaces de cycles évanescents. La démonstration est de nature globale, et ne permet
+de traiter que le cas « géométrique » d’une base un trait hensélien d’égale caractéristique
+à corps résiduel parfait.</p>
+
+<h2 id="16.1">1. &nbsp; <u>Énoncé du problème</u></h2>
+
+<p id="16.1.1"><strong>1.1.</strong> Soient \(S\) un schéma régulier purement de dimension un, \(s\) un point fermé de
+\(S\) à corps résiduel parfait, \(f:X\to S\) un morphisme plat de type fini, \(x_o\) un point
+fermé de la fibre \(X_s\) et \(\bar x_o\) un point géométrique de \(X\) localisé en \(x_o\). On
+suppose que</p>
+<p>(a) \(x_o\) est un point de non lissité isolé de \(f\) : il existe \(n\) et un voisinage \(U\)
+de \(x_o\), purement de dimension relative \(n\), tel que \(U-\{x_o\}\) soit lisse sur \(S\) ;</p>
+<p>(b) \(X\) est régulier en \(x_o\).</p>
+
+<p>Sous ces hypothèses, \(X\) est une intersection complète relative sur \(S\) en
+\(x_o\). On renvoie à l’exposé VI. 3.10 pour la définition de \(D^1_{X/S}\). Dans le voisinage
+\(U\) de \(x_o\), on a</p>
+\[
+D^1_{U/S}=H^1(R\operatorname{Hom}(L_{U/S},\mathcal O_U))
+=\operatorname{Ext}^1(\Omega^1_{U/S},\mathcal O_U)\ ;
+\]
+<p>dans ce voisinage, \(D^1_{X/S}\) est de longueur finie et de support contenu dans \(\{x_o\}\).</p>
+
+<p id="16.1.2"><u>Définition 1.2.</u> &nbsp; Le nombre de Milnor
+\(\mu=\mu(X/S,\bar x_o)\) de \(X/S\) en \(\bar x_o\) est la longueur du
+\(\mathcal O_{X,x_o}\)-module défini par \(D^1_{X/S}\).</p>
+
+<p id="16.1.3"><u>Exemple 1.3.</u> &nbsp; Prenons pour \(S\) une courbe lisse sur un corps algébriquement clos \(k\).
+Remplaçant \(X\) par un voisinage de \(x_o\), on peut supposer \(X\) lisse sur \(k\). Le complexe
+cotangent se réduit alors à la résolution suivante de \(\Omega^1_{X/S}\)</p>
+\[
+L_{X/S}=[f^*\Omega^1_{S/k}\longrightarrow\Omega^1_{X/k}].
+\]
+<p>Choisissons une coordonnée locale \(t:S\to\mathbb E^1_k\) sur \(S\) en \(s\) (\(t\) étale en \(s\)),
+désignons encore par \(f\) le composé \(t\circ f\), et soit \((x_i)_{1\le i\le n+1}\) un système de coordonnées
+locales sur \(X\) en \(x_o\). À ce moment, en \(x_o\), \(f^*\Omega^1_{S/k}\) a pour base \(df\),
+et \(\Omega^1_{X/k}\) a pour base les \(dx_i\). Dès lors, \(D^1_{X/S}\) s’identifie au quotient de \(\mathcal O_X\) par
+l’idéal engendré par les \(\partial f/\partial x_i\)</p>
+\[
+\tag{1.3.1}\mu=\dim_k\bigl(\mathcal O_{X,x_o}/(\tfrac{\partial f}{\partial x_1},\ldots,
+\tfrac{\partial f}{\partial x_{n+1}})\bigr).
+\]
+<p>C’est là la définition qui figure dans Milnor.</p>
+
+<p id="16.1.4"><u>Exemple 1.4.</u> &nbsp; Supposons que \(X\) soit le sous-schéma de \(\mathbb E^{n+1}_S\) défini par une équation
+\(g\). Soit \(i:X\to\mathbb E^{n+1}_S\) le morphisme d’inclusion. Le complexe cotangent se
+réduit alors à</p>
+\[
+[(g)/(g)^2\longrightarrow i^*\Omega^1_{\mathbb E^{n+1}_S/S}]
+\]
+<p>et \(D^1_{X/S}\) est isomorphe au quotient de \(\mathcal O_X\) par l’idéal engendré par les
+\((\partial g/\partial x_i)_{1\le i\le n+1}\), soit encore au quotient de \(\mathcal O_{\mathbb E^{n+1}_S}\) par l’idéal engendré par \(g\)
+et les \(\partial g/\partial x_i\).</p>
+
+<p id="16.1.5"><u>Exemple 1.5.</u> &nbsp; Prenons pour \(S\) le spectre d’un anneau de valuation discrète \(V\) à
+corps résiduel parfait et de corps des fractions \(K\). Soit \(X\) le normalisé de \(S\)
+dans une extension séparable \(K'\) de \(K\). D’après 1.4 et [5] III 7.14 pg 68, \(D^1_{X/S}\)
+est alors isomorphe au quotient de \(\mathcal O_X\) par la différente \(\mathfrak D_{X/S}\). Si \(\bar x_o\) est un
+point géométrique de \(X_s\), localisé en \(x_o\in X_s\), le nombre de Milnor en \(\bar x_o\) est
+donc</p>
+\[
+\tag{1.5.1}\mu=\ell g(\mathcal O_{X,x_o}/\mathfrak D_{X/S}).
+\]
+<p>Soient \(\bar s\) un point géométrique de \(S\) localisé au point fermé \(s\) de \(S\),
+et soit \(d_{K'/K}\) un élément de \(V\) qui engendre l’idéal discriminant, de valuation
+\(v(d_{K'/K})\). Il résulte de 1.5.1 que</p>
+\[
+\tag{1.5.2}v(d_{K'/K})=\sum_{x\in X(\bar s)}\mu(X/S,x).
+\]
+
+<p id="16.1.6"><strong>1.6.</strong> Gardons les hypothèses de 1.1, désignons par \(\bar s\) le point géométrique de \(S\)
+image de \(\bar x_o\), soit \(S_{(\bar s)}\) le spectre de l’hensélisé strict de \(\mathcal O_{S,s}\) en \(\bar s\), et
+soit \(X_{(\bar s)}\) l’image réciproque de \(X\) sur \(S_{(\bar s)}\). Soient \(\bar\eta\) le spectre d’une clôture
+algébrique du corps des fractions \(k(\eta)\) de \(S_{(\bar s)}\), et \(I=\operatorname{Gal}(k(\bar\eta)/k(\eta))\) le
+groupe d’inertie.</p>
+<p>Soit \(\ell\) un nombre premier distinct de la caractéristique résiduelle de \(S\).
+Dans un voisinage du point \(\bar x_o\) de \(X_{\bar s}\), les faisceaux de cycles évanescents
+\(\Phi^i_{\bar\eta}(\mathbb Z/\ell)=R^i\Phi_{\bar\eta}(\mathbb Z/\ell)\) sur \(X_{\bar s}\), relatifs au faisceau constant \(\mathbb Z/\ell\) sur \(X_{(\bar s)}\), sont concentrés
+en \(\bar x_o\) ; de plus, le groupe d’inertie \(I\) agit sur les \(\mathbb Z/\ell\)-vectoriels
+\(\Phi^i_{\bar\eta}(\mathbb Z/\ell)_{\bar x_o}\).</p>
+<p>Ceux-ci sont de dimension finie (XIII 2.4.2).</p>
+
+<p id="16.1.7"><strong>1.7.</strong> Soit \(I_1\) un quotient fini du groupe d’inertie. Rappelons que le <u>caractère de
+Swan</u> \(\operatorname{Sw}\) de \(I_1\) est la différence \(a-u\) du caractère d’Artin \(a\) et du caractère
+de la représentation d’augmentation \(u\). Rappelons aussi qu’il existe, à isomorphisme
+près, un seul \(\mathbb Z_\ell[I_1]\)-module projectif \(S(I_1)\) de caractère \(\operatorname{Sw}\) (voir [6]).</p>
+
+<p>Soit \(V\) un vectoriel de dimension finie sur \(\mathbb Z/\ell\), muni d’une action de
+\(I\) : \(\rho:I\to\operatorname{GL}(V)\). Supposons que \(\rho\) se factorise par \(I_1\). La <u>dimension sauvage</u>
+de \(V\) est alors</p>
+\[
+\tag{1.7.1}\dim\operatorname{Sw}(V)=\dim_{\mathbb Z/\ell}\operatorname{Hom}_{I_1}
+(S(I_1)\otimes_{\mathbb Z_\ell}\mathbb Z/\ell,V).
+\]
+<p>Cet entier est indépendant du choix de \(I_1\), car pour \(H\) distingué dans \(I_1\), on
+a \(S(I_1/H)\sim S(I_1)_H\).</p>
+<p>On pose de plus</p>
+\[
+\dim\operatorname{tot}(V)=\dim\operatorname{Sw}(V)+\dim_{\mathbb Z/\ell}(V)
+\]
+<p>et on appelle ce nombre <u>la dimension totale</u> de \(V\).</p>
+
+<p id="16.1.8"><u>Définition 1.8.</u> &nbsp; Avec la terminologie de 1.6 et 1.7, on appelle nombre de cycles
+évanescents de \(X/S\) en \(\bar x_o\) (resp. nombre sauvage de cycles évanescents, resp. nombre
+total de cycles évanescents) l’entier</p>
+\[
+(-1)^n\dim\Phi_{\bar x_o}\ \mathrel{\mathop=^{\rm dfn}}\
+(-1)^n\sum_i(-1)^i\dim\Phi^i_{\bar\eta}(\mathbb Z/\ell)_{\bar x_o},
+\]
+\[
+(\text{resp. }(-1)^n\dim\operatorname{Sw}\Phi_{\bar x_o}\ \mathrel{\mathop=^{\rm dfn}}\
+(-1)^n\sum_i(-1)^i\dim\operatorname{Sw}\Phi^i_{\bar\eta}(\mathbb Z/\ell)_{\bar x_o},
+\]
+\[
+\text{resp. }(-1)^n\dim\operatorname{tot}\Phi_{\bar x_o}\ \mathrel{\mathop=^{\rm dfn}}\
+(-1)^n\sum_i(-1)^i\dim\operatorname{tot}\Phi^i_{\bar\eta}(\mathbb Z/\ell)_{\bar x_o}
+=(-1)^n(\dim\Phi_{\bar x_o}+\dim\operatorname{Sw}\Phi_{\bar x_o})).
+\]
+
+<p id="16.1.9"><u>Conjecture 1.9.</u> &nbsp; Sous les hypothèses de 1.1, le nombre de Milnor \(\mu\) de \(X/S\) en
+\(\bar x_o\) est égal au nombre total de cycles évanescents de \(X/S\) en \(\bar x_o\).</p>
+
+<p id="16.1.10"><u>Remarque 1.10.</u> &nbsp; Soit \(S\) un trait hensélien de corps résiduel imparfait et \(f:X\to S\)
+un morphisme lisse sauf en \(x_o\in X_s\). On suppose \(X\) régulier en \(x_o\). La définition
+1.2 du nombre de Milnor \(\mu\) garde un sens sous ces hypothèses, mais je n’ai plus
+d’interprétation géométrique de \(\mu\) à proposer.</p>
+
+<p id="16.1.11"><strong>1.11.</strong> Dans la suite de ce n°, on suppose que \(S=\operatorname{Spec}(V)\) est un trait hensélien à
+corps résiduel algébriquement clos, de point fermé \(s\), que \(f:X\to S\) est un
+morphisme plat de type fini purement de dimension relative \(n\), que \(X\) est régulier,
+que \(x_o\) est un point fermé de \(X_s\) et que \(X-\{x_o\}\) est lisse sur \(S\).</p>
+
+<p>Ceci ne restreint pas la généralité.</p>
+
+<div class="thm proposition" id="16.1.12">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.12.</u></span></div>
+<div class="thm-body"><p><u>Si \(n=0\) (ie. \(X/S\) fini), la conjecture 1.9 est vraie pour
+\((X/S,x_o)\).</u></p></div>
+</div>
+
+<p>On peut supposer que \(X\) est le normalisé de \(S\) dans une extension finie
+\(K'\) du corps des fractions \(K\). D’après 1.5, on a \(\mu=v(d_{K'/K})\).</p>
+
+<p>L’extension \(K'\) est définie par un sous-groupe ouvert \(H\) du groupe
+d’inertie \(I\). Soit \(H'\subset H\) un sous-groupe distingué ouvert de \(I\) et \(I'=I/H'\).
+Soit \(s_{I/H}\) le caractère de la représentation de permutation de \(I'\) sur \(I/H\),
+\(a_{I'}\), le caractère de la représentation d’Artin, \(\operatorname{Sw}_{I'}\), celui de la représentation
+de Swan et \(u_{I'}\), celui de la représentation d’augmentation. D’après la “Führerdiss-
+kriminantenproduktformel” d’Artin, l’idéal discriminant est le conducteur d’Artin de
+\(s_{I/H}\) ([5] VI 3 cor 1 pg 111) :</p>
+\[
+\mu=(a_{I'},s_{I/H})=|I'|^{-1}\sum_{i\in I'}a_{I'}(i)s_{I/H}(i).
+\]
+
+<p>On a</p>
+\[
+a_{I'}=u_{I'}+\operatorname{Sw}_{I'},
+\]
+\[
+(u_{I'},s_{I/H})=\# I/H-1
+\]
+\[
+(\operatorname{Sw}_{I'},s_{I/H})=
+\dim_{\mathbb Z/\ell}\operatorname{Hom}_{I'}(S(I')\otimes_{\mathbb Z_\ell}\mathbb Z/\ell,
+\mathbb Z/\ell^{I/H})
+\]
+\[
+=\dim_{\mathbb Z/\ell}\operatorname{Hom}_{I'}(S(I')\otimes_{\mathbb Z_\ell}\mathbb Z/\ell,
+\operatorname{Coker}(\mathbb Z/\ell\to\mathbb Z/\ell^{I/H}))
+\]
+<p>et donc</p>
+\[
+\mu=(\# I/H-1)+\dim\operatorname{Sw}(\operatorname{Coker}(\mathbb Z/\ell\to\mathbb Z/\ell^{I/H})).
+\]
+
+<p>On vérifie aussitôt que \(\Phi^i_{\bar x_o}=0\) pour \(i\ne0\) et que</p>
+\[
+\Phi^0_{\bar x_o}=\operatorname{Coker}(\mathbb Z/\ell\to\mathbb Z/\ell^{I/H})\ ;
+\]
+<p>la formule en résulte.</p>
+
+<div class="thm proposition" id="16.1.13">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.13.</u></span></div>
+<div class="thm-body"><p><u>Si \(X_s\) présente en \(x_o\) une singularité quadratique ordinaire, la
+conjecture 1.9 est vraie pour \((X/S,x_o)\).</u></p></div>
+</div>
+
+<p><u>Cas 1.</u> &nbsp; <u>\(n=\dim(X_s)=2m-1\).</u></p>
+
+<p>Le problème est local pour la topologie étale sur \(X\). On peut donc
+supposer que \(X_s\) est le sous-schéma de \(\mathbb E^{n+1}_S\) défini par une équation \(f\) :</p>
+\[
+\sum_{i=1}^m x_i x_{i+m}+a=0
+\]
+<p>\(a\) étant dans l’idéal maximal de \(V\), et que \(x_o\) est l’origine des coordonnées. De
+plus, pour que \(X\) soit régulier en \(x_o\), il faut et il suffit que \(a\) soit une
+uniformisante. D’après 1.4, on a</p>
+\[
+\mu=\ell g(\mathcal O_{\mathbb E_S^{2m}}/(f,\tfrac{\partial f}{\partial x_i}))=1.
+\]
+
+<p>D’après [1], \(\Phi^i_{\bar x_o}=0\) pour \(i\ne n\), et \(\Phi^n_{\bar x_o}\) est de dimension un, avec action
+triviale de l’inertie. Le nombre sauvage de cycles évanescents est donc nul, et
+le nombre total de cycles évanescents est 1, ce qui vérifie 1.9.</p>
+
+<p><u>Cas 2.</u> &nbsp; <u>\(n=\dim(X_s)=2m\), \(\operatorname{car}(k(s))\ne2\).</u></p>
+
+<p>Sous ces hypothèses, on peut prendre \(X\subset\mathbb E_S^{n+1}\) défini par une équation \(f\)</p>
+\[
+\sum_{i=1}^m x_i x_{i+m}+x_{2m+1}^2+a=0,
+\]
+<p>\(a\) étant une uniformisante. Ici encore, \(\mu=1\), \(\Phi^i_{\bar x_o}=0\) pour \(i\ne n\) et \(\Phi^n_{\bar x_o}\) est
+de dimension un. Cette fois le groupe d’inertie agit par \(\pm1\) sur \(\Phi^n_{\bar x_o}\), donc de
+façon modérée. Le nombre sauvage de cycles évanescents est encore nul, et 1.9 est
+vérifié.</p>
+
+<p><u>Cas 3.</u> &nbsp; <u>\(n=\dim(X_s)=2m\), \(\operatorname{car}(k(s))=2\).</u></p>
+
+<p>Cette fois, on peut prendre \(X\subset\mathbb E_S^{n+1}\) défini par l’équation \(f\) :</p>
+\[
+\sum_{i=1}^m x_i x_{i+m}+(x_{2m+1}^2+a x_{2m+1}+b)=0,
+\]
+<p>avec \(a\) et \(b\) dans l’idéal maximal. Pour que \(X\) soit régulier, il faut et suffit
+que \(b\) soit une uniformisante ; pour que la fibre générique de \(X\) soit lisse, il
+faut et il suffit que \(a^2-4b\ne0\).</p>
+
+<p>Le nombre de Milnor \(\mu\) de \(X/S\) coïncide avec celui de \(X_o\subset\mathbb E_S^1\) défini
+par l’équation \(f_o\)</p>
+\[
+\tag{1}x^2+ax+b=0.
+\]
+<p>De même, les \(\Phi^i_{\bar x_o}\) sont nuls pour \(i\ne n\), \(\Phi^n_{\bar x_o}\) est de dimension un, \(I\) agit sur
+\(\Phi^n_{\bar x_o}\) par \(\pm1\) et le sous-groupe d’indice deux de \(I\) qui agit trivialement corre-
+spond à l’extension de \(K\) d’équation (1). Le nombre total de cycles évanescents de
+\(X/S\) en \(x_o\) coïncide donc avec celui relatif à \(X_o/S\), et la validité de 1.9 dans
+ce cas résulte de 1.12. Le nombre de Milnor est donné par (1.5)</p>
+\[
+\tag{1.13.1}\mu=v(a^2-4b).
+\]
+
+<h2 id="16.2">2. Le cas “géométrique”</h2>
+
+<p>On se propose de montrer que la conjecture 1.9 est vraie en égale caracté-
+ristique. Le résultat géométrique clef est le suivant. La possibilité de l’utiliser
+m’a été suggérée par des conversations avec B. Saint-Donat.</p>
+
+<div class="thm proposition" id="16.2.1">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.1.</u></span></div>
+<div class="thm-body"><p><u>Soient \(S\) une courbe projective lisse et connexe sur un corps
+algébriquement clos \(k\), \(X\) une variété propre et lisse sur \(k\), purement de di-
+mension \(n+1\), et \(f:X\to S\) un morphisme lisse en dehors d’un ensemble fini \(F\)
+de points de \(X\). Les caractéristiques d’Euler-Poincaré (en cohomologie étale) de
+\(S\), \(X\) et de la fibre générique géométrique \(X_{\bar\eta}\) de \(f\) vérifient alors</u></p>
+\[
+\tag{2.1.1}\chi(X)=\chi(S)\chi(X_{\bar\eta})-(-1)^n\sum_{x\in F}\mu(X/S,x).
+\]</div>
+</div>
+
+<p>On sait que la caractéristique d’Euler-Poincaré de \(X\) coïncide avec la
+trace (ou intégrale sur \(X\)) de la dernière classe de Chern du fibré tangent</p>
+\[
+\chi(X)=\int c_{n+1}(\Theta_X)=(-1)^{n+1}\int c_{n+1}(\Omega_X^1).
+\]
+<p>Posons</p>
+\[
+\Omega_X^{\prime 1}=(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1})\oplus f^*\Omega_S^1.
+\]
+<p>La classe totale de Chern du faisceau inversible \(f^*\Omega_S^1\) est l’image réciproque de
+la classe totale de Chern de \(\Omega_S^1\) sur \(S\)</p>
+\[
+c^*(f^*\Omega_S^1)=1+f^*c^1(S,\Omega_S^1)
+\]
+<p>et les cup-puissances de \(c^1\) sont nulles :</p>
+\[
+(f^*c^1(S,\Omega_S^1))^n=f^*(c^1(S,\Omega_S^1)^n)=0\qquad(n&gt;1).
+\]
+
+<p>On en déduit que</p>
+\[
+c^{n+1}(\Omega_X^{\prime 1})=
+c^n(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1})\cdot f^*c_1(S,\Omega_S^1)
++c^{n+1}(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1}).
+\]
+
+<p>Si \(S\) est de genre \(g\), alors \(c_1(S,\Omega_S^1)\) est égal à \((2g-2)\) fois la classe de
+cohomologie d’un quelconque point fermé \(s\) de \(S\), d’où, pour \(X_s\) non singulier,</p>
+\[
+I=\int_X c^n(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1})\cdot f^*c_1(S,\Omega_S^1)
+\]
+\[
+=(2g-2)\int_X c^n(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1})\cdot f^*\operatorname{cl}(s)
+\]
+\[
+=(2g-2)\int_{X_s}c^n(X_s,\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1}\otimes\mathcal O_{X_s}).
+\]
+
+<p>De plus, sur \(X_s\), \(f^*\Omega_S^1\) est isomorphe à \(\mathcal O_{X_s}\), et \(\Omega_X^1\otimes_{\mathcal O_X}\mathcal O_{X_s}\) figure
+dans une suite exacte</p>
+\[
+0\to f^*\Omega_S^1\otimes\mathcal O_{X_s}\to\Omega_X^1\otimes\mathcal O_{X_s}\to\Omega_{X_s}^1\to0.
+\]
+
+<p>De là, on tire que</p>
+\[
+c^n(X_s,\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1}\otimes\mathcal O_{X_s})
+=c^n(X_s,\Omega_{X_s}^1)\quad\text{et}
+\]
+\[
+I=(2g-2)\int_{X_s}c^n(X_s,\Omega_{X_s}^1)=(-1)^{n+1}\chi(S)\chi(X_s)\quad\text{et}
+\]
+
+<p>L’application canonique</p>
+\[
+f^*:f^*\Omega_S^1\longrightarrow\Omega_X^1
+\]
+<p>s’identifie à une section \(a\) de
+\(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1}\). Une fois choisis des systèmes
+de coordonnées locales sur \(S\) et \(X\), ce qui identifie
+\(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1}\) à \(\mathcal O_X^{n+1}\),
+les coordonnées de \(a\) sont les dérivées partielles \(\partial f/\partial x_i\). La section \(a\) ne s’an-
+nulle donc que sur \(F\), et d’après 1.3, la multiplicité du zéro de \(a\) en \(x\in F\)
+est égale au nombre de Milnor \(\mu(X/S,x)\).</p>
+
+<p>Rappelons que si une section \(a\) d’un fibré vectoriel \(G\) de rang \(d\) sur un
+\(k\)-schéma propre et lisse \(X\) purement de dimension \(d\) ne s’annule qu’en des points
+isolés, alors la trace \(\int_X c^d(G)\) est égale au nombre de zéros de \(a\), comptés avec
+leurs multiplicités. On a ici</p>
+\[
+II=\int_X c^{n+1}(\Omega_X^1\otimes(f^*\Omega_S^1)^{\otimes-1})
+=\sum_{x\in F}\mu(X/S,x).
+\]
+
+<p>Regroupant les termes, on trouve</p>
+\[
+\chi(X)=(-1)^{n+1}(I+II)=\chi(S)\chi(X_s)-(-1)^n\sum_{x\in F}\mu(X/S,x),
+\]
+<p>d’où 2.1 puisque \(\chi(X_s)=\chi(X_{\bar\eta})\).</p>
+
+<div class="thm corollary" id="16.2.2">
+<div class="thm-head"><span class="thm-name"><u>Corollaire 2.2.</u></span></div>
+<div class="thm-body"><p><u>Sous les hypothèses précédentes, si (n(X/S,x)) est le nombre total
+de cycles évanescents en \(x\) de \(X/S\) (1.8), on a</u></p>
+\[
+\sum_{x\in F}\mu(X/S,x)=\sum_{x\in F}n(X/S,x).
+\]</div>
+</div>
+
+<p>La suite spectrale de Leray pour \(f\) fournit</p>
+\[
+\chi(X)=\sum(-1)^{p+q}\dim_{\mathbb Z/\ell}H^p(S,R^qf_*\mathbb Z/\ell)
+=\sum_q(-1)^q\chi(S,R^qf_*\mathbb Z/\ell).
+\]
+<p>Pour tout faisceau constructible \(G\) de \(\mathbb Z/\ell\)-modules sur \(S\), on a
+([4] ou SGA 5 X 7.2)</p>
+\[
+\chi(S,G)=\chi(S)\cdot\dim_{\mathbb Z/\ell}(G_{\bar\eta})-\sum_{s\in S}\varepsilon_s(G),
+\]
+<p>où, pour chaque (s\in S), si on identifie \(\bar\eta\) à la clôture algébrique du corps des
+fractions de l’hensélisé de \(S\) en \(s\), on a</p>
+\[
+\varepsilon_s(G)=\dim(G_{\bar\eta})-\dim(G_s)-\dim\operatorname{Sw}(G_{\bar\eta}).
+\]
+
+<p>Pour (s\in S), on déduit des suites exactes XIII 2.4.6.3</p>
+\[
+\cdots\ (R^qf_*\mathbb Z/\ell)_{\bar\eta}\longrightarrow(R^qf_*\mathbb Z/\ell)_s
+\longrightarrow\bigoplus_{x\in F(s)}\Phi^q_{\bar\eta}(\mathbb Z/\ell)_x\longrightarrow\cdots
+\]
+<p>que</p>
+\[
+\tag{a}\sum(-1)^q\bigl(\dim(R^qf_*\mathbb Z/\ell)_{\bar\eta}
+-\dim(R^qf_*\mathbb Z/\ell)_s\bigr)
+=\sum_{x\in F(s)}\sum_q(-1)^q\dim\Phi^q_{\bar\eta}(\mathbb Z/\ell)_x,
+\]
+\[
+\tag{b}\sum(-1)^q\dim\operatorname{Sw}(R^qf_*\mathbb Z/\ell)_{\bar\eta}
+=\sum_{x\in F(s)}\sum_q(-1)^q\dim\operatorname{Sw}\Phi^q_{\bar\eta}(\mathbb Z/\ell)_x,
+\]
+\[
+\tag{c}\sum(-1)^q\varepsilon_s(R^qf_*\mathbb Z/\ell)
+=\sum_{x\in F(s)}\dim\operatorname{tot}\Phi_x.
+\]
+
+<p>La formule d’Euler-Poincaré se réduit donc à</p>
+\[
+\begin{aligned}
+\chi(X)&=\sum(-1)^q\chi(S,R^qf_*\mathbb Z/\ell)\\
+&=\sum_q(-1)^q\left(\chi(S)\dim(R^qf_*\mathbb Z/\ell)_{\bar\eta}
+-\sum_s\varepsilon_s(R^qf_*\mathbb Z/\ell)\right)\\
+&=\chi(S)\sum_q(-1)^q\dim(R^qf_*\mathbb Z/\ell)_{\bar\eta}
+-\sum_s\sum_q(-1)^q\varepsilon_s(R^qf_*\mathbb Z/\ell)\\
+&=\chi(S)\chi(X_{\bar\eta})-\sum_s\sum_{x\in F(s)}\dim\operatorname{tot}\Phi_x\\
+&=\chi(S)\chi(X_{\bar\eta})-(-1)^n\sum_{x\in F}n(X/S,x).
+\end{aligned}
+\]
+<p>Comparant cette formule avec (2.1.1), on trouve 2.2.</p>
+
+<div class="thm corollary" id="16.2.3">
+<div class="thm-head"><span class="thm-name"><u>Corollaire 2.3.</u></span></div>
+<div class="thm-body"><p><u>Sous les hypothèses et avec les notations précédentes, si (x_o\in F)
+et si pour tout \(x\in F\) distinct de \(x_o\), la fibre de \(f\) passant par \(x\) présente
+en \(x\) un point singulier quadratique ordinaire, alors</u></p>
+\[
+\mu(X/S,x_o)=n(X/S,x_o).
+\]</div>
+</div>
+
+<p>Pour (x\ne x_o), on a d’après 1.13</p>
+\[
+\mu(X/S,x)=n(X/S,x),
+\]
+<p>et il reste à appliquer 2.2.</p>
+
+<div class="thm theorem" id="16.2.4">
+<div class="thm-head"><span class="thm-name"><u>Théorème 2.4.</u></span></div>
+<div class="thm-body"><p><u>Soient \(S\) un trait hensélien d’égale caractéristique à corps résiduel
+parfait, (f:X\to S) un morphisme plat de type fini et \(\bar x\) un point géométrique de
+\(X\), d’image dans \(X\) un point fermé \(x\) de \(X_s\) qui soit un point de non lissité
+isolé de \(X/S\). On suppose que \(X\) est régulier en \(x\). Alors, le nombre total (1.8)
+de cycles évanescents de (X/S) en \(\bar x\) coïncide avec le nombre de Milnor \(\mu(X/S,x)\).</u></p></div>
+</div>
+
+<p>Soit \(S'\) le trait hensélien déduit de \(S\) par extension du corps résiduel
+de \(k(s)\) à sa clôture séparable, et soit \(X'=X\times_S S'\). L’assertion 2.4 pour \(X/S\)
+équivaut alors à 2.4 pour \(X'/S'\). Puisque \(k(s)\) est déjà supposé parfait, on peut
+donc supposer le corps résiduel de \(S\) algébriquement clos.</p>
+
+<p>Pour un tel \(S\), soit \(S'\) le complété de \(S\), et \(X'=X\times_S S'\). Le
+nombre de Milnor de \(X/S\) en \(x\) est le même pour \(X/S\) et \(X'/S'\). D’après XIII 2.4.2
+il en est de même du nombre total de cycles évanescents. Ceci permet de supposer que
+\(S\) est de plus complet, donc isomorphe à \(k[[t]]\) (avec \(k\) algébriquement clos). On
+a alors, pour \(X_s\) de dimension \(n\) en \(x\) :</p>
+
+<div class="thm proposition" id="16.2.5">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.5.</u></span></div>
+<div class="thm-body"><p><u>Il existe une variété projective et lisse \(Y\) sur \(k\), purement de
+dimension \(n+1\), un morphisme \(f:Y\to\mathbb P_k^1\), lisse en dehors d’un ensemble fini \(F\)
+de points de \(Y\) et \(y_o\in F\) tels que</u></p>
+<p><u>(a) si \(y\in F\), \(y\ne y_o\), alors \(y\) est un point singulier quadratique ordinaire de
+la fibre de \(f\) passant par \(y\) ;</u></p>
+<p><u>(b) on a \(f(y_o)=0\), si \(a:S\to\mathbb P_k^1\) est l’isomorphisme naturel entre \(S\) et le
+complété de \(\mathbb P_k^1\) en \(0\), il existe un \(S\)-isomorphisme entre l’hensélisé de \(X\) en
+\(x\) et l’hensélisé de \(a^*Y\) en \(y_o\).</u></p></div>
+</div>
+
+<p>Montrons que 2.5 \(\Rightarrow\) 2.4. D’après 2.3 et 2.5 (a), le nombre de Milnor de
+\(Y/T\) en \(y_o\) coïncide avec le nombre total de cycles évanescents. Comme plus haut,
+d’après XIII 2.4.2, on a le même résultat pour \(a^*Y/S\), donc aussi pour \((X/S,x)\),
+qui par 2.5 (b) est localement isomorphe à \((a^*Y/S,y_o)\), pour la topologie étale.</p>
+
+<p>Prouvons 2.5. Le complété de l’anneau local \(\mathcal O_{X,x}\) est isomorphe, en tant
+que \(k[[t]]\)-algèbre, à un quotient</p>
+\[
+\widehat{\mathcal O}_{X,x}=k[[t,x_1,\ldots,x_{n+1}]]/(f).
+\]
+<p>On déduit alors du théorème des fonctions implicites XV 1.1.2 (= [1] lemme 5.10)
+qu’il existe un entier \(N\) tel que la condition 2.5 (b) soit vérifiée dès que
+\(\widehat{\mathcal O}_{Y,y_o}\) est (k[[t]])-isomorphe à
+\(k[[t,x_1,\ldots,x_{n+1}]]/(f_1)\), avec \(f_1-f\) dans la puissance \(N\)-ième de
+l’idéal maximal \(\mathfrak m\) de \(k[[t,x_1,\ldots,x_{n+1}]]\).</p>
+
+<p>Si \((t_o,t_1)\) et \((x_o,\ldots,x_{n+1})\) sont les systèmes de coordonnées homogènes
+usuels sur \(\mathbb P^1\) et \(\mathbb P^{n+1}\), on prendra pour \(Y/\mathbb P^1\) la sous-variété de
+\(\mathbb P^1\times\mathbb P^{n+1}\), définie par une équation</p>
+\[
+\tag{2.5.1}g(t_o,t_1;x_o,\ldots,x_{n+1})=0,
+\]
+<p>homogène de degré \(d'\) en \((t_o,t_1)\) et homogène de degré \(d''\) en les \(x_i\). En termes
+plus intrinsèques, \(g\) sera une section de
+\(\mathcal O(d',d'')=\operatorname{pr}_1^*\mathcal O(d')\otimes\operatorname{pr}_2^*\mathcal O(d'')\).</p>
+
+<p>La condition (b) sera alors vérifiée si</p>
+\[
+\tag{2.5.2}g(1,t;1,x_1,\ldots,x_{n+1})\equiv f\pmod{\mathfrak m^N}.
+\]
+
+<p>Fixons \(d'\) et \(d''\). Les \(g\) du type (2.5.1) sont alors les points (ra-
+tionnels) d’un espace affine \(A\) sur \(k\). Soit \(u\in\mathbb P^1\times\mathbb P^{n+1}\). On désignera par
+\(B(u,k)\) l’espace affine dont les points sont les \(k\)-jets de sections de \(\mathcal O(d',d'')\) en
+\(u\). Si \(u_o=(1,0;1,0,\ldots,0)\) et si \(u\ne u_o\), alors, pour \(d'\) et \(d''\) assez grand,
+l’application de restriction</p>
+\[
+\tag{2.5.3}A\longrightarrow B(u_o,N)\times B(u,2),
+\]
+<p>toujours linéaire, est surjective. Soit \(C(u)\subset B(u,2)\) l’ensemble des 2-jets
+\(h\in B(u,2)\) qui soient le 2-jet d’un germe \(\widetilde h\) nul ou tel que</p>
+<p>(a) \(u\) se trouve sur la variété \(V\) d’équation \(\widetilde h=0\) ;</p>
+<p>(b) \(u\) n’est ni un point lisse, ni un point quadratique ordinaire de la fibre
+passant par \(u\) de \(V/\mathbb P^1\).</p>
+
+<p>On vérifie facilement que \(C(u)\) est fermé de codimension \(n+3\) dans
+\(B(u,2)\).</p>
+
+<p>Soit \(D\) le sous-espace affine de \(A\) formé des \(g\) vérifiant (2.5.2).
+Pour \(u\ne u_o\), soit \(D(u)\) le sous-espace de \(D\) formé des \(g\) nuls ou tels que
+\(g(u)=0\) et que \(u\) ne soit ni un point lisse, ni un point quadratique ordinaire,
+de la fibre passant par \(u\) de la variété \(V\) d’équation \(g=0\). Alors, si \(d'\) et
+\(d''\) sont assez grands pour que (2.5.3) soit surjectif, \(D(u)\) est de codimension \(n+3\)
+dans \(D\). La réunion des \(D(u)\) pour \(u\ne u_o\) est donc de codimension
+\(\ge1=(n+3)-(n+2)\), et un élément général \(g\) de \(D\) n’est dans aucun des \(D(u)\).
+Il résoud le problème posé.</p>
+
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé XIII. Le formalisme des cycles évanescents</title>
+<script>
+window.MathJax = {
+  loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
+  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  options: { enableMenu: true }, startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.toc { margin: 2em 0; }
+.toc-row { display: flex; justify-content: space-between; gap: 2em; }
+.toc-sub { padding-left: 2em; }
+ol.enumerate { list-style: none; padding-left: 2em; }
+ol.enumerate .item-label { display: inline-block; width: 2em; margin-left: -2em; }
+</style>
+</head>
+<body>
+
+<h1 id="13">EXPOSÉ XIII<br><u>LE FORMALISME DES CYCLES ÉVANESCENTS</u><span class="author"><u>par P. Deligne</u></span></h1>
+
+<div class="toc">
+<div class="toc-row"><span>Introduction</span><span>2</span></div>
+<div class="toc-row"><span>§ 1. &nbsp; Faisceaux d'ensembles</span><span>6</span></div>
+<div class="toc-row toc-sub"><span>1.1 &nbsp; Faisceaux galoisiens</span><span>6</span></div>
+<div class="toc-row toc-sub"><span>1.2 &nbsp; Le topos \(Y\mathop{\times}\limits_S X\)</span><span>8</span></div>
+<div class="toc-row toc-sub"><span>1.3 &nbsp; Le foncteur \(\Psi\)</span><span>13</span></div>
+<div class="toc-row toc-sub"><span>1.4 &nbsp; La variation</span><span>16</span></div>
+<div class="toc-row"><span>§ 2. &nbsp; Cycles évanescents</span><span>17</span></div>
+<div class="toc-row toc-sub"><span>2.1 &nbsp; Le foncteur \(R\Psi\)</span><span>17</span></div>
+<div class="toc-row toc-sub"><span>2.2 &nbsp; Une compatibilité (morphismes trace)</span><span>26</span></div>
+<div class="toc-row toc-sub"><span>2.3 &nbsp; Théorème de finitude (en égale caractéristique zéro)</span><span>29</span></div>
+<div class="toc-row toc-sub"><span>2.4 &nbsp; Singularités isolées</span><span>30</span></div>
+</div>
+
+<h2 id="13.0"><u>Introduction</u></h2>
+
+<p>Dans cet exposé, nous reprenons le formalisme introduit dans le n° 2 de l'exposé I de Grothendieck. Le seul point nouveau est l'introduction de l'analogue algébrique de la <u>variation</u> de la théorie classique.</p>
+
+<p>L'image topologique que je suis est la suivante. Soient \(X\) un espace analytique, \(D\subset\mathbb C\) un disque de centre 0, \(D^*=D-\{0\}\) et \(f:X\to D\) un morphisme propre (le cas non propre sera considéré ensuite). Remplaçons \(D\) par un disque suffisamment petit centré en 0, \(X\) par l'image réciproque de ce petit disque et notons encore \(f:X\to D\) le résultat. D'après la variante analytique complexe du théorème d'isotopie de Thom, \(f^{-1}(D^*)\) est un espace fibré topologique sur \(D^*\). J'ignore si on peut toujours construire un couple \((\Gamma,r)\) du type décrit ci-dessous, mais il semble plausible que oui.</p>
+
+<ol class="enumerate">
+<li><span class="item-label">(a)</span> \(\Gamma\) est un système localement cohérent de trivialisations locales du fibré \(f^{-1}(D^*)\) sur \(D^*\). En d'autres termes, \(\Gamma\) définit une trivialisation \(\pi_1(D^*)\)-équivariante de l'image réciproque de \(X\) sur un revêtement universel \(\widetilde D^*\) de \(D^*\).</li>
+<li><span class="item-label">(b)</span> \(r\) est une rétraction de \(X\) sur la fibre spéciale \(X_0=f^{-1}(0)\), compatible à \(\Gamma\) : si, sur un ouvert connexe \(U\) de \(D^*\), \(\Gamma\) identifie \(X_U=f^{-1}(U)\) à \(X_1\times U\), \(r=r(x_1,u)\) est indépendant de \(u\).</li>
+</ol>
+
+<p>Soient donnés \((X,f,\Gamma,r)\). Soient \(t\in D\) et \(X_t=f^{-1}(t)\) la «fibre générale». Le fibré \(\varphi^*X\), image réciproque de \(X/D\) par \(\varphi:[0,1]\to D^*:x\mapsto\exp(2\pi i x).t\), est trivialisé par \(\Gamma\). La <u>monodromie</u> \(T:X_t\longrightarrow X_t\) est l'homéomorphisme</p>
+\[
+X_t=(\varphi^*X)_0\xrightarrow[\Gamma]{\sim}(\varphi^*X)_1=X_t.
+\]
+<p>Soit \(r_t:X_t\to X_0\) la restriction de \(r\) à \(X_t\). On a \(r_tT=r_t\). On reconstruit comme suit \((X,f)\) à partir de \((X_t,X_0,T,r_t)\) :</p>
+<ol class="enumerate">
+<li><span class="item-label">(α)</span> on recolle, dans \(X_t\times[0,1]\), les extrémités \(X_t\times\{0\}\) et \(X_t\times\{1\}\) à l'aide de \(T\), pour obtenir \(f':X'\to S^1\) ;</li>
+<li><span class="item-label">(β)</span> \(r_t\) définit \(r':X'\to X_0\) ; \((X,f)\) s'identifie à</li>
+</ol>
+\[
+\operatorname{cône}(f'):\bigl(\operatorname{cône}\text{ d'application de }r':X'\to X_0\bigr)\to D
+=\operatorname{cône}\text{ d'application de }(S^1\to P^t).
+\]
+
+<p>Soit \(\psi=(r,f):X\to X_0\times D\). Les faisceaux images directes supérieures \(R^i\psi_*\mathbb Z\) de Leray vérifient la condition suivante.</p>
+<p>(*) \(D^*\) est recouvert par des ouverts \(U\) tels que la restriction du faisceau \(F\) à \(X_0\times U\) est image réciproque d'un faisceau sur \(X_0\).</p>
+
+<p id="13.0.1"><strong><u>Construction 0.1.</u></strong> <u>Les faisceaux \(F\) sur \(X_0\times D\) vérifiant (*) s'identifient aux systèmes \((F_0,F_t,T,\alpha)\) où</u></p>
+<ol class="enumerate">
+<li><span class="item-label">α)</span> \(F_0\) <u>est un faisceau sur</u> \(X_0\) ;</li>
+<li><span class="item-label">β)</span> \(F_t\) <u>est un faisceau sur</u> \(X_0\), <u>muni d'une action du générateur</u> \(T\) <u>de</u> \(\pi_1(D^*,t)\) ;</li>
+<li><span class="item-label">γ)</span> \(\alpha\) <u>est un morphisme de</u> \(F_0\) <u>dans le faisceau des</u> \(T\)<u>-invariants de</u> \(F_t\).</li>
+</ol>
+
+<p>Si un faisceau \(G\) sur \(X_0\times D^*\) vérifie (*), et que \(\widetilde D^*\) est le revêtement universel de \(D^*\) (muni du point base \(t\)), l'image réciproque de \(G\) sur \(X_0\times\widetilde D^*\) est d'une et d'une seule façon image réciproque d'un faisceau \(G_t\) sur \(X_0\) ; \(G_t\) est muni d'une action de \(\pi_1(D^*,t)\) et \(G\) se déduit de \(\operatorname{pr}_1^*(G_t)\) sur \(X_0\times\widetilde D^*\) par passage au quotient par \(\pi_1(D^*,t)\).</p>
+
+<p>Un faisceau \(F\) sur \(X_0\times D\) est déterminé par</p>
+<ol class="enumerate">
+<li><span class="item-label">1)</span> sa restriction à \(X_0\), soit \(F_0\),</li>
+<li><span class="item-label">2)</span> sa restriction à \(X_0\times D^*\), soit \(G\),</li>
+<li><span class="item-label">3)</span> un morphisme \(\alpha:F_0\to i^*j_*G\) (pour \(i:X_0\to X_0\times D\), \(j:X_0\times D^*\to X_0\times D\)).</li>
+</ol>
+<p>Si \(F\) vérifie (*), \(G\) est décrit par \((G_t,T)\) sur \(X_0\), et on trouve la description annoncée de \(F\).</p>
+
+<p>Pour les faisceaux \(R^i\psi_*\mathbb Z\), on a</p>
+\[
+(R^i\psi_*\mathbb Z)_0=
+\begin{cases}
+\mathbb Z&\text{pour }i=0,\\
+0&\text{pour }i&gt;0,
+\end{cases}
+\]
+<p>tandis que les \((R^i\psi_*\mathbb Z)_t\) méritent (pour \(i&gt;0\)) le nom de <u>faisceaux de cycles évanescents</u> (cf. la discussion au début du paragraphe 2 de I).</p>
+
+<p>Cette discussion n'est utile que si on la raffine en passant à la catégorie dérivée : les \(R^i\psi_*\mathbb Z\) sont déduits d'un objet de la catégorie dérivée \(D^+(X_0\times D)\), et même d'un objet \(R\psi_*\mathbb Z\) de la catégorie dérivée de la catégorie des faisceaux abéliens sur \(X_0\times D\) vérifiant (*). Cet objet détermine non seulement les faisceaux de cycles évanescents et leur monodromie, mais encore les morphismes «variation» classiques (cf. 1.4 et XIV 3.1).</p>
+
+<p>C'est son analogue que nous définirons en géométrie algébrique. Si \(S\) est un trait strictement hensélien et que \(f:X\to S\) est un morphisme de schémas, nous définirons un objet \(R\Psi(\mathbb Z/\ell^n)\) de la catégorie dérivée de la catégorie des faisceaux abéliens sur le topos produit \((X_0)_{\mathrm{et}}\times S_{\mathrm{et}}\). Un faisceau sur ce topos s'interprète comme un système \((F_0,F_t,T,\alpha)\) où</p>
+<ol class="enumerate">
+<li><span class="item-label">α)</span> \(F_0\) est un faisceau sur \(X_0\),</li>
+<li><span class="item-label">β)</span> \(F_t\) est un faisceau sur \(X_0\), muni d'une action continue \(T\) du groupe d'inertie \(I\),</li>
+<li><span class="item-label">γ)</span> \(\alpha\) est un morphisme de \(F_0\) dans le faisceau des \(I\)-invariants de \(F_t\).</li>
+</ol>
+
+<p>Nous aurons à travailler dans un cadre un peu plus général que celui indiqué ci-dessus :</p>
+<ol class="enumerate">
+<li><span class="item-label">a)</span> La construction de \(R\Psi(\mathbb Z/\ell^n)\) ne suppose pas que \(f\) soit propre. Pour l'interpréter topologiquement, il y aurait lieu de reprendre la construction qui précède, en remplaçant \(X\) par un voisinage de la fibre spéciale \(X_0\).</li>
+<li><span class="item-label">b)</span> Pour construire \(R\Psi(\mathbb Z/\ell^n)\) et démontrer ses propriétés, il faudra considérer non seulement le faisceau constant \(\mathbb Z/\ell^n\), mais encore des faisceaux généraux, voire des complexes de faisceaux.</li>
+<li><span class="item-label">c)</span> Lorsqu'on ne suppose pas que le corps résiduel \(k\) du trait hensélien \(S\) soit séparablement clos, il y a lieu de remplacer le topos produit \((X_0)_{\mathrm{et}}\times S_{\mathrm{et}}\) par le topos produit fibré \((X_0)_{\mathrm{et}}\times_{\operatorname{Spec}(k)_{\mathrm{et}}}S_{\mathrm{et}}\). Le lecteur répugnant aux 2-produits fibrés de topos pourra prendre la description galoisienne 1.2.4 de ce topos comme en étant la définition.</li>
+</ol>
+
+<h3 id="13.0.2"><strong>0.2.</strong> <u>Notations et terminologie</u>.</h3>
+
+<p id="13.0.2.1"><strong>(0.2.1)</strong> <u>trait</u> : spectre d'un anneau de valuation discrète.</p>
+<p id="13.0.2.2"><strong>(0.2.2)</strong> <u>hensélien</u> : (pour un schéma) spectre d'un anneau local hensélien.</p>
+<p id="13.0.2.3"><strong>(0.2.3)</strong> <u>strictement hensélien</u> : pour un anneau : hensélien à corps résiduel séparablement clos. Pour un schéma : spectre d'un tel anneau.</p>
+<p id="13.0.2.4"><strong>(0.2.4)</strong> <u>point géométrique</u> de \(S\) : morphisme \(\bar x:\operatorname{Spec}(\bar k)\to S\) d'image \(x\in S\), \(k(\bar x)=_{\mathrm{dfn}}\bar k\) étant une clôture séparable de \(k(x)\). On dit que \(\bar x\) est localisé en \(x\). Par abus de langage, nous appellerons parfois encore point géométrique un morphisme \(\bar x:\operatorname{Spec}(\bar k)\to S\) tel que \(\bar k\) soit une extension séparablement close de \(k(x)\) ; un tel morphisme se factorise de façon unique par un point géométrique (au sens propre) de \(S\).</p>
+<p id="13.0.2.5"><strong>(0.2.5)</strong> \(s,\eta,\bar s,\bar\eta,\bar S\) : Si \(S=\operatorname{Spec}(V)\) est un trait hensélien, nous noterons en principe \(s\) le point fermé de \(S\), \(\eta\) son point générique, \(\bar\eta\) un point géométrique générique (= localisé en \(\eta\)) de \(S\) et \(\bar s\) le point géométrique localisé en \(s\) correspondant (I 0.0.3). On note \(\bar S\) le spectre du normalisé de \(V\) dans \(k(\bar\eta)\), de corps résiduel une extension inséparable de \(k(\bar s)\). On note \(\operatorname{Gal}(\bar\eta/\eta)\) le groupe de Galois de \(k(\bar\eta)\) sur \(k(\eta)\). De même pour \(s\). On a une suite exacte</p>
+\[
+0\longrightarrow I\longrightarrow\operatorname{Gal}(\bar\eta/\eta)\longrightarrow\operatorname{Gal}(\bar s/s)\longrightarrow0
+\]
+<p>(\(I\) groupe d'inertie).</p>
+<p id="13.0.2.6"><strong>(0.2.6)</strong> <u>faisceau</u> (sur un schéma \(X\)) signifie toujours faisceau sur le site étale \(X_{\mathrm{et}}\) de \(X\).</p>
+<p id="13.0.2.7"><strong>(0.2.7)</strong> <u>premier à</u> : un faisceau de torsion \(F\) sur un schéma \(S\) (ou un groupe abélien de torsion \(F\)) est premier aux caractéristiques résiduelles de \(S\) si pour tout \(s\in S\), la multiplication par l'exposant caractéristique de \(k(s)\) est un automorphisme de \(F\).</p>
+
+<h2 id="13.1"><u>1. Faisceaux d'ensembles</u></h2>
+
+<p>Les faisceaux de cycles évanescents seront définis comme valeurs de foncteurs dérivés du foncteur exact à gauche \(\Psi\) défini au n° 3 pour tout faisceau d'ensembles.</p>
+
+<h3 id="13.1.1"><u>1.1. Faisceaux galoisiens.</u></h3>
+
+<p id="13.1.1.1"><strong>1.1.1.</strong> Soient \(Y\) un schéma sur un corps \(k\) de clôture séparable \(\bar k\) et \(\bar Y=Y\otimes_k\bar k\). Soit \(G\) un groupe profini et</p>
+\[
+u:G\longrightarrow\operatorname{Gal}(\bar k/k)
+\]
+<p>un homomorphisme continu de \(G\) dans le groupe de Galois de \(\bar k\) sur \(k\). Le groupe de Galois \(\operatorname{Gal}(\bar k/k)\) agit (à gauche) sur \(\bar Y\) par transport de structure. Le groupe \(G\) agit sur \(\bar Y\) via \(u\).</p>
+
+<p>Soit \(\mathcal F\) un faisceau d'ensembles sur (le site étale de) \(\bar Y\). Une action de \(G\) sur \(\mathcal F\), <u>compatible</u> à l'action de \(G\) sur \(\bar Y\), est une action par automorphismes de \(G\) sur \((\bar Y,\mathcal F)\), induisant l'action donnée sur \(\bar Y\). En d'autres termes, c'est un système d'isomorphismes</p>
+\[
+\sigma(g):u(g)_*\mathcal F\longrightarrow\mathcal F,
+\]
+<p>vérifiant \(\sigma(gh)=\sigma(g)\,\sigma(h)\). Si \(G\) agit sur \(\mathcal F\), alors, quel que soit \(U\) étale sur \(Y\), définissant \(\bar U=U\otimes_k\bar k\) étale sur \(\bar Y\), le groupe \(G\) agit sur \(\mathcal F(\bar U)\).</p>
+
+<p id="13.1.1.2"><strong><u>Définition 1.1.2.</u></strong> <u>On dit que \(G\) agit continûment sur \(\mathcal F\) si, pour tout \(U\) quasi-compact et étale sur \(Y\), \(G\) agit continûment sur l'ensemble discret \(\mathcal F(\bar U)\).</u></p>
+
+<p>Il reviendrait au même de ne considérer que les \(U\) affines.</p>
+
+<p>Si \(\mathcal F\) est un faisceau d'ensembles sur \(Y\), d'image réciproque \(\bar{\mathcal F}\) sur \(\bar Y\), alors le groupe \(\operatorname{Gal}(\bar k/k)\) agit sur \(\bar{\mathcal F}\), par transport de structure, de façon compatible à son action sur \(\bar Y\).</p>
+
+<p id="13.1.1.3"><strong><u>Rappel 1.1.3.</u></strong> (i) <u>L'action de \(\operatorname{Gal}(\bar k/k)\) sur \(\bar{\mathcal F}\) est continue.</u></p>
+
+<p>(ii) <u>Le foncteur</u></p>
+\[
+\mathcal F\longmapsto\bar{\mathcal F}\ \text{muni de l'action de }\operatorname{Gal}(\bar k/k)
+\]
+<p><u>est une équivalence de la catégorie des faisceaux d'ensembles sur \(Y\) avec la catégorie des faisceaux d'ensembles sur \(\bar Y\) munis d'une action continue de \(\operatorname{Gal}(\bar k/k)\) compatible à l'action de \(\operatorname{Gal}(\bar k/k)\) sur \(\bar Y\).</u></p>
+
+<p>Exprimons \(\bar k\) comme limite inductive d'extensions finies galoisiennes \(k_i\). Soient \(\varphi_i:Y_i=Y\otimes_k k_i\longrightarrow Y\) et \(\varphi:\bar Y\longrightarrow Y\) les projections. Pour \(U\) étale sur \(Y\), supposé affine, soit \(U_i=U\otimes_k k_i\). On a</p>
+\[
+\bar{\mathcal F}(\bar U)=\varinjlim\varphi_i^*\mathcal F(U_i).
+\]
+<p>Sur \(\varphi_i^*\mathcal F(U_i)\), \(\operatorname{Gal}(\bar k/k)\) agit via \(\operatorname{Gal}(k_i/k)\), ce qui prouve (i).</p>
+
+<p>Le foncteur (ii) a pour adjoint à droite le foncteur</p>
+\[
+\mathcal G\longmapsto(\varphi_*\mathcal G)^{\operatorname{Gal}(\bar k/k)}.
+\]
+<p>Pour tout \(\mathcal F\) sur \(Y\), on a</p>
+\[
+\varphi_*\varphi^*\mathcal F=\varinjlim\varphi_{i*}\varphi_i^*\mathcal F.
+\]
+<p>Pour prouver que \(\mathcal F\xrightarrow{\sim}(\varphi_*\varphi^*\mathcal F)^{\operatorname{Gal}(\bar k/k)}\), il suffit donc de prouver que pour tout \(i\), \(\mathcal F\xrightarrow{\sim}(\varphi_{i*}\varphi_i^*\mathcal F)^{\operatorname{Gal}(k_i/k)}\). Il suffit même de prouver que cette flèche devient un isomorphisme après extension des scalaires de \(k\) à \(k_i\) ; \(\operatorname{Spec}(k_i)\) devient alors somme de copies de \(\operatorname{Spec}(k)\), permutée de façon simplement transitive par \(\operatorname{Gal}(k_i/k)\), et l'assertion devient triviale.</p>
+
+<p>Le foncteur exact (ii) est donc pleinement fidèle. Pour conclure, il reste à vérifier que la flèche</p>
+\[
+\varphi^*(\varphi_*\mathcal G)^{\operatorname{Gal}(\bar k/k)}\longrightarrow\mathcal G
+\]
+<p>est un épimorphisme. Soit \(\bar\varphi_i:\bar Y\to Y_i\). L'hypothèse donne que</p>
+\[
+\varinjlim\bar\varphi_i^*(\varphi_{i*}\mathcal G)^{\operatorname{Gal}(\bar k/k_i)}\longrightarrow\mathcal G
+\]
+<p>est épimorphique. On a</p>
+\[
+\varphi^*(\varphi_*\mathcal G)^{\operatorname{Gal}(\bar k/k)}
+=\bar\varphi_i^*\Bigl(\varphi_{i*}\bigl((\bar\varphi_{i*}\mathcal G)^{\operatorname{Gal}(\bar k/k_i)}\bigr)\Bigr)^{\operatorname{Gal}(k_i/k)},
+\]
+<p>et on conclut en notant, par le même argument de descente galoisienne que plus haut, que pour \(\mathcal G'\) sur \(Y_i\), muni d'une action de \(\operatorname{Gal}(k_i/k)\) compatible à son action sur \(Y_i\), on a</p>
+\[
+\varphi_i^*(\varphi_{i*}\mathcal G')^{\operatorname{Gal}(k_i/k)}\xrightarrow{\sim}\mathcal G'.
+\]
+
+<h3 id="13.1.2"><u>1.2. Le topos \(Y\mathop{\times}\limits_S S\).</u></h3>
+
+<p id="13.1.2.1"><strong>1.2.1.</strong> Soient \(S\) un schéma local hensélien de point fermé \(i:s\lhook\joinrel\longrightarrow S\). Le foncteur \(S'\longmapsto S'\times_Ss=i^*S'\) est une équivalence de la catégorie des \(S\)-schémas finis étales \(S'\) avec la catégorie des \(s\)-schémas finis étales \(s'\) (spectres de \(k(s)\)-algèbres étales). Le foncteur inverse \(sp^*\), du site étale de \(s\) dans le site étale de \(S\), est un morphisme de sites</p>
+\[
+sp:S\longrightarrow s,
+\]
+<p>le <u>morphisme de spécialisation</u> (cf. SGA4 VIII 7). Pour \(s'\) étale sur \(s\), on dit que \(sp^*(s')\) se déduit de \(S\) par <u>extension du corps résiduel</u>. Pour \(F\) un faisceau sur \(S\), on a un isomorphisme fonctoriel</p>
+\[
+\tag{1.2.1.1}sp_*F=i^*F.
+\]
+
+<p>Pour tout ouvert de \(S\), \(j:U\lhook\joinrel\longrightarrow S\), ou pour tout point de \(S\), \(j:\eta\lhook\joinrel\longrightarrow S\), on notera encore \(sp\) le morphisme composé \(sp\circ j\). Pour \(F\) un faisceau sur \(U\) (resp. sur \(\eta\)), on a</p>
+\[
+\tag{1.2.1.2}sp_*F=i^*j_*F.
+\]
+
+<p id="13.1.2.2"><strong>1.2.2.</strong> Soient \(S\) un trait hensélien, et \(s,\eta,\bar s,\bar\eta,I\) comme en 0.2.5.</p>
+\[
+s\overset{i}{\lhook\joinrel\longrightarrow}S\overset{j}{\longleftarrow\joinrel\lhook}\eta.
+\]
+
+<p>Voici comment les faisceaux sur \(s,\eta,S\) et le morphisme de spécialisation s'interprètent en termes galoisiens.</p>
+<p>(a) Les faisceaux \(F\) sur \(s\) (resp. \(\eta\)) s'identifient, par \(F\longmapsto F_{\bar s}\) (resp. \(F_{\bar\eta}\)) aux ensembles munis d'une action continue de \(\operatorname{Gal}(\bar s/s)\) (resp. \(\operatorname{Gal}(\bar\eta/\eta)\)) (SGA4 VIII 2.1, ou 1.1.3).</p>
+<p>(b) Un faisceau \(F\) sur \(S\) définit des faisceaux \(F_s=i^*F\) et \(F_\eta=j^*F\) sur \(s\) et \(\eta\), et une flèche d'adjonction \(F\longrightarrow j_*j^*F\) induisant</p>
+\[
+\varphi:F_s=i^*F\longrightarrow i^*j_*j^*F=sp_*F_\eta.
+\]
+<p>On sait (SGA4 IV 9.5.4) que le foncteur \(F\longmapsto(F_s,F_\eta,\varphi)\) est une équivalence de la catégorie des faisceaux sur \(S\) avec celle des triples \((F_s,F_\eta,\varphi)\)</p>
+\[
+(F_s\text{ faisceau sur }s,\ F_\eta\text{ faisceau sur }\eta,\ \varphi:F_s\longrightarrow i^*j_*F_\eta).
+\]
+
+<p>Via l'équivalence (a), le foncteur \(i^*j_*\) s'identifie au foncteur «invariants sous \(I\)». Les faisceaux sur \(S\) s'identifient donc aux triples formés d'un ensemble \(F_{\bar s}\) muni d'une action de \(\operatorname{Gal}(\bar s/s)\), d'un ensemble \(F_{\bar\eta}\) muni d'une action de \(\operatorname{Gal}(\bar\eta/\eta)\) et d'un morphisme équivariant \(\varphi:F_{\bar s}\longrightarrow F_{\bar\eta}^I\).</p>
+
+<p>(c) Les morphismes \(sp,j,i,sp=sp\circ j\) s'expriment comme suit, via (a) (b)</p>
+\[
+\begin{aligned}
+sp:S\to s:&\quad sp^*(F_{\bar s})=(F_{\bar s},F_{\bar s},\operatorname{Id}),\\
+&\quad sp_*(F_{\bar s},F_{\bar\eta},\varphi)=F_{\bar s},\\
+j:\eta\to S:&\quad j^*(F_{\bar s},F_{\bar\eta},\varphi)=F_{\bar\eta},\\
+&\quad j_*(F_{\bar\eta})=(F_{\bar\eta}^I,F_{\bar\eta},\text{inclusion}),\\
+i:s\to S:&\quad i^*(F_{\bar s},F_{\bar\eta},\varphi)=F_{\bar s},\\
+&\quad i_*(F_{\bar s})=(F_{\bar s},\{0\},\text{projection}),\\
+sp=sp\,j:\eta\to s:&\quad sp^*(F_{\bar s})=F_{\bar s},\\
+&\quad sp_*(F_{\bar\eta})=F_{\bar\eta}^I.
+\end{aligned}
+\]
+
+<p id="13.1.2.3"><strong>1.2.3.</strong> Soient \(S\) un trait hensélien comme en 1.2.2 et \(Y\) un schéma sur \(s\). Nous aurons à travailler avec le 2-produit fibré \(Y\mathop{\times}\limits_sS\) des topos étales de \(Y\) et \(S\) sur le topos étale de \(s\). D'après Giraud [1], ce 2-produit fibré existe, et on voit facilement qu'il admet la description galoisienne donnée ci-dessous. Ceux qui répugnent aux 2-produits fibrés pourront prendre cette description pour définition.</p>
+
+<p id="13.1.2.4"><strong><u>Construction 1.2.4.</u></strong> <u>Les faisceaux \(F\) sur \(Y\mathop{\times}\limits_sS\) s'identifient aux triples \((F_s,F_\eta,\varphi)\) où</u></p>
+<ol class="enumerate">
+<li><span class="item-label">(a)</span> <u>\(F_s\) est un faisceau sur \(Y\), soit encore un faisceau \(F_{\bar s}\) sur \(\bar Y=Y\otimes_s\bar s\), muni d'une action continue de \(\operatorname{Gal}(\bar s/s)\) compatible à l'action de \(\operatorname{Gal}(\bar s/s)\) sur \(\bar Y\).</u></li>
+<li><span class="item-label">(b)</span> <u>\(F_\eta\) est un faisceau \(F_{\bar\eta}\) sur \(\bar Y\), muni d'une action continue de \(\operatorname{Gal}(\bar\eta/\eta)\), compatible à l'action (via 1.1.1) de \(\operatorname{Gal}(\bar\eta/\eta)\) sur \(\bar Y\).</u></li>
+<li><span class="item-label">(c)</span> <u>\(\varphi\) est un morphisme équivariant de \(F_{\bar s}\) dans \(F_{\bar\eta}\).</u></li>
+</ol>
+
+<p>De même, un faisceau \(F_\eta\) sur \(Y\mathop{\times}\limits_s\eta\) est un objet 1.2.4(b). On dispose d'un diagramme de topos</p>
+\[
+\tag{1.2.4.1}
+\xymatrix@C=3.5em@R=3em{
+Y\ar[d]&Y\mathop{\times}\limits_sS\ar[l]_{sp}\ar[r]^j\ar[d]&Y\mathop{\times}\limits_s\eta\ar[d]\\
+s&S\ar[l]^i\ar[r]_j&\eta
+}
+\]
+<p>\(Y\mathop{\times}\limits_sS\) est réunion de l'ouvert \(Y\mathop{\times}\limits_s\eta\) et du fermé complémentaire \(Y\). Les formules 1.2.2(c) restent valables pour \(sp:Y\mathop{\times}\limits_sS\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)), \(j:Y\mathop{\times}\limits_s\eta\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\), \(i:Y\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\) et \(sp:Y\mathop{\times}\limits_s\eta\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)).</p>
+
+<p id="13.1.2.4.2"><strong>1.2.4.2.</strong> Si on prend 1.2.4 pour définition de \(Y\mathop{\times}\limits_sS\), il y a lieu de montrer, par une construction directe, que \(Y\mathop{\times}\limits_sS\) ne dépend pas à isomorphisme unique près, du choix de la clôture séparable \(k(\bar\eta)\) de \(k(\eta)\). On le fait en interprétant \(F_\eta\) de 1.2.4(b) comme un foncteur qui à chaque clôture séparable \(k(\bar\eta)\) de \(k(\eta)\), définissant une clôture séparable \(k(\bar s)\) de \(k(s)\), associe un faisceau sur \(Y\otimes_{k(s)}k(\bar s)\) : le \(F_{\bar\eta}\) de 1.2.4(b) est la restriction de ce foncteur à \(\{\bar\eta\}\).</p>
+
+<p id="13.1.2.5"><strong>1.2.5.</strong> Chaque point géométrique \(\bar x\) de \(Y_s\) définit un point géométrique \((\bar x,\bar\eta)\) de \(Y\mathop{\times}\limits_s\eta\), de foncteur fibre correspondant</p>
+\[
+F_{\bar\eta}\longmapsto(F_{\bar\eta})_{\bar x}.
+\]
+<p>Il définit des points géométriques \((\bar x,\bar\eta)\) et \((\bar x,\bar s)\) de \(Y\mathop{\times}\limits_sS\) par</p>
+\[
+F_{(\bar x,\bar\eta)}=(F_{\bar\eta})_{\bar x}\quad\text{et}\quad
+F_{(\bar x,\bar s)}=(F_{\bar s})_{\bar x}.
+\]
+<p>On vérifie qu'on obtient ainsi tous les points des topos \(Y\mathop{\times}\limits_s\eta\) et \(Y\mathop{\times}\limits_sS\). Nous ne l'utiliserons pas. On vérifie aussitôt que ces ensembles de points sont conservatifs.</p>
+
+<p id="13.1.2.6"><strong><u>*Remarque 1.2.6.</u></strong> La construction 1.2.5 définit une équivalence de la catégorie \(\operatorname{Point}(Y\mathop{\times}\limits_s\eta)\) (resp. \(\operatorname{Point}(Y\mathop{\times}\limits_sS)\)) des points de \(Y\mathop{\times}\limits_s\eta\) (resp. ……) avec le 2-produit fibré \(\operatorname{Point}(Y)\mathop{\times}\limits_{\operatorname{Point}(s)}\operatorname{Point}(\eta)\).</p>
+<p>Cette équivalence résulte aussi de ce que \(Y\mathop{\times}\limits_s\eta\) (resp. \(Y\mathop{\times}\limits_sS\)) est un 2-produit fibré de topos.<sup>*</sup></p>
+
+<p id="13.1.2.7"><strong>1.2.7.</strong> Par la fonctorialité des 2-produits fibrés, le diagramme (1.2.4.1) est fonctoriel en \(Y\) et \(S\). En particulier</p>
+<p>a) Tout morphisme \(f:Y\longrightarrow Y'\) de schémas sur \(s\) induit un morphisme de topos de \(Y\mathop{\times}\limits_sS\) dans \(Y'\mathop{\times}\limits_sS\). On a</p>
+\[
+\tag{1.2.7.1}f^*(F_{\bar s},F_{\bar\eta},\varphi)=
+(f^*F_{\bar s},f^*F_{\bar\eta},f^*(\varphi))
+\]
+<p>et pour \(f\) quasi-compact</p>
+\[
+\tag{1.2.7.2}f_*(F_{\bar s},F_{\bar\eta},\varphi)=
+(f_*F_{\bar s},f_*F_{\bar\eta},f_*(\varphi)).
+\]
+<p>Des formules analogues valent pour \(f:Y\mathop{\times}\limits_s\eta\longrightarrow Y'\mathop{\times}\limits_s\eta\).</p>
+<p>b) Tout morphisme surjectif de traits henséliens \(f:S'\longrightarrow S\) induit un morphisme de topos de \(Y_{s'}\mathop{\times}\limits_{s'}S'\) dans \(Y\mathop{\times}\limits_sS\). Notant encore \(f\) le morphisme naturel de \(Y_{s'}=Y\otimes_{k(s)}k(s')\) dans \(Y\), on a</p>
+\[
+\tag{1.2.7.3}f^*(F_{\bar s},F_{\bar\eta},\varphi)=
+(f^*F_{\bar s},f^*F_{\bar\eta},f^*(\varphi)).
+\]
+<p>Lorsque \(f\) est un morphisme fini, \(f_*\) s'exprime comme représentation induite.</p>
+
+<p id="13.1.2.8"><strong>1.2.8.</strong> Soit \(f:Y\longrightarrow Y'\) un morphisme localement de type fini et séparé de \(s\)-schémas. On définit un foncteur «image directe à support propre»</p>
+\[
+f_!: (\text{faisceaux d'ensembles pointés sur }Y\mathop{\times}\limits_sS)
+\longrightarrow(\text{faisceaux d'ensembles pointés sur }Y'\mathop{\times}\limits_sS)
+\]
+<p>par la formule</p>
+\[
+\tag{1.2.8.1}f_!(F_{\bar s},F_{\bar\eta},\varphi)=
+(f_!F_{\bar s},f_!F_{\bar\eta},f_!(\varphi)).
+\]
+<p>Pour \(f\) un plongement localement fermé, \(f_!\) s'appelle le foncteur de prolongement par zéro.</p>
+<p>Un foncteur analogue est défini pour \(Y\mathop{\times}\limits_s\eta\).</p>
+
+<p id="13.1.2.9"><strong>1.2.9.</strong> Soit \(f:Y\lhook\joinrel\longrightarrow Y'\) un plongement localement fermé de \(s\)-schémas. Le foncteur \(f_!\) a un adjoint à droite \(f^!\), «sections à support dans \(Y\)», vérifiant</p>
+\[
+\tag{1.2.9.1}f^!(F_{\bar s},F_{\bar\eta},\varphi)=
+(f^!F_{\bar s},f^!F_{\bar\eta},f^!(\varphi)).
+\]
+<p>Supposons seulement \(f\) quasi-fini. Le foncteur \(f_!\) des faisceaux abéliens sur \(Y\mathop{\times}\limits_sS\) dans les faisceaux abéliens sur \(Y'\mathop{\times}\limits_sS\) admet encore un adjoint à droite \(f^!\), donné par 1.2.9.1 (cf. SGA4 XVIII 3.1.8). Pour \(f\) étale, \(f^!=f^*\).</p>
+<p>Des foncteurs analogues sont définis pour \(Y\mathop{\times}\limits_s\eta\).</p>
+
+<h3 id="13.1.3"><u>1.3. Le foncteur \(\Psi\).</u></h3>
+
+<p id="13.1.3.1"><strong>1.3.1.</strong> Soient \(S\) un trait hensélien comme en 0.2.5 et \(p:X\longrightarrow S\). On se propose de définir un foncteur exact à gauche \(\Psi\) des faisceaux sur \(X\) dans les faisceaux sur le topos \(X_s\mathop{\times}\limits_sS\) construit en 1.2. Ce foncteur n'est pas en général le foncteur image directe d'un morphisme de topos.</p>
+<p>On définira aussi \(\Psi_\eta:(\text{faisceaux sur }X_\eta)\longrightarrow(\text{faisceaux sur }X_s\mathop{\times}\limits_s\eta)\).</p>
+
+<p id="13.1.3.2"><strong>1.3.2.</strong> Soit \(\bar X=X\times_S\bar S\). On dispose d'un diagramme</p>
+\[
+\tag{1.3.2.1}
+\xymatrix@C=3em@R=3em{
+X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]&\bar X&X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]\\
+X_s\ar@{^{(}->}[r]&X&X_\eta\ar@{_{(}->}[l]
+}
+\]
+<p>cartésien au dessus du diagramme</p>
+\[
+\xymatrix@C=3em@R=3em{
+\bar s\ar@{^{(}->}[r]\ar[d]&\bar S&\bar\eta\ar@{_{(}->}[l]\ar[d]\\
+s\ar@{^{(}->}[r]&S&\eta\ar@{_{(}->}[l].
+}
+\]
+<p>Soit \(F\) un faisceau sur \(X_\eta\), d'image réciproque \(F_{\bar\eta}\) sur \(X_{\bar\eta}\). On pose</p>
+\[
+\tag{1.3.2.2}\Psi_\eta(F)=\bar i^*\bar j_*F_{\bar\eta}.
+\]
+<p>Par transport de structure, ce faisceau est muni d'une action continue de \(\operatorname{Gal}(\bar\eta/\eta)\), compatible à l'action de \(\operatorname{Gal}(\bar\eta/\eta)\) sur \(X_{\bar s}\). Le foncteur</p>
+\[
+\tag{1.3.2.3}\Psi_\eta:(X_{\eta\,\mathrm{et}})^\sim\longrightarrow
+(X_s\mathop{\times}\limits_s\eta)^\sim
+\]
+<p>est exact à gauche.</p>
+
+<p id="13.1.3.3"><strong>1.3.3.</strong> Soient \(F\) un faisceau sur \(X\), \(F_\eta\) sa restriction à \(X_\eta\) et \(F_s\) sa restriction à \(X_s\). On pose</p>
+\[
+\tag{1.3.3.1}(\Psi(F))_\eta=\Psi_\eta(F_\eta),
+\qquad
+\tag{1.3.3.2}(\Psi(F))_s=F_s.
+\]
+<p>Soient \(\bar F\) l'image réciproque de \(F\) sur \(\bar X\) et \(\varphi'\) le morphisme d'adjonction \(\varphi':\bar F\longrightarrow\bar j_*\bar j^*\bar F\). Ce morphisme induit</p>
+\[
+\varphi:F_{\bar s}=\bar i^*\bar F\longrightarrow
+\bar i^*\bar j_*\bar j^*\bar F=(\Psi_\eta(F_\eta))_{\bar\eta}.
+\]
+<p>Le triple \(\Psi(F)=((\Psi(F))_s,(\Psi(F))_\eta,\varphi)\) est un faisceau sur \(X_s\mathop{\times}\limits_sS\). Le foncteur</p>
+\[
+\tag{1.3.3.3}\Psi:(X_{\mathrm{et}})^\sim\longrightarrow
+(X_s\mathop{\times}\limits_sS)^\sim
+\]
+<p>est exact à gauche.</p>
+
+<p id="13.1.3.4"><strong>1.3.4.</strong> Lorsqu'il n'y aura pas de risque de confusion, on posera</p>
+\[
+\Psi_\eta(F)=(\Psi(F))_\eta,\qquad
+\Psi_{\bar\eta}(F)=(\Psi(F))_{\bar\eta}\quad\text{et}\quad
+\Psi_{\bar\eta}(F)=(\Psi_\eta(F))_{\bar\eta}.
+\]
+
+<p id="13.1.3.5"><strong>1.3.5.</strong> Dans la fin de ce numéro, nous dressons une liste de propriétés de fonctorialité de \(\Psi\) (cf. 1.2.7 à 1.2.9). Elles seront utiles surtout sous leur forme dérivée (2.1).</p>
+<p>Soit \(f:X\longrightarrow X'\) un morphisme de \(S\)-schémas, d'où un diagramme</p>
+\[
+\tag{1.3.5.1}
+\xymatrix@C=3em@R=3em{
+X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]^f&\bar X&X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]^f\\
+X'_{\bar s}\ar@{^{(}->}[r]^{\bar i}&\bar X'&X'_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}.
+}
+\]
+<p>L'ambiguïté dans la notation des flèches simplifiera les formules, et ne prête pas à confusion : une seule interprétation donne un sens aux flèches composées ci-dessous. De même, nous noterons \(\Psi\) le foncteur (1.3.3.3) pour \(X\) tant que pour \(X'\).</p>
+<p>Les morphismes de foncteurs décrits ci-dessous pour \(\Psi\) ont une variante pour \(\Psi_\eta\), que nous omettons en général d'expliciter.</p>
+
+<p id="13.1.3.6"><strong>1.3.6.</strong> Le morphisme de changement de base \(\bar i^*f_*\longrightarrow f_*\bar i^*\) induit un morphisme de foncteurs</p>
+\[
+\tag{1.3.6.1}\Psi f_*\longrightarrow f_*\Psi
+\]
+<p>qui est un isomorphisme pour \(f\) propre (SGA4 XII 5.1(i)).</p>
+<p>Le cas essentiel est celui où \(X'=S\). On trouve un morphisme</p>
+\[
+\tag{1.3.6.2}f_*\longrightarrow f_{s*}\Psi
+\]
+<p>de composante essentielle</p>
+\[
+\tag{1.3.6.3}\Gamma(X_{\bar\eta},F)\longrightarrow
+\Gamma(X_{\bar s},\Psi_{\bar\eta}(F));
+\]
+<p>ce morphisme est un isomorphisme pour \(f\) propre.</p>
+
+<p id="13.1.3.7"><strong>1.3.7.</strong> Le morphisme de changement de base \(f^*\bar j_*\longrightarrow\bar j_*f^*\) induit un morphisme de foncteurs</p>
+\[
+\tag{1.3.7.1}f^*\Psi\longrightarrow\Psi f^*.
+\]
+
+<p id="13.1.3.8"><strong>1.3.8.</strong> Supposons \(f\) quasi-fini. Les foncteurs \(f_!\) commutent aux changements de base ; le morphisme \(f_!\bar j_*\longrightarrow\bar j_*f_!\) induit un morphisme de foncteurs</p>
+\[
+\tag{1.3.8.1}f_!\Psi\longrightarrow\Psi f_!.
+\]
+<p>Lorsque \(f\) est fini, c'est l'inverse de (1.3.6.1).</p>
+
+<p id="13.1.3.9"><strong>1.3.9.</strong> La situation est duale pour \(f^!\) (on suppose que \(f\) est quasi-fini pour travailler avec les faisceaux abéliens, ou est un plongement pour les faisceaux d'ensembles pointés). Ce foncteur commute aux images directes, et le morphisme \(\bar i^*f^!\longrightarrow f^!\bar i^*\) induit un morphisme de foncteurs</p>
+\[
+\tag{1.3.9.1}\Psi f^!\longrightarrow f^!\Psi.
+\]
+<p>Pour \(f\) étale, c'est l'inverse de (1.3.7.1).</p>
+
+<p id="13.1.3.10"><strong>1.3.10.</strong> Enfin, pour un changement de base \(S'\xrightarrow f S\), on trouve un morphisme de changement de base</p>
+\[
+\tag{1.3.10.1}f^*\Psi\longrightarrow\Psi f^*.
+\]
+
+<h3 id="13.1.4"><u>1.4. La variation.</u></h3>
+
+<p id="13.1.4.1"><strong>1.4.1.</strong> Soient \(S\) un trait hensélien comme en 0.2.5 et \(Y\) un schéma sur \(s\). Soit \(\Lambda\) un anneau. On pourrait plus généralement prendre pour \(\Lambda\) un faisceau d'anneaux sur \(Y\). Pour tout objet \(K\) de la catégorie dérivée \(D(Y\mathop{\times}\limits_sS,\Lambda)\) de la catégorie des faisceaux de \(\Lambda\)-modules sur \(Y\mathop{\times}\limits_sS\), nous nous proposons de définir un morphisme <u>variation</u>.</p>
+
+<p id="13.1.4.2"><strong>1.4.2.</strong> Un complexe de faisceaux de \(\Lambda\)-modules \(K\) sur \(Y\mathop{\times}\limits_sS\) s'identifie à un triple \((K_s,K_\eta,\varphi)\) où</p>
+<p>a) \(K_s\) (resp. \(K_\eta\)) est un complexe de faisceaux \(K_{\bar s}\) (resp. \(K_{\bar\eta}\)) sur \(\bar Y\), muni d'une action continue de \(\operatorname{Gal}(\bar s/s)\) (resp. \(\operatorname{Gal}(\bar\eta/\eta)\));</p>
+<p>b) \(\varphi\) est un morphisme équivariant \(\varphi:K_{\bar s}\longrightarrow K_{\bar\eta}\).</p>
+
+<p>Un tel complexe \(K\) est toujours homotope à un complexe \(K'=(K'_s,K'_\eta,\varphi')\) tel que \(\varphi'\) soit injectif et que la suite exacte</p>
+\[
+\tag{1.4.2.1}0\longrightarrow K'_{\bar s}\longrightarrow K'_{\bar\eta}\longrightarrow\operatorname{coker}(\varphi')\longrightarrow0
+\]
+<p>soit scindée degré par degré. Il suffit de prendre \(K_{\bar s}=K'_{\bar s}\), et de prendre pour \(K'_{\bar\eta}\) la somme de \(K_{\bar\eta}\) et du cône de \(sp^*K_{\bar s}\). Posons \(\Phi(K)=\operatorname{coker}(\varphi')\). La suite exacte (1.4.2.1) définit un triangle distingué</p>
+\[
+\tag{1.4.2.2}
+\xymatrix@C=4em@R=3em{
+&\Phi(K)\ar[dl]\ar[dr]&\\
+sp^*K_{\bar s}\ar[rr]&&K_{\bar\eta}
+}
+\]
+<p>dans la catégorie \(K(Y\mathop{\times}\limits_s\eta,\Lambda)\) des complexes de faisceaux de \(\Lambda\)-modules à homotopie près sur \(Y\mathop{\times}\limits_s\eta\). Ce triangle ne dépend que de \(K\in\operatorname{Ob}K(Y\mathop{\times}\limits_sS,\Lambda)\).</p>
+
+<p>Cette construction passe à la catégorie dérivée, et associe à tout objet \(K\) de \(D(Y\mathop{\times}\limits_sS,\Lambda)\) un triangle distingué de \(D(Y\mathop{\times}\limits_s\eta,\Lambda)\).</p>
+<p>Le triangle (1.4.2.2) est utile surtout via la suite exacte longue d'hypercohomologie qui s'en déduit</p>
+\[
+\cdots\longrightarrow H^i(\bar Y,K_{\bar s})\longrightarrow H^i(\bar Y,K_{\bar\eta})\longrightarrow H^i(\bar Y,\Phi(K)_{\bar\eta})\longrightarrow\cdots.
+\]
+
+<p id="13.1.4.3"><strong>1.4.3.</strong> Le groupe d'inertie \(I\) agit trivialement sur \(K'_{\bar s}\). Pour tout \(\sigma\in I\), l'endomorphisme \(\sigma-1\) de \(K'_{\bar\eta}\) (notation (1.4.2.1)) se factorise donc par un morphisme</p>
+\[
+\operatorname{Var}(\sigma):\operatorname{coker}(\varphi')\longrightarrow K'_{\bar\eta}.
+\]
+<p>Cette construction passe à la catégorie dérivée : pour \(K\in\operatorname{Ob}D(Y\mathop{\times}\limits_sS,\Lambda)\) et \(\sigma\in I\), elle définit la <u>variation</u></p>
+\[
+\tag{1.4.3.1}\operatorname{Var}(\sigma):\Phi(K)_{\bar\eta}\longrightarrow K_{\bar\eta}.
+\]
+<p>Notant \(q\) la flèche de \(K_{\bar\eta}\) dans \(\Phi(K)_{\bar\eta}\), on a</p>
+\[
+\tag{1.4.3.2}\sigma=1+\operatorname{Var}(\sigma)q\qquad\text{(sur }K_{\bar\eta}\text{)}
+\]
+\[
+\tag{1.4.3.3}\sigma=1+q\operatorname{Var}(\sigma)\qquad\text{(sur }\Phi(K)_{\bar\eta}\text{)}
+\]
+\[
+\tag{1.4.3.4}\operatorname{Var}(\sigma\tau)=\operatorname{Var}(\sigma)q\operatorname{Var}(\tau)+\operatorname{Var}(\sigma)+\operatorname{Var}(\tau).
+\]
+
+<h2 id="13.2"><u>2. Cycles évanescents</u></h2>
+
+<h3 id="13.2.1"><u>2.1. Le foncteur \(R\Psi\).</u></h3>
+
+<p id="13.2.1.1"><strong>2.1.1.</strong> Soient \(S\) un trait hensélien comme en (0.2.5) et \(\Lambda\) un anneau de torsion premier à la caractéristique résiduelle \(p\) de \(S\) (0.2.7). Plus généralement, on pourrait prendre pour \(\Lambda\) un faisceau de torsion premier aux caractéristiques résiduelles ; le cas le plus important est celui où \(\Lambda=\mathbb Z/\ell^n\) (\(\ell\) premier inversible dans \(\mathcal O_S\)).</p>
+
+<p>Soit \(X\) un schéma sur \(S\). Le foncteur \(\Psi\) (resp. \(\Psi_\eta\)) transforme faisceaux de \(\Lambda\)-modules sur \(X\) (resp. \(X_\eta\)) en faisceaux de \(\Lambda\)-modules sur \(X_s\mathop{\times}\limits_sS\) (resp. \(X_s\mathop{\times}\limits_s\eta\)). Soient \(R\Psi\) et \(R\Psi_\eta\) les foncteurs dérivés</p>
+\[
+R\Psi:D^+(X,\Lambda)\longrightarrow D^+(X_s\mathop{\times}\limits_sS,\Lambda),
+\]
+\[
+R\Psi_\eta:D^+(X_\eta,\Lambda)\longrightarrow D^+(X_s\mathop{\times}\limits_s\eta,\Lambda),
+\]
+<p>et \(R\Phi\) le foncteur composé \(\Phi\circ R\Psi\)</p>
+\[
+R\Phi:D^+(X,\Lambda)\longrightarrow D^+(X_s\mathop{\times}\limits_s\eta,\Lambda).
+\]
+
+<p id="13.2.1.2"><strong>2.1.2.</strong> Soit le diagramme commutatif (1.3.2.1)</p>
+\[
+\xymatrix@C=3em@R=3em{
+X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]&\bar X\ar[d]&X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]\\
+X_s\ar@{^{(}->}[r]^i&X&X_\eta\ar@{_{(}->}[l]_j.
+}
+\]
+<p>Si \(F\) est un faisceau de modules injectif sur \(X\), sa restriction à l'ouvert \(X_\eta\) est encore injective. Pour \(F_\eta\) injectif sur \(X_\eta\), l'image réciproque \(F_{\bar\eta}\) est acyclique. Les formules (1.3.3.1) et (1.3.3.2) se dérivent donc en</p>
+\[
+\tag{2.1.2.1}R\Psi(K)_s=i^*K\qquad(K\in\operatorname{Ob}D^+(X,\Lambda))
+\]
+\[
+\tag{2.1.2.2}R\Psi(K)_\eta=R\Psi_\eta(K_\eta)\qquad(K\in\operatorname{Ob}D^+(X,\Lambda))
+\]
+\[
+\tag{2.1.2.3}R\Psi_\eta(K)_{\bar\eta}=\bar i^*R\bar j_*K_{\bar\eta}\qquad(K\in\operatorname{Ob}D^+(X_\eta,\Lambda)).
+\]
+<p>Ceci permet de poser sans conflit</p>
+\[
+R\Psi_\eta(K)=(R\Psi(K))_\eta,\quad R\Psi_{\bar\eta}(K)=(R\Psi(K))_{\bar\eta}\quad\text{et}\quad R\Psi_{\bar\eta}(K)=(R\Psi_\eta(K))_{\bar\eta}.
+\]
+<p>Avec ces notations, le triangle distingué (1.4.2.2) s'écrit</p>
+\[
+\tag{2.1.2.4}
+\xymatrix@C=4em@R=3em{
+&R\Phi(K)_{\bar\eta}\ar[dl]\ar[dr]&\\
+sp^*i^*K\ar[rr]&&R\Psi_\eta(K_s).
+}
+\]
+<p>Pour \(\sigma\in I\), on dispose d'un morphisme <u>variation</u></p>
+\[
+\tag{2.1.2.5}\operatorname{Var}(\sigma):R\Phi(K)_{\bar\eta}\longrightarrow R\Psi_{\bar\eta}(K).
+\]
+<p>Les faisceaux \(R^i\Phi(\Lambda)\) (ou plus généralement \(R^i\Phi(K)\)) sont les <u>faisceaux de cycles évanescents</u>.</p>
+
+<p id="13.2.1.3"><strong>2.1.3.</strong> Soit \((\bar x,\bar\eta)\) le point géométrique de \(X_s\mathop{\times}\limits_s\eta\) défini par un point géométrique \(\bar x\) de \(X_{\bar s}\) (1.2.5). Calculons la fibre de \(R\Psi_\eta(K_\eta)\) en \((\bar x,\bar\eta)\) à l'aide de (2.1.2.3) (cf. I 2.3). L'hensélisé strict \(X_{(\bar x)}\) de \(X\) en \(\bar x\) est un schéma sur l'hensélisé strict \(S_{nr}\) de \(S\), de point géométrique \(\eta_{nr}\).</p>
+
+<p id="13.2.1.4"><strong><u>Proposition 2.1.4.</u></strong> <u>On a</u> \((R\Psi(K_\eta))_{(\bar x,\bar\eta)}=R\Gamma(X_{(\bar x)}\times_{\eta_{nr}}\bar\eta,K)\) ; <u>en particulier,</u></p>
+\[
+R^i\Psi(K)_{\eta(\bar x,\bar\eta)}=H^i(X_{(\bar x)}\times_{\eta_{nr}}\bar\eta,K).
+\]
+
+<p>Appliquons SGA4 XV 2.1 (théorème d'acyclicité locale des morphismes lisses). On trouve la</p>
+
+<p id="13.2.1.5"><strong><u>Reformulation 2.1.5.</u></strong> <u>Si \(f\) est lisse et \(F\) un faisceau localement constant, on a \(R\Phi(F)=0\).</u></p>
+<p>Plus généralement, si \(K\in\operatorname{Ob}D^+(X,\Lambda)\), alors \(R\Phi(K)=0\) là où \(f\) est lisse et que les \(\mathcal H^i(K)\) sont localement constants. Voir aussi 2.1.11.</p>
+
+<p id="13.2.1.6"><strong>2.1.6.</strong> Soit \(f:Y\longrightarrow Y'\) un morphisme de schémas sur \(s\). Les foncteurs \(f^*,f_*,f_!,f^!\) (1.2.7 à 1.2.9) ont un analogue naturel dans la catégorie dérivée.</p>
+<p>a) Le foncteur \(f^*\) est exact, donc se dérive trivialement.</p>
+<p>b) Le foncteur \(f_*\) a un dérivé droit, \(Rf_*\) ; pour \(f\) quasi-compact, on a</p>
+\[
+\tag{2.1.6.1}(Rf_*K)_s=Rf_{s*}(K_s);
+\]
+\[
+\tag{2.1.6.2}(Rf_*K)_\eta=Rf_{s*}(K_\eta).
+\]
+<p>c) Pour \(f\) quasi-fini, le foncteur \(f_!\) est exact, donc se dérive trivialement. Dans le cas général, le foncteur dérivé du foncteur \(f_!\) est pathologique, et on procède comme dans SGA4 XVII. On suppose \(f\) séparé de type fini, et \(Y'\) noethérien. Il existe alors [2] une décomposition \(f=\widetilde f j\), où \(j\) est une immersion ouverte et où \(\widetilde f\) est propre, et on définit</p>
+\[
+Rf_!=R\widetilde f_*\circ j_!.
+\]
+<p>Les arguments de SGA4 XVII montrent que le foncteur \(Rf_!\) est indépendant du choix de la factorisation \(\widetilde f j\). L'analogue de (2.1.6.1) (2.1.6.2) est valable.</p>
+<p>d) Nous n'utiliserons \(Rf^!\) que pour un morphisme quasi-fini, auquel cas c'est le foncteur dérivé de \(f^!\). On a encore l'analogue de (2.1.6.1) (2.1.6.2).</p>
+
+<p id="13.2.1.7"><strong>2.1.7.</strong> Passons en revue les propriétés de fonctorialité de \(R\Psi\) (i.e. dérivons 1.3.5 à 1.3.10). Soit \(f:X\longrightarrow X'\) un morphisme de \(S\)-schémas, et reprenons les notations de 1.3.5.</p>
+<p>Le morphisme (1.3.6.1) définit</p>
+\[
+\tag{2.1.7.1}R\Psi\,Rf_*\longrightarrow Rf_*\,R\Psi.
+\]
+<p>D'après le théorème de changement de base pour un morphisme propre (SGA4 XII 5.1), <u>ce morphisme est un isomorphisme si \(f\) est propre.</u></p>
+<p>Le morphisme (1.3.7.1) définit</p>
+\[
+\tag{2.1.7.2}f^*R\Psi\longrightarrow R\Psi\,f^*.
+\]
+<p>D'après le théorème de changement de base pour un morphisme lisse (SGA4 XVI 1.2), <u>ce morphisme est un isomorphisme si \(f\) est lisse.</u></p>
+<p>L'isomorphisme (2.1.7.1) pour \(f\) propre et le morphisme (1.3.8.1)</p>
+
+<p>définissent un morphisme</p>
+\[
+\tag{2.1.7.3}Rf_!\,R\Psi\longrightarrow R\Psi\,Rf_!
+\]
+<p>qui, pour \(f\) propre, est l'inverse de (2.1.8.1).</p>
+
+<p>Pour \(f\) quasi-fini, (1.3.9.1) se dérive en</p>
+\[
+\tag{2.1.7.4}R\Psi\,Rf^!\longrightarrow Rf^!\,R\Psi
+\]
+<p>qui, pour \(f\) étale, est l'inverse de (2.1.7.2).</p>
+
+<p>Soit un changement de trait \(f:S'\longrightarrow S\) et \(X'=X\mathop{\times}\limits_SS'\)</p>
+\[
+\xymatrix@C=5em@R=3em{X'\ar[r]^f\ar[d]_p&X\ar[d]^p\\S'\ar[r]^f&S}
+\]
+<p>(pour l'ambiguïté dans les notations, cf. 1.3.5). On suppose \(f\) surjectif. La flèche de changement de base (1.3.10.1) se dérive en</p>
+\[
+\tag{2.1.7.5}f^*R\Psi\longrightarrow R\Psi\,f^*.
+\]
+<p>Les mêmes énoncés valent pour \(R\Psi_\eta\).</p>
+
+<p id="13.2.1.8"><strong>2.1.8.</strong> Le cas essentiel de 2.1.7.1 et 2.1.7.3 est celui où \(X'=S\). On trouve alors pour \(K\in\operatorname{Ob}D^+(X_\eta,\Lambda)\) des morphismes</p>
+\[
+\tag{2.1.8.1}Rf_*\longrightarrow Rf_*R\Psi
+\]
+\[
+\tag{2.1.8.2}Rf_!R\Psi\longrightarrow Rf_!
+\]
+<p>d'où</p>
+\[
+\tag{2.1.8.3}H^i(X_{\bar\eta},K)\longrightarrow H^i(X_{\bar s},R\Psi_{\bar\eta}(K))
+\]
+\[
+\tag{2.1.8.4}H_c^i(X_{\bar s},R\Psi_{\bar\eta}(K))\longrightarrow H_c^i(X_{\bar\eta},K)
+\]
+<p>et la commutativité des diagrammes</p>
+\[
+\tag{2.1.8.5}
+\xymatrix@C=5em@R=3em{(R^if_*K)_{\bar s}\ar[r]^{sp}\ar[d]&H^i(X_{\bar\eta},K)\ar[d]\\H^i(X_{\bar s},K)\ar[r]&H^i(X_{\bar s},R\Psi_{\bar\eta}(K))}
+\]
+\[
+\tag{2.1.8.6}
+\xymatrix@C=5em@R=3em{H_c^i(X_{\bar s},K)\ar[rr]^{sp}\ar[dr]&&H_c^i(X_{\bar\eta},K)\\&H_c^i(X_{\bar s},R\Psi_{\bar\eta}(K))\ar[ur]&}
+\]
+<p>Pour \(K\in\operatorname{Ob}D^+(X_\eta,\Lambda)\) et \(\sigma\in I\), les diagrammes suivants sont commutatifs</p>
+\[
+\tag{2.1.8.7}
+\xymatrix@C=3.2em@R=3em{H^i(X_{\bar\eta},K)\ar[rrr]^{\sigma-1}\ar[d]&&&H^i(X_{\bar\eta},K)\ar[d]\\H^i(X_{\bar s},R\Psi_{\bar\eta}(K))\ar[r]&H^i(X_{\bar s},R\Phi_{\bar\eta}(K))\ar[r]^{\operatorname{Var}(\sigma)}&H^i(X_{\bar s},R\Psi_{\bar\eta}(K))&}
+\]
+\[
+\tag{2.1.8.8}
+\xymatrix@C=3.2em@R=3em{H_c^i(X_{\bar\eta},K)\ar[rrr]^{\sigma-1}&&&H_c^i(X_{\bar\eta},K)\\H_c^i(X_{\bar s},R\Psi_{\bar\eta}(K))\ar[u]\ar[r]&H_c^i(X_{\bar s},R\Phi_{\bar\eta}(K))\ar[r]^{\operatorname{Var}(\sigma)}&H_c^i(X_{\bar s},R\Psi_{\bar\eta}(K))\ar[u]&}
+\]
+<p>Pour \(f\) propre, (2.1.8.1) et (2.1.8.2), ainsi que (2.1.8.3) et (2.1.8.4) sont des isomorphismes inverses l'un de l'autre. Le triangle distingué (2.1.2.4) fournit une suite exacte longue</p>
+\[
+\tag{2.1.8.9}\cdots\longrightarrow H^i(X_{\bar s},K)\longrightarrow H^i(X_{\bar\eta},K)\longrightarrow H^i(X_{\bar s},R\Phi_{\bar\eta}(K))\longrightarrow\cdots
+\]
+<p>Le complexe évanescent \(R\Phi(K)\) exprime donc la différence entre les cohomologies des fibres géométriques \(X_{\bar s}\) et \(X_{\bar\eta}\) (à valeurs dans l'image réciproque de \(K\)). D'après (2.1.8.7), la variation \(\operatorname{Var}(\sigma)\) détermine l'action du groupe d'inertie \(I\) sur \(H^i(X_{\bar\eta},K)\). Ces faits sont à la base de toutes les applications de la méthode des cycles évanescents.</p>
+
+<p>L'hypothèse de propreté faite ci-dessus sur \(f\) peut se remplacer par des conditions de régularité à l'infini sur \(f\) et \(K\). On a par exemple le résultat suivant (pour \(K\in\operatorname{Ob}D(X_\eta,\Lambda)\)).</p>
+
+<p id="13.2.1.9"><strong><u>Proposition 2.1.9.</u></strong> <u>Supposons que \(f\) admette une factorisation \(f=f_1k\)</u></p>
+\[
+X\mathop{\lhook\joinrel\longrightarrow}\limits^kX_1\mathop{\longrightarrow}\limits^{f_1}S,
+\]
+<p><u>avec \(f_1\) propre, et \(k\) l'inclusion dans \(X_1\) du complément d'un diviseur à croisements normaux relatif \(D\) (par hypothèse, \(f_1\) est donc lisse dans un voisinage de \(D\)). Si, dans un voisinage \(U\) de \(D\), les \(H^i(K)\) sont localement constants sur \(U-(D\cup X_\infty)\), et modérément ramifiés le long du diviseur à croisements normaux \(D\cup X_\infty\), alors (2.1.8.1) et (2.1.8.2) sont des isomorphismes.</u></p>
+
+<p>La suite spectrale d'hypercohomologie de \(K\) montre qu'il suffit de traiter le cas où \(K\) est réduit à un faisceau \(F_\eta\) en degré 0. Remplaçant \(S\) par son normalisé dans une extension finie (ce qui est loisible, comme on le voit sur les définitions), et appliquant le lemme d'Abhyankar, on peut supposer que \(F_\eta\) est restriction à \(X_\eta\) d'un faisceau \(F\) sur \(X\), localement constant sur \(U\cap X\) et modérément ramifié le long de \(D\). Avec les notations de 2.1.2, soit \(\bar F\) l'image réciproque de \(F\) sur \(\bar X\) et \(\bar f:\bar X\longrightarrow\bar S\).</p>
+
+<p>Pour prouver que (2.1.8.1) est un isomorphisme, il suffit de prouver que \(R\bar f_*(R\bar j_*\bar j^*\bar F)\) commute au changement de base \(\bar s\longrightarrow\bar S\). Dans le triangle</p>
+\[
+\longrightarrow\bar F\longrightarrow R\bar j_*\bar j^*\bar F\longrightarrow\Delta\longrightarrow
+\]
+<p>les \(H^i(\Delta)\) sont à support dans \(X_{\bar s}\) ; pour \(\Delta\), le résultat de changement de base considéré est trivial. Il suffit donc de prouver que \(R\bar f_*(\bar F)\) commute au changement de base \(\bar s\longrightarrow\bar S\), soit, vu le théorème de changement de base pour \(f_1\), que \(Rk_*(\bar F)\) commute au changement de base \(X_{\bar s}\longrightarrow X_1\) (2.1.10 ci-dessous).</p>
+
+<p>Pour prouver que (2.1.8.2) est un isomorphisme, il suffit de prouver que, pour le faisceau \(F\), le prolongement par 0 \(k_!\) commute au foncteur \(R\bar j_*\), i.e. que, dans un voisinage de \(D\),</p>
+\[
+R\Phi(k_!F)=0\quad\text{sur }X_{1\bar s}\qquad(2.1.11\text{ ci-dessous}).
+\]
+
+<p id="13.2.1.10"><strong><u>Lemme 2.1.10.</u></strong> <u>Soit \(f:X\longrightarrow S\) un morphisme lisse, \(D\subset X\) un diviseur à croisements normaux relatif, \(U=X-D\mathop{\lhook\joinrel\longrightarrow}\limits^jX\) et \(F\) un faisceau de \(\Lambda\)-modules sur \(U\), localement constant et modérément ramifié le long de \(D\). La formation de \(Rj_*F\) commute à tout changement de base \(T\longrightarrow S\).</u></p>
+
+<p>La question est locale (pour la topologie étale) sur \(X\). On peut donc supposer qu'il existe \(g:X'\longrightarrow X\), normalisé de \(X\) dans un revêtement fini étale surjectif \(g':U'\longrightarrow U\) modérément ramifié le long de \(D\), tel que \(g'^*F\) soit constant sur \(U'\). Utilisant le lemme d'Abhyankar, on peut supposer que de plus \(X'\) est lisse sur \(S\) et que \(U'\) est le complément d'un diviseur à croisements normaux relatif \(D'\) dans \(X'\).</p>
+
+<p>\(F\) s'injecte dans \(g'_*g'^*F\) et le conoyau vérifie encore les hypothèses de 2.1.10. Itérant la construction (le même \(g\) continue d'ailleurs à marcher), on obtient une résolution de \(F\) par des faisceaux de la forme \(g'_*G\) avec \(G\) constant et \(g'\) comme plus haut, il suffit donc de démontrer 2.1.10 pour un tel faisceau, i.e. de démontrer 2.1.10 pour \((X'/S,D',G\text{ constant sur }U')\) ; c'est là un cas particulier de SGA5 II 4.4.</p>
+
+<p id="13.2.1.11"><strong><u>Lemme 2.1.11.</u></strong> <u>Soient \(S\) un trait hensélien, \(f:X\longrightarrow S\) un morphisme lisse, \(D\subset X\) un diviseur à croisements normaux relatif, \(U=X-D\mathop{\lhook\joinrel\longrightarrow}\limits^jX\) et \(F\) un faisceau de \(\Lambda\)-modules sur \(U\), localement constant et modérément ramifié le long de \(D\). On a</u></p>
+\[
+R\Phi(j_!F)=0.
+\]
+
+<p>Le dévissage utilisé en 2.1.11 nous ramène au cas où \(F\) est constant, de valeur \(G\). On peut supposer \(D\) réunion de diviseurs lisses \((D_i)_{i\in I}\). Pour \(J\subset I\), soit \(D_J\) l'intersection des \(D_i\) pour \(i\in J\). Le faisceau \(F\) admet une résolution \(F^\bullet\), de composantes des sommes de faisceaux \(G_J\), constants sur \(D_J\) et prolongés par 0 sur \(X\). Il suffit donc de prouver 2.1.11 pour un tel faisceau, ce qui résulte de (2.1.5) appliqué aux \(D_J/S\).</p>
+
+<p>Je conjecture que 2.1.7.5 est un isomorphisme si \(S\) et \(S'\) sont excellents. Voici un résultat partiel (voir aussi 2.4.2).</p>
+
+<p id="13.2.1.12"><strong><u>Proposition 2.1.12.</u></strong> <u>Le morphisme 2.1.7.5 est un isomorphisme dans les cas suivants</u></p>
+<p><u>(a) \(S\) est excellent, de complété \(S'\) ;</u></p>
+<p><u>(b) \(S\) et \(S'\) sont d'égale caractéristique 0.</u></p>
+
+<p>Dans le cas (b), on se ramène à supposer \(S\) et \(S'\) strictement locaux, et qu'une uniformisante pour \(S\) est encore une uniformisante pour \(S'\) (étendre les scalaires sans changer \(\bar S'\longrightarrow\bar S\)). Dans les cas (a) et (b), notant par \(\bar{\ }\) le normalisé dans une clôture séparable du corps des fractions, on a alors \(\bar S'\simeq S'\mathop{\times}\limits_S\bar S\), et, revenant aux définitions, on trouve qu'il suffit de prouver que \(S'\longrightarrow S\) est universellement localement acyclique (appliquer SGA4 XVI 1.1). Ceci résulte de I 0.5.1 (basé sur la désingularisation de Néron à la Artin) et de SGA4 XV 2.1 (théorème d'acyclicité locale des morphismes lisses).</p>
+
+<p id="13.2.1.13"><strong>2.1.13.</strong> Supposons \(f:X\longrightarrow S\) de type fini. La dimension cohomologique (SGA4 XVII 1.2.9) de \(R\Psi_\eta\) est alors au plus égale à \(\dim(X)\), ainsi qu'il résulte de 2.1.4 et de SGA4 XIV 3.2 (cf. I 4.2.(i)). Ceci permet d'étendre \(R\Psi\) à la catégorie dérivée entière</p>
+\[
+R\Psi:D(X,\Lambda)\longrightarrow D(X_s\mathop{\times}\limits_sS,\Lambda),
+\]
+<p>et \(R\Psi\) transforme \(D^-\) en \(D^-\). Soit \(L\in\operatorname{Ob}D^-(\Lambda)\) un complexe borné supérieurement de \(\Lambda\)-modules à droite, et \(K\in\operatorname{Ob}D^-(X,\Lambda)\). On dispose alors de</p>
+
+\[
+\tag{2.1.13.1}L\mathop{\otimes}\limits^L_\Lambda R\Psi(K)\mathop{\longrightarrow}\limits^\sim R\Psi(L\mathop{\otimes}\limits^L_\Lambda K).
+\]
+<p>Pour vérifier que 2.1.13.1 est un isomorphisme, on remplace tout d'abord \(L\) par un complexe de \(\Lambda\)-modules libres, et on note qu'il suffit, car \(R\Psi\) est triangulé de dimension cohomologique finie, de le vérifier après avoir remplacé \(L\) par une de ses composantes. Par passage à la limite inductive, on se ramène au cas où \(L\) est un module libre de type fini, puis au cas trivial où \(L=\Lambda\).</p>
+
+<p>De (2.1.13.1) on déduit par un argument familier (cf. SGA4 XVII 5.2.11) que si \(K\in\operatorname{Ob}D(X_\eta,\Lambda)\) est de Tor dimension finie \(\leq d\) (\(d\in\mathbb Z\)) (SGA4 XVII 4.1.9), alors \(R\Psi_\eta(K)\) est de même de Tor-dimension \(\leq d\).</p>
+
+<h2 id="13.2.2">2.2. Une compatibilité (morphismes traces).</h2>
+
+<p id="13.2.2.1"><strong>2.2.1.</strong> Soient \(S\) un trait hensélien et \(u:X_s\to Y_s\) un morphisme quasi-fini plat séparé de présentation finie de \(s\)-schémas. Pour tout faisceau abélien \(F\) sur \(Y_s\), un morphisme trace \(\operatorname{Tr}_u:u_!u^*F\to F\) est défini (SGA4 XVII 6.2.3). Pour \(F\) un faisceau abélien sur \(Y_s\times_sS\) ou \(Y_s\times_s\eta\), on en déduit un morphisme analogue \(\operatorname{Tr}_u:u_!u^*F\to F\).</p>
+
+<p>Soit \(u:X\to Y\) un morphisme quasi-fini plat séparé de présentation finie de \(S\)-schémas. Nous noterons encore \(u\) le morphisme induit \(X_s\times_sS\to Y_s\times_sS\) et nous noterons \(\Psi\) les foncteurs 1.3.3 pour \(X\) et pour \(Y\).</p>
+
+<p id="13.2.2.2"><strong><u>Proposition 2.2.2.</u></strong> <u>Pour tout faisceau abélien \(F\) sur \(Y\), le diagramme suivant est commutatif</u></p>
+\[
+\xymatrix@C=4em{u_!u^*\Psi F\ar[r]^{(1.3.7.1)}\ar[d]_{\operatorname{Tr}_u}&u_!\Psi u^*F\ar[r]^{(1.3.8.1)}&\Psi u_!u^*F\ar[d]^{\operatorname{Tr}_u}\\\Psi F\ar[rr]^{=}& &\Psi F.}
+\]
+<p>La vérification est laissée au lecteur. On a une variante pour \(\Psi_\eta\) et \(F\) sur \(Y_\eta\).</p>
+
+<p id="13.2.2.3"><strong>2.2.3.</strong> Soient \(\Lambda\) comme en 2.2.1 et \(u:X\to Y\) un morphisme quasi-fini et plat de \(S\)-schémas séparés de type fini et plats</p>
+\[
+\xymatrix@C=4em@R=3em{X\ar[rr]^u\ar[dr]_f&&Y\ar[dl]^g\\&S&}.
+\]
+<p>On note encore \(f\) et \(g\) les morphismes \(X_s\times_sS\to S\) et \(Y_s\times_sS\to S\). On suppose que \(\dim Y_\eta\leq n\).</p>
+<p>Pour tout \(K\in\operatorname{Ob}D(S,\Lambda)\), on a défini un morphisme trace (SGA4 XVIII 2.9)</p>
+\[
+\operatorname{Tr}_f:Rf_!f^*K(n)[2n]\longrightarrow K.
+\]
+
+<p id="13.2.2.4"><strong><u>Corollaire 2.2.4.</u></strong> <u>Le diagramme suivant est commutatif</u></p>
+\[
+\xymatrix@C=2.5em@R=3em{Rg_!u_!u^*R\Psi g^*K(n)[2n]\ar[r]^{(1.3.7.1)}\ar[d]_{\operatorname{Tr}_u}&Rf_!R\Psi f^*K(n)[2n]\ar[r]^{(2.1.10.1)}&Rf_!f^*K(n)[2n]\ar[d]^{\operatorname{Tr}_f}\\Rg_!R\Psi g^*K(n)[2n]\ar[r]^{(2.1.10.1)}&Rg_!g^*K(n)[2n]\ar[r]^{\operatorname{Tr}_g}&K.}
+\]
+<p><u>Si \(u\) est étale, (1.3.7.1) est un isomorphisme.</u></p>
+<p>Le diagramme (2.2.4) se déploie en le suivant, où les arguments sont omis</p>
+\[
+\xymatrix@C=2em@R=3em{Rg_!u_!u^*R\Psi g^*\ar[r]\ar[d]_{\operatorname{Tr}_u}&Rg_!R\Psi u_!u^*g^*\ar[r]\ar[d]_{\operatorname{Tr}_u}&Rg_!u_!u^*g^*\ar[r]^\sim\ar[d]_{\operatorname{Tr}_u}&Rf_!f^*\ar[d]^{\operatorname{Tr}_f}\\Rg_!R\Psi g^*\ar[r]^{=}&Rg_!R\Psi g^*\ar[r]&Rg_!g^*\ar[r]^{\operatorname{Tr}_g}&K.}
+\]
+<p>Que (1) soit commutatif résulte de 2.2.2. Que (2) le soit est la fonctorialité de (2.1.10.2). Que (3) le soit est la transitivité de la trace SGA4 XVIII 2.9. Var. 3.</p>
+
+<p id="13.2.2.4.1"><strong>2.2.4.1.</strong> On a un résultat analogue pour \(\Psi_\eta\) et \(K\in\operatorname{Ob}D(\eta,\Lambda)\).</p>
+
+<p id="13.2.2.5"><strong>2.2.5.</strong> Soit \(\Phi\) une partie de \(Y_s\) propre sur \(s\), et notons \(Rg_\Phi\) le foncteur «image directe à support dans \(\Phi\)». Notons \(\operatorname{Tr}_g\) le morphisme composé</p>
+\[
+\tag{2.2.5.1}\operatorname{Tr}_g:Rf_!R\Psi g^*K(n)[2n]\to Rg_!R\Psi g^*K(n)[2n]\to Rg_!g^*K(n)[2n]\to K,
+\]
+<p>et son analogue pour \(\Psi_\eta\) et \(K\in D(\eta,\Lambda)\). Si \(\Phi\) est un ensemble fini de points fermés, on a</p>
+\[
+Rg_\Phi\circ u_!=Rf_{u^{-1}\Phi},
+\]
+<p>d'où un morphisme trace \(\operatorname{Tr}_u:Rf_{u^{-1}\Phi}u^*=Rg_\Phi\,u_!u^*\to Rg_\Phi\). D'après 2.2.4, le diagramme suivant est commutatif.</p>
+\[
+\xymatrix@C=3em@R=3em{Rf_{u^{-1}\Phi}u^*R\Psi g^*K(n)[2n]\ar[r]\ar[d]_{\operatorname{Tr}_u}&Rf_{u^{-1}\Phi}R\Psi f^*K(n)[2n]\ar[r]^{\operatorname{Tr}_f}&K\ar@{=}[d]\\Rg_\Phi R\Psi g^*K(n)[2n]\ar[rr]^{\operatorname{Tr}_g}&&K.}
+\]
+<p>Supposons \(u\) étale, soit \(x\in X_s\) et supposons que \(x\) et \(y=u(x)\) aient même corps résiduel. On a alors</p>
+\[
+Rf_{\{x\}}\mathop{\longrightarrow}\limits^\sim Rg_{\{x\}};
+\]
+<p>cet isomorphisme, donné par \(\operatorname{Tr}_u\), exprime la nature locale pour la cohomologie étale de la cohomologie à support dans \(x\). Le diagramme</p>
+\[
+\tag{2.2.5.2}\xymatrix@C=5em@R=3em{Rf_{\{x\}}R\Psi f^*K(n)[2n]\ar[r]^{\operatorname{Tr}_f}\ar@{=}[d]&K\ar@{=}[d]\\Rg_{\{y\}}R\Psi g^*K(n)[2n]\ar[r]^{\operatorname{Tr}_g}&K}
+\]
+<p>est commutatif.</p>
+
+<p id="13.2.2.6"><strong><u>Scholie 2.2.6.</u></strong> La compatibilité 2.3.5.2 exprime que le morphisme trace (2.2.5.1) pour \(\Phi=\{x\}\), est un invariant local : il ne dépend que du \(S\)-schéma hensélisé de \(X\) en \(x\). De même pour \(R\Psi_\eta\).</p>
+
+<h2 id="13.2.3">2.3. Théorème de finitude (en égale caractéristique zéro).</h2>
+
+<p id="13.2.3.1"><strong><u>Théorème 2.3.1.</u></strong> <u>Soient \(S\) un trait hensélien comme en 0.2.5, \(\Lambda\) un anneau de torsion noethérien et \(f:X\to S\) un morphisme de type fini. On suppose que \(S\) est d'égale caractéristique zéro. Alors, pour tout faisceau constructible de \(\Lambda\)-modules \(F\) sur \(X_\eta\), les faisceaux \(R^i\Psi_\eta(F)\) sur \(X_s\) sont constructibles.</u></p>
+
+<p>On commence par recopier le début de la démonstration de SGA4 XIV 1.10 : appliquons SGA4 IX 2.14 (ii). Il existe une résolution \(F^\bullet\) de \(F\)</p>
+\[
+\xymatrix{&F\ar[d]\\0\ar[r]&F^0\ar[r]&F^1\ar[r]&\cdots}
+\]
+<p>par des faisceaux de la forme \(\bigoplus_i p'_{i*}G_i\), où \(p'_i:Y_{i\eta}\to X_\eta\) est fini et où \(G_i\) est un faisceau constant constructible. On peut supposer \(Y_{i\eta}\) réduit ; soit \(p_i:Y_i\to X\) le normalisé de \(X\) dans \(Y_{i\eta}\). Utilisons la suite spectrale de la résolution \(F^\bullet\) et appliquons 2.1.7.1 dans le cas trivial du morphisme fini \(p_i\) ; on trouve qu'il suffit de prouver 2.3.1 pour \((Y_i,G_i)\).</p>
+
+<p>Prouvons 2.3.1 pour \(F\) constant défini par un \(\Lambda\)-module \(M\). Rappelons que \(\Lambda\) est une \(\mathbb Z/n\)-algèbre pour \(n\) convenable. Le module \(M\) se dévisse donc en modules \(M_i\) sur \(\Lambda/\ell_i\Lambda\), avec \(\ell_i\mid n\) premier convenable. Ceci nous ramène au cas où \(\Lambda\) est une \(\mathbb Z/\ell\)-algèbre, \(\ell\) premier. On a alors (2.1.13.1)</p>
+\[
+M\otimes R^i\Psi_\eta(\mathbb Z/\ell)\mathop{\longrightarrow}\limits^\sim R^i\Psi_\eta(M);
+\]
+<p>il reste à traiter le cas où \(F\) est le faisceau constant \(\mathbb Z/\ell\).</p>
+
+<p>Soit \(X_\eta=X'_0\supset\cdots\supset X'_n\) une suite de parties fermées de \(X_\eta\) telle que \((X'_i-X'_{i+1})_{\mathrm{red}}\) soit lisse sur \(\eta\). Soit \(X_i=\overline{X'_i}\). Le faisceau \(\mathbb Z/\ell\) se dévisse en les faisceaux \(\mathbb Z/\ell\) sur \((X'_i-X'_{i+1})\), prolongés par 0. On en tire la</p>
+
+<p><strong><u>Réduction 1</u></strong> Il suffit de prouver 2.3.1 pour un faisceau \(j_!\mathbb Z/\ell\), pour \(j:U\lhook\joinrel\longrightarrow X_\eta\) l'inclusion d'un ouvert lisse.</p>
+
+<p>D'après la résolution des singularités, il existe \(g:X_1\to X\) tel que</p>
+<p>(a) \(g\) est propre, et induit un isomorphisme \(g^{-1}(U)\mathop{\longrightarrow}\limits^\sim U\) ;</p>
+<p>(b) \(X_1\) est régulier et \(X_1-g^{-1}(U)\) un diviseur à croisements normaux dans \(X_1\), réunion de diviseurs réguliers \(D_\alpha\).</p>
+
+<p>Soit \(j_1:g^{-1}(U)\lhook\joinrel\longrightarrow X_1\). On a \(Rg_*j_{1!}\mathbb Z/\ell=j_!\mathbb Z/\ell\). Appliquons 2.1.7.1 et le théorème de finitude SGA4 XIV 1.1 ; on trouve qu'il suffit de prouver (2.3.1) pour \((X_1,j_{1!}\mathbb Z/\ell)\).</p>
+
+<p>On a une résolution</p>
+\[
+0\longrightarrow j_{1!}\mathbb Z/\ell\longrightarrow\mathbb Z/\ell\longrightarrow\bigoplus_\alpha(\mathbb Z/\ell)_{D_\alpha}\longrightarrow\bigoplus_{\alpha,\beta}(\mathbb Z/\ell)_{D_\alpha\cap D_\beta}\longrightarrow\cdots,
+\]
+<p>d'où la</p>
+
+<p><strong><u>Réduction 2</u></strong> Il suffit de prouver 2.3.1 pour le faisceau constant \(\mathbb Z/\ell\) et un \(S\)-schéma régulier \(X\) tel que \(X_s\) soit un diviseur à croisements normaux dans \(X\).</p>
+
+<p>Dans le cas auquel on s'est réduit, on utilise le calcul explicite I 3.3 (qui utilise le théorème de pureté SGA4 XIX 3.2 et la caractéristique 0).</p>
+
+<h2 id="13.2.4">2.4. Singularités isolées.</h2>
+
+<p id="13.2.4.1"><strong>2.4.1.</strong> Dans ce numéro, nous supposons pour simplifier que \(S\) est un trait strictement hensélien. Soient \(\Lambda\) un anneau noethérien de torsion premier à la caractéristique résiduelle de \(S\), \(f:X\to S\) un morphisme de type fini et \(F\) un faisceau constructible de \(\Lambda\)-modules sur \(X\). On dit que \(x\in X\) est un point de lissité de \((X,F)\) si \(f\) est lisse en \(x\) et que \(F\) est localement constant au voisinage de \(x\). On note \(\Sigma\) l'ensemble des points de non lissité de \((X,F)\), et \(\Sigma_s\) la fibre spéciale de \(\Sigma\). On sait que \(R\Phi(F)=0\) en dehors de \(\Sigma_s\).</p>
+
+<p id="13.2.4.2"><strong><u>Théorème 2.4.2.</u></strong> <u>En tout point isolé \(x\) de \(\Sigma_s\), les \(R^i\Phi_{\bar\eta}(F)_x\) sont des \(\Lambda\)-modules de type fini, invariants par changement de trait (via 2.1.7.1).</u></p>
+
+<p>En égale caractéristique 0, ces assertions ont été démontrées en 2.1.12 et 2.3.1, sans supposer que \(x\) soit isolé.</p>
+<p>Soit \(x\) un point isolé de \(\Sigma_s\). Le théorème est de nature locale au voisinage de \(x\) ; on peut donc supposer que \(f\) soit propre. On dispose alors de la suite exacte longue (2.1.8.9)</p>
+\[
+\cdots\longrightarrow H^i(X_s,F)\longrightarrow H^i(X_{\bar\eta},F)\longrightarrow H^i(X_s,R\Phi_{\bar\eta}(F))\longrightarrow\cdots
+\]
+<p>Dans cette suite, \(H^i(X_s,F)\) et \(H^i(X_{\bar\eta},F)\) sont invariants par changement de trait et des \(\Lambda\)-modules de type fini (SGA4 XIV 1.1) ; les \(H^i(X_s,R\Phi_{\bar\eta}(F))\) partagent donc ces propriétés. Rappelons le</p>
+
+<p id="13.2.4.3"><strong><u>Lemme 2.4.3.</u></strong> <u>Soient \((T,\Lambda)\) un topos annelé et \(F\) un fermé de \(T\). Soit \(i\) l'inclusion de \(F\). Alors, \(i_*:D(F,\Lambda)\to D(T,\Lambda)\) est une équivalence de catégorie de \(D(F,\Lambda)\) avec la sous-catégorie de \(D(T,\Lambda)\) formée des \(K\) tels que \(H^i(K)\) soit à support dans \(F\).</u></p>
+<p>En effet, pour un tel complexe \(K\), \(K\to i_*i^*K\) est un quasi-isomorphisme.</p>
+<p>On peut donc regarder \(R\Phi_{\bar\eta}(F)\) comme un objet de</p>
+\[
+D^b(\Sigma_s,\Lambda)=D^b(\Sigma_s-\{x\},\Lambda)\oplus D^b(\{x\},\Lambda).
+\]
+<p>Par passage à un facteur direct, on trouve donc que \(H^i(\{x\},R\Phi_{\bar\eta}(F))=R^i\Phi_{\bar\eta}(F)_x\) vérifie 2.4.2, ce qui achève la démonstration.</p>
+
+<p id="13.2.4.4"><strong><u>Remarque 2.4.4.</u></strong> Avec la même démonstration, on voit que, pour \(K\) constructible dans \(D^+(X,\Lambda)\) et \(x\) isolé dans le support de \(R\Phi_{\bar\eta}(K)\), le \(\Lambda\)-module \(R\Phi_{\bar\eta}(K)_x\) est de type fini ; si, après un changement de trait, \(x\) reste un point isolé du support, ce module est invariant par ce changement de trait.</p>
+
+<p id="13.2.4.5"><strong>2.4.5.</strong> Soit \(x\in X_s\) un point de non lissité isolé de \((X,F)\). Plus généralement, soit \(K\in\operatorname{Ob}D^b(X,\Lambda)\) et soit \(x\) un point isolé du support de \(R\Phi(K)\). Soit \(i\) l'inclusion de \(x\) dans \(X_s\). Le complexe \(i_*i^*R\Phi(K)\), isomorphe à \(R\Phi(K)\) au voisinage de \(x\), est facteur direct de \(R\Phi(F)\) (2.4.3). Pour \(\sigma\in I\), le morphisme variation induit donc</p>
+\[
+\operatorname{Var}(\sigma):i_*i^*R\Phi_{\bar\eta}(K)\longrightarrow R\Psi_{\bar\eta}(K),
+\]
+<p>soit</p>
+\[
+\tag{2.4.5.1}\operatorname{Var}(\sigma):(R\Phi_{\bar\eta}(K))_x\longrightarrow R\Gamma_{\{x\}}(R\Psi_{\bar\eta}(K)).
+\]
+
+<p id="13.2.4.6"><strong>2.4.6.</strong> Supposons que le support \(\Sigma\) de \(R\Phi(K)\) soit formé d'un nombre fini de points isolés. Pour tout \(\sigma\in I\), l'endomorphisme \(\sigma-1\) de \(R\Psi_{\bar\eta}(K)\) est alors le composé</p>
+\[
+\tag{2.4.6.1}\xymatrix@C=4em@R=3em{R\Psi_{\bar\eta}(K)\ar[r]&R\Phi_{\bar\eta}(K)=\displaystyle\bigoplus_{x\in\Sigma}i_{x*}(R\Phi_{\bar\eta}(K))_x\ar[d]^{\oplus i_{x*}\operatorname{Var}(\sigma)}\\R\Psi_{\bar\eta}(K)\ar[u]^{\sigma-1}&\displaystyle\bigoplus_{x\in\Sigma}i_{x*}R\Gamma_{\{x\}}R\Psi_{\bar\eta}(K).\ar[l]}
+\]
+<p>Si \(f\) est propre, appliquant à (2.4.6.1) le foncteur \(H^i\), on trouve que l'endomorphisme \(\sigma-1\) de \(H^i(X_{\bar\eta},K)\) est le composé</p>
+\[
+\tag{2.4.6.2}\xymatrix@C=2.6em@R=3em{H^i(X_{\bar\eta},K)\ar[r]^\sim&H^i(X_s,R\Psi_{\bar\eta}(K))\ar[r]&H^i(X_s,R\Phi_{\bar\eta}(K))=\displaystyle\bigoplus_{x\in\Sigma}R^i\Phi_{\bar\eta}(K)_x\ar[d]^{\oplus\operatorname{Var}(\sigma)}\\H^i(X_{\bar\eta},K)\ar[u]^{\sigma-1}&H^i(X_s,R\Psi_{\bar\eta}(K))\ar[l]_\sim&\displaystyle\bigoplus_{x\in\Sigma}H^i_{\{x\}}(X_s,R\Psi_{\bar\eta}(K)).\ar[l]}
+\]
+<p>Ceci fournit une description de l'action de \(I\) sur \(H^i(X_{\bar\eta},K)\) où l'ingrédient essentiel est les morphismes variation (2.4.4.1), de nature locale sur \(X\). On a par ailleurs la suite exacte longue</p>
+\[
+\tag{2.4.6.3}\longrightarrow H^i(X_s,K)\longrightarrow H^i(X_{\bar\eta},K)\longrightarrow\bigoplus_{x\in\Sigma}R^i\Phi_{\bar\eta}(K)_x\longrightarrow\cdots
+\]
+<p>Le même argument vaut pour \(f\) non nécessairement propre si \((X,K)\) vérifie 2.1.9. On définit par le diagramme (2.4.6.5) ci-dessous un morphisme</p>
+\[
+\tag{2.4.6.4}\operatorname{Var}(\sigma):R\Gamma(X_{\bar\eta},K)\longrightarrow R\Gamma_c(X_{\bar\eta},K),
+\]
+<p>tel que l'endomorphisme \(\sigma-1\) de \(R\Gamma(X_{\bar\eta},K)\) (resp. \(R\Gamma_c(X_{\bar\eta},K)\)) soit le composé \(\alpha\operatorname{Var}(\sigma)\) (resp. \(\operatorname{Var}(\sigma)\alpha\)) de \(\operatorname{Var}(\sigma)\) et de \(\alpha:R\Gamma_c(X_{\bar\eta},K)\to R\Gamma(X_{\bar\eta},K)\).</p>
+\[
+\tag{2.4.6.5}\xymatrix@C=3em@R=3em{R\Gamma(X_{\bar\eta},K)\ar[r]^\sim\ar[d]_{\operatorname{Var}(\sigma)}&R\Gamma(X_s,R\Psi_{\bar\eta}(K))\ar[r]&\displaystyle\bigoplus_{x\in\Sigma}(R\Phi_{\bar\eta}(K))_x\ar[d]^{\oplus}\\R\Gamma_c(X_{\bar\eta},K)\ar[r]^\sim&R\Gamma_c(X_s,R\Psi_{\bar\eta}(K))&\displaystyle\bigoplus_{x\in\Sigma}R\Gamma_{\{x\}}(X_s,R\Psi_{\bar\eta}(K)).\ar[l]}
+\]
+<p>On dispose aussi, dans ce cas, des suites exactes longues</p>
+\[
+\tag{2.4.6.6}\xymatrix@C=2em@R=3em{\cdots\ar[r]&H_c^i(X_s,K)\ar[r]\ar[d]&H_c^i(X_{\bar\eta},K)\ar[r]\ar[d]&\displaystyle\bigoplus_{x\in\Sigma}(R^i\Phi_{\bar\eta}(K))_x\ar[r]\ar@{=}[d]&\cdots\\\cdots\ar[r]&H^i(X_s,K)\ar[r]&H^i(X_{\bar\eta},K)\ar[r]&\displaystyle\bigoplus_{x\in\Sigma}R^i\Phi_{\bar\eta}(K)_x\ar[r]&\cdots.}
+\]
+
+<p id="13.2.4.6.1"><strong>2.4.6.</strong> Soit \(X_{s(x)}\) l'hensélisé de \(X_s\) en \(x\) et \(X^*_{s(x)}=X_{s(x)}-\{x\}\). La suite exacte longue d'hypercohomologie de \((X_{s(x)},\{x\})\) à coefficient dans \(K_s\), \(R\Psi_{\bar\eta}(K)\) et \(R\Phi_{\bar\eta}(K)\) fournit des suites exactes longues</p>
+\[
+\tag{2.4.6.1}\xymatrix@C=2em@R=2.7em{&0\ar[r]&R^{n-1}\Phi_{\bar\eta}(K)_x\ar[r]\ar[d]&R^{n-1}\Phi_{\bar\eta}(K)_x\ar[r]\ar[d]&0\ar[d]\\{}\ar[r]&H^{n-1}(X^*_{s(x)},K)\ar[r]^j\ar@{=}[d]&H^n_{\{x\}}(X_s,K)\ar[r]\ar[d]&H^n(K)_x\ar[r]\ar[d]&H^n(X^*_{s(x)},K)\ar[r]\ar@{=}[d]&{}\\{}\ar[r]&H^{n-1}(X^*_{s(x)},K)\ar[r]^j&H^n_{\{x\}}(X_s,R\Psi_{\bar\eta}(K))\ar[r]\ar[d]&R^n\Psi_{\bar\eta}(K)_x\ar[r]\ar[d]&H^n(X^*_{s(x)},K)\ar[r]&{}\\&0\ar[r]&R^n\Phi_{\bar\eta}(K)_x\ar[r]^=&R^n\Phi_{\bar\eta}(K)_x\ar[r]&0.}
+\]
+<p>L'image de la flèche \(j\) est contenue dans les invariants sous l'inertie.</p>
+
+<h2>Bibliographie</h2>
+<p>[1] J. GIRAUD — Classifying topos, p. 43–56 in <em>Toposes, algebraic geometry and logic</em>, Lecture Notes in Mathematics 274, Springer Verlag 1971.</p>
+<p>[2] M. NAGATA — A generalization of the imbedding problem. J. Math. Kyoto 3 1 (1963) p. 89–102.</p>
+
+</body>
+</html>

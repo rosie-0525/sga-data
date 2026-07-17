@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé XV. La formule de Picard-Lefschetz</title>
+<script>
+window.MathJax = {
+  loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
+  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  options: { enableMenu: true }, startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+table.toc { width: 100%; border-collapse: collapse; }
+table.toc td { padding: 0.15em 0; vertical-align: top; }
+table.toc td.page { width: 3em; text-align: right; }
+</style>
+</head>
+<body>
+
+<h1 id="15">EXPOSÉ XV<br>LA FORMULE DE PICARD-LEFSCHETZ<span class="author">par P. DELIGNE</span></h1>
+
+<table class="toc">
+<tr><td>§1. &emsp; Singularités quadratiques ordinaires (formes canoniques)</td><td class="page">2</td></tr>
+<tr><td>&emsp;&emsp;1.1 &emsp; Rappels</td><td class="page">2</td></tr>
+<tr><td>&emsp;&emsp;1.2 &emsp; Singularités quadratiques ordinaires</td><td class="page">4</td></tr>
+<tr><td>&emsp;&emsp;1.3 &emsp; Modules de singularités quadratiques</td><td class="page">10</td></tr>
+<tr><td><br>§2 &emsp; Calcul des cycles évanescents dans un cas quadratique ordinaire standard</td><td class="page"><br>13</td></tr>
+<tr><td>&emsp;&emsp;2.1 &emsp; Préliminaire : la cohomologie d'un cône</td><td class="page">13</td></tr>
+<tr><td>&emsp;&emsp;2.2 &emsp; Cycles évanescents</td><td class="page">17</td></tr>
+<tr><td><br>§3 &emsp; La formule de Picard-Lefschetz</td><td class="page"><br>23</td></tr>
+<tr><td>&emsp;&emsp;3.1 &emsp; Résultats préliminaires</td><td class="page">23</td></tr>
+<tr><td>&emsp;&emsp;3.2 &emsp; Dimension relative paire</td><td class="page">24</td></tr>
+<tr><td>&emsp;&emsp;3.3 &emsp; Dimension relative impaire</td><td class="page">26</td></tr>
+<tr><td>&emsp;&emsp;3.4 &emsp; Résumé</td><td class="page">31</td></tr>
+</table>
+
+<h2 id="15.1">§1 &nbsp; <u>Singularités quadratiques ordinaires (formes canoniques)</u></h2>
+
+<p>Dans ce §, on reprend les résultats de VI 6, en adoptant un point de vue
+« hensélien » plutôt que « formel ». On donne des singularités quadratiques ordinaires et
+de leurs déformations des formes canoniques, sous lesquelles elles se mettent locale&shy;ment
+pour la topologie étale.</p>
+
+<p>Les résultats sont conséquence facile de VI 6, du théorème des fonctions
+implicites (sous la forme de Tougeron) et du théorème de R. Elkik sur les modules
+henséliens versels de singularités isolées. Lors du séminaire oral, on ne disposait
+pas encore de ce dernier ; un théorème plus faible, ne couvrant que le cas (qui nous
+suffisait) des intersections complètes, avait été démontré et ne sera pas publié.</p>
+
+<h3 id="15.1.1">1.1. &nbsp; <u>Rappels</u></h3>
+
+<p id="15.1.1.1">1.1.1 &nbsp; Soit \(f:X\to S\) un morphisme, \(X\) pouvant localement être décrit par \(p\)
+équations dans l'espace affine relatif \(\mathbb A_S^{n+p}\) de dimension \(n+p\) sur \(S\). L'idéal
+jacobien \(J^n(X/S)\) a été défini en VI 5. Si \(X\) est le sous-schéma de \(\mathbb A_S^{n+p}\) défini
+par les équations \(f_i=0\) \((1&lt;i\leq p)\), c'est le faisceau d'idéaux engendré par les
+mineurs (p\times p) de la matrice jacobienne \((\partial f_i/\partial x_j)\). Le théorème suivant est bien
+connu. Un cas particulier de son analogue formel est démontré dans Bourbaki Alg. Comm.
+III §4, n° 6, cor. 3 au Th. 2 ; l'analogue \(C^\infty\) est démontré dans Tougeron (idéaux de
+fonctions différentiables — Thèse — mai 1967 — Rennes) ; le cas considéré ici est
+traité dans Artin, Algebraic approximation of structures over complete local rings,
+Publ. Math. IHES <u>36</u> (Zariski's volume) lemme 5.10.</p>
+
+<div class="thm theorem" id="15.1.1.2"><div class="thm-head"><u>1.1.2 Théorème (Tougeron-Artin).</u> &nbsp; <u>Soient \(S\) le spectre d'un anneau local hensélien
+\(A\), \(f:X\to S\) un morphisme comme en 1.1.1., \(a\) et \(I\) deux idéaux de \(A\) distincts
+de \(A\), et \(\mathcal J\) un faisceau d'idéaux de \(X\) contenu dans \(J^n(X/S)\). On suppose \(I\)
+de type fini. Soit \(s\) une section de \(f\) au-dessus de \(S/I\) : \(s\in X(A/I)\). Notons
+\(s^*\mathcal J^2\) l'idéal de \(A\) image réciproque dans \(A\) de l'idéal \(s^*\mathcal J^2\) de \(A/I\).</u></div>
+<p><u>Si \((s^*\mathcal J^2).a\supset I\), alors, il existe une section \(s_1\) de \(f\) : \(s_1\in X(A)\)
+congrue à \(s\) modulo \((s^*\mathcal J).a\).</u></p></div>
+
+<p id="15.1.1.3">1.1.3. &nbsp; Soit \(S\) le spectre d'un anneau local hensélien, de point fermé \(s\). Soient
+\(X'_o\) un schéma de type fini sur \(k(s)\), lisse en dehors d'un point fermé \(x'_o\), et
+\(X_o\) l'hensélisé de \(X'_o\) en \(x'_o\). Nous nous intéressons aux systèmes</p>
+
+\[\xymatrix{X_o\ar[r]&X\ar[d]\\s\ar[u]\ar[r]&T\ar[r]&S}\]
+
+<p>du type suivant</p>
+
+<p>(a) \(T\) est local hensélien essentiellement de présentation finie sur \(S\) (I 0.0.5) ; le
+morphisme (T\to S) est local et induit un isomorphisme sur les corps résiduels ;</p>
+<p>(b) \(X\) est local hensélien plat et essentiellement de présentation finie sur \(T\) ;</p>
+<p>(c) la fibre spéciale de \(X/T\) est munie d'un \(k(s)\)-isomorphisme avec \(X_o\).</p>
+
+<p>Ce sont les <u>\(S\)-déformations henséliennes de \(X_o\)</u>. Un <u>morphisme</u> de \((X,T)\)
+dans \((X',T')\) est un diagramme commutatif de \(S\)-schémas</p>
+
+\[\xymatrix{X\ar[r]\ar[d]&X'\ar[d]\\T\ar[r]&T'}\]
+
+<p>induisant l'identité de \(X_o\) par passage aux fibres spéciales. Une déformation (X/T)
+est dite <u>verselle</u> (minimally versal) si</p>
+
+<p>(a) Pour tout morphisme \(X''/T''\to X'/T'\), tel que \(T''\to T'\) soit un plongement fermé,
+l'application</p>
+\[\operatorname{Hom}(X'/T',X/T)\longrightarrow\operatorname{Hom}(X''/T'',X/T)\]
+<p>est surjective. En particulier (faire \(X''/T''=X_o/s\)), \(\operatorname{Hom}(X'/T',X/T)\ne\varnothing\).</p>
+<p>(b) Pour \(T'=\operatorname{Spec}(k(s)[\varepsilon]/(\varepsilon^2))\), l'application « image réciproque » : \(\operatorname{Hom}(T',T)\to\)
+(classes d'isomorphie de déformations de \(X_o\) sur \(T'\)) est bijective.</p>
+
+<div class="thm theorem" id="15.1.1.4"><div class="thm-head"><u>1.1.4. Théorème (R. Elkik).</u> &nbsp; <u>Il existe une \(S\)-déformation hensélienne verselle de
+\(X_o\) (et une seule à isomorphisme non unique près). Si \(S\) est noethérien, pour que
+\(X/T\) en soit une, il faut et il suffit \(X\) induise sur le complété \(T^\wedge\) de \(T\) une
+\(S\)-déformation formelle verselle de \(X_o\) (minimally formal versal deformation, VI 1.9
+et VI 4).</u></div></div>
+
+<p>Pour la démonstration de ce théorème délicat, on renvoie à R. Elkik (sémi&shy;naire de l'ENS, 1971/72).</p>
+
+<h3 id="15.1.2">1.2. &nbsp; <u>Singularités quadratiques ordinaires</u></h3>
+
+<p>Soit \(y\) un point fermé d'un schéma \(Y\) de type fini sur un corps \(k\) de
+caractéristique \(p\), et soit \(n\) la dimension de \(Y\) en \(y\).</p>
+
+<p id="15.1.2.1"><u>Définition 1.2.1</u> (= VI 6.6)</p>
+<p>(i) <u>Pour \(k\) algébriquement clos, on dit que \(y\) est un point quadratique ordinaire
+de \(Y\) si le complété \(\widehat{\mathcal O}_{Y,y}\) de l'anneau local de \(Y\) en \(y\) est isomorphe au quo&shy;tient de \(k[[x_1,\ldots,x_{n+1}]]\) par l'idéal engendré par une seule série formelle \(f\), qui
+s'écrive</u></p>
+\[(4.2.1)\qquad f(x)=Q(x)+\text{termes d'ordre }&gt;2\]
+<p><u>avec \(Q(x)\) une forme quadratique ordinaire.</u></p>
+<p>(ii) <u>Si \(\bar k\) est une clôture algébrique de \(k\), on dit que \(y\) est un point quadra&shy;tique ordinaire de \(Y\) si les points de \(\bar Y=Y\otimes_k\bar k\) au-dessus de \(y\) sont des points
+quadratiques ordinaires de \(\bar Y\).</u></p>
+
+<p id="15.1.2.2">1.2.2. &nbsp; Si dans cette définition on remplace « forme quadratique ordinaire » par
+« forme quadratique non dégénérée », on obtient la notion de <u>point quadratique non dé&shy;généré</u> (VI 6.0). Pour que \(y\) soit un point quadratique non dégénéré de \(Y\), il
+faut et il suffit qu'il soit un point quadratique ordinaire et que soit (p\ne2),
+soit \(n\) est impair.</p>
+
+<p id="15.1.2.3"><u>Exemple 1.2.3.</u> &nbsp; Soit \(Q(x)\) une forme quadratique non dégénérée à \(n+1\) variables sur
+\(k\). Soit \(Y_o\) le cône quadratique dans \(\mathbb E_k^{n+1}\) d'équation \(Q=0\). Alors, l'origine,
+qu'on notera \(y_o\), est un point quadratique non dégénéré de \(Y_o\).</p>
+
+<p id="15.1.2.4"><u>Exemple 1.2.4.</u> &nbsp; Supposons que \(p=2\) et que \(n=2m\). Soit \(a\in k\), et soit \(Q\)
+un polynôme</p>
+\[Q(x)=(x_o^2-a)+\sum_{0&lt;i\leq j\leq2m}a_{ij}x_ix_j.\]
+<p>On suppose que la forme quadrique à (2m) variables \(\sum_{0&lt;i\leq j}a_{ij}x_ix_j\) est non dégénérée,
+et on désigne par \(y_o\) le point fermé de \(\mathbb E_k^{n+1}\) de coordonnées \((\sqrt a,0,\ldots,0)\). Alors,
+\(y_o\) est un point quadratique ordinaire du sous-schéma \(Y_o\) de \(\mathbb E_k^{n+1}\) d'équation \(Q=0\).</p>
+
+<p id="15.1.2.5"><u>Exemple 1.2.5.</u> &nbsp; Soit \(k'\) une extension finie séparable de \(k\) et soit \(Y_o\) un
+\(k'\)-schéma du type considéré en 1.2.3 (resp. 1.2.4). Si l'on regarde le schéma \(Y_o\)
+comme un \(k\)-schéma, alors \(y_o\) est un point quadratique non dégénéré (resp. ordinaire)
+de \(Y_o\). L'extension \(k'\) de \(k\) s'identifie à la plus grande sous-extension sépa&shy;rable de \(k(y_o)\).</p>
+
+<div class="thm theorem" id="15.1.2.6"><div class="thm-head"><u>Théorème 1.2.6.</u> &nbsp; <u>Supposons que \(y\) soit un point quadratique ordinaire du \(k\)-schéma
+\(Y\), et soit \(k'\) la plus grande sous-extension séparable de \(k(y)\). Il existe alors
+un \(k'\)-schéma \(Y_o\subset\mathbb E_{k'}^{n+1}\) du type 1.2.3. ou 1.2.4., et un \(k\)-isomorphisme \(\varphi\) entre
+l'hensélisé \(Y_{(y)}\) de \(Y\) en \(y\) et l'hensélisé \({Y_o}_{(y_o)}\) de \(Y_o\) en \(y_o\).</u></div></div>
+
+<p>Notons tout d'abord qu'il existe un voisinage étale \(Y'\) de \(y\) dans \(Y\)</p>
+\[\xymatrix{&Y'\ar[d]\\y'\ar[ur]\ar[r]&Y}\]
+<p>qui soit un \(k'\)-schéma. Le schéma \(Y_{(y)}\) est en effet canoniquement un \(k'\)-schéma.
+Remplaçant \((k,Y,y)\) par \((k',Y',y')\), ceci nous ramène au cas où \(k=k'\), i.e. au
+cas où \(k(y)\) est radiciel sur \(k\).</p>
+
+<p>Le \(k(y)\)-vectoriel \((\Omega^1_{Y/k})_y\) est de dimension \(n+1\) : il suffit de le véri&shy;fier après extension des scalaires de \(k(y)\) à sa clôture algébrique, et après com&shy;plétion en \(y\) ; c'est alors évident. Un voisinage de \(y\) dans \(Y\) est donc un sous-schéma d'un \(k\)-schéma lisse \(Z\) de dimension \(n+1\). De plus, quitte à remplacer \(Y\)
+et \(Z\) par des voisinages convenables de \(y\), on a que l'idéal de \(\mathcal O_Z\) qui définit
+\(Y\) est principal (même chanson que plus haut), défini par une équation \(f\).</p>
+
+<div class="thm lemma" id="15.1.2.7"><div class="thm-head"><u>Lemme 1.2.7.</u> &nbsp; <u>Supposons que \(y\) soit un point quadratique non dégénéré de \(Y\) et que
+\(k(y)\) soit radiciel sur \(k\). Alors, au voisinage de \(y\), \(J^n_{Y/k}\) (1.1.1) est
+monogène, concentré en \(y\) et de rang 1 sur \(k\). En particulier \(k(y)=k\).</u></div></div>
+
+<p>Il suffit de prouver la première assertion après passage à la clôture algé&shy;brique de \(k\), et après complétion en \(y\). Elle est alors évidente par calcul direct :
+avec les notations de 1.2.1, il résulte de Nakayama que les \(\partial f/\partial x_i\) (a fortiori \(f\)
+et les \(\partial f/\partial x_i\)) engendrent l'idéal maximal.</p>
+
+<p>Prouvons 1.2.6 pour \(y\) non dégénéré. Nous pouvons supposer et supposerons
+que \(k(y)=k\), que \(Y\) est défini par une équation \(f\) dans un schéma lisse \(Z\), et
+qu'il existe un morphisme étale \(x:Z\to\mathbb E_k^{n+1}\) de \(Z\) dans \(\mathbb E_k^{n+1}\) (un « système de
+coordonnées locales \(x_i\) ») qui envoie \(y\) sur 0. Il existe alors une forme quadra&shy;tique non dégénérée à \(n+1\) variables \(Q\) telle que, en \(y\),</p>
+\[f=Q(x_i)+\text{termes d'ordre }&gt;2.\]
+<p>Soit \(Y_o\) défini par \(Q\) comme en 4.3.</p>
+
+<p><u>Sur \(Y\)</u>, le système des \(x_i\) est une « solution approchée » de l'équation
+\(Q(x_i)=0\) : si \(\mathfrak m\) est l'idéal qui définit \(y\), on a</p>
+\[Q(x_i)\in\mathfrak m^3\quad(\text{sur }Y).\]
+
+<p>Puisque \(Q\) est non dégénérée, l'idéal de \(\mathbb E_k^{n+1}\) engendré par les
+\(\partial Q/\partial x_i\) est l'idéal maximal en 0, et l'image réciproque de cet idéal par
+\(x=(x_i):Y\to\mathbb E_k^{n+1}\) est \(\mathfrak m\). D'après le théorème des fonctions implicites
+1.1.2. (appliqué avec \(a=\mathfrak m\) et \(\delta'=J\)) il existe sur l'hensélisé \(Y_{(y)}\) des
+fonctions \(x'_i\), congruentes aux \(x_i\) mod \(\mathfrak m^2\) (le \(s^*\delta'.a\) de loc. cit.),
+qui vérifient \(Q(x'_i)=0\). Elles fournissent l'isomorphisme cherché entre \(Y_{(y)}\) et
+\({Y_o}_{(y_o)}\).</p>
+
+<div class="thm lemma" id="15.1.2.8"><div class="thm-head"><u>Lemme 1.2.8.</u> &nbsp;
+<u>Supposons que \(y\) soit un point quadratique ordinaire dégénéré (\(p=2\), \(n\) pair),
+et que \(k(y)\) soit radiciel sur \(k\). Alors, au voisinage de \(y\), \(T^1_{Y/k}\) est
+monogène, concentré en \(y\) et de rang 2 sur \(k\). En particulier, soit \(k(y)=k\),
+soit \(k(y)\) est isomorphe à \(k(\sqrt a)\) avec \(a\in k\), \(a\notin k^2\).</u></div></div>
+
+<p>Procédons comme en 1.2.7 : avec les notations de 1.2.1, il suffit de vérifier que</p>
+\[\dim_k\bigl(k[[X_1,\ldots,X_{n+1}]]/(f,\partial f/\partial X_i)\bigr)=2.\]
+<p>Dans un système de coordonnées convenable \(x_o,x_1,\ldots,x_{2m}\), la série formelle
+\(f\) s'écrit</p>
+\[f=x_o^2+\sum_1^m x_i x_{i+m}+R\qquad(\text{ordre }R\geq3).\]
+<p>Soient alors \(n'\) l'idéal engendré par \(f\) et les \(\partial f/\partial x_i\), \(n\) celui
+engendré par \(x_o^2\) et les \(x_i\;(i\ne0)\) et \(q\) l'idéal maximal. Prouvons que
+\(n=n'\). On a clairement \(n'\subset n\), et il suffit de vérifier que \(n'+nq=n\)
+(Nakayama). Modulo \(nq\), on a \(f=x_o^2\) ; modulo \(nq+(x_o^2)\), on a
+\(\partial f/\partial x_i=x_{i+m}\) et \(\partial f/\partial x_{i+m}=x_i\) \((1\leq i\leq m)\),
+d'où l'assertion.</p>
+
+<p>Sous les hypothèses de 1.2.8, si \(k=k(y)\), on désignera par \(a\) un quelconque carré
+dans \(k\).</p>
+
+<div class="thm lemma" id="15.1.2.9"><div class="thm-head"><u>Lemme 1.2.9.</u> &nbsp;
+<u>Soient \(V\) un fibré vectoriel sur un schéma \(S\), et \(T\) un sous-schéma de
+\(\mathbb E_S(V)\) localement libre de rang 2 sur \(S\). Alors, \(T\) est contenu dans une et
+une seule droite de \(\mathbb E_S(V)\).</u></div></div>
+
+<p>Le problème est local (fppf) sur \(S\) ; on peut donc supposer que \(T/S\) admet une
+section. Par translation, on peut supposer que \(T\) contient la section 0. Soit \(n\)
+l'idéal de \(T\) qui définit 0 : \(n\) est localement libre de rang un sur \(S\). Chaque
+forme linéaire homogène \(v\in V\) sur \(\mathbb E_S(V)\) définit un élément de \(n\), d'où
+un épimorphisme de \(V\) dans \(n\). Son noyau définit la droite cherchée.</p>
+
+<p id="15.1.2.10">1.2.10. &nbsp; En particulier, si \(A\) est un sous-schéma radiciel de rang 2 de l'espace
+affine \(\mathbb E_k^{n+1}\) sur un corps \(k\) de caractéristique 2, il existe \(a\in k\) tel que,
+dans un système de coordonnées affines convenables, \(A\) ait pour équations
+\(x_o^2-a=0\), \(x_i=0\) \((1\leq i\leq n)\). Il suffit de prendre les \(x_i\) s'annulant sur
+la droite définie par \(A\).</p>
+
+<p id="15.1.2.11">1.2.11. &nbsp; Prouvons 1.2.6 pour \(y\) dégénéré (\(p=2\) et \(n=2m\)). Nous pouvons
+supposer et supposerons que \(k(y)=k(\sqrt a)\), que \(Y\) est défini par une équation
+\(f\) dans un schéma lisse \(Z\), et qu'il existe un système de coordonnées locales en
+\(y\)</p>
+\[x=(x_i)_{0\leq i\leq2m}:Z\longrightarrow\mathbb E_k^{2m+1}\]
+<p>qui envoie \(y\) en le point fermé \((\sqrt a,0,\ldots,0)\), et tel que \(T^1_{Y/k}\) soit
+isomorphe, au voisinage de \(y\), à
+\(\mathcal O_Y/(x_o^2-a,x_1,\ldots,x_{2m})\).</p>
+
+<p>On a alors, quitte à remplacer \(f\) par un multiple</p>
+\[f=(x_o^2-a)+\sum_{1\leq i\leq j\leq2m}a_{ij}x_ix_j+R,\qquad\text{où}\]
+<p>(a) la forme à \(2m\) variables \(\sum a_{ij}x_ix_j\) est non dégénérée ;</p>
+<p>(b) après extension des scalaires à \(\bar k\), \(R\) est d'ordre \(\geq3\) en
+\(x_o-\sqrt a\) et les \(x_i\).</p>
+
+<p>Soit \(Y_o\) défini par</p>
+\[Q=x_o^2-a+\sum a_{ij}x_ix_j\]
+<p>comme en 1.2.4.</p>
+
+<p><u>Sur \(Y\)</u>, on peut encore regarder le système des \(x_i\) comme une solution approchée
+de l'équation \(Q(X_i)=0\). Cette fois, l'idéal \(\delta\) image réciproque par \(X\) de
+l'idéal engendré par les \(\partial Q/\partial X_i\) vérifie
+\(\mathcal O_Y/\delta\simeq J^n_{Y/k}\), ie est</p>
+\[\delta=(x_o^2-a,(x_i)_{1\leq i})\quad\text{en }y.\]
+<p>Soit \(q\) l'idéal maximal qui définit \(y\). Pour conclure comme dans le cas non
+dégénéré, par une application du théorème des fonctions implicites, il faut vérifier que</p>
+\[(1.2.11.1)\qquad Q(x_i)\equiv0\pmod{\delta^2q}\quad\text{sur }Y.\]
+<p>Soit \(\bar q\) l'idéal qui définit \(y\), après extension des scalaires à la clôture
+algébrique de \(k\). On vérifie que</p>
+\[\delta^2\bar q\cap\mathcal O_{Y,y}=\delta^2q,\]
+<p>de sorte qu'il suffit de vérifier 4.11.1 après extension des scalaires à \(\bar k\) : on
+peut supposer que \(a=0\). En \(y\), on a alors</p>
+\[\delta^2q=(x_o^5,(x_o^3x_i)_{1\leq i},(x_o^2x_ix_j)_{1\leq i,j},
+(x_ix_jx_k)_{1\leq i,j,k}).\]
+<p>De là, on tire que \(\delta^2q\supset q^5\) et que</p>
+\[x_o^2f\equiv x_o^4\pmod{\delta^2q},\quad\text{d'où }\delta^2q+(x_o^2f)\supset q^4,\]
+\[x_of\equiv x_o^3\pmod{\delta^2q+q^4},\quad\text{d'où }\delta^2q+(x_of)\supset q^3.\]
+
+<p>On a enfin</p>
+\[Q(x_i)\equiv0\pmod{\delta^2q+(f)}\quad\text{sur }Z,\]
+<p>ie 1.2.11.1.</p>
+
+<p id="15.1.2.12"><u>Remarque 1.2.12.</u> &nbsp; Soit \(Q\) une forme quadratique non nécessairement homogène à
+\(n+1\) variables, non identiquement nulle, et supposons que le sous-schéma \(Y\) de
+\(\mathbb E_k^{n+1}\) d'équation \(Q\) présente en un point \(y\) une singularité quadratique
+ordinaire. Par un changement linéaire (non homogène) de variables, on peut alors mettre
+\(Y\) sous la forme 1.2.3 ou 1.2.4. Dans le cas non dégénéré, \(k(y)=k\), et il suffit de
+mettre \(y\) à l'origine des coordonnées. Dans le cas dégénéré, il suffit que le support
+de \(T^1_{Y/k}\) soit sur la droite \(x_i=0\) \((1\leq i\leq2m)\) (cf. 1.2.9).</p>
+
+<h3 id="15.1.3">1.3 &nbsp; <u>Modules de singularités quadratiques</u></h3>
+
+<p>La proposition suivante résulte du théorème de R. Elkik 1.1.4, et de calculs explicites
+laissés au lecteur (essentiellement contenus dans VI 6).</p>
+
+<div class="thm proposition" id="15.1.3.1"><div class="thm-head"><u>Proposition 1.3.1.</u> &nbsp;
+<u>Soit \(S=\operatorname{Spec}(A)\) un schéma hensélien local de point fermé \(s\), et soit
+\(Y_o\subset\mathbb E_{k(s)}^{n+1}\) un schéma du type 1.2.3. ou 1.2.4.</u></div>
+<p><u>(i) Prenons \(Y_o\) de type 1.2.3, défini par l'équation</u></p>
+\[Q(x)=\sum_{i\leq j}\bar a_{ij}x_ix_j=0\qquad(\bar a_{ij}\in k(s))\]
+<p><u>et relevons les \(\bar a_{ij}\) en des éléments \(a_{ij}\) de \(A\). Alors, le schéma
+hensélien versel sur \(S\) des déformations de la singularité de \(Y_o\) en \(y_o\) est</u></p>
+\[T=\operatorname{Spec}(A\{b\}),\]
+<p><u>la déformation verselle étant l'hensélisé en \(y_o\) du \(T\)-schéma
+\(Y\subset\mathbb E_T^{n+1}\) d'équation</u></p>
+\[\sum a_{ij}x_ix_j-b=0.\]
+<p><u>(ii) Prenons \(Y_o\) de type 1.2.4, défini par l'équation</u></p>
+\[Q(x)=(x_o^2-\bar a)+\sum\bar a_{ij}x_ix_j=0
+\qquad(\bar a,\bar a_{ij}\in k(s))\]
+<p><u>et relevons les \(\bar a_{ij}\) et \(\bar a\) en des éléments \(a_{ij}\) et \(a\) de
+\(A\). Alors, le schéma hensélien versel sur \(S\) des déformations de la singularité de
+\(Y_o\) en \(y_o\) est</u></p>
+\[T=\operatorname{Spec}(A\{b,c\}),\]
+<p><u>la déformation verselle étant l'hensélisé en \(y_o\) du \(T\)-schéma
+\(Y\subset\mathbb E_T^{n+1}\) d'équation</u></p>
+\[(x_o^2-a)+\sum a_{ij}x_ix_j+bx_o+c=0.\]
+</div>
+
+<p>La proposition suivante résulte aussitôt de 1.2.6 et 1.3.1.</p>
+
+<div class="thm corollary" id="15.1.3.2"><div class="thm-head"><u>Corollaire 1.3.2.</u> &nbsp;
+<u>Soit \(S=\operatorname{Spec}(A)\) un schéma hensélien local de point fermé \(s\) et soit
+\(f:X\to S\) un morphisme plat de présentation finie. On suppose qu'en le point fermé
+\(x\) de \(X_s\), \(X_s\) présente une singularité quadratique ordinaire, que \(k(x)\) est
+radiciel sur \(k(s)\), et que \(X_s\) est de dimension \(n\).</u></div>
+<p><u>(i) Pour \(x\) non dégénéré : il existe une forme quadratique non dégénérée à \(n+1\)
+variables \(Q\), à coefficients dans \(A\), et \(b\) dans l'idéal maximal de \(A\), tel
+que le \(S\)-schéma hensélisé de \(X\) en \(x\) soit isomorphe à l'hensélisé en l'origine
+du sous-schéma de \(\mathbb E_S^{n+1}\) d'équation (1.3.1(i)) \(Q-b=0\).</u></p>
+<p><u>(ii) Pour \(x\) dégénéré (\(n=2m\), \(\operatorname{car}(k(s))=2\)) : il existe une forme
+quadratique non homogène à \(n+1\) variables, à coefficients dans \(A\)</u></p>
+\[(4.14.2)\qquad Q(X)=x_o^2+bx_o+c+\sum_{1\leq i\leq j\leq2m}a_{ij}x_ix_j,\]
+<p><u>telle que (b) soit dans l’idéal maximal, que la forme à (2m) variables
+\(\sum a_{ij}x_ix_j\) soit non dégénérée et que le (S\)-schéma hensélisé de (X\) en
+\(x\) soit isomorphe à l’hensélisé en \((\sqrt c,0,\ldots,0)\) du sous-schéma de
+\(\mathbb E_S^{n+1}\) d’équation (Q=0).</u></p>
+</div>
+
+<p id="15.1.3.3"><u>Remarque 1.3.3.</u> &nbsp; Dans le cas (i), si l’hensélisé (x) de (X_s) est isomorphe par un
+isomorphisme \(\varphi_o\) à l’hensélisé en 0 de \(X_o\subset\mathbb E_k^{n+1}\), d’équation
+\(\sum\bar a_{ij}x_ix_j=0\), et si les (a_{ij}) relèvent les \(\bar a_{ij}\), on peut prendre
+\(Q=\sum a_{ij}x_ix_j\).</p>
+
+<p>Dans le cas (ii), si l’hensélisé en (x) de (X_s) est isomorphe par un isomorphisme
+\(\varphi_o\) à l’hensélisé en \((\sqrt a,0,\ldots,0)\) de \(X_o\subset\mathbb E_k^{n+1}\)
+d’équation \((x_o^2+\bar a)+\sum\bar a_{ij}x_ix_j\), et si les (a_{ij}) relèvent les
+\(\bar a_{ij}\), on peut prendre
+\(Q=x_o^2+bx_o+c+\sum a_{ij}x_ix_j\), avec \(c\equiv\bar a\) mod l’idéal maximal.</p>
+
+<p>Dans les deux cas, l’isomorphisme promis en 1.3.2. peut être pris prolongeant
+\(\varphi_o\).</p>
+
+<div class="thm corollary" id="15.1.3.4"><div class="thm-head"><u>Corollaire 1.3.4.</u> &nbsp;
+<u>Soit (f:X\to S) comme en 1.3.2. Il existe un voisinage (U) de (x) dans (X) tel
+que les points de non lissité de (f) contenus dans (U) soient des points quadratiques
+ordinaires de leur fibre.</u></div></div>
+
+<h2 id="15.2">§2. &nbsp; <u>Calcul des cycles évanescents dans un cas quadratique ordinaire standard</u></h2>
+
+<h3 id="15.2.1">2.1. &nbsp; <u>Préliminaire : la cohomologie d’un cône.</u></h3>
+
+<p id="15.2.1.1">2.1.1. &nbsp; Soit \(Y\subset\mathbb P^r\) une variété projective sur un corps algébriquement
+clos \(k\). Posons les notations suivantes.</p>
+
+<p>\(X\subset\mathbb A^{r+1}\) est le cône projetant affine, d’origine 0 ;<br>
+\(X_{(o)}\) est l’hensélisé de (X) en 0 ;<br>
+\(X^*=X-\{0\}\) et \(X^*_{(o)}=X_{(o)}-\{0\}\) ;<br>
+\(X_1\subset\mathbb P^{r+1}\) est le cône projetant projectif de (Y) ; on a \(X=X_1-Y\) ;<br>
+\(\widetilde X,\widetilde X_{(o)},\widetilde X_1\) sont les éclatés de \(X,X_{(o)},X_1\) en 0 ;<br>
+\(Y_o\) est l’image réciproque de 0 dans \(\widetilde X,\widetilde X_{(o)}\) ou \(\widetilde X_1\) ;<br>
+\(h:\widetilde X_1\to Y\) est la projection naturelle ;<br>
+\(y_o,y_\infty:Y\to\widetilde X_1\) sont les sections de (h) d’image (Y_o) et (Y) ;<br>
+(F) est un groupe abélien de torsion premier à la caractéristique de (k) ; tous les
+groupes de cohomologie considérés seront à coefficients dans (F), qui ne sera pas
+mentionné.</p>
+
+<p>Notre but dans ce n° est de relier les cohomologies de \(X^*_{(o)}\) et \(Y\).</p>
+
+<div class="thm proposition" id="15.2.1.2"><div class="thm-head"><u>Proposition 2.1.2.</u> &nbsp; <u>On a</u></div>
+\[(i)\qquad H^i(X)\overset\sim\longrightarrow H^i(\{0\})=
+\begin{cases}F&\text{si }i=0,\\0&\text{si }i&gt;0;\end{cases}\]
+\[(ii)\qquad H^i_{\{0\}}(X)\overset\sim\longrightarrow H_c^i(X).\]
+</div>
+
+<p>Cette proposition se démontre par un argument d’homotopie, qu’il nous va falloir
+formaliser.</p>
+
+<p>Soit \(k\) un corps algébriquement clos, \(U\) et \(V\) deux schémas sur \(k\),
+\(\Lambda\) un anneau de torsion premier à la caractéristique de \(k\),
+\(K\in\operatorname{Ob}D^+(U,\Lambda)\) et \(L\in\operatorname{Ob}D^+(V,\Lambda)\).</p>
+
+<p>Appelons «morphisme» \(f\) de \((U,K)\) dans \((V,L)\) un couple formé de
+\(f:U\to V\) et de \(\varphi:f^*L\to K\). Un tel morphisme induit sur la cohomologie</p>
+\[f^*:H^*(V,L)\longrightarrow H^*(U,K).\]
+
+<p>Disons que deux «morphismes» \(f_o\) et \(f_1\) sont homotopes s’il existe un schéma
+connexe de type fini \(T\) sur \(k\), deux points 0 et 1 de \(T\) et un «morphisme» \(H\)
+de \((U\times T,\operatorname{pr}_1^*K)\) dans \((V,L)\) qui induise \(f_o\) et \(f_1\) en
+prenant les fibres en 0 et 1.</p>
+
+<div class="thm lemma" id="15.2.1.3"><div class="thm-head"><u>Lemme 2.1.3.</u> &nbsp;
+<u>Si \(f_o\) est homotope à \(f_1\), alors \(f_o^*\) coïncide avec \(f_1^*\).</u></div></div>
+
+<p>On sait qu’il existe une suite de points \(0=x_o,x_1,\ldots,x_n=1\) de \(T\), des
+courbes lisses et connexes \(\Gamma_i\) et des morphismes \(a_i:\Gamma_i\to T\) tels que
+\(x_i\) et \(x_{i+1}\) soient dans l’image de \(a_i\). Pour construire les \(\Gamma_i\), on
+normalise un sous-schéma connexe de dimension 1 de \(T\) qui contienne 0 et 1. Ceci nous
+ramène au cas où \(T\) est une courbe lisse. Soient</p>
+\[\xymatrix{U\times T\ar[r]^{\operatorname{pr}_1}\ar[d]_{\operatorname{pr}_2}&U\ar[d]^f\\T\ar[r]^t&k.}\]
+
+<p>En vertu du théorème de changement de base par un morphisme lisse, appliqué à \(t\),
+on a</p>
+\[t^*Rf_*K\overset\sim\longrightarrow R\operatorname{pr}_{2*}(\operatorname{pr}_1^*K).\]
+
+<p>L’application \(f_i^*\) \((i=0,1)\) se factorise alors en</p>
+\[H^n(V,L)\xrightarrow{H^*}H^n(U\times T,\operatorname{pr}_1^*K)
+\longrightarrow H^0(T,R^n\operatorname{pr}_{2*}(\operatorname{pr}_1^*K))
+\longrightarrow H^n(U,K),\]
+<p>et est donc indépendante de \(i\).</p>
+
+<p id="15.2.1.3a">2.1.3. &nbsp; Prouvons 2.1.2. L’application identique de \(X\) est homotope (grâce aux
+homothéties) à l’application de \(X\) dans \(X\) constante de valeur 0 ; (i) en résulte.</p>
+
+<p>Utilisant des homothéties de rapport tendant vers l’infini, on voit que \(Y\) est un
+rétracte par déformation de \(X_1^*\) et (ii) se déduit du lemme des 5 et du diagramme</p>
+\[\xymatrix{
+{}\ar[r]^-\partial&H^i_{\{0\}}(X)\ar[r]\ar[d]&H^i(X_1)\ar[r]\ar@{=}[d]&H^i(X_1^*)\ar[r]^-\partial\ar[d]&{}\\
+{}\ar[r]^-\partial&H_c^i(X)\ar[r]&H^i(X_1)\ar[r]&H^i(Y)\ar[r]^-\partial&{}.
+}\]
+
+<div class="thm corollary" id="15.2.1.4"><div class="thm-head"><u>Corollaire 2.1.4.</u> &nbsp;
+\[H^i(X^*)\overset\sim\longrightarrow H^i(X^*_{(o)}).\]</div></div>
+
+<p>On applique le lemme des 5 au diagramme</p>
+\[\xymatrix{
+{}\ar[r]&H^i_{\{0\}}(X)\ar[r]\ar[d]^{\sim}&H^i(X)\ar[r]\ar[d]^{\sim}_{(2.1.2(i))}&H^i(X^*)\ar[r]\ar[d]&{}\\
+{}\ar[r]&H^i_{\{0\}}(X_{(o)})\ar[r]&H^i(X_{(o)})\ar[r]&H^i(X^*_{(o)})\ar[r]&{}.
+}\]
+
+<p id="15.2.1.5">2.1.5. &nbsp; Utilisant la suite spectrale de Leray de
+\(h|\widetilde X_1-Y_o\) et \(h|\widetilde X_1-Y\), on trouve que les morphismes de
+restriction</p>
+\[H^i(\widetilde X_1-Y_o)\overset\sim\longrightarrow H^i(Y),\]
+\[H^i(\widetilde X)\overset\sim\longrightarrow H^i(Y_o)=H^i(Y)\]
+<p>sont des isomorphismes. Via ces isomorphismes, les suites exactes longues de cohomologie
+des couples \((\widetilde X_1-Y_o,Y)\), \((\widetilde X_1-Y,Y_o)\) sont les lignes d’un
+diagramme</p>
+\[(2.1.5.1)\qquad
+\xymatrix{
+H^{i-1}(X^*)\ar[r]\ar@{=}[d]&H^{i-2}(Y)(-1)\ar[r]^-\eta\ar@{=}[d]&H^i(Y)\ar[r]\ar[d]^{-1}&H^i(X^*)\ar[r]\ar@{=}[d]&{}\\
+H^{i-1}(X^*)\ar[r]&H^{i-2}(Y)(-1)\ar[r]^-{-\eta}&H^i(Y)\ar[r]&H^i(X^*)\ar[r]&{}.
+}\]
+
+<div class="thm lemma" id="15.2.1.6"><div class="thm-head"><u>Lemme 2.1.6.</u> &nbsp;
+<u>Les flèches notées \(\eta\) et \(-\eta\) de 2.1.5.1 sont les cup-produits avec la
+classe de cohomologie d’une section hyperplane. Le diagramme 2.1.5.1 est commutatif.</u></div></div>
+
+<p>La première assertion résulte de ce que \(\eta\) (resp. \(-\eta\)) est la restriction
+à \(Y\) (resp. \(Y_o\simeq Y\)) de la classe de cohomologie du faisceau inversible
+\(\mathcal O(Y)\) (resp. \(\mathcal O(Y_o)\)) sur \(\widetilde X_1-Y_o\) (resp.
+\(\widetilde X_1-Y\)).</p>
+
+<p>Utilisons la suite spectrale de Leray de \(h\) : les deux lignes de (2.1.5.1)
+s’obtiennent en appliquant le foncteur \(H(Y,\ )\) à des triangles distingués</p>
+\[y_{\infty *}Ry_\infty^!F\longrightarrow R(h|\widetilde X_1-Y_o)_*F
+\xrightarrow{(1)}R(h|X^*)_*F\xrightarrow{(2)}\]
+<p>et</p>
+\[y_{o*}Ry_o^!F\longrightarrow R(h|\widetilde X_1-Y)_*F
+\longrightarrow R(h|X^*)_*F\longrightarrow.\]
+
+<p>Les faisceaux de cohomologie non nuls des complexes sommets de ces triangles sont
+ceux d’indice (2), (0), (0 et 1), de sorte que les flèches (1) et (2) sont déterminées
+par leur effet sur les faisceaux de cohomologie. Ceci nous ramène au cas où \(Y\) est un
+point. Ce cas est laissé au lecteur.</p>
+
+<p id="15.2.1.7">2.1.7. &nbsp; La suite exacte longue du couple \((\widetilde X_{(o)},Y_o)\) est un analogue
+local de la 2<sup>e</sup> ligne de (2.1.5.1). On a</p>
+\[H^i(\widetilde X_{(o)})\overset\sim\longrightarrow H^i(Y_o)\]
+<p>(théorème de changement de base pour le morphisme propre
+\(\widetilde X_{(o)}\to X_{(o)}\)) ; la suite exacte longue en question s’écrit donc</p>
+
+\[(2.1.7.1)\qquad\xymatrix{
+H^{i-1}(X^*_{(o)})\ar[r]&H^{i-2}(Y_o)(-1)\ar[r]^-{-\eta}&H^i(Y_o)\ar[r]&H^i(X^*_{(o)})\\
+H^{i-1}(X^*)\ar[r]\ar[u]^{\sim}&H^{i-2}(Y)(-1)\ar[r]^-{-\eta}\ar@{=}[u]&H^i(Y)\ar[r]\ar@{=}[u]&H^i(X^*)\ar[u]_{\sim},
+}\]
+
+<p>la seconde ligne de ce diagramme commutatif étant celle de (2.1.5.1).</p>
+
+<p>Le lemme technique suivant nous servira en 2.2.7.</p>
+
+<div class="thm lemma" id="15.2.1.8"><div class="thm-head"><u>Lemme 2.1.8.</u> &nbsp;
+\[\xymatrix{
+H^{n-1}(Y_o)&H^{n-1}(\widetilde X)\ar[l]_-{\sim}\ar[r]&H^{n-1}(X^*)\ar[r]&H^n_{\{x\}}(X)\ar@{->>}[r]&H_c^n(X_s)\ar@{=}[d]\\
+H^{n-1}(Y)\ar@{=}[u]\ar[rrrr]^-\partial&&&&H_s^n(X_s)
+}\]
+<u>est anticommutatif.</u></div></div>
+
+<p>D’après 2.1.7, il revient au même de prouver commutatif le diagramme</p>
+\[\xymatrix{
+H^{n-1}(X_1-\{0\})\ar[r]^-\partial\ar[d]&H^n_{\{0\}}(X_1)=H^n_{\{0\}}(X)\ar[d]\\
+H^{n-1}(Y)\ar[r]^-\partial&H_c^n(X).
+}\]
+<p>C’est là un general non-sense.</p>
+
+<h3 id="15.2.2">2.2. &nbsp; <u>Cycles évanescents.</u></h3>
+
+<p id="15.2.2.1">2.2.1. &nbsp; Soient \(S\) un trait hensélien et \(s,\eta,\bar s,\bar\eta\) comme en XIII 0.2.5,
+\(\Lambda=\mathbb Z/k\), avec \(k\) premier à la caractéristique résiduelle de \(S\),
+\(\mathbb E_S^{n+1}\) l’espace affine type de dimension \(n+1\) sur \(S\) et \(X\) le
+sous-schéma fermé de \(\mathbb E_S^{n+1}\) défini par une équation quadratique \(Q=0\),
+non nulle modulo l’uniformisante</p>
+\[Q(x)=\sum_{i\leq j}a_{ij}x_ix_j+\sum b_ix_i+c.\]
+
+<p>Si \(\mathbb E_S^{n+1}\) est le complément dans \(\mathbb P_S^{n+1}\) de l’hyperplan à
+l’infini \(H\), alors \(X\) se déduit de la quadrique \(X_1\) de \(\mathbb P_S^{n+1}\)
+d’équation homogène</p>
+\[(2.2.1.1)\qquad \sum_{i\leq j}a_{ij}x_ix_j+\sum b_ix_iz+cz^2=0\]
+<p>par soustraction de \(Y=X_1\cap H\).</p>
+
+<p>Faisons les hypothèses suivantes.</p>
+<p>(a) \(Y\) est une quadrique lisse sur \(S\), ie. la forme quadratique
+\(\sum_{i\leq j}a_{ij}x_ix_j\) est ordinaire ;</p>
+<p>(b) la quadrique \(X_s\) est singulière, ie. \(X_s\) est un cône quadratique.</p>
+
+<p>On désigne par \(x_o\) le point singulier de \(X_s\), et par \(f\) la projection de
+\(X\) sur \(S\).</p>
+
+<p id="15.2.2.2"><u>Remarque 2.2.2.</u> &nbsp; Si \(x_o\) est un point rationnel, on peut par translation le
+mettre à l’origine des coordonnées. Si \(x_o=0\), les \(b_i\) et \(c\) sont divisibles
+par l’uniformisante.</p>
+
+<p>Le sous-schéma \(A\) de \(X_s\) d’équations \(\frac{\partial Q}{\partial x_i}\) est
+concentré en \(x_o\). Sauf dans le cas exceptionnel où \(k(s)\) est de caractéristique
+2 et où \(n+1\) est pair, ce schéma est de degré un sur \(k(s)\), donc \(x_o\) est
+rationnel. Dans le cas exceptionnel, il est ramifié sur \(k(s)\) et de rang 2, de sorte
+que \(k(x_o)\) est soit \(k(s)\), soit une extension quadratique inséparable de \(k(s)\).
+Les assertions faites sur \(A\) se vérifient le plus aisément après passage à la clôture
+algébrique \(k(\bar s)\) de \(k(s)\).</p>
+
+<div class="thm proposition" id="15.2.2.3"><div class="thm-head"><u>Proposition 2.2.3.</u> &nbsp;
+<u>Sous les hypothèses de 2.2.1, les morphismes</u></div>
+\[H^i(X_{\bar\eta},\Lambda)\overset\sim\longrightarrow H^i(X_{\bar s},R\psi_{\bar\eta}(\Lambda))
+\overset\sim\longrightarrow R^i\psi_{\bar\eta}(\Lambda)_{x_o},\]
+\[H_c^i(X_{\bar\eta},\Lambda)\overset\sim\longleftarrow H_c^i(X_{\bar s},R\psi_{\bar\eta}(\Lambda))
+\overset\sim\longleftarrow H^i_{\{x_o\}}(X_{\bar s},R\psi_{\bar\eta}(\Lambda))\]
+<div class="thm-head"><u>sont des isomorphismes.</u></div></div>
+
+<p>Que les flèches de gauche soient des isomorphismes résulte de 2.1.8.6 et 2.1.10.5 ;
+que celles de droite en soient est un corollaire de 2.1.2 ; on dispose en effet d’un
+triangle distingué</p>
+\[(\Lambda\text{ sur }X_{\bar s})[0]\longrightarrow R\psi_{\bar\eta}(\Lambda)
+\longrightarrow R\Phi_{\bar\eta}(\Lambda)\]
+<p>et 2.1.2 s’applique à \((\Lambda\text{ sur }X_{\bar s})\), tandis que
+\(R\Phi_{\bar\eta}(\Lambda)\) est à support dans \(x_o\).</p>
+
+<div class="thm corollary" id="15.2.2.4"><div class="thm-head"><u>Corollaire 2.2.4.</u> &nbsp;
+<u>Si la fibre générale géométrique \(X_{\bar\eta}\) est singulière, ie. est encore un
+cône quadratique, les faisceaux \(R^i\Phi(\Lambda)\) sont tous nuls.</u></div></div>
+
+<p>D’après 2.1.2, \(\Lambda=H^0(X_{\bar s},\Lambda)\overset\sim\longrightarrow
+H^0(X_{\bar\eta},\Lambda)\), et \(0=H^i(X_{\bar s},\Lambda)=H^i(X_{\bar\eta},\Lambda)\).
+On applique alors la suite exacte longue XIII, 2.1.8.9 (validé par XIII, 2.1.9).</p>
+
+<p id="15.2.2.5">2.2.5. &nbsp; Supposons maintenant que</p>
+<p>(*) la fibre générale \(X_{\bar\eta}\) est lisse.</p>
+
+<p>Pour simplifier nous supposerons aussi \(S\) strictement hensélien. Il est facile de
+calculer les faisceaux de cycles évanescents à l’aide de 2.2.3 et XII 3.7. La cohomologie
+à coefficients dans \(\Lambda\), considérée ici, se déduit de la cohomologie
+\(\ell\)-adique de loc. cit. par la formule des coefficients universels (cf. 2.1.13).
+Voici les résultats.</p>
+
+<p><u>A. Cohomologie sans support.</u></p>
+<p>On a \(R^i\psi_{\bar\eta}(\Lambda)=0\) si \(i\ne0,n\).</p>
+<p>1) <u>si \(n\ne0\)</u> : on a \(\psi_{\bar\eta}(\Lambda)=\Lambda\). De plus,
+\(R^n\psi_{\bar\eta}(\Lambda)\) est (non canoniquement) isomorphe au faisceau
+\(\Lambda\) sur \(x_o\) prolongé par 0 sur \(X_s\).</p>
+<p>2) <u>\(n\) quelconque</u> : on vérifie que, même pour \(n=0\),
+\(\Phi_{\bar\eta}^i(\Lambda)=0\) pour \(i\ne n\), et que
+\(\Phi_{\bar\eta}^n(\Lambda)\) est (non canoniquement) isomorphe au faisceau
+\(\Lambda\) sur \(x_o\) prolongé par 0 sur \(X_s\).</p>
+
+<p><u>B. Cohomologie à support dans \(x_o\).</u></p>
+<p>On a \(H^i_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda))=0\) pour \(i\ne n,2n\).
+On dispose de plus d’un morphisme trace</p>
+\[(2.2.5.1)\qquad \operatorname{tr}:H^{2n}_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda(n)))
+\longrightarrow\Lambda.\]
+<p><u>si \(n\ne0\)</u> : le morphisme (2.2.5.1) est un isomorphisme. De plus,
+\(H^n_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda(n)))\) est (non canoniquement)
+isomorphe à \(\Lambda\).</p>
+
+<p><u>C. Dualité.</u> &nbsp; Pour \(a\in R^n\psi_{\bar\eta}(\Lambda)_{x_o}\) et
+\(b\in H^n_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda(n)))\), posons
+\((a,b)=\operatorname{Tr}(a\mathbin\wedge b)\), où \(\operatorname{Tr}\) est le morphisme
+XIII 2.2.6</p>
+\[\operatorname{Tr}:H^{2n}_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda(n)))\longrightarrow\Lambda.\]
+<p>Il résulte de la dualité de Poincaré sur \(X_{\bar\eta}\) et des isomorphismes 2.2.3
+que \((a,b)\) met en dualité parfaite les \(\Lambda\)-modules libres
+\(R^n\psi_{\bar\eta}(\Lambda)_{x_o}\) et
+\(H^n_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda(n)))\).</p>
+
+<p><u>D. \(n=2m&gt;0\).</u></p>
+<p>D’après XII 3.7, les groupes \(H^n_{\{x_o\}}(X_s,R\psi_{\bar\eta}(\Lambda(n)))\)
+et \(R^n\psi_{\bar\eta}(\Lambda(m))_{x_o}\) ont des générateurs naturels définis au
+signe près, soit \(\delta\) et \(\delta'\). Soit \(\varphi\) l’application naturelle du
+premier de ces groupes dans le second. On peut normaliser les signes de \(\delta\) et
+\(\delta'\) de sorte que</p>
+\[(2.2.5.2)\qquad (\delta',\delta)=1\qquad\text{on a alors}\]
+\[(2.2.5.3)\qquad \varphi(\delta)=(-1)^m\cdot2\,\delta'.\]
+
+<p>Soit \(Z\) l’extension quadratique séparable de \(k(\eta)\), centre de la partie paire
+de l’algèbre de Clifford de la forme quadratique (2.2.1.1). Soit \(\epsilon\) le caractère
+correspondant d’ordre 1 ou 2 du groupe d’inertie \(I\). Pour \(\sigma\in I\), on a</p>
+\[(2.2.5.4)\qquad \sigma\delta=\epsilon(\sigma)\delta\]
+\[(2.2.5.5)\qquad \sigma\delta'=\epsilon(\sigma)\delta'.\]
+
+<p>Les formules (2.2.5.2) (2.2.5.3) (2.2.5.4) en cohomologie à coefficients dans
+\(\mathbb Z/2k\) impliquent que la variation est</p>
+\[(2.2.5.6)\qquad \operatorname{Var}(\sigma)(a)=
+\frac{\epsilon(\sigma)-1}{2}(-1)^m(a\delta)\,\delta.\]
+
+<p><u>E. \(n=2m+1\) — Cycles évanescents.</u></p>
+<p>D’après XII 3.7, les groupes \(H^n_{\{x_o\}}(X_s,R\psi_{\bar\eta}\Lambda(m))\) et
+\(R^n\psi_{\bar\eta}(\Lambda(m+1))_{x_o}\) ont des générateurs naturels définis au signe
+près, soit \(\delta\) et \(\delta'\). Avec les notations de D, on peut normaliser les
+signes de \(\delta\) et \(\delta'\) de sorte que</p>
+\[(2.2.5.7)\qquad (\delta',\delta)=1\qquad;\quad\text{on a}\]
+\[(2.2.5.8)\qquad \varphi(\delta)=0.\]
+
+<p><u>F. \(n=2m+1\) — La variation.</u></p>
+<p>Le groupe d’inertie \(I\) agit trivialement sur la cohomologie de \(X_{\bar\eta}\).
+Ceci résulte de XII 3.7 et du fait que \(I\) agit trivialement sur la cohomologie de
+\(Y_{\bar\eta}\), \(Y\) étant propre et lisse sur \(S\).</p>
+
+<p>Pour \(\sigma\) dans le groupe d’inertie, on a nécessairement</p>
+\[(2.2.5.9)\qquad D(\sigma)(\delta')=\lambda(\sigma)\,\delta,
+\quad\text{avec }\lambda(\sigma)\in\Lambda(1).\]
+<p>La formule d’additivité (XIII, 1.4.3.4) s’écrit ici</p>
+\[\lambda(\sigma\tau)=\lambda(\sigma)+\lambda(\tau).\]
+<p>Soit \(e:I\longrightarrow\Lambda(1)=\mu_k\) l’homomorphisme tel que</p>
+\[\sigma(\sqrt[k]{t})=e(\sigma)\sqrt[k]{t}\]
+<p>pour \(t\) une uniformisante. \(\lambda\) est nécessairement un multiple de \(e\), vu la structure du groupe d’inertie modéré. La formule (2.2.5.9) se récrit</p>
+\[(2.2.5.10)\qquad \operatorname{Var}(\sigma)(a)=\lambda_X\cdot e(\sigma)(a\delta)\delta\]
+<p>pour \(\lambda_X\in\Lambda\) convenable (dépendant de \(X/S\)). Nous déterminerons \(\lambda_X\) plus tard.</p>
+
+<p id="15.2.2.6">2.2.6. &nbsp; Nous allons donner des cycles \(\delta\) et \(\delta'\) de (D) et (E) une description de nature locale pour la topologie étale.</p>
+<p>Le cas où \(n\) est pair est facile : si \(2\mid k\) (\(\Lambda=\mathbb Z/k\)), \(\pm\delta\) est caractérisé par (2.2.5.3) (2.2.5.4), ie. par</p>
+\[(2.2.6.1)\qquad (\delta,\delta)=(-1)^m\cdot2.\]
+<p>En général, \(\pm\delta\) est l’image d’un quelconque cycle \(\widetilde\delta\), en cohomologie à valeurs dans \(\mathbb Z/2^ak\) (\(a\) grand), qui vérifie (2.2.6.1).</p>
+<p>Supposons \(n\) impair ; \(x_o\) est alors un point rationnel (2.2.2).</p>
+<p>Soient \(X_{s(o)}\) l’hensélisé en \(x_o\) de \(X_s\), \(\widetilde X_{s(o)}\) l’éclaté de \(X_{s(o)}\) en \(x_o\), \(Y_o\) l’image réciproque de \(x_o\) dans \(\widetilde X_{s(o)}\) (une quadrique) et \(X^*_{s(o)}=X_{s(o)}-\{x_o\}=\widetilde X_{s(o)}-Y_o\). Considérons la flèche composée (cf. XIII, 2.4.6.1)</p>
+\[(2.2.6.2)\qquad \xymatrix{
+H^{n-1}(Y_o,\Lambda(m))&H^{n-1}(\widetilde X_{s(o)},\Lambda(m))\ar[l]_-\sim\ar[r]&H^{n-1}(X^*_{s(o)},\Lambda(m))\ar[d]\\
+&&H^n_{\{x\}}(X_s,\Lambda(m))\ar[ll]\\
+&H^n_{\{x\}}(X_s,R\Phi_{\bar\eta}(\Lambda(m)))\ar[l]&
+}\]
+<div class="thm lemma" id="15.2.2.7"><div class="thm-head"><u>Lemme 2.2.7.</u> &nbsp; <u>La flèche 2.2.6.2 identifie \(H^n_{\{x\}}(X_s,R\psi_{\bar\eta}(\Lambda(m)))\) au quotient primitif de la cohomologie de dimension \(2m\) de la quadrique \(Y_o\) de dimension \(2m\) ; \(\pm\delta\) est l’image des générateurs naturels de ce quotient primitif.</u></div></div>
+<p>Les cycles \(\pm\delta\) sont caractérisés par leur image dans \(H_c^i(X_{\bar\eta},\Lambda(m))\) ; utilisant (2.1.7.1), ceci nous ramène à montrer que la flèche composée</p>
+\[\xymatrix{
+H^{n-1}(Y_o,\Lambda(m))&H^{n-1}(\widetilde X_s,\Lambda(m))\ar[l]_-\sim\ar[r]&H^{n-1}(X_s^*,\Lambda(m))\ar[d]\\
+H_c^n(X_{\bar\eta},\Lambda(m))&H_c^n(X_s,\Lambda(m))\ar[l]_-{\mathrm{sp}}&H^n_{\{x\}}(X_s,\Lambda(m))\ar[l]
+}\]
+<p>envoie les générateurs distingués du quotient primitif du premier groupe sur les générateurs distingués du dernier groupe.</p>
+<p>Appliquons 2.1.8. La flèche se récrit (au signe près)</p>
+\[\xymatrix{
+H^{n-1}(Y_s,\Lambda(m))\ar[r]^-\partial\ar@{=}[d]&H_c^n(X_s,\Lambda(m))\ar[d]\\
+H^{n-1}(Y_{\bar\eta},\Lambda(m))\ar[r]&H_c^n(X_{\bar\eta},\Lambda(m))
+}\]
+<p>et 2.2.7 en résulte.</p>
+
+<h2 id="15.3">§3. &nbsp; <u>La formule de Picard Lefschetz</u></h2>
+<h3 id="15.3.1">3.1 &nbsp; <u>Résultats préliminaires</u></h3>
+<p id="15.3.1.1">3.1.1. &nbsp; Soient \(S\) un trait hensélien et \(f:X\to S\) un morphisme plat de type fini, purement de dimension relative \(n\). On suppose que la fibre spéciale \(X_s\) est lisse, sauf en un ensemble fini de points \(\Sigma'\), où \(X_s\) présente une singularité quadratique ordinaire.</p>
+<p>Soit \(\Sigma\) l’ensemble des points \(x\in\Sigma'\) tel que la fibre générale \(X_\eta\) soit lisse dans un voisinage de \(x\). Soit enfin \(\Lambda\) un anneau de torsion, premier à la caractéristique résiduelle de \(S\).</p>
+<div class="thm proposition" id="15.3.1.2"><div class="thm-head"><u>Proposition 3.1.2.</u> &nbsp; <u>(i) Les faisceaux \(R^i\Phi(\Lambda)\) sont nuls pour \(i\ne n\).</u><br><u>(ii) Le faisceau \(R^n\Phi(\Lambda)\) est nul en dehors de \(\Sigma\). Sa restriction à \(\Sigma\) est un faisceau de \(\Lambda\)-modules de rang 1.</u><br><u>(iii) Pour tout point géométrique \(\bar x\) de \(\Sigma\), la forme \((a,b)\) (2.2.5 (C)) met en dualité les \(\Lambda\)-modules \((R^n\psi(\Lambda))_{\bar x}\) et \(H^n_{\{\bar x\}}(R\psi_{\bar\eta}(\Lambda))\). Ceux-ci sont libres de rang un pour \(n\ne0\), de rang 2 pour \(n=0\).</u></div></div>
+<p>Les assertions de 3.1.2 sont de nature locale pour la topologie étale. Ceci permet de ne traiter que le cas où \(S\) est strictement hensélien, et où \(X\) est l’hypersurface de l’espace affine relatif \(\mathbb A_S^{n+1}\) défini par une équation quadratique vérifiant 2.2.1 (a) (b) (appliquer 1.3.2).</p>
+<p>\(f\) est lisse en tout point de \(X_s-\Sigma'\), de sorte que \(R\Phi=0\) en dehors de \(\Sigma'\). D’après 2.2.4, \(R\Phi\) est même nul hors de \(\Sigma\). On peut maintenant supposer 2.2.5 (*). Les assertions (ii) et (iii) résultent alors de 2.2.5 (A) (B) (C).</p>
+
+<h3 id="15.3.2">3.2. &nbsp; <u>Dimension relative paire.</u></h3>
+<p>On conserve les notations de 3.1, en prenant pour \(n\) un entier pair \(2m\). On suppose pour simplifier \(S\) strictement hensélien (le cas général s’obtiendrait par descente).</p>
+<div class="thm proposition" id="15.3.2.1"><div class="thm-head"><u>Proposition 3.2.1.</u> &nbsp; <u>(i) Pour \(x\in\Sigma\), le groupe \(H^n_{\{x\}}(R\psi_{\bar\eta}(\Lambda(m)))\) a un générateur naturel \(\delta\), bien défini au signe près, caractérisé par les conditions d’être naturel en \(\Lambda\) et de vérifier</u></div>
+\[(\delta,\delta)=(-1)^m2\]
+<div class="thm-head"><u>(pour \(n=0\), ajouter la condition \(\operatorname{Tr}(\delta)=0\)).</u><br><u>(ii) Pour un caractère \(\epsilon_x:I\to\{\pm1\}\) convenable (indépendant de \(\Lambda\)) du groupe d’inertie \(I\), la variation s’écrit</u></div>
+\[\operatorname{Var}(\sigma)(a)=(-1)^m\frac{\epsilon_x(\sigma)-1}{2}(a\delta)\delta\]
+<div class="thm-head"><u>(pour \(a\in R^n\Phi_{\bar\eta}(\Lambda(m))\)). Il résulte que</u></div>
+\[\sigma(\delta)=\epsilon_x(\sigma)\cdot\delta.\]
+</div>
+<p>Passons à la limite pour ne traiter que le cas universel où \(\Lambda\) serait \(\mathbb Z_\ell\). Au signe près, un seul \(\delta\) peut alors vérifier les conditions de (i). Comme en 3.1.2, on se ramène alors au cas 2.2.5 (*), et on applique 2.2.5 (D).</p>
+<p id="15.3.2.2"><u>Complément 3.2.2.</u> &nbsp; Si, en \(x\in\Sigma\), l’hensélisé \(X_{(x)}\) de \(X\) en \(x\) est isomorphe à l’hensélisé en \(x_o\) du schéma projectif \(Q\) d’équation,</p>
+\[\sum_{i\le j}a_{ij}x_ix_j=0,\]
+<p>alors, le caractère \(\epsilon_x\) est défini par l’extension quadratique séparable \(Z(C^+(Q))\) du corps des fractions (ceci résulte de 2.2.5 (D)).</p>
+<p id="15.3.2.3">3.2.3. &nbsp; En caractéristique résiduelle \(\ne2\), on peut rendre 3.2.2 plus explicite. Dans ce cas, \(I\) admet un seul caractère non trivial \(\epsilon\) d’ordre 2. Pour \(t\) une uniformisante, on a</p>
+\[\sigma(\sqrt t)=\epsilon(\sigma)\sqrt t.\]
+<p>D’autre part, \(X_{(x)}\) est alors isomorphe à l’hensélisé en 0 d’un schéma affine</p>
+\[\sum a_{ij}x_ix_j=b,\]
+<p>où \(b\) est dans l’idéal maximal et où \(Q(x)=\sum a_{ij}x_ix_j\) est non dégénérée. L’idéal \((b)\) définit l’image du sous-schéma de \(X_{(x)}\), support de \(J^n_{X_{(x)}/S}\). Le centre de l’algèbre de Clifford est isomorphe à \(k(\eta)(((-1)^{m+1}\cdot2b\det(a_{ij}))^{1/2})\) (Bourbaki, Alg. Ch 9, §9, n° 4 Rmq finale), d’où</p>
+\[\epsilon_x=\epsilon^{v(b)}.\]
+<p>La variation est nulle si \(b\) est de valuation paire, et sinon \(\epsilon_x=\epsilon\).</p>
+
+<h3 id="15.3.3">3.3. &nbsp; <u>Dimension relative impaire</u></h3>
+<p>Pour démontrer la formule de Picard-Lefschetz en dimension relative impaire, nous devrons nous ramener au cas transcendant, traité en XIV 3.2.1.1. L’argument de spécialisation requis nous force à travailler sur une base qui ne soit plus de dimension un. Nous le ferons par des arguments ad hoc, adaptés au cas précis dont nous avons besoin : je ne dispose pas d’une théorie serviable sur une base de dimension &gt; 1, et j’ai préféré ne pas recouvrir mon ignorance de généralités.</p>
+<p id="15.3.3.1">3.3.1. &nbsp; Soient \(S=\operatorname{Spec}(A)\) un schéma strictement local noethérien et \(f:X\to S\) un morphisme plat de type fini, purement de dimension relative \(n\), dont la fibre spéciale \(X_s\) n’a pour seuls points de non lissité que des points quadratiques non dégénérés. Soient \(s\) le point fermé de \(S\), \(X_s\) la fibre spéciale et \(x_o\in X_s\) un point singulier. D’après 1.3.2 (i), au voisinage de \(x_o\), \(X/S\) est localement isomorphe à un \(S\)-schéma défini par une équation \(Q-b=0\) dans \(\mathbb A_S^{n+1}\), avec \(b\) dans l’idéal maximal et \(Q\) une forme quadratique non dégénérée. L’idéal \((b)\) de \(A\) ne dépend que de \((X/S,x_o)\) : dans un voisinage de \(x\), il existe une section \(s\in X(A/(b))\) de \(X\) sur \(\operatorname{Spec}(A/(b))\), tel que \(J^n_{X/S}\) soit isomorphe à \(\mathcal O_{s(\operatorname{Spec}(A/(b)))}\). On note \(s_x\) cette section et \(b(x)\) un quelconque générateur de \((b)\).</p>
+
+<p id="15.3.3.2">3.3.2. &nbsp; Supposons \(S\) normal, et soit \(b\in A\). Pour \(n\) inversible dans \(A\) et
+\(b\ne0\), nous noterons \(e_b^{(n)}\) l’homomorphisme suivant du groupe de Galois du corps des
+fractions de \(A\) dans \(\mathbb Z/(n)(1)\)</p>
+\[e_b^{(n)}(\sigma)=(\sigma\sqrt[n]{b})/\sqrt[n]{b}.\]
+<p>On a \((e_b^{(nm)})^m=e_b^{(n)}\). Si \(\Lambda\) est un \(\mathbb Z/n\)-algèbre, on note encore \(e_b\) le composé
+\[\operatorname{Gal}\longrightarrow\mathbb Z/(n)(1)\longrightarrow\Lambda(1).\]
+Il est indépendant de \(n\).</p>
+<p>Le caractère \(e_b\) se factorise par \(\pi_1(S-(\text{sous-schéma }b=0))\).</p>
+
+<p id="15.3.3.3">3.3.3. &nbsp; Supposons que \(S\) soit un trait strictement hensélien, et que \(n\) soit impair :
+\(n=2m+1\). Soient \(x\) un point singulier de \(X_s\) dans un voisinage duquel
+\(X_\eta\) soit lisse, et \(X_1/S\) un sous-schéma d’équation \(Q-b=0\) de
+\(\mathbb A_S^{n+1}\) comme en 1.3.2 (i). L’hypothèse sur \(x\) signifie que \(b\), nul
+modulo l’idéal maximal, n’est pas 0.</p>
+
+<p>Soient \(X_{s(x)}\) l’hensélisé de \(X_s\) en \(x\), \(\widetilde X_{s(x)}\) l’éclaté de
+\(\widetilde X_s\) en \(x\), \(Y\) la quadrique image réciproque de \(x\) et
+\(\widetilde X^*_{s(x)}=\widetilde X_{s(x)}-[x]=\widetilde X_{s(x)}-Y\). Le morphisme composé</p>
+\[\xymatrix{
+H^{n-1}(Y,\Lambda(m))&H^{n-1}(\widetilde X_{s(x)},\Lambda(m))\ar[l]_-\sim\ar[r]&H^{n-1}(X^*_{s(x)},\Lambda(m))\ar[d]\\
+&&H^n_{\{x\}}(X_s,\Lambda(m))\ar[ll]\\
+&H^n_{\{x\}}(X_s,R\psi_{\bar\eta}(\Lambda(m)))\ar[l]&
+}\]
+<p>identifie ce dernier groupe au quotient primitif (XII 3.5), de la cohomologie de la
+quadrique \(Y\). D’après (2.2.7), c’est en effet le cas dans une situation localement
+isomorphe. Les images des deux générateurs naturels de ce quotient (classes de cohomologie
+des génératrices de \(Y\)) sont deux vecteurs de base \(\pm\delta\) de
+\(H^n_{\{x\}}(X_s,R\psi_{\bar\eta}(\Lambda(m)))\).</p>
+
+<p id="15.3.3.4">3.3.4. &nbsp; Revenons aux hypothèses plus générales de 3.3.1, avec \(n=2m+1\). Pour
+tout point singulier \(x\) de \(X_s\), nous noterons encore \(\pm\delta_x\) les sections de
+\(R^nf_!\Lambda(m)\) sur \(S\) image des générateurs du quotient primitif de
+\(H^{n-1}(Y,\Lambda(m))\) (même notation que plus haut) par le morphisme composé</p>
+\[\xymatrix{
+H^{n-1}(Y,\Lambda(m))&H^{n-1}(\widetilde X_{s(x)},\Lambda(m))\ar[l]_-\sim\ar[r]&H^{n-1}(X^*_{s(x)},\Lambda(m))\ar[d]\\
+H^0(S,R^nf_!\Lambda(m))&H_c^n(X_s,\Lambda(m))\ar[l]_-\sim&H^n_{\{x\}}(X_s,\Lambda(m))\ar[l]
+}\]
+<p>\(\pm\delta_x\) est le <u>cycle évanescent</u> en \(x\).</p>
+
+<p>Lorsque \(S\) est un trait, \(\pm\delta\in H_c^n(X_{\bar\eta},\Lambda(m))\) est l’image par XIII 2.1.8.4
+de la classe (3.3.3) \(\pm\delta\in H^n_{\{x\}}(X_s,R\psi_{\bar\eta}(\Lambda(m)))\).</p>
+
+<p>Nous prouverons simultanément les deux résultats suivants.</p>
+
+<div class="thm proposition" id="15.3.3.5"><div class="thm-head"><u>Proposition 3.3.5.</u> &nbsp;
+<u>Pour \(S\) un trait hensélien et \(X/S\) comme en 3.3.3, la variation est donnée par</u></div>
+\[\operatorname{Var}(\sigma)(a)=(-1)^{m+1}e_{b(x)}(\sigma)(a\delta)\delta.\]
+</div>
+
+<div class="thm proposition" id="15.3.3.6"><div class="thm-head"><u>Proposition 3.3.6.</u> &nbsp;
+<u>Soit \(S\) strictement local régulier et \(f:X\to S\) un morphisme propre et plat de
+dimension relative \(n=2m+1\) tel que \(X_s\) présente un et un seul point de non lissité
+\(x\) — supposé quadratique non dégénéré. On suppose aussi que \(b(x)\) est un paramètre.
+Alors, Galois agit sur la cohomologie de la fibre générale géométrique par</u></div>
+\[\sigma(a)=a+(-1)^{m+1}e_{b(x)}(\sigma)(a\delta_x)\delta_x.\]
+</div>
+
+<p>(A) &nbsp; Soit \(k\) un corps algébriquement clos de caractéristique 0, \(S\) l’hensélisé
+de \(\operatorname{Spec}(k[T])\) en 0. Prouvons 3.3.5 lorsque \(b(x)\) est une uniformisante.</p>
+
+<p>Par le principe de Lefschetz, on se ramène à supposer que \(k=\mathbb C\). La
+question étant locale, on peut supposer que \(f:X\to S\) se déduit par changement de
+base de l’application \(\sum z_i^2\) de \(\mathbb C^{n+1}\) dans \(\mathbb C\). La construction donnée de \(\pm\delta\) a
+un analogue transcendant, en cohomologie entière. Via XIV 2.1, \(\pm\delta\) correspond
+donc à un cycle évanescent transcendant, image de</p>
+\[\pm\delta_{\mathbb C\ell}\in H^n_{\{0\}}(X_o,R\psi_{\mathbb C\ell\bar\eta}(\mathbb Z)).\]
+<p>D’après XIV 2.1 et la propriété correspondante des cycles \(\pm\delta\) algébriques, l’image
+de \(\pm\delta_{\mathbb C\ell}\) dans \(H^n_{\{0\}}(X_o,R\psi_{\mathbb C\ell\bar\eta}(\mathbb Z))\otimes\mathbb Z_\ell\) est un générateur de ce groupe. Dès lors,
+\(\pm\delta_{\mathbb C\ell}\) sont deux générateurs de \(H^n_{\{0\}}(X_o,R\psi_{\mathbb C\ell\bar\eta}(\mathbb Z))\), et coïncident avec les cycles
+évanescents de XIV 3.2. La formule 3.3.5 résulte donc de XIV 3.2.11 (en toute rigueur,
+il faudrait avoir vérifié une compatibilité entre l’isomorphisme XIV 2.1 et les cup-produits et traces).</p>
+
+<p>(B) &nbsp; Prouvons 3.3.6 pour \(X/S\) comme en (A) (et de plus propre).</p>
+<p>Cela résulte de XIII 2.4.6.2.</p>
+
+<p>(C) &nbsp; Soient \(p\) un nombre premier et \(S_o\) l’hensélisé strict de
+\(\operatorname{Spec}(\mathbb Z[T])\) en \((p,T)\). Prouvons 3.3.6 pour \(X/S_o\) tel que \(b(x)=T\).</p>
+<p>La restriction du faisceau \(R^if_*\Lambda\) à l’hensélisé strict de \(S\) en \((T)\)
+est justiciable de (B). Ce faisceau étant localement constant sur le complément du
+diviseur lisse \(T=0\), qui est d’inégale caractéristique, (C) résulte de (B) et du
+lemme d’Abhyankar.</p>
+
+<p>(D) &nbsp; Dans au moins un cas où (C) s’applique, \(\delta_x\) n’est pas un élément de torsion en
+cohomologie \(\ell\)-adique.</p>
+
+<p>Soient \(S_1\) l’hensélisé strict de \(\operatorname{Spec}(\mathbb Z)\) en \((p)\) et
+\(V\subset\mathbb P^r/S_1\) une variété projective lisse sur \(S_1\), purement de dimension relative
+\(n+1\). On suppose qu’il existe un pinceau de Lefschetz de sections hyperplanes pour la fibre spéciale
+\(V_p\) de \(V/S_1\) (XVII, 2.5) ; ce pinceau est défini par une droite \(d'\) dans la fibre
+spéciale de l’espace projectif \(\check{\mathbb P}^r/S_1\) dual de \(\mathbb P^r/S_1\). Relevons \(d'\) en une droite
+\(d\) de \(\check{\mathbb P}^r/S_1\) et soit \(X\to d\) le pinceau des sections hyperplanes de \(V\) paramétrées
+par \(d\) (XVIII 3.1). Le lieu exceptionnel \(\Delta\) de \(d\) est étale sur \(S_1\) (XVII 6).
+Par localisation étale en un point de \(\Delta_p\subset d\), on obtient donc une situation (C).</p>
+
+<p>Pour vérifier que \(\delta_x\) n’est pas de torsion, il suffit de le faire après
+extension des scalaires de \(S_1\) à \(\mathbb C\). Prenons \(V=\mathbb P^{n+1}\), et le plongement projectif défini par
+\(\mathcal O(N)\). Pour \(N\ge2\), on peut appliquer XVII 2.5 (valable pour tout
+\(N\) dans ce cas particulier). On applique alors le lemme suivant.</p>
+
+<div class="thm lemma" id="15.3.3.7"><div class="thm-head"><u>Lemme 3.3.7.</u> &nbsp;
+<u>Pour un pinceau de Lefschetz d’hypersurfaces de degré \(N\) grand dans
+\(\mathbb P^{n+1}(\mathbb C)\) (\(N\ge3\) suffit), un cycle évanescent (en \(\mathbb Q_\ell\)-cohomologie) est non nul.</u></div></div>
+
+<p>Ce lemme résulte de la théorie des pinceaux de Lefschetz, par exemple de
+XVIII 6.6.1. Il n’y a pas de cercle vicieux à utiliser ici ce résultat de XVIII,
+basé sur la « formule de Picard-Lefschetz », car nous disposons déjà de (A). On peut
+aussi utiliser la variante plus directe XIX n° 4, purement transcendante et qui ne
+dépend que de XIV 3.2.</p>
+
+<p>(E) &nbsp; Preuve de 3.3.5 en caractéristique résiduelle \(p\) pour \((X/S,x\in X_s)\).</p>
+<p>Soit \(X_o/S_o\) comme en (D). D’après 1.3.2 (i), il existe \(g:S\to S_o\) tel
+que l’hensélisé en \(x_o\) de \(g^*X_o=X_o\times_{S_o}S\) soit \(S\)-isomorphe à l’hensélisé de \(X\)
+en \(x\). Il suffit donc de prouver 3.3.5 pour \(g^*X_o\). On déduit par changement de
+base de (C) pour \(X_o/S_o\) que</p>
+\[\sigma(a)=a-(-1)^m e_{b(x)}(\sigma)(a\delta_x)\delta_x\]
+<p>dans \(H^n(X_{o\bar\eta})\), pour \(\sigma\) dans le groupe d’inertie. Soit \(\pi\) une uniformisante, comparons
+la formule ci-dessus avec (2.2.5.9), où \(e=e_\pi\). On trouve que</p>
+\[\lambda_X e_\pi(\sigma)(a\delta_x)\delta_x=-(-1)^m e_{b(x)}(\sigma)(a\delta_x)\delta_x\]
+<p>dans \(H^n(X_{o\bar\eta})\). Puisque \(\delta_x\) n’est pas de torsion, nous pouvons simplifier cette
+formule par \((a\delta_x)\delta_x\) ; la formule 2.2.5.9, pour la valeur obtenue de \(\lambda_X\), n’est
+autre que 3.3.5.</p>
+
+<p>(F) &nbsp; Preuve de 3.3.6 (cas général)</p>
+<p>3.3.6 se réduit du cas général de 3.3.5 comme (B) et (C) de (A).</p>
+
+<h3 id="15.3.4">3.4. &nbsp; <u>Résumé</u></h3>
+<p>Les propositions 3.1.2, 3.2.1, 3.2.2, 3.2.3 et 3.3.5 sont la « formule de
+Picard-Lefschetz ». Cette formule est l’analogue algébrique de XIV 3.2.11, mais prend
+une forme très différente selon la parité de la dimension relative.</p>
+<p>Dans le cas le plus intéressant où \(X/S\) est propre, les résultats peuvent
+se résumer comme suit.</p>
+
+<div class="thm theorem" id="15.3.4.1"><div class="thm-head"><u>Théorème 3.4 (Formule de Picard-Lefschetz).</u> &nbsp;
+<u>Soient \(S\) un trait strictement hensélien et \(f:X\to S\) un morphisme propre et plat
+purement de dimension relative \(n=2m\) ou \(2m+1\). On suppose que \(X_\eta\) est lisse et
+que \(X_s\) ne présente que des singularités quadratiques ordinaires. Soit \(\Sigma\) le lieu
+singulier de \(X_s\).</u></div>
+<p><u>(i) à chaque \(x\in\Sigma\) est attaché un cycle évanescent \(\pm\delta_x\in H^n(X_{\bar\eta})(m)\).
+Ces \(\delta_x\) sont deux à deux orthogonaux. Pour \(n\) pair, on a
+\((\delta_x,\delta_x)=(-1)^m2\).</u></p>
+<p><u>(ii) On a \(H^i(X_s)\overset\sim\longrightarrow H^i(X_{\bar\eta})\) pour \(i\ne n,n+1\) et une suite exacte longue</u></p>
+\[
+0\longrightarrow H^n(X_s)\longrightarrow H^n(X_{\bar\eta})
+\xrightarrow{((\ ,\delta_x))}\bigoplus_{x\in\Sigma}\Lambda(n-m)
+\longrightarrow H^{n+1}(X_s)\longrightarrow H^{n+1}(X_{\bar\eta})\longrightarrow0.
+\]
+<p><u>(iii) Des caractères locaux du groupe d’inertie sont définis :</u></p>
+\[
+\begin{array}{lll}
+n\ \text{pair} & \varepsilon_x:I\longrightarrow\{\pm1\},\\[4pt]
+n\ \text{impair} & e_x:I\longrightarrow\Lambda(1).
+\end{array}
+\]
+<p><u>Pour \(X\) régulier en \(x\), ils sont surjectifs ; pour \(x\) non dégénéré, ce sont
+l’unique caractère d’ordre 2 et le caractère canonique.</u></p>
+
+<p><u>L’action du groupe d’inertie \(I\) est fournie par</u></p>
+\[
+\begin{array}{lll}
+n=2m & \displaystyle \sigma(a)=a+(-1)^m\sum_{x\in\Sigma}
+\frac{\varepsilon_x(\sigma)-1}{2}(a\delta_x)\delta_x,\\[8pt]
+n=2m+1 & \displaystyle \sigma(a)=a-(-1)^m\sum_{x\in\Sigma}
+e_x(\sigma)(a\delta_x)\delta_x.
+\end{array}
+\]
+<p><u>En particulier</u></p>
+\[
+\begin{array}{lll}
+n\ \text{pair} & \sigma(\delta_x)=\varepsilon_x(\sigma)\delta_x,\\[4pt]
+n\ \text{impair} & \sigma(\delta_x)=\delta_x.
+\end{array}
+\]
+</div>
+
+</body>
+</html>

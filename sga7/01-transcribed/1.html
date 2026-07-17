@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé I. Résumé des premiers exposés de A. Grothendieck</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="1">EXPOSÉ I<br>RÉSUMÉ DES PREMIERS EXPOSÉS DE A. GROTHENDIECK<span class="author">rédigé par P. Deligne</span></h1>
+
+<h2 id="1.0">0. Préliminaires</h2>
+
+<h3 id="1.0.0">0.0. Terminologie</h3>
+
+<p>Rappelons les définitions suivantes :</p>
+
+<p id="1.0.0.1"><strong>(0.0.1)</strong> <u>trait</u> : spectre d'un anneau de valuation discrète. On note souvent
+\(\eta\) et \(s\) les points générique et fermé d'un trait.</p>
+
+<p id="1.0.0.2"><strong>(0.0.2)</strong> <u>strictement local</u> : pour un anneau : local hensélien à corps résiduel
+séparablement clos. Pour un schéma : spectre d'un tel anneau.</p>
+
+<p id="1.0.0.3"><strong>(0.0.3)</strong> <u>point géométrique de \(S\)</u> (dans cet exposé) : morphisme
+\(\bar{x}\colon \operatorname{Spec}(\bar{k})\to S\) d'image \(x\in S\),
+\(k(\bar{x})=_{\mathrm{dfn}}\bar{k}\) étant une clôture séparable de \(k(x)\).
+Pour un trait hensélien \(S=\operatorname{Spec}(V)\), on note souvent \(\bar\eta\)
+un point géométrique générique (i.e. d'image \(\eta\)) de \(S\). Le corps résiduel
+de l'anneau de valuation \(\bar V\), clôture intégrale de \(V\) dans
+\(k(\bar\eta)\), est une extension algébrique séparablement close de \(k(s)\)
+et définit un point géométrique \(\bar s\) de \(S\) localisé en \(s\).</p>
+
+<p id="1.0.0.4"><strong>(0.0.4)</strong> <u>localisé strict de \(X\) en le point géométrique \(\bar x\)</u> :
+SGA 4 VIII 4.4.</p>
+
+<p id="1.0.0.5"><strong>(0.0.5)</strong> <u>essentiellement de type fini sur \(S\)</u> : pour un \(S\)-schéma local
+(resp. local hensélien, resp. strictement local) : spectre d'un anneau local
+(resp. de l'hensélisé d'un anneau local, resp. localisé strict) d'un schéma de type fini sur \(S\).</p>
+
+<p id="1.0.0.6"><strong>(0.0.6)</strong> \(F\longmapsto F(n)\) : twist à la Tate.</p>
+
+<p id="1.0.0.7"><strong>(0.0.7)</strong> Un endomorphisme \(T\) d'un espace vectoriel de dimension finie est
+<u>quasi-unipotent</u> si ses valeurs propres sont des racines de l'unité, i.e. s'il existe
+\(N\geq1\), \(M\geq1\) tels que \((T^N-1)^M=0\).</p>
+
+<h3 id="1.0.1">0.1. Rappels sur la cohomologie \(\ell\)-adique</h3>
+
+<p>Soit \(X\) un schéma de type fini sur un corps algébriquement clos \(k\)
+d'exposant caractéristique \(p\) et \(\ell\) un nombre premier premier à \(p\).</p>
+
+<p>Les groupes de cohomologie \(\ell\)-adique de \(X\) ont été définis dans SGA 4 et SGA 5.</p>
+
+<ol class="enumerate">
+<li><span class="item-label">a)</span> \(H^i(X,\mathbb Z/\ell^n)\) est le \(i\)-ème groupe de cohomologie du site étale \(X_{\mathrm{et}}\) de \(X\) à valeurs dans \(\mathbb Z/\ell^n\) ;</li>
+<li><span class="item-label">b)</span> par définition, \(H^i(X,\mathbb Z_\ell)=\varprojlim_n H^i(X,\mathbb Z/\ell^n)\) ;</li>
+<li><span class="item-label">c)</span> par définition, \(H^i(X,\mathbb Q_\ell)=H^i(X,\mathbb Z_\ell)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell\).</li>
+</ol>
+
+<p>Les groupes de cohomologie \(\ell\)-adique à supports propres de \(X\) sont définis
+de même à partir des \(H_c^i(X,\mathbb Z/\ell^n)\) de SGA 4 XVII.</p>
+
+<p>Dans chacun des cas suivants, on sait prouver que ces groupes \(H^i(X)\) ont des
+propriétés de finitude raisonnables :</p>
+
+<p id="1.0.1.1"><strong>(0.1.1)</strong> en cohomologie à support propre ;</p>
+<p id="1.0.1.2"><strong>(0.1.2)</strong> pour \(X\) propre sur \(k\) ;</p>
+<p id="1.0.1.3"><strong>(0.1.3)</strong> pour \(X\) lisse sur \(k\) (grâce à a) et à la dualité de Poincaré SGA 4 XVIII) ;</p>
+<p id="1.0.1.4"><strong>(0.1.4)</strong> lorsqu'on dispose de la résolution des singularités à la Hironaka pour les
+schémas de type fini sur \(k\), de dimension \(\leq\dim(X)\) ;</p>
+<p id="1.0.1.5"><strong>(0.1.5)</strong> pour \(i=0,1\).</p>
+
+<p>Dans tous ces cas, les \(H^i(X,\mathbb Z/\ell^n)\) sont finis, les
+\(H^i(X,\mathbb Z_\ell)\) de type fini, les \(H^i(X,\mathbb Q_\ell)\) de dimension finie et
+(sauf peut-être pour (0.1.5)) on dispose de suites exactes courtes scindées
+\[0\longrightarrow H^i(X,\mathbb Z_\ell)\otimes\mathbb Z/\ell^n
+\longrightarrow H^i(X,\mathbb Z/\ell^n)\longrightarrow
+\operatorname{Tor}_1(H^{i+1}(X,\mathbb Z_\ell),\mathbb Z/\ell^n)\longrightarrow0.\]</p>
+
+<p>De plus, la démonstration du théorème de finitude fournit chaque fois une démonstration
+d'un théorème de constructibilité générique : si \(k\) est le corps des fractions d'un
+schéma noethérien intègre \(S\) et que \(X\) est la fibre générique de
+\(f_1\colon X_1\to S\) (de type fini), il existe un ouvert non vide \(U\subset S\) tel que,
+sur \(U\), les \(R^if_{1*}\mathbb Z/\ell^n\) soient localement constants de formation
+compatible à tout changement de base.</p>
+
+<p id="1.0.2"><strong>0.2.</strong> Ne supposons plus \(k\) algébriquement clos, et soit \(\bar k\) une clôture
+algébrique (ou séparable, cela reviendrait au même) de \(k\). Nous considérerons les
+groupes de cohomologie « géométriques » \(H^i(X_{\bar k})\), où \(X_{\bar k}\) est le schéma
+déduit de \(X\) par extension des scalaires de \(k\) à \(\bar k\). Par transport de structure,
+le groupe de Galois \(\operatorname{Gal}(\bar k/k)\) agit sur ces groupes. En
+\(\mathbb Q_\ell\)-cohomologie, lorsqu'on est dans l'un des cas (0.1.1) à (0.1.5), on obtient
+ainsi des représentations continues de \(\operatorname{Gal}(\bar k/k)\) dans un groupe
+linéaire \(\operatorname{GL}(n,\mathbb Q_\ell)\).</p>
+
+<h3 id="1.0.3">0.3. Rappels sur les traits (0.0.1)</h3>
+
+<p>Pour les démonstrations, on renvoie à [4]. Soient \(S\) un trait hensélien,
+\(\eta,s,V,\bar V,\bar\eta,\bar s\) comme en (0.0.1) (0.0.3). On note \(p\)
+l'exposant caractéristique de \(k(s)\) et \(\operatorname{Gal}(\bar\eta/\eta)\)
+(resp. \(\operatorname{Gal}(\bar s/s)\)) le groupe de Galois
+\(\operatorname{Gal}(k(\bar\eta)/k(\eta))\) (resp. ...). Par transport de structure,
+\(\operatorname{Gal}(\bar\eta/\eta)\) agit sur \(k(\bar s)\), d'où une application de
+\(\operatorname{Gal}(\bar\eta/\eta)\) dans (en fait sur) \(\operatorname{Gal}(\bar s/s)\),
+de noyau le <u>groupe d'inertie</u> \(I\). Le sous-corps de \(k(\bar\eta)\) défini par \(I\)
+est une extension non ramifiée maximale de \(k(\eta)\).</p>
+
+<p>Le groupe profini \(I\) admet un plus grand sous-groupe \(P\) qui soit un pro-\(p\)-groupe.
+Le quotient \(I/P\) est le <u>groupe d'inertie modérée</u>. On a canoniquement
+\[I/P\simeq\varprojlim_n\mu_n(k(\bar s))=_{\mathrm{dfn}}\widehat{\mathbb Z}(1)(k(\bar s)).\]
+Si \(\phi_n\) est l'application canonique de \(I/P\) dans \(\mu_n(\bar k)\), et que \(u\)
+est un élément de \(\bar V\) de valuation \(1/n\), on a pour \(\sigma\in I\)
+\[\sigma(u)\equiv\phi_n(u)\cdot u\pmod{\text{éléments de valuation }>1/n}.\]</p>
+
+<p>En résumé, on a :</p>
+<p id="1.0.3.1"><strong>(0.3.1)</strong>
+\[\operatorname{Gal}(\bar\eta/\eta)\supset I\supset P,\qquad
+\operatorname{Gal}(\bar\eta/\eta)/I\simeq\operatorname{Gal}(\bar s/s),\qquad
+I/P\simeq\widehat{\mathbb Z}(1)(k(\bar s)),\]
+\[P:\text{ pro-}p\text{-groupe }(\{e\}\text{ si }p=1),\]
+et l'action (par automorphismes intérieurs dans \(\operatorname{Gal}(\bar\eta/\eta)\)) de
+\(\operatorname{Gal}(\bar\eta/\eta)/I\) sur \(I/P\) s'identifie à l'action naturelle de
+\(\operatorname{Gal}(\bar s/s)\) sur \(\widehat{\mathbb Z}(1)(k(\bar s))\).</p>
+
+<p id="1.0.4"><strong>0.4.</strong> Soit plus généralement \(S\) strictement local régulier, \(D\) un diviseur
+régulier dans \(S\) et \(p'\) l'exposant caractéristique du point générique de \(D\).
+Soient \(\bar\eta\) un point géométrique générique de \(S\) et \(\bar s\) le point géométrique
+localisé au point fermé \(s\), qui s'en déduit. D'après le lemme d'Abhyankar, le groupe
+fondamental \(\pi_1(S-D,\bar\eta)\) admet un dévissage analogue à (0.3.1) :</p>
+
+<p id="1.0.4.1"><strong>(0.4.1)</strong>
+\[\pi_1(S-D,\bar\eta)\supset I\supset P,\qquad
+\pi_1(S-D,\bar\eta)/I=\operatorname{Gal}(\bar s/s),\qquad
+I/P\simeq\widehat{\mathbb Z}(1)(k(\bar s)),\]
+\[P:\text{ sans quotient d'ordre premier à }p'.\]
+L'action par automorphismes intérieurs de \(\pi_1(S-D,\bar\eta)/I\) sur \(I/P\)
+s'identifie à l'action naturelle de \(\operatorname{Gal}(\bar s/s)\) sur
+\(\widehat{\mathbb Z}(1)(k(\bar s))\).</p>
+
+<h3 id="1.0.5">0.5. La désingularisation de Néron</h3>
+
+<p>La méthode de désingularisation de Néron fournit le résultat suivant :</p>
+
+<div class="thm lemma" id="1.0.5.1">
+<div class="thm-head"><span class="thm-name">Lemme 0.5.1.</span></div>
+<div class="thm-body"><p>Soit \(S\to S_0\) un morphisme de traits henséliens, avec
+\(S=\operatorname{Spec}(V)\), \(S_0=\operatorname{Spec}(V_0)\), et \(\pi\) une uniformisante
+de \(V_0\). On suppose que \(\pi\) est une uniformisante de \(V\), et que les extensions
+\(k(s)/k(s_0)\) et \(k(\eta)/k(\eta_0)\) sont séparables. Alors, \(V\) est limite inductive
+de \(V_0\)-algèbres henséliennes lisses et essentiellement de type fini \(B_i\) sur \(V_0\).</p></div>
+</div>
+
+<p>Pour construire les \(V_0\)-algèbres voulues, on prend \(V_0\subset B\subset V\) avec
+\(B\) de type fini, et on désingularise \(\operatorname{Spec}(B)\) à la Néron ([1] § 4).</p>
+
+<p>Soit \(S=\operatorname{Spec}(V)\) un trait hensélien.</p>
+
+<p id="1.0.5.2"><strong>(0.5.2)</strong> Si \(S\) est d'égale caractéristique, d'uniformisante \(\pi\), on peut appliquer
+(0.5.1) pour \(S_0=\mathbb F_p[\pi]_{(\pi)}\). L'extension \(s/s_0\) est séparable car
+\(\mathbb F_p\) est parfait, l'extension \(\eta/\eta_0\) l'est car \(\pi\), étant une
+uniformisante, n'est pas une puissance \(p\)-ième (si \(p\ne1\)) donc fait partie d'une
+\(p\)-base. On trouve que \(S\) est limite de spectres de
+\(\mathbb F_p[\pi]_{(\pi)}\)-algèbres henséliennes lisses essentiellement de type fini.</p>
+
+<p id="1.0.5.3"><strong>(0.5.3)</strong> Si \(S\) est complet, d'inégale caractéristique, à corps résiduel parfait \(k\),
+\(V\) est une extension d'Eisenstein de l'anneau des vecteurs de Witt (= anneau de Cohen)
+\(W(k)\)
+\[V\simeq W(k)[\pi]/\left(\pi^n+\sum_0^{n-1}a_i\pi^i\right).\]
+Si on perturbe un peu les \(a_i\), on trouve une extension isomorphe. On peut donc supposer
+les \(a_i\) dans \(W(k')\), avec \(k'\) de type fini sur \(\mathbb F_p\). Soit \(k_0\) la
+clôture parfaite de \(k'\) dans \(k\) et
+\[V_0=W(k_0)[\pi]/\left(\pi^n+\sum_0^{n-1}a_i\pi^i\right).\]
+Le lemme 0.5.1 s'applique à \(V/V_0\), et le corps résiduel de \(V_0\) est une extension
+radicielle d'un corps de type fini sur \(\mathbb F_p\).</p>
+
+<h2 id="1.1">1. Démonstration arithmétique du théorème de monodromie</h2>
+
+<p>Le lecteur trouvera dans [5], Appendice, une démonstration du résultat suivant de A. Grothendieck.</p>
+
+<div class="thm proposition" id="1.1.1">
+<div class="thm-head"><span class="thm-name">Proposition 1.1.</span></div>
+<div class="thm-body"><p>Soient \(S\) un trait hensélien, \(\ell\) un nombre premier premier à
+l'exposant caractéristique \(p\) de \(k(s)\) et \(\rho\) une représentation continue de
+\(\operatorname{Gal}(\bar\eta/\eta)\) dans \(\operatorname{GL}(n,\mathbb Q_\ell)\).
+On suppose remplie la condition suivante :</p>
+<p>\((\star_\ell)\) Aucune extension finie de \(k(s)\) ne contient toutes les racines de
+l'unité d'ordre une puissance de \(\ell\).</p>
+<p>Alors, il existe un sous-groupe ouvert \(I_1\) du groupe d'inertie \(I\) tel que
+\(\rho(\sigma)\) soit unipotent pour \(\sigma\in I_1\).</p></div>
+</div>
+
+<p>La condition \((\star_\ell)\) est automatiquement vérifiée pour \(k(s)\) de type fini
+sur le corps premier (ou radiciel sur un tel corps).</p>
+
+<p>Le théorème suivant résulte aussitôt de 1.1.</p>
+
+<div class="thm theorem" id="1.1.2">
+<div class="thm-head"><span class="thm-name">Théorème de monodromie 1.2.</span></div>
+<div class="thm-body"><p>Avec les notations précédentes, soit \(X\) un schéma de type fini sur
+\(\eta\) et \(H\) un espace de cohomologie de \(X_{\bar\eta}\), à coefficients dans
+\(\mathbb Q_\ell\), de l'un des types (1.1.1) à (1.1.5). Si la condition
+\((\star_\ell)\) est vérifiée, l'action d'un quelconque élément de \(I\) sur \(H\)
+est quasi-unipotente.</p></div>
+</div>
+
+<p>Les résultats de passage à la limite 0.5 permettent de se débarrasser de l'hypothèse
+\((\star_\ell)\).</p>
+
+<div class="thm" id="1.1.3">
+<div class="thm-head"><span class="thm-name">Variante 1.3.</span></div>
+<div class="thm-body"><p>La condition \((\star_\ell)\) dans 1.2 est superflue.</p></div>
+</div>
+
+<p>Soit \(H'_0\) un espace de \(\mathbb Z_\ell\)-cohomologie de \(X_{\bar\eta}\) qui donne
+naissance à \(H\), et \(H_0=H'_0/\text{torsion}\). On a par hypothèse
+\(H=H_0\otimes_{\mathbb Z_\ell}\mathbb Q_\ell\), et l'action de
+\(\operatorname{Gal}(\bar\eta/\eta)\) se déduit de
+\[\rho\colon\operatorname{Gal}(\bar\eta/\eta)\longrightarrow\operatorname{GL}(H_0).\]
+Soit \(I_{\ell'}\) le plus grand sous-groupe premier à \(\ell\) de \(I\). Son image dans
+\(\operatorname{GL}(H_0)\) est un groupe de Lie \(\ell\)-adique premier à \(\ell\), donc est finie.</p>
+
+<p>Procédons à une extension de trait \(S'\to S\). Ceci ne change pas \(H_0\)
+(SGA 4 XVI 6.6) et \(\rho(I')\) est d'indice fini dans \(\rho(I)\), car \(I'/P'\)
+est d'indice fini dans \(I/P\) et ce qui précède. Il suffit donc de prouver le théorème
+sur \(S'\) : on peut supposer que</p>
+<ol class="enumerate">
+<li><span class="item-label">a)</span> \(\operatorname{Gal}(\bar\eta/\eta)\) agit trivialement sur \(H_0/\ell H_0\) ;</li>
+<li><span class="item-label">b)</span> si \(S\) est d'inégale caractéristique, \(S\) est complet à corps résiduel parfait (EGA \(0_{\mathrm{III}}\) 10.3.1).</li>
+</ol>
+
+<p>Posons \(S=\operatorname{Spec}(V)\), définissons \(V_0\) comme en (0.5.2) et (0.5.3)
+et appliquons (0.5.1). On a \(V=\varinjlim B_i\), avec
+\(S_i=\operatorname{Spec}(B_i)\) essentiellement lisse de type fini sur \(V_0\).
+Soit \(D_i\subset S_i\) d'équation \(\pi=0\). Pour \(i\) assez grand, \(H_0\) provient
+d'un \(\mathbb Z_\ell\)-faisceau constant tordu \(\mathcal H_i\) sur \(S_i-D_i\)
+(d'après la « constructibilité générique » (0.1)) et \(\mathcal H_i/\ell\mathcal H_i\)
+est constant.</p>
+
+<p>Les dévissages (0.3.1) et (0.4.1) donnent lieu à des diagrammes commutatifs :</p>
+\[\xymatrix@C=3em@R=2em{
+\operatorname{Gal}(\bar\eta/\eta)\supset I\supset P \ar[d]&
+I/P\ar[r]^{\sim}\ar[d]&\widehat{\mathbb Z}(1)\ar@{=}[d]\\
+\pi_1(S_i-D_i,\bar\eta)\supset I_i\supset P_i&
+I_i/P_i\ar[r]^{\sim}&\widehat{\mathbb Z}(1)
+}\tag{1.3.1}\]
+et la représentation \(H_0\) de \(\operatorname{Gal}(\bar\eta/\eta)\) se déduit d'une
+action de \(\pi_1(S_i-D_i,\bar\eta)\) sur \(H_0\), triviale sur \(H_0/\ell H_0\).
+Le groupe \(\operatorname{Ker}(\operatorname{GL}(H)\to\operatorname{GL}(H/\ell H))\)
+est un pro-\(\ell\)-groupe ; \(P_i\) agit donc trivialement, et on applique la variante suivante de 1.1.</p>
+
+<div class="thm" id="1.1.4">
+<div class="thm-head"><span class="thm-name">Variante 1.4.</span></div>
+<div class="thm-body"><p>Reprenons les notations de 0.4 et soit \(\rho\) une représentation continue
+de \(\operatorname{Gal}(\bar\eta/\eta)\) dans \(\operatorname{GL}(n,\mathbb Q_\ell)\).
+On suppose que \(k(s)\) vérifie \((\star_\ell)\) et que \(\rho(P)\) est fini.
+Alors, l'action de \(I\) est quasi-unipotente.</p></div>
+</div>
+
+<h2 id="1.2">2. Cycles évanescents</h2>
+
+<p id="1.2.1"><strong>2.1.</strong> Soit \(S\) un trait strictement local, et reprenons les notations de 0.3.
+Par hypothèse, on a ici \(s=\bar s\). Soit \(f\colon X\to S\) un schéma de type fini sur \(S\).
+Le formalisme des cycles évanescents est un outil pour étudier la relation entre les cohomologies
+de \(X_s\) et de \(X_{\bar\eta}\), et l'action du groupe d'inertie sur celle de \(X_{\bar\eta}\),
+à partir d'informations locales (sur \(X\)) sur le morphisme \(f\).</p>
+
+<p>Un résultat clef de ce type est le théorème de spécialisation SGA 4 XVI 2.2, selon lequel
+pour \(f\) propre et lisse \(X_s\) et \(X_{\bar\eta}\) ont même cohomologie.</p>
+
+<p>Dans la théorie transcendante, si \(f\colon X\to D\) est un morphisme propre d'un espace
+analytique \(X\) dans le disque \(D\), les cycles évanescents apparaissent comme suit :</p>
+<ol class="enumerate">
+<li><span class="item-label">a)</span> Quitte à rapetisser \(D\), on peut supposer que \(X\) est un fibré topologique au-dessus du disque épointé \(D^*\) (théorème d'isotopie de Thom). Les fibres \(X_t\) (\(t\in D^*\)) sont en particulier toutes isomorphes.</li>
+<li><span class="item-label">b)</span> Il n'est pas déraisonnable de se représenter la fibre spéciale \(X_s\) comme déduite de « la » fibre générale \(X_t\) par contraction de polyèdres dans \(X_t\) : on aurait \(\pi\colon X_t\to X_s\). La méthode des cycles évanescents consiste alors à étudier la différence entre les cohomologies de \(X_s\) et \(X_t\) à l'aide de la suite spectrale de Leray de \(\pi\).</li>
+</ol>
+
+<p>La théorie géométrique expliquée ci-dessous est très proche de cette théorie transcendante ;
+il faut remplacer le point général \(t\in D\) par \(\bar\eta\), le point géométrique générique de \(S\).
+Inversement, on peut calquer la théorie transcendante sur la théorie géométrique, en remplaçant
+\(t\) ou \(\bar\eta\) par le revêtement universel \(\widetilde D^*\) de \(D^*\), et \(X_t\)
+ou \(X_{\bar\eta}\) par \(X\times_D\widetilde D^*\). Ce faisant, on se débarrasse de nombreux
+\(\varepsilon\) et \(\eta\), mais on perd parfois de l'information.</p>
+
+<p id="1.2.2"><strong>2.2.</strong> Fixons un anneau de torsion \(\Lambda\) dans lequel \(p\) soit inversible
+(par exemple \(\Lambda=\mathbb Z/\ell^n\mathbb Z\), \(\ell\) premier à \(p\)). Soient les morphismes :</p>
+\[\xymatrix@C=3em@R=2.5em{
+X_s\ar[r]^i\ar[d]_{f_s}&X\ar[d]^f&X_{\bar\eta}\ar[l]_{\bar j}\ar[d]^{f_{\bar\eta}}\\
+s\ar[r]&S&\bar\eta\ar[l]
+}\]
+<p>Les faisceaux de cycles évanescents \(\psi^i\) sur \(X_s\) sont les</p>
+\[\psi^i=i^*R^i\bar j_*\Lambda.\tag{2.2.1}\]
+<p>Si \(f\) est <u>propre</u>, on a (SGA 4 XII 5.5)</p>
+\[i^*\colon H^p(X,R^q\bar j_*\Lambda)\xrightarrow{\sim}
+H^p(X_s,i^*R^q\bar j_*\Lambda),\tag{2.2.2}\]
+<p>et la suite spectrale de Leray pour \(\bar j\) se récrit</p>
+\[H^p(X_s,\psi^q)\Longrightarrow H^{p+q}(X_{\bar\eta},\Lambda).\tag{2.2.3}\]
+<p>Lorsque rien ne se passe à l'infini, on peut parfois obtenir cette suite spectrale sans
+hypothèse de propreté. Qu'il faille quelque hypothèse à l'infini se voit déjà sur le cas trivial \(X_s=\varnothing\).</p>
+
+<p>On tire aussitôt des définitions :</p>
+
+<div class="thm proposition" id="1.2.3">
+<div class="thm-head"><span class="thm-name">Proposition 2.3.</span></div>
+<div class="thm-body"><p>Soient \(\bar x\) un point géométrique de \(X_s\) (par exemple un point fermé),
+\(X_{(\bar x)}\) l'hensélisé strict de \(X\) en \(\bar x\) et \(X_{(\bar x)\bar\eta}\)
+la fibre géométrique générique de la projection de \(X_{(\bar x)}\) sur \(S\). On a
+\[\psi^i_{\bar x}=H^i(X_{(\bar x)\bar\eta},\Lambda).\]</p></div>
+</div>
+
+<div class="thm corollary" id="1.2.4">
+<div class="thm-head"><span class="thm-name">Corollaire 2.4.</span></div>
+<div class="thm-body"><p>Là où \(f\) est lisse, \(\psi^i=0\) pour \(i>0\) et \(\psi^0=\Lambda\).</p></div>
+</div>
+
+<p>C'est SGA 4 XV 2.1.</p>
+
+<p>Le groupe \(\operatorname{Gal}(\bar\eta/\eta)\) (égal par hypothèse au groupe d'inertie)
+agit par transport de structure sur les \(\psi^i\), et</p>
+
+<div class="thm" id="1.2.5">
+<div class="thm-head"><span class="thm-name">Scholie 2.5.</span></div>
+<div class="thm-body"><p>La suite spectrale 2.2.3 est \(\operatorname{Gal}(\bar\eta/\eta)\)-équivariante.</p></div>
+</div>
+
+<div class="thm" id="1.2.6">
+<div class="thm-head"><span class="thm-name">Variante 2.6.</span></div>
+<div class="thm-body"><p>Soient \(S=\operatorname{Spec}(V)\) et \(\bar X=X\times_S\bar S\).
+\(X_{\bar\eta}\) est le complément de \(X_s=X_{\bar s}\) dans \(\bar X\). Posons
+\[\phi^i=H^{i+1}_{X_s}(\bar X,\Lambda)\]
+(faisceaux de cohomologie à support). On a une suite exacte de faisceaux
+\[0\longrightarrow\phi^{-1}\longrightarrow\Lambda\longrightarrow\psi^0
+\longrightarrow\phi^0\longrightarrow0\]
+et, pour \(i>0\), des isomorphismes \(\psi^i\xrightarrow{\sim}\phi^i\). Pour \(f\) lisse,
+les \(\phi^i\) sont nuls.</p>
+<p>Posons \(\phi^i_{\mathrm{gl}}=H^i_{X_s}(\bar X,\Lambda)\) (analogue global des \(\phi^i\)).
+On dispose d'une suite spectrale
+\[H^p(X_s,\phi^q)\Longrightarrow\phi^{p+q}_{\mathrm{gl}}\tag{2.6.1}\]
+et d'une suite exacte longue de cohomologie qui, pour \(f\) propre, se récrit
+\[\cdots\longrightarrow H^i(X_s,\Lambda)\longrightarrow H^i(X_{\bar\eta},\Lambda)
+\longrightarrow\phi^i_{\mathrm{gl}}\longrightarrow\cdots.\tag{2.6.2}\]</p></div>
+</div>
+
+<div class="thm" id="1.2.7">
+<div class="thm-head"><span class="thm-name">Variante 2.7.</span></div>
+<div class="thm-body"><p>Soit \(K_t\) l'extension modérément ramifiée maximale de \(K\) dans \(\bar K\).
+On pose \(X_t=X\times_S\operatorname{Spec}(K_t)\). Soit \(\bar j_t\) la projection de
+\(X_t\) dans \(X\). On définit des variantes modérées (« tame ») des \(\psi^i\) en posant
+\[\psi_t^i=R^i\bar j_{t*}\Lambda.\]
+Utilisant que \(P\) est un pro-\(p\)-groupe, avec \(p\) inversible dans \(\Lambda\), on trouve que
+\[H^*(X_t,\Lambda)=H^*(X_{\bar\eta},\Lambda)^P,\tag{2.7.1}\]
+\[\psi_t^i=\psi^{iP}.\tag{2.7.2}\]
+Pour \(f\) propre, la suite spectrale de Leray de \(\bar j_t\) se déduit de 2.2.3 par passage
+aux \(P\)-invariants :
+\[H^p(X_s,\psi_t^q)\Longrightarrow H^{p+q}(X_t,\Lambda)=H^{p+q}(X_{\bar\eta},\Lambda)^P.\tag{2.7.3}\]</p></div>
+</div>
+
+<h2 id="1.3">3. Démonstration géométrique du théorème de monodromie</h2>
+
+<p>Soit \(\Lambda\) comme en 2.2.</p>
+
+<div class="thm conjecture" id="1.3.1">
+<div class="thm-head"><span class="thm-name">Conjecture 3.1 (pureté).</span></div>
+<div class="thm-body"><p>Soient \(A\) un anneau excellent strictement local (0.2) régulier et \(D\) un diviseur
+régulier de \(\operatorname{Spec}(A)\) défini par un paramètre \(x\). Soit
+\(U=\operatorname{Spec}(A)-D=\operatorname{Spec}(A[1/x])\). On a
+\[H^q(U,\Lambda)=\begin{cases}
+\Lambda&\text{pour }q=0,\\
+\Lambda(-1)&\text{pour }q=1\quad\text{(notation (0.0.6))},\\
+0&\text{pour }q>1.
+\end{cases}\tag{3.1.1}\]</p></div>
+</div>
+
+<p>Voici des cas où cette conjecture est connue (SGA 4 XIX) : pour \(q=0\) ou \(1\), pour
+\(A\) de caractéristique 0, pour \(A\) d'égale caractéristique \(p\) lorsqu'on dispose de la
+résolution des singularités en dimension \(\leq\dim(A)\), et en caractéristique \(p\), ou pour
+\((\operatorname{Spec}(A),D)\) un couple lisse (théorème de pureté relatif SGA 4 XVI 3.7).</p>
+
+<p>Lorsqu'on dispose de la pureté, et que \(D=\sum_{i\in B}D_i\) est un diviseur à croisements
+normaux dans \(\operatorname{Spec}A\), défini par une partie d'un système régulier de paramètres,
+la cohomologie de \(U=\operatorname{Spec}(A)-D\) est donnée par</p>
+\[H^0(U,\Lambda)=\Lambda,\qquad H^1(U,\Lambda)=\Lambda(-1)^B,\qquad
+H^q(U,\Lambda)=\bigwedge^q H^1(U,\Lambda)\quad\text{(donné par le cup-produit).}\tag{3.1.2}\]
+<p>Ces formules sont identiques à celles qui, sur \(\mathbb C\), donnent la cohomologie de
+\(D^{*B}\times D^k\).</p>
+
+<p id="1.3.2"><strong>3.2.</strong> Soit \(S\) un trait strictement local. On garde les notations (0.0.1) (0.0.3).
+Soit \(f\colon X\to S\) un morphisme de type fini. On suppose que \(X\) est régulier, que
+\(X_\eta\) est lisse et que \(X_s\) est un diviseur à croisements normaux dans \(X\). On supposera
+que ce diviseur est (globalement, et non seulement localement pour la topologie étale) somme de
+diviseurs réguliers : \((X_s)_{\mathrm{red}}=\sum_{i\in B}D_i\) (le cas général peut se récupérer
+par localisation). Notons \(m_i\) leurs multiplicités : \(X_s=\sum_{i\in B}m_iD_i\).</p>
+
+<p>Soient \(x\) un point de \(X_s\), \(\bar x\) un point géométrique de \(X\) localisé en \(x\)
+(par exemple \(x\) fermé, \(x=\bar x\)), \(C=\{j\mid x\in D_j\}\), et \(K\) le complexe
+concentré en degrés 0 et \(-1\)
+\[K:\mathbb Z^C\xrightarrow d\mathbb Z,\qquad d((n_j))=\sum_jm_jn_j.\]
+
+<div class="thm theorem" id="1.3.3">
+<div class="thm-head"><span class="thm-name">Théorème 3.3 (utilise la pureté).</span></div>
+<div class="thm-body"><p>Les groupes de cycles évanescents modérés \(\psi^i_{t\bar x}\) sont les suivants :</p>
+<p>(i) On a un isomorphisme canonique de \(\Lambda\)-algèbres graduées
+\[\psi^*_{t\bar x}\simeq\bigwedge^*\bigl(H_1(K)\otimes\Lambda(-1)\bigr)
+\otimes_\Lambda\psi^0_{t\bar x}.\]</p>
+<p>(ii) \(\psi^0_{t\bar x}\) est une \(\Lambda\)-algèbre \(\Lambda^E\), pour \(E\) un ensemble
+sur lequel le groupe d'inertie modéré \(I_t=I/P=\widehat{\mathbb Z}(1)(k(\bar s))\) agit
+transitivement, de nombre d'éléments le plus grand diviseur premier à \(p\) de \(\#H_0(K)\).</p></div>
+</div>
+
+<p>Voici la méthode de démonstration.</p>
+
+<p>a) Soient \(X_{(\bar x)}\) le localisé strict de \(X\) en \(\bar x\),
+\(U=X_{(\bar x)}-X_{(\bar x)s}\) (le complément d'un diviseur à croisements normaux),
+\(t_j\) une équation locale de \(D_j\), \(X_n=X_{(\bar x)}[(t_j^{1/n})]\)
+(pour \((n,p)=1\) ; c'est un schéma régulier) et \(U_n\) l'image réciproque de \(U\)
+dans \(X_n\). D'après 3.1.2, on a
+\(H^q(U_n,\Lambda)=\bigwedge^q(\Lambda(-1)^C)\) ; pour \(m=nd\), l'application « image
+réciproque » de \(H^q(U_n,\Lambda)\) dans \(H^q(U_m,\Lambda)\) est la multiplication par \(d^q\).
+Posant \(\widetilde U=\varprojlim_{(n,p)=1}U_n\), on a donc
+\[H^0(\widetilde U,\Lambda)=\Lambda,\qquad
+H^q(\widetilde U,\Lambda)=\varinjlim_nH^q(U_n,\Lambda)=0\quad\text{pour }q\ne0.\tag{3.3.1}\]</p>
+
+<p>b) \(\widetilde U\) est un prorevêtement de \(U\) de groupe
+\(\widehat{\mathbb Z}(1)(k(\bar s))^C\). Par définition, on a
+\(\psi^*_{t\bar x}=H^*(U_{\eta_t},\Lambda)\) ; \(\widetilde U\) est un prorevêtement de groupe
+\(H_1(K)\otimes\widehat{\mathbb Z}(1)(k(\bar s))\) de chacune des composantes connexes de
+\(U_{\eta_t}\), et celles-ci sont permutées transitivement par le groupe d'inertie modéré.
+De (3.3.1) et de la suite spectrale d'Hochschild-Serre, on tire alors les formules 3.3.</p>
+
+<p>En termes imagés, on peut dire que \(U_{\bar\eta}\) est la fibre d'un morphisme \(\delta\)
+d'un \(K(\widehat{\mathbb Z}(1)(k(\bar s))^C,1)\) cohomologique \(U\) dans le
+\(K(\widehat{\mathbb Z}(1)(k(\bar s)),1)\) cohomologique \(\eta\), ce morphisme \(\delta\)
+induisant \(d=\sum m_jn_j\colon\widehat{\mathbb Z}(1)(k(\bar s))^C\to
+\widehat{\mathbb Z}(1)(k(\bar s))\).</p>
+
+<div class="thm corollary" id="1.3.4">
+<div class="thm-head"><span class="thm-name">Corollaire 3.4 (utilise la pureté).</span></div>
+<div class="thm-body"><p>Supposons \(f\) propre. Soit \(N\) le plus petit commun multiple des multiplicités
+\(m_j\) (\(j\in B\)). Soit \(q>0\), et \(q'\) la borne inférieure de \(q\) et du nombre
+maximum de diviseurs \(D_j\) passant par un même point. Pour \(T\) dans le groupe d'inertie
+modéré \(I_t=I/P\), on a
+\[(T^N-1)^{q'}=0\quad\text{sur }H^q(X_{\bar\eta},\Lambda)^P.\]</p></div>
+</div>
+
+<p>Résulte aussitôt de 3.3 et de la variante 2.7 de 2.5.</p>
+
+<p>Les résultats de pureté requis sont disponibles pour les \(H^1\), en caractéristique 0,
+ou pour \(S\) essentiellement de type fini sur un corps.</p>
+
+<div class="thm theorem" id="1.3.5">
+<div class="thm-head"><span class="thm-name">Théorème 3.5.</span></div>
+<div class="thm-body"><p>Soit \(C\) une courbe projective et lisse sur le corps des fractions \(k(\eta)\)
+d'un anneau de valuation discrète \(V\). Le groupe d'inertie \(I\) agit sur
+\(H^1(C_{\bar\eta},\mathbb Q_\ell)\) par automorphismes quasi-unipotents d'échelon 2 :
+il existe \(N\) tel que, pour \(T\in I\), on ait
+\[(T^N-1)^2=0\quad\text{sur }H^1(C_{\bar\eta},\mathbb Q_\ell).\]</p></div>
+</div>
+
+<p>On se ramène à supposer \(V\) strictement local. L'assertion est qu'il existe un sous-groupe
+ouvert \(I_1\) de \(I\) tel que \((T-1)^2=0\) sur \(H^1\) pour \(T\in I_1\).</p>
+
+<p>Il nous est loisible d'étendre les scalaires de \(k(\eta)\) à une extension finie (remplacer
+\(V\) par son normalisé dans cette extension). Puisque l'image du pro-\(p\)-groupe \(P\) dans
+un groupe de Lie \(\ell\)-adique \(\operatorname{GL}(n,\mathbb Q_\ell)\) est finie, on peut
+en particulier supposer que \(P\) agit trivialement.</p>
+
+<p>Soit \(C_0\) un modèle minimal de \(C\) sur \(V\) (pour l'existence de \(C_0\), basée sur le
+théorème d'Abhyankar, cf. la discussion dans [3] § 2, p. 87 ; on pourrait ici se ramener au cas
+\(V\) excellent en passant au complété de \(V\) : invoquer SGA 4 XVI 1.6). Soit \(C_1\) un
+modèle régulier de \(C\), déduit de \(C_0\) par éclatements, de fibre spéciale un diviseur à
+croisements normaux. Les arguments 3.3, 3.4 s'appliquent à \(C_1\), \(\psi_t^0\), \(\psi_t^1\)
+et \(H^1(C_{\bar\eta},\mathbb Z/\ell^n)^P=H^1(C_{\bar\eta},\mathbb Z/\ell^n)\) avec \(N\)
+indépendant de \(n\), et 3.5 en résulte.</p>
+
+<p id="1.3.6"><u>Remarque 3.6.</u> Soit \(A\) une variété abélienne sur \(k(\eta)\). Puisque \(A\)
+est quotient d'une jacobienne, on trouve encore que l'action de \(I\) sur
+\(H^1(A_{\bar\eta},\mathbb Q_\ell)\) ou \(T_\ell(A)\) est quasi-unipotente d'échelon 2.</p>
+
+<p id="1.3.7"><u>Remarque 3.7.</u> L'action de \(I\) sur \(H^1(X_{\bar\eta},\mathbb Q_\ell)\)
+est en fait quasi-unipotente d'échelon 2 pour tout schéma \(X\) de type fini sur \(\eta\).</p>
+
+<p>Le théorème 3.5 (ou 3.6) est à la base de la démonstration du théorème de réduction stable
+pour les variétés abéliennes qui sera donnée dans l'exposé IX § 3.</p>
+
+<p id="1.3.8"><strong>3.8.</strong> Il est clair que lorsqu'on dispose de la pureté et de la résolution des
+singularités (par exemple en caractéristique 0) la méthode précédente démontre le théorème de
+monodromie, et fournit des bornes pour l'exposant de nilpotence. Ainsi, en égale caractéristique 0,
+on trouve que pour \(X\) propre et lisse sur \(\eta\) et \(T\) dans un sous-groupe ouvert de \(I\),
+on a
+\[(T-1)^{q+1}=0\quad\text{sur }H^q(X_{\bar\eta},\mathbb Z_\ell)
+\qquad(T\in I_1\subset I).\]</p>
+
+<h2 id="1.4">4. Critères de nullité pour les faisceaux de cycles évanescents</h2>
+
+<p id="1.4.1"><strong>4.1.</strong> Soient \(S\) un trait strictement local et \(f\colon X\to S\) un schéma
+de type fini sur \(S\). Posons \(n=\dim(X_\eta)\).</p>
+
+<p>Si \(X'\) est l'adhérence schématique de \(X_\eta\) dans \(X\), on a :</p>
+<ol class="enumerate">
+<li><span class="item-label">a)</span> sur \(X_s-X'_s\), \(\phi^{-1}=\Lambda\) et les autres \(\phi^i\) sont nuls ;</li>
+<li><span class="item-label">b)</span> sur \(X'_s\), les \(\phi^i\) et \(\psi^i\) relatifs à \(X/S\) ou à \(X'/S\) coïncident, et \(\phi^{-1}=0\).</li>
+</ol>
+<p>Puisque \(X'\) est plat sur \(S\), ceci permet souvent de se ramener au cas où \(X\) est plat sur \(S\).</p>
+
+<div class="thm theorem" id="1.4.2">
+<div class="thm-head"><span class="thm-name">Théorème 4.2.</span></div>
+<div class="thm-body"><p>(i) On a \(\psi^i=0\) pour \(i>n\).</p>
+<p>(ii) Plus précisément, pour \(x\) un point de \(X_s\) dont l'adhérence soit de dimension
+\(k\) (\(k=\deg\operatorname{tr}(k(x)/k(s))\)) et pour \(\bar x\) un point géométrique localisé
+en \(x\), on a
+\[\psi^i_{\bar x}=0\quad\text{pour }i>n-k,\quad\text{i.e.}\quad
+d(\psi^i)\leq n-i\quad\text{(notation de SGA 4 XIV 2.1).}\]</p></div>
+</div>
+
+<p>On a \(\psi^i_{\bar x}=H^i(X_{(\bar x)\bar\eta},\Lambda)\), et
+\(X_{(\bar x)\bar\eta}\) est limite projective de schémas affines de dimension \(\leq n\)
+sur \(k(\bar\eta)\). L'assertion (i) résulte donc du théorème de Lefschetz affine
+(SGA 4 XIV 3.2) par passage à la limite.</p>
+
+<p>Pour prouver (ii), on peut supposer que \(X\) est plat sur \(S\) (4.1) et qu'il existe
+un \(S\)-morphisme quasi-fini et plat \(g\colon X\to\mathbb A_S^k\) tel que \(g(x)\) soit le point
+générique de \(\mathbb A_s^k\). Soit \(S'\) le trait localisé strict de \(\mathbb A_S^k\) en
+\(\bar x\). On a :</p>
+<ol class="enumerate">
+<li><span class="item-label">a)</span> \(S'_{\bar\eta}\) est le spectre d'un corps, et \(\operatorname{Gal}(\bar\eta'/S'_{\bar\eta})\) est un \(p\)-groupe \(Q\).</li>
+<li><span class="item-label">b)</span> D'après (i) pour \(g\), on a \(H^i(X_{(\bar x)\bar\eta'},\Lambda)=0\) pour \(i>n-k\).</li>
+<li><span class="item-label">c)</span> On a \(H^i(X_{(\bar x)\bar\eta},\Lambda)=H^i(X_{(\bar x)\bar\eta'},\Lambda)^Q\), d'où le théorème.</li>
+</ol>
+
+<div class="thm corollary" id="1.4.3">
+<div class="thm-head"><span class="thm-name">Corollaire 4.3.</span></div>
+<div class="thm-body"><p>Si \(f\) est propre et plat et que la dimension du lieu de non-lissité de \(f\)
+dans \(X_s\) est \(\leq d\), le morphisme de spécialisation
+\(H^i(X_s)\to H^i(X_{\bar\eta})\) est un isomorphisme pour \(i>n+d+1\) et un épimorphisme
+pour \(i=n+d+1\).</p></div>
+</div>
+
+<p id="1.4.4"><strong>4.4.</strong> Pour prouver, dans certains cas, que les \(\phi^i\) pour \(i\) petit
+sont nuls, on s'appuiera sur la théorie de la dualité locale (directement ou via des théorèmes de
+Lefschetz locaux de SGA 2 XIV). Cet outil n'est disponible qu'en caractéristique 0 (ou en égale
+caractéristique \(p\) lorsqu'on dispose de la résolution des singularités à la Hironaka dans les
+dimensions considérées).</p>
+
+<div class="thm theorem" id="1.4.5">
+<div class="thm-head"><span class="thm-name">Théorème 4.5.</span></div>
+<div class="thm-body"><p>Supposons \(S\) de caractéristique 0. Soient \(f\colon X\to S\) un morphisme de type fini
+et \(x\) un point fermé de \(X_s\). On suppose que</p>
+<p>(a) \(x\) est un point de non-lissité isolé dans sa fibre ;</p>
+<p>(b) \(X\) est de profondeur géométrique relative \(\geq n\) en \(x\) : au voisinage de \(x\),
+\(X\) s'identifie à un sous-schéma défini par \(k\) équations dans un schéma lisse de dimension
+relative \(N\) en \(x\), avec \(n\leq N-k\).</p>
+<p>Alors \(\phi^i_{\bar x}=0\) pour \(i<n\).</p></div>
+</div>
+
+<p>Soit \(X_x\) le localisé strict de \(X\) en \(x\) et \(V=X_x-\{x\}\). Pour tout trait
+\(S'\) fini sur \(S\), soient de même \(X'_x=X_x\times_SS'\) et \(V'=V\times_SS'\). Pour \(\bar S\)
+le normalisé de \(S\) dans \(\bar\eta\), soient \(\bar X_x=X_x\times_S\bar S\),
+\(\bar V=V\times_S\bar S\). On a :</p>
+
+<p>(1) Si \(\phi^i=0\) sur \((X_x)_s\) (i.e. en toute générisation de \(x\) dans \(X_s\))
+pour \(i\leq m\), alors
+\[H^{i-1}_{\{x\}}(\bar X_x)=\widetilde H^i(\bar V)\xrightarrow{\sim}
+\widetilde H^i(V_{\bar\eta})=\phi^i_x\quad\text{pour }i\leq m.\]
+Les \(\phi^i\) sont en effet des faisceaux de cohomologie à support dans \(V_s\) de \(\bar V\) ;
+sous les hypothèses de 4.5, (a) est d'application pour \(m=\infty\) (SGA 4 XV 2.1).</p>
+
+<p>(2) L'hypothèse (b) de 4.5 est stable par changement de base. D'après SGA 2 XIV 5.6,
+elle implique que
+\[\widetilde H^i_{\{x\}}(V')=H^{i-1}_{X'_x}(X'_x)=0\quad\text{pour }i<n;\]
+on conclut en notant que \(\widetilde H^i(\bar V)\) est limite inductive des \(\widetilde H^i(V')\).</p>
+
+<p>D'après 4.2 et 4.5, on a :</p>
+
+<div class="thm corollary" id="1.4.6">
+<div class="thm-head"><span class="thm-name">Corollaire 4.6.</span></div>
+<div class="thm-body"><p>Pour \(S\) un trait hensélien de caractéristique 0, \(X/S\) une intersection complète
+relative de dimension relative \(n\) et \(x\in X_s\) un point de non-lissité isolé dans sa fibre,
+on a \(\phi^i_x=0\) pour \(i\ne n\).</p></div>
+</div>
+
+<div class="thm corollary" id="1.4.7">
+<div class="thm-head"><span class="thm-name">Corollaire 4.7.</span></div>
+<div class="thm-body"><p>Sous les hypothèses de 4.6, \(\phi^n_x\) est un \(\Lambda\)-module plat.</p></div>
+</div>
+
+<p>Pour \(\Lambda'\) une \(\Lambda\)-algèbre finie, un general non sense (SGA 4 XVIII 5.2.13)
+fournit en effet, pour les \(\phi^i_{\Lambda'}\) relatifs à \(\Lambda'\),
+\[\phi^{n-i}_{\Lambda'}=\operatorname{Tor}^{\Lambda}_i(\Lambda',\phi^n_\Lambda),\]
+et on applique 4.6 à \(\Lambda'\).</p>
+
+<div class="thm" id="1.4.8">
+<div class="thm-head"><span class="thm-name">Variante 4.8.</span></div>
+<div class="thm-body"><p>Dans 4.5, supprimons la condition (a) et soit \(Z\) le lieu de non-lissité de \(f\).
+On peut encore conclure
+\[\phi^i_{\bar x}=0\quad\text{pour }i<n-\dim Z_s.\]</p></div>
+</div>
+
+<p>On procède par récurrence descendante sur \(\dim\overline{\{x\}}\). L'hypothèse de récurrence
+permet d'appliquer 4.5 (1) avec \(m=n-\dim Z_s\), et on achève la démonstration comme précédemment.</p>
+
+<p id="1.4.9"><strong>4.9.</strong> Il est possible d'obtenir un critère de nullité utilisant seulement des
+informations sur les fibres géométriques de \(f\). Dans le cas des intersections complètes, le
+résultat est toutefois d'une unité moins bon que 4.5.</p>
+
+<div class="thm proposition" id="1.4.10">
+<div class="thm-head"><span class="thm-name">Proposition 4.10.</span></div>
+<div class="thm-body"><p>Sous les hypothèses générales de 4.5, supposons que</p>
+<p>(a) \(x\) est un point de non-lissité isolé dans sa fibre.</p>
+<p>(b) Pour tout point \(y\) de \(X_{\bar\eta}\), d'adhérence dans \(X_{\bar\eta}\) de dimension
+\(d(y)\), qui soit une générisation de \(x\), on a
+\(\operatorname{prof}_{\mathrm{et},y}(X_{\bar\eta})\geq n-d(y)\), i.e.
+\[H^i_{\{y\}}(X_{\bar\eta})=0\quad\text{pour }i<n-d(y).\]</p>
+<p>(c) \(\operatorname{prof}_{\mathrm{et},x}(X_s)\geq n\).</p>
+<p>Alors, \(\phi^i_{\bar x}=0\) pour \(i<n-1\).</p></div>
+</div>
+
+<p>Gardons les notations de 4.5 ; on peut appliquer 4.5 (1) avec \(m=\infty\). D'après le
+théorème de Lefschetz local (SGA 2 XIV), l'hypothèse (b) fournit
+\[H^i(V')\xrightarrow{\sim}H^i(V_s)\quad(i<n-1),\qquad
+H^i(V')\longleftarrow H^i(V_s)\quad(i=n-1),\]
+et on conclut par (c) que \(H^i(\bar V)=\varinjlim H^i(V')=0\) pour \(i\leq n-1\), d'où 4.10.</p>
+
+<p id="1.4.11"><strong>4.11.</strong> Comme en 4.8, on peut donner de 4.10 une variante ne supposant pas (a).</p>
+
+<h2 id="1.5">5. Action de la monodromie sur les \(\pi_1\)</h2>
+
+<p>Dans ce § (= exposé de Grothendieck du 19/11/1968), nous ferons usage du théorème de réduction
+semi-stable pour les courbes. Artin et Winters [2] ont donné une démonstration directe de ce théorème,
+qu'on peut aussi déduire [3] du théorème analogue pour les variétés abéliennes (IX § 3, utilisant 3.6).
+Nous utiliserons aussi la théorie de Schlessinger (exposé VI de Rim).</p>
+
+<p id="1.5.1"><strong>5.1.</strong> Soient \(k\) un corps algébriquement clos, \(C\) une courbe projective sur
+\(k\) et \(x_1,\ldots,x_n\) un ensemble fini de points fermés de \(C\). On dit que
+\(X=(C;x_1,\ldots,x_n)\) est <u>stable</u> si</p>
+<ol class="enumerate">
+<li><span class="item-label">(a)</span> \(C\) est réduite et ses seules singularités sont des points doubles à tangentes distinctes ;</li>
+<li><span class="item-label">(b)</span> les \(x_i\) sont distincts, et des points lisses de \(C\) ;</li>
+<li><span class="item-label">(c)</span> si \(C_1\) est une composante irréductible de \(C\), et que \(E\) est l'ensemble des points de la normalisée \(C'_1\) de \(C_1\) au-dessus d'un point singulier de \(C_1\) ou d'un des \(x_i\), alors, si \(C'_1\) est de genre 0 (resp. 1), \(E\) a au moins 3 (resp. 1) éléments.</li>
+</ol>
+
+<p>La condition (c) équivaut à chacune des suivantes :</p>
+<ol class="enumerate">
+<li><span class="item-label">(c')</span> \(X\) n'a pas d'automorphismes infinitésimaux non triviaux.</li>
+<li><span class="item-label">(c'')</span> Si \(\omega\) est le faisceau inversible dualisant, le faisceau inversible \(\omega'=\omega(\sum x_i)\) est ample.</li>
+</ol>
+
+<p>Un \(S\)-schéma \(C\), muni de sections \(x_1,\ldots,x_n\) est une <u>courbe stable</u>
+sur \(S\) si ses fibres géométriques sont des courbes stables. Dans [3] §§ 1,2, seul le cas
+\(n=0\) est considéré. L'extension des résultats de loc. cit. au cas général est triviale :</p>
+<ol class="enumerate">
+<li><span class="item-label">(1)</span> Pour \(X/k\) stable, \(H^1(C,\omega'^{\otimes n})=0\) pour \(n\geq2\) et \(\omega'^{\otimes n}\) est très ample pour \(n\geq3\) (cf. [3] 1.2).</li>
+<li><span class="item-label">(2)</span> Le schéma formel \(M\) des modules de \(X\) est lisse, et \(C\) reste singulier au-dessus d'un diviseur à croisements normaux de \(M\).</li>
+<li><span class="item-label">(3)</span> Pour \(X\) et \(Y\) stables sur \(S\), \(\operatorname{Isom}_S(X,Y)\) est fini et non ramifié sur \(S\) (isomorphismes compatibles aux points marqués).</li>
+<li><span class="item-label">(4)</span> Pour \(X/k\) stable, \(\operatorname{Aut}_k(X)\to\operatorname{Aut}_k\operatorname{Pic}^0(C)\) est injectif.</li>
+</ol>
+
+<p>On a enfin</p>
+
+<div class="thm proposition" id="1.5.1.1">
+<div class="thm-head"><span class="thm-name">Proposition 5.1.1.</span></div>
+<div class="thm-body"><p>Soit \(X_\eta=(C_\eta;x_1,\ldots,x_n)\) stable sur le point générique \(\eta\)
+d'un trait \(S\), avec \(C_\eta\) lisse. Il existe une extension finie séparable \(\eta'\) de
+\(\eta\) et une courbe stable \(X'\) sur le normalisé \(S'\) de \(S\) dans \(\eta'\) telle que
+\[X'\otimes_{S'}\eta'=X_\eta\otimes_\eta\eta'.\]</p></div>
+</div>
+
+<p>Cela résulte du théorème de réduction semi-stable habituel qui permet de prendre \(\eta'\) tel
+que la fibre spéciale géométrique du modèle minimal \(C''\) de \(C_{\eta'}\) sur \(S'\) vérifie
+(a). On éclate ensuite, de façon itérée s'il le faut, des points lisses de \(C''\) pour que (b)
+soit vérifiée. On contracte alors les chaînes de composantes rationnelles lisses de self intersection
+deux ne contenant aucun \(\bar x_i\) de la fibre spéciale et on obtient \(C'\) (cf. [3], preuve
+de 2.3 p. 88).</p>
+
+<p>On peut vérifier comme dans loc. cit. que \(C'\) existe dès que la jacobienne de \(C_\eta\) a
+réduction stable. L'hypothèse de lissité sur \(C_\eta\) est par ailleurs superflue.</p>
+
+<p id="1.5.2"><strong>5.2.</strong> Soit \(X_\eta\) un schéma géométriquement connexe de type fini sur le
+corps des fractions d'un trait strictement local \(S\). Pour \(\xi\) un point géométrique de
+\(X_{\bar\eta}\) on a une suite exacte
+\[0\longrightarrow\pi_1(X_{\bar\eta},\xi)\longrightarrow\pi_1(X,\xi)
+\longrightarrow\operatorname{Gal}(\bar\eta/\eta)\longrightarrow0,\tag{5.2.1}\]
+d'où un homomorphisme de \(\operatorname{Gal}(\bar\eta/\eta)\) dans le groupe des automorphismes
+extérieurs de \(\pi_1(X_{\bar\eta})\). Passant au plus grand quotient premier à \(p\),
+\(\pi_1^{(p)}(X_{\bar\eta})\), de \(\pi_1(X_{\bar\eta})\), on trouve
+\[\operatorname{Gal}(\bar\eta/\eta)\longrightarrow
+\operatorname{Aut}_{\mathrm{ext}}(\pi_1^{(p)}(X_{\bar\eta})).\tag{5.2.2}\]</p>
+
+<p>Supposons que \(X_\eta\) ait un point rationnel \(x\), et soit \(\bar x\) le point géométrique
+\(\bar\eta\to\eta\xrightarrow{x}X_\eta\). Pour \(\xi=\bar x\), la suite exacte (5.2.2) splitte
+canoniquement, d'où
+\[[x]\colon\operatorname{Gal}(\bar\eta/\eta)\longrightarrow
+\operatorname{Aut}(\pi_1(X_{\bar\eta},x))\longrightarrow
+\operatorname{Aut}(\pi_1^{(p)}(X_{\bar\eta},x)).\tag{5.2.3}\]</p>
+
+<div class="thm theorem" id="1.5.3">
+<div class="thm-head"><span class="thm-name">Théorème 5.3.</span></div>
+<div class="thm-body"><p>L'image de \(P\) par 5.2.2 (ou 5.2.3, cela revient au même) est finie.</p></div>
+</div>
+
+<h3 id="1.5.3.1">5.3.1. Réduction au cas où \(X_\eta\) est géométriquement normal et intègre</h3>
+
+<p>Soient \(X'_\eta\) le normalisé de \(X_\eta\), \((X'_{i\eta})_i\) la famille des composantes
+connexes de \(X'_\eta\), \(X''_\eta=X'_\eta\times_{X_\eta}X'_\eta\) et \((X''_{j\eta})_j\)
+les composantes connexes de \(X''_\eta\). Quitte à passer à une extension finie de \(k(\eta)\),
+on peut supposer que les \(X'_{i\eta}\) sont géométriquement normaux et intègres, avec un point
+rationnel \(x_i\), et que les \(X''_{j\eta}\) sont géométriquement connexes, avec un point rationnel
+\(y_j\). Pour \(k=1\) ou 2 et \(p_k(y_j)\in X'_{i\eta}\), choisissons une classe de chemins
+\(\ell_{kij}\) de \(p_k(\bar y_j)\) à \(\bar x_i\) : c'est un élément d'un torseur sous
+\(\pi_1(X'_{i\bar\eta},\bar x_i)\). Soit \(\bar\ell_{kij}\) le chemin « premier à \(p\) »
+correspondant (le même modulo \(\operatorname{Ker}(\pi\to\pi^{(p)})\)). On peut prendre
+\(\bar\ell_{kij}\) invariant par \(P\) : l'ensemble des chemins premiers à \(p\) est
+\(\varprojlim\) d'ensembles finis d'ordre premier à \(p\) sur lesquels le pro-\(p\)-groupe \(P\) agit.</p>
+
+<p>Dès lors, si un sous-groupe d'indice fini \(P'\) de \(P\) agit trivialement sur les
+\(\pi_1^{(p)}(X'_{i\bar\eta},\bar x_i)\), il résulte des formules de Van Kampen (i.e. de ce que
+\(X'_\eta\to X_\eta\) est de descente effective pour les revêtements étales) que \(P'\) agit
+trivialement sur \(\pi_1^{(p)}(X_{\bar\eta},\bar x)\).</p>
+
+<p id="1.5.3.2"><strong>5.3.2.</strong> Pour \(X_{\bar\eta}\) normal et \(U\) un ouvert,
+\(\pi_1(U)\) s'envoie sur \(\pi_1(X_{\bar\eta})\) ; on peut donc supposer \(X_{\bar\eta}\)
+lisse et affine. Coupant par les sections hyperplanes génériques (ceci remplace \(S\) par le
+localisé strict de \(S\) au point générique de la fibre spéciale d'un \(\mathbb A_S^n\)) et
+appliquant Bertini, on se ramène à supposer que \(X_\eta\) est lisse, géométriquement connexe et
+de dimension un. Quitte à passer à une extension finie de \(k(\eta)\), on peut supposer que
+\(X_\eta\) est le complément dans une courbe projective et lisse \(\bar X_\eta\) d'un ensemble fini
+de points rationnels \(x_i\), dont il nous est loisible d'augmenter le nombre. Appliquant le théorème
+de réduction semi-stable (5.1.1), on se ramène à supposer qu'il existe une courbe stable
+\(X=(C;x_1,\ldots,x_n)\) sur \(S\) telle que \(X_\eta=C_\eta-\{x_1,\ldots,x_n\}\). On applique
+alors le résultat suivant :</p>
+
+<div class="thm theorem" id="1.5.4">
+<div class="thm-head"><span class="thm-name">Théorème 5.4.</span></div>
+<div class="thm-body"><p>Soient \(S\) un schéma strictement local, \(f\colon\bar X\to S\) un morphisme propre
+et plat, de fibre spéciale une courbe dont les seuls points de non-lissité sont des points doubles
+ordinaires et \(Y\) un sous-schéma de \(\bar X\), réunion d'un nombre fini de sections disjointes
+contenues dans l'ouvert de lissité. Soit \(x\) un point rationnel de \(X=\bar X-Y\). Soit \(U\)
+l'ouvert de \(S\) au-dessus duquel \(X\) est lisse, et \(\xi\) un point géométrique de \(U\).
+Alors l'image de \(\pi_1(U,\xi)\) dans
+\(\operatorname{Aut}(\pi_1^{(p)}(X_\xi,x\xi))\) est abélienne et première à \(p\).</p></div>
+</div>
+
+<p>On prendra garde qu'on ne peut faire agir \(\pi_1(U,\xi)\) sur \(\pi_1^{(p)}(X_\xi,x\xi)\)
+que parce que les \(\pi_1^{(p)}\) vérifient le théorème de spécialisation.</p>
+
+<p>On se ramène au cas \(S\) complet, puis au cas universel où \(S\) est un schéma formel de
+modules pour la fibre spéciale, munie de ses sections. \(S\) est alors un anneau de séries formelles
+sur un anneau de Cohen : \(S=\operatorname{Spec}(W[[t_1,\ldots,t_n]])\) et \(U\) est le complément
+d'un diviseur à croisements normaux d'équation \(t_1\cdots t_m=0\). Dans ce cas universel, d'après
+le lemme d'Abhyankar, \(\pi_1(U,\xi)\) est abélien et premier à \(p\), d'où le théorème.</p>
+
+<p id="1.5.5"><u>Remarque 5.5.</u> On peut démontrer un résultat analogue à 5.4 en dimension relative
+quelconque en considérant une section plane générique de dimension un et en appliquant Bertini.</p>
+
+<h2 id="1.6">6. Appendice : démonstration arithmétique du théorème de réduction stable <span class="author">(par P. Deligne)</span></h2>
+
+<p>Soient \(S\) un trait et \(A_\eta\) une variété abélienne sur \(k(\eta)\), de dimension
+\(d\ne0\). Pour \(S'\to S\) un morphisme local de traits, on note \(A_{\eta'}\) la variété
+abélienne sur \(k(\eta')\) déduite de \(A_\eta\) par extension des scalaires. Soient
+\(\mathcal A_{S'}\) le modèle de Néron de \(A_{\eta'}\) sur \(S'\),
+\(\mathcal A_{S',s'}\) sa fibre spéciale et \(\mathcal A^0_{S',s'}\) la composante neutre
+de \(\mathcal A_{S',s'}\). Le théorème de réduction stable est le suivant.</p>
+
+<div class="thm theorem" id="1.6.1">
+<div class="thm-head"><span class="thm-name">Théorème 6.1.</span></div>
+<div class="thm-body"><p>Pour \(S'\) convenable, \(A_{\eta'}\) a réduction stable, i.e.
+\(\mathcal A^0_{S',s'}\) est extension d'une variété abélienne par un tore.</p></div>
+</div>
+
+<p>Il résulte assez facilement de 6.1 qu'on peut prendre \(S'\) tel que \(k(\eta')\) soit une
+extension séparable finie de \(k(\eta)\). Supposons tout d'abord que le corps résiduel de \(S\)
+est de type fini sur le corps premier (le même argument marcherait pour \(k(s)\) radiciel sur un tel corps).</p>
+
+<p>Soient \(\ell\) un nombre premier premier à l'exposant caractéristique résiduel \(p\),
+\(T_\ell(A)\) le module de Tate, \(V_\ell(A)=T_\ell(A)\otimes\mathbb Q_\ell\) et
+\(\rho\colon\operatorname{Gal}(\bar\eta/\eta)\to\operatorname{GL}(T_\ell(A))\) la représentation
+naturelle. Une extension des scalaires préliminaire nous ramène au cas où le groupe d'inertie \(I\)
+agit de façon unipotente (1.2) donc à travers son plus grand pro-\(\ell\)-groupe quotient
+\(\mathbb Z_\ell(1)\) (0.3). Soient \(T\) l'image dans \(\operatorname{GL}(T_\ell(A))\) d'un
+générateur de \(\mathbb Z_\ell(1)\) et \(r\) le plus grand entier \(\geq0\) tel que
+\((T-1)^r\ne0\). On a :</p>
+
+<div class="thm lemma" id="1.6.2">
+<div class="thm-head"><span class="thm-name">Lemme 6.2.</span></div>
+<div class="thm-body"><p>L'application
+\[\sigma\in I,\ v\in V_\ell(A)\longmapsto(\rho(\sigma)-1)^r(v)\]
+induit des morphisme et isomorphisme</p>
+\[\xymatrix@C=4em@R=3em{
+V_\ell(A)_I\otimes\mathbb Q_\ell(r)\ar[r]^M\ar[d]&V_\ell(A)^I\\
+V_\ell(A)/\operatorname{Ker}(T-1)^r\otimes\mathbb Q_\ell(r)\ar[r]^{\sim}&
+\operatorname{Im}(T-1)^r\ar[u]
+}\tag{6.2.1}\]
+\(V_\ell(A)_I\) et \(V_\ell(A)^I\) sont des \(\operatorname{Gal}(\bar s/s)\)-modules et \(M\)
+est galoisien.</p></div>
+</div>
+
+<p id="1.6.3"><strong>6.3.</strong> On dit qu'une représentation \(\ell\)-adique
+\(\tau\colon\operatorname{Gal}(\bar s/s)\to\operatorname{GL}(V)\) est de poids \(n\)
+(\(n\in\mathbb Z\)) si la condition suivante est vérifiée :</p>
+
+<p>(\(\star\)) Pour un modèle convenable \(X\) de \(k(s)\) (\(X\) = une variété irréductible
+de type fini sur le corps premier, avec \(k(s)=k(X)\)), \(\tau\) se factorise par
+\(\pi_1(X,\bar s)\) et pour \(x\) un point fermé de \(X\), les valeurs propres de
+\(\tau(F_x)\) sont des nombres algébriques dont les conjugués complexes sont tous de valeur
+absolue \(|k(x)|^{n/2}\) (\(F_x\) désigne le Frobenius géométrique \(\phi_x^{-1}\)).</p>
+
+<p>Si \(V\) (resp. \(W\)) est de poids \(n\) (resp. \(m\)) et que \(n\ne m\), on a
+\(\operatorname{Hom}_{\mathrm{Gal}}(V,W)=0\).</p>
+
+<p id="1.6.4"><strong>6.4.</strong> Il résulte de la propriété universelle du modèle de Néron que
+\(V_\ell(A)^I=V_\ell(\mathcal A^0_{S,s})\). Si \(a\) est la dimension du plus grand quotient
+abélien de \(\mathcal A^0_{S,s}\) et \(m\) la dimension de la partie multiplicative de
+\(\mathcal A^0_{S,s}\), d'après Weil, \(V_\ell(A)^I\) est donc extension d'une représentation
+de dimension \(2a\) et poids \(-1\) par une représentation de dimension \(m\) et poids \(-2\).</p>
+
+<p id="1.6.5"><strong>6.5.</strong> Soit \(A^*\) la variété abélienne duale de \(A\). Rappelons que
+\(V_\ell(A^*)\) et \(V_\ell(A)\) (donc \(V_\ell(A^*)^I\) et \(V_\ell(A)_I\)) sont en dualité
+à valeurs dans \(\mathbb Q_\ell(1)\). Si \(a^*\) et \(m^*\) sont définis pour \(A^*\) comme
+\(a\) et \(m\) pour \(A\), il résulte de 6.4 que \(V_\ell(A)_I\) est extension d'une
+représentation de dimension \(m^*\) et de poids 0 par une représentation de dimension \(2a^*\)
+et de poids \(-1\).</p>
+
+<p id="1.6.6"><strong>6.6.</strong> Le module galoisien \(\mathbb Q_\ell(r)\) est de poids \(-2r\).
+Puisque \(\operatorname{Im}(T-1)^r\ne0\), on déduit de 6.4, 6.5 et de l'isomorphisme 6.2 que
+\(r\leq1\). Si \(r=0\), on a
+\[\begin{cases}a+m\leq d,\\2a+m=2d,\end{cases}\]
+donc \(m=0\), \(a=d\) et \(A_\eta\) a bonne réduction. Supposons que \(r=1\). On tire alors
+de 6.2 que \(\operatorname{Im}(T-1)\) est de poids \(-2\) et que
+\(V_\ell(A)/V_\ell(A)^I\) est de poids 0 ; ces espaces ont même dimension \(m_1\leq m\).</p>
+
+<p>On a alors
+\[\dim V_\ell(A)^I=2d-m_1=2a+m,\]
+\[2\dim\mathcal A_{S,s}\geq2(a+m)\geq2a+m+m_1=2d=2\dim A_{S,s},\]
+de sorte que \(A_\eta\) a réduction stable (\(\dim\mathcal A_{S,s}=a+m\)). On a obtenu en
+même temps que \(m_1=m\), i.e. que
+\(\operatorname{Im}(T-1)\subset V_\ell(A)^I\simeq V_\ell(\mathcal A^0_{S,s})\) est le
+\(V_\ell\) de la partie multiplicative de \(\mathcal A^0_{S,s}\).</p>
+
+<p id="1.6.7"><strong>6.7.</strong> Pour traiter le cas général, nous utiliserons (0.5) (cf. 1.3).
+On se ramène à supposer que</p>
+<ol class="enumerate">
+<li><span class="item-label">(a)</span> les conditions de (0.5.2) ou (0.5.3) sont vérifiées ;</li>
+<li><span class="item-label">(b)</span> \(\operatorname{Gal}(\bar\eta/\eta)\) agit trivialement sur \(A_\ell\) ;</li>
+<li><span class="item-label">(c)</span> l'action de \(I\) sur \(T_\ell(A)\) est unipotente.</li>
+</ol>
+
+<p>Sous ces hypothèses, nous prouverons que \(A_\eta\) a réduction stable. L'hypothèse (a)
+permet d'appliquer (0.5.1) pour avoir \(S=\varprojlim S_i\) comme en 1.3, dont nous reprenons
+les notations. Soit \(s_i\) le point fermé de \(S_i\).</p>
+
+<p>Pour \(i\) assez grand, la composante neutre \(\mathcal A^0\) du modèle de Néron \(\mathcal A_S\)
+provient d'un schéma en groupe lisse à fibres connexes \(\mathcal A_i\) sur \(S_i\), et
+\((\mathcal A_i)_\ell\) est constant sur \(S_i-D_i\). Le groupe \(\pi_1(S_i-D_i,\bar\eta)\)
+agit sur \(T_\ell(A)\), et agit trivialement sur
+\(T_\ell(A)/\ell T_\ell(A)\simeq A_\ell\). Comme en 1.3, on voit que \(P_i\) agit trivialement.
+On a alors par (1.3.1) :
+\[T_\ell(A)_I=T_\ell(A)_{I_i},\qquad
+T_\ell(\mathcal A_{i,s_i})=T_\ell(\mathcal A^0_s)=T_\ell(A)^I=T_\ell(A^{I_i}),\]
+et (6.2.1) est un diagramme de \(\operatorname{Gal}(\bar s_i/s_i)\)-modules auquel on peut
+appliquer les arguments 6.4 à 6.6.</p>
+
+<h2 id="1.refs">Bibliographie</h2>
+
+<p>[1] M. ARTIN, <em>Algebraic approximation of structures over complete local rings</em>.
+Publ. Math. I.H.E.S. <u>36</u> - 1969. pp. 23-58.</p>
+
+<p>[2] M. ARTIN and G. WINTERS, <em>Degenerate fibres and reduction of curves</em>.</p>
+
+<p>[3] P. DELIGNE and D. MUMFORD, <em>The irreductibility of the space of curves of a given genus</em>.
+Publ. Math. I.H.E.S. <u>36</u> - 1969. pp. 75-110.</p>
+
+<p>[4] J.P. SERRE, <em>Corps locaux</em>. Publ. Math. univ. Nancago-Hermann 1962.</p>
+
+<p>[5] J.P. SERRE and J. TATE, <em>Good reduction of abelian varieties</em>.
+Ann. of Math. <u>88</u> 3 - 1968 - pp. 492-517.</p>
+
+</body>
+</html>

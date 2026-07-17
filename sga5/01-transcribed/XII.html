@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 5 — Exposé XII. Formules de Nielsen-Wecken et de Lefschetz en géométrie algébrique</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<!-- Source PDF page 1 (title page) -->
+<h1 id="XII">EXPOSÉ XII<br>FORMULES DE NIELSEN-WECKEN ET DE LEFSCHETZ EN GÉOMÉTRIE ALGÉBRIQUE<span class="author">par A. Grothendieck<br>rédigé par I. BUCUR</span></h1>
+
+<!-- Source PDF page 2 (printed page 408) -->
+<h2 id="XII.1">1.</h2>
+<p>Soient \(X'\) un schéma propre sur le corps \(k\) algébriquement clos et \(G\) un groupe fini opérant sur \(X'\).</p>
+
+<p>Pour chaque élément \(g\in G\) on désigne par \({}_gX':X'\longrightarrow X'\) l'automorphisme de \(X'\) induit par \(g\).</p>
+
+<p>Supposons qu'il existe un ouvert \(U'\) de \(X'\) stable par \(G\) et tel que \(G\) opère librement sur \(U'\) et soit \(\Lambda_n=\mathbb Z/\ell^n\mathbb Z\) où \(\ell\) est un nombre premier différent de la caractéristique de \(k\).</p>
+
+<p>Désignons par \(\Lambda_{n,U',X'}\) le faisceau \(i_!(\Lambda_{n,U'})\) sur \(X'\) où \(\Lambda_{n,U'}\) est le faisceau constant sur \(U'\) associé à l'anneau \(\Lambda_n\) et \(i:U'\lhook\joinrel\longrightarrow X'\) est l'immersion canonique de \(U'\) dans \(X'\). Le faisceau \(\Lambda_{n,U',X'}\) est muni d'une manière naturelle d'une structure de faisceau à groupe \(G\) d'opérateurs. Par conséquence le complexe</p>
+\[
+\mathcal H_{n,U',X'}=R\Gamma_{X'}(\Lambda_{n,U',X'})
+\]
+<p>est un complexe de \(\Lambda_n[G]\)-modules et plus précisément un complexe parfait (VIII,7) de \(\Lambda_n[G]\)-modules (IX,2).</p>
+
+<p>On verra dans la suite qu'il est plus commode pour notre but de considérer au lieu du complexe \(R\Gamma_{X'}(\Lambda_{n,U',X'})\) son dual \(\mathcal H_{n,U',X'}^\vee=R\Gamma_{X'}(\Lambda_{n,U',X'})^\vee\) par rapport à l'anneau \(\Lambda_n\) au sens des catégories dérivées :</p>
+\[
+\mathcal H_{n,U',X'}^\vee=R\Gamma_{X'}(\Lambda_{n,U',X'})^\vee
+=R\operatorname{Hom}_{\Lambda_n}\bigl(R\Gamma_{X'}(\Lambda_{n,U',X'}),\Lambda_n\bigr).
+\]
+<p>Le complexe \(R\Gamma_{X'}(\Lambda_{n,U',X'})^\vee\) est un complexe parfait de \(\Lambda_n[G]\)-modules.</p>
+
+<p>Supposons qu'on se donne maintenant un endomorphisme \(f':X'\longrightarrow X'\) du schéma \(X'\) et un endomorphisme \(\varphi:G\longrightarrow G\) du groupe \(G\) tel que les deux conditions suivantes soient remplies :</p>
+
+<!-- Source PDF page 3 (printed page 409) -->
+\[
+(1.1)\qquad f'{}_gX'={}_{\varphi(g)}X'f'\qquad\forall g\in G.
+\]
+<p>\((1.2)\) Le complémentaire \(Y'=X'-U'\) est stable par \(f'\).</p>
+<p>(Sous les hypothèses déjà faites \(Y'\) est stable par \(G\). <u>En général on n'exige pas que l'ouvert \(U'\) soit stable par \(f'\)</u>).</p>
+
+<p>On obtient donc les homomorphismes de faisceaux :</p>
+\[
+f'_{\Lambda_{n,X'}}:\Lambda_{n,X'}\longrightarrow\Lambda_{n,X'},
+\]
+\[
+f'_{\Lambda_{n,Y'}}:\Lambda_{n,Y'}\longrightarrow\Lambda_{n,Y'},
+\]
+\[
+f'_{\Lambda_{n,U',X'}}:\Lambda_{n,U',X'}\longrightarrow\Lambda_{n,U',X'},
+\]
+\[
+{}_g\Lambda_{n,U',X'}:\Lambda_{n,U',X'}\longrightarrow\Lambda_{n,U',X'},
+\]
+<p>tel que le diagramme suivant, où les lignes sont exactes, soit commutatif :</p>
+\[
+(1.3)\qquad
+\xymatrix{
+0\ar[r]&\Lambda_{n,U',X'}\ar[r]\ar[d]^{f'_{\Lambda_{n,U',X'}}}&\Lambda_{n,X'}\ar[r]\ar[d]^{f'_{\Lambda_{n,X'}}}&\Lambda_{n,Y'}\ar[r]\ar[d]^{f'_{\Lambda_{n,Y'}}}&0\\
+0\ar[r]&\Lambda_{n,U',X'}\ar[r]&\Lambda_{n,X'}\ar[r]&\Lambda_{n,Y'}\ar[r]&0.
+}
+\]
+<p>On en déduit, en particulier, des homomorphismes de complexes de \(\Lambda_n\)-modules :</p>
+
+<!-- Source PDF page 4 (printed page 410) -->
+\[
+f'_{\mathcal H_{n,U',X'}}=R\Gamma_{X'}(f'_{\Lambda_{n,U',X'}}):
+\mathcal H_{n,U',X'}\longrightarrow\mathcal H_{n,U',X'},
+\]
+\[
+f'_{\mathcal H_{n,U',X'}^\vee}=(f'_{\mathcal H_{n,U',X'}})^\vee:
+\mathcal H_{n,U',X'}^\vee\longrightarrow\mathcal H_{n,U',X'}^\vee,
+\]
+\[
+{}_g\mathcal H_{n,U',X'}=R\Gamma_{X'}({}_g\Lambda_{n,U',X'}):
+\mathcal H_{n,U',X'}\longrightarrow\mathcal H_{n,U',X'},
+\]
+\[
+{}_g\mathcal H_{n,U',X'}^\vee=({}_g\mathcal H_{n,U',X'})^\vee:
+\mathcal H_{n,U',X'}^\vee\longrightarrow\mathcal H_{n,U',X'}^\vee,
+\]
+<p>tel que les relations suivantes soient vraies :</p>
+\[
+(1.4)\qquad {}_g\mathcal H_{n,U',X'}\circ f'_{\mathcal H_{n,U',X'}}
+=f'_{\mathcal H_{n,U',X'}}\circ{}_{\varphi(g)}\mathcal H_{n,U',X'},
+\]
+\[
+(1.5)\qquad f'_{\mathcal H_{n,U',X'}^\vee}\circ{}_g\mathcal H_{n,U',X'}^\vee
+={}_{\varphi(g)}\mathcal H_{n,U',X'}^\vee\circ f'_{\mathcal H_{n,U',X'}^\vee}.
+\]
+
+<p>La relation (1.5) nous montre (cf. Exp. XI sur la théorie générale des traces, 5.2.1, 7.1) que la trace</p>
+\[
+\operatorname{Tr}_{\Lambda_n[G],\varphi}^{*}
+\bigl(f'_{\mathcal H_{n,U',X'}^\vee}\bigr)
+\in\Lambda_n[G_{\varphi,\varphi^0}]\simeq\mathcal J_1(G_{\varphi,\varphi^0},\Lambda_n)
+\tag{*}
+\]
+<p>Notre premier but sera de donner, sous quelques hypothèses supplémentaires, une formule explicite de \(\operatorname{Tr}_{\Lambda_n[G],\varphi}^{*}(f'_{\mathcal H_{n,U',X'}^\vee})\) en termes d'invariants locaux associés à \(f'\) ; termes que nous allons définir plus bas.</p>
+
+<h2 id="XII.2">2.</h2>
+<p>En fait on peut faire mieux. Soient pour cela \(n,m\) deux entiers positifs tel que \(m\geq n\). Les homomorphismes d'anneaux :</p>
+
+<!-- Source PDF page 5 (printed page 411) -->
+\[
+\alpha_{m,n}:\Lambda_m\longrightarrow\Lambda_n
+\]
+<p>engendrent les homomorphismes de faisceaux d'anneaux sur \(X'\) :</p>
+\[
+\alpha_{m,n,X'}:\Lambda_{m,X'}\longrightarrow\Lambda_{n,X'},
+\]
+\[
+\alpha_{m,n,U',X'}:\Lambda_{m,U',X'}\longrightarrow\Lambda_{n,U',X'}.
+\]
+<p>L'application de la formule de Künneth nous donne :</p>
+\[
+(2.1)\qquad R\Gamma_{X'}(\Lambda_{m,X'})\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\simeq R\Gamma_{X'}(\Lambda_{n,X'}),
+\]
+\[
+(2.2)\qquad R\Gamma_{X'}(\Lambda_{m,U',X'})\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\simeq R\Gamma_{X'}(\Lambda_{n,U',X'}),
+\]
+\[
+(2.3)\qquad R\Gamma_{X'}(f'_{\Lambda_{m,X'}})\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\simeq R\Gamma_{X'}(f'_{\Lambda_{n,X'}}),
+\]
+\[
+(2.4)\qquad R\Gamma_{X'}(f'_{\Lambda_{m,U',X'}})\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\simeq R\Gamma_{X'}(f'_{\Lambda_{n,U',X'}}).
+\]
+<p>On en déduit aisément :</p>
+\[
+(2.5)\qquad R\operatorname{Hom}_{\Lambda_m}\bigl(R\Gamma_{X'}(\Lambda_{m,U',X'}),\Lambda_m\bigr)
+\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\simeq R\operatorname{Hom}_{\Lambda_n}\bigl(R\Gamma_{X'}(\Lambda_{n,U',X'}),\Lambda_n\bigr)
+\]
+\[
+(2.6)\qquad f'_{\mathcal H_{m,U',X'}^\vee}\mathbin{\overset L\otimes}_{\Lambda_m}\Lambda_n
+\simeq f'_{\mathcal H_{n,U',X'}^\vee}.
+\]
+
+<p>Le morphisme de complexes parfaits \(R\Gamma_{X'}(f'_{\Lambda_{n,X'}})\) (resp. \(R\Gamma_{X'}(f'_{\Lambda_{n,U',X'}}), f'_{\mathcal H_{n,U',X'}^\vee}\)) s'obtient donc par extension des scalaires (XI, 6.3) à partir des morphismes \(R\Gamma_{X'}(f'_{\Lambda_{m,X'}})\) (resp. \(R\Gamma_{X'}(f'_{\Lambda_{m,U',X'}}), f'_{\mathcal H_{m,U',X'}^\vee}\))</p>
+
+<!-- Source PDF page 6 (printed page 412) -->
+<p>à l'aide des morphismes \(\alpha_{m,n}\) (resp. \(\alpha_{m,n},
+\alpha_{m,n,G}:\Lambda_m[G]\longrightarrow\Lambda_n[G]\)).</p>
+
+<p>En utilisant (XI, 6.3, 6.3.2, 6.3.3), 2.3, 2.6 on obtient les relations</p>
+\[
+(2.7)\qquad \operatorname{Tr}_{\Lambda_n}^{*}\bigl(R\Gamma_{X'}(f'_{\Lambda_{n,X'}})\bigr)
+=\alpha_{m,n}\bigl(\operatorname{Tr}_{\Lambda_m}^{*}(R\Gamma_{X'}(f'_{\Lambda_{m,X'}}))\bigr),
+\]
+\[
+(2.8)\qquad \operatorname{Tr}_{\Lambda_n[G],\varphi}^{*}
+\bigl(f'_{\mathcal H_{n,U',X'}^\vee}\bigr)
+=\alpha_{m,n,G}\bigl(\operatorname{Tr}_{\Lambda_m[G],\varphi}^{*}
+(f'_{\mathcal H_{m,U',X'}^\vee})\bigr).
+\]
+
+<p>Le système des fonctions
+\(\bigl(\operatorname{Tr}_{\Lambda_n[G],\varphi}^{*}(f'_{\mathcal H_{n,U',X'}^\vee})\bigr)_{n&gt;0}\)
+définit une fonction</p>
+\[
+\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}^{*}
+\bigl(f'_{\mathcal H_{U',X'}^\vee}(\ell)\bigr)
+\in\mathcal J_1(G_{\varphi,\varphi^0},\mathbb Z_\ell),
+\]
+<p>\(\varphi\)-centrale sur \(G\) à valeurs dans l'anneau \(\mathbb Z_\ell\) des entiers \(\ell\)-adiques.</p>
+
+<p>De même les éléments
+\(\operatorname{Tr}_{\Lambda_n}^{*}(R\Gamma_{X'}(f'_{\Lambda_{n,X'}}))\),
+\(n\geq1\), définissent un entier \(\ell\)-adique
+\(\operatorname{Tr}_{\mathbb Z_\ell}^{*}(f'_{R\Gamma_{X'}(\mathbb Z_{\ell,X'})})\).</p>
+
+<p>Notre but sera de trouver une formule pour
+\(\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}^{*}
+(f'_{\mathcal H_{U',X'}^\vee}(\ell))\).</p>
+
+<h2 id="XII.3">3. <u>L'invariant local de Nielsen-Wecken</u> (cf. [1]).</h2>
+<p>Supposons en plus des hypothèses décrites au numéro 1, que toute orbite de
+\(G\) est contenue dans un ouvert affine. Il existe donc un quotient
+\(X=X'/G\) et grâce à la formule 1.1, l'endomorphisme \(f'\) de \(X'\) passe au quotient :</p>
+\[f:X\longrightarrow X.\]
+<p>On va utiliser dans la suite les notations suivantes :</p>
+
+<!-- Source PDF page 7 (printed page 413) -->
+\[
+p:X'\longrightarrow X=X'/G\quad\text{pour la projection canonique},
+\]
+\[Y=p(Y')=Y'/G,\qquad U=X-Y.\]
+<p>\(U'\) est un revêtement principal ayant \(G\) comme groupe structural. Soit
+\(x\in U\) un point fixe de \(f\). On va lui associer une classe de
+\(\varphi\)-conjugaison (XI, 7.1) \(NW_f^{G,\varphi}(x)\) de la manière suivante :</p>
+
+<p>Soit \(x'\in U'\) tel que \(p(x')=x\). \(U'\) étant un revêtement principal
+ayant \(G\) comme groupe structural et le point \(x\) étant fixe pour \(f\) il
+existe un élément unique \(g\in G\) tel que \(f'(x')=gx'\). La classe de
+\(\varphi\)-conjugaison de \(g\) ne dépend que de \(x\). En effet si
+\(p(x'')=x\), il existe \(h\in G\) tel que \(hx''=x'\). Par conséquent si
+\(f'(x'')=g'x''\) on a :</p>
+\[
+gx'=f'(x')=f'(hx'')=\varphi(h)f'(x'')=(\varphi(h)g'h^{-1})x',
+\]
+\[g=\varphi(h)g'h^{-1},\]
+<p>c'est-à-dire \(g\) et \(g'\) sont \(\varphi\)-conjugués. Par conséquent, on
+obtient une classe bien déterminée de \(\varphi\)-conjugaison, <u>l'invariant
+local de Nielsen-Wecken</u> associé au point fixe \(x\in U\) de \(f\) qui sera
+désigné par \(NW_f^{G,\varphi}(x)\).</p>
+
+<p>La classe de \(\varphi\)-conjugaison \(NW_f^{G,\varphi}(x)\) définit une
+fonction \(\varphi\)-centrale (cf. XI, 7.1) :</p>
+\[NW_f^{G,\varphi}(x):G\longrightarrow\mathbb Z\]
+<p>à valeurs entières, caractérisée par les relations suivantes :</p>
+
+<!-- Source PDF page 8 (printed page 414) -->
+\[
+(3.1)\qquad NW_f^{G,\varphi}(x)(g)=
+\begin{cases}
+1&\text{s'il existe }x'\in X'\text{ tel que }(g^{-1}f')(x')=x'\\
+&\text{et }p(x')=x,\\
+0&\text{sinon.}
+\end{cases}
+\]
+
+<h2 id="XII.4">4.</h2>
+<p>Supposons \(X'\) lisse sur \(k\) et en plus que le nombre des points fixes
+de \(f\) est fini. Il en résulte en particulier que le nombre des points fixes
+de \(g^{-1}f'\) est fini pour chaque \(g\in G\).</p>
+
+<p>Pour chaque point fixe \(x\in X\) de \(f\) on introduit la fonction
+\(\varphi\)-centrale</p>
+\[S_x(f',f,G,\varphi):G\longrightarrow\mathbb Q,\]
+<p>à valeurs rationnelles, définie par la formule :</p>
+\[
+(4.1)\qquad S_x(f',f,G,\varphi)(g)=\frac1{c^\varphi(g)}
+\sum_{x'\in X_x'^{\,g^{-1}f'}}\bigl(\nu_{x'}(g^{-1}f')-1\bigr).
+\]
+<p>Nous avons utilisé les notations suivantes :</p>
+\[
+(4.2)\qquad c^\varphi(g)=\operatorname{Card}G_g^\varphi,qquad
+G_g^\varphi=\{x\in G\mid\varphi(x)gx^{-1}=g\},
+\]
+\[
+(4.3)\qquad X_x'^{\,g^{-1}f'}=
+\{x'\in X'\mid p(x')=x,\ (g^{-1}f')(x')=x'\}.
+\]
+\[
+(4.4)\qquad \nu_{x'}(g^{-1}f')=\text{la multiplicité du point fixe }x'
+\text{ de }g^{-1}f'.
+\]
+<p>Par composition, avec les inclusions canoniques</p>
+
+<!-- Source PDF page 9 (printed page 415) -->
+\[\mathbb Q\lhook\joinrel\longrightarrow\mathbb Q_\ell\]
+<p>la fonction \(S_x(f',f,G,\varphi)\) engendre des fonctions
+\(\varphi\)-centrales \(S_{x,\ell}(f',f,G,\varphi)\) sur \(G\) à valeurs dans
+le corps \(\mathbb Q_\ell\) des nombres \(\ell\)-adiques.</p>
+
+<div class="thm conjecture" id="XII.4.5"><div class="thm-head"><span class="thm-name">Conjecture 4.5.</span></div><div class="thm-body"><p><u>Pour chaque
+\(\ell\ne\operatorname{car}(k)\) les valeurs de la fonction
+\(S_{x,\ell}(f',f,G,\varphi)\) sont des entiers \(\ell\)-adiques.</u></p></div></div>
+
+<p>On va prouver dans la suite que la conjecture 4.5 est vraie si la dimension
+de \(X\) est égale à 1.</p>
+
+<div class="thm proposition" id="XII.4.6"><div class="thm-head"><span class="thm-name">Proposition 4.6.</span></div><div class="thm-body"><p><u>Soient \(R\) un anneau de valuation discrète, \(\mathfrak m\) son idéal
+maximal, \(\pi\) une uniformisante, \(k=R/\mathfrak m\) son corps résiduel
+supposé alg. clos, \(v\) sa valuation, \(f'_R:R\to R\) un endomorphisme de
+\(R\) et \(G\) un groupe fini d'automorphismes de \(R\). Supposons que
+l'endomorphisme \(f'_R\) et les automorphismes \(g_R\) induisent l'identité sur
+\(k\) et qu'on se donne en plus un endomorphisme de \(G\) :</u></p>
+\[\varphi:G\longrightarrow G,\]
+<p><u>tel que la relation suivante soit remplie :</u></p>
+\[f'_R\circ g_R=\varphi(g)_R\circ f'_R.\]
+<p><u>Si l'on désigne pour chaque \(g\in G\)</u></p>
+\[\nu(g_R^{-1}f'_R)=v(g_R^{-1}f'_R(\pi)-\pi),\]
+<p><u>et si l'on décompose \(c^\varphi(g)\) (cf. 4.2) sous la forme</u></p>
+
+<!-- Source PDF page 10 (printed page 416) -->
+\[c^\varphi(g)=p^s q,qquad(p,q)=1,qquad p=\operatorname{car}(k),\]
+<p><u>alors \(q\mid(\nu(g_R^{-1}f'_R)-1)\).</u></p></div></div>
+
+<p>Pour démontrer la proposition 4.6 on se réduit au cas \(g=e\) et
+\(\varphi=\operatorname{id}_G\). En effet on peut se réduire d'abord au cas
+\(g=e\) en associant à la situation \((f'_R,G,g,\varphi)\) la situation
+\((f''_R=g_R^{-1}f'_R,G,e,\varphi'=\operatorname{int}(g)\circ\varphi)\)
+(\(\varphi'(a)=g^{-1}\varphi(a)g\)) et en observant aisément qu'on a :</p>
+\[
+\nu(g_R^{-1}f')-1=\nu(f''_R)-1,
+\]
+\[
+c^\varphi(g)=c^{\varphi'}(e)\qquad(G_g^\varphi=G_e^{\varphi'})\quad\text{(cf. 4.2)}.
+\]
+
+<p>Pour se réduire simultanément au cas \(g=e\),
+\(\varphi=\operatorname{id}_G\) remarquons qu'on peut associer à la situation
+\((f''_R,G,e,\varphi')\) la situation
+\((f''_R,G_e^{\varphi'},e,\operatorname{id}_{G_e^{\varphi'}})\) et qu'on a :</p>
+\[
+G_e^{\varphi'}=(G_e^{\varphi'})_e^{\operatorname{id}_{G_e^{\varphi'}}}.
+\]
+
+<p>La démonstration de la proposition 4.6 utilise essentiellement le lemme suivant :</p>
+
+<div class="thm lemma" id="XII.4.7"><div class="thm-head"><span class="thm-name">Lemme 4.7.</span></div><div class="thm-body"><p><u>Les hypothèses et les notations étant celles de la proposition 4.6
+supposons en plus que \(\varphi=\operatorname{id}_G\), c'est-à-dire que les
+opérations de \(G\) sur \(R\) commutent avec \(f'_R\), et que
+\(r=\nu(f'_R)\geq2\).</u></p>
+<p><u>Soit</u></p>
+\[
+c=\operatorname{Card}\bigl(\operatorname{Im}(G\longrightarrow
+\operatorname{Aut}_k(\mathfrak m/\mathfrak m^2))\bigr).
+\]
+<p><u>On a alors la relation suivante de divisibilité :</u></p></div></div>
+
+<!-- Source PDF page 11 (printed page 417) -->
+\[
+c\mid(r-1).
+\]
+
+<p><u>Démonstration.</u> Il est clair que l'entier \(r\) satisfait aux conditions suivantes :</p>
+<p style="margin-left:2em;">a) l'homomorphisme</p>
+\[
+f'_r:A/\mathfrak m^r\longrightarrow A/\mathfrak m^r
+\]
+<p style="margin-left:2em;">induit par \(f'_R\) est l'identité.</p>
+<p style="margin-left:2em;">b) l'homomorphisme</p>
+\[
+f'_{r+1}:A/\mathfrak m^{r+1}\longrightarrow A/\mathfrak m^{r+1}
+\]
+<p style="margin-left:2em;">est différent de l'identité.</p>
+
+<p>D'autre part il est évident que \(G\) opère sur tous les espaces vectoriels
+\(\mathfrak m^i/\mathfrak m^{i+1}\) sur \(k\).</p>
+
+<p>On va montrer d'abord que sous les hypothèses du lemme il existe un
+homomorphisme de \(k[G]\)-modules</p>
+\[
+u(f'_R):\mathfrak m/\mathfrak m^2\longrightarrow
+\mathfrak m^r/\mathfrak m^{r+1}
+\]
+<p>et un seul tel que les deux conditions suivantes soient satisfaites :</p>
+<p style="margin-left:4em;">1) \(u(f'_R)\ne0\)</p>
+<p style="margin-left:4em;">2) \(u(f'_R)(x\bmod\mathfrak m^2)=(f'_R(x)-x)\bmod\mathfrak m^{r+1}\), quel que soit \(x\in\mathfrak m\).</p>
+
+<p>Il est clair que la condition a) implique \(f'_R(x)-x\in\mathfrak m^r\) quel que soit
+\(x\in R\), ce qui donne un sens à la condition 2).</p>
+
+<!-- Source PDF page 12 (printed page 418) -->
+<p>Cette observation nous donne aussi la possibilité de définir un
+homomorphisme de groupes abéliens :</p>
+\[
+\begin{aligned}
+\mathfrak m&\longrightarrow\mathfrak m^r/\mathfrak m^{r+1}\\
+x&\longmapsto(f'_R(x)-x)\bmod\mathfrak m^{r+1}.
+\end{aligned}
+\]
+<p>Cet homomorphisme s'annule sur \(\mathfrak m^2\). En effet, si
+\(x_1,x_2\in\mathfrak m\) alors \(f'_R(x_1x_2)-x_1x_2\in\mathfrak m^{r+1}\)
+car on a grâce à la condition a) :</p>
+\[
+f'_R(x_1)=x_1+\alpha_1,\quad\alpha_1\in\mathfrak m^r,
+\]
+\[
+f'_R(x_2)=x_2+\alpha_2,\quad\alpha_2\in\mathfrak m^r,
+\]
+<p>et par conséquent :</p>
+\[
+f'_R(x_1x_2)=f'_R(x_1)f'_R(x_2)=(x_1+\alpha_1)(x_2+\alpha_2)
+=x_1x_2+x_1\alpha_2+x_2\alpha_1+\alpha_1\alpha_2,
+\]
+<p>et évidemment \(x_1\alpha_2+x_2\alpha_1+\alpha_1\alpha_2\in\mathfrak m^{r+1}\).</p>
+
+<p>Il en résulte donc par passage au quotient un homomorphisme de groupes abéliens :</p>
+\[
+u(f'_R):\mathfrak m/\mathfrak m^2\longrightarrow
+\mathfrak m^r/\mathfrak m^{r+1}.
+\]
+<p>L'homomorphisme \(u(f'_R)\) est en fait un homomorphisme d'espaces vectoriels sur
+\(k\). Pour le voir il faut montrer qu'on a quel que soit \(x\in\mathfrak m\), \(\alpha\in R\) :</p>
+\[
+f'_R(\alpha x)-\alpha x\equiv\alpha(f'_R(x)-x)\bmod\mathfrak m^{r+1},
+\]
+
+<!-- Source PDF page 13 (printed page 419) -->
+<p>c'est-à-dire</p>
+\[
+(4.7.1)\qquad f'_R(\alpha x)-\alpha f'_R(x)\in\mathfrak m^{r+1}.
+\]
+<p>Mais on a :</p>
+\[
+f'_R(\alpha x)-\alpha f'_R(x)=(f'_R(\alpha)-\alpha)f'_R(x),
+\]
+<p>ce qui donne la relation (4.7.1) parce que</p>
+\[
+f'_R(\alpha)-\alpha\in\mathfrak m^r\quad\text{(Condition a))}
+\]
+\[
+f'_R(x)\in\mathfrak m\qquad(x\in\mathfrak m).
+\]
+
+<p>L'homomorphisme \(u(f'_R)\) est un homomorphisme de \(k[G]\)-modules. En
+effet, on a pour \(x\in\mathfrak m\) :</p>
+\[
+u(f'_R)(g(x\bmod\mathfrak m^2))=(f'_R(gx)-gx)\bmod\mathfrak m^{r+1}
+\]
+\[
+=g(f'_R(x)-x)\bmod\mathfrak m^{r+1}=gu(f'_R)(x\bmod\mathfrak m^2).
+\]
+
+<p>Enfin \(u(f'_R)\ne0\). En effet grâce à la condition b) il existe un élément
+\(x_0\in R\) tel que \(f'_R(x_0)-x_0\notin\mathfrak m^{r+1}\). Mais il nous faut un tel élément
+appartenant à \(\mathfrak m\). Pour obtenir un tel élément écrivons \(x_0\) sous la forme</p>
+\[
+x_0=\frac{x}{x'},\qquad x,x'\in\mathfrak m,\quad x'\notin\mathfrak m^{r+1}.
+\]
+<p>L'un au moins des éléments \(x,x'\) satisfait à la condition voulue.</p>
+
+<!-- Source PDF page 14 (printed page 420) -->
+<p>Supposons par l'absurde qu'on ait en même temps :</p>
+\[
+f'_R(x)-x\in\mathfrak m^{r+1},\qquad f'_R(x')-x'\in\mathfrak m^{r+1}.
+\]
+<p>On aura donc, dans le corps \(K\) des fractions de \(A\) :</p>
+\[
+\frac{f'_R(x)}x\in1+\mathfrak m^r,qquad
+\frac{f'_R(x')}{x'}\in1+\mathfrak m^r.
+\]
+<p>On peut supposer que \(f'_R(x')\ne0\), parce qu'autrement \(x'\) est
+l'élément cherché. Sous cette hypothèse, compte tenu du fait que
+\(1+\mathfrak m^r\) est un groupe multiplicatif il résulte que :</p>
+\[
+\frac{x'}{f'_R(x')}\in1+\mathfrak m^r,
+\]
+<p>et par conséquent :</p>
+\[
+\frac{f'_R(x)}x\cdot\frac{x'}{f'_R(x')}\in1+\mathfrak m^r.
+\]
+<p>Mais cette dernière relation implique :</p>
+\[
+\frac{f'_R(x_0)}{x_0}\in1+\mathfrak m^r.
+\]
+<p>En effet :</p>
+\[
+\begin{aligned}
+\frac{f'_R(x_0)}{x_0}-\frac{f'_R(x)}x\cdot\frac{x'}{f'_R(x')}
+&=\frac{f'_R(\frac{x}{x'})}{\frac{x}{x'}}-\frac{f'_R(x)}x\cdot\frac{x'}{f'_R(x')}\\
+&=\frac1x\left(\frac{x'f'_R(x')f'_R(\frac{x}{x'})-x'f'_R(x)}{f'_R(x')}\right)=0.
+\end{aligned}
+\]
+
+<!-- Source PDF page 15 (printed page 421) -->
+<p>Si l'on munit l'espace vectoriel sur \(k\) :</p>
+\[
+\operatorname{Hom}_k(\mathfrak m/\mathfrak m^2,
+\mathfrak m^r/\mathfrak m^{r+1})
+\]
+<p>de la structure habituelle de \(G\)-module son élément \(u(f'_R)\) appartient au sous-espace</p>
+\[
+\operatorname{Hom}_k(\mathfrak m/\mathfrak m^2,
+\mathfrak m^r/\mathfrak m^{r+1})^G
+\]
+<p>des invariants sous \(G\).</p>
+
+<p>D'autre part il est classique que l'espace vectoriel
+\(\mathfrak m^i/\mathfrak m^{i+1}\) s'identifie canoniquement avec la \(i\)-ième
+puissance tensorielle \(\bigotimes_k^i(\mathfrak m/\mathfrak m^2)\) et par
+conséquent l'espace vectoriel
+\(\operatorname{Hom}_k(\mathfrak m/\mathfrak m^2,\mathfrak m^r/\mathfrak m^{r+1})\)
+s'identifie par l'homomorphisme de « contraction avec la \((r-1)\)-ème
+puissance tensorielle » \(\bigotimes_k^{r-1}(\mathfrak m/\mathfrak m^2)\) :</p>
+\[
+\gamma:\operatorname{Hom}_k(\mathfrak m/\mathfrak m^2,
+\mathfrak m^r/\mathfrak m^{r+1})\longrightarrow
+\bigotimes_k^{r-1}(\mathfrak m/\mathfrak m^2).
+\]
+<p>Par l'isomorphisme \(\gamma\) la structure de \(G\)-module de
+\(\operatorname{Hom}_k(\mathfrak m/\mathfrak m^2,\mathfrak m^r/\mathfrak m^{r+1})\)
+se transporte dans la structure de \(G\)-module de
+\(\bigotimes_k^{r-1}(\mathfrak m/\mathfrak m^2)\) induite par la structure de
+\(G\)-module de \(\mathfrak m/\mathfrak m^2\) :</p>
+\[
+g(\xi_1\otimes\xi_2\otimes\cdots\otimes\xi_{r-1})
+=g\xi_1\otimes\cdots\otimes g\xi_{r-1}.
+\]
+<p>Nous désignerons par \(\mu(f'_R)\) l'image de \(u(f'_R)\) par l'isomorphisme \(\gamma\).</p>
+<p>On a donc</p>
+\[
+1)\qquad 0\ne\mu(f'_R)\in\bigotimes_k^{r-1}(\mathfrak m/\mathfrak m^2),
+\]
+
+<!-- Source PDF page 16 (printed page 422) -->
+\[
+\mathrm{II})\qquad \mu(f'_R)\text{ est invariant par }G.
+\]
+
+<p>Nous pouvons maintenant conclure la démonstration du lemme 4.7. Tout d'abord,
+l'espace vectoriel \(\mathfrak m/\mathfrak m^2\) étant de dimension 1 on a</p>
+\[
+\operatorname{Aut}_k(\mathfrak m/\mathfrak m^2)=k^*,
+\]
+<p>et par conséquent \(\operatorname{Im}(G\longrightarrow
+\operatorname{Aut}_k(\mathfrak m/\mathfrak m^2))\) est un sous-groupe fini de
+\(k^*\) cyclique, engendré par une racine primitive \(c\)-ème de l'unité.
+Désignons par \(\varepsilon\) une telle racine. Le sous-groupe
+\(\operatorname{Im}(G\longrightarrow\operatorname{Aut}_k(\mathfrak m/\mathfrak
+m^2))\) est donc engendré par l'automorphisme</p>
+\[
+\chi:\mathfrak m/\mathfrak m^2\longrightarrow\mathfrak m/\mathfrak m^2,
+\qquad \xi\longmapsto\varepsilon\xi.
+\]
+<p>L'élément \(\mu(f'_R)\) de \(\bigotimes_k^{r-1}(\mathfrak m/\mathfrak m^2)\)
+étant invariant par \(G\) on a :</p>
+\[
+\begin{aligned}
+\mu(f'_R)&=\chi\mu(f'_R)
+=\chi\sum_i\xi_{1i}\otimes\xi_{2i}\otimes\cdots\otimes\xi_{r-1,i}\\
+&=\sum_i\varepsilon\xi_{1i}\otimes\varepsilon\xi_{2i}\otimes\cdots
+\otimes\varepsilon\xi_{r-1,i}=\varepsilon^{r-1}\mu(f'_R),
+\end{aligned}
+\]
+<p>c'est-à-dire</p>
+\[
+(1-\varepsilon^{r-1})\mu(f'_R)=0,
+\]
+<p>\(\mu(f'_R)\) étant différent de zéro (Cond. I) il en résulte
+\(1-\varepsilon^{r-1}=0\), c'est-à-dire \(c\mid(r-1)\).</p>
+
+<!-- Source PDF page 17 (printed page 423) -->
+<p><u>Démonstration de la proposition 4.6.</u> Nous avons déjà remarqué qu'on peut
+se réduire au cas \(g=e\), \(\varphi=\operatorname{id}_G\). Si l'on désigne par
+\(G_1\) le noyau de l'homomorphisme :</p>
+\[
+G\longrightarrow\operatorname{Aut}_k(\mathfrak m/\mathfrak m^2),
+\]
+<p>alors on a grâce à la théorie de la ramification :</p>
+\[
+\operatorname{Card}(G_1)=p^t.
+\]
+<p>Par conséquent, en utilisant les notations du lemme 4.7 on a :</p>
+\[
+\operatorname{Card}(G)=p^t c.
+\]
+<p>Comme d'autre part \(c^{\operatorname{id}_G}(e)=\operatorname{Card}(G)\)
+l'énoncé de la proposition 4.6 dans le cas \(g=e\),
+\(\varphi=\operatorname{id}_G\), et par conséquent en général, résulte du
+lemme 4.7.</p>
+
+<div class="thm thm-plain corollary" id="XII.4.8">
+<div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.8.</span></div>
+<div class="thm-body"><p>Pour chaque \(\ell\ne\operatorname{car}(k)\), l'image du
+nombre rationnel</p>
+\[
+\frac{\nu(g_R^{-1}f'_R)-1}{c^\varphi(g)}
+\]
+<p>par l'inclusion canonique :</p>
+\[
+\mathbb Q\lhook\joinrel\longrightarrow\mathbb Q_\ell
+\]
+<p>est un entier \(\ell\)-adique.</p></div>
+</div>
+
+<div class="thm thm-plain proposition" id="XII.4.9">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.9.</span></div>
+<div class="thm-body"><p>La conjecture 4.5 est vraie si la dimension du schéma
+\(X\) est égale à 1.</p></div>
+</div>
+
+<!-- Source PDF page 18 (printed page 424) -->
+<p><u>Démonstration.</u> Nous allons introduire l'endomorphisme</p>
+\[
+\psi:G\longrightarrow G
+\]
+<p>défini par :</p>
+\[
+\psi=\operatorname{int}_g\circ\varphi,\qquad
+\operatorname{int}_g(\xi)=g^{-1}\xi g.
+\]
+<p>On voit facilement qu'on a :</p>
+<p style="margin-left:2em;">i) \(\psi(G_{x'})\subset G_{g^{-1}f'x'}\),
+\(G_{x'}\) étant le stabilisateur du point \(x'\).</p>
+<p style="margin-left:2em;">ii) \(c^\varphi(g)=\operatorname{Card}(G^\psi)\),
+\(G^\psi=\{\xi\mid\psi(\xi)=\xi\}\).</p>
+<p style="margin-left:2em;">iii) \(G^\psi\) opère sur \(X_x^{\prime\,g^{-1}f'}\).</p>
+<p style="margin-left:2em;">iv) \(\nu_{x'}(g^{-1}_{x'}f')=
+\nu_{hx'}(g^{-1}_{x'}f')\) pour chaque \(h\in G^\psi\).</p>
+<p style="margin-left:2em;">v) \((g^{-1}f')(g_1x)=\psi(g_1)(g^{-1}f')(x)\).</p>
+<p>Par conséquent on peut décomposer \(X_x^{\prime\,g^{-1}f'}\) comme la
+réunion de ses orbites et on obtient :</p>
+\[
+(4.9.1)\qquad
+\sum_{x'\in X_x^{\prime\,g^{-1}f'}}(\nu_{x'}(g^{-1}_{x'}f')-1)
+=\sum_{x'\in X_x^{\prime\,g^{-1}f'}/G^\psi}
+\frac{\nu_{x'}(g^{-1}_{x'}f')-1}{\operatorname{Card}(G^\psi_{x'})}
+\operatorname{Card}(G^\psi),
+\]
+\[
+\nu_{x'}(g^{-1}f')=\nu((g^{-1}f')_{\widehat{\mathcal O}_{x'}}),
+\]
+<p>c'est-à-dire :</p>
+
+<!-- Source PDF page 19 (printed page 425) -->
+\[
+(4.9.2)\qquad S_x(f',f,G,\varphi)(g)=
+\sum_{x'\in X_x^{\prime\,g^{-1}f'}/G^\psi}
+\frac{\nu_{x'}(g^{-1}f')-1}{\operatorname{Card}(G^\psi_{x'})}
+\]
+<p>et la proposition résulte de la proposition 4.6.</p>
+
+<h2 id="XII.5">5. Généralisation d'une formule de type Nielsen-Wecken. <span style="font-weight:normal;">(cf. [1])</span></h2>
+
+<div class="thm thm-plain proposition" id="XII.5.1">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">5.1.</span></div>
+<div class="thm-body"><p>Les hypothèses et les notations étant celles de 1, 2,
+3, 4, supposons en plus que \(Y'\) est une partie finie de \(X'\).</p>
+<p>Si \(\ell\) est un nombre premier différent de la caractéristique de \(k\),
+on a :</p>
+<p style="margin-left:2em;">a) les valeurs de la fonction \(\varphi\)-centrale</p>
+\[
+\sum_{x\in Y^f}S_{x,\ell}(f,f',G,\varphi)
+\]
+<p style="margin-left:2em;">sont des entiers \(\ell\)-adiques.</p>
+<p style="margin-left:2em;">b) la formule suivante est vraie :</p>
+\[
+(5.1.1)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}
+(f'_{\mathcal H_{U',X'}^\vee(\ell)})
+=\sum_{x\in U^f}\nu_x(f)\operatorname{NW}^{G,\varphi}_f(x)
++\sum_{x\in Y^f}S_{x,\ell}(f,f',G,\varphi).
+\]
+</div>
+</div>
+
+<p><u>Démonstration.</u> Il est clair que si l'on prouve l'égalité b) en pensant
+tout comme fonctions à valeurs dans \(\mathbb Q_\ell\), il résulte déjà
+l'assertion de a) parce que \(\operatorname{NW}^{G,\varphi}_f(x)\),
+\(\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}
+(f'_{\mathcal H_{U',X'}^\vee(\ell)})\) sont des fonctions à valeurs dans
+\(\mathbb Z_\ell\).</p>
+
+<!-- Source PDF page 20 (printed page 426) -->
+<p>D'abord on voit en réduisant modulo \(\ell^n\) pour chaque \(n\geq1\) et en
+utilisant (XI, 7.2.3.6) qu'on a pour chaque \(g\in G\) :</p>
+\[
+(5.2)\qquad c^\varphi(g)\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}
+(f'_{\mathcal H_{U',X'}^\vee(\ell)})(g)
+=\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{X'}f')_{\mathcal H_{U',X'}^\vee(\ell)}
+=\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{X'}f')_{\mathcal H_{U',X'}(\ell)}.
+\]
+<p>Le diagramme commutatif (1.3), dont les lignes sont exactes, nous donne
+(XI, §4) :</p>
+\[
+(5.3)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{X'}f')_{\mathcal H_{U',X'}(\ell)}
+=\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{X'}f')_{R\Gamma_{X'}(\mathbb Z_{\ell,X'})}
+-\operatorname{Tr}_{\mathbb Z_\ell}^{*}(g^{-1}_{Y'}f'_{Y'})_{R\Gamma_{Y'}(\mathbb Z_{\ell,Y'})}.
+\]
+<p>Les deux termes du deuxième membre de la relation (5.3) peuvent être
+évalués grâce à la formule classique de Lefschetz (cf. &emsp;). (En fait pour
+le dernier terme il s'agit d'une formule triviale de Lefschetz) :</p>
+\[
+(5.4)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{X'}f')_{R\Gamma_{X'}(\mathbb Z_{\ell,X'})}
+=\sum_{x\in X^f}\ \sum_{x'\in X_x^{\prime\,g^{-1}_{x'}f'}}
+\nu_{x'}(g^{-1}_{x'}f')
+\]
+\[
+(5.5)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{Y'}f'_{Y'})_{R\Gamma_{Y'}(\mathbb Z_{\ell,Y'})}
+=\text{nombre des points fixes de }g^{-1}_{Y'}f'_{Y'}.
+\]
+<p>Par conséquent</p>
+\[
+\begin{aligned}
+(5.6)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell}(g^{-1}_{X'}f')_{\mathcal H_{U',X'}(\ell)}
+={}&\sum_{x\in U^f}\ \sum_{x'\in X_x^{\prime\,g^{-1}_{x'}f'}}
+\nu_{x'}(g^{-1}_{x'}f')\\
+&-\sum_{x\in Y^f}\ \sum_{x'\in X_x^{\prime\,g^{-1}_{x'}f'}}
+(1-\nu_{x'}(g^{-1}_{x'}f'))
+\end{aligned}
+\]
+
+<!-- Source PDF page 21 (printed page 427) -->
+<p>Mais (x\in U^f) étant donné, l'ensemble
+(X_x^{\prime\,g^{-1}_{x'}f'}) est non vide si et seulement si
+(\operatorname{NW}^{G,\varphi}_f(x)=1). Comme on a aussi :</p>
+\[
+(5.7)\qquad \operatorname{Card}X_x^{\prime\,g^{-1}_{x'}f'}=c^\varphi(g),
+\quad x\in U,
+\]
+\[
+(5.8)\qquad \nu_{x'}(g^{-1}_{X'}f')=\nu_x(f),\quad x\in U.
+\]
+<p>Les relations (5.2), (5.6) donnent :</p>
+\[
+\begin{aligned}
+(5.9)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}
+(f'_{\mathcal H_{U',X'}^\vee(\ell)})(g)
+={}&\sum_{x\in U^f}\nu_x(f)\operatorname{NW}^{G,\varphi}_f(x)(g)\\
+&-\sum_{x\in Y^f}\ \sum_{x'\in X_x^{\prime\,g^{-1}_{x'}f'}}
+\frac{1-\nu_{x'}(g^{-1}_{X'}f')}{c^\varphi(g)}.
+\end{aligned}
+\]
+<p>c'est-à-dire la formule à démontrer.</p>
+
+<p><u>5.10. Cas particuliers.</u>&emsp; a) <u>Le cas non-ramifié :</u>
+(Y'=\varnothing), c'est-à-dire (Y=\varnothing).</p>
+<p>Dans ce cas la formule (5.1.1) devient :</p>
+\[
+(5.11)\qquad
+\operatorname{Tr}_{\mathbb Z_\ell[G],\varphi}
+(f'_{\mathcal H_{U',X'}^\vee(\ell)})
+=\sum_{x\in X^f}\nu_x(f)\operatorname{NW}^{G,\varphi}_f(x).
+\]
+<p>b) <u>Le cas des multiplicités 1 :</u>
+(\nu_{x'}(g^{-1}_{X'}f')=1),
+(\forall x'\in Y'^{\,g^{-1}_{Y'}f'_{Y'}}) et (\forall g\in G).</p>
+<p>Dans ce cas la formule 5.1.1 se réduit à la formule 5.11. Ce cas est en
+particulier réalisé si l'on a : (\dim X=1), (\nu_x(f)=1) pour tout
+(y\in Y).</p>
+
+<!-- Source PDF page 22 (printed page 428) -->
+<h2 id="XII.6">6. Application à une formule de Lefschetz.</h2>
+
+<p><u>6.1.</u> Nous garderons les notations et les conditions du numéro
+1<sup class="footnote-ref"><a id="fnref-XII-2" href="#fn-XII-2">x)</a></sup>.
+Soient de plus (A) une (\Lambda_n)-algèbre commutative noethérienne,
+(F) un faisceau (pour la topologie étale) constructible de (A)-modules
+parfaits sur (X) et</p>
+\[
+u:f^*(F)\longrightarrow F
+\]
+<p>un homomorphisme de faisceaux de (A)-modules.</p>
+<p>On obtient en particulier un endomorphisme de la paire ((X,F)) :</p>
+\[
+(u,f):(X,F)\longrightarrow(X,F),
+\]
+<p>et par conséquence un endomorphisme de complexes de (A)-modules :</p>
+\[
+R\Gamma_X(u,f):R\Gamma_X(F)\longrightarrow R\Gamma_X(F).
+\]
+<p>Le schéma (X) étant par hypothèse propre sur (k) et le faisceau (F)
+étant constructible et de torsion, le théorème de finitude (S.G.A. 4, XVII 5)
+nous assure que le complexe (R\Gamma_X(F)) est un complexe parfait de
+(A)-modules. La trace (\operatorname{Tr}_A(R\Gamma_X(u,f))) est donc
+définie</p>
+\[
+\operatorname{Tr}_A(R\Gamma_X(u,f))\in A.
+\]
+<p>Notre but sera de donner, sous quelques hypothèses supplémentaires, une
+formule explicite de (\operatorname{Tr}_A(R\Gamma_X(u,f))) en termes
+d'invariants locaux associés aux points fixes de (f).</p>
+
+<!-- Source PDF page 23 (printed page 429) -->
+<p><u>6.2. Définition des termes locaux.</u> Supposons que (X') est
+irréductible de dimension un et que la restriction du faisceau
+(F'=p^*(F)) à (U') soit constante.</p>
+<p>Si le nombre des points fixes de (f') est fini, hypothèse qui sera faite
+dans la suite, on peut toujours supposer qu'on a (X^f\subset Y^f).</p>
+<p>Le faisceau (F'|_{U'}) est donc défini par un (A)-module (M) sur
+lequel (G) opère :</p>
+\[
+F'|_{U'}\simeq M_{U'}.
+\]
+<p>En fait si on désigne par (\eta) (resp. (\eta')) le point générique de
+(X) (resp. (X')) et par (\bar\eta) (resp. (\bar\eta')) un point
+géométrique sur (\eta) (resp. (\eta')) on a :</p>
+\[
+p(\eta')=\eta,\qquad F_{\bar\eta}\simeq F'_{\bar\eta'}.
+\]
+<p>Le complexe (F') est isomorphe à (M) et par conséquence (M) est un
+(A)-module parfait.</p>
+<p>D'autre part si le morphisme (f') n'est pas constant il laisse fixe le
+point générique de (X'). Par conséquent le morphisme ((p^*(u),f')) de la
+paire ((X',F')) induit un morphisme sur la fibre (F'_{\bar\eta'}) :</p>
+\[
+u_{\bar\eta'}:F'_{\bar\eta'}\longrightarrow F'_{\bar\eta'},
+\]
+<p>d'où évidemment un morphisme de (A)-modules :</p>
+\[
+u_M:M\longrightarrow M.
+\]
+
+<!-- Source PDF page 24 (printed page 430) -->
+<p>On voit aisément que la relation suivante est satisfaite</p>
+\[
+(6.2.1)\qquad u_M(\varphi(g)m)=g u_M(m),
+\quad\forall m\in M,\quad\forall g\in G.
+\]
+<p>Le dual (\check M) de (M) par rapport à (A) est donc muni d'une
+structure de (A[G])-module et d'un endomorphisme</p>
+\[
+u_{\check M}:\check M\longrightarrow\check M,
+\]
+<p>tel que la relation suivante soit vraie :</p>
+\[
+u_{\check M}(gx)=\varphi(g)u_{\check M}(x),
+\quad\forall g\in G,\quad\forall x\in\check M.
+\]
+<p>En plus (\check M) est un (A)-module parfait et par conséquent la trace
+(\operatorname{Tr}_A(g^{-1}u_{\check M})) est définie pour chaque
+(g\in G).</p>
+<p>Soit (x\in X^f) un point fixe fermé de (f). Le morphisme (u) induit
+un endomorphisme du module (F_x), la fibre du faisceau (F) dans le point
+(x). (On identifie les points fermés de (X) avec les points de (X(k))) :</p>
+\[
+u_x:F_x\longrightarrow F_x.
+\]
+<p>La trace (\operatorname{Tr}_A(u_x)) nous fournit un premier invariant
+local associé au point fixe (x).</p>
+<p>On introduit un autre invariant local
+(\alpha_x(f,u,f',G,\varphi)), élément de l'anneau (A), par la formule :</p>
+\[
+(6.2.2)\qquad
+\alpha_x(f,u,f',G,\varphi)=
+\sum_{\substack{g\in G\\g\notin G^\varphi}}
+S_{x,\ell^n}(f,f',G,\varphi)(g)
+\operatorname{Tr}_A(g^{-1}u_{\check M}),
+\]
+
+<!-- Source PDF page 25 (printed page 431) -->
+<p>où la fonction</p>
+\[
+S_{x,\ell^n}(f,f',G,\varphi):G\longrightarrow\Lambda_n,
+\]
+<p>s'obtient à partir de la fonction (i_\ell\circ S_x(f,f',G,\varphi))
+(cf. 4) par réduction modulo (\ell^n\mathbb Z_\ell), c'est-à-dire :</p>
+\[
+S_{x,\ell^n}(f,f',G,\varphi)(g)
+=(i_\ell\circ S_x(f,f',G,\varphi))(g)\bmod \ell^n\mathbb Z_\ell.
+\]
+
+<div class="thm thm-plain proposition" id="XII.6.3">
+<div class="thm-head"><span class="thm-name">6.3. Une formule de Lefschetz.</span></div>
+<div class="thm-body"><p>Sous les hypothèses et avec les notations de 5.1,
+6.1, 6.2, on a la formule :</p>
+\[
+(6.3.1)\qquad
+\operatorname{Tr}_A(R\Gamma_X(u,f))
+=\sum_{x\in X^f}\tau_x(f,u,f',G,\varphi),
+\]
+<p><u>où on a posé</u></p>
+\[
+(6.3.2)\qquad
+\tau_x(f,u,f',G,\varphi)=\operatorname{Tr}_A(u_x)
+-\alpha_x(f,u,f',G,\varphi).
+\]</div></div>
+<p><u>Démonstration.</u> Le sous-schéma (Y) étant stable par (f), le
+morphisme</p>
+\[
+(u,f):(X,F)\longrightarrow(X,F)
+\]
+<p>induit un endomorphisme de triangles distingués</p>
+\[
+(6.3.3)\qquad
+\xymatrix@C=3.5em@R=2.5em{
+R\Gamma_Y(F|Y)\ar[r]\ar@(ul,ur)[]^{R\Gamma_Y(u|Y,f|Y)}&
+R\Gamma_X(F)\ar[r]\ar@(dr,ur)[]_{R\Gamma_X(u,f)}&
+R\Gamma_X(F_{U,X})\ar@/^1.2pc/[ll]\ar@(dl,dr)[]_{R\Gamma_X((u,f)_{U,X})}}
+\]
+<p>d'où la relation :</p>
+
+<!-- Source PDF page 26 (printed page 432) -->
+\[
+(6.3.4)\qquad
+\operatorname{Tr}_A(R\Gamma_X(u,f))=
+\operatorname{Tr}_A(R\Gamma_X((u,f)_{U,X}))+
+\operatorname{Tr}_A(R\Gamma_Y(u|Y,f|Y)).
+\]
+<p>Le dernier terme de la formule (6.3.4) peut s'expliciter grâce à la formule
+de Lefschetz élémentaire et au fait qu'on peut toujours supposer
+\(X^f=Y^f\) :</p>
+\[
+(6.3.5)\qquad
+\operatorname{Tr}_A(R\Gamma_Y(u|Y,f|Y))=
+\sum_{x\in X^f}\operatorname{Tr}_A(u_x).
+\]
+<p>D'autre part, on a</p>
+\[
+(6.3.6)\qquad
+R\Gamma_X((u,f)_{U,X})\simeq
+R\Gamma^G R\Gamma_{X'}(u',f')_{U',X'},\qquad (u'=p^*(u)),
+\]
+\[
+(6.3.7)\qquad
+F_{U',X'}\simeq
+\Lambda_{n,U',X'}\mathbin{\overset L\otimes}_{\Lambda_n}M,
+\quad
+(u',f')_{U',X'}=f'\!{}^*_{\Lambda_{n,U',X'}}
+\mathbin{\overset L\otimes}_{\Lambda_n}u_M,
+\]
+<p>d'où par la formule de Künneth :</p>
+\[
+(6.3.8)\qquad
+R\Gamma_{X'}(u',f')_{U',X'}\simeq
+R\Gamma_{X'}(f'\!{}^*_{\Lambda_{n,U',X'}})
+\mathbin{\overset L\otimes}_{\Lambda_n}u_M.
+\]
+<p>On conclut de (6.3.8) :</p>
+\[
+(6.3.9)\qquad
+R\Gamma_{X'}((u',f')_{U',X'})^\vee\simeq
+\bigl(R\Gamma_{X'}(f'\!{}^*_{\Lambda_{n,U',X'}})^\vee
+\mathbin{\overset L\otimes}_{\Lambda_n}A\bigr)
+\mathbin{\overset L\otimes}_A u_M^\vee.
+\]
+<p>Grâce à la formule 6.3.6 on obtient :</p>
+\[
+(6.3.10)\qquad
+R\Gamma_X((u,f)_{U,X})=
+R\Gamma_{X'}(f'\!{}^*_{\Lambda_{n,U',X'}})
+\mathbin{\overset L\otimes}_{A[G]}u_M^\vee,
+\]
+<p>d'où compte tenu de la formule générale (cf. Exp. XI, 7.5.9) :</p>
+\[
+(6.3.11)\qquad
+\operatorname{Tr}_A((u,f)_{U,X})=
+\sum_{g\in G/G^\varphi}
+\operatorname{Tr}_{\Lambda_n[G],\varphi}
+\bigl(f'\!{}^*_{H^\vee_{\Lambda_n,U',X'}}\bigr)(g)
+\operatorname{Tr}_A(g^{-1}u_M^\vee).
+\]
+<p>Mais la trace
+\(\operatorname{Tr}_{\Lambda_n[G],\varphi}
+(f'\!{}^*_{H^\vee_{\Lambda_n,U',X'}})\)
+se calcule à l'aide de la formule de Nielsen-Wecken (cf. Proposition 5.1.b)),
+évidemment en réduisant modulo \(\ell^n\mathbb Z\).</p>
+
+<!-- Source PDF page 27 (printed page 433) -->
+<p>On obtient compte tenu de la relation \(X^f=Y^f\) :</p>
+\[
+(6.3.12)\qquad
+\operatorname{Tr}_{\Lambda_n[G],\varphi}
+\bigl(f'\!{}^*_{H^\vee_{\Lambda_n,U',X'}}\bigr)(g)
+=\sum_{x\in X^f}S_{x,\ell^n}(f,f',G,\varphi)(g).
+\]
+<p>En combinant les relations 6.3.12, 6.3.11, 6.3.5, 6.3.4 on obtient la
+formule de l'énoncé.</p>
+
+<h3 id="XII.6.4">6.4. <u>Remarques sur les termes locaux.</u></h3>
+<p>a) Il est facile à voir que si \(g\in G\), alors on a la relation :</p>
+\[
+(6.4.1)\qquad
+\alpha_x(f,u,g^{-1}f',G,\varphi_g)=
+\alpha_x(f,u,f',G,\varphi)
+\]
+<p>où on a posé</p>
+\[
+(6.4.2)\qquad
+\varphi_g(\xi)=(\operatorname{int}_g\circ\varphi)(\xi)
+=g^{-1}\varphi(\xi)g,\quad\forall\xi\in G.
+\]
+<p>La relation 6.4.1. permet de nous ramener toujours, quitte à remplacer
+\(f'\) par \(g^{-1}f'\) et \(\varphi\) par \(\varphi_g\) au cas où il existe
+au moins un point \(x'\in X_x^{f'}\).</p>
+<p>b) Soit \(x'=X_x^{f'}\) et \(G_{x'}\) la stabilisation du point \(x'\).
+Évidemment \(G_{x'}\) est stable par \(\varphi\) et on obtient donc un
+endomorphisme</p>
+\[
+\varphi_{x'}=\varphi|G_{x'}:G_{x'}\longrightarrow G_{x'}.
+\]
+<p>Désignons par \(X'/G_{x'}\) le schéma quotient obtenu à partir de \(X'\)
+par la relation d'équivalence définie par \(G_{x'}\), par \(F'/G_{x'}\)
+l'endomorphisme de \(X'/G_{x'}\) obtenu à partir de l'endomorphisme \(f'\) de
+\(X'\) par la même relation d'équivalence et par \(x'\) la classe du point
+\(x'\) modulo cette relation d'équivalence.</p>
+
+<!-- Source PDF page 28 (printed page 434) -->
+<p>La projection canonique</p>
+\[
+p:X'\longrightarrow X'/G=X
+\]
+<p>se factorise de la manière suivante :</p>
+\[
+p:X'\xrightarrow{p_1}X'/G_{x'}\xrightarrow{p_2}X=X'/G.
+\]
+<p>En prenant l'image inverse par \(p_2\) de l'homomorphisme \(u\) on obtient
+un homomorphisme</p>
+\[
+v=p_2(u):(f'/G_{x'})^*(p_2^*(F))\longrightarrow p_2^*(F).
+\]
+<p>Il est facile à voir qu'on a :</p>
+\[
+(6.4.3)\qquad
+\alpha_{x'}(f'/G_{x'},v,f',G_{x'},\varphi_{x'})=
+\alpha_x(f,u,f',G,\varphi)\quad(x=p(x')).
+\]
+<p>On peut donc se réduire toujours au cas « totalement ramifié » c'est-à-dire
+au cas quand la fibre du point \(x\) se réduit à un point.</p>
+<p>c) <u>Le cas « modérément ramifié ».</u> Supposons qu'il existe
+\(x'\in p^{-1}(x)\), tel qu'on a</p>
+\[
+f'(x')=x',\qquad(p(x')=x),
+\]
+<p>cas auquel on peut toujours se ramener (cf. le cas a)), et que l'ordre du
+groupe \(G_x\) est premier avec la caractéristique du corps \(k\). Dans ce
+cas on a :</p>
+\[
+(6.4.4)\qquad
+\alpha_x(f,u,f',G,\varphi)=
+S_{x,\ell^n}(f,f',G,\varphi)(e)\operatorname{Tr}_A(u_M^\vee).
+\]
+<p>En tenant compte du cas b) on peut supposer que \(G=G_{x'}\). La formule
+(6.4.4) résulte alors du lemme suivant :</p>
+
+<!-- Source PDF page 29 (printed page 435; duplicate text in source) -->
+<p>La projection canonique</p>
+\[
+p:X'\longrightarrow X'/G=X
+\]
+<p>se factorise de la manière suivante :</p>
+\[
+p:X'\xrightarrow{p_1}X'/G_{x'}\xrightarrow{p_2}X=X'/G.
+\]
+<p>En prenant l'image inverse par \(p_2\) de l'homomorphisme \(u\) on obtient
+un homomorphisme</p>
+\[
+v=p_2(u):(f'/G_{x'})^*(p_2^*(F))\longrightarrow p_2^*(F).
+\]
+<p>Il est facile à voir qu'on a :</p>
+\[
+(6.4.3)\qquad
+\alpha_{x'}(f'/G_{x'},v,f',G_{x'},\varphi_{x'})=
+\alpha_x(f,u,f',G,\varphi)\quad(x=p(x')).
+\]
+<p>On peut donc se réduire toujours au cas « totalement ramifié » c'est-à-dire
+au cas quand la fibre du point \(x\) se réduit à un point.</p>
+<p>c) <u>Le cas « modérément ramifié ».</u> Supposons qu'il existe
+\(x'\in p^{-1}(x)\), tel qu'on a</p>
+\[
+f'(x')=x',\qquad(p(x')=x),
+\]
+<p>cas auquel on peut toujours se ramener (cf. le cas a)), et que l'ordre du
+groupe \(G_x\) est premier avec la caractéristique du corps \(k\). Dans ce
+cas on a :</p>
+\[
+(6.4.4)\qquad
+\alpha_x(f,u,f',G,\varphi)=
+S_{x,\ell^n}(f,f',G,\varphi)(e)\operatorname{Tr}_A(u_M^\vee).
+\]
+<p>En tenant compte du cas b) on peut supposer que \(G=G_{x'}\). La formule
+(6.4.4) résulte alors du lemme suivant :</p>
+
+<!-- Source PDF page 30 (printed page 436) -->
+<div class="thm lemma" id="XII.6.4.5">
+<div class="thm-head"><span class="thm-name">Lemme 6.4.5.</span> <u>Si les
+relations suivantes sont vraies :</u></div>
+<div class="thm-body">
+\[
+\nu_{x'}(f')&gt;1,
+\]
+\[
+\nu_{x'}(g^{-1}f')&gt;1,
+\]
+<p><u>alors \(g\) appartient au premier groupe de ramification \(G_1\)
+(cf. 4.7) :</u></p>
+\[
+g\in G_1,
+\]
+<p><u>c'est-à-dire \(g\) induit l'identité sur l'espace vectoriel
+\(\mathfrak m_{x'}/\mathfrak m_{x'}^2\).</u></p>
+</div></div>
+<p><u>Démonstration.</u> Soit \(\widehat{\mathcal O}_{x'}=k[[T]]\).
+L'automorphisme de \(\mathfrak m/\mathfrak m^2\) induit par \(g^{-1}\) est
+déterminé par une racine \(\varepsilon(g^{-1})\in k\) de l'unité par la
+condition</p>
+\[
+g^{-1}T=\varepsilon(g^{-1})T\pmod {\mathfrak m^2},
+\]
+<p>où \(\mathfrak m\) est l'idéal maximal de l'anneau \(k[[T]]\).</p>
+<p>D'autre part l'hypothèse \(\nu_{x'}(f')&gt;1\) nous donne</p>
+\[
+f'(T)=T+a_\nu T^\nu+a_{\nu+1}T^{\nu+1}+\cdots,\qquad\nu\geq2.
+\]
+<p>Par conséquence</p>
+\[
+g^{-1}f'(T)=\varepsilon(g^{-1})T+b_\nu T^\nu+
+b_{\nu+1}T^{\nu+1}+\cdots,
+\]
+<p>et l'hypothèse \(\nu_{x'}(g^{-1}f')&gt;1\) implique
+\(\varepsilon(g^{-1})=1\), c.q.f.d.</p>
+
+<!-- Source PDF page 31 (printed page 437) -->
+<p id="XII.6.4.d"><u>d) Le cas du faisceau \(F\) qui ne se ramifie pas dans les points fixes
+de l'endomorphisme \(f\).</u></p>
+
+<p>Dans ce cas le terme local \(\tau_x(f,u,f',G,\varphi)\) est donné par la formule :</p>
+\[
+(6.4.6)\qquad \tau_x(f,u,f',G,\varphi)=\nu_x(f)\operatorname{Tr}_A(u_x),
+\]
+<p>et par conséquent il ne dépend que de la paire \((f,u)\).</p>
+
+<p>En effet on a dans ce cas :</p>
+\[
+(6.4.7)\qquad S'_{x,\ell^n}(f,f';G,\varphi)(g)=
+\begin{cases}
+0 & \begin{array}{l}\text{si il existe }x'\in X'\text{ tel qu'on a }(g^{-1}f')(x')=x'\text{ ou}\\
+\text{équivalent si la classe de }\varphi\text{-conjugaison de }g\text{ coïncide avec}\\
+\text{la classe }NW_f^{G,\varphi}(x)\text{ (cf. 3) ;}\end{array}\\[4pt]
+(\nu_x(f)-1) & \text{sinon.}
+\end{cases}
+\]
+<p>Il en résulte en particulier qu'on a :</p>
+\[
+(6.4.8)\qquad S_{x,\ell^n}(f,f';G,\varphi)(g)=0
+\quad\text{si}\quad g\notin NW_f^{G,\varphi}(x).
+\]
+<p>On trouve donc :</p>
+\[
+\begin{aligned}
+(6.4.9)\qquad \tau_x(f,u,f',G,\varphi)
+&amp;=\nu_x(f)\operatorname{Tr}_A(g^{-1}u_M^\vee)\\
+&amp;=\nu_x(f)\operatorname{Tr}_A(g^{-1}u')_{x'}\\
+&amp;=\nu_x(f)\operatorname{Tr}_A(u_x).
+\end{aligned}
+\]
+
+<!-- Source PDF page 32 (printed page 438) -->
+<h2 id="XII.7">7. <u>Commentaires sur les conditions de validité de la formule de Lefschetz.</u></h2>
+
+<h3 id="XII.7.1">7.1.</h3>
+<p>Bien entendu, en pratique, on part d'un schéma \(X\) propre sur \(k\) et
+d'un endomorphisme</p>
+\[
+(u,f):(X,F)\longrightarrow(X,F),
+\]
+<p>tel que :</p>
+<p style="margin-left:2em;">— \(F\) est un faisceau constructible de \(A\)-modules,</p>
+<p style="margin-left:2em;">— l'ensemble \(X^f\) des points fixes de \(f\) est fini.</p>
+<p>Le problème est de définir sous ces conditions des termes locaux
+\(\tau_x(u,f)\), \(x\in X^f\) tels que</p>
+\[
+(*)\qquad \operatorname{Tr}_A(R\Gamma_X(u,f))=\sum_{x\in X^f}\tau_x(u,f).
+\]
+<p>En utilisant les deux théorèmes de dualité, globale et locale,
+Verdier arrive à définir les termes \(\tau_x(u,f)\) tel que la formule (*) soit
+vraie (cf. III). Malheureusement la détermination explicite des \(\tau_x(u,f)\),
+définis par Verdier, en termes d'invariants locaux connus, semble difficile,
+d'où l'intérêt des définitions proposées en chapitre précédent.<sup class="footnote-ref"><a id="fnref-XII-3" href="#fn-XII-3">(*)</a></sup></p>
+
+<p>En revanche ces dernières définitions supposent des hypothèses supplémentaires
+sur \(F\), \(f\) et \(u\), à savoir l'existence de
+\(U,U',G,f',\varphi\) ayant les propriétés exigées dans 5.1, 6.1, 6.2.</p>
+
+<!-- Source PDF page 33 (printed page 439) -->
+<div class="thm proposition" id="XII.7.2">
+<div class="thm-head"><span class="thm-name">Proposition 7.2.</span> <u>Soient
+\(X\) un schéma lisse de dimension 1, \(F\) constructible et</u></div>
+<div class="thm-body">
+\[
+(u,f):(X,F)\longrightarrow(X,F)
+\]
+<p><u>un endomorphisme tel que le morphisme de faisceaux</u></p>
+\[
+u:f^*(F)\longrightarrow F
+\]
+<p><u>soit un isomorphisme.</u></p>
+<p><u>Sous ces conditions il existe \(U,U',G,f',\varphi\) satisfaisant aux conditions
+de 5.1, 6.1, 6.2.</u></p>
+</div></div>
+
+<p><u>Démonstration.</u> Soit \(U\) le plus grand ouvert de \(X\) tel que \(F\) soit
+localement constant dans \(U\) et désignons par \(Y\) son complémentaire.
+L'ensemble \(Y\) est stable par \(f\) :</p>
+\[
+f(Y)\subset Y.
+\]
+<p>En effet supposons par l'absurde qu'il existe \(y\in Y\) tel que
+\(f(y)\in U\). Le faisceau \(f^*(F)\) est alors localement constant
+au voisinage de \(y\) et en utilisant l'isomorphisme \(u\) il résulte que \(F\)
+est localement constant au voisinage de \(y\), ce qui est absurde.</p>
+<p>Si \(f\) est constant la démonstration de la proposition est triviale. On
+va donc supposer que \(f\) <u>n'est pas constant</u>. Si \(\eta\) est le point générique
+de \(X\) on aura donc \(f(\eta)=\eta\).</p>
+
+<!-- Source PDF page 34 (printed page 440) -->
+<p>Soient \(i_\eta:\operatorname{Spec}(k(\eta))\longrightarrow X\) l'inclusion canonique,
+\(F_\eta=i_\eta^*(F)\) et</p>
+\[
+u_\eta:f_\eta^*(F_\eta)\longrightarrow F_\eta
+\]
+<p>le morphisme (en fait l'isomorphisme) de faisceaux induit par \(u\),
+\(f_\eta\) étant bien-entendu la restriction de \(f\) à
+\(\operatorname{Spec}(k(\eta))\).</p>
+
+<p>En traduisant tout en termes de \(H\)-modules :</p>
+\[
+H=\operatorname{Gal}(k(\eta)_s/k(\eta)),\qquad
+k(\eta)_s=\text{une clôture séparable de }k(\eta),
+\]
+<p>on obtient les isomorphismes</p>
+\[
+H\xrightarrow{\ \psi\ }H,
+\qquad
+\overline F_\eta\xrightarrow{\ u_{\overline\eta}\ }\overline F_\eta,
+\]
+<p>où \(\overline F_\eta\) a une structure de \(H\)-module et la relation suivante est vérifiée :</p>
+\[
+u_{\overline\eta}(gx)=\psi(g)u_{\overline\eta}x,
+\qquad g\in H,\quad x\in\overline F_\eta.
+\]
+<p>Si \(H_1\) est le plus grand sous-groupe distingué de \(H\) d'indice fini
+tel que \(\overline F_\eta^{H_1}=\overline F_\eta\), on a \(\psi(H_1)=H_1\). Un tel sous-groupe existe
+parce que le faisceau \(F_\eta\) est constructible.</p>
+
+<p>Soit \(K\supset k(\eta)\) l'extension galoisienne de \(k(\eta)\) correspondant
+au sous-groupe \(H_1\) et \(X'\) la normalisée de \(X\) dans \(K\).
+Évidemment on peut définir un endomorphisme</p>
+\[
+f':X'\longrightarrow X'
+\]
+<p>et un endomorphisme</p>
+\[
+H/H_1=G\xrightarrow{\ \varphi\ }G
+\]
+<p>tel que le système \(U,U',f',G,\varphi\) satisfassent aux conditions voulues.</p>
+
+<!-- Source PDF page 35 (printed page 441) -->
+<p id="XII.7.3"><u>Exemple 7.3.</u> Soient \(X\) un préschéma défini sur le corps fini
+\(\mathbb F_p\), \(p\) étant un nombre premier, \(\operatorname{fr}_X:X\longrightarrow X\)
+l'endomorphisme de Frobenius (cf. XIV) et un faisceau de \(\Lambda\)-modules sur \(X\).</p>
+
+<p>Si \(Y,S\) sont des schémas sur \(\mathbb F_p\) et si \(Y\) est un schéma sur \(S\), nous
+désignons par</p>
+\[
+\operatorname{Fr}_{Y/S}:Y\longrightarrow Y^{(p/S)}
+\]
+<p>le morphisme de Frobenius relatif (cf. XIV 2).</p>
+
+<p>On obtient un morphisme de faisceaux sur \(X_{\mathrm{et}}\) :</p>
+\[
+(\operatorname{fr}_X)_*(F)\longrightarrow F
+\]
+<p>en posant pour tout \(X\)-préschéma étale \(U\) :</p>
+\[
+(\operatorname{fr}_X)_*(F)(U)=F(\operatorname{fr}_X^{-1}(U))
+=F(U^{(p/X)})\xrightarrow{\ F(\operatorname{Fr}_{U/X})\ }F(U).
+\]
+<p>Ce morphisme est en fait un isomorphisme. Son inverse :</p>
+\[
+F(\operatorname{Fr}_{/X})^{-1}:F\longrightarrow(\operatorname{fr}_X)_*(F),
+\]
+<p>définit par adjonction un morphisme</p>
+\[
+F_{\operatorname{Fr}/X}^*:(\operatorname{fr}_X)^*(F)\longrightarrow F
+\]
+<p>qui est un isomorphisme.</p>
+
+<p>Si \(X\) est en particulier lisse de dimension 1 et \(F\) constructible, la paire</p>
+\[
+(F_{\operatorname{Fr}/X}^*,\operatorname{fr}_X):(X,F)\longrightarrow(X,F),
+\]
+<p>est donc justiciable de la proposition 7.2.</p>
+
+<p>[1] &emsp;Wecken, F., Fixpunktklassen I, Math. Ann. 117 (1941) p. 659–671,<br>
+<span style="margin-left:8em;">Fixpunktklassen II, III, Math. Ann. 118 (1942–1943),</span><br>
+<span style="margin-left:8em;">p. 216–234 et p. 544–577.</span></p>
+
+<hr>
+<div class="footnotes">
+<p id="fn-XII-1"><a href="#fnref-XII-1">(*)</a> cf. III B 5.12.</p>
+<p id="fn-XII-2"><a href="#fnref-XII-2">x)</a> (X^f) désigne l'ensemble des points fixes fermés de (X).</p>
+<p id="fn-XII-3"><a href="#fnref-XII-3">(*)</a> Voir cependant III B pour la comparaison des termes locaux de 6.3.1
+aux termes locaux de Verdier.</p>
+</div>
+
+</body>
+</html>

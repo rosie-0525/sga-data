@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé XX. Le théorème de Griffiths</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="20">EXPOSÉ XX<br>LE THÉORÈME DE GRIFFITHS<span class="author">par N. KATZ</span></h1>
+
+<!-- Source PDF page 1 (printed page 341) -->
+<h2 id="20.0">0. Introduction</h2>
+
+<p>On démontre le théorème de GRIFFITHS [1], qui donne une façon
+systématique (bien que non-constructive) de « trouver » des cycles
+algébriques qui sont \(\mathbb Q_\ell\)-cohomologues à zéro, mais dont aucun multiple
+n’est algébriquement équivalent à zéro. La démonstration donnée ici
+(due à GROTHENDIECK) est la traduction en termes purement algébriques
+de la démonstration originelle, plus ou moins transcendante, de
+GRIFFITHS. Dans toutes les deux, c’est le théorème d’irréductibilité
+XVIII 6.7 qui est un point-clef (cf. 3.1.6 et 3.2).</p>
+
+<h2 id="20.1">1. Le formalisme des classes primitives</h2>
+
+<p>Dans toute la suite, on suppose fixé un nombre premier \(\ell\). Tous les
+schémas envisagés sont supposés à caractéristiques \(\ne\ell\).</p>
+
+<p>Considérons la situation</p>
+\[
+\tag{1.0.1}
+\begin{array}{ccc}
+X&\xrightarrow{\ \pi\ }&Y\\
+&\searrow_{f}\quad\swarrow^{g}&\\[-2mm]
+&S&
+\end{array}
+\]
+
+<p>dans laquelle on suppose</p>
+
+<!-- Source PDF page 2 (printed page 342) -->
+<p id="20.1.0.3"><strong>(1.0.3)</strong> \(f,g\) lisses de dimensions relatives \(d_1\) et \(d_2\),</p>
+
+<p id="20.1.0.4"><strong>(1.0.4)</strong> \(\pi\) propre.</p>
+
+<p>Compte tenu de ce que \(X\) et \(Y\) sont lisses sur \(S\), la propreté
+de \(\pi\) nous donne un <u>morphisme de Gysin</u> (SGA 5 IV)</p>
+
+\[
+\tag{1.0.5}
+\pi_*:H^q(X,\mathbb Q_\ell(i))\longrightarrow
+H^{q-2(d_1-d_2)}(Y,\mathbb Q_\ell(i-(d_1-d_2))).
+\]
+
+<p>Localisant sur \(S\) (au sens étale), on obtient également un morphisme
+de faisceaux sur \(S\)</p>
+
+\[
+\tag{1.0.6}
+\pi_*:R^qf_*\mathbb Q_\ell(i)\longrightarrow
+R^{q-2(d_1-d_2)}g_*\mathbb Q_\ell(i-d_1+d_2),
+\]
+
+<p>et, appliquant le foncteur \(H^p(S,\quad)\), un morphisme</p>
+
+\[
+\tag{1.0.7}
+\pi_*:H^p(S,R^qf_*\mathbb Q_\ell(i))\longrightarrow
+H^p(S,R^{q-2(d_1-d_2)}g_*\mathbb Q_\ell(i-d_1+d_2)).
+\]
+
+<div class="thm" id="20.1.0.8"><div class="thm-head"><u>Définition 1.0.8.</u></div><div class="thm-body">
+<p><u>Soient \((E_r^{p,q},d_r^{p,q})\) et \(({}'E_r^{p,q},{}'d_r^{p,q})\) deux
+suites spectrales (dans une catégorie abélienne donnée), et
+\((a,b)\in\mathbb Z\times\mathbb Z\). Le décalage de \(({}'E_r^{p,q},{}'d_r^{p,q})\) par \((a,b)\) est
+la suite spectrale \(({}''E_r^{p,q},{}''d_r^{p,q})\), avec</u></p>
+\[
+\tag{1.0.9}
+\left\{
+\begin{aligned}
+{}''E_r^{p,q}&={}'E_r^{p+a,q+b},\\
+{}''d_r^{p,q}&={}'d_r^{p+a,q+b}.
+\end{aligned}
+\right.
+\]
+</div></div>
+
+<!-- Source PDF page 3 (printed page 343) -->
+<p id="20.1.0.10"><strong>1.0.10.</strong> <u>Un morphisme de suites spectrales de 
+\((E_r^{p,q},d_r^{p,q})\) dans \(({}''E_r^{p,q},{}''d_r^{p,q})\) s’appelle un morphisme de bidegré \((a,b)\) de
+\((E_r^{p,q},d_r^{p,q})\) dans \(({}'E_r^{p,q},{}'d_r^{p,q})\).</u></p>
+
+<p>Le lemme suivant est une conséquence triviale de la théorie du
+<u>morphisme de Gysin</u> (SGA 5, IV).</p>
+
+<div class="thm lemma" id="20.1.1"><div class="thm-head"><u>Lemme 1.1.</u></div><div class="thm-body">
+<p><u>Il existe un morphisme canonique \(\pi_*\) de bidegré \((a,-2(d_1-d_2))\)
+des suites spectrales de Leray</u></p>
+\[
+\tag{1.1.0}
+R^p\alpha_*R^qf_*\mathbb Q_\ell(i)\Longrightarrow R^{p+q}(\alpha f)_*\mathbb Q_\ell(i)
+\]
+<p><u>et</u></p>
+\[
+\tag{1.1.1}
+R^p\alpha_*R^qg_*\mathbb Q_\ell(i-d_1+d_2)\Longrightarrow
+R^{p+q}(\alpha g)_*\mathbb Q_\ell(i-d_1+d_2),
+\]
+<p><u>qui sur le terme \(E_2\) est donné par (1.0.7), et sur l’aboutissement
+par (1.0.5).</u></p>
+</div></div>
+
+<p id="20.1.2"><strong>1.2.</strong> Considérons maintenant la situation</p>
+\[
+\tag{1.2.1}
+\begin{array}{ccccc}
+&&X\times_S Y&&\\
+&\swarrow^{\mathrm{pr}_1}&&\searrow^{\mathrm{pr}_2}&\\
+X&&&&Y\\
+&\searrow_f&&\swarrow_g&\\
+&&S&&\\
+&&\downarrow\alpha&&\\
+&&T&&
+\end{array}
+\]
+
+<!-- Source PDF page 4 (printed page 344) -->
+<p>dans laquelle \(S,X,f,Y,g\) sont comme dans (1.0.2)–(1.0.4),
+mais en supposant maintenant également \(f\) propre.</p>
+
+<p>Soit</p>
+\[
+\tag{1.2.2}
+z\in H^a(X\times_S Y,\mathbb Q_\ell(b)).
+\]
+
+<p>Alors \(z\) induit une application (encore notée \(z\))</p>
+\[
+\tag{1.2.3}
+z:H^q(X,\mathbb Q_\ell(i))\longrightarrow
+H^{q+a-2d_1}(Y,\mathbb Q_\ell(i+b-d_1))
+\]
+<p>par la formule</p>
+\[
+\tag{1.2.4}
+z(x)=\mathrm{pr}_{2*}\bigl(z\mathbin\wedge \mathrm{pr}_1^*(x)\bigr),
+\]
+<p>où \(\mathrm{pr}_{2*}\) est l’homomorphisme de Gysin. Par localisation étale sur \(S\),
+\(z\) définit également</p>
+\[
+\tag{1.2.5}
+z:R^qf_*\mathbb Q_\ell(i)\longrightarrow
+R^{q+a-2d_1}g_*\mathbb Q_\ell(i+b-d_1),
+\]
+<p>et, appliquant \(H^p(S,\mathord{-})\), des applications</p>
+\[
+\tag{1.2.6}
+H^p(S,R^qf_*\mathbb Q_\ell(i))\longrightarrow
+H^p(S,R^{q+a-2d_1}g_*\mathbb Q_\ell(i+b-d_1)).
+\]
+
+<div class="thm lemma" id="20.1.3"><div class="thm-head"><u>Lemme 1.3.</u></div><div class="thm-body">
+<p><u>La classe \(z\) définit un morphisme de bidegré \((0,b-2d_1)\)
+des suites spectrales de Leray</u></p>
+\[
+\tag{1.2.7}
+H^p(S,R^qf_*\mathbb Q_\ell(i))\Longrightarrow H^{p+q}(X,\mathbb Q_\ell(i))
+\]
+<p><u>et</u></p>
+\[
+\tag{1.2.8}
+H^p(S,R^qg_*\mathbb Q_\ell(i+b-d_1))\Longrightarrow
+H^{p+q}(Y,\mathbb Q_\ell(i+b-d_1)),
+\]
+
+<!-- Source PDF page 5 (printed page 345) -->
+<p><u>qui sur les termes \(E_2\) est donné par (1.2.5), et par (1.2.3) sur les
+aboutissements.</u></p>
+</div></div>
+
+<p><u>Démonstration.</u> Compte tenu de la formule (1.2.4) et de ce que la
+« multiplication par \(z\) » définit un morphisme de bidegré \((0,a)\) de
+suites spectrales de Leray</p>
+\[
+\tag{1.2.9}
+H^p(S,R^q(\mathrm{pr}_1f)_*\mathbb Q_\ell(i))\Longrightarrow
+H^{p+q}(X\times_S Y,\mathbb Q_\ell(i))
+\]
+\[
+\tag{1.2.10}
+\mathrel{\phantom{H^p(S,R^q(\mathrm{pr}_1f)_*\mathbb Q_\ell(i))}}
+\mathop{\downarrow}\limits^{z}
+\qquad
+H^p(S,R^{q+a}(\mathrm{pr}_1f)_*\mathbb Q_\ell(i+b))\Longrightarrow
+H^{p+q+a}(X\times_S Y,\mathbb Q_\ell(i+b)),
+\]
+<p>on n’a qu’à appliquer 1.1 à la situation</p>
+\[
+\tag{1.2.11}
+\begin{array}{ccc}
+X\times_S Y&\xrightarrow{\ \mathrm{pr}_2\ }&Y\\
+&\searrow_{f\mathrm{pr}_1}\quad\swarrow^g&\\[-2mm]
+&S.&
+\end{array}
+\]
+
+<div class="thm corollary" id="20.1.4"><div class="thm-head"><u>Corollaire 1.4.</u></div><div class="thm-body">
+<p><u>Dans la situation (1.2.1)–(1.2.2), le morphisme (1.2.3)</u></p>
+\[
+\tag{1.4.1}
+z:H^q(X,\mathbb Q_\ell(i))\longrightarrow
+H^{q+a-2d_1}(Y,\mathbb Q_\ell(i+b-d_1))
+\]
+<p><u>transforme classe primitive (XVIII 5.8.1) en classe primitive, et
+le diagramme suivant est commutatif.</u></p>
+\[
+\tag{1.4.2}
+\begin{array}{ccc}
+\operatorname{Prim}^q(X/S,\mathbb Q_\ell(i))&\xrightarrow{\ z\ }&
+\operatorname{Prim}^{q+a-2d_1}(Y/S,\mathbb Q_\ell(i+b-d_1))\\
+\big\downarrow u_f&&\big\downarrow u_g\\
+H^1(S,R^{q-1}f_*\mathbb Q_\ell(i))&\xrightarrow{\ z\ }&
+H^1(S,R^{q+a-2d_1-1}g_*\mathbb Q_\ell(i+b-d_1)).
+\end{array}
+\]
+
+<!-- Source PDF page 6 (printed page 346) -->
+<p><u>(où \(u_f,u_g\) sont les homomorphismes canoniques de XVIII 5.8.1).</u></p>
+</div></div>
+
+<p id="20.1.5"><strong>1.5.</strong> Soit \(\bar\eta\) un point géométrique de \(S\) (au-dessus d’un point
+\(\eta\) de \(S\)), et soit</p>
+\[
+\tag{1.5.1}
+z_{\bar\eta}\in H^a(X_{\bar\eta}\times_{k(\bar\eta)}Y_{\bar\eta},\mathbb Q_\ell(b))
+\]
+<p>la classe induite par \(z\) sur la fibre géométrique correspondante de</p>
+\[
+\tag{1.5.2}
+X\times_S Y\longrightarrow S.
+\]
+
+<div class="thm proposition" id="20.1.5.3"><div class="thm-head"><u>Proposition 1.5.3.</u></div><div class="thm-body">
+<p><u>Supposons \(f,g\) propres, \(S\) annexe, et soit \(q\in\mathbb Z\). Si la classe
+\(z_{\bar\eta}\) induit l’homomorphisme nul</u></p>
+\[
+\tag{1.5.3}
+0=z_{\bar\eta}:H^{q-1}(X_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow
+H^{q+a-2d_1-1}(Y_{\bar\eta},\mathbb Q_\ell(i+b-d_1)),
+\]
+<p><u>alors, pour tout \(x\in\operatorname{Prim}^q(X/S,\mathbb Q_\ell(i))\), on a</u></p>
+\[
+\tag{1.5.4}
+u_g(z(x))=0\quad\text{dans}\quad
+H^1(S,R^{q+a-2d_1-1}g_*\mathbb Q_\ell(i+b-d_1)).
+\]
+</div></div>
+
+<!-- Source PDF page 7 (printed page 347) -->
+<p><u>Démonstration.</u> Par la commutativité de (1.4.2), il suffit de voir
+que \(z\) induit l’homomorphisme nul</p>
+\[
+\tag{1.5.5}
+z:R^{q-1}f_*\mathbb Q_\ell(i)\xrightarrow{\ 0\ }
+R^{q+a-2d_1-1}g_*\mathbb Q_\ell(i+b-d_1).
+\]
+
+<p>Or \(f\) et \(g\) étant propres et lisses, les faisceaux \(R^\bullet f_*\mathbb Q_\ell(\bullet)\) et
+\(R^\bullet g_*\mathbb Q_\ell(\bullet)\) sont constants tordus (SGA 4 XVI 2.2), donc équivalents à leurs
+valeurs en \(\bar\eta\), vus comme modules sous \(\pi_1(S,\bar\eta)\).</p>
+
+<h3 id="20.1.6">1.6. Une Construction de Manin</h3>
+
+<p>Supposons données deux sections de \(f:X\longrightarrow S\) :</p>
+\[
+\tag{1.6.0}
+\begin{array}{c}
+\overset{t_1}{\underset{t_2}{\rightrightarrows}}\\[-2mm]
+S\ \underset{f}{\longleftarrow}\ X,
+\end{array}
+\]
+<p>à chacune on associe sa classe de cohomologie</p>
+\[
+\tag{1.6.1}
+\operatorname{cl}(t_i)=t_{i*}(1)\in H^{2d_1}(X,\mathbb Q_\ell(d_1)).
+\]
+
+<p>Si les fibres de \(f:X\longrightarrow S\) sont géométriquement connexes, (plus
+généralement si pour \(s\in S\), \(t_1(s)\) et \(t_2(s)\) appartiennent à la même
+composante connexe de \(X_s\)) on voit bien que</p>
+\[
+\tag{1.6.2}
+\operatorname{cl}(t_1)-\operatorname{cl}(t_2)\in
+\operatorname{Prim}^{2d_1}(X/S,\mathbb Q_\ell(d_1)).
+\]
+
+<!-- Source PDF page 8 (printed page 348) -->
+<p>On désigne par</p>
+\[
+\tag{1.6.3}
+u_f(t_1-t_2)\in H^1(S,R^{2d_1-1}f_*\mathbb Q_\ell(d_1))
+\]
+<p>son image par</p>
+\[
+\tag{1.6.4}
+u_f:\operatorname{Prim}^{2d_1}(X/S,\mathbb Q_\ell(d_1))\longrightarrow
+H^1(S,R^{2d_1-1}f_*\mathbb Q_\ell(d_1)).
+\]
+
+<p>(C’est un analogue \(\mu(t_1-t_2)\) de cet élément que Manin étudie dans
+[5]).</p>
+
+<p id="20.1.6.5"><strong>1.6.5.</strong> Soit maintenant \(z\) un cycle algébrique sur \(X\times_S Y\) de co-<br>
+dimension \(\geq b\) sur chaque fibre de \(X\times_S Y\)<sup><a href="#fn-20-1">(*)</a></sup>, qui détermine une
+classe de cohomologie (SGA 5 IV&nbsp;&nbsp;&nbsp;&nbsp;) :</p>
+\[
+\tag{1.6.6}
+\operatorname{cl}(z)\in H^{2b}(X\times_S Y,\mathbb Q_\ell(b)).
+\]
+<p>Cette classe définit une application (cf (1.2.3))</p>
+\[
+\tag{1.6.7}
+\operatorname{cl}(z):H^{2d_1}(X,\mathbb Q_\ell(d_1))\longrightarrow
+H^{2b}(Y,\mathbb Q_\ell(b)),
+\]
+<p>et si les cycles \(z(t_1)\) et \(z(t_2)\) sont définis, on a (grâce à la
+compatibilité SGA 5 IV&nbsp;&nbsp;&nbsp;&nbsp; du cup-produit avec les intersections de
+cycles) :</p>
+
+<aside class="footnote" id="fn-20-1"><p><sup>(*)</sup> Si \(S\) est lisse sur un schéma \(T\) (p. ex. \(T=\operatorname{Spec}k\), \(k\) un corps), il
+suffirait de supposer \(z\) de codimension \(\geq b\) sur chaque fibre au-dessus de \(T\).</p></aside>
+
+<!-- Source PDF page 9 (printed page 349) -->
+\[
+\tag{1.6.8}
+\operatorname{cl}(z)\bigl(\operatorname{cl}(t_1)-\operatorname{cl}(t_2)\bigr)
+=\operatorname{cl}\bigl(z(t_1)-z(t_2)\bigr).
+\]
+
+<p>La commutativité de (1.4.2) nous donne</p>
+\[
+\tag{1.6.9}
+\operatorname{cl}(z)\bigl(u_f(t_1-t_2)\bigr)
+=u_g\bigl(\operatorname{cl}(z(t_1)-z(t_2))\bigr).
+\]
+
+<p>Comme corollaire de 1.5.3, on a alors :</p>
+
+<div class="thm proposition" id="20.1.7"><div class="thm-head"><u>Proposition 1.7.</u></div><div class="thm-body">
+<p><u>Soient \(t_1\) et \(t_2\) deux sections de \(f:X\longrightarrow S\),
+\(f\) étant supposé à fibres connexes, et soit \(z\) un cycle algébrique
+sur \(X\times_S Y\) de codimension \(b\), tel que le cycle algébrique</u></p>
+\[
+\tag{1.7.1}
+z(t_1)-z(t_2)
+\]
+<p><u>soit défini. Alors sa classe de cohomologie est primitive (XVIII 5.8.1).
+Si le cycle algébrique \(z_{\bar\eta}\) sur \(X_{\bar\eta}\times Y_{\bar\eta}\) induit l’homomorphisme nul</u></p>
+\[
+\tag{1.7.2}
+z_{\bar\eta}:H^{2d_1-1}(X_{\bar\eta},\mathbb Q_\ell(d_1))
+\xrightarrow{ 0 }H^{2b-1}(Y_{\bar\eta},\mathbb Q_\ell(b))
+\]
+<p><u>alors</u></p>
+\[
+\tag{1.7.3}
+u_g\bigl(z(t_1)-z(t_2)\bigr)=0\quad\text{dans}\quad
+H^1(S,R^{2b-1}g_*\mathbb Q_\ell(b)),
+\]
+<p><u>(où \(u_g\) est l’homomorphisme de XVIII 5.8.1 intervenant dans 1.4).</u></p>
+</div></div>
+
+<!-- Source PDF page 10 (printed page 350) -->
+<h2 id="20.2">2. <u>Un rappel sur le niveau (cf. [2], 9.7, 10.1)</u></h2>
+
+<p id="20.2.0.1"><strong>2.0.1.</strong> Soit \(X\) propre et lisse sur un corps \(k\) algébriquement clos.
+On a vu (1.2.3) que, pour tout</p>
+\[
+\tag{2.0.2}
+T\ \text{propre, lisse et connexe sur }k\ \text{de dimension }d,
+\]
+<p>et tout</p>
+\[
+\tag{2.0.3}
+\text{cycle algébrique }z\ \text{de codimension }b\ \text{sur }T\times X,
+\]
+<p>la classe de cohomologie</p>
+\[
+\tag{2.0.4}
+\operatorname{cl}(z)\in H^{2b}(T\times X,\mathbb Q_\ell(b))
+\]
+<p>donne lieu aux applications</p>
+\[
+\tag{2.0.5}
+\operatorname{cl}(z):H^q(T,\mathbb Q_\ell(i))\longrightarrow
+H^{q+2b-2d}(X,\mathbb Q_\ell(i+b-d)).
+\]
+
+<p>On définit <u>la filtration par le co-niveau</u> \((N^j)\) de \(H^q(X,\mathbb Q_\ell(i))\)</p>
+\[
+\tag{2.0.6}
+N^jH^q(X,\mathbb Q_\ell(i))=
+\sum_{(T,z)}\operatorname{images}\bigl(\operatorname{cl}(z):
+H^{q-2j}(T,\mathbb Q_\ell(i-j))\longrightarrow H^q(X,\mathbb Q_\ell(i))\bigr),
+\]
+<p>la somme étant étendue aux couples</p>
+\[
+\tag{2.0.7}
+\begin{array}{ll}
+(T,z)&T/k\ \text{propre lisse et connexe de dimension }d,\\
+&z\ \text{cycle algébrique sur }T\times X\ \text{de codimension }j+d.
+\end{array}
+\]
+
+<p>Il faut remarquer qu’on parle parfois de la filtration \(F^j\) <u>croissante
+« par le niveau »</u>, défini par</p>
+\[
+\tag{2.0.8}
+F^jH^q(X,\mathbb Q_\ell(i))=N^{\left[\frac{q-j}{2}\right]}H^q(X,\mathbb Q_\ell(i)).
+\]
+
+<!-- Source PDF page 11 (printed page 351) -->
+<p>Remplaçant \((T,z)\) par \((\mathbb P^1\times T,\{\mathrm{pt}\}\times z)\), on voit que</p>
+\[
+\tag{2.0.9}
+N^jH^q(X,\mathbb Q_\ell(i))\subset N^{j-1}H^q(X,\mathbb Q_\ell(i)).
+\]
+
+<p>Évidemment on a :</p>
+
+<div class="thm proposition" id="20.2.1"><div class="thm-head"><u>Proposition 2.1.</u></div><div class="thm-body">
+<p><u>Soient \(X\) propre, lisse et géométriquement connexe sur un corps \(k\),
+\(\bar k\) une clôture algébrique de \(k\), \(X_{\bar k}=X\otimes_k\bar k\).
+Alors \(\operatorname{gal}(\bar k/k)\), agissant sur \(H^q(X_{\bar k},\mathbb Q_\ell(i))\), préserve la filtration
+par le co-niveau.</u></p>
+</div></div>
+
+<p>Des raisonnements standards (cf [2]) montrent les énoncés suivants.</p>
+
+<div class="thm proposition" id="20.2.2"><div class="thm-head"><u>Proposition 2.2.</u></div><div class="thm-body">
+<p><u>La filtration par le niveau est invariante par extension des corps algébriquement clos \(k'/k\).</u></p>
+</div></div>
+
+<div class="thm proposition" id="20.2.3"><div class="thm-head"><u>Proposition 2.3.</u></div><div class="thm-body">
+<p><u>Soient \(S\) un schéma réduit et irréductible, à point générique \(\eta\), et</u></p>
+\[
+\pi:X\longrightarrow S
+\]
+<p><u>un morphisme propre et lisse, à fibres géométriquement connexes. Si,
+pour des entiers \(j\) et \(q\) donnés, on a pour la fibre générique géométrique \(X_{\bar\eta}\)</u></p>
+\[
+\tag{2.3.1}
+H^q(X_{\bar\eta},\mathbb Q_\ell)=N^jH^q(X_{\bar\eta},\mathbb Q_\ell),
+\]
+<p><u>alors il existe un ouvert non-vide \(U\subset S\) tel que en tout point
+\(u\in U\), on ait pour la fibre géométrique \(X_{\bar u}\)</u></p>
+\[
+\tag{2.3.2}
+H^q(X_{\bar u},\mathbb Q_\ell)=N^jH^q(X_{\bar u},\mathbb Q_\ell).
+\]
+</div></div>
+
+<!-- Source PDF page 12 (printed page 352) -->
+<h2 id="20.3">3. <u>Application aux pinceaux de Lefschetz</u></h2>
+
+<p id="20.3.1"><strong>3.1.</strong> À partir de maintenant, on fixe :</p>
+\[
+\tag{3.1.0}
+k,\ \text{un corps algébriquement clos},
+\]
+\[
+\tag{3.1.1}
+X\subset\mathbb P^r,\quad \text{un }k\text{-schéma projectif, lisse et connexe de dimension paire }n,
+\]
+\[
+\text{qui vérifie (LV) (XVIII 5.2.2)}.
+\]
+<p>Prenons</p>
+\[
+\tag{3.1.2}
+D=\{H_t\}_{t\in\mathbb P^1}\ \text{un pinceau de Lefschetz d’hypersurfaces de degré }d,
+\]
+<p>à fibre générique</p>
+\[
+\tag{3.1.3}
+X_\eta,\quad \eta=\text{le point générique de }\mathbb P^1.
+\]
+<p>Posons (cf. XVIII 5.4.4)</p>
+\[
+\tag{3.1.4}
+m:X_{\bar\eta}\lhook\joinrel\longrightarrow X_{k\,\overline{k(\eta)}}\quad\text{l’inclusion},
+\]
+\[
+\tag{3.1.5}
+E^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))
+=\text{l’orthogonal de }m^*H^{n-1}(X,\mathbb Q_\ell(i))\ \text{dans }
+H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i)).
+\]
+
+<p>Nous avons vu (XVIII 6.7.2) que la <u>formule de Picard-Lefschetz</u> entraîne</p>
+\[
+\tag{3.1.6}
+\begin{gathered}
+\text{Si }n\text{ est pair, tout sous-groupe d’indice fini dans}\\
+\operatorname{gal}(k(\bar\eta)/k(\eta))\ \text{agit de façon irréductible sur}\\
+E^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i)).
+\end{gathered}
+\]
+
+<div class="thm proposition" id="20.3.2"><div class="thm-head"><u>Proposition 3.2.</u></div><div class="thm-body">
+<p><u>Soit \(D=\{H_t\}\) un pinceau de Lefschetz, et supposons \(n=2m\) pair. Alors ou bien</u></p>
+
+<!-- Source PDF page 13 (printed page 353) -->
+\[
+\tag{3.2.1}
+H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))=m^*H^{n-1}(X,\mathbb Q_\ell(i))+N^{m-1}H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))
+\]
+<p><u>ou bien :</u></p>
+<p id="20.3.2.2"><strong>(3.2.2)</strong> <u>Pour toute courbe \(C\) propre et lisse sur \(k(\bar\eta)\), et tout cycle algébrique \(z\) sur \(C\times X_{\bar\eta}\) de codimension \(m\), l’homomorphisme induit (1.2.3)</u></p>
+\[
+\tag{3.2.3}
+\operatorname{cl}(z):H^1(C,\mathbb Q_\ell(1+i-m))\longrightarrow H^{2m-1}(X_{\bar\eta},\mathbb Q_\ell(i))
+\]
+<p><u>a son image dans \(m^*H^{2m-1}(X,\mathbb Q_\ell(i))\).</u></p>
+</div></div>
+
+<p><u>Démonstration.</u> Supposons que l’image d’un tel homomorphisme (3.2.3) n’est pas contenue dans \(m^*H^{n-1}(X,\mathbb Q_\ell(i))\), ou, ce qui revient au même, que son image dans</p>
+\[
+E^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))=H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))/m^*H^{n-1}(X,\mathbb Q_\ell(i))
+\]
+<p>n’est pas nulle. Comme cette image est évidemment stable sous les opérations d’un sous-groupe d’indice fini dans \(\operatorname{gal}(k(\bar\eta)/k(\eta))\), l’irréductibilité (3.1.6) de \(E^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))\) se récrit en disant</p>
+\[
+H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))=m^*H^{n-1}(X,\mathbb Q_\ell(i))+\text{l’image de (3.2.3)}
+\]
+<p>et, par définition,</p>
+\[
+\begin{aligned}
+\text{l’image de (3.2.3)}&=\text{l’image par }\operatorname{cl}(z)\text{ de }H^1(C,\mathbb Q_\ell(1+i-m))\\
+&\subset N^{m-1}H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i)),
+\end{aligned}
+\]
+<p>de sorte qu’on a bien trouvé</p>
+\[
+H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))=m^*H^{n-1}(X,\mathbb Q_\ell(i))+N^{m-1}H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i)).
+\]
+
+<!-- Source PDF page 14 (printed page 354) -->
+<h3 id="20.3.3">3.3. <u>La condition (B).</u></h3>
+<p id="20.3.3.1"><strong>3.3.1.</strong> On dira que l’inclusion</p>
+\[m:X_{\bar\eta}\lhook\joinrel\longrightarrow X\times_k k(\bar\eta)\]
+<p>vérifie la condition (B) s’il existe</p>
+\[
+\tag{3.3.2}
+V_{\bar\eta},\quad\text{un cycle algébrique de codimension }n-1\text{ sur }X_{\bar\eta}\times(X\times_k k(\bar\eta))
+\]
+<p>tel que l’application qu’il définit</p>
+\[
+\tag{3.3.3}
+V_{\bar\eta}:H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow H^{n-1}(X,\mathbb Q_\ell(i))
+\]
+<p>soit inverse à gauche de</p>
+\[
+\tag{3.3.4}
+m^*:H^{n-1}(X,\mathbb Q_\ell(i))\longrightarrow H^{n-1}(X_{\bar\eta},\mathbb Q_\ell(i)),
+\]
+<p>i.e. tel que l’on ait</p>
+\[\tag{3.3.5}V_{\bar\eta}m^*=\operatorname{id}.\]
+
+<p id="20.3.4"><strong>(3.4).</strong> Cette condition (B) est vérifiée si l’opération \(\Lambda\) [4, 1.4.2.1] est algébrique (cf. [4, 2.12 (ii)]. On conjecture que \(\Lambda\) est toujours algébrique, donc que la condition (B) est toujours vérifiée, et on sait la vérifier dans de nombreux cas [4]. <u>Elle est vérifiée trivialement pour \(X\) une intersection complète de dimension paire</u> car alors on sait (IX 1.6) que</p>
+\[\tag{3.4.1}H^{n-1}(X,\mathbb Q_\ell(i))=0.\]
+
+<!-- Source PDF page 15 (printed page 355) -->
+<h2 id="20.4">4. <u>Le théorème de GRIFFITHS</u></h2>
+<div class="thm theorem" id="20.4.1"><div class="thm-head"><u>Théorème 4.1.</u></div><div class="thm-body">
+<p><u>Soit \(X\) projectif, lisse et connexe sur \(k\), de dimension paire \(n=2m\geq4\). Soit \(D\) un pinceau de Lefschetz de sections par des hypersurfaces de degré \(d\). On suppose</u></p>
+<p><u>(4.1.0) \(X\) vérifie (LV) (XVIII 5.2.2),</u></p>
+<p><u>(4.1.1) le pinceau \(D\) vérifie l’hypothèse (A) (XVIII 5.3)</u></p>
+<p><u>(4.1.2) le pinceau \(D\) vérifie (3.2.2), i.e. (3.2) la cohomologie évanescente \(E^{n-1}(X_{\bar\eta},\mathbb Q_\ell)\) n’est pas de niveau \(\leq1\),</u></p>
+<p><u>(4.1.3) l’inclusion \(m^*:X_{\bar\eta}\lhook\joinrel\longrightarrow X\times_k k(\bar\eta)\) vérifie l’hypothèse (B) (3.3).</u></p>
+<p><u>Alors, si un cycle algébrique \(z\) de codimension \(m\) sur \(X\) est tel que sa restriction (en tant que cycle algébrique) à \(X_{\bar\eta}\) satisfasse</u></p>
+\[\tag{4.1.4}z_{\bar\eta}=z|X_{\bar\eta}\quad\text{est algébriquement équivalent à zéro}\]
+<p><u>Alors (4.1.5) \(z\) est \(\mathbb Q_\ell\)-cohomologue à zéro, i.e. \(\operatorname{cl}(z)\in H^{2m}(X,\mathbb Q_\ell(m))\) est nul.</u></p>
+</div></div>
+
+<p id="20.4.2"><strong>4.2.</strong> <u>Une remarque sur le cas où \(X\) est une intersection complète.</u> Comme on a déjà remarqué (cf. XVIII 5.2.5, et (3.4.1)), les hypothèses (4.1.0) et (4.1.3) sont alors automatiquement vérifiées. Quant à l’hypothèse (4.1.1), on a vu (XVIII 6.3.4, 6.4) qu’elle est vérifiée pour un pinceau d’hypersurfaces de degré \(d&gt;2m\). D’autre part, on va prouver dans le prochain exposé la condition (4.1.2) pour un pinceau « général » d’hypersurfaces de degré \(d&gt;2n\) (XXI 5.2). Donc un pinceau « général » d’hypersurfaces de degré \(d&gt;2n\) vérifie toutes les hypothèses du théorème 4.1.</p>
+
+<!-- Source PDF page 16 (printed page 356) -->
+<p id="20.4.3"><strong>4.3.</strong> Revenant au cas où \(X\) est quelconque, il semble très plausible que pour un degré \(d\) assez grand, toutes les conditions de 4.1 sont vérifiées pour \(D\), du moins pour \(D\) assez général. On a déjà vu que c’est le cas pour (4.1.1) (XVIII 6.4), et on a signalé qu’on conjecture que (4.1.0) et (4.1.3) sont vérifiés en tous cas (et c’est vrai en tous cas pour (4.1.0) si \(\operatorname{car}k=0\)). Quant à la condition (4.1.2), elle est vérifiée (grâce à la théorie de Hodge) pour \(d\) grand si \(\operatorname{car}k=0\), et des arguments heuristiques (que le lecteur trouvera en appendice à l’exposé suivant) rendent plausibles qu’il en est encore de même si \(\operatorname{car}k&gt;0\). Plus généralement, ces arguments (théorie de Hodge, resp. cohomologie cristalline) prouvent (resp. rendent plausible) que pour une variété projective lisse \(X\) de dimension \(n\), et pour tout pinceau de Lefschetz \(D\) d’hypersurfaces de degré \(d\) assez grand (resp. tout pinceau \(D\) « assez général » d’hypersurfaces de degré \(d\)) la cohomologie évanescente \(E^{n-1}(X_{\bar\eta},\mathbb Q_\ell)\) est de niveau égal à \(n-1\) (i.e. n’est pas de niveau \(\leq n-3\), i.e. n’est pas de coniveau 1).</p>
+
+<h3 id="20.4.4">4.4. <u>Démonstration du théorème de Griffiths.</u></h3>
+<p>Soit \(z\) un cycle algébrique de codimension \(m\) sur \(X\), tel que</p>
+\[\tag{4.4.1}z_{\bar\eta}=z|X_{\bar\eta}\quad\text{est algébriquement équivalent à zéro}.\]
+<p>Par définition, il existe</p>
+\[\tag{4.4.2}\text{une courbe }C_{\bar\eta},\text{ propre, lisse et connexe sur }k(\bar\eta),\]
+
+<!-- Source PDF page 17 (printed page 357) -->
+\[\tag{4.4.3}\text{deux sections }t_i(\bar\eta):\operatorname{Sp}(k(\bar\eta))\longrightarrow C,\quad i=1,2,\]
+\[\tag{4.4.4}\text{un cycle algébrique }P_{\bar\eta}\text{ sur }C_{\bar\eta}\times X_{\bar\eta},\text{ de codimension }m,\]
+<p>tels que</p>
+\[\tag{4.4.5}z_{\bar\eta}=P_{\bar\eta}(t_1(\bar\eta))-P_{\bar\eta}(t_2(\bar\eta))\quad\text{sur }X_{\bar\eta}.\]
+<p>Considérons le cycle \(P_{\bar\eta}\) comme une <u>correspondance algébrique</u> sur \((C_{\bar\eta},X_{\bar\eta})\), définissant une correspondance cohomologique, encore notée \(P_{\bar\eta}\), ou encore un homomorphisme</p>
+\[\tag{4.4.6}P_{\bar\eta}:H^*(C_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow H^{*+2(m-1)}(X_{\bar\eta},\mathbb Q_\ell(i+m-1)).\]
+<p>Considérons de même la correspondance algébrique \(V_{\bar\eta}\) (3.3.2) sur \((X_{\bar\eta},X\otimes_k k(\bar\eta))\) donnée par l’hypothèse (3) de (4.1.3), définissant</p>
+\[\tag{4.4.7}V_{\bar\eta}:H^*(X_{\bar\eta},\mathbb Q_\ell(i+m-1))\longrightarrow H^*(X\otimes_k k(\bar\eta),\mathbb Q_\ell(i+m-1)),\]
+<p>d’où une correspondance algébrique composée \(Q_{\bar\eta}=V_{\bar\eta}\circ P_{\bar\eta}\) sur \((C_{\bar\eta},X\otimes_k k(\bar\eta))\), définissant</p>
+\[\tag{4.4.8}Q_{\bar\eta}=V_{\bar\eta}\circ P_{\bar\eta}:H^*(C_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow H^{*+2(m-1)}(X\otimes_k k(\bar\eta),\mathbb Q_\ell(i+m-1)).\]
+<p>Considérons l’inclusion</p>
+\[m:X_{\bar\eta}\longrightarrow X\otimes_k k(\bar\eta),\]
+<p>donnant la correspondance algébrique \(m^*\) sur \((X\otimes_k k(\bar\eta),X_{\bar\eta})\), d’où la correspondance composée \(m^*Q_{\bar\eta}\) sur \((C_{\bar\eta},X_{\bar\eta})\), définissant</p>
+
+<!-- Source PDF page 18 (printed page 358) -->
+\[\tag{4.4.9}m^*Q_{\bar\eta}=m^*V_{\bar\eta}P_{\bar\eta}:H^*(C_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow H^{*+2(m-1)}(X_{\bar\eta},\mathbb Q_\ell(i+m-1)).\]
+<p>Considérons la correspondance algébrique</p>
+\[\tag{4.4.10}R_{\bar\eta}=P_{\bar\eta}-m^*Q_{\bar\eta}=(\operatorname{id}-m^*V_{\bar\eta})P_{\bar\eta}:H^*(C_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow H^{*+2(m-1)}(X_{\bar\eta},\mathbb Q_\ell(i+m-1)).\]
+<p>Comme \(V_{\bar\eta}\) est inverse à gauche de \(m^*\), \((\operatorname{id}-m^*V_{\bar\eta})\) est un projecteur dans \(H^*(X_{\bar\eta},-)\), dont l’image est un supplémentaire de \(\operatorname{Im}(m^*:H^*(X\otimes_k k(\bar\eta),-)\longrightarrow H^*(X_{\bar\eta},-))\). Comme en vertu de l’hypothèse (4.1.2) l’homomorphisme</p>
+\[\tag{4.4.11}R_{\bar\eta}:H^1(C_{\bar\eta},\mathbb Q_\ell(i))\longrightarrow H^{2m-1}(X_{\bar\eta},\mathbb Q_\ell(i+m-1))\]
+<p>a son image dans \(\operatorname{Im}m^*\), on trouve que</p>
+\[\tag{4.4.12}\text{l’homomorphisme (4.4.11) est nul}.\]
+<p>Choisissons maintenant une extension finie \(L/k(\bar\eta)\) au-dessus de laquelle les objets</p>
+\[C_{\bar\eta},\ t_1(\bar\eta),\ t_2(\bar\eta),\ Q_{\bar\eta},\ R_{\bar\eta}\]
+<p>soient déjà définis, et</p>
+\[U\quad\text{un ouvert }\ne\varnothing\quad\text{dans le normalisé de }\mathbb P^1\text{ dans }L.\]
+<p>Prenant \(U\) assez petit, il existe une courbe relative propre et lisse, à fibres géométriquement connexes</p>
+
+<!-- Source PDF page 19 (printed page 359) -->
+\[C\longrightarrow U,\]
+<p>dont la fibre générique géométrique soit \(C_{\bar\eta}\), et deux sections</p>
+\[t_i:U\longrightarrow C\qquad i=1,2\]
+<p>dont les valeurs en \(\bar\eta\) sont \(t_i(\bar\eta)\). Soient</p>
+\[\rho:\widetilde X\longrightarrow\mathbb P^1\]
+<p>la projection (XVIII 3.1.4) dont les fibres sont les sections du pinceau,</p>
+\[\widetilde X_U=\widetilde X\times_{\mathbb P^1}U,\]
+<p>et</p>
+\[M:\widetilde X_U\lhook\joinrel\longrightarrow X\times U\]
+<p>l’immersion canonique de \(\widetilde X_U\) dans \(X\times U\) (considéré comme la famille constante sur \(U\) de valeur \(X\)),</p>
+\[z_U=M^*\operatorname{pr}_1^*(z),\]
+<p>le cycle algébrique sur \(\widetilde X_U\), induit par \(z\). Prenant \(U\) assez petit, il existe un cycle algébrique \(R\) sur \(C\times_U\widetilde X_U\) dont la valeur en \(C_{\bar\eta}\times X_{\bar\eta}\) est \(R_{\bar\eta}\), et un cycle algébrique \(Q\) sur \(C\times X\times U\) dont la valeur en \(C_{\bar\eta}\times(X\otimes_k k(\bar\eta))\) est \(Q_{\bar\eta}\), tels que l’on ait</p>
+\[\tag{4.4.13}z_U=R(t_1)-R(t_2)+(\operatorname{id}\times M)^*[Q(t_1)-Q(t_2)].\]
+<p>Pour démontrer le théorème, il suffira, grâce à l’injectivité de</p>
+
+<!-- Source PDF page 20 (printed page 360) -->
+<p>l’homomorphisme de Griffiths « modulo partie fixe » (XVIII 5.8.7)</p>
+\[\operatorname{Prim}^{2m}(X,\mathbb Q_\ell(m))\xrightarrow{\mathrm{grif}}\frac{H^1(U,R^{2m-1}\rho_{U*}\mathbb Q_\ell(m))}{M^*H^1(U,H^{2m-1}(X,\mathbb Q_\ell(m)))},\]
+<p>de démontrer que l’image de \(z_U\) par</p>
+\[u_\rho:\operatorname{Prim}^{2m}(\widetilde X_U/U,\mathbb Q_\ell(m))\longrightarrow H^1(U,R^{2m-1}\rho_{U*}\mathbb Q_\ell(m))\]
+<p>se trouve dans \(M^*(H^1(U,H^{2m-1}(X,\mathbb Q_\ell(m)))\). Or, compte tenu de la décomposition (4.4.13), et de la commutativité de (I 4.2)</p>
+\[
+\begin{CD}
+\operatorname{Prim}^{2m}(C/U,\mathbb Q_\ell(1)) @>{Q}>> \operatorname{Prim}^{2m}(X\times U/U,\mathbb Q_\ell(m)) @>{M^*}>> \operatorname{Prim}^{2m}(\widetilde X_U/U,\mathbb Q_\ell(m))\\
+@V{u_{\operatorname{pr}_2}}VV @. @VV{u_\rho}V\\
+H^1(U,H^{2m-1}(X,\mathbb Q_\ell(m))) @>{M^*}>> H^1(U,R^{2m-1}\rho_{U*}\mathbb Q_\ell(m)),
+\end{CD}
+\]
+<p>il suffit de démontrer</p>
+\[u_\rho(R(t_1)-R(t_2))=0\quad\text{dans }H^1(U,R^{2m-1}\rho_{U*}\mathbb Q_\ell(m)),\]
+<p>qui est conséquence de (4.4.12), grâce à I 1.7.</p>
+
+<h2 id="20.5">5. <u>Le Groupe de Griffiths</u></h2>
+<p id="20.5.0"><strong>5.0.</strong> Soit \(S\) propre et lisse sur un corps \(k\) algébriquement clos. Désignons par</p>
+
+<!-- Source PDF page 21 (printed page 361) -->
+<p id="20.5.0.1"><strong>(5.0.1)</strong> \(Z^i(S)\) le groupe des cycles algébriques de codimension \(i\) sur \(S\),</p>
+<p id="20.5.0.2"><strong>(5.0.2)</strong> \(Z^i_{\mathrm{alg}}(S)\) le sous-groupe de \(Z^i(S)\) formé des cycles algébriquement équivalent à zéro,</p>
+<p>et, pour tout nombre premier \(\ell\ne\operatorname{car}(k)\)</p>
+<p id="20.5.0.3"><strong>(5.0.3)</strong> \(Z^i_{\ell\text{-}\mathrm{coh}}(S)\) le sous-groupe de \(Z^i(S)\) formé des cycles dont la classe de cohomologie dans \(H^{2i}(S,\mathbb Q_\ell(i))\) est nulle.</p>
+<p>(On conjecture [4] que ce groupe est indépendant de \(\ell\), ce qui est vrai du moins si \(\operatorname{car}k=0\).) On pose</p>
+\[\tag{5.0.4}\operatorname{Grif}_\ell^i(S)=Z^i_{\ell\text{-}\mathrm{coh}}(S)/Z^i_{\mathrm{alg}}(S).\]
+<p>Si de plus \(S\) est projectif, et muni d’une immersion projective, on pose</p>
+<p id="20.5.0.5"><strong>(5.0.5)</strong> \(Z^{i,\mathrm{prim}}(S)\) = le sous-groupe de \(Z^i(S)\) formé des cycles qui sont primitifs (i.e. dont la classe de cohomologie l’est),</p>
+\[\tag{5.0.6}\operatorname{Prim}^{2i}_{\mathrm{alg}}(S,\mathbb Q_\ell(i))=\text{le sous-}\mathbb Q\text{-vectoriel de }H^{2i}(S,\mathbb Q_\ell(i))\text{ engendré par des classes de cohomologie des cycles algébriques primitifs}.\]
+<div class="thm corollary" id="20.5.1"><div class="thm-head"><u>Corollaire 5.1.</u></div><div class="thm-body">
+<p><u>Sous les hypothèses de 4.1, on a</u></p>
+\[\tag{5.1.1}\dim_{\mathbb Q}(\operatorname{Grif}^n(X_{\bar\eta})\otimes_{\mathbb Z}\mathbb Q)\geq \dim_{\mathbb Q_\ell}(\operatorname{Prim}^{2n}_{\mathrm{alg}}(X,\mathbb Q_\ell(n))).\]
+</div></div>
+<p>En effet, d’après 4.1.5, le noyau de la flèche composée</p>
+\[\mathbb Q\otimes_{\mathbb Z}Z^{n,\mathrm{prim}}(X)\xrightarrow{\mathrm{rest.\ à}\ X_{\bar\eta}}\mathbb Q\otimes_{\mathbb Z}Z^n_{\ell\text{-}\mathrm{coh}}(X_{\bar\eta})\longrightarrow\operatorname{Grif}^n(X_{\bar\eta})\]
+
+<!-- Source PDF page 22 (printed page 362) -->
+<p>est contenu dans \(Z^n_{\ell\text{-}\mathrm{coh}}(X)\otimes_{\mathbb Z}\mathbb Q\), de sorte que \(\operatorname{Prim}^{2n}_{\mathrm{alg}}(X,\mathbb Q_\ell(n))\) est un quotient d’un sous-groupe de \(\operatorname{Grif}^n(X_{\bar\eta})\otimes_{\mathbb Z}\mathbb Q\), ce qui achève la démonstration.</p>
+
+<p id="20.5.2"><u>Remarque 5.2.</u> Pour \(X\) une hypersurface quadrique dans \(\mathbb P^{2m+1}\) on a</p>
+\[\dim_{\mathbb Q_\ell}(\operatorname{Prim}^{2m}_{\mathrm{alg}}(X,\mathbb Q_\ell(m)))=1.\]
+<p><u>En particulier (4.2), pour \(X\) une quadrique dans \(\mathbb P^5\), la section de \(X\) par une hypersurface générique de degré \(&gt;5\) contient une courbe, \(\mathbb Q_\ell\)-cohomologue à zéro, dont aucun multiple n’est algébriquement équivalent à zéro.</u></p>
+
+<h2 id="20.references">RÉFÉRENCES</h2>
+<p>[1] Griffiths, P. <i>On the Periods of Certain Rational Integrals III</i>, à paraître dans <i>Annals of Mathematics</i>.</p>
+<p>[2] Grothendieck, A. <i>Le Groupe de Brauer III</i> (esp §§ 9, 10) dans <i>Dix Exposés sur la Cohomologie des Schémas</i>, North Holland, 1968.</p>
+<p>[3] Jouanolou, J.P. <i>Cohomologie ℓ-adique</i>, Thèse, Paris 1969.</p>
+<p>[4] Kleiman, S. <i>Algebraic Cycles and the Weil Conjectures</i>, in <i>Dix Exposés sur la Cohomologie des Schémas</i>, North Holland, 1968.</p>
+<p>[5] Manin, J. <i>Rational Points of Algebraic Curves over Function Fields</i>, Translations Amer. Math. Soc.</p>
+
+</body>
+</html>

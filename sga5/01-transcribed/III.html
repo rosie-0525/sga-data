@@ -1,0 +1,3172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 5 — Exposé III. Formule de Lefschetz</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<!-- Source PDF page 1 -->
+<h1 id="III">EXPOSÉ III<br>FORMULE DE LEFSCHETZ<span class="author">par A. Grothendieck, rédigé par L. Illusie</span></h1>
+
+<p>Dans cet exposé, nous démontrons la formule de Lefschetz en cohomologie
+étale, pour les correspondances entre complexes de faisceaux, dans la formulation
+de Verdier (cf. [18]). Dans une rédaction antérieure, distribuée par l'IHES il y a
+dix ans environs, la formule était énoncée, sous des hypothèses de résolution, mais
+les compatibilités requises n'étaient pas démontrées. Les théorèmes de finitude de
+Deligne (SGA 4<sup>1/2</sup> Finitude) ont permis de se débarrasser de ces hypothèses, à condition
+de travailler sur des schémas séparés et de type fini sur un corps. Quant aux
+compatibilités, le rédacteur les a (péniblement) vérifiées.</p>
+
+<p>Disons tout de suite que la formule de Lefschetz dont il est question ici,
+tout comme la formule des traces pour les coefficients constants (SGA 4<sup>1/2</sup> Cycle),
+qu'elle généralise, est essentiellement triviale : elle traduit seulement certaines
+compatibilités dans le formalisme de dualité. Grosso modo, elle dit que, sous certaines
+conditions la trace d'un endomorphisme d'un complexe d'hypercohomologie
+\(R\Gamma(X,L)\), où \(L\) est un complexe de faisceaux sur \(X\), peut se calculer comme "intégrale"
+de certaines classes de cohomologie sur \(X\times X\). En pratique, les endomorphismes
+que l'on considère sont associés à des correspondances \(C\subset X\times X\), et les
+classes que l'on récupère sur le produit sont à support dans \(C\cap\Delta\), où \(\Delta\) est la
+diagonale ; ces classes sont "de nature locale" au voisinage des points fixes, ce
+qui, en principe, facilite leur calcul. Voir 4.2, 4.7 pour des énoncés précis. En
+fait, le calcul de ces classes "locales" en termes d'invariants plus compréhensibles,
+sans lequel la présente formule n'aurait pas d'intérêt, n'a été abordé pour l'instant
+que dans des situations très particulières (voir 4.10, 4.11, et l'exposé suivant, où
+est traité notamment le cas de la correspondance de Frobenius sur une courbe).</p>
+
+<p>Faute de disposer d'une bonne catégorie dérivée de faisceaux \(\ell\)-adiques
+<!-- Source PDF page 2 (printed page 74) -->
+(la thèse de Jouanolou n'ayant malheureusement pas été publiée), nous travaillons
+systématiquement avec des coefficients de torsion (première aux caractéristiques résiduelles).
+En dépit de menues difficultés techniques dans la définition des traces,
+ce point de vue conduit en fait à des formules plus fines, plus maniables aussi dans
+la mesure où, pour le calcul des termes locaux, on désire trivialiser par des revêtements
+les faisceaux en jeu (voir notamment (SGA 4<sup>1/2</sup> Rapport), III B, et XII).</p>
+
+<p>Au n<sup>o</sup> 1, nous fixons les notations et rappelons diverses formules de
+Kunneth de (SGA 4<sup>1/2</sup> Finitude), qui jouent un rôle essentiel dans la suite. Nous introduisons
+aussi un certain nombre de catégories fibrées et cofibrées, dont la considération
+facilite plus loin certaines vérifications de compatibilités. Le n<sup>o</sup> 2, très
+technique, peut être sauté en première lecture. Son résultat principal (2.5) exprime
+une compatibilité entre produit tensoriel externe de \(R\underline{\operatorname{Hom}}\), image directe et changement
+de base. Au n<sup>o</sup> 3, nous définissons les correspondances cohomologiques entre complexes,
+et montrons comment elles agissent sur l'hypercohomologie ; le résultat cité
+ci-dessus permet de décrire cette action de diverses manières équivalentes. Le cœur
+de l'exposé est le n<sup>o</sup> 4, où est défini l'accouplement de Verdier entre correspondances
+cohomologiques, et prouvée la formule de Lefschetz, dans une situation relative sensiblement
+plus générale que celle considérée d'habitude, en vue d'applications ultérieures
+à des calculs de termes locaux. Nous donnons les corollaires les plus évidents
+pour les correspondances à coefficients constants. Au n<sup>o</sup> 5, nous indiquons rapidement
+comment généraliser aux correspondances entre complexes certaines constructions
+usuelles sur les correspondances à coefficients constants (cf. [12]) telles
+que passage à la duale, composition, produit tensoriel externe. La plupart des vérifications,
+analogues à celles des numéros précédents, ont été omises. Enfin, en appendice,
+nous paraphrasons la théorie précédente dans le contexte des faisceaux cohérents,
+en utilisant le formalisme de dualité de [8]. On peut ici travailler sur une
+base noethérienne \(S\) quelconque, à condition de faire, quand il le faut, des hypothèses
+de propreté, de tor-dimension finie et de tor-indépendance sur les \(S\)-schémas
+considérés. Nous montrons que la formule de Lefschetz très générale que l'on obtient
+contient comme cas particulier la formule de Woods Hole [1], et signalons quelques
+applications.</p>
+
+<!-- Source PDF page 3 (printed page 75) -->
+<h2 id="III.sommaire"><u>SOMMAIRE.</u></h2>
+
+<table class="tabular">
+<tr><td>1.</td><td>Notations et rappels de formules de Kunneth</td><td>4</td></tr>
+<tr><td>2.</td><td>Fonctorialité de \(R\underline{\operatorname{Hom}}\) et produits tensoriels externes</td><td>9</td></tr>
+<tr><td>3.</td><td>Correspondances cohomologiques</td><td>17</td></tr>
+<tr><td>4.</td><td>Accouplements de correspondances. Formule de Lefschetz</td><td>27</td></tr>
+<tr><td>5.</td><td>Compléments</td><td>41</td></tr>
+<tr><td>6.</td><td>Appendice. Formule de Lefschetz pour les faisceaux cohérents</td><td>48</td></tr>
+</table>
+
+<!-- Source PDF page 4 (printed page 76) -->
+<h2 id="III.1">1. Notations et rappels de formules de Kunneth.</h2>
+
+<p id="III.1.1"><b>1.1</b> On désigne par \(S\) le spectre d'un corps. Sauf mention du contraire, les
+\(S\)-schémas considérés dans la suite seront des \(S\)-schémas séparés et de type fini.</p>
+
+<p>On désigne par \(A\) un anneau commutatif noethérien, annulé par un entier
+inversible sur \(S\). Si \(X\) est un \(S\)-schéma, on note \(D(X)=D(X,A)\) la catégorie
+dérivée des complexes de \(A\)-Modules sur \(X\) (pour la topologie étale), \(D_{ctf}(X)\)
+la sous-catégorie pleine formée des complexes de tor-dimension finie, à cohomologie
+constructible. La catégorie \(D_{ctf}(X)\) est une sous-catégorie triangulée de \(D(X)\).
+Si \(E,F\in\operatorname{ob}D_{ctf}(X)\), il découle aisément des définitions que
+\(E\mathbin{\overset L\otimes}F\in\operatorname{ob}D_{ctf}(X)\).
+D'après (SGA 4<sup>1/2</sup> Th. Finitude 1.6, 1.7), on a aussi
+\(R\underline{\operatorname{Hom}}(E,F)\in\operatorname{ob}D_{ctf}(X)\).</p>
+
+<p id="III.1.2"><b>1.2</b> Soit \(f:X\longrightarrow Y\) un \(S\)-morphisme. On a trivialement</p>
+\[
+f^*D_{ctf}(Y)\subset D_{ctf}(X),
+\]
+<p>et, d'après (loc. cit.),</p>
+\[
+\begin{aligned}
+Rf_*D_{ctf}(X)&amp;\subset D_{ctf}(Y),\\
+Rf_!D_{ctf}(X)&amp;\subset D_{ctf}(Y),\\
+Rf^!D_{ctf}(Y)&amp;\subset D_{ctf}(X),
+\end{aligned}
+\]
+<p>(l'inclusion relative à \(Rf_!\) n'utilise que le théorème de finitude pour les morphismes
+propres (SGA 4 XIV) et le sorite (SGA 4 XVII 5.2.11), elle vaut donc plus
+généralement pour tout morphisme compactifiable à fibres de dimension majorée).
+Dans la suite, nous écrirons parfois \(f_*\), \(f_!\), \(f^!\) au lieu de \(Rf_*\), \(Rf_!\), \(Rf^!\) ;
+les hypothèses de 1.1 entraînent que ces foncteurs sont définis sur la catégorie
+dérivée toute entière.</p>
+
+<p id="III.1.3"><b>1.3</b> Pour \(f:X\longrightarrow S\), nous poserons</p>
+\[
+K_X=f^!A,
+\]
+<p>et noterons \(D_X\) (ou \(D\)) le foncteur \(R\underline{\operatorname{Hom}}(-,K_X)\). D'après (SGA 4<sup>1/2</sup> Th. Finitude
+<!-- Source PDF page 5 (printed page 77) -->
+4.3), le complexe \(K_X\) est dualisant : pour \(E\in\operatorname{ob}D_{ctf}(X)\), on a canoniquement</p>
+\[
+E\xrightarrow{\sim}DDE.
+\]
+
+<p id="III.1.4"><b>1.4</b> Soient \(f:X\longrightarrow Y\) un \(S\)-morphisme, \(L\in\operatorname{ob}D(X)\), \(M\in\operatorname{ob}D(Y)\).
+On posera</p>
+\[
+\begin{aligned}
+\operatorname{Hom}^{(1)}_f(L,M)&amp;=\operatorname{Hom}(f^*M,L)
+  \quad\bigl(\xrightarrow{\sim}\operatorname{Hom}(M,f_*L)\bigr),\\
+\operatorname{Hom}^{(2)}_f(L,M)&amp;=\operatorname{Hom}(L,f^*M),\\
+\operatorname{Hom}^{(3)}_f(L,M)&amp;=\operatorname{Hom}(f_!L,M)
+  \quad\bigl(\xrightarrow{\sim}\operatorname{Hom}(L,f^!M)\bigr),\qquad\text{(SGA 4 XVIII 3.1.5)}\\
+\operatorname{Hom}^{(4)}_f(L,M)&amp;=\operatorname{Hom}(f^!M,L).
+\end{aligned}
+\]
+
+<p>Les éléments de \(\operatorname{Hom}^{(i)}_f(L,M)\) s'appelleront <u>flèches de type \(i\) de \(L\) dans \(M\)
+au-dessus de \(f\)</u> (ou \(f\)-flèches de type \(i\) de \(L\) dans \(M\)). Les isomorphismes
+de transitivité pour les foncteurs \(f^*\), \(f_*\), \(f_!\), \(f^!\) permettent de composer les
+flèches de type \(i\) pour \(i\) fixé, et l'on obtient ainsi certaines catégories fibrées
+ou cofibrées sur la catégorie des \(S\)-schémas : par exemple, pour \(i=1\) (resp. \(i=3\))
+on obtient la catégorie fibrée et cofibrée envisagée dans (SGA 4 XVII 4.1.3) (resp.
+(SGA 4 XVIII 3.1.13)), dont la fibre en \(X\) est la catégorie opposée à \(D(X)\) (resp.
+\(D(X)\)).</p>
+
+<p id="III.1.5"><b>1.5</b> Soient, pour \(i=1,2\), \(X_i\) un \(S\)-schéma, \(X=X_1\times_S X_2\), \(L_i\in\operatorname{ob}D^-(X_i)\).
+Nous poserons</p>
+\[
+L_1\mathbin{\overset L\boxtimes}_S L_2
+=\operatorname{pr}_1^*L_1\mathbin{\overset L\otimes}\operatorname{pr}_2^*L_2,
+\]
+<p>où \(\operatorname{pr}_i:X\longrightarrow X_i\) est la projection canonique.</p>
+
+<p id="III.1.6"><b>1.6</b> Soient, pour \(i=1,2\), \(f_i:X_i\longrightarrow Y_i\) un \(S\)-morphisme,</p>
+\[
+f=f_1\times_Sf_2:X=X_1\times_SX_2\longrightarrow Y=Y_1\times_SY_2,
+\qquad L_i\in\operatorname{ob}D^-(X_i),\quad M_i\in\operatorname{ob}D^-(Y_i).
+\]
+<p>L'isomorphisme canonique évident</p>
+\[
+f_1^*M_1\mathbin{\overset L\boxtimes}_S f_2^*M_2
+\xrightarrow{\sim}f^*(M_1\mathbin{\overset L\boxtimes}_S M_2) \tag{1.6.1}
+\]
+
+<!-- Source PDF page 6 (printed page 78) -->
+<p>permet de définir, pour
+\(u_i\in\operatorname{Hom}^{(1)}_{f_i}(L_i,M_i)\) (resp.
+\(\operatorname{Hom}^{(2)}_{f_i}(L_i,M_i)\)),</p>
+\[
+u_1\mathbin{\overset L\boxtimes}_S u_2\in
+\operatorname{Hom}^{(1)}_f(L,M)\quad
+\text{(resp. }\operatorname{Hom}^{(2)}_f(L,M)\text{)}, \tag{1.6.2}
+\]
+<p>où \(L=L_1\mathbin{\overset L\boxtimes}_S L_2\),
+\(M=M_1\mathbin{\overset L\boxtimes}_S M_2\). Si \(u_i\), \(v_i\) sont
+composables, on a</p>
+\[
+(v_1u_1)\mathbin{\overset L\boxtimes}_S(v_2u_2)
+=(v_1\mathbin{\overset L\boxtimes}_S v_2)
+ (u_1\mathbin{\overset L\boxtimes}_S u_2). \tag{1.6.3}
+\]
+
+<p>Prenant \(M_i=f_{i*}L_i\), et \(u_i\), de type 1, donné par l'identité de
+\(f_{i*}L_i\), 1.6.2 fournit une <u>flèche de Kunneth</u> (cf. (SGA 4 XVII
+5.4.1.4))</p>
+\[
+f_{1*}L_1\mathbin{\overset L\boxtimes}_S f_{2*}L_2
+\longrightarrow f_*(L_1\mathbin{\overset L\boxtimes}_S L_2). \tag{1.6.4}
+\]
+<p>D'après (SGA 4<sup>1/2</sup> Th. Finitude 1.9), 1.6.4 <u>est un
+isomorphisme</u> : par 1.6.3 on se ramène en effet au cas où \(X_2=Y_2\),
+\(f_2=1\), et l'on applique (loc. cit. App. &nbsp;&nbsp;&nbsp;). Quant \(f_1\) et
+\(f_2\) sont propres, il n'est pas nécessaire d'invoquer (loc. cit.) : 1.6.4
+est cas particulier de l'isomorphisme de Kunneth (SGA 4 XVII 5.4.3).</p>
+
+<p id="III.1.7"><b>1.7</b> Choisissons une compactification \(f_i=p_ij_i\), où
+\(j_i\) est une immersion ouverte, \(p_i\) un morphisme propre. Composant
+l'isomorphisme canonique évident (où \(j=j_1\times_Sj_2\))</p>
+\[
+j_{1!}L_1\mathbin{\overset L\boxtimes}_S j_{2!}L_2
+\xrightarrow{\sim}j_!(L_1\mathbin{\overset L\boxtimes}_S L_2)
+\]
+<p>avec l'isomorphisme 1.6.4 relatif à \((p_i,j_{i!}L_i)\), on obtient un
+<u>isomorphisme de Kunneth</u> (SGA 4 XVII 5.4.3)</p>
+\[
+f_{1!}L_1\mathbin{\overset L\boxtimes}_S f_{2!}L_2
+\xrightarrow{\sim}f_!(L_1\mathbin{\overset L\boxtimes}_S L_2). \tag{1.7.1}
+\]
+<p>On vérifie facilement (loc. cit.) que 1.7.1 ne dépend pas des
+compactifications choisies, et est compatible aux isomorphismes de transitivité
+pour des composés \(g_if_i\) (cf. (loc. cit. 5.2.4)). Grâce à 1.7.1, on peut
+définir, pour \(u_i\in\operatorname{Hom}^{(3)}_{f_i}(L_i,M_i)\)</p>
+\[
+u_1\mathbin{\overset L\boxtimes}_S u_2\in
+\operatorname{Hom}^{(3)}_f(L,M) \tag{1.7.2}
+\]
+<p>avec \(L\) et \(M\) comme en 1.6.2, et l'on a une formule de transitivité
+analogue à 1.6.3.</p>
+
+<!-- Source PDF page 7 (printed page 79) -->
+<p>Pour \(L_i=f_i^!M_i\), et \(u_i\) donné par l'identité de \(L_i\), 1.7.2
+fournit une <u>flèche de Kunneth</u></p>
+\[
+f_1^!M_1\mathbin{\overset L\boxtimes}_S f_2^!M_2
+\longrightarrow f^!(M_1\mathbin{\overset L\boxtimes}_S M_2). \tag{1.7.3}
+\]
+
+<div class="thm thm-plain proposition" id="III.1.7.4">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">1.7.4</span> — La flèche 1.7.3 est un isomorphisme.</div>
+<div class="thm-body"><p>Par la formule de transitivité, il suffit de traiter
+le cas où \(X_2=Y_2\), \(f_2=1\). Par dévissage, on ramène à
+\(M_2=g_*j_!A_V\), où \(j:V\longrightarrow U\) est une immersion ouverte et
+\(g:U\longrightarrow Y_2\) un morphisme fini, puis, par (SGA 4 XVIII
+3.1.12.3), au cas où \(M_2=A_{Y_2}\). Par localisation sur \(X_2\), on peut
+supposer d'autre part que \(f_1=g_1j_1\), où \(j_1\) est une immersion fermée,
+et \(g_1\) un morphisme lisse purement de dimension relative \(n_1\). Par
+transitivité, il suffit de traiter les cas</p>
+<p style="margin-left:8em">a) \(f_1=g_1\)<br>b) \(f_1=j_1\).</p>
+<p>Dans le cas a), le morphisme trace fournit par adjonction (SGA 4 XVIII
+3.2.5) un isomorphisme
+\(f_1^*M_1(n_1)[2n_1]\xrightarrow{\sim}f_1^!M_1\). Celui-ci est compatible
+au changement de base \(Y_2\longrightarrow S\), car il en est ainsi du
+morphisme trace (SGA 4 XVIII 2.9), d'où 1.7.4 dans ce cas. Dans le cas b), si
+\(i_1\) désigne l'inclusion de l'ouvert complémentaire, on a une suite exacte</p>
+\[
+0\longrightarrow j_{1*}Rj_1^!M_1\longrightarrow M_1
+\longrightarrow Ri_{1*}i_1^*M_1\longrightarrow0,
+\]
+<p>et la compatibilité de \(Ri_{1*}\) au changement de base, cas particulier
+de 1.6.4, entraîne la conclusion.</p></div>
+</div>
+
+<p>Grâce à 1.7.3, on peut définir, pour
+\(u_i\in\operatorname{Hom}^{(4)}_{f_i}(L_i,M_i)\),</p>
+\[
+u_1\mathbin{\overset L\boxtimes}_S u_2\in
+\operatorname{Hom}^{(4)}_f(L,M) \tag{1.7.5}
+\]
+<p>(\(L\) et \(M\) comme en 1.6.2), avec une formule de transitivité analogue
+à 1.6.3.</p>
+
+<p>D'autre part, avec les notations de 1.3, 1.7.3 fournit un isomorphisme</p>
+
+<!-- Source PDF page 8 (printed page 80) -->
+\[
+K_{X_1}\mathbin{\overset L\boxtimes}_S K_{X_2}
+\xrightarrow{\sim}K_X. \tag{1.7.6}
+\]
+
+<p id="III.1.8"><b>1.8</b> Soient \(f:X\longrightarrow Y\) un
+\(S\)-morphisme, \(L\in\operatorname{ob}D(X)\),
+\(M\in\operatorname{ob}D(Y)\), \(S'\) un \(S\)-schéma,
+\(P\in\operatorname{ob}D(S')\), \(f':X'\longrightarrow Y'\) le morphisme
+déduit de \(f\) par le changement de base \(S'\longrightarrow S\). La flèche
+identique de \(P\) peut être regardée indifféremment comme une flèche de type
+\(i\) (\(1\leq i\leq4\)) au-dessus de la flèche identique de \(S'\) : pour
+\(u\in\operatorname{Hom}^{(i)}_f(L,M)\) (\(1\leq i\leq4\)), on peut donc,
+d'après 1.6.2, 1.7.2, 1.7.5, considérer</p>
+\[
+u\mathbin{\overset L\boxtimes}_S\operatorname{Id}_P
+\in\operatorname{Hom}^{(i)}_{f'}
+(L\mathbin{\overset L\boxtimes}_S P,
+M\mathbin{\overset L\boxtimes}_S P). \tag{1.8.1}
+\]
+<p>Nous écrirons parfois \(u\mathbin{\overset L\boxtimes}_S P\) au lieu de
+\(u\mathbin{\overset L\boxtimes}_S\operatorname{Id}_P\).</p>
+
+<!-- Source PDF page 9 (printed page 81) -->
+<h2 id="III.2">2. Fonctorialité de \(R\underline{\operatorname{Hom}}\) et produits tensoriels externes.</h2>
+
+<p id="III.2.1"><b>2.1</b> Soient \(f:X\longrightarrow Y\) un
+\(S\)-morphisme, \(P\in\operatorname{ob}D(Y)\),
+\(Q\in\operatorname{ob}D^+(Y)\). La flèche canonique évidente au niveau des
+complexes
+\(f^*\underline{\operatorname{Hom}}^{\boldsymbol\cdot}(P,Q)\longrightarrow
+\underline{\operatorname{Hom}}^{\boldsymbol\cdot}(f^*P,f^*Q)\) fournit par
+dérivation une flèche canonique</p>
+\[
+f^*R\underline{\operatorname{Hom}}(P,Q)\longrightarrow
+R\underline{\operatorname{Hom}}(f^*P,f^*Q). \tag{2.1.1}
+\]
+<p>Soient \(L\in\operatorname{ob}D(X)\), \(M\in\operatorname{ob}D^+(X)\).
+Posons</p>
+\[
+\operatorname{Hom}^{(i,j)}_f((L,M),(P,Q))
+=\operatorname{Hom}^{(i)}_f(L,P)\times\operatorname{Hom}^{(j)}_f(M,Q), \tag{2.1.2}
+\]
+<p>avec les notations 1.4. Pour
+\((u,v)\in\operatorname{Hom}^{(2,1)}_f((L,M),(P,Q))\) on définit</p>
+\[
+R\underline{\operatorname{Hom}}(u,v)\in
+\operatorname{Hom}^{(1)}_f(R\underline{\operatorname{Hom}}(L,M),
+R\underline{\operatorname{Hom}}(P,Q)) \tag{2.1.3}
+\]
+<p>en composant 2.1.1 avec la flèche
+\(R\underline{\operatorname{Hom}}(f^*P,f^*Q)\longrightarrow
+R\underline{\operatorname{Hom}}(L,M)\) définie par \(u\) et \(v\). Pour
+\(L=f^*P\), \(Q=f_*M\), \(u\) (resp. \(v\)) donné par l'identité de \(L\)
+(resp. \(Q\)), \(R\underline{\operatorname{Hom}}(u,v)\) est
+l'<u>isomorphisme de « dualité triviale »</u></p>
+\[
+R\underline{\operatorname{Hom}}(P,f_*M)\xrightarrow{\sim}
+f_*R\underline{\operatorname{Hom}}(f^*P,M). \tag{2.1.4}
+\]
+
+<p>Pour \((u,v)\in\operatorname{Hom}^{(3,4)}_f((L,M),(P,Q))\), on définit</p>
+\[
+R\underline{\operatorname{Hom}}(u,v)\in
+\operatorname{Hom}^{(1)}_f(R\underline{\operatorname{Hom}}(L,M),
+R\underline{\operatorname{Hom}}(P,Q)) \tag{2.1.5}
+\]
+<p>comme composé des flèches</p>
+\[
+R\underline{\operatorname{Hom}}(P,Q)\xrightarrow{a}
+R\underline{\operatorname{Hom}}(f_!L,Q)\xrightarrow{b}
+f_*R\underline{\operatorname{Hom}}(L,f^!Q)\xrightarrow{c}
+f_*R\underline{\operatorname{Hom}}(L,M),
+\]
+<p>où \(a\) (resp. \(c\)) est défini par \(u\) (resp. \(v\)), et \(b\) est
+l'inverse de l'isomorphisme de dualité (SGA 4 XVIII 3.1.9.6).</p>
+
+<p>Il résulte facilement des définitions que la formation de
+\(R\underline{\operatorname{Hom}}(u,v)\) est compatible à la composition :
+pour \((u,v)\), \((u',v')\) composables et de type (2,1) (resp. (3,4)), on a</p>
+\[
+R\underline{\operatorname{Hom}}(u'u,v'v)=
+R\underline{\operatorname{Hom}}(u',v')\,
+R\underline{\operatorname{Hom}}(u,v). \tag{2.1.6}
+\]
+
+<!-- Source PDF page 10 (printed page 82) -->
+<p id="III.2.2"><b>2.2</b> Soient \(X\) un \(S\)-schéma. Rappelons que pour
+\(L\in\operatorname{ob}D^-(X)\), \(M\in\operatorname{ob}D(X)\),
+\(N\in\operatorname{ob}D^+(X)\), on a l'isomorphisme d'adjonction
+(« cher à Cartan », comme dit Grothendieck)</p>
+\[
+\operatorname{Hom}(L\mathbin{\overset L\otimes}M,N)=
+\operatorname{Hom}(L,R\underline{\operatorname{Hom}}(M,N)). \tag{2.2.1}
+\]
+<p>Pour \(E\in\operatorname{ob}D^-(X)\), \(F\in\operatorname{ob}D^+(X)\), la
+flèche identique de \(R\underline{\operatorname{Hom}}(E,F)\) définit via
+2.2.1 une flèche</p>
+\[
+E\mathbin{\overset L\otimes}R\underline{\operatorname{Hom}}(E,F)
+\longrightarrow F, \tag{2.2.2}
+\]
+<p>dite <u>flèche d'évaluation</u> : elle dérive de la flèche au niveau des
+complexes</p>
+\[
+\underline{\operatorname{Hom}}^{\boldsymbol\cdot}(E,F)\otimes E
+\longrightarrow F,\qquad f\otimes x\longmapsto f(x).
+\]
+
+<p>Soient, pour \(i=1,2\), \(E_i,F_i\in\operatorname{ob}D_{ctf}(X)\). Par
+adjonction (2.2.1), la flèche</p>
+\[
+E_1\mathbin{\overset L\otimes}E_2
+\mathbin{\overset L\otimes}R\underline{\operatorname{Hom}}(E_1,F_1)
+\mathbin{\overset L\otimes}R\underline{\operatorname{Hom}}(E_2,F_2)
+\longrightarrow F_1\mathbin{\overset L\otimes}F_2,
+\]
+<p>composée d'un isomorphisme de symétrie et du produit tensoriel des flèches
+d'évaluation relatives à \((E_1,F_1)\) et \((E_2,F_2)\), fournit une flèche</p>
+\[
+R\underline{\operatorname{Hom}}(E_1,F_1)\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}(E_2,F_2)\longrightarrow
+R\underline{\operatorname{Hom}}(E_1\mathbin{\overset L\otimes}E_2,
+F_1\mathbin{\overset L\otimes}F_2). \tag{2.2.3}
+\]
+
+<p>Soient, pour \(i=1,2\), \(X_i\) un \(S\)-schéma,
+\(X=X_1\times_SX_2\), \(p_i:X\longrightarrow X_i\) la projection canonique,
+\(E_i,F_i\in\operatorname{ob}D_{ctf}(X_i)\),
+\(E=E_1\mathbin{\overset L\boxtimes}_S E_2\),
+\(F=F_1\mathbin{\overset L\boxtimes}_S F_2\). On a une flèche canonique</p>
+\[
+R\underline{\operatorname{Hom}}(E_1,F_1)
+\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(E_2,F_2)
+\longrightarrow R\underline{\operatorname{Hom}}(E,F), \tag{2.2.4}
+\]
+<p>composée du produit tensoriel des flèches
+\(p_i^*R\underline{\operatorname{Hom}}(E_i,F_i)\longrightarrow
+R\underline{\operatorname{Hom}}(p_i^*E_i,p_i^*F_i)\) et de 2.2.3 pour
+\((p_i^*E_i,p_i^*F_i)\).</p>
+
+<div class="thm thm-plain proposition" id="III.2.3">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.3</span> — La flèche 2.2.4 est un isomorphisme.</div>
+<div class="thm-body"><p>Par localisation et dévissage, on se ramène à
+\(E_i=f_{i!}A_{U_i}\) pour \(f_i:U_i\longrightarrow X_i\) étale. On a des
+isomorphismes canoniques (dualité)</p></div>
+</div>
+
+<!-- Source PDF page 11 (printed page 83) -->
+\[
+\begin{gathered}
+R\underline{\operatorname{Hom}}(f_{i!}A_{U_i},F_i)\xrightarrow{\sim}
+f_{i*}f_i^*F_i,\\
+R\underline{\operatorname{Hom}}(E,F)\xrightarrow{\sim}f_*f^*F
+\quad(f=f_1\times_S f_2). \tag{1}
+\end{gathered}
+\]
+<p>Compte tenu de la formule de Kunneth 1.6.4, il suffit, pour conclure, de
+vérifier que ces isomorphismes rendent commutatif le carré</p>
+\[
+\begin{array}{ccc}
+R\underline{\operatorname{Hom}}(f_{1!}A_{U_1},F_1)
+ \mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(f_{2!}A_{U_2},F_2)
+&\xrightarrow{2.2.3}&R\underline{\operatorname{Hom}}(f_!A_U,F)\\
+\downarrow\wr&&\downarrow\wr\\
+f_{1*}f_1^*F_1\mathbin{\overset L\boxtimes}_S f_{2*}f_2^*F_2
+&\xrightarrow{1.6.4}&f_*f^*F,
+\end{array}\tag{2}
+\]
+<p>où \(U=U_1\times_S U_2\). Or, comme \(f_i\) est étale, l'isomorphisme
+(1) relatif à \(f_i\) (resp. \(f\)) est adjoint de la flèche composée</p>
+\[
+f_i^*R\underline{\operatorname{Hom}}(f_{i!}A_{U_i},F_i)
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}(f_i^*f_{i!}A_{U_i},f_i^*F_i)
+\longrightarrow f_i^*F_i, \tag{3}
+\]
+<p>où la seconde flèche est déduite de l'adjonction
+\(A_{U_i}\longrightarrow f_i^*f_{i!}A_{U_i}\) (resp. la flèche composée
+analogue avec \(f\)). La commutativité de (2) équivaut à celle du carré</p>
+\[
+\begin{array}{ccc}
+f_1^*R\underline{\operatorname{Hom}}(f_{1!}A_{U_1},F_1)
+ \mathbin{\overset L\otimes}_S
+f_2^*R\underline{\operatorname{Hom}}(f_{2!}A_{U_2},F_2)
+&\longrightarrow&f^*R\underline{\operatorname{Hom}}(f_!A_U,F)\\
+\downarrow&&\downarrow\\
+f_1^*F_1\mathbin{\overset L\otimes}f_2^*F_2
+&\xrightarrow{\sim}&f^*F,
+\end{array}\tag{4}
+\]
+<p>où les flèches verticales sont données par (3). Or la commutativité de (4)
+découle du fait que 2.2.3 est fonctoriel en \(E_i\) et se réduit à l'identité
+pour \(E_i=A\), d'où la proposition.</p>
+
+<p id="III.2.4"><b>2.4</b> Soient, pour \(i=1,2\),
+\(f_i:X_i\longrightarrow Y_i\) un \(S\)-morphisme,
+\(f=f_1\times_Sf_2:X\longrightarrow Y\),
+\(E_i,F_i\in\operatorname{ob}D_{ctf}(X_i)\),
+\(P_i,Q_i\in\operatorname{ob}D_{ctf}(Y_i)\),</p>
+\[
+E=E_1\mathbin{\overset L\boxtimes}_S E_2,\quad
+F=F_1\mathbin{\overset L\boxtimes}_S F_2,\quad
+P=P_1\mathbin{\overset L\boxtimes}_S P_2,\quad
+Q=Q_1\mathbin{\overset L\boxtimes}_S Q_2 :
+\]
+\[
+\begin{array}{ccccc}
+X_1&\longleftarrow&X_1\times_S Y_2&\longleftarrow&X\\
+\downarrow f_1&&\downarrow&&\downarrow\\
+Y_1&\longleftarrow&Y&\longleftarrow&Y_1\times_S X_2\\
+\downarrow&&\downarrow&&\downarrow\\
+S&\longleftarrow&Y_2&\xleftarrow{f_2}&X_2.
+\end{array}\tag{2.4.0}
+\]
+
+<!-- Source PDF page 12 (printed page 84) -->
+<p>Donnons-nous
+\((u_1,v_1)\in\operatorname{Hom}^{(3,4)}_{f_1}((E_1,F_1),(P_1,Q_1))\),
+\((u_2,v_2)\in\operatorname{Hom}^{(2,1)}_{f_2}((E_2,F_2),(P_2,Q_2))\)
+(notations de 2.1.2 et 1.4). Par 1.8, on déduit de \((u_i,v_i)\) un carré</p>
+\[
+\begin{array}{ccc}
+(E_1\mathbin{\overset L\boxtimes}_S P_2,
+ F_1\mathbin{\overset L\boxtimes}_S Q_2)
+&\longleftarrow&(E,F)\\
+\downarrow{(u_1\boxtimes P_2,v_1\boxtimes Q_2)}&&
+\downarrow{(u_1\boxtimes E_2,v_1\boxtimes F_2)}\\
+(P,Q)&\longleftarrow&(P_1\mathbin{\overset L\boxtimes}_S E_2,
+ Q_1\mathbin{\overset L\boxtimes}_S F_2),
+\end{array}\tag{2.4.1}
+\]
+<p>où les flèches verticales (resp. horizontales) sont de type (3,4)
+(resp. (2,1)).</p>
+
+<p>Nous pouvons maintenant énoncer la compatibilité principale de ce numéro,
+qui jouera un rôle essentiel dans la vérification de la formule de
+Lefschetz-Verdier.</p>
+
+<div class="thm thm-plain proposition" id="III.2.5">
+<div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.5</span> — Le diagramme 2.5.1 ci-après, où le carré de droite est déduit de 2.4.1 par application de \(R\underline{\operatorname{Hom}}\) au sens de 2.1.3 et 2.1.5, est commutatif :</div>
+<div class="thm-body">
+\[
+\begin{array}{ccc}
+R\underline{\operatorname{Hom}}(E_1,F_1)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(E_2,F_2)&\xrightarrow{2.2.4}&R\underline{\operatorname{Hom}}(E,F)\\
+\downarrow{R\underline{\operatorname{Hom}}(u_1,v_1)\boxtimes
+R\underline{\operatorname{Hom}}(u_2,v_2)}&&\downarrow\\
+R\underline{\operatorname{Hom}}(P_1,Q_1)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P_2,Q_2)&\xrightarrow{2.2.4}&R\underline{\operatorname{Hom}}(P,Q).
+\end{array}\tag{2.5.1}
+\]
+</div></div>
+
+<p id="III.2.6"><b>2.6</b> La démonstration de 2.5 va occuper le reste du
+nº2. Il découle de 1.6.3 que, si \(w_i:L_i\longrightarrow M_i\) est une
+flèche de type 1 au-dessus de \(f_i\), la flèche
+\(w=w_1\mathbin{\overset L\boxtimes}_S w_2\) rend commutatif le diagramme</p>
+\[
+\xymatrix{
+&L_1\mathbin{\overset L\boxtimes}_S L_2\ar[dl]_{L_1\boxtimes w_2}
+ \ar[dr]^{w_1\boxtimes L_2}&\\
+L_1\mathbin{\overset L\boxtimes}_S M_2\ar[dr]_{w_1\boxtimes M_2}&&
+M_1\mathbin{\overset L\boxtimes}_S L_2\ar[dl]^{M_1\boxtimes w_2}\\
+&M_1\mathbin{\overset L\boxtimes}_S M_2.&}
+\]
+
+<!-- Source PDF page 13 (printed page 85) -->
+<p>Appliquant cette remarque à
+\(w_i=R\underline{\operatorname{Hom}}(u_i,v_i)\), on voit qu'il suffit de
+prouver les cas particuliers suivants de 2.5 :</p>
+
+<div class="thm thm-plain corollary" id="III.2.6.1">
+<div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">2.6.1</span> — Soient \(f:X\longrightarrow Y\) un \(S\)-morphisme, \(S'\) un \(S\)-schéma, \(f':X'\longrightarrow Y'\) le morphisme déduit de \(f\) par le changement de base \(S'\longrightarrow S\), \(E,F\in\operatorname{ob}D_{ctf}(X)\), \(P,Q\in\operatorname{ob}D_{ctf}(Y)\), \(P',Q'\in\operatorname{ob}D_{ctf}(S')\), \((u,v)\in\operatorname{Hom}^{(2,1)}_f((E,F),(P,Q))\) (resp. \(\operatorname{Hom}^{(3,4)}_f((E,F),(P,Q))\)). On a alors un carré commutatif, où les flèches verticales sont de type 1 au-dessus de \(f'\) :</div>
+<div class="thm-body">
+\[
+\begin{array}{ccc}
+R\underline{\operatorname{Hom}}(E,F)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\xrightarrow{2.2.4}&
+R\underline{\operatorname{Hom}}(E\mathbin{\overset L\boxtimes}_S P',
+F\mathbin{\overset L\boxtimes}_S Q')\\
+\downarrow{R\underline{\operatorname{Hom}}(u,v)\boxtimes R\underline{\operatorname{Hom}}(P',Q')}&&
+\downarrow{R\underline{\operatorname{Hom}}(u\boxtimes P',v\boxtimes Q')}\\
+R\underline{\operatorname{Hom}}(P,Q)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\xrightarrow{2.2.4}&
+R\underline{\operatorname{Hom}}(P\mathbin{\overset L\boxtimes}_S P',
+Q\mathbin{\overset L\boxtimes}_S Q').
+\end{array}\tag{2.6.1.1}
+\]
+</div></div>
+
+<p>Examinons d'abord le cas où \((u,v)\) est de type (2,1). Par
+fonctorialité, on peut supposer que \(E=f^*P\), \(F=f^*Q\), \((u,v)\)
+étant donné par l'identité de \((f^*P,f^*Q)\). La commutativité de 2.6.1.1
+dans le cas \(P'=Q'=A_{S'}\) est évidente ; pour l'établir dans le cas
+général, il suffit donc de vérifier que pour \(L,M\in\operatorname{ob}
+D_{ctf}(Y)\), le carré</p>
+\[
+\begin{array}{ccc}
+f^*R\underline{\operatorname{Hom}}(E,F)\mathbin{\overset L\otimes}
+f^*R\underline{\operatorname{Hom}}(L,M)&\xrightarrow{f^*(2.2.3)}&
+f^*R\underline{\operatorname{Hom}}(E\mathbin{\overset L\otimes}L,
+F\mathbin{\overset L\otimes}M)\\
+\downarrow{2.1.1\otimes2.1.1}&&\downarrow{2.1.1}\\
+R\underline{\operatorname{Hom}}(f^*E,f^*F)\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}(f^*L,f^*M)&\xrightarrow{2.2.3}&
+R\underline{\operatorname{Hom}}(f^*(E\mathbin{\overset L\otimes}L),
+f^*(F\mathbin{\overset L\otimes}M))
+\end{array}
+\]
+<p>est commutatif. Or on constate aussitôt que les deux composés de ce carré
+sont adjoints du produit tensoriel des flèches d'évaluation</p>
+\[
+f^*E\mathbin{\overset L\otimes}f^*R\underline{\operatorname{Hom}}(E,F)
+\longrightarrow f^*F\quad\text{et}\quad
+f^*L\mathbin{\overset L\otimes}f^*R\underline{\operatorname{Hom}}(L,M)
+\longrightarrow f^*M,
+\]
+<p>d'où l'assertion.</p>
+
+<p>Passons maintenant au cas où \((u,v)\) est de type (3,4). Par
+fonctorialité, on peut supposer que \(P=f_!E\), \(F=f^!Q\), \((u,v)\)
+étant défini par \((\operatorname{Id}_P,\operatorname{Id}_F)\). On doit
+prouver la commutativité du carré</p>
+
+<!-- Source PDF page 14 (printed page 86) -->
+\[
+\begin{array}{ccc}
+f_*R\underline{\operatorname{Hom}}(E,f^!Q)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\xrightarrow{b}&
+f'_*R\underline{\operatorname{Hom}}(E\mathbin{\overset L\boxtimes}_S P',
+f^!Q\mathbin{\overset L\boxtimes}_S Q')\\
+\downarrow{a\boxtimes R\underline{\operatorname{Hom}}(P',Q')}&&\downarrow{a'}\\
+R\underline{\operatorname{Hom}}(f_!E,Q)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\xrightarrow{2.2.4}&
+R\underline{\operatorname{Hom}}(f_!E\mathbin{\overset L\boxtimes}_S P',
+Q\mathbin{\overset L\boxtimes}_S Q'),
+\end{array}
+\]
+<p>où \(b\) est composé de \(f'_*(2.2.4)\) et d'un isomorphisme de changement
+de base, \(a\) est l'isomorphisme de dualité (SGA 4 XVIII 3.1.9.6), \(a'\)
+le composé de l'isomorphisme de dualité (relatif à
+\(E\mathbin{\overset L\boxtimes}_S P'\) et
+\(Q\mathbin{\overset L\boxtimes}_S Q'\)) et des isomorphismes de changement
+de base</p>
+\[
+f_!E\mathbin{\overset L\boxtimes}_S P'\xrightarrow[c]{\sim}
+f'_!(E\mathbin{\overset L\boxtimes}_S P'),\qquad
+f^!Q\mathbin{\overset L\boxtimes}_S Q'\xrightarrow[d]{\sim}
+f'^!(Q\mathbin{\overset L\boxtimes}_S Q').
+\]
+<p>Rappelons que \(a\) est composé de la flèche canonique (SGA 4 XVIII
+3.1.9.5)</p>
+\[
+f_*R\underline{\operatorname{Hom}}(E,f^!Q)\longrightarrow
+R\underline{\operatorname{Hom}}(f_!E,f_!f^!Q)
+\]
+<p>et de la flèche définie par la flèche d'adjonction
+\(f_!f^!Q\longrightarrow Q\). On a une description analogue de \(a'\),
+comme composé de la flèche citée</p>
+\[
+f'_*R\underline{\operatorname{Hom}}(E\mathbin{\overset L\boxtimes}_S P',
+f^!Q\mathbin{\overset L\boxtimes}_S Q')\longrightarrow
+R\underline{\operatorname{Hom}}(f'_!(E\mathbin{\overset L\boxtimes}_S P'),
+f'_!(f^!Q\mathbin{\overset L\boxtimes}_S Q')), \tag{*}
+\]
+<p>des flèches définies par \(c\) et \(d\), et de la flèche définie par la
+flèche d'adjonction
+\(f'_!f'^!(Q\mathbin{\overset L\boxtimes}_S Q')\longrightarrow
+Q\mathbin{\overset L\boxtimes}_S Q'\). Or, par définition, \(d\) est
+adjointe de la flèche
+\(f'_!(f^!Q\mathbin{\overset L\boxtimes}_S Q')\longrightarrow
+Q\mathbin{\overset L\boxtimes}_S Q'\) définie par l'isomorphisme de
+changement de base
+\(f'_!(f^!Q\mathbin{\overset L\boxtimes}_S Q')\simeq
+f_!f^!Q\mathbin{\overset L\boxtimes}_S Q'\) et la flèche d'adjonction
+\(f_!f^!Q\longrightarrow Q\), en d'autres termes le carré</p>
+\[
+\begin{array}{ccc}
+f'_!(f^!Q\mathbin{\overset L\boxtimes}_S Q')&\xrightarrow{f'_!d}&
+f'_!f'^!(Q\mathbin{\overset L\boxtimes}_S Q')\\
+\downarrow{\text{ch. base }\sim}&&\downarrow{\mathrm{adj}}\\
+f_!f^!Q\mathbin{\overset L\boxtimes}_S Q'&\xrightarrow{\mathrm{adj}\boxtimes1}&
+Q\mathbin{\overset L\boxtimes}_S Q'
+\end{array}
+\]
+<p>est commutatif. Par suite, on peut aussi décrire \(a'\) comme composé de
+(*), de la flèche définie par \(c\), et de celles définies par l'isomorphisme
+de changement de base
+\(f'_!(f^!Q\mathbin{\overset L\boxtimes}_S Q')\xrightarrow{\sim}
+f_!f^!Q\mathbin{\overset L\boxtimes}_S Q'\) et la flèche d'adjonction
+\(f_!f^!Q\longrightarrow Q\). Cette décomposition de \(a'\) et celle de
+\(a\) donnée plus haut, jointes à la commutativité du carré</p>
+
+<!-- Source PDF page 15 (printed page 87) -->
+\[
+\begin{array}{ccc}
+R\underline{\operatorname{Hom}}(f_!E,f_!f^!Q)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\longrightarrow&
+R\underline{\operatorname{Hom}}(f_!E\mathbin{\overset L\boxtimes}_S P',
+f_!f^!Q\mathbin{\overset L\boxtimes}_S Q')\\
+\downarrow&&\downarrow\\
+R\underline{\operatorname{Hom}}(f_!E,Q)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\longrightarrow&
+R\underline{\operatorname{Hom}}(f_!E\mathbin{\overset L\boxtimes}_S P',
+Q\mathbin{\overset L\boxtimes}_S Q')
+\end{array}
+\]
+<p>défini par 2.2.4 et la flèche d'adjonction \(f_!f^!Q\longrightarrow Q\),
+montrent que, pour établir la commutativité de 2.6.2, il suffit de prouver la
+compatibilité suivante :</p>
+
+<div class="thm thm-plain lemma" id="III.2.6.3">
+<div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.6.3</span> — Soient \(f\), \(f'\), \(E\), \(F\), \(P'\), \(Q'\) comme en 2.6.1. On a alors un carré commutatif</div>
+<div class="thm-body">
+\[
+\begin{array}{ccc}
+f_*R\underline{\operatorname{Hom}}(E,F)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\xrightarrow{(1)}&
+f'_*R\underline{\operatorname{Hom}}(E\mathbin{\overset L\boxtimes}_S P',
+F\mathbin{\overset L\boxtimes}_S Q')\\
+\downarrow{(2)}&&\downarrow{(4)}\\
+R\underline{\operatorname{Hom}}(f_!E,f_!F)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')&\xrightarrow{(3)}&
+R\underline{\operatorname{Hom}}(f_!E\mathbin{\overset L\boxtimes}_S P',
+f_!F\mathbin{\overset L\boxtimes}_S Q'),
+\end{array}
+\]
+<p>où (1) est composé de l'isomorphisme de changement de base
+\(f_*R\underline{\operatorname{Hom}}(E,F)\mathbin{\overset L\boxtimes}_S-
+\xrightarrow{\sim}f'_*(R\underline{\operatorname{Hom}}(E,F)
+\mathbin{\overset L\boxtimes}_S-)\) et \(f'_*(2.2.4)\), (2) est déduit de la
+flèche canonique \(f_*R\underline{\operatorname{Hom}}(E,F)\longrightarrow
+R\underline{\operatorname{Hom}}(f_!E,f_!F)\) (SGA 4 XVIII 3.1.9.5) par
+application de \(\mathbin{\overset L\boxtimes}R\underline{\operatorname{Hom}}
+(P',Q')\), (3) est donné par 2.2.4, enfin (4) est composé de la flèche
+canonique</p>
+\[
+f'_*R\underline{\operatorname{Hom}}(E\mathbin{\overset L\boxtimes}_S P',
+F\mathbin{\overset L\boxtimes}_S Q')\longrightarrow
+R\underline{\operatorname{Hom}}(f'_!(E\mathbin{\overset L\boxtimes}_S P'),
+f'_!(F\mathbin{\overset L\boxtimes}_S Q'))
+\]
+<p>(loc. cit.) et des flèches définies par les isomorphismes de changement de
+base</p>
+\[
+f'_!(E\mathbin{\overset L\boxtimes}_S P')\xrightarrow{\sim}
+f_!E\mathbin{\overset L\boxtimes}_S P',\qquad
+f'_!(F\mathbin{\overset L\boxtimes}_S Q')\xrightarrow{\sim}
+f_!F\mathbin{\overset L\boxtimes}_S Q'.
+\]
+</div></div>
+
+<p>Revenant à la définition de la flèche (SGA 4 XVIII 3.1.9.5), on choisit
+une compactification de \(f\)<sup class="footnote-ref"><a id="fnref-III-1"
+href="#fn-III-1">(1)</a></sup>, et l'on est ramené à prouver le lemme
+séparément dans le cas où \(f\) est une immersion ouverte et celui où \(f\)
+est un morphisme propre.</p>
+
+<p>a) Cas où \(f\) est une immersion ouverte. Par adjonction (2.2.1), il
+suffit de voir que si l'on tensorise le carré de 2.6.3 par
+\(f_!E\mathbin{\overset L\boxtimes}_S P'\) et que l'on compose avec la
+flèche d'évaluation 2.2.2</p>
+\[
+(f_!E\mathbin{\overset L\boxtimes}_S P')\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}(f_!E\mathbin{\overset L\boxtimes}_S P',
+f_!F\mathbin{\overset L\boxtimes}_S Q')\longrightarrow
+f_!F\mathbin{\overset L\boxtimes}_S Q',
+\]
+
+<hr>
+<div class="footnotes">
+<p id="fn-III-1"><a href="#fnref-III-1">(1)</a> La flèche citée est définie
+à l'aide d'une telle compactification, mais elle n'en dépend pas : ce point,
+admis tacitement dans (loc. cit.), se vérifie facilement.</p>
+</div>
+
+<!-- Source PDF page 16 (printed page 88) -->
+le carré que l'on obtient est commutatif. Or les sommets de ce carré sont nuls en
+dehors de \(X'\), de sorte qu'il suffit de vérifier que le carré induit sur \(X'\)
+commute, ce qui est trivial.</p>
+
+<p>b) Cas où \(f\) est un morphisme propre. On a alors \(f_!=f_*\),
+\(f'_!=f'_*\). On voit aisément que le composé de
+\(f_*R\underline{\operatorname{Hom}}(E,F)\longrightarrow
+R\underline{\operatorname{Hom}}(f_*E,f_*F)\) avec l'isomorphisme de dualité triviale</p>
+\[
+R\underline{\operatorname{Hom}}(f_*E,f_*F)\xrightarrow{\sim}
+f_*R\underline{\operatorname{Hom}}(f^*f_*E,F) \tag{2.1.4}
+\]
+<p>n'est autre que la flèche déduite de la flèche d'adjonction
+\(f^*f_*E\longrightarrow E\) par application de
+\(f_*R\underline{\operatorname{Hom}}(-,F)\). De même, le composé de (4) avec
+l'isomorphisme de dualité triviale</p>
+\[
+R\underline{\operatorname{Hom}}(f_*E,f_*F)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')\xrightarrow{\sim}
+f'_*R\underline{\operatorname{Hom}}(f^*f_*E\mathbin{\overset L\boxtimes}_S P',
+F\mathbin{\overset L\boxtimes}_S Q')
+\]
+<p>(\(f_*F\mathbin{\overset L\boxtimes}_S Q'\) étant identifié à
+\(f'_*(F\mathbin{\overset L\boxtimes}_S Q')\) par l'isomorphisme canonique)
+n'est autre que la flèche déduite de la flèche d'adjonction
+\(f^*f_*E\longrightarrow E\) par application de
+\(f'_*R\underline{\operatorname{Hom}}(-\mathbin{\overset L\boxtimes}_S P',
+F\mathbin{\overset L\boxtimes}_S Q')\). On est donc ramené à vérifier la
+commutativité du carré</p>
+\[
+\xymatrix{
+R\underline{\operatorname{Hom}}(f_*E,f_*F)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')\ar[r]^{(3)}\ar[d]&
+R\underline{\operatorname{Hom}}(f_*E\mathbin{\overset L\boxtimes}_S P',
+f_*F\mathbin{\overset L\boxtimes}_S Q')\ar[d]\\
+f_*R\underline{\operatorname{Hom}}(f^*f_*E,F)\mathbin{\overset L\boxtimes}_S
+R\underline{\operatorname{Hom}}(P',Q')\ar[r]^{(1')}&
+f'_*R\underline{\operatorname{Hom}}(f^*f_*E\mathbin{\overset L\boxtimes}_S P',
+F\mathbin{\overset L\boxtimes}_S Q'),
+}
+\]
+<p>où les flèches verticales sont les isomorphismes de dualité triviale et
+((1')) est (1) avec \(E\) remplacé par \(f^*f_*E\). Mais celle-ci est un cas
+particulier de celle de 2.6.1.1 dans le cas, déjà traité, où ((u,v)) est de
+type (2,1) (prendre \(u:f^*f_*E\longrightarrow f_*E\) donné par l'identité de
+\(f^*f_*E\), et \(v:F\longrightarrow f_*F\) donné par l'identité de \(f_*F\)).
+Nous avons donc prouvé 2.6.3. Comme on a vu, la commutativité de 2.6.2 en
+résulte, ce qui achève la démonstration de 2.6.1 et, finalement, de 2.5.</p>
+
+<!-- Source PDF page 17 (printed page 89) -->
+<h2 id="III.3">3. Correspondances cohomologiques.</h2>
+
+<p id="III.3.1"><b>3.1</b> Soient, pour \(i=1,2\), \(X_i\) un \(S\)-schéma,
+\(L_i\in\operatorname{ob}D_{ctf}(X_i)\), \(X=X_1\times_S X_2\),
+\(p_i:X\longrightarrow X_i\) et \(q_i:X_i\longrightarrow S\) les projections
+canoniques :</p>
+\[
+\xymatrix{
+&X\ar[dl]_{p_1}\ar[dr]^{p_2}&\\
+L_1\quad X_1\ar[dr]_{q_1}&&X_2\quad L_2\ar[dl]^{q_2}\\
+&S.&}
+\]
+<p>Avec les notations de 1.3, on a un isomorphisme canonique (2.2.4)</p>
+\[
+DL_1\mathbin{\overset L\boxtimes}_S L_2\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\boxtimes}_S A_{X_2},
+q_1^!A_S\mathbin{\overset L\boxtimes}_S L_2).
+\]
+<p>Composant avec l'isomorphisme de Kunneth
+\(q_1^!A_S\mathbin{\overset L\boxtimes}_S L_2\xrightarrow{\sim}p_2^!L_2\)
+(1.7.3), on obtient un isomorphisme</p>
+\[
+DL_1\mathbin{\overset L\boxtimes}_S L_2\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2). \tag{3.1.1}
+\]
+<p>Celui-ci jouera un rôle fondamental dans toute la suite. Pour \(X_1=S\),
+3.1.1 se réduit à
+\(L_1^\vee\mathbin{\overset L\otimes}L_2\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}(L_1,L_2)\), cas particulier d'un isomorphisme
+valable pour des complexes parfaits sur un topos annelé quelconque (SGA 6 I 7.7).
+Nous poserons</p>
+\[
+\begin{aligned}
+R\operatorname{Hom}_S(L_1,L_2)&=R\operatorname{Hom}(p_1^*L_1,p_2^!L_2),\\
+\operatorname{Hom}_S(L_1,L_2)&=\operatorname{Hom}(p_1^*L_1,p_2^!L_2).
+\end{aligned} \tag{3.1.2}
+\]
+<p>Les éléments de \(\operatorname{Hom}_S(L_1,L_2)\) s'appelleront
+<u>correspondances cohomologiques de \(L_1\) à \(L_2\)</u>. Au lieu de
+"correspondance cohomologique de \(A_{X_1}\) à \(A_{X_2}\)" nous dirons
+simplement "<u>correspondance cohomologique de \(X_1\) à \(X_2\)</u>"
+(sous-entendu : à coefficients dans \(A\)).</p>
+
+<p>Si \(X_1\) est lisse, purement de dimension relative \(r_1\), il en est de
+même de \(p_2\), et par le théorème de dualité (SGA 4 XVIII 3.2.5), on a</p>
+
+<!-- Source PDF page 18 (printed page 90) -->
+\[
+p_2^!L_2\xrightarrow{\sim}p_2^*L_2(r_1)[2r_1],
+\]
+<p>donc</p>
+\[
+\begin{aligned}
+R\operatorname{Hom}_S(L_1,L_2)&=
+R\operatorname{Hom}(p_1^*L_1,p_2^*L_2)(r_1)[2r_1],\\
+\operatorname{Hom}_S(L_1,L_2)&=
+H^{2r_1}(X,R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^*L_2)(r_1)).
+\end{aligned} \tag{3.1.3}
+\]
+<p>En particulier, le groupe des correspondances cohomologiques de \(X_1\)
+à \(X_2\) s'identifie dans ce cas à \(H^{2r_1}(X,A(r_1))\).</p>
+
+<p id="III.3.2"><b>3.2</b> Les correspondances cohomologiques qu'on rencontre
+dans la pratique sont associées à des \(S\)-morphismes
+\(X_2\longrightarrow X_1\), ou plus généralement des cycles de \(X\), ou des
+schémas au-dessus de \(X\). Soit \(c:C\longrightarrow X\) un schéma au-dessus
+de \(X\) (on dit parfois que \(c\) est une <u>correspondance</u> entre \(X_1\)
+et \(X_2\)), notons \(c_i=p_i c:C\longrightarrow X_i\) les projections. Nous
+appellerons <u>correspondances cohomologiques de \(L_1\) à \(L_2\) à support
+dans \(c\)</u> (ou \(C\), s'il n'y a pas de confusion à craindre) les éléments
+du groupe
+\(H^0(X,c_!R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2))\)
+(\(=\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\) si \(c\) est propre). D'après la
+formule d'induction (SGA 4 XVIII 3.1.12.2), on a un isomorphisme canonique</p>
+\[
+c^!R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2)
+\xrightarrow{\sim}R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2),
+\tag{3.2.1}
+\]
+<p>d'où, en appliquant \(c_!\) et composant avec la flèche d'adjonction
+\(c_!c^!\longrightarrow\operatorname{Id}\), des flèches canoniques</p>
+\[
+c_!R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2)
+\longrightarrow R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2),
+\tag{3.2.2}
+\]
+\[
+H^0(X,c_!R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2))
+\longrightarrow\operatorname{Hom}_S(L_1,L_2). \tag{3.2.3}
+\]
+<p>Toute correspondance de \(L_1\) à \(L_2\) à support dans \(C\) définit
+donc canoniquement, par 3.2.3, une correspondance (sans support) de \(L_1\)
+à \(L_2\).</p>
+
+<p><u>Exemples</u> : a) Supposons \(c\) propre et \(c_2\) de tor-dimension
+finie et de dimension relative \(\leq N\). Le morphisme trace
+(SGA 4<sup>1/2</sup> Cycle 2.3.3)</p>
+\[
+\operatorname{Tr}_{c_2}:c_{2!}A_C\longrightarrow A_{X_2}(-N)[-2N]
+\]
+<p>définit par adjonction une correspondance cohomologique de \(A_{X_1}\) à
+\(A_{X_2}(-N)[-2N]\)</p>
+
+<!-- Source PDF page 19 (printed page 91) -->
+<p>à support dans \(C\), qu'on appellera <u>classe de \((c,N)\)</u>, et qu'on
+notera</p>
+\[
+cl(c,N)\in H^{-2N}(C,c_2^!A_{X_2}(-N)). \tag{3.2.4}
+\]
+<p>Le cas le plus important est celui où \(N=0\), i.e. \(c_2\) fini (et de
+tor-dimension finie), auquel cas \(cl(c)\) est une correspondance cohomologique
+de \(X_1\) à \(X_2\) à support dans \(C\). Si \(X_1\) est lisse, purement de
+dimension relative \(r_1\), on a d'après 3.1.3 et 3.2.1,</p>
+\[
+H^{-2N}(C,c_2^!A_{X_2}(-N))=
+H^{2(r_1-N)}(C,c^!A_X(r_1-N)). \tag{3.2.5}
+\]
+<p>Si de plus \(c\) est une immersion fermée, le second membre se récrit
+\(H_C^{2(r_1-N)}(X,A_X(r_1-N))\), et la classe de \((c,N)\), considérée comme
+élément de ce groupe, n'est autre que la classe de cohomologie associée à
+\(c\) au sens de (SGA 4<sup>1/2</sup> Cycle 2.3.1), comme il résulte aussitôt
+des définitions.</p>
+
+<p>b) Soit \(F:X_2\longrightarrow X_1\) un \(S\)-morphisme, notons
+\(c(F):C(F)\longrightarrow X\) son graphe, i.e. l'image de la section de
+\(p_2\) définie par \(F\) ("ensemble des points \((Fx,x)\)") : \(c_2\) est un
+isomorphisme, et \(c_1c_2^{-1}=F\). On a donc des isomorphismes canoniques</p>
+\[
+\begin{aligned}
+R\operatorname{Hom}(c_1(F)^*L_1,c_2(F)^!L_2)&=
+R\operatorname{Hom}(F^*L_1,L_2),\\
+\operatorname{Hom}(c_1(F)^*L_1,c_2(F)^!L_2)&=
+\operatorname{Hom}(F^*L_1,L_2).
+\end{aligned} \tag{3.2.6}
+\]
+<p>En d'autres termes, les correspondances cohomologiques de \(L_1\) à
+\(L_2\) à support dans le graphe de \(F\) sont les "relèvements" de \(F\) en
+un homomorphisme \(F^*L_1\longrightarrow L_2\). Voici deux exemples importants
+de telles correspondances :</p>
+
+<p>(i) \(X_1=X_2\), \(L_1=L_2\), \(F=\) l'identité de \(X_1\), dont le graphe
+\(\Delta\) est la diagonale. La correspondance à support dans \(\Delta\)
+définie par l'identité de \(L_1\) s'appelle <u>correspondance diagonale</u>.
+C'est l'élément</p>
+\[
+1\in\operatorname{Hom}(L_1,L_1)=
+H^0_\Delta(X,R\underline{\operatorname{Hom}}_S(L_1,L_1))
+\]
+<p>(groupe qui s'identifie à</p>
+
+<!-- Source PDF page 20 (printed page 92) -->
+\[
+H^{2r}_\Delta(X,R\underline{\operatorname{Hom}}_S(L_1,L_1)(r))
+\quad\text{quand }X_1\text{ est lisse, purement de dimension relative }r).
+\]
+
+<p>(ii) On suppose que \(S\) est le spectre d'un corps fini
+\(\mathbb{F}_q\), que \(X_1=X_2\), \(L_1=L_2\), et on prend pour
+\(F:X_1\longrightarrow X_1\) l'endomorphisme de Frobenius relatif à
+\(\mathbb{F}_q\), identité sur l'espace sous-jacent et élévation à la puissance
+\(q\)-ième sur \(\mathcal{O}_{X_1}\) (cf. XIV), et pour relèvement de \(F\) à
+\(L_1\) l'isomorphisme canonique \(F^*L_1\xrightarrow{\sim}L_1\)
+((loc. cit. §2 prop. 1) (plus exactement, le \(a\)-ième itéré de
+l'isomorphisme de (loc. cit.), si \(q=p^a\)). La correspondance cohomologique
+de \(L_1\) à \(L_1\) à support dans le graphe de \(F\) ainsi définie s'appelle
+<u>correspondance de Frobenius</u> (relative à \(\mathbb{F}_q\)).</p>
+
+<p>c) Certaines correspondances cohomologiques entre faisceaux sur des courbes,
+liées aux opérateurs de Hecke, ont été étudiées par Langlands dans ([13] §7).</p>
+
+<p>d) Les correspondances cohomologiques entre faisceaux constants (les plus
+fréquentes dans la nature) fournissent de façon naturelle, par "intégration",
+des correspondances cohomologiques entre complexes, comme nous allons le voir
+maintenant.</p>
+
+<p id="III.3.3"><b>3.3</b> Soient, pour \(i=1,2\),
+\(f_i:X_i\longrightarrow Y_i\) un \(S\)-morphisme,
+\(f=f_1\times_S f_2:X\longrightarrow Y\),
+\(f'_1=f_1\times_S Y_2\), \(f'_2=Y_1\times_S f_2\),
+\(p'_1=X_1\times_S f_2\), \(p'_2=f_1\times_S X_2\) :</p>
+\[
+\xymatrix{
+X_1\times_S Y_2\ar[d]_{f'_1}&X\ar[l]_{p'_1}\ar[dl]^f\ar[d]^{p'_2}\\
+Y&Y_1\times_S X_2\ar[l]^{f'_2}.
+} \tag{3.3.0}
+\]
+<p>Soient \(L_i\in\operatorname{ob}D_{ctf}(X_i)\). Il existe un unique
+isomorphisme</p>
+\[
+f_*R\operatorname{Hom}_S(L_1,L_2)\xrightarrow{\sim}
+R\operatorname{Hom}_S(f_{1!}L_1,f_{2*}L_2) \tag{3.3.1}
+\]
+<p>dont l'inverse rende commutatif le carré</p>
+
+<!-- Source PDF page 21 (printed page 93) -->
+\[
+\begin{CD}
+D(f_{1!}L_1)\mathbin{\overset L\otimes}_S f_{2*}L_2 @>{3.1.1}>>
+R\underline{\operatorname{Hom}}_S(f_{1!}L_1,f_{2*}L_2)\\
+@V{(1)}VV @VVV\\
+f_{1*}D L_1\mathbin{\overset L\otimes}_S f_{2*}L_2 @>{(2)}>>
+f_*R\underline{\operatorname{Hom}}_S(L_1,L_2),
+\end{CD}
+\]
+<p>où (1) est déduit de l'inverse de l'isomorphisme de dualité
+(SGA 4 XVIII 3.1.9.6)
+\(D f_{1!}L_1\xrightarrow{\sim}f_{1*}D L_1\) par application de
+\(\mathbin{\overset L\otimes}_S f_{2*}L_2\), et (2) est composé de
+l'isomorphisme de Künneth
+\(f_{1*}D L_1\mathbin{\overset L\otimes}_S f_{2*}L_2
+\xrightarrow{\sim}f_*(D L_1\mathbin{\overset L\otimes}_S L_2)\)
+et de \(f_*(3.1.1)\). Par application de \(R\Gamma(Y,-)\) on déduit de
+3.3.1 un isomorphisme</p>
+\[
+f_*:\operatorname{Hom}_S(L_1,L_2)\xrightarrow{\sim}
+\operatorname{Hom}_S(f_{1!}L_1,f_{2*}L_2). \tag{3.3.2}
+\]
+<p>Pour \(u\in\operatorname{Hom}_S(L_1,L_2)\), la correspondance
+\(f_*u\) sera dite <u>image directe</u> de \(u\) par \(f\). Quand
+\(Y_1=Y_2=S\), nous écrirons plutôt \(u_*\) que \(f_*u\). Si
+\(Y_1=Y_2=S\) est le spectre d'un corps séparablement clos, 3.3.2 s'écrit</p>
+\[
+\operatorname{Hom}_S(L_1,L_2)\xrightarrow{\sim}
+\operatorname{Hom}(R\Gamma_c(X_1,L_1),R\Gamma(X_2,L_2)). \tag{3.3.3}
+\]
+<p>Ainsi, les correspondances cohomologiques "opèrent" sur la cohomologie.
+L'énoncé ci-après va nous permettre d'interpréter cette opération de diverses
+manières, et notamment de faire le lien avec les définitions habituelles dans
+des situations telles que a) ou b) ci-dessus.</p>
+
+<p id="III.3.4"><b>Proposition 3.4</b> — <u>Avec les notations de 3.3.0, on a
+un diagramme commutatif d'isomorphismes de \(D_{ctf}(Y)\)</u> :</p>
+\[
+\xymatrix{
+&R\underline{\operatorname{Hom}}_S(f_{1!}L_1,f_{2*}L_2)
+\ar[dl]_{(1)}\ar[dr]^{(2)}\ar[d]&\\
+f'_{1*}R\underline{\operatorname{Hom}}_S(L_1,f_{2*}L_2)
+\ar[dr]_{f'_{1*}(3)}&&
+f'_{2*}R\underline{\operatorname{Hom}}_S(f_{1!}L_1,L_2)
+\ar[dl]^{f'_{2*}(4)}\\
+&f_*R\underline{\operatorname{Hom}}_S(L_1,L_2)&
+} \tag{3.4.1}
+\]
+<p><u>où (5) est l'inverse de 3.3.1 et les flèches (1) à (4) sont définies
+par les diagrammes commutatifs ci-après, dans lesquels "ch. b." désigne une
+flèche déduite</u></p>
+
+<!-- Source PDF page 22 (printed page 94) -->
+<p><u>d'un isomorphisme de changement de base ou de Künneth de l'un des types
+envisagés au nº1, "dual." une flèche déduite d'un isomorphisme de dualité de
+type 2.1.4 ou (SGA 4 XVIII 3.1.9.6), "triv." un isomorphisme trivial</u>.</p>
+\[
+\begin{CD}
+R\underline{\operatorname{Hom}}(f_{1!}L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+K_{Y_1}\mathbin{\overset L\otimes}_S f_{2*}L_2) @>{\mathrm{ch.b.}}>>
+R\underline{\operatorname{Hom}}_S(f_{1!}L_1,f_{2*}L_2)\\
+@V{\mathrm{ch.b.}}VV @VV{(1)}V\\
+R\underline{\operatorname{Hom}}(f'_{1!}(L_1\mathbin{\overset L\otimes}_S A_{Y_2}),
+K_{Y_1}\mathbin{\overset L\otimes}_S f_{2*}L_2) @.\\
+@V{\mathrm{dual.}}VV @.\\
+f'_{1*}R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+f_1'^!(K_{Y_1}\mathbin{\overset L\otimes}_S f_{2*}L_2)) @.\\
+@V{\mathrm{ch.b.}}VV @.\\
+f'_{1*}R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+K_{X_1}\mathbin{\overset L\otimes}_S f_{2*}L_2) @>{\mathrm{ch.b.}}>>
+f'_{1*}R\underline{\operatorname{Hom}}_S(L_1,f_{2*}L_2)
+\end{CD}
+\]
+\[
+\begin{CD}
+R\underline{\operatorname{Hom}}(f_{1!}L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+K_{Y_1}\mathbin{\overset L\otimes}_S f_{2*}L_2) @>{\mathrm{ch.b.}}>>
+R\underline{\operatorname{Hom}}_S(f_{1!}L_1,f_{2*}L_2)\\
+@V{\mathrm{ch.b.}}VV @VV{(2)}V\\
+R\underline{\operatorname{Hom}}(f_{1!}L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+f_2'^!(K_{Y_1}\mathbin{\overset L\otimes}_S L_2)) @.\\
+@V{\mathrm{dual.}}VV @.\\
+f'_{2*}R\underline{\operatorname{Hom}}(f_2'^*(f_{1!}L_1\mathbin{\overset L\otimes}_S A_{Y_2}),
+K_{Y_1}\mathbin{\overset L\otimes}_S L_2) @.\\
+@V{\mathrm{triv.}}VV @.\\
+f'_{2*}R\underline{\operatorname{Hom}}(f_{1!}L_1\mathbin{\overset L\otimes}_S A_{X_2},
+K_{Y_1}\mathbin{\overset L\otimes}_S L_2) @>{\mathrm{ch.b.}}>>
+f'_{2*}R\underline{\operatorname{Hom}}_S(f_{1!}L_1,L_2)
+\end{CD}
+\]
+
+<!-- Source PDF page 23 (printed page 95) -->
+\[
+\begin{CD}
+R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+K_{X_1}\mathbin{\overset L\otimes}_S f_{2*}L_2) @>{\mathrm{ch.b.}}>>
+R\underline{\operatorname{Hom}}_S(L_1,f_{2*}L_2)\\
+@V{\mathrm{ch.b.}}VV @VV{(3)}V\\
+R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{Y_2},
+p_1'^!(K_{X_1}\mathbin{\overset L\otimes}_S L_2)) @.\\
+@V{\mathrm{dual.}}VV @.\\
+p'_{1*}R\underline{\operatorname{Hom}}(p_1'^*(L_1\mathbin{\overset L\otimes}_S A_{Y_2}),
+K_{X_1}\mathbin{\overset L\otimes}_S L_2) @.\\
+@V{\mathrm{triv.}}VV @.\\
+p'_{1*}R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{X_2},
+K_{X_1}\mathbin{\overset L\otimes}_S L_2) @>{\mathrm{ch.b.}}>>
+p'_{1*}R\underline{\operatorname{Hom}}_S(L_1,L_2)
+\end{CD}
+\]
+\[
+\begin{CD}
+R\underline{\operatorname{Hom}}(f_{1!}L_1\mathbin{\overset L\otimes}_S A_{X_2},
+K_{Y_1}\mathbin{\overset L\otimes}_S L_2) @>{\mathrm{ch.b.}}>>
+R\underline{\operatorname{Hom}}_S(f_{1!}L_1,L_2)\\
+@V{\mathrm{ch.b.}}VV @VV{(4)}V\\
+R\underline{\operatorname{Hom}}(p'_{2!}(L_1\mathbin{\overset L\otimes}_S A_{X_2}),
+K_{Y_1}\mathbin{\overset L\otimes}_S L_2) @.\\
+@V{\mathrm{dual.}}VV @.\\
+p'_{2*}R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{X_2},
+p_2'^!(K_{Y_1}\mathbin{\overset L\otimes}_S L_2)) @.\\
+@V{\mathrm{ch.b.}}VV @.\\
+p'_{2*}R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S A_{X_2},
+K_{X_1}\mathbin{\overset L\otimes}_S L_2) @>{\mathrm{ch.b.}}>>
+p'_{2*}R\underline{\operatorname{Hom}}_S(L_1,L_2).
+\end{CD}
+\]
+<p>Ce n'est qu'une explication de 2.5 dans le cas particulier où
+\((u_1,v_1):(L_1,K_{X_1})\longrightarrow(f_{1!}L_1,K_{Y_1})\) est donné
+par l'identité de \(f_{1!}L_1\) et l'isomorphisme canonique
+\(f_1^!K_{Y_1}\xrightarrow{\sim}K_{X_1}\),
+\((u_2,v_2):(A_{X_2},L_2)\longrightarrow(A_{Y_2},f_{2*}L_2)\) par
+l'isomorphisme canonique \(A_{X_2}\xrightarrow{\sim}f_2^*A_{Y_2}\) et
+l'identité de \(f_{2*}L_2\).</p>
+
+<p id="III.3.5"><b>Corollaire 3.5</b> — <u>On suppose que
+\(Y_1=Y_2=S\). Soit \(u\in\operatorname{Hom}_S(L_1,L_2)\). L'image directe
+\(f_*u\in\operatorname{Hom}(f_{1!}L_1,f_{2*}L_2)\) (3.3.2) peut s'obtenir
+des deux manières équivalentes suivantes</u> :</p>
+
+<!-- Source PDF page 24 (printed page 96) -->
+<p>a) <u>On s'identifie \(u\), par dualité triviale, à une flèche
+\(L_1\longrightarrow p_{1*}p_2^!L_2\) ; on compose avec l'isomorphisme de
+changement de base
+\(p'_{1*}p_2'^!L_2\xrightarrow{\sim}f_1^!f_{2*}L_2\) ; \(f_*u\) est
+l'adjointe de cette flèche composée.</u></p>
+
+<p>b) <u>On identifie \(u\), par adjonction, à une flèche
+\(p_{2!}p_1^*L_1\longrightarrow L_2\) ; on compose avec l'isomorphisme de
+changement de base
+\(f_2^*f_{1!}L_1\xrightarrow{\sim}p_{2!}p_1'^*L_1\) ; \(f_*u\) est
+l'adjointe de cette flèche composée.</u></p>
+
+<p>La description a) (resp. b)) correspond en effet au trajet
+\((f_{1*}'(3)\circ(1))^{-1}\) (resp. \(f'_{2*}(4)\circ(2)\)) de 3.4.1.</p>
+
+<p id="III.3.6"><b>3.6</b> Dans la pratique, c'est surtout la description
+3.5 b) qui est utilisée. Explicitons-la au niveau des classes de cohomologie,
+en supposant, pour alléger l'écriture, que \(S\) est le spectre d'un corps
+séparablement clos. Soit
+\(u\in\operatorname{Hom}_S(L_1,L_2)=
+\operatorname{Hom}(p_1^*L_1,p_2^!L_2)\). Pour
+\(x\in H_c^i(X_1,L_1)\), \(u_*(x)\in H^i(X_2,L_2)\) est défini comme suit :
+on considère l'élément \(p_1^*x\in H_c^i(X_2,p_{2!}p_1^*L_1)\) déduit de
+\(x\) par image inverse, on lui applique \(u\), i.e. on forme le produit
+\(u.p_1^*x\in H^i(X_2,p_{2!}p_2^!L_2)\), puis l'on applique la flèche
+\(a:H^i(X_2,p_{2!}p_2^!L_2)\longrightarrow H^i(X_2,L_2)\) définie par la
+flèche d'adjonction \(p_{2!}p_2^!\longrightarrow\operatorname{Id}\) ; en
+résumé :</p>
+\[
+u_*(x)=a(u.p_1^*x). \tag{3.6.1}
+\]
+<p>Soient \(c:C\longrightarrow X\) un morphisme propre, et
+\(u\in\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\). Notons
+\(u_*\in\operatorname{Hom}(R\Gamma_c(X_1,L_1),R\Gamma(X_2,L_2))\) l'image
+de \(u\) par le composé de 3.2.3 et 3.3.3. Il découle de 3.6.1 que, pour
+\(x\in H_c^i(X_1,L_1)\), on a</p>
+\[
+u_*(x)=a(u.c_1^*x), \tag{3.6.2}
+\]
+<p>où \(c_1^*x\) est l'image inverse de \(x\) dans
+\(H_c^i(X_2,c_{2!}c_1^*L_1)\) et
+\(a:H^i(X_2,c_{2!}c_2^!L_2)\longrightarrow H^i(X_2,L_2)\) est la flèche
+déduite de l'adjonction \(c_{2!}c_2^!L_2\longrightarrow\operatorname{Id}\).
+Dans la situation de l'exemple 3.2 a), on trouve ainsi que</p>
+\[
+c\ell(c,N)_*(x)=\operatorname{Tr}_{c_2}(c_1^*x), \tag{3.6.3}
+\]
+
+<!-- Source PDF page 25 (printed page 97) -->
+<p>où
+\(\operatorname{Tr}_{c_2}:H^i(X_2,Rc_{2!}A_C)\longrightarrow
+H^{i-2N}(X_2,A(-N))\) est la flèche induite par le morphisme trace relatif
+à \(c_2\). Cette formule concorde, pour \(N=0\), avec
+(SGA 4<sup>1/2</sup> Cycle 3.6) : \(c\ell(c)_*\) est l'homomorphisme noté
+\(\eta_{X_2X_1}\) dans (loc. cit.). Si \(X_1\) est lisse, purement de
+dimension relative \(r_1\), et \(c\) une immersion fermée, il découle de
+3.6.1 et de la remarque faite à la fin de 3.2 a) que l'on a aussi</p>
+\[
+c\ell(c,N)_*(x)=\operatorname{Tr}_{p_2}(c\ell(C)p_1^*x), \tag{3.6.4}
+\]
+<p>où \(c\ell(C)\in H_C^{2(r_1-N)}(X,A(r_1-N))\) est la classe de
+cohomologie de \(C\) et
+\(\operatorname{Tr}_{p_2}:H^*(X_2,Rp_{2!}A_X)\longrightarrow
+H^{*-2r_1}(X_2,A(-r_1))\) la flèche définie par le morphisme trace relatif
+à \(p_2\). On retrouve la définition habituelle de l'homomorphisme induit
+sur la cohomologie par une correspondance ([12] 1.3),
+(SGA 4<sup>1/2</sup> Cycle 3.2).</p>
+
+<p><b>3.6.5.</b> Dans la situation de 3.2 b), il découle de 3.6.2 que, pour
+\(u\in\operatorname{Hom}(F^*L_1,L_2)\),
+\(u_*:H_c^i(X_1,L_1)\longrightarrow H^i(X_2,L_2)\) est le composé de
+l'homomorphisme "image inverse"
+\(H_c^i(X_1,L_1)\longrightarrow H^i(X_2,F^*L_1)\) et de l'homomorphisme
+induit par \(u\) (plus généralement
+\(f_*u:Rf_{1!}L_1\longrightarrow Rf_{2*}L_2\) est composé de
+l'homomorphisme canonique
+\(Rf_{1!}L_1\longrightarrow Rf_{2*}F^*L_1\) et de \(Rf_{2*}u\)). En
+particulier, la correspondance diagonale induit la flèche canonique
+\(Rf_{1!}L_1\longrightarrow Rf_{1*}L_1\) (l'identité si \(X_1\) est propre
+sur \(S\)).</p>
+
+<p id="III.3.7"><b>3.7</b> Revenons à la situation du début de 3.3, en
+supposant donné en outre un carré commutatif</p>
+\[
+\xymatrix{
+X& C\ar[l]_c\\
+Y\ar[u]^f& D\ar[l]^d\ar[u]_g
+} \tag{3.7.1}
+\]
+<p>avec \(c\) propre. Posons \(c_i=p_i c\), \(d_i=q_i d\), où
+\(p_i:X\longrightarrow X_i\), \(q_i:Y\longrightarrow Y_i\) sont les
+projections. On déduit de 3.7.1 un diagramme commutatif où le carré intérieur
+est cartésien :</p>
+
+<!-- Source PDF page 26 (printed page 98) -->
+\[
+\xymatrix{
+&&C\ar[dl]_c\ar[d]_i\ar[ddl]^g\\
+X&C'\ar[l]_{c'}\ar[dr]^{g'}\\
+Y&D\ar[l]^d
+} \tag{3.7.2}
+\]
+<p>Pour \(K\in\operatorname{ob}D_{ctf}(X)\), on a une flèche canonique</p>
+\[
+f_*c_*c'^!K\longrightarrow d_*d'^!f_*K, \tag{3.7.3}
+\]
+<p>composée de la flèche</p>
+\[
+f_*c_*c'^!K=f_*c_*i_*i^!c'^!K\longrightarrow
+f_*c_*c'^!K=d_*g_*c'^!K
+\]
+<p>définie par la flèche d'adjonction \(i_*i^!\longrightarrow\operatorname{Id}\),
+et de l'isomorphisme</p>
+\[
+d_*g_*c'^!K\xrightarrow{\sim}d_*d'^!f_*K
+\]
+<p>défini par l'isomorphisme canonique
+\(g_*d'^!\xrightarrow{\sim}d'^!f_*\) (SGA 4 XVIII 3.1.12.3). Prenant
+\(K=R\underline{\operatorname{Hom}}_S(L_1,L_2)\), et composant 3.7.3 avec
+l'isomorphisme déduit de 3.3.1, on trouve une flèche canonique</p>
+\[
+f_*c_*c'^!R\underline{\operatorname{Hom}}_S(L_1,L_2)
+\longrightarrow d_*d'^!R\underline{\operatorname{Hom}}_S(f_{1!}L_1,f_{2*}L_2),
+\tag{3.7.4}
+\]
+<p>qui, grâce à 3.2.1, peut se récrire</p>
+\[
+f_*c_*R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2)
+\longrightarrow d_*R\underline{\operatorname{Hom}}(d_1^*(f_{1!}L_1),d_2^!(f_{2*}L_2)).
+\tag{3.7.5}
+\]
+<p>On en déduit</p>
+\[
+f_*:\operatorname{Hom}(c_1^*L_1,c_2^!L_2)longrightarrow
+\operatorname{Hom}(d_1^*(f_{1!}L_1),d_2^!(f_{2*}L_2)). \tag{3.7.6}
+\]
+<p>La flèche 3.7.5 (resp. 3.7.6) généralise 3.3.1 (resp. 3.3.2), avec
+laquelle elle coïncide quand \(c\) et \(d\) sont l'identité. Notons aussi
+que, pour \(c\) propre, 3.2.2 (resp. 3.2.3) n'est autre que 3.7.5 (resp.
+3.7.6) quand \(f_1\), \(f_2\) et \(d\) sont les flèches identiques. Quand
+\(Y_1=Y_2=S=D\), nous abrégerons \(f_*u\) en \(u_*\), comme plus haut.</p>
+
+<!-- Source PDF page 27 (printed page 99) -->
+<h2 id="III.4">4. Accouplements de correspondances. Formule de Lefschetz.</h2>
+
+<p id="III.4.1"><b>4.1</b> Soient, pour \(i=1,2\), \(X_i\) un
+\(S\)-schéma, \(X=X_1\times_SX_2\), \(p_i:X\longrightarrow X_i\) les
+projections, \(L_i\in\operatorname{ob}D_{ctf}(X_i)\), \(K_{X_i}\) le
+complexe dualisant (1.3). Les flèches canoniques</p>
+\[
+p_i^*R\underline{\operatorname{Hom}}(L_i,K_{X_i})
+\mathbin{\overset L\otimes}p_i^*L_i\longrightarrow p_i^*K_{X_i}, \tag{4.1.1}
+\]
+<p>composées de 2.1.1 et de la flèche d'évaluation 2.2.2, donnent, par
+produit tensoriel sur \(X\) et composition avec l'isomorphisme de Künneth
+1.7.6, un accouplement</p>
+\[
+(DL_1\mathbin{\overset L\otimes}_S L_2)\mathbin{\overset L\otimes}
+(L_1\mathbin{\overset L\otimes}_S DL_2)\longrightarrow K_X, \tag{4.1.2}
+\]
+<p>qu'on peut récrire, grâce à 3.1.1, 3.1.2,</p>
+\[
+R\underline{\operatorname{Hom}}_S(L_1,L_2)\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}_S(L_2,L_1)\longrightarrow K_X. \tag{4.1.3}
+\]
+<p>On en déduit un accouplement, dit cup-produit,</p>
+\[
+\langle\ ,\ \rangle:\operatorname{Hom}_S(L_1,L_2)\otimes
+\operatorname{Hom}_S(L_2,L_1)\longrightarrow H^0(X,K_X). \tag{4.1.4}
+\]
+<p>On peut encore considérer 4.1.2 comme le produit tensoriel externe des
+flèches d'évaluation \(DL_i\mathbin{\overset L\otimes}L_i\longrightarrow
+K_{X_i}\). Compte tenu de l'isomorphisme de Künneth 2.2.4, on voit ainsi
+que 4.1.2 est une "dualité parfaite", i.e. identifie par l'isomorphisme
+d'adjonction 2.2.1 chacun des complexes
+\(DL_1\mathbin{\overset L\otimes}_S L_2\),
+\(L_1\mathbin{\overset L\otimes}_S DL_2\) au dual de l'autre (à valeurs
+dans \(K_X\)).</p>
+
+<p>Quand \(X_1=X_2=S\), 4.1.3 est cas particulier d'un accouplement valable
+pour des complexes parfaits sur un topos annelé quelconque (SGA 6 I 7.8),
+et, avec les notations de (SGA 6 I 8.3), on a</p>
+\[
+\langle u,v\rangle=\operatorname{Tr}(vu)=\operatorname{Tr}(uv). \tag{4.1.5}
+\]
+
+<p id="III.4.2"><b>4.2</b> Soient \(c:C\longrightarrow X\),
+\(d:D\longrightarrow X\), \(e=c\times_Xd:E=C\times_XD\longrightarrow X\).
+Pour \(P,Q\in\operatorname{ob}D_{ctf}(X)\), on dispose d'une flèche canonique
+(qui n'est pas un isomorphisme en général)</p>
+
+<!-- Source PDF page 28 (printed page 100) -->
+\[
+c'^!P\mathbin{\overset L\otimes}d'^!Q\longrightarrow
+e'^!(P\mathbin{\overset L\otimes}Q), \tag{4.2.1}
+\]
+<p>définie, de la même manière que 1.7.3, comme adjointe de la flèche composée</p>
+\[
+e_!(c'^!P\mathbin{\overset L\otimes}_X d'^!Q)
+\xrightarrow[(1)]{\sim}c_!c'^!P\mathbin{\overset L\otimes}_X d_!d'^!Q
+\xrightarrow{(2)}P\mathbin{\overset L\otimes}Q,
+\]
+<p>où (1) est l'isomorphisme de Künneth (SGA 4 XVII 5.4.2.2) et (2) le
+produit tensoriel des flèches d'adjonction. Appliquant \(e_!\) à 4.2.1 et
+composant avec l'isomorphisme de Künneth qu'on vient de citer, on obtient
+une flèche canonique</p>
+\[
+c_!c'^!P\mathbin{\overset L\otimes}d_!d'^!Q
+\longrightarrow e_!e'^!(P\mathbin{\overset L\otimes}Q). \tag{4.2.2}
+\]
+<p>De même, composant la flèche de Künneth
+\(c_*c'^!P\mathbin{\overset L\otimes}d_*d'^!Q\longrightarrow
+e_*(c'^!P\mathbin{\overset L\otimes}_X d'^!Q)\) avec la flèche déduite de
+4.2.1 par application de \(e_*\), on obtient une flèche canonique</p>
+\[
+c_*c'^!P\mathbin{\overset L\otimes}d_*d'^!Q
+\longrightarrow e_*e'^!(P\mathbin{\overset L\otimes}Q). \tag{4.2.3}
+\]
+<p>Pour \(P=DL_1\mathbin{\overset L\otimes}_S L_2\),
+\(Q=L_1\mathbin{\overset L\otimes}_S DL_2\), on déduit de 4.2.2, 4.2.3,
+par composition avec 4.1.2 et l'isomorphisme \(e'^!K_X=K_E\), et avec les
+identifications 3.1.1, 3.2.1, des accouplements</p>
+\[
+c_!R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2)
+\mathbin{\overset L\otimes}
+d_!R\underline{\operatorname{Hom}}(d_2^*L_2,d_1^!L_1)
+\longrightarrow e_!K_E, \tag{4.2.4}
+\]
+\[
+c_*R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2)
+\mathbin{\overset L\otimes}
+d_*R\underline{\operatorname{Hom}}(d_2^*L_2,d_1^!L_1)
+\longrightarrow e_*K_E, \tag{4.2.4}'
+\]
+\[
+\langle\ ,\ \rangle:\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\otimes
+\operatorname{Hom}(d_2^*L_2,d_1^!L_1)\longrightarrow H^0(E,K_E). \tag{4.2.5}
+\]
+<p>Ces accouplements sont compatibles à la localisation étale : étant donné
+un carré commutatif (non nécessairement cartésien)</p>
+\[
+\xymatrix{E'\ar[d]&C'\ar[l]\ar[d]&D'\ar[l]\ar[d]\\
+E&C\ar[l]&D\ar[l]}\qquad\text{étale au-dessus de}\qquad X,
+\]
+<p>si l'on note \(c'\), \(d'\), \(e'\) les composés
+\(C'\longrightarrow C\longrightarrow X\),
+\(D'\longrightarrow D\longrightarrow X\),
+\(E'\longrightarrow E\longrightarrow X\), on a un carré commutatif</p>
+
+<!-- Source PDF page 29 (printed page 101) -->
+\[
+\xymatrix{
+\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\otimes
+\operatorname{Hom}(d_2^*L_2,d_1^!L_1)\ar[r]^{4.2.5}\ar[d]&
+H^0(E,K_E)\ar[d]\\
+\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\otimes
+\operatorname{Hom}(d_2'^*L_2,d_1'^!L_1)\ar[r]&H^0(E',K_{E'})
+} \tag{4.2.6}
+\]
+<p>où les flèches verticales sont les restrictions, et la flèche horizontale
+inférieure est composée de la flèche analogue à 4.2.5 et de la restriction
+\(H^0(E'',K_{E''})\longrightarrow H^0(E',K_{E'})\), avec
+\(E''=C'\times_XD'\) (on a des carrés commutatifs analogues avec des flèches
+du type 4.2.4, 4.2.4', qu'on laisse au lecteur le soin d'écrire). Si \(Z\)
+est étale sur \(E\), on notera, pour
+\(u\in\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\),
+\(v\in\operatorname{Hom}(d_2^*L_2,d_1^!L_1)\),</p>
+\[
+\langle u,v\rangle_Z\in H^0(Z,K_Z) \tag{4.2.7}
+\]
+<p>l'image de \(\langle u,v\rangle\) dans \(H^0(Z,K_Z)\) par restriction
+(dans la pratique, \(Z\) sera une composante connexe de \(E\)). Si \(z\)
+est un point fermé isolé de \(E\), \(\bar z\) un point géométrique au-dessus
+de \(z\), il découle de 4.2.6 que
+\(\langle u,v\rangle_z\in H^0(z,K_z)=A\) ne dépend que de la situation
+déduite par localisation stricte aux images de \(\bar z\) dans \(C,D,X\).</p>
+
+<p id="III.4.3"><u>Exemple</u> 4.3 — On suppose que \(X_i\) est lisse,
+purement de dimension relative \(r_i\), et que \(c\) et \(d\) sont des
+immersions fermées, avec \(c_2\) (resp. \(d_1\)) fini. Pour
+\(L_1=A_{X_1}\), \(L_2=A_{X_2}\), on a, d'après 3.1.3,</p>
+\[
+DL_1\mathbin{\overset L\otimes}_S L_2=A_X(r_1)[2r_1],\qquad
+L_1\mathbin{\overset L\otimes}_S DL_2=A_X(r_2)[2r_2],
+\]
+<p>et 4.1.2 s'identifie au produit</p>
+\[
+A_X(r_1)[2r_1]\mathbin{\overset L\otimes}A_X(r_2)[2r_2]
+\longrightarrow A_X(r)[2r]
+\]
+<p>(où \(r=r_1+r_2\)), et par suite, compte tenu de 3.2.1, 4.2.5
+s'identifie au cup-produit habituel</p>
+\[
+H_C^{2r_1}(X,A(r_1))\otimes H_D^{2r_2}(X,A(r_2))
+\longrightarrow H_{C\cap D}^{2r}(X,A(r)).
+\]
+<p>Prenons comme correspondance cohomologique de \(X_1\) à \(X_2\) (resp.
+\(X_2\) à \(X_1\)) la classe de \(c\) (resp. \(d\)) (3.2.a)). Il résulte
+de (SGA 4<sup>1/2</sup> Cycle 2.3.8) qu'en un point isolé</p>
+
+<!-- Source PDF page 30 (printed page 102) -->
+<p>\(z\) de \(C\cap D\), \(\langle cl(c),cl(d)\rangle_z\) n'est autre que
+l'image dans \(A\) de la multiplicité d'intersection de \(C\) et \(D\)
+en \(z\).</p>
+
+<p>Voici maintenant le résultat principal de l'exposé.</p>
+
+<div class="thm thm-plain theorem" id="III.4.4">
+<div class="thm-head"><span class="thm-name">Théorème</span>
+<span class="thm-num">4.4.</span></div>
+<div class="thm-body"><p>Soient, pour \(i=1,2\),
+\(f_i:X_i\longrightarrow Y_i\) un \(S\)-morphisme propre,
+\(f=f_1\times_Sf_2:X\longrightarrow Y\),
+\(p_i:X\longrightarrow X_i\), \(q_i:Y\longrightarrow Y_i\) les projections.
+Soit d'autre part</p>
+\[
+\xymatrix{
+&C'\ar[dl]_{c'}&C\ar[l]\ar[dl]_c\ar[d]^g\\
+X&C''\ar[l]_{c''}\ar[u]\ar[d]^{f'}&D\ar[l]\ar[d]\\
+Y&D''\ar[l]_{d''}&D'\ar[l]\ar[ul]_{d'}
+} \tag{4.4.0}
+\]
+<p>un cube commutatif à faces horizontales cartésiennes, avec \(c'\),
+\(c''\), \(d'\), \(d''\) propres. On pose
+\(c_i'=p_ic'\), \(c_i''=p_ic''\), \(d_i'=q_id'\), \(d_i''=q_id''\).
+Enfin, soient \(L_i\in\operatorname{ob}D_{ctf}(X_i)\). On a alors un carré
+commutatif</p>
+\[
+\xymatrix{
+f_*c_*'R\underline{\operatorname{Hom}}(c_1'^*L_1,c_2'^!L_2)
+\mathbin{\overset L\otimes}
+f_*c_*''R\underline{\operatorname{Hom}}(c_2''^*L_2,c_1''^!L_1)
+\ar[r]^{(1)}\ar[d]_{(2)}&f_*c_*K_C\ar[d]^{(4)}\\
+d_*'R\underline{\operatorname{Hom}}(d_1'^*M_1,d_2'^!M_2)
+\mathbin{\overset L\otimes}
+d_*''R\underline{\operatorname{Hom}}(d_2''^*M_2,d_1''^!M_1)
+\ar[r]^{(3)}&d_*K_D
+} \tag{4.4.1}
+\]
+<p>où \(M_i=f_{i*}L_i\), (3) est donné par 4.2.4, (1) déduit de 4.2.4
+par application de \(f_*\) et composition avec la flèche canonique
+\(f_*c_*'E\mathbin{\overset L\otimes}f_*c_*''F\longrightarrow
+f_*(c_*'E\mathbin{\overset L\otimes}c_*''F)\), (2) est produit tensoriel
+des flèches 3.7.5 relatives aux faces contenant \(f\), et (4) est défini
+par la flèche d'adjonction \(g_*K_C=g_*g^!K_D\longrightarrow K_D\).</p>
+</div></div>
+
+<p><u>Démonstration</u> — Posons
+\(DL_1\mathbin{\overset L\otimes}_S L_2=P\),
+\(L_1\mathbin{\overset L\otimes}_S DL_2=Q\),
+\(DM_1\mathbin{\overset L\otimes}_S M_2=E\),
+\(M_1\mathbin{\overset L\otimes}_S DM_2=F\). Considérons le diagramme</p>
+
+<!-- Source PDF page 31 (printed page 103) -->
+\[
+\xymatrix{
+f_*c_*'c'^!P\mathbin{\overset L\otimes}f_*c_*''c''^!Q\ar[r]^{(1)}\ar[d]_{(8)}&
+f_*c_*c^!(P\mathbin{\overset L\otimes}Q)\ar[r]^{(2)}\ar[d]_{(9)}&f_*c_*c^!K_X\ar[d]^{(10)}\\
+d_*'d'^!f_*P\mathbin{\overset L\otimes}d_*''d''^!f_*Q\ar[r]^{(3)}\ar[d]_{(11)}&
+d_*d'^!(f_*P\mathbin{\overset L\otimes}f_*Q)\ar[r]^{(4)}\ar[d]_{(12)}&
+d_*d^!f_*(P\mathbin{\overset L\otimes}Q)\ar[r]^{(5)}&d_*d^!f_*K_X\ar[d]^{(13)}\\
+d_*'d'^!E\mathbin{\overset L\otimes}d_*''d''^!F\ar[r]^{(6)}&
+d_*d^!(E\mathbin{\overset L\otimes}F)\ar[rr]^{(7)}&&d_*d^!K_Y
+} \tag{4.4.2}
+\]
+<p>où les flèches sont les suivantes : (1) est déduite de 4.2.2 par application de
+\(f_*\), (2) est défini par 4.1.2, (3) est donné par 4.2.2, (4) par la flèche
+canonique \(f_*P\mathbin{\overset L\otimes}f_*Q\longrightarrow
+f_*(P\mathbin{\overset L\otimes}Q)\), (5) par 4.1.2, (6) par 4.2.2, (7) par
+4.1.2, (8) est produit tensoriel de flèches 3.7.3, (9) et (10) sont définis
+par 3.7.3, (11) et (12) par les isomorphismes
+\(f_*P\longrightarrow E\), \(f_*Q\longrightarrow F\) (3.3.1),
+(13) par la flèche d'adjonction \(f_*K_X\longrightarrow K_Y\). Par définition,
+4.4.1 s'identifie, par 3.1.1 et 3.2.1, au bord extérieur de 4.4.2. Il suffit
+donc de prouver que les carrés (A), (B), (C), (D) sont commutatifs. La
+commutativité de (B) et (C) est évidente, par fonctorialité. Il reste à
+démontrer celle de (A) et (D).</p>
+
+<p>a) <u>Commutativité de (D)</u>. Il suffit de prouver que le carré</p>
+\[
+\xymatrix{
+f_*P\mathbin{\overset L\otimes}f_*Q\ar[r]\ar[d]&f_*K_X\ar[d]\\
+E\mathbin{\overset L\otimes}F\ar[r]&K_Y
+} \tag{4.4.3}
+\]
+<p>(correspondant à (D) pour \(d=\operatorname{Id}\)) commute. Rappelons que
+l'accouplement \(P\mathbin{\overset L\otimes}Q\longrightarrow K_X\) (resp.
+\(E\mathbin{\overset L\otimes}F\longrightarrow K_Y\)) est produit tensoriel
+externe des flèches d'évaluation
+\(DL_i\mathbin{\overset L\otimes}L_i\longrightarrow K_{X_i}\)
+(resp. \(DM_i\mathbin{\overset L\otimes}M_i\longrightarrow K_{Y_i}\)). Par les
+isomorphismes de Künneth
+\(f_{1*}DL_1\mathbin{\overset L\otimes}_S f_{2*}L_2\xrightarrow{\sim}f_*P\),
+\(f_{1*}L_1\mathbin{\overset L\otimes}_S f_{2*}DL_2\xrightarrow{\sim}f_*Q\),
+4.4.3 s'identifie donc au produit tensoriel externe des carrés</p>
+\[
+\xymatrix{
+f_{i*}DL_i\mathbin{\overset L\otimes}f_{i*}L_i\ar[r]^{(1)}\ar[d]_{(3)}&f_{i*}K_{X_i}\ar[d]^{(4)}\\
+DM_i\mathbin{\overset L\otimes}M_i\ar[r]^{(2)}&K_{Y_i}
+} \tag{4.4.4}
+\]
+<p>où (2) est la flèche d'évaluation, (1) le composé de la flèche canonique</p>
+
+<!-- Source PDF page 32 (printed page 104) -->
+<p>\(f_{i*}DL_i\mathbin{\overset L\otimes}f_{i*}L_i\longrightarrow
+f_{i*}(DL_i\mathbin{\overset L\otimes}L_i)\) et de la flèche définie par la
+flèche d'évaluation, (3) est produit tensoriel de l'isomorphisme de dualité
+\(f_{i*}DL_i\longrightarrow DM_i\) et de la flèche identique de \(M_i\), (4)
+est la flèche d'adjonction. Il suffit donc de vérifier la commutativité des
+carrés 4.4.4. Comme l'isomorphisme de dualité ci-dessus est composé de la
+flèche canonique (SGA 4 XVIII 3.1.9.5)</p>
+\[
+f_{i*}R\underline{\operatorname{Hom}}(L_i,K_{X_i})\longrightarrow
+R\underline{\operatorname{Hom}}(f_{i*}L_i,f_{i*}K_{X_i})
+\]
+<p>et de la flèche déduite de la flèche d'adjonction
+\(f_{i*}K_{X_i}\longrightarrow K_{Y_i}\), il suffit de voir que le carré
+suivant commute</p>
+\[
+\xymatrix{
+f_{i*}R\underline{\operatorname{Hom}}(L_i,K_{X_i})\mathbin{\overset L\otimes}f_{i*}L_i
+ \ar[r]^{(1)}\ar[d]_{(3)}&f_{i*}K_{X_i}\ar[d]^{\mathrm{Id}}\\
+R\underline{\operatorname{Hom}}(f_{i*}L_i,f_{i*}K_{X_i})\mathbin{\overset L\otimes}f_{i*}L_i
+ \ar[r]^{(2)}&f_{i*}K_{X_i}
+} \tag{4.4.5}
+\]
+<p>où (1) est la flèche (1) de 4.4.4, (2) la flèche d'évaluation, et (3) le
+produit tensoriel par \(f_{i*}L_i\) de la flèche canonique qu'on vient de
+mentionner. Or, plus généralement, pour toute flèche
+\(N_i\longrightarrow f_{i*}L_i\) de \(D_{ctf}(X_i)\), i.e. toute flèche
+\(L_i\xrightarrow{u}N_i\) de type 1 au-dessus de \(f_i\), le triangle</p>
+\[
+\xymatrix{
+f_{i*}R\underline{\operatorname{Hom}}(L_i,K_{X_i})\mathbin{\overset L\otimes}N_i
+ \ar[d]\ar[dr]&\\
+R\underline{\operatorname{Hom}}(N_i,f_{i*}K_{X_i})\mathbin{\overset L\otimes}N_i
+ \ar[r]&f_{i*}K_{X_i}
+}
+\]
+<p>déduit de 4.4.5 commute : on peut en effet, par fonctorialité, supposer que
+\(L_i=f_i^*N_i\), \(u\) étant donné par l'identité de \(L_i\) ; la flèche
+\(f_{i*}R\underline{\operatorname{Hom}}(L_i,K_{X_i})\longrightarrow
+R\underline{\operatorname{Hom}}(N_i,f_{i*}K_{X_i})\) est alors l'inverse de
+l'isomorphisme de dualité triviale, et la commutativité du triangle se vérifie
+immédiatement au niveau des complexes, en résolvant \(N_i\) platement et
+\(K_{X_i}\) injectivement.</p>
+
+<p>b) <u>Commutativité de (A)</u>. Se reportant à la définition de 3.7.3, on
+voit qu'il suffit de vérifier cette commutativité dans chacun des cas suivants :
+(i) \(X_i=Y_i\), \(f_i=\) flèche identique de \(X_i\) ; (ii) les faces latérales
+de 4.4.0 sont cartésiennes. Plaçons-nous dans le cas (i). Le carré (A) est le
+bord extérieur du diagramme</p>
+
+<!-- Source PDF page 33 (printed page 105) -->
+\[
+\xymatrix{
+c_*'c'^!P\mathbin{\overset L\otimes}c_*''c''^!Q\ar[r]^-{\sim}\ar[d]_{(8)}&
+c_*(c'^!P\mathbin{\overset L\otimes}_Xc''^!Q)\ar[r]\ar[d]&c_*c^!(P\mathbin{\overset L\otimes}Q)\ar[d]^{(9)}\\
+d_*'d'^!P\mathbin{\overset L\otimes}d_*''d''^!Q\ar[r]^-{\sim}&
+d_*(d'^!P\mathbin{\overset L\otimes}_Xd''^!Q)\ar[r]&d_*d^!(P\mathbin{\overset L\otimes}Q)
+}
+\]
+<p>dans lequel les isomorphismes horizontaux de \(A_1\) sont des
+isomorphismes de Künneth, les flèches horizontales de \(A_2\) sont données
+par 4.2.1, et la flèche verticale médiane est déduite par application de
+\(d_*\) de la flèche
+\(g_!(c'^!P\mathbin{\overset L\otimes}_Xc''^!Q)\longrightarrow
+d'^!P\mathbin{\overset L\otimes}_Xd''^!Q\) définie, via Künneth, par le produit
+tensoriel externe des flèches d'adjonction
+\(f'_!c'^!P\longrightarrow d'^!P\), \(f''_!c''^!Q\longrightarrow d''^!Q\).
+Or ces flèches d'adjonction et les flèches identiques de \(d'^!d'^!P\),
+\(d''^!d''^!Q\) définissent des triangles commutatifs de flèches de type 3
+(1.4)</p>
+\[
+\xymatrix{&c'^!P\ar[dl]\ar[d]&&&c''^!Q\ar[dl]\ar[d]\\
+d'^!d'^!P&d'^!P\ar[l]&&d''^!d''^!Q&d''^!Q\ar[l]}
+\]
+<p>au-dessus de</p>
+\[
+\xymatrix{&C'\ar[dl]_{c'}\ar[d]^{f'}&&&C''\ar[dl]_{c''}\ar[d]^{f''}\\
+X&D'\ar[l]^{d'}&&X&D''\ar[l]^{d''}}
+\]
+<p>Par produit tensoriel externe (sur \(X\)), ces triangles fournissent un
+triangle commutatif</p>
+\[
+\xymatrix{&c'^!P\mathbin{\overset L\otimes}_Xc''^!Q\ar[dl]\ar[d]&&\text{au-dessus de}&&C\ar[dl]_c\ar[d]^g\\
+d'^!d'^!P\mathbin{\overset L\otimes}_Xd''^!d''^!Q&d'^!P\mathbin{\overset L\otimes}_Xd''^!Q\ar[l]&&&X&D\ar[l]^d}
+\]
+<p>La commutativité de ce triangle équivaut à celle du carré déduit de
+\(A_1\) en inversant les flèches horizontales. On a d'autre part des
+triangles commutatifs de flèches de type 3</p>
+
+<!-- Source PDF page 34 (printed page 106) -->
+\[
+\xymatrix{&c'^!P\ar[dl]\ar[d]&&&c''^!Q\ar[dl]\ar[d]\\
+P&d'^!P\ar[l]&&Q&d''^!Q\ar[l]}
+\]
+<p>définis par les flèches identiques de \(d'^!P\), \(c'^!P\), \(d''^!Q\),
+\(c''^!Q\). Par produit tensoriel externe, on en déduit un triangle commutatif</p>
+\[
+\xymatrix{&c'^!P\mathbin{\overset L\otimes}_Xc''^!Q\ar[dl]\ar[d]\\
+P\mathbin{\overset L\otimes}Q&d'^!P\mathbin{\overset L\otimes}_Xd''^!Q\ar[l]}
+\]
+<p>qu'on peut interpréter comme un morphisme de flèches de type 3 au-dessus
+de \(g:C\longrightarrow D\) :</p>
+\[
+\xymatrix{
+c'^!P\mathbin{\overset L\otimes}_Xc''^!Q\ar[r]\ar[d]&c^!(P\mathbin{\overset L\otimes}Q)\ar[d]\\
+d'^!P\mathbin{\overset L\otimes}_Xd''^!Q\ar[r]&d^!(P\mathbin{\overset L\otimes}Q)
+}
+\]
+<p>ou encore comme un carré commutatif au-dessus de \(D\) :</p>
+\[
+\xymatrix{
+g_*(c'^!P\mathbin{\overset L\otimes}_Xc''^!Q)\ar[r]\ar[d]&g_*c^!(P\mathbin{\overset L\otimes}Q)\ar[d]\\
+d'^!P\mathbin{\overset L\otimes}_Xd''^!Q\ar[r]&d^!(P\mathbin{\overset L\otimes}Q)
+}
+\]
+<p>Mais le carré déduit de ce dernier par application de \(d_*\) n'est autre
+que \(A_2\), d'où la commutativité de (A) dans le cas (i). Il reste à traiter
+le cas (ii). Les faces de 4.4.0 contenant \(f\) étant cartésiennes, les flèches</p>
+\[
+f'_*c'^!P\longrightarrow d'^!f_*P,\qquad
+f''_*c''^!Q\longrightarrow d''^!f_*Q \quad(3.7.3)
+\]
+<p>sont des isomorphismes. Leurs inverses définissent des flèches de type 1
+\(c'^!P\longrightarrow d'^!f_*P\), \(c''^!Q\longrightarrow d''^!f_*Q\)
+au-dessus de \(f'\), \(f''\), d'où, par image directe, des carrés commutatifs
+de flèches de type 1</p>
+
+<!-- Source PDF page 35 (printed page 107) -->
+\[
+\xymatrix{c_*'c'^!P&c'^!P\ar[l]\ar[d]\\d_*'d'^!P&d'^!f_*P\ar[l]}
+\qquad
+\xymatrix{c_*''c''^!Q&c''^!Q\ar[l]\ar[d]\\d_*''d''^!Q&d''^!f_*Q\ar[l]}
+\]
+<p>au-dessus des faces de 4.4.0 contenant \(f\). Par produit tensoriel, on en
+déduit un carré commutatif de \(D_{ctf}(Y)\)</p>
+\[
+\xymatrix{
+d_*'d'^!f_*P\mathbin{\overset L\otimes}d_*''d''^!f_*Q\ar[r]\ar[d]&
+d_*(d'^!f_*P\mathbin{\overset L\otimes}_Yd''^!f_*Q)\ar[d]\\
+f_*c_*'c'^!P\mathbin{\overset L\otimes}f_*c_*''c''^!Q\ar[r]&
+d_*g_*(c'^!P\mathbin{\overset L\otimes}_Xc''^!Q)
+} \tag{4.4.6}
+\]
+<p>où la flèche verticale de gauche est l'inverse de (8), les flèches
+horizontales sont données par Künneth, et la flèche verticale de droite par
+produit tensoriel externe sur \(Y\) des flèches
+\(f'_*c'^!P\longrightarrow d'^!f_*P\),
+\(f''_*c''^!Q\longrightarrow d''^!f_*Q\). Le même produit tensoriel définit
+la flèche verticale de gauche du carré</p>
+\[
+\xymatrix{
+d'^!f_*P\mathbin{\overset L\otimes}_Yd''^!f_*Q\ar[r]\ar[d]&d^!f_*(P\mathbin{\overset L\otimes}Q)\ar[d]\\
+g_*(c'^!P\mathbin{\overset L\otimes}_Xc''^!Q)\ar[r]&g_*c^!(P\mathbin{\overset L\otimes}Q)
+} \tag{4.4.7}
+\]
+<p>où la flèche verticale de droite est 3.7.3, et les flèches horizontales
+sont définies par 4.2.1. Le bord extérieur du diagramme composé de 4.4.6 et
+de \(d_*(4.4.7)\) est le carré déduit de (A) en inversant les flèches
+verticales. Il suffit donc de prouver que 4.4.7 commute, en d'autres termes
+que les flèches 4.2.1</p>
+\[
+c'^!P\mathbin{\overset L\otimes}_Xc''^!Q\longrightarrow c^!(P\mathbin{\overset L\otimes}Q),
+\qquad d'^!f_*P\mathbin{\overset L\otimes}_Yd''^!f_*Q\longrightarrow
+d^!f_*(P\mathbin{\overset L\otimes}Q)
+\]
+<p>définissent un morphisme de
+\(c'^!P\mathbin{\overset L\otimes}_Xc''^!Q\longrightarrow
+d'^!f_*P\mathbin{\overset L\otimes}_Yd''^!f_*Q\) dans
+\(c^!(P\mathbin{\overset L\otimes}Q)\longrightarrow
+d^!f_*(P\mathbin{\overset L\otimes}Q)\), considérées comme flèches de type 1
+au-dessus de \(g\). Par adjonction, on est ramené à vérifier que les produits
+tensoriels de flèches d'adjonction</p>
+\[
+c_*'c'^!P\mathbin{\overset L\otimes}c_*''c''^!Q\longrightarrow
+P\mathbin{\overset L\otimes}Q,\qquad
+d_*'d'^!f_*P\mathbin{\overset L\otimes}d_*''d''^!f_*Q\longrightarrow
+f_*P\mathbin{\overset L\otimes}f_*Q
+\]
+<p>définissent un morphisme, entre flèches de type 1 au-dessus de \(f\), du
+produit tensoriel des flèches
+\(c_*'c'^!P\longrightarrow d_*'d'^!f_*P\) et
+\(c_*''c''^!Q\longrightarrow d_*''d''^!f_*Q\) dans le produit tensoriel des
+flèches \(P\longrightarrow f_*P\) et \(Q\longrightarrow f_*Q\). Il suffit
+pour cela de vérifier que les flèches d'adjonction
+\(c_*'c'^!P\longrightarrow P\), \(d_*'d'^!f_*P\longrightarrow f_*P\)
+définissent un morphisme de
+\(c_*'c'^!P\longrightarrow d_*'d'^!f_*P\) dans
+\(P\longrightarrow f_*P\), ainsi que l'assertion analogue</p>
+
+<!-- Source PDF page 36 (printed page 108) -->
+<p>avec \((c'',d'')\). On peut se borner au cas de \((c',d')\), l'énoncé étant le même dans
+les deux cas. Il s'agit de voir que le triangle</p>
+\[
+\xymatrix{
+&f'_*c'^!c'^!P\ar[dl]\ar[d]^{\sim}&\\
+f_*P&d'^!d'^!f_*P\ar[l]
+}
+\]
+<p>où les flèches horizontale et oblique sont données par les flèches d'adjonction et
+la flèche verticale par l'isomorphisme 3.7.3, est commutatif. Compte tenu de la définition
+de 3.7.3 (SGA 4 XVIII 3.1.12.3) comme transposée d'un isomorphisme de changement de base,
+on est ramené, en appliquant le foncteur \(\operatorname{Hom}(R,-)\)
+(\(R\in\operatorname{ob}D_{ctf}(Y)\)), à vérifier la commutativité du carré</p>
+\[
+\xymatrix{
+c'_*c'^!f^*R\ar[r]^{\mathrm{Id}}&c'_*f'^!d'^*R\\
+f^*R\ar[u]\ar[r]&f^*d'_*d'^*R\ar[u]_{\sim}
+}
+\]
+<p>où la flèche verticale de gauche (resp. horizontale inférieure) est définie par la
+flèche d'adjonction \(1\longrightarrow c'_*c'^*\) (resp. \(1\longrightarrow d'_*d'^*\)),
+et la flèche verticale de droite par l'isomorphisme de changement de base
+\(f^*d'_*\xrightarrow{\sim}c'_*f'^*\). Or ce carré commute par définition même de la
+flèche de changement de base. La commutativité de (A) est donc établie, ce qui achève la
+démonstration du théorème.</p>
+
+<div class="thm thm-plain corollary" id="III.4.5">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.5.</span></div>
+  <div class="thm-body"><p>Sous les hypothèses de 4.4, on a un carré commutatif</p>
+\[
+\xymatrix{
+\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\otimes
+\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)\ar[r]^{4.2.5}\ar[d]_{3.7.6\,\otimes\,3.7.6}&H^0(C,K_C)\ar[d]^{g_*}\\
+\operatorname{Hom}(d_1'^*f_{1*}L_1,d_2'^!f_{2*}L_2)\otimes
+\operatorname{Hom}(d_2''^*f_{2*}L_2,d_1''^!f_{1*}L_1)\ar[r]^{4.2.5}&H^0(D,K_D),
+}
+\]
+<p>où \(g_*\) est défini par la flèche d'adjonction
+\(g_*K_C=g_*g^!K_D\longrightarrow K_D\).</p>
+<p>En d'autres termes, pour
+\(u\in\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\),
+\(v\in\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)\), on a</p></div>
+</div>
+
+<!-- Source PDF page 37 (printed page 109) -->
+\[
+\langle f_*u,f_*v\rangle=g_*\langle u,v\rangle. \tag{4.5.1}
+\]
+
+<p>Pour tout \(S\)-schéma propre \(t:T\longrightarrow S\), notons</p>
+\[
+\int_T:H^0(T,K_T)\longrightarrow H^0(S,K_S)=H^0(S,A) \tag{4.6}
+\]
+<p>la flèche définie par la flèche d'adjonction \(t_!K_T\longrightarrow A\).</p>
+
+<div class="thm thm-plain corollary" id="III.4.7">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.7.</span> (Formule de Lefschetz-Verdier).</div>
+  <div class="thm-body"><p>Sous les hypothèses de 4.4, supposons que
+  \(Y_1=Y_2=S=D'=D''\). Pour
+  \(u\in\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\),
+  \(v\in\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)\), on a</p>
+  \[
+  \langle u_*,v_*\rangle=\int_C\langle u,v\rangle, \tag{4.7.1}
+  \]
+  <p>où \(u_*\in\operatorname{Hom}(f_{1*}L_1,f_{2*}L_2)\),
+  \(v_*\in\operatorname{Hom}(f_{2*}L_2,f_{1*}L_1)\) sont les homomorphismes déduits
+  de \(u,v\) par image directe sur \(S\) (3.7.6), et
+  \(\langle u_*,v_*\rangle=\operatorname{Tr}(u_*v_*)=\operatorname{Tr}(v_*u_*)\)
+  est le cup-produit, au sens de (SGA 6 I 8.3), des homomorphismes de complexes parfaits
+  \(u_*,v_*\) (4.1.5).</p></div>
+</div>
+
+<p>Compte tenu de 3.6.5, on a en particulier :</p>
+
+<div class="thm thm-plain corollary" id="III.4.8">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.8.</span></div>
+  <div class="thm-body"><p>Soient \(t:T\longrightarrow S\) un \(S\)-schéma propre,
+  \(\Delta\subset T\times_S T\) la diagonale, \(F:T\longrightarrow T\) un
+  \(S\)-endomorphisme de \(T\), \(T^F=(\text{graphe de }F)\times_{(T\times_S T)}\Delta\)
+  le schéma des points fixes de \(F\), \(L\in\operatorname{ob}D_{ctf}(T)\),
+  \(u\in\operatorname{Hom}(F^*L,L)\) une correspondance de \(L\) à \(L\) à support
+  dans le graphe de \(F\), \(1\in\operatorname{Hom}(L,L)\) la correspondance identique,
+  à support dans \(\Delta\) (3.2 b)). Alors on a</p>
+  \[
+  \operatorname{Tr}(u_*)=\int_{T^F}\langle u,1\rangle,
+  \]
+  <p>où \(u_*\) est l'endomorphisme de \(t_*L\) composé de
+  \(t_*L\longrightarrow t_*F^*L\) (image inverse) et de
+  \(t_*u:t_*F^*L\longrightarrow t_*L\).</p></div>
+</div>
+
+<p>Des remarques de 3.2 a) et 3.6 on déduit d'autre part :</p>
+
+<div class="thm thm-plain corollary" id="III.4.9">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.9.</span></div>
+  <div class="thm-body"><p>Sous les hypothèses de 4.7, on suppose que \(X_i\) est lisse
+  sur \(S\), purement de dimension relative \(r_i\), et que \(C'\) (resp. \(C''\))
+  est un sous-schéma</p></div>
+</div>
+
+<!-- Source PDF page 38 (printed page 110) -->
+<p>fermé de \(X\) fini et de tor-dimension finie sur \(X_2\) (resp. \(X_1\)). Soient
+\(cl(C')\in H_{C'}^{2r_1}(X,A(r_1))\),
+\(cl(C'')\in H_{C''}^{2r_2}(X,A(r_2))\) les classes de cohomologie de \(C'\) et
+\(C''\), \(cl(C')_*\in\operatorname{Hom}(Rf_{1*}A,Rf_{2*}A)\),
+\(cl(C'')_*\in\operatorname{Hom}(Rf_{2*}A,Rf_{1*}A)\) les homomorphismes
+correspondants (3.2 a), 3.7.6). On a alors :</p>
+\[
+\langle cl(C')_*,cl(C'')_*\rangle=\int_{C'\cap C''}cl(C)cl(D),
+\]
+<p>où</p>
+\[
+cl(C)cl(D)\in H_{C'\cap C''}^{2(r_1+r_2)}(X,A(r_1+r_2))
+=H^0(C'\cap C'',K_{(C'\cap C'')})
+\]
+<p>est le cup-produit habituel.</p>
+
+<p>Compte tenu de 4.3, on a en particulier :</p>
+
+<div class="thm thm-plain corollary" id="III.4.10">
+  <div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.10.</span></div>
+  <div class="thm-body"><p>Sous les hypothèses de 4.9, supposons que \(C'\cap C''\) soit fini.
+  Pour \(z\in C'\cap C''\), notons \((C'.C'')_z\) l'image dans \(A\) de la
+  multiplicité d'intersection de \(C'\) et \(C''\) en \(z\). Alors on a</p>
+  \[
+  \langle cl(C')_*,cl(C'')_*\rangle=
+  \sum_{z\in C'\cap C''}(C'.C'')_z.
+  \]</div>
+</div>
+
+<p id="III.4.11"><span class="thm-num">4.11.</span> Sous les hypothèses de 4.9,
+on a en général</p>
+\[
+\langle cl(C')_*,cl(C'')_*\rangle=
+\sum_{Z\in\pi_0(C'\cap C'')}(cl(C')cl(C''))_Z, \tag{4.11.1}
+\]
+<p>où \(\pi_0(C'\cap C'')\) désigne l'ensemble des composantes connexes de
+\(C'\cap C''\), et \((cl(C')cl(C''))_Z\) la restriction de \(cl(C')cl(C'')\) à
+\(H^0(Z,K_Z)\). Lorsque \(Z\) est une composante de dimension \(\geq1\), le calcul de
+\((cl(C')cl(C''))_Z\) pose des problèmes, du fait qu'on est dans une situation
+« excédentaire ». Si \(Z\) est lisse, purement de dimension \(d\), si \(C'\) et
+\(C''\) sont lisses au voisinage de \(Z\), et si \(X\) est projectif, on peut montrer
+qu'on a</p>
+\[
+\int_Z(cl(C')cl(C''))_Z=\int_Zc_d(N_Z), \tag{4.11.2}
+\]
+<p>où \(N_Z\) est le faisceau localement libre de rang \(d\) défini par la suite exacte
+de fibrés normaux</p>
+
+<!-- Source PDF page 39 (printed page 111) -->
+\[
+0\longrightarrow N_{Z/C'}\oplus N_{Z/C''}\longrightarrow N_{Z/X}
+\longrightarrow N_Z\longrightarrow0,
+\]
+<p>et \(c_d(N_Z)\in H^{2d}(Z,A(d))\) désigne sa \(d\)-ième classe de Chern
+(SGA 5 VII) (utiliser (SGA 6 XIV 6.3) pour se ramener à un calcul de nombre
+d'intersection en K-théorie, et appliquer (SGA 6 VII 2.5), cf. ([10] 4.1) ;
+l'hypothèse de projectivité est sans doute inutile).</p>
+
+<p>Soient \(T\) un \(S\)-schéma projectif lisse, prenons comme correspondance
+\(C'\) (resp. \(C''\)) le graphe d'un \(S\)-endomorphisme \(F\) (resp. de la
+diagonale), et supposons que le schéma des points fixes \(T^F=C'\cap C''\) soit
+lisse. Le faisceau \(N_{(T^F)}\) ci-dessus n'est autre que le faisceau tangent à
+\(T^F\), de sorte que 4.11.2 implique, par la formule de Gauss-Bonnet
+(SGA 5 VII 4.9), l'analogue d'une formule bien connue des topologues :</p>
+\[
+\operatorname{Tr}(F,R\Gamma(T,A))=\operatorname{EP}(T^F), \tag{4.11.3}
+\]
+<p>où \(\operatorname{EP}(T^F)\) désigne la caractéristique d'Euler-Poincaré de
+\(T_s^F\) pour \(s\) un point géométrique au-dessus de \(S\) (loc. cit.).</p>
+
+<p>Le calcul de \((cl(C')cl(C''))_Z\) pour une composante \(Z\) de dimension
+\(\geq1\), non lisse, n'a pas été abordé en général, du moins à la connaissance du
+rédacteur.</p>
+
+<p id="III.4.12"><span class="thm-num">4.12.</span> Dans la situation de 4.7, soit
+\(z\) un point isolé de \(C\), de projection \(z_i\) sur \(X_i\), \(a'\)
+(resp. \(a''\)) sur \(C'\) (resp. \(C''\)), et soit \(\bar z\) un point géométrique
+au-dessus de \(z\), d'image \(\bar z_i\) au-dessus de \(z_i\). On suppose que
+\(c_2'\) (resp. \(c_1''\)) est quasi-fini et plat en \(a'\) (resp. \(a''\)), que
+\(L_i\) est parfait au voisinage de \(z_i\), et que \(u\) (resp. \(v\)) est donné
+au voisinage de \(a'\) (resp. \(a''\)) par</p>
+\[
+\operatorname{Tr}_{c_2'}\circ c_2'^*L_2\longrightarrow L_2
+\quad\text{et}\quad
+s\in\operatorname{Hom}(c_1'^*L_1,c_2'^*L_2)
+\quad(\text{resp. }\operatorname{Tr}_{c_1''}\circ c_1''^*L_1\longrightarrow L_1
+\text{ et }t\in\operatorname{Hom}(c_2''^*L_2,c_1''^*L_1)).
+\]
+<p>Notons \(s_{\bar z}\in\operatorname{Hom}(L_{1\bar z_1},L_{2\bar z_2})\)
+(resp. \(t_{\bar z}\in\operatorname{Hom}(L_{2\bar z_2},L_{1\bar z_1})\))
+l'homomorphisme déduit de \(s\) (resp. \(t\)) par passage aux fibres. Notons encore,
+comme en 3.2 a), \(cl(C')\) (resp. \(cl(C'')\)) la correspondance de \(X_1\) à
+\(X_2\) (resp. \(X_2\) à \(X_1\)) définie, au voisinage de \(a'\) (resp. \(a''\))
+par \(c_2'\) (resp. \(c_1''\)), et \((C'.C'')_z\) le terme local
+\(\langle cl(C'),cl(C'')\rangle_z\) correspondant (égal à l'image dans \(A\) de la</p>
+
+<!-- Source PDF page 40 (printed page 112) -->
+<p>multiplicité d'intersection de \(C'\) et \(C''\) en \(z\) quand \(C'\) et
+\(C''\) sont des sous-schémas fermés de \(X\), avec \(X_1\) et \(X_2\) lisses).
+On a alors</p>
+\[
+\langle u,v\rangle_z=(C'.C'')_z\langle s_{\bar z},t_{\bar z}\rangle. \tag{4.12.1}
+\]
+<p>Cela résulte en effet facilement de 4.2.6.</p>
+
+<p id="III.4.13"><span class="thm-num">4.13.</span> Si \(T\) est un schéma sur
+\(S\), notons \(DF(T)\) la catégorie dérivée filtrée des complexes de
+\(A_T\)-Modules à filtration finie ([9] V 1), \(DF_{ctf}(T)\) la sous-catégorie
+pleine formée des \(L\) tels que \(\operatorname{gr}(L)\in\operatorname{ob}D_{ctf}(T)\).
+La sorite de compatibilité des foncteurs dérivés filtrés au passage aux gradués associés
+entraîne que \(DF_{ctf}\) est stable par les six opérations
+\(f^*,f_*,f_!,f^!,\mathbin{\overset L\otimes},R\underline{\operatorname{Hom}}\).
+Les définitions et résultats des numéros précédents sont valables, mutatis mutandis,
+dans \(DF_{ctf}\). L'accouplement 4.1.2 est compatible au passage aux gradués associés
+(\(K_X\) étant considéré comme muni de la filtration triviale), et il en résulte qu'avec
+les notations de 4.2.5, on a, pour \(L_i\in\operatorname{ob}DF_{ctf}(X_i)\),
+\(u\in\operatorname{Hom}_{DF}(c_1'^*L_1,c_2'^!L_2)\),
+\(v\in\operatorname{Hom}_{DF}(d_2^*L_2,d_1^!L_1)\), l'égalité suivante dans
+\(H^0(E,K_E)\) :</p>
+\[
+\langle u,v\rangle=\sum_i\langle\operatorname{gr}^i u,
+\operatorname{gr}^i v\rangle. \tag{4.13.1}
+\]
+
+<p>Comme Deligne le fait observer, cette remarque s'applique notamment à la situation
+envisagée par Langlands dans ([13] §7). Les correspondances qu'il considère dans
+(loc. cit. 7.11) préservent en effet, près des points fixes, des filtrations finies sur
+les faisceaux avec gradués associés induisant sur le localisé strict en l'image d'un
+point fixe soit un faisceau constant soit un faisceau constant sur le complément du
+point fermé prolongé par zéro. Le calcul des termes locaux se ramène facilement, par
+4.13, à 4.12.1 et au cas de faisceaux concentrés sur les points fermés images des points
+fixes, cas qu'on traite directement. Appliquant 4.7, on obtient la formule de Lefschetz
+requise dans ([13] 7.11). Signalons que l'énoncé général (loc. cit. 7.12) est vrai, la
+démonstration, plus délicate, sera donnée dans III B.</p>
+
+<!-- Source PDF page 41 (printed page 113) -->
+<h2 id="III.5">5. Compléments</h2>
+
+<h3 id="III.5.1">5.1. Duale d'une correspondance</h3>
+
+<p>Soient, pour \(i=1,2\), \(X_i\) un \(S\)-schéma, \(X=X_1\times_S X_2\),
+\(p_i:X\longrightarrow X_i\) les projections, \(L_i\in\operatorname{ob}D_{ctf}(X_i)\).
+Toute correspondance cohomologique \(u\) de \(L_1\) à \(L_2\) donne, par application
+de \(D_X\) et identification de \(Dp_2^!\) à \(p_2^*D\), \(Dp_1^*\) à
+\(p_1^!D\), une correspondance \(Du\) de \(DL_2\) à \(DL_1\), dite <u>duale</u>
+de \(u\). En d'autres termes, \(D\) définit un homomorphisme</p>
+\[
+D:\operatorname{Hom}(p_1^*L_1,p_2^!L_2)\longrightarrow
+\operatorname{Hom}(p_2^*DL_2,p_1^!DL_1). \tag{5.1.1}
+\]
+<p>On vérifie que 5.1.1 provient, par application de \(H^0(X,-)\), de l'isomorphisme</p>
+\[
+D:R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2)\longrightarrow
+R\underline{\operatorname{Hom}}(p_2^*DL_2,p_1^!DL_1) \tag{5.1.2}
+\]
+<p>rendant commutatif le carré</p>
+\[
+\xymatrix{
+p_1^*DL_1\mathbin{\overset L\otimes}p_2^*L_2 \ar[r]^{3.1.1}\ar[d] &
+R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2)\ar[d]\\
+p_2^*DDL_2\mathbin{\overset L\otimes}p_1^*DL_1 \ar[r]^{3.1.1} &
+R\underline{\operatorname{Hom}}(p_2^*DL_2,p_1^!DL_1),
+} \tag{5.1.3}
+\]
+<p>où la flèche verticale de gauche est composée de l'isomorphisme de symétrie et de
+celui défini par l'isomorphisme de bidualité \(L_2\longrightarrow DDL_2\). Il découle
+aisément des définitions que le carré ci-après est commutatif</p>
+\[
+\xymatrix{
+R\underline{\operatorname{Hom}}_S(L_1,L_2)\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}_S(L_2,L_1)\ar[r]^{4.1.3}\ar[d]^{D\otimes D} & K_X\ar[d]^{\mathrm{Id}}\\
+R\underline{\operatorname{Hom}}_S(DL_2,DL_1)\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}_S(DL_1,DL_2)\ar[r]^{4.1.3} & K_X.
+} \tag{5.1.4}
+\]
+<p>Soit \(c:C\longrightarrow X\) un \(S\)-morphisme, posons \(c_i=p_ic\) ; on
+déduit de 5.1.2, par application de \(c_*c^!\) (3.2.1), un isomorphisme</p>
+\[
+D:\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\xrightarrow{\sim}
+\operatorname{Hom}(c_2^*DL_2,c_1^!DL_1), \tag{5.1.5}
+\]
+<p>dont on vérifie qu'il s'identifie à celui donné par application du foncteur \(D_X\) et</p>
+
+<!-- Source PDF page 42 (printed page 114) -->
+<p>les identifications de \(Dc_1^*\) à \(c_1^!D\) et \(Dc_2^!\) à \(c_2^*D\).
+Si \(c':C'\longrightarrow X\), \(c'':C''\longrightarrow X\) sont des
+\(S\)-morphismes, il découle de 5.1.4 que l'on a, pour
+\(u\in\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\),
+\(v\in\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)\),</p>
+\[
+\langle u,v\rangle=\langle Du,Dv\rangle, \tag{5.1.6}
+\]
+<p>avec la notation de 4.2.5.</p>
+
+<p>On vérifie d'autre part que, dans la situation de 3.3, le carré suivant est commutatif</p>
+\[
+\xymatrix{
+f_*R\underline{\operatorname{Hom}}_S(L_1,L_2)\ar[r]^{3.3.1}\ar[d]^{f_*D} &
+R\underline{\operatorname{Hom}}_S(f_{1!}L_1,f_{2*}L_2)\ar[d]^D\\
+f_*R\underline{\operatorname{Hom}}_S(DL_2,DL_1)\ar[r]^{3.3.1} &
+R\underline{\operatorname{Hom}}_S(f_{2!}DL_2,f_{1*}DL_1),
+} \tag{5.1.7}
+\]
+<p>et par suite que, dans la situation de 3.7.6, on a</p>
+\[
+f_*Du=Df_*u. \tag{5.1.8}
+\]
+
+<h3 id="III.5.2">5.2. Composition de correspondances</h3>
+
+<p>Soient, pour \(i=1,2,3\), \(X_i\) un \(S\)-schéma,
+\(X_{ij}=X_i\times_S X_j\), \(X=X_1\times_S X_2\times_S X_3\),
+\(p_i:X\longrightarrow X_i\), \(p_{ij}:X\longrightarrow X_{ij}\) les projections,
+\(L_i\in\operatorname{ob}D_{ctf}(X_i)\). On a \(X=X_{12}\times_{X_2}X_{23}\), et</p>
+\[
+(DL_1\mathbin{\overset L\otimes}_S L_2)\mathbin{\overset L\otimes}_{X_2}
+(DL_2\mathbin{\overset L\otimes}_S L_3)
+=p_1^*DL_1\mathbin{\overset L\otimes}p_2^*L_2
+\mathbin{\overset L\otimes}p_2^*DL_2\mathbin{\overset L\otimes}p_3^*L_3.
+\]
+<p>La flèche d'évaluation \(L_2\mathbin{\overset L\otimes}DL_2\longrightarrow K_{X_2}\)
+définit donc un accouplement</p>
+\[
+(DL_1\mathbin{\overset L\otimes}_S L_2)\mathbin{\overset L\otimes}_{X_2}
+(DL_2\mathbin{\overset L\otimes}_S L_3)\longrightarrow
+p_{13}^!(DL_1\mathbin{\overset L\otimes}_S L_3), \tag{5.2.1}
+\]
+<p>le second membre étant identifié à
+\((DL_1\mathbin{\overset L\otimes}_S L_3)\mathbin{\overset L\otimes}_S K_{X_2}\)
+par Künneth (1.7.3). Compte tenu de 3.1.1, 3.1.2, on peut récrire 5.2.1 sous la forme</p>
+\[
+R\underline{\operatorname{Hom}}_S(L_1,L_2)\mathbin{\overset L\otimes}_{X_2}
+R\underline{\operatorname{Hom}}_S(L_2,L_3)\longrightarrow
+p_{13}^!R\underline{\operatorname{Hom}}_S(L_1,L_3)
+=R\underline{\operatorname{Hom}}(p_1^*L_1,p_3^!L_3), \tag{5.2.2}
+\]
+
+<!-- Source PDF page 43 (printed page 115) -->
+<p>l'identification au second membre étant donnée par l'isomorphisme d'induction
+(SGA 4 XVIII 3.1.12.2)), d'où un accouplement, dit <u>composition des correspondances</u>,</p>
+\[
+\operatorname{Hom}_S(L_1,L_2)\otimes\operatorname{Hom}_S(L_2,L_3)
+\longrightarrow\operatorname{Hom}(p_1^*L_1,p_3^!L_3), \tag{5.2.3}
+\]
+<p>que l'on notera \((u,v)\longmapsto vu\). On vérifie que, si
+\(p_{ij,i}:X_{ij}\longrightarrow X_i\) et \(p_{ij,j}:X_{ij}\longrightarrow X_j\)
+désignent les projections, 5.2.2 peut aussi s'obtenir par composition de la flèche</p>
+\[
+R\underline{\operatorname{Hom}}_S(L_1,L_2)\mathbin{\overset L\otimes}_{X_2}
+R\underline{\operatorname{Hom}}_S(L_2,L_3)\longrightarrow
+R\underline{\operatorname{Hom}}(p_{12}^*L_1,p_{12}^*p_{12,2}^!L_2)
+\mathbin{\overset L\otimes}
+R\underline{\operatorname{Hom}}(p_{23}^*p_{23,2}^*L_2,p_{23}^!L_3)
+\]
+<p>(produit tensoriel des flèches canoniques
+\(p_{12}^*R\underline{\operatorname{Hom}}_S(L_1,L_2)\longrightarrow
+R\underline{\operatorname{Hom}}(p_1^*L_1,p_{12}^*p_{12,2}^!L_2)\) et
+\(p_{23}^*R\underline{\operatorname{Hom}}_S(L_2,L_3)\longrightarrow
+R\underline{\operatorname{Hom}}(p_{23}^*p_{23,2}^*L_2,p_3^!L_3)\)), de la flèche
+définie par la flèche de changement de base
+\(p_{12}^*p_{12,2}^!L_2\longrightarrow p_{23}^!p_{23,2}^*L_2\), et d'une flèche
+de composition habituelle sur les \(R\underline{\operatorname{Hom}}\).</p>
+
+<p>Soient \(c':C'\longrightarrow X_{12}\), \(c'':C''\longrightarrow X_{23}\)
+des correspondances, et \(c:C=C'\times_{X_2}C''\longrightarrow X\) la correspondance
+« composée ». On déduit de 5.2.2 (ou l'on définit directement, par une composition
+analogue à celle qu'on vient de décrire) un accouplement</p>
+\[
+R\underline{\operatorname{Hom}}(c_1'^*L_1,c_2'^!L_2)
+\mathbin{\overset L\otimes}_{X_2}
+R\underline{\operatorname{Hom}}(c_2''^*L_2,c_3''^!L_3)
+\longrightarrow R\underline{\operatorname{Hom}}(c_1^*L_1,c_3^!L_3), \tag{5.2.4}
+\]
+<p>d'où un accouplement « composition » \((u,v)\longmapsto vu\) :</p>
+\[
+\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\otimes
+\operatorname{Hom}(c_2''^*L_2,c_3''^!L_3)\longrightarrow
+\operatorname{Hom}(c_1^*L_1,c_3^!L_3). \tag{5.2.5}
+\]
+<p>On vérifie que la composition des correspondances est compatible aux images
+directes, dans le sens suivant. Soient, pour \(1\leq i\leq3\),
+\(f_i:X_i\longrightarrow Y_i\) un \(S\)-morphisme, \(f_2\) étant propre,
+\(c',c'',c\) des morphismes comme ci-dessus, avec \(c'\) et \(c''\) propres,
+\(d':D'\longrightarrow Y_{12}\), \(d'':D''\longrightarrow Y_{23}\) des morphismes
+propres, \(d:D=D'\times_{Y_2}D''\longrightarrow Y\), et des carrés commutatifs</p>
+
+<!-- Source PDF page 44 (printed page 116) -->
+\[
+\xymatrix{X_{12}&C'\ar[l]\ar[d]\\Y_{12}\ar[u]^{f_{12}}&D'\ar[l]}
+\qquad
+\xymatrix{X_{23}&C''\ar[l]\ar[d]\\Y_{23}\ar[u]^{f_{23}}&D''\ar[l]}.
+\]
+<p>On a alors un carré commutatif</p>
+\[
+\xymatrix{
+\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\otimes
+\operatorname{Hom}(c_2''^*L_2,c_3''^!L_3)\ar[r]^{5.2.5}\ar[d]^{f_{12*}\otimes f_{23*}} &
+\operatorname{Hom}(c_1^*L_1,c_3^!L_3)\ar[d]^{f_{13*}}\\
+\operatorname{Hom}(d_1'^*M_1,d_2'^!M_2)\otimes
+\operatorname{Hom}(d_2''^*M_2,d_3''^!M_3)\ar[r]^{5.2.5} &
+\operatorname{Hom}(d_1^*M_1,d_3^!M_3),
+} \tag{5.2.6}
+\]
+<p>où \(M_1=f_{1!}L_1\), \(M_2=f_{2*}L_2\), \(M_3=f_{3*}M_3\), et un carré
+commutatif analogue avec des \(R\underline{\operatorname{Hom}}\), que le lecteur écrira.</p>
+
+<p>Enfin, supposons que \(X_1=X_3\), \(L_1=L_3\). L'accouplement fondamental
+4.1.2 peut s'interpréter comme le composé de l'accouplement</p>
+\[
+q_1^*DL_1\mathbin{\overset L\otimes}q_2^*L_2
+\mathbin{\overset L\otimes}q_2^*DL_2\mathbin{\overset L\otimes}q_1^*L_1
+\longrightarrow q_1^*DL_1\mathbin{\overset L\otimes}q_2^*K_{X_2}
+\mathbin{\overset L\otimes}q_1^*L_1 \tag{5.2.7}
+\]
+<p>défini par \(L_2\mathbin{\overset L\otimes}DL_2\longrightarrow K_{X_2}\), ou,
+ce qui revient au même, induit par 5.2.1 sur \(X_{12}\) via la diagonale
+\(X_{12}\longrightarrow X_1\times_S X_2\times_S X_1\)
+(\(q_i:X_{12}\longrightarrow X_i\) désignant la projection), et de l'accouplement</p>
+\[
+q_1^*DL_1\mathbin{\overset L\otimes}q_2^*K_{X_2}
+\mathbin{\overset L\otimes}q_1^*L_1\longrightarrow K_{X_{12}} \tag{5.2.8}
+\]
+<p>défini par \(DL_1\mathbin{\overset L\otimes}L_1\longrightarrow K_{X_1}\).
+Il en résulte que, pour \(u\in\operatorname{Hom}_S(L_1,L_2)\),
+\(v\in\operatorname{Hom}_S(L_2,L_1)\), on a, dans
+\(H^0(X_1\times_S X_2,K_{X_1\times_S X_2})\),</p>
+\[
+\langle u,v\rangle=\langle vu,1\rangle, \tag{5.2.9}
+\]
+<p>où \(1\) désigne la correspondance identique de \(L_1\) à \(L_1\) sur
+\(X_1\times_S X_1\), à support dans la diagonale (3.2 b)), et le cup-produit au
+second membre est pris au sens de 4.2.5, compte tenu du fait que le produit fibré
+\(X\times_{(X_1\times_S X_1)}X_1\) (par \(p_{13}:X\longrightarrow X_{13}=X_1\times_SX_1\)
+et la diagonale \(X_1\longrightarrow X_1\times_SX_1\)) s'identifie à
+\(X_1\times_SX_2\). On voit de même, plus généralement, que, si
+\(c':C'\longrightarrow X_{12}\), \(c'':C''\longrightarrow X_{21}\) sont des
+correspondances, \(c:C=C'\times_{X_2}C''\longrightarrow X_1\times_SX_2\times_SX_1\) la</p>
+
+<!-- Source PDF page 45 (printed page 117) -->
+<p>correspondance composée, et \(d:C'\times_{X_{12}}C''=D\longrightarrow X_{12}\)
+la correspondance intersection, on a, pour
+\(u\in\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\),
+\(v\in\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)\), l'égalité suivante dans
+\(H^0(D,K_D)\)</p>
+\[
+\langle u,v\rangle=\langle vu,1\rangle, \tag{5.2.10}
+\]
+<p>où \(1\) désigne comme ci-dessus la correspondance diagonale, et \(D\) est
+identifié au produit fibré de \(C\longrightarrow X_1\times_SX_1\) et la diagonale
+\(X_1\longrightarrow X_1\times_SX_1\). Les formules 5.2.9 et 5.2.10 généralisent
+une formule bien connue dans le cas des coefficients constants ([12] 1.3.6 (ii) c)).</p>
+
+<h3 id="III.5.3">5.3. Produit tensoriel externe de correspondances</h3>
+
+<p>Soient, pour \(1\leq i\leq4\), \(X_i\) un \(S\)-schéma,
+\(X=X_1\times_SX_2\times_SX_3\times_SX_4\), \(X_{ij}=X_i\times_SX_j\),
+\(L_i\in\operatorname{ob}D_{ctf}(X_i)\). L'isomorphisme de Künneth (1.7.6, 2.2.4)</p>
+\[
+DL_1\mathbin{\overset L\otimes}_S DL_3\xrightarrow{\sim}
+D(L_1\mathbin{\overset L\otimes}_S L_3)
+\]
+<p>définit un isomorphisme sur \(X\)</p>
+\[
+(DL_1\mathbin{\overset L\otimes}_S L_2)\mathbin{\overset L\otimes}_S
+(DL_3\mathbin{\overset L\otimes}_S L_4)\xrightarrow{\sim}
+D(L_1\mathbin{\overset L\otimes}_S L_3)\mathbin{\overset L\otimes}_S
+(L_2\mathbin{\overset L\otimes}_S L_4), \tag{5.3.1}
+\]
+<p>qu'on peut, d'après 3.1.1, récrire sous la forme</p>
+\[
+R\underline{\operatorname{Hom}}_S(L_1,L_2)\mathbin{\overset L\otimes}_S
+R\underline{\operatorname{Hom}}_S(L_3,L_4)\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}_S(L_1\mathbin{\overset L\otimes}_S L_3,
+L_2\mathbin{\overset L\otimes}_S L_4). \tag{5.3.2}
+\]
+<p>D'où un accouplement, dit <u>produit tensoriel externe</u>,</p>
+\[
+\operatorname{Hom}_S(L_1,L_2)\otimes\operatorname{Hom}_S(L_3,L_4)
+\longrightarrow\operatorname{Hom}_S(L_1\mathbin{\overset L\otimes}_S L_3,
+L_2\mathbin{\overset L\otimes}_S L_4), \tag{5.3.3}
+\]
+<p>qu'on notera \((u,v)\longmapsto u\mathbin{\overset L\otimes}_S v\).
+L'accouplement 5.3.2 peut aussi s'interpréter comme composé du produit tensoriel externe</p>
+\[
+R\underline{\operatorname{Hom}}(E_1,E_2)\mathbin{\overset L\otimes}_S
+R\underline{\operatorname{Hom}}(E_3,E_4)\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}(E_1\mathbin{\overset L\otimes}_S E_3,
+E_2\mathbin{\overset L\otimes}_S E_4)
+\]
+<p>(où \(E_1=p_{12,1}^*L_1\), etc., avec des notations évidentes) et de
+l'isomorphisme défini par Künneth
+\(E_2\mathbin{\overset L\otimes}_S E_4\xrightarrow{\sim}
+p_{24}^!(L_2\mathbin{\overset L\otimes}_S L_4)\) (1.7.3).</p>
+
+<!-- Source PDF page 46 (printed page 118) -->
+<p>Soient (c':C'\longrightarrow X_{12}), (c'':C''\longrightarrow X_{34}) des correspondances,
+(c:C=C'\times_SC''\longrightarrow X=X_{13}\times_SX_{24}) la correspondance produit. On déduit de 5.3.2,
+ou l'on définit de manière analogue, un accouplement</p>
+\[
+R\underline{\operatorname{Hom}}(c_1'^*L_1,c_2'^!L_2)
+\mathbin{\overset L\otimes}_S
+R\underline{\operatorname{Hom}}(c_3''^*L_3,c_4''^!L_4)
+\longrightarrow
+R\underline{\operatorname{Hom}}(c_{13}^*(L_1\mathbin{\overset L\otimes}_S L_3),
+c_{24}^!(L_2\mathbin{\overset L\otimes}_S L_4)), \tag{5.3.4}
+\]
+<p>d'où un accouplement produit tensoriel externe, ((u,v)\longmapsto
+u\mathbin{\overset L\otimes}_S v),</p>
+\[
+\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\otimes
+\operatorname{Hom}(c_3''^*L_3,c_4''^!L_4)
+\longrightarrow
+\operatorname{Hom}(c_{13}^*(L_1\mathbin{\overset L\otimes}_S L_3),
+c_{24}^!(L_2\mathbin{\overset L\otimes}_S L_4)). \tag{5.3.5}
+\]
+<p>On vérifie que ces accouplements sont compatibles aux images directes, dans
+le sens suivant. Soient, pour (1\leq i\leq4), (f_i:X_i\longrightarrow Y_i) un
+(S)-morphisme, (c',c'',c) comme ci-dessus, avec (c') et (c'') propres,
+(d':D'\longrightarrow Y_{12}), (d'':D''\longrightarrow Y_{34}) des morphismes
+propres, (d:D=D'\times_SD''\longrightarrow Y=Y_{12}\times_SY_{34}), et des carrés
+commutatifs</p>
+\[
+\xymatrix{X_{12}&C'\ar[l]\ar[d]\\Y_{12}\ar[u]^{f_{12}}&D'\ar[l]}
+\qquad
+\xymatrix{X_{34}&C''\ar[l]\ar[d]\\Y_{34}\ar[u]^{f_{34}}&D''\ar[l]}.
+\]
+<p>On a alors un carré commutatif</p>
+\[
+\xymatrix{
+\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)\otimes
+\operatorname{Hom}(c_3''^*L_3,c_4''^!L_4)\ar[r]^{5.3.5}\ar[d]^{f_{12*}\otimes f_{34*}} &
+\operatorname{Hom}(c_{13}^*L_{13},c_{24}^!L_{24})\ar[d]^{f_{13,24*}}\\
+\operatorname{Hom}(d_1'^*M_1,d_2'^!M_2)\otimes
+\operatorname{Hom}(d_3''^*M_3,d_4''^!M_4)\ar[r]^{5.3.5} &
+\operatorname{Hom}(d_{13}^*M_{13},d_{24}^!M_{24}),
+} \tag{5.3.6}
+\]
+<p>où (M_i=f_{i!}L_i) si (i=1,3) et (f_{i*}L_i) sinon,
+(L_{ij}=L_i\mathbin{\overset L\otimes}_S L_j),
+(M_{ij}=M_i\mathbin{\overset L\otimes}_S M_j). (On a aussi un carré analogue
+avec des (R\underline{\operatorname{Hom}})).</p>
+
+<!-- Source PDF page 47 (printed page 119) -->
+<p>Supposons que (X_3=X_2), (X_4=X_1), (L_3=L_2), (L_4=L_1). Un raisonnement
+analogue à celui du dernier alinéa de 5.2 montre que, pour
+(u\in\operatorname{Hom}_S(L_1,L_2)), (v\in\operatorname{Hom}_S(L_2,L_1)), on a</p>
+\[
+\langle u,v\rangle=\langle u\mathbin{\overset L\otimes}_S v,1\rangle, \tag{5.3.7}
+\]
+<p>où (1) désigne la correspondance diagonale de (L_{12}) à (L_{12}) sur
+(X_{12}), et le cup-produit au second membre est pris au sens de 4.2.5. Plus
+généralement, si (c':C'\longrightarrow X_{12}), (c'':C''\longrightarrow X_{21})
+sont des correspondances, leur « intersection »
+(C=C'\times_{X_{12}}C'') s'identifie au produit fibré de
+(C'\times_SC''\longrightarrow X=X_{12}\times_SX_{21}) et de la diagonale
+(X_{12}\longrightarrow X), et l'on a, pour
+(u\in\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)),
+(v\in\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)), l'égalité suivante dans
+(H^0(C,K_C))</p>
+\[
+\langle u,v\rangle=\langle u\mathbin{\overset L\otimes}_S v,1\rangle, \tag{5.3.8}
+\]
+<p>où (1) désigne comme ci-dessus la correspondance diagonale. On a donc deux procédés
+« diagonaux » (5.2.10, 5.3.8) pour le calcul du « terme local de Verdier »
+(\langle u,v\rangle).</p>
+
+<!-- Source PDF page 48 (printed page 120) -->
+<h2 id="III.6">6. Appendice. Formule de Lefschetz pour les faisceaux cohérents.</h2>
+
+<p>Dans ce numéro, (S) désigne un schéma noethérien. Les (S)-schémas considérés
+seront supposés séparés et de type fini. Rappelons que, d'après Nagata, tout
+(S)-morphisme entre de tels schémas est compactifiable, i.e. se factorise en une
+immersion ouverte suivie d'un morphisme propre. Pour tout (S)-schéma (X), nous noterons
+(D(X)) la catégorie dérivée de celle des (\mathcal O_X)-Modules.</p>
+
+<p id="III.6.1"><b>6.1</b> Rappelons ([8] App.) que pour tout (S)-morphisme
+(f:X\longrightarrow Y), on dispose d'un foncteur
+(f^!:D^+(Y)\longrightarrow D^+(X)) (et d'isomorphismes de transitivité
+((gf)^!=f^!g^!) pour un composé (gf), avec condition de cocycle). Pour (f) propre,
+(f^!) est « adjoint » à droite du foncteur
+(f_*:D^+(X)_{\mathrm{coh}}\longrightarrow D^+(Y)_{\mathrm{coh}}) (l'indice
+« coh » désignant la sous-catégorie pleine formée de complexes à cohomologie cohérente),
+cette adjonction se précisant en un isomorphisme</p>
+\[
+f_*R\underline{\operatorname{Hom}}(E,f^!F)\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}(f_*E,F) \tag{6.1.1}
+\]
+<p>pour (E\in\operatorname{ob}D(X)_{\mathrm{coh}}), (F\in\operatorname{ob}D^+(Y)),
+défini de manière analogue à l'isomorphisme (SGA 4 XVIII 3.1.9.6). Les considérations
+de ([8] App.5), jointes au théorème de dualité pour l'espace projectif, montrent que,
+si (f) est lisse, purement de dimension (d), on a un isomorphisme canonique</p>
+\[
+f^!L\xleftarrow{\sim}f^*L\otimes\Omega^d_{X/Y}[d] ; \tag{6.1.2}
+\]
+<p>si de plus (f) est propre, la flèche</p>
+\[
+\operatorname{Tr}_f:f_*(f^*L\otimes\Omega^d_{X/Y}[d])\longrightarrow L \tag{6.1.3}
+\]
+<p>déduite, par 6.1.2, de la flèche d'adjonction (f_*f^!\longrightarrow I), coïncide
+avec le morphisme trace ([8] VI).</p>
+
+<p id="III.6.2"><b>6.2</b> Contrairement à ce qui se passe dans le cas des coefficients
+discrets, il n'y a pas ici de sous-catégorie raisonnable de (D) stable par « les six
+opérations » ((f^*,f_*,f^!,f_!,\mathbin{\overset L\otimes},
+R\underline{\operatorname{Hom}})). La notion de finitude la plus naturelle semble être
+celle de perfection relative (SGA 6 III 4). Si (X) est un (S)-schéma, et
+(L\in\operatorname{ob}D(X)),</p>
+
+<!-- Source PDF page 49 (printed page 121) -->
+<p>rappelons qu'on dit que (L) est parfait rel. à (S) si (L) est de tor-dimension
+finie rel. à (S) et à cohomologie cohérente. Nous noterons (D(X)_{\mathrm{parf}/S})
+la sous-catégorie pleine de (D(X)) formée des complexes parfaits rel. à (S). Elle
+n'est stable en général ni par (\mathbin{\overset L\otimes}), ni par
+(R\underline{\operatorname{Hom}}). Cependant, si (E) est parfait (au sens absolu),
+et (F) parfait rel. à (S), (R\underline{\operatorname{Hom}}(E,F)) est parfait rel.
+à (S) (SGA 6 III 4.9). D'autre part, soient, pour (i=1,2), (X_i) un (S)-schéma,
+(L_i\in\operatorname{ob}D^-(X_i)). Nous poserons, comme 1.5,</p>
+\[
+L_1\mathbin{\overset L\otimes}_S L_2=Lp_1^*L_1\mathbin{\overset L\otimes}Lp_2^*L_2,
+\]
+<p>où (p_i:X_1\times_SX_2\longrightarrow X_i) est la projection. La considération
+de cet objet n'est raisonnable que si (X_1) et (X_2) sont tor-indépendants sur
+(S), i.e. (SGA 6 III 1.5) si
+(\operatorname{Tor}_i^S(\mathcal O_{X_1},\mathcal O_{X_2})=0) pour (i\ne0).
+Supposons qu'il en soit ainsi : alors, si (L_1) et (L_2) sont parfaits rel. à
+(S), il en est de même de (L_1\mathbin{\overset L\otimes}_S L_2) (SGA 6 III 4.7).</p>
+
+<p>Soit (f:X\longrightarrow Y) un (S)-morphisme. Si (f) est propre, on a
+(f_*D(X)_{\mathrm{parf}/S}\subset D(Y)_{\mathrm{parf}/S}) (SGA 6 III 4.8). Si
+(f) est de tor-dimension finie, on a
+(f^*D(Y)_{\mathrm{parf}/S}\subset D(X)_{\mathrm{parf}/S}) (SGA 6 III 4.5), et
+(f^!D(Y)_{\mathrm{parf}/S}\subset D(X)_{\mathrm{parf}/S}) (SGA 6 III 4.9).</p>
+
+<p>Pour tout (S)-schéma (a:X\longrightarrow S), nous poserons</p>
+\[
+K_X=a^!\mathcal O_S, \tag{6.2.1}
+\]
+<p>et noterons (D_X) (ou simplement (D)) le foncteur
+(R\underline{\operatorname{Hom}}(-,K_X)). Si (X) est de tor-dimension finie sur
+(S), (K_X) est parfait rel. à (S) et, pour tout
+(L\in\operatorname{ob}D(X)_{\mathrm{parf}/S}), on a
+(DL\in\operatorname{ob}D(X)_{\mathrm{parf}/S}), et la flèche canonique
+(L\longrightarrow DDL) est un isomorphisme (SGA 6 III 4.9).</p>
+
+<p>Soient (f:X\longrightarrow Y) un (S)-morphisme,
+(L\in\operatorname{ob}D(X)), (M\in\operatorname{ob}D(Y)). Si (f^*M) est défini
+(par exemple si (M\in\operatorname{ob}D^-(Y)), ou si (f) est de tor-dimension finie),
+on posera</p>
+\[
+\operatorname{Hom}_f^{(1)}(L,M)=\operatorname{Hom}(f^*M,L),\qquad
+\operatorname{Hom}_f^{(2)}(L,M)=\operatorname{Hom}(L,f^*M).
+\]
+<p>Si (f^!M) est défini (par exemple si (M\in\operatorname{ob}D^+(Y)), ou si
+(f) est lisse, ou fini</p>
+
+<!-- Source PDF page 50 (printed page 122) -->
+<p>et de tor-dimension finie, ou composé de tels morphismes, car dans ces cas (f^!)
+se prolonge, par 6.1.1, 6.1.2 en un foncteur défini sur la catégorie (D(Y)) toute
+entière), on posera</p>
+\[
+\operatorname{Hom}_f^{(3)}(L,M)=\operatorname{Hom}(L,f^!M),\qquad
+\operatorname{Hom}_f^{(4)}(L,M)=\operatorname{Hom}(f^!M,L).
+\]
+<p>Les éléments de (\operatorname{Hom}_f^{(i)}(L,M)) s'appelleront, comme en 1.4,
+<u>flèches de type (i) de (L) dans (M) au-dessus de (f)</u> (ou (f)-flèches
+de type (i) de (L) dans (M)). On laisse au lecteur le soin d'expliciter la
+composition des flèches de type (i), pour (i) fixé, et les catégories fibrées et
+cofibrées correspondantes. Rappelons seulement les formules d'adjonction partielle
+(\operatorname{Hom}_f^{(1)}(L,M)=\operatorname{Hom}(M,f_*L)) (pour
+(M\in\operatorname{ob}D^-(Y)), (L\in\operatorname{ob}D^+(X))),
+(\operatorname{Hom}_f^{(3)}(L,M)=\operatorname{Hom}(f_*L,M)) (pour (f) propre,
+(L\in\operatorname{ob}D(X)_{\mathrm{coh}}), (M\in\operatorname{ob}D^+(Y))).</p>
+
+<p id="III.6.3"><b>6.3</b> Dans la situation de 1.6, supposons (X_1) et (X_2)
+tor-indépendants sur (S), ainsi que (Y_1) et (Y_2). Alors, pour
+(L_i\in\operatorname{ob}D(X_i)_{\mathrm{parf}/S}), la flèche de Künneth 1.6.4 est
+définie (utiliser le fait que la tor-dimension finie relative se conserve par image
+directe (SGA 6 III 3.7.1)) et est un isomorphisme (pour le vérifier, on peut supposer
+(S) et (Y_i) affines, et, pour un calcul à la Čech, on se ramène à supposer aussi
+(X_1) et (X_2) affines, la conclusion est alors conséquence triviale des hypothèses
+de tor-indépendance). D'autre part, pour
+(M_i\in\operatorname{ob}D(Y_i)_{\mathrm{parf}/S}), avec (f_1^!M_1) ou (f_2^!M_2)
+dans (D^b), la flèche de Künneth 1.7.3 est définie<sup class="footnote-ref"><a id="fnref-III-6.3" href="#fn-III-6.3">(*)</a></sup>,
+et est un isomorphisme quand (f_1) et (f_2) sont de tor-dimension finie, comme on
+le vérifie facilement à l'aide de l'isomorphisme de Künneth de type 1.6.4 qu'on vient
+d'indiquer, conjugué à 6.1.2, et 6.1.1 dans le cas où (f_i) est une immersion fermée.
+En particulier, si (X_1) et (X_2) sont de tor-dimension finie sur (S) et
+tor-indépendants, 1.7.6 est un isomorphisme.</p>
+
+<p>On définit comme en 2.1 (R\underline{\operatorname{Hom}}(u,v)) pour ((u,v))
+de type (2,1) (resp. (3,4), avec (f) propre afin d'éviter les pro-objets dûs à un
+(f_!)). Avec des hypothèses de degré convenables (voir par exemple ([9] V 2.3)),
+les flèches d'évaluation (2.2.2) et de produit tensoriel (2.2.3, 2.2.4) sont définies,
+et les flèches</p>
+
+<!-- Source PDF page 51 (printed page 123) -->
+<p>2.2.3, 2.2.4 (sous réserve qu'elles soient définies) sont des isomorphismes dès que
+(E_1) et (E_2) sont parfaits (au sens absolu).</p>
+
+<p>Dans la situation de 2.4, supposons les couples ((X_1,X_2)), ((X_1,Y_2)),
+((Y_1,X_2)), ((Y_1,Y_2)) tor-indépendants sur (S), (f_1) propre, (E_i), (F_i),
+(P_i), (Q_i), (R\underline{\operatorname{Hom}}(E_i,F_i)),
+(R\underline{\operatorname{Hom}}(P_i,Q_i)) parfaits rel. à (S), et les flèches de
+Künneth
+\[
+f_1^!Q_1\mathbin{\overset L\otimes}_S Q_2\longrightarrow
+(f_1\times_S Y_2)^!(Q_1\mathbin{\overset L\otimes}_S Q_2),\qquad
+f_1^!Q_1\mathbin{\overset L\otimes}_S F_2\longrightarrow
+(f_1\times_S Y_2)^!(Q_1\mathbin{\overset L\otimes}_S F_2)
+\]
+des isomorphismes. Alors 2.4.1 et le diagramme de 2.5 sont définis, et ce dernier
+est commutatif (toutefois les flèches horizontales ne sont pas nécessairement des
+isomorphismes). La vérification est la même que pour 2.5.</p>
+
+<p id="III.6.4"><b>6.4</b> Soient, pour (i=1,2), (X_i) un (S)-schéma,
+(X=X_1\times_SX_2), (p_i:X\longrightarrow X_i),
+(q_i:X_i\longrightarrow S) les projections canoniques. On suppose (X_1) et (X_2)
+tor-indépendants, et (q_1) de tor-dimension finie. Soient d'autre part
+(L_i\in\operatorname{ob}D(X_i)_{\mathrm{parf}/S}). Par l'analogue de 2.2.4, on a
+une flèche canonique</p>
+\[
+DL_1\mathbin{\overset L\otimes}_S L_2\longrightarrow
+R\underline{\operatorname{Hom}}(L_1\mathbin{\overset L\otimes}_S\mathcal O_{X_2},
+q_1^!\mathcal O_S\mathbin{\overset L\otimes}_S L_2), \tag{6.4.1}
+\]
+<p>d'où, en composant avec l'isomorphisme de Künneth (6.3)
+(q_1^!\mathcal O_S\mathbin{\overset L\otimes}_S L_2\xrightarrow{\sim}p_2^!L_2),
+une flèche</p>
+\[
+DL_1\mathbin{\overset L\otimes}_S L_2\longrightarrow
+R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2). \tag{6.4.2}
+\]
+<p>La flèche 6.4.1 (donc aussi 6.4.2) est un isomorphisme, comme on le voit en se
+ramenant au cas où (q_1) est une immersion fermée.</p>
+
+<p>Comme en 3.1.2, nous poserons</p>
+\[
+R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2)
+=R\underline{\operatorname{Hom}}_S(L_1,L_2),\quad
+\operatorname{Hom}(p_1^*L_1,p_2^!L_2)=\operatorname{Hom}_S(L_1,L_2), \tag{6.4.3}
+\]
+<p>et appellerons les éléments de (\operatorname{Hom}_S(L_1,L_2))
+<u>correspondances cohomologiques de (L_1) à (L_2)</u>. Si
+(c:C\longrightarrow X) est une correspondance (propre, en pratique), on a par la
+formule d'induction ([8] III 8.8)<sup class="footnote-ref"><a id="fnref-III-6.4"
+href="#fn-III-6.4">(*)</a></sup></p>
+
+<!-- Source PDF page 52 (printed page 124) -->
+\[
+c^!R\underline{\operatorname{Hom}}(p_1^*L_1,p_2^!L_2)
+=R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2), \tag{6.4.4}
+\]
+<p>et les éléments de
+(\operatorname{Hom}(c_1^*L_1,c_2^!L_2)=H^0(X,c_*c^!R\underline{\operatorname{Hom}}
+(p_1^*L_1,p_2^!L_2))) s'appelleront <u>correspondances (cohomologiques) de
+(L_1) à (L_2) à support dans (C)</u>. Nous verrons plus loin des exemples, analogues
+à ceux de 3.2.</p>
+
+<p id="III.6.5"><b>6.5</b> Soient, pour (i=1,2),
+(f_i:X_i\longrightarrow Y_i) un (S)-morphisme propre,
+(f=f_1\times_Sf_2:X\longrightarrow Y). On suppose (X_i) et (Y_i) de tor-dimension
+finie sur (S), et les carrés de 2.4.0 tor-indépendants. Soient
+(L_i\in\operatorname{ob}D(X_i)_{\mathrm{parf}/S}). On définit comme en 3.3.1 un
+isomorphisme</p>
+\[
+f_*R\underline{\operatorname{Hom}}_S(L_1,L_2)\xrightarrow{\sim}
+R\underline{\operatorname{Hom}}_S(f_{1*}L_1,f_{2*}L_2), \tag{6.5.1}
+\]
+<p>d'où, par application de (R\Gamma(Y,-)), un isomorphisme</p>
+\[
+f_*:\operatorname{Hom}_S(L_1,L_2)\xrightarrow{\sim}
+\operatorname{Hom}_S(f_{1*}L_1,f_{2*}L_2), \tag{6.5.2}
+\]
+<p>qu'on notera simplement (u\longmapsto u_*) quand (Y_1=Y_2=S). On a un diagramme
+commutatif analogue à 3.4.1, comme il découle de l'analogue de 2.5 signalé en 6.3.
+On en déduit un corollaire analogue à 6.5, et, dans le cas où (Y_1=Y_2=S) est le
+spectre d'un corps, une description, analogue à celle de 3.6, des opérations (u_*)
+sur la cohomologie.</p>
+
+<p>Étant donné un carré commutatif 3.7.1, avec (c) propre, on a, pour
+(K\in\operatorname{ob}D^+(C)) une flèche canonique</p>
+\[
+f_*c_*c^!K\longrightarrow d_*d^!f_*K, \tag{6.5.3}
+\]
+<p>définie de la même manière que 3.7.3 (l'isomorphisme
+(g_*c^!\xrightarrow{\sim}d^!f_*) est valable aussi dans le présent contexte :
+définition de la flèche par transposition d'une flèche de changement de base, et
+vérification du fait que c'est un isomorphisme par réduction aux cas où (d) est lisse
+et est une immersion fermée). Prenant (K=R\underline{\operatorname{Hom}}_S(L_1,L_2)),
+on déduit de 6.5.3 et 6.5.1 des flèches canoniques</p>
+
+<!-- Source PDF page 53 (printed page 125) -->
+\[
+f_*c_*R\underline{\operatorname{Hom}}(c^*L_1,c^!L_2)\longrightarrow
+d_*R\underline{\operatorname{Hom}}(d^*f_{1*}L_1,d^!f_{2*}L_2), \tag{6.5.4}
+\]
+\[
+f_*:\operatorname{Hom}(c^*L_1,c^!L_2)\longrightarrow
+\operatorname{Hom}(d^*f_{1*}L_1,d^!f_{2*}L_2), \tag{6.5.5}
+\]
+<p>analogues à 3.7.5, 3.7.6.</p>
+
+<p id="III.6.6"><b>6.6</b> Soient, pour (i=1,2), (X_i) des (S)-schémas de
+tor-dimension finie et tor-indépendants, et
+(L_i\in\operatorname{ob}D(X_i)_{\mathrm{parf}/S}). Le produit tensoriel externe des
+flèches d'évaluation
+(DL_i\mathbin{\overset L\otimes}L_i\longrightarrow K_{X_i}) définit, comme en 4.1,
+des accouplements « cup-produits » analogues à 4.1.2, 4.1.3, 4.1.4.</p>
+
+<p>Soient (c:C\longrightarrow X), (d:D\longrightarrow X) des morphismes propres,
+(e=c\times_Xd:E\longrightarrow X),
+(P,Q\in\operatorname{ob}D(X)_{\mathrm{parf}/S}). D'après 6.1.1, on a</p>
+\[
+c_*c^!P=R\underline{\operatorname{Hom}}(Rc_*\mathcal O_C,P)
+\]
+<p>(et un isomorphisme analogue avec (d)). Supposant (c) et (d) de tor-dimension
+finie aux points au-dessus de (e(E)), on en déduit, par produit tensoriel, une flèche
+canonique</p>
+\[
+c_*c^!P\mathbin{\overset L\otimes}d_*d^!Q\longrightarrow
+R\underline{\operatorname{Hom}}(Rc_*\mathcal O_C\mathbin{\overset L\otimes}
+Rd_*\mathcal O_D,P\mathbin{\overset L\otimes}Q). \tag{6.6.1}
+\]
+<p>Quand (c) et (d) sont tor-indépendants, le second membre se récrit, par Künneth et
+6.1.1, (e_*e^!(P\mathbin{\overset L\otimes}Q)), et 6.6.1 prend la forme 4.2.3. Pour
+(P=DL_1\mathbin{\overset L\otimes}_SL_2),
+(Q=L_1\mathbin{\overset L\otimes}_SDL_2), on déduit de 6.6.1 et des accouplements
+indiqués ci-dessus des accouplements analogues à 4.2.4, 4.2.5 :</p>
+\[
+c_*R\underline{\operatorname{Hom}}(c_1^*L_1,c_2^!L_2)
+\mathbin{\overset L\otimes}d_*R\underline{\operatorname{Hom}}(d_2^*L_2,d_1^!L_1)
+\longrightarrow R\underline{\operatorname{Hom}}(Rc_*\mathcal O_C
+\mathbin{\overset L\otimes}Rd_*\mathcal O_D,K_X), \tag{6.6.2}
+\]
+\[
+\langle\ ,\ \rangle:\operatorname{Hom}(c_1^*L_1,c_2^!L_2)\otimes
+\operatorname{Hom}(d_2^*L_2,d_1^!L_1)\longrightarrow
+\operatorname{Hom}(Rc_*\mathcal O_C\mathbin{\overset L\otimes}Rd_*\mathcal O_D,K_X).
+\tag{6.6.3}
+\]
+<p>Tout comme les accouplements de 4.2, ceux-ci sont compatibles à la localisation
+étale. Quand (c) et (d) sont tor-indépendants, le second membre de 6.6.2 (resp. 6.6.3)
+s'identifie canoniquement à (e_*K_E) (resp. (H^0(E,K_E))).</p>
+
+<!-- Source PDF page 54 (printed page 126) -->
+<p>Le théorème 4.4 a l'analogue suivant :</p>
+
+<p id="III.6.7"><u>Théorème 6.7</u> – <u>Soient, pour (i=1,2),
+(f_i:X_i\longrightarrow Y_i) un (S)-morphisme propre,</u>
+(f=f_1\times_Sf_2:X\longrightarrow Y), (p_i:X\longrightarrow X_i),
+(q_i:Y\longrightarrow Y_i) <u>les projections. Soit d'autre part un cube 4.4.0 à
+faces horizontales cartésiennes, avec (c'), (c''), (d'), (d'') propres, et (c'),
+(c'') (resp. (d'), (d'')) de tor-dimension finie aux points au-dessus de (c(C))
+(resp. (d(D))). On pose (c_i'=p_ic'), (c_i''=p_ic''), (d_i'=q_id'),
+(d_i''=p_id''). Soient enfin (L_i\in\operatorname{ob}D(X_i)_{\mathrm{parf}/S}).
+On suppose les couples ((X_1,X_2)), ((X_1,Y_2)), ((Y_1,X_2)), ((Y_1,Y_2))
+tor-indépendants sur (S), et (X_i) et (Y_i) de tor-dimension finie sur (S). On a
+alors un carré commutatif</u></p>
+\[
+\begin{CD}
+f_*c_*'R\underline{\operatorname{Hom}}(c_1'^*L_1,c_2'^!L_2)\otimes
+f_*c_*''R\underline{\operatorname{Hom}}(c_2''^*L_2,c_1''^!L_1)
+@>{(1)}>> f_*R\underline{\operatorname{Hom}}(Rc'_*\mathcal O_{C'}\otimes
+Rc''_*\mathcal O_{C''},K_X)\\
+@V{(2)}VV @VV{(4)}V\\
+d_*'R\underline{\operatorname{Hom}}(d_1'^*M_1,d_2'^!M_2)\otimes
+d_*''R\underline{\operatorname{Hom}}(d_2''^*M_2,d_1''^!M_1)
+@>{(3)}>> R\underline{\operatorname{Hom}}(Rd'_*\mathcal O_{D'}\otimes
+Rd''_*\mathcal O_{D''},K_Y),
+\end{CD} \tag{6.7.1}
+\]
+<p><u>où (M_i=f_{i*}L_i), (3) est donné par 6.6.2, (1) est déduit de 6.6.2 par
+application de (f_*) et composition avec la flèche canonique</u>
+(f_*c_*'\mathbin{\overset L\otimes}f_*c_*''\longrightarrow
+f_*(c_*'\mathbin{\overset L\otimes}c_*'')), <u>(2) est produit tensoriel des flèches
+6.5.4 relatives aux faces contenant (f), et (4) est composé de l'isomorphisme de
+dualité 6.1.1 et de la flèche définie par la flèche canonique</u>
+\[
+Rd'_*\mathcal O_{D'}\mathbin{\overset L\otimes}Rd''_*\mathcal O_{D''}
+\longrightarrow f_*(Rc'_*\mathcal O_{C'}\mathbin{\overset L\otimes}
+Rc''_*\mathcal O_{C''})
+\]
+<p><u>(adjointe du produit tensoriel des flèches « de changement de base »
+(f^*Rd'_*\mathcal O_{D'}\longrightarrow Rc'_*\mathcal O_{C'}),
+(f^*Rd''_*\mathcal O_{D''}\longrightarrow Rc''_*\mathcal O_{C''})).</u></p>
+
+<p>La démonstration est essentiellement la même que celle de 4.4, nous laissons au
+lecteur les menues modifications à apporter.</p>
+
+<p>Lorsque (c'), (c'') sont tor-indépendants, ainsi que (d'), (d''), la flèche (4)
+de 6.7.1 se récrit sous la forme (f_*c_*K_C\longrightarrow d_*K_D), elle est simplement
+définie par la flèche d'adjonction (g_*K_C=g_*g^!K_D\longrightarrow K_D) (comme la
+flèche (4) de 4.4.1). Il ne serait cependant pas naturel de ne considérer que ce cas,
+car on exclurait ainsi les correspondances à intersection excédentaire.</p>
+
+<p>On déduit de 6.7 des formules analogues à 4.5.1, 4.7.1 : sous les hypothèses de
+6.7, on a, pour (u\in\operatorname{Hom}(c_1'^*L_1,c_2'^!L_2)),
+(v\in\operatorname{Hom}(c_2''^*L_2,c_1''^!L_1)),</p>
+
+<!-- Source PDF page 55 (printed page 127) -->
+\[
+\langle f_*u,f_*v\rangle=f_*\langle u,v\rangle, \tag{6.7.2}
+\]
+<p>où (f_*u) (resp. (f_*v)) désigne la correspondance image directe de (u) (resp.
+(v)) au sens de 6.5.5, et (f_*) au second membre est l'homomorphisme</p>
+\[
+\operatorname{Hom}(Rc'_*\mathcal O_{C'}\mathbin{\overset L\otimes}
+Rc''_*\mathcal O_{C''},K_X)\longrightarrow
+\operatorname{Hom}(Rd'_*\mathcal O_{D'}\mathbin{\overset L\otimes}
+Rd''_*\mathcal O_{D''},K_Y) \tag{6.7.3}
+\]
+<p>composé de l'isomorphisme de dualité 6.1.1 et de la flèche induite par la flèche
+canonique
+(Rd'_*\mathcal O_{D'}\mathbin{\overset L\otimes}Rd''_*\mathcal O_{D''}
+\longrightarrow f_*(Rc'_*\mathcal O_{C'}\mathbin{\overset L\otimes}
+Rc''_*\mathcal O_{C''})) citée dans 6.7. Quand (Y_1=Y_2=S=D'=D''), 6.7.2 est la
+<u>formule de Lefschetz-Verdier</u>.</p>
+
+<p>À titre d'illustration, nous allons montrer que cette formule implique la formule
+de Woods Hole [1].</p>
+
+<p id="III.6.8"><b>6.8</b> Nous aurons besoin pour cela de quelques rappels sur la
+classe de cohomologie « de Hodge » associée à un sous-schéma régulièrement plongé
+d'un schéma lisse et les résidus de Grothendieck ([8] III 9). Soient
+(f=X\longrightarrow S) un morphisme lisse purement de dimension relative (N),
+(i:Y\longrightarrow X) une immersion régulière de codimension (d) (i.e. ((SGA IV
+16.9.2), (SGA 6 VII 1)) un sous-schéma fermé défini localement par une suite régulière
+de (d) équations, ou, dans une terminologie équivalente ((8 III 1), (SGA 6 VIII 1))
+une immersion fermée (localement) d'intersection complète de codimension (d)). Posons
+(g=fi). On associe alors à (Y) un élément</p>
+\[
+cl_{X/S}^{\ell}(Y)\in\operatorname{Ext}_{\mathcal O_X}^d
+(\mathcal O_Y,\Omega_{X/S}^d), \tag{6.8.1}
+\]
+<p>appelé <u>classe de cohomologie associée à (Y)</u>, défini de la manière suivante.
+D'après le théorème « de pureté » ([8] III 7.2), on a</p>
+\[
+\operatorname{Ext}_{\mathcal O_X}^i(\mathcal O_Y,\Omega_{X/S}^d)=
+\begin{cases}
+0&\text{si }i\ne d,\\
+\operatorname{Hom}(\bigwedge^dN_{Y/X},\Omega_{X/S}^d\otimes\mathcal O_Y)&
+\text{si }i=d,
+\end{cases} \tag{6.8.2}
+\]
+<p>où (N_{Y/X}=I/I^2) est le faisceau conormal ((I=\operatorname{Ker}
+(\mathcal O_X\longrightarrow\mathcal O_Y))). Par suite,</p>
+\[
+\operatorname{Ext}_{\mathcal O_X}^d(\mathcal O_Y,\Omega_{X/S}^d)
+=H^0(Y,\operatorname{Hom}(\bigwedge^dN_{Y/X},\Omega_{X/S}^d\otimes\mathcal O_Y)).
+\tag{6.8.3}
+\]
+
+<!-- Source PDF page 56 (printed page 128) -->
+<p>La différentielle (d_{X/S}:\mathcal O_X\longrightarrow\Omega^1_{X/S}) induit une
+application (\mathcal O_Y)-linéaire</p>
+\[
+d_{X/S}\otimes1:N_{Y/X}\longrightarrow\Omega^1_{X/S}\otimes\mathcal O_Y.
+\]
+<p>La puissance extérieure (d)-ième de cette application est une section globale,
+sur (Y), de
+(\bigwedge^dN^\vee_{Y/S}\otimes\Omega^d_{X/S}), dont l'image dans
+(\operatorname{Ext}^d_{\mathcal O_X}(\mathcal O_Y,\Omega^d_{X/S})) par
+l'isomorphisme 6.8.3 est par définition la classe 6.8.1.</p>
+
+<p>Supposons (g) fini et plat (donc (d=N)). Soit
+(\omega\in H^0(Y,\bigwedge^dN^\vee_{Y/S}\otimes\Omega^d_{X/S})). D'après 6.8.2
+et 6.1, on peut voir (\omega) comme un homomorphisme</p>
+\[
+\mathcal O_Y\longrightarrow g^!\mathcal O_S
+(=\bigwedge^dN^\vee_{Y/S}\otimes\Omega^d_{X/S}),
+\]
+<p>donc, par adjonction, comme un homomorphisme
+(g_*\mathcal O_Y\longrightarrow\mathcal O_S). On définit le <u>résidu</u>
+(relatif à (g)) de (\omega) comme la section de (\mathcal O_S) image de 1 par
+cet homomorphisme, et on le note (\operatorname{Res}_{Y/S}(\omega)) (cf. ([8]
+III 9)). Notons d'autre part
+(i_*\omega\in H^N(X,\Omega^N_{X/S})) l'image de (\omega) par le composé de
+l'isomorphisme 6.8.3 et de la flèche canonique</p>
+\[
+\operatorname{Ext}^N_{\mathcal O_X}(\mathcal O_Y,\Omega^N_{X/S})
+\longrightarrow H^N(X,\Omega^N_{X/S}).
+\]
+<p>Quand (f) est <u>propre</u>, il découle de la transitivité pour les morphismes
+trace (ou flèches d'adjonction) (i_*i^!\longrightarrow1),
+(f_*f^!\longrightarrow1), que l'on a</p>
+\[
+\operatorname{Res}_{Y/S}(\omega)=\operatorname{Tr}_f(i_*\omega), \tag{6.8.4}
+\]
+<p>où
+(\operatorname{Tr}_f:H^N(X,\Omega^N_{X/S})\longrightarrow H^0(S,\mathcal O_S))
+est défini par la flèche d'adjonction
+(f_*f^!\mathcal O_S=Rf_*\Omega^N_{X/S}[N]\longrightarrow\mathcal O_S) (6.1).
+D'autre part, sans hypothèse de propreté, on a la compatibilité importante
+([8] III 9 R6)</p>
+\[
+\operatorname{Res}_{Y/S}(y\,cl^\ell_{X/S}(Y))=\operatorname{Tr}_{Y/S}(y),
+\tag{6.8.5}
+\]
+<p>pour (y\in H^0(Y,\mathcal O_Y)), où
+(\operatorname{Tr}_{Y/S}:g_*\mathcal O_Y\longrightarrow\mathcal O_S) désigne la
+trace au sens classique, i.e. (\operatorname{Tr}_{Y/S}(y)) = trace de
+l'endomorphisme de (g_*\mathcal O_Y) défini par la multiplication par (y)
+(cette compatibilité n'est pas démontrée dans (loc. cit.) ; le cas (N=1) est
+traité dans [Raynaud, Anneaux locaux henséliens, VII 1, Lecture Notes in Math.
+nº169, Springer Verlag, 1970]). En d'autres termes, (\operatorname{Tr}_{Y/S})
+correspond, par adjonction, à l'homomorphisme
+(\mathcal O_Y\longrightarrow g^!\mathcal O_S) défini par la multiplication par
+(cl^\ell_{X/S}(Y)). Il en résulte que, pour (F\in\operatorname{ob}D(S)_{\rm coh}),
+la flèche</p>
+\[
+g^*F\longrightarrow g^!F=g^*F\otimes g^!\mathcal O_S \tag{6.8.6}
+\]
+<p>donnée par le produit par (cl^\ell_{X/S}(Y)) correspond par adjonction à la
+flèche</p>
+
+<!-- Source PDF page 57 (printed page 129) -->
+\[
+g_*g^*F=F\mathbin{\overset L\otimes}g_*\mathcal O_Y\longrightarrow F \tag{6.8.7}
+\]
+<p>définie par
+(\operatorname{Tr}_{Y/S}:g_*\mathcal O_Y\longrightarrow\mathcal O_S).</p>
+
+<p id="III.6.9"><b>6.9</b> Soient (X) (resp. (Y)) un (S)-schéma propre et
+lisse de dimension relative (m) (resp. (n)), (Z=X\times_SY),
+(a:A\longrightarrow Z), (b:B\longrightarrow Z) des immersions régulières
+telles que (a_2:A\longrightarrow Y), (b_1:B\longrightarrow X) soient finis et
+plats (on note (p_1:Z\longrightarrow X), (p_2:Z\longrightarrow Y) les
+projections, et (a_i=p_ia), (b_i=p_ib)),
+(c:C=A\times_ZB\longrightarrow Z),
+(L\in\operatorname{ob}D(X)_{\rm parf}),
+(M\in\operatorname{ob}D(Y)_{\rm parf}) (l'indice parf signifie « parfait au sens
+absolu », ce qui équivaut aussi à parfait rel. à (S), (X) et (Y) étant
+lisses). On suppose (C) fini et plat sur (S). Les hypothèses faites entraînent
+donc que (c) est une immersion régulière et que (a) et (b) sont
+tor-indépendants.</p>
+
+<p>On a (p_1^*\Omega^1_{X/S}=\Omega^1_{Z/Y}),
+(p_2^*\Omega^1_{Y/S}=\Omega^1_{Z/X}), et une décomposition</p>
+\[
+\Omega^1_{Z/S}=\Omega^1_{Z/Y}\oplus\Omega^1_{Z/X},
+\]
+<p>d'où, pour tout entier (r), une décomposition</p>
+\[
+\Omega^r_{Z/S}=\bigoplus_{i+j=r}\Omega^i_{Z/Y}\otimes\Omega^j_{Z/X}. \tag{6.9.0}
+\]
+<p>D'autre part, d'après 6.1.2, on a
+(p_2^!M=p_2^*M\otimes\Omega^m_{Z/Y}[m]), donc</p>
+\[
+H^0(Z,a_*a^!R\underline{\operatorname{Hom}}(p_1^*L,p_2^!M))
+=\operatorname{Ext}^m_{\mathcal O_Z}
+(a_1^*L,a_2^*M\otimes\Omega^m_{Z/Y}),
+\]
+<p>d'où, par 6.4.4 et 6.8.2, un isomorphisme</p>
+\[
+\operatorname{Hom}(a_1^*L,a_2^!M)=H^0(A,
+R\underline{\operatorname{Hom}}(a_1^*L,a_2^*M)\otimes
+\bigwedge^mN^\vee_{A/Z}\otimes\Omega^m_{Z/Y}). \tag{6.9.1}
+\]
+<p>On a de même un isomorphisme</p>
+\[
+\operatorname{Hom}(b_2^*M,b_1^!L)=H^0(B,
+R\underline{\operatorname{Hom}}(b_2^*M,b_1^*L)\otimes
+\bigwedge^nN^\vee_{B/Z}\otimes\Omega^n_{Z/X}). \tag{6.9.2}
+\]
+<p>Soient (u\in\operatorname{Hom}(a_1^*L,a_2^!M)),
+(v\in\operatorname{Hom}(b_2^*M,b_1^!L)), notons</p>
+\[
+\langle u,v\rangle\in H^0(C,\mathcal O_C), \tag{6.9.3}
+\]
+
+<!-- Source PDF page 58 (printed page 130) -->
+<p>la section (\operatorname{Tr}(u_C\circ v_C)=\operatorname{Tr}(v_C\circ u_C)),
+où (u_C\in\operatorname{Hom}(c_1^*L,c_2^*M)) et
+(v_C\in\operatorname{Hom}(c_2^*M,c_1^*L)) sont induits par (u) et (v).
+Considérons la correspondance cohomologique
+(u'\in\operatorname{Hom}(a_1^*L,a_2^!M)) (resp.
+(v'\in\operatorname{Hom}(b_2^*M,b_1^!L))) déduite de (u) (resp. (v)) par
+composition avec l'homomorphisme trace 6.8.7
+(a_{2*}a_2^*M\longrightarrow M) (resp.
+(b_{1*}b_1^*L\longrightarrow L)), ou, ce qui revient au même (6.8.6), par
+produit avec (cl^\ell_{Z/Y}(A)) (resp. (cl^\ell_{Z/X}(B))). Notons en passant
+que (cl^\ell_{Z/Y}(A)) (resp. (cl^\ell_{Z/X}(B))) est la composante dans</p>
+\[
+H^0(A,\bigwedge^mN^\vee_{A/Z}\otimes\Omega^m_{Z/Y})
+\quad(\text{resp. }H^0(B,\bigwedge^nN^\vee_{B/Z}\otimes\Omega^n_{Z/X}))
+\]
+<p>de (cl^\ell_{Z/S}(A)) (resp. (cl^\ell_{Z/S}(B))) définie par la projection
+(\Omega^m_{Z/S}\longrightarrow\Omega^m_{Z/Y}) (resp.
+(\Omega^n_{Z/S}\longrightarrow\Omega^n_{Z/X})) de 6.9.0. On vérifie aisément
+que le cup-produit</p>
+\[
+\langle u',v'\rangle\in
+\operatorname{Ext}^{m+n}_{\mathcal O_Z}(\mathcal O_C,\Omega^{m+n}_{Z/S})
+=H^0(C,\bigwedge^{m+n}N^\vee_{C/Z}\otimes\Omega^{m+n}_{Z/S})
+\]
+<p>défini en 6.6.3 est donné par</p>
+\[
+\langle u',v'\rangle=\langle u,v\rangle
+cl^\ell_{Z/Y}(A)cl^\ell_{Z/X}(B). \tag{6.9.4}
+\]
+<p>On vérifie d'autre part que l'homomorphisme 6.7.3</p>
+\[
+\operatorname{Ext}^{m+n}_{\mathcal O_Z}(\mathcal O_C,\Omega^{m+n}_{Z/S})
+\longrightarrow H^0(S,\mathcal O_S)
+\]
+<p>est composé de la flèche canonique</p>
+\[
+\operatorname{Ext}^{m+n}_{\mathcal O_Z}(\mathcal O_C,\Omega^{m+n}_{Z/S})
+\longrightarrow H^{m+n}(Z,\Omega^{m+n}_{Z/S})
+\]
+<p>et du morphisme trace
+(\operatorname{Tr}_{Z/S}:H^{m+n}(Z,\Omega^{m+n}_{Z/S})\longrightarrow
+H^0(S,\mathcal O_S)). La formule de Lefschetz-Verdier 6.7.2 fournit donc la
+relation</p>
+\[
+\langle(u')_*,(v')_*\rangle=
+\operatorname{Tr}_{Z/S}(\langle u,v\rangle cl^\ell_{Z/Y}(A)cl^\ell_{Z/X}(B)).
+\tag{6.9.5}
+\]
+<p>Grâce à 6.8.4 on peut récrire le second membre comme un résidu, de sorte qu'en
+résumé on a obtenu :</p>
+
+<div class="theorem" id="III.6.10">
+<p><span class="theorem-title"><u>Théorème 6.10</u></span> – <u>Sous les hypothèses
+du premier alinéa de 6.9, soient</u>
+(u\in\operatorname{Hom}(a_1^*L,a_2^*M)),
+(v\in\operatorname{Hom}(b_2^*M,b_1^*L)), <u>et considérons la correspondance
+cohomologique (u') (resp. (v')) de (L) à (M) (resp. (M) à (L)) à
+support dans (A) (resp. (B)) déduite de (u) (resp. (v)) par composition
+avec la trace</u> (a_{2*}a_2^*M\longrightarrow M) (resp.
+(b_{1*}b_1^*L\longrightarrow L)) <u>(6.8.7), et l'homomorphisme ((u')_*:f_*L
+\longrightarrow g_*M) (resp. ((v')_*:g_*M\longrightarrow f_*L)) déduit de
+(u') (resp. (v')) par image directe (6.5.5) ((f:X\longrightarrow S),
+(g:Y\longrightarrow S)</u></p>
+
+<!-- Source PDF page 59 (printed page 131) -->
+<p><u>désignant les projections). Alors, avec les notations de 6.8, 6.9.3, on a</u></p>
+\[
+\langle(u')_*,(v')_*\rangle=
+\operatorname{Res}_{C/S}(\langle u,v\rangle cl^\ell_{Z/Y}(A)cl^\ell_{Z/X}(B)).
+\tag{6.10.1}
+\]
+</div>
+
+<p id="III.6.11"><u>Remarques 6.11.</u> – a) On vérifie comme en 3.6, à l'aide de
+la description 3.5 b) de l'image directe d'une correspondance, que, si
+(h:Z\longrightarrow S) est la projection, ((u')_*) (resp. ((v')_*)) est
+composé des flèches</p>
+\[
+f_*L\xrightarrow{(1)}(ha)_*a_1^*L\xrightarrow{(ha)_*u}(ha)_*a_2^*M
+=g_*a_{2*}a_2^*M\xrightarrow{(2)}g_*M
+\]
+\[
+(\text{resp. }g_*M\xrightarrow{(1)}(hb)_*b_2^*M\xrightarrow{(hb)_*v}
+(hb)_*b_1^*L=f_*b_{1*}b_1^*L\xrightarrow{(2)}f_*L),
+\]
+<p>où (1) est la flèche de fonctorialité usuelle (définie par la flèche d'adjonction
+(1\longrightarrow a_{1*}a_1^*) (resp. (1\longrightarrow b_{2*}b_2^*))) et
+(2) est donnée par la trace (a_{2*}a_2^*M\longrightarrow M) (resp.
+(b_{1*}b_1^*L\longrightarrow L)) (6.8.7).</p>
+
+<p>b) Supposons que (S) soit le spectre d'un corps. L'intersection
+(C=A\times_{(X\times_SY)}B) est donc formée de points isolés. En chaque point
+(z) de (C), choisissons, près des images de (z), des suites régulières
+((s_1,\ldots,s_m)), ((t_1,\ldots,t_n)) d'équations de (A,B). Alors 6.10.1
+s'écrit, avec la notation des symboles résiduels de ([8] III 9),</p>
+\[
+\langle(u')_*,(v')_*\rangle=\sum_{z\in C}\operatorname{Res}_z\left(
+\langle u,v\rangle\prod_{1\leq i\leq m}(d_{Z/Y}s_i/s_i)
+\prod_{1\leq j\leq n}(d_{Z/X}t_j/t_j)\right), \tag{6.11.1}
+\]
+<p>où (d_{Z/Y}s_i) (resp. (d_{Z/X}t_j)) désigne la composante de type (1,0)
+(resp. (0,1)) de (d_{Z/S}s_i) (resp. (d_{Z/S}t_j)) dans la décomposition
+6.9.0.</p>
+
+<div class="theorem" id="III.6.12">
+<p><span class="theorem-title"><u>Corollaire 6.12</u></span> – <u>(formule de
+Woods-Hole [1]). On suppose que (S) est le spectre d'un corps. Soient (X) un
+(S)-schéma propre et lisse, (F) un (S)-endomorphisme de (X), (L) un
+objet de (D(X)_{\rm parf}) (i.e. un complexe parfait sur (X)),</u>
+(u\in\operatorname{Hom}(F^*L,L)). <u>On suppose que le schéma des points fixes
+(X^F) est fini et formé de points transversaux (i.e. où le graphe de (F) coupe
+transversalement la diagonale). Alors on a</u></p>
+\[
+\sum_i(-1)^i\operatorname{Tr}((F,u),H^i(X,L))
+=\sum_{x\in X^F}\operatorname{Tr}(u_x)/\det(1-dF_x),
+\]
+<p><u>où ((F,u)) est l'endomorphisme de (H^i(X,L)) composé de
+(H^i(X,L)\longrightarrow H^i(X,F^*L))</u></p>
+
+<!-- Source PDF page 60 (printed page 132) -->
+<p><u>(image inverse) et de (H^i(X,u)), (\operatorname{Tr}(u_x)) désigne la
+valeur en (x) de l'endomorphisme induit par (u) sur la fibre de (L) en (x),
+et (\det(1-dF_x)) la valeur en (x) du déterminant de l'application (1 −
+application induite par (F) sur (\Omega^1_{X,x})).</u></p>
+</div>
+
+<p><u>Démonstration.</u> On applique 6.10 en tenant compte de 6.11 a), b). Posons
+(Z=X\times_SX). Soit (x\in X^F). Près de (x), choisissons un système de
+coordonnées locales ((x_1,\ldots,x_n)) (définissant un morphisme étale dans
+(\mathbb A^n_S)), posons (F_i=x_iF), notons ((x_1,\ldots,x_n,y_1,\ldots,y_n))
+les coordonnées locales correspondantes sur (Z) près de
+(z=(x,x)) ((x_i=x_i\otimes1), (y_i=1\otimes x_i)). Alors, près de (z),
+((x_1-y_1,\ldots,x_n-y_n)) (resp. ((y_1-F_1,\ldots,y_n-F_n))) est un système
+régulier d'équations de la diagonale (A) (resp. du graphe (B) de (F)). La
+contribution du second membre de 6.11.1 en (z) est</p>
+\[
+\langle u,1\rangle_z=\operatorname{Res}_z\left(\operatorname{Tr}(u)
+\frac{dx_1\cdots dx_n\,dy_1\cdots dy_n}
+{(x_1-y_1)\cdots(x_n-y_n)(y_1-F_1)\cdots(y_n-F_n)}\right).
+\]
+<p>Notons qu'au numérateur on peut remplacer (dy_i) par</p>
+\[
+dy_i-dF_i=dy_i-\sum_{1\leq j\leq n}(dF_i/dx_j)dx_j.
+\]
+<p>Appliquant alors la formule ([8] III 9 R3) à la situation
+((B\longrightarrow Z\longrightarrow S)),
+((s_1,\ldots,s_p)=(y_1-F_1,\ldots,y_n-F_n)),
+((t_1,\ldots,t_n)=(x_1-y_1,\ldots,x_n-y_n)),
+(\omega=(\operatorname{Tr}(u)\,dx_1\cdots dx_n)), on obtient</p>
+\[
+(*)\qquad \langle u,1\rangle_z=\operatorname{Res}_x\left(
+\operatorname{Tr}(u)\frac{dx_1\cdots dx_n}
+{(x_1-F_1)\cdots(x_n-F_n)}\right).
+\]
+<p>Comme (x) est transversal, les (x_i-F_i) forment un système régulier de
+paramètres de (\mathcal O_{X,x}), donc on peut écrire, près de (x),</p>
+\[
+x_i=\sum_j(x_j-F_j)c_{ij},
+\]
+<p>où ((c_{ij})) est une matrice de sections de (\mathcal O_X) inversible en
+(x), son déterminant ayant pour valeur en (x)
+(\det(1-dF_x)^{-1}). Grâce à ([8] III 9 R1) on déduit donc de (*)</p>
+\[
+\langle u,1\rangle_z=\operatorname{Res}_x\left(
+\operatorname{Tr}(u)\det(c_{ij})\frac{dx_1\cdots dx_n}{x_1\cdots x_n}\right),
+\]
+<p>d'où, par ([8] III 9 R6),</p>
+
+<hr>
+<div class="footnotes">
+<p id="fn-III-6.3"><a href="#fnref-III-6.3">(*)</a> Dans le cas propre ou
+lissifiable, la définition de la flèche est immédiate ; on peut ramener le cas général
+au cas lissifiable par descente cohomologique.</p>
+<p id="fn-III-6.4"><a href="#fnref-III-6.4">(*)</a> L'hypothèse de « lissifiabilité »
+de (loc. cit.) est inutile.</p>
+</div>
+
+<!-- Source PDF page 61 (printed page 133) -->
+\[
+\langle u,1\rangle_z=\operatorname{Tr}(u(x))\det(c_{ij}(x))
+=\operatorname{Tr}(u(x))\det(1-dF_x)^{-1}.
+\]
+
+<p>Le corollaire résulte donc de 6.11.1.</p>
+
+<p id="III.6.12.1"><u>Remarque 6.12.1.</u> – Si \(X^F\) est supposé seulement
+fini, le calcul précédent montre que l'on a</p>
+\[
+\sum(-1)^i\operatorname{Tr}((F,u),H^i(X,L))=
+\sum_{x\in X^F}\operatorname{Res}_x\left(\operatorname{Tr}(u)
+\frac{dx_1\cdots dx_n}{(x_1-F_1)\cdots(x_n-F_n)}\right),
+\]
+<p>où \((x_i)\) est un système de coordonnées locales en \(x\), et les
+\(F_i\) sont les coordonnées de \(F\) (près de \(x\)) dans ce système.</p>
+
+<p>Le lecteur se convaincra, d'autre part, que la formule précédente est
+encore valable si \(X\) est propre et supposé seulement lisse aux points de
+\(X^F\).</p>
+
+<p id="III.6.13"><span class="theorem-title">6.13</span> Supposons que \(S\)
+soit le spectre d'une clôture algébrique du corps fini \(\mathbb F_q\) et que
+\(X/S\) provienne par extension des scalaires d'un schéma propre et lisse
+\(X_0/\mathbb F_q\). Prenons pour \(F\) l'endomorphisme de Frobenius de \(X/S\)
+« défini par l'élévation à la puissance \(q\)-ième sur les coordonnées ». On a
+\(X^F=X_0(\mathbb F_q)\) et \(X^F\) est formé de points transversaux puisque
+\(dF=0\). Si \(L\) est un faisceau localement libre de type fini sur \(X\) et
+\(u\in\operatorname{Hom}(F^*L,L)\), la formule de Woods-Hole s'écrit donc</p>
+\[
+\sum(-1)^i\operatorname{Tr}((F,u),H^i(X,L))=
+\sum_{x\in X_0(\mathbb F_q)}\operatorname{Tr}(u_x,L_x). \tag{6.13.1}
+\]
+<p>En particulier, pour \(L=\mathcal O_X\), \(u\) l'isomorphisme canonique
+\(F^*\mathcal O_X\xrightarrow{\sim}\mathcal O_X\), on trouve :</p>
+\[
+\sum(-1)^i\operatorname{Tr}(F,H^i(X,\mathcal O_X))
+=\operatorname{Card}(X_0(\mathbb F_q))\pmod p. \tag{6.13.2}
+\]
+<p>La théorie d'Artin-Schreier permet de récrire le premier membre sous la
+forme \(\sum(-1)^i\operatorname{Tr}(F,H^i(X,\mathbb F_p))\), où
+\(H^*(X,\mathbb F_p)\) désigne la cohomologie étale de \(X\) à valeurs dans le
+faisceau constant \(\mathbb F_p\). Par un raffinement de cet argument, Deligne,
+dans (SGA 4<sup>1/2</sup> Fonctions L), a déduit de 6.13.1 la généralisation
+suivante de 6.13.2 :</p>
+
+<!-- Source PDF page 62 (printed page 134) -->
+<div class="theorem" id="III.6.13.3">
+<p><span class="theorem-title"><u>Théorème 6.13.3 (Deligne)</u></span> – <u>Soient
+\(X_0\) un schéma séparé et de type fini sur \(\mathbb F_q\), \(X\) le schéma
+déduit de \(X_0\) par extension des scalaires à une clôture algébrique \(k\)
+de \(\mathbb F_q\), \(F\) l'endomorphisme de Frobenius de \(X/k\). Alors, pour
+tout \(L_0\in\operatorname{ob}D_{ctf}(X_0,\mathbb F_p)\), on a, notant \(L\)
+l'image inverse de \(L_0\) sur \(X\),</u></p>
+\[
+\sum(-1)^i\operatorname{Tr}(F,H_c^i(X,L))
+=\sum_{x\in X^F}\operatorname{Tr}(F,L_x).
+\]
+</div>
+
+<p>Signalons que le cas particulier de 6.13.3 correspondant à
+\(L_0=\mathbb F_p\) a été établi par Katz dans (SGA 7 XXII) par une méthode
+toute différente, fondée sur le calcul à la Dwork de la fonction zêta d'une
+hypersurface. Par ailleurs, 6.13.2 dans le cas propre et lisse est aussi
+conséquence immédiate de la formule de Lefschetz en cohomologie cristalline
+([5] VII 3.1.9). En fait, la cohomologie cristalline donne l'information plus
+précise que chaque facteur \(\det(1-Ft,H^i(X_0/W))\in W[t]\) de la fonction
+zêta est congru mod \(p\) à \(\det(1-Ft,H^i(X_0,\mathcal O_{X_0}))\) (du moins
+si \(H^*(X_0/W)\) est sans torsion). Katz a montré [11] qu'on pouvait obtenir,
+à l'aide des estimations de B. Mazur [14], des congruences supérieures
+(faisant intervenir les \(H^i(X_0,\Omega^j_{X_0})\) et l'opération de Cartier)
+pour des hypersurfaces (ou intersections complètes) lisses dont on suppose
+les nombres de Hodge (dans la dimension intéressante) nuls jusqu'à un
+certain cran.</p>
+
+<p>D'autre part, si \(X_0\) est un schéma propre sur \(\mathbb F_q\),
+géométriquement intègre, et tel que \(H^i(X_0,\mathcal O_{X_0})=0\) pour
+\(i&gt;0\), la formule de Lefschetz-Verdier 6.7.2, appliquée à
+\(X=X_0\otimes k\) et l'endomorphisme de Frobenius de \(X\), entraîne aussitôt
+que \(X_0\) possède au moins un point rationnel sur \(\mathbb F_q\) (puisque
+\(\operatorname{Tr}(F,R\Gamma(X,\mathcal O_X))=1\)). Serre demande si cette
+conclusion est encore vraie lorsqu'on remplace \(\mathbb F_q\) par un corps
+vérifiant \((C_1)\) ([17] II 3), par exemple \(\mathbb C(t)\) (Tsen), ou
+\(\mathbb C((t))\) (Lang) (voir loc. cit. pour d'autres exemples) ; il fait
+observer en effet que, si \(X_0\) est une intersection complète de
+multi-degré \((m_1,\ldots,m_r)\) dans \(\mathbb P^n\), la condition de
+trivialité de la cohomologie équivaut ([16] n° 78) à la condition
+\(m_1+\cdots+m_r&lt;n+1\), qui est aussi celle qui intervient quand on écrit la
+condition \((C_1)\).</p>
+
+<!-- Source PDF page 63 (printed page 135) -->
+<p id="III.6.14"><span class="theorem-title">6.14</span> La formule de Woods Hole
+a de nombreuses autres applications, pour lesquelles nous renvoyons à [2]
+et à l'exposé de Beauville [4].</p>
+
+<p id="III.6.15"><span class="theorem-title">6.15</span> Le rédacteur n'a pas
+examiné le cas des composantes de points fixes de dimension \(\geq1\), mais il
+n'est pas exclu que l'on puisse déduire de 6.7.2 (conjugué probablement à
+Riemann-Roch) des formules de Lefschetz-Riemann-Roch dans le style de celles
+de Donovan [7], Iversen [10], Nielsen [15] (du moins à valeurs dans le corps
+de base). Il n'est pas exclu d'autre part que la formule 6.7.2, appliquée
+au-dessus des nombres duaux, fournisse des formules de résidus pour les champs
+de vecteurs analogues à celles de Bott [6], [3].</p>
+
+<!-- Source PDF page 64 (printed page 136) -->
+<h2 id="III.bibliographie"><u>BIBLIOGRAPHIE</u></h2>
+
+<p>[1] Atiyah, M. et Bott, R. On the Woods Hole Fixed point theorem,
+Proceedings of the Woods Hole Conference on Algebraic Geometry, 1964.</p>
+<p>[2] Atiyah, M. et Bott, R., Notes on the Lefschetz fixed point theorem for
+elliptic complexes, Harvard University, 1964.</p>
+<p>[3] Baum, P. et Bott, R., On the zeroes of meromorphic vector-fields, in
+Essays on topology and related topics, mémoires dédiés à Georges De Rham,
+Springer Verlag, 1970.</p>
+<p>[4] Beauville, A., Formules de points fixes en cohomologie cohérente, in
+Séminaire de géométrie algébrique, Université de Paris-Sud, Orsay, 1970.</p>
+<p>[5] Berthelot, P., Cohomologie cristalline des schémas de car. \(p&gt;0\),
+Lecture Notes in Mathematics n° 407, Springer-Verlag, 1974.</p>
+<p>[6] Bott, R., A residue formula for holomorphic vector-fields, J. of Diff.
+Geometry Vol 1, p. 311-330, 1967.</p>
+<p>[7] Donovan, P., The Lefschetz-Riemann-Roch formula, Bull. S.M.F., 97,
+p.257-273, 1969.</p>
+<p>[8] Hartshorne, R., Residues and duality, Lecture Notes in Mathematics n° 20,
+Springer-Verlag, 1966.</p>
+<p>[9] Illusie, L., Complexe cotangent et déformations I, Lecture Notes in Math.
+n° 239, Springer-Verlag, 1971.</p>
+<p>[10] Iversen, B., A fixed point formula for action of tori on algebraic
+varieties, Inv. Math., 16, p. 229-236, 1972.</p>
+<p>[11] Katz, N., Lettre à B. Mazur, 1971.</p>
+
+<!-- Source PDF page 65 (printed page 137) -->
+<p>[12] Kleiman, S., Algebraic cycles and the Weil conjectures, in Dix exposés
+sur la cohomologie des schémas, North Holland Pub. Company, 1968.</p>
+<p>[13] Langlands, R.P., Modular forms and \(\ell\)-adic representations, in
+Modular functions of one variable II, Lecture Notes in Math. n° 349,
+Springer-Verlag, 1973.</p>
+<p>[14] Mazur, B., Frobenius and the Hodge filtration (estimates), Ann. of Math.,
+98, p. 58-95, 1973.</p>
+<p>[15] Nielsen, H.A., Diagonalizably linearized coherent sheaves, Bull. SMF,
+102, p. 85-97, 1974.</p>
+<p>[16] Serre, J.-P., Faisceaux algébriques cohérents, Ann. of Math., 61,
+p. 197-278, 1955.</p>
+<p>[17] Serre, J.P., Cohomologie galoisienne, Lecture Notes in Math. n° 5,
+Springer Verlag, 1964.</p>
+<p>[18] Verdier, J.-L., The Lefschetz fixed point formula in étale cohomology,
+Proceedings of a conference on local fields, Springer-Verlag, 1967.</p>
+
+<p>SGA 4<sup>1/2</sup> Cohomologie étale, par P. Deligne, Séminaire de Géométrie
+Algébrique du Bois-Marie, Lecture Notes in Mathematics n° 569,
+Springer-Verlag, 1977.</p>
+
+<p>Dans SGA 4<sup>1/2</sup> :</p>
+<p style="margin-left: 4em;">Finitude : Théorème de finitude en cohomologie
+\(\ell\)-adique.</p>
+<p style="margin-left: 4em;">Cycle : La classe de cohomologie associée à un
+cycle, par A. Grothendieck, rédigé par P. Deligne (remplace l'exposé absent
+SGA 5 IV).</p>
+<p style="margin-left: 4em;">Rapport : Rapport sur la formule des traces.</p>
+<p style="margin-left: 4em;">Fonctions L : Fonctions L mod \(\ell^n\) et mod
+\(p\).</p>
+
+</body>
+</html>

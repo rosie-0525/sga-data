@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 5 — Exposé XV. Morphisme de Frobenius et rationalité des fonctions L</title>
+<script>
+window.MathJax = {
+  loader: {
+    load: ['[custom]/xypic.js'],
+    paths: { custom: '../../translation-viewer/vendor/xyjax' }
+  },
+  tex: {
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  options: { enableMenu: true },
+  startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; }
+h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; }
+.thm-head { font-weight: bold; }
+.thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; }
+table.tabular { border-collapse: collapse; }
+table.tabular td { padding: 0.2em 0.6em; vertical-align: top; }
+ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<!-- Source PDF page 1 (printed page 442) -->
+<h1 id="XV">EXPOSÉ XV<br>MORPHISME DE FROBENIUS ET RATIONALITÉ DES FONCTIONS L<span class="author">par C. HOUZEL</span></h1>
+
+<h2 id="XV.1">§ 1. MORPHISME DE FROBENIUS</h2>
+
+<h3 id="XV.1.1">n° 1. Endomorphisme de Frobenius.</h3>
+
+<div class="thm definition" id="XV.1.1.1">
+  <div class="thm-head"><span class="thm-name">Définition 1.</span></div>
+  <div class="thm-body"><p>Soit (p) un nombre premier, on dit qu’un préschéma (X) est de caractéristique (p) si (p\cdot1_{\mathcal O_X}=0).</p></div>
+</div>
+
+<p>Cette condition équivaut à la suivante : le morphisme (unique)
+(X\longrightarrow\operatorname{Spec}(\mathbb Z)) se factorise à travers
+(\operatorname{Spec}(\mathbb F_p)\longrightarrow\operatorname{Spec}(\mathbb Z)) ;
+notons de plus qu’une telle factorisation est unique.</p>
+
+<p>Nous désignerons par \((\mathrm{Sch})_p\) la sous-catégorie pleine de la
+catégorie des préschémas dont les objets sont les préschémas de caractéristique
+(p). D’après la remarque précédente, la catégorie \((\mathrm{Sch})_p\) est
+isomorphe de manière naturelle à la catégorie des \(\mathbb F_p\)-préschémas.</p>
+
+<p>Si (X) est un préschéma de caractéristique (p), le couple
+(\operatorname{fr}_X=(\operatorname{id}_{|X|},\varphi)), où
+(\varphi:\mathcal O_X\longrightarrow\mathcal O_X) est défini par
+(\varphi(f)=f^p) pour toute section (f) de \(\mathcal O_X\) dans un ouvert,
+est un endomorphisme de (X), car (\varphi) est visiblement un endomorphisme
+du faisceau d’anneaux \(\mathcal O_X\).</p>
+
+<!-- Source PDF page 2 (printed page 443) -->
+<div class="thm definition" id="XV.1.1.2">
+  <div class="thm-head"><span class="thm-name">Définition 2.</span></div>
+  <div class="thm-body"><p>Soit (X) un préschéma de caractéristique (p) ; on appelle endomorphisme de Frobenius de (X) l’endomorphisme (\operatorname{fr}_X) ainsi défini.</p></div>
+</div>
+
+<p>L’endomorphisme de Frobenius (\operatorname{fr}_X) dépend fonctoriellement
+du préschéma (X) de caractéristique (p), c’est-à-dire que pour tout
+morphisme (g:X\longrightarrow Y) de préschémas de caractéristique (p), le
+diagramme suivant est commutatif :</p>
+\[
+\xymatrix{
+X\ar[r]^{\operatorname{fr}_X}\ar[d]_g&X\ar[d]^g\\
+Y\ar[r]_{\operatorname{fr}_Y}&Y.
+}
+\]
+<p>Autrement dit, on a défini un endomorphisme (\operatorname{fr}) du foncteur
+identique (\operatorname{id}_{(\mathrm{Sch})_p}).</p>
+
+<h3 id="XV.1.2">n° 2. Morphisme de Frobenius relatif.</h3>
+
+<p>Soit (S) un préschéma de caractéristique (p), tous les (S)-préschémas
+sont aussi de caractéristique (p). Si (X) est un (S)-préschéma, on voit
+(cf. le diagramme) que (\operatorname{fr}_X) se factorise à travers la
+projection
+\[
+\pi_{X/S}:X\mathop{\times}_S(S,\operatorname{fr}_S)\longrightarrow X,
+\]
+<p>où \((S,\operatorname{fr}_S)\) désigne (S) considéré comme (S)-préschéma
+au moyen du morphisme (\operatorname{fr}_S). Nous désignerons le produit fibré
+(X\mathop{\times}_S(S,\operatorname{fr}_S)) par (X^{(p/S)}) ou même par
+(X^{(p)}) si aucune confusion n’en résulte ; l’unique (S)-morphisme de (X)
+dans (X^{(p/S)}) qui composé avec (\pi_{X/S}) donne (\operatorname{fr}_X)
+est désigné par (\operatorname{Fr}_{X/S}) ; ainsi on obtient un diagramme
+commutatif où le carré est cartésien :</p>
+
+<!-- Source PDF page 3 (printed page 444) -->
+\[
+\xymatrix{
+&X^{(p)}\ar[dl]_{\pi_{X/S}}\ar[d]^{g^{(p)}}&X\ar[l]_{\operatorname{Fr}_{X/S}}\ar@/^1.5pc/[ll]^{\operatorname{fr}_X}\ar[dl]^g\\
+X\ar[d]_g&S&\\
+S&S\ar[l]^{\operatorname{fr}_S}
+}
+\]
+
+<p>Il est clair que (X^{(p/S)}) dépend fonctoriellement du (S)-préschéma
+(X) ; le foncteur</p>
+\[
+P_S:X\rightsquigarrow X^{(p/S)}
+\]
+<p>est simplement le changement de base au moyen du morphisme
+(\operatorname{fr}_S:S\longrightarrow S). Comme tout changement de base, il
+commute aux limites projectives et aux sommes, et conserve les propriétés telles
+que : de type fini, séparé, affine, projectif, plat, étale, etc. La commutation
+aux limites projectives montre que si (X) est muni d’une structure algébrique
+(par exemple : groupe, algèbre, etc.), (X^{(p/S)}) se trouve muni naturellement
+d’une structure algébrique de même espèce.</p>
+
+<p>En utilisant la fonctorialité de (\operatorname{fr}_X) par rapport à (X),
+on voit que le morphisme (\operatorname{Fr}_{X/S}) dépend fonctoriellement du
+(S)-préschéma (X), de sorte qu’on a défini un morphisme fonctoriel</p>
+\[
+\operatorname{Fr}_{X/S}:\operatorname{id}_{(\mathrm{Sch})/S}\rightsquigarrow P_S.
+\]
+
+<div class="thm definition" id="XV.1.2.3">
+  <div class="thm-head"><span class="thm-name">Définition 3.</span></div>
+  <div class="thm-body"><p>Soient (S) un préschéma de caractéristique (p) et (X) un (S)-préschéma. On dit que le (S)-morphisme (\operatorname{Fr}_{X/S}:X\longrightarrow X^{(p/S)}) est le morphisme de Frobenius de (X) relativement à (S).</p></div>
+</div>
+
+<p>Les premières propriétés formelles du morphisme de Frobenius sont énoncées
+dans la proposition suivante :</p>
+
+<!-- Source PDF page 4 (printed page 445) -->
+<div class="thm thm-plain proposition" id="XV.1.2.1">
+  <div class="thm-head"><span class="thm-name">Proposition 1.</span></div>
+  <div class="thm-body">
+  <p>a) (transitivité) Soient (S) un préschéma de caractéristique (p) et
+  (g:X\longrightarrow Y) un (S)-morphisme de (S)-préschémas. Le diagramme
+  suivant est commutatif et ses trois carrés sont cartésiens :</p>
+  \[
+  \xymatrix{
+  X\ar[r]_{\pi_{X/S}}\ar[d]_g&X^{(p/S)}\ar[r]\ar[d]^{g^{(p/S)}}&X^{(p/Y)}\ar[r]_{\operatorname{Fr}_{X/Y}}\ar[d]^{g^{(p/Y)}}&X\ar@/^1.5pc/[lll]^{\operatorname{Fr}_{X/S}}\ar[dl]^g\\
+  Y\ar[r]_{\pi_{Y/S}}\ar[d]&Y^{(p/S)}\ar[r]_{\operatorname{Fr}_{Y/S}}\ar[d]&Y\ar[d]&\\
+  S&S\ar[l]^{\operatorname{fr}_S}&
+  }
+  \]
+  <p>b) (changement de base) Soient (g:S'\longrightarrow S) un morphisme de
+  préschémas de caractéristique (p) et (X) un (S)-préschéma. On a un
+  isomorphisme canonique :</p>
+  \[
+  X^{(p/S)}\mathop{\times}_S S'\xrightarrow{\sim}(X\mathop{\times}_S S')^{(p/S')}
+  \]
+  <p>fonctoriel en (X), soit \((X^{(p/S)})'\xrightarrow{\sim}X'^{(p/S')}), en
+  affectant d’un ( {}' ) le résultat du changement de base par (g) ; de plus
+  (\operatorname{Fr}_{X'/S'}=(\operatorname{Fr}_{X/S})') modulo l’identification
+  permise par l’isomorphisme précédent.</p>
+  </div>
+</div>
+
+<p>La démonstration est immédiate.</p>
+
+<div class="thm thm-plain proposition" id="XV.1.2.2">
+  <div class="thm-head"><span class="thm-name">Proposition 2.</span> Soient (S) un préschéma de caractéristique (p) et (X) un (S)-préschéma.</div>
+  <div class="thm-body">
+  <p>a) Le morphisme de Frobenius relatif
+  (\operatorname{Fr}_{X/S}:X\longrightarrow X^{(p/S)}) est entier surjectif et
+  radiciel (donc c’est un homéomorphisme universel).</p>
+
+<!-- Source PDF page 5 (printed page 446) -->
+  <p>b) Si (X\longrightarrow S) est une immersion ouverte, (X^{(p)}=X) et
+  (\operatorname{Fr}_{X/S}=\operatorname{id}_X). Si (X\longrightarrow S) est
+  une immersion fermée, identifiant (X) à un sous-espace annelé fermé
+  \((|X|,\mathcal O_S/\mathcal J)\) de (S), alors</p>
+  \[
+  X^{(p)}=(|X|,\mathcal O_S/\mathcal J^p)
+  \quad\text{et}\quad
+  \operatorname{Fr}_{X/S}=(\operatorname{id}_{|X|},\varphi),
+  \]
+  <p>où (\varphi:\mathcal O_S/\mathcal J^p\longrightarrow
+  \mathcal O_S/\mathcal J) est l’augmentation évidente.</p>
+
+  <p>c) Supposons (X) localement de présentation finie sur (S).</p>
+  <p>1) Les trois conditions suivantes sont équivalentes :</p>
+  <p>(i) (X) est non ramifié sur (S),</p>
+  <p>(ii) (\operatorname{Fr}_{X/S}) est non ramifié,</p>
+  <p>(iii) (\operatorname{Fr}_{X/S}) est un monomorphisme.</p>
+  <p>2) De même les trois conditions suivantes sont équivalentes :</p>
+  <p>(i′) (X) est étale sur (S),</p>
+  <p>(ii′) (\operatorname{Fr}_{X/S}) est étale,</p>
+  <p>(iii′) (\operatorname{Fr}_{X/S}) est un isomorphisme.</p>
+  </div>
+</div>
+
+<p>Démontrons a) ; le composé
+(\pi_{X/S}\circ\operatorname{Fr}_{X/S}=\operatorname{fr}_X) est entier
+surjectif et radiciel de façon évidente ; il en résulte que
+(\operatorname{Fr}_{X/S}) est radiciel (EGA I 3.5.6 (ii)) ; de plus
+(\pi_{X/S}) est séparé et radiciel, car il se déduit de
+(\operatorname{fr}_S) par le changement de base (X\longrightarrow S) ; il en
+résulte que (\operatorname{Fr}_{X/S}) est entier (EGA II 6.1.5 (v)) et
+surjectif.</p>
+
+<p>La démonstration de b) est évidente, en observant que</p>
+\[
+\mathcal J\mathcal O_{(S,\operatorname{fr}_S)}=\mathcal J^p
+\quad\text{pour tout idéal }\mathcal J\text{ de }\mathcal O_S.
+\]
+
+<p>Preuve de c) : on sait que pour qu’un morphisme soit un mo-</p>
+
+<!-- Source PDF page 6 (printed page 447) -->
+<p>nomorphisme (resp. un isomorphisme) il faut et il suffit qu’il soit
+radiciel et non ramifié (resp. radiciel étale et surjectif) ; d’où
+l’équivalence de (ii) et (iii) (resp. (ii′) et (iii′)). Il reste à
+prouver que (i) équivaut à (ii) et (i′) à (ii′).</p>
+
+<p>Pour cela on utilise le critère différentiel de non ramification
+(S.G.A. I 3) et l’isomorphisme</p>
+\[
+\Omega^1_{X/S}\xrightarrow{\sim}\Omega^1_{X/X^{(p)}}
+\]
+<p>donné par la suite exacte canonique</p>
+\[
+\operatorname{Fr}_{X/S}^*\bigl(\Omega^1_{X^{(p)}/S}\bigr)
+\longrightarrow\Omega^1_{X/S}\longrightarrow
+\Omega^1_{X/X^{(p)}}\longrightarrow0\quad\text{(S.G.A. II 4)},
+\]
+<p>dans laquelle la première flèche est visiblement nulle, car
+(\Omega^1_{X^{(p)}/S}) est engendré par les différentielles des sections de
+(\mathcal O_{X^{(p)}}), et la différentielle (d_{X/S}) s’annule sur
+((\mathcal O_X)^p) et sur (\mathcal O_S). Ainsi (i) est équivalente à (ii).</p>
+
+<p>Supposons maintenant (X) étale sur (S) ; il en est de même de
+(X^{(p)}) (changement de base), et par suite le morphisme
+(\operatorname{Fr}_{X/S}:X\longrightarrow X^{(p)}) est étale. Inversement,
+supposons (\operatorname{Fr}_{X/S}) étale ; il est non ramifié, donc (X) est
+non ramifié sur (S) ; autrement dit le morphisme structural
+(g:X\longrightarrow S) est localement sur (X) (pour la topologie étale) une
+immersion fermée (S.G.A. I cor. 7.8). On peut donc supposer que (g) est une
+immersion fermée de présentation finie, et il s’agit de voir que si
+(\operatorname{Fr}_{X/S}) est un isomorphisme (g) est une immersion ouverte.
+Or (X) est défini par un Idéal (\mathcal J) de type fini :</p>
+\[
+X=(|X|,\mathcal O_S/\mathcal J)\quad\text{et, d’après b),}\quad
+X^{(p)}=(|X|,\mathcal O_S/\mathcal J^p),
+\]
+<p>(\operatorname{Fr}_{X/S}=(\operatorname{id}_{|X|},
+\mathcal O_S/\mathcal J^p\longrightarrow\mathcal O_S/\mathcal J)) ; dire que
+(\operatorname{Fr}_{X/S}) est un isomorphisme revient donc à dire que
+(\mathcal J=\mathcal J^p), et comme (\mathcal J) est de type fini on en déduit
+par le lemme de Nakayama que (\mathcal J_s=0), ou
+(\mathcal J_s=\mathcal O_{S,s}) pour tout point (s\in S), d’où la conclusion.</p>
+
+<!-- Source PDF page 7 (printed page 448) -->
+<h3 id="XV.1.3">n° 3. Effet sur un Module. Exemples.</h3>
+
+<p>Soient (S) un préschéma de caractéristique (p) et (X) un
+(S)-préschéma ; pour tout (\mathcal O_X)-Module (\mathcal E) (faisceau pour la
+topologie de Zariski), on pose</p>
+\[
+\mathcal E^{(p/S)}=\pi_{X/S}^*(\mathcal E)
+=\mathcal E\mathbin{\mathop\otimes_{\mathcal O_X}}\mathcal O_{X^{(p)}}
+=\mathcal E\mathbin{\mathop\otimes_{\mathcal O_S}}\mathcal O_{(S,\operatorname{fr}_S)}.
+\]
+<p>C’est un (\mathcal O_{X^{(p)}})-Module ; on a</p>
+\[
+\mathcal E^{(p/X)}\xrightarrow{\sim}
+\operatorname{Fr}_{X/S}^*(\mathcal E^{(p/S)}).
+\]
+
+<p>Le cas le plus intéressant est celui où (X=S) ; on peut alors écrire
+(\mathcal E^{(p)}) au lieu de (\mathcal E^{(p/S)}) sans risque de confusion ;</p>
+\[
+\mathcal E^{(p)}=\operatorname{fr}_S^*(\mathcal E).
+\]
+<p>Le morphisme d’adjonction
+(\mathcal E\longrightarrow\operatorname{fr}_{S*}\operatorname{fr}_S^*(\mathcal E))
+est un morphisme de faisceaux abéliens
+(\mathcal E\longrightarrow\mathcal E^{(p)}) qui n’est pas
+(\mathcal O_S)-linéaire, mais « p-linéaire » (en un sens évident) ; c’est
+visiblement un <u>morphisme p-linéaire universel</u> de (\mathcal E) dans un
+(\mathcal O_S)-Module.</p>
+
+<p>Il est clair que (\mathcal E^{(p)}) dépend fonctoriellement de (\mathcal E)
+et que le foncteur (\mathcal E\rightsquigarrow\mathcal E^{(p)}) est exact à
+droite (mais pas exact en général) ; il commute au produit tensoriel :</p>
+\[
+(\mathcal E\otimes_{\mathcal O_S}\mathcal F)^{(p)}
+\xrightarrow{\sim}\mathcal E^{(p)}\otimes_{\mathcal O_{X^{(p)}}}\mathcal F^{(p)},
+\]
+<p>et conserve les propriétés telles que : quasi-cohérent, de type fini, de
+présentation finie, plat, localement libre, etc. En particulier si
+(\mathcal L) est un faisceau inversible sur (S), on voit immédiatement que
+(\mathcal L^{(p)}) est canoniquement isomorphe à (\mathcal L^{\otimes p}), car
+le morphisme (\mathcal L\longrightarrow\mathcal L^{\otimes p}) défini par
+l’élévation à la puissance tensorielle p-ième des sections est un morphisme
+p-linéaire universel.</p>
+
+<!-- Source PDF page 8 (printed page 449) -->
+<p>Si (\mathcal A) est une (\mathcal O_S)-Algèbre, (\mathcal A^{(p)}) possède
+une structure de (\mathcal O_S)-Algèbre déduite de celle de (\mathcal A).
+Supposons (\mathcal A) quasi-cohérente (resp. graduée et quasi-cohérente) ; il
+en est de même de (\mathcal A^{(p)}) et on a :</p>
+\[
+\operatorname{Spec}(\mathcal A^{(p)})
+=\operatorname{Spec}(\mathcal A\otimes_{\mathcal O_S}\mathcal O_{(S,\operatorname{fr}_S)})
+\xrightarrow{\sim}\operatorname{Spec}(\mathcal A)\mathop\times_S
+(S,\operatorname{fr}_S)=\operatorname{Spec}(\mathcal A)^{(p)}
+\]
+<p>(resp.</p>
+\[
+\operatorname{Proj}(\mathcal A^{(p)})
+=\operatorname{Proj}(\mathcal A\otimes_{\mathcal O_S}\mathcal O_{(S,\operatorname{fr}_S)})
+\xrightarrow{\sim}\operatorname{Proj}(\mathcal A)\mathop\times_S
+(S,\operatorname{fr}_S)=\operatorname{Proj}(\mathcal A)^{(p)}).
+\]
+<p>La projection (\pi_{\operatorname{Spec}(\mathcal A)/S}:
+\operatorname{Spec}(\mathcal A)^{(p)}\longrightarrow\operatorname{Spec}(\mathcal A))
+(resp. (\pi_{\operatorname{Proj}(\mathcal A)/S})) s’identifie au morphisme
+déduit de (\mathcal A\longrightarrow\mathcal A^{(p)}). D’autre part
+(\operatorname{Fr}_{\operatorname{Spec}(\mathcal A)/S}) (resp.
+(\operatorname{Fr}_{\operatorname{Proj}(\mathcal A)/S})) provient d’un
+homomorphisme de (\mathcal O_S)-Algèbres</p>
+\[
+\mathcal A^{(p)}=\mathcal A\otimes_{\mathcal O_S}\mathcal O_{(S,\operatorname{fr}_S)}
+\longrightarrow\mathcal A
+\]
+<p>qui transforme (a\otimes f) en (a^pf) pour toute section (a) de
+(\mathcal A) et toute section (f) de (\mathcal O_S). Pour le voir on observe
+que le composé de cet homomorphisme avec
+(\mathcal A\longrightarrow\mathcal A^{(p)}) (à droite) est l’élévation à la
+puissance p-ième dans (\mathcal A).</p>
+
+<p>Considérons le cas particulier où (\mathcal A) est l’Algèbre symétrique
+(\operatorname{Sym}(\mathcal E)) d’un (\mathcal O_S)-Module quasi-cohérent
+(\mathcal E) ; il est clair que
+(\mathcal A^{(p)}\xrightarrow{\sim}\operatorname{Sym}(\mathcal E^{(p)})) donc</p>
+\[
+\mathbf V(\mathcal E^{(p)})\xrightarrow{\sim}\operatorname{Spec}(\mathcal A^{(p)})
+\xrightarrow{\sim}\operatorname{Spec}(\mathcal A)^{(p)}=\mathbf V(\mathcal E)^{(p)},
+\]
+\[
+\mathbf P(\mathcal E^{(p)})\xrightarrow{\sim}\operatorname{Proj}(\mathcal A^{(p)})
+\xrightarrow{\sim}\operatorname{Proj}(\mathcal A)^{(p)}=\mathbf P(\mathcal E)^{(p)} ;
+\]
+<p>quant à (\operatorname{Fr}_{\mathbf V(\mathcal E)/S}) (resp.
+(\operatorname{Fr}_{\mathbf P(\mathcal E)/S})), il se factorise de la façon
+suivante :</p>
+\[
+\mathbf V(\mathcal E)\longrightarrow\mathbf V(\operatorname{Sym}^p(\mathcal E))
+\longrightarrow\mathbf V(\mathcal E^{(p)})
+\quad(\text{resp. }\mathbf P(\mathcal E)\longrightarrow
+\mathbf P(\operatorname{Sym}^p(\mathcal E))\longrightarrow\mathbf P(\mathcal E^{(p)}))
+\]
+
+<!-- Source PDF page 9 (printed page 450) -->
+<p>où la première flèche est définie par le morphisme canonique :</p>
+\[
+\operatorname{Sym}(\operatorname{Sym}^p(\mathcal E))
+\longrightarrow\operatorname{Sym}(\mathcal E)
+\]
+<p>qui provient de
+(\operatorname{Sym}^p(\mathcal E)\longrightarrow\operatorname{Sym}(\mathcal E))
+tandis que la seconde est définie par le morphisme de (\mathcal O_S)-Modules</p>
+\[
+\mathcal E^{(p)}\longrightarrow\operatorname{Sym}^p(\mathcal E)
+\]
+<p>provenant du morphisme p-linéaire :
+(\mathcal E\longrightarrow\operatorname{Sym}^p(\mathcal E)), donné par
+l’élévation à la puissance symétrique p-ième des sections. Dans le cas de
+(X=\mathbf P(\mathcal E)), calculons le faisceau fondamental
+(\mathcal O_{X^{(p)}}(1)) :</p>
+\[
+\mathcal O_{X^{(p)}}(1)
+=(\operatorname{Sym}(\mathcal E)^{(p)}(1))^{\sim}
+=(\operatorname{Sym}(\mathcal E)(1)^{(p)})^{\sim}
+\xrightarrow{\sim}\mathcal O_X(1)^{(p/S)}.
+\]
+
+<p>Lorsque (\mathcal E=\mathcal O_S^n),
+(\operatorname{Sym}(\mathcal E)=\mathcal O_S[T_1,\ldots,T_n]) et
+(X=\mathbf V(\mathcal E)=\mathbb S[T_1,\ldots,T_n]) (resp.
+(X=\mathbf P(\mathcal E)=\mathbb P_S^{n-1})) ; il est clair que
+(\mathcal E^{(p)}\xrightarrow{\sim}\mathcal O_S^n=\mathcal E), de sorte que
+(X^{(p)}=X). Le morphisme de Frobenius (\operatorname{Fr}_{X/S}) provient de
+l’endomorphisme de l’Algèbre (\mathcal O_S[T_1,\ldots,T_n]) qui transforme
+(T_i) en (T_i^p) ((i=1,\ldots,n)).</p>
+
+<p>Considérons maintenant un préschéma (X) affine de type fini (resp.
+projectif) sur (S), défini par un Idéal (resp. un Idéal homogène)
+(\mathcal J\subset\mathcal O_S[T_1,\ldots,T_n]). Ainsi
+(X=\operatorname{Spec}(\mathcal A)) (resp. (=\operatorname{Proj}(\mathcal A)))
+où (\mathcal A=\mathcal O_S[T_1,\ldots,T_n]/\mathcal J) ; on voit que</p>
+\[
+\mathcal A^{(p)}\xrightarrow{\sim}\mathcal O_S[T_1,\ldots,T_n]/\mathcal I
+\]
+<p>où (\mathcal I) est l’image dans (\mathcal O_S[T_1,\ldots,T_n]) de
+(\mathcal J^{(p)}=\mathcal J\otimes_{\mathcal O_S}\mathcal O_{(S,\operatorname{fr}_S)}) ;
+l’Idéal (\mathcal I) se déduit de (\mathcal J) en élevant les coefficients des
+polynômes à la puissance p-ième ; on a
+(X^{(p)}=\operatorname{Spec}(\mathcal A^{(p)})) (resp.
+(\operatorname{Proj}(\mathcal A^{(p)}))), et le morphisme de Frobenius
+(\operatorname{Fr}_{X/S}:X\longrightarrow X^{(p)}) est défini par l’élévation
+à la puissance p-ième des « coordonnées » (T_i) (qui détermine un morphisme
+(\mathcal A^{(p)}\longrightarrow\mathcal A)).</p>
+
+<!-- Source PDF page 10 (printed page 451) -->
+<h3 id="XV.1.4">n° 4. Morphisme de Frobenius itéré ; préschémas parfaits.</h3>
+
+<p>Pour tout entier (\nu\geq0), l’endomorphisme itéré
+(\operatorname{fr}_X^\nu) dépend fonctoriellement du préschéma (X) de
+caractéristique (p). Si donc (S) est un préschéma de caractéristique (p) et
+(X) un (S)-préschéma, (\operatorname{fr}_X^\nu) se factorise (d’une manière
+unique) en un (S)-morphisme</p>
+\[
+\operatorname{Fr}_{X/S}^\nu:X\longrightarrow X^{(p^\nu/S)},
+\quad\text{où}\quad
+X^{(p^\nu/S)}=X\mathop\times_S(S,\operatorname{fr}_S^\nu),
+\]
+<p>suivi de la projection : (X^{(p^\nu/S)}\longrightarrow X) (cf. n°2). Le
+morphisme (\operatorname{Fr}_{X/S}^\nu) dépend fonctoriellement du
+(S)-préschéma (X) et il est compatible avec le changement de la base (S)
+(cf. n°2, prop. 1b)). D’ailleurs il est clair que</p>
+\[
+X^{(p^\nu/S)}=X^{(p^\nu)}\xrightarrow{\sim}
+(X^{(p^{\nu-1})})^{(p)}
+\quad\text{et que}\quad
+\operatorname{Fr}_{X/S}^\nu=(\operatorname{Fr}_{X/S}^{\nu-1})^{(p)}
+\circ\operatorname{Fr}_{X/S}
+\]
+<p>modulo l’identification permise par l’isomorphisme canonique précédent.</p>
+
+<div class="thm definition" id="XV.1.4.4">
+  <div class="thm-head"><span class="thm-name">Définition 4.</span></div>
+  <div class="thm-body"><p>On dit qu’un préschéma (S) de caractéristique (p)
+  est <u>parfait</u> si (\operatorname{fr}_S) est un automorphisme de (S).</p></div>
+</div>
+
+<p>Si (S) est un préschéma de caractéristique (p) parfait et (X) un
+(S)-préschéma, on voit immédiatement que (X^{(p/S)}) s’identifie au préschéma
+(X) considéré comme (S)-préschéma au moyen du morphisme
+(\operatorname{fr}_S^{-1}\circ g:X\longrightarrow S) où (g) est le morphisme
+structural de (X) dans (S) ; modulo cette identification
+(\operatorname{Fr}_{X/S}=\operatorname{fr}_X).</p>
+
+<p>Comme exemple de préschéma parfait, nous rencontrons
+(S=\operatorname{Spec}(\mathbb F_q)) où (q=p^\nu) est une puissance de la
+caractéristique (p) ; en effet dans ce cas
+(\operatorname{fr}_S^\nu=\operatorname{id}_S). Si (X) est un (S)-préschéma, on
+voit</p>
+
+<!-- Source PDF page 11 (printed page 452) -->
+\[
+X^{(p^\nu/S)}=X\quad\text{et}\quad
+\operatorname{Fr}_{X/S}^{\nu}=\operatorname{fr}_X^\nu.
+\]
+<p>Notons que pour \(\nu=1\) on obtient \(S=\operatorname{Spec}(\mathbb F_p)\)
+pour lequel \(\operatorname{fr}_S=\operatorname{id}_S\) ; les \(S\)-préschémas
+sont les préschémas de caractéristique \(p\) ; sur cette base \(S\),
+\(X^{(p/S)}=X\) et \(\operatorname{Fr}_{X/S}=\operatorname{fr}_X\).</p>
+
+<h2 id="XV.2">§ 2. <u>CORRESPONDANCE DE FROBENIUS.</u></h2>
+<h3 id="XV.2.1">n° 1. <u>Définition.</u></h3>
+
+<p>Soient \(X\) un préschéma de caractéristique \(p\) et \(F\) un faisceau
+d’ensembles sur \(X_{\mathrm{\acute et}}\). Pour tout \(X\)-préschéma étale
+\(U\) on a
+\[
+((\operatorname{fr}_X)_*(F))(U)=F(\operatorname{fr}_X^{-1}(U))
+=F(U^{(p/X)}),
+\]
+et le morphisme de Frobenius
+\(\operatorname{Fr}_{U/X}:U\longrightarrow U^{(p/X)}\) définit une application</p>
+\[
+F(\operatorname{Fr}_{U/X}):(\operatorname{fr}_X)_*(F)(U)\longrightarrow F(U)
+\]
+<p>visiblement fonctoriellement en \(U\) (puisque \(\operatorname{Fr}_{U/X}\)
+est fonctoriel en \(U\)). Ainsi on obtient un morphisme de faisceaux sur
+\(X_{\mathrm{\acute et}}\) :</p>
+\[
+(\operatorname{fr}_X)_*(F)\longrightarrow F.
+\]
+<p>Or, lorsque \(U\) est étale sur \(X\), \(\operatorname{Fr}_{U/X}\) est un
+isomorphisme (§ 1 n° 2, prop. 2c)), donc il en est de même de
+\(F(\operatorname{Fr}_{U/X})\) ; il en résulte que le morphisme précédent
+\((\operatorname{fr}_X)_*(F)\longrightarrow F\) est un isomorphisme ; dans le
+cas où \(F\) est muni d’une structure algébrique (par exemple si c’est un
+faisceau de \(\Lambda\)-modules, \(\Lambda\) anneau de base donné) cet
+isomorphisme est compatible avec la structure algébrique. L’inverse</p>
+\[
+F(\operatorname{Fr}_{/X})^{-1}:F\longrightarrow(\operatorname{fr}_X)_*(F)
+\]
+<p>de cet isomorphisme définit, puisque</p>
+
+<!-- Source PDF page 12 (printed page 453) -->
+<p>\((\operatorname{fr}_X)^*\) est adjoint à gauche du foncteur
+\((\operatorname{fr}_X)_*\), un morphisme</p>
+\[
+\operatorname{Fr}_{F/X}^*:(\operatorname{fr}_X)^*(F)\longrightarrow F.
+\]
+<p>On peut même dire plus, car \(\operatorname{fr}_X\) étant un homéomorphisme
+universel (§ 1 n° 2, prop. 2a)) les foncteurs \((\operatorname{fr}_X)^*\) et
+\((\operatorname{fr}_X)_*\) sont quasi-inverses l’un de l’autre, et par suite
+\(\operatorname{Fr}_{F/X}^*\) est un isomorphisme comme le morphisme
+\(F(\operatorname{Fr}_{/X})^{-1}\) dont il provient.</p>
+
+<div class="thm definition" id="XV.2.1.1">
+  <div class="thm-head"><span class="thm-name">Définition 1.</span></div>
+  <div class="thm-body"><p>Étant donnés un préschéma \(X\) de caractéristique
+  \(p\) et un faisceau d’ensembles \(F\) sur \(X_{\mathrm{\acute et}}\), on
+  appelle <u>correspondance de Frobenius sur \((X,F)\)</u> le couple
+  \((\operatorname{fr}_X,\operatorname{Fr}_{F/X}^*)\) formé de l’endomorphisme
+  de Frobenius \(\operatorname{fr}_X\) de \(X\) et de l’isomorphisme
+  \[
+  \operatorname{Fr}_{F/X}^*=(F(\operatorname{Fr}_{/X})^{-1})^\#:
+  (\operatorname{fr}_X)^*(F)\longrightarrow F.
+  \]</p></div>
+</div>
+
+<p>Bien entendu on définit de la même façon une classe de correspondance de
+Frobenius itérée
+\((\operatorname{fr}_X^\nu,(\operatorname{Fr}_{F/X}^*)^\nu)\) pour tout entier
+\(\nu\geq0\) ; l’isomorphisme
+\[
+(\operatorname{Fr}_{F/X}^*)^\nu:(\operatorname{fr}_X^\nu)^*(F)\longrightarrow F
+\]
+est égal à
+\[
+(\operatorname{Fr}_{F/X}^*)^{\nu-1}\circ
+(\operatorname{fr}_X^{\nu-1})^*(\operatorname{Fr}_{F/X}^*)
+\]
+<p>ou encore à
+\(\operatorname{Fr}_{F/X}^*\circ\operatorname{fr}_X^*
+((\operatorname{Fr}_{F/X}^*)^{\nu-1})\) pour \(\nu\geq1\).</p>
+
+<p>Examinons le cas particulier où \(F\) est <u>représentable</u> par un
+préschéma \(V\) étale sur \(X\) ; alors
+\((\operatorname{fr}_X)^*(F)=V^{(p/X)}\),
+\[
+F(V)=\operatorname{Hom}_X(V,V),\qquad
+(\operatorname{fr}_X)^*(F)(V)=F(V^{(p/X)})
+=\operatorname{Hom}_X(V^{(p/X)},V)
+\]
+et \(F(\operatorname{Fr}_{V/X})\) est l’application de
+\(\operatorname{Hom}_X(V^{(p/X)},V)\) dans \(\operatorname{Hom}_X(V,V)\) qui
+transforme un morphisme \(\varphi\) en \(\varphi\circ\operatorname{Fr}_{V/X}\) ;
+or \(\operatorname{Fr}_{F/X}^*\) s’identifie à un morphisme de \(V^{(p/X)}\)
+dans \(V\) qui est l’image de \(\operatorname{id}_V\) par l’application
+\(F(\operatorname{Fr}_{V/X})^{-1}\) réciproque de la précédente. Ceci montre
+que pour \(F=V\) étale sur \(X\) on a :</p>
+\[
+\operatorname{Fr}_{V/X}^*=(\operatorname{Fr}_{V/X})^{-1}.
+\]
+
+<!-- Source PDF page 13 (printed page 454) -->
+<p>Notons que si le faisceau \(F\) est <u>constant</u> il est clair que
+\((\operatorname{fr}_X)^*(F)=F\) et
+\(\operatorname{Fr}_{F/X}^*=\operatorname{id}_F\).</p>
+
+<div class="thm proposition" id="XV.2.1.prop1">
+  <div class="thm-head"><span class="thm-name">Proposition 1.</span></div>
+  <div class="thm-body">
+  <p>a) <u>L’isomorphisme \(\operatorname{Fr}_{F/X}^*\) dépend fonctoriellement
+  du faisceau \(F\) ; autrement dit on a un isomorphisme fonctoriel</u></p>
+  \[
+  \operatorname{Fr}_{/X}^*:(\operatorname{fr}_X)^*\longrightarrow
+  \operatorname{id}_{\widetilde X_{\mathrm{\acute et}}},
+  \]
+  <p><u>(où \(\widetilde X_{\mathrm{\acute et}}\) est la catégorie des faisceaux
+  d’ensembles sur \(X_{\mathrm{\acute et}}\)).</u></p>
+  <p>b) <u>La correspondance de Frobenius
+  \((\operatorname{fr}_X,\operatorname{Fr}_{F/X}^*)\) sur \((X,F)\) est
+  compatible avec le changement de la base \(X\). C’est-à-dire que, si
+  \(\mathcal F\) désigne la catégorie fibrée sur \((\mathrm{Sch})_p\) des
+  faisceaux (pour la topologie étale) sur des préschémas de caractéristique
+  \(p\) variables, les foncteurs \((\operatorname{fr}_X)^*\)
+  \((X\in\operatorname{Ob}(\mathrm{Sch})_p)\) définissent un
+  \((\mathrm{Sch})_p\)-foncteur cartésien
+  \(\operatorname{fr}^*:\mathcal F\longrightarrow\mathcal F\), et les
+  morphismes \(\operatorname{Fr}_{F/X}^*\) définissent un
+  \((\mathrm{Sch})_p\)-morphisme fonctoriel
+  \(\operatorname{Fr}^*/:\operatorname{fr}^*\longrightarrow
+  \operatorname{id}_{\mathcal F}\) (qui est un isomorphisme).</u></p>
+  <p>c) <u>Inversement ces propriétés caractérisent \(\operatorname{Fr}^*/\),
+  c’est-à-dire qu’il existe un \((\mathrm{Sch})_p\)-morphisme fonctoriel et un
+  seul de \(\operatorname{fr}^*\) dans \(\operatorname{id}_{\mathcal F}\).</u></p>
+  </div>
+</div>
+
+<p>Remarquons que l’énoncé b) implique l’énoncé a) ; ce dernier est
+tout-à-fait évident.</p>
+
+<p>Démontrons b). Soient \(g:X'\longrightarrow X\) un morphisme de préschémas
+de caractéristique \(p\) et \(F\) un faisceau sur \(X_{\mathrm{\acute et}}\) ;
+posons \(F'=g^*(F)\), et plus généralement affectons d’un \('\) l’image inverse
+par \(g\) de tout objet donné sur \(X\). Comme
+\(g\circ\operatorname{fr}_{X'}=\operatorname{fr}_X\circ g\), on a</p>
+
+<!-- Source PDF page 14 (printed page 455) -->
+\[
+(\operatorname{fr}_{X'})^*(F')=(\operatorname{fr}_{X'})^*(g^*(F))
+=g^*((\operatorname{fr}_X)^*(F))=((\operatorname{fr}_X)^*(F))',
+\]
+<p>d’où le fait que les \((\operatorname{fr}_X)^*\) définissent un foncteur
+cartésien \(\operatorname{fr}^*\) au-dessus de \((\mathrm{Sch})_p\). Il reste à
+prouver que</p>
+\[
+\operatorname{Fr}_{F'/X'}^*=(\operatorname{Fr}_{F/X}^*)' ;
+\]
+<p>en utilisant les propriétés des foncteurs adjoints, on voit que cela revient
+à montrer que l’image de \(F'(\operatorname{Fr}_{/X'})^{-1}\) par l’application
+bijective</p>
+\[
+\operatorname{Hom}_{X'}(F',(\operatorname{fr}_{X'})_*(F'))
+=\operatorname{Hom}_{X'}(g^*(F),(\operatorname{fr}_{X'})_*g^*(F))
+\xrightarrow{\sim}
+\operatorname{Hom}_X(F,g_*(\operatorname{fr}_{X'})_*g^*(F))
+\]
+<p>(\(g^*\) adjoint de \(g_*\)) coïncide avec l’image de
+\(F(\operatorname{Fr}_{/X})^{-1}\) par l’application</p>
+\[
+\operatorname{Hom}_X(F,(\operatorname{fr}_X)_*(F))\longrightarrow
+\operatorname{Hom}_X(F,(\operatorname{fr}_X)_*g_*g^*(F))
+=\operatorname{Hom}_X(F,g_*(\operatorname{fr}_{X'})_*g^*(F))
+\]
+<p>définie par le morphisme d’adjonction
+\(\alpha:F\longrightarrow g_*g^*(F)\) ; autrement dit, il faut montrer que</p>
+\[
+\alpha\circ F(\operatorname{Fr}_{/X})=
+g_*\bigl(F'(\operatorname{Fr}_{/X'})\bigr)\circ
+(\operatorname{fr}_X)_*(\alpha),
+\]
+<p>c’est-à-dire que pour tout préschéma \(U\) étale sur \(X\) on a un diagramme
+commutatif :</p>
+\[
+\xymatrix{
+F(U^{(p/X)})\ar[r]^{F(\operatorname{Fr}_{U/X})}\ar[d]&F(U)\ar[d]\\
+F'(U'^{(p/X')})\ar[r]^{F'(\operatorname{Fr}_{U'/X'})}&F'(U') .}
+\]
+<p>où les flèches verticales sont les applications canoniques ; or ceci
+provient immédiatement de
+\(\operatorname{Fr}_{U'/X'}=(\operatorname{Fr}_{U/X})'\)
+(§ 1, n° 2, prop. 1b)).</p>
+
+<p>Pour prouver c), on se ramène en composant avec
+\((\operatorname{Fr}^*/)^{-1}\) à prouver que \(\operatorname{id}_{\mathcal F}\)
+a un seul \((\mathrm{Sch})_p\)-endomorphisme : l’identité.</p>
+
+<p>Or si \(\varphi\) est un \((\mathrm{Sch})_p\)-endomorphisme de
+\(\operatorname{id}_{\mathcal F}\), soient \(F\) un faisceau sur un préschéma
+\(X\) de caractéristique \(p\) et \(U\) un préschéma étale sur \(X\) ; on sait
+que \(F(U)\) s’identifie à \(\operatorname{Hom}_U(U,F|U)\)</p>
+
+<!-- Source PDF page 15 (printed page 456) -->
+<p>et \(\varphi_F(U):F(U)\longrightarrow F(U)\) à l’application :</p>
+\[
+s\longmapsto\varphi_{F|U}\circ s=s\circ\varphi_U
+\qquad(s\in\operatorname{Hom}_U(U,F|U));
+\]
+<p>comme le faisceau final \(U\) de \(\widetilde U_{\mathrm{\acute et}}\)
+n’admet pas d’autre endomorphisme que l’identité, on a
+\(\varphi_U=\operatorname{id}_U\) ; il en résulte que \(\varphi_F(U)\) est
+aussi l’identité de \(F(U)\) et que
+\(\varphi=\operatorname{id}_{\mathcal F}\).</p>
+
+<p>Bien entendu, si le faisceau \(F\) est muni d’une structure algébrique,
+l’isomorphisme \(\operatorname{Fr}_{F/X}^*\) est compatible avec cette
+structure ; par exemple si \(F\) est un faisceau de groupes sur le préschéma
+\(X\) (de caractéristique \(p\)), \(\operatorname{Fr}_{F/X}^*\) est un
+isomorphisme de faisceaux de groupes. Soit \(\Lambda\) un anneau et soit \(F\)
+un faisceau de \(\Lambda\)-modules sur \(X\) ; alors
+\(\operatorname{Fr}_{F/X}^*\) est un isomorphisme de faisceaux de
+\(\Lambda\)-modules ; plus généralement, si \(F^\bullet\) est un complexe de
+\(\Lambda\)-Modules, on définit immédiatement un isomorphisme</p>
+\[
+\operatorname{Fr}_{F^\bullet/X}^*:(\operatorname{fr}_X)^*(F^\bullet)
+\longrightarrow F^\bullet
+\]
+<p>égal à \(\operatorname{Fr}_{F^i/X}^*\) sur la composante de degré \(i\)
+(grâce à la proposition 1a)) ; dans ce cas le couple
+\((\operatorname{fr}_X,\operatorname{Fr}_{F^\bullet/X}^*)\) est bien une
+correspondance (au sens habituel) sur \((X,F^\bullet)\) ; cette correspondance
+est fonctorielle en \(F^\bullet\) et compatible avec le changement de la base
+\(X\) (proposition 1a), b)).</p>
+
+<h3 id="XV.2.2">n° 2. <u>Effet sur la cohomologie.</u></h3>
+
+<div class="thm proposition" id="XV.2.2.prop2">
+  <div class="thm-head"><span class="thm-name">Proposition 2.</span> Soit
+  \(X\) un préschéma de caractéristique \(p\).</div>
+  <div class="thm-body"><p>a) <u>Pour tout faisceau d’ensembles \(F\) sur
+  \(X_{\mathrm{\acute et}}\), l’endomorphisme de \(H^0(X,F)\) défini par
+  \((\operatorname{fr}_X,\operatorname{Fr}_{F/X}^*)\), c’est-à-dire le composé</u></p>
+  \[
+  H^0(X,F)\longrightarrow H^0(X,(\operatorname{fr}_X)^*(F))
+  \longrightarrow H^0(X,F),
+  \]
+  <p><u>où la première flèche est l’application canonique (caractère
+  contravariant de \(H^0(X,F)\) par rapport à \(X\)) et la seconde
+  \(H^0(X,\operatorname{Fr}_{F/X}^*)\), est l’identité de \(H^0(X,F)\).</u></p>
+  
+
+<!-- Source PDF page 16 (printed page 457; continuation) -->
+  <p>b) <u>Pour tout faisceau de groupes \(F\) sur
+  \(X_{\mathrm{\acute et}}\), l’endomorphisme de \(H^1(X,F)\) défini par
+  \((\operatorname{fr}_X,\operatorname{Fr}_{F/X}^*)\), c’est-à-dire</u></p>
+  \[
+  H^1(X,F)\longrightarrow H^1(X,(\operatorname{fr}_X)^*(F))
+  \longrightarrow H^1(X,F),
+  \]
+  <p><u>est l’identité.</u></p>
+
+  <p>c) <u>Pour tout complexe limité à gauche \(F\) de
+  \(\Lambda\)-Modules sur \(X_{\mathrm{\acute et}}\), l’endomorphisme de
+  \(R\Gamma_X(F)\) défini par
+  \((\operatorname{fr}_X,\operatorname{Fr}_{F/X}^*)\), c’est-à-dire le
+  composé :</u></p>
+  \[
+  R\Gamma_X(F)\longrightarrow R\Gamma_X((\operatorname{fr}_X)^*(F))
+  \longrightarrow R\Gamma_X(F),
+  \]
+  <p><u>est l’identité.</u></p></div>
+</div>
+
+<p>Établissons d’abord a) ; nous en déduirons b) et c). Soit
+\(\varphi_F\) l’endomorphisme considéré de (H^0(X,F)) ; il est clair que
+\(\varphi_F\) dépend fonctoriellement de (F) et que
+\(\varphi_X=\operatorname{id}_{H^0(X,X)}\). Or tout élément (s) de
+\(H^0(X,F)) s’identifie à un morphisme de faisceaux</p>
+\[
+s:X\longrightarrow F
+\]
+<p>tel que (s) soit l’image par (H^0(X,s)) de l’unique élément de
+\(H^0(X,X)) ; comme
+\(\varphi_F\circ H^0(X,s)=H^0(X,s)\circ\varphi_X=H^0(X,s)\) d’après les
+remarques précédentes, on voit que \(\varphi_F(s)=s\) pour tout (s), donc
+\(\varphi_F=\operatorname{id}_{H^0(X,F)}\).</p>
+
+<p>Notons que \(\varphi_F\) est encore le composé :</p>
+\[
+H^0(X,F)\longrightarrow H^0(X,(\operatorname{fr}_X)_*(F))
+\longrightarrow H^0(X,F)
+\]
+<p>où la première flèche est
+\(H^0(X,F(\operatorname{Fr}_{/X})^{-1})\) et la seconde l’application
+canonique (qui n’est autre que l’identité) ; de même les endomorphismes
+considérés en b) et c) se factorisent ainsi :</p>
+\[
+H^1(X,F)\longrightarrow H^1(X,(\operatorname{fr}_X)_*(F))
+\longrightarrow H^1(X,F)
+\]
+<p>et</p>
+\[
+R\Gamma_X(F)\longrightarrow R\Gamma_X((\operatorname{fr}_X)_*(F))
+\longrightarrow R\Gamma_X(F).
+\]
+
+<p>Pour établir b) nous utiliserons un monomorphisme (F\longrightarrow G)
+de (F) dans un faisceau de groupes (G) tel que (H^1(X,G)=0) ; alors
+\((\operatorname{fr}_X)_*(F)\longrightarrow(\operatorname{fr}_X)_*(G)\)
+est un monomorphisme et
+\(H^1(X,(\operatorname{fr}_X)_*(G))=0\). Introduisons le faisceau
+d’ensembles homogènes quotient (C=G/F) ;</p>
+
+<!-- Source PDF page 17 (printed page 458) -->
+<p>comme \(\operatorname{fr}_X\) est entier surjectif et radiciel les
+foncteurs \(\operatorname{fr}_X^*\) et \((\operatorname{fr}_X)_*\) sont des
+équivalences de catégories quasi-inverses l’une de l’autre (SGAA VIII
+théorème 1.1), on en déduit que</p>
+\[
+(\operatorname{fr}_X)_*(C)\simeq
+(\operatorname{fr}_X)_*(G)/(\operatorname{fr}_X)_*(F),
+\]
+<p>et la suite exacte de cohomologie (SGAA XII proposition 3.1) montre que
+l’endomorphisme de (H^1(X,F)) considéré provient par passage au quotient de
+\(\varphi_C:H^0(X,C)\longrightarrow H^0(X,C)\), qui est l’identité d’après
+a) ; cet endomorphisme est donc \(\operatorname{id}_{H^1(X,F)}\).</p>
+
+<p>L’assertion c) se démontre d’une manière analogue, en utilisant un complexe
+(I) injectif en chaque degré et isomorphe à (F) dans la catégorie dérivée
+\(D^+\), construite sur les \(\Lambda\)-Modules ; le complexe
+\((\operatorname{fr}_X)_*(I)\) est injectif en chaque degré et isomorphe à
+\((\operatorname{fr}_X)_*(F)\) dans (D^+), car
+\((\operatorname{fr}_X)_*\) est une équivalence de catégories. On peut alors
+identifier (R\Gamma_X(F)) à (H^0(X,I)) et
+\(R\Gamma_X((\operatorname{fr}_X)_*(F))\) à
+\(H^0(X,(\operatorname{fr}_X)_*(I))\) ; on voit que l’endomorphisme considéré
+de (R\Gamma_X(F)) s’identifie à \(\varphi_I\) qui est l’identité ; cet
+endomorphisme est donc \(\operatorname{id}_{R\Gamma_X(F)}\).</p>
+
+<h3 id="XV.2.3">n° 3. <u>Comportement des produits.</u></h3>
+
+<p>Soient (X) et (X') des préschémas de caractéristique (p) ; leur
+produit (X\times X') est identique au produit fibré (X\times_eX') où
+\(e=\operatorname{Spec}(\mathbb F_p)\). Il est clair que</p>
+\[
+\operatorname{fr}_{X\times X'}=\operatorname{fr}_X\times\operatorname{fr}_{X'}
+=(\operatorname{fr}_X\times\operatorname{id}_{X'})\circ
+(\operatorname{id}_X\times\operatorname{fr}_{X'})
+=(\operatorname{id}_X\times\operatorname{fr}_{X'})\circ
+(\operatorname{fr}_X\times\operatorname{id}_{X'}).
+\]
+<p>On en déduit immédiatement que pour tout (X)-préschéma (Y) et tout
+(X')-préschéma (Y'), on a un isomorphisme canonique</p>
+\[
+(Y\times Y')^{(p/X\times X')}\simeq Y^{(p/X)}\times Y'^{(p/X')}
+\]
+<p>modulo cet isomorphisme on</p>
+
+<!-- Source PDF page 18 (printed page 459) -->
+<p>peut écrire
+\(\operatorname{Fr}_{Y\times Y'/X\times X'}=
+\operatorname{Fr}_{Y/X}\times\operatorname{Fr}_{Y'/X'}\).</p>
+
+<div class="thm proposition" id="XV.2.3.prop3">
+  <div class="thm-head"><span class="thm-name">Proposition 3.</span> Soient
+  (X) et (X') des préschémas de caractéristique (p), \(\Lambda\) un
+  anneau commutatif, (F) un faisceau de \(\Lambda\)-modules sur
+  (X_{\mathrm{\acute et}}) et (F') un faisceau de \(\Lambda\)-modules sur
+  (X'_{\mathrm{\acute et}}). On a</div>
+  <div class="thm-body">
+  \[
+  \operatorname{Fr}_{F\boxtimes_\Lambda F'/X\times X'}^*
+  =\operatorname{Fr}_{F/X}^*\boxtimes_\Lambda\operatorname{Fr}_{F'/X'}^*
+  =(\operatorname{Fr}_{F/X}^*\boxtimes\operatorname{id}_{(\operatorname{fr}_{X'})^*(F')})
+  \circ(\operatorname{id}_F\boxtimes\operatorname{Fr}_{F'/X'}^*)
+  \]
+  \[
+  =(\operatorname{id}_{(\operatorname{fr}_X)^*(F)}\boxtimes
+  \operatorname{Fr}_{F'/X'}^*)\circ
+  (\operatorname{Fr}_{F/X}^*\boxtimes\operatorname{id}_{F'}).
+  \]
+  </div>
+</div>
+
+<p>Pour écrire ces égalités, on a identifié
+\((\operatorname{fr}_{X\times X'})^*(F\boxtimes_\Lambda F')\) au produit
+tensoriel \((\operatorname{fr}_X)^*(F)\boxtimes_\Lambda
+(\operatorname{fr}_{X'})^*(F')\) au moyen de l’isomorphisme canonique.</p>
+
+<p>Les deux membres de la première égalité dépendent fonctoriellement de (F)
+et de (F') et ils sont compatibles avec le changement de la base (X) ou
+de la base (X') ; de plus ils sont compatibles avec le passage à la limite
+inductive sur (F) ou sur (F'), car le produit tensoriel commute à la
+limite inductive et il est clair que</p>
+\[
+\operatorname{Fr}_{(\varinjlim F_i)/X}^*=\varinjlim
+\operatorname{Fr}_{F_i/X}^*;
+\]
+<p>ceci permet de se ramener au cas où (F=\Lambda_X) et
+(F'=\Lambda_{X'}) ; alors c’est évident.</p>
+
+<p><u>Corollaire.</u> <u>Avec les données de la proposition 3, les
+endomorphismes de (R\Gamma_{X\times X'}(F\boxtimes F')) définis
+respectivement par</u>
+\[
+(\operatorname{id}_X\times\operatorname{fr}_{X'},
+\operatorname{id}_F\boxtimes\operatorname{Fr}_{F'/X'}^*)
+\quad\text{et par}\quad
+(\operatorname{fr}_X\times\operatorname{id}_{X'},
+\operatorname{Fr}_{F/X}^*\boxtimes\operatorname{id}_{F'})
+\]
+<p><u>sont des isomorphismes réciproques l’un de l’autre.</u></p>
+
+<p>En désignant ces endomorphismes par \(\varphi'\) et par \(\varphi\),
+montrons par exemple que \(\varphi\circ\varphi'=\operatorname{id}\) ; cela
+résulte du diagramme</p>
+
+<!-- Source PDF page 19 (printed page 460) -->
+\[
+\xymatrix@C=2.8em@R=2.8em{
+R\Gamma_{X\times X'}(F\boxtimes F')
+ \ar[r]^{\operatorname{id}_X\times\operatorname{fr}_{X'}}
+ \ar[dr]_{\operatorname{fr}_{X\times X'}}&
+R\Gamma_{X\times X'}(F\boxtimes(\operatorname{fr}_{X'})^*(F'))
+ \ar[r]^{R\Gamma(\operatorname{id}_F\boxtimes\operatorname{Fr}_{F'/X'}^*)}
+ \ar[d]^{\operatorname{fr}_X\times\operatorname{id}_{X'}}&
+R\Gamma_{X\times X'}(F\boxtimes F')
+ \ar[d]^{\operatorname{fr}_X\times\operatorname{id}_{X'}}\\
+&R\Gamma_{X\times X'}((\operatorname{fr}_X)^*(F)\boxtimes
+(\operatorname{fr}_{X'})^*(F'))
+ \ar[r]^{R\Gamma(\operatorname{id}_{(\operatorname{fr}_X)^*(F)}\boxtimes
+\operatorname{Fr}_{F'/X'}^*)}
+ \ar[dr]_{R\Gamma(\operatorname{Fr}_{F\boxtimes F'/X\times X'}^*)}&
+R\Gamma_{X\times X'}((\operatorname{fr}_X)^*(F)\boxtimes F')
+ \ar[d]^{R\Gamma(\operatorname{Fr}_{F/X}^*\boxtimes\operatorname{id}_{F'})}\\
+&&R\Gamma_{X\times X'}(F\boxtimes F'),
+}
+\]
+<p>qui est commutatif à cause de
+\(\operatorname{fr}_{X\times X'}=(\operatorname{fr}_X\times
+\operatorname{id}_{X'})\circ(\operatorname{id}_X\times
+\operatorname{fr}_{X'})\) (pour le triangle du haut) et de</p>
+\[
+\operatorname{Fr}_{F\boxtimes F'/X\times X'}^*=
+(\operatorname{Fr}_{F/X}^*\boxtimes\operatorname{id}_{F'})\circ
+(\operatorname{id}_{(\operatorname{fr}_X)^*(F)}\boxtimes
+\operatorname{Fr}_{F'/X'}^*)
+\]
+<p>(pour le triangle du bas), et dans lequel le composé des deux flèches
+obliques est l’identité d’après la proposition 2c) (n° 2). À l’aide d’un
+diagramme analogue échangeant les rôles de ((X,F)) et ((X',F')) on
+obtient : \(\varphi'\circ\varphi=\operatorname{id}\).</p>
+
+<p>Nous appliquerons ce résultat au cas particulier où
+\(X'=e=\operatorname{Spec}(\overline{\mathbb F}_p)\) est le spectre d’une
+clôture algébrique \(\overline{\mathbb F}_p\) de \(\mathbb F_p\) et où
+\(F'=\Lambda_e\) est le faisceau constant de fibre \(\Lambda\). Dans ce cas
+<p>Nous poserons : \(\overline X=X\times e=X\otimes_{\mathbb F_p}
+\overline{\mathbb F}_p\) et \(\overline F=F\boxtimes_\Lambda\Lambda_e\) =
+image réciproque de \(F\) par la projection \(\overline X\longrightarrow X\).
+L’endomorphisme de Frobenius \(\operatorname{fr}_e\) s’identifie au
+générateur canonique \(f:\lambda\longmapsto\lambda^p\)
+\((\lambda\in\overline{\mathbb F}_p)\) du groupe de Galois
+\(\pi_e=\operatorname{Gal}(\overline{\mathbb F}_p/\mathbb F_p)\) (\(f\)
+détermine un isomorphisme \(\widehat{\mathbb Z}\xrightarrow{\sim}\pi_e\)), et
+\(\operatorname{Fr}_{\Lambda_e/e}^*=\operatorname{id}_{\Lambda_e}\) car
+\(\Lambda_e\) est un faisceau constant. Posons :</p>
+
+<!-- Source PDF page 20 (printed page 461) -->
+\[
+\overline{\operatorname{fr}}_X=\operatorname{fr}_X\times\operatorname{id}_e
+\quad\text{(image réciproque de \(\operatorname{fr}_X\) par
+\(\overline X\longrightarrow X\))},
+\]
+\[
+f_X=\operatorname{id}_X\times\operatorname{fr}_e
+\quad\text{(automorphisme de \(\overline X\) défini par \(f\), par transport
+de structure)},
+\]
+\[
+\operatorname{Fr}_{\overline F/\overline X}^*
+=\operatorname{Fr}_{F/X}^*\boxtimes\operatorname{id}_{\Lambda_e}
+\quad\text{(image réciproque de \(\operatorname{Fr}_{F/X}^*\) par
+\(\overline X\longrightarrow X\))}.
+\]
+<p>On peut écrire :
+\(\operatorname{fr}_{\overline X}=\overline{\operatorname{fr}}_X\circ f_X
+=f_X\circ\overline{\operatorname{fr}}_X\) et
+\(\operatorname{Fr}_{\overline F/\overline X}^*
+=\operatorname{Fr}_{\overline F/X}^*\). Le corollaire de la
+proposition 3 montre que l’endomorphisme de \(R\Gamma_{\overline X}(\overline
+F)\) défini par le couple
+\((\overline{\operatorname{fr}}_X,
+\operatorname{Fr}_{\overline F/\overline X}^*)\) est l’automorphisme inverse
+de celui que définit \(f_X\). Nous dirons que
+\((\overline{\operatorname{fr}}_X,
+\operatorname{Fr}_{\overline F/\overline X}^*)\) est la correspondance de
+Frobenius <u>géométrique</u> (c’est l’image inverse par
+\(\overline X\longrightarrow X\) de la correspondance de Frobenius sur
+\((X,F)\)) et nous désignerons par
+\(\overline{\operatorname{fr}}_X R\Gamma_{\overline X}(\overline F)\)
+l’automorphisme de \(R\Gamma_{\overline X}(\overline F)\) qu’elle définit ;
+l’opération de Frobenius <u>arithmétique</u>, provenant par transport de
+structure de \(f\in\pi_e\), en est l’inverse.</p>
+
+<h2 id="XV.3">§ 3. <u>LA FONCTION L</u></h2>
+
+<h3 id="XV.3.1">n° 1. <u>Définition.</u></h3>
+
+<p>Soit (p) un nombre premier ; considérons un nombre premier
+\(\ell\ne p\) et une extension finie \(\Omega\) de \(\mathbb Q_\ell\). À tout
+couple ((X,F)) d’un schéma (X) de type fini sur
+\(e=\operatorname{Spec}(\mathbb F_p)\) et d’un \(\Omega\)-faisceau
+constructible (F) sur (X), nous allons associer une série formelle</p>
+\[
+L_F\in\Omega[[t]],
+\]
+<p>de terme constant 1.</p>
+
+<!-- Source PDF page 21 (printed page 462; continuation) -->
+
+<p>Considérons d’abord le cas particulier où (X=e) ; soit
+\(\overline{\mathbb F}_p\) une clôture algébrique de \(\mathbb F_p\) et soit
+\(\overline e=\operatorname{Spec}(\overline{\mathbb F}_p)\). Le faisceau (F)
+est entièrement déterminé par sa fibre \(F_{\overline e}\), considérée comme
+\(\Omega\)-espace vectoriel de dimension finie où le groupe de Galois
+\(\pi_e=\operatorname{Gal}(\overline{\mathbb F}_p/\mathbb F_p)\) opère
+continûment. Comme \(\pi_e\) est engendré topologiquement par l’élément de
+Frobenius \(f:\lambda\longmapsto\lambda^p\)
+\((\lambda\in\overline{\mathbb F}_p)\), la donnée du faisceau (F) équivaut à
+celle de l’espace vectoriel \(F_{\overline e}\) muni d’un automorphisme
+\(f_{F_{\overline e}}\) « topologiquement unipotent », c’est-à-dire dont la
+puissance (k)-ième tend vers l’identité dans le groupe analytique
+\(\operatorname{Aut}(F_{\overline e})\) lorsque (k) tend
+« multiplicativement » vers l’infini. Nous poserons</p>
+\[
+L_F(t)=1/\det(1-f_{F_{\overline e}}^{-1}t)\in\Omega[[t]].
+\]
+
+<p>Supposons maintenant que \(X=\operatorname{Spec}(\mathbb F_q)\), avec
+\(q=p^d\) ((d) entier \(\geq1\)). Soit \(\overline x\) un point géométrique
+de (X), défini par un plongement de \(\mathbb F_q\) dans
+\(\overline{\mathbb F}_p\) ; le groupe de Galois
+\(\pi_x=\operatorname{Gal}(\overline{\mathbb F}_p/\mathbb F_q)\) s’identifie
+au sous-groupe de \(\pi_e\) engendré topologiquement par \(f^d\). Ainsi la
+donnée du faisceau (F) équivaut à celle de sa fibre \(F_{\overline x}\)
+(espace vectoriel de dimension finie sur \(\Omega\)) munie d’un automorphisme
+\((f^d)_{F_{\overline x}}\) topologiquement unipotent, que nous noterons
+\(f^d_{F_{\overline x}}\) pour simplifier. Soit (g) l’unique morphisme de (X)
+dans (e) ; l’image directe \(g_*(F)\) est de même définie par sa fibre
+\(g_*(F)_{\overline e}\) munie des opérations de \(\pi_e\), que l’on calcule
+comme un « module induit »
+\(g_*(F)_{\overline e}\simeq F_{\overline x}\otimes_{\pi_x}\pi_e\). Nous
+poserons</p>
+\[
+L_F(t)=L_{g_*(F)}(t)=1/\det(1-f_{g_*(F)_{\overline e}}^{-1}t)\ ;
+\]
+<p>un calcul facile de déterminant montre que cette expression est égale</p>
+
+<!-- Source PDF page 22 (printed page 463) -->
+
+<p>à</p>
+\[
+L_F(t)=1/\det(1-f_{F_{\overline x}}^{-d}t^d).
+\]
+
+<p>Dans le cas général d’un schéma (X) de type fini sur (e) muni d’un
+\(\Omega\)-faisceau constructible (F), on définit</p>
+\[
+L_F=\prod_{x\in X^o}L_{F|x},
+\]
+<p>où \(X^o\) désigne l’ensemble des points <u>fermés</u> de (X) ; nous allons
+voir que ce produit est multipliable dans \(\Omega[[t]]\) ; explicitons-le en
+effet, en introduisant pour chaque \(x\in X^o\) un point géométrique
+\(\overline x\) de (X) localisé en (x), défini par un plongement du corps
+résiduel \(k(x)\) dans \(\overline{\mathbb F}_p\), et en posant</p>
+\[
+d(x)=[k(x):\mathbb F_p]\quad\text{(degré de (x))}\ ;
+\]
+<p>avec ces notations</p>
+\[
+L_{F|x}(t)=1/\det(1-f_{F_{\overline x}}^{-d(x)}t^{d(x)})
+=1+\operatorname{Tr}(f_{F_{\overline x}}^{-d(x)})t^{d(x)}+\cdots .
+\]
+<p>Comme pour tout entier (n) l’ensemble des points \(x\in X^o\) tels que
+\(d(x)\leq n\) est fini, on en conclut que la famille
+\((L_{F|x})_{x\in X^o}\) est multipliable dans \(\Omega[[t]]\). Ainsi la
+fonction (L) de ((X,F)) est</p>
+\[
+L_F(t)=\prod_{x\in X^o}\bigl(1/\det(1-f_{F_{\overline x}}^{-d(x)}t^{d(x)})\bigr).
+\]
+
+<p>Les premières propriétés formelles de la fonction (L) sont réunies dans
+l’énoncé suivant :</p>
+
+<div class="thm proposition" id="XV.3.1.prop1">
+<div class="thm-head"><span class="thm-name"><u>Proposition 1.</u></span></div>
+<div class="thm-body">
+<p>a) (multiplicativité en (F)) <u>Soit</u>
+\(0\longrightarrow F'\longrightarrow F\longrightarrow F''\longrightarrow0\)</p>
+
+<!-- Source PDF page 23 (printed page 464) -->
+
+<p><u>une suite exacte de \(\Omega\)-faisceaux constructibles sur (X), alors on
+a</u> \(L_F=L_{F'}\cdot L_{F''}\).</p>
+<p>b) <u>Soient (Y) un sous-schéma fermé de (X) et \(U=X-Y\) l’ouvert
+complémentaire. Alors on a :</u> \(L_F=L_{F|U}\cdot L_{F|Y}\) <u>pour tout
+\(\Omega\)-faisceau constructible (F)</u>.</p>
+<p>c) <u>Soit \(X\longrightarrow S\) un morphisme de schémas de type fini sur
+\(\mathbb F_p\), et soit (F) un \(\Omega\)-faisceau constructible sur (X) ;
+alors</u></p>
+\[
+L_F=\prod_{s\in S^o}L_{F|X_s}.
+\]
+</div></div>
+
+<p>L’assertion a) est claire ; b) provient de \(X^o=U^o\cup Y^o\) (réunion
+disjointe) et l’assertion c) de
+\(X^o=\coprod_{s\in S^o}X_s^o\) en utilisant la propriété d’associativité des
+produits infinis multipliables ; ces formules sur les points fermés sont
+vraies parce que l’image d’un point fermé par un morphisme de préschémas
+<u>de type fini</u> sur \(\mathbb F_p\) est encore un point fermé.</p>
+
+<h3 id="XV.3.2">n° 2. <u>Énoncé du théorème de rationalité et réduction au cas d’une courbe.</u></h3>
+
+<div class="thm theorem" id="XV.3.2.theoreme">
+<div class="thm-head"><span class="thm-name"><u>Théorème.</u></span></div>
+<div class="thm-body"><p><u>Soient (X) un schéma de type fini sur
+\(\mathbb F_p\), de dimension (n), \(g:X\longrightarrow e\) son morphisme
+structural, et (F) un \(\Omega\)-faisceau constructible sur (X). On a</u></p>
+\[
+(1)\qquad L_F=\prod_{i=0}^{2n}\bigl(L_{R^i_!g(F)}\bigr)^{(-1)^i}.
+\]
+</div></div>
+
+<p>Dans cet énoncé les \(R^i_!g(F)\) sont les images directes supérieures à
+supports propres, au sens de la cohomologie \(\ell\)-adique. On pose
+\(H_c^i(\overline X,\overline F)=R^i_!\overline g(\overline F)
+=R^i_!g(F)_{\overline e}\) (théorème du changement de base), où</p>
+
+<!-- Source PDF page 24 (printed page 465) -->
+
+<p>\(\overline X\), \(\overline F\) et \(\overline g\) proviennent de (X), (F)
+et (g) par le changement de base \(\overline e\longrightarrow e\)
+(\(\overline e\) = spectre d’une clôture algébrique de \(\mathbb F_p\)) ; avec
+cette notation, on a d’après le n° 1 :</p>
+\[
+L_{R^i_!g(F)}(t)=1/\det(1-f^{-1}_{H_c^i(\overline X,\overline F)}t)
+=L_{f^{-1}_{H_c^i(\overline X,\overline F)}}(t)
+\]
+<p>en posant \(L_u(t)=1/\det(1-ut)\) pour tout endomorphisme (u) d’un espace
+vectoriel de dimension finie, selon le formalisme développé dans un exposé
+précédent.</p>
+
+<p>Plus généralement, considérons un morphisme \(u:X\longrightarrow Y\) de
+schémas de type fini sur \(\mathbb F_p\) et un \(\Omega\)-faisceau
+constructible (F) sur (X). Désignons par \((P_{F,u})\) la propriété suivante :</p>
+\[
+(P_{F,u}):\qquad L_F=\prod_i\bigl(L_{R^i_!u(F)}\bigr)^{(-1)^i}.
+\]
+<p>L’énoncé du théorème pour le couple ((X,F)) n’est autre que
+\((P_{F,g})\), où \(g:X\longrightarrow e\) est le morphisme structural de
+(X). Nous allons le ramener au cas où (X) est la droite projective grâce à
+quelques lemmes.</p>
+
+<div class="thm lemma" id="XV.3.2.lemme1">
+<div class="thm-head"><span class="thm-name"><u>Lemme 1.</u></span></div>
+<div class="thm-body"><p><u>Soient \(u:X\longrightarrow Y\) un morphisme de
+schémas de type fini sur \(\mathbb F_p\) et (F) un \(\Omega\)-faisceau
+constructible. Si \((P_{F|X_y,u_y})\) est vraie pour tout \(y\in Y^o\), alors
+\((P_{F,u})\) est vraie.</u></p></div></div>
+
+<p>En effet</p>
+\[
+\begin{aligned}
+L_F&=\prod_{y\in Y^o}L_{F|X_y}\qquad\text{(n° 1, proposition 1 c))}\\
+&=\prod_{y\in Y^o}\prod_i\bigl(L_{R^i_!u_y(F|X_y)}\bigr)^{(-1)^i}
+\quad\text{en utilisant }(P_{F|X_y,u_y})\ ;
+\end{aligned}
+\]
+<p>or \(R^i_!u_y(F|X_y)\simeq R^i_!u(F)|_y\) (théorème du changement de
+base), ce qui</p>
+
+<!-- Source PDF page 25 (printed page 466) -->
+
+<p>donne :</p>
+\[
+L_F=\prod_i\left(\prod_{y\in Y^o}L_{R^i_!u(F)|y}\right)^{(-1)^i}
+=\prod_i\bigl(L_{R^i_!u(F)}\bigr)^{(-1)^i}
+\]
+<p>par définition de la fonction (L) sur (Y).</p>
+
+<div class="thm corollary" id="XV.3.2.corollaire">
+<div class="thm-head"><span class="thm-name"><u>Corollaire.</u></span></div>
+<div class="thm-body"><p><u>Soient \(u:X\longrightarrow Y\) un morphisme fini
+de schémas de type fini sur \(\mathbb F_p\), et (F) un \(\Omega\)-faisceau
+constructible sur (X). La propriété \((P_{F,u})\) est vraie.</u></p></div></div>
+
+<p>Le lemme permet de se ramener au cas où (Y) est ponctuel :
+\(Y=\operatorname{Spec}(\mathbb F_q)\). Alors (X) est fini et
+\(u_*(F)\simeq\bigoplus_{x\in X}u_*(F_x)\) ; pour établir la formule
+\((P_{F,u})\), \(L_F=L_{u_*(F)}\), on est donc ramené au cas où (X) est
+lui-même ponctuel : \(X=\operatorname{Spec}(\mathbb F_{q'})\). Soient
+\(g:X\longrightarrow e\) et \(h:Y\longrightarrow e\) les morphismes
+structuraux ; on a par définition (n° 1) :
+\(L_F=L_{g_*(F)}=L_{h_*u_*(F)}=L_{u_*(F)}\), puisque \(g=h\circ u\).</p>
+
+<div class="thm lemma" id="XV.3.2.lemme2">
+<div class="thm-head"><span class="thm-name"><u>Lemme 2.</u></span></div>
+<div class="thm-body"><p><u>Soient \(u:X\longrightarrow Y\),
+\(v:Y\longrightarrow Z\), des morphismes de schémas de type fini sur
+\(\mathbb F_p\) et (F) un \(\Omega\)-faisceau constructible sur (X). Si les
+propriétés \((P_{F,u})\) et \((P_{R^i_!u(F),v})\) pour tout (i) sont vraies,
+alors \((P_{F,v\circ u})\) est vraie.</u></p></div></div>
+
+<p>En effet</p>
+\[
+\begin{aligned}
+L_F
+&=\prod_i\bigl(L_{R^i_!u(F)}\bigr)^{(-1)^i}\\
+&=\prod_i\left(\prod_j
+\bigl(L_{R^j_!v(R^i_!u(F))}\bigr)^{(-1)^j}\right)^{(-1)^i}\\
+&=\prod_{i,j}\bigl(L_{R^j_!v(R^i_!u(F))}\bigr)^{(-1)^{i+j}}
+\qquad\text{d’après }(P_{F,u})\text{ et }(P_{R^i_!u(F),v}).
+\end{aligned}
+\]
+<p>La suite spectrale de Leray
+\(R^j_!v(R^i_!u(F))\Longrightarrow R^k_!(v\circ u)(F)\) et la
+multiplicativité de \(L_F\) par rapport à (F) (n° 1, proposition 1 a)) donnent enfin</p>
+
+<!-- Source PDF page 26 (printed page 467) -->
+
+\[
+L_F=\prod_k\bigl(L_{R^k_!(v\circ u)(F)}\bigr)^{(-1)^k},
+\]
+<p>ce que nous voulions démontrer.</p>
+
+<div class="thm lemma" id="XV.3.2.lemme3">
+<div class="thm-head"><span class="thm-name"><u>Lemme 3.</u></span></div>
+<div class="thm-body">
+<p><u>Soit (X) un schéma de type fini sur \(\mathbb F_p\), et soit
+\(g:X\longrightarrow e\) son morphisme structural.</u></p>
+<p><u>a) Considérons un \(\Omega\)-faisceau constructible (F) sur (X), un
+sous-schéma fermé (Y) de (X) et l’ouvert complémentaire \(U=X-Y\). Si le
+théorème est vrai pour deux des couples \((X,F)\), \((Y,F|Y)\),
+\((U,F|U)\), il est vrai pour le troisième.</u></p>
+<p><u>b) Considérons une suite exacte \(0\longrightarrow F'
+\longrightarrow F\longrightarrow F''\longrightarrow0\) de
+\(\Omega\)-faisceaux constructibles sur (X) ; si le théorème est vrai pour
+deux des couples \((X,F')\), \((X,F)\), \((X,F'')\), il est vrai pour le
+troisième.</u></p>
+</div></div>
+
+<p>Nous n’utiliserons que l’énoncé a), mais nous donnons aussi b) par souci
+de symétrie. Les démonstrations de a) et b) sont analogues ; démontrons par
+exemple a). La suite exacte</p>
+\[
+\cdots\longrightarrow R^i_!g_U(F|U)\longrightarrow R^i_!g(F)
+\longrightarrow R^i_!g_Y(F|Y)\longrightarrow R^{i+1}_!g_U(F|U)
+\longrightarrow\cdots
+\]
+<p>et la proposition 1 a) (n° 1) donnent :</p>
+\[
+\prod_i\bigl(L_{R^i_!g(F)}\bigr)^{(-1)^i}
+=\prod_i\left(L_{R^i_!g_U(F|U)}L_{R^i_!g_Y(F|Y)}\right)^{(-1)^i}
+\]
+<p>et la proposition 1 b) (n° 1) permet alors de conclure.</p>
+
+<p>On peut résumer les raisonnements des lemmes 1, 2 et 3 en disant que,
+d’après la proposition 1 du n° 1, la fonction \(L_F\) a des propriétés
+formelles analogues à celles de la cohomologie à supports propres.</p>
+
+<!-- Source PDF page 27 (printed page 468) -->
+
+<p>Utilisons maintenant les lemmes précédents pour nous ramener au cas où
+(X) est la droite projective.</p>
+
+<p><u>1<sup>ère</sup> Réduction.</u> par récurrence noethérienne on peut
+construire une partition \((U_j)_{1\leq j\leq r}\) de (X) par des schémas
+affines telle que \(U_{j+1}\) soit ouvert dans
+\(X-\bigcup_{i=1}^jU_i\) pour \(j=1,\ldots,r-1\). Supposons le théorème
+établi pour tout couple \((U,G)\) d’un schéma affine (U) de type fini sur
+\(\mathbb F_p\) et d’un \(\Omega\)-faisceau constructible (G) sur (U) ; il
+est donc vrai pour \((U_j,F|U_j)\), \(j=1,\ldots,r\) ; grâce au lemme 3 a)
+on en déduit par récurrence descendante sur (j) qu’il est vrai pour</p>
+\[
+\left(\bigcup_{i\geq j}U_i,F\bigm|\bigcup_{i\geq j}U_i\right),
+\]
+<p>donc pour \((X,F)\), puisque \(X=\bigcup_{i\geq1}U_i\).</p>
+<p>Il suffit donc de démontrer le théorème dans le cas où (X) est affine.</p>
+
+<p><u>2<sup>ème</sup> Réduction :</u> supposons (X) affine, de dimension
+(n) ; il existe un morphisme fini \(u:X\longrightarrow\mathbb E^n\) de (X)
+dans l’espace numérique de dimension (n). Raisonnons par récurrence sur (n).
+Pour \(n=0\), (X) est fini sur (e) et le théorème est vrai d’après le
+corollaire du lemme 1. Si \(n\geq1\), supposons le théorème établi pour les
+schémas affines de dimension \(n-1\) ; soient \(u:X\longrightarrow\mathbb
+E^n\) un morphisme fini et \(v:\mathbb E^n\longrightarrow\mathbb E^1\) un
+morphisme de projection, défini à partir d’un isomorphisme
+\(\mathbb E^n\simeq\mathbb E^1\times\mathbb E^{n-1}\) ; en composant on
+obtient un morphisme \(w=v\circ u:X\longrightarrow\mathbb E^1\) dont les
+fibres sont des schémas affines de dimension \(n-1\). Le lemme 1 montre alors
+que la propriété \((P_{F,w})\) est vraie d’après l’hypothèse de récurrence.
+Grâce au lemme 2 on voit qu’il suffit d’établir le théorème pour les couples</p>
+
+<!-- Source PDF page 28 (printed page 469) -->
+
+<p>\((\mathbb E^1,R^i_!w(F))\). On se ramène ainsi au cas où
+\(X=\mathbb E^1\) est la droite affine.</p>
+
+<p><u>3<sup>ème</sup> Réduction :</u> supposons \(X=\mathbb E^1\) ; soit
+\(i:\mathbb E^1\longrightarrow\mathbb P^1\) l’immersion de la droite affine
+dans la droite projective \(\mathbb P^1\), et soit
+\(Z=\mathbb P^1-i(\mathbb E^1)\) le sous-schéma fermé réduit au point à
+l’infini de \(\mathbb P^1\) ; comme le théorème est vrai pour
+\((Z,i_!(F)|Z)\), il revient au même, d’après le lemme 3 a), de l’établir
+pour \((\mathbb E^1,F)\) ou pour \((\mathbb P^1,i_!(F))\) (comme (i) est une
+immersion ouverte on a : \(F=i_!(F)|\mathbb E^1\)).</p>
+
+<h3 id="XV.3.3">n° 3. <u>Démonstration du théorème.</u></h3>
+
+<p>Au bout de ces réductions, il nous reste donc à établir le théorème
+dans le cas où (X) est la droite projective. Nous allons d’abord transformer
+la formule (1) de l’énoncé en une formule du type de Lefschetz, portant sur
+des traces ; cette dernière formule sera démontrée dans le cas particulier où
+(X) est une courbe projective et lisse.</p>
+
+<p>Reprenons la formule (1) :</p>
+\[
+L_F=\prod_i\bigl(L_{R^i_!g(F)}\bigr)^{(-1)^i}
+=\frac{P_F^1\cdots P_F^{2n-1}}{P_F^0\cdots P_F^{2n}},
+\qquad
+P_F^i(t)=\det\bigl(1-f^{-1}_{H_c^i(\overline X,\overline F)}t\bigr).
+\]
+<p>Le logarithme du premier membre s’écrit :</p>
+\[
+\sum_{x\in X^o}\sum_{n=1}^{\infty}
+\operatorname{Tr}(f_{F_x}^{-nd(x)})t^{nd(x)}/n
+=\sum_{n=1}^{\infty}
+\left(\sum_{d(x)\mid n}d(x)\operatorname{Tr}(f_{F_x}^{-n})\right)t^n/n
+\]
+<p>tandis que celui du second membre est :</p>
+
+<!-- Source PDF page 29 (printed page 470) -->
+
+\[
+\sum_{n\geq1}\left(\sum_i(-1)^i
+\operatorname{Tr}(f^{-n}_{H_c^i(\overline X,\overline F)})\right)t^n/n.
+\]
+<p>En comparant les coefficients de \(t^n/n\) on voit qu’il faut établir :</p>
+\[
+(2)\qquad
+\sum_{d(x)\mid n}d(x)\operatorname{Tr}(f_{F_x}^{-n})
+=\sum_i(-1)^i\operatorname{Tr}(f^{-n}_{H_c^i(\overline X,\overline F)})
+\quad\text{pour tout }n\geq1\ ;
+\]
+<p>ces calculs sont légitimes grâce au fait que le corps \(\Omega\) est de
+caractéristique nulle.</p>
+
+<p>Transformons encore la formule (2) en supposant que (X) est propre, ce qui
+permet d’écrire la cohomologie ordinaire au lieu de la cohomologie à supports
+propres. Rappelons que la catégorie des \(\mathbb Q_\ell\)-faisceaux sur (X)
+est une catégorie de fractions de celle des faisceaux \(\ell\)-adiques ; par
+abus de notation, nous désignerons désormais par
+\(F=(F_\nu)_{\nu\in\mathbb N}\) le faisceau \(\ell\)-adique<sup><a
+href="#fn-XV-1" id="fnref-XV-1">(*)</a></sup> sur (X) qui correspond au
+\(\mathbb Q_\ell\)-faisceau sous-jacent à (F). Alors
+\(\overline F=(\overline F_\nu)\) et les morphismes de Frobenius
+\(F^*_{\overline F_\nu/X}\) définissent un morphisme de faisceaux
+\(\ell\)-adiques</p>
+\[
+F^*_{\overline F/X}:\operatorname{fr}_X^*(\overline F)
+\longrightarrow\overline F,
+\]
+<p>d’où une correspondance \(\ell\)-adique sur \((\overline X,\overline F)\).
+Pour chaque entier (\(\nu\)) on sait que l’endomorphisme
+\(\operatorname{fr}_{\overline X}|R\Gamma(\overline X,\overline F_\nu)\)
+défini par \((\operatorname{fr}_{\overline X},F^*_{\overline F_\nu/X})\)
+est l’inverse de \(f_{R\Gamma(\overline X,\overline F)}\) (§ 2, n° 3,
+corollaire de la proposition 3) ; en utilisant la définition de la
+cohomologie \(\ell\)-adique, on trouve alors que l’endomorphisme
+\(\operatorname{fr}_{H^i(\overline X,\overline F)}\) de
+\(H^i(\overline X,\overline F)\) défini par
+\((\operatorname{fr}_{\overline X},F^*_{\overline F/X})\) est l’inverse de
+\(f_{H^i(\overline X,\overline F)}\) ; ainsi :</p>
+\[
+f^{-n}_{H^i(\overline X,\overline F)}
+=\operatorname{fr}^{,n}_{H^i(\overline X,\overline F)}
+\quad\text{pour tout }n\geq1\text{ et tout }i.
+\]
+<p>Appliquons ce résultat dans le cas particulier où
+\(X=x=\operatorname{Spec}(\mathbb F_q)\), \(q=p^d\), est réduit à un point
+dont le degré (d) divise (n). Nous obtenons :</p>
+
+<!-- Source PDF page 30 (printed page 471) -->
+
+\[
+f^{-n}_{F_{\overline x}}
+=\operatorname{fr}^{,n}_{F_{\overline x}}
+=\left(F^*_{\overline F_{\overline x}/X}\right)^n
+\]
+<p>(\(\overline x\) = point géométrique défini par un plongement de
+\(\mathbb F_q\) dans \(\overline{\mathbb F}_p\)).</p>
+
+<p>D’autre part \(\operatorname{fr}_{\overline X}\) et (\(f_X\)) opèrent de
+façons inverses sur les points de \(\overline X\). Il en résulte que la
+projection \(\overline X\longrightarrow X\) établit une correspondance
+bijective entre l’ensemble des points fermés de degré (d) de (X) et
+l’ensemble des orbites à (d) éléments de
+\(\operatorname{fr}_{\overline X}\) opérant dans \(\overline X\). En
+remarquant que l’ensemble \(\overline X^{\operatorname{fr}_{\overline X}^n}\)
+des points de \(\overline X\) fixes par \(\operatorname{fr}_{\overline X}^n\)
+est la réunion des orbites de \(\operatorname{fr}_{\overline X}\) dont le
+cardinal divise (n), on peut transcrire (2) sous la forme « géométrique » :</p>
+\[
+(2')\qquad
+\sum_{\overline x\in\overline X^{\operatorname{fr}_{\overline X}^n}}
+\operatorname{Tr}(\operatorname{fr}_{\overline x}^n)
+=\sum_i(-1)^i\operatorname{Tr}
+(\operatorname{fr}^{,n}_{H^i(\overline X,\overline F)}).
+\]
+<p>C’est une formule du type de Lefschetz sur le schéma \(\overline X\) muni du
+faisceau \(\overline F\) et de la correspondance
+\((\operatorname{fr}_{\overline X},F^*_{\overline F/X})\).</p>
+
+<p>Pour alléger les notations, nous écrirons dorénavant (X), (F), (h) et
+\(h_F\) au lieu de \(\overline X\), \(\overline F\),
+\(\operatorname{fr}_{\overline X}^n\) et
+\((F^*_{\overline F/X})^n\) (comme (X) et (F) n’interviendront plus, aucune
+confusion n’est à craindre) ; nous supposerons que (X) est une courbe
+projective et lisse sur \(k=\overline{\mathbb F}_p\). Les points fixes de (h)
+dans (X) sont tous de multiplicité 1 ; en effet (h) opère par :
+\(T\longmapsto T^{p^n}\) sur le complété de l’anneau local d’un point fixe,
+(T) désignant une uniformisante. Le théorème se déduira du résultat
+suivant :</p>
+
+<div class="thm proposition" id="XV.3.3.proposition2">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.</u></span></div>
+<div class="thm-body"><p><u>Soient (X) une courbe projective et lisse sur un
+corps algébriquement clos \(k\) de caractéristique \(p\), \(F\) un faisceau
+ℓ-adique constructible sur \(X_{\acute et}\) (avec ℓ = nombre premier
+≠ \(p\)), \(h\) un endomorphisme de \(X\) dont tous les points fixes sont de
+multiplicité 1, et \(h_F:h^*(F)\longrightarrow F\) un morphisme de
+faisceaux. La formule suivante, où \(h_{H^i(X,F)}\) désigne
+l'endomorphisme de \(H^i(X,F)\) défini par \((h,h_F)\), est vraie :</u></p>
+\[
+(2'')\qquad \sum_{x\in X^h}\operatorname{Tr}(h_{F_x})
+=\sum_i(-1)^i\operatorname{Tr}(h_{H^i(X,F)}).
+\]
+</div></div>
+
+<!-- Source PDF page 31 (printed page 472) -->
+
+<p>On a établi dans ce Séminaire une formule de Lefschetz analogue pour un
+faisceau de torsion constructible \(F_\nu\), annulé par
+\(\ell^{\nu+1}\), sur la courbe \(X\), muni d'un morphisme
+(h_{F_\nu}:h^*(F_\nu)\longrightarrow F_\nu). Elle s'écrit :</p>
+\[
+(3)\qquad \sum_{x\in X^h}\operatorname{Tr}(h_{(F_\nu)_x})
+=\operatorname{Tr}^*\bigl(h_{R\Gamma_X(F_\nu)}\bigr)
+\]
+<p>où les deux membres appartiennent à
+(\mathbb Z/\ell^{\nu+1}\mathbb Z).</p>
+
+<p>Supposons que le faisceau ℓ-adique de l'énoncé s'écrive
+\(F=(F_\nu)_{\nu\in\mathbb N}\), avec \(F_\nu\) annulé par
+\(\ell^{\nu+1}\). Pour chaque \(\nu\) on peut écrire la formule
+((3)_\nu), et on voit que les premiers membres de ces formules, pour
+(ν) variable, sont les composantes d'un entier ℓ-adique qui est
+précisément le premier membre de la formule (2'') à démontrer. Il reste à
+établir que les seconds membres des formules ((3)_\nu) définissent, pour
+(ν) variable, un entier ℓ-adique égal à</p>
+\[
+\sum_i(-1)^i\operatorname{Tr}(h_{H^i(X,F)}),
+\qquad H^i(X,F)=\varprojlim_\nu H^i(R\Gamma_X(F_\nu)).
+\]
+<p>Ceci résulte de lemmes purement algébriques que nous allons démontrer pour
+terminer.</p>
+
+<p>On considère un système projectif ((K_\nu)_{\nu\in\mathbb N}) de
+complexes parfaits, avec
+(K_\nu\in D_{\mathrm{parf}}(\mathbb Z/\ell^{\nu+1}\mathbb Z)), tel que
+pour chaque (ν) le morphisme de transition (K_{\nu+1}\longrightarrow
+K_\nu) soit isomorphe au sens des catégories dérivées au morphisme
+canonique :</p>
+
+<!-- Source PDF page 32 (printed page 473) -->
+
+\[
+K_{\nu+1}\longrightarrow
+K_{\nu+1}/\ell^{\nu+1}K_{\nu+1}.
+\]
+<p>On suppose chaque complexe (K_\nu) muni d'un endomorphisme</p>
+\[
+h_\nu\in\operatorname{Fl}\bigl(D_{\mathrm{parf}}(\mathbb Z/\ell^{\nu+1}\mathbb Z)\bigr),
+\]
+<p>de manière que ((h_\nu)_{\nu\in\mathbb N}) soit compatible avec les
+morphismes de transition, définissant ainsi un endomorphisme du système
+projectif ((K_\nu)). Dans l'application à la démonstration de la proposition
+2 on prendra (K_\nu=R\Gamma_X(F_\nu)) et
+(h_\nu=h_{R\Gamma_X(F_\nu)}) ; la condition sur les morphismes de
+transition se déduit par la « formule de Künneth » de la condition analogue
+vérifiée par les morphismes de transition du système projectif ℓ-adique
+((F_\nu)).</p>
+
+<p>On se propose de trouver un système projectif
+((K'_\nu)_{\nu\in\mathbb N}), où (K'_\nu) est un complexe de
+((\mathbb Z/\ell^{\nu+1}\mathbb Z))-modules libres de type fini, nul en
+dehors d'un intervalle de degrés ([a,b]) (indépendant de ν) et muni d'un
+endomorphisme de complexe (h'_\nu:K'_\nu\longrightarrow K'_\nu), de
+manière que les conditions suivantes soient satisfaites :</p>
+<p style="margin-left:2em;">1) le morphisme de transition
+(K'_{\nu+1}\longrightarrow K'_\nu) est isomorphe (comme morphisme de
+complexes) à</p>
+\[
+K'_{\nu+1}\longrightarrow
+K'_{\nu+1}/\ell^{\nu+1}K'_{\nu+1},
+\]
+<p>pour tout ν ∈ ℕ ;</p>
+<p style="margin-left:2em;">2) ((h'_\nu)_{\nu\in\mathbb N}) est compatible
+avec les morphismes de transition.</p>
+<p style="margin-left:2em;">3) ((K'_\nu,h'_\nu)) est isomorphe à
+((K_\nu,h_\nu)) dans
+(D_{\mathrm{parf}}(\mathbb Z/\ell^{\nu+1}\mathbb Z)) pour tout ν, ces
+différents isomorphismes pouvant être choisis de manière à être compatibles
+avec les morphismes de transition de ((K'_\nu)) et de ((K_\nu)).</p>
+
+<p>Supposons faite la construction des systèmes ((K'_\nu)) et
+((h'_\nu)) ; on peut alors écrire</p>
+\[
+\operatorname{Tr}^*h_\nu=\operatorname{Tr}^*h'_\nu
+=\sum_i(-1)^i\operatorname{Tr}h_\nu^{\prime i}
+\]
+<p>pour tout ν ∈ ℕ. Soient (K'=\varprojlim_\nu K'_\nu), et
+(h'=\varprojlim_\nu h'_\nu) (endo-</p>
+
+<!-- Source PDF page 33 (printed page 474) -->
+
+<p>morphisme de (K')). On voit que ((\operatorname{Tr}^*h_\nu)_\nu)
+est un entier ℓ-adique égal à
+(\sum_i(-1)^i\operatorname{Tr}h^{\prime i}). De plus le système projectif
+((K'_\nu)) vérifie la condition de Mittag-Leffler, et il en est de même du
+système ((H^{i-1}(K'_\nu))_\nu), pour tout (i) ; il en résulte que</p>
+\[
+H^i(K')\xrightarrow{\sim}\varprojlim_\nu H^i(K'_\nu)
+\quad\text{pour tout }i\qquad(\mathrm{EGA}\ 0_{\mathrm{III}}\ 13.2.3).
+\]
+<p>Dans le cas qui nous intéresse, où (K_\nu=R\Gamma_X(F_\nu)) et
+(h_\nu=h_{R\Gamma_X(F_\nu)}), on voit que (H^i(K')) s'identifie à
+(H^i(X,F)), et que l'endomorphisme de (H^i(K')) défini par (h')
+s'identifie à (h_{H^i(X,F)}). Par suite on peut écrire</p>
+\[
+\sum_i(-1)^i\operatorname{Tr}h^{\prime i}
+=\sum_i(-1)^i\operatorname{Tr}h_{H^i(X,F)},
+\]
+<p>et la formule (2'') de l'énoncé est ainsi démontrée.</p>
+
+<p>L'existence des systèmes ((K'_\nu)) et ((h'_\nu)) repose sur deux
+lemmes, dans lesquels on considère un anneau commutatif (A), un idéal (I) de
+(A) et le foncteur</p>
+\[
+T:L\longmapsto L\otimes_A A_0
+\quad(L\text{ complexe de }A\text{-modules borné à droite}),
+\qquad A_0=A/I.
+\]
+
+<div class="thm lemma" id="XV.3.3.lemme1"><div class="thm-head"><span class="thm-name"><u>Lemme 1.</u></span> — <u>Supposons l'idéal (I) nilpotent. Considérons un complexe (L\in D^-(A)) plat en chaque degré, un complexe (M\in D^-(A_0)) projectif en chaque degré et un isomorphisme (u:T(L)\xrightarrow{\sim}M) dans (D^-(A_0)). Il existe un complexe de (A)-modules (L'), borné à droite et projectif en chaque degré, un isomorphisme (v:L\xrightarrow{\sim}L') dans (D^-(A)), et un isomorphisme de complexes (w:T(L')\xrightarrow{\sim}M), tels que (u=w_0T(v)) dans (D^-(A_0)).</u></div></div>
+
+<p><u>Remarque.</u> Si (M) est supposé libre (resp. de type fini) en chaque
+degré, le complexe (L') est aussi libre (resp. de type fini) en cha-</p>
+
+<!-- Source PDF page 34 (printed page 475) -->
+
+<p>que degré. En effet si un (A)-module plat (N) est tel que (T(N)) soit
+libre (resp. de type fini), on montre facilement que (N) est libre (resp. de
+type fini) (Bourbaki, Alg. Comm., Chap. II, §3, prop. 5). Notons le
+corollaire : soit (L\in\operatorname{Ob}D^-(A)) tel que
+(L\otimes_A A_0) soit un complexe de (A_0)-modules pseudo-cohérent resp.
+parfait (i.e. isomorphe dans (D^-(A)) à un complexe borné supérieurement,
+resp. borné, et projectif de type fini en chaque degré). Alors (L) est un
+complexe de (A)-modules pseudo-cohérent (resp. parfait).</p>
+
+<div class="thm lemma" id="XV.3.3.lemme2"><div class="thm-head"><span class="thm-name"><u>Lemme 2.</u></span> — <u>Considérons un complexe de (A)-modules borné à droite (L), projectif en chaque degré, muni d'un endomorphisme φ, et un endomorphisme φ₀ de (M=T(L)) coïncidant avec (T(\varphi)) au sens de la catégorie dérivée (D^-(A_0)). Il existe un endomorphisme φ' de (L) qui coïncide avec φ au sens de (D^-(A)) et vérifie : (T(\varphi')=\varphi_0).</u></div></div>
+
+<p>Avant de démontrer ces lemmes, indiquons comment on les applique à la
+démonstration de l'existence des systèmes ((K'_\nu)) et ((h'_\nu)). On
+raisonne par récurrence sur ν, en supposant
+(K'_0,h'_0,\ldots,K'_{\nu-1},h'_{\nu-1}) déjà construits ; on applique
+les lemmes avec</p>
+\[
+A=\mathbb Z/\ell^{\nu+1}\mathbb Z\quad\text{et}\quad
+I=\ell^\nu\mathbb Z/\ell^{\nu+1}\mathbb Z
+\quad(\text{de sorte que }I^2=0),\qquad
+A_0=\mathbb Z/\ell^\nu\mathbb Z.
+\]
+<p>Prenons d'abord (L=K_\nu) et (M=K'_{\nu-1}) dans le premier lemme.
+Nous obtenons, compte tenu de la remarque 2, l'existence de (K'_\nu=L')
+avec le morphisme de transition (K'_\nu\longrightarrow K'_{\nu-1}) donné
+par (w), de telle sorte que la condition 1) énoncée plus haut soit
+satisfaite. L'isomorphisme (v) de (D^-(A)) permet de transporter
+(h_\nu) en un endomorphisme de (K'_\nu) au sens de (D^-(A)). On peut
+supposer que ce dernier provient d'un endomorphisme de complexe
+(h''_\nu:K'_\nu\longrightarrow K'_\nu). Appliquons alors le deuxième
+lemme avec (L=K'_\nu),</p>
+
+<!-- Source PDF page 35 (printed page 476) -->
+
+<p>φ = (h''_\nu) et φ₀ = (h'_{\nu-1}) ; nous obtenons l'existence de
+(h'_\nu:K'_\nu\longrightarrow K'_\nu) de manière à vérifier la condition
+2) ; de plus la condition 3) sera satisfaite. Notons que, avec les notations
+du lemme 1, si (M^i=0) pour un indice (i), on en déduit (L^{\prime i}=0)
+grâce au lemme de Nakayama ; les complexes (K'_\nu) sont donc bien tous
+nuls en dehors d'un même intervalle de degrés.</p>
+
+<p>Pour démontrer les lemmes 1 et 2 nous aurons besoin du résultat suivant :</p>
+
+<div class="thm lemma" id="XV.3.3.lemme3"><div class="thm-head"><span class="thm-name"><u>Lemme 3.</u></span></div><div class="thm-body">
+<p><u>(i) Soient (P) et (Q) des (A)-modules. Si (P) est projectif, pour toute application (A_0)-linéaire (f_0:T(P)\longrightarrow T(Q)) il existe une application (A)-linéaire (f:P\longrightarrow Q) telle que (T(f)=f_0).</u></p>
+<p><u>(ii) Supposons l'idéal (I) nilpotent. Pour tout (A_0)-module projectif (P_0) il existe un (A)-module projectif (P) tel que (T(P)\simeq P_0). Si de plus (P') est un (A)-module plat tel que (T(P')\simeq P_0), alors on a (P'\simeq P).</u></p>
+</div></div>
+
+<p>L'assertion (i) est claire, car si (u_P) (resp. (u_Q)) désigne
+l'application canonique de (P) sur (T(P)) (resp. de (Q) sur (T(Q))), le
+composé (f_0\circ u_P) est une application (A)-linéaire de (P) dans
+(T(Q)), et (u_Q) est surjectif ; comme (P) est projectif, il existe une
+factorisation de (f_0\circ u_P) à travers (u_Q) :
+(f_0\circ u_P=u_Q\circ f) où (f) est une application (A)-linéaire de (P)
+dans (Q) ; alors (T(f)=f_0).</p>
+
+<p>Pour démontrer (ii) on commence par constater que le cas où (P_0) est
+libre est évident (sans aucune hypothèse sur l'idéal (I)). On passe au cas
+général où (P_0) est projectif en introduisant un (A_0)-</p>
+
+<!-- Source PDF page 36 (printed page 477) -->
+<p>module libre \(L_0\) dont \(P_0\) est facteur direct et un \(A\)-module libre
+\(L\) tel que \(T(L)\simeq L_0\). Le module \(P_0\) s’identifie à l’image d’un
+projecteur \(e_0:L_0\longrightarrow L_0\), et il s’agit de voir qu’il existe un
+projecteur \(e:L\longrightarrow L\) relevant \(e_0\), ce qui résulte de Bourbaki,
+Alg. Comm., Chap. III, §4, n°6, lemme 2 appliqué à la sous-(A)-algèbre
+\(B\) de \(\operatorname{End}(L)\) engendrée par un endomorphisme de \(L\) qui relève \(e_0\)
+(dont l’existence est assurée par (i)) et à l’idéal (nilpotent)
+trace sur (B) du noyau de l’homomorphisme canonique
+\(\operatorname{End}(L)\longrightarrow\operatorname{End}(L_0)\).
+Cela prouve l’existence de \(P\) dans (ii). Soit de plus \(P'\) comme
+énoncé dans (ii), alors l’isomorphisme composé \(T(P)\simeq P_0\simeq T(P')\)
+provient, en vertu de (i), d’un homomorphisme \(f:P\longrightarrow P'\). Comme
+\(P\) et \(P'\) sont plats sur \(A\) et que \(T(f)\) est un isomorphisme, on
+en conclut que \(\operatorname{Gr}_I(f)\) est un isomorphisme, donc \(f\) est un iso-
+morphisme (\(I\) étant nilpotent), d’où (ii).</p>
+
+<div class="thm corollary"><div class="thm-head"><span class="thm-name"><u>Corollaire.</u></span></div><div class="thm-body">
+<p><u>Supposons l’idéal \(I\) nilpotent. Pour tout complexe
+acyclique et borné à droite \(N_0\) de \(A_0\)-modules projectifs, il existe
+un complexe acyclique borné à droite \(N\) de \(A\)-modules projectifs
+tel que \(T(N)\simeq N_0\).</u></p>
+</div></div>
+
+<p>Le complexe (N_0), étant acyclique, se décompose en suites
+exactes courtes</p>
+\[
+0\longrightarrow Z_0^i\longrightarrow N_0^i\longrightarrow Z_0^{i+1}\longrightarrow0
+\]
+<p>où \(Z_0^i\) désigne, pour chaque \(i\), le sous-module des cycles de \(N_0^i\) ;
+de plus \(N_0^i=0\) pour \(i\) assez grand. Par récurrence descendante sur
+\(i\), on voit que les suites exactes précédentes sont scindées et que
+\(Z_0^i\) est projectif pour tout \(i\). On relève \(N_0\) en relevant toutes</p>
+
+<!-- Source PDF page 37 (printed page 478) -->
+<p>ces suites exactes de proche en proche, par récurrence descendante
+sur \(i\). Il s’agit donc de montrer que si</p>
+\[
+S_0:\quad0\longrightarrow P_0\longrightarrow Q_0\longrightarrow R_0\longrightarrow0
+\]
+<p>est une suite exacte de \(A_0\)-modules, avec \(Q_0\) projectif, et si \(R\)
+est un \(A\)-module tel que \(T(R)\simeq R_0\), il existe une suite exacte</p>
+\[
+S:\quad0\longrightarrow P\longrightarrow Q\longrightarrow R\longrightarrow0
+\]
+<p>de \(A\)-modules, avec \(Q\) projectif, telle que \(T(S)\simeq S_0\). Or on
+peut relever \(Q_0\) en un \(A\)-module projectif \(Q\) par le lemme 3(ii),
+puis \(Q_0\longrightarrow R_0\) en une application \(A\)-linéaire
+\(Q\longrightarrow R\) par le lemme 3(i). Cette application est surjective d’après le lemme de
+Nakayama ; on pose \(P=\operatorname{Ker}(Q\longrightarrow R)\) pour compléter la suite exacte
+\(S\).</p>
+
+<p><u>Démonstration du lemme 2 :</u> comme (M=T(L)) est projectif en chaque
+degré, l’hypothèse du lemme s’exprime en disant que (T(\varphi)) est
+homotope à (arphi_0) ; ainsi il existe un opérateur d’homotopie
+\(k_0=(k_0^i)_i\), avec \(k_0^i:M^i\longrightarrow M^{i-1}\) tel que
+(T(\varphi)-\varphi_0=d_0k_0+k_0d_0), où (d_0) est la différentielle de (M).
+D’après le lemme 3(i), (k_0^i) se relève en une application linéaire
+\(k^i:L^i\longrightarrow L^{i-1}\). On obtient ainsi un opérateur d’homotopie
+(k=(k^i)_i) dans (L). Il suffit de poser
+(\varphi'=\varphi-kd-dk) ((d=) différentielle de (L)) pour vérifier le
+lemme 2.</p>
+
+<p><u>Démonstration du lemme 1 :</u> on peut (quitte à remplacer (L) par un com-
+plexe quasi-isomorphe) supposer que le complexe (L), donc aussi (T(L)),</p>
+
+<!-- Source PDF page 38 (printed page 479) -->
+<p>est projectif en chaque degré, ce que nous supposerons dans la suite ;
+on peut par suite supposer que l’isomorphisme (u) de (D^-(A_0)) pro-
+vient d’un quasi-isomorphisme \(T(L)\longrightarrow M\) encore désigné par \(u\).
+Nous allons d’abord nous ramener au cas où (u) est surjectif. Le com-
+plexe (N_0) défini par (N_0^i=M^ioplus M^{i-1}),
+(d^i(x,y)=(d^ix,x-d^{i-1}y))
+((xin M^i), (yin M^{i-1})) est visiblement acyclique et projectif en
+chaque degré ; on définit un épimorphisme de complexes \(N_0\longrightarrow M\) par
+la projection \(N_0^i\longrightarrow M^i\) en degré \(i\). Le corollaire du lemme 3
+permet de relever (N_0) en un complexe (N) acyclique, borné à droite
+et projectif en chaque degré. On peut alors remplacer (L) par (Loplus N)
+qui lui est quasi-isomorphe (puisque (N) est acyclique) et projectif
+en chaque degré ; on remplace en même temps (u) par le quasi-iso-
+morphisme \(T(L\oplus N)=T(L)\oplus N_0\longrightarrow M\) défini par \(u\) sur \(T(L)\) et
+par l’épimorphisme \(N_0\longrightarrow M\) sur \(N_0\) ; il est clair que ce dernier
+quasi-isomorphisme est surjectif.</p>
+
+<p>Supposons donc que \(u:T(L)\longrightarrow M\) est un quasi-isomorphis-
+me surjectif, et soit (R_0) son noyau. Le complexe (R_0) est acyclique
+car (u) est un quasi-isomorphisme, et il est projectif en chaque
+degré, car la suite exacte : \(0\longrightarrow R_0\longrightarrow T(L)\longrightarrow M\longrightarrow0\) est
+scindée puisque (M) est projectif en chaque degré. On peut donc, grâ-
+ce au corollaire du lemme 3, relever (R_0) en un complexe de (A)-modules
+(R) borné à droite, acyclique et projectif en chaque degré. Montrons
+maintenant que le morphisme \(f_0:R_0\longrightarrow T(L)\) se relève en un mor-
+phisme de complexes \(f:R\longrightarrow L\). Pour cela on observe que \(R_0\) est
+homotopiquement trivial, donc (f_0) est homotope à (0) et peut s’écrire
+(f_0=h_0d_{R_0}+d_{T(L)}h_0) où (h_0=(h_0^i)_i) avec
+\(h_0^i:R_0^i\longrightarrow T(L)^{i-1}\). Le
+lemme 3(i) permet de relever (h_0) en (h=(h^i)_i), avec
+\(h^i:R^i\longrightarrow L^{i-1}\),</p>
+
+<!-- Source PDF page 39 (printed page 480) -->
+<p>et on voit que (f=hd_R+d_Lh) est un morphisme de complexes qui relève
+(f_0). Un lemme standard (comparer SGA 60/61, IV 5.7) implique alors
+que \(f\) est injectif et que \(\operatorname{Coker}f=L'\) est plat en chaque degré.
+Comme \(T(L')\simeq\operatorname{Coker}T(f)=\operatorname{Coker}f_0\simeq M\) est projectif en chaque
+degré, il en résulte (lemme 3(ii)) qu’il en est de même de (L').
+D’autre part, l’homomorphisme canonique \(L\longrightarrow L'\) est un quasi-
+isomorphisme (étant surjectif et de noyau (R) acyclique), donc on voit
+que (L') satisfait à la conclusion envisagée dans le lemme 1, cqfd.</p>
+
+<hr>
+<div class="footnotes">
+<p id="fn-XV-1"><a href="#fnref-XV-1">(*)</a> Pour simplifier l’écriture,
+nous supposerons pour la suite de la démonstration que
+\(\Omega=\mathbb Q_\ell\). Dans le cas général, il faudrait remplacer
+\(\mathbb Z_\ell\) par la clôture normale de \(\mathbb Z_\ell\) dans
+\(\Omega\). (Détails laissés au lecteur).</p>
+</div>
+
+</body>
+</html>

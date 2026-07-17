@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SGA 7 — Exposé VIII. Compléments sur les biextensions. Propriétés générales des biextensions des schémas en groupes</title>
+<script>
+window.MathJax = {
+  loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
+  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  options: { enableMenu: true }, startup: { typeset: false }
+};
+</script>
+<script src="../../translation-viewer/vendor/mathjax/tex-svg-full.js" id="MathJax-script" async></script>
+<style>
+body { max-width: 46em; margin: 2em auto; padding: 0 1em; font-family: Georgia, "Times New Roman", serif; line-height: 1.5; }
+h1 { text-align: center; font-size: 1.3em; }
+h1 .author { display: block; font-size: 0.8em; font-weight: normal; margin-top: 0.5em; }
+h2 { margin-top: 2em; } h3 { margin-bottom: 0.3em; }
+.thm { margin: 1.2em 0; } .thm-head { font-weight: bold; } .thm-plain .thm-body { font-style: italic; }
+a.ref { text-decoration: none; } ol.enumerate { list-style: none; padding-left: 1.5em; }
+ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.5em; }
+</style>
+</head>
+<body>
+
+<h1 id="8">EXPOSÉ VIII<br>COMPLÉMENTS SUR LES BIEXTENSIONS. PROPRIÉTÉS GÉNÉRALES<br>DES BIEXTENSIONS DES SCHÉMAS EN GROUPES<span class="author">par A. Grothendieck</span></h1>
+
+<h2>SOMMAIRE</h2>
+
+<p>0. Introduction</p>
+<p>1. Cas particuliers divers sur un topos quelconque</p>
+<p>2. Accouplements définis par une biextension</p>
+<p>3. Biextensions de schémas en groupes ((P,Q)) par (G_m) : généralités</p>
+<p>4. Extensions et biextensions des schémas en groupes lisses et connexes sur un corps</p>
+<p>5. Extensions et biextensions par des schémas en groupes constants tronqués sans torsion</p>
+<p>6. Extensions et biextensions par le modèle de Néron de (G_m)</p>
+<p>7. Prolongements canoniques d'extensions et de biextensions par (G_m)</p>
+
+<h2 id="8.0">0. Introduction</h2>
+
+<p id="8.0.1">0.1. Nous continuons ici l'étude générale des biextensions, commencée dans l'exposé précédent. Tout d'abord nous donnons quelques compléments dans le cas d'un topos de base général, en développant notamment, avec les détails qu'il mérite, le formalisme des accouplements associés aux biextensions (n°2), dont l'importance dans la théorie des schémas abéliens est bien connue. D'autre part, nous abordons l'étude des biextensions de schémas en groupes généraux, le cas le plus intéressant pour nous étant celui des biextensions par le groupe multiplicatif (G_m). Nous serons cependant obligés, à titre d'intermédiaire technique, d'étudier aussi les biextensions par d'autres types de schémas en groupes (n°s 5 et 6).</p>
+
+<p>Le résultat le plus intéressant pour la suite est donné dans 7.1, qui donne des conditions moyennant lesquelles, pour (P) et (Q) lisses sur un trait de point générique \(\eta\), une biextension de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\) peut se prolonger en une biextension de \((P,Q)\) par \(G_m\), déterminée à isomorphisme unique près. Ce résultat sera fort commode dans l'exposé suivant, consacré à la théorie du modèle de Néron des variétés abéliennes. Il est probable qu'on y pourrait s'en tirer à meilleur compte, sans l'imposant poids-papier des exposés VII et VIII (qui ne serviront plus dans la suite du Séminaire) ; il nous semble cependant probable que les développements donnés dans ces exposés sont appelés à être utiles encore ailleurs.</p>
+
+<p id="8.0.2">0.2. Lorsque nous travaillons avec des schémas en groupes sur un schéma \(S\), il sera sous-entendu que nous travaillons avec le topos fppf de \(S\), qui est le topos associé au \(U\)-site des schémas localement de présentation finie sur \(S\) (et \(\in U\)), muni de la topologie fppf (SGA 3 IV 6.3). Le lecteur vérifiera d'ailleurs sans peine que la plupart des énoncés que nous donnerons seraient également valables (et essentiellement équivalents aux énoncés fppf) pour d'autres topologies sur \(S\) (ayant comme catégorie sous-jacente au site une catégorie contenant au moins les schémas localement de présentation finie sur \(S\)), telles les topologies de Zariski, la topologie étale, la topologie fpqc. Une des raisons en est que, grâce à la théorie de la descente, la catégorie des extensions d'un schéma en groupes \(P\) localement de présentation finie sur \(S\) par le schéma en groupes \(G_m\) ne dépend pas, à équivalence près, de la topologie choisie, et le même énoncé vaut pour la notion de biextension. La raison technique pour laquelle il y a lieu de préférer la topologie fppf (ou une topologie plus fine, comme fpqc) aux topologies moins fines comme celle de Zariski et la topologie étale, c'est que pour tout entier \(n&gt;0\), l'homomorphisme \(n.\mathrm{id}\) de \(G_m\) dans lui-même est un <u>épimorphisme</u> fppf (car il est fidèlement plat de présentation finie), mais en général pas un épimorphisme (Zar) ou (ét). (NB c'est un épimorphisme (ét) si et seulement si \(n\) est premier aux caractéristiques résiduelles de \(S\) et un épimorphisme (Zar) si et seulement si \(S\) est vide.)</p>
+
+<p id="8.0.3">0.3. Signalons enfin que la plupart des énoncés concernant les extensions ou les biextensions par \(G_m\) resteraient valables en remplaçant ce groupe par un <u>tore</u> \(G\). Comme un tel \(G\) est localement isomorphe (pour fppf, et même pour (ét)) à un groupe \(G_m^r\), il s'agit là d'une généralisation essentiellement triviale.</p>
+
+<h2 id="8.1">1. Cas particuliers divers sur un topos quelconque</h2>
+
+<p id="8.1.1">1.1. Dans le présent numéro et le suivant, comme dans VII, \(T\) désigne un topos, \(P,Q\) et \(G\) dénotent trois Groupes abéliens de \(T\), de sorte qu'on a un isomorphisme canonique (VII 3.6.5) :</p>
+
+\[(1.1.1)\qquad \operatorname{Biext}^1(P,Q;G)\simeq \operatorname{Ext}^1(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q,G).\]
+
+<p>Rappelons qu'on a des isomorphismes canoniques (dits "de Cartan")</p>
+
+\[(1.1.2)\qquad \operatorname{Ext}^1(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q,G)\simeq
+\operatorname{Ext}^1(P,\mathrm{RHom}(Q,G))\simeq
+\operatorname{Ext}^1(Q,\mathrm{RHom}(P,G)).\]
+
+<p>Tous ces isomorphismes sont fonctoriels en les trois arguments \(P,Q,G\).</p>
+
+<p>On déduit de (1.1.1) la suite exacte infinie suivante, compte tenu que les objets d'homologie de \(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q\) sont les \(\underline{\operatorname{Tor}}_i(P,Q)\), qui sont nuls pour \(i\geq2\) :</p>
+
+\[(1.1.3)\qquad 0\longrightarrow \operatorname{Ext}^1(P\otimes Q,G)\longrightarrow
+\operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\longrightarrow\]
+\[\operatorname{Ext}^2(P\otimes Q,G)\longrightarrow
+\operatorname{Ext}^2(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q,G)\longrightarrow\cdots .\]
+
+<p>D'autre part, les objets de cohomologie de \(\mathrm{RHom}(Q,G)\) étant les \(\underline{\operatorname{Ext}}^i(Q,G)\), la première égalité (1.1.2) donne lieu à la suite exacte à 5 termes,</p>
+
+\[(1.1.4)\qquad 0\longrightarrow \operatorname{Ext}^1(P,\underline{\operatorname{Hom}}(Q,G))\longrightarrow
+\operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}(P,\underline{\operatorname{Ext}}^1(Q,G))\]
+\[\longrightarrow \operatorname{Ext}^2(P,\underline{\operatorname{Hom}}(Q,P))\longrightarrow
+\operatorname{Ext}^2(P,\mathrm{RHom}(Q,G)),\]
+
+<p>associée à la suite spectrale habituelle</p>
+
+\[\operatorname{Ext}^*(P,\mathrm{RHom}(Q,G))\Longleftarrow
+\operatorname{Ext}^p(P,\underline{\operatorname{Ext}}^q(Q,G)).\]
+
+<p>Nous laissons au lecteur le soin de préciser, s'il en ressent le besoin, la première flèche de (1.1.3) (resp. de (1.1.4)) à l'aide d'un foncteur <u>naturel pleinement fidèle</u></p>
+
+\[(1.1.5)\qquad \operatorname{EXT}(P\otimes Q,G)\longrightarrow \operatorname{BIEXT}(P,Q;G)\]
+
+<p>(resp.</p>
+
+\[(1.1.6)\qquad \operatorname{EXT}(P,\underline{\operatorname{Hom}}(Q,G))\longrightarrow \operatorname{BIEXT}(P,Q;G)),\]
+
+<p>où \(\operatorname{EXT}\) et \(\operatorname{BIEXT}\) désignent les catégories d'extensions et de biextensions qu'on devine.</p>
+
+<p>Bien entendu, l'isomorphisme \(\operatorname{Biext}^1(P,Q;G)\simeq \operatorname{Ext}^1(Q,\mathrm{RHom}(P,G))\) donne naissance à une suite exacte analogue à (1.1.3), avec les rôles de \(P\) et \(Q\) intervertis, dont la première flèche peut se préciser à l'aide d'un foncteur pleinement fidèle</p>
+
+\[(1.1.7)\qquad \operatorname{EXT}(Q,\underline{\operatorname{Hom}}(P,G))\longrightarrow \operatorname{BIEXT}(P,Q;G)\]
+
+<p>analogue à (1.1.6).</p>
+
+<p id="8.1.2">1.2. Supposons qu'on ait</p>
+
+\[(1.2.1)\qquad \underline{\operatorname{Tor}}_1(P,Q)=0,\]
+
+<p>alors (1.1.3) fournit un isomorphisme canonique</p>
+
+\[(1.2.2)\qquad \operatorname{Biext}^1(P,Q;G)\simeq \operatorname{Ext}^1(P\otimes Q,G).\]
+
+<p>Il en est ainsi par exemple si \(P\) ou \(Q\) est un \(\mathbb Z\)-Module <u>plat</u>. On peut évidemment préciser cet énoncé en disant que sous la condition (1.2.1), le foncteur (1.1.5) est une équivalence de catégories.</p>
+
+<p id="8.1.3">1.3. Supposons qu'on ait</p>
+
+\[(1.3.1)\qquad P\otimes Q=0,\]
+
+<p>alors (1.1.3) fournit un isomorphisme canonique</p>
+
+\[(1.3.2)\qquad \operatorname{Biext}^1(P,Q;G)\simeq
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G).\]
+
+<p>Le cas le plus intéressant pour nous où (1.3.1) est vérifiée est celui où on dispose d'un entier \(n&gt;0\) tel que l'on ait</p>
+
+\[(1.3.3)\qquad nP=P,\qquad Q=\varinjlim_i\,{}_{n^i}Q,\]
+
+<p>i.e. \(P\) est divisible par \(n\) et \(Q\) est limite de sous-Groupes annulés par des puissances de \(n\). Posant, suivant l'usage</p>
+
+\[T_n(P)=({}_{n^i}P)_{i\geq0}\quad\text{(système projectif)},\qquad
+P_{n^\infty}=\varinjlim_i\,{}_{n^i}P,\]
+
+<p>on conclut de (1.3.3) des formules plus précises que (1.3.1) :</p>
+
+\[(1.3.4)\qquad P\otimes Q=0,\qquad
+\underline{\operatorname{Tor}}_1(P,Q)\simeq
+\varinjlim_i\,{}_{n^i}P\otimes{}_{n^i}Q\simeq
+T_n(P)\otimes Q\simeq P_{n^\infty}\otimes T_n(Q),\]
+
+<p>de sorte que l'isomorphisme (1.3.2) prend ici la forme plus concrète :</p>
+
+\[(1.3.5)\quad \operatorname{Biext}^1(P,Q;G)\simeq
+\operatorname{Hom}(T_n(P),D(Q))\simeq
+\operatorname{Hom}(Q,D(T_n(P)))\simeq
+\operatorname{Hom}(T_n(P)\otimes T_n(Q),T_n(G)).\]
+
+<p>Précisons la signification de ces formules :</p>
+
+<p style="margin-left: 3em">a) Dans le système inductif qui intervient dans (1.3.4), l'homomorphisme de transition</p>
+
+\[{}_{n^i}P\otimes{}_{n^i}Q\longrightarrow{}_{n^j}P\otimes{}_{n^j}Q\qquad(i\leq j)\]
+
+<p>est décrit en identifiant le premier membre à
+\({}_{n^j}P\otimes{}_{n^i}Q\) grâce à \(n^{j-i}\otimes\mathrm{id}\), et en utilisant
+l'homomorphisme</p>
+
+\[\mathrm{id}\otimes\mathrm{inj}:{}_{n^j}P\otimes{}_{n^i}Q
+\longrightarrow{}_{n^j}P\otimes{}_{n^j}Q,\]
+
+<p>où \(\mathrm{inj}:{}_{n^i}Q\longrightarrow{}_{n^j}Q\) désigne l'inclusion.</p>
+
+<p style="margin-left: 3em">b) On pose, par définition</p>
+
+\[T_n(P)\otimes Q\mathrel{\mathop=^{\rm dfn}}
+\varinjlim_i T_n(P)\otimes{}_{n^i}Q,\]
+
+<p>où</p>
+
+\[T_n(P)\otimes M\mathrel{\mathop=^{\rm dfn}}{}_{n^i}P\otimes M
+\quad\text{si}\quad n^iM=0.\]
+
+<p>On précise de même le sens du troisième terme écrit dans (1.3.4), lorsqu'on suppose
+que \(nQ=Q\) (de sorte que \(T_n(Q)\) est, comme \(T_n(P)\), un système projectif
+strict). Le dernier terme de (1.3.4) est un Hom de systèmes projectifs de groupes.</p>
+
+<p style="margin-left: 3em">c) La lettre \(D\) désigne
+\(\underline{\operatorname{Hom}}(-,G)\). L'objet \(D(Q)\) est défini comme le système
+projectif de Groupes</p>
+
+\[D(Q)=\bigl(D({}_{n^i}Q)\bigr)_{i\geq0}
+=\bigl(\underline{\operatorname{Hom}}({}_{n^i}Q,G)\bigr)_{i\geq0},\]
+
+<p>le deuxième membre de (1.3.5) étant le groupe d'homomorphismes de systèmes
+projectifs de groupes. Le dernier membre s'interprète plus simplement en posant</p>
+
+\[D(T_n(P))=\varinjlim_i D({}_{n^i}P),\]
+
+<p>les morphismes de transition de ce système inductif étant évidemment ceux qui se
+déduisent par transposition des morphismes de transition</p>
+
+\[n^{j-i}:{}_{n^j}P\longrightarrow{}_{n^i}P\quad\text{de }T_n(P).\]
+
+<p>Nous laissons au lecteur le soin d'expliciter le calcul de
+\(\underline{\operatorname{Tor}}_1(P,Q)\) indiqué dans (1.3.4), et la conséquence
+(1.3.5) de ce calcul. Notons seulement qu'on utilise les relations déduites de la
+deuxième hypothèse (1.3.3) :</p>
+
+\[\underline{\operatorname{Tor}}_p(P,Q)\simeq
+\varinjlim_i\underline{\operatorname{Tor}}_p(P,{}_{n^i}Q),\]
+
+<p>qui pour \(p=0\) donne immédiatement \(P\otimes Q=0\), et qui ramène le calcul du
+\(\underline{\operatorname{Tor}}_1(P,Q)\) à celui des
+\(\underline{\operatorname{Tor}}_1(P,{}_{n^i}Q)\) et de leurs morphismes de transition.
+Il reste donc, lorsque \(Q\) est annulé par un entier \(m=n^i\) tel que \(mP=P\), à
+expliciter un isomorphisme</p>
+
+\[(1.3.6)\qquad \underline{\operatorname{Tor}}_1(P,Q)
+\xleftarrow{\sim}{}_{m}P\otimes_m Q\qquad(mP=P,\quad mQ=0).\]
+
+<p>Il y a diverses façons de la faire, l'une d'elles consistant à utiliser la suite
+exacte des \(\underline{\operatorname{Tor}}\) associée à la suite exacte</p>
+
+\[0\longrightarrow{}_{m}P\longrightarrow P\xrightarrow{m}P\longrightarrow0.\]
+
+<p>On peut aussi utiliser l'homomorphisme (2.1.1) ci-dessous ; le fait que les morphismes
+de transition sont ceux précisés dans a) n'est alors autre que 2.1.11. Signalons que de
+toutes façons, le choix de (1.3.6) revient au choix d'un signe, cf. 2.1.10.</p>
+
+<p id="8.1.4">1.4. Supposons que l'on ait</p>
+
+\[(1.4.1)\qquad \underline{\operatorname{Hom}}(Q,G)=0,\]
+
+<p>alors (1.1.4) fournit un isomorphisme canonique</p>
+
+\[(1.4.2)\qquad \operatorname{Biext}^1(P,Q;G)\xrightarrow{\sim}
+\operatorname{Hom}(P,\underline{\operatorname{Ext}}^1(Q,G)).\]
+
+<p>Ce cas se présente en particulier si \(Q\) est un schéma abélien et si \(G=G_m\),
+cf. VIII 3.8. Donc le foncteur en \(P\),
+\(P\longmapsto\operatorname{Biext}^1(P,Q;G)\) est <u>représentable</u> par
+\(Q^*=\underline{\operatorname{Ext}}^1(Q,G)\), et on trouve en particulier une
+biextension canonique \(E^Q\) de \((Q^*,Q)\) par \(G\), définie à isomorphisme unique
+près (puisque le groupe des automorphismes de \(E^Q\) est
+\(\operatorname{Hom}(P,\underline{\operatorname{Hom}}(Q,G))=0\). On pourra appeler cette
+biextension, ou la biextension symétrique \({}^sE^Q\) de \((Q,Q^*)\) par \(G\), la
+<u>biextension de Weil</u> de \((Q^*,Q)\) ou \((Q,Q^*)\) par \(G\).</p>
+
+<p id="8.1.5">1.5. Supposons que l'on ait</p>
+
+\[(1.5.1)\qquad \operatorname{Hom}(P,\underline{\operatorname{Ext}}^1(Q,G))=0,\]
+
+<p>ce qui est le cas en particulier si \(\operatorname{Ext}^1(Q,G)=0\) (par exemple si
+\(Q\) est un schéma en groupes fini localement libre ou un groupe de type multiplicatif
+(SGA 3 IX), et \(G=G_m\), cf. 3.4 ci-dessous). Alors (1.1.4) fournit un isomorphisme
+canonique</p>
+
+\[(1.5.2)\qquad \operatorname{Biext}^1(P,Q;G)\xleftarrow{\sim}
+\operatorname{Ext}^1(P,\underline{\operatorname{Hom}}(Q,G)),\]
+
+<p>où \(\underline{\operatorname{Hom}}(Q,G)\) joue le rôle d'un « groupe dual » de
+\(Q\) (relativement à \(G\)). Plus précisément, on déduit de 1.5.2 que le foncteur
+pleinement fidèle (1.1.6) est une <u>équivalence de catégories</u>.</p>
+
+<p id="8.1.6">1.6. Supposons que l'on ait simultanément les relations</p>
+
+\[(1.6.1)\qquad \underline{\operatorname{Hom}}(P,G)=0,\quad
+\operatorname{Hom}(P,\underline{\operatorname{Ext}}^1(Q,G))=0.\]
+
+<p>En vertu de 1.4, ces deux relations impliquent respectivement qu'on a des
+isomorphismes</p>
+
+\[\operatorname{Biext}^1(P,Q;G)\xrightarrow{\sim}
+\operatorname{Hom}(Q,\underline{\operatorname{Ext}}^1(P,G)),\]
+\[\operatorname{Biext}^1(P,Q;G)\xleftarrow{\sim}
+\operatorname{Ext}^1(P,\underline{\operatorname{Hom}}(Q,G)),\]
+
+<p>d'où en composant un isomorphisme canonique</p>
+
+\[(1.6.2)\qquad \operatorname{Ext}^1(P,\underline{\operatorname{Hom}}(Q,G))
+\xrightarrow{\sim}\operatorname{Hom}(Q,\underline{\operatorname{Ext}}^1(P,G))
+\quad(\simeq\operatorname{Biext}^1(P,G;G)),\]
+
+<p>jouant le rôle d'une formule de dualité. Notons d'ailleurs que la première relation
+(1.6.1) implique évidemment que \(\operatorname{Hom}(P\otimes Q,G)=0\), donc que la
+catégorie \(\operatorname{EXT}(P,\underline{\operatorname{Hom}}(Q,G))\) des extensions
+(commutatives) de \(P\) par \(\underline{\operatorname{Hom}}(Q,G)\) est rigide (tout
+automorphisme d'un objet est l'identité), et qu'il en est de même de
+\(\operatorname{BIEXT}(P,Q;G)\). La structure de ces catégories est donc connue quand on
+connaît le groupe des classes d'isomorphie d'objets, qui en vertu de (1.6.2) est
+canoniquement isomorphe à \(\operatorname{Hom}(Q,\underline{\operatorname{Ext}}^1(P,Q))\).</p>
+
+<p>Notons que l'application (1.6.2) est définie en tous cas (sans supposer (1.6.1)), et
+qu'elle peut se décrire aussi directement, sans passer par
+\(\operatorname{Biext}^1(P,Q;G)\), en termes de l'accouplement naturel</p>
+
+\[Q\times Q'\longrightarrow G\]
+
+<p>(où \(Q'=\underline{\operatorname{Hom}}(Q,G)\)), en l'interprétant comme un
+homomorphisme \(Q\to\underline{\operatorname{Hom}}(Q',G)\), d'où un composé</p>
+
+\[(1.6.3)\qquad \operatorname{Ext}^1(P,Q')\times Q
+\longrightarrow\operatorname{Ext}^1(P,Q')\times
+\operatorname{Hom}(Q',G)\longrightarrow\operatorname{Ext}^1(P,G),\]
+
+<p>qui redonne (1.6.2).</p>
+
+<p>Pour un cas utile où les considérations de 1.6 s'appliquent, voir 3.7 ci-dessous.</p>
+
+<h2 id="8.2">2. Accouplements définis par une biextension</h2>
+
+<p id="8.2.1">2.1. Soient \(P\) et \(Q\) deux Groupes abéliens sur \(T\), et \(n&gt;0\)
+un entier. Rappelons qu'on désigne par \({}_nP\) le noyau de la multiplication par
+\(n\,\mathrm{id}_P\). Nous allons définir un homomorphisme canonique</p>
+
+\[(2.1.1)\qquad \alpha=\alpha^n_{P,Q}:{}_{n}P\otimes{}_{n}Q
+\longrightarrow\underline{\operatorname{Tor}}_1(P,Q),\]
+
+<p>qui sera le composé</p>
+
+\[(2.1.2)\qquad {}_{n}P\otimes{}_{n}Q\longrightarrow
+\underline{\operatorname{Tor}}_1({}_{n}P,{}_{n}Q)
+\longrightarrow\underline{\operatorname{Tor}}_1(P,Q),\]
+
+<p>où la première flèche est \(\alpha^n_{{}_nP,{}_nQ}\), et la deuxième est celle
+déduite des inclusions \({}_nP\to P\), \({}_nQ\to Q\). On est donc ramené à définir
+(2.1.1) dans le cas où on a \(nP=0\), \(nQ=0\), i.e. où \(P\) et \(Q\) sont des
+\(\mathbb Z/n\mathbb Z\)-Modules. Supposons seulement \(nQ=0\). Prenant une résolution
+plate \(L\) de \(P\) (en tant que \(\mathbb Z\)-Module), on trouve des isomorphismes
+canoniques</p>
+
+\[P\mathbin{\mathop\otimes^L}_{\mathbb Z}Q\simeq
+L\otimes_{\mathbb Z}Q\simeq
+(L\otimes_{\mathbb Z}\mathbb Z/n\mathbb Z)
+\otimes_{\mathbb Z/n\mathbb Z}Q,\]
+
+<p>qu'on peut écrire comme un isomorphisme dans la catégorie dérivée</p>
+
+\[(2.1.3)\qquad P\mathbin{\mathop\otimes^L}_{\mathbb Z}Q\simeq
+(P\mathbin{\mathop\otimes^L}_{\mathbb Z}\mathbb Z/n\mathbb Z)
+\mathbin{\mathop\otimes^L}_{\mathbb Z/n\mathbb Z}Q,\]
+
+<p>donnant naissance à la suite spectrale de type homologique « de Kunneth »
+(cf. SGA 1 IV 5.2) :</p>
+
+\[(2.1.4)\qquad \underline{\operatorname{Tor}}_*^{\mathbb Z}(P,Q)
+\Longleftarrow E^2_{p,q}=
+\underline{\operatorname{Tor}}_p^{\mathbb Z/n\mathbb Z}
+(\underline{\operatorname{Tor}}_q^{\mathbb Z}(P,\mathbb Z/n\mathbb Z),Q).\]
+
+<p>Rappelons d'ailleurs qu'on a des isomorphismes canoniques</p>
+
+\[\underline{\operatorname{Tor}}_0^{\mathbb Z}(P,\mathbb Z/n\mathbb Z)
+\mathrel{\mathop=^{\rm dfn}}P_n=P/nP,\qquad
+\underline{\operatorname{Tor}}_1(P,\mathbb Z/n\mathbb Z)\simeq{}_nP,\]
+\[\underline{\operatorname{Tor}}_i^{\mathbb Z}(P,\mathbb Z/n\mathbb Z)=0
+\quad\text{si }i\geq2,\]
+
+<p>déduits du calcul des \(\underline{\operatorname{Tor}}_i^{\mathbb Z}
+(P,\mathbb Z/n\mathbb Z)\) à l'aide de la résolution plate canonique suivante de
+\((\mathbb Z/n\mathbb Z)_T\) :</p>
+
+\[\xymatrix{0\ar[r]&\mathbb Z_T\ar[r]^n\ar@{=}[d]&
+\mathbb Z_T\ar[r]\ar@{=}[d]&0\\&L_1&L_0&},\]
+
+<p>l'augmentation \(L_0\longrightarrow(\mathbb Z/n\mathbb Z)_T\) étant définie en envoyant 1 sur 1. Par
+suite, la suite spectrale (2.1.4) se réduit essentiellement à une suite exacte</p>
+
+\[(2.1.5)\quad 0\longrightarrow
+\underline{\operatorname{Tor}}_2^{\mathbb Z/n\mathbb Z}(P_n,Q)
+\longrightarrow P_n\otimes Q\mathrel{\mathop{\longrightarrow}^{\alpha}}
+\underline{\operatorname{Tor}}_1^{\mathbb Z}(P,Q)
+\longrightarrow\underline{\operatorname{Tor}}_1^{\mathbb Z/n\mathbb Z}(P_n,Q)
+\longrightarrow0,\]
+
+<p>où on a posé \(P_n=P\otimes_{\mathbb Z}\mathbb Z/n\mathbb Z=P/nP\). L'homomorphisme \(\alpha\) cherché est l'homomorphisme-coin
+\(E^2_{0,1}\longrightarrow\underline{\operatorname{Tor}}_1^{\mathbb Z}\) qui figure dans la dernière suite exacte.
+Cette dernière étant évidemment fonctorielle en \(P\) et en \(Q\), la fonctorialité en \(P\) montre que l'homomorphisme envisagé est bien le composé</p>
+
+\[{}_nP\otimes Q\longrightarrow
+\underline{\operatorname{Tor}}_1^{\mathbb Z}({}_nP,Q)
+\longrightarrow\underline{\operatorname{Tor}}_1^{\mathbb Z}(P,Q),\]
+
+<p>où le premier homomorphisme est l'homomorphisme \(\alpha\) défini comme précédemment, mais avec \((P,Q)\) remplacé par \(({}_nP,Q)\), et où le deuxième homomorphisme provient de l'inclusion \({}_nP\longrightarrow P\).</p>
+
+<p id="8.2.1.6">2.1.6. Ceci définit donc bien, pour \(P\) et \(Q\) quelconque, un homomorphisme (2.1.1) satisfaisant à la condition de factorisation (2.1.2). De plus, pour \(nQ=0\), la suite exacte (2.1.5) montre que \(\alpha\) est un isomorphisme dès que \(P_n\) est <u>plat</u> sur \(\mathbb Z/n\mathbb Z\) (ce qui est le cas en particulier si \(P_n=0\), i.e. \(nP=P\) i.e. \(P\) est \(n\)-divisible, ou si \(P\) lui-même est un \(\mathbb Z/n\mathbb Z\)-Module plat) ou si \(Q\) est un \(\mathbb Z/n\mathbb Z\)-Module plat.</p>
+
+<p id="8.2.1.7">2.1.7. Explicitons le calcul de l'homomorphisme \(\alpha\) de (2.1.5). Pour le connaître, il suffit de connaître, pour toute section \(q\) de \(Q\) (sur un objet \(S\) de \(T\), disons l'objet final pour simplifier) l'homomorphisme \({}_nP\longrightarrow\underline{\operatorname{Tor}}_1^{\mathbb Z}(P,Q)\) correspondant. Or on peut considérer \(q\) comme l'image de la section 1 de \((\mathbb Z/n\mathbb Z)_T\) par un homomorphisme \(u_q:(\mathbb Z/n\mathbb Z)_T\longrightarrow Q\) bien déterminé, et la fonctorialité de l'homomorphisme \(\alpha\) en \(Q\) nous ramène donc au cas où \(Q\) est le faisceau constant \((\mathbb Z/n\mathbb Z)_T\), et où \(q\) est la section unité de \((\mathbb Z/n\mathbb Z)_T\). Dans ce cas, identifiant</p>
+
+\[\underline{\operatorname{Tor}}_1^{\mathbb Z}(P,Q)=
+\underline{\operatorname{Tor}}_1^{\mathbb Z}(P,\mathbb Z/n\mathbb Z)\quad\text{à }{}_nP\]
+
+<p>comme expliqué après (2.1.4) ci-dessus, l'homomorphisme cherché est l'identité, en d'autres termes, l'homomorphisme coin
+\[E^2_{0,q}=\underline{\operatorname{Tor}}_q^{\mathbb Z}(P,\mathbb Z/n\mathbb Z)
+\otimes_{\mathbb Z/n\mathbb Z}\mathbb Z/n\mathbb Z
+\longrightarrow\underline{\operatorname{Tor}}_q^{\mathbb Z}(P,\mathbb Z/n\mathbb Z)\]
+est l'identité. Cela résulte en effet immédiatement des définitions (et l'assertion analogue reste valable en remplaçant \(\mathbb Z\) et son quotient \(\mathbb Z/n\mathbb Z\) par n'importe quel Anneau \(A\) sur \(T\) et n'importe quel Anneau-quotient \(A/I\) de \(A\)).</p>
+
+<p id="8.2.1.8">2.1.8. On peut aussi déterminer l'homomorphisme \(\alpha\) de (2.1.1) en décrivant, pour tout couple de sections \(p\) de \({}_nP\) et \(q\) de \({}_nQ\) (sur un objet \(S\) de \(T\), que nous prendrons égal à l'objet final pour simplifier les notations), la section \((p,q)\) de \(\underline{\operatorname{Tor}}_1^{\mathbb Z}(P,Q)\). Utilisant comme ci-dessus la fonctorialité de \(\alpha\) en \(P\) et en \(Q\), on est donc ramené au cas où on a</p>
+
+\[P=Q=(\mathbb Z/n\mathbb Z)_T,\]
+
+<p>\(p\) et \(q\) étant la section unité de \((\mathbb Z/n\mathbb Z)_T\), et on est donc ramené à déterminer l'homomorphisme</p>
+
+\[\alpha:(\mathbb Z/n\mathbb Z)_T\otimes(\mathbb Z/n\mathbb Z)_T
+\longrightarrow\underline{\operatorname{Tor}}_1^{\mathbb Z}((\mathbb Z/n\mathbb Z)_T,(\mathbb Z/n\mathbb Z)_T).\]
+
+<p>La description 2.1.7 nous montre que c'est l'isomorphisme</p>
+
+\[(2.1.8.1)\qquad (\mathbb Z/n\mathbb Z)_T\xrightarrow{\sim}
+\underline{\operatorname{Tor}}_1^{\mathbb Z}((\mathbb Z/n\mathbb Z)_T,(\mathbb Z/n\mathbb Z)_T)\]
+
+<p>déduit de la résolution plate canonique</p>
+
+\[(2.1.8.2)\qquad 0\longrightarrow\mathbb Z_T\mathrel{\mathop{\longrightarrow}^{n}}\mathbb Z_T\longrightarrow0\]
+
+<p>du <u>premier</u> facteur, \(P=(\mathbb Z/n\mathbb Z)_T\), qui figure dans le \(\underline{\operatorname{Tor}}_1\).</p>
+
+<p id="8.2.1.9">2.1.9. La définition donnée de (2.1.1) n'est pas symétrique, et on peut en échangeant les rôles de \(P\) et de \(Q\) dans la construction précédente, définir un homomorphisme analogue</p>
+
+\[(2.1.9.1)\qquad \beta^n_{P,Q}:{}_nP\otimes{}_nQ\longrightarrow
+\underline{\operatorname{Tor}}_1(P,Q),\]
+
+<p>en se ramenant d'abord au cas \(nP=0\), et utilisant une résolution plate de \(Q\). On peut aussi définir \(\beta\) en termes de \(\alpha\), de façon équivalente, par la commutativité du diagramme</p>
+
+\[(2.1.9.2)\qquad
+\xymatrix{
+{}_nP\otimes{}_nQ\ar[r]^{\sim}\ar[d]_{\beta^n_{P,Q}}&{}_nQ\otimes{}_nP\ar[d]^{\alpha^n_{Q,P}}\\
+\underline{\operatorname{Tor}}_1(P,Q)\ar[r]^{\sim}&\underline{\operatorname{Tor}}_1(Q,P),
+}\]
+
+<p>où les flèches horizontales sont les isomorphismes de symétrie. Ceci posé, les relations entre \(\alpha\) et \(\beta\) sont données par la formule :</p>
+
+\[(2.1.9.3)\qquad \beta^n_{P,Q}=-\alpha^n_{P,Q},\]
+
+<p>en d'autres termes :</p>
+
+<div class="thm lemma" id="8.2.1.10">
+<div class="thm-head"><span class="thm-name"><u>Lemme 2.1.10.</u></span> <u>Soient \(P\) et \(Q\) deux Groupes commutatifs, \(n&gt;0\) un entier. Alors le diagramme suivant est anticommutatif, où \(\alpha\) est défini dans (2.1.1) :</u></div>
+<div class="thm-body">
+\[(2.1.10.1)\qquad
+\xymatrix{
+{}_nP\otimes{}_nQ\ar[r]^{\sim}\ar[d]_{\alpha^n_{P,Q}}&{}_nQ\otimes{}_nP\ar[d]^{\alpha^n_{Q,P}}\\
+\underline{\operatorname{Tor}}_1(P,Q)\ar[r]^{\sim}&\underline{\operatorname{Tor}}_1(Q,P),
+}\]
+<p><u>les flèches horizontales étant les isomorphismes de symétrie.</u></p>
+</div></div>
+
+<p><u>Démonstration.</u> Le procédé de 2.1.8 nous ramène aussitôt au cas où on a \(P=Q=(\mathbb Z/n\mathbb Z)_T\), et à prouver alors que les deux isomorphismes (2.1.8.1) obtenus en résolvant, par (2.1.8.2), le premier et le deuxième argument respectivement intervenant dans le \(\underline{\operatorname{Tor}}_1\), on trouve des isomorphismes qui diffèrent par le signe (ou encore, que l'isomorphisme de symétrie sur \(\underline{\operatorname{Tor}}_1^{\mathbb Z}(\mathbb Z/n\mathbb Z,\mathbb Z/n\mathbb Z)\) est \(-\mathrm{id}\)). On peut évidemment supposer pour ceci que \(T\) est le topos ponctuel, i.e. qu'on travaille dans la catégorie des groupes commutatifs ordinaires. Or soit \(L_\bullet\) le complexe</p>
+
+\[L_\bullet=\quad0\longrightarrow\mathbb Z\mathrel{\mathop{\longrightarrow}^{n}}\mathbb Z\longrightarrow0,\]
+
+<p>considéré comme résolution plate de \(P=Q=\mathbb Z/n\mathbb Z\). Utilisons \(L_\bullet\otimes L_\bullet\) pour le calcul de \(\operatorname{Tor}_1(P,Q)=\operatorname{Tor}_1(\mathbb Z/n\mathbb Z,\mathbb Z/n\mathbb Z)\), alors les isomorphismes avec le \(H_1\) de \(L_\bullet\otimes\mathbb Z/n\mathbb Z\) (qui permet de définir \(\alpha\)) et avec le \(H_1\) de \(\mathbb Z/n\mathbb Z\otimes L_\bullet\) (qui permet de définir \(\beta\)) sont définis respectivement par l'augmentation \(L_\bullet\longrightarrow\mathbb Z/n\mathbb Z\) du deuxième et du premier facteur de \(L_\bullet\otimes L_\bullet\). Il s'ensuit aussitôt que \(\alpha(1,1)\) est représenté par le cycle</p>
+
+\[-1_0\otimes1_1+1_1\otimes1_0\in(L_\bullet\otimes L_\bullet)_1
+=L_0\otimes L_1+L_1\otimes L_0\]
+
+<p>(NB on désigne par \(1_0\) et \(1_1\) respectivement l'élément 1 de \(L_0\) et de \(L_1\)), tandis que \(\beta(1,1)\) est représenté par le cycle \(1_0\otimes1_1-1_1\otimes1_0\). Cela prouve donc 2.1.10.</p>
+
+<p>Pour terminer ces généralités sur les accouplements \(\alpha\), il faut encore préciser les relations entre les divers homomorphismes \(\alpha^n_{P,Q}\), pour \(n\) variable. Le résultat principal est donné dans le</p>
+
+<div class="thm lemma" id="8.2.1.11">
+<div class="thm-head"><span class="thm-name"><u>Lemme 2.1.11.</u></span> <u>Soient \(P,Q\) deux Groupes commutatifs de \(T\), \(n\) et \(n'\) deux entiers \(&gt;0\) tels que \(n'\) soit un multiple de \(n\), soit \(n'=mn\). Alors on a commutativité dans le diagramme suivant</u></div>
+<div class="thm-body">
+\[(2.1.11.1)\qquad
+\xymatrix@C=4em@R=3em{
+&{}_{n'}P\otimes{}_nQ\ar[dl]_{p_m\otimes\mathrm{id}_{{}_nQ}}\ar[dr]^{\mathrm{id}_{{}_{n'}P}\otimes i_m}&\\
+{}_nP\otimes{}_nQ\ar[dr]_{\alpha^n_{P,Q}}&&{}_{n'}P\otimes{}_{n'}Q\ar[dl]^{\alpha^{n'}_{P,Q}}\\
+&\underline{\operatorname{Tor}}_1(P,Q)&
+}\]
+<p><u>où \(p_m:{}_{n'}P\longrightarrow{}_nP\) désigne l'homomorphisme induit par \(m.\mathrm{id}_P\), et \(i_m:{}_nQ\longrightarrow{}_{n'}Q\) désigne l'inclusion. On a de même commutativité dans le diagramme analogue (2.1.11.2), symétrique de (2.1.11.1), dont les sommets sont les mêmes que ceux de (2.1.11.1), sauf le sommet supérieur \({}_{n'}P\otimes{}_nQ\), qui est remplacé par \({}_nP\otimes{}_{n'}Q\).</u></p>
+</div></div>
+
+<p>Il suffit en effet de prouver le premier énoncé, le deuxième s'en déduit par symétrie, compte tenu de 2.1.10. On est ramené, par le procédé de 2.1.8, au cas où \(T\) est le topos ponctuel, i.e. où \(P\) et \(Q\) sont des groupes commutatifs ordinaires, et où on a \(P=\mathbb Z/n'\mathbb Z\), \(Q=\mathbb Z/n'\mathbb Z\). En fait, on utilisera pour \(P\) la seule hypothèse \(n'P=0\). Nous identifierons \(\operatorname{Tor}_1(P,Q)\) à \({}_{n'}P=P\), grâce à la résolution \(0\longrightarrow\mathbb Z\mathrel{\mathop{\longrightarrow}^{n'}}\mathbb Z\longrightarrow0\) de \(Q\), et de même \(\operatorname{Tor}_1({}_nP,{}_nQ)\) à \({}_nP\) grâce à la résolution \(0\longrightarrow\mathbb Z\mathrel{\mathop{\longrightarrow}^{n}}\mathbb Z\longrightarrow0\) de \({}_nQ\simeq\mathbb Z/n\mathbb Z\), dont l'augmentation est donnée en envoyant \(1_0\) sur \(m.1_Q\) (\(1_Q\) désignant l'élément 1 de \(Q=\mathbb Z/n'\mathbb Z\)). L'homomorphisme</p>
+
+\[\xymatrix{
+\operatorname{Tor}_1({}_nP,{}_nQ)\ar[r]\ar@{<->}[d]&\operatorname{Tor}_1(P,Q)\ar@{<->}[d]\\
+{}_nP&{}_{n'}P=P
+}\]
+
+<p>déduit des inclusions \({}_nP\longrightarrow P\) et \({}_nQ\longrightarrow Q\) n'est alors autre que l'inclusion naturelle \({}_nP\longrightarrow{}_{n'}P\). Par suite, identifiant le sommet supérieur de (2.1.11.1) à \(P/nP\), grâce au générateur \(m.1_Q\) de \({}_nQ\), permettant d'identifier \({}_nQ\) à \(\mathbb Z/n\mathbb Z\), le diagramme envisagé devient</p>
+
+\[\xymatrix@C=4em@R=3em{
+&P/nP\ar[dl]_{x\mapsto mx}\ar[dr]^{x\mapsto mx}&\\
+{}_nP\ar[dr]_{x\mapsto x}&&P\ar[dl]^{x\mapsto x}\\
+&{}_{n'}P&
+}\]
+
+<p>qui est évidemment commutatif.</p>
+
+<div class="thm corollary" id="8.2.1.12">
+<div class="thm-head"><span class="thm-name"><u>Corollaire 2.1.12.</u></span> <u>Avec les notations de 2.1.11, on a commutativité dans le diagramme suivant</u></div>
+<div class="thm-body">
+\[(2.1.12.1)\qquad
+\xymatrix@C=5em@R=3em{
+{}_{n'}P\otimes{}_{n'}Q\ar[r]^{m\otimes m}\ar[d]_{\alpha^{n'}_{P,Q}}&{}_nP\otimes{}_nQ\ar[d]^{\alpha^n_{P,Q}}\\
+{}_{n'}\underline{\operatorname{Tor}}_1(P,Q)\ar[r]^{m}&{}_n\underline{\operatorname{Tor}}_1(P,Q),
+}\]
+<p><u>où, dans la description des flèches horizontales, \(m\) désigne les homomorphismes \({}_{n'}E\longrightarrow{}_nE\) induits par \(m.\mathrm{id}_E\) (pour \(E\) égal respectivement à \(P,Q\) et à \(\underline{\operatorname{Tor}}_1(P,Q)\)).</u></p>
+</div></div>
+
+<p>En effet, en vertu de 2.1.11 on aura, pour \(x\in{}_{n'}P(S)\), \(y\in{}_{n'}Q(S)\) :
+\[\alpha^n(mx\otimes my)=\alpha^{n'}(x\otimes my),\]
+or le deuxième membre est égal à \(m\alpha^{n'}(x\otimes y)\) puisque \(x\otimes my=m(x\otimes y)\), d'où la commutativité de (2.1.12.1).</p>
+
+<p id="8.2.1.13">2.1.13. Soit \(\ell\) un nombre premier. Pour tout Groupe commutatif \(E\), désignons par \(T_\ell(E)\) le système projectif</p>
+
+\[(2.1.13.1)\qquad T_\ell(E)=({}_{\ell^\nu}E)_{\nu\geq0},\]
+
+<p>qui dépend évidemment fonctoriellement de \(E\). Alors les compatibilités 2.1.12, pour \(n,n'\) de la forme \(\ell^\nu,\ell^{\nu'}\) avec \(\nu'\geq\nu\), nous montrent que les \(\alpha^{\ell^\nu}_{P,Q}\) pour \(\nu\) variable définissent un homomorphisme de systèmes projectifs, fonctoriel en \(P,Q\) :</p>
+
+\[(2.1.13.2)\qquad \alpha^{(\ell)}_{P,Q}:T_\ell(P)\otimes T_\ell(Q)\longrightarrow T_\ell(\underline{\operatorname{Tor}}_1(P,Q)).\]
+
+<p>La connaissance de ces homomorphismes, pour tout nombre premier \(\ell\), équivaut évidemment à la connaissance des \(\alpha^n_{P,Q}\) pour tout entier \(n\). Les relations d'antisymétrie 2.1.10 se traduisent alors par les relations d'antisymétrie analogues \(\ell\)-adiques, pour tout \(\ell\), exprimées par l'anticommutativité des diagrammes</p>
+
+\[(2.1.13.3)\qquad
+\xymatrix@C=5em@R=3em{
+T_\ell(P)\otimes T_\ell(Q)\ar[r]\ar[d]_{\alpha^{(\ell)}_{P,Q}}&T_\ell(Q)\otimes T_\ell(P)\ar[d]^{\alpha^{(\ell)}_{Q,P}}\\
+T_\ell(\underline{\operatorname{Tor}}_1(P,Q))\ar[r]&T_\ell(\underline{\operatorname{Tor}}_1(Q,P)),
+}\]
+
+<p>où les flèches horizontales sont les flèches de symétrie.</p>
+
+<p id="8.2.1.14"><u>Remarque</u> 2.1.14. On peut généraliser la construction de l'homomorphisme (2.1.1) et les résultats 2.1.10 et 2.1.11 le concernant au cas où on se donne un Anneau commutatif \(A\) sur \(T\), et deux Idéaux \(\mathfrak a\) et \(\mathfrak b\) de \(A\) (qui dans le cas traités précédemment se réduisent au même Idéal \(n\mathbb Z_T\) de l'Anneau constant \(\mathbb Z_T\) sur \(T\)). On définit alors un homomorphisme fonctoriel en les \(A\)-Modules \(P,Q\) :</p>
+
+\[(2.1.14.1)\qquad {}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q
+\mathrel{\mathop{\longrightarrow}^{\alpha}}
+\underline{\operatorname{Hom}}_A(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,
+\underline{\operatorname{Tor}}_1^A(P,Q)),\]
+
+<p>comme composé des homomorphismes</p>
+
+\[{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q\longrightarrow
+\underline{\operatorname{Hom}}_A(A/\mathfrak a,P)\otimes
+\underline{\operatorname{Hom}}_A(A/\mathfrak b,Q)\longrightarrow
+\underline{\operatorname{Hom}}(\underline{\operatorname{Tor}}_1(A/\mathfrak a,A/\mathfrak b),
+\underline{\operatorname{Tor}}_1(P,Q)),\]
+
+<p>compte tenu de l'isomorphisme canonique bien connu</p>
+
+\[(2.1.14.2)\qquad \underline{\operatorname{Tor}}_1(A/\mathfrak a,A/\mathfrak b)
+\xrightarrow{\sim}\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b\ ;\]
+
+<p>en fait, c'est dans le choix de cet isomorphisme, suivant qu'on travaille avec la résolution \(0\longrightarrow\mathfrak a\longrightarrow A\longrightarrow0\) de \(A/\mathfrak a\) ou la résolution \(0\longrightarrow\mathfrak b\longrightarrow A\longrightarrow0\) de \(A/\mathfrak b\), qu'est « caché » le signe de 2.1.10, qui se généralise ici en l'anticommutativité du diagramme</p>
+
+\[(2.1.14.3)\qquad
+\xymatrix@C=4.5em@R=3em{
+{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q\ar[r]\ar[d]&{}_{\mathfrak b}Q\otimes{}_{\mathfrak a}P\ar[d]\\
+\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))\ar[r]^-{-1}&
+\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(Q,P)),
+}\]
+
+<p>où les flèches horizontales sont les flèches de symétrie. Lorsque \(\mathfrak a=\mathfrak b\), cette anticommutativité peut aussi s'exprimer par le fait que l'automorphisme de symétrie dans \(\underline{\operatorname{Tor}}_1(A/\mathfrak a,A/\mathfrak a)\) est égal à \(-\mathrm{id}\). Dans le cas particulier où \(\mathfrak a=\mathfrak b=nA\), \(n\) étant une section de \(A\), alors la multiplication par \(n\) induit un épimorphisme</p>
+
+\[A/\mathfrak a\longrightarrow\mathfrak a\cap\mathfrak a/\mathfrak a\mathfrak a=\mathfrak a/\mathfrak a^2,\]
+
+<p>d'où un isomorphisme injectif fonctoriel en le \(A\)-Module \(T\)</p>
+
+\[\underline{\operatorname{Hom}}(\mathfrak a/\mathfrak a^2,T)\longrightarrow{}_{\mathfrak a}T,\]
+
+<p>de sorte que dans ce cas l'homomorphisme (2.1.14.1) s'interprète comme un homomorphisme</p>
+
+\[(2.1.14.4)\qquad {}_nP\otimes{}_nQ\longrightarrow{}_n\underline{\operatorname{Tor}}_1(P,Q),\]
+
+<p>plus proche de la forme (2.1.1). Supposant toujours \(\mathfrak a=\mathfrak b=nA\), et \(n\) une section <u>régulière</u> de \(A\), la suite spectrale (2.1.4) garde un sens dans le cas présent, et donne lieu à une suite exacte de termes de bas degré qui généralise (2.1.5) (\(Q\) étant maintenant un \(A\)-Module <u>annulé par \(\mathfrak a\)</u>) :</p>
+
+\[(2.1.14.5)\quad
+\underline{\operatorname{Tor}}_2^A(P,Q)\longrightarrow
+\underline{\operatorname{Tor}}_2^{A/nA}(P_n,Q)\longrightarrow
+{}_nP\otimes Q\mathrel{\mathop{\longrightarrow}^{\alpha}}
+\underline{\operatorname{Tor}}_1^A(P,Q)\longrightarrow
+\underline{\operatorname{Tor}}_1^{A/nA}(P_n,Q)\longrightarrow0.\]
+
+<p>Revenons au cas où \(\mathfrak a\) et \(\mathfrak b\) sont quelconques, et où on se donne deux sections \(p\) et \(q\) de \(A\), on trouve alors commutativité dans le diagramme suivant (dont (2.1.11.1) est essentiellement le cas particulier obtenu en prenant \(q=1\)) :</p>
+
+\[(2.1.14.6)\qquad
+\xymatrix@C=4em@R=3em{
+&{}_{p\mathfrak a}P\otimes{}_{q\mathfrak b}Q\ar[dl]_{p\otimes q}\ar[dr]^{i\otimes j}&\\
+{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q\ar[d]_{\alpha}&&{}_{pq\mathfrak a}P\otimes{}_{pq\mathfrak b}Q\ar[d]^{\alpha}\\
+\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))\ar[dr]_{\mathrm{incl.}}&&
+\underline{\operatorname{Hom}}(pq\mathfrak a\cap pq\mathfrak b/pq\mathfrak a.pq\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))\ar[dl]^{(pq)^*}\\
+&\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/pq\mathfrak a.\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))&
+}\]
+
+<p>où \(i:{}_{p\mathfrak a}P\longrightarrow{}_{pq\mathfrak a}P\) et \(j:{}_{q\mathfrak b}Q\longrightarrow{}_{pq\mathfrak b}Q\) sont les inclusions canoniques, et \((pq)^*\) désigne l'homomorphisme injectif déduit par passage aux \(\underline{\operatorname{Hom}}\) de l'homomorphisme surjectif \(\mathfrak a\cap\mathfrak b/pq\mathfrak a.\mathfrak b\longrightarrow pq\mathfrak a\cap\mathfrak b/pq\mathfrak a.pq\mathfrak b\) induit par la multiplication par \(pq\). Lorsque \(\mathfrak a=\mathfrak b=nA\), ce diagramme se réécrit sous une forme plus simple (donnée dans (2.1.11.1) pour \(q=1\)).</p>
+
+<p id="8.2.2">2.2. Considérons maintenant, en plus de \(P\) et \(Q\), un Groupe commutatif \(G\). Nous avons alors défini dans (1.1.3) un homomorphisme canonique, fonctoriel en \(P,Q\) et \(G\) :</p>
+
+\[(2.2.1)\qquad \operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G).\]
+
+<p>D'autre part, si \(n\) est un entier \(&gt;0\) (resp. si \(\ell\) est un nombre premier) alors l'homomorphisme \(\alpha^n_{P,Q}\) de (2.1.1) (resp. l'homomorphisme \(\alpha^{(\ell)}_{P,Q}\) de (2.1.13.2)) donne un homomorphisme</p>
+
+\[\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\longrightarrow
+\operatorname{Hom}({}_nP\otimes{}_nQ,G)\]
+
+<p>(resp. un homomorphisme</p>
+
+\[\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\longrightarrow
+\operatorname{Hom}(T_\ell(P)\otimes T_\ell(Q),T_\ell(G))).\]
+
+<p>Ces derniers homomorphismes sont également fonctoriels en \(P,Q,G\). Les composant avec (2.2.1), on en déduit des homomorphismes canoniques, fonctoriels en \(P,Q,G\) :</p>
+
+\[(2.2.2)\qquad \varphi^n=\varphi^n_{P,Q}:\operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}({}_nP\otimes{}_nQ,G),\]
+
+\[(2.2.3)\qquad \varphi^{(\ell)}=\varphi^{(\ell)}_{P,Q}:\operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}(T_\ell(P)\otimes T_\ell(Q),T_\ell(G)).\]
+
+<p>Pour</p>
+
+\[(2.2.4)\qquad \xi\in\operatorname{Biext}^1(P,Q;G),\]
+
+<p>on désigne par \(\varphi^n_\xi\) (resp. \(\varphi^{(\ell)}_\xi\)) son image par (2.2.2) (resp. (2.2.3)) :</p>
+
+\[(2.2.5)\qquad \varphi^n_\xi:{}_nP\otimes{}_nQ\longrightarrow G\quad(\text{ou }{}_nG,\text{ au choix}),\]
+
+\[(2.2.6)\qquad \varphi^{(\ell)}_\xi:T_\ell(P)\otimes T_\ell(Q)\longrightarrow T_\ell(G).\]
+
+<p id="8.2.2.7">2.2.7. Évidemment la connaissance de \(\varphi^{(\ell)}_\xi\) équivaut à celle des
+\(\varphi^{(n)}_\xi\) pour tout \(n\) de la forme \(\ell^\nu\), avec \(\nu\geq0\), et pour \(n\) fixé, la connaissance
+de \(\varphi^{(n)}_\xi\) équivaut à celle de l'homomorphisme</p>
+
+\[(2.2.8)\qquad \underline{\operatorname{Tor}}_1(P,Q)\longrightarrow G,\]
+
+<p>image de \(\xi\) par (2.2.1), sur l'image de
+\(\alpha^n_{P,Q}:{}_nP\otimes{}_nQ\longrightarrow\underline{\operatorname{Tor}}_1(P,Q;G)\).
+On notera que lorsque \(P=nP\) et \(Q=nQ\), alors l'image précédente est égale à
+\({}_n\underline{\operatorname{Tor}}_1(P,Q)\), comme il résulte aisément de la considération de la suite
+exacte (1.3.5) et de la suite exacte analogue pour \(Q\) ; d'autre part,
+si \(P\) et \(Q\) sont divisibles i.e. si \(nP=P,nQ=Q\) pour tout entier \(n&gt;0\),
+alors on vérifie aisément que \(\underline{\operatorname{Tor}}_1(P,Q)\) est de torsion i.e.</p>
+
+\[\underline{\operatorname{Tor}}_1(P,Q)=\varinjlim_n{}_n\underline{\operatorname{Tor}}_1(P,Q),\]
+
+<p>de sorte que dans ce cas la connaissance des \(\varphi^n_\xi\) pour tout \(n\) équivaut à celle de (2.2.8), tandis que la connaissance de
+\(\varphi^{(\ell)}_\xi\), pour un nombre premier donné, équivaut à celle de la restriction de (2.2.8) à la composante
+\(\ell\)-primaire de \(\underline{\operatorname{Tor}}_1(P,Q)\). Nous allons expliciter maintenant les propriétés de symétrie des accouplements
+(2.2.4), (2.2.6) associés aux biextensions. Notons d'abord qu'on a un diagramme <u>commutatif</u></p>
+
+\[(2.2.9)\qquad \xymatrix{
+\operatorname{Biext}^1(P,Q;G)\ar[r]^{\sim}\ar[d]&\operatorname{Biext}^1(Q,P;G)\ar[d]\\
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\ar[r]^{\sim}&
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(Q,P),G),
+}\]
+
+<p>où les flèches horizontales sont les flèches de symétrie (la première de ces flèches étant définie dans VII 2.7), et les flèches verticales
+sont (2.2.1). Cette commutativité résulte en effet de la commutativité des deux carrés composants du diagramme plus complet</p>
+
+\[(2.2.10)\qquad \xymatrix{
+\operatorname{Biext}^1(P,Q;G)\ar[r]^{\sim}\ar[d]&\operatorname{Biext}^1(Q,P;G)\ar[d]\\
+\operatorname{Ext}^1(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q,G)\ar[r]^{\sim}\ar[d]&
+\operatorname{Ext}^1(Q\mathbin{\mathop{\otimes}^{\mathrm L}}P,G)\ar[d]\\
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\ar[r]^{\sim}&
+\operatorname{Hom}(\underline{\operatorname{Tor}}_1(Q,P),G),
+}\]
+
+<p>où la première flèche verticale de chaque colonne est l'isomorphisme canonique de VII 3.6.5, et la deuxième flèche est l'homomorphisme
+évident. La commutativité du deuxième carré de (2.2.10) est triviale, compte tenu que l'isomorphisme de symétrie
+\(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q\xrightarrow{\sim}Q\mathbin{\mathop{\otimes}^{\mathrm L}}P\) induit par
+définition l'isomorphisme de symétrie \(\underline{\operatorname{Tor}}_1(P,Q)\simeq\underline{\operatorname{Tor}}_1(Q,P)\), et que
+pour un complexe variable \(L\), l'homomorphisme canonique
+\(\operatorname{Ext}^1(L,G)\xrightarrow{\sim}\operatorname{Hom}(H_1(L),G)\) est fonctoriel en \(L\). Quant à la commutativité
+du premier carré de (2.2.10), elle résulte de l'explicitation simultanée des isomorphismes de symétrie et des isomorphismes verticaux
+définis dans VII 3.6.5, et nous laissons le détail de la vérification au lecteur ; on utilisera le fait que l'isomorphisme de symétrie
+\(L_\bullet(P)\otimes L_\bullet(Q)\simeq L_\bullet(Q)\otimes L_\bullet(P)\) induit en degré 1 l'isomorphisme</p>
+
+\[L_0(P)\otimes L_1(Q)+L_1(P)\otimes L_0(Q)\xrightarrow{\sim}
+L_0(Q)\otimes L_1(P)+L_1(Q)\otimes L_0(P)\]
+
+<p>qui est donné sur les sommandes correspondants par l'isomorphisme de symétrie <u>ordinaire</u> des modules non gradués sous-jacents (donc sans
+intervention d'un signe).</p>
+
+<p>Compte tenu de la commutativité de (2.2.9), l'anticommutativité de (2.1.10.1) se traduit, en termes des \(\varphi^n\) ou des \(\varphi^{(\ell)}\), par la relation suivante :</p>
+
+<div class="thm proposition" id="8.2.2.11">
+<div class="thm-head"><span class="thm-name"><u>Proposition 2.2.11.</u></span> <u>On a anticommutativité dans les diagrammes suivants</u> :</div>
+<div class="thm-body">
+\[(2.2.11.1)\qquad \xymatrix{
+\operatorname{Biext}^1(P,Q;G)\ar[r]^{\sim}\ar[d]_{\varphi^n_{P,Q}}&
+\operatorname{Biext}^1(Q,P;G)\ar[d]^{\varphi^n_{Q,P}}\\
+\operatorname{Hom}({}_nP\otimes{}_nQ,G)\ar[r]^{\sim}&
+\operatorname{Hom}({}_nQ\otimes{}_nP,G),
+}\]
+
+\[(2.2.11.2)\qquad \xymatrix{
+\operatorname{Biext}^1(P,Q;G)\ar[r]^{\sim}\ar[d]_{\varphi^{(\ell)}_{P,Q}}&
+\operatorname{Biext}^1(Q,P;G)\ar[d]^{\varphi^{(\ell)}_{Q,P}}\\
+\operatorname{Hom}(T_\ell(P)\otimes T_\ell(Q),T_\ell(G))\ar[r]^{\sim}&
+\operatorname{Hom}(T_\ell(Q)\otimes T_\ell(P),T_\ell(G)),
+}\]
+<p><u>où les flèches horizontales sont les flèches de symétrie.</u></p>
+</div></div>
+
+<p>Signalons le corollaire important :</p>
+
+<div class="thm corollary" id="8.2.2.12">
+<div class="thm-head"><span class="thm-name"><u>Corollaire 2.2.12.</u></span> <u>Supposons \(P=Q\), et supposons que \(\xi\) soit la classe
+d'une biextension symétrique (resp. antisymétrique) de \((P,Q)\) par \(G\), i.e. qu'on ait \({}^s\xi=\xi\) (resp. \({}^s\xi=-\xi\)), où
+\({}^s\xi\) désigne l'image de \(\xi\) par symétrie. Alors les applications bilinéaires \(\varphi^n_\xi\) (sur \({}_nP\times{}_nP\)) et
+\(\varphi^{(\ell)}_\xi\) (sur \(T_\ell(P)\times T_\ell(P)\)) sont antisymétriques (resp. symétriques).</u></div>
+</div>
+
+<p id="8.2.2.13"><u>Remarque 2.2.13.</u> Supposons \(\xi\) symétrique. Si \(n\) (resp. \(\ell\)) est impair, alors
+il résulte de 2.2.12 que \(\varphi^n_\xi\) (resp. \(\varphi^{(\ell)}_\xi\)) est même une forme alternée.
+Cette conclusion n'est pas valable en général sans la restriction \(n\) resp. \(\ell\) impair, comme on voit déjà dans le cas où \(P\) est le groupe ordinaire
+\(\mathbb Z/2\mathbb Z\), et \(G=\mathbb Z/2\mathbb Z\). Supposons cependant que l'on ait \(2P=P\),
+(ce qui est le cas en particulier si \(P\) est un schéma abélien, en travaillant comme d'habitude avec la topologie fppf (ou fpqc)), alors il est
+encore vrai que les formes précédentes sont alternées. Il suffit de voir que \(\varphi^{2^\nu}(x,x)=0\), or, comme \(2P=P\), on peut supposer que l'élément donné
+\(x\in{}_{2^\nu}P(S)\) est de la forme \(2y\), avec \(y\in{}_{2^{\nu+1}}P(S)\), et on a alors</p>
+
+\[\varphi^{2^\nu}(x,x)=2\varphi^{2^{\nu+1}}(y,y)=0,\quad\text{puisque }\varphi^{2^{\nu+1}}\text{ est antisymétrique}.\]
+
+<h3 id="8.2.3">2.3. <u>Lien avec la « dualité de Cartier ».</u></h3>
+
+<p>La description donnée dans 2.2 des accouplements définis par une biextension, via le théorème d'isomorphisme VII 3.6.5 et l'homomorphisme (2.2.1), n'est évidemment pas la
+définition qui avait été utilisée précédemment dans le cas des schémas abéliens (à un moment où la notion même de biextension n'existait pas
+encore !). Celle-ci procède via la dualité de Cartier, et nous allons donner maintenant la relation avec cette dernière.</p>
+
+<p>Reprenons l'homomorphisme</p>
+
+\[(2.3.1)\qquad \operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}(P,\underline{\operatorname{Ext}}^1(Q,G))\]
+
+<p>provenant de la suite exacte (1.4), qui est d'ailleurs un isomorphisme dans le cas où l'on a</p>
+
+\[(2.3.2)\qquad \underline{\operatorname{Hom}}(Q,G)=0,\]
+
+<p>condition vérifiée en particulier lorsque \(Q\) est un schéma abélien sur un schéma \(S\), et \(G\) est le groupe multiplicatif \(G_m\) (VII 1.3.8). On a d'autre
+part un homomorphisme évident « restriction à \({}_nQ\) », \(\underline{\operatorname{Ext}}^1(Q,G)\longrightarrow\underline{\operatorname{Ext}}^1({}_nQ,G)\),
+d'où un homomorphisme composé</p>
+
+\[(2.3.4)\qquad \operatorname{Hom}(P,\underline{\operatorname{Ext}}^1(Q,G))\longrightarrow
+\operatorname{Hom}(P,\underline{\operatorname{Ext}}^1({}_nQ,G))\longrightarrow
+\operatorname{Hom}({}_nP,{}_n\underline{\operatorname{Ext}}^1({}_nQ,G)),\]
+
+<p>où la deuxième flèche est l'homomorphisme de restriction à \({}_nP\). Composant avec (2.3.1), on trouve un homomorphisme</p>
+
+\[(2.3.5)\qquad \operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Hom}({}_nP,{}_n\underline{\operatorname{Ext}}^1({}_nQ,G)).\]
+
+<p>D'autre part, la suite exacte</p>
+
+\[(2.3.6)\qquad 0\longrightarrow{}_nQ\longrightarrow Q\xrightarrow n nQ\longrightarrow0\]
+
+<p>donne lieu à une suite exacte des \(\underline{\operatorname{Ext}}^i(-,G)\), d'où une suite exacte courte</p>
+
+\[(2.3.7)\qquad 0\longrightarrow\underline{\operatorname{Hom}}(Q,G)_n\longrightarrow
+\underline{\operatorname{Hom}}({}_nQ,G)\xrightarrow\partial
+{}_n\underline{\operatorname{Ext}}^1(nQ,G)\longrightarrow0,\]
+
+<p>où \(E_n\) désigne, comme d'habitude, \(E/nE\). On en retiendra l'homomorphisme canonique surjectif</p>
+
+\[(2.3.8)\qquad \underline{\operatorname{Hom}}({}_nQ,G)\xrightarrow\partial
+{}_n\underline{\operatorname{Ext}}^1(nQ,G),\]
+
+<p>qui est d'ailleurs un isomorphisme si \(\underline{\operatorname{Hom}}(Q,G)_n=0\), à fortiori si on a (2.3.2). De (2.3.8) on déduit un homomorphisme</p>
+
+\[(2.3.9)\qquad \operatorname{Hom}({}_nP,\underline{\operatorname{Hom}}({}_nQ,G))\simeq
+\operatorname{Hom}({}_nP\otimes{}_nQ,G)\longrightarrow
+\operatorname{Hom}({}_nP,{}_n\underline{\operatorname{Ext}}^1(nQ,G)),\]
+
+<p>qui est un isomorphisme si on a (2.3.2).</p>
+
+<p>Tous les homomorphismes envisagés sont fonctoriels en \(P,Q,G\).</p>
+
+<p>Les homomorphismes (2.3.5), (2.3.9) et (2.2.2) donnent lieu à un diagramme</p>
+
+\[(2.3.10)\qquad
+\begin{array}{c}
+\operatorname{Biext}^1(P,Q;G)\\[-2pt]
+\swarrow\,\scriptstyle\varphi^n\qquad\searrow\,\scriptstyle(2.3.5)\\[-2pt]
+\operatorname{Hom}({}_nP\otimes{}_nQ,G)\xrightarrow{\ (2.3.9)\ }
+\operatorname{Hom}({}_nP,{}_n\underline{\operatorname{Ext}}^1(nQ,G)),
+\end{array}\]
+
+<p>où la flèche horizontale (2.3.9) est un isomorphisme si on a (2.3.2).</p>
+
+<div class="thm proposition" id="8.2.3.11">
+<div class="thm-head"><span class="thm-name">Proposition 2.3.11.</span></div>
+<div class="thm-body"><p>Le diagramme (2.3.10) est anticommutatif.</p></div></div>
+
+<p>Dans le cas où \(\underline{\operatorname{Hom}}(Q,G)=0\), cet énoncé redonne donc une
+caractérisation de l'homomorphisme \(\varphi^n\) de (2.2.2) en termes des homomorphismes
+(2.3.5) et (2.3.9), qui est celle utilisée précédemment en théorie des schémas abéliens
+(où d'ailleurs on a \(nQ=Q\)).</p>
+
+<p><u>Démonstration de 2.3.11</u> <sup>(<a href="#8.fn-1" id="8.fnref-1">*</a>)</sup>.
+Soient \(\xi\) un élément de \(\operatorname{Biext}^1(P,Q;G)\),
+\(\varphi_\xi:{}_nP\otimes{}_nQ\longrightarrow G\) l'accouplement associé, et
+\(u_\xi:{}_nP\longrightarrow\underline{\operatorname{Ext}}^1(nQ,G)\)
+l'homomorphisme image de \(\xi\) par (2.3.5). Il faut prouver que \(-u_\xi\) se
+déduit de \(\varphi_\xi\) par la flèche (2.3.9), i.e. que c'est le composé</p>
+
+\[(*)\qquad {}_nP\xrightarrow{\ \varphi_\xi\ }
+\underline{\operatorname{Hom}}({}_nQ,G)\xrightarrow{\ (2.3.8)\ }
+{}_n\underline{\operatorname{Ext}}^1(nQ,G).\]
+
+<p>Pour prouver ceci, on peut supposer donnée une section \(x\) de \({}_nP\) et prouver
+que son image \(-u_\xi\) est égale à son image par le composé (*). (Ceci nous permettrait,
+si nous le désirions, de nous ramener au cas où \(P=(\mathbb Z/n\mathbb Z)_T\), mais cette
+réduction ne nous sera pas nécessaire.)</p>
+
+<p>a) Choisissons des résolutions plates \(L_\bullet\) et \(M_\bullet\),</p>
+
+\[0\longrightarrow L_1\longrightarrow L_0\longrightarrow0,
+\qquad 0\longrightarrow M_1\longrightarrow M_0\longrightarrow0\]
+
+<p>de \(P\) et \(Q\) respectivement, une résolution plate de \(P\) (par exemple) étant
+obtenue en écrivant \(P\) comme quotient d'un \(\mathbb Z_T\)-Module plat \(L_0\), et en
+désignant par \(L_1\) le noyau de \(L_0\longrightarrow P\) (qui est plat, car sans torsion).
+On en déduit un complexe \(L_\bullet\otimes M_\bullet\)</p>
+
+\[0\longrightarrow L_1\otimes M_1\xrightarrow{d_2}
+L_1\otimes M_0+L_0\otimes M_1\xrightarrow{d_1}L_0\otimes M_0\longrightarrow0,\]
+
+<p>dont le faisceau \(\underline H_1\) nous servira de
+\(\underline{\operatorname{Tor}}_1(P,Q)\). Désignons par \(L'_0\) resp. \(M'_0\) le
+sous-faisceau de \(L_0\) resp. \(M_0\) image inverse de \({}_nP\) resp. \({}_nQ\), de
+sorte que le complexe \(0\longrightarrow L_1\longrightarrow L'_0\longrightarrow0\)
+(resp. le complexe \(0\longrightarrow M_1\longrightarrow M'_0\longrightarrow0\)) est une
+résolution plate de \({}_nP\) (resp. de \({}_nQ\)). On peut alors expliciter
+l'homomorphisme</p>
+
+\[{}_nP\otimes{}_nQ\longrightarrow\underline{\operatorname{Tor}}_1(P,Q)
+=\underline H_1(L_\bullet\otimes M_\bullet)\]
+
+<p>par passage au quotient à partir de l'homomorphisme</p>
+
+\[L'_0\otimes M'_0\longrightarrow\underline H_1(L_\bullet\otimes M_\bullet)\]
+
+<p>donné par</p>
+
+\[x_0\otimes y_0\longmapsto\text{classe du 1-cycle }
+[nx_0]\otimes y_0-x_0\otimes[ny_0],\]
+
+<p>où les crochets \([\ ]\) indiquent que l'élément envisagé est considéré comme section
+du sous-faisceau \(L_1\) de \(L_0\) resp. \(M_1\) de \(M_0\). L'explicitation précédente
+résulte en effet du calcul fait dans la démonstration de 2.1.10.</p>
+
+<p>b) Prenons une résolution injective</p>
+
+\[0\longrightarrow C^0\xrightarrow{d^0}C^1\longrightarrow\cdots\]
+
+<p>de \(G\), et identifions \(\operatorname{Biext}^1(P,Q;G)\) à
+\(\operatorname{Ext}^1(P\mathbin{\overset{\mathbb L}{\otimes}}Q,G)
+=H^1(\operatorname{Hom}(L_\bullet\otimes M_\bullet,C^\bullet))\).
+Donc l'élément \(\xi\) peut s'interpréter comme un couple \(f_1,f_0\) d'homomorphismes,
+donnant lieu à un diagramme anticommutatif</p>
+
+\[(2.3.12)\qquad
+\begin{array}{ccc}
+L_1\otimes M_0+L_0\otimes M_1&\xrightarrow{d_1}&L_0\otimes M_0\\
+\scriptstyle f_1\downarrow&&\downarrow\scriptstyle f_0\\
+C^0&\xrightarrow{d^0}&C^1.
+\end{array}\]
+
+<p>Par définition, l'accouplement</p>
+
+\[\varphi_\xi:{}_nP\otimes{}_nQ\longrightarrow G\]
+
+<p>se déduit alors par passage au quotient de l'homomorphisme</p>
+
+\[\varphi:L'_0\otimes M'_0\longrightarrow G\]
+
+<p>donné par</p>
+
+\[(2.3.13)\qquad \varphi(x_0\otimes y_0)=
+f_1([nx_0]\otimes y_0-x_0\otimes[ny_0])\in G=\operatorname{Ker}(C^0\longrightarrow C^1).\]
+
+<p>Nous pouvons supposer que la section donnée \(x\) de \({}_nP\) se relève en une
+section \(x_0\) de \(L'_0\) (car l'assertion (2.3.11) est locale sur \(T\)), et la formule
+précédente, où \(y_0\) est considéré comme variable, définit donc un homomorphisme</p>
+
+\[(2.3.14)\qquad \varphi'_0:M'_0\longrightarrow G,\qquad
+y_0\longmapsto f_1([nx_0]\otimes y_0-x_0\otimes[ny_0]),\]
+
+<p>qui passe au quotient pour nous donner l'homomorphisme</p>
+
+\[{}_nQ\longrightarrow G,\qquad y\longmapsto\varphi_\xi(x,y)\]
+
+<p>associé à \(\varphi_\xi\) et à \(x\).</p>
+
+<p>c) Il faut prendre l'image de cet homomorphisme par l'opérateur \(\partial\) de (2.3.7),
+associé à la suite exacte (2.3.6). Or \(nQ\simeq Q/{}_nQ\) est évidemment aussi
+isomorphe à \(M_0/M'_0\), de sorte qu'on a un homomorphisme de suites exactes</p>
+
+\[\begin{array}{ccccccccc}
+0&\longrightarrow&M'_0&\longrightarrow&M_0&\longrightarrow&M_0/M'_0&\longrightarrow&0\\
+&&\downarrow&&\downarrow&&\wr\downarrow\\
+0&\longrightarrow&{}_nQ&\longrightarrow&Q&\longrightarrow&nQ&\longrightarrow&0,
+\end{array}\]
+
+<p>où la dernière flèche verticale est un isomorphisme. Ceci montre que la section cherchée
+de \(\underline{\operatorname{Ext}}^1(nQ,G)\) peut aussi être calculée comme l'image de
+\(\varphi'\) (2.3.14) par l'opérateur cobord</p>
+
+\[\underline{\operatorname{Hom}}(M'_0,G)\xrightarrow{\partial}
+\underline{\operatorname{Ext}}^1(M_0/M'_0,G),\]
+
+<p>ou encore la section du deuxième membre définie par l'élément du \(\operatorname{Ext}^1\)
+global image de \(\varphi'\) par l'opérateur cobord</p>
+
+\[\operatorname{Hom}(M'_0,G)\longrightarrow\operatorname{Ext}^1(M_0/M'_0,G).\]
+
+<p>La construction habituelle de l'opérateur cobord nous donne alors la recette suivante :
+on prolonge le composé (2.3.13)</p>
+
+\[M'_0\xrightarrow{\ \varphi'\ }G\longrightarrow C^0\]
+
+<p>en un homomorphisme</p>
+
+\[\psi:M_0\longrightarrow C^0,\]
+
+<p>ce qui est possible puisque \(C^0\) est injectif, et on considère l'unique homomorphisme</p>
+
+\[(2.3.15)\qquad \lambda:M_0/M'_0\longrightarrow C^1\]
+
+<p>rendant commutatif le diagramme</p>
+
+\[\begin{array}{ccccccccc}
+0&\longrightarrow&M'_0&\longrightarrow&M_0&\longrightarrow&M_0/M'_0&\longrightarrow&0\\
+&&\scriptstyle\varphi'\downarrow&&\scriptstyle\psi\downarrow&&\scriptstyle\lambda\downarrow\\
+0&\longrightarrow&G&\longrightarrow&C^0&\xrightarrow{d^0}&C^1.
+\end{array}\]
+
+<p>Il est clair que (2.3.15) est à valeurs dans les 1-cocycles, i.e. est un 1-cocycle, et
+que ce dernier représente l'élément cherché de
+\(\operatorname{Ext}^1(nQ,G)=\operatorname{Ext}^1(M_0/M'_0,G)\).</p>
+
+<p>d) Il reste à expliciter la section de \(\underline{\operatorname{Ext}}^1(nQ,G)\) déduite
+de \(\xi\) et de \(x\) grâce à la flèche (2.3.5) du diagramme (2.3.10). Pour ceci, nous
+pouvons ignorer le fait que la section \(x\) de \(P\) est annulée par \(n\), et on trouve
+la description suivante, en termes de relèvement choisi \(x_0\) de \(x\) en une section de
+\(L_0\) : cette dernière définit un homomorphisme d'augmentation</p>
+
+\[u:M_\bullet\longrightarrow L_\bullet\otimes M_\bullet,\qquad
+y_0\longmapsto x_0\otimes y_0,\quad y_1\longmapsto x_0\otimes y_1,\]
+
+<p>et la section de \(\operatorname{Ext}^1(Q,G)\) déduite de (2.3.1) est celle qui se déduit
+de l'élément \(\xi\) de \(\operatorname{Ext}^1(L_\bullet\otimes M_\bullet,G)\) en composant
+avec l'homomorphisme précédent, donc est donnée par l'homomorphisme de degré 1</p>
+
+\[\begin{array}{ccccc}
+0&\longrightarrow&M_1&\xrightarrow{d_1}&M_0&\longrightarrow0\\
+&&\scriptstyle y_1\mapsto f_1(x_0\otimes y_1)\downarrow&&
+\downarrow\scriptstyle y_0\mapsto f_0(x_0\otimes y_0)\\
+0&\longrightarrow&C^0&\xrightarrow{d^0}&C^1&\longrightarrow\cdots .
+\end{array}\]
+
+<p>Pour prendre la restriction de cette classe à \(nQ\lhookrightarrow Q\), utilisons
+l'isomorphisme \(nQ\simeq M_0/M'_0\), qui fournit une résolution plate</p>
+
+\[0\longrightarrow M'_0\longrightarrow M_0\longrightarrow0\]
+
+<p>de \(nQ\), l'inclusion \(nQ\lhookrightarrow Q\) étant remontée en un homomorphisme de
+résolutions</p>
+
+\[\begin{array}{ccccc}
+0&\longrightarrow&M'_0&\longrightarrow&M_0&\longrightarrow0\\
+&&\scriptstyle y_0\mapsto[ny_0]\downarrow&&
+\downarrow\scriptstyle y_0\mapsto ny_0\\[-2pt]
+0&\longrightarrow&M_1&\longrightarrow&M_0&\longrightarrow0.
+\end{array}\]
+
+<aside class="footnote" id="8.fn-1"><p><a href="#8.fnref-1">(*)</a> Pour une démonstration plus élégante, cf. 2.3.19 ci-dessous.</p></aside>
+
+<p>Par composition, on voit donc que la section cherchée de
+\(\underline{\operatorname{Ext}}^1(nQ,G)\) est associée à l'élément de
+\(\operatorname{Ext}^1(nQ,G)\) représenté par l'homomorphisme de complexes de degré 1</p>
+
+\[\begin{array}{ccccc}
+0&\longrightarrow&M'_0&\xrightarrow{d_1}&M_0&\longrightarrow0\\
+&&\scriptstyle g_1\downarrow&&\downarrow\scriptstyle g_0\\
+0&\longrightarrow&C^0&\longrightarrow&C^1&\longrightarrow\cdots,
+\end{array}\]
+
+<p>avec</p>
+
+\[g_1(y'_0)=f_1(x_0\otimes[ny'_0]),\qquad g_0(y_0)=nf_0(x_0\otimes y_0).\]
+
+<p>e) Utilisant maintenant le fait que \(x\) est une section de \({}_nP\), montrons que
+l'élément précédent de \(\operatorname{Ext}^1(nQ,G)\) est opposé de celui défini par
+(2.3.15). Pour ceci, notons que pour tout homomorphisme</p>
+
+\[h:M_0\longrightarrow C^0,\]
+
+<p>l'élément du \(\operatorname{Ext}^1\) envisagé dans d) ne change pas si on change
+\(g_1,g_0\) respectivement en</p>
+
+\[g'_1=g_1+hd_1,\qquad g'_0=g_0-d^0h.\]
+
+<p>Or on dispose d'un homomorphisme \(\psi:M_0\longrightarrow C^0\) construit dans c),
+qui par définition satisfait la condition</p>
+
+\[\psi(y'_0)=f_1([nx_0]\otimes y'_0-x_0\otimes[ny'_0])\]
+
+<p>pour \(y'_0\) section de \(M'_0\), ce qui s'écrit encore</p>
+
+\[f_1(x_0\otimes[ny'_0])\;(=g_1(y'_0))
+=f_1([nx_0]\otimes y'_0)-\psi(y'_0);\]
+
+<p>définissons donc \(h:M_0\longrightarrow C^0\) par</p>
+
+\[h(y_0)=-f_1([nx_0]\otimes y_0)+\psi(y_0);\]
+
+<p>donc par construction on aura</p>
+
+\[g'_1=0,\qquad
+g'_0(y_0)=nf_0(x_0\otimes y_0)+d^0f_1([nx_0]\otimes y_0)-d^0\psi(y_0),\]
+
+<p>or on a \(d^0f_1=-f_0d_1\) donc
+\(d^0f_1([nx_0]\otimes y_0)=-f_0(nx\otimes y_0)\), et il reste</p>
+
+\[g'_1=0,\qquad g'_0=-d^0\psi,\]
+
+<p>de sorte que l'élément envisagé est celui défini par l'homomorphisme
+\(M_0/M'_0\xrightarrow{\sim}nQ\longrightarrow C^1\) déduit de \(-d^0\psi\) par passage
+au quotient. On trouve donc l'opposé de l'élément défini par (2.3.15).</p>
+
+<p id="8.2.3.16"><u>Remarques 2.3.16.</u> La démonstration précédente donne en fait une
+compatibilité légèrement plus précise que celle indiquée dans 2.3.11, obtenue en choisissant
+une section \(x\) de \({}_nP\). Cette section définit alors un homomorphisme
+\(y\longmapsto\varphi_\xi(x,y)\) de \({}_nQ\) dans \(G\), d'où par l'homomorphisme cobord
+relatif à (2.3.6) un élément de \(\operatorname{Ext}^1(nQ,G)\). D'autre part, oubliant que
+\(x\) est annulé par \(n\), on considère l'homomorphisme \(\mathbb Z_T\longrightarrow P\)
+défini par \(x\), d'où par image inverse une biextension de \((\mathbb Z_T,Q)\) par \(G\),
+dont la classe peut s'interpréter comme un élément de \(\operatorname{Ext}^1(Q,G)\), et
+induit donc un élément de \(\operatorname{Ext}^1(nQ,G)\). Ceci posé, les deux éléments
+obtenus dans \(\operatorname{Ext}^1(nQ,G)\) sont <u>opposés</u>.</p>
+
+<p id="8.2.3.17">2.3.17. Profitons de l'explicitation en termes de cocycles de l'accouplement
+\(\varphi_\xi^n:{}_nP\otimes{}_nQ\longrightarrow G\), donnée dans (2.3.12), pour donner une
+autre expression de cet accouplement. Supposons d'abord que la biextension \(E\) de classe
+\(\xi\) admette une section \(s\) sur \(P\times Q\). Prenons, comme dans VII 3.8.13, comme
+résolution plate de \(P\) celle donnée par \(L_0=\mathbb Z[P]\), \(L_1\) étant le noyau de
+l'homomorphisme canonique \(\mathbb Z[P]\longrightarrow P\), et définissons de même
+\(M_\bullet\). Alors il existe une unique trivialisation de biextension de l'image inverse
+de \(E\) sur \((L_0,M_0)\), dont la restriction à \(P\times Q\) soit donnée par \(s\),
+appelons la encore \(s\) (cf. VII 3.8.2). En vertu de VII 3.8.12, la classe de \(\xi\) dans
+\(\operatorname{Ext}^1(L_\bullet\otimes M_\bullet,G)\) est donnée par le cocycle de
+composantes \((f,g)\), caractérisées par</p>
+
+\[s(x_1,y_0)=f(x_1\otimes y_0)e_{E/Q}(y_0),\qquad
+s(x_0,y_1)=g(x_0\otimes y_1)e_{E/P}(x_0).\]
+
+<p>Si alors \(x,y\) sont des sections de \({}_nP\) et \({}_nQ\), on les remonte en les
+sections correspondantes \(x_0=[x]\), \(y_0=[y]\) de \(L_0\) et \(M_0\), et on applique
+la formule (2.3.13), qui nous donne, posant \(z=s(x,y)\) :</p>
+
+\[(2.3.18)\qquad \varphi_\xi^n(x,y)=
+{}^nz/e_{E/Q}(y)-z^n/e_{E/P}(x),\]
+
+<p>où l'exposant \(n\) à gauche resp. à droite de \(z\) indique la puissance \(n\)-ième
+pour la structure multiplicative gauche resp. droite sur \(E\), de sorte qu'on trouve une
+section de \(E\) au-dessus de \((0,y)\) resp. \((x,0)\) ; la signification du « quotient »
+d'un tel élément par \(e_{E/Q}(y)\) resp. \(e_{E/P}(x)\) est claire.</p>
+
+<p>Notons maintenant que la formule précédente (2.3.18) garde un sens, dès que \(z\) est une
+section globale de \(E\) qui relève les sections \(x,y\) de \({}_nP,{}_nQ\). Je dis que la
+formule (2.3.18) est valable pour toute telle section, sans supposer qu'il existe une section
+de \(E\) sur \(P\times Q\). Comme la section \((x,y)\) de \(P\times Q\) se relève en tous
+cas localement en une section de \(E\) (puisque \(E\longrightarrow P\times Q\) est un
+épimorphisme), ceci permet donc de calculer \(\varphi_\xi^n(x,y)\) dans tous les cas. Noter
+d'ailleurs que si on remplace \(z\) par une autre section \(z'\) de \(E\) relevant
+\((x,y)\), on aura \(z'=z+g\), où \(g\) est une section de \(G\), et les deux termes du
+deuxième membre de (2.3.18) correspondants à \(z'\) sont ceux correspondants à \(z\),
+augmentés de \(ng\), de sorte que la différence est bien indépendante de \(z\), ce qui
+nous montre que la formule (2.3.18) définit bien un homomorphisme bien déterminé
+\({}_nP\otimes{}_nQ\longrightarrow G\).</p>
+
+<p>Reste à montrer que ce dernier est bien \(\varphi^n\). Or pour ceci on est ramené
+aussitôt au cas où \(P=Q=(\mathbb Z/n\mathbb Z)_T\), de sorte que \(P\times Q\) est de la
+forme \(I_T\), où \(I=\mathbb Z/n\mathbb Z\times\mathbb Z/n\mathbb Z\) est un ensemble
+fini. Dans ce cas, le torseur \(E\) sous \(G_{P\times Q}\) (qui s'identifie à une famille
+de torseurs \(E_i\) sous \(G\), \(i\in I\)) devient évidemment trivial localement sur
+\(T\), de sorte que nous sommes ramenés au cas où il existe une section globale de \(E\)
+sur \(P\times Q\), cas déjà traité.</p>
+
+<p id="8.2.3.19"><u>2.3.19. Autre démonstration de 2.3.11</u> (de DELIGNE).</p>
+
+<p>a) Réduction à \(P=\mathbb Z/n\mathbb Z\), et à \(T=(\mathrm{Ens})\).</p>
+
+<p>b) Soit \(\partial\) la flèche suivante de \({}_nQ\) dans \({}_nQ[1]\) :</p>
+
+\[{}_nQ\xleftarrow[H^0]{\sim}[Q\xrightarrow{n}Q]\longrightarrow{}_nQ[1].\]
+
+<p>Le diagramme suivant est anticommutatif :</p>
+
+\[\begin{array}{ccc}
+{}_nQ[0]&\xrightarrow{1}&[Q\xrightarrow{n}Q]\\
+\scriptstyle\partial\downarrow&&\nearrow\scriptstyle 1\\
+{}_nQ[1]&&
+\end{array}\]
+
+<p>En effet, les flèches</p>
+
+\[\begin{array}{ccccc}
+[{}_nQ&\longrightarrow&Q]&&[{}_nQ&\longrightarrow&Q]\\
+\scriptstyle 0\downarrow&&\downarrow\scriptstyle n&&
+\scriptstyle 1\downarrow&&\downarrow\scriptstyle 0\\
+[Q&\xrightarrow{n}&Q]&&[Q&\xrightarrow{n}&Q]
+\end{array}\]
+
+<p>sont opposées grâce à</p>
+
+\[\begin{array}{ccc}
+[{}_nQ\longrightarrow Q]\\[-2pt]
+&\searrow\scriptstyle 1\\
+\scriptstyle H\downarrow&&[Q\xrightarrow{n}Q].
+\end{array}\]
+
+<p>c) 2.3.10 est le diagramme</p>
+
+\[\require{AMScd}
+\begin{CD}
+H^1\mathrm{RHom}(\mathbb Z/n\mathbb Z\mathbin{\mathop\otimes^L}Q,G)
+@>>> H^1\mathrm{RHom}(\mathbb Z\mathbin{\mathop\otimes^L}Q,G)\\
+@VVV @VVV @. @. @VV{+}V\\
+\operatorname{Hom}(\operatorname{Tor}_1(\mathbb Z/n\mathbb Z,Q),G)
+@>>> \operatorname{Hom}(\mathbb Z/n\mathbb Z,\operatorname{Ext}^1(Q,G))
+@. @. \operatorname{Ext}^1(Q,G)\\
+@VVV @VVV @. @. @VVV\\
+\operatorname{Hom}({}_nQ,G) @>>> \operatorname{Ext}^1(nQ,G),
+\end{CD}\]
+
+<p>et</p>
+
+<p>c 1) \(\mathbb Z/n\mathbb Z\mathbin{\mathop\otimes^L}Q\simeq
+[Q\xrightarrow{n}Q]\), et, modulo cet isomorphisme, la 1ère flèche composée verticale est
+induite par</p>
+
+\[{}_nQ[1]\longrightarrow[Q\xrightarrow{n}Q];\]
+
+<p>c 2) la 2ème flèche horizontale est transposée de la flèche \(\partial\) indiquée plus
+haut dans b) ;</p>
+
+<p>c 3) si on parcourt le diagramme par l'autre chemin, il est clair qu'on tombe sur la
+flèche induite par \({}_nQ[0]\longrightarrow[Q\xrightarrow{n}Q]\). D'où la conclusion
+2.3.11.</p>
+
+<p id="8.2.4"><u>2.4.</u> Soit</p>
+
+\[f:T'\longrightarrow T\]
+
+<p>un morphisme de topos. Alors on a un homomorphisme canonique (VII 2.8)</p>
+
+\[\operatorname{Biext}^1(P,Q;G)\longrightarrow
+\operatorname{Biext}^1(P',Q';G'),\]
+
+<p>où les ′ dénotent les Groupes images inverses. Comme, pour tout Groupe
+commutatif \(E\) de \(T\), on a évidemment un isomorphisme canonique</p>
+
+\[({}_nE)'\mathrel{\mathop\simeq}{}_n(E'),\]
+
+<p>les homomorphismes (2.2.2) sur \(T\) et sur \(T'\) permettent de définir un
+diagramme canonique</p>
+
+\[(2.4.1)\qquad
+\begin{CD}
+\operatorname{Biext}^1(P,Q;G) @>>> \operatorname{Biext}^1(P',Q';G')\\
+@V{\varphi^n_{P,Q}}VV @VV{\varphi^n_{P',Q'}}V\\
+\operatorname{Hom}({}_nP\otimes{}_nQ,G) @>>>
+\operatorname{Hom}({}_nP'\otimes{}_nQ',G').
+\end{CD}\]
+
+<p>De même, les homomorphismes (2.2.3) donnent naissance à un diagramme
+analogue en termes des \(T_\ell\). Ceci posé, je dis que les diagrammes
+envisagés sont <u>commutatifs</u>. La vérification est essentiellement
+triviale en termes des définitions, et laissée au lecteur. On notera
+d'ailleurs, plus généralement, que <u>tous les homomorphismes canoniques
+envisagés dans le présent numéro et le précédent sont compatibles
+au changement de topos</u>, dans un sens évident. Nous utiliserons par
+la suite sans autre mention les compatibilités de cette nature.</p>
+
+<h2 id="8.3">3. <u>Biextensions de schémas en groupes \((P,Q)\) par \(G_m\) : généralités</u></h2>
+
+<p>Dans le présent numéro, nous fixons un schéma de base \(S\), et,
+comme annoncé au n° 0, nous travaillons dans le topos \(fppf\) de \(S\).</p>
+
+<p id="8.3.1"><u>3.1.</u> Pour mémoire, rappelons d'abord l'exemple le plus important d'un
+groupe \(\operatorname{Biext}^1(P,Q;G_m)\) : celui où \(P\) et \(Q\) sont deux schémas abéliens sur
+\(S\), et où le groupe \(\operatorname{Biext}^1\) s'interprète comme le groupe des correspon-
+dances divisorielles sur \((P,Q)\) (VII 2.9.4). Les accouplements \(\ell\)-adiques
+du numéro précédent sont alors les accouplements bien connus [1] dans
+la théorie des schémas abéliens.</p>
+
+<p id="8.3.2"><u>3.2.</u> Plus généralement, supposons seulement \(Q\) un schéma abélien, alors
+il est bien connu (VII 1.3.8) qu'on a</p>
+
+\[(3.2.1)\qquad \underline{\operatorname{Hom}}(Q,G_m)=0,\]
+
+<p>donc (1.4) on a un isomorphisme canonique</p>
+
+\[(3.2.2)\qquad \operatorname{Biext}^1(P,Q;G_m)\mathrel{\mathop\simeq}
+\operatorname{Hom}(P,Q^*),\]
+
+<p>où</p>
+
+\[(3.2.3)\qquad Q^*=\underline{\operatorname{Ext}}^1(Q,G_m)\]
+
+<p>est le schéma abélien dual de \(Q\). (Pour la représentabilité de \(Q^*\), due
+à M. RAYNAUD dans le cas général, cf. [1].)</p>
+
+<p>Lorsque \(P\) est également un schéma abélien, on a, de façon
+symétrique à (3.2.2), un isomorphisme canonique</p>
+
+\[(3.2.4)\qquad \operatorname{Biext}^1(P,Q;G_m)\mathrel{\mathop\simeq}
+\operatorname{Hom}(Q,P^*).\]
+
+<p>Ainsi la donnée d'une biextension \(\xi\) de \((P,Q)\) par \(G_m\) peut s'interpréter,
+indifféremment, par la donnée d'un homomorphisme</p>
+
+\[u:P\longrightarrow Q^*\]
+
+<p>ou d'un homomorphisme</p>
+
+\[v:Q\longrightarrow P^*.\]
+
+<p>D'ailleurs, on sait qu'un homomorphisme de schémas abéliens \(w:A\longrightarrow B\)
+est un isomorphisme si et seulement si pour tout entier \(n&gt;0\), l'homo-
+morphisme induit \({}_nw:{}_nA\longrightarrow{}_nB\) est un isomorphisme. Or dans le cas
+de \(u\) et de \(v\) ci-dessus, \({}_nu:{}_nP\longrightarrow{}_nQ^*\) s'identifie à l'homomorphisme
+\({}_nP\longrightarrow D({}_nQ)\) défini par l'accouplement \(\varphi^n_\xi:{}_nP\times{}_nQ\longrightarrow G_m\) (cf. 2.3.11),
+tandis que \({}_nv:{}_nQ\longrightarrow{}_nP^*\) s'identifie à l'homomorphisme \({}_nQ\longrightarrow D({}_nP)\)
+défini par l'accouplement \(\psi^n_\xi:{}_nP\times{}_nQ\longrightarrow G_m\). Or on a \(\varphi^n_\xi=-\psi^n_\xi\) (2.1.10),
+donc au signe près, \({}_nu\) et \({}_nv\) sont transposés l'un de l'autre. Tenant compte
+du fait bien connu que les \({}_nP\) et les \({}_nQ\) sont finis et localement libres
+sur \(S\), donc satisfont à la dualité de Cartier, on trouve donc que \({}_nu\)
+est un isomorphisme si et seulement si \({}_nv\) est un isomorphisme, donc
+que \(u\) est un isomorphisme si et seulement si \(v\) est un isomorphisme.</p>
+
+<p>Une façon équivalente (un peu moins symétrique) d'énoncer ce résultat
+est la suivante : considérons la biextension canonique (biextension
+de Weil) de \((P,P^*)\) par \(G_m\) (correspondante à \(v:P^*\longrightarrow P^*\) l'identité),
+alors l'homomorphisme canonique correspondant \(u:P\longrightarrow P^{**}\) est un
+<u>isomorphisme</u>. C'est le <u>théorème de bidualité de BARSOTTI et CARTIER</u>.</p>
+
+<p id="8.3.3"><u>3.3.</u> Nous passons au cas où \(Q\) est fini localement libre sur \(S\), ou
+est un schéma de type multiplicatif sur \(S\). Le lemme-clef dans ce cas
+est le résultat (bien connu) suivant :</p>
+
+<div class="thm" id="8.3.3.1"><span class="thm-head"><u>Proposition 3.3.1.</u></span>
+<div class="thm-body"><p><u>Soit \(Q\) un schéma en groupes commutatifs sur \(S\), et
+supposons que \(Q\) soit fini localement libre sur \(S\), ou que \(Q\) soit de
+type fini et de type multiplicatif sur \(S\) (SGA 3 IX). Alors on a</u></p>
+
+\[\underline{\operatorname{Ext}}^1(Q,G_m)=0.\]
+</div></div>
+
+<p><u>Démonstration.</u> Distinguons les deux cas envisagés.</p>
+
+<p>a) \(Q\) est fini localement libre sur \(S\). Il faut prouver que
+toute extension \(E\) de \(Q\) par \(G_m\) splitte localement pour la topologie \(fppf\).
+On peut supposer évidemment \(S\) affine ; il existe alors un entier \(n&gt;0\)
+tel qu'on ait \(nQ=0\) (SGA 3 IX 6.1). D'autre part, on sait que \(n\operatorname{id}\) est
+un épimorphisme dans \(G_m\) pour \(fppf\), donc la suite exacte « de Kummer »</p>
+
+\[0\longrightarrow\mu_n\longrightarrow G_m\mathrel{\mathop\longrightarrow^n}G_m\longrightarrow0\]
+
+<p>donne naissance à une suite exacte des \(\underline{\operatorname{Ext}}^i(Q,-)\), qui nous donne un
+<u>épimorphisme</u></p>
+
+\[\underline{\operatorname{Ext}}^1(Q,\mu_n)\longrightarrow
+{}_n\underline{\operatorname{Ext}}^1(Q,G_m)=\underline{\operatorname{Ext}}^1(Q,G_m),\]
+
+<p>la dernière égalité provenant du fait que la multiplication par \(n\) étant
+nulle dans \(Q\), est également nulle dans \(\underline{\operatorname{Ext}}^1(Q,G_m)\). Cela montre que
+l'extension \(E\) provient d'une extension \(F\) de \(Q\) par \(\mu_n\) ; \(F\) est représen-
+table par un schéma fini localement libre sur \(S\) (théorie de la descente
+fpqc, SGA 1 VIII). A cause des propriétés connues de la dualité de
+Cartier des groupes finis localement libres (SGA 3 VII 3), le dual
+\(D(F)=\underline{\operatorname{Hom}}(F,G_m)\) est une extension de \(D(\mu_n)\) par \(D(Q)\). (Il faut voir
+que si \(A\longrightarrow B\) est un monomorphisme de groupes commutatifs finis loca-
+lement libres sur \(S\), alors \(D(B)\longrightarrow D(A)\) est un morphisme fidèlement
+plat. Comme \(D(B)\) et \(D(A)\) sont également finis localement libres sur
+\(S\), le critère de fidèle platitude par fibres s'applique et nous ramène
+au cas où \(S\) est le spectre d'un corps \(k\). Dans ce cas, notre assertion
+signifie simplement que l'homomorphisme sur les anneaux affines
+\(k(D(A))\longrightarrow k(D(B))\) est injectif (SGA 3 VI<sub>B</sub> 11.14), or cet homomorphisme
+est transposé de l'homomorphisme \(k(B)\longrightarrow k(A)\), qui est surjectif puisque
+\(A\longrightarrow B\) est une immersion fermée (SGA 3 VI<sub>B</sub> 1.4.2). Donc
+\(k(D(A))\longrightarrow k(D(B))\) est bien injectif, cqfd.) Or l'inclusion \(\mu_n\longrightarrow G_m\)
+s'identifie à une section de \(D(\mu_n)=\underline{\operatorname{Hom}}(\mu_n,G_m)\), et tout revient à
+prouver que cette inclusion se prolonge, localement \(fppf\) sur \(S\), en un
+homomorphisme \(F\longrightarrow G_m\), i.e. que la section envisagée de \(D(\mu_n)\) se
+relève localement \(fppf\) en une section de \(D(F)\). Or ceci est clair,
+puisque \(D(F)\longrightarrow D(\mu_n)\) est fidèlement plat et de présentation finie.</p>
+
+<p>b) En vertu de (SGA 3 X 4.5), quitte à se localiser sur \(S\)
+pour la topologie étale, on peut supposer que \(Q\) est diagonalisable, i.e.
+de la forme \(D(M)\), où \(M\) est un \(\mathbb Z\)-module de type fini. Soit \(T\) le sous-module
+de torsion de \(M\), et \(L=M/T\) le quotient, qui est isomorphe à \(\mathbb Z^r\).</p>
+
+<p>Alors la suite exacte \(0\longrightarrow T\longrightarrow M\longrightarrow L\longrightarrow0\) donne une suite exacte</p>
+
+\[0\longrightarrow D(L)\longrightarrow D(M)\longrightarrow D(T)\longrightarrow0\quad\text{(SGA 3 IX 3.1)},\]
+
+<p>donc on est ramené à prouver séparément que le
+\(\underline{\operatorname{Ext}}^1\) de \(D(L)\) et de \(D(T)\) avec \(G_m\) est nul.
+Le cas de \(D(T)\) est justiciable de a), le cas de \(D(L)\) se ramène à celui
+où \(L=\mathbb Z\), de sorte qu'on est réduit à vérifier que l'on a</p>
+
+\[\underline{\operatorname{Ext}}^1(G_m,G_m)=0,\]
+
+<p>i.e. que toute extension \(E\) de \(G_m\) par \(G_m\) est localement triviale fppf.
+Or une telle extension est représentable par un schéma en groupes
+affine et plat sur \(S\) (théorie de la descente fpqc SGA 1 VIII), dont
+les fibres sont des tores, c'est donc un tore (SGA 3 X 4.9 et &nbsp;&nbsp;&nbsp;&nbsp;).
+En vertu de SGA 3 X 4.5, on peut supposer que \(E\) est un tore trivial
+\(D(R)\simeq G_m^2\). De plus, quitte à se localiser au sens de Zariski, on
+peut supposer que le monomorphisme \(G_m\longrightarrow E=D(R)\) provient d'un morphisme
+constant \(R\longrightarrow\mathbb Z_S\) (SGA 3 VIII 1.4), et celui-ci est nécessairement
+un épimorphisme (SGA 3 VIII 3.2 b)). Choisissant un \(r\in R\) au-dessus
+de l'élément 1 de \(\mathbb Z\), on trouve donc un homomorphisme \(E\longrightarrow G_m\) qui
+scinde l'extension \(E\), ce qui prouve l'assertion voulue.</p>
+
+<div class="thm" id="8.3.3.2"><span class="thm-head"><u>Corollaire 3.3.2.</u></span>
+<div class="thm-body"><p><u>Soit \(Q\) comme dans 3.3.1. Alors on a, pour tout \(P\),
+un isomorphisme canonique</u></p>
+
+\[(3.3.2.1)\qquad \operatorname{Biext}^1(P,Q;G_m)\xleftarrow{\sim}
+\operatorname{Ext}^1(P,D(Q)),\]
+
+<p><u>où \(D(Q)\) désigne le dual de Cartier \(\underline{\operatorname{Hom}}(Q,G_m)\) de \(Q\). Plus précisément,
+le foncteur canonique (1.1.6) est une équivalence de la catégorie des
+extensions de \(P\) par \(D(Q)\) avec la catégorie des biextensions de \((P,Q)\)
+par \(G_m\).</u></p></div></div>
+
+<p>C'est en effet un cas particulier de 1.5, compte tenu de 3.3.1.</p>
+
+<p id="8.3.3.3"><u>Remarques 3.3.3.</u> Sous les conditions de 3.3.1, \(D(Q)\) est représentable
+par un schéma en groupes séparé, localement de présentation finie et
+localement quasi-fini sur \(S\). Plus précisément, si \(Q\) est fini localement
+libre sur \(S\), il en est de même de \(D(Q)\) comme il est bien connu
+(SGA 3 VII 3), et si \(Q\) est de type multiplicatif, alors \(D(Q)\) est un
+« <u>groupe constant tordu à engendrement fini</u> » (SGA 3 X 5.1), comme il
+a été vu dans (SGA 3 IX 4.5 et X 5.7). Si \(P\) est un schéma en groupes,
+toute extension de \(P\) par \(D(Q)\) est donc représentable, d'après un lemme
+connu de la théorie de la descente fpqc (SGA 3 X 5.4).</p>
+
+<p id="8.3.3.4">3.3.4&nbsp;&nbsp;&nbsp;&nbsp; Il est faux que pour tout schéma en groupes \(Q\) affine, plat
+et de présentation finie sur \(S\), on ait \(\underline{\operatorname{Ext}}^1(Q,G_m)=0\), déjà pour \(Q=G_{aS}\),
+\(S=\operatorname{Spec} k[t]/(t^2)\), \(k\) étant un corps de car. \(p&gt;0\).</p>
+
+<div class="thm" id="8.3.4"><span class="thm-head"><u>Proposition 3.4.</u></span>
+<div class="thm-body"><p><u>Soient \(P\) un schéma en groupes lisse de présentation
+finie sur \(S\) et à fibres connexes, \(Q\) un tore sur \(S\). Alors la catégorie
+des biextensions de \((P,Q)\) par \(G_m\) est équivalente à la catégorie ponctuelle, i.e. on a</u></p>
+
+\[(3.4.1)\qquad \operatorname{Biext}^0(P,Q;G_m)=\operatorname{Biext}^1(P,Q;G_m)=0.\]
+</div></div>
+
+<p>Soit en effet \(M=D(Q)\), qui est un groupe constant tordu sur
+\(S\) à fibres isomorphes à des \(\mathbb Z^r\) (3.3.3). En vertu de 3.3.2, la catégorie
+envisagée est équivalente à celle des extensions de \(P\) par \(M\). Cette
+catégorie est <u>rigide</u>, i.e. le groupe des automorphismes d'un objet
+est réduit au groupe unité, ce qui exprime la première relation (3.4.1),
+qui s'écrit également \(\operatorname{Hom}(P,M)=0\). Or cette relation résulte aussitôt
+du fait que \(M\) est étale sur \(S\) et \(P\) à fibres connexes. Il reste donc à
+prouver la relation</p>
+
+\[\operatorname{Ext}^1(P,M)=0,\]
+
+<p>i.e. que toute extension \(E\) de \(P\) par \(M\) est triviale. Utilisant l'unicité
+d'un scindage de cette extension (s'il en existe), on est ramené à prouver
+que \(E\) est localement triviale, ce qui nous ramène au cas où \(M=\mathbb Z_S^r\),
+et même au cas où \(M=\mathbb Z_S\). Lorsque \(S\) est le spectre d'un corps, la
+conclusion résulte de 5.5 (i) ci-dessous. (NB nous n'utiliserons pas
+3.4 avant IX 6, et en particulier il n'y aura pas de cercle vicieux !).
+Montrons maintenant comment réduire le cas général à ce cas particulier.
+Notons qu'il suffit de trouver une section \(f\) de \(E\) sur \(P\) telle que \(f(0)=0\),
+car une telle section sera nécessairement multiplicative, i.e. satisfera
+\(f(x+y)-f(x)-f(y)=0\) : en effet, le premier membre de cette relation
+désigne un morphisme \(P\times_S P\longrightarrow\mathbb Z_S\) qui est nul sur la section nulle de
+\(P\times_S P\), donc est nulle puisque \(P\times_S P\) est à fibres connexes (\(P\) étant à
+fibres <u>géométriques</u> connexes). La conclusion voulue résulte alors du</p>
+
+<div class="thm lemma" id="8.3.4.2"><span class="thm-head"><u>Lemme 3.4.2.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma, \(P\) un \(S\)-schéma lisse de présentation
+finie, à fibres géométriques connexes, \(Z\) un groupe, \(E\) un \(Z_P\)-torseur
+(pour la topologie fppf, la topologie étale ou la topologie fpqc, cela
+revient au même, cf. SGA 3 X 5.4 ...), \(e\) une section de \(P\) sur \(S\), \(e'\)
+une section de \(E\) sur \(S\) au-dessus de \(e\) (i.e. une section de \(e^{-1}(E)\) sur \(S\)).
+Pour que \(E\) soit trivial, il (faut et il) suffit que pour tout \(s\in S\), le
+torseur induit \(E_s\) de \(P_s\) le soit, et alors il existe une unique section
+\(f\) de \(E\) sur \(P\) telle que \(f\circ e=e'\).</u></p></div></div>
+
+<p>L'unicité d'une telle section est claire, car deux telles
+sections \(f,g\) « diffèrent » par un morphisme \(h:P\longrightarrow Z_S\) tel que \(h\circ e=1\),
+et un tel morphisme est constant de valeur 1 puisque \(P\) est à fibres
+connexes. D'ailleurs, s'il existe une section \(f\) de \(E\) sur \(P\), on peut
+toujours la corriger par un morphisme \(P\longrightarrow Z_S\) (provenant d'un morphisme
+\(z:S\longrightarrow Z_S\)) pour obtenir une section \(f'\) telle que \(f'\circ e=e'\) : il
+suffit de choisir \(z\) tel que \(f(e(t))=e'(t)z(t)\). Appliquant cette
+dernière observation aux fibres au-dessus des \(s\in S\), on trouve pour
+tout point \(s\in S\) une section bien déterminée \(f_s\) de \(E_s\) sur \(P_s\), transformant \(e_s\) en \(e'_s\). Tout revient à prouver que ces \(f_s\) proviennent d'une
+section \(f\) de \(E\) sur \(P\), ou ce qui revient au même (EGA IV 17.9.3), que
+l'ensemble \(U\subset E\) réunion des \(f_s(P_s)\) est une partie ouverte de \(E\).
+Supposons d'abord \(S\) noethérien ; alors on vérifie facilement que \(U\)
+est constructible, en utilisant le fait que pour tout \(s\in S\), il existe
+un voisinage ouvert \(T'\) de \(s\) dans \(T=\) adhérence de \(s\) muni de la structure
+induite réduite, et une section de \(E_{T'}\) sur \(P_{T'}\) prolongeant \(f_s\) et compatible avec les sections marquées \(e\) et \(e'\) (comme il résulte trivialement
+de EGA IV 8.8.2). En vertu du critère EGA IV 1.10.1, il reste alors à
+prouver que \(U\) est stable par générisation. Pour ceci, on est ramené,
+par la méthode habituelle utilisant EGA II 7.1.9, au cas où \(S\) est le
+spectre d'un anneau de valuation discrète. Comme \(P\) est lisse sur \(S\),
+\(P\) est donc régulier donc normal, et comme il est à fibres connexes, il
+est connexe. Mais alors la section donnée de \(E\) au-dessus de la fibre générique de \(P\) sur \(S\) se prolonge de façon unique en une section \(f\) de \(E\) sur
+\(P\) (EGA IV 18.10.19 et 18.10.20), évidemment compatible avec \(e\) et \(e'\).
+Donc dans ce cas \(U=f(P)\) est ouvert. Cela prouve 3.4 dans le cas où
+\(S\) est noethérien. Le cas général se ramène aisément à ce cas, par les
+procédés habituels de passage à la limite, utilisant EGA IV 8,9, dont
+nous laissons le détail au lecteur.</p>
+
+<p id="8.3.4.3"><u>Remarque 3.4.3.</u> On peut « écraser » le lemme 3.4.2 par des références
+savantes, savoir (SGA 4 XV 1.15, cas n=1, et 4.1).</p>
+
+<div class="thm" id="8.3.5"><span class="thm-head"><u>Corollaire 3.5.</u></span>
+<div class="thm-body"><p><u>Soient \(P\) un schéma en groupes lisse de présentation finie
+sur \(S\), à fibres connexes, \(0\longrightarrow Q'\longrightarrow Q\longrightarrow Q''\longrightarrow0\) une suite exacte
+de Groupes commutatifs sur \(S\), avec \(Q'\) un tore. Alors le foncteur « image
+inverse de biextensions »</u></p>
+
+\[(3.5.1)\qquad \operatorname{BIEXT}(P,Q'';G_m)\xrightarrow{\sim}
+\operatorname{BIEXT}(P,Q;G_m)\]
+
+<p><u>est une équivalence de catégories, en particulier les homomorphismes
+naturels suivants sont des isomorphismes</u></p>
+
+\[(3.5.2)\qquad \operatorname{Biext}^i(P,Q'';G_m)\xrightarrow{\sim}
+\operatorname{Biext}^i(P,Q;G_m),\qquad i=0,1.\]
+</div></div>
+
+<p>En effet, \(\operatorname{BIEXT}(P,Q'';G_m)\) s'identifiera, à équivalence près, à
+la catégorie des biextensions \(E\) de \((P,Q)\) par \(G_m\) munies d'une trivialisation de la biextension induite \(E'\) de \((P,Q')\) par \(G_m\) (VII 3.7.6). Or
+pour une biextension donnée, il y a en vertu de 3.4 exactement une
+trivialisation de \(E'\). Bien entendu, on peut également prouver le fait</p>
+
+<p>que \(\operatorname{Biext}^i(P,Q'';G_m)\longrightarrow\operatorname{Biext}^i(P,Q;G_m)\) est un isomorphisme pour \(i=0,1\)
+(qui équivaut à la conclusion de 3.5) en utilisant la suite exacte
+(VII 3.7.5) des \(\operatorname{Biext}^i\) associée à la suite exacte \(0\longrightarrow Q'\longrightarrow Q\longrightarrow Q''\longrightarrow0\).</p>
+
+<p id="8.3.6"><u>Remarque 3.6.</u> Bien entendu, l'énoncé symétrique déduit de 3.5, obtenu
+en échangeant la gauche et la droite, est également valable, et se
+déduit d'ailleurs formellement de 3.5 par l'opération de passage aux
+biextensions symétriques (VII 2.7). Lorsqu'on suppose, <u>en plus</u> des
+données et hypothèses de 3.5, qu'on a les données et hypothèses symétriques,
+i.e. \(Q\) est à fibres connexes (ou encore \(Q''\) à fibres connexes,
+cela revient au même puisque \(Q'\) est à fibres connexes), et qu'on a
+une suite exacte \(0\longrightarrow P'\longrightarrow P\longrightarrow P''\longrightarrow0\) avec \(P'\) un tore, alors
+l'application successive de 3.5, et de l'énoncé symétrique appliqué
+à la précédente suite exacte et à \(Q''\), montrent que le foncteur</p>
+
+\[(3.6.1)\qquad \operatorname{BIEXT}(P'',Q'';G_m)\xrightarrow{\sim}
+\operatorname{BIEXT}(P,Q;G_m)\]
+
+<p>est une équivalence de catégories, et en particulier l'homomorphisme
+suivant est un isomorphisme</p>
+
+\[(3.6.2)\qquad \operatorname{Biext}^i(P'',Q'';G_m)\xrightarrow{\sim}
+\operatorname{Biext}^i(P,Q;G_m),\qquad i=0,1.\]
+
+<div class="thm" id="8.3.7"><span class="thm-head"><u>Proposition 3.7.</u></span>
+<div class="thm-body"><p><u>Soient \(A\) un schéma abélien sur \(S\), \(T\) un schéma en groupes
+de type multiplicatif (SGA 3 IX) et de type fini sur \(S\), \(M=\underline{\operatorname{Hom}}(T,G_m)\)
+le dual de Cartier de \(T\) (qui est un groupe constant tordu à engendrement
+fini sur \(S\) (3.3.3)). Alors les catégories \(\operatorname{EXT}(A,T)\) et \(\operatorname{BIEXT}(A,M;G_m)\),
+formées respectivement des extensions commutatives de \(A\) par \(T\) et des
+biextensions de \((A,M)\) par \(G_m\), sont rigides, et canoniquement équivalentes,
+et les groupes des classes d'objets de ces catégories sont canoniquement
+isomorphes à \(\operatorname{Hom}(M,A^*)\), où \(A^*=\underline{\operatorname{Ext}}^1(A,G_m)\) est le schéma abélien dual
+de \(A\) (3.2). En particulier, on a un isomorphisme canonique</u></p>
+
+\[(3.7.1)\qquad \operatorname{Ext}^1(A,T)\xrightarrow{\sim}\operatorname{Hom}(M,A^*).\]
+</div></div>
+
+<p>C'est en effet le cas particulier de 1.6 obtenu en faisant
+\(P=A\), \(Q=M\) ; en vertu du théorème de bidualité (SGA 3 X 5.7), on a
+bien \(T\xrightarrow{\sim}\underline{\operatorname{Hom}}(M,G_m)\), et il suffit de vérifier les conditions (1.6.1),
+qui s'écrivent ici</p>
+
+\[\underline{\operatorname{Hom}}(A,G_m)=0,\qquad
+\underline{\operatorname{Hom}}(A,\underline{\operatorname{Ext}}^1(M,G_m))=0.\]
+
+<p>La première relation a été déjà été rappelée dans (3.2.1), la deuxième
+peut se préciser en</p>
+
+\[\underline{\operatorname{Ext}}^1(M,G_m)=0.\]
+
+<p>Pour vérifier cette dernière, la question étant locale sur \(S\), on peut
+supposer \(M\) constant \(=M_S\), et en décomposant \(M\) en somme de \(\mathbb Z\)-modules
+monogènes, on est ramené au cas où \(M=\mathbb Z\), qui est trivial, et au cas
+\(M=\mathbb Z/n\mathbb Z\), qui provient du fait que \(G_m\) est \(n\)-divisible (ou, plus
+savamment, de 3.3.1).</p>
+
+<p>On notera que lorsque \(T=G_m\) donc \(M=\mathbb Z_S\), (3.7.1) se réduit
+à l'isomorphisme identique (3.2.3). Bien entendu, la démonstration
+directe de (3.7.1) serait essentiellement triviale (sans faire intervenir
+le groupe \(\operatorname{Ext}^1(A\mathbin{\overset{\mathbf L}{\otimes}}M,G_m)=\operatorname{Biext}^1(A,M;G_m)\)).</p>
+
+<h2 id="8.4">4. Extensions et biextensions des schémas en groupes lisses et connexes<br>
+sur un corps</h2>
+
+<p>Rappelons le lemme suivant dû à Rosenlicht [3 bis, Prop.3] :</p>
+
+<div class="thm lemma" id="8.4.1"><span class="thm-head"><u>Lemme 4.1.</u></span>
+<div class="thm-body"><p><u>Soient \(k\) un corps, \(X\) et \(Y\) deux \(k\)-schémas de type fini,
+séparables et géométriquement connexes, munis de points \(e_X\) resp. \(e_Y\)
+rationnels sur \(k\). Alors tout morphisme \(X\times Y\longrightarrow G_m\) qui est trivial sur
+les deux sous-schémas \(X\times e_Y\) et \(e_X\times Y\) est trivial.</u></p></div></div>
+
+<p>Nous n'utiliserons ce résultat que lorsque \(X\) et \(Y\) sont des
+schémas en groupes sur \(k\), auquel cas il résultera des hypothèses faites
+que \(X\) et \(Y\) sont même lisses sur \(k\). Notons que par récurrence, le résultat
+4.1 implique le résultat analogue pour un nombre quelconque de facteurs.
+Ceci nous permet donc d'appliquer les résultats de VII 1.3 et de VII 2.9.
+On obtient ainsi les deux propositions suivantes :</p>
+
+<div class="thm" id="8.4.2"><span class="thm-head"><u>Proposition 4.2.</u></span>
+<div class="thm-body"><p><u>Soient \(P\) un groupe lisse et connexe sur le corps \(k\).
+Alors le foncteur naturel de la catégorie des extensions de Groupes de
+\(P\) par \(G_m\) dans la catégorie des Modules inversibles sur \(P\) rigidifiés en
+l'élément neutre \(e_P\) de \(P\) est pleinement fidèle. Son image essentielle
+est formée des Modules inversibles rigidifiés \(L\) sur \(P\) tels que l'on ait
+\(\pi^*(L)\simeq\operatorname{pr}_1^*(L)\operatorname{pr}_2^*(L)\), où \(\pi:P\times P\longrightarrow P\) est la loi de composition de \(P\),
+et \(\operatorname{pr}_1\) et \(\operatorname{pr}_2\) sont les deux projections du produit.</u></p></div></div>
+
+<div class="thm" id="8.4.3"><span class="thm-head"><u>Proposition 4.3.</u></span>
+<div class="thm-body"><p><u>Soient \(P\) et \(Q\) deux Groupes algébriques lisses et
+connexes sur le corps \(k\). Alors le foncteur naturel de la catégorie des
+biextensions de \((P,Q)\) par \(G_m\), dans la catégorie des Modules inversibles
+sur \(P\times Q\) birigidifiés par rapport aux sections unités \(e_P,e_Q\) de \(P\) resp. \(Q\),
+est pleinement fidèle, les deux catégories envisagées étant par ailleurs
+rigides. Pour qu'un Module inversible birigidifié \(L\) sur \(P\times Q\) provienne
+d'une biextension, il faut et il suffit que ses images inverses sur
+\(P\times P\times Q\) et \(P\times Q\times Q\) par \(\pi_P\times\operatorname{id}_Q\) et \(\operatorname{id}_P\times\pi_Q\) satisfassent au « théorème du cube »
+([1] ou [2]).</u></p></div></div>
+
+<p>Cette dernière condition n'est en effet que traduction des
+conditions envisagées dans VII 2.9.3 b), dans l'explicitation qui en est
+donnée dans VII 3.5 b).</p>
+
+<p id="8.4.4">4.4.&nbsp;&nbsp;&nbsp;&nbsp; J'ignore si la condition du cube envisagée dans 4.3 est automatiquement
+vérifiée. On sait tout au moins [2, IV 2.6] que pour \(L\) donné,
+il existe toujours un entier \(n\geq1\), puissance de l'exposant caractéristique
+de \(k\), tel que \(L^{\otimes n}\) satisfasse à la condition envisagée, donc
+provienne d'une biextension de \((P,Q)\) par \(G_m\) ; et que l'on peut toujours
+trouver une extension radicielle \(k'\) de \(k\), telle que la condition voulue
+devienne vraie après l'extension de la base \(k\longrightarrow k'\), de sorte qu'après
+cette extension \(L\) donne un Module inversible birigidifié qui provienne
+d'une biextension de \((P,Q)\) par \(G_m\). En particulier, si \(k\) est parfait,
+la condition envisagée dans 4.3 est toujours vérifiée. Ce dernier fait,
+qui implique formellement les précédents par un argument de trace, peut
+se voir aussi en appliquant 4.7 plus bas, cf. 4.9.</p>
+
+<p>Rappelons sous forme de lemme le résultat suivant de
+EGA IV Err., 53, 21.4.13 :</p>
+
+<div class="thm lemma" id="8.4.5"><span class="thm-head"><u>Lemme 4.5.</u></span>
+<div class="thm-body"><p><u>Soient \(f:X\longrightarrow Y\) un morphisme lisse surjectif à fibres
+intègres, avec \(Y\) normal intègre de point générique \(y\), \(L\) un Module
+inversible sur \(X\) dont la restriction à \(X_y\) soit trivial. Alors il existe
+un Module inversible \(M\) sur \(Y\) tel que \(L\) soit isomorphe à \(f^*(M)\).</u></p></div></div>
+
+<div class="thm" id="8.4.6"><span class="thm-head"><u>Proposition 4.6.</u></span>
+<div class="thm-body"><p><u>Soient \(P,Q\) deux groupes algébriques lisses et connexes
+sur le corps \(k\), avec \(P\) affine. On suppose de plus que \(P\) admet une suite
+de composition dont chacun des facteurs est un tore, ou est isomorphe
+au groupe additif \(G_a\) (condition vérifiée en particulier si \(k\) est parfait
+[SGA 3, XVII 7.2.1, 4.1.1 (i) \(\Longleftrightarrow\) (ii) et 4.1.5]), ou que \(Q\) soit
+extension d'une variété abélienne \(B\) par un groupe algébrique lisse,
+connexe et affine satisfaisant à la condition précédente. Sous ces
+conditions, tout Module inversible birigidifié \(L\) sur \(P\times Q\) est trivial,
+à fortiori (4.3) toute biextension de \((P,Q)\) par \(G_m\) est triviale.</u></p></div></div>
+
+<p>Signalons d'abord que comme tout automorphisme du Module
+birigidifié est l'identité (4.3), la théorie de la descente nous montre
+qu'il suffit de prouver que \(L\) devient trivial après extension séparable
+finie de \(k\), ce qui nous ramène aussitôt, par passage à la limite, au
+cas où \(k\) est séparablement clos. Comme dans ce cas tout tore sur \(k\) est
+déployé, on voit que si \(P\) admet une suite de composition comme indiquée
+dans 4.6, il admet aussi une suite de composition à quotients isomorphes
+à \(G_a\) ou \(G_m\), ce qui implique, par application répétée de 4.5, compte
+tenu de \(\operatorname{Pic}(G_{aK})=\operatorname{Pic}(G_{mK})=0\) pour tout corps \(K\), que l'on a</p>
+
+\[\operatorname{Pic}(P)=0.\]
+
+<p>Comme cette relation restera encore vraie par tout changement du corps
+de base \(k\), on voit, en appliquant 4.5 à \(\operatorname{pr}_2:P\times Q\longrightarrow Q\) et au Module \(L\),
+que \(L\) est isomorphe à un Module de la forme \(\operatorname{pr}_2^*(M)\), où \(M\) est un Module
+inversible sur \(Q\). Comme la restriction de \(L\) à \(e_P\times Q\) est triviale, on
+en conclut aussitôt que \(M\) est trivial, donc \(L\) est trivial, ce qui
+établit la conclusion dans le premier cas envisagé. Dans le deuxième,
+où \(Q\) est une extension d'un schéma abélien \(B\) par un groupe \(M\) admettant
+une suite de composition à quotients isomorphes à \(G_m\) ou à \(G_a\), on
+applique 4.5 au morphisme</p>
+
+\[f:X=P\times Q\longrightarrow Y=P\times B,\]
+
+<p>dont la fibre au point générique \(y\) de \(P\times B\) est un torseur sous \(M_y\),
+nécessairement trivial en vertu de la structure particulière de \(M\)
+et des relations classiques \(H^1(K,G_a)=0\), \(H^1(K,G_m)=0\), valables
+pour tout corps \(K\) (qu'on prendra ici égal à \(k(y)\)). Comme on aura
+\(\operatorname{Pic}(M)=0\), donc \(\operatorname{Pic}(X_y)=0\), 4.5 est bien applicable et montre que \(L\)
+est isomorphe à l'image inverse d'un Module inversible \(M\) sur \(Y=P\times B\).
+Quitte à remplacer \(M\) par \(M\operatorname{pr}_1^*(M_1)^{-1}\operatorname{pr}_2^*(M_2)^{-1}\), où \(\operatorname{pr}_1\) et \(\operatorname{pr}_2\) sont les
+deux projections de \(Y=P\times B\), et où \(M_1\) et \(M_2\) sont les deux restrictions
+de \(M\) à \(P\times e_B\) et à \(e_P\times B\) respectivement, on peut supposer \(M\) birigidifié,
+et que \(L\) est son image inverse birigidifiée. Cela nous ramène au cas
+où \(Q\) est lui-même un schéma abélien. Mais alors \(L\) définit un morphisme
+canonique</p>
+
+\[(*)\qquad P\longrightarrow \operatorname{Pic}_{Q/k}^0,\]
+
+<p>transformant unité en unité, et comme \(P\) est connexe, ce morphisme se
+factorise par le schéma abélien dual \(Q'=\operatorname{Pic}_{Q/k}^0\). Or il est bien connu
+qu'un morphisme de schémas d'un groupe algébrique affine lisse et connexe
+dans un schéma abélien est constant. (C'est une question « géométrique »
+i.e. on peut supposer \(k\) algébriquement clos, et dans ce cas on est
+ramené aussitôt par dévissage au cas où \(P\) est \(G_a\) ou \(G_m\) ; or il est
+bien connu que toute application rationnelle de \(\mathbb P_k^1\) dans un schéma abélien
+sur \(k\) est constante.) Le fait que (*) soit constant, donc nul, s'interprète
+par la condition que \(L\) soit isomorphe à l'image inverse d'un Module
+inversible \(M\) sur \(P\), et comme \(L\) est trivial sur \(P\times e_A\), \(M\) est trivial, donc
+\(L\) l'est également, cqfd.</p>
+
+<div class="thm" id="8.4.7"><span class="thm-head"><u>Proposition 4.7.</u></span>
+<div class="thm-body"><p><u>Soient \(P,Q\) deux groupes algébriques lisses et connexes
+sur le corps \(k\). Supposons que \(P\) soit extension d'un schéma abélien \(A\)
+par un groupe algébrique lisse, connexe et affine \(L\) admettant une suite
+de composition dont chaque facteur soit isomorphe à un tore ou à \(G_a\)
+(condition toujours remplie si \(k\) est parfait). Alors le foncteur envisagé
+dans 1.3 est une équivalence de catégories, i.e. tout Module inversible
+birigidifié \(L\) sur \(P\times Q\) provient d'une biextension de \((P,Q)\). De plus,
+le foncteur de catégories rigides</u></p>
+
+\[\operatorname{BIEXT}(A,Q;G_m)\longrightarrow\operatorname{BIEXT}(P,Q;G_m)\]
+
+<p><u>est une équivalence de catégories, en d'autres termes, il donne naissance
+à un isomorphisme de groupes :</u></p>
+
+\[(4.7.1)\qquad \operatorname{Biext}^1(A,Q;G_m)\xrightarrow{\sim}\operatorname{Biext}^1(P,Q;G_m).\]
+</div></div>
+
+<p>Pour la première assertion, on se ramène encore, par descente
+et en utilisant 4.3, au cas où \(k\) est séparablement clos. Procédant comme
+dans la démonstration de 4.6, on déduit de 4.5 et de l'hypothèse sur \(L\)
+que \(L\) est isomorphe à l'image inverse d'un Module birigidifié \(M\) sur \(A\times Q\),
+et pour la première assertion de 4.7, on est donc ramené au cas \(A=P\). Or \(L\)
+définit un morphisme de schémas ponctués</p>
+
+\[f:Q\longrightarrow\operatorname{Pic}_{P/k},\]
+
+<p>qui se factorise nécessairement par le schéma abélien dual \(P'\) de \(P\). Soit
+\(L'\) l'image inverse du faisceau de Weil sur \(P\times P'\) par</p>
+
+\[\operatorname{id}_P\times f:P\times Q\longrightarrow P\times P',\]
+
+<p>c'est un Module birigidifié qui, par définition de \(f\), ne diffère de \(L\)
+que modulo l'image inverse d'un Module inversible \(M\) sur \(P\). Comme \(L'\) et \(L\)
+ont une restriction triviale à \(P\times e_Q\), on en conclut que \(M\) est trivial,
+donc que \(L\) est isomorphe à \(L'\). Or nous avons signalé dans VII 2.9.4 que
+sur un produit de deux schémas abéliens, les correspondances divisorielles
+provenaient de biextensions. Il en résulte que \(L'\), ou ce qui revient au
+même, \(L\), provient d'une biextension.</p>
+
+<p>Revenant au cas général (\(P\) extension de \(A\) par \(L\)), il reste à
+prouver que (4.7.1) est bien un isomorphisme. Mais cela résulte de la
+suite exacte des \(\operatorname{Biext}^i\) (\(i=0,1\)) associée à la suite exacte</p>
+
+\[0\longrightarrow L\longrightarrow P\longrightarrow A\longrightarrow0,\]
+
+<p>et des relations</p>
+
+\[\operatorname{Biext}^0(L,Q;G_m)=0,\qquad \operatorname{Biext}^1(L,Q;G_m)=0,\]
+
+<p>dont la première est un cas particulier de l'assertion de rigidité faite
+dans 4.3, et la deuxième n'est autre que le premier cas de 4.6.</p>
+
+<div class="thm corollary" id="8.4.8"><span class="thm-head"><u>Corollaire 4.8.</u></span>
+<div class="thm-body"><p><u>Sous les conditions de 4.7, supposons que \(Q\) soit extension
+d'un groupe algébrique \(B\) (nécessairement lisse et connexe) par un groupe
+algébrique \(M\) qui est lisse, connexe et affine. Alors le foncteur de
+catégories rigides</u></p>
+
+\[\operatorname{BIEXT}(A,B;G_m)\longrightarrow\operatorname{BIEXT}(P,Q;G_m)\]
+
+<p><u>est une équivalence de catégories, en d'autres termes, elle donne naissance
+à un isomorphisme de groupes</u></p>
+
+\[(4.8.1)\qquad \operatorname{Biext}^1(A,B;G_m)\xrightarrow{\sim}\operatorname{Biext}^1(P,Q;G_m).\]
+</div></div>
+
+<p>Compte tenu de (4.7.1), il reste à prouver que l'on a un isomorphisme</p>
+
+\[\operatorname{Biext}^1(A,B;G_m)\xrightarrow{\sim}\operatorname{Biext}^1(A,Q;G_m).\]
+
+<p>Cela se déduit comme (4.7.1) de la suite exacte des \(\operatorname{Biext}^i\) déduite de
+la suite exacte</p>
+
+\[0\longrightarrow M\longrightarrow Q\longrightarrow B\longrightarrow0,\]
+
+<p>et des relations</p>
+
+\[\operatorname{Biext}^0(P,M;G_m)=0,\qquad \operatorname{Biext}^1(P,M;G_m)=0,\]
+
+<p>dont la deuxième est un cas particulier du deuxième cas envisagé dans 4.6
+(où on aurait échangé le rôle des deux facteurs envisagés).</p>
+
+<p id="8.4.9"><u>Remarque 4.9.</u>&nbsp;&nbsp; Soient \(P,Q\) deux groupes algébriques lisses et connexes sur
+un corps parfait \(k\). On sait alors [3] que chacun d'eux est extension d'un
+schéma abélien par un groupe lisse, connexe et affine, ce dernier étant
+produit d'un tore par une extension multiple de groupes \(G_a\) (cf. référence
+donnée dans 4.6) :</p>
+
+\[0\longrightarrow L\longrightarrow P\longrightarrow A\longrightarrow0,\qquad
+0\longrightarrow M\longrightarrow Q\longrightarrow B\longrightarrow0.\]
+
+<p>Donc 4.8 s'applique, et nous montre que la théorie des biextensions de
+\((P,Q)\) par \(G_m\) se ramène à la théorie analogue (et combien classique !)
+pour le couple \((A,B)\) de variétés abéliennes.</p>
+
+<div class="thm corollary" id="8.4.10"><span class="thm-head"><u>Corollaire 4.10.</u></span>
+<div class="thm-body"><p><u>Soient \(P\) et \(Q\) deux groupes algébriques lisses et connexes
+sur \(k\), \(L\) un sous-groupe algébrique affine lisse et connexe de \(P\), \(E\) une
+biextension de \((P,Q)\) par \(G_m\), d'où par 2.2 un accouplement déduit de \(E\)</u></p>
+
+\[T_\ell(P)\times T_\ell(Q)\longrightarrow T_\ell(G_m).\]
+
+<p><u>Alors l'accouplement induit</u></p>
+
+\[T_\ell(L)\times T_\ell(Q)\longrightarrow T_\ell(G_m)\]
+
+<p><u>est nul.</u></p></div></div>
+
+<p>En effet, on peut supposer évidemment \(k\) algébriquement clos,
+auquel cas on est sous les conditions de 4.6, qui impliquent que la
+restriction de \(E\) à \((L,Q)\) est la biextension triviale, d'où la conclusion,
+puisque l'accouplement induit envisagé est celui défini par cette restriction.</p>
+
+<p id="8.4.11"><u>4.11.</u>&nbsp;&nbsp; Soient \(P,Q\) deux groupes algébriques et lisses sur \(k\), \(E\) une biextension
+de \((P,Q)\) par \(G_m\), et \(T\) le plus grand sous-tore de \(P\). On se propose de déterminer
+l'annulateur gauche de l'accouplement</p>
+
+\[(4.11.1)\qquad T_\ell(P)\times T_\ell(Q)\longrightarrow T_\ell(G_{m_k}),\]
+
+<p>\(\ell\) étant encore un nombre premier fixé. En vertu de 4.10, cet annulateur
+contient en tous cas le sous-pro-groupe \(T_\ell(T)\) de \(T_\ell(P)\). Considérons une extension
+\(k'\) de \(k\) au-dessus de laquelle \(P\) et \(Q\) s'écrivent comme extension d'un schéma
+abélien par un schéma en groupes affine, extension multiple de tores et de groupes
+\(G_a\) ; lorsque \(P\) et \(Q\) sont de rangs unipotents nuls, on peut prendre \(k'=k\) ;
+en tous cas, on peut prendre pour \(k'\) la clôture parfaite (ou une extension finie
+radicielle) de \(k\). Soient \(A'\) resp. \(B'\) la partie abélienne de \(P_{k'}\) resp. \(Q_{k'}\).
+En vertu de 4.7, la biextension \(E_{k'}\) de \((P_{k'},Q_{k'})\) provient d'une biextension
+\(F'\) de \((A',B')\), bien déterminée à isomorphisme unique près. Donc l'accouplement</p>
+
+\[(4.11.2)\qquad T_\ell(P_{k'})\times T_\ell(Q_{k'})\longrightarrow T_\ell(G_{m_{k'}}})\]
+
+<p>déduit de (4.11.1) par changement du corps de base \(k\longrightarrow k'\), et qui est
+aussi l'accouplement défini par la biextension \(E_{k'}\) de \((P_{k'},Q_{k'})\), s'obtient
+à l'aide de l'accouplement</p>
+
+\[(4.11.3)\qquad T_\ell(A')\times T_\ell(B')\longrightarrow T_\ell(G_{m_{k'}})\]
+
+<p>défini par la biextension \(F'\), en composant avec les homomorphismes
+canoniques (qui sont en fait des épimorphismes si \(P\) et \(Q\) sont \(\ell\)-divisibles).</p>
+
+\[(4.11.4)\qquad T_\ell(P_{k'})\longrightarrow T_\ell(A'),\quad
+T_\ell(Q_{k'})\longrightarrow T_\ell(B').\]
+
+<p>Par suite, l'annulateur gauche de l'accouplement (4.11.2) (qui est déduit
+de l'annulateur gauche de (4.11.1) par changement de base) n'est autre
+que l'image inverse par le premier homomorphisme (4.11.4) de l'annulateur
+gauche de l'accouplement (4.11.3). Si \(C'\) est le plus grand sous-schéma
+abélien de \(A'\) tel que la restriction de \(F'\) à \((C',B')\) soit la biextension
+triviale (donc \(C'\) est aussi la composante neutre réduite de l'homomorphisme</p>
+
+\[(4.11.5)\qquad A'\longrightarrow \text{schéma abélien dual de }B'\]
+
+<p>défini par \(F'\)), l'annulateur à gauche de (4.11.3) s'identifie à \(T_\ell(C')\) ;
+donc l'annulateur à gauche de l'accouplement (1.11.1) n'est autre que
+l'image inverse de \(T_\ell(C')\longrightarrow T_\ell(A')\) par le premier morphisme (4.11.4).</p>
+
+<p>En particulier, dire que l'annulateur à gauche de l'accouplement
+(4.11.1) est réduit à \(T_\ell(T)\), i.e. que l'annulateur à gauche de (4.11.2)
+est réduit au noyau \(T_\ell(T')\) du premier morphisme (4.11.4), revient à dire
+que l'accouplement (4.11.3) est séparant à gauche i.e. que \(C'=0\), ou
+encore que le morphisme (4.11.5) défini par \(F'\) est à noyau fini. On
+notera sous cette dernière forme que cette condition ne dépend pas de \(\ell\),
+et il est clair (sous n'importe quelle forme) qu'elle ne dépend pas du
+choix de l'extension \(k'\). Lorsque cette condition est remplie, nous
+dirons simplement que la biextension donnée \(E\) de \((P,Q)\) par \(G_m\) est
+<u>séparante à gauche</u>. On notera par dualité que cela signifie aussi que
+le morphisme</p>
+
+\[(4.11.6)\qquad B'\longrightarrow \text{schéma abélien dual de }A'\]
+
+<p>défini par \(F'\) est un épimorphisme (i.e. surjectif).</p>
+
+<p>On définit de façon symétrique la notion de biextension <u>séparante
+à droite</u>, qui correspond au cas où (4.11.6) est à noyau fini, i.e. (4.11.5)
+un épimorphisme. On dit que la biextension \(E\) de \((P,Q)\) par \(G_{m_k}\) est <u>séparante</u>
+si elle est séparante à gauche et à droite, ce qui revient à dire que
+(4.11.5) est une isogénie, ou ce qui revient au même, que (4.11.6) est
+une isogénie.</p>
+
+<p>Il est évident par définition que ces notions sont invariantes
+par toute extension du corps de base \(k\).</p>
+
+<p id="8.4.12"><u>4.12.</u>&nbsp;&nbsp; Soient \(P\) un schéma en groupes lisse et connexe, \(L\) un Module inversible
+sur \(P\), et posons</p>
+
+\[(4.12.1)\qquad \delta(L)=\pi^*(L)\,\operatorname{pr}_1^*(L)^{-1}\operatorname{pr}_2^*(L)^{-1},\]
+
+<p>les notations étant celles de 4.2. Comme on a déjà signalé dans VII 1.3.4,
+on trouve ainsi un Module inversible birigidifié sur \(P\times P\). En vertu de
+4.3, si \(\delta(L)\) provient d'une biextension, celle-ci est déterminée à isomorphisme
+unique près. Cette biextension est définie en particulier, en
+vertu de 4.7, si \(P\) est une extension d'un schéma abélien \(A\) par une extension
+multiple de tores et de groupes \(G_a\). En tous cas, si elle est définie,
+il est clair que cette biextension est symétrique. Dans le cas favorable
+précédent, et lorsqu'on suppose le tore maximal de \(P\) déployé, on peut
+ramener la construction de \(\delta(L)\) au cas où \(P\) est un schéma abélien, en
+notant qu'elle est évidemment fonctorielle en \(P\), et que d'autre part
+l'homomorphisme</p>
+
+\[(4.12.2)\qquad \operatorname{Pic}(A)\longrightarrow\operatorname{Pic}(P)\]
+
+<p>déduit de l'homomorphisme canonique \(f:A\longrightarrow P\) est surjectif grâce à
+4.5 (cf. début démonstration de 4.6), de sorte que l'on peut trouver
+un isomorphisme</p>
+
+\[L\simeq f^*(M),\]
+
+<p>où \(M\) est un Module inversible sur \(A\). Alors \(\delta(L)\) « est » l'image inverse
+de la biextension \(\delta(M)\) de \((A,A)\) par \(G_{m_k}\).</p>
+
+<div class="thm" id="8.4.13"><span class="thm-head"><u>Proposition 4.13.</u></span>
+<div class="thm-body"><p><u>Sous les conditions de 4.12, supposons que \(L\) soit un
+Module inversible ample sur \(P\). Alors si la biextension \(\delta(L)\) de \((P,P)\)
+par \(G_{m_k}\) est définie, elle est séparante (4.11) ; si \(P\) est extension
+d'un schéma abélien \(A\) par un groupe affine lisse connexe \(L\) satisfaisant
+la condition de 4.7, alors la biextension de \((A,A)\) dont \(\delta(L)\) provient
+(en vertu de 4.8) est de la forme \(\delta(M)\), où \(M\) est un Module inversible
+ample sur \(A\).</u></p></div></div>
+
+<p>On est ramené au cas où \(k\) est algébriquement clos. Par définition,
+il suffit alors de prouver, avec les notations de 4.12, que la biextension
+\(\delta(M)\) de \((A,A)\) est séparante. Or il est prouvé dans la thèse de M. RAYNAUD
+[2, XI 1.11] que si \(L=f^*(M)\) est ample, il en est de même de \(M\). Or il
+est bien connu par la théorie de A. WEIL que cela implique que \(\delta(M)\) est
+séparante [1] [2], i.e. que l'homomorphisme de \(A\) dans son schéma abélien
+dual est une isogénie.</p>
+
+<p id="8.4.14"><u>Remarque 4.14.</u>&nbsp;&nbsp; Plaçons nous dans le cas favorable où \(P\) est extension d'un
+schéma abélien \(A\) par un groupe \(L\) extension multiple de tores et de groupes
+\(G_a\), et considérons l'homomorphisme composé canonique</p>
+
+\[(4.14.1)\qquad \operatorname{NS}(A)\xrightarrow{\delta}
+\operatorname{Biext}^1(A,A;G_m)\xrightarrow{\sim}\operatorname{Biext}^1(P,P;G_m).\]
+
+<p>On sait par 4.8 que la deuxième flèche est bijective, d'autre part il
+est bien connu en théorie des variétés abéliennes que la première flèche
+induit un isomorphisme du groupe de Néron-Séveri \(\operatorname{NS}(A)\) de \(A\) sur le sous-groupe
+de \(\operatorname{Biext}^1(A,A;G_m)=\operatorname{Corr}(A,A)\) formé des (classes de) biextensions
+(\(\simeq\) correspondances divisorielles) <u>symétriques</u>. De ceci résulte que
+le composé (4.14.1) induit un isomorphisme de \(\operatorname{NS}(A)\) avec le groupe des
+biextensions <u>symétriques</u> de \((P,P)\) par \(G_m\) (qui, en vertu de 4.7, peut
+d'ailleurs se décrire également comme le groupe des (classes de)
+correspondances divisorielles sur \((P,P)\) qui sont symétriques. Il s'impose
+d'appeler une correspondance divisorielle sur \((P,P)\) <u>correspondance
+divisorielle ample</u>, et d'appeler encore <u>biextension ample</u> de \((P,P)\) par
+\(G_m\) la biextension correspondante, lorsqu'elle provient d'un élément
+<u>ample</u> du groupe \(\operatorname{NS}(A)\). Cette condition étant manifestement invariante
+par changement du corps de base, on voit que la notion précédente garde
+un sens sans la condition restrictive mise plus haut sur \(P\), en supposant
+seulement \(P\) lisse et connexe.</p>
+
+<p>Notons, lorsqu'on suppose même \(L\) « résoluble sur \(k\) » i.e. qu'il
+se dévisse en groupes \(G_m\) et \(G_a\), qu'il résulte de l'observation précédente,
+et du fait que l'application (4.12.2) est surjective, que l'image de</p>
+
+\[(4.14.2)\qquad \operatorname{Pic}(P)\xrightarrow{\delta}\operatorname{Biext}^1(P,P;G_m)\]
+
+<p>est formée des biextensions symétriques, et que son noyau est le sous-groupe
+\(\operatorname{Pic}^0(P)\) de \(\operatorname{Pic}(P)\) image de \(\operatorname{Pic}^0(A)\), de sorte que, posant</p>
+
+\[\operatorname{NS}(P)=\operatorname{Pic}(P)/\operatorname{Pic}^0(P)\quad(\simeq\operatorname{NS}(A)),\]
+
+<p>on peut interpréter également le composé (4.14.1) comme un isomorphisme
+canonique</p>
+
+\[(4.14.3)\qquad \operatorname{NS}(P)\xrightarrow{\sim}
+\operatorname{Biext}^1(P,P;G_m)^{\mathrm{sym}}.\]
+
+<p>Notons enfin que le théorème de RAYNAUD cité pour 4.13 s'énonce en disant
+qu'un élément \(\xi\) de \(\operatorname{Pic}(P)\) est ample si et seulement si son image \(\delta(\xi)\)
+par 4.14.1 est une classe de biextensions amples.</p>
+
+<h2 id="8.5">5. Extensions et biextensions par des schémas en groupes constants tronqués
+sans torsion</h2>
+
+<p>Nous donnons, dans ce numéro et le suivant, quelques résultats
+auxiliaires, qui seront utilisés au numéro 7 dans le cas \(Z=\mathbb Z\).</p>
+
+<div class="thm" id="8.5.1"><span class="thm-head"><u>Proposition 5.1.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma géométriquement unibranche et irréductible
+de point générique \(\eta\), \(Z\) un groupe sans torsion, d'où un schéma en groupes
+constant \(Z_S\) sur \(S\). Alors tout torseur \(E\) sous le schéma en groupes \(Z_S\)
+est trivial, et le foncteur \(E\longmapsto E(\eta)\) de la catégorie des torseurs sous \(Z_S\)
+dans la catégorie des torseurs sous \(Z=Z_S(\eta)\) est une équivalence de catégories.</u></p></div></div>
+
+<p>Un lemme connu de théorie de la descente (SGA 3 X 5.4) nous
+montre que tout torseur \(E\) sous \(G_S\) est représentable (ce résultat étant
+valable pour tout schéma en groupes sur \(S\) qui est séparé, localement
+de présentation finie et localement quasi-fini sur \(S\)). Comme \(Z_S\) est étale
+sur \(S\), il en est de même par descente fpqc de tout torseur \(E\) sous \(Z_S\),
+qui est donc localement trivial pour la topologie étale et non seulement
+la topologie fppf). Pour prouver que \(E\) est trivial, il suffit donc de
+prouver qu'on a</p>
+
+\[H^1(S_{\mathrm{ét}},Z_S)=e,\]
+
+<p>et de même l'assertion de pleine fidélité de 5.1 se réduit à la relation</p>
+
+\[H^0(S_{\mathrm{ét}},Z_S)\xleftarrow{\sim} Z.\]
+
+<p>Cette dernière étant triviale, prouvons la première. Pour ceci, considérons
+l'inclusion</p>
+
+\[i:\eta\longrightarrow S,\]
+
+<p>on a alors, grâce au fait que \(S\) est géométriquement unibranche</p>
+
+\[i_*(Z_\eta)\xleftarrow{\sim}Z_S\]
+
+<p>(SGA 4 IX 2.14.1), d'où par la suite exacte non commutative de bas degrés
+tenant lieu de suite spectrale de Leray pour \(i:\eta\longrightarrow S\) (SGA 4 XII 3.2) :</p>
+
+\[e\longrightarrow H^1(S,i_*(Z_\eta))\longrightarrow H^1(\eta,Z_\eta)\longrightarrow\cdots,\]
+
+<p>le fait que \(H^1(S,Z_S)\longrightarrow H^1(\eta,Z_\eta)\) est injectif. On est donc ramené au
+cas où \(S\) est le spectre d'un corps \(k\). Si \(\pi\) est le groupe de Galois d'une
+clôture séparable de \(k\), on aura donc</p>
+
+\[H^1(k,Z)=\operatorname{Hom}_{\mathrm{cont}}(\pi,Z)/Z=e,\]
+
+<p>puisque \(E\) est sans torsion. Cela achève la démonstration.</p>
+
+<div class="thm corollary" id="8.5.2"><span class="thm-head"><u>Corollaire 5.2.</u></span>
+<div class="thm-body"><p><u>Avec les notations de 5.1, soit \(P\) un schéma lisse sur \(S\).
+Alors tout torseur \(E\) sous \(Z_P\) est trivial, et le foncteur \(E\longmapsto E_\eta\) de la
+catégorie des torseurs sur \(P\), de groupe \(Z_P\), dans la catégorie des torseurs
+sur \(P_\eta\) de groupe \(Z_{P_\eta}\), est une équivalence de catégories.</u></p></div></div>
+
+<p>En effet, \(P\) est géométriquement unibranche (EGA IV 17.5.7), et comme
+chaque composante irréductible de \(P\) domine \(S\), \(P\) étant plat sur \(S\),
+l'ensemble des composantes irréductibles de \(P\) est localement fini. Donc
+\(P\) est un préschéma somme de préschémas irréductibles géométriquement
+unibranches \(P_i\). Ceci dit, 5.2 résulte aussitôt de 5.1 appliqué aux
+divers \(P_i\) et aux \(P_{i\eta}\), compte tenu que le point générique \(p_i\) de \(P_i\) est
+aussi point générique de \(P_{i\eta}\).</p>
+
+<p id="8.5.2.1"><u>5.2.1.</u>&nbsp;&nbsp; Du corollaire précédent résulte aussitôt l'énoncé analogue pour
+les bitorseurs sur \(P\) sous \((Z_P,Z_P)\) : le foncteur \(E\longmapsto E_\eta\) de la catégorie
+de ceux-ci, dans la catégorie des bitorseurs sur \(P_\eta\) sous \((Z_{P_\eta},Z_{P_\eta})\) est
+une équivalence de catégories. En effet, il suffit d'expliciter la structure
+de bitorseur de \(E\) en termes de celle de torseur à droite sous \(Z_P\),
+muni d'un isomorphisme de \(Z_P\) dans le commutant de \(Z_P\) pour son opération
+sur \(E\), en utilisant le fait que \(E\) est nécessairement trivial donc que
+le commutant en question est isomorphe à \(Z_P\) lui-même. On est donc ramené
+à la remarque triviale suivante pour les composantes irréductibles \(X\) de \(P\) :
+si \(X\) est un schéma connexe non vide, le foncteur \(Z\longmapsto Z_X\) de la catégorie
+des ensembles dans celle des \(X\)-schémas est pleinement fidèle.</p>
+
+<div class="thm" id="8.5.3"><span class="thm-head"><u>Proposition 5.3.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) et \(Z\) comme dans 5.1, et \(P\) un schéma en groupes
+lisse sur \(S\). Considérons les extensions \(E\) de schémas en groupes de \(P\) par \(Z_S\).
+Alors le foncteur \(E\longmapsto E_\eta\), allant de la catégorie de ces extensions
+dans celle des extensions de schémas en groupes de \(P_\eta\) par \(Z_\eta\), est une
+équivalence de catégories. Si \(P\) et \(Z\) sont commutatifs, ce foncteur induit
+aussi une équivalence entre les catégories d'extensions commutatives
+correspondantes.</u></p></div></div>
+
+<p>Notons d'abord que toute extension de faisceaux de groupes de
+\(P\) par \(Z_S\) (ou de \(P_\eta\) par \(Z_\eta\)) donne naissance par 5.2 à un torseur trivial,
+et <i>a fortiori</i> représentable. Donc les catégories envisagées dans 5.3
+peuvent aussi s'interpréter comme des catégories d'extensions de faisceaux
+de groupes. Celles-ci sont justiciables de la description donnée dans
+VII 1.1.6 et 1.2 en termes de bitorseurs sur \(P\), \(P\times P\), \(P\times P\times P\) (resp. sur
+\(P_\eta\), \(P_\eta\times P_\eta\), \(P_\eta\times P_\eta\times P_\eta\)), sous les paires de groupes déduites de
+\((Z,Z)\) par changement de base. Appliquant 5.2 dans le cas des extensions
+commutatives, et 5.2.1 dans le cas général, aux schémas (lisses sur \(S\))
+\(P\), \(P\times P\) et \(P\times P\times P\), on obtient la conclusion annoncée. On trouve de façon
+toute analogue :</p>
+
+<div class="thm corollary" id="8.5.4"><span class="thm-head"><u>Corollaire 5.4.</u></span>
+<div class="thm-body"><p><u>Soient \(S,Z\) comme dans 5.1, et \(P,Q\) deux schémas en groupes
+lisses sur \(S\). On suppose \(P,Q,Z\) commutatifs, et on considère les biextensions
+\(E\) de \((P,Q)\) par \(Z_S\). Alors le foncteur \(E\longmapsto E_\eta\) qui va de la catégorie
+de ces biextensions dans la catégorie des biextensions de \((P_\eta,Q_\eta)\) par \(Z_\eta\),
+est une équivalence de catégories.</u></p></div></div>
+
+<p>Les résultats précédents nous amènent donc à déterminer les
+catégories d'extensions ou de biextensions par un groupe constant sans
+torsion, dans le cas d'un schéma de base réduit au spectre d'un corps.
+On trouve alors ceci :</p>
+
+<div class="thm" id="8.5.5"><span class="thm-head"><u>Proposition 5.5.</u></span>
+<div class="thm-body"><p><u>Soient \(k\) un corps, \(Z\) un groupe sans torsion, \(P\) un
+\(k\)-schéma en groupes localement de type fini, \(P^0\) la composante neutre,
+\(\Phi=P/P^0\) le groupe des composantes connexes (SGA 3 VI<sub>A</sub> 4). Alors</u></p>
+
+<p><u>(i)&nbsp;&nbsp; Le foncteur naturel allant de la catégorie des schémas
+en groupes, extensions (resp. extensions commutatives) de \(\Phi\) par \(Z_k\),
+dans la catégorie des schémas en groupes extensions (resp. extensions
+commutatives) de \(P\) par \(Z_k\), est une équivalence de catégories. En particulier,
+si \(P\) est connexe, toute extension de \(P\) par \(Z_k\) est triviale,
+et la catégorie de ces extensions est rigide.</u></p>
+
+<p><u>(ii)&nbsp;&nbsp; Supposons que \(\Phi\) soit un groupe de torsion (p. ex. \(P\) de
+type fini), et \(P\) et \(Z\) commutatifs. Alors la catégorie des extensions
+de \(P\) par \(Z_k\) est rigide, i.e. tout automorphisme d'un objet de cette
+catégorie est trivial. Si de plus il existe \(n>0\) tel que \(n.\operatorname{id}_\Phi=0\),
+par exemple si \(\Phi\) est fini, p. ex. \(Z\) de type fini, alors le groupe des classes
+d'extensions commutatives de \(P\) par \(G_k\) est donné par un isomorphisme
+canonique</u></p>
+
+\[(5.5.1)\qquad \operatorname{Ext}^1(P,Z_k)\xleftarrow{\sim}
+\operatorname{Hom}(\Phi,(Z\otimes_{\mathbb Z}\mathbb Q)/Z),\]
+
+<p><u>donné par l'opérateur cobord de la suite exacte des \(\operatorname{Ext}\) déduite de la
+suite exacte</u></p>
+
+\[(5.5.2)\qquad 0\longrightarrow Z\longrightarrow Z\otimes_{\mathbb Z}\mathbb Q
+\longrightarrow (Z\otimes_{\mathbb Z}\mathbb Q)/Z\longrightarrow0.\]
+</div></div>
+
+<p>Notons que le morphisme canonique</p>
+
+\[P\longrightarrow\Phi\]
+
+<p>induit évidemment un isomorphisme sur les ensembles de composantes
+irréductibles, car c'est un morphisme plat à fibres irréductibles,</p>
+
+<p>Donc en vertu de 5.1, le foncteur induit de la catégorie des torseurs
+sous \(Z_\Phi\) dans la catégorie des torseurs sous \(Z_P\) est une équivalence de
+catégories. (On se rappellera qu'un schéma en groupes localement de type
+fini sur \(k\) est géométriquement unibranche). La même conclusion s'applique
+aux catégories de bitorseurs, et aux morphismes</p>
+
+\[P\times P\longrightarrow\Phi\times\Phi,\qquad
+P\times P\times P\longrightarrow\Phi\times\Phi\times\Phi.\]
+
+<p>La description VII 1.1.6 des extensions de \(P\) par \(Z_k\) resp. de \(\Phi\) par \(Z_k\)
+(et VII 1.3 dans le cas d'extensions commutatives) implique alors les
+assertions de (i). Bornons nous maintenant au cas des extensions commu&shy;tatives.
+Alors le groupe des automorphismes d'une extension de \(P\) par \(G_k\)
+est le groupe</p>
+
+\[\operatorname{Hom}(P,G_k)\xleftarrow{\sim}\operatorname{Hom}(\Phi,G_k),\]
+
+<p>qui est évidemment nul si \(\Phi\) est un groupe de torsion. On a de même, si
+\(V=G\otimes_{\mathbb Z}\mathbb Q\), et lorsque \(\Phi\) est fini,</p>
+
+\[\operatorname{Ext}^i(\Phi,V_k)=0\quad\text{pour tout }i\in\mathbb Z,\]
+
+<p>car les groupes envisagés sont des vectoriels sur \(\mathbb Q\) annulés par l'entier
+\(n&gt;0\). L'isomorphisme (5.5.1) en résulte aussitôt.</p>
+
+<p>On prouve de la même façon essentiellement :</p>
+
+<div class="thm corollary" id="8.5.6"><span class="thm-head"><u>Corollaire 5.6.</u></span>
+<div class="thm-body"><p><u>Soient \(k\) un corps, \(Z\) un groupe commutatif sans torsion,
+\(P\) et \(Q\) deux schémas en groupes commutatifs localement de type fini sur
+\(k\), \(\Phi=P/P^0\) et \(\Psi=Q/Q^0\) les groupes des composantes neutres. Alors :</u></p>
+
+<p><u>(i)&nbsp;&nbsp; Le foncteur naturel, allant de la catégorie des biextensions
+de \((\Phi,\Psi)\) par \(Z_k\) dans celle des biextensions de \((P,Q)\) par \(Z_k\), est une équivalence
+de catégories. Si en particulier \(P\) ou \(Q\) est connexe, la catégorie des
+biextensions de \((P,Q)\) par \(Z_k\) est équivalente à la catégorie ponctuelle.</u></p>
+
+<p><u>(ii)&nbsp;&nbsp; Supposons que \(\Phi\) ou \(\Psi\) soit un groupe de torsion. Alors
+la catégorie des biextensions de \((P,Q)\) par \(Z_k\) est rigide. Si de plus
+il existe un entier \(n&gt;0\) tel que \(n.\operatorname{id}_\Phi=0\) ou \(n.\operatorname{id}_\Psi=0\), alors le
+groupe des classes de biextensions de \((P,Q)\) par \(Z_k\) est donné par un
+isomorphisme canonique</u></p>
+
+\[(5.6.1)\qquad \operatorname{Biext}^1(P,Q;G_k)\xleftarrow{\sim}
+\operatorname{Hom}(\Phi\otimes\Psi,(Z\otimes_{\mathbb Z}\mathbb Q)/Z),\]
+
+<p><u>donné par l'opérateur cobord de la suite exacte des \(\operatorname{Biext}^i\) (\(i=0,1\))
+déduite de la suite exacte (5.5.2).</u></p></div></div>
+
+<p id="8.5.7"><strong>5.7.</strong>&nbsp;&nbsp; Soient \(S\) un schéma, \(T\) un sous-schéma fermé, \(Z\) un ensemble. Appelons
+<u>schéma constant sur \(S\), tronqué sur \(T\), de valeur \(Z\)</u>, et désignons par \(Z_{S,T}\),
+le schéma obtenu par recollement en prenant la somme de \(Z\) copies \(S_z\) (\(z\in Z\)) de \(S\),
+qu'on recolle suivant l'ouvert \(U=S-T\) complémentaire de \(T\). Donc on a</p>
+
+\[(5.7.1)\qquad Z_{S,T}\times_S U\xleftarrow{\sim}U,
+\qquad Z_{S,T}\times_S T\xleftarrow{\sim}Z_T,\]
+
+<p>et \(Z_{S,T}\) est un schéma <u>étale sur</u> \(S\). Pour un \(S\)-schéma variable \(S'\), on a
+un isomorphisme fonctoriel en \(S'\) :</p>
+
+\[(5.7.2)\qquad \operatorname{Hom}_S(S',Z_{S,T})\xleftarrow{\sim}
+\operatorname{Hom}_T(S'_T,Z_T),\]
+
+<p>la flèche étant définie par « restriction à \(S'_T\) », compte tenu du deuxième
+isomorphisme (5.7.1) ; nous laissons au lecteur le soin de vérifier que
+cette flèche est bijective. Désignant par</p>
+
+\[i:T\longrightarrow S\]
+
+<p>l'inclusion, l'isomorphisme fonctoriel (5.7.2) peut aussi s'écrire comme
+un isomorphisme de faisceaux</p>
+
+\[(5.7.3)\qquad Z_{S,T}\xleftarrow{\sim}i_*(Z_T).\]
+
+<p>On voit sur cette formule, ou directement sur la définition, que pour
+\(Z\) variable, \(Z_{S,T}\) dépend fonctoriellement de \(Z\), ledit foncteur commutant
+aux limites projectives finies. Il transforme en particulier groupes en
+groupes, groupes commutatifs en groupes commutatifs, ce qui est également
+clair sur la forme (2.7.2) du foncteur représenté par \(Z_{S,T}\).</p>
+
+<p>Signalons aussi qu'il est trivial sur la définition, ou sur
+(5.7.3), que la formation de \(Z_{S,T}\) commute à tout changement de base
+\(f:S'\longrightarrow S\), qui donne naissance à un isomorphisme de foncteurs en \(Z\)</p>
+
+\[(5.7.4)\qquad Z_{S,T}\times_S S'\xleftarrow{\sim}Z_{S',T'},
+\qquad\text{où }T'=T\times_S S'=T_{S'}.\]
+
+<p id="8.5.8"><strong>5.8.</strong>&nbsp;&nbsp; Nous nous proposons d'étudier les torseurs \(E\) sous un groupe de
+la forme \(Z_{S,T}\), où \(Z\) est un groupe, qu'on suppose ici commutatif pour
+simplifier. On a un foncteur naturel</p>
+
+\[(5.8.0)\qquad E\longmapsto E_T\]
+
+<p>de la catégorie des torseurs sous \(Z_{S,T}\) dans la catégorie des torseurs
+sous \(Z_T\). Je dis que ce foncteur est une <u>équivalence de catégories</u>.
+En effet, le fait qu'il est pleinement fidèle, i.e. que pour deux
+torseurs, \(E,F\) sous \(Z_{S,T}\), l'application \(\operatorname{Hom}(E,F)\longrightarrow
+\operatorname{Hom}(E_T,F_T)\) est bijective, se ramène immédiatement par descente fpqc au cas où \(E\) et \(F\)
+sont triviaux, donc au cas \(E=F=(G_{S,T})\), où ce n'est autre que la
+bijectivité de (5.7.2) pour \(S'=S\). Prouvons que (5.8.0) est essentiellement
+surjectif. Soit \(E_T\) un torseur sous \(Z_T\). On a déjà noté dans la démons&shy;tration
+de 5.1 que \(E_T\) est représentable et localement trivial pour la
+topologie étale. Il suffit donc de prouver que</p>
+
+\[H^1(S_{\mathrm{\acute et}},Z_{S,T})\longrightarrow H^1(T_{\mathrm{\acute et}},Z_T)\]
+
+<p>est bijectif, ce qui résulte de (5.7.3) et de la relation</p>
+
+\[R^1i_{\mathrm{\acute et}*}(Z_T)=0,\]
+
+<p>cas particulier de SGA 4 VIII 5.6.</p>
+
+<p id="8.5.8.1"><strong>5.8.1.</strong>&nbsp;&nbsp; Soit maintenant \(P\) un schéma en groupes commutatif sur \(S\), et
+proposons-nous de déterminer la catégorie des extensions de faisceaux
+en groupes commutatifs de \(P\) par \(Z_{S,T}\). Pour ceci, on utilise la descrip&shy;tion
+(VII 1.1.6, 1.3) en termes de torseurs sur \(P\), \(P\times P\), \(P\times P\times P\), sous
+les groupes images inverses de \(Z_{S,T}\). Or ces images inverses sont de la
+même forme que \(Z_{S,T}\) en vertu de (5.7.4), et on peut donc appliquer à
+la description de ces torseurs le résultat précédent, qui nous apprend
+qu'ils correspondent aux torseurs sur \(P_T\), \(P_T\times_TP_T\), \(P_T\times_TP_T\times_TP_T\) sous les
+groupes images inverses de \(Z_T\). On trouve ainsi :</p>
+
+<div class="thm" id="8.5.9"><span class="thm-head"><u>Proposition 5.9.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma, \(T\) un sous-schéma fermé, \(G\) un groupe
+commutatif, \(G_{S,T}\) le schéma en groupes constant tronqué correspondant
+sur \(S\) défini dans 5.7, \(P\) un schéma en groupes commutatifs sur \(S\). Alors
+le foncteur de restriction à \(T\) induit une équivalence entre la catégorie
+des faisceaux en groupes commutatifs extensions de \(P\) par \(G_{S,T}\), et la
+catégorie des faisceaux en groupes commutatifs extensions de \(P_T\) par \(G_T\).</u></p></div></div>
+
+<p>On trouve, par une démonstration essentiellement identique :</p>
+
+<div class="thm corollary" id="8.5.10"><span class="thm-head"><u>Corollaire 5.10.</u></span>
+<div class="thm-body"><p><u>Avec les notations de 5.9, soit de plus \(Q\) un schéma en
+groupes commutatifs sur \(S\). Alors le foncteur restriction à \(T\) induit
+une équivalence entre la catégorie des biextensions de \((P,Q)\) par \(Z_{S,T}\),
+et la catégorie des biextensions de \((P_T,Q_T)\) par \(Z_T\).</u></p></div></div>
+
+<h2 id="8.6">6. Extensions et biextensions par le modèle de Néron de \(G_m\).</h2>
+
+<p id="8.6.1"><strong>6.1.</strong>&nbsp;&nbsp; Soient \(S\) un schéma, \(T\) un sous-schéma fermé, \(Z\) un ensemble, d'où
+un schéma constant tronqué \(Z_{S,T}\) sur \(S\) (5.7). On a un homomorphisme cano&shy;nique,
+fonctoriel en \(Z\), de schémas étales sur \(S\) :</p>
+
+\[(6.1.1)\qquad Z_S\longrightarrow Z_{S,T},\]
+
+<p>qui est un morphisme <u>surjectif</u>, comme il résulte aussitôt de (5.7.1).
+De sa fonctorialité en \(Z\) résulte que lorsque \(Z\) est un groupe, (6.1.1)
+est un homomorphisme de schémas en groupes étales sur \(S\). Son noyau est
+donc un schéma en groupes étale sur \(S\), noté \(Z_{S,U}\), et on a une suite
+exacte canonique, fonctorielle en \(Z\) :</p>
+
+\[(6.1.2)\qquad 0\longrightarrow Z_{S,U}\longrightarrow Z_S
+\longrightarrow Z_{S,T}\longrightarrow0.\]
+
+<p>On constate aussitôt, grâce à (5.7.1), que \(Z_{S,U}\) est la somme d'une
+famille de \(S\)-schémas \(S_n\), \(n\in Z\), avec \(S_n=S\) pour \(n=0\), et \(S_n=U\) pour
+\(n\ne0\). De cette description de \(Z_{S,U}\) résulte aisément que pour tout
+Groupe \(F\) sur \(S\), l'application de restriction à \(U\) induit une bijection :</p>
+
+\[(6.1.3)\qquad \operatorname{Hom}_{\mathrm{gr}}(Z_{S,U},F)
+\xrightarrow{\sim}\operatorname{Hom}_{\mathrm{gr}}(Z_U,F|U).\]
+
+<p id="8.6.1.4"><strong>6.1.4.</strong>&nbsp;&nbsp; Nous supposons par la suite \(Z\) commutatif, et nous nous proposons
+d'examiner les extensions de Groupes commutatifs de \(Z_{S,T}\) par un Groupe
+commutatif donné \(G\) sur \(S\). Par la suite exacte (6.1.2), la catégorie de
+ces extensions est équivalente à la catégorie des extensions \(F\) de \(Z_S\)
+par \(G\), munies d'une trivialisation de l'image inverse de cette extension
+par \(Z_{S,U}\longrightarrow Z_S\). En vertu de (6.1.3), une telle trivialisation revient
+à la donnée d'une trivialisation de l'extension \(F|U\) de \(Z_U\) par \(G|U\).</p>
+
+<p>Pour la suite, nous prendrons pour \(Z\) le groupe \(\mathbb Z\) des entiers,
+donc \(\mathbb Z_S\) est le Groupe libre à un générateur, et VII 1.4 nous fournit
+une équivalence entre la catégorie des extensions de \(\mathbb Z_S\) par \(G\), et la
+catégorie des torseurs sous \(G\). On trouve donc, en appliquant le même
+résultat à \(Z_U\) et \(G|U\) :</p>
+
+<div class="thm lemma" id="8.6.2"><span class="thm-head"><u>Lemme 6.2.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma, \(T\) un sous-schéma fermé, \(U=S-T\), \(G\) un
+Groupe commutatif sur \(S\). La catégorie des Groupes commutatifs sur \(S\)
+extensions de \(\mathbb Z_{S,T}\) (défini dans (5.7)) par \(G\) est équivalente à la
+catégorie des couples \((F,s)\) formés d'un torseur \(F\) sous \(G\) et d'une
+section \(s\) de \(F|U\). Si \(\alpha:S\longrightarrow\mathbb Z_{S,T}\) est la section de \(\mathbb Z_{S,T}\) image
+de la section \(1\) de \(\mathbb Z_S\) sur \(S\), à l'extension \(\overline G\) de \(\mathbb Z_{S,T}\) par \(G\) corres&shy;pond
+le torseur \(F=\alpha^*(\overline G)\) sous \(G\), muni de la section de \(F|U\) donnée par
+la restriction à \(U\) de la section unité de \(\overline G\).</u></p></div></div>
+
+<p id="8.6.2.1"><strong>6.2.1.</strong>&nbsp;&nbsp; Si \(\overline G\) correspond au couple \((F,s)\), l'image inverse \(f_n^*(\overline G)\) dans \(\overline G\)
+de la section \(f_n\) de \(\mathbb Z_{S,T}\), définie par la section constante de valeur
+\(n\in\mathbb Z\) de \(\mathbb Z_S\), s'identifie canoniquement, comme torseur sous \(G\), à la
+puissance n.ième \(F^{(n)}\) du \(G\)-torseur \(F\) ; l'isomorphisme canonique de
+\(G_U\)-torseurs \(f_n^*(\overline G)|U\xrightarrow{\sim}G_U\), définie par la première relation (5.7.1),
+est définie par la section \(s^{(n)}\) de \(F_U^{(n)}\) puissance n.ième de la section
+donnée \(s\) de \(F_U\). De cette explicitation résulte la description suivante
+des sections de \(\overline G\) sur \(S\) : une section \(\bar g\) de \(\overline G\) sur \(S\) est définie par</p>
+
+<ol class="enumerate">
+<li><span class="item-label">a)</span> une section \(n\) de \(\mathbb Z_{S,T}\) sur \(S\), qu'on peut interpréter
+comme une section de \(\mathbb Z_T\) i.e. une fonction localement constante sur \(T\)
+à valeurs dans \(\mathbb Z\), ou si on préfère, une partition \(T=\coprod_{i\in\mathbb Z}T_i\) de \(T\)
+en somme disjointe de parties ouvertes indexées par les \(i\in\mathbb Z\) ;</li>
+<li><span class="item-label">b)</span> une famille de sections
+\[\bar g_i\in\Gamma(F^{(i)}/S'_i),\quad i\in\mathbb Z,\quad\text{où }S'_i=S-T'_i,\quad
+T'_i=\coprod_{\substack{j\in\mathbb Z\\j\ne i}}T_j,\]
+les sections \(\bar g_i\) pour \(i\in\mathbb Z\) étant liées par la condition de compatibilité
+suivante : pour \(i,j\in\mathbb Z\), \(g_i\) et \(g_j\) coïncident sur \(S'_i\cap S'_j=U\), quand on
+identifie \(F^{(i)}|U\) et \(F^{(j)}|U\) à \(G_U\), grâce à la section \(s^{(i)}\) resp. \(s^{(j)}\)
+de ces torseurs. En d'autres termes, il doit exister une section
+\(h_{ij}\in\Gamma(G/U)\), évidemment uniquement déterminée, telle qu'on ait
+\[\bar g_i=h_{ij}s^{(i)},\qquad \bar g_j=h_{ij}s^{(j)}.\]</li>
+</ol>
+
+<p>Comme la description 3.2 d'une extension \(\overline G\) de \(\mathbb Z_{S,T}\) par \(G\)
+est évidemment compatible avec tout changement de base \(S'\longrightarrow S\), ce
+qui précède donne une description complète du faisceau \(\overline G\) comme foncteur
+en l'argument \(S'\in\operatorname{Ob}\operatorname{Sch}/S\).</p>
+
+<p id="8.6.2.2"><strong>6.2.2.</strong>&nbsp;&nbsp; Lorsque \(T\) est un schéma somme de schémas connexes non vides \(T_i\),
+\(i\in I\), alors la description 6.2.1 des sections de \(\overline G\) sur \(S\) peut se sim&shy;plifier : une telle section est définie par une famille d'entiers
+\((n_i)_{i\in I}\) indexée par le même ensemble \(I\), une famille des sections
+\[\bar g_i\in\Gamma(F^{(n_i)}/S'_i),\quad\text{pour }i\in I,\quad\text{où }S'_i=S-T'_i,\quad
+T'_i=\coprod_{\substack{j\in I\\j\ne i}}T_j,\]
+les \(\bar g_i\) satis&shy;faisant à la condition de compatibilité suivante : pour tout couple
+d'éléments \(i,j\in I\), les restrictions de \(\bar g_i\) et \(\bar g_j\) à \(S'_i\cap S'_j=U\) s'identifient,
+modulo l'identification de \(F^{(n_i)}|U\) et de \(F^{(n_j)}|U\), déduites des sections
+\(s^{(n_i)}\) resp. \(s^{(n_j)}\) de ces torseurs.</p>
+
+<p id="8.6.2.3"><strong>6.2.3.</strong>&nbsp;&nbsp; Lorsqu'on suppose enfin \(T\) connexe non vide, la donnée d'une
+section \(\bar g\) de \(\overline G\) sur \(S\) revient à la donnée d'un entier \(n\), et d'une section
+\(\bar g\) de \(F^{(n)}\) sur \(S\). Il n'y a plus de condition de compatibilité à imposer,
+de sorte que la section \(s\) de \(F|U\) est absente de la description du groupe
+des sections de \(\overline G\) sur \(S\). (Mais \(s\) apparaît de nouveau, bien entendu, dès
+qu'on se propose de donner une description des points de \(\overline G\) à valeurs
+dans un \(S\)-schéma général \(S'\).)</p>
+
+<p id="8.6.2.4"><strong>6.2.4.</strong>&nbsp;&nbsp; Comme \(\overline G\) est réunion des "ouverts" \(f_n^*(\overline G)\) (\(n\in\mathbb Z\)) décrits dans
+6.2.1, on en conclut que \(\overline G\) est représentable si et seulement si les
+torseurs \(F^{(n)}\) le sont. Il suffit par exemple, pour ceci, que \(G\) soit
+représentable et soit un schéma en groupes affine sur \(S\), grâce à la
+théorie de la descente SGA 1 VIII 2.1.</p>
+
+<p id="8.6.3"><strong>6.3.</strong>&nbsp;&nbsp; Dans la suite, nous supposerons que \(G=G_{m,S}\), de sorte que toute
+extension \(\overline G\) de \(\mathbb Z_{S,T}\) par \(G=G_{mS}\) sera bien représentable (6.2.4), et bien
+entendu, sera lisse sur \(S\) comme extension d'un schéma en groupes étale
+\(\mathbb Z_{S,T}\) par un schéma en groupes lisse \(G_{mS}\). De plus, la donnée d'un torseur
+\(F\) sous \(G_m\) équivalant à la donnée d'un Module inversible \(L\) sur \(S\) (en asso&shy;ciant à ce dernier le torseur des sections inversibles de \(L\)). Donc \(\overline G\)
+est décrit par un couple \((L,s)\), où \(L\) est un Module inversible sur \(S\), et
+\(s\) une trivialisation de \(L\) sur \(U=S-T\), i.e. une section inversible de \(L|U\).
+Lorsque \(U\) est schématiquement dense dans \(S\), et que \(S\) est localement
+noethérien, ou réduit et l'ensemble de ses composantes irréductibles est
+localement fini, la donnée d'un tel couple équivaut à celle d'un <u>diviseur
+\(D\) sur \(S\) tel que</u></p>
+
+\[(6.3.1)\qquad \operatorname{supp}D\subset T,\]
+
+<p>en faisant correspondre à un tel diviseur le couple</p>
+
+\[(6.3.2)\qquad (\mathcal O_S(-D),s_D|U)\]
+
+<p>du Module inversible \(\mathcal O_S(-D)\) associé à \(-D\) (EGA IV 21.2.8.1), et de la
+restriction à \(U\) de la section rationnelle canonique \(s_{-D}\) de celui-ci
+(EGA IV 21.2.11 et 20.2.11 (iii)). En tous cas, sans hypothèse sur \(S\),
+la donnée d'un diviseur \(D\) sur \(S\) satisfaisant (6.3.1) définit un couple
+\((L,s)\) par (6.3.2), donc une extension \(\overline G\) de \(\mathbb Z_{S,T}\) par \(G_m\), que nous
+appellerons le <u>modèle de Néron-Raynaud de \(G_m\)</u>, associé au diviseur \(D\)
+et au fermé \(T\) de \(S\) satisfaisant (6.3.1). Si \(T=\operatorname{supp}D\), on omet \(T\) dans
+la terminologie.</p>
+
+<p>Il est immédiat que la formation de cette extension \(\overline G\) commute
+à tout changement de base \(f:S'\longrightarrow S\) tel que le diviseur image inverse
+\(f^*(D)\) soit défini (EGA IV 21.4.2), en particulier à tout changement de
+base <u>plat</u>.</p>
+
+<p id="8.6.3.3"><strong>6.3.3.</strong>&nbsp;&nbsp; On voit aussitôt, grâce à la description générale 6.2.1 des
+sections de \(\overline G\), que celles-ci peuvent s'identifier aux sections \(f\) du
+faisceau \(\mathcal M_S^*\) des sections méromorphes régulières sur \(S\) (EGA IV 20.1.8)
+dont le diviseur \(\operatorname{div}(f)\) est localement (au sens de la topologie de
+Zariski) un multiple entier de \(D\). Si \(V\) est un ouvert de \(S\) tel que la
+restriction de \(\operatorname{div}f\) à \(V\) est égal à celle de \(nD\), où \(n\in\mathbb Z\), alors la
+section de \(\mathbb Z_{S,T}\) définie par \(f\) n'est autre que l'image de la section
+constante de valeur \(n\) de \(\mathbb Z_S\) dans (6.1.2). La description précédente
+du groupe des sections de \(\overline G\) sur \(S\) reste valable au-dessus de tout ouvert
+de \(S\), plus généralement pour le groupe de points de \(\overline G\) à valeurs dans
+n'importe quel \(S\)-schéma plat \(S'\). Comme \(\overline G\) lui-même est plat (et même lisse)
+sur \(S\), cette description redonne donc une caractérisation complète du
+modèle de Néron-Raynaud de \(G_m\) défini par \(D\) et \(T\supset\operatorname{supp}D\).</p>
+
+<p id="8.6.4"><strong>6.4.</strong>&nbsp;&nbsp; Supposons maintenant que \(S\) soit <u>normal</u>, et l'ensemble de ses
+composantes irréductibles localement fini (donc \(S\) est un schéma somme
+de schémas normaux intègres), et supposons que le diviseur \(D\) soit positif,
+à multiplicités 1 (EGA IV 21.6), que \(T=\operatorname{supp}D\), et que \(T\) soit localement
+irréductible i.e. que ses composantes irréductibles soient disjointes.
+Alors pour toute fonction rationnelle \(f\) sur \(S\), régulière sur \(U=S-T\),
+\(\operatorname{div}f\) est localement un multiple de \(D\), donc on a dans ce cas un isomorphisme de groupes canonique :</p>
+
+\[(6.4.1)\qquad \Gamma(S,\overline G)\xrightarrow{\sim}\Gamma(U,G_{mU}).\]
+
+<p>Supposons même \(T\) géométriquement unibranche et localement intègre,
+hypothèse qui est stable par changement de base lisse (EGA IV 17.5.7).
+Alors, toutes les hypothèses étant stables par changement de base, on
+déduit de (6.4.1) que <u>pour \(S'\) lisse sur \(S\), on a un isomorphisme de groupes
+canonique, fonctoriel en \(S'\)</u> :</p>
+
+\[(6.4.2)\qquad \operatorname{Hom}_S(S',\overline G)\xrightarrow{\sim}
+\operatorname{Hom}_U(S'_U,G_{mU})\simeq\Gamma(S'_U,\mathcal O_{S'_U}^*).\]
+
+<p>Comme \(\overline G\) est lui-même lisse sur \(S\), cet isomorphisme caractérise le schéma
+en groupes \(\overline G\) sur \(S\) à isomorphisme unique près. D'autre part, il montre
+que \(\overline G\) joue le rôle d'un "modèle de Néron" pour le schéma en groupes \(G_{mU}\)
+sur l'ouvert \(U\) de \(S\), ce qui (joint au fait qu'il a été introduit et
+utilisé pour la première fois par M. RAYNAUD) justifie la terminologie
+adoptée dans 6.3 pour désigner \(\overline G\).</p>
+
+<div class="thm" id="8.6.5"><span class="thm-head"><u>Théorème 6.5.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma normal localement intègre, \(D\) un diviseur
+positif sur \(S\), sans composantes multiples, tel que le support de \(D\) soit
+géométriquement unibranche et localement intègre. Soit \(\overline G\) le modèle de
+Néron-Raynaud de \(G_m\) sur \(S\) relatif à \(D\) (6.3), et considérons la catégorie
+des torseurs \(E\) sur \(S\) sous le schéma en groupes \(\overline G\). Le foncteur restriction</u></p>
+\[E\longmapsto E_U=E|U,\]
+<p><u>qui va de cette catégorie dans la catégorie des torseurs sur \(U\) sous
+le schéma en groupes \(G_{mU}\), est pleinement fidèle. Si \(S\) est un schéma
+régulier (plus généralement, si ces anneaux locaux sont factoriels),
+alors ce foncteur est même une équivalence de catégories.</u></p></div></div>
+
+<p>Montrons que le foncteur envisagé est pleinement fidèle, i.e.
+que pour deux torseurs \(E,F\) sous \(\overline G\), l'application de restriction</p>
+
+\[(*)\qquad \operatorname{Hom}(E,F)\longrightarrow\operatorname{Hom}(E_U,F_U)\]
+
+<p>est bijective, où les Hom désignent les ensembles d'homomorphismes de
+<u>torseurs</u>. Notons d'abord que cette question est manifestement <u>locale
+sur \(S\) pour la topologie de Zariski</u> : si \(S\) est réunion d'ouverts \(S_i\) tels
+que pour tout ouvert \(S'\) de \(S\) contenu dans un \(S_i\) (donc en particulier pour
+\(S'\) de la forme \(S_i\) ou \(S_i\cap S_j\)), l'application</p>
+
+\[\operatorname{Hom}(E_{S'},F_{S'})\longrightarrow
+\operatorname{Hom}(E_{S'\cap U},F_{S'\cap U})\]
+
+<p>est bijective, alors l'application (*) est bijective. D'autre part, il
+résulte aussitôt de 5.8 appliqué à \(S,T,\mathbb Z\), et de 5.1 appliqué à \(T,\mathbb Z\),
+que tout torseur sous \(\overline G\) est localement trivial pour la topologie de
+Zariski. Ces deux observations nous ramènent à prouver la bijectivité
+de l'application (*) dans le cas où \(E=F=\overline G\). Mais alors cette application
+n'est autre que (6.4.1), dont la bijectivité a déjà été établie.</p>
+
+<p>Montrons maintenant que le foncteur \(E\longmapsto E_U\) envisagé est
+essentiellement surjectif lorsque les anneaux locaux de \(S\) sont factoriels.
+Comme \(G_{m,S}\) s'identifie à un sous-schéma en groupes ouvert de \(\overline G\), il suffit
+de prouver que tout torseur sous \(G_{m,U}\) est isomorphe à la restriction à
+\(U\) d'un torseur sous \(G_{m,S}\). Il revient au même de dire que tout Module
+inversible sur \(U\) est isomorphe à la restriction d'un Module inversible
+sur \(S\), ce qui résulte en effet de l'hypothèse faite sur \(S\) (EGA IV 21.6.11,
+où on se borne au cas localement noethérien, qui est le seul cas qui
+nous servira par la suite). Cela prouve 6.5.</p>
+
+<p id="8.6.5.1"><strong>6.5.1.</strong>&nbsp;&nbsp; Plaçons nous maintenant dans le cas où on suppose de plus \(S\)
+localement noethérien et <u>régulier</u>. Comme \(S\) est alors localement factoriel,
+la donnée de \(D\) équivaut à celle d'un sous-schéma fermé (que nous notons
+encore \(D\)) qui soit purement 1-codimensionnel, réduit et géométriquement
+unibranche. Notons aussi que les hypothèses sur \(S\) et \(D\) sont stables par
+tout changement de base lisse \(S'\longrightarrow S\), de sorte que la conclusion de 6.5
+s'appliquera à \(S'\) muni du sous-schéma \(D'=D\times_SS'\) de \(S'\). Ceci dit, la
+description VII 1.1.6 des Groupes extensions nous donne aussitôt la
+conséquence suivante :</p>
+
+<div class="thm corollary" id="8.6.6"><span class="thm-head"><u>Corollaire 6.6.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma localement noethérien et régulier,
+\(D\) un sous-schéma fermé réduit géométriquement unibranche et purement
+1-codimensionnel (définissant donc un diviseur sur \(S\)), \(\overline G\) le modèle de
+Néron-Raynaud de \(G_m\) relatif à \(D\), \(P\) un schéma en groupes commutatifs
+lisse sur \(S\). Considérons la catégorie des extensions commutatives de
+faisceaux en Groupes de \(P\) par \(\overline G\). Alors le foncteur restriction à \(U\),
+\(E\longmapsto E|U\), induit une équivalence de cette catégorie avec la catégorie
+des extensions de \(P_U\) par \(G_{m,U}\).</u></p></div></div>
+
+<p id="8.6.6.1"><strong>6.6.1.</strong>&nbsp;&nbsp; On obtient par la même méthode l'énoncé analogue, relatif
+au cas d'extensions pas nécessairement commutatives (\(P\) n'étant plus
+supposé commutatif). Nous laissons au lecteur le détail de la démonstration,
+légèrement plus compliquée du fait qu'il faut considérer ici
+des bitorseurs au lieu de torseurs.</p>
+
+<p>Par essentiellement la même démonstration que 6.6, on obtient
+de même :</p>
+
+<div class="thm corollary" id="8.6.7"><span class="thm-head"><u>Corollaire 6.7.</u></span>
+<div class="thm-body"><p><u>Soient \(S,D,\overline G\) comme dans 6.6, et \(P,Q\) deux schémas en
+groupes commutatifs et lisses sur \(S\). On considère la catégorie des
+biextensions de \((P,Q)\) par \(\overline G\). Alors le foncteur restriction à \(U\),
+\(E\longmapsto E|U\), qui va de cette catégorie dans la catégorie des biextensions
+de \((P_U,Q_U)\) par \(G_{m,U}\), est une équivalence de catégories.</u></p></div></div>
+
+<p id="8.6.8"><strong><u>Remarques 6.8.</u></strong>&nbsp;&nbsp; a)&nbsp;&nbsp; Nous appliquerons 6.6 et 6.7 lorsque \(S\) est un trait,
+et \(D\) le diviseur défini par l'inclusion du point fermé \(s\) de \(S\) dans \(S\).
+Dans ce cas, \(U\) est le spectre du corps des fractions \(K\) de \(S\), et \(\overline G\) est
+le modèle de Néron habituel du groupe multiplicatif sur \(K\), introduit
+par Raynaud. On notera que, même en se bornant à ce cas, la démonstration
+de 6.6 et de 6.7 utilise 6.5 sur des bases plus générales que des traits
+(telles que \(P\) et ses puissances cartésiennes ...). Néanmoins, il suffit
+dans ce cas de connaître l'<u>existence</u> du modèle de Néron \(\overline G\) dans le cas
+particulier envisagé, pour en conclure formellement 6.5 pour des schémas
+de base lisses sur \(S\), donc pour obtenir 6.6 et 6.7. Pour nous, l'introduction
+de \(\overline G\) sera surtout un intermédiaire commode pour étudier
+au numéro suivant le problème des prolongements d'extensions et de
+biextensions par le groupe multiplicatif.</p>
+
+<p>b)&nbsp;&nbsp; On peut définir un modèle de Néron-Raynaud \(\overline G\) de \(G_{m,U}\),
+satisfaisant à la condition fondamentale (6.4.2) pour tout \(S'\) lisse
+sur \(S\), sous des conditions nettement plus générales que celles envisagées
+plus haut, \(U\) étant simplement un ouvert schématiquement dense d'un
+schéma localement noethérien <u>normal</u> \(S\). Dans ce cas, \(\overline G\) sera un <u>faisceau au
+fppf</u>, pas nécessairement représentable. Désignant par \(\underline D\) le faisceau,
+sur le petit site étale de \(S\), des diviseurs sur \(S\) de support contenu
+dans \(T=S-U\), et (par abus de langage) par la même lettre l'extension canonique
+de \(\underline D\) en un faisceau sur \((\operatorname{Sch})/S\) (dont les sections sur le schéma relatif
+\(f:S'\longrightarrow S\) sont les sections de \(f_{\mathrm{et}}^*(\underline D)\) sur \(S'\)), le modèle cherché est
+une extension de Groupes</p>
+
+\[(6.8.1)\qquad 0\longrightarrow G_{mS}\longrightarrow\overline G
+\longrightarrow\underline D\longrightarrow0.\]
+
+<p>La construction d'une extension canonique (6.8.1) (sans hypothèse de
+normalité sur \(S\)) ne présente pas de difficultés, en utilisant la description
+générale VII 1.1.6, et on obtient en même temps (6.4.2) pour
+\(S'\) étale sur \(S\). Pour avoir la même relation pour tout \(S'\) lisse sur \(S\),
+il revient au même de vérifier que la formation du faisceau \(\underline D\) commute
+à tout changement de base lisse \(f:S'\longrightarrow S\), ce qui pour \(S\) normal
+résulte de EGA IV Err. 53, 21.4.9.</p>
+
+<h3 id="8.6.9">6.9. <u>"Autocritique"</u> (observations de P. DELIGNE)<sup><a href="#fn-8.6.9">*</a></sup>.</h3>
+
+<p>Les n<sup>os</sup> 5 et 6, sont vraiment peu inspirants. On a périodiquement
+l'impression qu'on refait "à la main" le formalisme \(i_*,i^*\),
+sans voir ce qui est géométrique ou "general non-sense".</p>
+
+<p>Je propose de dégager les énoncés "géométriques" a)b)c) :</p>
+
+<p>a)&nbsp;&nbsp; (cf. 6.8 b) Soit \(j:V\lhook\joinrel\longrightarrow S\) un ouvert schématiquement dense d'un
+schéma normal noethérien \(S\). Le faisceau étale \(G_{mS}\) s'identifie alors à un
+sous-faisceau du faisceau étale \(j_*G_{mU}\). Soit \(\underline D\) le faisceau étale quotient</p>
+
+\[0\longrightarrow G_{mS}\longrightarrow j_*G_{mS}\longrightarrow\underline D\longrightarrow0.\]
+
+<p class="footnote" id="fn-8.6.9"><sup>*</sup> Le rédacteur du présent exposé déclarant forfait, le lecteur est
+invité à récrire, en cas de besoin, les n<sup>os</sup> 5 et 6 suivant les
+directives jointes.</p>
+
+<p>Alors la formation de \(\underline D\) commute à tout changement de base lisse
+(EGA Err<sub>IV</sub> 53, 21.4.9) ; <u>de plus</u>, \(R^1j_*G_m=0\) (Th. 90) si les anneaux
+strictement locaux de \(S\) sont factoriels.</p>
+
+<p>b)&nbsp;&nbsp; Si \(U=S-Y\), avec \(Y\) un diviseur géométriquement unibranche, et si \(i\)
+est l'inclusion de \(Y\) dans \(S\), alors</p>
+
+\[\underline D=i_*\mathbb Z_Y.\]
+
+<p>c)&nbsp;&nbsp; Si \(Y\) est sous-schéma fermé d'un schéma \(X\), et \(E\) un ensemble, alors
+le faisceau étale \(i_*E_Y\) est représentable par un schéma étale sur \(X\), de
+formation compatible à tout changement de base.</p>
+
+<div class="thm corollary"><span class="thm-head"><u>Corollaire.</u></span>
+<div class="thm-body"><p><u>Soient \(S\) un schéma noethérien normal, \(Y\) un diviseur géométriquement
+unibranche et \(U=S-Y\) :</u></p>
+\[U\mathop{\lhook\joinrel\longrightarrow}^{j}S\mathop{\longleftarrow\joinrel\lhook}^{i}Y.\]
+<p><u>Il existe un unique schéma en groupes lisse \(\mathcal G_m\) sur \(S\), tel qu'après tout
+changement de base lisse, on ait \(\mathcal G_m|_{S'_{\mathrm{et}}}=j_*G_{mU}\).</u></p></div></div>
+
+<p>Les exigences précédentes déterminent en effet \(\mathcal G_m\) en tant que
+faisceau (pour la topologie étale) sur la catégorie des schémas lisses
+sur \(S\). Par a), b), la suite</p>
+
+\[0\longrightarrow G_{mS}\longrightarrow\mathcal G_m
+\mathop{\longrightarrow}^{q}i_*\mathbb Z_Y\longrightarrow0\]
+
+<p>est exacte. Par c), \(i_*\mathbb Z_Y\) est représentable. Enfin le morphisme \(q\) est
+représentable.</p>
+
+<p>L'usage du "petit site lisse" précédent devrait permettre de
+déduire formellement les énoncés du n° 6 de a).</p>
+
+<h2 id="8.7">7. <u>Prolongements canoniques d'extensions et de biextensions par \(G_m\)</u></h2>
+
+<p id="8.7.0"><strong>7.0.</strong>&nbsp;&nbsp; Nous récoltons maintenant le fruit de nos préparatifs des n<sup>os</sup> 5 et 6.
+Plaçons nous d'abord dans le cas d'un schéma de base \(S\) qui soit un <u>trait</u>,
+i.e. le spectre d'un anneau de valuation discrète, et soit \(\eta\) son point
+générique, \(s\) sont point fermé, \(k=k(s)\). Soit \(P\) un schéma en groupes
+commutatifs lisse sur \(S\), on posera \(P_o=P_s\), fibre spéciale de \(P\). Dans
+le présent numéro, nous ne considérons que des groupes commutatifs, et
+en particulier les extensions de groupes envisagées sont commutatives.</p>
+
+<div class="thm theorem" id="8.7.1"><span class="thm-head"><u>Théorème 7.1.</u></span>
+<div class="thm-body"><p><u>Les notations sont celles rappelées dans 7.0.</u></p>
+
+<p>a)&nbsp;&nbsp; <u>Supposons que le groupe des composantes connexes de la fibre
+spéciale de \(P\),</u></p>
+\[\Phi=P_o/P_o^o\]
+<p><u>soit un groupe de torsion, — ce qui est le cas en particulier si \(P\) est
+de type fini sur \(S\) ; alors le foncteur \(E\longmapsto E_\eta\) de la catégorie des
+extensions de \(P\) par \(G_{mS}\) dans la catégorie des extensions de \(P_\eta\) par \(G_{m\eta}\)
+est pleinement fidèle. Supposons qu'il existe un entier \(n&gt;0\) tel que
+\(n\Phi=0\), alors si \(E_\eta\) est une extension de \(P_\eta\) par \(G_{m\eta}\), il lui est associé
+un homomorphisme canonique</u></p>
+\[(7.1.1)\qquad d(E_\eta):\Phi\longrightarrow(\mathbb Q/\mathbb Z)_k,\]
+<p><u>dont l'annulation est nécessaire et suffisante pour que l'extension \(E_\eta\)
+soit isomorphe à la fibre générique d'une extension de \(P\) par \(G_{mS}\). En
+particulier, si \(P_o\) est connexe, le foncteur précédent \(E\longmapsto E_\eta\) est une
+équivalence de catégories.</u></p>
+
+<p>b)&nbsp;&nbsp; <u>Soient \(P\) et \(Q\) deux schémas en groupes lisses sur \(S\), posons</u></p>
+\[\Phi=P_o/P_o^o,\qquad \Psi=Q_o/Q_o^o,\]
+<p><u>et supposons que \(\Phi\) ou \(\Psi\) soit un groupe de torsion (par exemple \(P\) ou \(Q\) de
+type fini sur \(S\)) ; alors le foncteur \(E\longmapsto E_\eta\) dans la catégorie des
+biextensions de \((P,Q)\) par \(G_{mS}\) dans la catégorie des biextensions de
+\((P_\eta,Q_\eta)\) par \(G_{m\eta}\) est pleinement fidèle. Supposons qu'il existe un entier \(n&gt;0\)
+tel que \(n\Phi=0\) ou \(n\Psi=0\), alors si \(E_\eta\) est une biextension de \((P_\eta,Q_\eta)\) par
+\(G_{m\eta}\), il lui est associé un accouplement canonique</u></p>
+\[(7.1.2)\qquad d(E_\eta):\Phi\otimes_{\mathbb Z}\Psi\longrightarrow(\mathbb Q/\mathbb Z)_k,\]
+<p><u>dont l'annulation est nécessaire et suffisante pour que \(E\) soit isomorphe
+à la fibre générique d'une biextension \(E\) de \((P,Q)\) par \(G_{mS}\). En particulier,
+si \(P_o\) ou \(Q_o\) est connexe, le foncteur précédent \(E\longmapsto E_\eta\) est une équivalence
+de catégories.</u></p></div></div>
+
+<p><u>Démonstration.</u>&nbsp;&nbsp; a)&nbsp;&nbsp; Soit \(\overline G\) le modèle de Néron-Raynaud de \(G_m\). Le foncteur
+envisagé est le composé du foncteur "extension du noyau \(G_{mS}\longrightarrow\overline G\)" avec
+le foncteur "restriction à \(\eta\)" défini sur la catégorie des biextensions
+par \(\overline G\). Ce dernier foncteur étant une équivalence de catégories en vertu
+de 6.6, on est ramené à étudier le premier foncteur. Pour ceci, on utilise
+la suite exacte de schémas en groupes</p>
+\[(7.1.3)\qquad 0\longrightarrow G_{mS}\longrightarrow\overline G\longrightarrow\mathbb Z_{S,s}\longrightarrow0,\]
+<p>la notation pour \(\mathbb Z_{S,s}\) étant celle de 5.7. La suite exacte des \(\operatorname{Ext}^i\)
+(\(i=0,1\)) associée à cette suite exacte nous montre que pour que le foncteur
+envisagé soit pleinement fidèle, il faut et il suffit que l'on ait</p>
+\[(7.1.4)\qquad \operatorname{Hom}(P,\mathbb Z_{S,s})=0,\]
+<p>et que l'obstruction, pour une extension \(\overline E\) de \(P\) par \(\overline G\), de provenir
+d'une extension \(E\) de \(P\) par \(G_{mS}\) se trouve dans</p>
+\[(7.1.5)\qquad \operatorname{Ext}^1(P,\mathbb Z_{S,s}).\]
+
+<p>Or le premier groupe (7.1.4) est isomorphe à \(\operatorname{Hom}(P_o,\mathbb Z_k)\) en vertu de
+(5.7.2), qui est isomorphe lui-même à \(\operatorname{Hom}(\Phi,\mathbb Z_k)\), de sorte que (7.1.4)
+équivaut à la relation</p>
+\[(7.1.4\ \mathrm{bis})\qquad \operatorname{Hom}(\Phi,\mathbb Z_k)=0.\]
+
+<p>Cette relation est certainement vérifiée si \(\Phi\) est un groupe de torsion.
+D'autre part, si on a même \(n\Phi=0\), alors en vertu de 5.9 et 5.5 on a
+des isomorphismes canoniques</p>
+\[(7.1.6)\qquad \operatorname{Ext}^1(P,\mathbb Z_{S,s})\mathrel{\widetilde\longrightarrow}
+\operatorname{Ext}^1(P_o,\mathbb Z_k)\mathrel{\widetilde\longrightarrow}
+\operatorname{Hom}(\Phi,(\mathbb Q/\mathbb Z)_k),\]
+<p>ce qui achève de prouver 7.1 a).</p>
+
+<p>b)&nbsp;&nbsp; La démonstration est essentiellement la même. On est ramené,
+grâce à 6.7, à étudier le foncteur "extension du noyau \(G_{mS}\longrightarrow\overline G\)" de
+la catégorie des biextensions de \((P,Q)\) par \(G_{mS}\) dans celle des biextensions
+de \((P,Q)\) par \(\overline G\). Cette étude se fait en utilisant la suite exacte (7.1.3),
+et la suite exacte des \(\operatorname{Biext}^i\) (\(i=0,1\)) associée (VII 3.7.5). La pleine
+fidélité du foncteur envisagé équivaut à la relation</p>
+\[(7.1.7)\qquad \operatorname{Hom}(P\otimes Q,\mathbb Z_{S,s})=0,\]
+<p>or le premier membre est isomorphe à \(\operatorname{Hom}(P_o\otimes Q_o,\mathbb Z_k)\) en vertu de (5.7.2),
+donc à \(\operatorname{Hom}(\Phi\otimes\Psi,\mathbb Z_k)\), groupe qui est bien nul si \(\Phi\) ou \(\Psi\) est un groupe
+de torsion. D'autre part, pour une biextension donnée \(\overline E\) de \((P,Q)\) par \(\overline G\),
+l'obstruction à ce qu'elle provienne d'une biextension \(E\) de \((P,Q)\) par
+\(G_{mS}\) se trouve dans \(\operatorname{Biext}^1(P,Q;\mathbb Z_{S,s})\), qui est isomorphe en vertu de 5.10
+à \(\operatorname{Biext}^1(P_o,Q_o,\mathbb Z_k)\), lui-même isomorphe (si \(n\Phi=0\) ou \(n\Psi=0\)) à
+\(\operatorname{Hom}(\Phi\otimes\Psi,\mathbb Q/\mathbb Z)\) en vertu de 5.6. Cela achève la démonstration de 7.1.</p>
+
+<p id="8.7.2"><strong><u>Remarque 7.2.</u></strong>&nbsp;&nbsp; On peut se proposer, étant donné un schéma en groupes lisse
+\(P\) sur un schéma localement noethérien régulier connexe \(S\) de point générique \(\eta\), d'étudier le foncteur \(E\longmapsto E_\eta\) de la catégorie des extensions
+de \(P\) par \(G_{mS}\) dans celle des extensions de \(P_\eta\) par \(G_{m\eta}\). Ce problème se
+ramène en fait facilement à celui traité dans 7.1 a). Supposons pour
+simplifier \(P\) de type fini sur \(S\). Alors il résulte facilement de 7.1
+que le foncteur envisagé est pleinement fidèle<sup><a href="#fn-8.7.2">*</a></sup>. On en déduit aisément
+que si \(E_\eta\) est une extension de \(P_\eta\) par \(G_{m\eta}\), alors pour que celle-ci soit
+isomorphe à la fibre générique d'une extension \(E\) de \(P\) par \(G_{mS}\), il faut
+et il suffit que pour tout \(s\in S\) tel que \(\dim\operatorname{Spec}(\mathcal O_{S,s})=1\), le problème
+de prolongement analogue obtenu par le changement de base \(\operatorname{Spec}(\mathcal O_{S,s})\longrightarrow S\)
+ait une solution, — ce qui, en vertu de 7.1 a), s'exprime par la nullité
+d'un certain homomorphisme</p>
+\[(7.2.1)\qquad d(E_\eta,s):P_s/P_s^o\longrightarrow(\mathbb Q/\mathbb Z)_{k(s)}.\]
+
+<p>L'assertion précédente se réduit de façon évidente à la suivante : soit
+\(U\) un ouvert de \(S\), de complémentaire \(T\) tel que</p>
+\[\operatorname{codim}(T,S)\geq2,\]
+
+<p class="footnote" id="fn-8.7.2"><sup>*</sup> Il suffit pour ceci que \(S\) soit normal (au lieu de régulier).</p>
+
+<p>alors le foncteur \(E\longmapsto E|U\) de la catégorie des extensions de \(P\) par \(G_{mS}\)
+dans celle des extensions de \(P_U\) par \(G_{mU}\) est une équivalence de catégories.
+Or cette assertion est essentiellement triviale en termes de la description VII 1.1.6, en utilisant
+le fait que pour tout \(S\)-schéma lisse \(X\) (tel \(P,P\times P,P\times P\times P\ldots\)), \(X\) est
+localement factoriel et \(X_T=X-X_U\) est de codimension \(\geq2\) dans \(X\), d'où résulte que le
+foncteur \(F\longmapsto F|X_U\) de la catégorie des torseurs sous \(G_{mX}\) dans celle des torseurs
+sous \(G_{mX_U}\) est une équivalence de catégories.</p>
+
+<p>On a des résultats tout analogues pour la question des prolongements de biextensions, qu'on laisse
+au lecteur le soin de formuler.</p>
+
+<p id="8.7.3"><strong>7.3.</strong>&nbsp;&nbsp; Nous allons expliciter quelques propriétés fonctorielles des
+obstructions définies dans (7.1.1) et (7.1.2) pour \(P,Q,S\) variables, et de leurs relations entre elles.
+On supposera vérifiées par la suite les conditions qui permettent de définir ces obstructions. Comme les
+vérifications n'offrent pas de difficulté, nous les laissons aux soins du lecteur.</p>
+
+<p id="8.7.3.1"><strong>7.3.1.</strong>&nbsp;&nbsp; Soit \(u:P'\longrightarrow P\) un morphisme de schémas en groupes
+lisses sur \(S\), \(E_\eta\) une extension de \(P_\eta\) par \(G_{m\eta}\), d'où par image inverse par
+\(u_\eta:P'_\eta\longrightarrow P_\eta\) une extension \(E'_\eta\) de \(P'_\eta\) par \(G_{m\eta}\).
+Ceci posé, on a commutativité dans le diagramme</p>
+\[(7.3.1.1)\qquad
+\xymatrix{P'_o/P'^{o}_o\ar[d]_{u_o}\ar[dr]^{d(E'_\eta)}&\\
+P_o/P^o_o\ar[r]_{d(E_\eta)}&(\mathbb Q/\mathbb Z)_k.}\]
+
+<p>De même, si on a des morphismes de schémas en groupes lisses sur \(S\)</p>
+\[u:P'\longrightarrow P,\qquad v:Q'\longrightarrow Q\]
+<p>et une biextension \(E_\eta\) de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\), d'où par image inverse par
+\((u_\eta,v_\eta)\) une biextension \(E'_\eta\) de \((P'_\eta,Q'_\eta)\) par \(G_{m\eta}\), on a
+commutativité dans le diagramme</p>
+\[(7.3.1.2)\qquad
+\xymatrix{P'_o/P'^{o}_o\otimes Q'_o/Q'^{o}_o\ar[d]_{u_o\otimes v_o}\ar[dr]^{d(E'_\eta)}&\\
+P_o/P^o_o\otimes Q_o/Q^o_o\ar[r]_{d(E_\eta)}&(\mathbb Q/\mathbb Z)_k.}\]
+
+<p>La vérification, essentiellement mécanique, de ces compatibilités est laissée au lecteur.</p>
+
+<p id="8.7.3.2"><strong>7.3.2.</strong>&nbsp;&nbsp; De la compatibilité (7.3.1.1) résulte que si \(E_\eta\) est
+une extension de \(P_\eta\) par \(G_m\), il existe un plus grand sous-schéma en groupes \(V\) de \(P\)
+tel que la restriction de \(E_\eta\) à \(V_\eta\) s'étende en une extension de \(V\) par \(G_{mS}\) :
+c'est le sous-groupe ouvert \(V\) de \(P\) contenant \(P_\eta\), défini par la condition</p>
+\[(7.3.2.1)\qquad V_o/V^o_o=\operatorname{Ker}d(E_\eta).\]
+<p>Si alors \(u:P'\longrightarrow P\) est un morphisme de schémas en groupes lisses sur \(S\),
+l'extension \(E'_\eta\), image inverse de \(E_\eta\) par \(u_\eta\), se prolonge en une extension de
+\(P'\) par \(G_{mS}\) si et seulement si on a</p>
+\[(7.3.2.2)\qquad u(P')\subset V.\]
+
+<p>Dans le cas d'une biextension \(E\) de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\), il existe de même un
+plus grand sous-schéma en groupes \(V\) de \(P\) tel que la restriction de \(E\) à \((V_\eta,Q_\eta)\)
+se prolonge en une biextension de \((V,Q)\) par \(G_{mS}\) : c'est le sous-groupe ouvert de \(P\), contenant
+la fibre générique \(P_\eta\), défini par la condition que \(V_o/V^o_o\) soit le sous-groupe de \(\Phi\)
+annulateur gauche de l'accouplement (7.1.2), i.e. noyau de l'homomorphisme correspondant de \(\Phi\) dans
+\(\operatorname{Hom}(\Psi,(\mathbb Q/\mathbb Z)_k)\) :</p>
+\[(7.3.2.3)\qquad V_o/V^o_o=\operatorname{Ker}\bigl(\Phi\xrightarrow{d(E_\eta)}
+\operatorname{Hom}(\Psi,\mathbb Q/\mathbb Z)_k\bigr).\]
+<p>Si alors on se donne \(u:P'\longrightarrow P\) de schémas en groupes lisses sur \(S\), la biextension
+de \((P'_\eta,Q_\eta)\) par \(G_{m\eta}\) image inverse de \(E_\eta\) par \(u_\eta\) se prolonge en une
+biextension de \((P',Q)\) par \(G_{mS}\) si et seulement si on a la relation (7.3.2.2). On a des résultats
+symétriques en échangeant le rôle de \(P\) et de \(Q\). Mais bien entendu on ne pourra en général trouver
+un plus grand <u>couple</u> de sous-groupes \(P'\longrightarrow P,Q'\longrightarrow Q\) tels que la restriction
+\(E'_\eta\) de \(E_\eta\) en une biextension de \((P'_\eta,Q'_\eta)\) par \(G_{m\eta}\) se prolonge en une
+biextension de \((P',Q')\) par \(G_{mS}\) ; on peut seulement dire que pour un couple \((P',Q')\) donné,
+plus généralement pour un couple de morphismes donné \(P'\longrightarrow P,Q'\longrightarrow Q\) de schémas
+en groupes lisses, le prolongement cherché existe si et seulement si la restriction de la forme \(d(E_\eta)\)
+à \(P'_o/P'^{o}_o\otimes Q'_o/Q'^{o}_o\) est nulle.</p>
+
+<p id="8.7.3.3"><strong><u>7.3.3. Symétrie.</u></strong>&nbsp;&nbsp; Soit \(E_\eta\) une biextension de
+\((P_\eta,Q_\eta)\) par \(G_{m\eta}\), et considérons la biextension symétrique \({}^sE_\eta\) (VII 2.7),
+qui est une biextension de \((Q_\eta,P_\eta)\) par \(G_{m\eta}\). On a alors commutativité dans le diagramme</p>
+\[(7.3.3.1)\qquad
+\xymatrix{\Phi\otimes\Psi\ar[d]_{\mathrm{sym}}\ar[dr]^{d(E_\eta)}&\\
+\Psi\otimes\Phi\ar[r]_{d({}^sE_\eta)}&(\mathbb Q/\mathbb Z)_k,}\]
+<p>où la flèche verticale est la symétrie canonique. (On comparera cet énoncé avec l'énoncé d'<u>antisymétrie</u>
+de 2.2.10.) On en déduit en particulier que si \(P=Q\), et si \(E_\eta\) est une biextension <u>symétrique</u>
+de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\), i.e. si \(E_\eta\) est isomorphe à \({}^sE_\eta\), alors la forme
+bilinéaire \(d(E_\eta)\) sur \(\Phi\times\Phi\) à valeurs dans \((\mathbb Q/\mathbb Z)_k\) est <u>symétrique</u>
+(et non alternée comme dans 2.2.12 !). On notera que si elle est nulle, i.e. si \(E\) se prolonge en une
+biextension de \((P,P)\) par \(G_{mS}\), cette dernière est nécessairement symétrique également, puisqu'en
+vertu de 7.1 a) tout isomorphisme \({}^sE_\eta\longrightarrow E_\eta\) se prolonge de façon unique en un
+isomorphisme \({}^sE\longrightarrow E\).</p>
+
+<p id="8.7.3.4"><strong><u>7.3.4. Réduction des obstructions du type (7.1.2) à celles du type (7.1.1).</u></strong></p>
+<p>Supposons pour fixer les idées qu'il existe un entier \(n&gt;0\) tel que \(n\Phi=0\), et soit</p>
+\[q\in Q(S)\]
+<p>une section de \(Q\). On désigne, par abus de notation, par \(q_o\in\Psi(k)\) l'image dans \(\Psi(k)\)
+de la valeur de \(q\) en \(s\). Considérant \(E_\eta\) comme une extension de \(P_{\eta,Q_\eta}\) par
+\(G_{mQ_\eta}\), on trouve une extension \(q^*_\eta(E_\eta)\), extension de \(P_\eta\) par \(G_{m\eta}\),
+d'où une obstruction</p>
+\[(7.3.4.1)\qquad d_q\overset{\mathrm{dfn}}=d(q^*_\eta(E_\eta)):\Phi\longrightarrow(\mathbb Q/\mathbb Z)_k.\]
+<p>Ceci posé, on a la relation (où on a posé \(d=d(E_\eta)\))</p>
+\[(7.3.4.2)\qquad d_q(x)=d(x,q_o),\]
+<p>valable pour tout point \(x\) de \(\Phi\) à valeurs dans un \(k\)-schéma \(T\).</p>
+
+<p id="8.7.3.4.3"><strong>7.3.4.3.</strong>&nbsp;&nbsp; Cette formule, qui pour tout \(q\in Q(S)\) détermine
+\(d_q\) en termes de l'accouplement \(d\), redonne évidemment ce dernier en termes des invariants \(d_q\),
+du moins lorsque tout point de \(\Psi\) provient d'une section de \(Q\). Cette condition est d'ailleurs vérifiée
+automatiquement lorsque \(S\) est strictement local, en vertu du lemme de Hensel. Comme l'accouplement \(d\)
+est connu quand on le connaît sur la clôture séparable de \(k\), et que sa formation commute à la localisation
+étale sur \(S\) en vertu de 7.3.5.3 ci-dessous, on voit que, quitte à passer au localisé strict de \(S\), la
+détermination de l'accouplement \(d\) se ramène à celle des invariants \(d_q\).
+En particulier, lorsque tout point de \(\Psi\) provient d'une section \(q\) de \(Q\),
+on voit que \(d\) est nul (i.e. \(E_\eta\) se prolonge en une biextension \(E\) de \((P,Q)\)
+par \(G_{mS}\)) si et seulement si pour toute section \(q\) de \(Q\), \(d_q\) est nul i.e.
+\(q^*_\eta(E_\eta)\) se prolonge en une extension de \(P\) par \(G_{mS}\). Lorsqu'on ne fait pas
+d'hypothèse sur \(\Psi\), le critère analogue est valable, à condition de
+prendre pour \(q\) des points à valeurs dans des \(S'\) locaux étales sur \(S\).</p>
+
+<p id="8.7.3.4.4"><strong>7.3.4.4.</strong>&nbsp;&nbsp; Inversement, partant de la situation de 7.1 a), l'obstruction
+(7.1.1) peut s'interpréter comme une obstruction du type (7.1.2), en
+prenant \(Q=\mathbb Z_S\) et la biextension de \((P,\mathbb Z_S)\) déduite de \(E\). Pour le voir,
+il suffit d'appliquer ce qui précède en prenant pour \(q\) la section 1 de \(\mathbb Z_S\).</p>
+
+<p id="8.7.3.5"><strong><u>7.3.5. Effet d'un changement de base \(S'\longrightarrow S\).</u></strong> On suppose donné un
+morphisme local dominant de traits</p>
+\[f:S'\longrightarrow S,\]
+<p>et on désigne par \(\eta'\) le point générique de \(S'\), par \(s'\) son point fermé,
+et on pose \(k'=k(s')\). Si \(S=\operatorname{Spec}(V)\), \(S'=\operatorname{Spec}(V')\), \(V'\) est donc un anneau
+de valuation discrète dominant l'anneau de valuation discrète \(V\). Posons</p>
+\[(7.3.5.1)\qquad e(S'/S)=e(V'/V)=\operatorname{long}(V'/\mathfrak mV'),\]
+<p>où \(\mathfrak m\) est l'idéal maximal de \(V\). Soient maintenant \(P\) dans 7.1 a), \(E_\eta\) une
+extension de \(P_\eta\) par \(G_{m\eta}\), \(P'=P\times_S S'\), \(E'_{\eta'}\) l'extension de \(P'_{\eta'}\) par \(G_{m\eta'}\)
+image inverse de \(E_\eta\). On a alors un isomorphisme canonique</p>
+\[\Phi'\overset{\mathrm{dfn}}=P'_{o}/P'^{o}_{o}\simeq\Phi\otimes_k k'\simeq\Phi_{k'},\]
+<p>avec les notations de 4.1 a), et on peut par suite considérer</p>
+\[d(E_\eta)_{k'}:\Phi'\longrightarrow(\mathbb Q/\mathbb Z)_{k'}.\]
+<p>Ceci posé, on a la relation</p>
+\[(7.3.5.2)\qquad d(E'_{\eta'})=e(S'/S)\,d(E_\eta)_{k'}.\]
+
+<p>De même, sous les conditions de 7.1 b), et avec les notations évidentes,
+on a la relation (7.3.5.2), où \(d(E_\eta)\) désigne maintenant l'accouplement
+(7.1.2), \(d(E_\eta)_{k'}\) l'accouplement</p>
+\[\Phi'\otimes\Psi'\longrightarrow(\mathbb Q/\mathbb Z)_{k'}\]
+<p>qui s'en déduit par le changement de base \(k\longrightarrow k'\), et où \(E'_{\eta'}\) est la
+biextension de \((P'_{\eta'},Q'_{\eta'})\) par \(G_{m\eta'}\) déduite de la biextension \(E_\eta\) de
+\((P_\eta,Q_\eta)\) par \(G_{m\eta}\) à l'aide du changement de base \(\eta'\longrightarrow\eta\).</p>
+
+<p id="8.7.3.5.3"><strong>7.3.5.3.</strong> Un cas intéressant est celui où on a \(e(S'/S)=1\), i.e. où</p>
+\[\mathfrak m'=\mathfrak mV',\]
+<p>où \(\mathfrak m'\) désigne l'idéal maximal de \(V'\). C'est le cas en particulier si \(V'\)
+est étale sur \(V\), ou si c'est le hensélisé, ou le hensélisé strict, ou
+le complété de \(V\). Dans ce cas la relation (7.3.5.2) s'exprime simplement
+en disant que <u>la formation de l'obstruction (7.1.1) resp. (7.1.2)
+commute au changement de base envisagé \(S'\longrightarrow S\)</u>.</p>
+
+<p id="8.7.3.5.4"><strong>7.3.5.4.</strong>&nbsp;&nbsp; D'autre part, la relation (7.3.5.2) dans le cas général montre
+que pour toute extension \(E_\eta\) comme dans 7.1 a) (resp. toute biextension
+\(E_\eta\) comme dans 7.1 b)), il existe un morphisme de traits <u>fini</u> \(S'\longrightarrow S\),
+tel que \(k(\eta')\) soit une extension séparable de \(k(\eta)\), et que l'extension
+(resp. la biextension) \(E'_{\eta'}\) déduite de \(E_\eta\) par changement de base \(\eta'\longrightarrow\eta\)
+se prolonge en une extension (resp. biextension) \(E'\) sur \(S'\) tout entier.
+En effet, il suffit de choisir \(S'/S\) tel que \(e(S'/S)\) soit un multiple
+de l'entier \(n&gt;0\) figurant dans 7.1, et on sait qu'on peut toujours
+trouver une telle extension, avec \(k(\eta')\) séparable sur \(k(\eta)\).</p>
+
+<div class="thm" id="8.7.4"><div class="thm-head"><u>Proposition 7.4.</u> <u>Soit \(S\) un schéma réduit.</u></div>
+<div class="thm-body">
+<p>a)&nbsp;&nbsp; <u>Soit \(P\) un schéma en groupes lisse sur \(S\) dont les fibres
+aux points maximaux de \(S\) sont connexes. Alors le foncteur naturel</u></p>
+<p>VII 1.3.4.1</p>
+\[(7.4.1)\qquad \operatorname{EXT}(P,G_{mS})\longrightarrow\operatorname{TORSRIG}(P,e_P;G_{mS})\]
+<p><u>de la catégorie des extensions de \(P\) par \(G_{mS}\) dans la catégorie des
+torseurs sous \(G_{mP}\) rigidifiés par rapport à la section unité de \(P\), est
+pleinement fidèle. Si \(S\) est normal, et \(P\) à fibres connexes, alors un
+objet \(E\) du deuxième membre de (7.4.1) appartient à l'image essentielle
+de ce foncteur si et seulement si pour tout point maximal \(\eta\) de \(S\), le
+torseur rigidifié \(E_\eta\) sur \(P_\eta\) provient d'une extension de \(P_\eta\) par \(G_{m\eta}\).</u></p>
+
+<p>b)&nbsp;&nbsp; <u>Soient \(P,Q\) deux schémas en groupes lisses sur \(S\) dont les
+fibres aux points maximaux de \(S\) sont connexes. Alors le foncteur naturel</u></p>
+<p>VII 2.9.1</p>
+\[(7.4.2)\qquad \operatorname{BIEXT}(P,Q;G_{mS})\longrightarrow\operatorname{TORSBIRIG}(P,Q;G_{mS})\]
+<p><u>de la catégorie des biextensions de \((P,Q)\) par \(G_{mS}\) dans la catégorie
+des torseurs sous \(G_{m,P\times_SQ}\) birigidifiés relativement au couple des
+sections unités de \(P\) et de \(Q\), est pleinement fidèle. Si \(S\) est normal,
+et \(P\) ou \(Q\) à fibres connexes, un objet \(E\) du second membre de (7.4.2)
+appartient à l'image essentielle du foncteur si et seulement si pour tout
+point maximal \(\eta\) de \(S\), \(E_\eta\) provient d'une biextension de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\).</u></p>
+</div></div>
+
+<p>Nous prouverons a), la démonstration de b), essentiellement
+identique, étant laissée au lecteur. Pour l'assertion de pleine fidélité,
+on peut noter que 4.1 reste valable si \(X\) et \(Y\) sont des schémas plats
+sur un schéma réduit \(S\), dont les fibres aux points maximaux satisfont
+aux conditions énoncées dans 4.1 : en effet, la famille des fibres
+maximales de \(X\times_S Y\) (qui est plat sur \(S\) réduit) est schématiquement
+dense dans \(X\times_S Y\), de sorte qu'un morphisme de \(X\times_S Y\) dans le \(S\)-schéma séparé
+\(G_{mS}\) est trivial dès qu'il l'est sur les fibres maximales. Ceci dit, la
+pleine fidélité de (7.4.1) se démontre comme 4.2, et la caractérisation
+qui y est donnée de l'image essentielle reste également valable. Il
+reste à prouver que si le torseur rigidifié \(E\) sur \(P\) est tel que les
+\(E_\eta\) proviennent d'extensions, il en est de même de \(E\), lorsqu'on suppose
+\(S\) normal et \(P\) à fibres connexes. Cette dernière condition implique que
+\(P\) est de présentation finie sur \(S\) (SGA 3 VI<sub>B</sub> 5.5) ; la pleine fidélité
+nous montre d'autre part que la question est locale sur \(S\), qu'on peut
+donc supposer local affine, et le passage à la limite habituel (utilisant
+le théorème de NAGATA de finitude de la clôture intégrale d'une \(\mathbb Z\)-algèbre
+réduite de type fini EGA IV 7.8) nous ramène au cas où \(S\) est de plus
+supposé noethérien. Alors 7.1 a) nous montre qu'il existe un ouvert \(U\subset S\),
+dont le complémentaire est de codimension \(\geq2\), tel que \(E_U\) provienne d'une
+extension de \(P_U\) par \(G_{mU}\). En d'autres termes, l'isomorphisme cherché</p>
+\[m^*(E)\overset{\sim}\longrightarrow\operatorname{pr}_1^*(E)\operatorname{pr}_2^*(E)\]
+<p>peut être construit au-dessus de \((P\times_S P)_U\). Or c'est là un ouvert du schéma
+normal \(P\times_S P\), dont le complémentaire est de codimension \(\geq2\). Donc l'isomorphisme
+en question sur \((P\times_S P)_U\) se prolonge à \(P\times_S P\) tout entier, ce qui
+achève la démonstration.</p>
+
+<div class="thm" id="8.7.5"><div class="thm-head"><u>Corollaire 7.5.</u> <u>Soient \(S\) un schéma normal, \(P\) et \(Q\) deux schémas en groupes
+lisses sur \(S\), à fibres maximales connexes, \(P\) ou \(Q\) étant à fibres connexes.
+Supposons de plus que pour tout point maximal \(\eta\) de \(S\), \(P_\eta\) ou \(Q_\eta\) soit
+une extension d'un schéma abélien par un tore (plus généralement qu'il
+admette une suite de composition dont les facteurs soient des schémas
+abéliens, des tores ou des groupes \(G_a\)). Alors le foncteur (7.4.2) est
+une équivalence de catégories.</u></div></div>
+
+<p>C'est en effet une conséquence immédiate de 7.4 b) et de 4.7.</p>
+
+<h2 id="8.bibliographie"><u>BIBLIOGRAPHIE</u></h2>
+
+<p>[1]&nbsp;&nbsp;&nbsp; M. Demazure, J. Giraud, M. Raynaud, Schémas abéliens, Séminaire Orsay<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1967/68, à paraître.</p>
+
+<p>[2]&nbsp;&nbsp;&nbsp; M. Raynaud, Faisceaux amples sur les schémas en groupes et les<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;espaces homogènes, thèse Paris 1968 (à paraître dans Lecture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notes, Springer).</p>
+
+<p>[3]&nbsp;&nbsp;&nbsp; M. Rosenlicht, Some basic theorems on algebraic groups, Amer. Jour.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Math. vol 78 n°2 (1956), p.401-443.</p>
+
+<p>[3bis] M. Rosenlicht, Some rationality questions on algebraic groups,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Annali di Matematica, Série 4, n° 43 (1957), p.25-50.</p>
+
+<p>[4]&nbsp;&nbsp;&nbsp; J.P. Serre, corps locaux, Act. Sci. Ind, 1296 (1962), Hermann Paris.</p>
+
+</body>
+</html>
