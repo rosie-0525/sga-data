@@ -150,8 +150,8 @@ Y&amp;
 <p>un diagramme commutatif analogue à \((a')\) (\(p''\) un morphisme spécial, \(i''\) une immersion fermée, \(f''\) un morphisme lisse). On déduit de \((a')\) et \((a'')\) un diagramme commutatif</p>
 
 <div class="display-formula">\[\xymatrix{
-X'\times_XX''\ar[r]\ar[d]\ar[ddr]&amp;Y'\times_YY''\ar[d]\ar[ddr]\\
-X'\ar[r]^{i'}\ar[dd]&amp;Y'\ar[dd]^{f'}\\
+X'\times_XX''\ar[r]\ar[d]\ar[dd]&amp;Y'\times_YY''\ar[d]\ar[dd]\\
+X'\ar[r]^{i'}\ar[ddr]&amp;Y'\ar[ddr]^{f'}\\
 X''\ar[r]^{i''}\ar[dr]&amp;Y''\ar[dr]^{f''}\\
 &amp;X\ar[r]_f&amp;Y
 }\]</div>
@@ -159,7 +159,7 @@ X''\ar[r]^{i''}\ar[dr]&amp;Y''\ar[dr]^{f''}\\
 <p>où les flèches horizontales, à l'exception de \(f\), sont des immersions fermées, les flèches du carré cartésien de gauche (resp. droite) des morphismes spéciaux (resp. des morphismes lisses). On est donc ramené à prouver l'assertion suivante :</p>
 
 <div class="thm thm-plain assertion" id="III.1.1.A">
-  <div class="thm-head"><span class="thm-name">(A)</span> <span class="thm-num">:</span></div>
+  <div class="thm-head"><span class="thm-name">\(A\)</span> <span class="thm-num">:</span></div>
   <div class="thm-body"><p>Soit</p>
   <div class="display-formula">\[\xymatrix{
   X_1\ar[r]^{i_1}\ar[d]_p&amp;Y_1\ar[d]^q\\
@@ -168,7 +168,7 @@ X''\ar[r]^{i''}\ar[dr]&amp;Y''\ar[dr]^{f''}\\
   <p>un carré commutatif de schémas, où \(p\) est un morphisme spécial, \(q\) un morphisme lisse, \(i_1\) et \(i_2\) des immersions fermées, et soit \(E\in\operatorname{ob}D(X_2)\). Alors, pour que \(i_{2*}(E)\) soit \(n\)-pseudo-cohérent, il faut et il suffit que \(i_{1*}p^*(E)\) le soit.</p></div>
 </div>
 
-<p><em>Preuve de (A).</em> Par définition, \(p\) est somme d'une famille d'ouverts \(U_\alpha\) de \(X_2\) qui recouvrent \(X_2\). Chaque \(U_\alpha\) est induit par un ouvert \(V_\alpha\) de \(Y_2\), et les \(V_\alpha\) recouvrent un voisinage ouvert \(X'_2\) de \(X_2\) dans \(Y_2\). On a donc un diagramme commutatif à carré cartésien</p>
+<p><em>Preuve de \(A\).</em> Par définition, \(p\) est somme d'une famille d'ouverts \(U_\alpha\) de \(X_2\) qui recouvrent \(X_2\). Chaque \(U_\alpha\) est induit par un ouvert \(V_\alpha\) de \(Y_2\), et les \(V_\alpha\) recouvrent un voisinage ouvert \(X'_2\) de \(X_2\) dans \(Y_2\). On a donc un diagramme commutatif à carré cartésien</p>
 
 <div class="display-formula">\[\xymatrix{
 X_1\ar[r]^{i'_1}\ar[d]_p&amp;X'_1\ar[d]^{p'}\\
@@ -383,7 +383,7 @@ E'\ar[rr]&amp;&amp;E,
 
 <div class="thm thm-remark remarque" id="III.1.14.1">
   <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">1.14.1.</span></div>
-  <div class="thm-body"><p>En particulier, pour \(r=s=-1\), on retrouve (cf. (1.2.1 c))) les assertions (ii) et (v) de (EGA IV 1.4.3).</p></div>
+  <div class="thm-body"><p>En particulier, pour \(r=s=-1\), on retrouve (cf. (1.2.1 c))) les assertions (ii) et \(v\) de (EGA IV 1.4.3).</p></div>
 </div>
 
 <h2 id="III.2">2. Le théorème de finitude</h2>
@@ -416,8 +416,9 @@ E'\ar[rr]&amp;&amp;E,
 <p><em>Preuve dans le cas (ii).</em> La question étant locale sur \(Y\), on peut supposer \(S\) et \(Y\) affines. On a alors un diagramme commutatif à carré cartésien</p>
 
 <div class="display-formula">\[\xymatrix{
-&amp;\mathbf P_Y^r\ar[ur]^j\ar[dr]_p&amp;&amp;\mathbf P_{Y'}^r\ar[dl]^{p'}&amp;\\
-X\ar[ur]^i\ar[rr]_f&amp;&amp;Y\ar[ur]^{j'}\ar[rr]_g&amp;&amp;Y'\ar[rr]^{g'}&amp;&amp;S,
+&amp;&amp;\mathbf P_{Y'}^r\ar[dr]^{p'}&amp;\\
+&amp;\mathbf P_Y^r\ar[ur]^j\ar[dr]_p&amp;&amp;Y'\ar[dr]^{g'}&amp;\\
+X\ar[ur]^i\ar[rr]_f&amp;&amp;Y\ar[ur]^{j'}\ar[rr]_g&amp;&amp;S,
 }\]</div>
 
 <p>où \(i,j,j'\) sont des immersions fermées, \(g'\) un morphisme lisse et affine, \(p,p'\) la projection de l'espace projectif type. Supposons \(E\) pseudo-cohérent rel. à \(S\). D'après (1.1 (iii)), cela signifie que \((ji)_*(E)\) est pseudo-cohérent. On doit montrer que \(Rf_*(E)\) est pseudo-cohérent rel. à \(S\), i.e. (1.1 (iii)) que \(j'_*Rf_*(E)\) est pseudo-cohérent. Mais on a</p>
@@ -778,7 +779,7 @@ F_\alpha\mathbin{\mathop{\otimes}^{\mathbf L}_{Y_\alpha}}\mathcal O_Y,\]</div>
   X\ar[r]^i\ar[dr]_f&amp;Y\ar[d]^g\\
   &amp;S,
   }\]</div>
-  <p>où \(i\) est une immersion fermée et \(g\) un morphisme lisse, et soit \(E\in\operatorname{ob}D(X)\). Pour que \(E\) soit parfait rel. à \(f\), il faut et il suffit que \(i_*(E)\) soit parfait (au sens absolu (I 4.8)). Plus précisément, supposons \(g\) de dimension relative \(\leq d\), et soit \([a,b]\) un intervalle de \(\mathbb Z\). On a alors :</p>
+  <p>où \(i\) est une immersion fermée et \(g\) un morphisme lisse, et soit \(E\in\operatorname{ob}D(X)\). Pour que \(E\) soit parfait rel. à \(f\), il faut et il suffit que \(i_*(E)\) soit parfait \(au sens absolu (I 4.8)\). Plus précisément, supposons \(g\) de dimension relative \(\leq d\), et soit \([a,b]\) un intervalle de \(\mathbb Z\). On a alors :</p>
   <p>(i) \(\operatorname{parf.amp}(i_*(E))\subset[a,b]\Longrightarrow\operatorname{parf.amp}_f(E)\subset[a,b]\) ;</p>
   <p>(ii) \(\operatorname{parf.amp}_f(E)\subset[a,b]\Longrightarrow\operatorname{parf.amp}(i_*(E))\subset[a-d,b]\).</p></div>
 </div>
@@ -993,7 +994,7 @@ f_*(E)\longrightarrow\mathbb D_S\mathbb D_Sf_*(E)
 <p class="footnote"><sup>(4)</sup> Pour la définition du foncteur \(f^!\), voir [H] App. n° 4.</p>
 
 <div class="section" id="III.5">
-<h2>5. Applications : théorèmes d'échange et de semi-continuité<sup>(1)</sup>.</h2>
+<h2 id="III.5">5. Applications : théorèmes d'échange et de semi-continuité<sup>(1)</sup>.</h2>
 
 <div class="thm thm-plain lemme" id="III.5.1">
   <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">5.1.</span></div>

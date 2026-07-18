@@ -145,7 +145,7 @@ V&\xrightarrow{j}&Z[T'_1,\ldots,T'_m]
 <p>Les propriétés a) et b) sont de nature locale sur \(X\). On peut donc supposer \(X\), \(Y\), \(V\) et \(V'\) affines. Posons : \(Y=\operatorname{Spec}(A)\), \(V=\operatorname{Spec}(B)\), \(V'=\operatorname{Spec}(B')\), \(X=\operatorname{Spec}(C)\), et gardons les mêmes lettres pour noter les homomorphismes et les idéaux correspondants. On a le diagramme :</p>
 
 <!-- Source PDF page 13 (printed page 478) -->
-<div class="display-formula">\[\xymatrix{B\otimes_A B\ar[r]^{p\otimes p}\ar[d]_{\Delta}&B'\otimes_A B'\ar[d]^{\Delta}&B'\otimes_B B'\ar[l]_{\Delta}\ar[d]\\B\ar[r]^p\ar[dr]_i&B'\ar[d]^j&C\ar[l]^{j'}\ar@<.5ex>[l]_{p'}}\]</div>
+<div class="display-formula">\[\xymatrix{B\otimes_A B\ar[r]^{p\otimes p}\ar[d]_{\Delta}&B'\otimes_A B'\ar[d]^{\Delta}&\\B\ar[r]^p\ar[dr]_i&B'\ar[d]^j&B'\otimes_B B'\ar[l]_{\Delta}\ar[dl]^{i'}\ar[d]\\&C&{B'\otimes_B C=B'/IB'}\ar@<.5ex>[l]^{j'}\ar@<-.5ex>[l]_{p'}}\]</div>
 <p>L'homomorphisme \(I/I^2\longrightarrow J/J^2\) se déduit de l'homomorphisme : \(IB'\longrightarrow J\) et coïncide avec celui qui se déduit de \(p:I\longrightarrow J\) ; l'homomorphisme : \(i^*(\Omega^1_{V/Y})\longrightarrow j^*(\Omega^1_{V'/Y})\) se déduit du carré commutatif (1). La propriété a) est donc évidente.</p>
 <p>L'homomorphisme : \(K/K^2\longrightarrow j^*(\Omega^1_{V'/V})\) considéré dans b) peut-être défini comme suit : soit \(\bar x\in K/K^2\), soit \(x\) un élément de \(J\) remontant \(\bar x\) (il en existe car \(K=J/IB'\)). On associe à \(\bar x\) l'image de \(x\) par l'homomorphisme composé :</p>
 <div class="display-formula">\[J\xrightarrow{d}\Omega^1_{B'/A}\otimes_{B'}C\longrightarrow\Omega^1_{B'/B}\otimes_{B'}C.\]</div>
@@ -163,7 +163,7 @@ V&\xrightarrow{j}&Z[T'_1,\ldots,T'_m]
 <div class="thm proposition" id="VIII.2.6"><div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.6.</span></div><div class="thm-body"><p>Soient \(f:X\longrightarrow Y\), et \(g:Y\longrightarrow Z\) deux morphismes d'intersection complète lissifiables, et supposons de plus la condition suivante remplie :</p>
 
 <!-- Source PDF page 15 (printed page 480) -->
-<p>(G) Il existe un \(Y\)-schéma lisse \(V\), factorisant \(f\), tel que pour toute immersion fermée : \(Y\longrightarrow V'\) on puisse trouver un \(V'\)-schéma lisse \(V''\), avec \(V\simeq V''\mathbin{\times_{V'}}Y\) (cette condition est en particulier remplie si \(f\) est quasi-projectif et si \(Y\) a un faisceau ample, en prenant pour \(V\) un \(\mathbb P_Y^r\)).</p>
+<p>\(G\) Il existe un \(Y\)-schéma lisse \(V\), factorisant \(f\), tel que pour toute immersion fermée : \(Y\longrightarrow V'\) on puisse trouver un \(V'\)-schéma lisse \(V''\), avec \(V\simeq V''\mathbin{\times_{V'}}Y\) (cette condition est en particulier remplie si \(f\) est quasi-projectif et si \(Y\) a un faisceau ample, en prenant pour \(V\) un \(\mathbb P_Y^r\)).</p>
 <p>Alors \(g\circ f\) est d'intersection complète, lissifiable, et on a un triangle distingué :</p>
 <div class="display-formula">\[\xymatrix{L^{X/Y}_\bullet\ar[dr]&\\L f^*(L^{Y/Z}_\bullet)\ar[rr]&&L^{X/Z}_\bullet.}\]</div>
 </div></div>
@@ -179,7 +179,7 @@ V&\xrightarrow{j}&Z[T'_1,\ldots,T'_m]
 <!-- Source PDF page 16 (printed page 481) -->
 <p>En appliquant \(i^*\circ j'^*\), on trouve la suite exacte :</p>
 <div class="display-formula">\[0\longrightarrow(p''\circ j'\circ i)^*(\Omega^1_{V'/Z})\longrightarrow(j'\circ i)^*(\Omega^1_{V''/Z})\longrightarrow(j'\circ i)^*(\Omega^1_{V''/V'})\longrightarrow0.\]</div>
-<p>Comme \(j'^*(\Omega^1_{V''/V'})=\Omega^1_{V/Y}\) d'après l'hypothèse (G), on obtient :</p>
+<p>Comme \(j'^*(\Omega^1_{V''/V'})=\Omega^1_{V/Y}\) d'après l'hypothèse \(G\), on obtient :</p>
 <div class="display-formula">\[(2.6.2)\qquad 0\longrightarrow f^*(j^*(\Omega^1_{V'/Z}))\longrightarrow(j'\circ i)^*(\Omega^1_{V''/Z})\longrightarrow i^*(\Omega^1_{V/Y})\longrightarrow0.\]</div>
 <p>En combinant (2.6.1) et (2.6.2), on est ramené à voir que le diagramme :</p>
 <div class="display-formula">\[\begin{array}{ccccccccc}0&\longrightarrow&f^*(J/J^2)&\longrightarrow&K/K^2&\longrightarrow&I/I^2&\longrightarrow&0\\&&\downarrow f^*(d)&&\downarrow d&&\downarrow d&&\\0&\longrightarrow&f^*(j^*(\Omega^1_{V'/Z}))&\longrightarrow&(j'\circ i)^*(\Omega^1_{V''/Z})&\longrightarrow&i^*(\Omega^1_{V/Y})&\longrightarrow&0\end{array}\]</div>
@@ -243,7 +243,7 @@ V&\xrightarrow{j}&Z[T'_1,\ldots,T'_m]
 <div class="display-formula">\[\operatorname{ch}(f_*(x))=f_{\mathrm{gr}}(\operatorname{ch}(x)\cdot\operatorname{Todd}(\check T_f)),\]</div>
 <p>\(\check T_f\) désignant l'élément dual de la classe du complexe cotangent relatif \(L_\bullet^{X/Y}\) (2.5 et 2.3).</p></div></div>
 <p>En d'autres termes, le diagramme</p>
-<div class="display-formula">\[\xymatrix{K'(X)\ar[r]^{\operatorname{ch}\circ\widetilde c}\ar[d]_{f_*}&\operatorname{Gr}K'(X)_{\mathbb Q}\ar[d]^{x\mapsto f_{\mathrm{gr}}(x\cdot\operatorname{Todd}(\check T_f))}\\K'(Y)\ar[r]_{\operatorname{ch}\circ\widetilde c}&\operatorname{Gr}K'(Y)_{\mathbb Q}}\]</div>
+<div class="display-formula">\[\xymatrix{{K'(X)}\ar[r]^{\operatorname{ch}\circ\widetilde c}\ar[d]_{f_*}&{\operatorname{Gr}K'(X)_{\mathbb Q}}\ar[d]^{x\mapsto f_{\mathrm{gr}}(x\cdot\operatorname{Todd}(\check T_f))}\\{K'(Y)}\ar[r]_{\operatorname{ch}\circ\widetilde c}&{\operatorname{Gr}K'(Y)_{\mathbb Q}}}\]</div>
 <p>est commutatif.</p>
 
 <!-- Source PDF page 21 (printed page 486) -->
@@ -422,7 +422,7 @@ V&\xrightarrow{j}&Z[T'_1,\ldots,T'_m]
 &amp;=f_{\mathrm{gr}}\bigl(f^{\mathrm{gr}}(\operatorname{ch}(a))\operatorname{ch}(\xi^k)\operatorname{Todd}(\check T_f)\bigr)\\
 &amp;=\operatorname{ch}(a)\cdot f_{\mathrm{gr}}\bigl(\operatorname{ch}(\xi^k)\operatorname{Todd}(\check T_f)\bigr).
 \end{aligned}\]</div>
-<p>On voit donc qu'il suffit de montrer le théorème pour les \(\xi^k\), avec \(-r\leq k\leq0\). Or d'après (VI (5.2.3)), on a</p>
+<p>On voit donc qu'il suffit de montrer le théorème pour les \(\xi^k\), avec \(-r\leq k\leq0\). Or d'après \(VI (5.2.3)\), on a</p>
 <div class="display-formula">\[f_*(\xi^k)=0\quad\text{pour }-r\leq k&lt;0\ ;\qquad f_*(1)=1.\]</div>
 <p>Par suite :</p>
 <div class="display-formula">\[(5.4.1)\qquad\operatorname{ch}(f_*(\xi^k))=0\quad\text{si }-r\leq k&lt;0\ ;\qquad\operatorname{ch}(f_*(1))=1.\]</div>
@@ -431,7 +431,7 @@ V&\xrightarrow{j}&Z[T'_1,\ldots,T'_m]
 <p>Calculons maintenant le second membre de la formule de Riemann-Roch.</p>
 <p>Pour tout \(k\), on a :</p>
 <div class="display-formula">\[\widetilde c(\xi^k)=(\widetilde c(\xi))^k=(1,1+x)^k=(1,1+kx)\]</div>
-<p>d'après (V (6.2.1)). Par suite :</p>
+<p>d'après \(V (6.2.1)\). Par suite :</p>
 <div class="display-formula">\[(5.4.2)\qquad\operatorname{ch}(\xi^k)=\exp(kx).\]</div>
 <p>Le second membre de la formule de Riemann-Roch est donc :</p>
 <div class="display-formula">\[(5.4.3)\qquad f_{\mathrm{gr}}\left(\exp(kx)\cdot\frac{x^{r+1}}{(1-\exp(-x))^{r+1}}\right).\]</div>

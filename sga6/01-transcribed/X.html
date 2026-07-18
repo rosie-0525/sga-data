@@ -100,7 +100,7 @@
 <div class="display-formula">\[\operatorname{cl}'(E)=\operatorname{cl}'(L_1)+\cdots+\operatorname{cl}'(L_n)\in K'(X).\]</div>
 
 <!-- Source PDF page 7 (printed page 525) -->
-<p>Il s’ensuit (V) que \(x\) est la \(m\)-ème fonction symétrique élémentaire en les \(\operatorname{cl}'(L_r)-1\) (\(r=1,\ldots,n\)), donc est un polynôme homogène de degré \(m\) à coefficients entiers dans les variables \((\operatorname{cl}'(L_r)-1)\) (\(r=1,\ldots,n\)). Appliquant à nouveau l’hypothèse de récurrence et l’associativité de la loi (1.3.1) on est ainsi ramené à démontrer que, pour tout \(\mathcal O_X\)-module inversible \(L\), on a</p>
+<p>Il s’ensuit \(V\) que \(x\) est la \(m\)-ème fonction symétrique élémentaire en les \(\operatorname{cl}'(L_r)-1\) (\(r=1,\ldots,n\)), donc est un polynôme homogène de degré \(m\) à coefficients entiers dans les variables \((\operatorname{cl}'(L_r)-1)\) (\(r=1,\ldots,n\)). Appliquant à nouveau l’hypothèse de récurrence et l’associativité de la loi (1.3.1) on est ainsi ramené à démontrer que, pour tout \(\mathcal O_X\)-module inversible \(L\), on a</p>
 <div class="display-formula">\[(1.3.6)\qquad (\operatorname{cl}'(L)-1)\operatorname{cl}_\bullet(\mathcal O_X)\in\operatorname{Filt}_{j-1}(X).\]</div>
 <p>Le schéma \(X\) étant intègre, \(L\) et \(\mathcal O_X\) sont isomorphes à des sous-modules du \(\mathcal O_X\)-module constant \(R_X\) des fonctions rationnelles sur \(X\). Le \(\mathcal O_X\)-module somme \(F=\mathcal O_X+L\) est cohérent, et on trouve</p>
 <div class="display-formula">\[(\operatorname{cl}'(L)-1)\operatorname{cl}_\bullet(\mathcal O_X)=\operatorname{cl}_\bullet(L)-\operatorname{cl}_\bullet(\mathcal O_X)\\
@@ -302,7 +302,7 @@
 <div class="display-formula">\[f:X'\longrightarrow X\]</div>
 <p>de schémas noethériens. Alors \(f\) induit un homomorphisme</p>
 <div class="display-formula">\[f^*: \operatorname{Gr}^{\bullet}(X)\longrightarrow\operatorname{Gr}^{\bullet}(X')\]</div>
-<p>d'anneaux gradués (V), et d'après 1.1.8 un homomorphisme</p>
+<p>d'anneaux gradués \(V\), et d'après 1.1.8 un homomorphisme</p>
 <div class="display-formula">\[f_*:\operatorname{Gr}_\bullet(X')\longrightarrow\operatorname{Gr}_\bullet(X)\]</div>
 <p>de groupes abéliens gradués. Alors la formule de projection (IV 2.11) et (3.1.1) donnent par passage aux gradués associés la formule de projection graduée</p>
 <div class="display-formula">\[(3.1.2)\qquad x\cdot f_*(y)=f_*(f^*(x)\cdot y)\qquad(x\in\operatorname{Gr}^{\bullet}(X),\ y\in\operatorname{Gr}_\bullet(X')).\]</div>
@@ -349,55 +349,55 @@
 <p>que nous noterons</p>
 <div class="display-formula">\[(x,y)\longmapsto \langle x,y\rangle\in\mathbb Z\qquad(i\in\mathbb Z,\ x\in\operatorname{Gr}^i(X),\ y\in\operatorname{Gr}_i(X)).\]</div>
 
-<p><u>Exemple 4.2.</u> Supposons que le schéma (X) soit de dimension (n). Prenons un élément (y\in\operatorname{Gr}_n(X)), par exemple (y=\operatorname{cl}.(\mathcal O_Z)), où (Z) est un sous-schéma intègre de dimension (n) de (X). Prenons aussi un polynôme homogène de poids (n)</p>
+<p><u>Exemple 4.2.</u> Supposons que le schéma \(X\) soit de dimension \(n\). Prenons un élément \(y\in\operatorname{Gr}_n(X)\), par exemple \(y=\operatorname{cl}.(\mathcal O_Z)\), où \(Z\) est un sous-schéma intègre de dimension \(n\) de \(X\). Prenons aussi un polynôme homogène de poids \(n\)</p>
 <div class="display-formula">\[P\in\mathbb Z[T_1,\ldots,T_n],\]</div>
-<p>où (T_i) est muni du poids (i) ((i=1,\ldots,n)), par exemple un monôme (T_{i_1}T_{i_2}\cdots T_{i_k}) avec (i_1+i_2+\cdots+i_k=n). Lorsqu’on substitue dans (P) pour chaque variable (T_i) ((i=1,\ldots,n)) la classe de Chern</p>
+<p>où \(T_i\) est muni du poids (i) \((i=1,\ldots,n)\), par exemple un monôme \(T_{i_1}T_{i_2}\cdots T_{i_k}\) avec \(i_1+i_2+\cdots+i_k=n\). Lorsqu’on substitue dans \(P\) pour chaque variable \(T_i\) \((i=1,\ldots,n)\) la classe de Chern</p>
 <div class="display-formula">\[c_i(x)=\operatorname{cl}^i(\gamma^i(x-\varepsilon(x)))\in\operatorname{Gr}^i(X)\qquad(x\in K^*(X)),\]</div>
 <p>on obtient un élément</p>
 <div class="display-formula">\[P(c_1(x),\ldots,c_n(x))\in\operatorname{Gr}^n(X).\]</div>
-<p>On appelle <u>nombre de Chern de (x) relativement à (y)</u> l’entier</p>
+<p>On appelle <u>nombre de Chern de \(x\) relativement à \(y\)</u> l’entier</p>
 <div class="display-formula">\[P_y(x)=\langle P(c_1(x),\ldots,c_n(x)),y\rangle.\]</div>
-<p>Lorsque (y=\operatorname{cl}.(\mathcal O_X)), on omet la mention de (y) dans la terminologie précédente.</p>
+<p>Lorsque \(y=\operatorname{cl}.(\mathcal O_X)\), on omet la mention de \(y\) dans la terminologie précédente.</p>
 
-<p><strong>4.3.</strong> Sans hypothèse sur la dimension de (X), considérons une suite (L_1,\ldots,L_d) de (mathcal O_X)-modules inversibles et un (mathcal O_X)-module cohérent (F) tel que (\dim(\operatorname{Supp}(F))\leq d). Posons (L_i=\operatorname{cl}^1(L_i)) ((i=1,\ldots,d)) et (F=\operatorname{cl}.(F)).</p>
+<p><strong>4.3.</strong> Sans hypothèse sur la dimension de \(X\), considérons une suite \(L_1,\ldots,L_d\) de \(\mathcal O_X\)-modules inversibles et un \(\mathcal O_X\)-module cohérent \(F\) tel que \(\dim(\operatorname{Supp}(F))\leq d\). Posons \(L_i=\operatorname{cl}^1(L_i)\) \((i=1,\ldots,d)\) et \(F=\operatorname{cl}.(F)\).</p>
 
 <!-- Source PDF page 25 (printed page 543) -->
-<div class="thm proposition" id="X.4.3.1"><div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.3.1.</span></div><div class="thm-body"><p><u>Avec les notations ci-dessus, pour toute suite (\alpha_1,\ldots,\alpha_d) d’entiers positifs avec (\sum_{i=1}^d\alpha_i=d), le coefficient de</u></p>
+<div class="thm proposition" id="X.4.3.1"><div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.3.1.</span></div><div class="thm-body"><p><u>Avec les notations ci-dessus, pour toute suite \(\alpha_1,\ldots,\alpha_d\) d’entiers positifs avec \(\sum_{i=1}^d\alpha_i=d\), le coefficient de</u></p>
 <div class="display-formula">\[\binom{n_1}{\alpha_1}\cdots\binom{n_d}{\alpha_d}\]</div>
-<p><u>dans le polynôme de Snapper (\chi(L_1^{n_1}\cdots L_d^{n_d}F)) est égal à</u></p>
+<p><u>dans le polynôme de Snapper \(\chi(L_1^{n_1}\cdots L_d^{n_d}F)\) est égal à</u></p>
 <div class="display-formula">\[(4.3.2)\qquad \langle c_1(L_1)^{\alpha_1}\cdots c_1(L_d)^{\alpha_d},[F]\rangle,\]</div>
-<p><u>où ([F]) est la classe de (F) dans (\operatorname{Gr}_d(X)). Donc dans le développement ordinaire de ce polynôme suivant les monômes en des (n_i) ((i=1,\ldots,d)), le coefficient du monôme (n_1^{\alpha_1}\cdots n_d^{\alpha_d}) est égal à</u></p>
+<p><u>où \([F]\) est la classe de \(F\) dans \(\operatorname{Gr}_d(X)\). Donc dans le développement ordinaire de ce polynôme suivant les monômes en des \(n_i\) \((i=1,\ldots,d)\), le coefficient du monôme \(n_1^{\alpha_1}\cdots n_d^{\alpha_d}\) est égal à</u></p>
 <div class="display-formula">\[\frac1{\alpha_1!\cdots\alpha_d!}\langle c_1(L_1)^{\alpha_1}\cdots c_1(L_d)^{\alpha_d},[F]\rangle.\]</div></div></div>
 
 <p>En particulier on obtient immédiatement le</p>
-<div class="thm corollary" id="X.4.3.3"><div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.3.3.</span></div><div class="thm-body"><p><u>Le coefficient du monôme (n_1n_2\cdots n_d) dans le polynôme de Snapper (\chi(L_1^{n_1}\cdots L_d^{n_d}F)) est égal à</u></p>
+<div class="thm corollary" id="X.4.3.3"><div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.3.3.</span></div><div class="thm-body"><p><u>Le coefficient du monôme \(n_1n_2\cdots n_d\) dans le polynôme de Snapper \(\chi(L_1^{n_1}\cdots L_d^{n_d}F)\) est égal à</u></p>
 <div class="display-formula">\[(4.3.4)\qquad \langle c_1(L_1)\cdots c_1(L_d),[F]\rangle=(c_1(L_1)\cdots c_1(L_d),[F]).\]</div></div></div>
 
-<p><u>Démonstration :</u> Posons (L_i=1+M_i) pour tout (i=1,\ldots,d). Tenant compte des définitions on trouve immédiatement que l’entier (4.3.2) est égal à (\chi(M_1^{\alpha_1}\cdots M_d^{\alpha_d}F)). Lorsqu’on substitue dans (2.1.4) (A=K^*(X)/\operatorname{Filt}^{d+1}(X)), (I=\operatorname{Filt}^1(X)/\operatorname{Filt}^{d+1}(X)), alors (2.1.5) donne, (compte tenu de ce que (M_i\in\operatorname{Filt}^1(X)) pour tout (i=1,\ldots,d)) la congruence</p>
+<p><u>Démonstration :</u> Posons \(L_i=1+M_i\) pour tout \(i=1,\ldots,d\). Tenant compte des définitions on trouve immédiatement que l’entier (4.3.2) est égal à \(\chi(M_1^{\alpha_1}\cdots M_d^{\alpha_d}F)\). Lorsqu’on substitue dans (2.1.4) \(A=K^*(X)/\operatorname{Filt}^{d+1}(X)\), \(I=\operatorname{Filt}^1(X)/\operatorname{Filt}^{d+1}(X)\), alors (2.1.5) donne, (compte tenu de ce que \(M_i\in\operatorname{Filt}^1(X)\) pour tout \(i=1,\ldots,d\)) la congruence</p>
 <div class="display-formula">\[(4.3.5)\qquad L_1^{n_1}\cdots L_d^{n_d}\equiv\sum_{\substack{\alpha_1,\ldots,\alpha_d\geq0\\\alpha_1+\cdots+\alpha_d=d}}\binom{n_1}{\alpha_1}\cdots\binom{n_d}{\alpha_d}M_1^{\alpha_1}\cdots M_d^{\alpha_d}\pmod{\operatorname{Filt}^{d+1}(X)}.\]</div>
-<p>Donc le coefficient de (\binom{n_1}{\alpha_1}\cdots\binom{n_d}{\alpha_d}) dans le polynôme (\chi(L_1^{n_1}\cdots L_d^{n_d}F)) est égal à (\chi(M_1^{\alpha_1}\cdots M_d^{\alpha_d}F)), C.Q.F.D.</p>
+<p>Donc le coefficient de \(\binom{n_1}{\alpha_1}\cdots\binom{n_d}{\alpha_d}\) dans le polynôme \(\chi(L_1^{n_1}\cdots L_d^{n_d}F)\) est égal à \(\chi(M_1^{\alpha_1}\cdots M_d^{\alpha_d}F)\), C.Q.F.D.</p>
 
 <!-- Source PDF page 26 (printed page 544) -->
-<p><strong>4.4.</strong> On appelle parfois l’entier (4.3.4) le <u>nombre d’intersection des (mathcal O_X)-modules inversibles (L_1,\ldots,L_d) avec (F)</u>, et on le dénote par ((L_1,\ldots,L_d;F)) (cf. [3]). Comme conséquence de l’expression (4.3.4) de ce nombre on trouve aussitôt les propriétés suivantes :</p>
-<p>1) L’entier (4.3.4) est une fonction symétrique et (d)-linéaire dans les variables (L_1,\ldots,L_d\in\operatorname{Pic}(X)), nulle si (\dim(\operatorname{Supp}(F))&lt;d), et il est « additif » en (F), i.e. additif en (\operatorname{cl}.(F)=F).</p>
+<p><strong>4.4.</strong> On appelle parfois l’entier (4.3.4) le <u>nombre d’intersection des \(\mathcal O_X\)-modules inversibles \(L_1,\ldots,L_d\) avec \(F\)</u>, et on le dénote par \((L_1,\ldots,L_d;F)\) (cf. [3]). Comme conséquence de l’expression (4.3.4) de ce nombre on trouve aussitôt les propriétés suivantes :</p>
+<p>1) L’entier (4.3.4) est une fonction symétrique et \(d\)-linéaire dans les variables \(L_1,\ldots,L_d\in\operatorname{Pic}(X)\), nulle si \(\dim(\operatorname{Supp}(F))&lt;d\), et il est « additif » en \(F\), i.e. additif en \(\operatorname{cl}.(F)=F\).</p>
 <p>2) Utilisant 2.1.2, on en conclut immédiatement (avec les notations de 1.1.2) :</p>
 <div class="display-formula">\[(4.4.1)\qquad(L_1,\ldots,L_d;F)=\sum_{x\in\widehat X(d)}\operatorname{long}_{\mathcal O_{X,x}}(F_x)(L_1,\ldots,L_d;\mathcal O_{\overline{\{x\}}}).\]</div>
-<p>3) Soit (Y) un sous-schéma fermé de (X) et (G) un (mathcal O_Y)-module cohérent tel que (F=f_*(G)), où (f:Y\longrightarrow X) est l’immersion canonique.</p>
+<p>3) Soit \(Y\) un sous-schéma fermé de \(X\) et \(G\) un \(\mathcal O_Y\)-module cohérent tel que \(F=f_*(G)\), où \(f:Y\longrightarrow X\) est l’immersion canonique.</p>
 <p>Alors on trouve</p>
 <div class="display-formula">\[(f^*L_1,\ldots,f^*L_d;G)=(L_1,\ldots,L_d;F).\]</div>
 <p>De façon plus générale, la formule de projection donne en effet</p>
 <div class="display-formula">\[(4.4.2)\qquad\chi(f^*(x)\cdot y)=\chi(f_*(f^*(x)\cdot y))=\chi(x\cdot f_*(y))\quad(x\in K'(X),\ y\in K.(Y))\]</div>
-<p>pour tout (k)-morphisme (f:Y\longrightarrow X) de (k)-schémas propres.</p>
-<p>4) Supposons que dans le morphisme (f:Y\longrightarrow X) ci-dessus, (X) et (Y) sont irréductibles de dimension (leq d). Si (f) est de degré (n), alors on a</p>
+<p>pour tout \(k\)-morphisme \(f:Y\longrightarrow X\) de \(k\)-schémas propres.</p>
+<p>4) Supposons que dans le morphisme \(f:Y\longrightarrow X\) ci-dessus, \(X\) et \(Y\) sont irréductibles de dimension \(\leq d\). Si \(f\) est de degré \(n\), alors on a</p>
 
 <!-- Source PDF page 27 (printed page 545) -->
 <div class="display-formula">\[(4.4.3)\qquad(f^*L_1,\ldots,f^*L_d;\mathcal O_Y)=n(L_1,\ldots,L_d;\mathcal O_X).\]</div>
-<p>Rappelons la définition du degré (n) de (f) [3] : il est nul sauf dans le cas où (\dim(X)=\dim(Y)=\dim(f(Y))). Dans ce dernier cas on pose</p>
+<p>Rappelons la définition du degré \(n\) de \(f\) [3] : il est nul sauf dans le cas où \(\dim(X)=\dim(Y)=\dim(f(Y))\). Dans ce dernier cas on pose</p>
 <div class="display-formula">\[(4.4.4)\qquad n=\frac{\operatorname{long}_{\mathcal O_{X,x}}(\mathcal O_{Y,y})}{\operatorname{long}_{\mathcal O_{X,x}}(\mathcal O_{X,x})},\]</div>
-<p>où (x) est le point générique de (X) et (y) le point générique de (Y).</p>
-<p>Dans la démonstration de (4.4.3) le cas (\dim(X)=\dim(Y)) est le seul non-trivial. Si (\dim(f(Y))&lt;d), alors on a</p>
+<p>où \(x\) est le point générique de \(X\) et \(y\) le point générique de \(Y\).</p>
+<p>Dans la démonstration de (4.4.3) le cas \(\dim(X)=\dim(Y)\) est le seul non-trivial. Si \(\dim(f(Y))&lt;d\), alors on a</p>
 <div class="display-formula">\[(4.4.5)\qquad R^if_*(\mathcal O_Y)=0\]</div>
-<p>pour (i&gt;0) dans un voisinage de (x). Mais la condition (4.4.5) est satisfaite aussi dans le cas (\dim(f(Y))=d), car alors la dimension de la fibre générique est nulle (EGA III 4.2.2 et EGA IV 5.6.6). Alors 1.1.2 donne les congruences</p>
+<p>pour \(i&gt;0\) dans un voisinage de \(x\). Mais la condition (4.4.5) est satisfaite aussi dans le cas \(\dim(f(Y))=d\), car alors la dimension de la fibre générique est nulle (EGA III 4.2.2 et EGA IV 5.6.6). Alors 1.1.2 donne les congruences</p>
 <div class="display-formula">\[f_*(\operatorname{cl}.(\mathcal O_Y))=\operatorname{cl}.(f_*(\mathcal O_Y))\equiv\operatorname{long}_{\mathcal O_{X,x}}(\mathcal O_{Y,y})\operatorname{cl}.(\mathcal O_{X_{\mathrm{red}}})\pmod{\operatorname{Filt}_{d-1}(X)}.\]</div>
 <p>En vertu de (4.4.2) il en découle que</p>
 <div class="display-formula">\[(f^*L_1,\ldots,f^*L_d;\mathcal O_Y)=\operatorname{long}_{\mathcal O_{X,x}}(\mathcal O_{Y,y})(L_1,\ldots,L_d;\mathcal O_{X_{\mathrm{red}}}).\]</div>
@@ -406,18 +406,18 @@
 <p>d’où l’assertion.</p>
 
 <!-- Source PDF page 28 (printed page 546) -->
-<p><strong>4.5.</strong> On appelle équivalence numérique la relation d’équivalence définie par le produit d’intersection (\langle\ ,\ \rangle) :</p>
-<div class="thm definition" id="X.4.5.1"><div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">4.5.1.</span></div><div class="thm-body"><p><u>On dit que deux éléments (x) et (y) de (\operatorname{Gr}^i(X)) ((i\in\mathbb Z)) (resp. de (\operatorname{Gr}_i(X))) sont numériquement équivalents, s’ils définissent le même homomorphisme (\operatorname{Gr}_i(X)\longrightarrow\mathbb Z) (resp. (\operatorname{Gr}^i(X)\longrightarrow\mathbb Z)). On dit que deux (mathcal O_X)-modules inversibles (L_1) et (L_2) sont numériquement équivalents, si leurs premières classes de Chern (x,y\in\operatorname{Gr}^1(X)) sont numériquement équivalentes.</u></p></div></div>
-<div class="thm proposition" id="X.4.5.2"><div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.5.2.</span></div><div class="thm-body"><p><u>Un (mathcal O_X)-module inversible (L) est numériquement équivalent à zéro si et seulement si</u></p>
+<p><strong>4.5.</strong> On appelle équivalence numérique la relation d’équivalence définie par le produit d’intersection \(\langle\ ,\ \rangle\) :</p>
+<div class="thm definition" id="X.4.5.1"><div class="thm-head"><span class="thm-name">Définition</span> <span class="thm-num">4.5.1.</span></div><div class="thm-body"><p><u>On dit que deux éléments \(x\) et \(y\) de \(\operatorname{Gr}^i(X)\) \((i\in\mathbb Z)\) (resp. de \(\operatorname{Gr}_i(X)\)) sont numériquement équivalents, s’ils définissent le même homomorphisme \(\operatorname{Gr}_i(X)\longrightarrow\mathbb Z\) (resp. \(\operatorname{Gr}^i(X)\longrightarrow\mathbb Z\)). On dit que deux \(\mathcal O_X\)-modules inversibles \(L_1\) et \(L_2\) sont numériquement équivalents, si leurs premières classes de Chern \(x,y\in\operatorname{Gr}^1(X)\) sont numériquement équivalentes.</u></p></div></div>
+<div class="thm proposition" id="X.4.5.2"><div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">4.5.2.</span></div><div class="thm-body"><p><u>Un \(\mathcal O_X\)-module inversible \(L\) est numériquement équivalent à zéro si et seulement si</u></p>
 <div class="display-formula">\[(4.5.3)\qquad\chi(L^n\mathbin{\mathop{\otimes}_{\mathcal O_X}}\mathcal O_Z)=\chi(\mathcal O_Z)\]</div>
-<p><u>pour tout (n\in\mathbb Z) et pour toute courbe intègre fermée (Z\subset X).</u></p></div></div>
+<p><u>pour tout \(n\in\mathbb Z\) et pour toute courbe intègre fermée \(Z\subset X\).</u></p></div></div>
 <p>Cela résulte de 1.1.2 et 4.3.1.</p>
-<p>On désigne par (\operatorname{Pic}^N(X)) le sous-groupe de (\operatorname{Pic}(X)) composé des classes de (mathcal O_X)-modules inversibles numériquement équivalents à zéro. De 2.3.4 on tire</p>
-<div class="thm corollary" id="X.4.5.3"><div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.5.3.</span></div><div class="thm-body"><p>(\operatorname{Pic}^\tau(X)\subset\operatorname{Pic}^N(X)).</p></div></div>
-<p>On va démontrer dans Exp XIII que l’on a même (\operatorname{Pic}^N(X)=\operatorname{Pic}^\tau(X)).</p>
+<p>On désigne par \(\operatorname{Pic}^N(X)\) le sous-groupe de \(\operatorname{Pic}(X)\) composé des classes de \(\mathcal O_X\)-modules inversibles numériquement équivalents à zéro. De 2.3.4 on tire</p>
+<div class="thm corollary" id="X.4.5.3"><div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">4.5.3.</span></div><div class="thm-body"><p>\(\operatorname{Pic}^\tau(X)\subset\operatorname{Pic}^N(X)\).</p></div></div>
+<p>On va démontrer dans Exp XIII que l’on a même \(\operatorname{Pic}^N(X)=\operatorname{Pic}^\tau(X)\).</p>
 
-<h2 id="X.5">5. &nbsp; L’isomorphisme (\operatorname{Pic}(X)\simeq\operatorname{Gr}^1(X))</h2>
-<p><strong>5.1.</strong> Soit (X) un topos annelé quelconque. Alors on peut définir l’anneau (K^*(X)) et la filtration ((\operatorname{Filt}^i(X))_{i\in\mathbb Z}) exactement comme pour les schémas. De même on définit le groupe (\operatorname{Pic}(X)) comme le groupe des classes d’isomorphie des (mathcal O_X)-modules inversibles. On désigne par</p>
+<h2 id="X.5">5. &nbsp; L’isomorphisme \(\operatorname{Pic}(X)\simeq\operatorname{Gr}^1(X)\)</h2>
+<p><strong>5.1.</strong> Soit \(X\) un topos annelé quelconque. Alors on peut définir l’anneau \(K^*(X)\) et la filtration \((\operatorname{Filt}^i(X))_{i\in\mathbb Z}\) exactement comme pour les schémas. De même on définit le groupe \(\operatorname{Pic}(X)\) comme le groupe des classes d’isomorphie des \(\mathcal O_X\)-modules inversibles. On désigne par</p>
 
 <!-- Source PDF page 29 (printed page 547) -->
 <div class="display-formula">\[(5.1.1)\qquad i:\operatorname{Pic}(X)\longrightarrow K^*(X)\]</div>
@@ -574,10 +574,10 @@
 <p>Sauf mention expresse du contraire, on va supposer dans ce qui suit le \(\lambda\) intervenant dans \(c_{h,k,\lambda}\) (\(\lambda\in A\) ; \(h,k=1,\ldots,n\) ; \(h\ne k\)) inversible. La démonstration se fait alors en deux pas. On va montrer d’abord que \(s\) est un produit de matrices \(c_{h,k,\lambda}\) dans un voisinage zariskien suffisamment petit de \(y\). Puis on va montrer que les matrices \(c_{h,k,\lambda}\) sont des produits de commutateurs de \(Gl(n)\) dans un voisinage étale suffisamment petit de \(y\).</p>
 
 <!-- Source PDF page 39 (printed page 557) -->
-<p>Pour le premier il s’agit de transformer \(s\) en la matrice unité (1=\(\delta_{ij}\)) dans un voisinage zariskien de \(y\) en multipliant \(s\) à gauche et à droite par des matrices convenables \(c_{h,k,\lambda}\). Montrons d’abord qu’on peut rendre ainsi \(s_{11}=1\). Si \(s_{11}\ne1\) et \(s_{21}\in\mathfrak p\), nous cherchons une matrice \(c=c_{h,1,\lambda}\) tel que le produit \(s'=sc=(s'_{ij})\) ait \(s'_{21}\notin\mathfrak p\). Puisque \(\det(s)=1\notin\mathfrak p\), il existe au moins un indice \(i\) tel que \(s_{i1}\notin\mathfrak p\). Alors on a \(s_{21}+s_{i1}\notin\mathfrak p\), et \(c_{i,1,1}\) répond à la question. On peut donc supposer \(s_{21}\notin\mathfrak p\), et quitte à localiser, on peut supposer \(s_{21}\) inversible. Si \(s_{11}-1\in\mathfrak p\), alors dans \(s'=(s'_{ij})=sc_{1,2,1}\) on a (s'_{11}-1=\(s_{11}+s_{21}\)-1\notin\mathfrak p). Quitte à localiser, on peut alors supposer \(s_{11}-1\) inversible. Alors \(\lambda=(1-s_{11})/s_{21}\) est inversible et on trouve \(s'_{11}=1\) dans \(s'=(s'_{ij})=sc_{1,2,\lambda}\).</p>
+<p>Pour le premier il s’agit de transformer \(s\) en la matrice unité \(1=(\delta_{ij})\) dans un voisinage zariskien de \(y\) en multipliant \(s\) à gauche et à droite par des matrices convenables \(c_{h,k,\lambda}\). Montrons d’abord qu’on peut rendre ainsi \(s_{11}=1\). Si \(s_{11}\ne1\) et \(s_{21}\in\mathfrak p\), nous cherchons une matrice \(c=c_{h,1,\lambda}\) tel que le produit \(s'=sc=(s'_{ij})\) ait \(s'_{21}\notin\mathfrak p\). Puisque \(\det(s)=1\notin\mathfrak p\), il existe au moins un indice \(i\) tel que \(s_{i1}\notin\mathfrak p\). Alors on a \(s_{21}+s_{i1}\notin\mathfrak p\), et \(c_{i,1,1}\) répond à la question. On peut donc supposer \(s_{21}\notin\mathfrak p\), et quitte à localiser, on peut supposer \(s_{21}\) inversible. Si \(s_{11}-1\in\mathfrak p\), alors dans \(s'=(s'_{ij})=sc_{1,2,1}\) on a \(s'_{11}-1=(s_{11}+s_{21})-1\notin\mathfrak p\). Quitte à localiser, on peut alors supposer \(s_{11}-1\) inversible. Alors \(\lambda=(1-s_{11})/s_{21}\) est inversible et on trouve \(s'_{11}=1\) dans \(s'=(s'_{ij})=sc_{1,2,\lambda}\).</p>
 <p>Supposant \(s_{11}=1\) on peut alors rendre \(s\) à la forme où</p>
 <div class="display-formula">\[s_{11}=1,\quad s_{1i}=s_{i1}=0\qquad(i=2,\ldots,n)\]</div>
-<p>dans un voisinage zariskien, de \(y\) en multipliant \(s\) à gauche (resp. à droite) par des matrices \(c_{i,1,\lambda}\) (resp. \(c_{1,i,\lambda}\)). Puis on va rendre \(s_{22}=1\) etc. Par récurrence on peut alors transformer \(s\) dans un voisinage zariskien \(U\) de \(y\) en une matrice (s'=\(s'_{ij}\)) ayant \(s'_{ij}=\delta_{ij}\) pour (i&lt;n) ou (j&lt;n). Mais par construction même on a alors \(s'=c_1sc_2\) sur \(U\), où \(c_1\) et \(c_2\) sont des produits de matrices \(c_{h,k,\lambda}\). Donc on a</p>
+<p>dans un voisinage zariskien, de \(y\) en multipliant \(s\) à gauche (resp. à droite) par des matrices \(c_{i,1,\lambda}\) (resp. \(c_{1,i,\lambda}\)). Puis on va rendre \(s_{22}=1\) etc. Par récurrence on peut alors transformer \(s\) dans un voisinage zariskien \(U\) de \(y\) en une matrice \(s'=(s'_{ij})\) ayant \(s'_{ij}=\delta_{ij}\) pour \(i&lt;n\) ou \(j&lt;n\). Mais par construction même on a alors \(s'=c_1sc_2\) sur \(U\), où \(c_1\) et \(c_2\) sont des produits de matrices \(c_{h,k,\lambda}\). Donc on a</p>
 <div class="display-formula">\[\det(s')=\det(s)=1,\]</div>
 <p>de sorte que \(s'_{nn}=1\), \(s'=1\), et on a gagné.</p>
 <p>On suppose donc que \(s\) soit déjà sur \(Y\) un produit de matrices \(c_{h,k,\lambda}\). Reste à voir que celles-ci sont des produits de commutateurs dans un voisinage étale de \(y\). Tout d’abord on voit que deux matrices</p>
@@ -587,27 +587,27 @@
 <div class="display-formula">\[ac_{h,k,\lambda}=c_{h,k,\mu}a.\]</div>
 <p>En effet, la matrice (\(a_{ij}\)) avec \(a_{hh}=1/\mu\), \(a_{kk}=1/\lambda\), et du reste \(a_{ij}=\delta_{ij}\), répond à la question (rappelons que \(\lambda\) et \(\mu\) sont par hypothèse inversibles et \(h\ne k\)). Donc pour un homomorphisme quelconque \(\beta\) de \(Gl(n)(U)\) dans un faisceau de groupes abéliens \(H\), on a</p>
 <div class="display-formula">\[\beta(c_{h,k,\lambda})=\beta(c_{h,k,\mu}).\]</div>
-<p>Si \(\lambda+\mu\) est inversible, on tire de ceci et de (6.3.1) que \(\beta(c_{h,k,\lambda})=0\) pour tout \(h,k,\lambda\), de sorte que \(c_{h,k,\lambda}\) est un produit de commutateurs. Si le corps résiduel \(k\) de \(y\) n’est pas le corps premier \(\mathbb F_2=[0,1]\), alors on peut trouver pour tout \(\lambda\in A\) inversible un voisinage zariskien (U=\operatorname{Spec}(B)) de \(y\), et un élément inversible \(\mu\in B\) tel que \(\lambda+\mu\in B\) soit inversible. Il en découle que \(c_{h,k,\lambda}\) est un produit de commutateurs sur \(U\).</p>
-<p>Si \(k=\mathbb F_2\), alors (V=\operatorname{Spec}(A[T]/\(T^2+T+1\))) est un voisinage étale de \(y\), dont le corps résiduel est différent de \(\mathbb F_2\). On a gagné.</p>
+<p>Si \(\lambda+\mu\) est inversible, on tire de ceci et de (6.3.1) que \(\beta(c_{h,k,\lambda})=0\) pour tout \(h,k,\lambda\), de sorte que \(c_{h,k,\lambda}\) est un produit de commutateurs. Si le corps résiduel \(k\) de \(y\) n’est pas le corps premier \(\mathbb F_2=[0,1]\), alors on peut trouver pour tout \(\lambda\in A\) inversible un voisinage zariskien \(U=\operatorname{Spec}(B)\) de \(y\), et un élément inversible \(\mu\in B\) tel que \(\lambda+\mu\in B\) soit inversible. Il en découle que \(c_{h,k,\lambda}\) est un produit de commutateurs sur \(U\).</p>
+<p>Si \(k=\mathbb F_2\), alors \(V=\operatorname{Spec}(A[T]/(T^2+T+1))\) est un voisinage étale de \(y\), dont le corps résiduel est différent de \(\mathbb F_2\). On a gagné.</p>
 
 <p><u>6.5. Remarques</u></p>
-<p><strong>6.5.1.</strong> Lorsque les corps résiduels de \(S\) sont tous non isomorphes à \(\mathbb F_2\), la démonstration précédente montre que 6.2.2 reste valable pour le topos annelé des faisceaux zariskien sur \(S\). En revanche, déjà pour (S=\operatorname{Spec}\(\mathbb F_2\)), (Sl\(2,\mathbb F_2\)=Gl\(2,\mathbb F_2\)) est différent du groupe des commutateurs de (Gl\(2,\mathbb F_2\)). L’ordre de ce dernier est 3 tandis que l’ordre de (Sl\(2,\mathbb F_2\)) est 6 (cf. [1]).</p>
+<p><strong>6.5.1.</strong> Lorsque les corps résiduels de \(S\) sont tous non isomorphes à \(\mathbb F_2\), la démonstration précédente montre que 6.2.2 reste valable pour le topos annelé des faisceaux zariskien sur \(S\). En revanche, déjà pour \(S=\operatorname{Spec}(\mathbb F_2)\), \(Sl(2,\mathbb F_2)=Gl(2,\mathbb F_2)\) est différent du groupe des commutateurs de \(Gl(2,\mathbb F_2)\). L’ordre de ce dernier est 3 tandis que l’ordre de \(Sl(2,\mathbb F_2)\) est 6 (cf. [1]).</p>
 <p><strong>6.5.2.</strong> Sur un topos localement annelé quelconque \(X\) il n’est pas vrai en général que toute représentation \(G_m\longrightarrow G_m\) soit définie par une</p>
 
 <!-- Source PDF page 41 (printed page 559) -->
-<p>puissance. Par exemple sur le topos ((Ens)) annelé par le corps (mathbb Q), la représentation \(G_m\longrightarrow G_m\) définie par</p>
+<p>puissance. Par exemple sur le topos \((Ens)\) annelé par le corps (mathbb Q), la représentation \(G_m\longrightarrow G_m\) définie par</p>
 <div class="display-formula">\[r\longmapsto |r|\qquad(r\in\mathbb Q^*)\]</div>
 <p>n’est pas une puissance. En particulier 6.2.3 ne reste pas valable pour n’importe quel topos localement annelé \(X\) et pour n’importe quelle représentation \(\alpha:G\longrightarrow G_m\).</p>
-<p><strong>6.5.3.</strong> En revanche 6.2.3 reste valable pour les représentations associées aux formules (6.2.8), (6.2.9) et (6.2.10) sur un topos annelé quelconque (X=\(C,\mathcal O\)), parce que ces représentations sont « algébriques » dans le sens suivant :</p>
-<p>Soient \(e\) l’objet final de \(X\), (S=\operatorname{Spec}(\mathcal O\(e\))), et considérons le foncteur</p>
+<p><strong>6.5.3.</strong> En revanche 6.2.3 reste valable pour les représentations associées aux formules (6.2.8), (6.2.9) et (6.2.10) sur un topos annelé quelconque \(X=(C,\mathcal O)\), parce que ces représentations sont « algébriques » dans le sens suivant :</p>
+<p>Soient \(e\) l’objet final de \(X\), \(S=\operatorname{Spec}(\mathcal O(e))\), et considérons le foncteur</p>
 <div class="display-formula">\[u:C\longrightarrow(\operatorname{Sch}/S)\]</div>
-<p>qui associe à chaque (Y\in\operatorname{Ob}\(C\)) le schéma affine \(\operatorname{Spec}(\mathcal O\(Y\))\) sur \(S\). Alors pour tout entier positif \(n\) le préfaisceau (Gl\(n\)_X) sur \(C\) est composé avec \(u\) du préfaisceau correspondant (Gl\(n\)_S) sur (\(\operatorname{Sch}/S\)). On dit qu’une représentation sur \(X\)</p>
+<p>qui associe à chaque \(Y\in\operatorname{Ob}(C)\) le schéma affine \(\operatorname{Spec}(\mathcal O(Y))\) sur \(S\). Alors pour tout entier positif \(n\) le préfaisceau \(Gl(n)_X\) sur \(C\) est composé avec \(u\) du préfaisceau correspondant \(Gl(n)_S\) sur (\(\operatorname{Sch}/S\)). On dit qu’une représentation sur \(X\)</p>
 <div class="display-formula">\[(6.5.4)\qquad \alpha:Gl(n)\longrightarrow G_m\]</div>
 <p>est <u>algébrique</u>, si elle provient par \(u\) d’une représentation</p>
 <div class="display-formula">\[(6.5.5)\qquad \alpha_S:Gl(n)_S\longrightarrow G_{m,S}\]</div>
 <p>de préfaisceaux en groupes sur (\(\operatorname{Sch}/S\)), i.e., si l’on a</p>
 <div class="display-formula">\[\alpha(s)=\alpha_S(s)\]</div>
-<p>pour tout (Y\in\operatorname{Ob}\(C\)), (s\in Gl\(n\)\(Y\)=Gl\(n\)_S(u\(Y\))).</p>
+<p>pour tout \(Y\in\operatorname{Ob}(C)\), \(s\in Gl(n)(Y)=Gl(n)_S(u(Y))\).</p>
 <p>La représentation \(\alpha\) dans (6.5.4) est bien entendu complètement déterminée par \(\alpha_S\). Il s’ensuit immédiatement que (6.2.3) reste valable dans un topos annelé quelconque, lorsque \(\alpha\) est algébrique. Donc en particulier les formules (6.2.8), (6.2.9) et (6.2.10) restent valables sur un topos annelé quelconque.</p>
 
 <!-- Source PDF page 42 (printed page 560) -->
@@ -620,8 +620,8 @@
 <div class="display-formula">\[i_*:K_\bullet(Y)\longrightarrow K_\bullet(X).\]</div>
 <p><u>Ceci posé, on a la formule</u></p>
 <div class="display-formula">\[i^*i_*(x)=x\,\lambda_{-1}(N)\qquad\text{pour }x\in K_\bullet(Y),\]</div>
-<p><u>où le produit du deuxième membre est relatif à la structure de (K'\(Y\))-module de (K_\bullet\(Y\)) définie dans (IV 2.10).</u></p></div></div>
-<p>La démonstration est, essentiellement sans changement, la même que pour la même formule, écrite en travaillant avec (K'\(X\)), (K'\(Y\)), établie dans (VII 2.7).</p>
+<p><u>où le produit du deuxième membre est relatif à la structure de \(K'(Y)\)-module de \(K_\bullet(Y)\) définie dans (IV 2.10).</u></p></div></div>
+<p>La démonstration est, essentiellement sans changement, la même que pour la même formule, écrite en travaillant avec \(K'(X)\), \(K'(Y)\), établie dans (VII 2.7).</p>
 
 <div class="thm corollary" id="X.7.2"><div class="thm-head"><span class="thm-name">Corollaire</span> <span class="thm-num">7.2.</span></div><div class="thm-body"><p><u>Soient \(f:X\longrightarrow S\) un morphisme plat, avec \(S\) un trait i.e. le spectre d’un anneau de valuation discrète \(A\), \(s\) le point fermé de \(S\), \(t\) son point générique, \(i:X_s\longrightarrow X\) l’inclusion canonique. Alors \(i\) est de tor-dimension finie donc (IV 2.12) on peut définir</u></p>
 <div class="display-formula">\[i^*:K_\bullet(X)\longrightarrow K_\bullet(X_s),\]</div>
@@ -632,7 +632,7 @@
 <p><u>Ceci posé, le composé</u></p>
 <div class="display-formula">\[i^*i_*:K_\bullet(X_s)\longrightarrow K_\bullet(X)\longrightarrow K_\bullet(X_s)\]</div>
 <p><u>est nul.</u></p></div></div>
-<p>En effet, \(i:X_s\longrightarrow X\) est une immersion régulière de codimension 1, donc le faisceau conormal \(N\) est libre de rang 1, car \(X_s\) peut se décrire par une équation globale (f^*(g)=0) (où (g) est une uniformisante de \(A\)). On a donc (lambda_{-1}\(N)=0\), et on conclut grâce à 7.1.</p>
+<p>En effet, \(i:X_s\longrightarrow X\) est une immersion régulière de codimension 1, donc le faisceau conormal \(N\) est libre de rang 1, car \(X_s\) peut se décrire par une équation globale \(f^*(g)=0\) (où \(g\) est une uniformisante de \(A\)). On a donc \(\lambda_{-1}(N)=0\), et on conclut grâce à 7.1.</p>
 <p>Nous supposerons dans toute la suite \(X\) noethérien et plat sur \(S\). Appliquons maintenant la suite exacte d’homotopie (IX 1.1) à la situation : \(X\), muni de l’ouvert \(X_t\) et du sous-schéma fermé \(X_s\) complémentaire :</p>
 <div class="display-formula">\[K_\bullet(X_s)\xrightarrow{i_*}K_\bullet(X)\xrightarrow{j^*}K_\bullet(X_t)\longrightarrow0,\]</div>
 <p>où \(j:X_t\longrightarrow X\) est l’inclusion, qui est une immersion ouverte. Utilisant 7.2, on trouve :</p>
@@ -641,9 +641,9 @@
 <p><u>(dit « homomorphisme de spécialisation ») rendant commutatif le diagramme</u></p>
 <div class="display-formula">\[(7.3.2)\qquad
 \begin{array}{ccc}
-K_\bullet\(X\)&amp;\xrightarrow{j^*}&amp;K_\bullet\(X_t\)\\
+K_\bullet(X)&amp;\xrightarrow{j^*}&amp;K_\bullet(X_t)\\
 {\scriptstyle i^*}\downarrow&amp;\swarrow{\scriptstyle\sigma}&amp;\\
-K_\bullet\(X_s\)&amp;&amp;
+K_\bullet(X_s)&amp;&amp;
 \end{array}\]</div></div></div>
 
 <!-- Source PDF page 44 (printed page 562) -->
@@ -1074,7 +1074,7 @@ K_\bullet(X'_{t'})&amp;\xrightarrow{\sigma_{X'}}&amp;K_\bullet(X'_{s'})
 <div class="display-formula">\[F(A)=K_\bullet(X\otimes_k A),\]</div>
 
 <!-- Source PDF page 75 (printed page 593) -->
-<p>qui est un foncteur sur la catégorie \(C\) (grâce à (IV 2.12)). En vertu de (IV 3.2.3), ce dernier commute aux limites inductives filtrantes. D’ailleurs, si \(k'\) est une extension finie de \(k\), alors la projection \(p:X\otimes_k k'\longrightarrow X\) est un morphisme fini, plat, de présentation finie, donc il définit un homomorphisme image directe \(p=N_{k'/k}:K_\bullet(X\otimes_k k')\longrightarrow K_\bullet(X)\). On vérifie immédiatement que la condition envisagée dans 7.18.3 sur les homomorphismes norme est bien vérifiée. Enfin, si \(A\) est l’algèbre affine d’un ouvert \(U\) de l’espace affine \(\operatorname{Spec} k[T_1,\ldots,T_n]\), alors \(F(k)\longrightarrow F(A)\) s’identifie à l’application \(K_\bullet(X)\longrightarrow K_\bullet(X\times_k U)\), qui est surjective pour \(X\) noethérien, en vertu de IX 1.6. Utilisant alors les résultats prouvés plus haut, on trouve :</p>
+<p>qui est un foncteur sur la catégorie \(C\) \(grâce à (IV 2.12)\). En vertu de (IV 3.2.3), ce dernier commute aux limites inductives filtrantes. D’ailleurs, si \(k'\) est une extension finie de \(k\), alors la projection \(p:X\otimes_k k'\longrightarrow X\) est un morphisme fini, plat, de présentation finie, donc il définit un homomorphisme image directe \(p=N_{k'/k}:K_\bullet(X\otimes_k k')\longrightarrow K_\bullet(X)\). On vérifie immédiatement que la condition envisagée dans 7.18.3 sur les homomorphismes norme est bien vérifiée. Enfin, si \(A\) est l’algèbre affine d’un ouvert \(U\) de l’espace affine \(\operatorname{Spec} k[T_1,\ldots,T_n]\), alors \(F(k)\longrightarrow F(A)\) s’identifie à l’application \(K_\bullet(X)\longrightarrow K_\bullet(X\times_k U)\), qui est surjective pour \(X\) noethérien, en vertu de IX 1.6. Utilisant alors les résultats prouvés plus haut, on trouve :</p>
 <p class="indent">(i) Si \(K/k\) est une extension pure de \(k\), alors \(K_\bullet(X)\longrightarrow K_\bullet(X_K)\) est injectif, et même bijectif si \(X\) est noethérien.</p>
 <p class="indent">(ii) Si \(k\) est séparablement clos et \(K/k\) une extension séparable, alors \(K_\bullet(X)\longrightarrow K_\bullet(X_K)\) est injectif.</p>
 <p class="indent">(iii) Pour toute extension \(K\) de \(k\), le noyau de \(K_\bullet(X)\longrightarrow K_\bullet(X_K)\) est un groupe de torsion.</p>

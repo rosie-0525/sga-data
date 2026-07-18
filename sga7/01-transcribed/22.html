@@ -27,9 +27,9 @@ ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.
 
 <h2 id="22.0">0. <u>Introduction</u></h2>
 
-<p>Soit (X) un schéma propre sur \(\mathbb F_q\). Sa fonction zêta,
-considérée comme élément de \(\mathbb Z[[T]]\), peut-être réduite modulo (p) ;
-on veut la calculer modulo (p). On trouve une expression du type auquel on
+<p>Soit \(X\) un schéma propre sur \(\mathbb F_q\). Sa fonction zêta,
+considérée comme élément de \(\mathbb Z[[T]]\), peut-être réduite modulo \(p\) ;
+on veut la calculer modulo \(p\). On trouve une expression du type auquel on
 pouvait s’attendre depuis les formules de points fixes du type « Woods Hole »,
 comme produit alterné de polynômes caractéristiques d’un « Frobenius »
 convenable agissant sur l’un quelconque des trois espaces de cohomologie
@@ -46,7 +46,7 @@ l’endomorphisme de Frobenius. Ce cas est, en effet, un corollaire de la
 formule de congruence (cf. 3.2.1).</p>
 
 <p>La méthode de cet exposé est complètement naïve : elle consiste à se
-ramener au cas d’une hypersurface, ensuite à « réduire modulo (p) »</p>
+ramener au cas d’une hypersurface, ensuite à « réduire modulo \(p\) »</p>
 
 <!-- Source PDF page 2 (printed page 402) -->
 <p>le calcul de DWORK pour la vraie fonction zêta d’une hypersurface. En
@@ -62,9 +62,9 @@ de DELIGNE (SGA 4 XVII 5.5.21).</p>
 
 <h2 id="22.1">1. <u>Un rappel sur les opérations « p-linéaires »</u></h2>
 
-<p id="22.1.0"><strong>1.0.</strong> Soit (V) un espace vectoriel de dimension
-finie sur un corps (k) de caractéristique (p&gt;0). Désignons par (q) une
-puissance de (p). Une application</p>
+<p id="22.1.0"><strong>1.0.</strong> Soit \(V\) un espace vectoriel de dimension
+finie sur un corps \(k\) de caractéristique \(p&gt;0\). Désignons par \(q\) une
+puissance de \(p\). Une application</p>
 \[
 \tag{1.0.1}\varphi:V\longrightarrow V
 \]
@@ -75,14 +75,14 @@ puissance de (p). Une application</p>
 \]
 
 <p id="22.1.0.3"><strong>1.0.3.</strong> On fera attention au fait que l’itéré
-\(n\)-ième \(\varphi^n\) d’un endomorphisme (q)-linéaire est
-\(q^n\)-linéaire, et que, si (k) n’est pas parfait, l’image \(\varphi(V)\)
-d’un endomorphisme (q)-linéaire n’est pas nécessairement un (k)-sous-espace
+\(n\)-ième \(\varphi^n\) d’un endomorphisme \(q\)-linéaire est
+\(q^n\)-linéaire, et que, si \(k\) n’est pas parfait, l’image \(\varphi(V)\)
+d’un endomorphisme \(q\)-linéaire n’est pas nécessairement un \(k\)-sous-espace
 vectoriel.</p>
 
-<p id="22.1.0.4"><strong>1.0.4.</strong> Pour chaque extension (K/k), un
-endomorphisme (q)-linéaire \(\varphi\) de (V) donne lieu à un unique
-endomorphisme (q)-linéaire \(\varphi_K\) de \(V_K=V\otimes_kK\), satisfaisant
+<p id="22.1.0.4"><strong>1.0.4.</strong> Pour chaque extension \(K/k\), un
+endomorphisme \(q\)-linéaire \(\varphi\) de \(V\) donne lieu à un unique
+endomorphisme \(q\)-linéaire \(\varphi_K\) de \(V_K=V\otimes_kK\), satisfaisant
 à la formule</p>
 \[
 \tag{1.0.5}\varphi_K(\mu\otimes v)=\mu^q\varphi(v)
@@ -91,7 +91,7 @@ endomorphisme (q)-linéaire \(\varphi_K\) de \(V_K=V\otimes_kK\), satisfaisant
 
 <!-- Source PDF page 3 (printed page 403) -->
 <p id="22.1.0.6"><strong>1.0.6.</strong> On dit qu’un endomorphisme
-(q)-linéaire \(\varphi\) de \(V\) est <u>semi-simple</u> si son image
+\(q\)-linéaire \(\varphi\) de \(V\) est <u>semi-simple</u> si son image
 <u>engendre</u> \(V\) comme \(k\)-vectoriel, et qu’il est nilpotent s’il
 admet un itéré nul.</p>
 
@@ -547,7 +547,7 @@ H_c^i(\bar X,\mathbb Z/p\mathbb Z))^{(-1)^{i+1}}.
 <p><u>Si \(\{U_i\}\) est un recouvrement fini de \(X\) par des sous-schémas
 ouverts on a</u></p>
 \[
-\tag{3.5.1}Z'(X)=\prod_{j\geq0}\prod_{1\leq i_0<\cdots<i_j\leq n}
+\tag{3.5.1}Z'(X)=\prod_{j\geq0}\prod_{1\leq i_0<\cdots&lt;i_j\leq n}
 Z'(U_{i_0}\cap\cdots\cap U_{i_j})^{(-1)^j}.
 \]
 </div></div>
@@ -555,7 +555,7 @@ Z'(U_{i_0}\cap\cdots\cap U_{i_j})^{(-1)^j}.
 <p><u>Démonstration.</u> Résulte facilement de la suite spectrale de
 localisation (SGA 4 XVII 6.2.10)</p>
 \[
-E_1^{a,b}=\bigoplus_{i_0<\cdots<i_b}
+E_1^{a,b}=\bigoplus_{i_0<\cdots&lt;i_b}
 H_c^a(\bar U_{i_0}\cap\cdots\cap\bar U_{i_b},\mathbb Z/p\mathbb Z)
 \Longrightarrow H_c^{a+b}(\bar X,\mathbb Z/p\mathbb Z).
 \]
@@ -582,14 +582,14 @@ ci-dessous.</p>
 sous-ensembles. Alors</u></p>
 \[
 \tag{3.7.1}\operatorname{card}(B)=\sum_{j\geq0}(-1)^j
-\sum_{i_0<\cdots<i_j}\operatorname{card}(A_{i_0}\cap\cdots\cap A_{i_j}).
+\sum_{i_0<\cdots&lt;i_j}\operatorname{card}(A_{i_0}\cap\cdots\cap A_{i_j}).
 \]
 </div></div>
 
 <p><u>Démonstration.</u> On a la suite spectrale de Leray pour la cohomologie
 rationnelle de l’espace discret \(B\) et le recouvrement ouvert \(\{A_i\}\)</p>
 \[
-E_1^{p,q}=\bigoplus_{i_0<\cdots<i_q} H^p(A_{i_0}\cap\cdots\cap A_{i_q},\mathbb Q)
+E_1^{p,q}=\bigoplus_{i_0<\cdots&lt;i_q} H^p(A_{i_0}\cap\cdots\cap A_{i_q},\mathbb Q)
 \Longrightarrow H^{p+q}(B,\mathbb Q)
 \]
 <p>et on calcule la caractéristique d’Euler-Poincaré de \(B\).</p>
@@ -598,7 +598,7 @@ E_1^{p,q}=\bigoplus_{i_0<\cdots<i_q} H^p(A_{i_0}\cap\cdots\cap A_{i_q},\mathbb Q
 <p><u>Si \(\{U_i\}\) est un recouvrement fini de \(X\) par des sous-schémas,
 alors</u></p>
 \[
-\tag{3.8.1}Z(X)=\prod_{j\geq0}\prod_{i_0<\cdots<i_j}
+\tag{3.8.1}Z(X)=\prod_{j\geq0}\prod_{i_0<\cdots&lt;i_j}
 Z(U_{i_0}\cap\cdots\cap U_{i_j})^{(-1)^j}.
 \]
 </div></div>
@@ -899,7 +899,7 @@ Banach sur \(K\)</p>
 \psi_k\left(\sum B_UX^U\right)=\sum B_{kU}X^U.
 \end{gathered}
 \]
-<p>Pour chaque couple \((b,b')\), \(b'<b\), il y a un <u>opérateur de
+<p>Pour chaque couple \((b,b')\), \(b'&lt;b\), il y a un <u>opérateur de
 « restriction »</u> qui est complètement continu (i.e. une limite uniforme
 des opérateurs de rang fini)</p>
 \[
@@ -1250,8 +1250,8 @@ dU_0&=\sum_{i\geq1}U_i,\\
 <h2 id="22.5">5. Un théorème d’AX [1], (cf. aussi [4], section 7).</h2>
 
 <div class="thm theorem"><div class="thm-head"><u>Théorème 5.0.</u></div><div class="thm-body">
-<p><u>Soient (V) une hypersurface dans (mathbb P^{n+1}) de degré (d&gt;0),
-définie sur (mathbb F_q), et (j) un entier : si on a</u></p>
+<p><u>Soient \(V\) une hypersurface dans \(mathbb P^{n+1}\) de degré \(d&gt;0\),
+définie sur \(mathbb F_q\), et \(j\) un entier : si on a</u></p>
 \[
 \tag{5.0.1}jd&lt;n+2,
 \]
@@ -1268,8 +1268,8 @@ définie sur (mathbb F_q), et (j) un entier : si on a</u></p>
 </div></div>
 
 <div class="thm theorem"><div class="thm-head"><u>Théorème 5.0.bis.</u></div><div class="thm-body">
-<p><u>Soit (V_{mathrm{aff}}) une hypersurface dans (mathbb A^{n+2}) définie par une
-forme homogène de degré (d), définie sur (mathbb F_q). Si on a</u></p>
+<p><u>Soit \(V_{mathrm{aff}}\) une hypersurface dans \(mathbb A^{n+2}\) définie par une
+forme homogène de degré \(d\), définie sur \(mathbb F_q\). Si on a</u></p>
 \[
 \tag{5.0.7}jd&lt;n+2
 \]
@@ -1290,7 +1290,7 @@ forme homogène de degré (d), définie sur (mathbb F_q). Si on a</u></p>
 
 <!-- Source PDF page 29 (printed page 429) -->
 <p><u>Démonstration.</u> L’implication (5.0.5) \(\Longrightarrow\) (5.0.6) est claire, en prenant
-le coefficient de (t) dans la fonction zêta. Les assertions (5.0.4) et (5.0.2)
+le coefficient de \(t\) dans la fonction zêta. Les assertions (5.0.4) et (5.0.2)
 sont équivalentes, compte tenu de ce que</p>
 \[
 \tag{5.0.7}\operatorname{card}V_{\mathrm{aff}}(\mathbb F_{q^\nu})
@@ -1317,7 +1317,7 @@ Fatou [3], grâce à la rationalité de la fonction zêta. Comme on a</p>
 \in F^j(1+t\,\mathcal O[[t]]).
 \]
 <p>Compte tenu de (4.5.33) et (4.6.4) – (4.6.5), il suffit de démontrer, pour
-(B\subset\{1,\ldots,n+2\}), (B\neq\varnothing), qu’on a</p>
+\(B\subset\{1,\ldots,n+2\}\), \(B\neq\varnothing\), qu’on a</p>
 \[
 \tag{5.0.12}\Delta_B(t)\in F^{j+\operatorname{card}(B)-(n+2)}.
 \]
@@ -1351,13 +1351,13 @@ une fois démontrée l’assertion :</p>
 \[
 \tag{5.1.1}jd&lt;n+2
 \]
-<p>admet une interprétation cohomologique. Soit (V) une hypersurface <u>lisse</u>
-de degré (d) et de dimension (n). Posons, comme dans XI 2.1, pour (a+b=n)</p>
+<p>admet une interprétation cohomologique. Soit \(V\) une hypersurface <u>lisse</u>
+de degré \(d\) et de dimension \(n\). Posons, comme dans XI 2.1, pour \(a+b=n\)</p>
 \[
 \tag{5.1.2}h_0^{a,b}=\dim H^b(V,\Omega_V^a)-\delta_{a,b}
 =\dim E^{a,b}(V)
 \]
-<p>où (E^{a,b}(V)) est la composante de bidegré ((a,b)) de la « cohomologie
+<p>où \(E^{a,b}(V)\) est la composante de bidegré \((a,b)\) de la « cohomologie
 évanescente de Hodge » (comparer XVII 5.4.4)</p>
 \[
 \tag{5.1.3}E^{a,b}(V)=\operatorname{Coker}
@@ -1370,7 +1370,7 @@ de degré (d) et de dimension (n). Posons, comme dans XI 2.1, pour (a+b=n)</p>
 \left[h_0^{a,n-a}=0\text{ pour }a&lt;j\text{ et }a&gt;n-j\right],
 \]
 <p>i.e. la condition signifie que le « niveau de Hodge » (XI 2.7) de la
-« cohomologie de Hodge évanescente » de (V) :</p>
+« cohomologie de Hodge évanescente » de \(V\) :</p>
 
 <!-- Source PDF page 31 (printed page 431) -->
 \[
@@ -1378,22 +1378,22 @@ E_{\mathrm{DR}}^n(V)=\operatorname{Coker}
 \left(H_{\mathrm{Hdg}}^n(\mathbb P^{n+1})\longrightarrow H_{\mathrm{Hdg}}^n(V)\right),
 \]
 <p>est (leq n-2j), i.e. son co-niveau est (geq j). D’autre part, la conclusion
-signifie aussi que les valeurs propres du Frobenius (mathcal F_q) opérant sur la
-cohomologie évanescente (ell)-adique ((\ell\neq p)) sont des entiers algébriques
-(XXI A.2) <u>divisibles</u> par (q^j). Le résultat de AX 5.0. vient donc à l’appui
+signifie aussi que les valeurs propres du Frobenius \(mathcal F_q\) opérant sur la
+cohomologie évanescente (ell)-adique \((\ell\neq p)\) sont des entiers algébriques
+(XXI A.2) <u>divisibles</u> par \(q^j\). Le résultat de AX 5.0. vient donc à l’appui
 de la conjecture suivante, suggérée par le yoga du niveau des motifs, et
 qui met en relations les classiques conjectures de HODGE [5] et de TATE [5] :</p>
 </div></div>
 
 <div class="thm conjecture"><div class="thm-head"><u>Conjecture 5.2.</u></div><div class="thm-body">
-<p><u>Soient (f:X\longrightarrow S) un morphisme propre et lisse, avec
-(S) intègre, de type fini sur (operatorname{Spec}(\mathbb Z)) et dominant
-(operatorname{Spec}(\mathbb Z)), (i,j) des entiers. Supposons que le co-niveau
-de Hodge du (H^i) de la fibre générique de (f) soit (geq j). Alors pour tout
-point (s\in S), le coniveau (XX 2.0.6) de (H^i(X_s,\mathbb Q_\ell)) est
-(geq j), donc (XX 2.2) si (s) est un point fermé de (S), les valeurs propres
-de Frobenius opérant sur (H^i(X_s,\mathbb Q_\ell)) sont des entiers algébriques
-divisibles par (q^j), où (q=\operatorname{card}(k(s))).</u></p>
+<p><u>Soient \(f:X\longrightarrow S\) un morphisme propre et lisse, avec
+\(S\) intègre, de type fini sur \(operatorname{Spec}(\mathbb Z)\) et dominant
+\(operatorname{Spec}(\mathbb Z)\), \(i,j\) des entiers. Supposons que le co-niveau
+de Hodge du \(H^i\) de la fibre générique de \(f\) soit (geq j). Alors pour tout
+point \(s\in S\), le coniveau (XX 2.0.6) de \(H^i(X_s,\mathbb Q_\ell)\) est
+(geq j), donc (XX 2.2) si \(s\) est un point fermé de \(S\), les valeurs propres
+de Frobenius opérant sur \(H^i(X_s,\mathbb Q_\ell)\) sont des entiers algébriques
+divisibles par \(q^j\), où \(q=\operatorname{card}(k(s))\).</u></p>
 </div></div>
 
 <h2 id="22.6">6. Fin de la démonstration de la formule de congruence.</h2>
@@ -1404,7 +1404,7 @@ formule de congruence</p>
 \tag{6.0.1}Z(t,V/\mathbb F_q)(1-t)\equiv
 \Delta_S(t)^{(-1)^{n+1}}\pmod {1+qt\,\mathcal O[[t]]}.
 \]
-<p>Passons au calcul de (Delta_S(t)) modulo (\pi\,\mathcal O[[t]]). Définissons (cf. (4.6.11)) :</p>
+<p>Passons au calcul de \(Delta_S(t)\) modulo \(\pi\,\mathcal O[[t]]\). Définissons (cf. (4.6.11)) :</p>
 \[
 \tag{6.0.2}W_S=R_S\otimes_{\mathcal O}\mathbb F_q,
 \]

@@ -124,9 +124,30 @@ def chapter_title(body) -> str:
     return text
 
 
+def promote_stray_text(body):
+    """The transcriptions leave display math (\\[…\\]) and the occasional
+    page-break paragraph continuation as *bare text* at body top level, between
+    sibling tags. lxml parses those runs as .tail of the preceding node (or
+    body.text), which the block walk below would silently drop — ~82k chars
+    across the SGA 4 exposés. Wrap each run in its own <p> so it becomes a
+    block. (Ported from sga5/scripts/build_viewer_data.py.)"""
+    if body.text and body.text.strip():
+        p = body.makeelement("p", {})
+        p.text = body.text
+        body.text = None
+        body.insert(0, p)
+    for el in list(body):          # includes comments, whose tails also count
+        if el.tail and el.tail.strip():
+            p = body.makeelement("p", {})
+            p.text = el.tail
+            el.tail = None
+            body.insert(body.index(el) + 1, p)
+
+
 def convert(roman: str, src: str):
     doc = LH.fromstring(src)
     body = doc.body
+    promote_stray_text(body)
 
     # 1) Rename in-text footnote markers to the viewer's backref convention and
     #    namespace them per exposé. Marker href "#fn1" -> "#VIII-fn1",

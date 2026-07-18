@@ -109,6 +109,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\ell(x) = a_0 + \\sum_{i=1}^n a_i x_i .\\]\n\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>Rappelons qu'un schéma lisse est localement intersection complète. On peut donc remplacer \\(V'\\) par un sous-ensemble ouvert de points de \\(V\\) tel qu'il existe des polynômes \\(f_1(x),\\dots,f_{n-r}(x)\\) qui s'annulent sur \\(V\\) et des indices \\(1 \\leq j_\\nu \\leq n\\) \\((\\nu = 1,\\dots,n-r)\\) tels que le déterminant</p>"
     },
     {
@@ -116,7 +123,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\left| \\frac{\\partial f_i}{\\partial x_{j_\\nu}} \\right| \\qquad (i,\\nu = 1,\\dots,n-r)\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>soit inversible. Disons \\(j_\\nu = \\nu\\) \\((\\nu = 1,\\dots,n-r)\\). Alors on peut résoudre les équations</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[y_j = \\sum_{i=1}^{n-r} c_i\\, \\frac{\\partial f_i}{\\partial x_j}\\]\n</p>"
     },
     {
      "id": null,
@@ -137,7 +158,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\begin{bmatrix}\n\\dfrac{\\partial f_1}{\\partial x_1} &amp; \\cdots &amp; \\dfrac{\\partial f_1}{\\partial x_n} \\\\[1.2em]\n\\vdots &amp; &amp; \\vdots \\\\[0.8em]\n\\dfrac{\\partial f_{n-r}}{\\partial x_1} &amp; &amp; \\dfrac{\\partial f_{n-r}}{\\partial x_n} \\\\[1.2em]\na_1 &amp; \\cdots &amp; a_n\n\\end{bmatrix}\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>en \\(Q\\) est de rang \\(n-r+1\\). Donc pour que \\(L\\) coupe \\(V\\) transversalement en chaque point de \\(V'\\) il faut et suffit que le système des \\(r+1\\) équations</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[a_j = \\sum_{i=1}^{n-r} c_i(x,a)\\, \\frac{\\partial f_i}{\\partial x_j} \\qquad (j = n-r+1,\\dots,n)\\]\n\\[a_0 + \\sum_{i=1}^n a_i x_i = 0\\]\n</p>"
     },
     {
      "id": null,
@@ -152,6 +187,13 @@
      "label": null,
      "title": null,
      "html": "<p>(ii) : Considérons l'application rationnelle \\(\\mathbb{P}^n \\dashrightarrow \\mathbb{P}^N\\) donnée par le système linéaire des hyperplans de degré \\(d\\) \\((d \\geq 2)\\) passant par \\(P\\). Il est bien connu (et on le vérifie aisément) que c'est un \"éclatement\" de \\(P\\), donc donne une immersion localement fermée</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[f : \\mathbb{P}^n - \\{P\\} \\longrightarrow \\mathbb{P}^N .\\]\n</p>"
     },
     {
      "id": null,
@@ -221,6 +263,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\begin{gathered}\n\\dim \\overline{X} = \\dim X = n,\\\\\n\\dim Y = n-1,\\\\\n\\dim S \\leq n-2.\n\\end{gathered}\\]\n\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>Plongeons \\(\\overline{X}\\) dans un espace projectif \\(\\mathbb{P}^N\\), au moyen d'un faisceau inversible \\(L\\) qui soit de la forme \\(M^{\\otimes r}\\) avec \\(M\\) très ample et \\(r \\geq 2\\). Il existe alors des hyperplans \\(H_1,\\dots,H_{n-1}\\) de \\(\\mathbb{P}^N\\), où \\(H_i\\) est l'ensemble des zéros de</p>"
     },
     {
@@ -228,7 +277,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\sum_{\\nu=0}^N a_{i\\nu} x_\\nu = 0 ,\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>qui contiennent \\(x\\) et tels que l'intersection \\(L = H_1 \\cap \\dots \\cap H_{n-1}\\) soit de dimension \\(N-n+1\\) et coupe \\(\\overline{X}\\) et \\(Y\\) transversalement (2.1). L'intersection \\(\\overline{X} \\cap L\\) est une courbe lisse et connexe (cela résulte du théorème de Bertini), et \\(Y \\cap L\\) est de dimension 0. Choisissons de plus un autre hyperplan</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[H_0 : \\sum_{\\nu=0}^N a_{0\\nu} x_\\nu = 0\\]\n</p>"
     },
     {
      "id": null,
@@ -249,6 +312,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[y_i = \\sum_{\\nu=0}^N a_{i\\nu} x_\\nu .\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>C'est une application rationnelle définie en dehors du centre de projection \\(C = H_0 \\cap \\dots \\cap H_{n-1}\\) . Soit \\(\\varepsilon : P' \\longrightarrow \\mathbb{P}^N\\) l'éclatement de \\(C\\), tel qu'on ait un diagramme</p>"
     },
     {
@@ -256,7 +326,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\xymatrix{\n\\mathbb{P}^N \\ar@{--&gt;}[dr] &amp; &amp; P' \\ar[ll]_-{\\varepsilon} \\ar[dl]^-{\\pi} \\\\\n&amp; \\mathbb{P}^{n-1} &amp;\n}\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>où \\(\\pi\\) est un morphisme. Soit \\(\\overline{X}' \\subset P'\\) l'image inverse \"propre\" de \\(\\overline{X}\\), c'est-à-dire, l'adhérence de \\(\\varepsilon^{-1}(\\overline{X} - (\\overline{X} \\cap C))\\). Puisque par hypothèse \\(C\\) coupe \\(\\overline{X}\\) transversalement, le morphisme \\(\\overline{X}' \\longrightarrow \\overline{X}\\) est un éclatement de l'ensemble fini \\(\\overline{X} \\cap C\\). Soient \\(X' = X - \\overline{X} \\cap C\\), qui s'identifie aussi à un sous-schéma ouvert de \\(\\overline{X}'\\), et \\(Y' = \\overline{X}' - X'\\) le sous-schéma fermé avec la structure induite réduite. On a un diagramme \\(\\mathbb{D}\\) de morphismes</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[\\xymatrix{\nX' \\ar[r]^-{j} \\ar[dr]_-{f'} &amp; \\overline{X}' \\ar[d]^-{\\bar{f}'} &amp; Y' \\ar[l]_-{i} \\ar[dl]^-{g'} \\\\\n&amp; \\mathbb{P}^{n-1} &amp;\n}\\]\n</p>"
     },
     {
      "id": null,
@@ -337,6 +421,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[(4.1) \\qquad \\delta : X_{\\text{cl}} \\longrightarrow X(\\mathbb{C}) .\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>Or pour chaque isomorphisme local \\(U \\longrightarrow X(\\mathbb{C})\\) il existe d'après la définition un \"recouvrement\" de \\(U\\) par des ouverts de \\(X(\\mathbb{C})\\), et on déduit de (   ) que les topos associés aux deux sites sont équivalents (par \\(\\delta_*\\)). En particulier on peut remplacer \\(X(\\mathbb{C})\\) par \\(X_{\\text{cl}}\\) pour le calcul de la cohomologie usuelle.</p>"
     },
     {
@@ -345,6 +436,13 @@
      "label": null,
      "title": null,
      "html": "<p>Soit maintenant \\(f : X' \\longrightarrow X\\) un morphisme étale de schémas. Alors \\(f(\\mathbb{C}) : X'(\\mathbb{C}) \\longrightarrow X(\\mathbb{C})\\) est un isomorphisme local. Cela résulte immédiatement du critère jacobien (SGA 1 II 4.10) et du théorème des fonctions implicites. Le foncteur \\(X' \\mapsto X'(\\mathbb{C})\\) donne donc un morphisme de sites</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[(4.2) \\qquad \\varepsilon : X_{\\text{cl}} \\longrightarrow X_{\\text{ét}} ,\\]\n</p>"
     },
     {
      "id": null,
@@ -435,7 +533,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[E_2^{pq} = R^p \\overline{f}_{\\text{cl}*}(R^q j_{\\text{cl}*} F) \\implies R^{p+q} f_{\\text{cl}*} F\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>on déduit qu'on peut de même calculer \\(R^{p+q} f_{\\text{cl}*} F\\) fibre par fibre, et donc que</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[R^0 f_{\\text{cl}*} \\mathbb{Z}/n = \\mathbb{Z}/n ,\\]\n\\[R^1 f_{\\text{cl}*} \\mathbb{Z}/n \\quad \\text{est un faisceau localement constant de torsion sur } S_{\\text{cl}} ,\\]\n\\[R^q f_{\\text{cl}*} \\mathbb{Z}/n = 0 \\quad \\text{si } q &gt; 1 .\\]\n\n</p>"
     },
     {
      "id": null,
@@ -449,7 +561,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[E_2^{pq} = H^p(S_{\\text{cl}}, R^q f_{\\text{cl}*} F) \\implies H^{p+q}(X_{\\text{cl}}, F)\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>se réduit ainsi à la suite exacte</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[(*) \\quad \\dots \\longrightarrow H^q(S_{\\text{cl}}, f_{\\text{cl}*} F) \\longrightarrow H^q(X_{\\text{cl}}, F) \\longrightarrow H^{q-1}(S_{\\text{cl}}, R^1 f_{\\text{cl}*} F) \\longrightarrow\\]\n\n</p>"
     },
     {
      "id": null,
@@ -477,7 +603,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\\[\\longrightarrow \\pi_n(X_0(\\mathbb{C})) \\longrightarrow \\pi_n(X(\\mathbb{C})) \\longrightarrow \\pi_n(S(\\mathbb{C})) \\longrightarrow \\dots\\]\n\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>Donc \\(X(\\mathbb{C})\\) est un espace \\(K(\\pi,1)\\), et cela implique que chaque classe de cohomologie \\(\\xi \\in H^n(X(\\mathbb{C}), F)\\) devient nulle sur le revêtement universel de \\(X(\\mathbb{C})\\). Il suffit de démontrer que \\(\\xi\\) devient nulle déjà sur un revêtement fini \\(X'\\) de \\(X\\), ce qui revient au même que de démontrer que \\(\\pi_1 = \\pi_1(X(\\mathbb{C}))\\) est un bon groupe (cf. CG I 16), c'est-à-dire que le morphisme de \\(\\pi_1\\) dans son complété \\(\\hat{\\pi}_1 = \\varprojlim_N \\pi_1/N\\) (où \\(N\\) parcourt l'ensemble des sous-groupes invariants de \\(\\pi_1\\) d'indice fini) induit une bijection</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\\[H^q(\\hat{\\pi}_1, M) \\xrightarrow{\\ \\sim\\ } H^q(\\pi_1, M)\\]\n</p>"
     },
     {
      "id": null,

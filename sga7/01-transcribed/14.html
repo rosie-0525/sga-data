@@ -34,7 +34,7 @@ ol.enumerate .item-label { display: inline-block; width: 2em; margin-left: -2em;
 <div class="toc-row"><span>§ 1. &nbsp; Formalisme transcendant des cycles évanescents</span><span>1</span></div>
 <div class="toc-row toc-sub"><span>1.1 Le groupe fondamental du disque épointé : conventions de signes</span><span>2</span></div>
 <div class="toc-row toc-sub"><span>1.2 Faisceaux d'ensembles</span><span>5</span></div>
-<div class="toc-row toc-sub"><span>1.3 Le foncteur (R\Psi)</span><span>10</span></div>
+<div class="toc-row toc-sub"><span>1.3 Le foncteur \(R\Psi\)</span><span>10</span></div>
 <div class="toc-row toc-sub"><span>1.4 Un cas particulier</span><span>12</span></div>
 <div class="toc-row"><span>§ 2. &nbsp; Le théorème de comparaison</span><span>16</span></div>
 <div class="toc-row"><span>§ 3. &nbsp; Singularités isolées</span><span>20</span></div>
@@ -114,7 +114,7 @@ a:F_{a(0)}\mathop{\longleftarrow}\limits^\sim H^0([0,1],a^*F)\mathop{\longrighta
 <p id="14.1.1.10"><strong>1.1.10.</strong> Soient \(X\) une courbe algébrique complexe non singulière, \(0\in X\) et \(D\) un disque voisinage de \(0\) dans \(X\). L'anneau des germes en \(0\) des fonctions holomorphes sur \(D\), algébriques sur le corps \(K(X)\) des fonctions rationnelles sur \(X\), est l'hensélisé \(\mathcal O_0^h\) de l'anneau local \(\mathcal O_0\) de \(X\) en \(0\). Soit \(\widetilde D^*\) un revêtement universel de \(D^*=D-\{0\}\). Le corps des germes en \(0\in\widetilde D\) de fonctions méromorphes sur \(\widetilde D^*\), algébriques sur \(K(X)\), est une clôture algébrique \(\overline K\) de \(K(X)\) (et donc du corps des fractions \(K_0^h\) de \(\mathcal O_0^h\)).</p>
 <p>Le groupe \(\pi_1(D^*)\) des \(D\)-automorphismes de \(\widetilde D^*\) (1.1.5) agit par transport de structure sur \(\overline K\), d'où</p>
 \[
-\tag{1.1.10.1}\xymatrix@C=4em@R=3em{\pi_1(D^*)\ar[r]\ar@{=}[d]&\operatorname{Gal}(\overline K/K_0^h)\ar@{=}[d]\\\mathbb Z\ar[r]&\widehat{\mathbb Z}(1).}
+\tag{1.1.10.1}\xymatrix@C=4em@R=3em{{\pi_1(D^*)}\ar[r]\ar@{=}[d]&amp;{\operatorname{Gal}(\overline K/K_0^h)}\ar@{=}[d]\\\mathbb Z\ar[r]&amp;{\widehat{\mathbb Z}(1)}}.
 \]
 <p>Il résulte de (1.1.7.2) que ce diagramme commute avec l'inclusion naturelle (sur \(\mathbb C\)) de \(\mathbb Z\) dans \(\widehat{\mathbb Z}(1)\), composée de l'inclusion de \(\mathbb Z\lhook\joinrel\longrightarrow\widehat{\mathbb Z}\) et de l'isomorphisme \(\widehat{\mathbb Z}\mathop{\longrightarrow}\limits^\sim\widehat{\mathbb Z}(1)\), limite projective des isomorphismes \(\exp(\frac{2\pi i}{n}k):\mathbb Z/n\to\mu_n\).</p>
 
@@ -182,8 +182,8 @@ F\longmapsto(F_0,F\text{ restreint à }D^*,\alpha)
 <p id="14.1.2.5"><strong>1.2.5.</strong> Le topos \(Y\times\mathscr D\) a les mêmes propriétés de fonctorialité en \(Y\) que les topos \(Y\mathbin{\mathop\times_S}S\) de l'exposé XIII, et nous nous dispenserons d'en faire la liste. Citons simplement, pour fixer les notations, le diagramme</p>
 \[
 \xymatrix@C=3em@R=3em{
-Y\ar[d]\ar@/_1.2pc/[r]_{\mathrm{sp}}&Y\ar[d]&Y\ar[r]^i\ar[d]&Y\times\mathscr D\ar@{_{(}->}[r]^j\ar[d]&Y\times\mathscr D^*\ar[d]\\
-(P^1_t)&\{0\}\ar@{^{(}->}[r]^i&\mathscr D\ar@{_{(}->}[r]^j&\mathscr D^*
+Y\ar[d]&amp;Y\ar[l]_{\mathrm{sp}}\ar[d]\ar@{^{(}->}[r]^i&amp;Y\times\mathscr D\ar[d]&amp;Y\times\mathscr D^*\ar[d]\ar@{_{(}->}[l]_j\\
+(P^1_t)&amp;\{0\}\ar@{^{(}->}[r]^i&amp;\mathscr D&amp;\mathscr D^*\ar@{_{(}->}[l]_j
 }
 \]
 
@@ -259,7 +259,7 @@ R\Psi_\eta &:D^+(X^*)\longrightarrow D^+(X_0\times\mathscr D^*).
 \[
 R\Phi:D^+(X)\longrightarrow D^+(X_0\times\mathscr D^*).
 \]
-<p>Les propriétés de ces foncteurs sont toutes pareilles à celles des foncteurs de même nom de XIII 2.1. Leur démonstration est bien plus élémentaire car, dans le cadre topologique, les théorèmes de changement de base pour un morphisme propre ou par un morphisme lisse (= localement isomorphe à \(\mathbb R^n\times S\to S\)) sont faciles à prouver. Voici les menus changements à apporter.</p>
+<p>Les propriétés de ces foncteurs sont toutes pareilles à celles des foncteurs de même nom de XIII 2.1. Leur démonstration est bien plus élémentaire car, dans le cadre topologique, les théorèmes de changement de base pour un morphisme propre ou par un morphisme lisse \(= localement isomorphe à (\mathbb R^n\times S\to S)\) sont faciles à prouver. Voici les menus changements à apporter.</p>
 
 <p id="14.1.3.2"><strong>1.3.2.</strong> Le foncteur \(Rf_!\) n'est défini que pour un morphisme séparé entre espaces localement compacts, et est le foncteur dérivé du foncteur image directe à supports propres \(f_!\).</p>
 
@@ -288,9 +288,9 @@ H^i(X_{\widetilde U^*},\Lambda)\mathop{\longrightarrow}\limits^\sim H^i(X_t,\Lam
 <div class="thm thm-plain" id="14.1.3.5"><div class="thm-head">1.3.5. <u>Théorème d'isotopie de Thom.</u></div><div class="thm-body">
 <p>Soient \(D=\{z\in\mathbb C\mid |z|<1\}\), \(D^*=D-\{0\}\) et \(f:X\to D\) un morphisme propre d'espaces analytiques. Pour \(D\) remplacé par un disque plus petit et \(X\) par son image réciproque, il existe une stratification \(\Sigma\) de \(X^*=f^{-1}(D^*)\) ayant les propriétés suivantes.</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> \(\Sigma\) est une filtration \(X^*=F_0\supset F_1\supset\cdots\supset F_n\supset F_{n+1}=\varnothing\) de \(X^*\) par des parties fermées dont l'adhérence \(\overline F_i\) dans \(X\) est un sous-espace analytique de \(X\).</li>
-<li><span class="item-label">(b)</span> Les strates ouvertes \(F_i-F_{i+1}\) sont lisses sur \(D^*\).</li>
-<li><span class="item-label">(c)</span> \(\Sigma\) vérifie les conditions (a) et (b) de Whitney.</li>
+<li><span class="item-label">\(a\)</span> \(\Sigma\) est une filtration \(X^*=F_0\supset F_1\supset\cdots\supset F_n\supset F_{n+1}=\varnothing\) de \(X^*\) par des parties fermées dont l'adhérence \(\overline F_i\) dans \(X\) est un sous-espace analytique de \(X\).</li>
+<li><span class="item-label">\(b\)</span> Les strates ouvertes \(F_i-F_{i+1}\) sont lisses sur \(D^*\).</li>
+<li><span class="item-label">\(c\)</span> \(\Sigma\) vérifie les conditions \(a\) et \(b\) de Whitney.</li>
 </ol>
 <p>Pour une telle stratification \(\Sigma\), il existe sur les \(F_i-F_{i+1}\) des connexions intégrables \(\nabla_i\) telles que</p>
 <ol class="enumerate">
@@ -327,9 +327,9 @@ H^i(X_{\widetilde U^*},\Lambda)\mathop{\longrightarrow}\limits^\sim H^i(X_t,\Lam
 
 <p id="14.1.4.2"><strong>1.4.2.</strong> Un <u>espace topologique \(\mathscr X\) sur \(\mathscr D\)</u> consiste en</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> un espace topologique \(\mathscr X^*\) sur \(\mathscr D^*\) ;</li>
-<li><span class="item-label">(b)</span> un espace topologique \(X_0\) ;</li>
-<li><span class="item-label">(c)</span> un morphisme \(\pi_1(D^*)\)-invariant \(\operatorname{sp}:X_\eta\to X_0\) (\(\pi_1(D^*)\) agissant trivialement sur \(X_0\)).</li>
+<li><span class="item-label">\(a\)</span> un espace topologique \(\mathscr X^*\) sur \(\mathscr D^*\) ;</li>
+<li><span class="item-label">\(b\)</span> un espace topologique \(X_0\) ;</li>
+<li><span class="item-label">\(c\)</span> un morphisme \(\pi_1(D^*)\)-invariant \(\operatorname{sp}:X_\eta\to X_0\) (\(\pi_1(D^*)\) agissant trivialement sur \(X_0\)).</li>
 </ol>
 <p>Un <u>faisceau</u> sur \(\mathscr X\) consiste en un faisceau \(F_0\) sur \(X_0\), un faisceau sur \(\mathscr X^*\), donné par \(F_\eta\), et un morphisme équivariant</p>
 \[
@@ -498,46 +498,46 @@ c:\varepsilon^*R\Psi(K)\longrightarrow R\Psi_{\mathrm{cl}}(\varepsilon^*K)
 
 <p id="14.3.1.2"><strong>3.1.2.</strong> Soit \(\delta(x)\) une fonction analytique réelle sur \(X\) (restriction à \(X\) d'une fonction analytique réelle sur \(\mathbb C^{n+1}\)), telle que, pour \(x\in X_0=f^{-1}(0)\), on ait</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> \(\delta(x)\geq0\) ;</li>
-<li><span class="item-label">(b)</span> \(\delta(x)=0\Longleftrightarrow x=0\).</li>
+<li><span class="item-label">\(a\)</span> \(\delta(x)\geq0\) ;</li>
+<li><span class="item-label">\(b\)</span> \(\delta(x)=0\Longleftrightarrow x=0\).</li>
 </ol>
 <p>On prendra par exemple pour \(\delta\) le carré de la distance euclidienne, dans \(\mathbb C^{n+1}\), de \(x\) à \(0\). Le lieu des points critiques de la restriction de \(\delta\) à \(X_0\) est analytique réel donc, dans un voisinage convenable de \(0\), n'a qu'un nombre fini de composantes connexes. Remplaçant \(X\) par un voisinage ouvert de \(0\) et appliquant Sard, on peut donc obtenir la situation suivante</p>
 <ol class="enumerate">
-<li><span class="item-label">(c)</span> pour \(r>0\) convenable, \(X_0\cap\delta^{-1}([0,r])\) est compact,</li>
-<li><span class="item-label">(d)</span> sur \(X_0\), \(\delta\) n'a pas de valeur critique \(\leq r\).</li>
+<li><span class="item-label">\(c\)</span> pour \(r>0\) convenable, \(X_0\cap\delta^{-1}([0,r])\) est compact,</li>
+<li><span class="item-label">\(d\)</span> sur \(X_0\), \(\delta\) n'a pas de valeur critique \(\leq r\).</li>
 </ol>
 <p>Quitte à rétrécir \(X\) davantage, on a alors</p>
 <ol class="enumerate">
-<li><span class="item-label">(e)</span> il existe une fonction \(C^\infty\) \(\tau(s)\) (\(0\leq s\leq r\)), avec \(\tau(0)=0\) et \(\tau'(s)>0\) pour \(s>0\), telle que, pour \(0&lt;s\leq r\) et \(0\leq |t|^2\leq\tau(s)\), \(X_t=f^{-1}(t)\) soit transverse à l'hypersurface réelle \(\delta(x)=s\) de \(X\) et que la boîte
+<li><span class="item-label">\(e\)</span> il existe une fonction \(C^\infty\) \(\tau(s)\) (\(0\leq s\leq r\)), avec \(\tau(0)=0\) et \(\tau'(s)>0\) pour \(s>0\), telle que, pour \(0&lt;s\leq r\) et \(0\leq |t|^2\leq\tau(s)\), \(X_t=f^{-1}(t)\) soit transverse à l'hypersurface réelle \(\delta(x)=s\) de \(X\) et que la boîte
 \[
 B_{t,d}=\{x\in X\mid\delta(x)\leq d\text{ et }|f(x)|^2&lt;t\}
 \]
 soit propre sur le disque ouvert \(D_t\) de rayon \(t^{1/2}\).</li>
 </ol>
 
-<p>Soit \(L=X_0\cap\delta^{-1}(r)\). D'après (c) et (d), il existe un homéomorphisme de
+<p>Soit \(L=X_0\cap\delta^{-1}(r)\). D'après \(c\) et \(d\), il existe un homéomorphisme de
 \(X_0\cap\delta^{-1}([0,r])\) avec le cône \((L\times[0,r]/\text{contraction de }L\times\{0\}\text{ en un point})\),
 transformant \(\delta\) en la 2<sup>e</sup> coordonnée, et \(C^\infty\) en dehors de l'origine.</p>
 
 <p id="14.3.1.3"><strong>3.1.3.</strong> Soient \(d\leq r\) et \(t\leq\tau(d)\). En dehors de \(0\), \(B_{t,d}\) est une variété à coins et la projection \(f\) de \(B_{t,d}\) sur \(D_t\) une fibration. En particulier</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> \(B_{t,d}\) induit sur \(D_t^*=D_t-\{0\}\) un fibré \(C^\infty\) en variétés compactes à bord ;</li>
-<li><span class="item-label">(b)</span> le bord \(\delta(x)=d\) de ce fibré est prolongé en un fibré \(C^\infty\) \(\partial B_{t,d}\) en variétés compactes sur \(D_t\).</li>
+<li><span class="item-label">\(a\)</span> \(B_{t,d}\) induit sur \(D_t^*=D_t-\{0\}\) un fibré \(C^\infty\) en variétés compactes à bord ;</li>
+<li><span class="item-label">\(b\)</span> le bord \(\delta(x)=d\) de ce fibré est prolongé en un fibré \(C^\infty\) \(\partial B_{t,d}\) en variétés compactes sur \(D_t\).</li>
 </ol>
 <p>Soit \(y\in D_t^*\). Nous appellerons la variété à bord \(V=f^{-1}(y)\) la <u>variété des cycles évanescents</u>. Le disque étant contractile, le fibré \(\partial B_{t,d}\) sur \(D_t\) est isomorphe au fibré constant de fibre \(\partial V\), et l'ensemble des isomorphismes de fibré
 \[\partial B_{t,d}\mathop{\longrightarrow}\limits^\sim\partial V\times D_t,\]
 qui soit l'identité sur la fibre en \(y\), est contractile. Choisissons-en un, noté \(\alpha\). Relevons le champ de vecteurs \(\frac\partial{\partial\theta}\) sur \(S_{|y|}\) (circonférence de rayon \(|y|\)) en un champ de vecteur \(u\) sur \(f^{-1}(S_{|y|})\) qui, au bord, soit compatible à \(\alpha\) (\(d\alpha(u)=(\frac\partial{\partial\theta},0)\)). L'ensemble de ces relèvements est contractile. Par intégration (tourner une fois dans le sens positif), \(u\) définit un difféomorphisme \(T\) de \(V\) sur elle-même, qui est l'identité sur \(\partial V\) ; c'est la <u>transformation de monodromie</u>. Elle est bien définie modulo isotopies mod \(\partial V\).</p>
-<p>En un sens qu'on laisse au lecteur le soins de préciser, \((V,T)\) est indépendant des choix de \(t\) et \(s\). J'ignore s'il est indépendant du choix de \(\delta\). On vérifie toutefois qu'il en est ainsi lorsqu'on se restreint à prendre pour \(\delta\) la restriction à \(X\) d'une fonction \(g\) sur \(\mathbb C^{n+1}\) telle que, sur l'espace tangent de Zariski de \(X_0\) en \(0\), on ait \(dg=0\) et \(d^2g&gt;0\) (définie positif). Le point est que, pour \(\delta\) et \(\delta'\) de ce type, on peut choisir \(r\) comme en 3.1.2 (c) (d) uniformément pour tous les \(\lambda\delta+(1-\lambda)\delta'\) \((0\leq\lambda\leq1)\).</p>
+<p>En un sens qu'on laisse au lecteur le soins de préciser, \((V,T)\) est indépendant des choix de \(t\) et \(s\). J'ignore s'il est indépendant du choix de \(\delta\). On vérifie toutefois qu'il en est ainsi lorsqu'on se restreint à prendre pour \(\delta\) la restriction à \(X\) d'une fonction \(g\) sur \(\mathbb C^{n+1}\) telle que, sur l'espace tangent de Zariski de \(X_0\) en \(0\), on ait \(dg=0\) et \(d^2g&gt;0\) (définie positif). Le point est que, pour \(\delta\) et \(\delta'\) de ce type, on peut choisir \(r\) comme en 3.1.2 \(c\) \(d\) uniformément pour tous les \(\lambda\delta+(1-\lambda)\delta'\) \((0\leq\lambda\leq1)\).</p>
 
 <p id="14.3.1.4"><strong>3.1.4.</strong> Soient \((V,T)\) et \((V_1,T_1)\) déduit de \((V,T)\) par adjonction d'un collier :
 \[V_1-V^\circ\simeq\partial V\times[0,1]\quad\text{et}\quad T_1\text{ est l'identité sur }V_1-V^\circ.\]
 Soit \(f':W\to D_t\) l'espace sur \(D_t\) suivant (cf. 1.4.3)</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> Soient \(\widetilde D_t^*\) un revêtement universel de \(D_t^*\) de point de base \(y\) et \(W^*\) le fibré sur \(D_t^*\) quotient de \(V_1\times\widetilde D_t^*\) par la relation engendrée par \((v,y)\simeq(T_1v,e^{2\pi i}y)\).</li>
-<li><span class="item-label">(b)</span> Puisque \(T_1|V_1-V^\circ\) est trivial, on peut recoller \(W^*\) et le fibré trivial sur \(D_t\) de fibre \(V_1-V\) en un espace \(W_1\) sur \(D_t\).</li>
-<li><span class="item-label">(c)</span> \(W=W_1\cup\{0\}\), avec \(f'(0)=0\). \(W\) est muni de l'unique topologie induisant celle de \(W_1\), pour laquelle \(f'\) soit continue et que \(f'^{-1}(\overline D_{t'})\) \((t'&lt;t)\) soit la compactification par un point de \(W_1\cap f'^{-1}(\overline D_{t'})\).</li>
+<li><span class="item-label">\(a\)</span> Soient \(\widetilde D_t^*\) un revêtement universel de \(D_t^*\) de point de base \(y\) et \(W^*\) le fibré sur \(D_t^*\) quotient de \(V_1\times\widetilde D_t^*\) par la relation engendrée par \((v,y)\simeq(T_1v,e^{2\pi i}y)\).</li>
+<li><span class="item-label">\(b\)</span> Puisque \(T_1|V_1-V^\circ\) est trivial, on peut recoller \(W^*\) et le fibré trivial sur \(D_t\) de fibre \(V_1-V\) en un espace \(W_1\) sur \(D_t\).</li>
+<li><span class="item-label">\(c\)</span> \(W=W_1\cup\{0\}\), avec \(f'(0)=0\). \(W\) est muni de l'unique topologie induisant celle de \(W_1\), pour laquelle \(f'\) soit continue et que \(f'^{-1}(\overline D_{t'})\) \((t'&lt;t)\) soit la compactification par un point de \(W_1\cap f'^{-1}(\overline D_{t'})\).</li>
 </ol>
-<p>On munit \(W-\{0\}\) de la connexion intégrable (1.3.4) pour laquelle la trivialisation fournie par (a) de l'image réciproque de \(W^*\) sur \(\widetilde D^*\) soit horizontale.</p>
+<p>On munit \(W-\{0\}\) de la connexion intégrable (1.3.4) pour laquelle la trivialisation fournie par \(a\) de l'image réciproque de \(W^*\) sur \(\widetilde D^*\) soit horizontale.</p>
 
 <div class="thm" id="14.3.1.5"><div class="thm-head"><u>Proposition 3.1.5.</u></div><div class="thm-body"><p><u>Il existe un homéomorphisme \(\Psi\), compatible à la projection sur \(D_t\) et envoyant \(0\) sur \(0\), de \(B_{s,t}\) avec \(W\) ; cet homéomorphisme peut être choisi un difféomorphisme en dehors de \(0\).</u></p></div></div>
 <p>Ce résultat ne sera pas utilisé dans la suite du séminaire.</p>
@@ -546,30 +546,30 @@ Soit \(f':W\to D_t\) l'espace sur \(D_t\) suivant (cf. 1.4.3)</p>
 <div style="text-align:center; margin:1em 0"><p>[Schémas de \(f:B_{t_0,d_1}\to D_t\) et de sa restriction à \(f^{-1}(\mathbb R)\)]</p></div>
 <p>Soit \(B^+\subset B_{t_0,d_1}\) l'ensemble des \(x\) tels que \(|f(x)|^2\leq\tau(\delta(x))\). Soit \(\varphi_n\) une suite de fonction \(C^\infty\) de \([0,t_0]\) dans \((0,d_1]\) telle que, pour une suite \(r_0&gt;r_1&gt;\cdots\) tendant vers \(0\), on ait</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> pour \(|t|^2\geq r_i\), \(\varphi_i\) est la réciproque de la fonction \(\tau\) ;</li>
-<li><span class="item-label">(b)</span> pour \(|t|^2&lt;r_i\) et \(j&gt;i\), \(\varphi_j(t)&lt;\varphi_i(t)\).</li>
+<li><span class="item-label">\(a\)</span> pour \(|t|^2\geq r_i\), \(\varphi_i\) est la réciproque de la fonction \(\tau\) ;</li>
+<li><span class="item-label">\(b\)</span> pour \(|t|^2&lt;r_i\) et \(j&gt;i\), \(\varphi_j(t)&lt;\varphi_i(t)\).</li>
 </ol>
 <p>L'ensemble \(B^+-\{0\}\) est réunion des fibrés sur \(D_t\), \(B_i^+\) : \(\delta(x)\leq\varphi_i(|f(x)|^2)\). Un argument standard, utilisant que \(\delta\) n'a pas de points critiques sur les fibres de \(B^+-\{0\}\to D_t\), montre qu'il existe un difféomorphisme \(\alpha_i\) de \(B_i^+\) avec \(B_{i+1}^+\), compatible à la projection sur \(D_t\), et l'identité en dehors d'un petit voisinage du sous-espace
 \[(\delta(x)=\varphi_i(|f(x)|^2),\quad |f(x)|^2\leq r_i)\quad\text{de }B_i^+.\]
 <p>Composant les \(\alpha_i\) et passant à la limite, on obtient un difféomorphisme \(\alpha\) de \(B_0^+-\{x\mid x=0\text{ et }\delta(x)=\varphi_0(0)\}\) avec \(B^+-\{0\}\). Transportons par \(\alpha\) une trivialisation du fibré \(B_0^+\) sur \(D_t\) pour obtenir une connexion intégrable \(\nabla'\) sur \(B^+-\{0\}\). On peut alors</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> prolonger la restriction de cette connexion à \(f^{-1}(S_{|y|})\cap B^+\) en une connexion sur \(f^{-1}(S_{|y|})/S_{|y|}\) (ce prolongement donnant \(T_1\)) ;</li>
-<li><span class="item-label">(b)</span> prolonger à \(B_{t_0,d_1}\) le relèvement sur \(B^+-\{0\}\) fourni par \(\nabla'\) du champ de vecteurs radial sur \(D_t\).</li>
+<li><span class="item-label">\(a\)</span> prolonger la restriction de cette connexion à \(f^{-1}(S_{|y|})\cap B^+\) en une connexion sur \(f^{-1}(S_{|y|})/S_{|y|}\) (ce prolongement donnant \(T_1\)) ;</li>
+<li><span class="item-label">\(b\)</span> prolonger à \(B_{t_0,d_1}\) le relèvement sur \(B^+-\{0\}\) fourni par \(\nabla'\) du champ de vecteurs radial sur \(D_t\).</li>
 </ol>
-<p>Il existe alors une et une seule connexion intégrable \(\nabla\) sur \(B_{t_0,d_1}\) qui prolonge \(\nabla'\), (a) et (b), et un et un seul difféomorphisme horizontal de \(B_{t_0,d_1}-\{0\}\) avec \(W-\{0\}\) qui soit l'identité sur \(f^{-1}(y)\). Il répond au problème.</p>
+<p>Il existe alors une et une seule connexion intégrable \(\nabla\) sur \(B_{t_0,d_1}\) qui prolonge \(\nabla'\), \(a\) et \(b\), et un et un seul difféomorphisme horizontal de \(B_{t_0,d_1}-\{0\}\) avec \(W-\{0\}\) qui soit l'identité sur \(f^{-1}(y)\). Il répond au problème.</p>
 
 <p id="14.3.1.6"><strong>3.1.6.</strong> <u>Une généralisation.</u> Ce qui précède se généralise au cas où \(f:X\to D\) est un morphisme tel que \(0\in X\) soit un point de non lissité isolé <u>dans</u> \(X_0\). Le lieu de non lissité de \(f\) est alors fini sur \(D\) (quitte à rapetisser \(X\) et \(D\)). La variété des cycles évanescents \(V\) a alors un ensemble fini \(\Sigma\) de points critiques ; \(V-\Sigma\) est une variété différentiable à bord (de bord compact, mais non compacte). La transformation de monodromie \(T\) est l'identité sur le bord et laisse \(\Sigma\) stable. Enfin, 3.1.5 reste valable, l'homéomorphisme fibré \(\Psi\) étant un difféomorphisme en dehors du lieu critique, qu'il envoie sur ce qui dans \(W\) provient de \(\Sigma\).</p>
 
 <p id="14.3.1.7"><strong>3.1.7.</strong> La proposition 3.1.5 permet d'utiliser les calculs de 1.4. On trouve ainsi que</p>
 <ol class="enumerate">
-<li><span class="item-label">(A)</span> Les groupes de cycles évanescents \((R^i\Phi(\Lambda))_0\) sont les groupes de cohomologie réduits, à valeurs dans \(\Lambda\), de la variété des cycles évanescents \(V\).</li>
-<li><span class="item-label">(B)</span> Les groupes \(H_{\{0\}}^i(X_0,R\Psi(\Lambda))\) sont les groupes de cohomologie à support propre de \(V^\circ\), à valeurs dans \(\Lambda\).</li>
-<li><span class="item-label">(C)</span> La variation
+<li><span class="item-label">\(A\)</span> Les groupes de cycles évanescents \((R^i\Phi(\Lambda))_0\) sont les groupes de cohomologie réduits, à valeurs dans \(\Lambda\), de la variété des cycles évanescents \(V\).</li>
+<li><span class="item-label">\(B\)</span> Les groupes \(H_{\{0\}}^i(X_0,R\Psi(\Lambda))\) sont les groupes de cohomologie à support propre de \(V^\circ\), à valeurs dans \(\Lambda\).</li>
+<li><span class="item-label">\(C\)</span> La variation
 \[\operatorname{Var}:\widetilde H^i(V,\Lambda)\longrightarrow H_c^i(V^\circ,\Lambda)=H^i(V\bmod\partial V,\Lambda)\]
 est la variation classique, définie par l'automorphisme \(T\) de \(V\) (qui est l'identité sur \(\partial V\)).</li>
 </ol>
 
-<p id="14.3.1.8"><strong>3.1.8.</strong> Les assertions (A) (B) (C) sont en fait plus élémentaires que 3.1.5 ; en voici une démonstration-construction directe, qui nous dispensera de vérifier que les isomorphismes (A) (B) sont indépendants des choix faits dans la construction 3.1.5.</p>
+<p id="14.3.1.8"><strong>3.1.8.</strong> Les assertions \(A\) \(B\) \(C\) sont en fait plus élémentaires que 3.1.5 ; en voici une démonstration-construction directe, qui nous dispensera de vérifier que les isomorphismes \(A\) \(B\) sont indépendants des choix faits dans la construction 3.1.5.</p>
 <p>Soient \(d\leq r\), \(t\leq\tau(d)\) et \(B\) la boîte ouverte</p>
 \[B=\{x\mid\delta(x)&lt;d\quad\text{et}\quad |f(x)|^2&lt;t\}.\]
 <p>Soit \(\widetilde D^*\) un revêtement universel de \(D^*\), et</p>
@@ -585,13 +585,13 @@ est la variation classique, définie par l'automorphisme \(T\) de \(V\) (qui est
 B_0\ar[r]^i&B&B^*\ar[l]_j}
 \]
 <p>image réciproque de \(f:B\to D\) sur (3.1.8.1). On note encore \(f\) la projection de (3.1.8.2) sur (3.1.8.1).</p>
-<p>(A) Par définition, \(R^i\Psi_\eta(\Lambda)_0\) est la limite inductive, pour \(U\) parcourant les voisinages de \(0\) dans \(X\), des groupes de cohomologie \(H^i(U\times_D\widetilde D^*,\Lambda)\). Faisons parcourir à \(U\) le système fondamental de \(0\) formé des boîtes \(B\) comme plus haut. Le produit fibré \(U\times_D\widetilde D^*=\overline B^*\) est un fibré de fibre \(V^\circ\) sur \(\widetilde D_t^*\) (contractile). Le système inductif des \(H^i(\overline B^*,\Lambda)\) est donc constant, de valeur \(H^i(V^\circ,\Lambda)=H^i(V,\Lambda)\).</p>
+<p>\(A\) Par définition, \(R^i\Psi_\eta(\Lambda)_0\) est la limite inductive, pour \(U\) parcourant les voisinages de \(0\) dans \(X\), des groupes de cohomologie \(H^i(U\times_D\widetilde D^*,\Lambda)\). Faisons parcourir à \(U\) le système fondamental de \(0\) formé des boîtes \(B\) comme plus haut. Le produit fibré \(U\times_D\widetilde D^*=\overline B^*\) est un fibré de fibre \(V^\circ\) sur \(\widetilde D_t^*\) (contractile). Le système inductif des \(H^i(\overline B^*,\Lambda)\) est donc constant, de valeur \(H^i(V^\circ,\Lambda)=H^i(V,\Lambda)\).</p>
 
 <p>Les isomorphismes obtenus</p>
 \[
 \tag{3.1.8.3}R^i\Psi_\eta(\Lambda)_0=H^i(V,\Lambda)
 \]
-<p>peuvent se préciser en un isomorphisme composé (cf. (B) ci-dessous).</p>
+<p>peuvent se préciser en un isomorphisme composé (cf. \(B\) ci-dessous).</p>
 \[
 \tag{3.1.8.4}
 \xymatrix{
@@ -601,13 +601,13 @@ R\Gamma(\widetilde D_t,Rf_*R\bar j_*\Lambda)_0\ar[l]_-\sim\ar@{=}[d]\\
 &R\Gamma(V,\Lambda)\ar[r]^-\sim&R\Gamma(V^\circ,\Lambda)&R\Gamma(\overline B^*,\Lambda)\ar[l]_-\sim
 }
 \]
-<p>Le complexe (R\Phi(\Lambda)_0) est défini par le triangle distingué</p>
+<p>Le complexe \(R\Phi(\Lambda)_0\) est défini par le triangle distingué</p>
 \[
 \Lambda\longrightarrow(R\Psi_\eta\Lambda)_0\longrightarrow R\Phi(\Lambda)_0\longrightarrow.
 \]
-<p>Les (R^i\Phi(\Lambda)_0) sont donc les groupes de cohomologie réduits de (V).</p>
+<p>Les \(R^i\Phi(\Lambda)_0\) sont donc les groupes de cohomologie réduits de \(V\).</p>
 
-<p>(B) Soit \(\Phi\) l'ensemble des fermés de \(\overline B^*\) dont l'adhérence dans \(\overline B\) est propre sur \(\widetilde D\). Les flèches suivantes sont des isomorphismes</p>
+<p>\(B\) Soit \(\Phi\) l'ensemble des fermés de \(\overline B^*\) dont l'adhérence dans \(\overline B\) est propre sur \(\widetilde D\). Les flèches suivantes sont des isomorphismes</p>
 \[
 \tag{3.1.8.5}
 \xymatrix{
@@ -619,9 +619,9 @@ R\Gamma(\widetilde D_t,Rf_!R\bar j_*\Lambda)\ar[l]_-{\overset{\sim}{\scriptscrip
 }
 \]
 <ol class="enumerate">
-<li><span class="item-label">①</span> parce que (B_0) est un cône (3.1.2) et que (R^i\Psi_\eta(\Lambda)) est constant en dehors de (0) ;</li>
+<li><span class="item-label">①</span> parce que \(B_0\) est un cône (3.1.2) et que \(R^i\Psi_\eta(\Lambda)\) est constant en dehors de (0) ;</li>
 <li><span class="item-label">②</span> par le théorème de changement de base pour les images directes à support propre ;</li>
-<li><span class="item-label">③</span> parce que (Rf_!R\bar j_*\Lambda) est constant en dehors de (0),</li>
+<li><span class="item-label">③</span> parce que \(Rf_!R\bar j_*\Lambda\) est constant en dehors de (0),</li>
 <li><span class="item-label">④</span> est la version « catégorie dérivée » de la suite spectrale d'un foncteur composé ;</li>
 <li><span class="item-label">⑤</span> parce que \(\widetilde D^*\) est contractile).</li>
 </ol>
@@ -629,9 +629,9 @@ R\Gamma(\widetilde D_t,Rf_!R\bar j_*\Lambda)\ar[l]_-{\overset{\sim}{\scriptscrip
 \[
 \tag{3.1.8.6}R^i\Gamma_{\{0\}}(R\Psi_\eta(\Lambda))=H_c^i(V^\circ,\Lambda).
 \]
-<p>Nous vérifierons (C) en 3.1.10.</p>
+<p>Nous vérifierons \(C\) en 3.1.10.</p>
 
-<p id="14.3.1.9"><strong>3.1.9.</strong> (cf. [3]) Soient (X) un espace topologique, (i:Y\hookrightarrow X) une partie fermée de (X), (T) un automorphisme de (X), induisant l'identité sur (Y), et \(\Lambda\) un groupe abélien. Pour définir la variation \(\operatorname{Var}\), on choisit une résolution (T)-équivariante \(\Lambda_X^*\) de \(\Lambda\) sur (X), une résolution \(\Lambda_Y^*\) du faisceau \(\Lambda\) sur (Y), sur laquelle (T) agit trivialement par convention, et un morphisme équivariant</p>
+<p id="14.3.1.9"><strong>3.1.9.</strong> (cf. [3]) Soient \(X\) un espace topologique, \(i:Y\hookrightarrow X\) une partie fermée de \(X\), \(T\) un automorphisme de \(X\), induisant l'identité sur \(Y\), et \(\Lambda\) un groupe abélien. Pour définir la variation \(\operatorname{Var}\), on choisit une résolution \(T\)-équivariante \(\Lambda_X^*\) de \(\Lambda\) sur \(X\), une résolution \(\Lambda_Y^*\) du faisceau \(\Lambda\) sur \(Y\), sur laquelle \(T\) agit trivialement par convention, et un morphisme équivariant</p>
 \[
 \varphi:\Lambda_X^*\longrightarrow i_*\Lambda_Y^*,
 \]
@@ -643,32 +643,32 @@ R\Gamma(\widetilde D_t,Rf_!R\bar j_*\Lambda)\ar[l]_-{\overset{\sim}{\scriptscrip
 \[
 R\Gamma(X\bmod Y,\Lambda)=\ker(\Gamma(\varphi)).
 \]
-<p>Sous des hypothèses raisonnables, si \(\Phi\) est l'ensemble des fermés de (X) disjoints de (Y), on a</p>
+<p>Sous des hypothèses raisonnables, si \(\Phi\) est l'ensemble des fermés de \(X\) disjoints de \(Y\), on a</p>
 \[
 \Gamma_\Phi(X-Y,\Lambda_X^*)\mathop{\longrightarrow}\limits^\sim R\Gamma(X\bmod Y,\Lambda)
 \]
-<p>(quasi-isomorphisme). L'endomorphisme (T-1) de \(\Gamma(\Lambda_X^*)\) ((T) agit par transport de structure) est nul sur \(\Lambda\) (les constantes) et se factorise par \(\ker(\Gamma(\varphi))\), d'où dans la catégorie dérivée et sous les mêmes hypothèses, un morphisme variation</p>
+<p>(quasi-isomorphisme). L'endomorphisme (T-1) de \(\Gamma(\Lambda_X^*)\) (\(T\) agit par transport de structure) est nul sur \(\Lambda\) (les constantes) et se factorise par \(\ker(\Gamma(\varphi))\), d'où dans la catégorie dérivée et sous les mêmes hypothèses, un morphisme variation</p>
 \[
 \operatorname{Var}:R\widetilde\Gamma(X,\Lambda)\longrightarrow R\Gamma_\Phi(X-Y,\Lambda)
 \]
 <p>(sans hypothèse, on trouve \(\operatorname{Var}:R\widetilde\Gamma(X,\Lambda)\to R\Gamma(X\bmod Y,\Lambda)\)).</p>
-<p>Cette description se simplifie si (T) est l'identité dans un voisinage de (Y) et, dans ce voisinage, est l'identité sur \(\Lambda_X^*\). L'endomorphisme (T-1) de \(\Gamma(\Lambda_X^*)\) se factorise alors par \(\Gamma_\Phi(\Lambda_X^*)\), et fournit la variation.</p>
+<p>Cette description se simplifie si \(T\) est l'identité dans un voisinage de \(Y\) et, dans ce voisinage, est l'identité sur \(\Lambda_X^*\). L'endomorphisme (T-1) de \(\Gamma(\Lambda_X^*)\) se factorise alors par \(\Gamma_\Phi(\Lambda_X^*)\), et fournit la variation.</p>
 
-<div class="thm" id="14.3.1.10"><div class="thm-head"><u>Proposition 3.1.10.</u></div><div class="thm-body"><p><u>Via les isomorphismes 3.1.8 (A) (B), la variation</u></p>
+<div class="thm" id="14.3.1.10"><div class="thm-head"><u>Proposition 3.1.10.</u></div><div class="thm-body"><p><u>Via les isomorphismes 3.1.8 \(A\) \(B\), la variation</u></p>
 \[
 (R\Phi_\eta(\Lambda))_0\longrightarrow R\Gamma_{\{0\}}(R\Psi_\eta(\Lambda))
 \]
-<p><u>est égale à la variation 3.1.9 définie par l'automorphisme (T) de (V), identique sur \(\partial V\).</u></p></div></div>
-<p>Le lecteur est invité à faire un petit dessin plutôt que de lire la démonstration. Soient (f^B) la boîte fermée de 3.1.2 et (f^C\subset f^B) un collier le long du bord ((f^C\simeq\partial_fB\times[0,1]) comme fibré sur (D_t) via un isomorphisme qui envoie \(\partial_fB\times\{1\}\) identiquement sur \(\partial_fB\)). Soit</p>
+<p><u>est égale à la variation 3.1.9 définie par l'automorphisme \(T\) de \(V\), identique sur \(\partial V\).</u></p></div></div>
+<p>Le lecteur est invité à faire un petit dessin plutôt que de lire la démonstration. Soient \(f^B\) la boîte fermée de 3.1.2 et \(f^C\subset f^B\) un collier le long du bord (\(f^C\simeq\partial_fB\times[0,1]\) comme fibré sur \(D_t\) via un isomorphisme qui envoie \(\partial_fB\times\{1\}\) identiquement sur \(\partial_fB\)). Soit</p>
 \[
 f^\alpha:f^C\mathop{\longrightarrow}\limits^\sim(\partial V\times[0,1])\times D_t
 \]
-<p>une trivialisation du fibré (f^C) sur (D_t), dont la fibre en (y\in D_t) induise l'identité \(\partial V=\partial(f^{-1}(y))\mathop{\to}\limits^\sim\partial V\times\{1\}\). Soit (C=f^C\cap B) et</p>
+<p>une trivialisation du fibré \(f^C\) sur \(D_t\), dont la fibre en \(y\in D_t\) induise l'identité \(\partial V=\partial(f^{-1}(y))\mathop{\to}\limits^\sim\partial V\times\{1\}\). Soit \(C=f^C\cap B\) et</p>
 \[
 \alpha:C\mathop{\longrightarrow}\limits^\sim(\partial V\times[0,1[)\times D_t
 \]
-<p>induit par (f^\alpha). On garde les notations de 3.1.8.2.</p>
-<p>Soient (R) la relation d'équivalence sur \(\overline B\)</p>
+<p>induit par \(f^\alpha\). On garde les notations de 3.1.8.2.</p>
+<p>Soient \(R\) la relation d'équivalence sur \(\overline B\)</p>
 \[
 x=y\quad\text{ou}\quad p(x),p(y)\in C\quad\text{et}\quad
 \alpha(p(x)),\alpha(p(y))\text{ ont même image dans }\partial V\times[0,1[.
@@ -676,8 +676,8 @@ x=y\quad\text{ou}\quad p(x),p(y)\in C\quad\text{et}\quad
 <p>Soient \({}_1\overline B=\overline B/R\), \({}_1\overline B^*=\overline B^*/R\) et \({}_1\overline C^*=p^{-1}(C)/R\). On dispose d'un diagramme commutatif</p>
 \[
 \xymatrix{
-B_0\ar@{^{(}->}[r]^-{\bar i}\ar@{=}[d]&\overline B\ar[d]^q&{}_1\overline B^*\ar[l]_-{\bar j}\ar[d]^{q'}\\
-B_0\ar@{^{(}->}[r]^-{\bar i}&{}_1\overline B&{}_1\overline B^*\ar[l]_-{\bar j}
+B_0\ar@{^{(}->}[r]^-{\bar i}\ar@{=}[d]&amp;\overline B\ar[d]^q&amp;{{}_1\overline B^*}\ar[l]_-{\bar j}\ar[d]^{q'}\\
+B_0\ar@{^{(}->}[r]^-{\bar i}&amp;{{}_1\overline B}&amp;{{}_1\overline B^*}\ar[l]_-{\bar j}
 }
 \]
 <p>Soit \(\Lambda^*\) une résolution \(\pi_1(D^*)\)-équivariante de \(\Lambda\) par des faisceaux acycliques sur \(\overline B^*\). Par définition, la variation se calcule à partir du morphisme de complexe</p>
@@ -688,46 +688,46 @@ B_0\ar@{^{(}->}[r]^-{\bar i}&{}_1\overline B&{}_1\overline B^*\ar[l]_-{\bar j}
 \[
 \Lambda[0]\longrightarrow\bar i^*{}_1\bar j_*(\Lambda).
 \]
-<p>Via (A) (B), on identifie alors la variation au morphisme composé</p>
+<p>Via \(A\) \(B\), on identifie alors la variation au morphisme composé</p>
 \[
 \tag{3.1.10.1}
 \xymatrix{
-R\Gamma(V,\Lambda)\ar[r]^-\sim&R\Gamma(V^\circ,\Lambda)&R\Gamma({}_1\overline B^*,\Lambda)\ar[l]_-{\overset{\sim}{\scriptscriptstyle 1}}\ar[d]^{\operatorname{Var}}\\
-R\Gamma_c(V^\circ,\Lambda)&R\Gamma({}_1\overline B^*\bmod{}_1\overline C^*,\Lambda)\ar[l]_-{\overset{\sim}{\scriptscriptstyle 2}}
+R\Gamma(V,\Lambda)\ar[r]^-\sim&amp;R\Gamma(V^\circ,\Lambda)&amp;R\Gamma({}_1\overline B^*,\Lambda)\ar[l]_-{\overset{\sim}{\scriptscriptstyle 1}}\ar[d]^{\operatorname{Var}}\\
+&amp;R\Gamma_c(V^\circ,\Lambda)&amp;R\Gamma({}_1\overline B^*\bmod{}_1\overline C^*,\Lambda)\ar[l]_-{\overset{\sim}{\scriptscriptstyle 2}}
 }
 \]
-<p>où ① et ② sont déduits de l'inclusion de (V^\circ) dans \({}_1\overline B^*\), et où \(\operatorname{Var}\) est la variation 3.1.9 pour \({}_1\overline B^*\) et l'action du générateur positif de \(\pi_1(D^*)\) (ce groupe agit sur \({}_1\overline B^*\) via son action 1.15 ; il agit trivialement sur \({}_1\overline C^*\)).</p>
-<p>Choisissons une connexion \(\nabla\) sur (B^*/D^*), compatible à la trivialisation de (C). Cette connexion trivialise \(\overline B^*\) et définit par passage au quotient</p>
+<p>où ① et ② sont déduits de l'inclusion de \(V^\circ\) dans \({}_1\overline B^*\), et où \(\operatorname{Var}\) est la variation 3.1.9 pour \({}_1\overline B^*\) et l'action du générateur positif de \(\pi_1(D^*)\) (ce groupe agit sur \({}_1\overline B^*\) via son action 1.15 ; il agit trivialement sur \({}_1\overline C^*\)).</p>
+<p>Choisissons une connexion \(\nabla\) sur \(B^*/D^*\), compatible à la trivialisation de \(C\). Cette connexion trivialise \(\overline B^*\) et définit par passage au quotient</p>
 \[
 u:{}_1\overline B^*\longrightarrow V.
 \]
-<p>Pour (T) défini comme en 3.1.3, le diagramme</p>
+<p>Pour \(T\) défini comme en 3.1.3, le diagramme</p>
 \[
 \xymatrix{
-{}_1\overline B^*\ar[r]^u\ar[d]_T&V\ar[d]^T\\
-{}_1\overline B^*\ar[r]^u&V
+{{}_1\overline B^*}\ar[r]^u\ar[d]_T&amp;V\ar[d]^T\\
+{{}_1\overline B^*}\ar[r]^u&amp;V
 }
 \]
-<p>est commutatif. L'application (u) induit des isomorphismes en cohomologie, de sorte que (3.1.10) résulte de 3.1.10.1 et de la fonctorialité de la variation.</p>
-<p>La proposition 3.1.10 sera censée justifier un calcul explicite que nous ferons plus tard et où, comme ici, (T) sera l'identité dans un voisinage de \(\partial V\). On prendra une classe de cohomologie (c), représentée par un courant (C), et on utilisera que \(\operatorname{Var}(c)\) est représenté par le courant (TC-C), à support compact dans (V^\circ).</p>
+<p>est commutatif. L'application \(u\) induit des isomorphismes en cohomologie, de sorte que (3.1.10) résulte de 3.1.10.1 et de la fonctorialité de la variation.</p>
+<p>La proposition 3.1.10 sera censée justifier un calcul explicite que nous ferons plus tard et où, comme ici, \(T\) sera l'identité dans un voisinage de \(\partial V\). On prendra une classe de cohomologie \(c\), représentée par un courant \(C\), et on utilisera que \(\operatorname{Var}(c)\) est représenté par le courant (TC-C), à support compact dans \(V^\circ\).</p>
 
 <p id="14.3.1.11"><strong>3.1.11.</strong> Pour calculer en pratique \(T\), on procède souvent en deux étapes</p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> On fixe (t) et (d) avec (t\leq\tau(d)), on choisit (y\in D_t), et on choisit une connexion \(\nabla\) sur \(f^{-1}(S_{|y|})\cap B_{t,d}\). Cette connexion \(\nabla\) définit un difféomorphisme (T_0) de (V_0=f^{-1}(y)\cap B_{t,d}\) sur lui-même, qui n'est pas nécessairement l'identité sur le bord.</li>
-<li><span class="item-label">(b)</span> On choisit une trivialisation de \(\partial B_{t,d}\) sur (D_t). L'intégration de \(\nabla\) fournit un difféomorphisme \(\varphi(\theta)\) de \(\partial V\) avec \(f^{-1}(e^{2\pi i\theta}y)\cap\partial B_{t,d}\), identifié à \(\partial V\) par la trivialisation. Pour (0\leq\theta\leq1), \(\varphi(\theta)\) est un chemin dans \(\operatorname{Diff}(\partial V)\), qui relie l'identité à \(\partial T_0\).</li>
+<li><span class="item-label">\(a\)</span> On fixe \(t\) et \(d\) avec \(t\leq\tau(d)\), on choisit \(y\in D_t\), et on choisit une connexion \(\nabla\) sur \(f^{-1}(S_{|y|})\cap B_{t,d}\). Cette connexion \(\nabla\) définit un difféomorphisme \(T_0\) de \(V_0=f^{-1}(y)\cap B_{t,d}\) sur lui-même, qui n'est pas nécessairement l'identité sur le bord.</li>
+<li><span class="item-label">\(b\)</span> On choisit une trivialisation de \(\partial B_{t,d}\) sur \(D_t\). L'intégration de \(\nabla\) fournit un difféomorphisme \(\varphi(\theta)\) de \(\partial V\) avec \(f^{-1}(e^{2\pi i\theta}y)\cap\partial B_{t,d}\), identifié à \(\partial V\) par la trivialisation. Pour \(0\leq\theta\leq1\), \(\varphi(\theta)\) est un chemin dans \(\operatorname{Diff}(\partial V)\), qui relie l'identité à \(\partial T_0\).</li>
 </ol>
-<p>Le couple \((T_0,\varphi)\) obtenu dépend des choix arbitraires faits. L'ensemble de ces choix étant contractile, il n'en dépend pas à homotopie près. Pour (T) du type 3.1.3, \((T,\text{chemin trivial})\) est un \((T_0,\varphi)\) du type considéré ici.</p>
+<p>Le couple \((T_0,\varphi)\) obtenu dépend des choix arbitraires faits. L'ensemble de ces choix étant contractile, il n'en dépend pas à homotopie près. Pour \(T\) du type 3.1.3, \((T,\text{chemin trivial})\) est un \((T_0,\varphi)\) du type considéré ici.</p>
 
 <p id="14.3.1.12"><strong>3.1.12.</strong> On sait que \(\operatorname{Diff}(V)\to\operatorname{Diff}(\partial V)\) est une fibration, de sorte que \(T\mapsto(T,\text{trivial})\) induit une bijection entre</p>
 <p>a) l'ensemble des difféomorphismes \(T:V\to V\) avec \(\partial T=\operatorname{Id}\), à isotopie près, avec</p>
 
 <p>b) l'ensemble des couples \((T_0,\varphi)\), \(T_0:V\mathop{\longrightarrow}\limits^\sim V\), \(\varphi\) classe d'homotopie de chemins de \(\operatorname{Id}\) à \(\partial T\), à isotopie près.</p>
-<p>Un couple \((T_0,\varphi)\) calculé par (a) (b) ci-dessus détermine donc \(T\). Concrètement, on calcule \(T\) à l'aide de \((T_0,\varphi)\) comme suit :</p>
+<p>Un couple \((T_0,\varphi)\) calculé par \(a\) \(b\) ci-dessus détermine donc \(T\). Concrètement, on calcule \(T\) à l'aide de \((T_0,\varphi)\) comme suit :</p>
 <p>(α) On prend un collier \([0,1]\times\partial V\mathop{\longrightarrow}\limits^\alpha V\) de \(\partial V\) dans \(V\) (avec \(\alpha(1,x)=x\)), et un représentant de \(\varphi\) tel que \(\varphi:[0,1]\to\operatorname{Diff}(\partial V)\), prolongé pour \(x&lt;0\) par \(\operatorname{Id}\), soit \(C^\infty\). Soit, dans le collier, \(\beta(x)=\operatorname{pr}_1\alpha^{-1}(x)\) (\(\beta\) est sans point critique, à valeurs dans \([0,1]\), et vaut 1 sur \(\partial V\)).</p>
 <p>(β) On prend \(T=T_0\) en dehors du collier et, dans le collier,</p>
 \[T(x)=T_0(\varphi(\beta(x))^{-1}(x)).\]
 
-<p id="14.3.1.13"><strong>3.1.13.</strong> Voici une variante de 3.1.11(b) pour calculer la classe d'homotopie de chemins \(\varphi\). Sur chaque rayon \(\arg(z)=\theta\), on choisit une trivialisation du fibré \(\partial B_{t,d}\), variant continûment avec \(\theta\). On identifie \((\partial V)_0=f^{-1}(0)\cap\partial B_{t,d}\) à \(\partial V\) grâce à la trivialisation au-dessus du rayon passant par \(y\). Soit</p>
+<p id="14.3.1.13"><strong>3.1.13.</strong> Voici une variante de 3.1.11\(b\) pour calculer la classe d'homotopie de chemins \(\varphi\). Sur chaque rayon \(\arg(z)=\theta\), on choisit une trivialisation du fibré \(\partial B_{t,d}\), variant continûment avec \(\theta\). On identifie \((\partial V)_0=f^{-1}(0)\cap\partial B_{t,d}\) à \(\partial V\) grâce à la trivialisation au-dessus du rayon passant par \(y\). Soit</p>
 \[\psi_\theta:V\longrightarrow f^{-1}(e^{i\theta}y)\cap B_{t,d}\]
 <p>déduit de l'intégration de \(\nabla\). Transportant \(\partial\psi_\theta\) le long des rayons, on obtient un difféomorphisme de \((\partial V)_0\), donc de \(\partial V\), sur lui-même. C'est \(\varphi(\theta)\).</p>
 
@@ -829,7 +829,7 @@ X_0\ar@{=}[d]&\overline X\ar[l]_-{\bar i}\ar[d]^p&\overline X^*\ar[l]_-{\bar j}\
 X_0&X\ar[l]^-i&X^*\ar[l]^-j
 }
 \]
-<p>On suppose que \(X^*=X-X_0\) est non singulier (= lisse). Son revêtement \(\overline X^*\) est donc lisse, on note \(\Omega^*_{\overline X^*}\) le complexe de De Rham des faisceaux de formes différentielles holomorphes sur \(\overline X^*\). C'est une résolution du faisceau constant \(\mathbb C\) (lemme de Poincaré holomorphe), d'où une flèche</p>
+<p>On suppose que \(X^*=X-X_0\) est non singulier \(= lisse\). Son revêtement \(\overline X^*\) est donc lisse, on note \(\Omega^*_{\overline X^*}\) le complexe de De Rham des faisceaux de formes différentielles holomorphes sur \(\overline X^*\). C'est une résolution du faisceau constant \(\mathbb C\) (lemme de Poincaré holomorphe), d'où une flèche</p>
 \[
 \tag{4.1.2}
 \bar j_*\Omega^*_{\overline X^*}\longrightarrow R\bar j_*\mathbb C

@@ -42,9 +42,9 @@ ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.
 <tr><td>5.</td><td>Étude cohomologique du morphisme \(p:\widetilde X\longrightarrow\mathbb P^1\) associé à un pinceau.</td><td>24</td></tr>
 <tr><td></td><td>5.1. &nbsp; L’homomorphisme de restriction \(H^*(\widetilde X)\longrightarrow H^*(Y)\).</td><td>24</td></tr>
 <tr><td></td><td>5.2. &nbsp; Le « théorème de Lefschetz vache » (LV).</td><td>27</td></tr>
-<tr><td></td><td>5.3. &nbsp; La condition (A).</td><td>33</td></tr>
+<tr><td></td><td>5.3. &nbsp; La condition \(A\).</td><td>33</td></tr>
 <tr><td></td><td>5.8. &nbsp; L’homomorphisme de Griffiths.</td><td>47</td></tr>
-<tr><td></td><td>5.9. &nbsp; Un exemple où l’hypothèse (A) n’est pas vérifiée.</td><td>57</td></tr>
+<tr><td></td><td>5.9. &nbsp; Un exemple où l’hypothèse \(A\) n’est pas vérifiée.</td><td>57</td></tr>
 <tr><td>6.</td><td>Applications de la théorie locale des cycles évanescents (Picard-Lefschetz).</td><td>58</td></tr>
 </table>
 
@@ -57,7 +57,7 @@ ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.
 de Lefschetz. Les sections 1–4 donnent les faits « bien connus » sur la structure
 cohomologique des fibrés projectifs et des éclatements. Dans 5 nous faisons l’étude qui
 figure dans le titre, en supposant que \(X\) satisfait au « théorème de Lefschetz vache »
-(5.2), et que le pinceau \(D\) en question satisfait à une certaine condition (A) de
+(5.2), et que le pinceau \(D\) en question satisfait à une certaine condition \(A\) de
 nature locale sur \(D\) (5.3). Les résultats principaux sont 5.6, 5.7 et 5.8.7, ce dernier
 intervenant de façon essentielle dans la démonstration du théorème de GRIFFITHS dans XX.
 Dans la dernière section, de nature nettement moins élémentaire, nous nous appuyons sur
@@ -65,7 +65,7 @@ l’exposé SGA 1 XIII de M<sup>me</sup> RAYNAUD sur le <u>groupe fondamental «
 sur la <u>formule de Picard-Lefschetz</u> (XVI) pour démontrer :</p>
 
 <ol class="enumerate">
-<li><span class="item-label">(1)</span> La condition (A) est souvent satisfaite (6.3, 6.4) ;</li>
+<li><span class="item-label">(1)</span> La condition \(A\) est souvent satisfaite (6.3, 6.4) ;</li>
 <li><span class="item-label">(2)</span> Sauf dans le cas \(\dim(X)\) impair et caractéristique = 2, le groupe de
 monodromie d’un pinceau de Lefschetz agit irréductiblement sur la « cohomologie
 évanescente », et transitivement (modulo signe) sur l’ensemble des</li>
@@ -334,7 +334,7 @@ j_*R^qg_*\mathbb Z_\ell&\text{si }q&gt;0,
 \tag{2.2.8}E_2^{p,q}(f)\xrightarrow{(i^*,j^*)}E_2^{p,q}(g)\qquad\text{pour }q\ne0.
 \]
 
-<p>Nous allons démontrer par récurrence sur (r) que</p>
+<p>Nous allons démontrer par récurrence sur \(r\) que</p>
 
 \[
 \tag{2.2.9}E_r^{p,q}(f)\xrightarrow{(i^*,j^*)}E_r^{p,q}(g)qquad\text{pour }q\ne0, r\geq2
@@ -352,7 +352,7 @@ j_*R^qg_*\mathbb Z_\ell&\text{si }q&gt;0,
 \tag{2.2.11}d_r^{p,r-1}(f)=0\qquad\text{pour }r\geq2,\ \text{tout }p.
 \]
 
-<p>Commençons par (r=2). Nous avons un diagramme commutatif</p>
+<p>Commençons par \(r=2\). Nous avons un diagramme commutatif</p>
 
 \[
 \tag{2.2.12}\xymatrix@C=5em{
@@ -361,16 +361,16 @@ E_2^{p+2,q-1}(f)\ar[r]^{(i^*,j^*)}&E_2^{p+2,q-1}(g).
 }
 \]
 
-<p>Pour (q\leq0), on a (E_2^{p+2,q-1}(f)=0), donc (d_2^{p,q}(f)=0). Pour (q=1), on a
-(d_2^{p,1}(f)=0) par (2.2.11), et pour (q&gt;1), les flèches horizontales dans
-(2.2.12) sont des isomorphismes, et on sait que (d_2^{p,q}(g)=0) par 1.2 et
-2.1.4. Ceci donne (2.2.10) pour (r=2), et (2.2.9) pour (r=2) n’est autre
+<p>Pour \(q\leq0\), on a \(E_2^{p+2,q-1}(f)=0\), donc \(d_2^{p,q}(f)=0\). Pour \(q=1\), on a
+\(d_2^{p,1}(f)=0\) par (2.2.11), et pour \(q&gt;1\), les flèches horizontales dans
+(2.2.12) sont des isomorphismes, et on sait que \(d_2^{p,q}(g)=0\) par 1.2 et
+2.1.4. Ceci donne (2.2.10) pour \(r=2\), et (2.2.9) pour \(r=2\) n’est autre
 que (2.2.8).</p>
 
 <!-- Source PDF page 10 (printed page 263) -->
-<p>Supposons connues (2.2.9) et (2.2.10) pour une valeur de (r\geq2).
-L’hypothèse (2.2.10) implique (E_r^{p,q}(f)\simeq E_{r+1}^{p,q}(f)), et par 1.2 on a
-(E_r^{p,q}(g)\simeq E_{r+1}^{p,q}(g)), de sorte qu’on a le diagramme commutatif</p>
+<p>Supposons connues (2.2.9) et (2.2.10) pour une valeur de \(r\geq2\).
+L’hypothèse (2.2.10) implique \(E_r^{p,q}(f)\simeq E_{r+1}^{p,q}(f)\), et par 1.2 on a
+\(E_r^{p,q}(g)\simeq E_{r+1}^{p,q}(g)\), de sorte qu’on a le diagramme commutatif</p>
 
 \[
 \tag{2.2.13}\xymatrix@C=5em{
@@ -379,7 +379,7 @@ E_{r+1}^{p,q}(f)\ar[r]^{(i^*,j^*)}&E_{r+1}^{p,q}(g),
 }
 \]
 
-<p>ce qui donne (2.2.9) pour (r+1), compte tenu de (2.2.9) pour (r). Pour
+<p>ce qui donne (2.2.9) pour (r+1), compte tenu de (2.2.9) pour \(r\). Pour
 déduire (2.2.10) pour (r+1), on regarde le diagramme commutatif</p>
 
 \[
@@ -389,9 +389,9 @@ E_{r+1}^{p+r+1,q-r}(f)\ar[r]^{(i^*,j^*)}&E_{r+1}^{p+r+1,q-r}(g).
 }
 \]
 
-<p>Pour (q\leq r-1), on a (E_{r+1}^{p+r+1,q-r}(f)=0), donc (d_r^{p,q}(f)=0). Pour (q=r),
-on a (2.2.11), et pour (q&gt;r) les flèches horizontales dans (2.2.14)
-sont des isomorphismes, et (d_{r+1}^{p,q}(g)=0) par 1.2, d’où la conclusion voulue.</p>
+<p>Pour \(q\leq r-1\), on a \(E_{r+1}^{p+r+1,q-r}(f)=0\), donc \(d_r^{p,q}(f)=0\). Pour \(q=r\),
+on a (2.2.11), et pour \(q&gt;r\) les flèches horizontales dans (2.2.14)
+sont des isomorphismes, et \(d_{r+1}^{p,q}(g)=0\) par 1.2, d’où la conclusion voulue.</p>
 
 <p>Il reste à vérifier (2.2.11), qui signifie que le «edge homomorphism» composé</p>
 
@@ -419,8 +419,8 @@ de Gysin</u> (SGA 5 IV)</p>
 \tag{2.2.18}f_*f^*=\operatorname{id}.
 \]
 
-<p>comme il résulte de la formule de projection, et du fait que (f_*(1)=1),
-(f) étant birationnel donc de degré un.</p>
+<p>comme il résulte de la formule de projection, et du fait que \(f_*(1)=1\),
+\(f\) étant birationnel donc de degré un.</p>
 
 <p>Ceci démontre (2.2.1). Quant à (2.2.2), remarquons que le
 diagramme (2.2.5) donne, par passage à la cohomologie, un diagramme
@@ -428,9 +428,8 @@ commutatif</p>
 
 \[
 \tag{2.2.19}\xymatrix@C=5em{
-H^p(\widetilde X,\mathbb Z_\ell)\ar[r]^{i^*}&H^p(\widetilde\Delta,\mathbb Z_\ell)\\
-H^p(X,\mathbb Z_\ell)\ar[u]^{f^*}\ar[r]_{j^*}&H^p(\Delta,\mathbb Z_\ell)\ar[u]_{g^*},
-}
+H^p(\widetilde X,\mathbb Z_\ell)\ar[r]^{i^*}&amp;H^p(\widetilde\Delta,\mathbb Z_\ell)\\
+H^p(X,\mathbb Z_\ell)\ar[u]^{f^*}\ar[r]_{j^*}&amp;H^p(\Delta,\mathbb Z_\ell)\ar[u]_{g^*}},
 \]
 
 <p>d’où un morphisme</p>
@@ -442,8 +441,8 @@ H^p(X,\mathbb Z_\ell)\ar[u]^{f^*}\ar[r]_{j^*}&H^p(\Delta,\mathbb Z_\ell)\ar[u]_{
 \frac{H^p(\widetilde\Delta,\mathbb Z_\ell)}{g^*H^p(\Delta,\mathbb Z_\ell)}.
 \]
 
-<p>Désignons par (F^i) les filtrations de (H^i(\widetilde X,\mathbb Z_\ell)) et de
-(H^i(\widetilde\Delta,\mathbb Z_\ell)) provenant des suites spectrales de Leray, de sorte que (2.2.20) se réécrit</p>
+<p>Désignons par \(F^i\) les filtrations de \(H^i(\widetilde X,\mathbb Z_\ell)\) et de
+\(H^i(\widetilde\Delta,\mathbb Z_\ell)\) provenant des suites spectrales de Leray, de sorte que (2.2.20) se réécrit</p>
 
 <!-- Source PDF page 12 (printed page 265) -->
 \[
@@ -477,19 +476,17 @@ H^*(X,\mathbb Z_\ell)\oplus\operatorname{Ker}f_*,
 et (2.2.23), on trouve (2.2.2), cqfd.</p>
 
 <p id="18.2.2.24"><u>Remarque 2.2.24.</u> Esquissons une deuxième démonstration de (2.2.2)
-nettement plus simple, valable dans le cas où (X) est <u>propre</u> sur (k). Plus
-généralement, on trouve (sans hypothèse sur (X)) le résultat correspondant
+nettement plus simple, valable dans le cas où \(X\) est <u>propre</u> sur \(k\). Plus
+généralement, on trouve (sans hypothèse sur \(X\)) le résultat correspondant
 (2.2.26) en cohomologie à support propre. Nous avons les suites exactes
-de «cohomologie à supports propres», notée (H_c^*), pour les couples ((\widetilde X,\widetilde\Delta)) et ((X,\Delta))
+de «cohomologie à supports propres», notée \(H_c^*\), pour les couples \((\widetilde X,\widetilde\Delta)\) et \((X,\Delta)\)
 qui forment un diagramme commutatif</p>
 
 <!-- Source PDF page 13 (printed page 266) -->
 \[
-\tag{2.2.25}\xymatrix@C=2.6em{
-\ar[r]&H_c^i(\widetilde X-\widetilde\Delta,\mathbb Z_\ell)\ar[r]&H_c^i(\widetilde X,\mathbb Z_\ell)\ar[r]&H_c^i(\widetilde\Delta,\mathbb Z_\ell)\ar[r]&H_c^{i+1}(\widetilde X-\widetilde\Delta,\mathbb Z_\ell)\\
-\ar[r]&H_c^i(X-\Delta,\mathbb Z_\ell)\ar[u]^{\sim}\ar[r]&H_c^i(X,\mathbb Z_\ell)\ar[u]^{f^*}\ar[r]&H_c^i(\Delta,\mathbb Z_\ell)\ar[u]^{g^*}\ar[r]&H_c^{i+1}(X-\Delta,\mathbb Z_\ell)\ar[u]^{\sim}.
-}
-\tag{2.2.26}
+\xymatrix@C=2.6em{
+(2.2.25)\ar[r]&amp;H_c^i(\widetilde X-\widetilde\Delta,\mathbb Z_\ell)\ar[r]&amp;H_c^i(\widetilde X,\mathbb Z_\ell)\ar[r]&amp;H_c^i(\widetilde\Delta,\mathbb Z_\ell)\ar[r]&amp;{H_c^{i+1}(\widetilde X-\widetilde\Delta,\mathbb Z_\ell)}\\
+(2.2.26)\ar[r]&amp;H_c^i(X-\Delta,\mathbb Z_\ell)\ar[u]^{\sim}\ar[r]&amp;H_c^i(X,\mathbb Z_\ell)\ar[u]^{f^*}\ar[r]&amp;H_c^i(\Delta,\mathbb Z_\ell)\ar[u]^{g^*}\ar[r]&amp;{H_c^{i+1}(X-\Delta,\mathbb Z_\ell)}\ar[u]^{\sim}}.
 \]
 
 <p>Or, le quotient du complexe acyclique (2.2.25) par le
@@ -871,7 +868,7 @@ du cup-produit par transport de structure via (4.2.2). Soient \(a,b\) des
 +g_*\bigl(2g^*(xy)g^*(c_1(\xi_\Delta))(\rho_i)^*(c_1(\xi_{\mathbb P^1}))\bigr)\]
 \[?=0+2xy\,c_1(\xi_\Delta)\qquad\text{par (4.2.4) et (4.3.1)},\]
 <p>ce qui établit (4.2.3.1). Quant à (4.2.3.2) :
-\((a\oplus0)\wedge(b\oplus0)=ab\oplus0\), ceci exprime que (f^*) est un
+\((a\oplus0)\wedge(b\oplus0)=ab\oplus0\), ceci exprime que \(f^*\) est un
 homomorphisme d’algèbres.</p>
 <p>Prouvons (4.2.3.3). Or, la formule de projection implique
 \(\operatorname{Ker}f_*\cap\operatorname{image}f^*\subset\operatorname{Ker}f_*\),
@@ -898,9 +895,9 @@ de (4.2.3.3) par l’anticommutativité du cup-produit.</p>
 \(Y=\rho^{-1}(t_0)=X.H_{t_0}\). On a le diagramme commutatif</p>
 \[
 \xymatrix@C=2.5em@R=3em{
-\mathbb P^1&amp;\widetilde X\ar[l]_\rho&amp;\widetilde\Delta\ar[l]_i\ar[r]^-\sim\ar[d]^g&amp;\Delta\times\mathbb P^1\\
-\operatorname{Sp}(k)=\{t_0\}\ar[u]&amp;&amp;\Delta\ar[r]^\ell\ar[d]&amp;\Delta\times\mathbb P^1\ar[u]\\
-&amp;Y\ar[ull]\ar[ul]^k\ar[ur]^m\ar[urr]^h&&
+\mathbb P^1&amp;\widetilde X\ar[l]_\rho\ar[d]^f&amp;\widetilde\Delta\ar[l]_i\ar[r]^-\sim\ar[d]^g&amp;\Delta\times\mathbb P^1\\
+{\operatorname{Sp}(k)=\{t_0\}}\ar[u]&amp;X&amp;\Delta\ar@{_{(}->}[l]^j\ar[ur]_{\ell=\mathrm{id}\times\{t_0\}}\ar[dl]^h&amp;\\
+&amp;Y\ar[ul]\ar@/_1.2pc/[uu]^(.3){k}\ar[u]_m&amp;&amp;
 }
 \qquad \ell=\operatorname{id}\times[t_0],
 \]
@@ -912,7 +909,7 @@ de (4.2.3.3) par l’anticommutativité du cup-produit.</p>
 <div class="thm-body">
 <p><u>(5.1.2) L’homomorphisme restriction</u></p>
 \[k^*:H^*(\widetilde X,\mathbb Z_\ell)\longrightarrow H^*(Y,\mathbb Z_\ell)\]
-<p><u>s’exprime (via (4.2.2)) par</u></p>
+<p><u>s’exprime \(via (4.2.2)\) par</u></p>
 \[H^*(X,\mathbb Z_\ell)\oplus H^{*-2}(\Delta,\mathbb Z_\ell(-1))
 \xrightarrow{\ m^*+h^*\ }H^*(Y,\mathbb Z_\ell).\]
 <p><u>(5.1.3) La flèche de Gysin</u></p>
@@ -1150,7 +1147,7 @@ lisse vérifie (LV), il en est de même pour toute section hyperplane lisse.</u>
 lisses de \(X\) vérifie les hypothèses de 5.2.5.</p>
 
 <!-- Source PDF page 34 (printed page 287) -->
-<h2 id="18.5.3">5.3. <u>La condition (A).</u></h2>
+<h2 id="18.5.3">5.3. <u>La condition \(A\).</u></h2>
 
 <p id="18.5.3.1"><strong>5.3.1.</strong> Soit</p>
 \[
@@ -1195,16 +1192,16 @@ pinceau de Lefschetz, les homomorphismes 5.3.2 sont des isomorphismes pour
 \(i\ne n\), et sont surjectifs pour \(i=n\).</u></p>
 
 <p id="18.5.3.5"><strong>5.3.5.</strong> On dit que \(\rho\), ou le pinceau dont il provient, <u>vérifie la condition
-(A)</u>, si <u>tous</u> les homomorphismes (5.3.2) sont des isomorphismes (ou,
+\(A\)</u>, si <u>tous</u> les homomorphismes (5.3.2) sont des isomorphismes (ou,
 ce qui revient au même, s’ils le sont pour tout \(i\), et \(j=0\)).</p>
 
-<p>On verra plus bas (6.3, 6.4) que cette condition (A) a
+<p>On verra plus bas (6.3, 6.4) que cette condition \(A\) a
 une nette tendance à être vérifiée.</p>
 
 <div class="thm lemma" id="18.5.4">
 <div class="thm-head"><span class="thm-name"><u>Lemme 5.4.</u></span> <u>Si une des sections hyperplanes lisses de \(X\) (donc toute,
 par 5.2.7) vérifie (LV) (p.ex. si \(X\) vérifie (LV), cf. (5.2.4)), et
-si \(\rho\) vérifie l’hypothèse (A), alors toute fibre (y compris toute
+si \(\rho\) vérifie l’hypothèse \(A\), alors toute fibre (y compris toute
 fibre singulière) vérifie (LV), et les faisceaux \(R^i\rho_*\mathbb Q_\ell(j)\) sont
 constants pour \(i\ne n-1\).</u></div>
 </div>
@@ -1227,7 +1224,7 @@ fibre, c’est l’opération envisagée dans (5.2.1). Par hypothèse, on a</p>
 \tag{5.4.2}(\nu_*\nu^*)L^i:\nu_*\nu^*R^{n-1-i}\rho_*\mathbb Q_\ell(j)
 \xrightarrow{\ \sim\ }\nu_*\nu^*R^{n-1+i}\rho_*\mathbb Q_\ell(j+i),
 \]
-<p>qui, compte tenu de (A) s’identifient aux morphismes</p>
+<p>qui, compte tenu de \(A\) s’identifient aux morphismes</p>
 \[
 \tag{5.4.3}L^i:R^{n-1-i}\rho_*\mathbb Q_\ell(j)
 \xrightarrow{\ \sim\ }R^{n-1+i}\rho_*\mathbb Q_\ell(j+i).
@@ -1328,7 +1325,7 @@ il faut utiliser bien sûr que \(\mathbb P^1\) est simplement connexe. La premi�
 \(R^{n-1}\rho_*\mathbb Q_\ell\xrightarrow{\sim}\nu_*\nu^*R^{n-1}\rho_*\mathbb Q_\ell\),
 de sorte qu’on a \(H^0(\mathbb P^1,R^{n-1}\rho_*\mathbb Q_\ell)\simeq
 H^0(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell)\), et de ce que
-\(\nu^*R^{n-1}\rho_*\mathbb Q_\ell\) est un faisceau «constant tordu» sur (U), donc équivalent au
+\(\nu^*R^{n-1}\rho_*\mathbb Q_\ell\) est un faisceau «constant tordu» sur \(U\), donc équivalent au
 \(\Pi\)-module \(H^{n-1}(X_{\bar\eta},\mathbb Q_\ell)\). La deuxième égalité de (5.6.2.4) résulte de la
 dégénérescence, compte tenu de 5.1.6.</p>
 
@@ -1385,7 +1382,7 @@ H^{n-3}(\Delta,\mathbb Q_\ell(-2))\xleftarrow[\sim]{}H^{n-3}(X,\mathbb Q_\ell(-2
 plus faibles, comme DELIGNE m’a expliqué<sup>4</sup>.</p>
 
 <div class="thm theorem" id="18.5.6.8"><div class="thm-head"><span class="thm-name"><u>Théorème 5.6.8.</u></span>
-<u>Soient (X) lisse de dimension (n) sur un corps (k) algébriquement
+<u>Soient \(X\) lisse de dimension \(n\) sur un corps \(k\) algébriquement
 clos, et</u></div><div class="thm-body">
 \[
 \rho:X\longrightarrow\mathbb P_k^1
@@ -1408,8 +1405,8 @@ E_2^{p,q}:H^p(\mathbb P^1,R^q\rho_*\mathbb Q_\ell)\Longrightarrow H^{p+q}(X,\mat
 
 <!-- Source PDF page 41 (printed page 294) -->
 <p><u>Démonstration.</u> Nous allons identifier, pour la démonstration, le
-faisceau \(\mathbb Q_\ell(1)\) à \(\mathbb Q_\ell\) (possible car on a pris (k) algébriquement clos).
-On peut évidemment supposer (X) connexe, et \(\rho\) surjectif, donc plat, à
+faisceau \(\mathbb Q_\ell(1)\) à \(\mathbb Q_\ell\) (possible car on a pris \(k\) algébriquement clos).
+On peut évidemment supposer \(X\) connexe, et \(\rho\) surjectif, donc plat, à
 fibres de dimension \(n-1\). Désignons par</p>
 \[
 \xi_X\in H^2(X,\mathbb Q_\ell)
@@ -1606,7 +1603,7 @@ décomposition en somme directe (cf. 4.2)</u></p>
 \[
 E_2^{1,n-1}\simeq F^1H^n(\widetilde X,\mathbb Q_\ell)/F^2H^n(\widetilde X,\mathbb Q_\ell).
 \]
-<p>On a par (A) :</p>
+<p>On a par \(A\) :</p>
 \[
 \tag{5.7.2}F^1H^n(\widetilde X,\mathbb Q_\ell)=
 \operatorname{Ker}\bigl(k^*:H^n(\widetilde X,\mathbb Q_\ell)\longrightarrow H^n(X_{\bar\eta},\mathbb Q_\ell)\bigr),
@@ -1676,7 +1673,7 @@ H^{n-2}(X_{\bar\eta},\mathbb Q_\ell(-1))&\xrightarrow{\ 0\oplus h^*\ }&
 <p>ce qui donne bien (5.7.1), cqfd.</p>
 
 <!-- Source PDF page 48 (printed page 301) -->
-<p id="18.5.7.10"><u>Remarque 5.7.10.</u> Dans 5.7, l’hypothèse (A) peut-être remplacée par celle,
+<p id="18.5.7.10"><u>Remarque 5.7.10.</u> Dans 5.7, l’hypothèse \(A\) peut-être remplacée par celle,
 plus faible, que pour \(q=n\), les flèches</p>
 \[
 \tag{5.7.11}H^q(\widetilde X,\mathbb Q_\ell)\longrightarrow H^0(\mathbb P^1,R^q\rho_*\mathbb Q_\ell)
@@ -1730,9 +1727,9 @@ de la projection \(\rho:\widetilde X\longrightarrow\mathbb P^1\) et soit
 commutatif</p>
 \[
 \tag{5.8.2.1}\xymatrix@C=4em@R=3em{
-&\widetilde X|U\ar[l]_\alpha\ar[d]^{\rho|U}\\
-\widetilde X\ar[dl]_f\ar[d]^\rho&&\\
-X&\mathbb P^1&U.\ar[l]^\nu}
+&amp;\widetilde X\ar[dl]_f\ar[dd]^(.3)\rho&amp;\widetilde X|U\ar[l]_\alpha\ar[dd]^{\rho|U}\\
+X&amp;&amp;\\
+&amp;\mathbb P^1&amp;U\ar[l]^\nu}.
 \]
 
 <p>Le morphisme \(\rho|U:\widetilde X|U\longrightarrow U\) étant propre et lisse, on a, par le
@@ -1752,14 +1749,14 @@ on a l’équivalence</u></p>
 \Longleftrightarrow \alpha^*f^*(x)\in
 \operatorname{Prim}^n(\widetilde X|U/U,\mathbb Q_\ell(j)).
 \]
-<p><u>Si de plus \(\rho\) vérifie l’hypothèse (A) de 5.3, on a</u></p>
+<p><u>Si de plus \(\rho\) vérifie l’hypothèse \(A\) de 5.3, on a</u></p>
 \[
 \tag{5.8.2.5}x\in\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
 \Longleftrightarrow f^*(x)\in\operatorname{Prim}^n(\widetilde X/\mathbb P^1,\mathbb Q_\ell(j)).
 \]
 </div></div>
 
-<p><u>Démonstration.</u> (5.8.2.4) est prouvé. Quant à (5.8.2.5), l’hypothèse (A)
+<p><u>Démonstration.</u> (5.8.2.4) est prouvé. Quant à (5.8.2.5), l’hypothèse \(A\)
 implique que \(H^0(\mathbb P^1,R^n\rho_*\mathbb Q_\ell(j))\xrightarrow{\sim}
 H^0(U,\nu^*R^n\rho_*\mathbb Q_\ell(j))\), donc [\(f^*(x)\)
 est primitif rel. à \(\mathbb P^1\)] \(\Rightarrow\) [\(\alpha^*f^*(x)\) l’est rel. à \(U\)].</p>
@@ -1777,14 +1774,14 @@ est primitif rel. à \(\mathbb P^1\)] \(\Rightarrow\) [\(\alpha^*f^*(x)\) l’es
 de \(U\), de fibre \(X\)</p>
 \[
 \tag{5.8.3.2}\xymatrix@C=4em@R=3em{
-&\widetilde X|U\ar[l]_\alpha\ar[r]^{f\times\rho|U}\ar[d]^{\rho|U}&X\times U\ar[dl]^{\operatorname{pr}_2}\\
-\widetilde X\ar[dl]_f\ar[d]^\rho&&\\
-X&\mathbb P^1&U.\ar[l]^\nu}
+&amp;\widetilde X\ar[dl]_f\ar[dd]^(.3)\rho&amp;\widetilde X|U\ar[l]_\alpha\ar[r]^{f\times\rho|U}\ar[dd]^{\rho|U}&amp;X\times U\ar[ddl]^{\operatorname{pr}_2}\\
+X&amp;&amp;&amp;\\
+&amp;\mathbb P^1&amp;U\ar[l]^\nu&amp;}.
 \]
 
 <div class="thm" id="18.5.8.4"><div class="thm-head"><u>Théorème 5.8.4.</u></div><div class="thm-body">
 <p><u>Supposons que \(X\) vérifie (LV) (5.2.2), et que \(\rho\) vérifie
-l’hypothèse (A) (5.3). Alors pour tout \(U\xrightarrow{\nu}\mathbb P^1\), ouvert de lissité \(\ne\varnothing\)
+l’hypothèse \(A\) (5.3). Alors pour tout \(U\xrightarrow{\nu}\mathbb P^1\), ouvert de lissité \(\ne\varnothing\)
 de \(\rho\), l’homomorphisme de Griffiths «modulo partie fixe» qui est, par
 définition, le composé</u></p>
 \[
@@ -1814,7 +1811,7 @@ H^{n-1}(X,\mathbb Q_\ell(j))_U\oplus\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j),
 H^1(U,\nu^*R^{n-1}\rho_*\mathbb Q_\ell(j))\ar[d]\\
 &H^1(U,\nu^*E^{n-1}\rho_*\mathbb Q_\ell(j)).}
 \]
-<p>D’après (5.7.1), la flèche (qui n’est défini que grâce à l’hypothèse (A))</p>
+<p>D’après (5.7.1), la flèche (qui n’est défini que grâce à l’hypothèse \(A\))</p>
 \[
 \tag{5.8.4.5}u:\operatorname{Prim}^n(X,\mathbb Q_\ell(j))
 \longrightarrow H^1(\mathbb P^1,R^{n-1}\rho_*\mathbb Q_\ell)

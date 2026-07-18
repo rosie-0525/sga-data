@@ -6,7 +6,7 @@
 <script>
 window.MathJax = {
   loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
-  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools', 'amscd'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
   options: { enableMenu: true }, startup: { typeset: false }
 };
 </script>
@@ -30,17 +30,17 @@ ol.enumerate .item-label { display: inline-block; width: 2.5em; margin-left: -2.
 <p>0. Introduction</p>
 <p>1. Cas particuliers divers sur un topos quelconque</p>
 <p>2. Accouplements définis par une biextension</p>
-<p>3. Biextensions de schémas en groupes ((P,Q)) par (G_m) : généralités</p>
+<p>3. Biextensions de schémas en groupes \((P,Q)\) par \(G_m\) : généralités</p>
 <p>4. Extensions et biextensions des schémas en groupes lisses et connexes sur un corps</p>
 <p>5. Extensions et biextensions par des schémas en groupes constants tronqués sans torsion</p>
-<p>6. Extensions et biextensions par le modèle de Néron de (G_m)</p>
-<p>7. Prolongements canoniques d'extensions et de biextensions par (G_m)</p>
+<p>6. Extensions et biextensions par le modèle de Néron de \(G_m\)</p>
+<p>7. Prolongements canoniques d'extensions et de biextensions par \(G_m\)</p>
 
 <h2 id="8.0">0. Introduction</h2>
 
-<p id="8.0.1">0.1. Nous continuons ici l'étude générale des biextensions, commencée dans l'exposé précédent. Tout d'abord nous donnons quelques compléments dans le cas d'un topos de base général, en développant notamment, avec les détails qu'il mérite, le formalisme des accouplements associés aux biextensions (n°2), dont l'importance dans la théorie des schémas abéliens est bien connue. D'autre part, nous abordons l'étude des biextensions de schémas en groupes généraux, le cas le plus intéressant pour nous étant celui des biextensions par le groupe multiplicatif (G_m). Nous serons cependant obligés, à titre d'intermédiaire technique, d'étudier aussi les biextensions par d'autres types de schémas en groupes (n°s 5 et 6).</p>
+<p id="8.0.1">0.1. Nous continuons ici l'étude générale des biextensions, commencée dans l'exposé précédent. Tout d'abord nous donnons quelques compléments dans le cas d'un topos de base général, en développant notamment, avec les détails qu'il mérite, le formalisme des accouplements associés aux biextensions (n°2), dont l'importance dans la théorie des schémas abéliens est bien connue. D'autre part, nous abordons l'étude des biextensions de schémas en groupes généraux, le cas le plus intéressant pour nous étant celui des biextensions par le groupe multiplicatif \(G_m\). Nous serons cependant obligés, à titre d'intermédiaire technique, d'étudier aussi les biextensions par d'autres types de schémas en groupes (n°s 5 et 6).</p>
 
-<p>Le résultat le plus intéressant pour la suite est donné dans 7.1, qui donne des conditions moyennant lesquelles, pour (P) et (Q) lisses sur un trait de point générique \(\eta\), une biextension de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\) peut se prolonger en une biextension de \((P,Q)\) par \(G_m\), déterminée à isomorphisme unique près. Ce résultat sera fort commode dans l'exposé suivant, consacré à la théorie du modèle de Néron des variétés abéliennes. Il est probable qu'on y pourrait s'en tirer à meilleur compte, sans l'imposant poids-papier des exposés VII et VIII (qui ne serviront plus dans la suite du Séminaire) ; il nous semble cependant probable que les développements donnés dans ces exposés sont appelés à être utiles encore ailleurs.</p>
+<p>Le résultat le plus intéressant pour la suite est donné dans 7.1, qui donne des conditions moyennant lesquelles, pour \(P\) et \(Q\) lisses sur un trait de point générique \(\eta\), une biextension de \((P_\eta,Q_\eta)\) par \(G_{m\eta}\) peut se prolonger en une biextension de \((P,Q)\) par \(G_m\), déterminée à isomorphisme unique près. Ce résultat sera fort commode dans l'exposé suivant, consacré à la théorie du modèle de Néron des variétés abéliennes. Il est probable qu'on y pourrait s'en tirer à meilleur compte, sans l'imposant poids-papier des exposés VII et VIII (qui ne serviront plus dans la suite du Séminaire) ; il nous semble cependant probable que les développements donnés dans ces exposés sont appelés à être utiles encore ailleurs.</p>
 
 <p id="8.0.2">0.2. Lorsque nous travaillons avec des schémas en groupes sur un schéma \(S\), il sera sous-entendu que nous travaillons avec le topos fppf de \(S\), qui est le topos associé au \(U\)-site des schémas localement de présentation finie sur \(S\) (et \(\in U\)), muni de la topologie fppf (SGA 3 IV 6.3). Le lecteur vérifiera d'ailleurs sans peine que la plupart des énoncés que nous donnerons seraient également valables (et essentiellement équivalents aux énoncés fppf) pour d'autres topologies sur \(S\) (ayant comme catégorie sous-jacente au site une catégorie contenant au moins les schémas localement de présentation finie sur \(S\)), telles les topologies de Zariski, la topologie étale, la topologie fpqc. Une des raisons en est que, grâce à la théorie de la descente, la catégorie des extensions d'un schéma en groupes \(P\) localement de présentation finie sur \(S\) par le schéma en groupes \(G_m\) ne dépend pas, à équivalence près, de la topologie choisie, et le même énoncé vaut pour la notion de biextension. La raison technique pour laquelle il y a lieu de préférer la topologie fppf (ou une topologie plus fine, comme fpqc) aux topologies moins fines comme celle de Zariski et la topologie étale, c'est que pour tout entier \(n&gt;0\), l'homomorphisme \(n.\mathrm{id}\) de \(G_m\) dans lui-même est un <u>épimorphisme</u> fppf (car il est fidèlement plat de présentation finie), mais en général pas un épimorphisme (Zar) ou (ét). (NB c'est un épimorphisme (ét) si et seulement si \(n\) est premier aux caractéristiques résiduelles de \(S\) et un épimorphisme (Zar) si et seulement si \(S\) est vide.)</p>
 
@@ -409,9 +409,8 @@ est l'identité. Cela résulte en effet immédiatement des définitions (et l'as
 
 \[(2.1.9.2)\qquad
 \xymatrix{
-{}_nP\otimes{}_nQ\ar[r]^{\sim}\ar[d]_{\beta^n_{P,Q}}&{}_nQ\otimes{}_nP\ar[d]^{\alpha^n_{Q,P}}\\
-\underline{\operatorname{Tor}}_1(P,Q)\ar[r]^{\sim}&\underline{\operatorname{Tor}}_1(Q,P),
-}\]
+{{}_nP\otimes{}_nQ}\ar[r]^{\sim}\ar[d]_{\beta^n_{P,Q}}&amp;{{}_nQ\otimes{}_nP}\ar[d]^{\alpha^n_{Q,P}}\\
+{\underline{\operatorname{Tor}}_1(P,Q)}\ar[r]^{\sim}&amp;{\underline{\operatorname{Tor}}_1(Q,P)}},\]
 
 <p>où les flèches horizontales sont les isomorphismes de symétrie. Ceci posé, les relations entre \(\alpha\) et \(\beta\) sont données par la formule :</p>
 
@@ -424,9 +423,8 @@ est l'identité. Cela résulte en effet immédiatement des définitions (et l'as
 <div class="thm-body">
 \[(2.1.10.1)\qquad
 \xymatrix{
-{}_nP\otimes{}_nQ\ar[r]^{\sim}\ar[d]_{\alpha^n_{P,Q}}&{}_nQ\otimes{}_nP\ar[d]^{\alpha^n_{Q,P}}\\
-\underline{\operatorname{Tor}}_1(P,Q)\ar[r]^{\sim}&\underline{\operatorname{Tor}}_1(Q,P),
-}\]
+{{}_nP\otimes{}_nQ}\ar[r]^{\sim}\ar[d]_{\alpha^n_{P,Q}}&amp;{{}_nQ\otimes{}_nP}\ar[d]^{\alpha^n_{Q,P}}\\
+{\underline{\operatorname{Tor}}_1(P,Q)}\ar[r]^{\sim}&amp;{\underline{\operatorname{Tor}}_1(Q,P)}},\]
 <p><u>les flèches horizontales étant les isomorphismes de symétrie.</u></p>
 </div></div>
 
@@ -448,9 +446,9 @@ est l'identité. Cela résulte en effet immédiatement des définitions (et l'as
 <div class="thm-body">
 \[(2.1.11.1)\qquad
 \xymatrix@C=4em@R=3em{
-&{}_{n'}P\otimes{}_nQ\ar[dl]_{p_m\otimes\mathrm{id}_{{}_nQ}}\ar[dr]^{\mathrm{id}_{{}_{n'}P}\otimes i_m}&\\
-{}_nP\otimes{}_nQ\ar[dr]_{\alpha^n_{P,Q}}&&{}_{n'}P\otimes{}_{n'}Q\ar[dl]^{\alpha^{n'}_{P,Q}}\\
-&\underline{\operatorname{Tor}}_1(P,Q)&
+&amp;{{}_{n'}P\otimes{}_nQ}\ar[dl]_{p_m\otimes\mathrm{id}_{{}_nQ}}\ar[dr]^{\mathrm{id}_{{}_{n'}P}\otimes i_m}&amp;\\
+{{}_nP\otimes{}_nQ}\ar[dr]_{\alpha^n_{P,Q}}&amp;&amp;{{}_{n'}P\otimes{}_{n'}Q}\ar[dl]^{\alpha^{n'}_{P,Q}}\\
+&amp;{\underline{\operatorname{Tor}}_1(P,Q)}&amp;
 }\]
 <p><u>où \(p_m:{}_{n'}P\longrightarrow{}_nP\) désigne l'homomorphisme induit par \(m.\mathrm{id}_P\), et \(i_m:{}_nQ\longrightarrow{}_{n'}Q\) désigne l'inclusion. On a de même commutativité dans le diagramme analogue (2.1.11.2), symétrique de (2.1.11.1), dont les sommets sont les mêmes que ceux de (2.1.11.1), sauf le sommet supérieur \({}_{n'}P\otimes{}_nQ\), qui est remplacé par \({}_nP\otimes{}_{n'}Q\).</u></p>
 </div></div>
@@ -458,16 +456,16 @@ est l'identité. Cela résulte en effet immédiatement des définitions (et l'as
 <p>Il suffit en effet de prouver le premier énoncé, le deuxième s'en déduit par symétrie, compte tenu de 2.1.10. On est ramené, par le procédé de 2.1.8, au cas où \(T\) est le topos ponctuel, i.e. où \(P\) et \(Q\) sont des groupes commutatifs ordinaires, et où on a \(P=\mathbb Z/n'\mathbb Z\), \(Q=\mathbb Z/n'\mathbb Z\). En fait, on utilisera pour \(P\) la seule hypothèse \(n'P=0\). Nous identifierons \(\operatorname{Tor}_1(P,Q)\) à \({}_{n'}P=P\), grâce à la résolution \(0\longrightarrow\mathbb Z\mathrel{\mathop{\longrightarrow}^{n'}}\mathbb Z\longrightarrow0\) de \(Q\), et de même \(\operatorname{Tor}_1({}_nP,{}_nQ)\) à \({}_nP\) grâce à la résolution \(0\longrightarrow\mathbb Z\mathrel{\mathop{\longrightarrow}^{n}}\mathbb Z\longrightarrow0\) de \({}_nQ\simeq\mathbb Z/n\mathbb Z\), dont l'augmentation est donnée en envoyant \(1_0\) sur \(m.1_Q\) (\(1_Q\) désignant l'élément 1 de \(Q=\mathbb Z/n'\mathbb Z\)). L'homomorphisme</p>
 
 \[\xymatrix{
-\operatorname{Tor}_1({}_nP,{}_nQ)\ar[r]\ar@{<->}[d]&\operatorname{Tor}_1(P,Q)\ar@{<->}[d]\\
-{}_nP&{}_{n'}P=P
+{\operatorname{Tor}_1({}_nP,{}_nQ)}\ar[r]\ar@{<->}[d]&amp;{\operatorname{Tor}_1(P,Q)}\ar@{<->}[d]\\
+{{}_nP}&amp;{{}_{n'}P=P}
 }\]
 
 <p>déduit des inclusions \({}_nP\longrightarrow P\) et \({}_nQ\longrightarrow Q\) n'est alors autre que l'inclusion naturelle \({}_nP\longrightarrow{}_{n'}P\). Par suite, identifiant le sommet supérieur de (2.1.11.1) à \(P/nP\), grâce au générateur \(m.1_Q\) de \({}_nQ\), permettant d'identifier \({}_nQ\) à \(\mathbb Z/n\mathbb Z\), le diagramme envisagé devient</p>
 
 \[\xymatrix@C=4em@R=3em{
-&P/nP\ar[dl]_{x\mapsto mx}\ar[dr]^{x\mapsto mx}&\\
-{}_nP\ar[dr]_{x\mapsto x}&&P\ar[dl]^{x\mapsto x}\\
-&{}_{n'}P&
+&amp;P/nP\ar[dl]_{x\mapsto mx}\ar[dr]^{x\mapsto mx}&amp;\\
+{{}_nP}\ar[dr]_{x\mapsto x}&amp;&amp;P\ar[dl]^{x\mapsto x}\\
+&amp;{{}_{n'}P}&amp;
 }\]
 
 <p>qui est évidemment commutatif.</p>
@@ -477,9 +475,8 @@ est l'identité. Cela résulte en effet immédiatement des définitions (et l'as
 <div class="thm-body">
 \[(2.1.12.1)\qquad
 \xymatrix@C=5em@R=3em{
-{}_{n'}P\otimes{}_{n'}Q\ar[r]^{m\otimes m}\ar[d]_{\alpha^{n'}_{P,Q}}&{}_nP\otimes{}_nQ\ar[d]^{\alpha^n_{P,Q}}\\
-{}_{n'}\underline{\operatorname{Tor}}_1(P,Q)\ar[r]^{m}&{}_n\underline{\operatorname{Tor}}_1(P,Q),
-}\]
+{{}_{n'}P\otimes{}_{n'}Q}\ar[r]^{m\otimes m}\ar[d]_{\alpha^{n'}_{P,Q}}&amp;{{}_nP\otimes{}_nQ}\ar[d]^{\alpha^n_{P,Q}}\\
+{{}_{n'}\underline{\operatorname{Tor}}_1(P,Q)}\ar[r]^{m}&amp;{{}_n\underline{\operatorname{Tor}}_1(P,Q)}},\]
 <p><u>où, dans la description des flèches horizontales, \(m\) désigne les homomorphismes \({}_{n'}E\longrightarrow{}_nE\) induits par \(m.\mathrm{id}_E\) (pour \(E\) égal respectivement à \(P,Q\) et à \(\underline{\operatorname{Tor}}_1(P,Q)\)).</u></p>
 </div></div>
 
@@ -529,10 +526,9 @@ T_\ell(\underline{\operatorname{Tor}}_1(P,Q))\ar[r]&T_\ell(\underline{\operatorn
 
 \[(2.1.14.3)\qquad
 \xymatrix@C=4.5em@R=3em{
-{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q\ar[r]\ar[d]&{}_{\mathfrak b}Q\otimes{}_{\mathfrak a}P\ar[d]\\
-\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))\ar[r]^-{-1}&
-\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(Q,P)),
-}\]
+{{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q}\ar[r]\ar[d]&amp;{{}_{\mathfrak b}Q\otimes{}_{\mathfrak a}P}\ar[d]\\
+{\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))}\ar[r]^-{-1}&amp;
+{\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(Q,P))}},\]
 
 <p>où les flèches horizontales sont les flèches de symétrie. Lorsque \(\mathfrak a=\mathfrak b\), cette anticommutativité peut aussi s'exprimer par le fait que l'automorphisme de symétrie dans \(\underline{\operatorname{Tor}}_1(A/\mathfrak a,A/\mathfrak a)\) est égal à \(-\mathrm{id}\). Dans le cas particulier où \(\mathfrak a=\mathfrak b=nA\), \(n\) étant une section de \(A\), alors la multiplication par \(n\) induit un épimorphisme</p>
 
@@ -559,11 +555,11 @@ T_\ell(\underline{\operatorname{Tor}}_1(P,Q))\ar[r]&T_\ell(\underline{\operatorn
 
 \[(2.1.14.6)\qquad
 \xymatrix@C=4em@R=3em{
-&{}_{p\mathfrak a}P\otimes{}_{q\mathfrak b}Q\ar[dl]_{p\otimes q}\ar[dr]^{i\otimes j}&\\
-{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q\ar[d]_{\alpha}&&{}_{pq\mathfrak a}P\otimes{}_{pq\mathfrak b}Q\ar[d]^{\alpha}\\
-\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))\ar[dr]_{\mathrm{incl.}}&&
-\underline{\operatorname{Hom}}(pq\mathfrak a\cap pq\mathfrak b/pq\mathfrak a.pq\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))\ar[dl]^{(pq)^*}\\
-&\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/pq\mathfrak a.\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))&
+&amp;{{}_{p\mathfrak a}P\otimes{}_{q\mathfrak b}Q}\ar[dl]_{p\otimes q}\ar[dr]^{i\otimes j}&amp;\\
+{{}_{\mathfrak a}P\otimes{}_{\mathfrak b}Q}\ar[d]_{\alpha}&amp;&amp;{{}_{pq\mathfrak a}P\otimes{}_{pq\mathfrak b}Q}\ar[d]^{\alpha}\\
+{\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/\mathfrak a\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))}\ar[dr]_{\mathrm{incl.}}&amp;&amp;
+{\underline{\operatorname{Hom}}(pq\mathfrak a\cap pq\mathfrak b/pq\mathfrak a.pq\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))}\ar[dl]^{(pq)^*}\\
+&amp;{\underline{\operatorname{Hom}}(\mathfrak a\cap\mathfrak b/pq\mathfrak a.\mathfrak b,\underline{\operatorname{Tor}}_1(P,Q))}&amp;
 }\]
 
 <p>où \(i:{}_{p\mathfrak a}P\longrightarrow{}_{pq\mathfrak a}P\) et \(j:{}_{q\mathfrak b}Q\longrightarrow{}_{pq\mathfrak b}Q\) sont les inclusions canoniques, et \((pq)^*\) désigne l'homomorphisme injectif déduit par passage aux \(\underline{\operatorname{Hom}}\) de l'homomorphisme surjectif \(\mathfrak a\cap\mathfrak b/pq\mathfrak a.\mathfrak b\longrightarrow pq\mathfrak a\cap\mathfrak b/pq\mathfrak a.pq\mathfrak b\) induit par la multiplication par \(pq\). Lorsque \(\mathfrak a=\mathfrak b=nA\), ce diagramme se réécrit sous une forme plus simple (donnée dans (2.1.11.1) pour \(q=1\)).</p>
@@ -623,21 +619,19 @@ alors on vérifie aisément que \(\underline{\operatorname{Tor}}_1(P,Q)\) est de
 (2.2.4), (2.2.6) associés aux biextensions. Notons d'abord qu'on a un diagramme <u>commutatif</u></p>
 
 \[(2.2.9)\qquad \xymatrix{
-\operatorname{Biext}^1(P,Q;G)\ar[r]^{\sim}\ar[d]&\operatorname{Biext}^1(Q,P;G)\ar[d]\\
-\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\ar[r]^{\sim}&
-\operatorname{Hom}(\underline{\operatorname{Tor}}_1(Q,P),G),
-}\]
+{\operatorname{Biext}^1(P,Q;G)}\ar[r]^{\sim}\ar[d]&amp;{\operatorname{Biext}^1(Q,P;G)}\ar[d]\\
+{\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)}\ar[r]^{\sim}&amp;
+{\operatorname{Hom}(\underline{\operatorname{Tor}}_1(Q,P),G)}},\]
 
 <p>où les flèches horizontales sont les flèches de symétrie (la première de ces flèches étant définie dans VII 2.7), et les flèches verticales
 sont (2.2.1). Cette commutativité résulte en effet de la commutativité des deux carrés composants du diagramme plus complet</p>
 
 \[(2.2.10)\qquad \xymatrix{
-\operatorname{Biext}^1(P,Q;G)\ar[r]^{\sim}\ar[d]&\operatorname{Biext}^1(Q,P;G)\ar[d]\\
-\operatorname{Ext}^1(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q,G)\ar[r]^{\sim}\ar[d]&
-\operatorname{Ext}^1(Q\mathbin{\mathop{\otimes}^{\mathrm L}}P,G)\ar[d]\\
-\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)\ar[r]^{\sim}&
-\operatorname{Hom}(\underline{\operatorname{Tor}}_1(Q,P),G),
-}\]
+{\operatorname{Biext}^1(P,Q;G)}\ar[r]^{\sim}\ar[d]&amp;{\operatorname{Biext}^1(Q,P;G)}\ar[d]\\
+{\operatorname{Ext}^1(P\mathbin{\mathop{\otimes}^{\mathrm L}}Q,G)}\ar[r]^{\sim}\ar[d]&amp;
+{\operatorname{Ext}^1(Q\mathbin{\mathop{\otimes}^{\mathrm L}}P,G)}\ar[d]\\
+{\operatorname{Hom}(\underline{\operatorname{Tor}}_1(P,Q),G)}\ar[r]^{\sim}&amp;
+{\operatorname{Hom}(\underline{\operatorname{Tor}}_1(Q,P),G)}},\]
 
 <p>où la première flèche verticale de chaque colonne est l'isomorphisme canonique de VII 3.6.5, et la deuxième flèche est l'homomorphisme
 évident. La commutativité du deuxième carré de (2.2.10) est triviale, compte tenu que l'isomorphisme de symétrie
@@ -1096,7 +1090,7 @@ sur \(P\times Q\), cas déjà traité.</p>
 
 <p>c) 2.3.10 est le diagramme</p>
 
-\[\require{AMScd}
+\[
 \begin{CD}
 H^1\mathrm{RHom}(\mathbb Z/n\mathbb Z\mathbin{\mathop\otimes^L}Q,G)
 @>>> H^1\mathrm{RHom}(\mathbb Z\mathbin{\mathop\otimes^L}Q,G)\\
@@ -1739,7 +1733,7 @@ radicielle) de \(k\). Soient \(A'\) resp. \(B'\) la partie abélienne de \(P_{k'
 En vertu de 4.7, la biextension \(E_{k'}\) de \((P_{k'},Q_{k'})\) provient d'une biextension
 \(F'\) de \((A',B')\), bien déterminée à isomorphisme unique près. Donc l'accouplement</p>
 
-\[(4.11.2)\qquad T_\ell(P_{k'})\times T_\ell(Q_{k'})\longrightarrow T_\ell(G_{m_{k'}}})\]
+\[(4.11.2)\qquad T_\ell(P_{k'})\times T_\ell(Q_{k'})\longrightarrow T_\ell(G_{m_{k'}})\]
 
 <p>déduit de (4.11.1) par changement du corps de base \(k\longrightarrow k'\), et qui est
 aussi l'accouplement défini par la biextension \(E_{k'}\) de \((P_{k'},Q_{k'})\), s'obtient

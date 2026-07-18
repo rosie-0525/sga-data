@@ -49,8 +49,8 @@ ol.enumerate .item-label { display: inline-block; width: 2em; margin-left: -2em;
 <p>L'image topologique que je suis est la suivante. Soient \(X\) un espace analytique, \(D\subset\mathbb C\) un disque de centre 0, \(D^*=D-\{0\}\) et \(f:X\to D\) un morphisme propre (le cas non propre sera considéré ensuite). Remplaçons \(D\) par un disque suffisamment petit centré en 0, \(X\) par l'image réciproque de ce petit disque et notons encore \(f:X\to D\) le résultat. D'après la variante analytique complexe du théorème d'isotopie de Thom, \(f^{-1}(D^*)\) est un espace fibré topologique sur \(D^*\). J'ignore si on peut toujours construire un couple \((\Gamma,r)\) du type décrit ci-dessous, mais il semble plausible que oui.</p>
 
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> \(\Gamma\) est un système localement cohérent de trivialisations locales du fibré \(f^{-1}(D^*)\) sur \(D^*\). En d'autres termes, \(\Gamma\) définit une trivialisation \(\pi_1(D^*)\)-équivariante de l'image réciproque de \(X\) sur un revêtement universel \(\widetilde D^*\) de \(D^*\).</li>
-<li><span class="item-label">(b)</span> \(r\) est une rétraction de \(X\) sur la fibre spéciale \(X_0=f^{-1}(0)\), compatible à \(\Gamma\) : si, sur un ouvert connexe \(U\) de \(D^*\), \(\Gamma\) identifie \(X_U=f^{-1}(U)\) à \(X_1\times U\), \(r=r(x_1,u)\) est indépendant de \(u\).</li>
+<li><span class="item-label">\(a\)</span> \(\Gamma\) est un système localement cohérent de trivialisations locales du fibré \(f^{-1}(D^*)\) sur \(D^*\). En d'autres termes, \(\Gamma\) définit une trivialisation \(\pi_1(D^*)\)-équivariante de l'image réciproque de \(X\) sur un revêtement universel \(\widetilde D^*\) de \(D^*\).</li>
+<li><span class="item-label">\(b\)</span> \(r\) est une rétraction de \(X\) sur la fibre spéciale \(X_0=f^{-1}(0)\), compatible à \(\Gamma\) : si, sur un ouvert connexe \(U\) de \(D^*\), \(\Gamma\) identifie \(X_U=f^{-1}(U)\) à \(X_1\times U\), \(r=r(x_1,u)\) est indépendant de \(u\).</li>
 </ol>
 
 <p>Soient donnés \((X,f,\Gamma,r)\). Soient \(t\in D\) et \(X_t=f^{-1}(t)\) la «fibre générale». Le fibré \(\varphi^*X\), image réciproque de \(X/D\) par \(\varphi:[0,1]\to D^*:x\mapsto\exp(2\pi i x).t\), est trivialisé par \(\Gamma\). La <u>monodromie</u> \(T:X_t\longrightarrow X_t\) est l'homéomorphisme</p>
@@ -215,8 +215,8 @@ s\overset{i}{\lhook\joinrel\longrightarrow}S\overset{j}{\longleftarrow\joinrel\l
 \]
 
 <p>Voici comment les faisceaux sur \(s,\eta,S\) et le morphisme de spécialisation s'interprètent en termes galoisiens.</p>
-<p>(a) Les faisceaux \(F\) sur \(s\) (resp. \(\eta\)) s'identifient, par \(F\longmapsto F_{\bar s}\) (resp. \(F_{\bar\eta}\)) aux ensembles munis d'une action continue de \(\operatorname{Gal}(\bar s/s)\) (resp. \(\operatorname{Gal}(\bar\eta/\eta)\)) (SGA4 VIII 2.1, ou 1.1.3).</p>
-<p>(b) Un faisceau \(F\) sur \(S\) définit des faisceaux \(F_s=i^*F\) et \(F_\eta=j^*F\) sur \(s\) et \(\eta\), et une flèche d'adjonction \(F\longrightarrow j_*j^*F\) induisant</p>
+<p>\(a\) Les faisceaux \(F\) sur \(s\) (resp. \(\eta\)) s'identifient, par \(F\longmapsto F_{\bar s}\) (resp. \(F_{\bar\eta}\)) aux ensembles munis d'une action continue de \(\operatorname{Gal}(\bar s/s)\) (resp. \(\operatorname{Gal}(\bar\eta/\eta)\)) (SGA4 VIII 2.1, ou 1.1.3).</p>
+<p>\(b\) Un faisceau \(F\) sur \(S\) définit des faisceaux \(F_s=i^*F\) et \(F_\eta=j^*F\) sur \(s\) et \(\eta\), et une flèche d'adjonction \(F\longrightarrow j_*j^*F\) induisant</p>
 \[
 \varphi:F_s=i^*F\longrightarrow i^*j_*j^*F=sp_*F_\eta.
 \]
@@ -225,9 +225,9 @@ s\overset{i}{\lhook\joinrel\longrightarrow}S\overset{j}{\longleftarrow\joinrel\l
 (F_s\text{ faisceau sur }s,\ F_\eta\text{ faisceau sur }\eta,\ \varphi:F_s\longrightarrow i^*j_*F_\eta).
 \]
 
-<p>Via l'équivalence (a), le foncteur \(i^*j_*\) s'identifie au foncteur «invariants sous \(I\)». Les faisceaux sur \(S\) s'identifient donc aux triples formés d'un ensemble \(F_{\bar s}\) muni d'une action de \(\operatorname{Gal}(\bar s/s)\), d'un ensemble \(F_{\bar\eta}\) muni d'une action de \(\operatorname{Gal}(\bar\eta/\eta)\) et d'un morphisme équivariant \(\varphi:F_{\bar s}\longrightarrow F_{\bar\eta}^I\).</p>
+<p>Via l'équivalence \(a\), le foncteur \(i^*j_*\) s'identifie au foncteur «invariants sous \(I\)». Les faisceaux sur \(S\) s'identifient donc aux triples formés d'un ensemble \(F_{\bar s}\) muni d'une action de \(\operatorname{Gal}(\bar s/s)\), d'un ensemble \(F_{\bar\eta}\) muni d'une action de \(\operatorname{Gal}(\bar\eta/\eta)\) et d'un morphisme équivariant \(\varphi:F_{\bar s}\longrightarrow F_{\bar\eta}^I\).</p>
 
-<p>(c) Les morphismes \(sp,j,i,sp=sp\circ j\) s'expriment comme suit, via (a) (b)</p>
+<p>\(c\) Les morphismes \(sp,j,i,sp=sp\circ j\) s'expriment comme suit, via \(a\) \(b\)</p>
 \[
 \begin{aligned}
 sp:S\to s:&\quad sp^*(F_{\bar s})=(F_{\bar s},F_{\bar s},\operatorname{Id}),\\
@@ -245,12 +245,12 @@ sp=sp\,j:\eta\to s:&\quad sp^*(F_{\bar s})=F_{\bar s},\\
 
 <p id="13.1.2.4"><strong><u>Construction 1.2.4.</u></strong> <u>Les faisceaux \(F\) sur \(Y\mathop{\times}\limits_sS\) s'identifient aux triples \((F_s,F_\eta,\varphi)\) où</u></p>
 <ol class="enumerate">
-<li><span class="item-label">(a)</span> <u>\(F_s\) est un faisceau sur \(Y\), soit encore un faisceau \(F_{\bar s}\) sur \(\bar Y=Y\otimes_s\bar s\), muni d'une action continue de \(\operatorname{Gal}(\bar s/s)\) compatible à l'action de \(\operatorname{Gal}(\bar s/s)\) sur \(\bar Y\).</u></li>
-<li><span class="item-label">(b)</span> <u>\(F_\eta\) est un faisceau \(F_{\bar\eta}\) sur \(\bar Y\), muni d'une action continue de \(\operatorname{Gal}(\bar\eta/\eta)\), compatible à l'action (via 1.1.1) de \(\operatorname{Gal}(\bar\eta/\eta)\) sur \(\bar Y\).</u></li>
-<li><span class="item-label">(c)</span> <u>\(\varphi\) est un morphisme équivariant de \(F_{\bar s}\) dans \(F_{\bar\eta}\).</u></li>
+<li><span class="item-label">\(a\)</span> <u>\(F_s\) est un faisceau sur \(Y\), soit encore un faisceau \(F_{\bar s}\) sur \(\bar Y=Y\otimes_s\bar s\), muni d'une action continue de \(\operatorname{Gal}(\bar s/s)\) compatible à l'action de \(\operatorname{Gal}(\bar s/s)\) sur \(\bar Y\).</u></li>
+<li><span class="item-label">\(b\)</span> <u>\(F_\eta\) est un faisceau \(F_{\bar\eta}\) sur \(\bar Y\), muni d'une action continue de \(\operatorname{Gal}(\bar\eta/\eta)\), compatible à l'action (via 1.1.1) de \(\operatorname{Gal}(\bar\eta/\eta)\) sur \(\bar Y\).</u></li>
+<li><span class="item-label">\(c\)</span> <u>\(\varphi\) est un morphisme équivariant de \(F_{\bar s}\) dans \(F_{\bar\eta}\).</u></li>
 </ol>
 
-<p>De même, un faisceau \(F_\eta\) sur \(Y\mathop{\times}\limits_s\eta\) est un objet 1.2.4(b). On dispose d'un diagramme de topos</p>
+<p>De même, un faisceau \(F_\eta\) sur \(Y\mathop{\times}\limits_s\eta\) est un objet 1.2.4\(b\). On dispose d'un diagramme de topos</p>
 \[
 \tag{1.2.4.1}
 \xymatrix@C=3.5em@R=3em{
@@ -258,9 +258,9 @@ Y\ar[d]&Y\mathop{\times}\limits_sS\ar[l]_{sp}\ar[r]^j\ar[d]&Y\mathop{\times}\lim
 s&S\ar[l]^i\ar[r]_j&\eta
 }
 \]
-<p>\(Y\mathop{\times}\limits_sS\) est réunion de l'ouvert \(Y\mathop{\times}\limits_s\eta\) et du fermé complémentaire \(Y\). Les formules 1.2.2(c) restent valables pour \(sp:Y\mathop{\times}\limits_sS\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)), \(j:Y\mathop{\times}\limits_s\eta\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\), \(i:Y\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\) et \(sp:Y\mathop{\times}\limits_s\eta\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)).</p>
+<p>\(Y\mathop{\times}\limits_sS\) est réunion de l'ouvert \(Y\mathop{\times}\limits_s\eta\) et du fermé complémentaire \(Y\). Les formules 1.2.2\(c\) restent valables pour \(sp:Y\mathop{\times}\limits_sS\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)), \(j:Y\mathop{\times}\limits_s\eta\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\), \(i:Y\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\) et \(sp:Y\mathop{\times}\limits_s\eta\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)).</p>
 
-<p id="13.1.2.4.2"><strong>1.2.4.2.</strong> Si on prend 1.2.4 pour définition de \(Y\mathop{\times}\limits_sS\), il y a lieu de montrer, par une construction directe, que \(Y\mathop{\times}\limits_sS\) ne dépend pas à isomorphisme unique près, du choix de la clôture séparable \(k(\bar\eta)\) de \(k(\eta)\). On le fait en interprétant \(F_\eta\) de 1.2.4(b) comme un foncteur qui à chaque clôture séparable \(k(\bar\eta)\) de \(k(\eta)\), définissant une clôture séparable \(k(\bar s)\) de \(k(s)\), associe un faisceau sur \(Y\otimes_{k(s)}k(\bar s)\) : le \(F_{\bar\eta}\) de 1.2.4(b) est la restriction de ce foncteur à \(\{\bar\eta\}\).</p>
+<p id="13.1.2.4.2"><strong>1.2.4.2.</strong> Si on prend 1.2.4 pour définition de \(Y\mathop{\times}\limits_sS\), il y a lieu de montrer, par une construction directe, que \(Y\mathop{\times}\limits_sS\) ne dépend pas à isomorphisme unique près, du choix de la clôture séparable \(k(\bar\eta)\) de \(k(\eta)\). On le fait en interprétant \(F_\eta\) de 1.2.4\(b\) comme un foncteur qui à chaque clôture séparable \(k(\bar\eta)\) de \(k(\eta)\), définissant une clôture séparable \(k(\bar s)\) de \(k(s)\), associe un faisceau sur \(Y\otimes_{k(s)}k(\bar s)\) : le \(F_{\bar\eta}\) de 1.2.4\(b\) est la restriction de ce foncteur à \(\{\bar\eta\}\).</p>
 
 <p id="13.1.2.5"><strong>1.2.5.</strong> Chaque point géométrique \(\bar x\) de \(Y_s\) définit un point géométrique \((\bar x,\bar\eta)\) de \(Y\mathop{\times}\limits_s\eta\), de foncteur fibre correspondant</p>
 \[
@@ -377,9 +377,8 @@ s\ar@{^{(}->}[r]&S&\eta\ar@{_{(}->}[l].
 \[
 \tag{1.3.5.1}
 \xymatrix@C=3em@R=3em{
-X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]^f&\bar X&X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]^f\\
-X'_{\bar s}\ar@{^{(}->}[r]^{\bar i}&\bar X'&X'_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}.
-}
+X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]^f&amp;\bar X&amp;X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]^f\\
+X'_{\bar s}\ar@{^{(}->}[r]^{\bar i}&amp;\bar X'&amp;X'_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}}.
 \]
 <p>L'ambiguïté dans la notation des flèches simplifiera les formules, et ne prête pas à confusion : une seule interprétation donne un sens aux flèches composées ci-dessous. De même, nous noterons \(\Psi\) le foncteur (1.3.3.3) pour \(X\) tant que pour \(X'\).</p>
 <p>Les morphismes de foncteurs décrits ci-dessous pour \(\Psi\) ont une variante pour \(\Psi_\eta\), que nous omettons en général d'expliciter.</p>
@@ -490,9 +489,8 @@ R\Phi:D^+(X,\Lambda)\longrightarrow D^+(X_s\mathop{\times}\limits_s\eta,\Lambda)
 <p id="13.2.1.2"><strong>2.1.2.</strong> Soit le diagramme commutatif (1.3.2.1)</p>
 \[
 \xymatrix@C=3em@R=3em{
-X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]&\bar X\ar[d]&X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]\\
-X_s\ar@{^{(}->}[r]^i&X&X_\eta\ar@{_{(}->}[l]_j.
-}
+X_{\bar s}\ar@{^{(}->}[r]^{\bar i}\ar[d]&amp;\bar X\ar[d]&amp;X_{\bar\eta}\ar@{_{(}->}[l]_{\bar j}\ar[d]\\
+X_s\ar@{^{(}->}[r]^i&amp;X&amp;X_\eta\ar@{_{(}->}[l]_j}.
 \]
 <p>Si \(F\) est un faisceau de modules injectif sur \(X\), sa restriction à l'ouvert \(X_\eta\) est encore injective. Pour \(F_\eta\) injectif sur \(X_\eta\), l'image réciproque \(F_{\bar\eta}\) est acyclique. Les formules (1.3.3.1) et (1.3.3.2) se dérivent donc en</p>
 \[
@@ -660,10 +658,10 @@ R\Phi(j_!F)=0.
 <p>Je conjecture que 2.1.7.5 est un isomorphisme si \(S\) et \(S'\) sont excellents. Voici un résultat partiel (voir aussi 2.4.2).</p>
 
 <p id="13.2.1.12"><strong><u>Proposition 2.1.12.</u></strong> <u>Le morphisme 2.1.7.5 est un isomorphisme dans les cas suivants</u></p>
-<p><u>(a) \(S\) est excellent, de complété \(S'\) ;</u></p>
-<p><u>(b) \(S\) et \(S'\) sont d'égale caractéristique 0.</u></p>
+<p><u>\(a\) \(S\) est excellent, de complété \(S'\) ;</u></p>
+<p><u>\(b\) \(S\) et \(S'\) sont d'égale caractéristique 0.</u></p>
 
-<p>Dans le cas (b), on se ramène à supposer \(S\) et \(S'\) strictement locaux, et qu'une uniformisante pour \(S\) est encore une uniformisante pour \(S'\) (étendre les scalaires sans changer \(\bar S'\longrightarrow\bar S\)). Dans les cas (a) et (b), notant par \(\bar{\ }\) le normalisé dans une clôture séparable du corps des fractions, on a alors \(\bar S'\simeq S'\mathop{\times}\limits_S\bar S\), et, revenant aux définitions, on trouve qu'il suffit de prouver que \(S'\longrightarrow S\) est universellement localement acyclique (appliquer SGA4 XVI 1.1). Ceci résulte de I 0.5.1 (basé sur la désingularisation de Néron à la Artin) et de SGA4 XV 2.1 (théorème d'acyclicité locale des morphismes lisses).</p>
+<p>Dans le cas \(b\), on se ramène à supposer \(S\) et \(S'\) strictement locaux, et qu'une uniformisante pour \(S\) est encore une uniformisante pour \(S'\) (étendre les scalaires sans changer \(\bar S'\longrightarrow\bar S\)). Dans les cas \(a\) et \(b\), notant par \(\bar{\ }\) le normalisé dans une clôture séparable du corps des fractions, on a alors \(\bar S'\simeq S'\mathop{\times}\limits_S\bar S\), et, revenant aux définitions, on trouve qu'il suffit de prouver que \(S'\longrightarrow S\) est universellement localement acyclique (appliquer SGA4 XVI 1.1). Ceci résulte de I 0.5.1 (basé sur la désingularisation de Néron à la Artin) et de SGA4 XV 2.1 (théorème d'acyclicité locale des morphismes lisses).</p>
 
 <p id="13.2.1.13"><strong>2.1.13.</strong> Supposons \(f:X\longrightarrow S\) de type fini. La dimension cohomologique (SGA4 XVII 1.2.9) de \(R\Psi_\eta\) est alors au plus égale à \(\dim(X)\), ainsi qu'il résulte de 2.1.4 et de SGA4 XIV 3.2 (cf. I 4.2.(i)). Ceci permet d'étendre \(R\Psi\) à la catégorie dérivée entière</p>
 \[
@@ -758,8 +756,8 @@ M\otimes R^i\Psi_\eta(\mathbb Z/\ell)\mathop{\longrightarrow}\limits^\sim R^i\Ps
 <p><strong><u>Réduction 1</u></strong> Il suffit de prouver 2.3.1 pour un faisceau \(j_!\mathbb Z/\ell\), pour \(j:U\lhook\joinrel\longrightarrow X_\eta\) l'inclusion d'un ouvert lisse.</p>
 
 <p>D'après la résolution des singularités, il existe \(g:X_1\to X\) tel que</p>
-<p>(a) \(g\) est propre, et induit un isomorphisme \(g^{-1}(U)\mathop{\longrightarrow}\limits^\sim U\) ;</p>
-<p>(b) \(X_1\) est régulier et \(X_1-g^{-1}(U)\) un diviseur à croisements normaux dans \(X_1\), réunion de diviseurs réguliers \(D_\alpha\).</p>
+<p>\(a\) \(g\) est propre, et induit un isomorphisme \(g^{-1}(U)\mathop{\longrightarrow}\limits^\sim U\) ;</p>
+<p>\(b\) \(X_1\) est régulier et \(X_1-g^{-1}(U)\) un diviseur à croisements normaux dans \(X_1\), réunion de diviseurs réguliers \(D_\alpha\).</p>
 
 <p>Soit \(j_1:g^{-1}(U)\lhook\joinrel\longrightarrow X_1\). On a \(Rg_*j_{1!}\mathbb Z/\ell=j_!\mathbb Z/\ell\). Appliquons 2.1.7.1 et le théorème de finitude SGA4 XIV 1.1 ; on trouve qu'il suffit de prouver (2.3.1) pour \((X_1,j_{1!}\mathbb Z/\ell)\).</p>
 
@@ -832,7 +830,7 @@ D^b(\Sigma_s,\Lambda)=D^b(\Sigma_s-\{x\},\Lambda)\oplus D^b(\{x\},\Lambda).
 
 <p id="13.2.4.6.1"><strong>2.4.6.</strong> Soit \(X_{s(x)}\) l'hensélisé de \(X_s\) en \(x\) et \(X^*_{s(x)}=X_{s(x)}-\{x\}\). La suite exacte longue d'hypercohomologie de \((X_{s(x)},\{x\})\) à coefficient dans \(K_s\), \(R\Psi_{\bar\eta}(K)\) et \(R\Phi_{\bar\eta}(K)\) fournit des suites exactes longues</p>
 \[
-\tag{2.4.6.1}\xymatrix@C=2em@R=2.7em{&0\ar[r]&R^{n-1}\Phi_{\bar\eta}(K)_x\ar[r]\ar[d]&R^{n-1}\Phi_{\bar\eta}(K)_x\ar[r]\ar[d]&0\ar[d]\\{}\ar[r]&H^{n-1}(X^*_{s(x)},K)\ar[r]^j\ar@{=}[d]&H^n_{\{x\}}(X_s,K)\ar[r]\ar[d]&H^n(K)_x\ar[r]\ar[d]&H^n(X^*_{s(x)},K)\ar[r]\ar@{=}[d]&{}\\{}\ar[r]&H^{n-1}(X^*_{s(x)},K)\ar[r]^j&H^n_{\{x\}}(X_s,R\Psi_{\bar\eta}(K))\ar[r]\ar[d]&R^n\Psi_{\bar\eta}(K)_x\ar[r]\ar[d]&H^n(X^*_{s(x)},K)\ar[r]&{}\\&0\ar[r]&R^n\Phi_{\bar\eta}(K)_x\ar[r]^=&R^n\Phi_{\bar\eta}(K)_x\ar[r]&0.}
+\tag{2.4.6.1}\xymatrix@C=2em@R=2.7em{&0\ar[r]&R^{n-1}\Phi_{\bar\eta}(K)_x\ar[r]\ar[d]&R^{n-1}\Phi_{\bar\eta}(K)_x\ar[r]\ar[d]&0\ar[d]\\{}\ar[r]&H^{n-1}(X^*_{s(x)},K)\ar[r]^j\ar@{=}[d]&H^n_{\{x\}}(X_s,K)\ar[r]\ar[d]&H^n(K)_x\ar[r]\ar[d]&H^n(X^*_{s(x)},K)\ar[r]\ar@{=}[d]&{}\\{}\ar[r]&H^{n-1}(X^*_{s(x)},K)\ar[r]^j&H^n_{\{x\}}(X_s,R\Psi_{\bar\eta}(K))\ar[r]\ar[d]&R^n\Psi_{\bar\eta}(K)_x\ar[r]\ar[d]&H^n(X^*_{s(x)},K)\ar[r]&{}\\&0\ar[r]&R^n\Phi_{\bar\eta}(K)_x\ar[r]^{=}&R^n\Phi_{\bar\eta}(K)_x\ar[r]&0.}
 \]
 <p>L'image de la flèche \(j\) est contenue dans les invariants sous l'inertie.</p>
 

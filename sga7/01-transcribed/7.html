@@ -6,7 +6,7 @@
 <script>
 window.MathJax = {
   loader: { load: ['[custom]/xypic.js'], paths: { custom: '../../translation-viewer/vendor/xyjax' } },
-  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
+  tex: { packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools', 'amscd'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], tags: 'none' },
   options: { enableMenu: true }, startup: { typeset: false }
 };
 </script>
@@ -174,12 +174,12 @@ de \(P\) à valeurs dans un objet quelconque \(S\) de \(T\) : il suffit d'appliq
 qui précède au topos induit \(T_{/S}\) et à l'extension de Groupes sur \(S\) déduite
 de (1.1.1) par changement de base. On constate alors que la formation des
 isomorphismes \(\varphi_{p,p'}\) précédents est "compatible avec tout changement de base"
-(S'\longrightarrow S) (i.e. correspond à un homomorphisme de sections cartésiennes de
-la catégorie fibrée qu'on pense sur la catégorie (T_{/P\times P}) des doubles flèches
-(p,p':S\rightrightarrows P) de but (P)). La donnée du système des \(\varphi_{p,p'}\) satisfaisant cette
+\(S'\longrightarrow S\) (i.e. correspond à un homomorphisme de sections cartésiennes de
+la catégorie fibrée qu'on pense sur la catégorie \(T_{/P\times P}\) des doubles flèches
+\(p,p':S\rightrightarrows P\) de but \(P\)). La donnée du système des \(\varphi_{p,p'}\) satisfaisant cette
 condition revient encore, bien entendu, à la donnée de \(\varphi_{p,p'}\) dans le cas
-"universel", correspondant au cas où (S=P\times P) et où (p,p') sont respectivement
-les deux projections \(\operatorname{pr}_i\) ((i=1,2)) de (P\times P) dans (P). Il s'interprète alors comme
+"universel", correspondant au cas où \(S=P\times P\) et où \(p,p'\) sont respectivement
+les deux projections \(\operatorname{pr}_i\) \((i=1,2)\) de \(P\times P\) dans \(P\). Il s'interprète alors comme
 un isomorphisme de bitorseurs sous \((G_{P\times P},G_{P\times P})\) :</p>
 
 \[(1.1.3.2)\qquad \varphi:\operatorname{pr}_1^*(E)\mathbin{\mathop{\times}^{G}}\operatorname{pr}_2^*(E)
@@ -189,18 +189,18 @@ un isomorphisme de bitorseurs sous \((G_{P\times P},G_{P\times P})\) :</p>
 
 \[\pi:P\times P\longrightarrow P\]
 
-<p>est le morphisme d'objets de (T) définissant la structure multiplicative du
-Groupe (P). C'est cependant sous la forme des données (1.1.3.1) que les propriétés
+<p>est le morphisme d'objets de \(T\) définissant la structure multiplicative du
+Groupe \(P\). C'est cependant sous la forme des données (1.1.3.1) que les propriétés
 de compatibilité qui vont suivre s'énoncent le plus commodément,
 en évitant le recours à des diagrammes moins proches de l'intuition.</p>
 
 <p id="7.1.1.4"><u>1.1.4.</u> En écrivant les relations (1.1.3.0), qui nous ont permis d'exprimer
-la loi de composition donnée sur (E) en termes d'isomorphismes de bitorseurs
+la loi de composition donnée sur \(E\) en termes d'isomorphismes de bitorseurs
 (1.1.3.1), on a utilisé l'associativité de cette loi de composition seulement
-dans le cas du produit de trois "points" de (E) dont un au moins provient
-d'un point de (G). Si on veut exprimer l'associativité complète en
-termes des \(\varphi_{p,p'}\), on est amené à écrire, pour trois points (p,p',p'') de (P)
-(à valeurs dans un objet (S) de (T)), que le diagramme suivant est commutatif :</p>
+dans le cas du produit de trois "points" de \(E\) dont un au moins provient
+d'un point de \(G\). Si on veut exprimer l'associativité complète en
+termes des \(\varphi_{p,p'}\), on est amené à écrire, pour trois points \(p,p',p''\) de \(P\)
+(à valeurs dans un objet \(S\) de \(T\)), que le diagramme suivant est commutatif :</p>
 
 \[(1.1.4.1)\qquad
 \xymatrix@C=3.5em@R=2.5em{
@@ -211,58 +211,58 @@ E_pE_{p'}E_{p''}\ar[ur]^{\varphi_{p,p'}\wedge\mathrm{id}}\ar[dr]_{\mathrm{id}\we
 
 <p>Dans ce diagramme, nous avons écrit le produit contracté de bitorseurs sans
 signes \(\mathbin{\mathop{\times}^{G_S}}\), étant entendu que la multiplication contractée de deux bitorseurs
-(Q,R) se fait en utilisant (pour le passage au quotient dans (Q\times R)) l'opération
-du groupe structural (G) <u>à droite sur (Q) et à gauche sur (R)</u>. On sait par ailleurs
+\(Q,R\) se fait en utilisant (pour le passage au quotient dans \(Q\times R\)) l'opération
+du groupe structural \(G\) <u>à droite sur \(Q\) et à gauche sur \(R\)</u>. On sait par ailleurs
 que cette opération de produit contracté est associative à un isomorphisme canonique
 près [2], et nous faisons l'identification \((E_pE_{p'})E_{p''}\simeq E_p(E_{p'}E_{p''})\), en
-écrivant simplement les deux membres comme (E_pE_{p'}E_{p''}). Les conventions évidentes
+écrivant simplement les deux membres comme \(E_pE_{p'}E_{p''}\). Les conventions évidentes
 de cette nature seront utilisées dans la suite de cet exposé, sans être expressément
 signalées à chaque fois.</p>
 
 <p id="7.1.1.4.2"><u>1.1.4.2.</u> De même que la donnée des isomorphismes \(\varphi_{p,p'}\) (1.1.3.1) se ramène
-au cas "universel" (S=P\times P), (p=\operatorname{pr}_1,p'=\operatorname{pr}_2) envisagé dans (1.1.3.2), de même
+au cas "universel" \(S=P\times P\), \(p=\operatorname{pr}_1,p'=\operatorname{pr}_2\) envisagé dans (1.1.3.2), de même
 pour la vérification des conditions d'associativité (1.1.4.1), on peut
-encore se borner au cas "universel" où (S=P\times P\times P), (p=\operatorname{pr}_1,p'=\operatorname{pr}_2,p''=\operatorname{pr}_3). Nous
+encore se borner au cas "universel" où \(S=P\times P\times P\), \(p=\operatorname{pr}_1,p'=\operatorname{pr}_2,p''=\operatorname{pr}_3\). Nous
 laissons au lecteur le soin d'écrire le diagramme en question avec les
 notations de son choix.</p>
 
-<p id="7.1.1.5"><u>1.1.5.</u> Réciproquement, les Groupes (P) et (G) de (T) étant supposés donnés, supposons
+<p id="7.1.1.5"><u>1.1.5.</u> Réciproquement, les Groupes \(P\) et \(G\) de \(T\) étant supposés donnés, supposons
 donné de plus un bitorseur</p>
 
 \[(1.1.5.1)\qquad j:E\longrightarrow P\]
 
-<p>sous \((G_P,G_P)\) (NB les deux actions de (G_P) sur (E), ou ce qui revient au même,
-de (G) sur (E), sont sous-entendues dans les notations), et d'autre part un
-système d'isomorphismes de bitorseurs sur une base (S) variable</p>
+<p>sous \((G_P,G_P)\) (NB les deux actions de \(G_P\) sur \(E\), ou ce qui revient au même,
+de \(G\) sur \(E\), sont sous-entendues dans les notations), et d'autre part un
+système d'isomorphismes de bitorseurs sur une base \(S\) variable</p>
 
 \[(1.1.5.2)\qquad \varphi_{p,p'}:E_pE_{p'}\mathrel{\mathop{\longrightarrow}^{\sim}}E_{pp'}
 \qquad(p,p'\in P(S)),\]
 
-<p>compatibles avec changement de base (S'\longrightarrow S) ; en d'autres termes, un isomorphisme
+<p>compatibles avec changement de base \(S'\longrightarrow S\) ; en d'autres termes, un isomorphisme
 de bitorseurs (1.1.3.2). Supposons que les diagrammes correspondants
-(1.1.4.1) sont commutatifs. Je dis qu'<u>il existe sur (E) une unique
-structure d'extension de (P) par (G), telle que les données précédentes se
+(1.1.4.1) sont commutatifs. Je dis qu'<u>il existe sur \(E\) une unique
+structure d'extension de \(P\) par \(G\), telle que les données précédentes se
 déduisent de cette structure par les constructions de 1.1.2 et 1.1.3.</u></p>
 
-<p>Notons d'abord que lorsqu'on prend dans (1.1.5.2) pour (p,p') la
-section unité (1) de (P), on trouve un isomorphisme</p>
+<p>Notons d'abord que lorsqu'on prend dans (1.1.5.2) pour \(p,p'\) la
+section unité (1) de \(P\), on trouve un isomorphisme</p>
 
 \[(1.1.5.3)\qquad \varphi_{1,1}:E_1\mathrel{\mathop{\longleftarrow}^{\sim}}E_1
 \mathbin{\mathop{\times}^{G}}E_1,\]
 
 <p>d'où, en prenant le produit contracté (à gauche, disons) des deux membres
-avec le bitorseur inverse \(E_1^{-1}\) de (E_1) [2], un isomorphisme canonique</p>
+avec le bitorseur inverse \(E_1^{-1}\) de \(E_1\) [2], un isomorphisme canonique</p>
 
 \[(1.1.5.4)\qquad E_1\mathrel{\mathop{\longrightarrow}^{\sim}}
 \text{bitorseur unité }{}_sG_d\]
 
-<p>((=G) opérant sur lui-même par translations gauche et droite), compte tenu
+<p>(\(=G\) opérant sur lui-même par translations gauche et droite), compte tenu
 de l'isomorphisme canonique</p>
 
 \[E_1^{-1}E_1\mathrel{\mathop{\longrightarrow}^{\sim}}\text{bitorseur unité }{}_sG_d\]
 
 <p>de loc. cit. (valable pour tout bitorseur). Il revient au même de dire qu'on
-a une section \(1_E\) de (E_1) donc de (E) :</p>
+a une section \(1_E\) de \(E_1\) donc de \(E\) :</p>
 
 \[(1.1.5.5)\qquad 1_E\in\Gamma(E_1)=\operatorname{Hom}(e,E_1)\subset\Gamma(E)\]
 
@@ -280,9 +280,9 @@ manifestement à la donnée d'un morphisme</p>
 
 \[(1.1.5.8)\qquad j(xy)=j(x)j(y)\qquad(x,y\in E(S))\]
 
-<p>(i.e. (j) est compatible avec les structures multiplicatives \(\pi_E\) resp. \(\pi\) sur (E)
-resp. (P)), et les trois relations (1.1.3.0) (en commençant de préférence par
-la dernière de celles-ci). Enfin, on définit un morphisme d'objets de (T)</p>
+<p>(i.e. \(j\) est compatible avec les structures multiplicatives \(\pi_E\) resp. \(\pi\) sur \(E\)
+resp. \(P\)), et les trois relations (1.1.3.0) (en commençant de préférence par
+la dernière de celles-ci). Enfin, on définit un morphisme d'objets de \(T\)</p>
 
 \[i:G\longrightarrow E\]
 
@@ -292,24 +292,24 @@ la dernière de celles-ci). Enfin, on définit un morphisme d'objets de (T)</p>
 
 <p>(l'identité des deux derniers membres dans cette formule ayant déjà été
 notée avec la construction de \(1_E\)). Ceci posé, je dis que <u>la loi de multiplication
-\(\pi_E\) sur (E) fait de (E) un Groupe, admettant \(1_E\) comme section unité,
-que (j:E\longrightarrow P) et (i:G\longrightarrow E) sont des homomorphismes de Groupes qui font
-du Groupe (E) une extension de (P) par (G)</u>.</p>
+\(\pi_E\) sur \(E\) fait de \(E\) un Groupe, admettant \(1_E\) comme section unité,
+que \(j:E\longrightarrow P\) et \(i:G\longrightarrow E\) sont des homomorphismes de Groupes qui font
+du Groupe \(E\) une extension de \(P\) par \(G\)</u>.</p>
 
-<p>En effet, l'associativité de la loi de composition de (E) n'est
+<p>En effet, l'associativité de la loi de composition de \(E\) n'est
 autre que la commutativité des diagrammes (1.1.4.1). La construction de \(\pi_E\)
 via les isomorphismes \(\varphi_{p,p'}\) (1.1.3.1) montre d'autre part que pour tout
-(x\in E(S)), les translations à gauche et à droite par (x) dans (E(S)) sont injectives.
+\(x\in E(S)\), les translations à gauche et à droite par \(x\) dans \(E(S)\) sont injectives.
 Comme \(1_E1_E=1_E\) par (1.1.5.6), on en conclut aussitôt que \(1_E\)
-est une unité bilatère de (E). Nous laissons au lecteur la vérification de
-l'existence d'un inverse d'un (x\in E(S)) sur (p\in P(S)), utilisant un isomorphisme
+est une unité bilatère de \(E\). Nous laissons au lecteur la vérification de
+l'existence d'un inverse d'un \(x\in E(S)\) sur \(p\in P(S)\), utilisant un isomorphisme
 canonique déduit de \(\varphi_{p,p^{-1}}\) :</p>
 
 \[(1.1.5.10)\qquad E_{p^{-1}}\mathrel{\mathop{\longrightarrow}^{\sim}}(E_p)^o.\]
 
-<p>Donc (E) est bien un <u>Groupe</u>. On a déjà signalé que (j) est compatible avec les
+<p>Donc \(E\) est bien un <u>Groupe</u>. On a déjà signalé que \(j\) est compatible avec les
 lois de composition (1.1.5.8), et il en est de même de (i), car on aura,
-pour (g,g'\in G(S)) :</p>
+pour \(g,g'\in G(S)\) :</p>
 
 \[\begin{aligned}
 i(g)i(g')&=(g\cdot1_E)(g'\cdot1_E)=(g\cdot1_E\cdot g')\cdot1_E &&\text{(dernière relation de (1.1.3.0))}\\
@@ -318,17 +318,17 @@ i(g)i(g')&=(g\cdot1_E)(g'\cdot1_E)=(g\cdot1_E\cdot g')\cdot1_E &&\text{(dernièr
 &=(gg')\cdot1_E=i(gg').
 \end{aligned}\]
 
-<p>Comme (j) est la projection structurale d'un torseur, c'est un épimorphisme
-d'objets de (T), il reste à voir que (i) induit un isomorphisme de (G) avec
+<p>Comme \(j\) est la projection structurale d'un torseur, c'est un épimorphisme
+d'objets de \(T\), il reste à voir que (i) induit un isomorphisme de \(G\) avec
 \(\operatorname{Ker}j=E_1\), ce qui est clair par la définition (1.1.5.9) et la construction
 de \(1_E\).</p>
 
 <p id="7.1.1.6"><u>1.1.6.</u> Nous admettrons que les raisonnements précédents prouvent que
-pour un topos fixé (T), les constructions précédentes fournissent une <u>équivalence
-entre la catégorie des extensions de Groupes de (T) (1.1.1) (où (P)
-et (G) comme (E) sont supposés variables), et la catégorie des systèmes
-((P,G,E,\varphi)), où (P) et (G) sont des Groupes de (T), (E) un bitorseur sous ((G_P,G_P))
-sur (P), enfin (\varphi) un isomorphisme de bitorseurs</u> (1.1.3.2) (ou si on préfère,
+pour un topos fixé \(T\), les constructions précédentes fournissent une <u>équivalence
+entre la catégorie des extensions de Groupes de \(T\) (1.1.1) (où \(P\)
+et \(G\) comme \(E\) sont supposés variables), et la catégorie des systèmes
+\((P,G,E,\varphi)\), où \(P\) et \(G\) sont des Groupes de \(T\), \(E\) un bitorseur sous \((G_P,G_P)\)
+sur \(P\), enfin \(\varphi\) un isomorphisme de bitorseurs</u> (1.1.3.2) (ou si on préfère,
 un système d'isomorphismes de bitorseurs (1.1.3.1) compatibles aux changements
 de base), <u>satisfaisant la condition d'associativité exprimée par la
 commutativité du diagramme</u> (1.1.4.2) (ou si on préfère, des diagrammes
@@ -342,28 +342,28 @@ directe) d'une extension (1.1.1) par un morphisme de Groupes</p>
 
 <p>ou par ces deux opérations simultanément. Nous lui laissons également le
 soin d'expliciter une compatibilité de l'équivalence de catégories précédente
-avec le foncteur image inverse (f^*) par un morphisme de topos</p>
+avec le foncteur image inverse \(f^*\) par un morphisme de topos</p>
 
 \[f:T'\longrightarrow T\ ;\]
 
-<p>pour ceci, il y a lieu d'utiliser la donnée (\varphi) sous la forme (1.1.3.2) (de
-préférence aux (\varphi_{p,p'}) de (1.1.3.1)), qui définit alors une donnée correspondante
-(f^*(\varphi)) sur le topos (T').</p>
+<p>pour ceci, il y a lieu d'utiliser la donnée \(\varphi\) sous la forme (1.1.3.2) (de
+préférence aux \(\varphi_{p,p'}\) de (1.1.3.1)), qui définit alors une donnée correspondante
+\(f^*(\varphi)\) sur le topos \(T'\).</p>
 
 <p id="7.1.2"><u>1.2. Cas commutatif.</u> Dans toute la suite à partir de 1.4, nous ne nous
 intéresserons qu'aux extensions commutatives de Groupes. Nous supposerons
-donc (P) et (G) commutatifs, et nous proposons ici d'expliciter, en termes
-de la description ((P,G,E,\varphi)) d'une extension en termes de bitorseurs, le
-fait que (E) est un Groupe commutatif. Une première condition évidemment
-nécessaire (et qui exprime en fait celle que (i(G)) soit un sous-Groupe
-<u>central</u> de (E)) est que les bitorseurs (E_p) ((p\in P(S))) soient des torseurs
-ordinaires, i.e. que les opérations gauches et droites de (G) sur (E_p) coïncident.
-Il revient évidemment au même de dire que (E) sur (P) est un torseur
-ordinaire sous (G_P). (Il sera donc inutile dorénavant de parler de bitorseurs,
+donc \(P\) et \(G\) commutatifs, et nous proposons ici d'expliciter, en termes
+de la description \((P,G,E,\varphi)\) d'une extension en termes de bitorseurs, le
+fait que \(E\) est un Groupe commutatif. Une première condition évidemment
+nécessaire (et qui exprime en fait celle que \(i(G)\) soit un sous-Groupe
+<u>central</u> de \(E\)) est que les bitorseurs \(E_p\) \((p\in P(S))\) soient des torseurs
+ordinaires, i.e. que les opérations gauches et droites de \(G\) sur \(E_p\) coïncident.
+Il revient évidemment au même de dire que \(E\) sur \(P\) est un torseur
+ordinaire sous \(G_P\). (Il sera donc inutile dorénavant de parler de bitorseurs,
 et on ne regardera plus que des torseurs ordinaires.) Cette condition
 préliminaire étant supposée remplie, la condition de commutativité
-de (E) s'exprime alors par la commutativité des diagrammes suivants (où
-(p,p'\in P(S))) :</p>
+de \(E\) s'exprime alors par la commutativité des diagrammes suivants (où
+\(p,p'\in P(S)\)) :</p>
 
 \[(1.2.1)\qquad
 \xymatrix@C=4em@R=3em{
@@ -372,96 +372,96 @@ E_{p'}E_p\ar[r]_{\varphi_{p',p}} & E_{p'p}
 }\ ,\]
 
 <p>où la première flèche verticale est l'isomorphisme canonique de commutativité
-(défini grâce au fait que (G) est maintenant commutatif ; on a de
-plus (pp'=p'p) puisque (P) est commutatif). Cette condition est évidemment
+(défini grâce au fait que \(G\) est maintenant commutatif ; on a de
+plus \(pp'=p'p\) puisque \(P\) est commutatif). Cette condition est évidemment
 équivalente à la condition correspondante dans la situation universelle
-(S=P\times P), (p=\operatorname{pr}_1), (p'=\operatorname{pr}_2), que nous nous dispensons de réécrire ici.</p>
+\(S=P\times P\), \(p=\operatorname{pr}_1\), \(p'=\operatorname{pr}_2\), que nous nous dispensons de réécrire ici.</p>
 
 <h3 id="7.1.3">1.3. Relations avec les torseurs rigidifiés ou birigidifiés</h3>
 
-<p id="7.1.3.1"><u>1.3.1.0.</u> Soient (P) un objet de (T) muni d'une section (e_P), (G) un Groupe de (T),
-(E) un torseur sous (G_P). On appelle <u>rigidification</u> de (E) (relativement à la
-section donnée (e_P) de (P)) une trivialisation du torseur (E_1=e_P^*(E)) sous (G),
+<p id="7.1.3.1"><u>1.3.1.0.</u> Soient \(P\) un objet de \(T\) muni d'une section \(e_P\), \(G\) un Groupe de \(T\),
+\(E\) un torseur sous \(G_P\). On appelle <u>rigidification</u> de \(E\) (relativement à la
+section donnée \(e_P\) de \(P\)) une trivialisation du torseur \(E_1=e_P^*(E)\) sous \(G\),
 i.e. une section de ce torseur. La terminologie adoptée est inspirée par
-le cas où (G) est commutatif et où l'on a</p>
+le cas où \(G\) est commutatif et où l'on a</p>
 
 \[(1.3.1.1)\qquad \operatorname{Hom}_{p_T}(P,G)\simeq(e),\]
 
-<p>où le premier membre désigne l'ensemble des morphismes transformant (e_P)
-en la section unité (e_G) de (G), — relation qui équivaut au fait que l'homomorphisme
-naturel (\Gamma(G)\longrightarrow\operatorname{Hom}(P,G)), associant à une section (g) de (G) le morphisme
-constant (P\longrightarrow G) de valeur (g), est un isomorphisme :</p>
+<p>où le premier membre désigne l'ensemble des morphismes transformant \(e_P\)
+en la section unité \(e_G\) de \(G\), — relation qui équivaut au fait que l'homomorphisme
+naturel \(\Gamma(G)\longrightarrow\operatorname{Hom}(P,G)\), associant à une section \(g\) de \(G\) le morphisme
+constant \(P\longrightarrow G\) de valeur \(g\), est un isomorphisme :</p>
 
 \[(1.3.1.2)\qquad \Gamma(G)\mathrel{\mathop{\longrightarrow}^{\sim}}\operatorname{Hom}(P,G).\]
 
 <p>On voit en effet immédiatement que les relations équivalentes précédentes
-équivalent encore à dire que tout automorphisme du torseur (E) qui respecte
+équivalent encore à dire que tout automorphisme du torseur \(E\) qui respecte
 la rigidification donnée est l'automorphisme identique (puisque les automorphismes
 en question correspondent précisément aux éléments du premier
 membre de (1.3.1.1)) ; en particulier, moyennant la condition (1.3.1.1),
-la catégorie des torseurs sous (G_P) rigidifiés relativement à (e_P) est « rigide ».</p>
+la catégorie des torseurs sous \(G_P\) rigidifiés relativement à \(e_P\) est « rigide ».</p>
 
-<p id="7.1.3.2"><u>1.3.2.</u> Soit de plus (Q) un objet de (T) muni d'une section (e_Q), et désignons
-maintenant par (E) un torseur sous (G_{P\times Q}). Comme (e_Q) définit une section (e_{P\times Q/P})
-de (P\times Q) sur (P), on peut considérer sur (E) les rigidifications (\alpha) relativement
-à cette section (en se plaçant dans le topos induit (T_{/P})), qui s'explicitent
-comme les sections du torseur induit par (E) sur (P\times e_Q). Échangeant le rôle de
-(P) et (Q), on peut considérer les rigidifications (\beta) sur (E) relatives à la
-section (e_{P\times Q/Q}) de (P\times Q) sur (Q) définie par (e_P). Deux telles rigidifications
-partielles sont dites <u>compatibles</u> si les sections (\alpha) et (\beta) coïncident sur
-(e_P\times e_Q), i.e. définissent une même section du torseur (E_{1,1}) sous (G), image
-inverse de (E) par la section ((e_P,e_Q)) de (P\times Q). On appelle aussi <u>birigidification</u>
-du torseur (E) relativement au couple de sections ((e_P,e_Q)), un couple
-de deux rigidifications partielles compatibles. Si (G) est commutatif, on
-voit tout de suite que pour que le torseur (E) admette une birigidification
-((\alpha,\beta)), il faut et il suffit qu'il admette des rigidifications partielles
-(\alpha) et (\beta), et on peut trouver alors une birigidification dans laquelle (\alpha)
-(ou (\beta)) est choisie à l'avance ; en effet, il suffit alors de corriger (\beta)
-par le morphisme (Q\longrightarrow G) composé (Q\longrightarrow e\mathrel{\mathop{\longrightarrow}^{\lambda}}G), où la deuxième flèche (\lambda)
-est définie par la propriété que (\beta e_Q=(\alpha e_P)\lambda). Toujours dans le cas commutatif,
-notons que si (E,E') sont deux torseurs birigidifiés sous (G_{P\times Q}), il
-revient au même de dire qu'ils sont isomorphes comme (G_{P\times Q})-torseurs tout
-court, ou comme (G_{P\times Q})-torseurs birigidifiés ; en d'autres termes, s'il
-existe un isomorphisme (u:E\longrightarrow E') de (G_{P\times Q})-torseurs, on peut trouver un
-isomorphisme (v:E\longrightarrow E') de (G_{P\times Q})-torseurs qui respecte les birigidifications.
-En effet, regardant l'écart de (u) pour les birigidifications données,
-on trouve des morphismes (f:P\longrightarrow G) et (g:Q\longrightarrow G) tels que (fe_P=ge_Q), soit
-(a\in G(e)) ; il existe alors un morphisme (P\times Q\longrightarrow G) dont les composés avec
-(e_{P\times Q/P}) et (e_{P\times Q/Q}) soient respectivement (f) et (g) (savoir (h(p,q)=f(p)g(q)a^{-1})),
-et on peut prendre (v=uh).</p>
+<p id="7.1.3.2"><u>1.3.2.</u> Soit de plus \(Q\) un objet de \(T\) muni d'une section \(e_Q\), et désignons
+maintenant par \(E\) un torseur sous \(G_{P\times Q}\). Comme \(e_Q\) définit une section \(e_{P\times Q/P}\)
+de \(P\times Q\) sur \(P\), on peut considérer sur \(E\) les rigidifications \(\alpha\) relativement
+à cette section (en se plaçant dans le topos induit \(T_{/P}\)), qui s'explicitent
+comme les sections du torseur induit par \(E\) sur \(P\times e_Q\). Échangeant le rôle de
+\(P\) et \(Q\), on peut considérer les rigidifications \(\beta\) sur \(E\) relatives à la
+section \(e_{P\times Q/Q}\) de \(P\times Q\) sur \(Q\) définie par \(e_P\). Deux telles rigidifications
+partielles sont dites <u>compatibles</u> si les sections \(\alpha\) et \(\beta\) coïncident sur
+\(e_P\times e_Q\), i.e. définissent une même section du torseur \(E_{1,1}\) sous \(G\), image
+inverse de \(E\) par la section \((e_P,e_Q)\) de \(P\times Q\). On appelle aussi <u>birigidification</u>
+du torseur \(E\) relativement au couple de sections \((e_P,e_Q)\), un couple
+de deux rigidifications partielles compatibles. Si \(G\) est commutatif, on
+voit tout de suite que pour que le torseur \(E\) admette une birigidification
+\((\alpha,\beta)\), il faut et il suffit qu'il admette des rigidifications partielles
+\(\alpha\) et \(\beta\), et on peut trouver alors une birigidification dans laquelle \(\alpha\)
+(ou \(\beta\)) est choisie à l'avance ; en effet, il suffit alors de corriger \(\beta\)
+par le morphisme \(Q\longrightarrow G\) composé \(Q\longrightarrow e\mathrel{\mathop{\longrightarrow}^{\lambda}}G\), où la deuxième flèche \(\lambda\)
+est définie par la propriété que \(\beta e_Q=(\alpha e_P)\lambda\). Toujours dans le cas commutatif,
+notons que si \(E,E'\) sont deux torseurs birigidifiés sous \(G_{P\times Q}\), il
+revient au même de dire qu'ils sont isomorphes comme \(G_{P\times Q}\)-torseurs tout
+court, ou comme \(G_{P\times Q}\)-torseurs birigidifiés ; en d'autres termes, s'il
+existe un isomorphisme \(u:E\longrightarrow E'\) de \(G_{P\times Q}\)-torseurs, on peut trouver un
+isomorphisme \(v:E\longrightarrow E'\) de \(G_{P\times Q}\)-torseurs qui respecte les birigidifications.
+En effet, regardant l'écart de \(u\) pour les birigidifications données,
+on trouve des morphismes \(f:P\longrightarrow G\) et \(g:Q\longrightarrow G\) tels que \(fe_P=ge_Q\), soit
+\(a\in G(e)\) ; il existe alors un morphisme \(P\times Q\longrightarrow G\) dont les composés avec
+\(e_{P\times Q/P}\) et \(e_{P\times Q/Q}\) soient respectivement \(f\) et \(g\) \(savoir (h(p,q)=f(p)g(q)a^{-1})\),
+et on peut prendre \(v=uh\).</p>
 
 <p id="7.1.3.3"><u>1.3.3.</u> La terminologie de 1.3.1 s'étend aussitôt au cas où on a un <u>bitorseur</u>
-(E) sous ((G_P,G_P)), étant entendu qu'une rigidification du bitorseur (E)
-doit être un isomorphisme de (e_P(E)) avec le bitorseur trivial ({}_sG_d), i.e.
-est défini par une section (e_E) de (e_P(E)) qui est <u>centrale</u>, i.e. qui satisfait
-à la condition (g.e_E=e_E.g) ((g\in G(S))). On étend de même la terminologie des
+\(E\) sous \((G_P,G_P)\), étant entendu qu'une rigidification du bitorseur \(E\)
+doit être un isomorphisme de \(e_P(E)\) avec le bitorseur trivial \({}_sG_d\), i.e.
+est défini par une section \(e_E\) de \(e_P(E)\) qui est <u>centrale</u>, i.e. qui satisfait
+à la condition \(g.e_E=e_E.g\) \((g\in G(S))\). On étend de même la terminologie des
 birigidifications au cas des bitorseurs.</p>
 
-<p id="7.1.3.4"><u>1.3.4.</u> Revenons au cas où on se donne deux Groupes (P) et (G) et choisissons
-la section unité (e_P) pour définir des rigidifications de bitorseurs sur (P),
-et des birigidifications de bitorseurs sur (P\times P). On a des foncteurs naturels</p>
+<p id="7.1.3.4"><u>1.3.4.</u> Revenons au cas où on se donne deux Groupes \(P\) et \(G\) et choisissons
+la section unité \(e_P\) pour définir des rigidifications de bitorseurs sur \(P\),
+et des birigidifications de bitorseurs sur \(P\times P\). On a des foncteurs naturels</p>
 
 \[(1.3.4.1)\qquad \mathbf{EXT}(P;G)\mathrel{\mathop{\longrightarrow}^{i}}
 \mathbf{BITORSRIG}(P,G)\mathrel{\mathop{\longrightarrow}^{\delta}}
 \mathbf{BITORSBIRIG}(P,P;G),\]
 
 <p>où les trois expressions écrites désignent respectivement la catégorie des
-extensions de Groupes de (P) par (G), la catégorie des bitorseurs sous ((G_P,G_P))
-rigidifiés pour (e_P), et la catégorie des bitorseurs sous ((G_{P\times P},G_{P\times P})) birigidifiés
-pour ((e_P,e_P)). On définit le foncteur (i) en associant à l'extension
-(E) de (P) par (G) le bitorseur correspondant sur (P) (1.1.6), rigidifié par la
-section unité de (E). On définit le foncteur (\delta) par la formule</p>
+extensions de Groupes de \(P\) par \(G\), la catégorie des bitorseurs sous \((G_P,G_P)\)
+rigidifiés pour \(e_P\), et la catégorie des bitorseurs sous \((G_{P\times P},G_{P\times P})\) birigidifiés
+pour \((e_P,e_P)\). On définit le foncteur (i) en associant à l'extension
+\(E\) de \(P\) par \(G\) le bitorseur correspondant sur \(P\) (1.1.6), rigidifié par la
+section unité de \(E\). On définit le foncteur \(\delta\) par la formule</p>
 
 \[(1.3.4.2)\qquad \delta(E)=\pi^*(E)\operatorname{pr}_1^*(E)^{-1}\operatorname{pr}_2^*(E)^{-1},\]
 
-<p>où (\pi:P\times P\longrightarrow P) est la loi de composition de (P), (\operatorname{pr}_1) et (\operatorname{pr}_2) sont les deux
-projections. On a une <u>birigidification canonique sur (\delta(E))</u>. En effet, la
-restriction de (\delta(E)) à (P\times e_P) est canoniquement isomorphe à
-(\operatorname{id}_P^*(E)\operatorname{id}_P^*(E)^{-1}e^*(E)^{-1}), où (e=\operatorname{pr}_2\operatorname{inj}_1) est le morphisme constant (P\longrightarrow P)
-de valeur (e_P), de sorte que grâce à la rigidification donnée de (E), on a
-un isomorphisme (e^*(E)\mathrel{\mathop{\longrightarrow}^{\sim}}\) bitorseur trivial, d'où un isomorphisme de la
-restriction de (\delta(E)) à (P\times e_P) avec le bitorseur trivial. On définit de façon
-symétrique une rigidification partielle relativement à (e_P\times P), et on vérifie
+<p>où \(\pi:P\times P\longrightarrow P\) est la loi de composition de \(P\), \(\operatorname{pr}_1\) et \(\operatorname{pr}_2\) sont les deux
+projections. On a une <u>birigidification canonique sur \(\delta(E)\)</u>. En effet, la
+restriction de \(\delta(E)\) à \(P\times e_P\) est canoniquement isomorphe à
+\(\operatorname{id}_P^*(E)\operatorname{id}_P^*(E)^{-1}e^*(E)^{-1}\), où \(e=\operatorname{pr}_2\operatorname{inj}_1\) est le morphisme constant \(P\longrightarrow P\)
+de valeur \(e_P\), de sorte que grâce à la rigidification donnée de \(E\), on a
+un isomorphisme \(e^*(E)\mathrel{\mathop{\longrightarrow}^{\sim}}\) bitorseur trivial, d'où un isomorphisme de la
+restriction de \(\delta(E)\) à \(P\times e_P\) avec le bitorseur trivial. On définit de façon
+symétrique une rigidification partielle relativement à \(e_P\times P\), et on vérifie
 trivialement que ces deux rigidifications partielles sont compatibles.</p>
 
 <p id="7.1.3.4.3"><u>1.3.4.3.</u> On observera que le composé \(\delta i\) des foncteurs \(\delta\) et \(i\) de (1.3.4.1)
@@ -592,7 +592,7 @@ dans 1.3.5 et 1.3.6 sont satisfaites est celui où on a</p>
 
 <p>où le premier membre désigne le faisceau des morphismes de faisceaux d'ensembles
 ponctués de \(P\) dans \(G\). Cette condition s'écrit encore, indépendamment
-des sections marquées, sous la forme (analogue à (1.3.1.2))</p>
+des sections marquées, sous la forme \(analogue à (1.3.1.2)\)</p>
 
 \[(1.3.7.2)\qquad G\xrightarrow{\sim}\underline{\operatorname{Hom}}_{\mathrm{ens}}(P,G),\]
 
@@ -753,9 +753,9 @@ dans \(T\)), l'<u>associativité</u> qui s'exprime par la commutativité des dia
 de la forme (1.1.4.1)</p>
 
 \[(2.0.5)\qquad \xymatrix@C=4.5em@R=3em{
-E_{p,q}E_{p',q}E_{p'',q}\ar[ur]^{\varphi_{p,p';q}\,\mathrm{id}}\ar[dr]_{\mathrm{id}\,\varphi_{p',p'';q}}&&\\
-&E_{pp',q}E_{p'',q}\ar[r]^{\varphi_{pp',p'';q}}&E_{pp'p'',q}\\
-&E_{p,q}E_{p'p'',q}\ar[r]_{\varphi_{p,p'p'';q}}&E_{pp'p'',q}
+&amp;E_{pp',q}E_{p'',q}\ar[dr]^{\varphi_{pp',p'';q}}&amp;\\
+E_{p,q}E_{p',q}E_{p'',q}\ar[ur]^{\varphi_{p,p';q}\,\mathrm{id}}\ar[dr]_{\mathrm{id}\,\varphi_{p',p'';q}}&amp;&amp;E_{pp'p'',q}\\
+&amp;E_{p,q}E_{p'p'',q}\ar[ur]_{\varphi_{p,p'p'';q}}&amp;
 }\]
 
 <p>(où \(p,p',p''\in P(S)\), \(q\in Q(S)\)), enfin la <u>commutativité</u> qui s'exprime par
@@ -776,9 +776,9 @@ les conditions d'associativité et de commutativité symétriques de (2.0.5) et 
 s'exprimant par la commutativité des diagrammes</p>
 
 \[(2.0.8)\qquad \xymatrix@C=4.5em@R=3em{
-E_{p,q}E_{p,q'}E_{p,q''}\ar[ur]^{\psi_{p;q,q'}\,\mathrm{id}}\ar[dr]_{\mathrm{id}\,\psi_{p;q',q''}}&&\\
-&E_{p,qq'}E_{p,q''}\ar[r]^{\psi_{p;qq',q''}}&E_{p,qq'q''}\\
-&E_{p,q}E_{p,q'q''}\ar[r]_{\psi_{p;q,q'q''}}&E_{p,qq'q''}
+&amp;E_{p,qq'}E_{p,q''}\ar[dr]^{\psi_{p;qq',q''}}&amp;\\
+E_{p,q}E_{p,q'}E_{p,q''}\ar[ur]^{\psi_{p;q,q'}\,\mathrm{id}}\ar[dr]_{\mathrm{id}\,\psi_{p;q',q''}}&amp;&amp;E_{p,qq'q''}\\
+&amp;E_{p,q}E_{p,q'q''}\ar[ur]_{\psi_{p;q,q'q''}}&amp;
 }\]
 
 <p>(\(p\in P(S)\), \(q,q',q''\in Q(S)\)),</p>
@@ -801,10 +801,11 @@ conditions exprimées par la commutativité des diagrammes (2.0.8) et (2.0.9)). 
 les deux structures précédentes sont compatibles si pour tout objet \(S\) de \(T\) et pour
 \(p,p'\in P(S)\), \(q,q'\in Q(S)\), on a commutativité dans le diagramme</p>
 
-\[(2.1.1)\qquad \xymatrix@C=4em@R=3em{
-E_{p,q}E_{p,q'}E_{p',q}E_{p',q'}\ar[d]_{\mathrm{sym}}\ar[ur]^{\psi_{p;q,q'}\,\psi_{p';q,q'}}&&\\
-E_{p,q}E_{p',q}E_{p,q'}E_{p',q'}\ar[dr]_{\varphi_{p,p';q}\,\varphi_{p,p';q'}}&E_{p,qq'}E_{p',qq'}\ar[dr]^{\varphi_{p,p';qq'}}&\\
-&E_{pp',q}E_{pp',q'}\ar[r]_{\psi_{pp';q,q'}}&E_{pp',qq'}
+\[(2.1.1)\qquad \xymatrix@C=4em@R=2em{
+&amp;E_{p,qq'}E_{p',qq'}\ar[ddr]^{\varphi_{p,p';qq'}}&amp;\\
+E_{p,q}E_{p,q'}E_{p',q}E_{p',q'}\ar[d]_{\mathrm{sym}}\ar[ur]^{\psi_{p;q,q'}\,\psi_{p';q,q'}}&amp;&amp;\\
+E_{p,q}E_{p',q}E_{p,q'}E_{p',q'}\ar[dr]_{\varphi_{p,p';q}\,\varphi_{p,p';q'}}&amp;&amp;E_{pp',qq'}\\
+&amp;E_{pp',q}E_{pp',q'}\ar[ur]_{\psi_{pp';q,q'}}&amp;
 }\]
 
 <p>où la flèche verticale est déduite de l'isomorphisme de symétrie
@@ -1697,57 +1698,57 @@ d'une extension \(X'\) de \(L_0\) par \(A'\simeq\operatorname{Ker}v\) qui soit u
 dont la vérification est évidente, l'exactitude à gauche explicitée dans
 (3.2.3).</p>
 
-<p id="7.3.3.3"><u>3.3.3.</u> Rappelons qu'un objet (E_0) d'une catégorie cofibrée \(\Psi\) sur \(C\) est dit
-<u>quasi-maximal</u> si pour tout objet (E) de \(\Psi\), au-dessus d'un objet (A) de \(C\), on
-peut trouver un morphisme (E\longrightarrow E') dans \(\Psi\), induisant un <u>monomorphisme</u>
-\(A\longrightarrow A'\) dans \(C\), de telle sorte que (E) soit <u>majoré par</u> (E_0) i.e. qu'il existe
-un morphisme (E\longrightarrow E_0). Lorsque dans (C) il existe suffisamment d'objets in&shy;jectifs,
-il revient au même de dire que tout objet de \(\Psi\) au-dessus d'un objet injectif de (C) est majoré par (E_0). Dans le cas de \(\Psi=\Psi_{L_\bullet}\), on a
-l'objet quasi-maximal canonique (E_0) suivant. On pose</p>
+<p id="7.3.3.3"><u>3.3.3.</u> Rappelons qu'un objet \(E_0\) d'une catégorie cofibrée \(\Psi\) sur \(C\) est dit
+<u>quasi-maximal</u> si pour tout objet \(E\) de \(\Psi\), au-dessus d'un objet \(A\) de \(C\), on
+peut trouver un morphisme \(E\longrightarrow E'\) dans \(\Psi\), induisant un <u>monomorphisme</u>
+\(A\longrightarrow A'\) dans \(C\), de telle sorte que \(E\) soit <u>majoré par</u> \(E_0\) i.e. qu'il existe
+un morphisme \(E\longrightarrow E_0\). Lorsque dans \(C\) il existe suffisamment d'objets in&shy;jectifs,
+il revient au même de dire que tout objet de \(\Psi\) au-dessus d'un objet injectif de \(C\) est majoré par \(E_0\). Dans le cas de \(\Psi=\Psi_{L_\bullet}\), on a
+l'objet quasi-maximal canonique \(E_0\) suivant. On pose</p>
 
 \[L'_1=\operatorname{Coker}(d_1:L_2\longrightarrow L_1)\]
 
-<p>et on désigne par (E_0) l'objet \((X_0,\alpha_0)\) de \(\Psi_{L_\bullet}(L'_1)\), où
-\(X_0=L_0+L'_1\) est l'ex&shy;tension triviale de (L_0) par (L'_1), et où \(\alpha_0\) a comme composantes
-\((d'_1,\operatorname{id}_{L'_1})\), (d'_1:L_1\longrightarrow L'_1) étant déduit de
+<p>et on désigne par \(E_0\) l'objet \((X_0,\alpha_0)\) de \(\Psi_{L_\bullet}(L'_1)\), où
+\(X_0=L_0+L'_1\) est l'ex&shy;tension triviale de \(L_0\) par \(L'_1\), et où \(\alpha_0\) a comme composantes
+\((d'_1,\operatorname{id}_{L'_1})\), \(d'_1:L_1\longrightarrow L'_1\) étant déduit de
 \(d_1:L_2\longrightarrow L_1\) par passage au quotient.</p>
 
-<p>Pour voir que (E_0) est bien quasi-maximal, notons que pour tout objet \((X,\alpha)\) de
+<p>Pour voir que \(E_0\) est bien quasi-maximal, notons que pour tout objet \((X,\alpha)\) de
 \(\Psi_{L_\bullet}\), on peut trouver un morphisme de celui-ci dans un \((X',\alpha')\), induisant un
-<u>monomorphisme</u> \(A\longrightarrow A'\) dans (C), tel que l'extension (X') de (L_0) par (A') soit
-<u>scindée</u> : il suffit en effet de prendre (A'=X), et \((X',\alpha')=i_*(X,\alpha)\), les notations
+<u>monomorphisme</u> \(A\longrightarrow A'\) dans \(C\), tel que l'extension \(X'\) de \(L_0\) par \(A'\) soit
+<u>scindée</u> : il suffit en effet de prendre \(A'=X\), et \((X',\alpha')=i_*(X,\alpha)\), les notations
 étant celles de (3.1.1.2). D'autre part, il est immédiat qu'un objet \((X',\alpha')\) de \(\Psi\) tel que
-l'extension (X') soit scindée, est majorée par (E_0).</p>
+l'extension \(X'\) soit scindée, est majorée par \(E_0\).</p>
 
-<p id="7.3.3.4"><u>3.3.4.</u> Soit (E) un objet d'une catégorie cofibrée additive \(\Psi\) sur (C), au-dessus
-d'un objet (A) de (C), et considérons le foncteur en l'objet variable (B) de (C) :</p>
+<p id="7.3.3.4"><u>3.3.4.</u> Soit \(E\) un objet d'une catégorie cofibrée additive \(\Psi\) sur \(C\), au-dessus
+d'un objet \(A\) de \(C\), et considérons le foncteur en l'objet variable \(B\) de \(C\) :</p>
 
 \[(3.3.4.1)\qquad B\longmapsto\operatorname{Hom}(E,\theta_B),\]
 
-<p>où \(\theta_B\) désigne l'objet trivial de \(\Psi(B)\). On dit que (E) admet un <u>complexe
-typique</u> si le foncteur précédent est représentable par un objet \(\Omega_E\) de (C).
+<p>où \(\theta_B\) désigne l'objet trivial de \(\Psi(B)\). On dit que \(E\) admet un <u>complexe
+typique</u> si le foncteur précédent est représentable par un objet \(\Omega_E\) de \(C\).
 Comme le foncteur envisagé s'envoie canoniquement dans le foncteur
-\(B\longmapsto\operatorname{Hom}(A,B)\) représenté par (A), on conclut alors un homomorphisme canonique</p>
+\(B\longmapsto\operatorname{Hom}(A,B)\) représenté par \(A\), on conclut alors un homomorphisme canonique</p>
 
 \[(3.3.4.2)\qquad A\longrightarrow\Omega_E\]
 
-<p>et le <u>complexe de chaînes</u> correspondant \(A\longrightarrow\Omega_E\) de (C) de longueur 1 est
-appelé le <u>complexe typique</u> de (E).</p>
+<p>et le <u>complexe de chaînes</u> correspondant \(A\longrightarrow\Omega_E\) de \(C\) de longueur 1 est
+appelé le <u>complexe typique</u> de \(E\).</p>
 
-<p>Dans le cas \(\Psi=\Psi_{L_\bullet}\), (E=(X,\alpha)), on vérifie immédiatement que
+<p>Dans le cas \(\Psi=\Psi_{L_\bullet}\), \(E=(X,\alpha)\), on vérifie immédiatement que
 le foncteur (3.3.4.1) est représentable par \(\operatorname{Coker}\alpha\), l'homomorphisme
 canonique (3.3.4.2) n'étant autre que le composé
 \(A\mathrel{\mathop\longrightarrow^{j}}X\mathrel{\mathop\longrightarrow^{\mathrm{can}}}\operatorname{Coker}\alpha\).</p>
 
-<p id="7.3.3.5"><u>3.3.5.</u> Lorsqu'une catégorie cofibrée additive \(\Psi\) sur (C) admet un objet
+<p id="7.3.3.5"><u>3.3.5.</u> Lorsqu'une catégorie cofibrée additive \(\Psi\) sur \(C\) admet un objet
 quasi-maximal (3.3.3), et que les complexes typiques de ses objets exis&shy;tent, on prouve que le complexe
-typique (T), d'un objet quasi-maximal (E_0) de \(\Psi\), considéré comme un objet de la
-<u>catégorie dérivée</u> \(D(C)\), ne dépend pas, à isomorphisme canonique près, du choix de (E_0)
+typique \(T\), d'un objet quasi-maximal \(E_0\) de \(\Psi\), considéré comme un objet de la
+<u>catégorie dérivée</u> \(D(C)\), ne dépend pas, à isomorphisme canonique près, du choix de \(E_0\)
 (loc. cit. 4.4). On l'appelle le <u>complexe typique de la catégorie cofibrée additive</u> \(\Psi\).
 Lors&shy;qu'on suppose enfin que \(\Psi\) est de plus exacte à gauche (3.3.2), on montre que \(\Psi\) se
-reconstitue, à équivalence de catégories fibrées sur (C) près (unique à isomorphisme unique près),
-en termes du complexe typique (T) (loc. cit. 6.10), et qu'on a des isomorphismes canoniques
-<strong>fonctoriels</strong> en l'objet (A) de (C) (loc. cit. 5.4) :</p>
+reconstitue, à équivalence de catégories fibrées sur \(C\) près (unique à isomorphisme unique près),
+en termes du complexe typique \(T\) (loc. cit. 6.10), et qu'on a des isomorphismes canoniques
+<strong>fonctoriels</strong> en l'objet \(A\) de \(C\) (loc. cit. 5.4) :</p>
 
 \[(3.3.5.1)\qquad \Psi^0(A)\xrightarrow{\sim}\operatorname{Ext}^0(T,A),\qquad
 \Psi^1(A)\xrightarrow{\sim}\operatorname{Ext}^1(T,A).\]
@@ -1767,7 +1768,7 @@ de la construction explicite des complexes typiques donnée dans 3.3.4.</p>
 
 \[0\longrightarrow A'\longrightarrow A\longrightarrow A''\longrightarrow0\]
 
-<p>une suite exacte dans (C), d'où une suite exacte pour les \(\operatorname{Ext}^i\) :</p>
+<p>une suite exacte dans \(C\), d'où une suite exacte pour les \(\operatorname{Ext}^i\) :</p>
 
 \[0\longrightarrow\operatorname{Ext}^0(L_\bullet,A')\longrightarrow
 \operatorname{Ext}^0(L_\bullet,A)\longrightarrow\cdots\longrightarrow
@@ -1788,10 +1789,10 @@ fonctorialité de \(\Psi^0_{L_\bullet}\) et de \(\Psi^1_{L_\bullet}\). D'autre p
 
 \[(3.3.6.2)\qquad \partial:\Psi^0(A'')\longrightarrow\Psi^1(A'),\]
 
-<p>pour toute catégorie cofibrée exacte à gauche \(\Psi\) sur (C), en associant à un élément (u)
+<p>pour toute catégorie cofibrée exacte à gauche \(\Psi\) sur \(C\), en associant à un élément \(u\)
 du premier membre la classe dans le deuxième membre de l'élément de \(\Psi(A')\), déterminé à
 isomorphisme canonique près, dont l'image dans \(\Psi([A\longrightarrow A''])\) (notations de 3.3.2)
-est le couple \((X_0,u)\), où (X_0) est l'objet trivial de \(\Psi(A)\). Ceci posé, je dis que dans le
+est le couple \((X_0,u)\), où \(X_0\) est l'objet trivial de \(\Psi(A)\). Ceci posé, je dis que dans le
 cas qui nous intéresse \(\Psi=\Psi_{L_\bullet}\), <u>l'homomorphisme (3.3.6.2) défini par voie
 "géométrique" n'est autre que l'homomorphisme bord \(\partial\) de (3.3.6.1) changé de signe</u>, donc
 que cette dernière suite exacte n'est autre (avec les identifications faites et en changeant le signe
@@ -1866,9 +1867,8 @@ avec les isomorphismes de la forme (3.1.8) et (3.2.4), i.e. qu'on a commutativit
 diagrammes suivants (\(A\in\operatorname{ob}C\), \(i=0,1\)) :</p>
 
 \[(3.4.6)\qquad\xymatrix@C=5em@R=3em{
-\Psi^i_{L_\bullet}(A)\ar[r]^{\sim}\ar[d]&\operatorname{Ext}^i(L_\bullet,A)\ar[d]\\
-\Psi^i_{L'_\bullet}(A)\ar[r]^{\sim}&\operatorname{Ext}^i(L'_\bullet,A).
-}\]
+{\Psi^i_{L_\bullet}(A)}\ar[r]^{\sim}\ar[d]&amp;{\operatorname{Ext}^i(L_\bullet,A)}\ar[d]\\
+{\Psi^i_{L'_\bullet}(A)}\ar[r]^{\sim}&amp;{\operatorname{Ext}^i(L'_\bullet,A)}}.\]
 
 <p>La vérification de cette compatibilité est essentiellement triviale, et laissée au lecteur.</p>
 

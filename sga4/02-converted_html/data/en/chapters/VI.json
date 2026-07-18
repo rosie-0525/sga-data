@@ -263,7 +263,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\n\\[\n(*) \\qquad\n\\xymatrix{\nX \\ar[d]^-{\\Delta_{X/Y}} \\ar@/_5pc/[dd]_-{\\Delta_{X/Z}} \\\\\nX \\times_Y X \\ar[r] \\ar[d]^-{u} &amp; Y \\ar[d]^-{\\Delta_{Y/Z}} \\\\\nX \\times_Z X \\ar[r] &amp; Y \\times_Z Y\n}\n\\]\n\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>with Cartesian square. By hypothesis \\(\\Delta_{Y/Z}\\) is quasi-compact, therefore also \\(u\\)\nwhich is deduced by change of base, and \\(\\Delta_{X/Y}\\) is quasi-compact,\ntherefore also the compound \\(u \\, \\Delta_{X/Y} = \\Delta_{X/Z}\\). This establishes (i) and (ii), the case\n\"consistent\" resulting from the conjunction of the two previous cases. For\nprove the first case considered in (iv), we consider the diagram\nnext to Cartesian squares</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n(**) \\qquad\n\\xymatrix{\n&amp; X \\ar[r]^-{gf} &amp; Z \\\\\nX \\ar[r]^-{\\Gamma_f = (\\mathrm{id}_X, f)} \\ar[d]_-{v} \\ar@/^3pc/[rr]^-{f} &amp; X \\times_Z Y \\ar[u]_-{\\mathrm{pr}_1} \\ar[r]^-{\\mathrm{pr}_2} \\ar[d]^-{f \\times_Z \\mathrm{id}_Y} &amp; Y \\ar[u]_-{g} \\\\\nY \\ar[r]_-{\\Delta_{Y/Z}} &amp; Y \\times_Z Y\n}\n\\]\n\n</p>"
     },
     {
      "id": null,
@@ -607,6 +621,13 @@
      "label": null,
      "title": null,
      "html": "<p>(ii) It remains to be proven that under the conditions indicated, all\nmorphism \\(X \\to Y\\) comes from a morphism \\(X \\to Y_i\\) for a \\(i \\in I\\)\nsuitable. Since \\(C\\) generates \\(E\\) and the \\(Y_i\\) covers \\(Y\\), we can\ncover \\(X\\) with objects \\(X_\\alpha\\) of \\(C\\), such that each of the compounds\n\\(X_\\alpha \\to X \\to Y\\) is factorized by one of \\(Y_i\\). As \\(X\\) is quasi-compact,\nwe can suppose the family of \\(X_\\alpha\\) finite, therefore that the morphisms\n\\(X_\\alpha \\to Y\\) are factorized by a fixed \\(Y_i\\) into \\(g_{\\alpha i} : X_\\alpha \\to Y_i\\). Like\n\\(X\\) is quasi-separated, the \\(X_\\alpha \\times_X X_\\beta\\) are quasi-compact. Moreover for\nall \\((\\alpha, \\beta)\\), compounds of \\(\\mathrm{pr}_1\\) and \\(\\mathrm{pr}_2\\) on \\(X_\\alpha \\times_X X_\\beta\\) with \\(X_\\alpha\\), \\(X_\\beta \\to Y_i\\)\nare such that their compounds with \\(Y_i \\to Y\\) are equal:</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n\\xymatrix{\nX_\\alpha \\times_X X_\\beta \\ar@&lt;0.6ex&gt;[r] \\ar@&lt;-0.6ex&gt;[r] \\ar[d] &amp; X_\\alpha \\ar[r] \\ar[dl] &amp; Y_i \\ar[d] \\\\\nX \\ar[rr] &amp; &amp; Y\n}\n\\]\n\n</p>"
     },
     {
      "id": null,
@@ -2390,6 +2411,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\n\\[\nQ : \\mathscr{F} \\to \\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\n\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>the canonical functor. The inclusion functors of the fibers of \\(\\mathscr{F}\\) in \\(\\mathscr{F}\\) compounds\nwith the functor \\(Q\\) provide, for any object \\(\\xi\\) of \\(\\mathscr{E}\\), a functor\n\\[\nu_\\xi : \\mathscr{F}_\\xi \\to \\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\n\\]\nand for any morphism \\(f : \\xi \\to \\eta\\) of \\(\\mathscr{E}\\) a commutative diagram with isomorphism\ncanonical close:\n\\[\n\\xymatrix{\n\\mathscr{F}_\\eta \\ar[dr]^-{u_\\eta} \\ar[d]_-{f^*} &amp; \\\\\n\\mathscr{F}_\\xi \\ar[r]_-{u_\\xi} &amp; \\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\n}\n\\]\nThe category \\(\\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\\) then appears as the inductive limit <u>in the sense of pseudo-functors</u>\n[5] of the pseudo-functor \\(\\mathscr{E}^\\circ \\to \\mathrm{Cat}\\) which associates with all \\(\\xi \\in\\) ob,\n\\(\\mathscr{F}_\\xi\\) and at all \\(f : \\xi \\to \\eta\\), the functor \\(f^* : \\mathscr{F}_\\eta \\to \\mathscr{F}_\\xi\\). However, it will be noted\nthat even when \\(\\xi \\mapsto \\mathscr{F}_\\xi\\) is a real functor, the category \\(\\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\\)\nis not in general the inductive limit in the sense of I 2 of the functor \\(\\xi \\mapsto \\mathscr{F}_\\xi\\)\n(see 6.8).</p>"
     },
     {
@@ -2727,6 +2755,13 @@
      "label": null,
      "title": null,
      "html": "<p>Let \\(p : C \\to I\\) be a \\(\\mathcal{U}\\)-fibered site. Let's choose for any morphism\n\\(f : i \\to j\\) of \\(I\\) a base change functor \\(f^* : C_j \\to C_i\\). By the way\nto the categories of \\(\\mathcal{U}\\)-sheaves, the functor \\(f^*\\) extends into a functor\n\\(\\mathrm{Top}(f)^* : \\widetilde{C}_j \\to \\widetilde{C}_i\\), where \\(\\mathrm{Top}(f) : \\widetilde{C}_i \\to \\widetilde{C}_j\\) is a topos morphism (IV 4.9.1.1),\nmaking the diagram commutative up to isomorphism:\n\\[\n\\text{(7.2.6.1)} \\qquad\n\\xymatrix{\nC_j \\ar[r]^-{f^*} \\ar[d]_-{\\varepsilon_j} &amp; C_i \\ar[d]^-{\\varepsilon_i} \\\\\n\\widetilde{C}_j \\ar[r]_-{\\mathrm{Top}(f)^*} &amp; \\widetilde{C}_i\n}\n\\]\nBe</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n\\text{(7.2.6.2)} \\qquad c_{f,g} : f^* g^* \\to (gf)^*\n\\]\n</p>"
     },
     {
      "id": null,
@@ -3615,6 +3650,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\n\\[\n\\xymatrix{\nZ_{\\alpha\\beta} \\ar[d]_-{n_{\\alpha\\beta}} &amp; f_\\alpha^*(Z_{\\alpha\\beta}) \\ar[l]_-{s_{\\alpha\\beta}} \\ar[d]^-{f_\\alpha^*(n_{\\alpha\\beta})} \\\\\nZ_\\alpha &amp; f_\\alpha^*(Z_\\alpha) \\ar[l]^-{s_\\alpha}\n} \\qquad \\alpha\\beta \\in \\coprod_A B_\\alpha ,\n\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>which provide commutative diagrams\n\\[\n\\xymatrix{\n\\pi(Z_{\\alpha\\beta}) \\ar[r]^-{\\sim} \\ar[d]_-{\\pi(n_{\\alpha\\beta})} &amp; \\pi(f_\\alpha^*(Z_{\\alpha\\beta})) \\ar[d]^-{\\pi(f_\\alpha^*(n_{\\alpha\\beta}))} \\\\\n\\pi(Z_\\alpha) \\ar[r]_-{\\pi(s_\\alpha)^{-1}}^-{\\sim} &amp; \\pi(f_\\alpha^*(Z_\\alpha)) \\ar[r]^-{\\pi(m_\\alpha)} &amp; \\pi(Y_\\alpha)\n} \\qquad \\alpha\\beta \\in \\coprod_A B_\\alpha .\n\\]\nAs families \\((f_\\alpha^*(Z_{\\alpha\\beta}) \\xrightarrow{f_\\alpha^*(n_{\\alpha\\beta})} f_\\alpha^*(Z_\\alpha))\\) belong to \\(\\mathrm{Cov}(f_\\alpha^*(Z_\\alpha))\\),\nwe can reduce ourselves to the case where for all \\(\\alpha\\), we have \\(\\varphi_\\alpha = \\pi(m_\\alpha)\\).</p>"
     },
     {
@@ -3945,6 +3987,13 @@
      "label": null,
      "title": null,
      "html": "<p>The functor \\(\\mathrm{Hom}(\\mu_i^*(X),-)\\) is isomorphic to the functor \\(\\mathrm{Hom}(X,\\mu_{i*}(-))\\) and\nthe latter switches to the filtering inductive limits (8.5.4). According to (8.5.5.1), we have\n\\[\n\\mathrm{Hom}(\\mu_i^*(X), \\mu_i^*(M_i)) \\simeq \\mathrm{Hom}(X,\\mu_{i*}\\mu_i^*(M_i)) \\simeq \\mathrm{Hom}(X, \\varinjlim_{f:j\\to i} f_* f^*(M_i)) ,\n\\]\nhence the formula (8.5.7.1). Likewise, according to (8.5.3.1), we have</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n\\mathrm{Hom}(\\mu_i^*(X),Q^*(j \\mapsto M_j)) \\simeq \\mathrm{Hom}(X,\\mu_{i*}Q^*(j \\mapsto M_j)) \\simeq \\mathrm{Hom}(X, \\varinjlim_{f:j\\to i} f_*(M_j)) ,\n\\]\n</p>"
     },
     {
      "id": null,

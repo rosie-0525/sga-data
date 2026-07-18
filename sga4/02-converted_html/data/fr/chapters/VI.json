@@ -263,7 +263,21 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\n\\[\n(*) \\qquad\n\\xymatrix{\nX \\ar[d]^-{\\Delta_{X/Y}} \\ar@/_5pc/[dd]_-{\\Delta_{X/Z}} \\\\\nX \\times_Y X \\ar[r] \\ar[d]^-{u} &amp; Y \\ar[d]^-{\\Delta_{Y/Z}} \\\\\nX \\times_Z X \\ar[r] &amp; Y \\times_Z Y\n}\n\\]\n\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>à carré cartésien. Par hypothèse \\(\\Delta_{Y/Z}\\) est quasi-compact, donc aussi \\(u\\)\nqui s'en déduit par changement de base, et \\(\\Delta_{X/Y}\\) est quasi-compact,\ndonc aussi le composé \\(u \\, \\Delta_{X/Y} = \\Delta_{X/Z}\\). Cela établit (i) et (ii), le cas\n\"cohérent\" résultant de la conjonction des deux cas précédents. Pour\nprouver le premier cas envisagé dans (iv), on considère le diagramme\nsuivant à carrés cartésiens</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n(**) \\qquad\n\\xymatrix{\n&amp; X \\ar[r]^-{gf} &amp; Z \\\\\nX \\ar[r]^-{\\Gamma_f = (\\mathrm{id}_X, f)} \\ar[d]_-{v} \\ar@/^3pc/[rr]^-{f} &amp; X \\times_Z Y \\ar[u]_-{\\mathrm{pr}_1} \\ar[r]^-{\\mathrm{pr}_2} \\ar[d]^-{f \\times_Z \\mathrm{id}_Y} &amp; Y \\ar[u]_-{g} \\\\\nY \\ar[r]_-{\\Delta_{Y/Z}} &amp; Y \\times_Z Y\n}\n\\]\n\n</p>"
     },
     {
      "id": null,
@@ -607,6 +621,13 @@
      "label": null,
      "title": null,
      "html": "<p>(ii) Il reste à prouver que sous les conditions indiquées, tout\nmorphisme \\(X \\to Y\\) provient d'un morphisme \\(X \\to Y_i\\) pour un \\(i \\in I\\)\nconvenable. Comme \\(C\\) engendre \\(E\\) et que les \\(Y_i\\) couvrent \\(Y\\), nous pouvons\ncouvrir \\(X\\) par des objets \\(X_\\alpha\\) de \\(C\\), de telle façon que chacun des composés\n\\(X_\\alpha \\to X \\to Y\\) se factorise par un des \\(Y_i\\). Comme \\(X\\) est quasi-compact,\non peut supposer la famille des \\(X_\\alpha\\) finie, donc que les morphismes\n\\(X_\\alpha \\to Y\\) se factorisent par un \\(Y_i\\) fixe en des \\(g_{\\alpha i} : X_\\alpha \\to Y_i\\). Comme\n\\(X\\) est quasi-séparé, les \\(X_\\alpha \\times_X X_\\beta\\) sont quasi-compacts. D'ailleurs pour\ntout \\((\\alpha, \\beta)\\), les composés de \\(\\mathrm{pr}_1\\) et \\(\\mathrm{pr}_2\\) sur \\(X_\\alpha \\times_X X_\\beta\\) avec \\(X_\\alpha\\), \\(X_\\beta \\to Y_i\\)\nsont tels que leurs composés avec \\(Y_i \\to Y\\) sont égaux :</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n\\xymatrix{\nX_\\alpha \\times_X X_\\beta \\ar@&lt;0.6ex&gt;[r] \\ar@&lt;-0.6ex&gt;[r] \\ar[d] &amp; X_\\alpha \\ar[r] \\ar[dl] &amp; Y_i \\ar[d] \\\\\nX \\ar[rr] &amp; &amp; Y\n}\n\\]\n\n</p>"
     },
     {
      "id": null,
@@ -2390,6 +2411,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\n\\[\nQ : \\mathscr{F} \\to \\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\n\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>le foncteur canonique. Les foncteurs d'inclusions des fibres de \\(\\mathscr{F}\\) dans \\(\\mathscr{F}\\) composés\navec le foncteur \\(Q\\) fournissent, pour tout objet \\(\\xi\\) de \\(\\mathscr{E}\\), un foncteur\n\\[\nu_\\xi : \\mathscr{F}_\\xi \\to \\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\n\\]\net pour tout morphisme \\(f : \\xi \\to \\eta\\) de \\(\\mathscr{E}\\) un diagramme commutatif à isomorphisme\ncanonique près :\n\\[\n\\xymatrix{\n\\mathscr{F}_\\eta \\ar[dr]^-{u_\\eta} \\ar[d]_-{f^*} &amp; \\\\\n\\mathscr{F}_\\xi \\ar[r]_-{u_\\xi} &amp; \\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\n}\n\\]\nLa catégorie \\(\\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\\) apparaît alors comme la limite inductive <u>au sens des pseudo-foncteurs</u>\n[5] du pseudo-foncteur \\(\\mathscr{E}^\\circ \\to \\mathrm{Cat}\\) qui associe à tout \\(\\xi \\in\\) ob,\n\\(\\mathscr{F}_\\xi\\) et à tout \\(f : \\xi \\to \\eta\\), le foncteur \\(f^* : \\mathscr{F}_\\eta \\to \\mathscr{F}_\\xi\\). On notera toutefois\nque même lorsque \\(\\xi \\mapsto \\mathscr{F}_\\xi\\) est un véritable foncteur, la catégorie \\(\\varinjlim_{\\mathscr{E}^*} \\mathscr{F}\\)\nn'est pas en général la limite inductive au sens de I 2 du foncteur \\(\\xi \\mapsto \\mathscr{F}_\\xi\\)\n(cf. 6.8).</p>"
     },
     {
@@ -2727,6 +2755,13 @@
      "label": null,
      "title": null,
      "html": "<p>Soit \\(p : C \\to I\\) un \\(\\mathcal{U}\\)-site fibré. Choisissons pour tout morphisme\n\\(f : i \\to j\\) de \\(I\\) un foncteur changement de base \\(f^* : C_j \\to C_i\\). En passant\naux catégories de \\(\\mathcal{U}\\)-faisceaux, le foncteur \\(f^*\\) se prolonge en un foncteur\n\\(\\mathrm{Top}(f)^* : \\widetilde{C}_j \\to \\widetilde{C}_i\\), où \\(\\mathrm{Top}(f) : \\widetilde{C}_i \\to \\widetilde{C}_j\\) est un morphisme de topos (IV 4.9.1.1),\nrendant commutatif à isomorphisme près le diagramme :\n\\[\n\\text{(7.2.6.1)} \\qquad\n\\xymatrix{\nC_j \\ar[r]^-{f^*} \\ar[d]_-{\\varepsilon_j} &amp; C_i \\ar[d]^-{\\varepsilon_i} \\\\\n\\widetilde{C}_j \\ar[r]_-{\\mathrm{Top}(f)^*} &amp; \\widetilde{C}_i\n}\n\\]\nSoient</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n\\text{(7.2.6.2)} \\qquad c_{f,g} : f^* g^* \\to (gf)^*\n\\]\n</p>"
     },
     {
      "id": null,
@@ -3615,6 +3650,13 @@
      "type": "paragraph",
      "label": null,
      "title": null,
+     "html": "<p>\n\n\\[\n\\xymatrix{\nZ_{\\alpha\\beta} \\ar[d]_-{n_{\\alpha\\beta}} &amp; f_\\alpha^*(Z_{\\alpha\\beta}) \\ar[l]_-{s_{\\alpha\\beta}} \\ar[d]^-{f_\\alpha^*(n_{\\alpha\\beta})} \\\\\nZ_\\alpha &amp; f_\\alpha^*(Z_\\alpha) \\ar[l]^-{s_\\alpha}\n} \\qquad \\alpha\\beta \\in \\coprod_A B_\\alpha ,\n\\]\n</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
      "html": "<p>qui fournissent des diagrammes commutatifs\n\\[\n\\xymatrix{\n\\pi(Z_{\\alpha\\beta}) \\ar[r]^-{\\sim} \\ar[d]_-{\\pi(n_{\\alpha\\beta})} &amp; \\pi(f_\\alpha^*(Z_{\\alpha\\beta})) \\ar[d]^-{\\pi(f_\\alpha^*(n_{\\alpha\\beta}))} \\\\\n\\pi(Z_\\alpha) \\ar[r]_-{\\pi(s_\\alpha)^{-1}}^-{\\sim} &amp; \\pi(f_\\alpha^*(Z_\\alpha)) \\ar[r]^-{\\pi(m_\\alpha)} &amp; \\pi(Y_\\alpha)\n} \\qquad \\alpha\\beta \\in \\coprod_A B_\\alpha .\n\\]\nComme les familles \\((f_\\alpha^*(Z_{\\alpha\\beta}) \\xrightarrow{f_\\alpha^*(n_{\\alpha\\beta})} f_\\alpha^*(Z_\\alpha))\\) appartiennent à \\(\\mathrm{Cov}(f_\\alpha^*(Z_\\alpha))\\),\non peut se ramener au cas où pour tout \\(\\alpha\\), on a \\(\\varphi_\\alpha = \\pi(m_\\alpha)\\).</p>"
     },
     {
@@ -3945,6 +3987,13 @@
      "label": null,
      "title": null,
      "html": "<p>Le foncteur \\(\\mathrm{Hom}(\\mu_i^*(X),-)\\) est isomorphe au foncteur \\(\\mathrm{Hom}(X,\\mu_{i*}(-))\\) et\nce dernier commute aux limites inductives filtrantes (8.5.4). D'après (8.5.5.1), on a\n\\[\n\\mathrm{Hom}(\\mu_i^*(X), \\mu_i^*(M_i)) \\simeq \\mathrm{Hom}(X,\\mu_{i*}\\mu_i^*(M_i)) \\simeq \\mathrm{Hom}(X, \\varinjlim_{f:j\\to i} f_* f^*(M_i)) ,\n\\]\nd'où la formule (8.5.7.1). De même, d'après (8.5.3.1), on a</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\n\n\\[\n\\mathrm{Hom}(\\mu_i^*(X),Q^*(j \\mapsto M_j)) \\simeq \\mathrm{Hom}(X,\\mu_{i*}Q^*(j \\mapsto M_j)) \\simeq \\mathrm{Hom}(X, \\varinjlim_{f:j\\to i} f_*(M_j)) ,\n\\]\n</p>"
     },
     {
      "id": null,

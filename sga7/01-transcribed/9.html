@@ -10,7 +10,7 @@ window.MathJax = {
     paths: { custom: '../../translation-viewer/vendor/xyjax' }
   },
   tex: {
-    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools'] },
+    packages: { '[+]': ['xypic', 'ams', 'color', 'mathtools', 'amscd'] },
     inlineMath: [['\\(', '\\)']],
     displayMath: [['\\[', '\\]']],
     tags: 'none'
@@ -801,7 +801,7 @@ de \(A_K\), \(\ell\) un nombre premier \(\ne\operatorname{car}.k\). Les conditio
 <li><span class="item-label">(iii<sup>o</sup>)</span> <u>\(A_o^o\) est un schéma abélien, i.e. (avec les notations de (2.1.11) on a \(\lambda=\mu=0\).</u></li>
 <li><span class="item-label">(iv)</span> <u>\(A\) est propre sur \(S\).</u></li>
 <li><span class="item-label">(iv<sup>o</sup>)</span> <u>\(A^o\) est propre sur \(S\).</u></li>
-<li><span class="item-label">(v)</span> <u>\(T_\ell(A_K)\) est "non ramifié sur \(S\)" i.e. se prolonge en un
+<li><span class="item-label">\(v\)</span> <u>\(T_\ell(A_K)\) est "non ramifié sur \(S\)" i.e. se prolonge en un
 faisceau \(\ell\)-adique constant tordu sur \(S\), i.e. le groupe d'inertie \(I\)
 opère trivialement sur \(T_\ell(A_K(\overline K))\).</u></li>
 <li><span class="item-label">(v bis)</span> <u>Pour tout entier \(\nu&gt;0\), \({}_{\ell^\nu}A_K\) est "non ramifié sur \(S\)"
@@ -815,7 +815,7 @@ unique près.</u></p></div>
 </div>
 
 <p id="9.2.2.9.1"><strong>2.2.9.1.</strong>&nbsp;&nbsp; On dit que \(A_K\) a <u>bonne réduction</u> sur \(S\) s'il satisfait la
-condition (i) ci-dessus. Le critère (v) (ou (v bis)) est connu sous le
+condition (i) ci-dessus. Le critère \(v\) (ou (v bis)) est connu sous le
 nom de <u>critère de NERON-OGG-CHAFAREVITCH</u> de bonne réduction.</p>
 
 <p>Prouvons 2.2.9. Le fait qu'un schéma abélien sur \(S\) satisfait
@@ -830,14 +830,14 @@ résulte du fait qu'un schéma en groupes lisse sur un schéma \(S\), à fibres
 des schémas abéliens, est propre sur \(S\) (donc est un schéma abélien)
 en vertu de (EGA IV 15.7.10). D'autre part, compte tenu de 2.2.5 et
 du fait que \(T_\ell(A_K(\overline K))/T_\ell(A_K(\overline K))^I\) est manifestement un \(\mathbb Z_\ell\)-module sans
-torsion, la condition (v) s'exprime par l'égalité des rangs de
+torsion, la condition \(v\) s'exprime par l'égalité des rangs de
 \(T_\ell(A_K(\overline K))\) et de sa "partie fixe", i.e. (par (2.1.11) et (2.2.3.3))
 par la condition</p>
 
 <p>\[\mu+2\alpha=2(\lambda+\mu+\alpha),\]</p>
 
 <p>i.e. \(2\lambda+\mu=0\), i.e. \(\lambda=\mu=0\), qui n'est autre que (iii<sup>o</sup>). Enfin
-l'équivalence de (v) et (v bis) est claire par définition. Cela achève
+l'équivalence de \(v\) et (v bis) est claire par définition. Cela achève
 la démonstration de 2.2.9.</p>
 
 <p id="9.2.3"><strong>2.3.</strong>&nbsp;&nbsp; Nous supposons à nouveau \(S\) hensélien, et \(\ell\ne p=\operatorname{car}.k\). Utilisons
@@ -1125,11 +1125,11 @@ est fini. D'ailleurs le fait que \(u_t\) est une isogénie implique
 \(\dim G_t=\dim H_t\), et le fait que \(G\) et \(H\) sont plats localement de présentation
 finie implique \(\dim G_s=\dim G_t\), \(\dim H_s=\dim H_t\) (SGA 3 VI<sub>B</sub> 4.3),
 d'où \(\dim G_s=\dim H_s\). Comme \(\dim\operatorname{Ker}u_s=0\), on en conclut que
-\(\dim H_s=\dim u_s\(G_s\)\) (SGA 3 VI<sub>B</sub> 1.2), ce qui équivaut à \(u_s\) plat
+\(\dim H_s=\dim u_s(G_s)\) (SGA 3 VI<sub>B</sub> 1.2), ce qui équivaut à \(u_s\) plat
 grâce à l'hypothèse \(H_s\) lisse (SGA 3 VI<sub>A</sub> 5.6). On en conclut qu'il
 existe un voisinage ouvert \(U\) de \(s\) tel que \(u\) soit plat et quasi-fini
 en les points de la section unité sur \(U\) (SGA 3 VI<sub>B</sub> 2.2 (i) et 2.5 (ii)).
-Il en résulte, comme pour \(u_s\), que (u_{s'}) est plat pour tout \(s'\in U\), donc
+Il en résulte, comme pour \(u_s\), que \(u_{s'}\) est plat pour tout \(s'\in U\), donc
 \(u|_{G_U}\) est plat et quasi-fini, l'étant sur chaque fibre.</p>
 
 <p>e) Pour la première assertion, on se ramène aussitôt par
@@ -1148,12 +1148,12 @@ immersion ouverte (donc un isomorphisme s'il admet une section).</p></div></div>
 
 <p>Pour la première assertion, on se ramène par localisation
 stricte au cas où \(S\) est strictement local. Décomposant alors \(K\) en
-somme d'un schéma fini (K^f) et d'un schéma à fibre spéciale vide, on
+somme d'un schéma fini \(K^f\) et d'un schéma à fibre spéciale vide, on
 aura</p>
 
 \[\operatorname{rang}K_s=\operatorname{rang}K_s^f=\operatorname{rang}K_t^f\leq\operatorname{rang}K_t,\]
 
-<p>la deuxième égalité provenant du fait que (K^f) est plat, fini et de
+<p>la deuxième égalité provenant du fait que \(K^f\) est plat, fini et de
 présentation finie sur \(S\), donc localement libre sur \(S\).</p>
 
 <p>Pour la deuxième assertion, ce qui précède montre déjà que
@@ -1283,7 +1283,7 @@ isogène à \(A_K\) (par exemple pour \(A'_K\)).</p>
 
 <div class="thm corollary" id="9.3.5.2"><div class="thm-head"><u>Corollaire 3.5.2.</u> <u>Soit \(g\) un générateur topologique de \(\mathbb Z_\ell(1)=T_\ell(\overline K^*)\).
 Les conditions équivalentes de 3.5 équivalent aussi à la condition suivante :</u></div>
-<div class="thm-body"><p>(v) <u>L'action du groupe d'inertie \(I\) sur \(U=T_\ell(A(\overline K))\) se fait
+<div class="thm-body"><p>\(v\) <u>L'action du groupe d'inertie \(I\) sur \(U=T_\ell(A(\overline K))\) se fait
 à travers le plus grand quotient pro-\(\ell\)-fini \(I(\ell)\) de \(I\), qui est canoniquement
 isomorphe à \(\mathbb Z_\ell(1)\), et l'opération \(g_U\) du générateur \(g\)
 sur \(U\) satisfait la condition</u></p>
@@ -1292,7 +1292,7 @@ sur \(U\) satisfait la condition</u></p>
 
 <p>En effet, pour toute action unipotente continue d'un groupe
 profini \(I\) sur un espace vectoriel \(\ell\)-adique, on voit aussitôt que
-l'image de \(I\) est un pro-\(\ell\)-groupe. Il s'ensuit que (v) équivaut à (iv).</p>
+l'image de \(I\) est un pro-\(\ell\)-groupe. Il s'ensuit que \(v\) équivaut à (iv).</p>
 
 <p>Nous pouvons maintenant prouver le résultat central du présent exposé :</p>
 
@@ -1335,7 +1335,7 @@ qui montre que l'assertion 3.7 équivaut à la même assertion pour les opérati
 
 <div class="thm corollary" id="9.3.8"><div class="thm-head"><u>Corollaire 3.8.</u> <u>Les conditions équivalentes (i) à (iv) de 3.5 équivalent aussi à la condition suivante :</u></div><div class="thm-body"><p>(vi) <u>L'action de \(I\) sur \(U=T_\ell(A(\overline K))\) est unipotente.</u></p></div></div>
 
-<p>En effet, pour prouver que (v) implique (vi), on note que si un groupe \(I\) opérant de façon unipotente sur un vectoriel \(E\) de dimension finie sur un corps de caractéristique nulle (en l'occurrence \(\mathbb Q_\ell\)) admet un sous-groupe d'indice fini \(I'\) opérant avec l'échelon \(m\) (en l'occurrence \(m=2\)), alors \(I\) lui-même opère avec l'échelon \(m\). En effet, \(I'\) étant d'indice fini dans \(I\), le groupe algébrique \(G'\subset GL(E)\) qu'il définit est d'indice fini dans celui, \(G\), défini par \(I\), or \(G\) étant unipotent est connexe (caractéristique nulle !), donc \(G=G'\), donc \(I\) et \(I'\) ont même «échelon d'unipotence».</p>
+<p>En effet, pour prouver que \(v\) implique (vi), on note que si un groupe \(I\) opérant de façon unipotente sur un vectoriel \(E\) de dimension finie sur un corps de caractéristique nulle (en l'occurrence \(\mathbb Q_\ell\)) admet un sous-groupe d'indice fini \(I'\) opérant avec l'échelon \(m\) (en l'occurrence \(m=2\)), alors \(I\) lui-même opère avec l'échelon \(m\). En effet, \(I'\) étant d'indice fini dans \(I\), le groupe algébrique \(G'\subset GL(E)\) qu'il définit est d'indice fini dans celui, \(G\), défini par \(I\), or \(G\) étant unipotent est connexe (caractéristique nulle !), donc \(G=G'\), donc \(I\) et \(I'\) ont même «échelon d'unipotence».</p>
 <p>On obtient également une réciproque à 3.3 :</p>
 
 <div class="thm corollary" id="9.3.9"><div class="thm-head"><u>Corollaire 3.9.</u> <u>Les notations sont celles de 3.2. Les conditions (i) et (ii) de 3.2 équivalent aussi à la condition suivante :</u></div><div class="thm-body"><p>(iii) <u>Pour toute extension étale \(K'\) de \(K\), désignant par \(S'\) le normalisé de \(S\) dans \(K'\), par \(A'\) le modèle de Néron de \(A_{K'}=A\otimes_SK'=A_K\otimes_KK'\), le morphisme canonique
@@ -2222,7 +2222,7 @@ même si \(A_K\) est une courbe elliptique avec bonne réduction, se voit dans
 qui nous permet de nous ramener aussitôt au cas où \(A_K\) a une réduction
 semi-stable sur \(S\) (puisque l'hypothèse (iii) est conservée en remplaçant
 \(K\) par une extension séparable finie \(K'\), i.e. \(I\) par un sous-groupe ouvert
-\(I'\)). Lorsque \(\ell\ne p\), l'action de \(I\) sur \(U_\ell\otimes\mathbb Q_\ell\) est unipotente (3.5 (v))
+\(I'\)). Lorsque \(\ell\ne p\), l'action de \(I\) sur \(U_\ell\otimes\mathbb Q_\ell\) est unipotente \(3.5 (v)\)
 et semi-simple, donc triviale, et on gagne par le critère de bonne
 réduction 2.2.9. Donnons une démonstration valable sans restriction
 sur \(\ell\), et qui donne un résultat légèrement plus précis :</p>
@@ -3575,7 +3575,7 @@ une vérification étant alors celui où \(\underline M_K\simeq\underline M'_K\)
 On trouve grâce aux résultats de NÉRON [19] que celui-ci est égal à \(v(j)\),
 \(j\) étant l'invariant absolu de \(A_K\) et \(v\) la valuation normalisée de \(K\).</p>
 
-<h2 id="10">10. Propriétés de l'accouplement de monodromie. Théorème d'intégrité et<br>
+<h2 id="9.10">10. Propriétés de l'accouplement de monodromie. Théorème d'intégrité et<br>
 de positivité</h2>
 
 <p>Dans le présent paragraphe, nous allons donner tout d'abord
@@ -3587,10 +3587,10 @@ réduire pour sa démonstration à un cas spécial de jacobiennes, qui
 sera traité (par voie transcendante) au par. 12 (qui est d'ailleurs
 logiquement indépendant du par. 11).</p>
 
-<p id="10.1"><strong>10.1.</strong> &nbsp; <u>Transport de structure.</u> Il est clair, sur la définition donnée
+<p id="9.10.1"><strong>10.1.</strong> &nbsp; <u>Transport de structure.</u> Il est clair, sur la définition donnée
 de l'accouplement de monodromie (9.1.2), que cet accouplement est compa&shy;tible avec le transport de structure en la situation \((S,A_K,A'_K)\).</p>
 
-<p id="10.2"><strong>10.2.</strong> &nbsp; <u>Symétrie.</u> Si nous partons du schéma dual \(A'_K\) de \(A_K\) et lui appliquons
+<p id="9.10.2"><strong>10.2.</strong> &nbsp; <u>Symétrie.</u> Si nous partons du schéma dual \(A'_K\) de \(A_K\) et lui appliquons
 la construction du par. 9, nous devons introduire le schéma dual \((A'_K)'\)
 de \(A_K\), qui est canoniquement isomorphe à \(A_K\) par le théorème de bidualité
 ([5] ou VIII 3.2). Désignons par \(u_\ell^{A'_K}\) l'accouplement de monodromie (9.1.2)
@@ -3632,8 +3632,8 @@ le cas où \(\xi\) est une polarisation, on va préciser considérablement
 (10.2.5) dans 10.4 b) plus bas.</p>
 
 <p>Signalons enfin une troisième façon d'interpréter la relation
-de symétrie. Pour ceci, considérons une biextension (= correspondance
-divisorielle) \(\xi\) sur un couple \((A_K,\overline A_K)\) de schémas abéliens à réduction
+de symétrie. Pour ceci, considérons une biextension \(= correspondance
+divisorielle\) \(\xi\) sur un couple \((A_K,\overline A_K)\) de schémas abéliens à réduction
 semi-stable sur \(K\), qui définit un homomorphisme</p>
 
 \[A_K\longrightarrow\overline A'_K,\]
@@ -3670,7 +3670,7 @@ qui est une biextension de \((\overline A_K,A_K)\), d'où un accouplement</p>
 <p>est encore l'isomorphisme de symétrie. On comparera cette relation à
 la relation d'antisymétrie de VIII 2.2.11.</p>
 
-<p id="10.3"><strong>10.3.</strong> &nbsp; <u>Changement de trait.</u> Soit maintenant</p>
+<p id="9.10.3"><strong>10.3.</strong> &nbsp; <u>Changement de trait.</u> Soit maintenant</p>
 
 \[(10.3.1)\qquad g:S'\longrightarrow S\]
 
@@ -3730,7 +3730,7 @@ ultérieurement dans le Séminaire. (Nous n'utiliserons d'ailleurs pas
 10.4 dans la suite du Séminaire, pas plus que les autres résultats
 du présent exposé.)</p>
 
-<div class="thm theorem" id="10.4">
+<div class="thm theorem" id="9.10.4">
 <div class="thm-head"><span class="thm-name">Théorème 10.4.</span></div>
 <div class="thm-body"><p>Soient \(S\) un trait hensélien, \(A_K\) un schéma abélien sur \(K\)
 à réduction semi-stable sur \(S\). Considérons les réseaux \(M\) et \(M'\) associés
@@ -3763,9 +3763,9 @@ la forme correspondante</p>
 <p>est symétrique, positive et non dégénérée. Quant à l'accouplement (10.4.1),
 on l'appellera encore l'<u>accouplement de monodromie</u>.</p>
 
-<h3 id="10.5">10.5. Réduction de 10.4 à un cas particulier</h3>
+<h3 id="9.10.5">10.5. Réduction de 10.4 à un cas particulier</h3>
 
-<p id="10.5.1"><strong>10.5.1.</strong> L'unicité d'un \(u\) satisfaisant la condition énoncée (même pour
+<p id="9.10.5.1"><strong>10.5.1.</strong> L'unicité d'un \(u\) satisfaisant la condition énoncée (même pour
 un seul \(\ell\)) est claire. D'autre part, l'existence signifie simplement
 que chaque \(u_\ell\) applique en fait \(M\otimes M'\) dans \(\mathbb Z_S\), et que l'homomorphisme ainsi ob&shy;tenu \(M\otimes M'\longrightarrow\mathbb Z_S\) est indépendant de \(\ell\). En fait, il suffit même de prouver
 l'assertion analogue pour les \(u_\ell\otimes_{\mathbb Z_\ell}\mathbb Q_\ell\), et un \(u_0:M_0\otimes M'_0\longrightarrow\mathbb Q_S\).</p>
@@ -3786,7 +3786,7 @@ clos. Dans ce cas, \(M\) et \(M'\) sont des schémas en groupes constants, de
 valeur \(M,M'\) des modules libres de type fini sur \(\mathbb Z\), et a) et b) se
 reformulent avantageusement en termes de ces derniers.</p>
 
-<p id="10.5.2"><strong>10.5.2.</strong> Supposons maintenant que \(A_K\) soit isomorphe à un facteur direct
+<p id="9.10.5.2"><strong>10.5.2.</strong> Supposons maintenant que \(A_K\) soit isomorphe à un facteur direct
 d'un schéma abélien \(\overline A_K\) sur \(K\) à réduction semi-stable, et que 10.4 soit
 prouvé pour ce dernier. Alors il en résulte aussitôt que 10.4 est valable
 également pour \(A_K\), compte tenu du comportement fonctoriel évident des
@@ -3799,14 +3799,14 @@ précédente, et au « théorème de réductibilité de Poincaré » [15],
 ceci nous montre que si \(A_K\) est quotient d'un schéma abélien \(\overline A_K\) pour
 lequel 10.4 est valable, il en est de même pour \(A_K\).</p>
 
-<p id="10.5.3"><strong>10.5.3.</strong> Utilisons maintenant le fait bien connu [31, th. 11 (p.20)]
+<p id="9.10.5.3"><strong>10.5.3.</strong> Utilisons maintenant le fait bien connu [31, th. 11 (p.20)]
 que, quitte à faire une extension finie sur \(K\) (ce qui est loisible, grâce
 à 10.5.1), tout schéma abélien \(A_K\) est quotient de la jacobienne
 \((=\operatorname{Pic}_{X_K/K}^o)\) d'une courbe propre, lisse et géométrique connexe \(X_K\) sur \(K\).
 Compte tenu de 10.5.2, on est donc ramené à prouver 10.4 dans le cas
 d'une telle jacobienne.</p>
 
-<p id="10.5.4"><strong>10.5.4.</strong> D'après un théorème de ARTIN-WINMORD [2] (déjà cité et utilisé
+<p id="9.10.5.4"><strong>10.5.4.</strong> D'après un théorème de ARTIN-WINMORD [2] (déjà cité et utilisé
 dans V), quitte à faire encore une extension finie \(K'\) de \(K\), on
 peut supposer que \(X_K\) se prolonge en un schéma projectif et plat sur \(S\),
 régulier, et tel que la fibre spéciale géométrique \(X_{\bar s}\) n'ait comme
@@ -3817,7 +3817,7 @@ l'accouplement de monodromie (10.4.1) en termes des données géométriques
 de la situation, et nous vérifierons en même temps 10.4 b) dans le cas
 de la polarisation canonique de la jacobienne.</p>
 
-<p id="10.5.5"><strong>10.5.5.</strong> Il reste à voir que si pour un \(A_K\) donné à réduction semi-stable,
+<p id="9.10.5.5"><strong>10.5.5.</strong> Il reste à voir que si pour un \(A_K\) donné à réduction semi-stable,
 10.4 a) est vrai, et 10.4 b) est vrai pour <u>une</u> polarisation donnée \(\xi_o\)
 de \(A_K\), alors cette conclusion reste vraie pour <u>toute</u> polarisation \(\xi\) de
 \(A_K\). En effet, si \(\widetilde\xi_o\), \(\widetilde\xi\) désignent les homomorphismes</p>
@@ -3841,7 +3841,7 @@ de \(A_K\), alors cette conclusion reste vraie pour <u>toute</u> polarisation \(
 
 \[\widetilde\xi=\sum_i{}^t\!\beta_i\,\widetilde\xi_o\,\beta_i,\]
 
-<p>ou encore, en termes des biextensions (= correspondances divisorielles)
+<p>ou encore, en termes des biextensions \(= correspondances divisorielles\)
 associées aux polarisations envisagées (VIII 4.14) :</p>
 
 \[(10.5.5.1)\qquad \delta(\xi)=\sum_i\delta(\xi_o)\circ(\beta_i,\beta_i).\]
@@ -3865,10 +3865,10 @@ pour <u>un</u> nombre premier \(\ell\). Prenant \(\ell\ne p\), on peut utiliser 
 9.2 de \(u_\ell\) ; le fait que \(u_\ell\) soit séparant à gauche (donc des deux côtés,
 pour une raison de rang) est alors trivial.</p>
 
-<h2 id="11">11. Composantes connexes du modèle de Néron : relation de dualité,<br>
+<h2 id="9.11">11. Composantes connexes du modèle de Néron : relation de dualité,<br>
 comportement asymptotique</h2>
 
-<p id="11.0"><strong>11.0.</strong> Le but du présent paragraphe est l'étude du \(k\)-groupe fini étale</p>
+<p id="9.11.0"><strong>11.0.</strong> Le but du présent paragraphe est l'étude du \(k\)-groupe fini étale</p>
 
 \[(11.0.1)\qquad \Phi_o=A_o/A_o^o\]
 
@@ -3891,7 +3891,7 @@ de même se ramener au cas où \(S\) est de plus complet, grâce au changement
 de base \(\widehat S\longrightarrow S\), grâce au fait que la formation du modèle de Néron y
 commute [21, th. 3.4 b)].</p>
 
-<p id="11.1"><strong>11.1.</strong> Supposons donc \(S\) strictement local, de sorte que \(\Phi_o\) peut s'iden&shy;tifier à un groupe fini ordinaire \(\Phi_o(k)\), et on trouve</p>
+<p id="9.11.1"><strong>11.1.</strong> Supposons donc \(S\) strictement local, de sorte que \(\Phi_o\) peut s'iden&shy;tifier à un groupe fini ordinaire \(\Phi_o(k)\), et on trouve</p>
 
 \[(11.1.1)\qquad \Phi_o(k)\simeq A_o(k)/A_o^o(k)\simeq A(S)/A^o(S)\simeq A(K)/A(K)^o,\]
 
@@ -3936,7 +3936,7 @@ sur \(\mathbb Z_\ell\) avec \(\mathbb Z_\ell/n\mathbb Z_\ell\). Les morphismes d
 intervenant dans les deux membres de (11.1.6) étant évidents, on déduit
 de (11.1.6), par passage à la limite inductive sur les puissances de \(\ell\), la</p>
 
-<div class="thm" id="11.2"><span class="thm-head"><u>Proposition 11.2.</u></span>
+<div class="thm" id="9.11.2"><span class="thm-head"><u>Proposition 11.2.</u></span>
 <div class="thm-body"><u>Supposons \(S\) strictement local, et soit \(\ell\) un nombre
 premier \(\ne p\). Alors on a un isomorphisme canonique</u>
 \[(11.2.1)\qquad \Phi_o(\ell)\simeq (U\otimes D_\ell)^I/U^I\otimes D_\ell,\]
@@ -3946,7 +3946,7 @@ premier \(\ne p\). Alors on a un isomorphisme canonique</u>
 connaissance du module de Tate \(U=T_\ell(A(\bar K))\) comme module galoisien sous
 l'action du groupe d'inertie \(I\).</p>
 
-<p id="11.3"><strong>11.3.</strong> On va utiliser l'expression explicite (11.2.1) pour esquisser
+<p id="9.11.3"><strong>11.3.</strong> On va utiliser l'expression explicite (11.2.1) pour esquisser
 la définition d'un accouplement canonique</p>
 
 \[(11.3.1)\qquad \Phi_o(\ell)\otimes\Phi'_o(\ell)\longrightarrow\mathbb Q/\mathbb Z,\]
@@ -4057,7 +4057,7 @@ H^1(I,U')\]
 l'un de l'autre via un accouplement canonique à valeurs dans \(D_\ell\), qui
 est l'accouplement annoncé (11.3.5).</p>
 
-<p id="11.4"><strong>11.4.</strong> La description précédente d'un accouplement (11.3.1), via
+<p id="9.11.4"><strong>11.4.</strong> La description précédente d'un accouplement (11.3.1), via
 l'expression (11.2.1) pour la composante \(\ell\)-primaire du groupe des
 composantes connexes, n'est valable que pour \(\ell\ne p\). Supposant maintenant
 que \(A_K\) a <u>réduction semi-stable</u> sur \(S\), nous allons encore définir des
@@ -4075,7 +4075,7 @@ une expression de \(\Phi_o(\ell)\) en termes du groupe de Barsotti-Tate \(T_\ell
 sur \(K\), qui jouera dans le cas présent le même rôle que 11.2 dans le
 cas traité précédemment :</p>
 
-<div class="thm" id="11.5"><span class="thm-head"><u>Théorème 11.5.</u></span>
+<div class="thm" id="9.11.5"><span class="thm-head"><u>Théorème 11.5.</u></span>
 <div class="thm-body"><u>Supposons \(S\) hensélien, et que \(A_K\) ait réduction semi-stable
 sur \(S\). Soit \(\ell\) un nombre premier, et considérons l'accouplement de mono&shy;dromie (9.1.2), d'où un homomorphisme canonique</u>
 \[\widetilde u_\ell:M_\ell\longrightarrow\check M'_\ell.\]
@@ -4088,7 +4088,7 @@ lieu de \(A_K\) et utilisant (10.2.2), qu'on a aussi un isomorphisme canonique</
 \[\Phi'_o(\ell)\xrightarrow\sim\Phi'(\ell)\times_Ss,
 \quad\text{où }\Phi'(\ell)=\operatorname{coker}({}^t\widetilde u_\ell:\check M'_\ell\longrightarrow\check M_\ell).\]
 
-<p id="11.5.2"><u>Remarques 11.5.2.</u> a) Le théorème 11.5 implique notamment que \(\widetilde u_\ell\) est une
+<p id="9.11.5.2"><u>Remarques 11.5.2.</u> a) Le théorème 11.5 implique notamment que \(\widetilde u_\ell\) est une
 isogénie i.e. que \(u_\ell\) est séparant, y compris dans le cas \(\ell=p\), où
 cette assertion n'est pas triviale sur la définition de 9.6. On notera
 que nous n'utilisons pas ici le théorème (nettement plus profond) 10.4,
@@ -4104,7 +4104,7 @@ d'un \(\ell\), par l'isomorphisme canonique</p>
 
 \[(11.5.3)\qquad \Phi_o\xrightarrow\sim\Phi\times_Ss.\]
 
-<p id="11.6"><strong>11.6.</strong> Pour définir l'isomorphisme (11.5.1), nous pouvons nous borner
+<p id="9.11.6"><strong>11.6.</strong> Pour définir l'isomorphisme (11.5.1), nous pouvons nous borner
 au cas où \(S\) est strictement local (11.0), de sorte que \(M\) et \(M'\) sont
 constants, de valeurs</p>
 
@@ -4174,14 +4174,14 @@ et VI<sub>B</sub> 9.2) de fibre générique</p>
 \[(11.6.11)\qquad {}_n\Phi\lhook\joinrel\longrightarrow M_n.\]
 <p>D'autre part, on a \({}_n\Phi\times_Ss={}_nY\times_Ss={}_nA_o/{}_nA_o^o\), et comme \(A_o^o\) est \(n\)-divisible (2.2.1), on trouve un isomorphisme</p>
 \[(11.6.12)\qquad {}_n\Phi\times_Ss\xrightarrow\sim{}_n\Phi_o.\]
-<p id="11.6.13"><u>Lemme 11.6.13.</u> L'image de l'homomorphisme canonique (11.6.11) est égale au noyau de \(\widetilde u_n:M_n\longrightarrow\check M'_n\).</p>
+<p id="9.11.6.13"><u>Lemme 11.6.13.</u> L'image de l'homomorphisme canonique (11.6.11) est égale au noyau de \(\widetilde u_n:M_n\longrightarrow\check M'_n\).</p>
 <p>Pour prouver le lemme, notons que \(K_n=\ker\widetilde u_n\) est aussi l'annulateur à gauche de l'accouplement canonique \(u_n:M_n\times M'_n\longrightarrow(\mathbb Z/n\mathbb Z)_S\), dont la définition explicite est donnée dans 9.4 et 9.6, en termes des extensions</p>
 \[(11.6.14)\quad0\longrightarrow\check M'_n(1)\longrightarrow F_n\longrightarrow R_n\longrightarrow0,\quad0\longrightarrow\check M_n(1)\longrightarrow F'_n\longrightarrow R'_n\longrightarrow0\]
 <p>et de l'extension panachée \(X_{n\eta}\) de \(E_{n\eta}\) par \(F_{n\eta}\), où</p>
 \[(11.6.15)\qquad E_n=D(F_n),\qquad0\longrightarrow R_n\longrightarrow E_n\longrightarrow M_n\longrightarrow0.\]
 <p>Il résulte alors immédiatement de 9.4.6 que \(K_n\) est le plus grand des sous-groupes finis étales \(K'_n\) de \(M_n\) pour lesquels l'extension panachée induite se prolonge sur \(S\). Cette condition est remplie pour \({}_n\Phi\), puisqu'on dispose de \(({}_nA)^f\), donc \({}_n\Phi\subset K_n\). Réciproquement, le prolongement correspondant à \(K_n\) fournit \(\overline X_n\longrightarrow A\), qui se factorise par \(({}_nA)^f\) ; ainsi \(K_n\subset{}_n\Phi\), cqfd.</p>
-<p id="11.7"><u>Remarques 11.7.</u> La construction précédente permet de reconstruire à isomorphisme unique près l'extension panachée (11.6.5), et par suite \(({}_nA)^f\), à partir des extensions (11.6.14) sur \(S\) et de \(X_{n\eta}=({}_nA_K)^f\). On en déduit alors \({}_nA\) en recollant les deux extensions suivant leur ouvert commun.</p>
-<p id="11.8"><strong>11.8.</strong> Considérons, comme dans 8.3, la clôture séparable \(\overline K\) de \(K\) comme limite inductive de ses sous-extensions finies \(K'\). Pour tout tel \(K'\), soit \(A[K']\) le modèle de Néron de \(A_{K'}\), et</p>
+<p id="9.11.7"><u>Remarques 11.7.</u> La construction précédente permet de reconstruire à isomorphisme unique près l'extension panachée (11.6.5), et par suite \(({}_nA)^f\), à partir des extensions (11.6.14) sur \(S\) et de \(X_{n\eta}=({}_nA_K)^f\). On en déduit alors \({}_nA\) en recollant les deux extensions suivant leur ouvert commun.</p>
+<p id="9.11.8"><strong>11.8.</strong> Considérons, comme dans 8.3, la clôture séparable \(\overline K\) de \(K\) comme limite inductive de ses sous-extensions finies \(K'\). Pour tout tel \(K'\), soit \(A[K']\) le modèle de Néron de \(A_{K'}\), et</p>
 \[(11.8.1)\qquad\Phi_o[K']=A[K']_o/A[K']_o^o.\]
 <p>Les groupes \(\Phi[K']\) forment un système inductif ; posons</p>
 \[(11.8.2)\qquad\Psi=\underset{K'}{\lim}\,\Phi[K'].\]
@@ -4189,7 +4189,7 @@ et VI<sub>B</sub> 9.2) de fibre générique</p>
 \[(11.8.3)\qquad\Psi[K'](\ell)\xrightarrow\sim\ker(\widetilde u[K']_\ell\otimes D_\ell:M_\ell\otimes D_\ell\longrightarrow\check M'_\ell\otimes D_\ell).\]
 <p>Par passage à la limite, on obtient</p>
 \[(11.8.4)\qquad\Psi(\ell)\lhook\joinrel\longrightarrow M_\ell\otimes D_\ell,\qquad(11.8.5)\qquad\Psi\longrightarrow M\otimes\mathbb Q/\mathbb Z.\]
-<p id="11.9"><u>Théorème 11.9.</u> L'homomorphisme canonique (11.8.5) est un isomorphisme.</p>
+<p id="9.11.9"><u>Théorème 11.9.</u> L'homomorphisme canonique (11.8.5) est un isomorphisme.</p>
 <p>On sait déjà que c'est un monomorphisme ; il reste à utiliser la caractérisation (11.8.3) et le comportement de \(\widetilde u(K')\) donné par (10.3.4).</p>
 <p>Se ramenant au cas où \(S\) est strictement local, ce qui est loisible,
 on est donc ramené, pour prouver 11.9, à l'énoncé bien connu suivant
@@ -4197,7 +4197,7 @@ on est donc ramené, pour prouver 11.9, à l'énoncé bien connu suivant
 corps des fractions \(K\), alors pour tout entier \(n\geq1\), il existe une
 extension séparable \(K'\) de \(K\) de degré multiple de \(n\) (cf. I).</p>
 
-<div class="thm corollary" id="11.10"><div class="thm-head"><u>Corollaire 11.10.</u></div>
+<div class="thm corollary" id="9.11.10"><div class="thm-head"><u>Corollaire 11.10.</u></div>
 <div class="thm-body"><p><u>Sous les conditions (\(S\) complet) et avec les notations
 de 8.3, le schéma en groupes \(A^{b}_{\overline K}/A^{bo}_{\overline K}\) ind-fini sur
 \(\overline K\) des composantes connexes du schéma en groupes \(A^b_{\overline K}\) est
@@ -4207,7 +4207,7 @@ canoniquement isomorphe à \(M_{\overline K}\otimes\mathbb Q/\mathbb Z\), où
 <p>C'est une conséquence immédiate de (8.2.4) et de 11.9, compte tenu de la
 définition de \(M_{\overline K}\).</p>
 
-<p id="11.11"><u>Remarques 11.11.</u>&nbsp;&nbsp; a) Lorsqu'on se borne aux composantes
+<p id="9.11.11"><u>Remarques 11.11.</u>&nbsp;&nbsp; a) Lorsqu'on se borne aux composantes
 \(\ell\)-primaires pour \(\ell\ne p\), le théorème 11.9 est immédiat en termes de 11.2,
 et ne demande pas le recours aux considérations plus délicates de 11.6 (via 9.4).
 De même, lorsqu'on suppose \(K\) de caractéristique nulle, 11.9 se démontre sans
@@ -4221,12 +4221,12 @@ pas 9.4) de 11.10 pour la composante \(p\)-primaire.</p>
 <p>b) Le fait qu'on ait un isomorphisme \(\Psi\simeq(\mathbb Q/\mathbb Z)^r\), et la
 valeur correcte de \(r\), avaient été conjecturés en 1954 par J.P. SERRE.</p>
 
-<h2 id="12">12. Modèle de Néron d'une jacobienne et formule de Picard Lefschetz</h2>
+<h2 id="9.12">12. Modèle de Néron d'une jacobienne et formule de Picard Lefschetz</h2>
 
 <p>Rappelons d'abord les résultats généraux suivants de M. RAYNAUD [22, th.5 et th.7,
 22 bis] :</p>
 
-<div class="thm theorem" id="12.1"><div class="thm-head"><u>Théorème 12.1 (M. RAYNAUD).</u></div>
+<div class="thm theorem" id="9.12.1"><div class="thm-head"><u>Théorème 12.1 (M. RAYNAUD).</u></div>
 <div class="thm-body"><p><u>Soient \(S\) un trait strictement local, \(f:X\longrightarrow S\)
 un schéma propre et plat sur \(S\), à fibres de dimension 1, tel que l'on ait</u></p>
 \[(12.1.1)\qquad f_*(\mathcal O_X)\xrightarrow\sim\mathcal O_S\]
@@ -4299,7 +4299,7 @@ induit un isomorphisme</u></p>
 \[(12.1.10)\qquad P^o\xrightarrow\sim A^o.\]
 </div></div>
 
-<p id="12.1.11"><strong>12.1.11.</strong>&nbsp;&nbsp; Le cas qui nous intéressera est celui
+<p id="9.12.1.11"><strong>12.1.11.</strong>&nbsp;&nbsp; Le cas qui nous intéressera est celui
 où \(X_\eta\) est lisse sur \(\eta\), de sorte que (compte tenu de 12.1.1) la fibre
 géométrique générique de \(X\) est lisse et connexe (donc intègre), et où \(X_\eta\)
 possède un 0-cycle de degré 1. Alors toutes les conditions envisagées dans 12.1 (et
@@ -4323,30 +4323,30 @@ a singularités quadratiques ordinaires » implique « réduction semi-stable de
 semi-stable 3.5 ; mais cet argument ne donne pas l'important isomorphisme (12.1.10) et
 sa conséquence (12.1.12).</p>
 
-<p id="12.2"><strong>12.2.</strong>&nbsp;&nbsp; Pour la démonstration de 12.1, nous renvoyons à [22 bis] ;
+<p id="9.12.2"><strong>12.2.</strong>&nbsp;&nbsp; Pour la démonstration de 12.1, nous renvoyons à [22 bis] ;
 nous n'aurons besoin d'ailleurs que du cas \(X_eta\) lisse sur \(eta\). Notons d'ailleurs
 que dans [22bis] sont démontrées des relations entre schémas de Picard et modèles de
 Néron sous les conditions nettement plus générales que celles de 12.1 c) et d) ; comme
 leur énoncé est plus technique, nous avons renoncé à les inclure dans notre rappel.
 Signalons seulement que b), c), d) sont des conséquences faciles de a), et que dans a)
-les seuls points délicats sont les implications \(3\)\Longrightarrow4\Longrightarrow5\)
-et \(7\)\Longrightarrow4\), le plus difficile étant le premier. Ce point est trivial par
+les seuls points délicats sont les implications \(3\Longrightarrow4\Longrightarrow5\)
+et \(7\Longrightarrow4\), le plus difficile étant le premier. Ce point est trivial par
 contre si on suppose que \(X_o\) est séparable sur \(k\) (qui implique que \(X\) admet
 une section sur \(S\) puisque \(S\) est strictement local, donc que la condition 1),
-(d^t=1), est vérifiée). Nous conseillons au lecteur de faire la démonstration dans ce
+\(d^t=1\), est vérifiée). Nous conseillons au lecteur de faire la démonstration dans ce
 cas particulièrement simple, en supposant de plus, au besoin, que \(X_eta\) est lisse
-donc (P_eta^o) un schéma abélien, ce qui permet alors de disposer du modèle de Néron
-\(A\) de ce dernier, et de (A^o) pour représenter \(\operatorname{Pic}_{X/S}^o). Nous
+donc \(P_eta^o\) un schéma abélien, ce qui permet alors de disposer du modèle de Néron
+\(A\) de ce dernier, et de \(A^o\) pour représenter \(\operatorname{Pic}_{X/S}^o\). Nous
 n'utiliserons d'ailleurs 12.1 que dans ce cas particulier, et lorsque l'on suppose de
 plus que \(\overline X_o\) n'a d'autres points singuliers que des points quadratiques
 ordinaires, i.e. (12.1.11) que \(A_eta\) est à réduction semi-stable : c'est le cas
 envisagé dans 12.5.4, auquel nous nous bornons à partir de maintenant.</p>
 
-<p id="12.3"><strong>12.3.</strong>&nbsp;&nbsp; Soit \(C\) une courbe séparable et propre sur un corps \(k\), que nous
+<p id="9.12.3"><strong>12.3.</strong>&nbsp;&nbsp; Soit \(C\) une courbe séparable et propre sur un corps \(k\), que nous
 supposons pour simplifier séparablement clos (ou même algébriquement clos, si le lecteur
 préfère). Si \(\widetilde C\) est la normalisée de \(C\), on sait que
-\(\operatorname{Pic}_{\widetilde C/k}^o) est de « rang réductif » nul (i.e. son tore
-maximal est nul), de sorte que le tore maximal de \(\operatorname{Pic}_{C/k}^o) est
+\(\operatorname{Pic}_{\widetilde C/k}^o\) est de « rang réductif » nul (i.e. son tore
+maximal est nul), de sorte que le tore maximal de \(\operatorname{Pic}_{C/k}^o\) est
 contenu dans</p>
 \[
 N=\ker(\operatorname{Pic}_{C/k}\longrightarrow\operatorname{Pic}_{\widetilde C/k}),
@@ -4357,19 +4357,19 @@ que \(N\) est canoniquement une extension d'un tore \(T\) dont on va expliciter 
 description, par un groupe unipotent connexe \(U\) (qui se dévisse de même, sur \(k\),
 avec une suite de composition à quotients isomorphes au groupe additif
 \(\mathbb G_a\)). D'ailleurs, si \(T'\) est le tore maximal de \(N\), alors
-(T'\cap U) est à la fois unipotent et de type multiplicatif, donc nul (SGA 3 XVII
+\(T'\cap U\) est à la fois unipotent et de type multiplicatif, donc nul (SGA 3 XVII
 2.4), et l'image de \(T'\) dans \(T\) est identique à \(T\) (SGA 3 XII 7.1 e)), de
-sorte que (T'\longrightarrow T) est un isomorphisme. Donc \(T\) est canoniquement
-isomorphe au tore maximal de \(N\), donc de \(\operatorname{Pic}_{C/k}^o).</p>
+sorte que \(T'\longrightarrow T\) est un isomorphisme. Donc \(T\) est canoniquement
+isomorphe au tore maximal de \(N\), donc de \(\operatorname{Pic}_{C/k}^o\).</p>
 <p>C'est pour expliciter la structure de \(N\) qu'il sera commode de supposer \(k\)
 séparablement clos, de sorte que les composantes irréductibles \(C_i\) de \(C\) sont
 géométriquement irréductibles, et que les points non normaux de \(C\) sont radiciels
 sur \(k\). Ceci dit, soit \(J\) l'ensemble des composantes irréductibles de
-\(\widetilde C\), et pour tout (x\in C), soit (J\(x\)) l'ensemble des « branches »
+\(\widetilde C\), et pour tout \(x\in C\), soit (J\(x\)) l'ensemble des « branches »
 de \(C\) passant par \(x\) (i.e. des points de \(\widetilde C\) au-dessus de \(x\)) ;
 soient enfin</p>
-\[(12.3.1)\qquad R\(x\)=\mathbb Z^{J\(x\)}/\operatorname{Im}\mathbb Z,\]
-<p>où \(\mathbb Z\longrightarrow\mathbb Z^{J\(x\\)}) est l'application diagonale, et</p>
+\[(12.3.1)\qquad R(x)=\mathbb Z^{J(x)}/\operatorname{Im}\mathbb Z,\]
+<p>où \(\mathbb Z\longrightarrow\mathbb Z^{J(x)}\) est l'application diagonale, et</p>
 \[(12.3.2)\qquad R=(\mathop{\bigoplus}\limits_x R_x)/\operatorname{Im}\mathbb Z^J,\]
 <p>où il suffit évidemment d'étendre la somme à l'ensemble fini des points de \(C\)
 qui appartiennent à au moins deux branches de \(C\). Donc \(R\) est un
@@ -4377,43 +4377,43 @@ qui appartiennent à au moins deux branches de \(C\). Donc \(R\) est un
 \[(12.2.3)\qquad T\;(\mathrel{\mathop{\simeq}}\text{ tore maximal de }
 \operatorname{Pic}_{C/k}^o)\xrightarrow\sim R\mathbin{\mathop\otimes}\mathbb G_{m,k}.\]
 <p>En d'autres termes, le groupe des caractères \(M\) de \(T\) est donné par</p>
-\[(12.2.4)\qquad M\mathrel{\mathop=\limits^{\mathrm{dfn}}}D\(T\)=\check R
-\xrightarrow\sim\ker(\mathop{\bigoplus}\limits_x\check R\(x\)\longrightarrow\mathbb Z^J),\]
+\[(12.2.4)\qquad M\mathrel{\mathop=\limits^{\mathrm{dfn}}}D(T)=\check R
+\xrightarrow\sim\ker(\mathop{\bigoplus}\limits_x\check R(x)\longrightarrow\mathbb Z^J),\]
 <p>où (check R\(x\)) peut s'interpréter aussi comme l'ensemble des fonctions à valeurs
 entières sur (J\(x\)) dont la somme des valeurs est nulle.</p>
 
-<p id="12.3.5"><strong>12.3.5.</strong>&nbsp;&nbsp; Nous aurons à utiliser seulement le cas où par un point \(x\) de \(C\)
+<p id="9.12.3.5"><strong>12.3.5.</strong>&nbsp;&nbsp; Nous aurons à utiliser seulement le cas où par un point \(x\) de \(C\)
 passent au plus deux branches (ce qui est le cas en particulier pour les points
-quadratiques ordinaires !). Pour un point tel que \(\operatorname{card}J\(x\)=2),
+quadratiques ordinaires !). Pour un point tel que \(\operatorname{card}J(x)=2\),
 (R\(x\)) est donc isomorphe à \(\mathbb Z\), mais l'isomorphisme dépendant du choix d'un
-ordre sur l'ensemble des deux branches ((C',C'')) passant par \(x\), ou ce qui revient
+ordre sur l'ensemble des deux branches \((C',C'')\) passant par \(x\), ou ce qui revient
 au même, le choix de l'une de ses branches \(C'\) (en associant à celle-ci l'élément de
-(R\(x\)) image canonique de (0_{C'}+1_{C''})). On trouve donc alors un isomorphisme</p>
+(R\(x\)) image canonique de \(0_{C'}+1_{C''}\)). On trouve donc alors un isomorphisme</p>
 \[(12.3.6)\qquad R=\mathbb Z^I/\operatorname{Im}\mathbb Z^J,\quad
 T\simeq\mathbb G_m^I/\operatorname{Im}\mathbb G_m^J,\quad
 M=\ker(\mathbb Z^I\longrightarrow\mathbb Z^J),\]
-<p>où \(I\) désigne l'ensemble des (x\in C) appartenant à deux branches de \(C\), et
+<p>où \(I\) désigne l'ensemble des \(x\in C\) appartenant à deux branches de \(C\), et
 moyennant un choix de signes comme on vient de l'expliciter.</p>
 
-<p id="12.3.7"><u>Remarques 12.3.7.</u> Une façon parfois commode d'expliciter le groupe des
-caractères \(M\) du tore maximal \(T\) de \(\operatorname{Pic}_{C/k}^o) est la suivante :
+<p id="9.12.3.7"><u>Remarques 12.3.7.</u> Une façon parfois commode d'expliciter le groupe des
+caractères \(M\) du tore maximal \(T\) de \(\operatorname{Pic}_{C/k}^o\) est la suivante :
 on considère le « graphe (non orienté) de dimension 1 » (N. BOURBAKI, Groupes et
-Algèbres de Lie, Chap IV, Annexe) \(\Gamma\(C\\)) dont les sommets sont les composantes
+Algèbres de Lie, Chap IV, Annexe) \(\Gamma(C)\) dont les sommets sont les composantes
 irréductibles de \(\widetilde C\), deux sommets \(\widetilde C_i\) et
 \(\widetilde C_j\) étant reliés par un ensemble d'arêtes en correspondance bijective
 avec l'ensemble \(\widetilde C_i\mathbin{\mathop\times_C}\widetilde C_j\) des ensembles
 de deux branches <u>distinctes</u> de \(C\) contenues dans \(\widetilde C_i\) resp.
 \(\widetilde C_j\) passant par le même point de \(C\), ensemble égal à
-\(\widetilde C_i\mathbin{\mathop\times_C}\widetilde C_j\) si (i\ne j), à
+\(\widetilde C_i\mathbin{\mathop\times_C}\widetilde C_j\) si \(i\ne j\), à
 \(\widetilde C_i\mathbin{\mathop\times_C}\widetilde C_i-\Delta(\widetilde C_i\))
 modulo symétrie (\(\Delta:\widetilde C\longrightarrow\widetilde C\times_C\widetilde C\)
-étant la diagonale) si (i=j) (donc vide si \(C_i\) est géométriquement unibranche).
+étant la diagonale) si \(i=j\) (donc vide si \(C_i\) est géométriquement unibranche).
 Ceci posé, on a des isomorphismes canoniques</p>
-\[(12.3.7)\qquad M=D\(T\)\xleftarrow\sim H_1(\Gamma\(C\),\mathbb Z),\quad
-\check M=R\xrightarrow\sim H^1(\Gamma\(C\),\mathbb Z).\]
+\[(12.3.7)\qquad M=D(T)\xleftarrow\sim H_1(\Gamma(C),\mathbb Z),\quad
+\check M=R\xrightarrow\sim H^1(\Gamma(C),\mathbb Z).\]
 <p>Nous n'aurons pas besoin de cette interprétation combinatoire de \(M\), et allons
 nous borner à définir l'homorphisme canonique</p>
-\[H_1(\Gamma\(C\),\mathbb Z)\longrightarrow M,\]
+\[H_1(\Gamma(C),\mathbb Z)\longrightarrow M,\]
 <p>laissant au lecteur le soin de prouver que c'est un isomorphisme. Soit donc \(I\)
 l'ensemble des points de \(C\) appartenant à au moins deux branches de \(C\), \(J\)
 (comme ci-dessus) l'ensemble des composantes irréductibles de \(\widetilde C\) (ou de
@@ -4422,32 +4422,32 @@ de \(I\), i.e. l'image inverse de \(I\) dans \(\widetilde C\). On a donc une app
 canonique</p>
 \[(12.3.9)\qquad h:K\longrightarrow I\times J,\qquad h=(f,g),\]
 <p>et la description (12.3.4) de \(M\) s'exprime en termes de \(h\) comme</p>
-\[(12.3.10)\qquad M\xrightarrow\sim\ker\bigl(\mathbb Z^{\(h\)}:
-\mathbb Z^{\(K\)}\longrightarrow\mathbb Z^{(I\times J)}\bigr),\]
-<p>car l'expression (12.3.3) de (R=\check M) peut s'interpréter manifestement comme
+\[(12.3.10)\qquad M\xrightarrow\sim\ker\bigl(\mathbb Z^{(h)}:
+\mathbb Z^{(K)}\longrightarrow\mathbb Z^{(I\times J)}\bigr),\]
+<p>car l'expression (12.3.3) de \(R=\check M\) peut s'interpréter manifestement comme
 le conoyau de l'homomorphisme \(\mathbb Z^{I\times J}\longrightarrow\mathbb Z^K\)
-induit par \(h\), lequel est transposé de \(\mathbb Z^{\(h\\)}). Notons d'ailleurs que le
-graphe \(\Gamma\(C\\)) s'explicite aussi de façon évidente en termes de \(h\), par
-\(\Gamma_o=J\), \(\Gamma_1=(K\times_I K-\Delta\(K\\))/\text{symétrie}).</p>
-<p>D'autre part, choisissant une orientation sur chacune des arêtes de \(\Gamma\(C\\)),
-et désignant par \\(\Gamma_1\\) l'ensemble de ces arêtes ((x_i,C',C'')), on a</p>
-\[(12.3.11)\qquad H_1(\Gamma\(C\),\mathbb Z)=
-\ker\bigl(d:\mathbb Z^{(\Gamma_1)}\longrightarrow\mathbb Z^{\(J\)}\bigr),\]
+induit par \(h\), lequel est transposé de \(\mathbb Z^{(h)}\). Notons d'ailleurs que le
+graphe \(\Gamma(C)\) s'explicite aussi de façon évidente en termes de \(h\), par
+\(\Gamma_o=J\), \(\Gamma_1=(K\times_I K-\Delta(K))/\text{symétrie}\).</p>
+<p>D'autre part, choisissant une orientation sur chacune des arêtes de \(\Gamma(C)\),
+et désignant par \(\Gamma_1\) l'ensemble de ces arêtes \((x_i,C',C'')\), on a</p>
+\[(12.3.11)\qquad H_1(\Gamma(C),\mathbb Z)=
+\ker\bigl(d:\mathbb Z^{(\Gamma_1)}\longrightarrow\mathbb Z^{(J)}\bigr),\]
 <p>où l'opérateur différentiel est donné par</p>
-\[(12.3.12)\qquad d(x,C',C'')=g\(C''\)-g\(C'\).\]
+\[(12.3.12)\qquad d(x,C',C'')=g(C'')-g(C').\]
 <p>Ceci posé, l'homomorphisme (12.3.8) est induit par l'homomorphisme \(v\) de complexes
 de chaînes :</p>
-\[(12.3.13)\qquad v=(v_o,v_1):C_\bullet(\Gamma\(C\))=
-[\mathbb Z^{(\Gamma)}\longrightarrow\mathbb Z^{\(J\)}]
-\longrightarrow[\mathbb Z^{\(K\)}\longrightarrow\mathbb Z^{(I\times J)}]\]
+\[(12.3.13)\qquad v=(v_o,v_1):C_\bullet(\Gamma(C))=
+[\mathbb Z^{(\Gamma)}\longrightarrow\mathbb Z^{(J)}]
+\longrightarrow[\mathbb Z^{(K)}\longrightarrow\mathbb Z^{(I\times J)}]\]
 <p>donné par</p>
 \[(12.3.14)\qquad v_1(x,C',C'')=(x,C'')-(x,C'),\qquad
 v_o(\widetilde C_j)=(0,\widetilde C_j).\]
 
-<p id="12.4"><strong>12.4.</strong>&nbsp;&nbsp; Nous nous plaçons maintenant dans le cas envisagé à la fin de 12.2.
-En vertu de (12.1.12) et de (12.3.6) appliqué à (C=X_o), le groupe des caractères
+<p id="9.12.4"><strong>12.4.</strong>&nbsp;&nbsp; Nous nous plaçons maintenant dans le cas envisagé à la fin de 12.2.
+En vertu de (12.1.12) et de (12.3.6) appliqué à \(C=X_o\), le groupe des caractères
 \(M\) du tore maximal \(T\) de la fibre spéciale \(A_o\) du modèle de Néron \(A\) de
-(A=\operatorname{Pic}_{X_\eta/\eta}^o) est donné par</p>
+\(A=\operatorname{Pic}_{X_\eta/\eta}^o\) est donné par</p>
 \[(12.4.1)\qquad M=\ker(\mathbb Z^I\mathrel{\mathop{\longrightarrow}\limits^d}
 \mathbb Z^J),\]
 <p>où \(I\) est l'ensemble des points singuliers de \(X_o\), et \(J\) l'ensemble de ses
@@ -4490,7 +4490,7 @@ l'accouplement de monodromie (9.1.2) peut être considéré comme un accouplemen
 \longrightarrow\mathbb Z_\ell.\]
 <p>Ceci posé, nous pouvons énoncer le résultat principal du présent paragraphe :</p>
 
-<div class="thm theorem" id="12.5">
+<div class="thm theorem" id="9.12.5">
 <div class="thm-head"><span class="thm-name"><u>Théorème 12.5 (\(\text{« Formule de Picard--Lefschetz »}\)).</u></span></div>
 <div class="thm-body"><p><u>Soient \(S\) un trait strictement local, \(X\) un schéma régulier,
 projectif et plat sur \(S\), à fibres de dimension 1, dont la fibre géométrique générique
@@ -4501,12 +4501,12 @@ singuliers que des points quadratiques ordinaires. Avec les notations introduite
 \(\mathbb Z_\ell\).</u></p></div>
 </div>
 
-<p id="12.6"><strong>12.6.</strong>&nbsp;&nbsp; On notera que cet énoncé prouve 10.4 dans le cas particulier envisagé,
+<p id="9.12.6"><strong>12.6.</strong>&nbsp;&nbsp; On notera que cet énoncé prouve 10.4 dans le cas particulier envisagé,
 lorsque dans 10.4 b) on prend pour \(\xi\) la polarisation canonique envisagée dans
 10.4. Comme nous l'avons montré dans 10.5, ceci suffit à entraîner 10.4 dans le cas
 général.</p>
 
-<p id="12.7"><strong>12.7.</strong>&nbsp;&nbsp; <u>Démonstration de 12.5.</u> Cas \(\ell\ne p\). Elle s'appuie de façon essentielle
+<p id="9.12.7"><strong>12.7.</strong>&nbsp;&nbsp; <u>Démonstration de 12.5.</u> Cas \(\ell\ne p\). Elle s'appuie de façon essentielle
 sur la <u>formule de Picard-Lefschetz cohomologique</u> dans la situation envisagée dans
 12.5, formule donnant l'action du groupe de monodromie \(I\) sur</p>
 \[(12.7.1)\qquad H^1(X_{\overline\eta},\mathbb Z_\ell)\simeq
@@ -4519,7 +4519,7 @@ de \(u_\ell\), pour \(\ell\ne p\). Il reste alors à traiter le cas \(\ell=p\). 
 ferons par une méthode de réduction au cas de la caractéristique nulle (et où de plus
 \(X_o\) n'a qu'un seul point singulier), que nous allons maintenant exposer.</p>
 
-<p id="12.7.2"><u>Remarques 12.7.2.</u> On notera d'ailleurs que, une fois la réduction annoncée faite,
+<p id="9.12.7.2"><u>Remarques 12.7.2.</u> On notera d'ailleurs que, une fois la réduction annoncée faite,
 les arguments habituels nous permettraient de nous ramener au cas où on a comme corps
 de base le corps \(\mathbb C\) des complexes, et à invoquer alors la formule de
 Picard-Lefschetz sous la forme classique, — à cela près qu'il ne semble pas y avoir de
@@ -4533,7 +4533,7 @@ regardée également comme étant essentiellement « transcendante ». Il serait
 de trouver des démonstrations purement algébriques de ces résultats (mais il n'est
 nullement évident que cela soit possible !).</p>
 
-<p id="12.8"><strong>12.8.</strong>&nbsp;&nbsp; <u>Démonstration de 12.5 : réduction au cas où \(S\) est de caractéristique
+<p id="9.12.8"><strong>12.8.</strong>&nbsp;&nbsp; <u>Démonstration de 12.5 : réduction au cas où \(S\) est de caractéristique
 nulle.</u> Nous allons utiliser un raisonnement s'appuyant sur le même principe que la
 démonstration du « théorème d'action essentiellement modérée de la monodromie sur le
 \(\Pi_1\) » dans V. Notons qu'on peut supposer \(S\) complet grâce à 10.3. Soit \(W\)
@@ -4667,7 +4667,7 @@ si \(X\) est <u>régulier</u> au point \(x_\lambda\). Comme dans 12.5 on a suppo
 \(X\) régulier, i.e. les \(d_\lambda\) égaux à 1, on voit donc que 12.5 sera une
 conséquence du lemme suivant, où \(X,S,g\) ne figurent plus :</p>
 
-<div class="thm lemma" id="12.8.13">
+<div class="thm lemma" id="9.12.8.13">
 <div class="thm-head"><span class="thm-name"><u>Lemme 12.8.13.</u></span></div>
 <div class="thm-body"><p><u>Si \(\lambda\in L\), le composé de (12.8.11) avec
 \(\operatorname{pr}_\lambda\) est égal à la forme
@@ -4724,7 +4724,7 @@ relation analogue pour \(\underline X^\lambda\) :</p>
 \(\underline S^\lambda\). Or \(\underline S\) est un trait de
 <u>caractéristique nulle</u>. Cela achève donc la réduction annoncée.</p>
 
-<p id="12.9"><u>Remarques 12.9.</u> On notera que cette réduction nous réduit en même temps
+<p id="9.12.9"><u>Remarques 12.9.</u> On notera que cette réduction nous réduit en même temps
 au cas où \(X_o\) n'a qu'un seul point singulier, qui est celui qui était
 considéré classiquement dans la formule de Picard-Lefschetz. Notons
 d'ailleurs que dans ce cas, \(X_o\) a une ou deux composantes irréductibles,
@@ -4732,7 +4732,7 @@ ces cas correspondants respectivement à \(\operatorname{rang}M=1\) et
 \(\operatorname{rang}M=0\) (ce dernier cas étant celui où la jacobienne de la
 fibre générique a bonne réduction).</p>
 
-<p id="12.10"><b>12.10.</b> La démonstration donnée dans 12.8 nous fournit un résultat
+<p id="9.12.10"><b>12.10.</b> La démonstration donnée dans 12.8 nous fournit un résultat
 plus général que 12.5, valable sans supposer que \(X\) soit régulier,
 en introduisant les entiers \(d_\lambda\geq1\) de (12.8.12) : on trouve alors
 que les accouplements de monodromie se déduisent tous de l'accouplement</p>
@@ -4740,12 +4740,12 @@ que les accouplements de monodromie se déduisent tous de l'accouplement</p>
 \varphi_{x_\lambda}\otimes\varphi_{x_\lambda}:
 M\otimes M\longrightarrow\mathbb Z.\]
 
-<h2 id="13">13. <u>Liens avec la théorie transcendante : cas analytique complexe.</u></h2>
+<h2 id="9.13">13. <u>Liens avec la théorie transcendante : cas analytique complexe.</u></h2>
 
 <p>Pour les notions générales relatives aux espaces analytiques,
 nous renvoyons à [2].</p>
 
-<h3 id="13.1">13.1. <u>Rappels sur les groupes analytiques sur S.</u></h3>
+<h3 id="9.13.1">13.1. <u>Rappels sur les groupes analytiques sur S.</u></h3>
 
 <p>Soit \(S\) un espace analytique, \(A\) un espace analytique au-dessus de \(S\),
 muni d'une structure de groupe commutatif au-dessus de \(S\) (i.e. \(A\) est un
@@ -4773,14 +4773,14 @@ un groupe analytique relatif <u>étale</u> sur \(S\). C'est un sous-espace analy
 de \(E\), qui est fermé dans \(E\) si et seulement si \(A^o\) est séparé sur \(S\),
 i.e. la section nulle de \(A^o\) est fermée dans \(A^o\).</p>
 
-<p id="13.1.4"><b>13.1.4.</b> Bien entendu, la suite exacte (13.1.3) est <u>fonctorielle</u>
+<p id="9.13.1.4"><b>13.1.4.</b> Bien entendu, la suite exacte (13.1.3) est <u>fonctorielle</u>
 en \(A\), et commute à tout changement de base \(S'\longrightarrow S\). De cette
 façon on trouve une équivalence de catégories, compatible aux changements de base,
 entre la catégorie des groupes analytiques relatifs sur \(S\) lisses et à fibres
 connexes, et la catégorie des couples \((E,R)\) d'un fibré vectoriel localement libre
 \(E\) sur \(S\) et d'un sous-groupe analytique \(R\) de \(E\) étale sur \(S\).</p>
 
-<p id="13.1.5"><b>13.1.5.</b> Lorsque \(A\) est un groupe "abéloïde" sur \(S\), par quoi
+<p id="9.13.1.5"><b>13.1.5.</b> Lorsque \(A\) est un groupe "abéloïde" sur \(S\), par quoi
 nous entendons qu'il est lisse, propre et séparé sur \(S\) et à fibres connexes,
 de sorte qu'on a en particulier \(A=A^o\), alors \(R\) est un groupe localement
 constant sur \(S\), dont le rang en chaque point \(s\) (en tant que
@@ -4790,7 +4790,7 @@ en termes d'un "<u>système local</u>" \(R\) sur \(S\) et d'une structure de fib
 vectoriel analytique <u>complexe</u> sur le fibré analytique réel
 \(R\otimes_{\mathbb Z}\mathbb R\) défini par \(R\).</p>
 
-<h3 id="13.2">13.2. <u>Complétion formelle le long d'une fibre.</u></h3>
+<h3 id="9.13.2">13.2. <u>Complétion formelle le long d'une fibre.</u></h3>
 
 <p>Nous supposons donné désormais un point \(s\in S\), et allons travailler localement
 au voisinage de \(s\). Pour tout entier \(n\geq0\), désignons par \(S_n\) le
@@ -4803,7 +4803,7 @@ aux limites projectives finies ; donc \(X\longmapsto\widehat X\) transforme grou
 en groupes. Notons que \(\widehat X\) ne dépend en fait que de la restriction de \(X\)
 à un voisinage ouvert arbitraire \(U\) de \(s\).</p>
 
-<div class="thm lemma" id="13.2.1">
+<div class="thm lemma" id="9.13.2.1">
 <div class="thm-head"><span class="thm-name"><u>Lemme 13.2.1.</u></span></div>
 <div class="thm-body"><p><u>Les données sont celles de 13.1, et on suppose que les
 conditions suivantes sont vérifiées : a) \(A=A^o\), b) \(R\) est constant au
@@ -4860,14 +4860,14 @@ l'existence de \(F\). De plus on voit que \(F(R_o)\subset R'_o\), où \(R_o\) et
 \(E'\). En vertu de b), \(R_o\) engendre \(R\) au voisinage de \(s\), d'où il résulte que
 \(F(R)\subset R'\) au voisinage de \(s\), ce qui achève la démonstration.</p>
 
-<div class="thm corollary" id="13.2.2">
+<div class="thm corollary" id="9.13.2.2">
 <div class="thm-head"><span class="thm-name"><u>Corollaire 13.2.2.</u></span></div>
 <div class="thm-body"><p><u>Si \(A\) satisfait les conditions a), b), c) de 13.2.2,
 il est déterminé à isomorphisme unique près au voisinage de \(s\) par la
 connaissance du \(\widehat S\)-groupe \(\widehat A\).</u></p></div>
 </div>
 
-<h3 id="13.3">13.3. &nbsp; <u>L'extension de RAYNAUD analytique.</u></h3>
+<h3 id="9.13.3">13.3. &nbsp; <u>L'extension de RAYNAUD analytique.</u></h3>
 
 <p>Nous sommes maintenant en mesure de paraphraser, en Géométrie Analytique, la construction de
 l'extension de Raynaud donnée dans 7. Supposons donné \(A\) comme dans 13.1,
@@ -4968,7 +4968,7 @@ une extension d'un tel groupe \(B_o\) par un tore \(T_o\). <u>Toute façon d'éc
 structure d'extension (13.3.13) d'un groupe abéloïde \(B\) par un tore \(T\),
 induisant la structure d'extension donnée en \(s\).</u></p>
 
-<h3 id="13.4">13.4. &nbsp; <u>Interprétation en termes de « structures de Hodge mixtes » de DELIGNE.</u></h3>
+<h3 id="9.13.4">13.4. &nbsp; <u>Interprétation en termes de « structures de Hodge mixtes » de DELIGNE.</u></h3>
 
 <p>Reprenons d'abord le dictionnaire 13.1.4, que nous allons reformuler
 d'une façon légèrement différente, mieux adaptée à l'introduction des
@@ -5124,7 +5124,7 @@ qui suit, nous allons montrer que tout marche bien en faisant des
 hypothèses d'algébricité relative sur \(A\), et faire en même temps le
 lien avec la construction du par. 7.</p>
 
-<h3 id="13.5">13.5. &nbsp; <u>Cas d'une situation relativement algébrique.</u></h3>
+<h3 id="9.13.5">13.5. &nbsp; <u>Cas d'une situation relativement algébrique.</u></h3>
 
 <p>Nous supposons main&shy;tenant que \(A\) provient d'un schéma en groupes relatif sur \(S\), lisse,
 séparé et à fibres des extensions de schémas abéliens par des tores.

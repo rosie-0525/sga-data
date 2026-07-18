@@ -156,8 +156,8 @@ a.ref { text-decoration: none; }
 <p>D'autre part, appliquant à \((*)\) (resp. \((**)\)) le foncteur exact à gauche \(\operatorname{Hom}_{A_S}(\cdot,G)\) (resp. \(\operatorname{Hom}_{A(S)}(\cdot,\Gamma_S(G))\)), on obtient un diagramme commutatif où les lignes sont exactes :</p>
 
 <div class="display-formula">\[\xymatrix{
-0\ar[r]&amp;\operatorname{Hom}_{A_S}(F,G)\ar[r]\ar[d]&amp;\operatorname{Hom}_{A_S}(A_S^{(J)},G)\ar[r]\ar[d]&amp;\operatorname{Hom}_{A_S}(A_S^{(I)},G)\ar[d]\\
-0\ar[r]&amp;\operatorname{Hom}_{A(S)}(\Gamma_S(F),\Gamma_S(G))\ar[r]&amp;\operatorname{Hom}_{A(S)}(A(S)^{(J)},\Gamma_S(G))\ar[r]&amp;\operatorname{Hom}_{A(S)}(A(S)^{(I)},\Gamma_S(G)).
+0\ar[r]&amp;{\operatorname{Hom}_{A_S}(F,G)}\ar[r]\ar[d]&amp;{\operatorname{Hom}_{A_S}(A_S^{(J)},G)}\ar[r]\ar[d]&amp;{\operatorname{Hom}_{A_S}(A_S^{(I)},G)}\ar[d]\\
+0\ar[r]&amp;{\operatorname{Hom}_{A(S)}(\Gamma_S(F),\Gamma_S(G))}\ar[r]&amp;{\operatorname{Hom}_{A(S)}(A(S)^{(J)},\Gamma_S(G))}\ar[r]&amp;{\operatorname{Hom}_{A(S)}(A(S)^{(I)},\Gamma_S(G)).}
 }\]</div>
 
 <p>Les deux flèches verticales de droite sont visiblement des isomorphismes ; il en est donc de même de la flèche verticale de gauche, ce qui démontre la pleine fidélité de \(\Gamma_S:\underline C'_S\longrightarrow\operatorname{Mod}(A(S))\). La caractérisation de l'image essentielle, dans le cas (i) ou (ii), est immédiate et laissée au lecteur.</p>
@@ -231,7 +231,7 @@ a.ref { text-decoration: none; }
   <p>est pleinement fidèle et a pour image essentielle \(D^-(\operatorname{Qcoh}(S))_{\mathrm{coh}}\).</p></div>
 </div>
 
-<p><em>Preuve.</em> On applique (1.1) en prenant pour \(\underline S\) le site zariskien de \(S\), pour \(\underline C\) (resp. \(\underline C_0\)) la catégorie fibrée \(U\longmapsto\operatorname{Qcoh}(U)\) (resp. \(\operatorname{Coh}(U)\)). Comme \(\mathcal O_S\) est cohérent, les objets de \(\underline C_0\) sont pseudo-cohérents (I 3.5) donc un objet de \(D(\operatorname{Qcoh}(U))\) (\(U\) ouvert de \(S\)) est pseudo-cohérent (au sens (2.2.1)) si et seulement s'il l'est relativement à \(\underline C_0\) (I 2.14.1). Il suffit donc en vertu de (1.1 c)) de montrer que les conditions (i) et (ii) non respé de (1.1) sont satisfaites. Pour (ii), c'est trivial, puisqu'un Module quasi-cohérent qui est quotient d'un Module cohérent est cohérent, et que la notion de cohérence est locale. Pour (i), on utilise (2.1.1 a)) et le fait que tout \(\mathcal O_S\)-Module quasi-cohérent est limite inductive filtrante de \(\mathcal O_S\)-Modules cohérents (EGA I 9.4.9).</p>
+<p><em>Preuve.</em> On applique (1.1) en prenant pour \(\underline S\) le site zariskien de \(S\), pour \(\underline C\) (resp. \(\underline C_0\)) la catégorie fibrée \(U\longmapsto\operatorname{Qcoh}(U)\) (resp. \(\operatorname{Coh}(U)\)). Comme \(\mathcal O_S\) est cohérent, les objets de \(\underline C_0\) sont pseudo-cohérents (I 3.5) donc un objet de \(D(\operatorname{Qcoh}(U))\) (\(U\) ouvert de \(S\)) est pseudo-cohérent \(au sens (2.2.1)\) si et seulement s'il l'est relativement à \(\underline C_0\) (I 2.14.1). Il suffit donc en vertu de (1.1 c)) de montrer que les conditions (i) et (ii) non respé de (1.1) sont satisfaites. Pour (ii), c'est trivial, puisqu'un Module quasi-cohérent qui est quotient d'un Module cohérent est cohérent, et que la notion de cohérence est locale. Pour (i), on utilise (2.1.1 a)) et le fait que tout \(\mathcal O_S\)-Module quasi-cohérent est limite inductive filtrante de \(\mathcal O_S\)-Modules cohérents (EGA I 9.4.9).</p>
 
 <p>Admettant (3.5) et (3.7), indépendants du présent numéro, on en déduit facilement :</p>
 
@@ -247,7 +247,7 @@ a.ref { text-decoration: none; }
   <div class="thm-head"><span class="thm-name">Proposition</span> <span class="thm-num">2.2.3</span> (cf. EGA II 4.5.2 et 4.5.5).</div>
   <div class="thm-body"><p>Soit \(S\) un schéma quasi-compact et quasi-séparé, et soit \((L_i)_{i\in I}\) une famille de faisceaux inversibles sur \(S\). Pour tout \(\mathcal O_S\)-Module \(F\), et tout couple \((i,n)\in I\times\mathbb Z\), on note \(F_{(i,n)}\) le sous-\(\mathcal O_S\)-Module de \(F\otimes L_i^{\otimes n}\) engendré par les sections de \(F\otimes L_i^{\otimes n}\) au-dessus de \(S\). Les conditions suivantes sont équivalentes :</p>
   <p>(i) Les ouverts \(S_f\), pour \(f\in\Gamma(S,L_i^{\otimes n})\), \(i\in I\) et \(n\in\mathbb N\), forment une base de la topologie de \(S\).</p>
-  <p>(i') Ceux des \(S_f\) qui sont affines recouvrent \(S\).</p>
+  <p>\(i'\) Ceux des \(S_f\) qui sont affines recouvrent \(S\).</p>
   <p>(ii) Pour tout \(\mathcal O_S\)-Module \(F\) quasi-cohérent et de type fini, il existe une famille \((r_i)_{i\in I}\) (resp. \((n_i)_{i\in I}\)) d'entiers \(\geq0\) (resp. \(&gt;0\)), et un épimorphisme</p>
   <div class="display-formula">\[\bigoplus_{i\in I}\mathcal O_S^{r_i}\otimes L_i^{\otimes(-n_i)}\longrightarrow F.\]</div>
   <p>(iii) Pour tout \(F\in\operatorname{ob}\operatorname{Qcoh}(S)\), on a</p>
@@ -258,7 +258,7 @@ a.ref { text-decoration: none; }
 
 <p><em>Preuve.</em> Elle consiste en une simple paraphrase de (loc. cit.) ; nous la donnons, brièvement, pour la commodité du lecteur.</p>
 
-<p>(i) \(\Rightarrow\) (i') : Pour \(x\in S\), on choisit un ouvert affine \(U\) contenant \(x\). Un ouvert \(S_f\) tel que \(x\in S_f\subset U\), avec \(f\in\Gamma(S,L_i^{\otimes n})\) (\(n\geq0\)), est nécessairement affine, comme il résulte du</p>
+<p>(i) \(\Rightarrow\) \(i'\) : Pour \(x\in S\), on choisit un ouvert affine \(U\) contenant \(x\). Un ouvert \(S_f\) tel que \(x\in S_f\subset U\), avec \(f\in\Gamma(S,L_i^{\otimes n})\) (\(n\geq0\)), est nécessairement affine, comme il résulte du</p>
 
 <div class="thm thm-plain lemme" id="II.2.2.3.1">
   <div class="thm-head"><span class="thm-name">Lemme</span> <span class="thm-num">2.2.3.1.</span> (EGA II 5.5.8).</div>
@@ -267,11 +267,11 @@ a.ref { text-decoration: none; }
 
 <p><em>Preuve.</em> C'est trivial : la question est locale sur \(X\), donc on peut supposer \(X\) affine et \(L\simeq\mathcal O_X\), et l'on gagne.</p>
 
-<p>(i') \(\Rightarrow\) (ii) : Soit un recouvrement fini de \(S\) par des ouverts affines \(S_{f_{ij}}\), où \(f_{ij}\in\Gamma(S,L_i^{\otimes m_{ij}})\) ; posons \(S_i=\bigcup_jS_{f_{ij}}\). Quitte à remplacer les \(f_{ij}\) par des puissances convenables, on peut supposer que les \(m_{ij}\) correspondant à un même indice \(i\) sont égaux à un entier \(m_i\). Le faisceau \(F|S_{f_{ij}}\) est engendré par un nombre fini de sections \(h_{ijk}\) au-dessus de \(S_{f_{ij}}\). Il existe (EGA I 9.3.1 et IV 1.7.5) un entier \(q_i\geq0\) tel que \(h_{ijk}\otimes f_{ij}^{\otimes q_i}\) se prolonge en une section de \(F\otimes L_i^{\otimes q_im_i}\) au-dessus de \(S\). Autrement dit, \(F\otimes L_i^{\otimes q_im_i}\) est engendré au-dessus de \(S_i\) par un nombre fini de ses sections au-dessus de \(S\). Procédant comme dans la démonstration de (EGA II 4.5.5), on en déduit qu'il existe un entier \(n_i\), qu'on peut supposer \(&gt;0\), tel que, pour tout \(n\geq n_i\), \(F\otimes L_i^{\otimes n}\) soit engendré au-dessus de \(S_i\) par un nombre fini de ses sections au-dessus de \(S\). En particulier, il existe un entier \(r_i\geq0\) et un morphisme</p>
+<p>\(i'\) \(\Rightarrow\) (ii) : Soit un recouvrement fini de \(S\) par des ouverts affines \(S_{f_{ij}}\), où \(f_{ij}\in\Gamma(S,L_i^{\otimes m_{ij}})\) ; posons \(S_i=\bigcup_jS_{f_{ij}}\). Quitte à remplacer les \(f_{ij}\) par des puissances convenables, on peut supposer que les \(m_{ij}\) correspondant à un même indice \(i\) sont égaux à un entier \(m_i\). Le faisceau \(F|S_{f_{ij}}\) est engendré par un nombre fini de sections \(h_{ijk}\) au-dessus de \(S_{f_{ij}}\). Il existe (EGA I 9.3.1 et IV 1.7.5) un entier \(q_i\geq0\) tel que \(h_{ijk}\otimes f_{ij}^{\otimes q_i}\) se prolonge en une section de \(F\otimes L_i^{\otimes q_im_i}\) au-dessus de \(S\). Autrement dit, \(F\otimes L_i^{\otimes q_im_i}\) est engendré au-dessus de \(S_i\) par un nombre fini de ses sections au-dessus de \(S\). Procédant comme dans la démonstration de (EGA II 4.5.5), on en déduit qu'il existe un entier \(n_i\), qu'on peut supposer \(&gt;0\), tel que, pour tout \(n\geq n_i\), \(F\otimes L_i^{\otimes n}\) soit engendré au-dessus de \(S_i\) par un nombre fini de ses sections au-dessus de \(S\). En particulier, il existe un entier \(r_i\geq0\) et un morphisme</p>
 
 <div class="display-formula">\[\mathcal O_S^{r_i}\otimes L_i^{\otimes(-n_i)}\longrightarrow F\]</div>
 
-<p>qui induit un épimorphisme au-dessus de \(S_i\). L'implication (i') \(\Rightarrow\) (ii) en résulte aussitôt.</p>
+<p>qui induit un épimorphisme au-dessus de \(S_i\). L'implication \(i'\) \(\Rightarrow\) (ii) en résulte aussitôt.</p>
 
 <p>(ii) \(\Rightarrow\) (iii) : Comme tout faisceau quasi-cohérent sur \(S\) est limite inductive de ses sous-faisceaux quasi-cohérents de type fini (EGA I 9.4.9 et IV 1.7.7), on peut se borner à prouver (iii) pour \(F\) de type fini. Il existe alors, pour \(i\in I\), des morphismes</p>
 
@@ -318,7 +318,7 @@ U\ar[r]&amp;X&amp;Y\ar[l]
 
 <p>or \(H^{n-1}(U',\mathcal O_{U'})=0\), puisque \(U'\) est affine et que l'on a \(n-1\geq1\), d'où une contradiction.</p>
 
-<p class="footnote"><sup>(*)</sup> Cette notion, sous la forme (i'), a été introduite par M. Borelli et S. L. Kleiman ; la terminologie « famille ample » est proposée par le rédacteur.</p>
+<p class="footnote"><sup>(*)</sup> Cette notion, sous la forme \(i'\), a été introduite par M. Borelli et S. L. Kleiman ; la terminologie « famille ample » est proposée par le rédacteur.</p>
 
 <div class="thm thm-remark remarque" id="II.2.2.6.1">
   <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.2.6.1.</span></div>
@@ -337,7 +337,7 @@ U\ar[r]&amp;X&amp;Y\ar[l]
   <div class="thm-body"><p>Tout schéma noethérien régulier séparé est divisoriel.</p></div>
 </div>
 
-<p><em>Preuve de 2.2.7.</em> On peut supposer \(S\) intègre. Soit \((S_i)_{i\in I}\) un recouvrement fini de \(S\) par des ouverts affines non vides. En vertu de (2.2.6), \(S-S_i\) est purement de codimension 1, donc, d'après (EGA IV 21.7.4), est le support d'un diviseur positif. En d'autres termes, pour chaque \(i\in I\), il existe un faisceau inversible \(L_i\) et une section \(f_i\in\Gamma(S,L_i)\) telle que \(S_i=S_{f_i}\). La famille \((L_i)\) est alors ample (2.2.4) d'après (2.2.3 (i')). Ceci achève la démonstration.</p>
+<p><em>Preuve de 2.2.7.</em> On peut supposer \(S\) intègre. Soit \((S_i)_{i\in I}\) un recouvrement fini de \(S\) par des ouverts affines non vides. En vertu de (2.2.6), \(S-S_i\) est purement de codimension 1, donc, d'après (EGA IV 21.7.4), est le support d'un diviseur positif. En d'autres termes, pour chaque \(i\in I\), il existe un faisceau inversible \(L_i\) et une section \(f_i\in\Gamma(S,L_i)\) telle que \(S_i=S_{f_i}\). La famille \((L_i)\) est alors ample (2.2.4) d'après \(2.2.3 (i')\). Ceci achève la démonstration.</p>
 
 <div class="thm thm-remark remarque" id="II.2.2.7.2">
   <div class="thm-head"><span class="thm-name">Remarque</span> <span class="thm-num">2.2.7.2.</span></div>
@@ -1315,27 +1315,27 @@ L'exposant \(A\) ou \(B\) indique relativement à quel anneau on calcule le comp
 
 <p>Enfin, nous noterons \(F_r^\bullet\) le complexe de fibrés hilbertiens triviaux sur \(S\) défini par \(\phi_{r-m_i}d^i\) et \(\underline F_r^\bullet\) le complexe des faisceaux de sections correspondant, qui n'est autre (3.1.5) que le complexe de faisceaux associés à \(C'(S,C_2^r(V,F^\bullet))\). Cela posé, pour démontrer le théorème, il suffit de prouver les assertions suivantes :</p>
 
-<p>(a) Pour \(r\in\mathbb Z\), le morphisme canonique</p>
+<p>\(a\) Pour \(r\in\mathbb Z\), le morphisme canonique</p>
 
 <div class="display-formula">\[C'(S,C^\infty(V,F^\bullet))\longrightarrow C'(S,C_2^r(V,F^\bullet))\]</div>
 
 <p>est un quasi-isomorphisme de complexes de préfaisceaux, i.e. induit des isomorphismes sur les préfaisceaux de cohomologie.</p>
 
-<p>(b) Pour \(r\in\mathbb Z\), le complexe \(\underline F_r^\bullet\) est parfait.</p>
+<p>\(b\) Pour \(r\in\mathbb Z\), le complexe \(\underline F_r^\bullet\) est parfait.</p>
 
-<p><em>Preuve de (b).</em> L'ellipticité de \(E^\bullet\) implique ([16] XI Th. 6<sup>(1)</sup>) que, pour tout \(s\in S\), la différentielle de \((F_r^\bullet)_s\) est d'image fermée et que les \(H^i((F_r^\bullet)_s)\) sont des espaces vectoriels de dimension finie. Autrement dit, pour employer la terminologie de [11], \(F_r^\bullet\) est un complexe quasi-acyclique direct de fibrés hilbertiens. Par suite, d'après ([12] 2.3), \(F_r^\bullet\) est localement homotopiquement équivalent à un complexe borné de fibrés vectoriels de rang fini. Comme le foncteur « faisceau de sections » est additif (3.0.5), \(\underline F_r^\bullet\) est localement homotopiquement équivalent à un complexe borné de faisceaux localement libres de type fini, donc est parfait.</p>
+<p><em>Preuve de \(b\).</em> L'ellipticité de \(E^\bullet\) implique ([16] XI Th. 6<sup>(1)</sup>) que, pour tout \(s\in S\), la différentielle de \((F_r^\bullet)_s\) est d'image fermée et que les \(H^i((F_r^\bullet)_s)\) sont des espaces vectoriels de dimension finie. Autrement dit, pour employer la terminologie de [11], \(F_r^\bullet\) est un complexe quasi-acyclique direct de fibrés hilbertiens. Par suite, d'après ([12] 2.3), \(F_r^\bullet\) est localement homotopiquement équivalent à un complexe borné de fibrés vectoriels de rang fini. Comme le foncteur « faisceau de sections » est additif (3.0.5), \(\underline F_r^\bullet\) est localement homotopiquement équivalent à un complexe borné de faisceaux localement libres de type fini, donc est parfait.</p>
 
-<p>Pour la preuve de (a), nous aurons besoin de l'assertion intermédiaire suivante :</p>
+<p>Pour la preuve de \(a\), nous aurons besoin de l'assertion intermédiaire suivante :</p>
 
-<p>(a') Pour \(p\geq q\), le morphisme canonique</p>
+<p>\(a'\) Pour \(p\geq q\), le morphisme canonique</p>
 
 <div class="display-formula">\[F_p^\bullet\longrightarrow F_q^\bullet\]</div>
 
 <p>est un quasi-isomorphisme.</p>
 
-<p><em>Preuve de (a').</em> Notons \(M_{pq}^\bullet\) le complexe de fibrés hilbertiens cône du morphisme \(F_p^\bullet\longrightarrow F_q^\bullet\). L'ellipticité de \(E\) implique que, pour tout \(s\in S\), le morphisme \((F_p^\bullet)_s\longrightarrow(F_q^\bullet)_s\) est un quasi-isomorphisme ([16] XI Cor. 2 of Th. 6). En d'autres termes, \(M_{pq}^\bullet\) est un complexe acyclique direct. Il en résulte ([11] 2.3) que \(M_{pq}^\bullet\) est localement homotopiquement trivial, donc que \(\underline M_{pq}^\bullet\), qui n'est autre que le cône de \(\underline F_p^\bullet\longrightarrow\underline F_q^\bullet\), est acyclique, cqfd.</p>
+<p><em>Preuve de \(a'\).</em> Notons \(M_{pq}^\bullet\) le complexe de fibrés hilbertiens cône du morphisme \(F_p^\bullet\longrightarrow F_q^\bullet\). L'ellipticité de \(E\) implique que, pour tout \(s\in S\), le morphisme \((F_p^\bullet)_s\longrightarrow(F_q^\bullet)_s\) est un quasi-isomorphisme ([16] XI Cor. 2 of Th. 6). En d'autres termes, \(M_{pq}^\bullet\) est un complexe acyclique direct. Il en résulte ([11] 2.3) que \(M_{pq}^\bullet\) est localement homotopiquement trivial, donc que \(\underline M_{pq}^\bullet\), qui n'est autre que le cône de \(\underline F_p^\bullet\longrightarrow\underline F_q^\bullet\), est acyclique, cqfd.</p>
 
-<p><em>Preuve de (a).</em> Il s'agit de montrer que, pour tout ouvert relativement compact \(U\) de \(S\), le morphisme</p>
+<p><em>Preuve de \(a\).</em> Il s'agit de montrer que, pour tout ouvert relativement compact \(U\) de \(S\), le morphisme</p>
 
 <div class="display-formula">\[C(\overline U,C^\infty(V,F^\bullet))\longrightarrow C(\overline U,C_2^r(V,F^\bullet))\]</div>
 
@@ -1351,11 +1351,11 @@ L'exposant \(A\) ou \(B\) indique relativement à quel anneau on calcule le comp
 
 <div class="display-formula">\[C(S,C_2^p(V,F^i))\longrightarrow C(S,C_2^q(V,F^i))\]</div>
 
-<p>sont, en vertu de (3.0.4) et (3.1.2), des applications linéaires continues d'image dense. D'autre part, appliquant aux quasi-isomorphismes (a') \(\underline F_p^\bullet\longrightarrow\underline F_q^\bullet\) le foncteur \(\Gamma_S\), qui est exact puisque \(\mathcal O_S\) est mou, on voit que les morphismes de transition</p>
+<p>sont, en vertu de (3.0.4) et (3.1.2), des applications linéaires continues d'image dense. D'autre part, appliquant aux quasi-isomorphismes \(a'\) \(\underline F_p^\bullet\longrightarrow\underline F_q^\bullet\) le foncteur \(\Gamma_S\), qui est exact puisque \(\mathcal O_S\) est mou, on voit que les morphismes de transition</p>
 
 <div class="display-formula">\[C(S,C_2^p(V,F^\bullet))\longrightarrow C(S,C_2^q(V,F^\bullet))\]</div>
 
-<p>sont des quasi-isomorphismes. L'assertion (a) résulte alors de (EGA 0<sub>III</sub> 13.2.3, variante « topologique »). Ceci achève la démonstration de (3.2.1).</p>
+<p>sont des quasi-isomorphismes. L'assertion \(a\) résulte alors de (EGA 0<sub>III</sub> 13.2.3, variante « topologique »). Ceci achève la démonstration de (3.2.1).</p>
 
 <p class="footnote"><sup>(1)</sup> qui se généralise aisément aux complexes elliptiques.</p>
 
@@ -1367,7 +1367,7 @@ L'exposant \(A\) ou \(B\) indique relativement à quel anneau on calcule le comp
 
 <div class="display-formula">\[\operatorname{ind.an}(E^\bullet)=\operatorname{Cl}(Rp_*(E^\bullet))\in K'(S).\]</div>
 
-<p>Si \(S\) est <em>compact</em>, \(\operatorname{ind.an}(E^\bullet)\) définit canoniquement un élément dans le groupe usuel \(K(S)\) des topologues. En effet, de manière générale, pour tout espace topologique \(S\) notons \(\operatorname{Loclib}(S)\) la catégorie additive des \((\mathcal O_S\otimes\mathbb C)\)-Modules localement libres de type fini, et \(K(S)\) le « groupe de Grothendieck » de la catégorie triangulée \(K^b(\operatorname{Loclib}(S))/K^{b,\varnothing}(\operatorname{Loclib}(S))\) (cette dernière s'identifie d'ailleurs à \(K^b(\operatorname{Loclib}(S))\) quand \(S\) est paracompact (II 2.3.2 (a)), de sorte que dans ce cas (I 6.4) \(K(S)\) est canoniquement isomorphe au « groupe de Grothendieck » de la catégorie additive \(\operatorname{Loclib}(S)\)). On a un homomorphisme naturel</p>
+<p>Si \(S\) est <em>compact</em>, \(\operatorname{ind.an}(E^\bullet)\) définit canoniquement un élément dans le groupe usuel \(K(S)\) des topologues. En effet, de manière générale, pour tout espace topologique \(S\) notons \(\operatorname{Loclib}(S)\) la catégorie additive des \((\mathcal O_S\otimes\mathbb C)\)-Modules localement libres de type fini, et \(K(S)\) le « groupe de Grothendieck » de la catégorie triangulée \(K^b(\operatorname{Loclib}(S))/K^{b,\varnothing}(\operatorname{Loclib}(S))\) (cette dernière s'identifie d'ailleurs à \(K^b(\operatorname{Loclib}(S))\) quand \(S\) est paracompact \(II 2.3.2 (a)\), de sorte que dans ce cas (I 6.4) \(K(S)\) est canoniquement isomorphe au « groupe de Grothendieck » de la catégorie additive \(\operatorname{Loclib}(S)\)). On a un homomorphisme naturel</p>
 
 <div class="display-formula">\[K(S)\longrightarrow K'(S).\]</div>
 
@@ -1385,7 +1385,7 @@ L'exposant \(A\) ou \(B\) indique relativement à quel anneau on calcule le comp
 
 <h3 id="II.appendice.II.3.2.4">3.2.4.</h3>
 
-<p>Cependant, même si la généralisation de (3.2.1) à laquelle il a été fait allusion plus haut s'avère impossible, on peut toujours associer à \(E^\bullet\), sous la seule hypothèse que la fibration \(p\) soit propre et localement triviale, un élément de \(K'(S)\) méritant le nom d'indice analytique de \(E^\bullet\). En effet, supposons (pour simplifier<sup>(1)</sup>) que l'on soit dans la situation « locale » où \(X=S\times V\) (\(V\), une variété compacte), \(E^\bullet\) étant donné par une application continue de \(S\) dans \(\operatorname{Ell}^{\mathbf n}(F)\) (3.2.3). Les assertions (a') et (b) de la démonstration de (3.2.1) sont en fait valables sans aucune hypothèse sur \(S\) : il est donc raisonnable de poser, avec les notations de (loc. cit.) :</p>
+<p>Cependant, même si la généralisation de (3.2.1) à laquelle il a été fait allusion plus haut s'avère impossible, on peut toujours associer à \(E^\bullet\), sous la seule hypothèse que la fibration \(p\) soit propre et localement triviale, un élément de \(K'(S)\) méritant le nom d'indice analytique de \(E^\bullet\). En effet, supposons (pour simplifier<sup>(1)</sup>) que l'on soit dans la situation « locale » où \(X=S\times V\) (\(V\), une variété compacte), \(E^\bullet\) étant donné par une application continue de \(S\) dans \(\operatorname{Ell}^{\mathbf n}(F)\) (3.2.3). Les assertions \(a'\) et \(b\) de la démonstration de (3.2.1) sont en fait valables sans aucune hypothèse sur \(S\) : il est donc raisonnable de poser, avec les notations de (loc. cit.) :</p>
 
 <div class="display-formula">\[\operatorname{ind.an}(E^\bullet)=\operatorname{Cl}(\underline F_r^\bullet)\in K'(S),\]</div>
 

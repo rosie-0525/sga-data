@@ -933,7 +933,7 @@ où les \(\alpha_i\) et les \(\beta_i\) sont de degré \(1\).</p>
 une unité \([1,1]\), et on peut l'interpréter comme l'anneau obtenu par
 adjonction d'une unité à l'anneau \(1 + \hat{A}^+\). De plus, sur \(\tilde{A}\), on définit
 une <u>filtration</u> en posant \(\tilde{A}^0 = \tilde{A}\) et en notant \(\tilde{A}^n\) l'ensemble des \([0,x]\)
-avec \(x^i = 0\) pour \(1 \leq i < n\) ; cette filtration est compatible avec le produit,
+avec \(x^i = 0\) pour \(1 \leq i &lt; n\) ; cette filtration est compatible avec le produit,
 car on a
 \[\left(1 + \sum_{i \geq m} x^i\right) \ast \left(1 + \sum_{j \geq n} y^j\right) = 1 - \frac{(m+n-1)!}{(m-1)!(n-1)!} x^m y^n + \dots , \tag{1.18}\]
 les termes non écrits étant de degré \(> m + n\). Cette formule montre que
@@ -1153,8 +1153,8 @@ on a évidemment, combinant (1.32) et (1.37)
 \[\gamma^n(N,x)\lambda_{-1}(N) = \gamma^n(x \lambda_{-1}(N)) , \tag{1.40}\]
 et que, pour \(n = q + j\), le deuxième membre est de filtration \(\geq q + j\)
 (utiliser la formule (1.22 bis) en tenant compte de ce que \(x \lambda_{-1}(N)\) est
-d'augmentation nulle), tandis que \(\lambda_{-1}(N)\) est de filtration \(q\) (formule
-(1.22)), il en résulte que \(\gamma^n(N,x)\) est de filtration \(j\), puisque en
+d'augmentation nulle), tandis que \(\lambda_{-1}(N)\) est de filtration \(q\) \(formule
+(1.22)\), il en résulte que \(\gamma^n(N,x)\) est de filtration \(j\), puisque en
 vertu de (1.18) le gradué associé à \(A\) est ici <u>intègre</u>. Utilisant les
 formules précédentes, on obtient immédiatement la forme indiquée pour
 \((\gamma^{q+j}(N,x))^{(j)}\). cqfd.</p>
@@ -1265,7 +1265,7 @@ A(Y) \ar[r]_{f^*} & A(X)
 
 <div class="thm thm-plain corollary" id="0.app.2.3.cor">
   <div class="thm-head"><span class="thm-name">Corollaire</span></div>
-  <div class="thm-body"><p>Soit \(p = \dim X - \dim Y\). Alors, si \(i < p\), l'homomorphisme
+  <div class="thm-body"><p>Soit \(p = \dim X - \dim Y\). Alors, si \(i &lt; p\), l'homomorphisme
   \(A^i(X) \to A^i(U)\) est bijectif. Tout élément du noyau de \(A^p(X) \to A^p(U)\)
   est combinaisons linéaire de composantes de dimension \(n - p\) de \(Y\) (donc
   est proportionnel à \(\ell(Y)\) si \(Y\) est irréductible)</p></div>
@@ -1650,7 +1650,7 @@ en dehors de \(X\).</p>
 </div>
 
 <p>On raisonne par récurrence sur \(n = \dim X\) ; l'assertion est triviale
-si \(n < 0\) ; supposons \(n \geq 0\) ; en vertu de la proposition 2.6, il suffit de
+si \(n &lt; 0\) ; supposons \(n \geq 0\) ; en vertu de la proposition 2.6, il suffit de
 vérifier que pour toute partie fermée irréductible \(Y\) de \(X \times k\), \(\gamma(Y)\) est
 dans l'image de \(p^!\). Il suffit de continuer le raisonnement en supposant
 \(X\) irréductible ; si \(p(Y)\) n'est pas dense dans \(X\), notre assertion résulte
@@ -2001,10 +2001,10 @@ du fait que
 sur \(K(Y)\) une nouvelle structure multiplicative, par la définition
 \(x_N x' = xx' \lambda_{-1}(N)\) (cf. Chapitre I, § 4). Elle se complète par la formule :</p>
 
-<p>(v) \(i_!(\lambda^p(N,x)) = \lambda^p(i_!(x))\) pour \(p \geq 1\),</p>
+<p>\(v\) \(i_!(\lambda^p(N,x)) = \lambda^p(i_!(x))\) pour \(p \geq 1\),</p>
 
 <p>qui signifie que \(i_!\) définit un \(\lambda\)-homomorphisme de \(K(Y)_N\) dans \(K(X)\). Cette
-formule (v), certainement vraie dans tous les cas, n'est démontrée pour
+formule \(v\), certainement vraie dans tous les cas, n'est démontrée pour
 l'instant qu'en caractéristique \(0\), car elle résulte de la conjonction des
 théorèmes 1.4 et 2.8.</p>
 
@@ -2031,7 +2031,7 @@ passage au quotient de \(i_!\) et \(i^!\), en notant que \(i_!\) décale la filt
 sont conséquences formelles des précédentes, comme on peut s'en convaincre
 sans grande difficulté.</p>
 
-<p>De la formule (v) résulte la formule
+<p>De la formule \(v\) résulte la formule
 \[i_!(\gamma^p(N,x)) = \gamma^p(i_!(x)) .\]
 La conjonction du théorème 2.14 et de la proposition 1.5 montre que \(\gamma^p(N,x)\)
 est, pour \(p = q + j\), de filtration \(\geq j\) ; si l'on note \(G_p(N,x)\) sa classe
@@ -2045,7 +2045,7 @@ on en déduit le théorème :</p>
   <div class="thm-head"><span class="thm-name">Théorème</span> <span class="thm-num">2.17</span></div>
   <div class="thm-body"><p>Supposons le corps \(k\) de caractéristique \(0\) et soit \(i \colon Y \to X\)
   un morphisme d'injection de variétés quasi-projectives non singulières. On
-  a alors les formules (i) à (v), et de plus, pour tout entier \(j \geq 0\), la
+  a alors les formules (i) à \(v\), et de plus, pour tout entier \(j \geq 0\), la
   formule :
   \[c^{q+j}(i_!(x)) = i_*\!\left(\frac{\tilde{C}(x) \ast \lambda_{-1}(\tilde{C}(N))}{(-1)^q N^q}\right)^{(j)} . \tag{2.37}\]</p></div>
 </div>
@@ -2298,12 +2298,12 @@ la congruence a lieu dans \(K(Y')\). ∗]</p>
 \[\operatorname{Tor}_i^{\mathcal{O}_X(v)}(\mathcal{O}_Y(v), \mathcal{O}_{Y'}(v')) = \wedge^i F(v') \quad (v' \in Y' , v = g(v')) . \tag{6 bis}\]</p>
 
 <p>La formule (7) résulte des formules
-\[g_!(L^{-i}) = 0 \quad \text{pour } 0 < i \leq p-1 , \quad g_!(1) = 1 , \tag{10}\]
+\[g_!(L^{-i}) = 0 \quad \text{pour } 0 &lt; i \leq p-1 , \quad g_!(1) = 1 , \tag{10}\]
 elles-mêmes conséquences de Künneth et de la cohomologie des espaces pro­jectifs.</p>
 
 <p>La formule (8) est triviale, enfin (9) résulte de \(g_*(C^{p-1}(F)) = 1\) qui
 se déduit, par exemple, des formules immédiates :
-\[g_*(\xi^i) = 0 \quad \text{si } 0 \leq i < p-1 , \quad g_*(\xi^{p-1}) = 1 , \tag{10 bis}\]
+\[g_*(\xi^i) = 0 \quad \text{si } 0 \leq i &lt; p-1 , \quad g_*(\xi^{p-1}) = 1 , \tag{10 bis}\]
 avec \(\xi = C^1(L) \in A^1(Y')\).</p>
 
 <p>[En fait, (9) est très vraisemblablement une identité, et pas seule­ment
@@ -2324,7 +2324,7 @@ pour \((Y',X', y \lambda_{-1}(\check{F}))\) et la formule :
 <p>Ainsi, R.R. est prouvé chaque fois que \(y \gamma^{p-1}(E) = 0\), en particulier
 (puisque \(\gamma^{p-1}(E)\) est de filtration \(\geq p-1\) ∗ dans \(K(Y)\) filtré par la codi­mension
 des supports ∗) chaque fois que \(p-1 > \dim Y\), i.e. chaque fois que
-\(\dim Y < \frac{\dim X - 1}{2}\). Or, on se ramène à ce cas, en conjuguant le lemme 1
+\(\dim Y &lt; \frac{\dim X - 1}{2}\). Or, on se ramène à ce cas, en conjuguant le lemme 1
 et le lemme 3 (prenant pour \(P\) un espace projectif de dimension \(r\) assez
 grande, par exemple \(r > \dim X + 1\)). C.Q.F.D.</p>
 
