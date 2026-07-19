@@ -105,19 +105,35 @@ def block_meta(el):
     return meta
 
 
-def chapter_title(body) -> str:
-    """Human title from <h1>: drop author + footnote marker, <br> -> space."""
+def chapter_title(body):
+    """Title metadata from <h1> -> (title, alias, numeral, author).
+
+    Footnote markers are dropped and <br> becomes a space, as before. The
+    author span is pulled out as `author`, and a leading "EXPOSÉ <numeral>"
+    is split off as alias/numeral so the viewer renders the chapter marker
+    once (it used to prepend the number to a title that already began with
+    "EXPOSÉ <numeral>"). All of alias/numeral/author may be None.
+    """
     h1 = body.find("h1")
     if h1 is None:
-        return ""
+        return "", None, None, None
     h1 = LH.fromstring(tostring(h1, encoding="unicode"))  # work on a clone
+    author = None
+    for span in h1.xpath('.//span[contains(@class,"author")]'):
+        author = re.sub(r"\s+", " ", span.text_content()).strip() or None
+        break
     for junk in h1.xpath('.//span[contains(@class,"author")] | .//sup'):
         junk.drop_tree()
     html = inner_html(h1)
     text = re.sub(r"<br\s*/?>", " ", html)
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
-    return text
+    alias = numeral = None
+    m = re.match(r"^EXPOSÉ\s+([0-9]+|[IVXLC]+(?:\s*(?:bis|A|B))?)\b[\s.:—–-]*", text)
+    if m:
+        alias, numeral = "EXPOSÉ", m.group(1)
+        text = text[m.end():].strip()
+    return text, alias, numeral, author
 
 
 def promote_stray_text(body):
@@ -166,7 +182,9 @@ def convert(roman: str, src: str):
     #    holds everything before the first <h2>. A secondary <h1> (appendix)
     #    also starts a page. An <hr> directly before a footnote list is the
     #    printed separator — dropped.
-    title = chapter_title(body)
+    title, alias, numeral, author = chapter_title(body)
+    if numeral and numeral.replace(" ", "") != roman:
+        print(f"  WARN {roman}: h1 numeral {numeral!r} != chapter number")
     pages = [{"id": roman, "title": title, "blocks": [], "footnotes": []}]
     footnotes = []
     fn_seen = 0
@@ -253,6 +271,10 @@ def convert(roman: str, src: str):
         "number": roman,
         "pages": pages,
     }
+    if alias:
+        chapter["alias"] = alias
+    if author:
+        chapter["author"] = author
     return chapter
 
 
@@ -326,10 +348,15 @@ def main():
                                       b["html"]):
                     all_refs[tgt] = all_refs.get(tgt, 0) + 1
 
-        chapters_meta.append({
+        ch_meta = {
             "id": roman, "title": ch["title"], "number": roman,
             "page_ids": [p["id"] for p in ch["pages"]],
-        })
+        }
+        if ch.get("alias"):
+            ch_meta["alias"] = ch["alias"]
+        if ch.get("author"):
+            ch_meta["author"] = ch["author"]
+        chapters_meta.append(ch_meta)
         for pi, page in enumerate(ch["pages"]):
             toc.append({
                 "page_id": page["id"], "title": page["title"],
