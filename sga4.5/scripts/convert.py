@@ -940,6 +940,14 @@ def _consume_command(s, i, ctx, out):
             _, k = _grab_brace(s, k)
         return name, k
 
+    if name == 'texorpdfstring':
+        # \texorpdfstring{TeX}{PDF bookmark}: keep the TeX form, drop the
+        # plain-text one (rendering both echoes the math, e.g. "\(L\)L").
+        arg, j2 = _grab_brace(s, j)
+        _, j3 = _grab_brace(s, j2)
+        out.append(render_inline(arg, ctx))
+        return name, j3
+
     if name in KEEP_ARG:
         arg, j2 = _grab_brace(s, j)
         out.append(render_inline(arg, ctx))
@@ -1262,7 +1270,7 @@ def iter_top(s):
             after = i + m.end()
 
             if depth == 0 and name == 'begin':
-                mm = re.match(r'\\begin\{([a-zA-Z*]+)\}', s[i:])
+                mm = re.match(r'\\begin\{([a-zA-Z*_-]+)\}', s[i:])
                 if mm:
                     env = mm.group(1)
                     inner_start = i + mm.end()
@@ -2267,7 +2275,7 @@ def verify(chapters, ctx, out):
                 # strip math regions \(...\) and \[...\] and \begin{align*}..
                 stripped = re.sub(r'\\\(.*?\\\)', '', h, flags=re.S)
                 stripped = re.sub(r'\\\[.*?\\\]', '', stripped, flags=re.S)
-                stripped = re.sub(r'\\begin\{[a-z*]+\}.*?\\end\{[a-z*]+\}', '', stripped, flags=re.S)
+                stripped = re.sub(r'\\begin\{[a-z*_-]+\}.*?\\end\{[a-z*_-]+\}', '', stripped, flags=re.S)
                 for m in leak_re.finditer(stripped):
                     cmd = m.group(0)
                     leaks[cmd] = leaks.get(cmd, 0) + 1
