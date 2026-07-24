@@ -1,13 +1,13 @@
 ---
 name: sga1-normalize-xymatrix
-description: Reference catalogue of XyJax-v3 (`\xymatrix`) parse failures observed in SGA1 and the rewrites that fix them. The rewrites are applied automatically by `rule_xymatrix_patches` in sga1-inline-macros; this catalogue is the rationale for that rule and the place to add new patterns when sga1-check-errors surfaces a new failure.
+description: Reference catalogue of XyJax-v3 (`\xymatrix`) parse failures observed in SGA1 and the rewrites that fix them. The rewrites are applied automatically by `rule_xymatrix_patches` in sga1-inline-macros; this catalogue is the rationale for that rule and the place to add new patterns when sga-check-errors surfaces a new failure.
 ---
 
 # sga1-normalize-xymatrix
 
 ## When to use
 
-After `sga1-check-errors` flags one or more `mjx-merror` instances or a
+After `sga-check-errors` flags one or more `mjx-merror` instances or a
 console-level `xypic ExecutionError` on a page containing `\xymatrix`.
 XyJax-v3 (the MathJax-3 port of xy-pic bundled in `sga1-convert-html`)
 accepts a strict subset of what pdflatex's xy-pic accepts; the rewrites
@@ -19,7 +19,7 @@ These rewrites are now applied **automatically and durably** by
 (it runs last, on the fully-inlined monolithic source, so it survives the
 chapter split). Do **not** hand-edit `chapter-NN.tex` — those edits are
 build artifacts and get clobbered on the next pipeline run. When
-`sga1-check-errors` surfaces a *new* `\xymatrix` failure, add an `(old, new)`
+`sga-check-errors` surfaces a *new* `\xymatrix` failure, add an `(old, new)`
 pair to the `_XYMATRIX_PATCHES` list using the categories below as the
 rationale, then re-run the pipeline.
 
@@ -30,7 +30,7 @@ rationale, then re-run the pipeline.
 ## XyJax-v3 incompatibilities — what fails and what works
 
 Nine categories observed in SGA1. Each was verified by editing the
-chapter source, re-running `sga1-convert-html`, then `sga1-check-errors`
+chapter source, re-running `sga1-convert-html`, then `sga-check-errors`
 and confirming the affected page's `merrors` array dropped to zero.
 
 ### (a) `\\` row separator followed by problematic next-row content
@@ -293,7 +293,7 @@ Recorded so a future pass doesn't repeat them.
 
 ## SGA1 occurrences fixed
 
-`_XYMATRIX_PATCHES` starts **empty** for SGA1. As [[sga1-check-errors]] surfaces
+`_XYMATRIX_PATCHES` starts **empty** for SGA1. As [[sga-check-errors]] surfaces
 `\xymatrix` `mjx-merror`s, add an `(old, new)` pair to `_XYMATRIX_PATCHES` in
 [[sga1-inline-macros]] using the categories above as the rationale, then re-run
 the pipeline. Record each fixed diagram here (file:line, HTML id, category,
@@ -307,13 +307,13 @@ only diagrams that still error after that need an entry below.
 
 | File:line | HTML | Category | Spelling adopted |
 |---|---|---|---|
-| _(none yet — populate from sga1-check-errors)_ | | | |
+| _(none yet — populate from sga-check-errors)_ | | | |
 
 ## Verification
 
 ```
 .claude/skills/sga1-convert-html/convert.sh
-bash .claude/skills/sga1-check-errors/check.sh
+bash .claude/skills/sga-check-errors/check.sh sga1   # from the repo root
 ```
 
 Final clean state: `issues/mathjax_errors.json`, `issues/crossref_errors.json`,
@@ -332,7 +332,7 @@ without that convert.py fix would re-introduce the `\§` corruption.
   here — cell-object wrapping, prime → `\prime`, operator handling,
   row-start dispatch, `array{c}` unwrap, etc., which the regex-rule shape
   can't safely capture). New failures go into `_XYMATRIX_PATCHES`.
-- [[sga1-check-errors]] — the verification step that surfaces the
+- [[sga-check-errors]] — the verification step that surfaces the
   failures this skill addresses.
 - [[sga1-convert-html]] — vendors `xypic.js` (XyJax-v3) and the MathJax 3
   SVG bundle under `vendor/` and wires the loader, so diagrams render offline.

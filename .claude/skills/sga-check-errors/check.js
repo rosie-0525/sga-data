@@ -1,4 +1,5 @@
-// Headless render/error scan for the SGA1 deliverable.
+// Headless render/error scan for one SGA book's deliverable (any sga*/
+// directory whose 02-converted_html/ is driven by the shared translation-viewer).
 //
 // Findings are categorised into three files written under the output dir:
 //   mathjax_errors.json  — typesetError, mjx-merror, leaked \word macros
@@ -52,22 +53,47 @@ const puppeteer = require('puppeteer');
 const HTML_DIR = process.argv[2];
 const BASE_URL = process.argv[3] || 'http://localhost:8765';
 const OUT_DIR = process.argv[4]; // optional; if set, write the category files here
-const LANGS = (process.argv[5] || 'fr,en').split(',').map((s) => s.trim()).filter(Boolean);
 
 if (!HTML_DIR) {
-  console.error('usage: node check.js <html-dir> [base-url] [out-dir] [langs] [html-dir-rel]');
+  console.error('usage: node check.js <html-dir> [base-url] [out-dir] [langs] [html-dir-rel] [book]');
   process.exit(2);
 }
 
+// data/config.json — the book's own viewer config: baseLang/rightLangs decide
+// what to check by default, and the per-language UI strings (notrans/backref)
+// let assemblePageHtml match what the browser actually ships.
+function loadConfig() {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(HTML_DIR, 'data', 'config.json'), 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+const CONFIG = loadConfig();
+
 // The base (source) language — its data/<baseLang>/manifest.json is the only
 // manifest translation-viewer reads; it drives navigation for every column.
-const BASE_LANG = 'fr';
+const BASE_LANG = (CONFIG && CONFIG.baseLang) || 'fr';
+
+// Languages to render+scan: explicit argv[5], else the book's own
+// baseLang + rightLangs from config.json, else fr,en.
+const DEFAULT_LANGS = CONFIG
+  ? [CONFIG.baseLang || 'fr'].concat(CONFIG.rightLangs || []).join(',')
+  : 'fr,en';
+const LANGS = (process.argv[5] || DEFAULT_LANGS).split(',').map((s) => s.trim()).filter(Boolean);
 // check.sh serves from the super-repo root (translation-viewer/ is shared by
 // every book, one level above each book's own directory), and passes
 // HTML_DIR's path relative to that server root as argv[6] (e.g.
 // "sga1/02-converted_html"). Falls back to the bare basename for direct/manual
 // invocations that omit argv[6] (matches the old single-book layout).
 const HTML_DIR_REL = process.argv[6] || path.basename(HTML_DIR);
+// Book name (e.g. "sga5") keying this run's records in the aggregated output
+// files (argv[7]; check.sh always passes it). Falls back to the first segment
+// of HTML_DIR_REL ("sga5/02-converted_html"), then to HTML_DIR's parent
+// directory name, for direct/manual invocations.
+const BOOK = process.argv[7]
+  || (HTML_DIR_REL.includes('/') ? HTML_DIR_REL.split('/')[0]
+      : path.basename(path.dirname(path.resolve(HTML_DIR))));
 
 const LOAD_TIMEOUT_MS = 60000;
 
@@ -78,16 +104,6 @@ const LOAD_TIMEOUT_MS = 60000;
 
 function readJSON(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
-}
-
-// data/config.json — only used here for its per-language UI strings (e.g.
-// notrans/backref), so assemblePageHtml matches what the browser actually ships.
-function loadConfig() {
-  try {
-    return readJSON(path.join(HTML_DIR, 'data', 'config.json'));
-  } catch (e) {
-    return null;
-  }
 }
 
 // Load the single base-language manifest that drives navigation for every
@@ -121,11 +137,16 @@ function loadLanguageContent(lang, manifest) {
   return pages;
 }
 
-// Mirror translation-viewer/viewer.js's per-language placeholder + footnotesEl()
-// (lines ~215-233), so we typeset exactly what ships to the browser.
+// Mirror translation-viewer/viewer.js's renderAligned(): a page's shipped HTML
+// is the concatenation of its blocks[].html (viewer.js blockEl — the viewer
+// never reads a page-level `html` field; sga1's is a legacy leftover), plus the
+// per-language no-translation placeholder and footnotesEl(), so we typeset
+// exactly what ships to the browser.
 function assemblePageHtml(pg, lang, config) {
   const strings = (config && config.languages && config.languages[lang]) || {};
-  let html = pg.html || '';
+  let html = (pg.blocks && pg.blocks.length)
+    ? pg.blocks.map((b) => b.html || '').join('\n')
+    : (pg.html || '');
   if (!html.trim()) {
     html = '<h1>' + (pg.title || '') + '</h1>' +
       '<p class="muted"><em>' + (strings.notrans || '(no translation)') + '</em></p>';
@@ -449,8 +470,9 @@ function filterConsole(msgs) {
 
 function makeResult(lang, pageId, title, html, scan, L, cmsgs, perrs, blockShapeIssues) {
   return {
+    book: BOOK,
     lang,
-    file: lang + '/' + pageId,
+    file: BOOK + '/' + lang + '/' + pageId,
     pageId,
     title: title || '',
     containers: scan.containers || 0,
@@ -494,7 +516,7 @@ function isBad(r) {
 // attributable to a page.
 // ---------------------------------------------------------------------------
 
-const IDENT = ['lang', 'file', 'pageId', 'title', 'containers'];
+const IDENT = ['book', 'lang', 'file', 'pageId', 'title', 'containers'];
 
 const CATEGORIES = {
   mathjax: { scalars: ['typesetError'], arrays: ['merrors', 'leakedMacros'] },
@@ -628,7 +650,7 @@ function summarise(results) {
     }
     if (refLabelIndex.size > 0) {
       lines.push('');
-      lines.push('Unresolved refs in math by label (fix upstream in sga1-inline-macros):');
+      lines.push('Unresolved refs in math by label (fix upstream in the book\'s normalization/convert step):');
       const rows = Array.from(refLabelIndex.entries())
         .map(([lab, files]) => ({ lab, files: Array.from(files).sort() }))
         .sort((a, b) => b.files.length - a.files.length || a.lab.localeCompare(b.lab));
@@ -728,7 +750,7 @@ function summarise(results) {
   }
 
   const results = [];
-  const config = loadConfig();
+  const config = CONFIG;
 
   let base;
   try {
@@ -798,12 +820,67 @@ function summarise(results) {
   await browser.close();
 
   if (OUT_DIR) {
+    // The output dir (issues/ at the repo root) aggregates every book: each
+    // category file is one flat array of failing-page records, each record
+    // carrying `book` and a book-qualified `file` ("sga5/fr/IIIB-2"). A run
+    // replaces only its own book's records, so per-book reruns never clobber
+    // the other books' results. Records are grouped by book (stable sort), in
+    // scan order within a book.
+    const readArray = (p) => {
+      try {
+        const v = JSON.parse(fs.readFileSync(p, 'utf8'));
+        return Array.isArray(v) ? v : [];
+      } catch (e) { return []; }
+    };
     for (const cat of Object.keys(CATEGORIES)) {
-      const subset = results.filter((r) => categoryBad(r, cat)).map((r) => projectCategory(r, cat));
       const out = path.join(OUT_DIR, cat + '_errors.json');
-      fs.writeFileSync(out, JSON.stringify(subset, null, 2));
-      console.error(`wrote ${out} (${subset.length} page${subset.length === 1 ? '' : 's'})`);
+      const keep = readArray(out).filter((r) => r && r.book && r.book !== BOOK);
+      const subset = results.filter((r) => categoryBad(r, cat)).map((r) => projectCategory(r, cat));
+      const merged = keep.concat(subset)
+        .sort((a, b) => (a.book < b.book ? -1 : a.book > b.book ? 1 : 0));
+      fs.writeFileSync(out, JSON.stringify(merged, null, 2));
+      console.error(`wrote ${out} (${BOOK}: ${subset.length} page${subset.length === 1 ? '' : 's'}; all books: ${merged.length})`);
     }
+
+    // summary.json — per-book run metadata + issue totals, so the aggregate
+    // files stay pure error lists while pass/fail state and staleness (which
+    // book was last checked when) live in one place.
+    const sumPath = path.join(OUT_DIR, 'summary.json');
+    let summary;
+    try { summary = JSON.parse(fs.readFileSync(sumPath, 'utf8')); } catch (e) { summary = null; }
+    if (!summary || typeof summary.books !== 'object' || summary.books === null) summary = { books: {} };
+    const sumLen = (key) => results.reduce((s, r) => s + (r[key] ? r[key].length : 0), 0);
+    summary.books[BOOK] = {
+      lastRun: new Date().toISOString(),
+      langs: LANGS,
+      checkedPages: results.length,
+      mathContainers: results.reduce((s, r) => s + (r.containers || 0), 0),
+      pagesWithIssues: results.filter(isBad).length,
+      pagesByCategory: {
+        mathjax: results.filter((r) => categoryBad(r, 'mathjax')).length,
+        crossref: results.filter((r) => categoryBad(r, 'crossref')).length,
+        other: results.filter((r) => categoryBad(r, 'other')).length,
+      },
+      counts: {
+        typesetErrors: results.filter((r) => r.typesetError).length,
+        fatals: results.filter((r) => r.fatal).length,
+        merrors: sumLen('merrors'),
+        leakedMacros: sumLen('leakedMacros'),
+        refsInMath: sumLen('refsInMath'),
+        refMarkers: sumLen('refMarkers'),
+        danglingAnchors: sumLen('danglingAnchors'),
+        tagIssues: sumLen('tagIssues'),
+        quoteSpacing: sumLen('quoteSpacing'),
+        blockShapeIssues: sumLen('blockShapeIssues'),
+        pageErrors: sumLen('pageErrors'),
+        consoleMsgs: sumLen('consoleMsgs'),
+      },
+      passed: !results.some(isBad),
+    };
+    const orderedBooks = {};
+    for (const k of Object.keys(summary.books).sort()) orderedBooks[k] = summary.books[k];
+    fs.writeFileSync(sumPath, JSON.stringify({ books: orderedBooks }, null, 2));
+    console.error(`wrote ${sumPath}`);
   }
 
   process.stdout.write(summarise(results));

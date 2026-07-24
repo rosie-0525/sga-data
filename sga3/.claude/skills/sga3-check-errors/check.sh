@@ -36,9 +36,10 @@ if ! command -v python3 >/dev/null 2>&1; then
   exit 2
 fi
 
-# Puppeteer: reuse the vendored install from sga1's check-errors skill when it
-# is present (same super-repo, same Chromium cache), otherwise install locally.
-SGA1_MODULES="$SUPER_ROOT/sga1/.claude/skills/sga1-check-errors/node_modules"
+# Puppeteer: reuse the vendored install from the repo-global check-errors skill
+# when it is present (same super-repo, same Chromium cache), otherwise install
+# locally.
+SGA1_MODULES="$SUPER_ROOT/.claude/skills/sga-check-errors/node_modules"
 if [ -d "$SGA1_MODULES/puppeteer" ]; then
   PUPPETEER_MODULES="$SGA1_MODULES"
 else

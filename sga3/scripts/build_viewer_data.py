@@ -118,7 +118,7 @@ def chapter_title(body):
     h1 = LH.fromstring(tostring(h1, encoding="unicode"))  # work on a clone
     author = None
     for span in h1.xpath('.//span[contains(@class,"author")]'):
-        author = re.sub(r"\s+", " ", span.text_content()).strip() or None
+        author = re.sub(r"\s+", " ", " ".join(span.itertext())).strip() or None
         break
     for junk in h1.xpath('.//span[contains(@class,"author")] | .//sup'):
         junk.drop_tree()

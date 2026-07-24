@@ -34,7 +34,7 @@ python3 .claude/skills/sga1-inline-macros/inline_macros.py \
 | Inside `\xymatrix{...}` bodies | `\operatorname`-class macros → plain forms: `\Hom`→`\mathrm{Hom}`, `\SheafHom`→`\mathbf{Hom}`, also `\SheafAut`,`\SheafIsom`,`\Ouv`,`\Quot`,`\Fer`,`\Ext` — XyJax-v3 can't host `\operatorname` in diagram cells |
 | `\leqno{...}` | → `\tag*{...}` (and `$$…\leqno(..)$$` → `equation*`) |
 | Text-accent macros (`\'e`, `` \`u ``, `\^{o}`, …) inside `\text`/`\textXX`/`\emph`/`\hbox`/`\mbox`/`\tag*` args | → precomposed Unicode (é, ù, ô) so MathJax renders one correctly-placed glyph |
-| Corpus-specific `\xymatrix` patches | applied last (catalogue in [[sga1-normalize-xymatrix]]; starts empty, grows as [[sga1-check-errors]] surfaces XyJax failures) |
+| Corpus-specific `\xymatrix` patches | applied last (catalogue in [[sga1-normalize-xymatrix]]; starts empty, grows as [[sga-check-errors]] surfaces XyJax failures) |
 
 ## Notes
 - The `l → ℓ` (ell) `\mathcode` trick from `sga1-smf.sty` is **not** applied

@@ -326,7 +326,7 @@ may assume, by induction, that \(a'\) is a small prolongation of \(a\). Since \(
 \(h:\xi\to a\) is factored as a composit map \(\xi\to a_q\to a\) for some \(q\). Since \(A\) is
 semi-homogeneous, we get a diagram
 \[\xymatrix{a''\ar[r]\ar[d]^{\alpha'}&amp;a'\ar[d]^\alpha\\\xi\ar[r]&amp;a_q\ar[r]&amp;a}\\\]
-where (\alpha') is also a small prolongation. We then obtain a commutative diagram
+where \(\alpha'\) is also a small prolongation. We then obtain a commutative diagram
 \[\xymatrix{&amp;&amp;a''\ar[d]^{\alpha'}\\\xi\ar[r]&amp;a_{q+1}\ar[r]&amp;a_q}\]
 and therefore we are done.</p>
 
@@ -1079,7 +1079,7 @@ The right derived functors of \(H^o((B'\to B),-)\) will be denoted by
 \(H^{\bullet}((B'\to B),-)\). One knows that the \(H^{\bullet}((B'\to B),F)\) are the
 cohomology groups of the \(Čech\) semi-simplicial module
 \[F(B')\rightrightarrows F(B'\mathbin{\mathop{\times}\limits_B}B')
-\triplerightarrow F(B'\mathbin{\mathop{\times}\limits_B}B'
+\mathrel{\substack{\textstyle\rightarrow\\[-0.9ex]\textstyle\rightarrow\\[-0.9ex]\textstyle\rightarrow}} F(B'\mathbin{\mathop{\times}\limits_B}B'
 \mathbin{\mathop{\times}\limits_B}B')\cdots.\]
 The right derived functor of
 \(\underline H_{A|R}^{\vee o}:C_{A|R}^{\vee}\to C_{A|R}\) will be denoted by
@@ -1151,7 +1151,7 @@ over \(R\) and \({P\to B}\in\operatorname{Cov}(B)\), and furthermore
 \(H^{\bullet}((P\to B),G)\) is simply the cohomology gotten from the complex
 \[\cdots G(P\mathbin{\mathop{\times}\limits_B}P
 \mathbin{\mathop{\times}\limits_B}P)
-\triplearrows G(P\mathbin{\mathop{\times}\limits_B}P)
+\mathrel{\substack{\textstyle\rightarrow\\[-0.9ex]\textstyle\rightarrow\\[-0.9ex]\textstyle\rightarrow}} G(P\mathbin{\mathop{\times}\limits_B}P)
 \rightrightarrows G(P).\]
 If \(B\) is an \(R\)-algebra of finite type, then we may take \(P\) to be of finite type
 over \(R\) so that \(P\mathbin{\mathop{\times}\limits_B}\cdots
@@ -1279,7 +1279,7 @@ On the other hand, since \(S^{-1}A\otimes_AS^{-1}A\to S^{-1}A\) is an isomorphis
 <div class="thm lemma" id="6.3.10-lemma"><div class="thm-head"><span class="thm-name">Lemma 3.10:</span>
 \[D^1(A\mid R,M)=\operatorname{Coker}(\operatorname{Der}_R(P,M)\to\operatorname{Hom}_P(I,M))\]
 \[D^2(A\mid R,M)=H^1(A\mid R,\underline H^1_{A\mid R}(\operatorname{Der}_R(-,M))).\]</div><div class="thm-body"><p><u>Proof:</u> Consider the simplicial algebra
-\[(*)\qquad\cdots P_A^{(2)}\triplearrows P_A^{(1)}\rightrightarrows P_A^{(0)}\]
+\[(*)\qquad\cdots P_A^{(2)}\mathrel{\substack{\textstyle\rightarrow\\[-0.9ex]\textstyle\rightarrow\\[-0.9ex]\textstyle\rightarrow}} P_A^{(1)}\rightrightarrows P_A^{(0)}\]
 where \(P_A^{(n)}=\underbrace{P\times_A\cdots\times_AP}_{n+1}\). For each \(n\) we have the exact sequence
 \[0\to I^{(n)}\to P_A^{(n)}\to A\to0\]
 where \(I^{(n)}=\underbrace{I\times_I\cdots\times_I I}_{n+1}\), and it is easy to see that</p>
@@ -1501,7 +1501,7 @@ which we leave to the readers. We list below a few properties which is most rele
 <p>\(a\) For any coherent \(X\)-module \(E\), \(\underline D^i_{X\mid R}(E)\) is again a coherent
 \(X\)-module for all (i), and furthermore
 \[\operatorname{Supp}\underline D^i_{X\mid R}(E)\subset X^{\mathrm{Sing}}\quad\text{for all }i&gt;0\]
-where (X^{\mathrm{Sing}}=\{x\in X\mid X\text{ is non-smooth over }R\text{ at the point }x\in X\}).</p>
+where \(X^{\mathrm{Sing}}=\{x\in X\mid X\text{ is non-smooth over }R\text{ at the point }x\in X\}\).</p>
 <p>\(b\) If \(X\) is flat over \(R\), then for any \(R\)-algebra \(S\), we have the canonical isomorphism
 \[\underline D^i_{X\otimes_RS\mid S}(E)\simeq\underline D^i_{X\mid R}(E)\]
 for all (i).</p>

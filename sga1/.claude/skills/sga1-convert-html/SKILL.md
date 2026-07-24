@@ -85,5 +85,5 @@ vendor/mathjax/es5 vendor/XyJax-v3  vendored MathJax-SVG + XyJax — renders off
 `convert.py --verify` reports chapter/page/block/equation/theorem/footnote/bib
 counts, **unresolved** refs/cites, **leaked** `\commands` outside math, and JSON
 validity. A clean run is 0 unresolved and 0 leaks. The downstream gate
-[[sga1-check-errors]] loads the viewer pages in headless Chromium and reports
+[[sga-check-errors]] loads the viewer pages in headless Chromium and reports
 `mjx-merror`s — the authoritative MathJax/XyJax render check.

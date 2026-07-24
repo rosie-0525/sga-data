@@ -75,10 +75,11 @@ The output format (manifest + per-chapter JSON with embedded HTML) is
 document-agnostic and specified, with machine-validatable JSON Schemas, in
 `translation-viewer/docs/`.
 
-### 3. Check (`02-converted_html/` → `issues/`)
+### 3. Check (`02-converted_html/` → repo-root `issues/`)
 
 ```sh
-bash sgaN/.claude/skills/sgaN-check-errors/check.sh
+bash .claude/skills/sga-check-errors/check.sh        # every volume
+bash .claude/skills/sga-check-errors/check.sh sgaN   # one volume
 ```
 
 Loads `paper.html` in headless Chromium and renders every page through the
@@ -86,9 +87,11 @@ deliverable's own MathJax 3 + XyJax-v3 setup, letting typesetting (incl.
 xymatrix) run to completion, then reports `mjx-merror`s, leaked `\command`
 tokens, unresolved cross-references (`???`), internal links that resolve to
 nothing, and content blocks whose HTML isn't a single root element (which
-the viewer would silently truncate). Results are categorised into
-`issues/mathjax_errors.json`, `issues/crossref_errors.json`, and
-`issues/other_errors.json`.
+the viewer would silently truncate). Results for **all volumes** are
+aggregated into the repo-root `issues/mathjax_errors.json`,
+`issues/crossref_errors.json`, and `issues/other_errors.json` (every record
+carries its `book`; rerunning one volume replaces only that volume's
+records), with per-volume run metadata and totals in `issues/summary.json`.
 
 ## Review workflow (the viewer)
 

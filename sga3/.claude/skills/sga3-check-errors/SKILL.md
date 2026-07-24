@@ -20,8 +20,8 @@ bash .claude/skills/sga3-check-errors/check.sh II       # one chapter
 bash .claude/skills/sga3-check-errors/check.sh II,VIB   # several
 ```
 
-Puppeteer is reused from sga1's check-errors skill
-(`sga1/.claude/skills/sga1-check-errors/node_modules`) when that install
+Puppeteer is reused from the repo-global check-errors skill
+(`.claude/skills/sga-check-errors/node_modules`) when that install
 exists; otherwise the first run `npm install`s it into this skill's directory
 (~150 MB, downloads a Chromium build) and subsequent runs reuse the cache.
 MathJax 3 (SVG) + XyJax are vendored under `translation-viewer/vendor/`, so

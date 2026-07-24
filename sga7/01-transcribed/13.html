@@ -195,7 +195,7 @@ u:G\longrightarrow\operatorname{Gal}(\bar k/k)
 
 <h3 id="13.1.2"><u>1.2. Le topos \(Y\mathop{\times}\limits_S S\).</u></h3>
 
-<p id="13.1.2.1"><strong>1.2.1.</strong> Soient \(S\) un schéma local hensélien de point fermé \(i:s\lhook\joinrel\longrightarrow S\). Le foncteur \(S'\longmapsto S'\times_Ss=i^*S'\) est une équivalence de la catégorie des \(S\)-schémas finis étales \(S'\) avec la catégorie des \(s\)-schémas finis étales \(s'\) (spectres de \(k(s)\)-algèbres étales). Le foncteur inverse \(sp^*\), du site étale de \(s\) dans le site étale de \(S\), est un morphisme de sites</p>
+<p id="13.1.2.1"><strong>1.2.1.</strong> Soient \(S\) un schéma local hensélien de point fermé \(i:s\xhookrightarrow{\ \ } S\). Le foncteur \(S'\longmapsto S'\times_Ss=i^*S'\) est une équivalence de la catégorie des \(S\)-schémas finis étales \(S'\) avec la catégorie des \(s\)-schémas finis étales \(s'\) (spectres de \(k(s)\)-algèbres étales). Le foncteur inverse \(sp^*\), du site étale de \(s\) dans le site étale de \(S\), est un morphisme de sites</p>
 \[
 sp:S\longrightarrow s,
 \]
@@ -204,14 +204,14 @@ sp:S\longrightarrow s,
 \tag{1.2.1.1}sp_*F=i^*F.
 \]
 
-<p>Pour tout ouvert de \(S\), \(j:U\lhook\joinrel\longrightarrow S\), ou pour tout point de \(S\), \(j:\eta\lhook\joinrel\longrightarrow S\), on notera encore \(sp\) le morphisme composé \(sp\circ j\). Pour \(F\) un faisceau sur \(U\) (resp. sur \(\eta\)), on a</p>
+<p>Pour tout ouvert de \(S\), \(j:U\xhookrightarrow{\ \ } S\), ou pour tout point de \(S\), \(j:\eta\xhookrightarrow{\ \ } S\), on notera encore \(sp\) le morphisme composé \(sp\circ j\). Pour \(F\) un faisceau sur \(U\) (resp. sur \(\eta\)), on a</p>
 \[
 \tag{1.2.1.2}sp_*F=i^*j_*F.
 \]
 
 <p id="13.1.2.2"><strong>1.2.2.</strong> Soient \(S\) un trait hensélien, et \(s,\eta,\bar s,\bar\eta,I\) comme en 0.2.5.</p>
 \[
-s\overset{i}{\lhook\joinrel\longrightarrow}S\overset{j}{\longleftarrow\joinrel\lhook}\eta.
+s\xhookrightarrow{\ i\ }S\xhookleftarrow{\ j\ }\eta.
 \]
 
 <p>Voici comment les faisceaux sur \(s,\eta,S\) et le morphisme de spécialisation s'interprètent en termes galoisiens.</p>
@@ -258,7 +258,7 @@ Y\ar[d]&Y\mathop{\times}\limits_sS\ar[l]_{sp}\ar[r]^j\ar[d]&Y\mathop{\times}\lim
 s&S\ar[l]^i\ar[r]_j&\eta
 }
 \]
-<p>\(Y\mathop{\times}\limits_sS\) est réunion de l'ouvert \(Y\mathop{\times}\limits_s\eta\) et du fermé complémentaire \(Y\). Les formules 1.2.2\(c\) restent valables pour \(sp:Y\mathop{\times}\limits_sS\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)), \(j:Y\mathop{\times}\limits_s\eta\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\), \(i:Y\lhook\joinrel\longrightarrow Y\mathop{\times}\limits_sS\) et \(sp:Y\mathop{\times}\limits_s\eta\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)).</p>
+<p>\(Y\mathop{\times}\limits_sS\) est réunion de l'ouvert \(Y\mathop{\times}\limits_s\eta\) et du fermé complémentaire \(Y\). Les formules 1.2.2\(c\) restent valables pour \(sp:Y\mathop{\times}\limits_sS\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)), \(j:Y\mathop{\times}\limits_s\eta\xhookrightarrow{\ \ } Y\mathop{\times}\limits_sS\), \(i:Y\xhookrightarrow{\ \ } Y\mathop{\times}\limits_sS\) et \(sp:Y\mathop{\times}\limits_s\eta\longrightarrow Y\) (encore noté \(\operatorname{pr}_1\)).</p>
 
 <p id="13.1.2.4.2"><strong>1.2.4.2.</strong> Si on prend 1.2.4 pour définition de \(Y\mathop{\times}\limits_sS\), il y a lieu de montrer, par une construction directe, que \(Y\mathop{\times}\limits_sS\) ne dépend pas à isomorphisme unique près, du choix de la clôture séparable \(k(\bar\eta)\) de \(k(\eta)\). On le fait en interprétant \(F_\eta\) de 1.2.4\(b\) comme un foncteur qui à chaque clôture séparable \(k(\bar\eta)\) de \(k(\eta)\), définissant une clôture séparable \(k(\bar s)\) de \(k(s)\), associe un faisceau sur \(Y\otimes_{k(s)}k(\bar s)\) : le \(F_{\bar\eta}\) de 1.2.4\(b\) est la restriction de ce foncteur à \(\{\bar\eta\}\).</p>
 
@@ -308,7 +308,7 @@ f_!: (\text{faisceaux d'ensembles pointés sur }Y\mathop{\times}\limits_sS)
 <p>Pour \(f\) un plongement localement fermé, \(f_!\) s'appelle le foncteur de prolongement par zéro.</p>
 <p>Un foncteur analogue est défini pour \(Y\mathop{\times}\limits_s\eta\).</p>
 
-<p id="13.1.2.9"><strong>1.2.9.</strong> Soit \(f:Y\lhook\joinrel\longrightarrow Y'\) un plongement localement fermé de \(s\)-schémas. Le foncteur \(f_!\) a un adjoint à droite \(f^!\), «sections à support dans \(Y\)», vérifiant</p>
+<p id="13.1.2.9"><strong>1.2.9.</strong> Soit \(f:Y\xhookrightarrow{\ \ } Y'\) un plongement localement fermé de \(s\)-schémas. Le foncteur \(f_!\) a un adjoint à droite \(f^!\), «sections à support dans \(Y\)», vérifiant</p>
 \[
 \tag{1.2.9.1}f^!(F_{\bar s},F_{\bar\eta},\varphi)=
 (f^!F_{\bar s},f^!F_{\bar\eta},f^!(\varphi)).
@@ -350,7 +350,8 @@ s\ar@{^{(}->}[r]&S&\eta\ar@{_{(}->}[l].
 <p id="13.1.3.3"><strong>1.3.3.</strong> Soient \(F\) un faisceau sur \(X\), \(F_\eta\) sa restriction à \(X_\eta\) et \(F_s\) sa restriction à \(X_s\). On pose</p>
 \[
 \tag{1.3.3.1}(\Psi(F))_\eta=\Psi_\eta(F_\eta),
-\qquad
+\]
+\[
 \tag{1.3.3.2}(\Psi(F))_s=F_s.
 \]
 <p>Soient \(\bar F\) l'image réciproque de \(F\) sur \(\bar X\) et \(\varphi'\) le morphisme d'adjonction \(\varphi':\bar F\longrightarrow\bar j_*\bar j^*\bar F\). Ce morphisme induit</p>
@@ -625,7 +626,7 @@ Rf_!=R\widetilde f_*\circ j_!.
 
 <p id="13.2.1.9"><strong><u>Proposition 2.1.9.</u></strong> <u>Supposons que \(f\) admette une factorisation \(f=f_1k\)</u></p>
 \[
-X\mathop{\lhook\joinrel\longrightarrow}\limits^kX_1\mathop{\longrightarrow}\limits^{f_1}S,
+X\xhookrightarrow{\ k\ }X_1\mathop{\longrightarrow}\limits^{f_1}S,
 \]
 <p><u>avec \(f_1\) propre, et \(k\) l'inclusion dans \(X_1\) du complément d'un diviseur à croisements normaux relatif \(D\) (par hypothèse, \(f_1\) est donc lisse dans un voisinage de \(D\)). Si, dans un voisinage \(U\) de \(D\), les \(H^i(K)\) sont localement constants sur \(U-(D\cup X_\infty)\), et modérément ramifiés le long du diviseur à croisements normaux \(D\cup X_\infty\), alors (2.1.8.1) et (2.1.8.2) sont des isomorphismes.</u></p>
 
@@ -642,13 +643,13 @@ X\mathop{\lhook\joinrel\longrightarrow}\limits^kX_1\mathop{\longrightarrow}\limi
 R\Phi(k_!F)=0\quad\text{sur }X_{1\bar s}\qquad(2.1.11\text{ ci-dessous}).
 \]
 
-<p id="13.2.1.10"><strong><u>Lemme 2.1.10.</u></strong> <u>Soit \(f:X\longrightarrow S\) un morphisme lisse, \(D\subset X\) un diviseur à croisements normaux relatif, \(U=X-D\mathop{\lhook\joinrel\longrightarrow}\limits^jX\) et \(F\) un faisceau de \(\Lambda\)-modules sur \(U\), localement constant et modérément ramifié le long de \(D\). La formation de \(Rj_*F\) commute à tout changement de base \(T\longrightarrow S\).</u></p>
+<p id="13.2.1.10"><strong><u>Lemme 2.1.10.</u></strong> <u>Soit \(f:X\longrightarrow S\) un morphisme lisse, \(D\subset X\) un diviseur à croisements normaux relatif, \(U=X-D\xhookrightarrow{\ j\ }X\) et \(F\) un faisceau de \(\Lambda\)-modules sur \(U\), localement constant et modérément ramifié le long de \(D\). La formation de \(Rj_*F\) commute à tout changement de base \(T\longrightarrow S\).</u></p>
 
 <p>La question est locale (pour la topologie étale) sur \(X\). On peut donc supposer qu'il existe \(g:X'\longrightarrow X\), normalisé de \(X\) dans un revêtement fini étale surjectif \(g':U'\longrightarrow U\) modérément ramifié le long de \(D\), tel que \(g'^*F\) soit constant sur \(U'\). Utilisant le lemme d'Abhyankar, on peut supposer que de plus \(X'\) est lisse sur \(S\) et que \(U'\) est le complément d'un diviseur à croisements normaux relatif \(D'\) dans \(X'\).</p>
 
 <p>\(F\) s'injecte dans \(g'_*g'^*F\) et le conoyau vérifie encore les hypothèses de 2.1.10. Itérant la construction (le même \(g\) continue d'ailleurs à marcher), on obtient une résolution de \(F\) par des faisceaux de la forme \(g'_*G\) avec \(G\) constant et \(g'\) comme plus haut, il suffit donc de démontrer 2.1.10 pour un tel faisceau, i.e. de démontrer 2.1.10 pour \((X'/S,D',G\text{ constant sur }U')\) ; c'est là un cas particulier de SGA5 II 4.4.</p>
 
-<p id="13.2.1.11"><strong><u>Lemme 2.1.11.</u></strong> <u>Soient \(S\) un trait hensélien, \(f:X\longrightarrow S\) un morphisme lisse, \(D\subset X\) un diviseur à croisements normaux relatif, \(U=X-D\mathop{\lhook\joinrel\longrightarrow}\limits^jX\) et \(F\) un faisceau de \(\Lambda\)-modules sur \(U\), localement constant et modérément ramifié le long de \(D\). On a</u></p>
+<p id="13.2.1.11"><strong><u>Lemme 2.1.11.</u></strong> <u>Soient \(S\) un trait hensélien, \(f:X\longrightarrow S\) un morphisme lisse, \(D\subset X\) un diviseur à croisements normaux relatif, \(U=X-D\xhookrightarrow{\ j\ }X\) et \(F\) un faisceau de \(\Lambda\)-modules sur \(U\), localement constant et modérément ramifié le long de \(D\). On a</u></p>
 \[
 R\Phi(j_!F)=0.
 \]
@@ -753,13 +754,13 @@ M\otimes R^i\Psi_\eta(\mathbb Z/\ell)\mathop{\longrightarrow}\limits^\sim R^i\Ps
 
 <p>Soit \(X_\eta=X'_0\supset\cdots\supset X'_n\) une suite de parties fermées de \(X_\eta\) telle que \((X'_i-X'_{i+1})_{\mathrm{red}}\) soit lisse sur \(\eta\). Soit \(X_i=\overline{X'_i}\). Le faisceau \(\mathbb Z/\ell\) se dévisse en les faisceaux \(\mathbb Z/\ell\) sur \((X'_i-X'_{i+1})\), prolongés par 0. On en tire la</p>
 
-<p><strong><u>Réduction 1</u></strong> Il suffit de prouver 2.3.1 pour un faisceau \(j_!\mathbb Z/\ell\), pour \(j:U\lhook\joinrel\longrightarrow X_\eta\) l'inclusion d'un ouvert lisse.</p>
+<p><strong><u>Réduction 1</u></strong> Il suffit de prouver 2.3.1 pour un faisceau \(j_!\mathbb Z/\ell\), pour \(j:U\xhookrightarrow{\ \ } X_\eta\) l'inclusion d'un ouvert lisse.</p>
 
 <p>D'après la résolution des singularités, il existe \(g:X_1\to X\) tel que</p>
 <p>\(a\) \(g\) est propre, et induit un isomorphisme \(g^{-1}(U)\mathop{\longrightarrow}\limits^\sim U\) ;</p>
 <p>\(b\) \(X_1\) est régulier et \(X_1-g^{-1}(U)\) un diviseur à croisements normaux dans \(X_1\), réunion de diviseurs réguliers \(D_\alpha\).</p>
 
-<p>Soit \(j_1:g^{-1}(U)\lhook\joinrel\longrightarrow X_1\). On a \(Rg_*j_{1!}\mathbb Z/\ell=j_!\mathbb Z/\ell\). Appliquons 2.1.7.1 et le théorème de finitude SGA4 XIV 1.1 ; on trouve qu'il suffit de prouver (2.3.1) pour \((X_1,j_{1!}\mathbb Z/\ell)\).</p>
+<p>Soit \(j_1:g^{-1}(U)\xhookrightarrow{\ \ } X_1\). On a \(Rg_*j_{1!}\mathbb Z/\ell=j_!\mathbb Z/\ell\). Appliquons 2.1.7.1 et le théorème de finitude SGA4 XIV 1.1 ; on trouve qu'il suffit de prouver (2.3.1) pour \((X_1,j_{1!}\mathbb Z/\ell)\).</p>
 
 <p>On a une résolution</p>
 \[
