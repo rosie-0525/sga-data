@@ -486,7 +486,7 @@ corpus (sga1–sga7). The machine source of truth is
 | voisinage infinitésimal | infinitesimal neighbourhood | infinitesimal neighborhood |  | sga1:I-1#1, sga3:VIIB-2#48, sga7:9-5#5 |
 | vrai groupe fondamental | true fundamental group |  |  | sga1:XI-2#15 |
 
-## Theorem-kind headings (35)
+## Theorem-kind headings (36)
 
 | Français | English |
 |---|---|
@@ -516,6 +516,7 @@ corpus (sga1–sga7). The machine source of truth is
 | Preuve | Proof |
 | Problème | Problem |
 | Proposition | Proposition |
+| Proposition-définition | Proposition-definition |
 | Rappel | Reminder |
 | Rappels | Reminders |
 | Règle | Rule |
