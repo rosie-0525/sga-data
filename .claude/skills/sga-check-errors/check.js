@@ -1,5 +1,5 @@
 // Headless render/error scan for one SGA book's deliverable (any sga*/
-// directory whose 02-converted_html/ is driven by the shared translation-viewer).
+// directory: paper.html + data/, driven by the shared translation-viewer).
 //
 // Findings are categorised into three files written under the output dir:
 //   mathjax_errors.json  — typesetError, mjx-merror, leaked \word macros
@@ -7,7 +7,7 @@
 //   other_errors.json    — equation-tag dropout, »-glued-to-word spacing,
 //                           multi-root content blocks, fatal, page/console errors
 //
-// The deliverable (02-converted_html/) is a single page (paper.html) driven by
+// The deliverable (<book>/) is a single page (paper.html) driven by
 // the shared translation-viewer engine, NOT a tree of standalone HTML files:
 //   paper.html                — bootstraps translation-viewer/viewer-bootstrap.js,
 //                                which fetches data/config.json, configures MathJax 3
@@ -83,17 +83,17 @@ const DEFAULT_LANGS = CONFIG
 const LANGS = (process.argv[5] || DEFAULT_LANGS).split(',').map((s) => s.trim()).filter(Boolean);
 // check.sh serves from the super-repo root (translation-viewer/ is shared by
 // every book, one level above each book's own directory), and passes
-// HTML_DIR's path relative to that server root as argv[6] (e.g.
-// "sga1/02-converted_html"). Falls back to the bare basename for direct/manual
-// invocations that omit argv[6] (matches the old single-book layout).
+// HTML_DIR's path relative to that server root as argv[6] (e.g. "sga1").
+// Falls back to the bare basename for direct/manual invocations that omit
+// argv[6].
 const HTML_DIR_REL = process.argv[6] || path.basename(HTML_DIR);
 // Book name (e.g. "sga5") keying this run's records in the aggregated output
 // files (argv[7]; check.sh always passes it). Falls back to the first segment
-// of HTML_DIR_REL ("sga5/02-converted_html"), then to HTML_DIR's parent
-// directory name, for direct/manual invocations.
+// of HTML_DIR_REL, then to HTML_DIR's own directory name, for direct/manual
+// invocations.
 const BOOK = process.argv[7]
   || (HTML_DIR_REL.includes('/') ? HTML_DIR_REL.split('/')[0]
-      : path.basename(path.dirname(path.resolve(HTML_DIR))));
+      : path.basename(path.resolve(HTML_DIR)));
 
 const LOAD_TIMEOUT_MS = 60000;
 

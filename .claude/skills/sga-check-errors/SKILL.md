@@ -1,13 +1,13 @@
 ---
 name: sga-check-errors
-description: Render every page of any sga*/02-converted_html/ viewer in headless Chromium using the deliverable's own MathJax 3 + XyJax-v3 setup (via the shared translation-viewer engine), let typesetting (incl. xymatrix) run to completion, and report every problem found, categorised into three aggregate files under the repo-root issues/ (every record carries `book`; a run replaces only its own book's records). MathJax errors (mjx-merror, typeset failures, leaked `\command` tokens — e.g. `\lhook\joinrel` surviving into the frontend) go to issues/mathjax_errors.json; cross-reference errors (a `\ref`/`\eqref` surviving into math that MathJax renders as `???`, leftover `???`/`??` markers, and internal `#anchor` links that resolve to nothing via the manifest) go to issues/crossref_errors.json; other errors (equation-tag dropout, a closing guillemet `»` glued to the following word, multi-root content blocks, plus console / page-level errors) go to issues/other_errors.json; per-book run metadata and totals go to issues/summary.json. Works on every SGA book (sga1..sga7) — independent verification on top of each book's convert step; pdflatex compiling cleanly does not guarantee MathJax+XyJax can render.
+description: Render every page of any sga*/ book viewer (paper.html + data/) in headless Chromium using the deliverable's own MathJax 3 + XyJax-v3 setup (via the shared translation-viewer engine), let typesetting (incl. xymatrix) run to completion, and report every problem found, categorised into three aggregate files under the repo-root issues/ (every record carries `book`; a run replaces only its own book's records). MathJax errors (mjx-merror, typeset failures, leaked `\command` tokens — e.g. `\lhook\joinrel` surviving into the frontend) go to issues/mathjax_errors.json; cross-reference errors (a `\ref`/`\eqref` surviving into math that MathJax renders as `???`, leftover `???`/`??` markers, and internal `#anchor` links that resolve to nothing via the manifest) go to issues/crossref_errors.json; other errors (equation-tag dropout, a closing guillemet `»` glued to the following word, multi-root content blocks, plus console / page-level errors) go to issues/other_errors.json; per-book run metadata and totals go to issues/summary.json. Works on every SGA book (sga1..sga7) — independent verification on top of each book's convert step; pdflatex compiling cleanly does not guarantee MathJax+XyJax can render.
 ---
 
 # sga-check-errors
 
 ## When to use
 
-After any book's convert step has produced `<book>/02-converted_html/`. pdflatex
+After any book's convert step has produced `<book>/paper.html` + `<book>/data/`. pdflatex
 (or the transcription pipeline) accepts LaTeX that MathJax + XyJax-v3 cannot
 render (e.g. certain `\xymatrix` constructs, `\textup` inside `\text`,
 plain-TeX arrow idioms like `\lhook\joinrel\longrightarrow` — MathJax defines
@@ -68,7 +68,7 @@ Outputs:
 Every book's deliverable is the same single-page viewer, driven by the shared
 `translation-viewer/` engine at the repo root:
 
-- `<book>/02-converted_html/paper.html` — shell that bootstraps
+- `<book>/paper.html` — shell that bootstraps
   `translation-viewer/viewer-bootstrap.js`, which fetches `data/config.json`,
   configures MathJax 3 (SVG) + XyJax-v3 from it (`startup.typeset:false`,
   `tags:'none'`, packages incl. `xypic`, plus any per-book
@@ -189,8 +189,8 @@ summary are the fix list.
 - `translation-viewer/` (repo-root git submodule) — the shared viewer engine
   every book's deliverable loads; vendored MathJax 3 + XyJax-v3 live under
   `translation-viewer/vendor/`.
-- Superseded per-book copies: this skill replaces the old
-  `sga1/.claude/skills/sga1-check-errors` (moved here) and covers what
-  `sga2-check-errors` did; `sga3-check-errors` remains separate — it checks
-  sga3's standalone transcription HTML (`01-transcribed/`), a different
-  deliverable from `02-converted_html/`.
+- Superseded per-book copies: this skill replaces the old per-book
+  `sgaN-check-errors` skills, all of which were removed with the rest of the
+  build pipeline on 2026-07-27 (in git history through `a2317a4`). It is now
+  the only render check in the repo, and it checks each book's `paper.html` + `data/` —
+  the sole remaining deliverable — for every book.

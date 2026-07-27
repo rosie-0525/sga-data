@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-off in-place patch of sga{3..7}/02-converted_html/data/fr/:
+"""One-off in-place patch of sga{3..7}/data/fr/:
 
 Split the leading "EXPOSÉ <numeral>" off every chapter title into a new
 `alias` field, and lift the h1's <span class="author"> text into a new
@@ -52,7 +52,7 @@ def author_from_blocks(chapter):
 def main():
     total_alias = total_author = 0
     for book in BOOKS:
-        fr = ROOT / book / "02-converted_html" / "data" / "fr"
+        fr = ROOT / book / "data" / "fr"
         manifest_path = fr / "manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         # round-trip guard: our dump settings must reproduce the file as-is
@@ -99,7 +99,7 @@ def main():
         total_author += n_author
 
     for book in ALIAS_ONLY_BOOKS:
-        fr = ROOT / book / "02-converted_html" / "data" / "fr"
+        fr = ROOT / book / "data" / "fr"
         manifest_path = fr / "manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         if dump(manifest) != manifest_path.read_text(encoding="utf-8"):

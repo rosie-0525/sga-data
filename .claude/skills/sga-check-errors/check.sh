@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Drive a headless Chromium over one or every book's 02-converted_html/ and
+# Drive a headless Chromium over one or every book directory (sga*/) and
 # report rendering, cross-reference, and other errors (categorised into the
 # repo-root issues/*_errors.json, aggregated across books, plus
 # issues/summary.json).
@@ -22,20 +22,20 @@ if [ "$BOOKS_ARG" = "all" ]; then
   BOOKS=""
   for d in "$REPO_ROOT"/sga*/; do
     b="$(basename "$d")"
-    [ -f "$d/02-converted_html/paper.html" ] && BOOKS="$BOOKS $b"
+    [ -f "$d/paper.html" ] && BOOKS="$BOOKS $b"
   done
 else
   BOOKS="$(echo "$BOOKS_ARG" | tr ',' ' ')"
 fi
 
 if [ -z "${BOOKS// /}" ]; then
-  echo "error: no books with 02-converted_html/paper.html found under $REPO_ROOT" >&2
+  echo "error: no books with paper.html found under $REPO_ROOT" >&2
   exit 2
 fi
 
 for b in $BOOKS; do
-  if [ ! -f "$REPO_ROOT/$b/02-converted_html/paper.html" ]; then
-    echo "error: $REPO_ROOT/$b/02-converted_html/paper.html does not exist — run that book's convert step first" >&2
+  if [ ! -f "$REPO_ROOT/$b/paper.html" ]; then
+    echo "error: $REPO_ROOT/$b/paper.html does not exist — run that book's convert step first" >&2
     exit 2
   fi
 done
@@ -98,7 +98,7 @@ if [ -n "$APP_REL" ]; then
 fi
 
 # One server at the repo root covers every book (paper.html reaches the shared
-# translation-viewer/ via ../../translation-viewer/). Bind port 0 so the OS
+# translation-viewer/ via ../translation-viewer/). Bind port 0 so the OS
 # hands us a genuinely free port — probing a hardcoded list can race a stale
 # preview server holding the port while serving the WRONG root — and pin the
 # served directory explicitly so the server never inherits a surprising cwd.
@@ -143,9 +143,9 @@ mkdir -p "$OUT_DIR"
 
 rc=0
 for b in $BOOKS; do
-  HTML_DIR="$REPO_ROOT/$b/02-converted_html"
+  HTML_DIR="$REPO_ROOT/$b"
   echo "===== $b ====="
-  node "$SKILL_DIR/check.js" "$HTML_DIR" "http://localhost:$PORT" "$OUT_DIR" "$LANGS" "$b/02-converted_html" "$b"
+  node "$SKILL_DIR/check.js" "$HTML_DIR" "http://localhost:$PORT" "$OUT_DIR" "$LANGS" "$b" "$b"
   brc=$?
   [ "$brc" -ne 0 ] && rc=1
 done

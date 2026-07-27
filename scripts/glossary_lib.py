@@ -41,7 +41,7 @@ def norm_heading(name):
 
 
 def data_dir(book, lang):
-    return ROOT / book / "02-converted_html" / "data" / lang
+    return ROOT / book / "data" / lang
 
 
 def load_json(path):

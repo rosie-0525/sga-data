@@ -1,15 +1,18 @@
 # Errata — printed-edition anomalies noted during transcription
 
-Sites where the **source PDFs themselves** (the 2011 SGA 3 re-edition typesetting
-under `sga3/00-source_pdf/`) print something suspect or wrong. They were collected
-during the 2026-07-24 repair/completion pass over exposés XXI, XXII, XXIV and XXVI
-(each checked against the PDF text layer, ambiguous glyphs zoomed at high
-resolution).
+Sites where the **source PDFs themselves** print something suspect or wrong.
+Most of this file covers the 2011 SGA 3 re-edition typesetting under
+`sga3/source/`, collected during the 2026-07-24 repair/completion pass
+over exposés XXI, XXII, XXIV and XXVI (each checked against the PDF text layer,
+ambiguous glyphs zoomed at high resolution); a closing section covers SGA 6.
 
 Policy applied: the transcription reproduces the print **as is** unless the
 misprint is mathematically unambiguous; the handful of silent corrections made are
-listed first per exposé so they can be audited. Line numbers refer to the current
-files under `sga3/01-transcribed/`.
+listed first per exposé so they can be audited. Line numbers below refer to the
+intermediate transcription HTML that has since been removed from the tree (it is
+in git history through `a2317a4`); the text itself now lives in
+`sga3/data/fr/chapters/`, where each site is findable by the
+quoted wording.
 
 ---
 
@@ -130,3 +133,52 @@ files under `sga3/01-transcribed/`.
 - line 1429, 7.8 — "Notons t_α(H)" (genuinely prints t_α twice here, though
   7.9/7.13 use t_r; both kept exactly as printed).
 - line 1513, 7.15 — "corps résiduel de s₀".
+
+---
+
+# SGA 6 — anomalies in the printed 1971 edition
+
+Flagged during the English translation, checked against the scans in
+`sga6/source/` on 2026-07-18. All are kept **verbatim** in both
+language versions of the viewer data; this is the record of what they are and
+what was almost certainly meant. (Migrated here from `sga6/typos.md` on
+2026-07-27, when that file's other section — three transcription remnants in
+Exposé X, fixed 2026-07-18 — was verified clean in fr and en and dropped.)
+
+## Exposé XII, p. 19 (vol. p. 613) — "restreindre" for "restreinte"
+
+> donc la donnée de descente sur L **restreindre** au-dessus de V=f⁻¹(V) est
+> isomorphe à la donnée de descente triviale sur O_X|V.
+
+Ungrammatical past participle; "restreinte" is meant. In the proof following
+the conditions 1)–5) for effectivity of the descent datum (§4).
+
+## Exposé XIII, pp. 3–4 (vol. pp. 618–619) — "2.3" cited for "1.3" (twice)
+
+In the proof of Proposition 1.4:
+
+> les deux groupes extrêmes sont 0 pour q ≥ 2 et n ≥ m−(q−1) par **2.3** (i).
+
+> Si n ≥ m, alors β_n est surjectif par **2.3** (ii) ;
+
+Both should read **1.3**: Proposition 1.3(i) (an m-regular sheaf is n-regular
+for n ≥ m) gives the vanishing of the extreme groups, and 1.3(ii) is exactly
+the surjectivity of β_n : H⁰(G(n))⊗H⁰(O_X(1)) → H⁰(G(n+1)). Lemma 2.3, on the
+Hilbert-polynomial coefficients (a_r = e_r = d(H)), is unrelated.
+
+## Exposé XIV, p. 23 (vol. p. 689) — "sans hyperplan quasi-projectif"
+
+In the "Notes pour la page 11", footnote (∗) on Mumford/Jouanolou:
+
+> le résultat cohomologique est prouvé par J. P. JOUANOLOU sous des conditions
+> plus générales (**sans hyperplan quasi-projectif**, et dans le cas lisse
+> relatif sur une base quelconque).
+
+Printed as such; possibly shorthand for (or a slip for) "sans hypothèse
+quasi-projective". Kept as printed.
+
+## Exposé X, p. 25 (vol. p. 543) — "a_d!" for "α_d!"
+
+In the displayed coefficient formula after (4.3.2), the original prints
+`(1/(α₁! ⋯ a_d!))` where `α_d!` is clearly meant. The transcription silently
+normalizes this to `\alpha_d!`.
