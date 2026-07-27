@@ -2100,7 +2100,7 @@ def write_config(out_dir):
             'fr': {
                 'label': 'FR',
                 'pageTitle': 'SGA 4½',
-                'bookTitle': 'SGA 4½ — Cohomologie étale',
+                'bookTitle': 'SGA 4½ — Cohomologie Étale',
                 'toc': 'Table des matières',
                 'notrans': '(pas de traduction)',
                 'loadErr': 'Erreur de chargement : ',

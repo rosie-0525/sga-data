@@ -1993,7 +1993,7 @@ def write_config(out_dir):
             'fr': {
                 'label': 'FR',
                 'pageTitle': 'SGA 1',
-                'bookTitle': 'SGA 1 — Revêtements étales et groupe fondamental',
+                'bookTitle': 'SGA 1 — Revêtements Étales et Groupe Fondamental',
                 'toc': 'Table des matières',
                 'notrans': '(Traduction non disponible — la version française est la référence.)',
                 'loadErr': 'Erreur de chargement : ',

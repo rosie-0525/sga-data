@@ -1914,9 +1914,9 @@ def write_config(out_dir):
             'fr': {
                 'label': 'FR',
                 'pageTitle': 'SGA 2',
-                'bookTitle': 'SGA 2 — Cohomologie locale des faisceaux '
-                             'cohérents et théorèmes de Lefschetz locaux '
-                             'et globaux',
+                'bookTitle': 'SGA 2 — Cohomologie Locale des Faisceaux '
+                             'Cohérents et Théorèmes de Lefschetz Locaux '
+                             'et Globaux',
                 'toc': 'Table des matières',
                 'notrans': '(pas de traduction)',
                 'loadErr': 'Erreur de chargement : ',
