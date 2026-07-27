@@ -19,9 +19,9 @@ original LaTeX).
 |---|---|
 | `index.html` | Landing page listing every volume, linking to its `paper.html`. |
 | `sga1/`, `sga2/`, … | One self-contained directory per volume (see below). |
-| `translation-viewer/` | Git submodule — the generic bilingual/aligned-column viewer engine shared by every volume: MathJax 3 SVG + XyJax-v3 (vendored, fully offline) for rendering, plus the in-page comment/error-flagging tool. |
+| `translation-viewer/` | Git submodule — the generic bilingual/aligned-column viewer engine shared by every volume: MathJax 3 SVG + XyJax-v3 (vendored, fully offline) for rendering, plus the in-page comment/error-flagging tool and the proposed-changes review UI. |
 | `glossary/` | `glossary.json` is the FR→EN terminology source of truth; `GLOSSARY.md` is generated from it; `candidates/` holds the extraction inputs. |
-| `scripts/` | Corpus-wide tooling: glossary extraction/conformance/rendering, `add_alias_author.py`. |
+| `scripts/` | Corpus-wide tooling: glossary extraction, conformance checking, Markdown rendering, and the proposed-changes applier. |
 | `issues/` | Aggregated verification reports for all volumes (see *Check*). |
 | `.claude/skills/sga-check-errors/` | The render-check skill (headless Chromium + the deliverable's own MathJax setup). |
 | `ERRATA.md` | Anomalies printed in the source editions themselves, with the policy applied to each. |
@@ -31,7 +31,7 @@ Inside each volume directory:
 | Path | What it is |
 |---|---|
 | `source/` | The reference the volume is checked against: the original SMF LaTeX source (sga1, sga2) or the source PDFs (sga3–sga7). sga4.5 keeps its source in the `sga4.5/sga4.5/` submodule instead. |
-| `data/` | The deliverable's data: `config.json`, `{fr,en}/manifest.json` and `{fr,en}/chapters/<id>.json`. |
+| `data/` | The deliverable's data: `config.json`, `{fr,en}/manifest.json` and `{fr,en}/chapters/<id>.json`. `proposals.json`, when present, is a run of proposed changes awaiting review. |
 | `paper.html` | The entry page, rendered by `translation-viewer`. |
 
 Volume-specific extras: `sga3/source/chapter-map.json` maps each source PDF to
@@ -110,6 +110,75 @@ reviewed, jumped to, or exported as a `comments.json` file at any time. That
 exported file is a plain list of block-anchored comments, meant to be handed to
 an agent that reads it and applies the corresponding fixes to the JSON data.
 `comments.json` itself is a local working file, not checked into the repo.
+
+## Proposed changes (agent → viewer → data)
+
+The reverse direction: a checking agent audits a volume against its source and
+proposes concrete edits; a human adjudicates each one in the viewer.
+
+```sh
+# 1. the agent writes sgaN/data/proposals.json (see below)
+python3 scripts/apply_proposals.py --book sgaN --validate          # sanity-check the run
+
+# 2. review in the viewer: open sgaN/paper.html, "⇄ Changes",
+#    Accept / Edit / Reject each card, then "Export decisions.json"
+
+# 3. apply the verdicts
+python3 scripts/apply_proposals.py --book sgaN --decisions ~/Downloads/decisions.json --dry-run
+python3 scripts/apply_proposals.py --book sgaN --decisions ~/Downloads/decisions.json
+```
+
+Each proposal is a block-level `before`/`after` replacement, addressed the way a
+comment is (`chapterId` → `pageId` → `blockIndex`). The viewer renders it as a
+word-level diff inside the block it touches, in that block's own column: math is
+diffed as an indivisible atom, and a change to the *markup* falls back to a split
+before | after view. `before` is the block's html verbatim, so a proposal whose
+block has since changed shows as **stale** and cannot be accepted. Both file
+formats are specified in `translation-viewer/docs/proposals.schema.md`.
+
+A volume with no `sgaN/data/proposals.json` shows no review UI at all, so
+committing that file is what publishes a run (and deleting it takes it down).
+Dropping a `proposals.json` onto the page reviews it locally without committing
+anything. `decisions.json` is a local working file.
+
+`sga7/data/proposals.json` currently holds a sample run of 10 proposals — every
+missing-backslash math defect in the volume (`\(operatorname…`, `\(mathbb…`,
+`\(mathcal…`, and one `\(\ell\)` written as a bare `(ell)`), on pages `6-3` and
+`22-5`, fr and en. These render cleanly and so survive the check sweep: the TeX
+prints the literal control word instead of the symbol. Grep for that class with
+`grep -rE '\\\((math[cbsfr]|operatorname|leq|geq)' sgaN/data`; sga5 `V-s6` has
+two more (`\(geq p_0\)`).
+
+### Writing the proposals (the checking agent's contract)
+
+Build proposals through `scripts/proposals_lib.py` — `new_proposal()` reads
+`before` off disk so the address and the baseline text can't drift, and
+`write_proposals()` emits the run:
+
+```python
+import proposals_lib as pl
+props = [pl.new_proposal("sga3", "en", "III", "III-4", new_html,
+                         "FR « lisse » is 'smooth', not 'flat'.",
+                         block_index=127, category="translation",
+                         evidence="source PDF p. 214")]
+pl.write_proposals("sga3", props, generator="…", generated_at="…")
+```
+
+What may be proposed: **French transcription** fixes against the source PDF or
+LaTeX, **English translation** fixes against the French, and **math/markup**
+fixes — always as the text of an existing block (or footnote).
+
+What may not: adding, removing, splitting, merging or reordering blocks. FR and
+EN are aligned 1:1 by block index, so a structural change on one side breaks the
+other; `apply_proposals.py` refuses it. A replacement must also be a single root
+element — the viewer keeps only the first and silently drops the rest.
+
+Every write is guarded: run identity (`proposalsGeneratedAt` must match), address
+resolution, conflict (the block still equals `before`), single-root, and the
+fr/en block-count invariant. A proposal that trips a guard is reported and
+skipped, never forced. Chapter files are rewritten with the corpus's own
+serialization (`indent=1`, per-file trailing-newline state) so an edited block is
+a one-line diff.
 
 ## Requirements
 

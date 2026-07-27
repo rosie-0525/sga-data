@@ -15,3 +15,10 @@ __pycache__/
 
 # Node dependencies (puppeteer/chromium for the sga-check-errors skill) — restore with `npm install`
 node_modules/
+
+# Local review working files: comments exported from the viewer's comment panel,
+# and verdicts exported from its proposed-changes panel. Both are handed to a
+# script/agent and then discarded. (sgaN/data/proposals.json is NOT ignored —
+# committing it is what publishes a review run.)
+comments.json
+decisions.json
