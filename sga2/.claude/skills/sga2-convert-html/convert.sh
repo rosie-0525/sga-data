@@ -45,14 +45,22 @@ if [[ ! -f "$TEMPLATE" ]]; then
   exit 1
 fi
 
-echo "[convert] generating paper.html…"
-# paper.template.html assumes translation-viewer/ is a sibling of paper.html; here
-# paper.html lives two levels down from translation-viewer/'s home (02-converted_html
-# -> sga2 -> super-root), so rewrite the references to ../../translation-viewer/, and
-# point the home link back at the multi-book landing page.
-sed -e 's#"translation-viewer/#"../../translation-viewer/#g' \
-    -e 's#href="index.html"#href="../../index.html"#' \
-    "$TEMPLATE" > "$OUT/paper.html"
+# The shipped paper.html carries repo-side additions the template does not have
+# (the analytics snippet, the #pager div), so it is generated once and then left
+# alone — regenerating would silently drop them. FORCE_PAPER=1 to re-apply the
+# template deliberately, e.g. after the translation-viewer submodule moves.
+if [[ -f "$OUT/paper.html" && "${FORCE_PAPER:-0}" != "1" ]]; then
+  echo "[convert] keeping existing paper.html (FORCE_PAPER=1 to regenerate from the template)"
+else
+  echo "[convert] generating paper.html…"
+  # paper.template.html assumes translation-viewer/ is a sibling of paper.html; here
+  # paper.html lives two levels down from translation-viewer/'s home (02-converted_html
+  # -> sga2 -> super-root), so rewrite the references to ../../translation-viewer/, and
+  # point the home link back at the multi-book landing page.
+  sed -e 's#"translation-viewer/#"../../translation-viewer/#g' \
+      -e 's#href="index.html"#href="../../index.html"#' \
+      "$TEMPLATE" > "$OUT/paper.html"
+fi
 
 echo "[convert] done. Output in $OUT"
 echo "          preview with:  (cd \"$SUPER_ROOT\" && python3 -m http.server) then open http://localhost:8000/sga2/02-converted_html/paper.html"

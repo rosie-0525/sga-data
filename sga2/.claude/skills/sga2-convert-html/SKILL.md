@@ -63,14 +63,27 @@ python3 .claude/skills/sga2-convert-html/convert.py --only chapter-01 --verify
 ```
 data/config.json               project config: {baseLang, rightLangs, languages, ...}
 data/fr/manifest.json          manifest (base language only): {toc, default_page_id, default_chapter_id, chapters, anchor_index}
-data/fr/chapters/<id>.json     {chapter_id, title, number, pages[]}
+data/fr/chapters/<id>.json     {chapter_id, title, number, pages[]} (+ alias "EXPOSÉ" on numbered chapters)
 data/en/chapters/<id>.json     same envelope; English content is empty stubs until translated (French is the reference)
-paper.html                     entry page generated from translation-viewer/paper.template.html
+paper.html                     entry page generated once from translation-viewer/paper.template.html
 ```
 
 `translation-viewer/` (a sibling submodule of `02-converted_html/`) supplies the
 viewer engine and its own vendored MathJax 3 (SVG) + XyJax-v3 — nothing under
 `02-converted_html/` needs to vendor those assets.
+
+- **Other non-clobber guards** — a re-run is idempotent against the committed
+  deliverable, so no post-conversion patch step is needed:
+  - `data/config.json` — an existing file **wins**; `write_config()` only fills
+    in keys it lacks. (`bookTitle` carries the full descriptive title while
+    `pageTitle` stays short; a rebuild used to revert that.)
+  - `paper.html` — generated only when missing. The shipped file carries
+    repo-side additions the template does not have (analytics snippet,
+    `#pager` div). `FORCE_PAPER=1 bash convert.sh` re-applies the template
+    deliberately, e.g. after the `translation-viewer` submodule moves.
+  - `alias: "EXPOSÉ"` on numbered chapters is emitted directly (manifest entry
+    + chapter file), so the one-off `scripts/add_alias_author.py` no longer has
+    to be re-run after a conversion.
 
 - **English non-clobber guard**: `emit()` writes the empty English stubs only while the
   English side is still untranslated. Once an `en/chapters/<id>.json` has

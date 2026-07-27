@@ -2069,19 +2069,38 @@ def _en_chapter_is_stub(path):
     return all((not p.get('html')) and (not p.get('blocks')) for p in pages)
 
 
+def merge_defaults(existing, defaults):
+    """Recursive fill-in: `existing` wins, missing keys come from `defaults`."""
+    if not isinstance(existing, dict) or not isinstance(defaults, dict):
+        return existing
+    out = dict(existing)
+    for key, value in defaults.items():
+        if key in out:
+            out[key] = merge_defaults(out[key], value)
+        else:
+            out[key] = value
+    return out
+
+
 def write_config(out_dir):
-    """data/config.json — read by translation-viewer/viewer-bootstrap.js. No
-    user-edited content, so it is written unconditionally on every run. The
-    default mathjax packages ['xypic', 'ams', 'color', 'mathtools'] and no
-    macros are what this project needs, so the 'mathjax' key is omitted."""
-    config = {
+    """data/config.json — read by translation-viewer/viewer-bootstrap.js.
+
+    Part of this file is hand-tuned in the repo (`pageTitle` is the short tab
+    title, `bookTitle` the descriptive header), so **an existing file wins**:
+    only keys it does not already have are filled in from the defaults below,
+    which keeps new viewer strings arriving on a re-run without reverting
+    anyone's edits. The default mathjax packages ['xypic', 'ams', 'color',
+    'mathtools'] and no macros are what this project needs, so the 'mathjax'
+    key is omitted."""
+    defaults = {
         'baseLang': 'fr',
         'rightLangs': ['en'],
+        'version': 'Lecture Notes in Mathematics 569, Springer-Verlag, 1977',
         'languages': {
             'fr': {
                 'label': 'FR',
-                'pageTitle': 'SGA 4½ — Cohomologie étale',
-                'bookTitle': 'SGA 4½',
+                'pageTitle': 'SGA 4½',
+                'bookTitle': 'SGA 4½ — Cohomologie étale',
                 'toc': 'Table des matières',
                 'notrans': '(pas de traduction)',
                 'loadErr': 'Erreur de chargement : ',
@@ -2092,8 +2111,8 @@ def write_config(out_dir):
             },
             'en': {
                 'label': 'EN',
-                'pageTitle': 'SGA 4½ — Étale Cohomology',
-                'bookTitle': 'SGA 4½',
+                'pageTitle': 'SGA 4½',
+                'bookTitle': 'SGA 4½ — Étale Cohomology',
                 'toc': 'Table of contents',
                 'notrans': '(no translation)',
                 'loadErr': 'Loading error: ',
@@ -2104,7 +2123,16 @@ def write_config(out_dir):
             },
         },
     }
-    with open(os.path.join(out_dir, 'data', 'config.json'), 'w', encoding='utf-8') as f:
+    path = os.path.join(out_dir, 'data', 'config.json')
+    config = defaults
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as f:
+            existing = json.load(f)
+        config = merge_defaults(existing, defaults)
+        filled = config != existing
+        print('config.json: kept existing values'
+              + (', filled in missing defaults' if filled else ''))
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(config, f, ensure_ascii=False, indent=1)
 
 

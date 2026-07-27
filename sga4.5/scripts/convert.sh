@@ -43,8 +43,16 @@ if [[ ! -f "$TEMPLATE" ]]; then
   exit 1
 fi
 
-sed -e 's#"translation-viewer/#"../../translation-viewer/#g' \
-    -e 's#href="index.html"#href="../../index.html"#' \
-    "$TEMPLATE" > "$OUT/paper.html"
+# The shipped paper.html carries repo-side additions the template does not have
+# (the analytics snippet), so it is generated once and then left alone —
+# regenerating would silently drop them. FORCE_PAPER=1 to re-apply the template
+# deliberately, e.g. after the translation-viewer submodule moves.
+if [[ -f "$OUT/paper.html" && "${FORCE_PAPER:-0}" != "1" ]]; then
+  echo "[convert] keeping existing paper.html (FORCE_PAPER=1 to regenerate from the template)"
+else
+  sed -e 's#"translation-viewer/#"../../translation-viewer/#g' \
+      -e 's#href="index.html"#href="../../index.html"#' \
+      "$TEMPLATE" > "$OUT/paper.html"
+fi
 
 echo "[convert] done: $OUT"

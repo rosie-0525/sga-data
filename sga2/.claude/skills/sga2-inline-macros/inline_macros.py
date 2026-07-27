@@ -132,13 +132,92 @@ def rule_nde(text: str) -> str:
     return text
 
 
+# A marker typeset by hand instead of by \sfootnotemark, e.g. $^{(**)}$.
+HAND_FOOTNOTE_MARK = re.compile(r"\$\^\{\(\*+\)\}\$")
+# \sfootnotemark appearing as the *subject* of a definition, not as a marker.
+SFOOTNOTEMARK_DEF = re.compile(
+    r"\\(?:def|let|(?:re|provide)?newcommand)\s*\{?\s*$")
+# The AG counter is stepped by hand where the marker is typeset by hand.
+REFSTEPCOUNTER_AG = re.compile(r"\\refstepcounter\s*\{\s*footnoteAG\s*\}\s*$")
+# How far a \sfootnotetext may sit from the marker it belongs to.
+FOOTNOTE_PAIR_WINDOW = 2000
+
+
 def rule_sfootnote(text: str) -> str:
+    r"""Turn the AG ("1968") footnote series into plain \footnote.
+
+    \sfootnote{...} is the inline form. Where the marker has to sit in a
+    heading or a theorem title — a moving/boxed argument that cannot host a
+    real footnote — the source splits it into \sfootnotemark ... and a
+    \sfootnotetext{...} placed further on (once, in XIII.1.1, with the marker
+    typeset by hand as $^{(**)}$ and only the counter stepped). Both halves
+    carry original 1968 author text, so the split form is *re-joined* — the
+    body is spliced back in at its marker — never dropped.
+    """
     text = replace_command_with_arg(text, "sfootnote",
                                     lambda a: r"\footnote{" + a + "}")
-    # sfootnotemark / sfootnotetext are rare; drop if present
-    text = drop_optional_then_brace(text, "sfootnotetext")
-    text = drop_command_no_arg(text, "sfootnotemark")
-    return text
+    return rejoin_split_footnotes(text)
+
+
+def rejoin_split_footnotes(text: str) -> str:
+    r"""Splice every \sfootnotetext{...} body into its marker as \footnote{}."""
+    marks: list[tuple[int, int]] = []
+    for m in re.finditer(r"\\sfootnotemark(?![a-zA-Z])", text):
+        if SFOOTNOTEMARK_DEF.search(text, max(0, m.start() - 40), m.start()):
+            continue  # \def\sfootnotemark{} in the table-of-contents group
+        marks.append((m.start(), m.end()))
+
+    edits: list[tuple[int, int, str]] = []
+    used: set[int] = set()
+    pattern = re.compile(r"\\sfootnotetext(?![a-zA-Z])\s*(?=\{)")
+    pos = 0
+    while True:
+        m = pattern.search(text, pos)
+        if m is None:
+            break
+        brace_end = find_matching(text, m.end(), "{", "}")
+        body = text[m.end() + 1 : brace_end]
+        pos = brace_end + 1
+
+        # Prefer the nearest preceding \sfootnotemark not yet claimed.
+        partner = next(
+            ((s, e) for s, e in reversed(marks)
+             if s not in used and s < m.start()
+             and m.start() - s <= FOOTNOTE_PAIR_WINDOW),
+            None)
+        if partner is not None:
+            used.add(partner[0])
+        else:
+            # …otherwise a marker the source typeset by hand, just ahead.
+            hand = HAND_FOOTNOTE_MARK.search(
+                text, brace_end, brace_end + FOOTNOTE_PAIR_WINDOW)
+            if hand is None:
+                raise ValueError(
+                    f"\\sfootnotetext at offset {m.start()} has no marker: "
+                    f"{text[m.start():m.start() + 120]!r}")
+            partner = (hand.start(), hand.end())
+
+        edits.append((partner[0], partner[1], r"\footnote{" + body + "}"))
+        start = m.start()
+        step = REFSTEPCOUNTER_AG.search(text, max(0, start - 60), start)
+        if step is not None:
+            start = step.start()  # the hand-stepped counter goes with it
+        edits.append((start, brace_end + 1, ""))
+
+    leftover = [s for s, _ in marks if s not in used]
+    if leftover:
+        raise ValueError(
+            "\\sfootnotemark with no \\sfootnotetext at offsets "
+            + ", ".join(str(s) for s in leftover))
+
+    out: list[str] = []
+    prev = 0
+    for start, end, repl in sorted(edits):
+        out.append(text[prev:start])
+        out.append(repl)
+        prev = end
+    out.append(text[prev:])
+    return "".join(out)
 
 
 def rule_manyfoot(text: str) -> str:

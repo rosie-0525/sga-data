@@ -26,6 +26,7 @@ python3 .claude/skills/sga2-inline-macros/inline_macros.py \
 | `\pageoriginale` | removed |
 | `\nde{...}`, `\ndetext{...}` | removed (brace-balanced) |
 | `\sfootnote{...}` | → `\footnote{...}` |
+| `\sfootnotemark` … `\sfootnotetext{...}` | re-joined → `\footnote{...}` at the marker. The AG (1968) series splits marker from body wherever the marker sits in a `\section` title or an `enonce*` title; XIII.1.1 instead typesets the marker by hand as `$^{(**)}$` and only steps the counter (`\refstepcounter{footnoteAG}`, dropped with the body). Unpaired halves raise — these are author footnotes and must never be dropped |
 | `\Footnotemark[...]`, `\Footnotetext[...]{...}` | removed |
 | `\alttitle{...}`, `\altkeywords{...}`, `\subjclass{...}`, `\keywords{...}` | removed |
 | `\begin{altabstract}...\end{altabstract}` | block removed |

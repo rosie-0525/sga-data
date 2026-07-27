@@ -379,6 +379,18 @@ TEXT_MACROS = {
     'pageoriginale': '', 'pageoriginaled': '', 'sfootnotemark': '', 'skippointrait': '',
     'skpt': '', 'thinspace': ' ', 'enspace': ' ', 'quad': ' ',
     'qquad': '  ',
+    # Corrected-edition forms of the orig-conditional text macros
+    # (sga1-macros.sty:209-215). These carry sentence-level meaning — \fets is
+    # the "il faut et il suffit" of every iff-shaped statement — so a missing
+    # entry here silently mangles theorem text, not just its typography.
+    'fets': 'faut et il suffit ', 'sss': 'si et seulement si ',
+    'pieme': '\\(p\\)-ième ', 'nieme': '\\(n\\)-ième ', 'niemes': '\\(n\\)-ièmes ',
+    'Nieme': '\\(N\\)-ième ', 'Niemes': '\\(N\\)-ièmes ',
+    # brackets around the Raynaud remarks (remarqueMR, sga1-macros.sty:61-65)
+    'lcrochetbf': '<strong>[</strong>', 'rcrochetbf': '<strong>]</strong>',
+    # babel-french number abbreviations (french.ldf: N\up{o}, n\up{o}); the
+    # source writes "au \No\ref{I.3}", i.e. the nº is part of the sentence
+    'No': 'Nº ', 'no': 'nº ', 'Nos': 'Nos ', 'nos': 'nos ',
 }
 
 # commands that consume [opt] + N braced arguments, producing nothing
@@ -391,6 +403,9 @@ DROP_WITH_ARGS = {
     'markright': (0, 1), 'phantom': (0, 1), 'hphantom': (0, 1), 'vphantom': (0, 1),
     'caption': (0, 1), 'addcontentsline': (0, 3), 'addtocontents': (0, 2),
     'value': (0, 1), 'marginpar': (0, 1), 'oldindexnot': (0, 1),
+    # page-breaking hint; without it the fallback keeps the argument and leaks
+    # a literal ".5cm" into the running text
+    'enlargethispage': (0, 1),
 }
 
 # commands whose single brace argument is kept verbatim as text content
@@ -475,6 +490,9 @@ class Ctx:
         self.fn_counter = 0
         self.bibliography = []
         self.unresolved = []      # list of (key, kind)
+        self.unknown_cmds = {}    # control word -> count, for commands the
+                                  # renderer knows no rule for and therefore
+                                  # drops (see the fallback in _consume_command)
         self.gen_counter = 0
         self.cite_counters = {}   # bib key -> count of in-text \cite sources seen
 
@@ -697,7 +715,20 @@ def _consume_command(s, i, ctx, out):
         out.append(_make_footnote(arg, ctx))
         return name, j2
     if name == 'footnotemark':
+        # the mark sits in a section title (a moving argument, where \footnote
+        # cannot be used); its body arrives later as \footnotetext, and
+        # attach_title_notes puts the marker back onto the heading
         return name, j
+    if name == 'footnotetext':
+        arg, j2 = _grab_brace(s, j)
+        _make_footnote(arg, ctx, title_note=True)
+        return name, j2
+    if name == 'url':
+        arg, j2 = _grab_brace(s, j)
+        u = arg.strip()
+        out.append('<a class="url" href="%s">%s</a>'
+                   % (html.escape(u, quote=True), html.escape(u, quote=False)))
+        return name, j2
 
     if name in FONT_CMDS:
         op, cl = FONT_CMDS[name]
@@ -734,7 +765,13 @@ def _consume_command(s, i, ctx, out):
         return name, j2
 
     if name in TEXT_MACROS:
-        out.append(TEXT_MACROS[name])
+        rep = TEXT_MACROS[name]
+        # The \space these macros end in is meant to separate them from a
+        # following word ("le \nieme voisinage"); before punctuation it is just
+        # an artifact of the definition, so drop it ("une puissance \nieme,").
+        if rep.endswith(' ') and j < n and s[j] in ',;:.!?)]':
+            rep = rep[:-1]
+        out.append(rep)
         # control word eats following space — except \fg, whose replacement
         # ends in the closing guillemet »; eating the space would glue » to the
         # next word (\og's replacement ends in a narrow space, so eating is fine).
@@ -756,7 +793,11 @@ def _consume_command(s, i, ctx, out):
         # should be handled by list renderer; ignore stray
         return name, j
 
-    # unknown command: drop the name, keep following group content (e.g. \hbox{x})
+    # unknown command: drop the name, keep following group content (e.g. \hbox{x}).
+    # Record it — this fallback is silent by construction, so a content macro
+    # that is missing from the tables above (as \fets, \sss and the \nieme family
+    # once were) would otherwise delete text with no trace in the output.
+    ctx.unknown_cmds[name] = ctx.unknown_cmds.get(name, 0) + 1
     if j < n and s[j] == ' ':
         j += 1
     return name, j
@@ -811,14 +852,40 @@ def _grab_brace(s, i):
     return '', i
 
 
-def _make_footnote(arg, ctx):
+def _make_footnote(arg, ctx, title_note=False):
     ctx.fn_counter += 1
     num = ctx.fn_counter
     fid = 'fn-%s-%d' % (ctx.page_id or 'p', num)
     body = render_flow(arg, ctx, paras=False).strip()
-    ctx.footnotes.append({'id': fid, 'number': str(num), 'html': body})
+    note = {'id': fid, 'number': str(num), 'html': body}
+    if title_note:
+        # marker goes on the page's heading, not here (see attach_title_notes);
+        # the flag is dropped again before the note is written out
+        note['title_note'] = True
+    ctx.footnotes.append(note)
     return ('<a class="footnote-ref" id="%sref" href="#%s"><sup>%d</sup></a>'
             % (fid, fid, num))
+
+
+def attach_title_notes(chapters):
+    """Move each \\footnotetext note's marker onto its page heading.
+
+    \\footnotemark/\\footnotetext is how the source attaches a note to a section
+    title. Rendered in place the note body reads as the section's opening
+    sentence; and a note with no in-text marker would leave the viewer's
+    back-reference dangling."""
+    for ch in chapters:
+        for page in ch.pages:
+            for note in page.footnotes:
+                if not note.pop('title_note', False):
+                    continue
+                marker = ('<a class="footnote-ref" id="%sref" href="#%s"><sup>%s</sup></a>'
+                          % (note['id'], note['id'], note['number']))
+                for blk in page.blocks:
+                    if blk['type'] == 'heading':
+                        blk['html'] = re.sub(r'</h([1-6])>$', marker + r'</h\1>',
+                                             blk['html'])
+                        break
 
 
 # --------------------------------------------------------------------------
@@ -1892,20 +1959,41 @@ def _en_chapter_is_stub(path):
     return all((not p.get('html')) and (not p.get('blocks')) for p in pages)
 
 
+def merge_defaults(existing, defaults):
+    """Recursive fill-in: `existing` wins, missing keys come from `defaults`."""
+    if not isinstance(existing, dict) or not isinstance(defaults, dict):
+        return existing
+    out = dict(existing)
+    for key, value in defaults.items():
+        if key in out:
+            out[key] = merge_defaults(out[key], value)
+        else:
+            out[key] = value
+    return out
+
+
 def write_config(out_dir):
-    """data/config.json — read by translation-viewer/viewer-bootstrap.js. No
-    user-edited content, so it is written unconditionally on every run. Strings
-    below are carried over verbatim from the pre-migration self-contained
-    viewer (viewer/index.html, viewer/viewer.js) so the migration to the shared
-    translation-viewer engine doesn't change any user-facing text."""
-    config = {
+    """data/config.json — read by translation-viewer/viewer-bootstrap.js.
+
+    Part of this file is hand-tuned in the repo (`pageTitle` is the short tab
+    title, `bookTitle` the descriptive header), so **an existing file wins**:
+    only keys it does not already have are filled in from the defaults below,
+    which keeps new viewer strings arriving on a re-run without reverting
+    anyone's edits. The remaining strings are carried over verbatim from the
+    pre-migration self-contained viewer (viewer/index.html, viewer/viewer.js)
+    so the migration to the shared translation-viewer engine doesn't change any
+    user-facing text."""
+    defaults = {
         'baseLang': 'fr',
         'rightLangs': ['en'],
+        'version': 'Société mathématique de France, Documents Mathématiques 3 '
+                   '(réédition de Lecture Notes in Mathematics 224, '
+                   'Springer-Verlag, 1971)',
         'languages': {
             'fr': {
                 'label': 'FR',
-                'pageTitle': 'SGA 1 — Revêtements étales et groupe fondamental',
-                'bookTitle': 'SGA 1',
+                'pageTitle': 'SGA 1',
+                'bookTitle': 'SGA 1 — Revêtements étales et groupe fondamental',
                 'toc': 'Table des matières',
                 'notrans': '(Traduction non disponible — la version française est la référence.)',
                 'loadErr': 'Erreur de chargement : ',
@@ -1916,13 +2004,24 @@ def write_config(out_dir):
             },
             'en': {
                 'label': 'EN',
+                'pageTitle': 'SGA 1',
+                'bookTitle': 'SGA 1 — Étale Coverings and the Fundamental Group',
                 'notrans': '(Translation not available — the French version is the reference.)',
                 'loadErr': 'Loading error: ',
                 'backref': 'back',
             },
         },
     }
-    with open(os.path.join(out_dir, 'data', 'config.json'), 'w', encoding='utf-8') as f:
+    path = os.path.join(out_dir, 'data', 'config.json')
+    config = defaults
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as f:
+            existing = json.load(f)
+        config = merge_defaults(existing, defaults)
+        filled = config != existing
+        print('config.json: kept existing values'
+              + (', filled in missing defaults' if filled else ''))
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(config, f, ensure_ascii=False, indent=1)
 
 
@@ -2060,6 +2159,7 @@ def run(src, out, only=None):
     if only:
         specs = [s for s in specs if only in s[0]]
     chapters = build_chapters(specs, ctx)
+    attach_title_notes(chapters)
     manifest = emit(chapters, out)
     return chapters, ctx, manifest
 
@@ -2112,6 +2212,14 @@ def verify(chapters, ctx, out):
     if leaks:
         for cmd, cnt in sorted(leaks.items(), key=lambda x: -x[1])[:30]:
             print('   %5d  %s' % (cnt, cmd))
+    # Commands dropped by the unknown-command fallback. Most are harmless
+    # spacing/layout hints, but a content macro landing here means text is being
+    # deleted silently — check each new name against sga1-macros.sty.
+    unknown = ctx.unknown_cmds
+    print('dropped unknown commands: %d distinct' % len(unknown))
+    if unknown:
+        for cmd, cnt in sorted(unknown.items(), key=lambda x: -x[1])[:30]:
+            print('   %5d  \\%s' % (cnt, cmd))
     # JSON validity
     bad = 0
     for root, _, files in os.walk(out):

@@ -329,7 +329,7 @@ SGA2_MACROS = r"""%% sga2-macros.sty
 \providecommand{\ndetext}[1]{}
 \providecommand{\sfootnote}[1]{\footnote{#1}}
 \providecommand{\sfootnotemark}{}
-\providecommand{\sfootnotetext}[1]{}
+\providecommand{\sfootnotetext}[1]{\footnote{#1}}
 \providecommand{\ndemark}{}
 \providecommand{\ptbl}{.\,}
 \providecommand{\Ref}[1]{\ref{#1}}

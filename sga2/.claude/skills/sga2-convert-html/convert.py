@@ -823,6 +823,19 @@ def _grab_brace(s, i):
     return '', i
 
 
+FOOTNOTE_REF_RE = re.compile(r'<a class="footnote-ref".*?</a>', re.S)
+
+
+def strip_footnote_refs(s):
+    """Drop footnote markers from a string reused as a plain title/label.
+
+    A title carrying a \\footnote is rendered once (so the note is registered
+    exactly once, in the right place); the sidebar/TOC copy of that title has
+    to shed the marker, which would otherwise link out of context.
+    """
+    return FOOTNOTE_REF_RE.sub('', s)
+
+
 def _make_footnote(arg, ctx):
     ctx.fn_counter += 1
     num = ctx.fn_counter
@@ -1331,8 +1344,12 @@ def render_enonce(inner, ctx):
     else:
         block_id = ctx.gen_id('enonce')
     style = 'remark' if (style_opt and 'rem' in style_opt) else 'plain'
+    # Render the title once, before the body: it may carry a \footnote (four
+    # enonce* titles do), and rendering it twice would register the note twice
+    # — after the body, out of reading order.
+    rendered_title = render_inline(title, ctx)
     body_html = render_flow(inner, ctx)
-    head = '<span class="thm-name">%s</span>' % render_inline(title, ctx)
+    head = '<span class="thm-name">%s</span>' % rendered_title
     block_html = (
         '<div class="thm thm-%s enonce" id="%s">\n'
         '  <div class="thm-head">%s</div>\n'
@@ -1340,7 +1357,7 @@ def render_enonce(inner, ctx):
         '</div>' % (style, html.escape(block_id, quote=True), head, body_html)
     )
     return {'id': block_id, 'type': 'enonce', 'label': label_num,
-            'title': render_inline(title, ctx), 'html': block_html}
+            'title': strip_footnote_refs(rendered_title), 'html': block_html}
 
 
 def _skip_ws_str(s):
@@ -1623,7 +1640,6 @@ def build_chapters(file_specs, ctx):
                 if cur_chapter is None:
                     cur_chapter = Chapter(orphan[0], orphan[1], None, False)
                     chapters.append(cur_chapter)
-                stitle = render_inline(title, ctx)
                 number = None
                 if label:
                     info = ctx.labels.get(label)
@@ -1632,8 +1648,14 @@ def build_chapters(file_specs, ctx):
                     pid = page_id_from_label(label)
                 else:
                     pid = '%s-s%d' % (cur_chapter.id, len(cur_chapter.pages) + 1)
-                page = Page(pid, stitle)
+                page = Page(pid, '')
                 start_page(page)
+                # Render the title *after* start_page: a \footnote in a section
+                # title (VIII.1, XII.1, XIII.6 carry one) must register on the
+                # page the title opens, not on the one before it — otherwise
+                # its #fn anchor dangles. The page/TOC label drops the marker.
+                stitle = render_inline(title, ctx)
+                page.title = strip_footnote_refs(stitle)
                 hid = label if label else pid
                 prefix = (number + ' ') if number else ''
                 cur_page.blocks.append({
@@ -1852,19 +1874,49 @@ def _en_chapter_is_stub(path):
     return all((not p.get('html')) and (not p.get('blocks')) for p in pages)
 
 
+# Sidebar prefix for numbered chapters, so entries read "EXPOSÉ I <title>" as in
+# the other books. Emitted here rather than patched in afterwards — the one-off
+# scripts/add_alias_author.py did that for the already-built data, and the books
+# with a build_viewer_data.py teach it to their generator the same way.
+CHAPTER_ALIAS = 'EXPOSÉ'
+
+
+def merge_defaults(existing, defaults):
+    """Recursive fill-in: `existing` wins, missing keys come from `defaults`."""
+    if not isinstance(existing, dict) or not isinstance(defaults, dict):
+        return existing
+    out = dict(existing)
+    for key, value in defaults.items():
+        if key in out:
+            out[key] = merge_defaults(out[key], value)
+        else:
+            out[key] = value
+    return out
+
+
 def write_config(out_dir):
-    """data/config.json — read by translation-viewer/viewer-bootstrap.js. No
-    user-edited content, so it is written unconditionally on every run. The
-    default mathjax packages ['xypic', 'ams', 'color', 'mathtools'] and no
-    macros are what this project needs, so the 'mathjax' key is omitted."""
-    config = {
+    """data/config.json — read by translation-viewer/viewer-bootstrap.js.
+
+    Some of this file is hand-tuned in the repo (`bookTitle` carries the full
+    descriptive title while `pageTitle` stays short), so **an existing file
+    wins**: only keys it does not already have are filled in from the defaults
+    below, which keeps new viewer strings arriving on a re-run without
+    reverting anyone's edits. The default mathjax packages ['xypic', 'ams',
+    'color', 'mathtools'] and no macros are what this project needs, so the
+    'mathjax' key is omitted."""
+    defaults = {
         'baseLang': 'fr',
         'rightLangs': ['en'],
+        'version': 'Société mathématique de France, Documents Mathématiques 4 '
+                   '(réédition de Advanced Studies in Pure Mathematics 2, '
+                   'North-Holland, Amsterdam, 1968)',
         'languages': {
             'fr': {
                 'label': 'FR',
                 'pageTitle': 'SGA 2',
-                'bookTitle': 'SGA 2',
+                'bookTitle': 'SGA 2 — Cohomologie locale des faisceaux '
+                             'cohérents et théorèmes de Lefschetz locaux '
+                             'et globaux',
                 'toc': 'Table des matières',
                 'notrans': '(pas de traduction)',
                 'loadErr': 'Erreur de chargement : ',
@@ -1875,13 +1927,25 @@ def write_config(out_dir):
             },
             'en': {
                 'label': 'EN',
+                'pageTitle': 'SGA 2',
+                'bookTitle': 'SGA 2 — Local Cohomology of Coherent Sheaves '
+                             'and Local and Global Lefschetz Theorems',
                 'notrans': '(no translation)',
                 'loadErr': 'Loading error: ',
                 'backref': 'back',
             },
         },
     }
-    with open(os.path.join(out_dir, 'data', 'config.json'), 'w', encoding='utf-8') as f:
+    path = os.path.join(out_dir, 'data', 'config.json')
+    config = defaults
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as f:
+            existing = json.load(f)
+        config = merge_defaults(existing, defaults)
+        filled = config != existing
+        print('config.json: kept existing values'
+              + (', filled in missing defaults' if filled else ''))
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(config, f, ensure_ascii=False, indent=1)
 
 
@@ -1915,13 +1979,16 @@ def emit(chapters, out_dir):
                 if blk.get('id'):
                     anchor_index[blk['id']] = page.id
             order += 1
-        manifest_chapters.append({
+        entry = {
             'id': ch.id,
             'title': ch.title,
             'number': ch.number,
             'order': ch.pages[0].id if ch.pages else ch.id,
             'page_ids': page_ids,
-        })
+        }
+        if ch.number:
+            entry['alias'] = CHAPTER_ALIAS
+        manifest_chapters.append(entry)
 
     # second pass: collect every element id (headings, blocks, bib, footnotes)
     for ch in chapters:
@@ -1969,6 +2036,8 @@ def emit(chapters, out_dir):
             })
         chapter_json = {'chapter_id': ch.id, 'title': ch.title, 'number': ch.number,
                         'pages': pages_json}
+        if ch.number:
+            chapter_json['alias'] = CHAPTER_ALIAS
         with open(os.path.join(fr_dir, ch.id + '.json'), 'w', encoding='utf-8') as f:
             json.dump(chapter_json, f, ensure_ascii=False, indent=1)
         # English file: write the empty stub only while still untranslated; once a

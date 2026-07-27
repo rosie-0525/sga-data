@@ -70,6 +70,16 @@ vendor/mathjax/es5 vendor/XyJax-v3  vendored MathJax-SVG + XyJax — renders off
 - **English non-clobber guard**: `emit()` writes the empty English stubs only while the
   English side is still untranslated (`_en_manifest_is_stub` / `_en_chapter_is_stub`); once
   filled in, a re-run preserves the translation.
+- **Other non-clobber guards**:
+  - `data/config.json` — an existing file **wins**; `write_config()` only fills
+    in keys it lacks, so the hand-tuned `pageTitle` (short tab title) /
+    `bookTitle` (descriptive header) split survives a rebuild.
+  - `paper.html` — generated only when missing, because the shipped file carries
+    repo-side additions the template does not have (analytics snippet, `#pager`
+    div). `FORCE_PAPER=1 bash convert.sh` re-applies the template deliberately.
+  - Still applied *after* conversion, not by the converter: `alias: "EXPOSÉ"` on
+    numbered chapters (`scripts/add_alias_author.py`) and dropping the `preface`
+    chapter from `chapters` + `toc` + `anchor_index`.
 - **page**: `{id, title, html, blocks[], footnotes[], bibliography[]}` with the
   invariant `html == "\n".join(b.html for b in blocks)`.
 - **block**: `{id, type, label, title, html}`; `type` ∈ `heading | paragraph |
