@@ -1,49 +1,1622 @@
 {
  "chapter_id": "XXIII",
- "title": null,
+ "title": "EXPOSÉ XXIII REDUCTIVE GROUPS: UNIQUENESS OF PINNED GROUPS",
  "number": "XXIII",
  "pages": [
   {
    "id": "XXIII",
-   "title": null,
-   "blocks": [],
+   "title": "EXPOSÉ XXIII REDUCTIVE GROUPS: UNIQUENESS OF PINNED GROUPS",
+   "blocks": [
+    {
+     "id": "XXIII",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h1 id=\"XXIII\">EXPOSÉ XXIII<br>REDUCTIVE GROUPS: UNIQUENESS OF PINNED GROUPS<span class=\"author\">by M. Demazure</span></h1>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>The aim of this exposé is the proof of the uniqueness theorem (Theorem <a class=\"ref\" href=\"#XXIII.4.1\">4.1</a>). It was proved by CHEVALLEY in the case of an algebraically closed field; the method of reduction to rank two used here is likewise due to CHEVALLEY (see BIBLE, exp. 23 and 24). Along the way, we obtain an explicit description of reductive groups by generators and relations (<a class=\"ref\" href=\"#XXIII.3.5\">3.5</a>).</p>"
+    }
+   ],
    "footnotes": []
   },
   {
    "id": "XXIII-1",
-   "title": null,
-   "blocks": [],
+   "title": "1. Pinnings",
+   "blocks": [
+    {
+     "id": "XXIII.1",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h2 id=\"XXIII.1\">1. Pinnings</h2>"
+    },
+    {
+     "id": "XXIII.1.1",
+     "type": "definition",
+     "label": "1.1",
+     "title": "Definition",
+     "html": "<div class=\"thm thm-plain definition\" id=\"XXIII.1.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">1.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\((G, T, M, R)\\) a split \\(S\\)-group (<a class=\"ref\" href=\"#XXII.1.13\">XXII, 1.13</a>). By a pinning of this split group one means the datum of a system of simple roots \\(R_0\\) of \\(R\\) and, for each \\(\\alpha \\in R_0\\), of a section \\(X_\\alpha \\in \\Gamma(S, \\mathfrak{g}_\\alpha)^*\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>In other words, a pinning of the reductive group \\(G\\) over the non-empty prescheme \\(S\\) is the datum of:</p>"
+    },
+    {
+     "id": null,
+     "type": "list",
+     "label": null,
+     "title": null,
+     "html": "<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>a maximal torus \\(T\\),</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>an abelian group \\(M\\) and an isomorphism \\(T \\simeq D_S(M)\\),</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>a root system \\(R\\) of \\(G\\) with respect to \\(T\\),</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iv)</span></span> <p>a system of simple roots \\(R_0\\) of \\(R\\),</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(v)</span></span> <p>an \\(X_\\alpha \\in \\Gamma(S, \\mathfrak{g}_\\alpha)^*\\) for every \\(\\alpha \\in R_0\\), that is to say a\n\\[ u_\\alpha = \\exp_\\alpha(X_\\alpha) \\in U_\\alpha^*(S) \\quad \\text{for all } \\alpha \\in R_0, \\]\n<!-- p.264 -->\nsatisfying condition (D 1) of <a class=\"ref\" href=\"#XXII.1.13\">Exp. XXII, 1.13</a> (indeed condition (D 2) of loc. cit. is automatically satisfied).</p></li>\n</ol>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Every split group possesses a pinning; in particular, every reductive group is locally pinnable for the étale topology.</p>"
+    },
+    {
+     "id": "XXIII.1.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.1.2\">1.2.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>If \\(G\\) is a pinned \\(S\\)-group, that is to say a split \\(S\\)-group equipped with a pinning, it is canonically equipped with the system of positive roots \\(R^+\\) defined by \\(R_0\\), with the corresponding Borel group \\(B = B_{R^+}\\), with the opposite Borel group \\(B^- = B_{R^-}\\), with the unipotent groups \\(U = B_u\\), \\(U^- = (B^-)_u\\), with the open set \\(U^- \\cdot T \\cdot U\\), etc... Likewise, for each \\(\\alpha \\in R_0\\), one has a canonical isomorphism of vector groups\n\\[ p_\\alpha : \\mathbb{G}_{a, S} \\xrightarrow{\\;\\sim\\;} U_\\alpha \\]\n(defined by \\(p_\\alpha(x) = \\exp_\\alpha(x X_\\alpha) = u_\\alpha^x\\)), normalised by \\(T\\) with multiplier \\(\\alpha\\), and whose datum is equivalent to that of \\(X_\\alpha\\) (<a class=\"ref\" href=\"#XXII.1.1\">Exp. XXII, 1.1</a>).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>By duality, one deduces from it an \\(X_{-\\alpha} \\in \\Gamma(S, \\mathfrak{g}_{-\\alpha})^*\\) and an isomorphism\n\\[ p_{-\\alpha} : \\mathbb{G}_{a, S} \\xrightarrow{\\;\\sim\\;} U_{-\\alpha} \\]\nwhich is the contragredient of the preceding one (<a class=\"ref\" href=\"#XXII.1.3\">Exp. XXII, 1.3</a>). We shall set (<a class=\"ref\" href=\"#XX.3.1\">Exp. XX, 3.1</a>)\n\\[ w_\\alpha = w_\\alpha(X_\\alpha) = p_\\alpha(1)\\, p_{-\\alpha}(-1)\\, p_\\alpha(1) = p_{-\\alpha}(-1)\\, p_\\alpha(1)\\, p_{-\\alpha}(-1). \\]\nOne then has (loc. cit. 3.1, 3.7)\n\\[ w_\\alpha^2 = \\alpha^*(-1), \\qquad \\operatorname{int}(w_\\alpha) t = s_\\alpha(t) = t \\cdot \\alpha^*(\\alpha(t)^{-1}), \\]\n\\[ \\begin{cases} \\operatorname{int}(w_\\alpha)\\, p_\\alpha(x) = p_{-\\alpha}(-x) = p_{-\\alpha}(x)^{-1}, \\\\ \\operatorname{Ad}(w_\\alpha) X_\\alpha = -X_{-\\alpha}, \\end{cases} \\]\n\\[ \\begin{cases} \\operatorname{int}(w_\\alpha)\\, p_{-\\alpha}(x) = p_\\alpha(-x) = p_\\alpha(x)^{-1}, \\\\ \\operatorname{Ad}(w_\\alpha) X_{-\\alpha} = -X_\\alpha. \\end{cases} \\]\n<!-- p.265 -->\nWe shall use the preceding notations systematically in what follows.</p>"
+    },
+    {
+     "id": "XXIII.1.3",
+     "type": "definition",
+     "label": "1.3",
+     "title": "Definition",
+     "html": "<div class=\"thm thm-plain definition\" id=\"XXIII.1.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">1.3</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\((G, T, M, R, R_0, (X_\\alpha))\\) and \\((G', T', M', \\ldots)\\) two pinned \\(S\\)-groups. One says that the morphism of split groups (<a class=\"ref\" href=\"#XXII.4.2.1\">Exp. XXII, 4.2.1</a>)\n\\[ f : G \\longrightarrow G' \\]\nis compatible with the pinnings, or defines a morphism of pinned groups, if (notations of loc. cit.) \\(u(R_0) = R'_0\\) and if, for every \\(\\alpha \\in R_0\\), one has\n\\[ f(\\exp_\\alpha(X_\\alpha)) = \\exp_{u(\\alpha)}(X'_{u(\\alpha)}), \\quad \\text{i.e.} \\quad f(u_\\alpha) = u'_{u(\\alpha)}. \\]</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.1.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.1.4\">1.4.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>If one denotes by \\(q(\\alpha)\\) the integer of loc. cit., one thus has\n\\[ f(p_\\alpha(x)) = p'_{u(\\alpha)}(x^{q(\\alpha)}) \\quad \\text{for } \\alpha \\in R_0, \\]\nhence also\n\\[ f(p_{-\\alpha}(x)) = p'_{-u(\\alpha)}(x^{q(\\alpha)}), \\]\n\\[ f(w_\\alpha) = w'_{u(\\alpha)}. \\]\nLet us recall (<a class=\"ref\" href=\"#XXII.4.2\">Exp. XXII, 4.2</a>) that one has, for every \\(\\alpha \\in R\\) and all \\(z \\in \\mathbb{G}_m(S')\\), \\(t \\in T(S')\\):\n\\[ f(\\alpha^*(z)) = u(\\alpha)^*(z)^{q(\\alpha)} = u(\\alpha)^*(z^{q(\\alpha)}), \\]\n\\[ u(\\alpha)(f(t)) = \\alpha(t)^{q(\\alpha)}. \\]</p>"
+    },
+    {
+     "id": "XXIII.1.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.1.5\">1.5.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us call <em>pinned root datum</em> a root datum equipped with a system of simple roots, and <em>\\(p\\)-morphism of pinned root data</em> a \\(p\\)-morphism of root data (<a class=\"ref\" href=\"#XXI.6.8\">Exp. XXI, 6.8</a>) taking simple roots to simple roots.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>If \\(G\\) is a pinned \\(S\\)-group, one denotes by \\(\\mathcal{R}(G)\\) the corresponding pinned root datum (it is the root datum of <a class=\"ref\" href=\"#XXII.1.14\">Exp. XXII, 1.14</a> equipped with \\(R_0\\)). Let \\(p\\) be the integer defined in <a class=\"ref\" href=\"#XXII.4.2.2\">Exp. XXII, 4.2.2</a>. One then has</p>"
+    },
+    {
+     "id": "XXIII.1.6",
+     "type": "scholie",
+     "label": "1.6",
+     "title": "Scholium",
+     "html": "<div class=\"thm thm-plain scholie\" id=\"XXIII.1.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Scholium</span> <span class=\"thm-num\">1.6</span></div>\n  <div class=\"thm-body\"><p>\\(G \\mapsto \\mathcal{R}(G)\\) defines a functor from the category of pinned reductive \\(S\\)-groups into that of pinned root data (with \\(p\\)-morphisms).</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.1.7",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.1.7\">1.7. The pinned groups \\(Z_{R_1}\\)</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let \\(R_1\\) be a subset of the system of simple roots \\(R_0\\) of the pinned group \\(G\\). Let \\(T_{R_1}\\) be the maximal torus of \\(\\bigcap_{\\alpha \\in R_1} \\operatorname{Ker}(\\alpha)\\); set\n\\[ Z_{R_1} = \\underline{\\operatorname{Centr}}_G(T_{R_1}). \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us write \\(R' = \\mathbb{Z} \\cdot R_1 \\cap R\\); it is known (<a class=\"ref\" href=\"#XXII.5.10.7\">Exp. XXII, 5.10.7</a>) that \\(Z_{R_1}\\) is a reductive \\(S\\)-group, with radical \\(T_{R_1}\\), that \\((T, M, R')\\) is a splitting of it and \\(R_1\\) a system of simple roots. It follows that \\((Z_{R_1}, T, M, R', R_1, (X_\\alpha)_{\\alpha \\in R_1})\\) is a pinned \\(S\\)-group. We shall always equip \\(Z_{R_1}\\) with this pinning. In particular, one will consider the groups\n\\[ Z_\\alpha = Z_{\\{\\alpha\\}}, \\qquad Z_{\\alpha\\beta} = Z_{\\{\\alpha, \\beta\\}}. \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One will write \\(B_{R_1} = B \\cap Z_{R_1}\\); it is known (loc. cit.) that this is the canonical Borel group of \\(Z_{R_1}\\), and that its unipotent part is \\(U_{R_1} = U \\cap Z_{R_1}\\). In particular, one has\n\\[ B_\\alpha = T \\cdot U_\\alpha, \\qquad U_\\alpha = P_\\alpha. \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One will write\n\\[ U_{\\alpha\\beta} = U_{\\{\\alpha,\\beta\\}} = U \\cap Z_{\\alpha\\beta} = \\prod_{\\gamma \\in A_{\\alpha\\beta}} U_\\gamma, \\]\nwhere \\(A_{\\alpha\\beta}\\) is the set of positive roots that are linear combinations of \\(\\alpha\\) and \\(\\beta\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let now \\(f : G \\to G'\\) be a morphism of pinned \\(S\\)-groups. If \\(u : R \\to R'\\) is the corresponding bijection and if \\(R_1\\) is a subset of \\(R_0\\), \\(u(R_1) = R'_1\\) is a subset of \\(R'_0\\), and it is clear that \\(f\\) sends \\(T_{R_1}\\) into \\(T'_{R'_1}\\), hence \\(Z_{R_1}\\) into \\(Z'_{R'_1}\\). The corresponding \\(S\\)-morphism:\n\\[ f_{R_1} : Z_{R_1} \\longrightarrow Z'_{u(R'_1)} \\]\nis compatible with the canonical pinnings; it defines a morphism of pinned root data\n\\[ \\mathcal{R}(f_{R_1}) : \\mathcal{R}(Z_{R_1}, T, M, \\ldots) \\longrightarrow \\mathcal{R}(Z_{R'_1}, T', M', \\ldots) \\]\nand the morphisms \\(M' \\to M\\) underlying \\(\\mathcal{R}(f)\\) and \\(\\mathcal{R}(f_{R_1})\\) coincide.</p>"
+    },
+    {
+     "id": "XXIII.1.8",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.1.8\">1.8. Study of the group \\(\\operatorname{Norm}_G(T)\\)</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>For each pair \\((\\alpha, \\beta)\\) of simple roots, let us denote by \\(n_{\\alpha\\beta}\\) the order of the element \\(s_\\alpha s_\\beta\\) of the Weyl group \\(W\\). In particular, one has \\(n_{\\alpha\\alpha} = 1\\). One therefore has \\((w_\\alpha w_\\beta)^{n_{\\alpha\\beta}} \\in T(S)\\).</p>"
+    },
+    {
+     "id": "XXIII.1.8.1",
+     "type": "definition",
+     "label": "1.8.1",
+     "title": "Definition",
+     "html": "<div class=\"thm thm-plain definition\" id=\"XXIII.1.8.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">1.8.1</span></div>\n  <div class=\"thm-body\"><p>For every \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), one sets\n\\[ t_{\\alpha\\beta} = (w_\\alpha w_\\beta)^{n_{\\alpha\\beta}} \\in T(S). \\]\nMoreover, one sets (<a class=\"ref\" href=\"#XX.3.1\">Exp. XX, 3.1</a>)\n\\[ t_\\alpha = t_{\\alpha\\alpha} = w_\\alpha^2 = \\alpha^*(-1) \\in T(S). \\]</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.1.8.2",
+     "type": "proposition",
+     "label": "1.8.2",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.1.8.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">1.8.2</span></div>\n  <div class=\"thm-body\"><p>Let \\(H\\) be an \\(S\\)-functor in groups taking direct sums of preschemes to products (for example a sheaf for the Zariski topology). Let\n\\[ f_T : T \\longrightarrow H \\]\nbe a morphism of groups and let \\(h_\\alpha\\) \\((\\alpha \\in R_0)\\) be elements of \\(H(S)\\). For there to exist a morphism of groups (necessarily unique)\n\\[ f_N : \\operatorname{Norm}_G(T) \\longrightarrow H \\]\ninducing \\(f_T\\) on \\(T\\) and such that \\(f(w_\\alpha) = h_\\alpha\\) for \\(\\alpha \\in R_0\\), it is necessary and sufficient that the two following conditions be satisfied:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>For every \\(\\alpha \\in R_0\\), one has\n\\[ f_T(s_\\alpha(t)) = h_\\alpha\\, f_T(t)\\, h_\\alpha^{-1} \\]\nfor every \\(t \\in T(S')\\), \\(S' \\to S\\) (i.e. \\(f_T \\circ s_\\alpha = \\operatorname{int}(h_\\alpha) \\circ f_T\\)).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For every \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), one has\n\\[ f_T(t_{\\alpha\\beta}) = (h_\\alpha h_\\beta)^{n_{\\alpha\\beta}}. \\]</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us indeed equip \\((\\mathrm{Sch})\\) with the topology \\(\\mathcal{T}\\) generated by the pretopology whose covering families are the direct sums; the hypothesis of the statement says that \\(H\\) is a \\(\\mathcal{T}\\)-sheaf. Let \\(L\\) be the free group on the generators \\((m_\\alpha)_{\\alpha \\in R}\\) and \\(L_1\\) the invariant subgroup generated by the elements \\((m_\\alpha m_\\beta)^{n_{\\alpha\\beta}}\\), \\((\\alpha, \\beta) \\in R_0 \\times R_0\\). Let \\(g : L \\to W\\) be the morphism defined by \\(g(m_\\alpha) = s_\\alpha\\); it is known (<a class=\"ref\" href=\"#XXI.5.1\">Exp. XXI, 5.1</a>) that \\(g\\) induces an isomorphism \\(\\bar{g}\\) of \\(L/L_1\\) onto \\(W\\). Let us make \\(L\\) operate on \\(T\\) through \\(g\\) (or, what amounts to the same, by \\(m_\\alpha \\cdot t = s_\\alpha(t)\\)). Let \\(L_S\\) be the constant group defined by \\(L\\); let us consider the semi-direct product \\(T \\cdot L_S = N\\) for the preceding operation. One has a morphism of \\(S\\)-groups\n\\[ h : T \\cdot L_S = N \\longrightarrow \\operatorname{Norm}_G(T) \\]\n<!-- p.269 -->\nunique such that \\(h(m_\\alpha) = w_\\alpha\\), \\(h(t) = t\\) for every \\(t \\in T(S')\\), \\(S' \\to S\\). Let \\(N_1\\) be the invariant subsheaf in groups of \\(N\\) generated by the\n\\[ t_{\\alpha\\beta}^{-1} \\cdot (m_\\alpha m_\\beta)^{n_{\\alpha\\beta}}, \\qquad (\\alpha, \\beta) \\in R_0 \\times R_0. \\]\nOne obviously has \\(N_1 \\subset \\operatorname{Ker} h\\); let us consider the induced morphism\n\\[ h_1 : N/N_1 \\longrightarrow \\operatorname{Norm}_G(T). \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us prove that \\(h_1\\) is an isomorphism. Since \\(h\\) induces on \\(T\\) the canonical immersion, which is a monomorphism, the canonical morphism\n\\[ T \\longrightarrow N/N_1 \\]\nis also a monomorphism, hence induces an isomorphism of \\(T\\) onto \\(TN_1/N_1\\). For the same reason \\(h_1\\) induces an isomorphism of \\(TN_1/N_1\\) onto \\(T\\); in order to prove that \\(h_1\\) is an isomorphism, it therefore suffices to check that the corresponding morphism\n\\[ h_2 : N/TN_1 \\longrightarrow \\operatorname{Norm}_G(T)/T \\]\nis an isomorphism. Now \\(TN_1\\) is the invariant sub-\\(\\mathcal{T}\\)-sheaf in groups of \\(N\\) generated by \\(T\\) and the \\((m_\\alpha m_\\beta)^{n_{\\alpha\\beta}}\\), that is to say the sub-\\(\\mathcal{T}\\)-sheaf generated by \\(T\\) and \\(L_1\\), that is to say \\(T \\cdot (L_1)_S\\). The morphism \\(h_2\\) is thus identified with the morphism\n\\[ \\bar{g} : L_S/(L_1)_S \\longrightarrow W_S \\]\nwhich is an isomorphism by construction.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>The proof of <a class=\"ref\" href=\"#XXIII.1.8.2\">1.8.2</a> is now easy; the conditions are obviously necessary; let us prove that they are sufficient. Condition (i) shows that there exists a morphism\n\\[ u : N \\longrightarrow H \\]\nsuch that \\(u(m_\\alpha) = h_\\alpha\\) for \\(\\alpha \\in R_0\\), and \\(u|_T = f_T\\). Condition (ii) says that \\(u\\) vanishes on \\(N_1\\), which yields the result at once.</p>"
+    },
+    {
+     "id": "XXIII.1.9",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.1.9\">1.9. Faithfulness of the functor \\(\\mathcal{R}\\)</h3>"
+    },
+    {
+     "id": "XXIII.1.9.1",
+     "type": "proposition",
+     "label": "1.9.1",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.1.9.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">1.9.1</span></div>\n  <div class=\"thm-body\"><p>The functor \\(\\mathcal{R}\\) of <a class=\"ref\" href=\"#XXIII.1.6\">1.6</a> is faithful: if\n\\[ f, g : G \\rightrightarrows G' \\]\nare two morphisms of pinned groups such that \\(\\mathcal{R}(f) = \\mathcal{R}(g)\\), then \\(f = g\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, \\(f\\) and \\(g\\) coincide on \\(T\\), \\(U_\\alpha\\) \\((\\alpha \\in R_0)\\) and \\(U_{-\\alpha}\\) \\((\\alpha \\in R_0)\\); it therefore suffices to apply:</p>"
+    },
+    {
+     "id": "XXIII.1.9.2",
+     "type": "lemme",
+     "label": "1.9.2",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.1.9.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">1.9.2</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned reductive \\(S\\)-group, \\(H\\) an \\(S\\)-presheaf in groups, separated for (fppf). Let\n\\[ f, g : G \\rightrightarrows H \\]\nbe two morphisms of \\(S\\)-groups. The following conditions are equivalent:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>\\(f = g\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>\\(f\\) and \\(g\\) coincide on \\(T\\), on each \\(U_\\alpha\\) \\((\\alpha \\in R_0)\\), on each \\(U_{-\\alpha}\\) \\((\\alpha \\in R_0)\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>\\(f\\) and \\(g\\) coincide on \\(T\\), on each \\(U_\\alpha\\) \\((\\alpha \\in R_0)\\) and \\(f(w_\\alpha) = g(w_\\alpha)\\) for each \\(\\alpha \\in R_0\\).</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, (i) \\(\\Rightarrow\\) (ii) is trivial, (ii) \\(\\Rightarrow\\) (iii) follows at once from the definition of \\(w_\\alpha\\) (<a class=\"ref\" href=\"#XXIII.1.2\">1.2</a>). It remains to prove (iii) \\(\\Rightarrow\\) (i). If \\(\\alpha \\in R\\), there exists a sequence \\(\\{\\alpha_i\\} \\subset R_0\\) with \\(\\alpha = s_{\\alpha_1} s_{\\alpha_2} \\cdots s_{\\alpha_n}(\\alpha_{n+1})\\), hence\n\\[ U_\\alpha = \\operatorname{int}(w_{\\alpha_1} \\cdots w_{\\alpha_n}) U_{\\alpha_{n+1}}, \\]\nwhich proves that \\(f\\) and \\(g\\) coincide on each \\(U_\\alpha\\). It follows that \\(f\\) and \\(g\\) coincide on \\(\\Omega\\), hence coincide (<a class=\"ref\" href=\"#XXII.4.1.11\">Exp. XXII, 4.1.11</a>).</p>"
+    },
+    {
+     "id": "XXIII.1.9.3",
+     "type": "remarque",
+     "label": "1.9.3",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.1.9.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">1.9.3</span></div>\n  <div class=\"thm-body\"><p>If \\(G\\) is semi-simple, one may, in (ii) and (iii), drop the hypothesis that \\(f\\) and \\(g\\) coincide on \\(T\\). Indeed, \\(G\\) is generated as an (fppf) sheaf by the \\(U_\\alpha\\), \\(\\alpha \\in R\\) (<a class=\"ref\" href=\"#XXII.6.2.2\">Exp. XXII, 6.2.2 (a)</a>).</p></div>\n</div>"
+    }
+   ],
    "footnotes": []
   },
   {
    "id": "XXIII-2",
-   "title": null,
-   "blocks": [],
+   "title": "2. Generators and relations for a pinned group",
+   "blocks": [
+    {
+     "id": "XXIII.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h2 id=\"XXIII.2\">2. Generators and relations for a pinned group</h2>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>In this no., we fix a pinned \\(S\\)-group \\(G\\). If \\(\\alpha, \\beta \\in R_0\\), we shall use the notations \\(Z_\\alpha\\), \\(Z_{\\alpha\\beta}\\), \\(U_{\\alpha\\beta}\\), \\(A_{\\alpha\\beta}\\) of <a class=\"ref\" href=\"#XXIII.1.7\">1.7</a>.</p>"
+    },
+    {
+     "id": "XXIII.2.1",
+     "type": "theoreme",
+     "label": "2.1",
+     "title": "Theorem",
+     "html": "<div class=\"thm thm-plain theoreme\" id=\"XXIII.2.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Theorem</span> <span class=\"thm-num\">2.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group, \\(H\\) an \\(S\\)-sheaf in groups for (fppf). Let\n\\[ f_N : \\operatorname{Norm}_G(T) \\longrightarrow H, \\]\n\\[ f_\\alpha : U_\\alpha \\longrightarrow H, \\qquad \\alpha \\in R, \\]\nbe morphisms of groups. For there to exist a morphism of groups (necessarily unique)\n\\[ f : G \\longrightarrow H \\]\nextending \\(f_N\\) and the \\(f_\\alpha\\) \\((\\alpha \\in R)\\), it is necessary and sufficient that the following conditions be satisfied:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>For every \\(\\alpha \\in R_0\\) and every \\(\\beta \\in R\\), one has\n\\[ \\operatorname{int}(f_N(w_\\alpha)) \\circ f_\\beta = f_{s_\\alpha(\\beta)} \\circ \\operatorname{int}(w_\\alpha). \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For every \\(\\alpha \\in R_0\\), there exists a morphism of groups\n\\[ F_\\alpha : Z_\\alpha \\longrightarrow H \\]\nextending \\(f_\\alpha\\), \\(f_{-\\alpha}\\) and \\(f_N|_{\\operatorname{Norm}_{Z_\\alpha}(T)}\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>For every pair \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), there exists a morphism of groups \\(U_{\\alpha\\beta} \\to H\\) inducing \\(f_\\gamma\\) on \\(U_\\gamma\\) for \\(\\gamma \\in A_{\\alpha\\beta}\\) (i.e. \\(U_\\gamma \\subset U_{\\alpha\\beta}\\)).</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": "XXIII.2.1.1",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.2.1.1\">2.1.1.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><em>Proof.</em> The conditions of the statement are obviously necessary. Let us on the other hand choose a structure of totally ordered group on \\(\\Gamma_0(R)\\) in such a way that the roots \\(&gt; 0\\) are the elements of \\(R^+\\) (<a class=\"ref\" href=\"#XXI.3.5.6\">Exp. XXI, 3.5.6</a>); every product\n<!-- p.272 -->\nindexed by a subset of \\(R\\) will be taken relative to this order. Let us denote by \\(f_T\\) the restriction of \\(f_N\\) to \\(T\\) and consider the morphism\n\\[ f : \\Omega \\longrightarrow H \\]\ndefined set-theoretically by\n\\[ f\\!\\left(\\prod_{\\alpha \\in R^-} y_\\alpha \\cdot t \\cdot \\prod_{\\alpha \\in R^+} x_\\alpha\\right) = \\prod f_\\alpha(y_\\alpha) \\cdot f_T(t) \\cdot \\prod f_\\alpha(x_\\alpha). \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Every morphism satisfying the conditions of the statement must extend \\(f\\); on the other hand every morphism of groups \\(\\bar{f} : G \\to H\\) extending \\(f\\) also extends \\(f_N\\): indeed, extending \\(f_\\alpha\\) and \\(f_{-\\alpha}\\), it satisfies \\(\\bar{f}(w_\\alpha) = F_\\alpha(w_\\alpha) = f_N(w_\\alpha)\\), and it extends \\(f_T\\) by hypothesis. By <a class=\"ref\" href=\"#XXII.4.1.11\">Exp. XXII, 4.1.11 (ii)</a>, one is thus reduced to proving:</p>"
+    },
+    {
+     "id": "XXIII.2.1.2",
+     "type": "proposition",
+     "label": "2.1.2",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.2.1.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">2.1.2</span></div>\n  <div class=\"thm-body\"><p>The morphism \\(f : \\Omega \\to H\\) defined above is \"generically multiplicative\"; more precisely, for every \\(S' \\to S\\) and all \\(x, y \\in \\Omega(S')\\) such that \\(xy \\in \\Omega(S')\\), one has \\(f(xy) = f(x) f(y)\\).</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.2.1.3",
+     "type": "lemme",
+     "label": "2.1.3",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.1.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.1.3</span></div>\n  <div class=\"thm-body\"><p>If \\(n \\in \\operatorname{Norm}_G(T)(S')\\), \\(S' \\to S\\), and if \\(\\alpha, \\beta \\in R\\) with \\(\\operatorname{int}(n) U_\\alpha = U_\\beta\\), i.e. \\(n(\\alpha) = \\beta\\), one has\n\\[ \\operatorname{int}(f_N(n)) \\circ f_\\alpha = f_\\beta \\circ \\operatorname{int}(n). \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, it suffices to check the formula for a system of generators of the sheaf \\(\\operatorname{Norm}_G(T)\\); it is true for each \\(w_\\alpha\\), \\(\\alpha \\in R_0\\) (by (i)), so it suffices to do it for \\(n \\in T(S')\\). This is trivial by (ii) if \\(\\alpha\\) is simple; otherwise, one takes a \\(w \\in W\\) such that \\(w^{-1}(\\alpha) \\in R_0\\); writing \\(w\\) as a product of fundamental symmetries, one is reduced to proving that if the formula is true for \\(\\alpha\\) and for every \\(n\\), it is also true for \\(w_{\\alpha_0}(\\alpha)\\) and \\(t \\in T(S')\\), where \\(\\alpha_0 \\in R_0\\). Now, by (i), one has:\n\\[ \\operatorname{int}(f_N(t)) \\circ f_{w_{\\alpha_0}(\\alpha)} = \\operatorname{int}(f_N(t w_{\\alpha_0})) \\circ f_\\alpha \\circ \\operatorname{int}(w_{\\alpha_0}^{-1}) \\]\n\\[ = f_{w_{\\alpha_0}(\\alpha)} \\circ \\operatorname{int}(t w_{\\alpha_0}) \\circ \\operatorname{int}(w_{\\alpha_0}^{-1}). \\]</p>"
+    },
+    {
+     "id": "XXIII.2.1.4",
+     "type": "lemme",
+     "label": "2.1.4",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.1.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.1.4</span></div>\n  <div class=\"thm-body\"><p>The restriction of \\(f\\) to \\(U\\) (resp. \\(U^-\\)) is a morphism of groups. In particular, this restriction is independent of the order chosen on the roots.</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>It suffices to give the proof for \\(U\\). By virtue of <a class=\"ref\" href=\"#XXII.5.5.8\">Exp. XXII, 5.5.8</a>, it suffices to check that for every pair \\(\\alpha &lt; \\beta\\) of positive roots one has, for all \\(x_\\alpha \\in U_\\alpha(S')\\), \\(x_\\beta \\in U_\\beta(S')\\), \\(S' \\to S\\),\n\\[ f_\\beta(x_\\beta)\\, f_\\alpha(x_\\alpha)\\, f_\\beta(x_\\beta^{-1}) = f(x_\\beta\\, x_\\alpha\\, x_\\beta^{-1}). \\]\nBy virtue of <a class=\"ref\" href=\"#XXII.5.5.2\">Exp. XXII, 5.5.2</a> there exist \\(x_\\gamma \\in U_\\gamma(S')\\) \\((\\gamma = i\\alpha + j\\beta \\in R,\\, i, j &gt; 0)\\) with\n\\[ x_\\beta\\, x_\\alpha\\, x_\\beta^{-1} = \\prod_\\gamma x_\\gamma, \\]\nand one must therefore check the relation\n\\[ f_\\beta(x_\\beta)\\, f_\\alpha(x_\\alpha)\\, f_\\beta(x_\\beta^{-1}) = \\prod_{\\substack{\\gamma = i\\alpha + j\\beta \\\\ i, j &gt; 0}} f_\\gamma(x_\\gamma). \\]\nBy <a class=\"ref\" href=\"#XXI.3.5.4\">Exp. XXI, 3.5.4</a>, there exists a \\(w \\in W\\) such that \\(w(\\alpha) = \\alpha_0 \\in R_0\\), \\(w(\\beta) \\in A_{\\alpha_0 \\beta_0}\\) (notations of <a class=\"ref\" href=\"#XXIII.1.7\">1.7</a>), where \\(\\beta_0 \\in R_0\\). Lifting \\(w\\) to an \\(n \\in \\operatorname{Norm}_G(T)(S)\\) (by <a class=\"ref\" href=\"#XXII.3.8\">Exp. XXII, 3.8</a>), it suffices to check the preceding relation after conjugation by \\(f_N(n)\\). By <a class=\"ref\" href=\"#XXIII.2.1.3\">2.1.3</a>, one is thus reduced to the case where \\(\\alpha, \\beta \\in A_{\\alpha_0 \\beta_0}\\), a case in which one concludes by condition (iii).</p>"
+    },
+    {
+     "id": "XXIII.2.1.5",
+     "type": "lemme",
+     "label": "2.1.5",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.1.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.1.5</span></div>\n  <div class=\"thm-body\"><p>Let \\(n \\in \\operatorname{Norm}_G(T)(S)\\) be such that \\(\\operatorname{int}(n) U = U^-\\) (i.e. such that \\(n\\) is the symmetry of the Weyl group (<a class=\"ref\" href=\"#XXI.3.6.14\">Exp. XXI, 3.6.14</a>)). For every \\(u \\in U(S')\\), \\(S' \\to S\\) (resp. \\(u \\in U^-(S')\\), \\(S' \\to S\\)), one has\n\\[ f(n u n^{-1}) = f_N(n)\\, f(u)\\, f_N(n^{-1}). \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Immediate by <a class=\"ref\" href=\"#XXIII.2.1.3\">2.1.3</a> and <a class=\"ref\" href=\"#XXIII.2.1.4\">2.1.4</a>.</p>"
+    },
+    {
+     "id": "XXIII.2.1.6",
+     "type": "lemme",
+     "label": "2.1.6",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.1.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.1.6</span></div>\n  <div class=\"thm-body\"><p>Let \\(u \\in B(S')\\), \\(v \\in B^-(S')\\), \\(g \\in \\Omega(S')\\), \\(S' \\to S\\). Then\n\\[ f(v g u) = f(v)\\, f(g)\\, f(u). \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, let us set \\(v = v_1 t_1\\), \\(g = v_2 t_2 u_2\\), \\(u = t_3 u_3\\), with \\(v_i \\in U^-(S')\\), \\(t_i \\in T(S')\\), \\(u_i \\in U(S')\\). One has\n\\[ f(v)\\, f(g)\\, f(u) = f(v_1)\\, f_T(t_1)\\, f(v_2)\\, f_T(t_2)\\, f(u_2)\\, f_T(t_3)\\, f(u_3), \\]\non the one hand, and\n\\[ f(v g u) = f(v_1 t_1 v_2 t_1^{-1} \\cdot t_1 t_2 t_3 \\cdot t_3^{-1} u_2 t_3 \\cdot u_3) \\]\n\\[ = f(v_1 \\cdot t_1 v_2 t_1^{-1})\\, f_T(t_1 t_2 t_3)\\, f(t_3^{-1} u_2 t_3 \\cdot u_3). \\]\nUsing <a class=\"ref\" href=\"#XXIII.2.1.4\">2.1.4</a> to decompose the two outer terms of this last expression, one obtains\n\\[ f(v g u) = f(v_1)\\, f(t_1 v_2 t_1^{-1})\\, f_T(t_1 t_2 t_3)\\, f(t_3^{-1} u_2 t_3)\\, f(u_3). \\]\nOne is then reduced to the obvious formulas\n\\[ f(t_1 v_2 t_1^{-1}) = f_T(t_1)\\, f(v_2)\\, f_T(t_1)^{-1}, \\]\n\\[ f(t_3^{-1} u_2 t_3) = f_T(t_3)^{-1}\\, f(u_2)\\, f_T(t_3), \\]\nwhich follow from the definition of \\(f\\) and from <a class=\"ref\" href=\"#XXIII.2.1.3\">2.1.3</a>.</p>"
+    },
+    {
+     "id": "XXIII.2.1.7",
+     "type": "lemme",
+     "label": "2.1.7",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.1.7\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.1.7</span></div>\n  <div class=\"thm-body\"><p>Let \\(\\alpha \\in R_0\\) and \\(g \\in \\Omega(S') \\cap \\operatorname{int}(w_\\alpha)^{-1} \\Omega(S')\\), \\(S' \\to S\\). Then\n\\[ f(w_\\alpha\\, g\\, w_\\alpha^{-1}) = f_N(w_\\alpha)\\, f(g)\\, f_N(w_\\alpha)^{-1}. \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, let \\(g \\in \\Omega(S')\\), \\(S' \\to S\\). Let us write, by <a class=\"ref\" href=\"#XXII.5.6.8\">Exp. XXII, 5.6.8</a>\n\\[ g = a\\, x_{-\\alpha}\\, t\\, x_\\alpha\\, b, \\]\nwith \\(a \\in \\widehat{U}^-_\\alpha(S')\\), \\(x_{-\\alpha} \\in U_{-\\alpha}(S')\\), \\(t \\in T(S')\\), \\(x_\\alpha \\in U_\\alpha(S')\\), \\(b \\in \\widehat{U}_\\alpha(S')\\). By <a class=\"ref\" href=\"#XXIII.2.1.3\">2.1.3</a>, <a class=\"ref\" href=\"#XXIII.2.1.4\">2.1.4</a> and the fact that \\(s_\\alpha\\) permutes the positive roots \\(\\neq \\alpha\\) (cf. <a class=\"ref\" href=\"#XXI.3.3.2\">Exp. XXI, 3.3.2</a>), one has\n\\[ \\operatorname{int}(w_\\alpha) a \\in \\widehat{U}^-_\\alpha(S'), \\qquad \\operatorname{int}(w_\\alpha) b \\in \\widehat{U}_\\alpha(S') \\]\nand the formula to be proved is true for \\(g = a\\) or \\(g = b\\). By <a class=\"ref\" href=\"#XXIII.2.1.6\">2.1.6</a>, one is thus reduced to proving the assertion sought when \\(g = x_{-\\alpha}\\, t\\, x_\\alpha \\in Z_\\alpha(S')\\). But then \"everything takes place in \\(Z_\\alpha\\)\" and one concludes by condition (ii) of <a class=\"ref\" href=\"#XXIII.2.1\">2.1</a>.</p>"
+    },
+    {
+     "id": "XXIII.2.1.8",
+     "type": "lemme",
+     "label": "2.1.8",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.1.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.1.8</span></div>\n  <div class=\"thm-body\"><p>Let \\(n \\in \\operatorname{Norm}_G(T)(S)\\). For every \\(S' \\to S\\) and every \\(g \\in \\Omega(S')\\) such that \\(\\operatorname{int}(n) g \\in \\Omega(S')\\), one has\n\\[ f(n g n^{-1}) = f_N(n)\\, f(g)\\, f_N(n)^{-1}. \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>This is trivial if \\(n \\in T(S)\\) (by <a class=\"ref\" href=\"#XXIII.2.1.3\">2.1.3</a>). The two sides of the preceding formula define morphisms from \\(\\Omega \\cap \\operatorname{int}(n)^{-1} \\Omega\\) into \\(H\\); in order to check that they coincide, it suffices to check that there exists an open set \\(V_n\\) of \\(\\Omega\\), containing the unit section, such that \\(\\operatorname{int}(n) V_n \\subset \\Omega\\), and that \\(f \\circ \\operatorname{int}(n)\\) and \\(\\operatorname{int}(f_N(n)) \\circ f\\) coincide on \\(V_n\\). By virtue of the structure of \\(\\operatorname{Norm}_G(T)\\), it suffices to prove that if the preceding assertion is true for an \\(n' \\in \\operatorname{Norm}_G(T)(S)\\) and if \\(\\alpha \\in R_0\\), it is true for \\(n = n' w_\\alpha\\). Let us set\n\\[ V_n = \\Omega \\cap \\operatorname{int}(w_\\alpha)^{-1} V_{n'}. \\]\nOne has \\(\\operatorname{int}(n) V_n \\subset \\operatorname{int}(n') V_{n'} \\subset \\Omega\\). If \\(g \\in V_n(S')\\), one has\n\\[ \\operatorname{int}(n) g = \\operatorname{int}(n') \\operatorname{int}(w_\\alpha) g. \\]\nNow \\(\\operatorname{int}(w_\\alpha) g \\in V_{n'}(S')\\), hence by hypothesis\n\\[ f(\\operatorname{int}(n') \\operatorname{int}(w_\\alpha) g) = \\operatorname{int}(f_N(n'))\\, f(\\operatorname{int}(w_\\alpha) g)\\ ; \\]\n<!-- p.276 -->\nsince \\(\\operatorname{int}(w_\\alpha) g \\in \\Omega(S')\\), one may apply <a class=\"ref\" href=\"#XXIII.2.1.7\">2.1.7</a>, which gives\n\\[ f(\\operatorname{int}(w_\\alpha) g) = \\operatorname{int}(f_N(w_\\alpha))\\, f(g), \\]\nand one concludes at once.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now prove <a class=\"ref\" href=\"#XXIII.2.1.2\">2.1.2</a>. Let \\(x, x' \\in \\Omega(S')\\); let us write as usual\n\\[ x = v t u, \\qquad x' = v' t' u', \\]\nwhence\n\\[ x x' = v t (u v') t' u'. \\]\nBy <a class=\"ref\" href=\"#XXIII.2.1.6\">2.1.6</a> and the relation \\(U^-(S')\\, \\Omega(S')\\, U(S') = \\Omega(S')\\), one is reduced to proving that if \\(u v' \\in \\Omega(S')\\), one has \\(f(u v') = f(u)\\, f(v')\\). Let \\(n \\in \\operatorname{Norm}_G(T)(S')\\) be as in <a class=\"ref\" href=\"#XXIII.2.1.5\">2.1.5 (ii)</a>. One has\n\\[ f(u) = f_N(n)^{-1}\\, f(n u n^{-1})\\, f_N(n), \\]\n\\[ f(v') = f_N(n)^{-1}\\, f(n v' n^{-1})\\, f_N(n), \\]\nby loc. cit., whence\n\\[ f(u)\\, f(v') = f_N(n)^{-1}\\, f(n u n^{-1})\\, f(n v' n^{-1})\\, f_N(n). \\]\nBut \\(n u n^{-1} \\in U^-(S')\\), \\(n v' n^{-1} \\in U(S')\\), so that\n\\[ f(n u n^{-1})\\, f(n v' n^{-1}) = f((n u n^{-1})(n v' n^{-1})) = f(n u v' n^{-1}), \\]\nwhich gives\n\\[ f(u)\\, f(v') = f_N(n)^{-1}\\, f(n u v' n^{-1})\\, f_N(n). \\]\nIf \\(u v' \\in \\Omega(S')\\), one may apply <a class=\"ref\" href=\"#XXIII.2.1.8\">2.1.8</a> and we are done.</p>"
+    },
+    {
+     "id": "XXIII.2.2",
+     "type": "remarque",
+     "label": "2.2",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.2.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">2.2</span></div>\n  <div class=\"thm-body\"><p>Instead of giving oneself \\(f_N\\), one may give oneself a morphism of groups \\(f_T : T \\to H\\) and sections \\(h_\\alpha \\in H(S)\\) \\((\\alpha \\in R_0)\\) satisfying the conditions of <a class=\"ref\" href=\"#XXIII.1.8.2\">1.8.2</a>. Condition (ii) of the theorem must then be replaced by</p>\n<p>(ii') There exists a morphism of groups \\(F_\\alpha : Z_\\alpha \\to H\\) which extends\n\\[ f_\\alpha, \\; f_{-\\alpha}, \\; f_T \\quad \\text{and satisfies } F_\\alpha(w_\\alpha) = h_\\alpha. \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>We shall now give the preceding theorem a more explicit form. Let us keep the preceding notations.</p>"
+    },
+    {
+     "id": "XXIII.2.3",
+     "type": "theoreme",
+     "label": "2.3",
+     "title": "Theorem",
+     "html": "<div class=\"thm thm-plain theoreme\" id=\"XXIII.2.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Theorem</span> <span class=\"thm-num\">2.3</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group. Let \\(H\\) be an \\(S\\)-sheaf in groups for (fppf), let\n\\[ f_T : T \\longrightarrow H, \\]\n\\[ f_\\alpha : U_\\alpha \\longrightarrow H, \\qquad \\alpha \\in R_0 \\]\nbe morphisms of groups and let\n\\[ h_\\alpha \\in H(S), \\qquad (\\alpha \\in R_0), \\]\nbe sections of \\(H\\). For there to exist a morphism of groups\n\\[ f : G \\longrightarrow H \\]\n(necessarily unique) inducing \\(f_T\\) and the \\(f_\\alpha\\) \\((\\alpha \\in R_0)\\) and satisfying \\(f(w_\\alpha) = h_\\alpha\\) for every \\(\\alpha \\in R_0\\), it is necessary and sufficient that the following conditions be satisfied:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>For every \\(S' \\to S\\), every \\(t \\in T(S')\\), every \\(\\alpha \\in R_0\\) and every \\(x \\in U_\\alpha(S')\\), one has\n\\[ (1) \\qquad f_T(t)\\, f_\\alpha(x)\\, f_T(t)^{-1} = f_\\alpha(\\operatorname{int}(t) x). \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For every \\(\\alpha \\in R_0\\), every \\(S' \\to S\\), every \\(t \\in T(S')\\), one has\n\\[ (2) \\qquad h_\\alpha\\, f_T(t)\\, h_\\alpha^{-1} = f_T(s_\\alpha(t)) = f_T(t \\cdot \\alpha^*(\\alpha(t)^{-1})). \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>For every \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), one has\n\\[ (3) \\qquad (h_\\alpha h_\\beta)^{n_{\\alpha\\beta}} = f_T(t_{\\alpha\\beta}). \\]</p></li>\n<!-- p.278 -->\n<li><span class=\"item-label\"><span class=\"upshape\">(iv)</span></span> <p>For every \\(\\alpha \\in R_0\\), one has (recall that one writes \\(u_\\alpha = \\exp_\\alpha(X_\\alpha)\\))\n\\[ (4) \\qquad (h_\\alpha\\, f_\\alpha(u_\\alpha))^3 = e. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(v)</span></span> <p>For every \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), \\(\\alpha \\neq \\beta\\), there exists a morphism of groups\n\\[ f_{\\alpha\\beta} : U_{\\alpha\\beta} \\longrightarrow H \\]\nsatisfying the two following conditions:</p>\n<p>a) One has\n\\[ (5) \\qquad f_{\\alpha\\beta}|_{U_\\alpha} = f_\\alpha, \\qquad f_{\\alpha\\beta}|_{U_\\beta} = f_\\beta, \\]</p>\n<p>b) For every \\(\\gamma \\in A_{\\alpha\\beta}\\), \\(\\gamma \\neq \\alpha\\) (resp. \\(\\gamma \\neq \\beta\\)), and every \\(x \\in U_\\gamma(S')\\), \\(S' \\to S\\), one has\n\\[ (6) \\qquad \\operatorname{int}(h_\\alpha)\\, f_{\\alpha\\beta}(x) = f_{\\alpha\\beta}(\\operatorname{int}(w_\\alpha) x), \\]\n\\[ (\\text{resp.} \\quad \\operatorname{int}(h_\\beta)\\, f_{\\alpha\\beta}(x) = f_{\\alpha\\beta}(\\operatorname{int}(w_\\beta) x)). \\]</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><em>Proof.</em> Uniqueness is clear by <a class=\"ref\" href=\"#XXIII.1.9.2\">1.9.2</a>. Let us prove existence.</p>"
+    },
+    {
+     "id": "XXIII.2.3.1",
+     "type": "lemme",
+     "label": "2.3.1",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.3.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.3.1</span></div>\n  <div class=\"thm-body\"><p>There exists a morphism of groups\n\\[ f_N : \\operatorname{Norm}_G(T) \\longrightarrow H \\]\nextending \\(f_T\\) and satisfying \\(f_N(w_\\alpha) = h_\\alpha\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>This is indeed what <a class=\"ref\" href=\"#XXIII.1.8.2\">1.8.2</a> asserts, taking into account conditions (2) and (3).</p>"
+    },
+    {
+     "id": "XXIII.2.3.2",
+     "type": "lemme",
+     "label": "2.3.2",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.3.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.3.2</span></div>\n  <div class=\"thm-body\"><p>There exists a morphism of groups\n\\[ F_\\alpha : Z_\\alpha \\longrightarrow H, \\qquad \\alpha \\in R_0, \\]\nextending \\(f_T\\), \\(f_\\alpha\\) and satisfying \\(F_\\alpha(w_\\alpha) = h_\\alpha\\), hence extending \\(f_N|_{\\operatorname{Norm}_{Z_\\alpha}(T)}\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>This is clear by <a class=\"ref\" href=\"#XX.6.2\">Exp. XX, 6.2</a> and conditions (1), (3) and (4).</p>"
+    },
+    {
+     "id": "XXIII.2.3.3",
+     "type": "lemme",
+     "label": "2.3.3",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.3.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.3.3</span></div>\n  <div class=\"thm-body\"><p>For every \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), \\(\\alpha \\neq \\beta\\), every \\(n \\in \\operatorname{Norm}_{Z_{\\alpha\\beta}}(T)(S)\\) such that \\(n(\\alpha) = \\alpha\\) (resp. \\(n(\\alpha) = \\beta\\)), i.e. \\(\\operatorname{int}(n) U_\\alpha = U_\\alpha\\) (resp. \\(\\operatorname{int}(n) U_\\alpha = U_\\beta\\)), every \\(S' \\to S\\) and every \\(x \\in U_\\alpha(S')\\), one has\n\\[ \\operatorname{int}(f_N(n))\\, f_\\alpha(x) = f_\\alpha(\\operatorname{int}(n) x) \\]\n\\[ (\\text{resp.} \\quad \\operatorname{int}(f_N(n))\\, f_\\alpha(x) = f_\\beta(\\operatorname{int}(n) x)). \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, there exist a \\(t \\in T(S)\\) and a sequence \\(\\{\\alpha_i\\} \\subset \\{\\alpha, \\beta\\}\\) such that \\(n = t w_{\\alpha_k} \\cdots w_{\\alpha_1}\\). The condition is satisfied for \\(n = t\\) by condition (1). One may therefore assume \\(n = w_{\\alpha_k} \\cdots w_{\\alpha_1}\\). Let us give the proof by induction on \\(k\\), i.e. let us assume the assertion proved for every \\(n\\) which can be written as a product of fewer than \\(k - 1\\) fundamental symmetries (and satisfies the hypotheses of the lemma). Let us consider the roots\n\\[ \\gamma_i = s_{\\alpha_i} \\cdots s_{\\alpha_1}(\\alpha). \\]\n<!-- p.280 -->\nIf all the \\(\\gamma_i\\) are positive, i.e. \\(\\in A_{\\alpha\\beta}\\), one may apply condition (v) of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a>; taking the notations of <a class=\"ref\" href=\"#XXIII.2.3\">2.3 (v)</a>, one concludes at once by induction that\n\\[ \\operatorname{int}(f_N(w_{\\alpha_i} \\cdots w_{\\alpha_1}))\\, f_\\alpha(x) = f_{\\alpha\\beta}(\\operatorname{int}(w_{\\alpha_i} \\cdots w_{\\alpha_1}) x), \\]\nthat is, for \\(i = k\\), the property sought. If the \\(\\gamma_i\\) are not all positive, there exists a \\(j &lt; k\\) with\n\\[ \\gamma_j \\in R^+, \\qquad \\gamma_{j+1} \\notin R^+. \\]\nSince \\(\\gamma_{j+1} = s_{\\alpha_j}(\\gamma_j)\\), it follows at once that \\(\\gamma_j = \\alpha_j\\), by <a class=\"ref\" href=\"#XXI.3.3.2\">Exp. XXI, 3.3.2</a>, hence that \\(\\gamma_j\\) is \\(\\alpha\\) or \\(\\beta\\), and one may decompose \\(n\\) into\n\\[ n = n' \\cdot n'', \\]\n\\[ n' = w_{\\alpha_k} \\cdots w_{\\alpha_{j+1}}, \\]\n\\[ n'' = w_{\\alpha_j} \\cdots w_{\\alpha_1}, \\]\n\\(n'\\) and \\(n''\\) satisfying the hypotheses of the lemma and being products of fewer than \\(k - 1\\) symmetries, hence satisfying, by the induction hypothesis, the conclusion of the lemma.</p>"
+    },
+    {
+     "id": "XXIII.2.3.4",
+     "type": "lemme",
+     "label": "2.3.4",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.3.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.3.4</span></div>\n  <div class=\"thm-body\"><p>Let \\(\\alpha \\in R\\). If \\(n, n' \\in \\operatorname{Norm}_G(T)(S)\\) and \\(\\beta, \\beta' \\in R_0\\) satisfy \\(n(\\alpha) = \\beta\\) and \\(n'(\\alpha) = \\beta'\\), one has\n\\[ \\operatorname{int}(f_T(n))^{-1}\\, f_\\beta(n\\, x\\, n^{-1}) = \\operatorname{int}(f_T(n'))^{-1}\\, f_{\\beta'}(n'\\, x\\, n'^{-1}), \\]\nfor every \\(x \\in U_\\alpha(S')\\), \\(S' \\to S\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>It suffices to check that if \\(n(\\alpha) = \\beta\\), \\(\\alpha, \\beta \\in R_0\\), then \\(\\operatorname{int}(f_T(n)) \\circ f_\\alpha = f_\\beta \\circ \\operatorname{int}(n)\\). Now by Tits' lemma (<a class=\"ref\" href=\"#XXI.5.1\">Exp. XXI, 5.1</a>), there exist a sequence of simple roots \\(\\alpha_0 = \\alpha, \\alpha_1, \\ldots, \\alpha_m = \\beta\\), and a sequence of elements \\(w_i \\in W\\), \\(i = 0, 1, \\ldots, m - 1\\), with\n\\[ n = w_{m-1} \\cdots w_0, \\]\n\\[ w_i(\\alpha_i) = \\alpha_{i+1}, \\qquad i = 0, 1, \\ldots, m - 1, \\]\nthe following condition being moreover satisfied: for every \\(i = 0, 1, \\ldots, m - 1\\), there exists a simple root \\(\\beta_i\\) such that\n\\[ w_i \\in W_{\\alpha_i \\beta_i}, \\qquad \\alpha_{i+1} = \\alpha_i \\quad \\text{or} \\quad \\beta_i. \\]\nOne is then reduced, by induction, to the case treated in the preceding lemma.</p>"
+    },
+    {
+     "id": "XXIII.2.3.5",
+     "type": "lemme",
+     "label": "2.3.5",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.2.3.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">2.3.5</span></div>\n  <div class=\"thm-body\"><p>There exists a family \\(f'_\\gamma\\), \\(\\gamma \\in R\\), of morphisms of groups \\(f'_\\gamma : U_\\gamma \\to H\\) satisfying</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>For \\(\\alpha \\in R_0\\), one has \\(f'_\\alpha = f_\\alpha\\) and \\(f'_{-\\alpha} = F_\\alpha|_{U_{-\\alpha}}\\) where \\(F_\\alpha\\) is defined in <a class=\"ref\" href=\"#XXIII.2.3.2\">2.3.2</a>.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For \\(\\alpha, \\beta \\in R_0\\) and \\(\\gamma \\in A_{\\alpha\\beta}\\), one has \\(f'_\\gamma = f_{\\alpha\\beta}|_{U_\\gamma}\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>For every \\(n \\in \\operatorname{Norm}_G(T)(S)\\) and \\(\\alpha, \\beta \\in R\\) such that \\(n(\\alpha) = \\beta\\), one has\n\\[ \\operatorname{int}(f_N(n))\\, f'_\\alpha(x) = f'_\\beta(\\operatorname{int}(n) x) \\]\nfor every \\(x \\in U_\\alpha(S')\\), \\(S' \\to S\\).</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>For every root \\(\\alpha \\in R\\), there exists an \\(n \\in \\operatorname{Norm}_G(T)(S)\\) such that \\(n(\\alpha) \\in R_0\\). We then define \\(f'_\\alpha(x)\\) to be the expression of <a class=\"ref\" href=\"#XXIII.2.3.4\">2.3.4</a>. The latter is independent of the choice of \\(n\\), and \\(f'_\\alpha\\) is indeed a group morphism. Property (iii) holds by construction. The first assertion of (i) is clear (take \\(n = e\\)), and so is the second (take \\(n = w_\\alpha\\) and apply <a class=\"ref\" href=\"#XXIII.2.3.2\">2.3.2</a>); if \\(\\gamma \\in A_{\\alpha\\beta}\\), \\((\\alpha, \\beta \\in R_0)\\), there exists \\(n \\in \\operatorname{Norm}_{Z_{\\alpha\\beta}}(T)(S)\\) such that \\(n(\\gamma) = \\alpha\\) or \\(\\beta\\); one then applies (iii) together with conditions (5) and (6), and (ii) is proved.</p>"
+    },
+    {
+     "id": "XXIII.2.3.6",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.2.3.6\">2.3.6.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now prove the theorem, by showing that the conditions of <a class=\"ref\" href=\"#XXIII.2.1\">2.1</a> are satisfied for the morphisms \\(f_N\\) and \\(f'_\\alpha\\), \\(\\alpha \\in R\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><a class=\"ref\" href=\"#XXIII.2.1\">2.1</a> (i) follows from <a class=\"ref\" href=\"#XXIII.2.3.5\">2.3.5</a> (iii),</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><a class=\"ref\" href=\"#XXIII.2.1\">2.1</a> (ii) follows from <a class=\"ref\" href=\"#XXIII.2.3.5\">2.3.5</a> (i) and <a class=\"ref\" href=\"#XXIII.2.3.2\">2.3.2</a>,</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><a class=\"ref\" href=\"#XXIII.2.1\">2.1</a> (iii) follows from <a class=\"ref\" href=\"#XXIII.2.3.5\">2.3.5</a> (ii) and from the fact that \\(f_{\\alpha\\beta}\\) is a group morphism.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>An obvious corollary is the following:</p>"
+    },
+    {
+     "id": "XXIII.2.4",
+     "type": "corollaire",
+     "label": "2.4",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.2.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">2.4</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group of semi-simple rank \\(\\geqslant 1\\), \\(H\\) an (fppf) \\(S\\)-sheaf of groups. For each \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), let\n\\[ F_{\\alpha\\beta} : Z_{\\alpha\\beta} \\longrightarrow H \\]\nbe a group morphism. In order for there to exist a group morphism\n\\[ f : G \\longrightarrow H \\]\ninducing the \\(F_{\\alpha\\beta}\\), it is necessary and sufficient that for every \\((\\alpha, \\beta) \\in R_0 \\times R_0\\) one have\n\\[ F_{\\alpha\\beta}|_{Z_\\alpha} = F_{\\alpha\\alpha}. \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>The condition is obviously necessary. Suppose it satisfied. Set \\(f_T = F_{\\alpha\\alpha}|_T\\) (which does not depend on \\(\\alpha\\), since \\(F_{\\alpha\\alpha}|_T = F_{\\alpha\\beta}|_T = F_{\\beta\\beta}|_T\\)). Set\n\\[ p_\\alpha = F_{\\alpha\\alpha}|_{U_\\alpha}, \\qquad h_\\alpha = F_{\\alpha\\alpha}(w_\\alpha), \\qquad f_{\\alpha\\beta} = F_{\\alpha\\beta}|_{U_{\\alpha\\beta}}. \\]\nThe conditions of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a> are obviously satisfied: (1), (2), (4) \"are verified\" in \\(Z_\\alpha\\), and (3), (5) and (6) in \\(Z_{\\alpha\\beta}\\). There therefore exists a morphism \\(f : G \\to H\\) extending \\(f_T\\) and the \\(f_\\alpha\\), \\(\\alpha \\in R_0\\), and satisfying \\(f(w_\\alpha) = h_\\alpha\\); it coincides with \\(F_{\\alpha\\beta}\\) on generators of \\(Z_{\\alpha\\beta}\\), hence satisfies \\(f|_{Z_{\\alpha\\beta}} = F_{\\alpha\\beta}\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>We also have the following technical corollary:</p>"
+    },
+    {
+     "id": "XXIII.2.5",
+     "type": "corollaire",
+     "label": "2.5",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.2.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">2.5</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) and \\(G'\\) two pinned \\(S\\)-groups of semi-simple rank \\(2\\), \\(q\\) an integer \\(&gt; 0\\) such that \\(x \\mapsto x^q\\) is an endomorphism of \\(\\mathbb{G}_{a, S}\\), and \\(h : \\mathcal{R}(G') \\to \\mathcal{R}(G)\\) a \\(q\\)-morphism of pinned root data. For each \\(\\alpha \\in R^+\\) choose an \\(X_\\alpha \\in \\Gamma(S, \\mathfrak{g}_\\alpha)^*\\) and an \\(X'_{u(\\alpha)} \\in \\Gamma(S, \\mathfrak{g}'_{u(\\alpha)})^*\\) (extending the canonical choices for \\(\\alpha \\in R_0\\)). Suppose the following conditions are satisfied:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>If \\(R_0 = \\{\\alpha, \\beta\\}\\), one has \\(D_S(h)(t_{\\alpha\\beta}) = t'_{u(\\alpha) u(\\beta)}\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For every \\(\\alpha \\in R_0\\) and every \\(\\beta \\in R^+\\), \\(\\beta \\neq \\alpha\\) (whence \\(s_\\alpha(\\beta) \\in R^+\\)), if \\(z \\in \\mathbb{G}_m(S)\\) is defined by\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = z X_{s_\\alpha(\\beta)}, \\]\nthen one also has\n\\[ \\operatorname{Ad}(w'_{u(\\alpha)}) X'_{u(\\beta)} = z^{q(\\beta)} X'_{u(s_\\alpha(\\beta))}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>There exists a group morphism \\(f : U \\to U'\\) such that for every \\(\\alpha \\in R^+\\) one has, for every \\(x \\in \\mathbb{G}_a(S')\\), \\(S' \\to S\\).\n\\[ f(\\exp(x X_\\alpha)) = \\exp(x^{q(\\alpha)} X'_{u(\\alpha)}). \\]</p></li>\n</ol>\n<p>Then there exists a morphism of pinned groups \\(G \\xrightarrow{g} G'\\) such that \\(\\mathcal{R}(g) = h\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, one defines \\(f_\\alpha : U_\\alpha \\to G'\\) by\n\\[ f_\\alpha(\\exp(x X_\\alpha)) = \\exp(x^{q(\\alpha)} X'_{u(\\alpha)})\\ ; \\]\none sets \\(f_T = D_S(h)\\), \\(h_\\alpha = w'_{u(\\alpha)}\\). The conditions of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a> are satisfied (note that \\(q(s_\\alpha(\\beta)) = q(\\beta)\\) (<a class=\"ref\" href=\"#XXI.6.8.4\">Exp. XXI, 6.8.4</a>) and that one always has \\(D_S(h)(t_\\alpha) = t'_{u(\\alpha)}\\)), and one concludes at once.</p>"
+    },
+    {
+     "id": "XXIII.2.6",
+     "type": "remarque",
+     "label": "2.6",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.2.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">2.6</span></div>\n  <div class=\"thm-body\"><p>Condition (v) of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a> can be made more precise as follows. One must first check:</p>\n<p>(a) For every word in \\(w_\\alpha\\) and \\(w_\\beta\\) such that the corresponding word carries \\(\\alpha\\) or \\(\\beta\\) into \\(\\alpha\\) or \\(\\beta\\), the corresponding relation of type <a class=\"ref\" href=\"#XXIII.2.3.3\">2.3.3</a> holds. In fact the proof of <a class=\"ref\" href=\"#XXIII.2.3.3\">2.3.3</a> shows that it suffices to check this for those words in \\(w_\\alpha\\) and \\(w_\\beta\\) that are minimal (in the sense that no non-trivial initial subword satisfies the imposed conditions).</p>\n<p>If condition (a) holds, one may now define, for each \\(\\gamma \\in A_{\\alpha\\beta}\\), an \\(f_\\gamma : U_\\gamma \\to H\\) as in <a class=\"ref\" href=\"#XXIII.2.3.5\">2.3.5</a>; one must then write:</p>\n<p>(b) The morphism\n\\[ U_{\\alpha\\beta} = \\prod_{\\gamma \\in A_{\\alpha\\beta}} U_\\gamma \\longrightarrow H \\]\ndefined by the \\(f_\\gamma\\) is a group morphism. By <a class=\"ref\" href=\"#XXII.5.5.8\">Exp. XXII, 5.5.8</a>, (b) is implied by:</p>\n<p>(b') The preceding morphism respects the commutation relations between \\(U_\\gamma\\) and \\(U_\\delta\\) for \\(\\gamma, \\delta \\in A_{\\alpha\\beta}\\), \\(\\gamma &gt; \\delta\\) (i.e. the relations in \\(C_{i,j,\\gamma,\\delta}\\) of <a class=\"ref\" href=\"#XXII.5.5.2\">Exp. XXII, 5.5.2</a>).</p>\n<p>It is clear that, conversely, the set of conditions (a) and (b') is equivalent to (v).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One can even reduce the preceding conditions to conditions bearing only on the elements \\(h_\\alpha\\), \\(h_\\beta\\), \\(f_\\alpha(u_\\alpha)\\), \\(f_\\beta(u_\\beta)\\) of \\(H\\). A condition of type (a) will read, for example, if \\(s_\\alpha s_\\beta s_\\alpha(\\beta) = \\alpha\\):\n\\[ (1) \\qquad \\operatorname{int}(h_\\alpha h_\\beta h_\\alpha)\\, f_\\beta(x) = f_\\alpha(\\operatorname{int}(w_\\alpha w_\\beta w_\\alpha) x)\\ ; \\]\nfor every \\(x \\in U_\\alpha(S')\\), \\(S' \\to S\\). In particular, for \\(x = u_\\beta\\), one has \\(\\operatorname{int}(w_\\alpha w_\\beta w_\\alpha) u_\\beta = u_\\alpha^z\\) for a certain section \\(z\\) of \\(\\mathbb{G}_m(S)\\), and the preceding relation will give\n\\[ (1') \\qquad \\operatorname{int}(h_\\alpha h_\\beta h_\\alpha)\\, f_\\beta(u_\\beta) = f_\\alpha(u_\\alpha)^z. \\]\nLet us show that, conversely, taking into account conditions (i) to (iv) of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a>, (1') implies (1). If \\(t \\in T(S')\\), \\(S' \\to S\\), let us make \\(\\operatorname{int}(t)\\) act on (1'); taking conditions (i) and (ii) into account, one obtains (1) for \\(x = \\operatorname{int}(t) u_\\beta = u_\\beta^{\\beta(t)}\\). It now suffices to note that \\(\\beta : T \\to \\mathbb{G}_{m, S}\\) is faithfully flat, so that condition (1) is certainly true for \\(x \\in U_\\alpha(S')^*\\), \\(S' \\to S\\). Since it is additive in \\(x\\), and since every section of \\(U_\\alpha\\) can be written locally as a sum of two sections of \\(U_\\alpha^*\\), we do conclude that (1') + (i) + (ii) \\(\\Longrightarrow\\) (1).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One argues in the same way with the conditions of type (b). One must then use the fact that if \\(\\gamma\\) and \\(\\gamma'\\) are two distinct positive roots (and hence linearly independent over \\(\\mathbb{Q}\\)), the morphism \\(T \\to \\mathbb{G}_{m, S}^2\\) with components \\(\\gamma\\) and \\(\\gamma'\\) is faithfully flat. We leave the details of this transposition to the reader.</p>"
+    }
+   ],
    "footnotes": []
   },
   {
    "id": "XXIII-3",
-   "title": null,
-   "blocks": [],
+   "title": "3. Groups of semi-simple rank 2",
+   "blocks": [
+    {
+     "id": "XXIII.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h2 id=\"XXIII.3\">3. Groups of semi-simple rank 2</h2>"
+    },
+    {
+     "id": "XXIII.3.1",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.1\">3.1. Generalities</h3>"
+    },
+    {
+     "id": "XXIII.3.1.1",
+     "type": "lemme",
+     "label": "3.1.1",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.3.1.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">3.1.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group, \\(\\alpha\\) and \\(\\beta\\) two roots of \\(G\\), with \\(\\alpha + \\beta \\neq 0\\).</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>If \\(\\alpha + \\beta \\notin R\\), one has\n\\[ \\exp(X_\\alpha)\\, \\exp(X_\\beta) = \\exp(X_\\beta)\\, \\exp(X_\\alpha) \\]\nfor all \\(X_\\alpha \\in W(\\mathfrak{g}_\\alpha)(S')\\), \\(X_\\beta \\in W(\\mathfrak{g}_\\beta)(S')\\), \\(S' \\to S\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>If \\(\\alpha + \\beta\\) and \\(\\alpha - \\beta\\) are not roots, one has\n\\[ w_\\alpha(z_\\alpha)\\, \\exp(X_\\beta)\\, w_\\alpha(z_\\alpha)^{-1} = \\exp(X_\\beta) \\]\n<!-- p.286 -->\nfor all \\(X_\\beta \\in W(\\mathfrak{g}_\\beta)(S')\\), \\(z_\\alpha \\in W(\\mathfrak{g}_\\alpha)^*(S')\\), \\(S' \\to S\\), and\n\\[ w_\\alpha(z_\\alpha)\\, w_\\beta(z_\\beta) = w_\\beta(z_\\beta)\\, w_\\alpha(z_\\alpha) \\]\nfor all \\(z_\\alpha \\in W(\\mathfrak{g}_\\alpha)^*(S')\\) and \\(z_\\beta \\in W(\\mathfrak{g}_\\beta)^*(S')\\), \\(S' \\to S\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>Let \\(X_\\alpha \\in W(\\mathfrak{g}_\\alpha)^*(S')\\), \\(X_\\beta \\in W(\\mathfrak{g}_\\beta)^*(S')\\), and \\(w \\in \\operatorname{Norm}_G(T)(S')\\) be such that \\(w(\\alpha) = \\beta\\); define \\(z \\in \\mathbb{G}_m(S')\\) by\n\\[ \\operatorname{Ad}(w) X_\\alpha = z X_\\beta. \\]\nThen\n\\[ \\operatorname{int}(w)\\, \\exp(x X_\\alpha) = \\exp(x z X_\\beta), \\]\n\\[ \\operatorname{int}(w)\\, \\exp(y X_\\alpha^{-1}) = \\exp(y z^{-1} X_\\beta^{-1}), \\]\n\\[ \\operatorname{int}(w)\\, w_\\alpha(X_\\alpha) = \\beta^*(z)\\, w_\\beta(X_\\beta). \\]\nIn particular, if \\(z = \\pm 1\\), one has\n\\[ \\operatorname{int}(w)\\, w_\\alpha(X_\\alpha) = w_\\beta(X_\\beta)^z. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iv)</span></span> <p>If one sets \\(t_\\alpha = \\alpha^*(-1)\\), \\(t_\\beta = \\beta^*(-1)\\), one has\n\\[ s_\\alpha(t_\\beta) = t_\\beta\\, t_\\alpha^{(\\beta^*, \\alpha)}, \\qquad \\beta(t_\\alpha) = (-1)^{(\\alpha^*, \\beta)}. \\]</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><em>Proof.</em> (i) follows at once from <a class=\"ref\" href=\"#XXII.5.5.2\">Exp. XXII, 5.5.2</a>, (ii) from <a class=\"ref\" href=\"#XX.3.1\">Exp. XX, 3.1</a> and from (i) applied to \\((\\beta, \\alpha)\\), \\((\\beta, -\\alpha)\\), \\((-\\beta, \\alpha)\\), \\((-\\beta, -\\alpha)\\), and (iii) is evident from the definitions; for the last assertion of (iii), note that \\(\\beta^*(-1) = w_\\beta(X_\\beta)^{-2}\\). Finally, (iv) is trivial.</p>"
+    },
+    {
+     "id": "XXIII.3.1.2",
+     "type": "proposition",
+     "label": "3.1.2",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.3.1.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.1.2</span> (Groups of type \\(A_1 \\times A_1\\))</div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group of type \\(A_1 + A_1\\); let us write \\(R_0 = R^+ = \\{\\alpha, \\beta\\}\\).</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>One has\n\\[ t_{\\alpha\\beta} = (w_\\alpha w_\\beta)^2 = t_\\alpha t_\\beta = (w_\\beta w_\\alpha)^2 = t_{\\beta\\alpha}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>One has\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = X_\\beta, \\qquad \\operatorname{Ad}(w_\\beta) X_\\alpha = X_\\alpha. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>\\(U_\\alpha\\) and \\(U_\\beta\\) commute (i.e. \\(U\\) is commutative).</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, by assertion (ii) of the lemma, one has\n\\[ w_\\alpha w_\\beta = w_\\beta w_\\alpha, \\]\nwhence \\((w_\\alpha w_\\beta)^2 = w_\\alpha^2 w_\\beta^2 = t_\\alpha t_\\beta\\), which is (i). By assertion (ii) of the lemma one likewise has (ii); finally (iii) is assertion (i) of the lemma.</p>"
+    },
+    {
+     "id": "XXIII.3.1.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.1.3\">3.1.3.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us make condition (v) of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a> explicit here. Using the method set out in <a class=\"ref\" href=\"#XXIII.2.6\">2.6</a>, one obtains the following two groups of conditions, on setting \\(v_\\alpha = f_\\alpha(u_\\alpha)\\), for \\(\\alpha \\in R_0\\):\n\\[ (A) \\begin{cases} h_\\alpha\\, v_\\beta\\, h_\\alpha^{-1} = v_\\beta \\\\ h_\\beta\\, v_\\alpha\\, h_\\beta^{-1} = v_\\alpha \\end{cases} \\qquad (B)\\; v_\\alpha\\, v_\\beta = v_\\beta\\, v_\\alpha. \\]</p>"
+    },
+    {
+     "id": "XXIII.3.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2\">3.2. Groups of type \\(A_2\\)</h3>"
+    },
+    {
+     "id": "XXIII.3.2.1",
+     "type": "proposition",
+     "label": "3.2.1",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.3.2.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.2.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group of type \\(A_2\\); let us write \\(R_0 = \\{\\alpha, \\beta\\}\\), \\(R^+ = \\{\\alpha, \\beta, \\alpha + \\beta\\}\\).</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>One has\n\\[ t_{\\alpha\\beta} = (w_\\alpha w_\\beta)^3 = e = (w_\\beta w_\\alpha)^3 = t_{\\beta\\alpha}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>Set \\(\\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}\\). Then\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = -X_{\\alpha+\\beta}, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = X_\\beta, \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = -X_\\alpha. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>Set \\(p_{\\alpha+\\beta}(x) = \\exp(x X_{\\alpha+\\beta}) = \\operatorname{int}(w_\\beta)\\, p_\\alpha(x)\\). One has:\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(xy). \\]</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.2.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2.2\">3.2.2.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One has \\((\\beta^*, \\alpha) = (\\alpha^*, \\beta) = -1\\), whence \\(\\alpha(t_\\beta) = \\beta(t_\\alpha) = -1\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Set \\(\\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}\\); one has at once\n\\[ \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = \\alpha(t_\\beta) X_\\alpha = -X_\\alpha. \\]\nSet\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = z X_{\\alpha+\\beta}, \\qquad z \\in \\mathbb{G}_m(S), \\]\nwhence\n\\[ \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = \\beta(t_\\alpha) z^{-1} X_\\beta = -z^{-1} X_\\beta. \\]\nWe know (<a class=\"ref\" href=\"#XXII.5.5.2\">Exp. XXII, 5.5.2</a>) that there exists a unique section \\(A \\in \\mathbb{G}_a(S)\\) with\n\\[ (+) \\qquad p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(A x y). \\]\nIn order to prove (ii) and (iii), it is therefore a matter of showing that \\(A = -z = 1\\).</p>"
+    },
+    {
+     "id": "XXIII.3.2.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2.3\">3.2.3.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us make \\(\\operatorname{int}(w_\\beta)\\) act on the preceding formula \\((+)\\); one obtains:\n\\[ (++) \\qquad p_{-\\beta}(-y)\\, p_{\\alpha+\\beta}(x) = p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-y)\\, p_\\alpha(-A x y). \\]</p>"
+    },
+    {
+     "id": "XXIII.3.2.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2.4\">3.2.4.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>By the definition of \\(p_{\\alpha+\\beta}\\), one has\n\\[ w_\\beta\\, p_\\alpha(x)\\, w_\\beta^{-1} = p_{\\alpha+\\beta}(x), \\]\nwhich reads\n\\[ p_\\beta(1)\\, p_{-\\beta}(-1)\\, p_\\beta(1)\\, p_\\alpha(x)\\, p_\\beta(-1)\\, p_{-\\beta}(1)\\, p_\\beta(-1) = p_{\\alpha+\\beta}(x). \\]\nSince \\(p_\\beta\\) and \\(p_{\\alpha+\\beta}\\) commute, \\(\\alpha + 2\\beta\\) not being a root, this may also be written\n\\[ p_\\beta(1)\\, p_\\alpha(x)\\, p_\\beta(-1) = p_{-\\beta}(1)\\, p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-1). \\]\nNow using \\((+)\\) on the left-hand side and \\((++)\\) on the right, one obtains:\n\\[ p_\\alpha(x)\\, p_\\beta(1)\\, p_{\\alpha+\\beta}(Ax)\\, p_\\beta(-1) = p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(1)\\, p_\\alpha(Ax)\\, p_{-\\beta}(-1), \\]\nwhich, \\(\\alpha + 2\\beta\\) and \\(\\alpha - \\beta\\) not being roots, reads\n\\[ p_\\alpha(x)\\, p_{\\alpha+\\beta}(Ax) = p_{\\alpha+\\beta}(x)\\, p_\\alpha(Ax). \\]\nSince \\(2\\alpha + \\beta\\) is not a root, this gives \\(A = 1\\).</p>"
+    },
+    {
+     "id": "XXIII.3.2.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2.5\">3.2.5.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now make \\(\\operatorname{int}(w_\\alpha)\\) act on formula \\((+)\\); using the fact that \\(A = 1\\), one finds\n\\[ (+++) \\qquad p_{\\alpha+\\beta}(zy)\\, p_{-\\alpha}(-x) = p_{-\\alpha}(-x)\\, p_{\\alpha+\\beta}(zy)\\, p_\\beta(-z^{-1} xy). \\]</p>"
+    },
+    {
+     "id": "XXIII.3.2.6",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2.6\">3.2.6.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now write, as before,\n\\[ w_\\alpha\\, p_\\beta(y)\\, w_\\alpha^{-1} = p_{\\alpha+\\beta}(zy), \\]\nthat is\n\\[ p_\\alpha(1)\\, p_\\beta(y)\\, p_\\alpha(-1) = p_{-\\alpha}(1)\\, p_{\\alpha+\\beta}(zy)\\, p_{-\\alpha}(-1). \\]\nNow using \\((+)\\) and \\((+++)\\), this may also be written\n\\[ p_\\beta(y)\\, p_{\\alpha+\\beta}(-y) = p_{\\alpha+\\beta}(zy)\\, p_\\beta(-z^{-1} y), \\]\nand hence gives \\(z = -1\\).</p>"
+    },
+    {
+     "id": "XXIII.3.2.7",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.2.7\">3.2.7.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>We have thus proved (ii) and (iii); let us prove (i). One has\n\\[ w_\\alpha w_\\beta w_\\alpha = w_\\alpha w_\\beta w_\\alpha^{-1} w_\\alpha^2 = w_{\\alpha+\\beta}^{-1}\\, t_\\alpha, \\]\nwhence\n\\[ w_\\beta w_\\alpha w_\\beta w_\\alpha w_\\beta = w_\\beta w_{\\alpha+\\beta}^{-1}\\, t_\\alpha\\, w_\\beta = w_\\beta w_{\\alpha+\\beta} w_\\beta^{-1} \\cdot s_\\beta(t_\\alpha) \\cdot t_\\beta \\]\n\\[ = w_\\alpha \\cdot t_\\alpha t_\\beta \\cdot t_\\beta = w_\\alpha t_\\alpha = w_\\alpha^{-1}, \\]\nwhich gives\n\\[ (w_\\alpha w_\\beta)^3 = (w_\\beta w_\\alpha)^3 = e, \\]\nand this completes the proof.</p>"
+    },
+    {
+     "id": "XXIII.3.2.8",
+     "type": "remarque",
+     "label": "3.2.8",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.3.2.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">3.2.8</span></div>\n  <div class=\"thm-body\"><p>Condition (v) of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a> translates here into the following (writing \\(v_\\alpha = f_\\alpha(u_\\alpha)\\)):\n\\[ (A)\\; h_\\alpha\\, v_\\beta^{-1}\\, h_\\alpha^{-1} = h_\\beta\\, v_\\alpha\\, h_\\beta^{-1} \\qquad (B) \\begin{cases} v_\\beta\\, v_\\alpha = v_\\alpha\\, v_\\beta \\cdot h_\\beta\\, v_\\alpha\\, h_\\beta^{-1}, \\\\ v_\\beta \\cdot h_\\beta\\, v_\\alpha\\, h_\\beta^{-1} = h_\\beta\\, v_\\alpha\\, h_\\beta^{-1} \\cdot v_\\beta, \\\\ v_\\alpha \\cdot h_\\beta\\, v_\\alpha\\, h_\\beta^{-1} = h_\\beta\\, v_\\alpha\\, h_\\beta^{-1} \\cdot v_\\alpha. \\end{cases} \\]\nOn setting \\(v_{\\alpha+\\beta} = \\operatorname{int}(h_\\beta) v_\\alpha\\), the last three conditions may also be written\n\\[ (B) \\begin{cases} v_\\beta\\, v_\\alpha = v_\\alpha\\, v_\\beta\\, v_{\\alpha+\\beta}, \\\\ v_\\alpha\\, v_{\\alpha+\\beta} = v_{\\alpha+\\beta}\\, v_\\alpha, \\\\ v_\\beta\\, v_{\\alpha+\\beta} = v_{\\alpha+\\beta}\\, v_\\beta. \\end{cases} \\]</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.3\">3.3. Groups of type \\(B_2\\)</h3>"
+    },
+    {
+     "id": "XXIII.3.3.1",
+     "type": "proposition",
+     "label": "3.3.1",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.3.3.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.3.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group of type \\(B_2\\); let us write \\(R_0 = \\{\\alpha, \\beta\\}\\), \\(R^+ = \\{\\alpha, \\beta, \\alpha + \\beta, 2\\alpha + \\beta\\}\\).</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>One has\n\\[ t_{\\alpha\\beta} = (w_\\alpha w_\\beta)^4 = t_\\alpha = (w_\\beta w_\\alpha)^4 = t_{\\beta\\alpha}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>If one sets\n\\[ \\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w_\\alpha) X_\\beta = X_{2\\alpha+\\beta}, \\]\none has:\n\\[ \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = -X_{\\alpha+\\beta}, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{2\\alpha+\\beta} = X_\\beta, \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = -X_\\alpha, \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{2\\alpha+\\beta} = X_{2\\alpha+\\beta}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>Set \\(p_{\\alpha+\\beta}(x) = \\exp(x X_{\\alpha+\\beta}) = \\operatorname{int}(w_\\beta)\\, p_\\alpha(x)\\),\n\\[ p_{2\\alpha+\\beta}(x) = \\exp(x X_{2\\alpha+\\beta}) = \\operatorname{int}(w_\\alpha)\\, p_\\beta(x). \\]\nThen:\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(xy)\\, p_{2\\alpha+\\beta}(x^2 y), \\]\n\\[ p_{\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{\\alpha+\\beta}(y)\\, p_{2\\alpha+\\beta}(2xy). \\]</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.3.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.3.2\">3.3.2.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One has \\((\\beta^*, \\alpha) = -1\\), \\((\\alpha^*, \\beta) = -2\\), whence \\(\\alpha(t_\\beta) = -1\\), \\(\\beta(t_\\alpha) = 1\\). Let us note in passing that \\(\\beta(t_\\alpha) = \\alpha(t_\\alpha) = 1\\), which shows that \\(t_\\alpha\\) is a section of \\(\\operatorname{Centr}(G)\\). Set\n\\[ \\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w_\\alpha) X_\\beta = X_{2\\alpha+\\beta}. \\]\nOne has at once\n\\[ \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = \\alpha(t_\\beta) X_\\alpha = -X_\\alpha, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{2\\alpha+\\beta} = \\beta(t_\\alpha) X_\\beta = X_\\beta. \\]\nSince \\((2\\alpha + \\beta) + \\beta\\) and \\((2\\alpha + \\beta) - \\beta\\) are not roots, one has\n\\[ \\operatorname{Ad}(w_\\beta) X_{2\\alpha+\\beta} = X_{2\\alpha+\\beta}. \\]\nThere exists a scalar \\(k \\in \\mathbb{G}_m(S)\\) with\n\\[ \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = k X_{\\alpha+\\beta}. \\]\nOn the other hand, by <a class=\"ref\" href=\"#XXII.5.5.2\">Exp. XXII, 5.5.2</a>, there exist sections \\(A, B, C \\in \\mathbb{G}_a(S)\\) with\n\\[ (1) \\qquad p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(A x y)\\, p_{2\\alpha+\\beta}(B x^2 y), \\]\n\\[ (2) \\qquad p_{\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{\\alpha+\\beta}(y)\\, p_{2\\alpha+\\beta}(C x y). \\]\nIn (ii) and (iii), it is therefore a matter of proving that \\(A = B = 1\\), \\(C = 2\\), \\(k = -1\\).</p>"
+    },
+    {
+     "id": "XXIII.3.3.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.3.3\">3.3.3.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us make \\(\\operatorname{int}(w_\\alpha)\\) act on formula (2). One finds\n\\[ (3) \\qquad p_{2\\alpha+\\beta}(y)\\, p_{-\\alpha}(-x) = p_{-\\alpha}(-x)\\, p_{2\\alpha+\\beta}(y)\\, p_{\\alpha+\\beta}(A k x y)\\, p_\\beta(B x^2 y). \\]\nTransforming (2) in the same way, one obtains\n\\[ (4) \\qquad p_{\\alpha+\\beta}(ky)\\, p_{-\\alpha}(-x) = p_{-\\alpha}(-x)\\, p_{\\alpha+\\beta}(ky)\\, p_\\beta(C x y). \\]\nTransforming (1) by \\(\\operatorname{int}(w_\\beta)\\), one has\n\\[ (5) \\qquad p_{-\\beta}(-y)\\, p_{\\alpha+\\beta}(x) = p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-y)\\, p_\\alpha(-A x y)\\, p_{2\\alpha+\\beta}(B x^2 y). \\]</p>"
+    },
+    {
+     "id": "XXIII.3.3.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.3.4\">3.3.4.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us write\n\\[ w_\\beta\\, p_\\alpha(x)\\, w_\\beta^{-1} = p_{\\alpha+\\beta}(x). \\]\nSince \\(\\alpha + 2\\beta\\) is not a root, this gives\n\\[ p_\\beta(1)\\, p_\\alpha(x)\\, p_\\beta(-1) = p_{-\\beta}(1)\\, p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-1). \\]\nUsing (1) on the left-hand side and (5) on the right,\n\\[ p_\\alpha(x)\\, p_\\beta(1)\\, p_{\\alpha+\\beta}(Ax)\\, p_{2\\alpha+\\beta}(Bx^2)\\, p_\\beta(-1) = \\]\n\\[ p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(1)\\, p_\\alpha(Ax)\\, p_{2\\alpha+\\beta}(-Bx^2)\\, p_{-\\beta}(-1). \\]\nSince \\(p_\\beta\\) commutes with \\(p_{\\alpha+\\beta}\\) and \\(p_{2\\alpha+\\beta}\\) on the one hand, and \\(p_{-\\beta}\\) commutes with \\(p_\\alpha\\) and \\(p_{2\\alpha+\\beta}\\) on the other, this reads\n\\[ p_\\alpha(x)\\, p_{\\alpha+\\beta}(Ax)\\, p_{2\\alpha+\\beta}(Bx^2) = p_{\\alpha+\\beta}(x)\\, p_\\alpha(Ax)\\, p_{2\\alpha+\\beta}(-Bx^2). \\]\nTransforming the right-hand side by (2),\n\\[ p_\\alpha(x)\\, p_{\\alpha+\\beta}(Ax)\\, p_{2\\alpha+\\beta}(Bx^2) = p_\\alpha(Ax)\\, p_{\\alpha+\\beta}(x)\\, p_{2\\alpha+\\beta}((AC - B) x^2), \\]\nwhence finally\n\\[ A = 1, \\qquad C = 2B. \\]</p>"
+    },
+    {
+     "id": "XXIII.3.3.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.3.5\">3.3.5.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now write\n\\[ w_\\alpha\\, p_\\beta(y)\\, w_\\alpha^{-1} = p_{2\\alpha+\\beta}(y). \\]\nSince \\(3\\alpha + \\beta\\) is not a root, this gives\n\\[ p_\\alpha(1)\\, p_\\beta(y)\\, p_\\alpha(-1) = p_{-\\alpha}(1)\\, p_{2\\alpha+\\beta}(y)\\, p_{-\\alpha}(-1). \\]\n<!-- p.294 -->\nUsing (1) on the left-hand side and (3) on the right, one obtains\n\\[ p_\\beta(y)\\, p_{\\alpha+\\beta}(-Ay)\\, p_{2\\alpha+\\beta}(By) = p_{2\\alpha+\\beta}(y)\\, p_{\\alpha+\\beta}(Aky)\\, p_\\beta(By). \\]\nSince \\(p_{\\alpha+\\beta}\\), \\(p_{2\\alpha+\\beta}\\), and \\(p_\\beta\\) commute, this gives at once\n\\[ B = 1, \\qquad -A = Ak, \\]\nwhence finally\n\\[ A = 1, \\qquad B = 1, \\qquad C = 2, \\qquad k = -1. \\]</p>"
+    },
+    {
+     "id": "XXIII.3.3.6",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.3.6\">3.3.6.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>We have thus proved (ii) and (iii). Let us prove (i):\n\\[ w_\\alpha w_\\beta w_\\alpha = w_\\alpha w_\\beta w_\\alpha^{-1}\\, t_\\alpha = w_{2\\alpha+\\beta}\\, t_\\alpha, \\]\n\\[ w_\\beta w_\\alpha w_\\beta w_\\alpha w_\\beta = w_\\beta w_{2\\alpha+\\beta} w_\\beta^{-1} \\cdot s_\\beta(t_\\alpha) \\cdot t_\\beta = w_{2\\alpha+\\beta}\\, t_\\alpha t_\\beta, \\]\n\\[ w_\\alpha w_\\beta w_\\alpha w_\\beta w_\\alpha w_\\beta w_\\alpha = w_\\alpha w_{2\\alpha+\\beta} w_\\alpha^{-1} \\cdot s_\\alpha(t_\\alpha t_\\beta) \\cdot t_\\alpha = w_\\beta \\cdot t_\\alpha \\cdot t_\\beta t_\\alpha \\cdot t_\\alpha = w_\\beta^{-1}\\, t_\\alpha, \\]\nwhence\n\\[ (w_\\beta w_\\alpha)^4 = t_\\alpha, \\]\nand\n\\[ (w_\\alpha w_\\beta)^4 = s_\\beta(t_\\alpha) = t_\\alpha, \\]\nwhich completes the proof.</p>"
+    },
+    {
+     "id": "XXIII.3.3.7",
+     "type": "remarque",
+     "label": "3.3.7",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.3.3.7\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">3.3.7</span></div>\n  <div class=\"thm-body\"><p>Condition (v) of <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a> translates here in the following manner, on setting \\(v_{\\alpha+\\beta} = \\operatorname{int}(h_\\beta) v_\\alpha\\) and \\(v_{2\\alpha+\\beta} = \\operatorname{int}(h_\\alpha) v_\\beta\\):\n\\[ (A) \\begin{cases} \\operatorname{int}(h_\\alpha h_\\beta h_\\alpha)\\, v_\\beta = v_\\beta, \\\\ \\operatorname{int}(h_\\beta h_\\alpha h_\\beta)\\, v_\\alpha = v_\\alpha, \\end{cases} \\qquad (B) \\begin{cases} v_\\beta\\, v_\\alpha = v_\\alpha\\, v_\\beta\\, v_{\\alpha+\\beta}\\, v_{2\\alpha+\\beta}, \\\\ v_{\\alpha+\\beta}\\, v_\\alpha = v_\\alpha\\, v_{\\alpha+\\beta}\\, v_{2\\alpha+\\beta}^2, \\\\ v_{\\alpha+\\beta}\\, v_\\beta = v_\\beta\\, v_{\\alpha+\\beta}, \\\\ v_{2\\alpha+\\beta}\\, v_\\alpha = v_\\alpha\\, v_{2\\alpha+\\beta}, \\\\ v_{2\\alpha+\\beta}\\, v_\\beta = v_\\beta\\, v_{2\\alpha+\\beta}, \\\\ v_{2\\alpha+\\beta}\\, v_{\\alpha+\\beta} = v_{\\alpha+\\beta}\\, v_{2\\alpha+\\beta}. \\end{cases} \\]</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4\">3.4. Groups of type \\(G_2\\)</h3>"
+    },
+    {
+     "id": "XXIII.3.4.1",
+     "type": "proposition",
+     "label": "3.4.1",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.3.4.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.4.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group of type \\(G_2\\); let us write \\(R_0 = \\{\\alpha, \\beta\\}\\), \\(R^+ = \\{\\alpha, \\beta, \\alpha + \\beta, 2\\alpha + \\beta, 3\\alpha + \\beta, 3\\alpha + 2\\beta\\}\\).</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>One has\n\\[ t_{\\alpha\\beta} = (w_\\alpha w_\\beta)^6 = e = (w_\\beta w_\\alpha)^6 = t_{\\beta\\alpha}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>If one sets\n\\[ \\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = X_{2\\alpha+\\beta}, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = -X_{3\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w_\\beta) X_{3\\alpha+\\beta} = X_{3\\alpha+2\\beta}, \\]\none has:\n\\[ \\operatorname{Ad}(w_\\alpha) X_{2\\alpha+\\beta} = -X_{\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w_\\alpha) X_{3\\alpha+\\beta} = X_\\beta, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{3\\alpha+2\\beta} = X_{3\\alpha+2\\beta}, \\qquad \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = -X_\\alpha, \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{2\\alpha+\\beta} = X_{2\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w_\\beta) X_{3\\alpha+2\\beta} = -X_{3\\alpha+\\beta}. \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>If one sets\n\\[ p_{\\alpha+\\beta}(x) = \\exp(x X_{\\alpha+\\beta}) = \\operatorname{int}(w_\\beta)\\, p_\\alpha(x), \\]\n\\[ p_{2\\alpha+\\beta}(x) = \\exp(x X_{2\\alpha+\\beta}) = \\operatorname{int}(w_\\alpha w_\\beta)\\, p_\\alpha(x), \\]\n\\[ p_{3\\alpha+\\beta}(x) = \\exp(x X_{3\\alpha+\\beta}) = \\operatorname{int}(w_\\alpha)\\, p_\\beta(-x), \\]\n\\[ p_{3\\alpha+2\\beta}(x) = \\exp(x X_{3\\alpha+2\\beta}) = \\operatorname{int}(w_\\beta w_\\alpha)\\, p_\\beta(-x), \\]\n<!-- p.296 -->\none has:\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(xy)\\, p_{2\\alpha+\\beta}(x^2 y)\\, p_{3\\alpha+\\beta}(x^3 y)\\, p_{3\\alpha+2\\beta}(x^3 y^2), \\]\n\\[ p_{\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{\\alpha+\\beta}(y)\\, p_{2\\alpha+\\beta}(2xy)\\, p_{3\\alpha+\\beta}(3x^2 y)\\, p_{3\\alpha+2\\beta}(3xy^2), \\]\n\\[ p_{2\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{2\\alpha+\\beta}(y)\\, p_{3\\alpha+\\beta}(3xy), \\]\n\\[ p_{3\\alpha+\\beta}(y)\\, p_\\beta(x) = p_\\beta(x)\\, p_{3\\alpha+\\beta}(y)\\, p_{3\\alpha+2\\beta}(-xy), \\]\n\\[ p_{2\\alpha+\\beta}(y)\\, p_{\\alpha+\\beta}(x) = p_{\\alpha+\\beta}(x)\\, p_{2\\alpha+\\beta}(y)\\, p_{3\\alpha+2\\beta}(3xy). \\]</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.4.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.2\">3.4.2.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>We have \\((\\beta^*, \\alpha) = -1\\), \\((\\alpha^*, \\beta) = -3\\), whence \\(\\beta(t_\\alpha) = \\alpha(t_\\beta) = -1\\). Let us define \\(X_{\\alpha+\\beta}\\), \\(X_{2\\alpha+\\beta}\\), \\(X_{3\\alpha+\\beta}\\) and \\(X_{3\\alpha+2\\beta}\\) as in (ii). We have at once\n\\[ \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = \\alpha(t_\\beta) X_\\alpha = -X_\\alpha, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{2\\alpha+\\beta} = \\alpha(t_\\alpha)\\, \\beta(t_\\alpha) X_{\\alpha+\\beta} = -X_{\\alpha+\\beta}, \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{3\\alpha+\\beta} = -\\beta(t_\\alpha) X_\\beta = X_\\beta, \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{3\\alpha+2\\beta} = \\alpha(t_\\beta)^3\\, \\beta(t_\\beta) X_{3\\alpha+\\beta} = -X_{3\\alpha+\\beta}. \\]\nFinally, since \\((3\\alpha + 2\\beta) \\pm \\alpha\\) and \\((2\\alpha + \\beta) \\pm \\beta\\) are not roots, we have:\n\\[ \\operatorname{Ad}(w_\\alpha) X_{3\\alpha+2\\beta} = X_{3\\alpha+2\\beta}, \\qquad \\operatorname{Ad}(w_\\beta) X_{2\\alpha+\\beta} = X_{2\\alpha+\\beta}, \\]\nwhich completes the proof of (ii).</p>"
+    },
+    {
+     "id": "XXIII.3.4.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.3\">3.4.3.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>By virtue of <a class=\"ref\" href=\"#XXII.5.5.2\">Exp. XXII, 5.5.2</a>, there exist scalars\n\\[ A, B, C, D, E, F, G, H, J \\in \\mathbb{G}_a(S), \\]\nsuch that\n\\[ (1)\\; p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(Axy)\\, p_{2\\alpha+\\beta}(Bx^2 y)\\, p_{3\\alpha+\\beta}(Cx^3 y)\\, p_{3\\alpha+2\\beta}(Dx^3 y^2). \\]\n\\[ (2)\\; p_{\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{\\alpha+\\beta}(y)\\, p_{2\\alpha+\\beta}(Exy)\\, p_{3\\alpha+\\beta}(Fx^2 y)\\, p_{3\\alpha+2\\beta}(Gxy^2). \\]\n\\[ (3)\\; p_{2\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{2\\alpha+\\beta}(y)\\, p_{3\\alpha+\\beta}(Hxy). \\]\n\\[ (4)\\; p_{3\\alpha+\\beta}(y)\\, p_\\beta(x) = p_\\beta(x)\\, p_{3\\alpha+\\beta}(y)\\, p_{3\\alpha+2\\beta}(Jxy). \\]</p>"
+    },
+    {
+     "id": "XXIII.3.4.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.4\">3.4.4.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us make \\(\\operatorname{int}(w_\\beta)\\) act on (1), (3) and (4):\n\\[ (5)\\; p_{-\\beta}(-y)\\, p_{\\alpha+\\beta}(x) = \\]\n\\[ p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-y)\\, p_\\alpha(-Axy)\\, p_{2\\alpha+\\beta}(Bx^2 y)\\, p_{3\\alpha+2\\beta}(Cx^3 y)\\, p_{3\\alpha+\\beta}(-Dx^3 y^2). \\]\n\\[ (6)\\; p_{2\\alpha+\\beta}(y)\\, p_{\\alpha+\\beta}(x) = p_{\\alpha+\\beta}(x)\\, p_{2\\alpha+\\beta}(y)\\, p_{3\\alpha+2\\beta}(Hxy). \\]\n\\[ (7)\\; p_{3\\alpha+2\\beta}(y)\\, p_{-\\beta}(-x) = p_{-\\beta}(-x)\\, p_{3\\alpha+2\\beta}(y)\\, p_{3\\alpha+\\beta}(-Jxy). \\]\nMaking \\(\\operatorname{int}(w_\\alpha)\\) act in the same way on (1), we find\n\\[ (8)\\; p_{3\\alpha+\\beta}(-y)\\, p_{-\\alpha}(-x) = \\]\n\\[ p_{-\\alpha}(-x)\\, p_{3\\alpha+\\beta}(-y)\\, p_{2\\alpha+\\beta}(Axy)\\, p_{\\alpha+\\beta}(-Bx^2 y)\\, p_\\beta(Cx^3 y)\\, p_{3\\alpha+\\beta}(Dx^3 y^2). \\]</p>"
+    },
+    {
+     "id": "XXIII.3.4.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.5\">3.4.5.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us write\n\\[ w_\\beta\\, p_\\alpha(x)\\, w_\\beta^{-1} = p_{\\alpha+\\beta}(x), \\]\nthat is, \\(\\alpha + 2\\beta\\) not being a root:\n\\[ p_\\beta(1)\\, p_\\alpha(x)\\, p_\\beta(-1) = p_{-\\beta}(1)\\, p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-1). \\]\nTransforming the left-hand side by (1), then (4)\n\\[ p_\\beta(1)\\, p_\\alpha(x)\\, p_\\beta(-1) \\]\n\\[ = p_\\alpha(x)\\, p_\\beta(1)\\, p_{\\alpha+\\beta}(Ax)\\, p_{2\\alpha+\\beta}(Bx^2)\\, p_{3\\alpha+\\beta}(Cx^3)\\, p_{3\\alpha+2\\beta}(Dx^3)\\, p_\\beta(-1) \\]\n\\[ = p_\\alpha(x)\\, p_\\beta(1)\\, p_{\\alpha+\\beta}(Ax)\\, p_{2\\alpha+\\beta}(Bx^2)\\, p_\\beta(-1)\\, p_{3\\alpha+\\beta}(Cx^3)\\, p_{3\\alpha+2\\beta}((D - CJ) x^3) \\]\n\\[ = p_\\alpha(x)\\, p_{\\alpha+\\beta}(Ax)\\, p_{2\\alpha+\\beta}(Bx^2)\\, p_{3\\alpha+\\beta}(Cx^3)\\, p_{3\\alpha+2\\beta}((D - CJ) x^3). \\]\nLet us transform the right-hand side by (5), then (7):\n\\[ (11)\\; p_{-\\beta}(1)\\, p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(-1) \\]\n\\[ = p_{\\alpha+\\beta}(x)\\, p_{-\\beta}(1)\\, p_\\alpha(Ax)\\, p_{2\\alpha+\\beta}(-Bx^2)\\, p_{3\\alpha+2\\beta}(-Cx^3)\\, p_{3\\alpha+\\beta}(-Dx^3)\\, p_{-\\beta}(-1) \\]\n\\[ = p_{\\alpha+\\beta}(x)\\, p_\\alpha(Ax)\\, p_{2\\alpha+\\beta}(-Bx^2)\\, p_{3\\alpha+2\\beta}(-Cx^3)\\, p_{3\\alpha+\\beta}((CJ - D) x^3). \\]\nUsing now (2), this right-hand side becomes\n\\[ (12)\\; p_\\alpha(Ax)\\, p_{\\alpha+\\beta}(x)\\, p_{2\\alpha+\\beta}((AE - B) x^2)\\, p_{3\\alpha+\\beta}((A^2 F + CJ - D) x^3)\\, p_{3\\alpha+2\\beta}((AG - C) x^3). \\]\nIdentifying the results obtained, we get:\n\\[ A = 1, \\qquad E = 2B, \\qquad C + D = F + CJ, \\qquad F = G. \\]</p>"
+    },
+    {
+     "id": "XXIII.3.4.6",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.6\">3.4.6.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now write\n\\[ w_\\alpha\\, p_\\beta(y)\\, w_\\alpha^{-1} = p_{3\\alpha+\\beta}(-y), \\]\n<!-- p.299 -->\nthat is, \\(4\\alpha + \\beta\\) not being a root:\n\\[ p_\\alpha(1)\\, p_\\beta(y)\\, p_\\alpha(-1) = p_{-\\alpha}(1)\\, p_{3\\alpha+\\beta}(-y)\\, p_{-\\alpha}(-1). \\]\nTransforming the left-hand side by (1):\n\\[ p_\\alpha(1)\\, p_\\beta(y)\\, p_\\alpha(-1) = p_\\beta(y)\\, p_{\\alpha+\\beta}(-Ay)\\, p_{2\\alpha+\\beta}(By)\\, p_{3\\alpha+\\beta}(-Cy)\\, p_{3\\alpha+2\\beta}(-Dy^2). \\]\nLet us transform the right-hand side successively by (8), (6) and (4):\n\\[ p_{-\\alpha}(1)\\, p_{3\\alpha+\\beta}(-y)\\, p_{-\\alpha}(-1) \\]\n\\[ = p_{3\\alpha+\\beta}(-y)\\, p_{2\\alpha+\\beta}(Ay)\\, p_{\\alpha+\\beta}(-By)\\, p_\\beta(Cy)\\, p_{3\\alpha+2\\beta}(Dy^2) \\]\n\\[ = p_{3\\alpha+\\beta}(-y)\\, p_{\\alpha+\\beta}(-By)\\, p_{2\\alpha+\\beta}(Ay)\\, p_{3\\alpha+2\\beta}(-ABHy^2)\\, p_\\beta(Cy)\\, p_{3\\alpha+2\\beta}(Dy^2) \\]\n\\[ = p_\\beta(Cy)\\, p_{3\\alpha+\\beta}(-y)\\, p_{\\alpha+\\beta}(-By)\\, p_{2\\alpha+\\beta}(Ay)\\, p_{3\\alpha+2\\beta}((D - CJ - ABH) y^2) \\]\n\\[ = p_\\beta(Cy)\\, p_{\\alpha+\\beta}(-By)\\, p_{2\\alpha+\\beta}(Ay)\\, p_{3\\alpha+\\beta}(-y)\\, p_{3\\alpha+2\\beta}((D - CJ - ABH) y^2). \\]\nIdentifying\n\\[ C = 1, \\qquad A = B, \\qquad D - CJ - ABH = -D. \\]\nTaking into account the results already obtained:\n\\[ A = B = C = 1, \\qquad E = 2, \\qquad F = G, \\]\n\\[ D + 1 = F + J, \\qquad 2D = H + J. \\]</p>"
+    },
+    {
+     "id": "XXIII.3.4.7",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.7\">3.4.7.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us write\n\\[ w_\\beta\\, p_{3\\alpha+\\beta}(x)\\, w_\\beta^{-1} = p_{3\\alpha+2\\beta}(x), \\]\nthat is\n\\[ p_\\beta(1)\\, p_{3\\alpha+\\beta}(x)\\, p_\\beta(-1) = p_{-\\beta}(1)\\, p_{3\\alpha+2\\beta}(x)\\, p_{-\\beta}(-1). \\]\nTransforming the left-hand side by (4), the right-hand side by (7), we obtain:\n\\[ p_{3\\alpha+\\beta}(x)\\, p_{3\\alpha+2\\beta}(-Jx) = p_{3\\alpha+2\\beta}(x)\\, p_{3\\alpha+\\beta}(-Jx), \\]\nthat is \\(J = -1\\).</p>"
+    },
+    {
+     "id": "XXIII.3.4.8",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.8\">3.4.8.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us finally write\n\\[ w_\\alpha\\, p_{\\alpha+\\beta}(y)\\, w_\\alpha^{-1} = p_{2\\alpha+\\beta}(y), \\]\nthat is\n\\[ p_\\alpha(1)\\, p_{\\alpha+\\beta}(y)\\, p_\\alpha(-1) = p_{-\\alpha}(1)\\, p_\\alpha(-1)\\, p_{2\\alpha+\\beta}(y)\\, p_\\alpha(1)\\, p_{-\\alpha}(-1). \\]\nTransforming the left-hand side by (2), the right-hand side by (3), we obtain:\n\\[ p_{\\alpha+\\beta}(y)\\, p_{2\\alpha+\\beta}(-Ey)\\, p_{3\\alpha+\\beta}(Fy)\\, p_{3\\alpha+2\\beta}(-Gy^2) = \\]\n\\[ p_{-\\alpha}(1)\\, p_{2\\alpha+\\beta}(y)\\, p_{3\\alpha+\\beta}(Hy)\\, p_{-\\alpha}(-1). \\]\nIt is immediate to see that if one commutes \\(p_{-\\alpha}(-1)\\) past \\(p_{3\\alpha+\\beta}(Hy)\\), then past \\(p_{2\\alpha+\\beta}(y)\\), one introduces no new terms in \\(p_{3\\alpha+\\beta}\\) into the right-hand side. The latter is therefore written, denoting by empty parentheses the quantities whose exact value is of no importance to us:\n\\[ p_{\\alpha+\\beta}(\\;)\\, p_{2\\alpha+\\beta}(\\;)\\, p_\\beta(\\;)\\, p_{3\\alpha+\\beta}(Hy)\\, p_{3\\alpha+2\\beta}(\\;). \\]\nComparing with the left-hand side, we have at once \\(F = H\\), whence by the earlier results \\(2D = D + 1\\), that is \\(D = 1\\), and finally \\(F = G = H = 2D - J = 3\\), which completes the determination of the coefficients \\(A, \\ldots, J\\) and the proof of (iii).</p>"
+    },
+    {
+     "id": "XXIII.3.4.9",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.4.9\">3.4.9.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us finally prove (i) in the usual manner:\n\\[ w_\\alpha w_\\beta w_\\alpha = w_\\alpha w_\\beta w_\\alpha^{-1}\\, t_\\alpha = w_{3\\alpha+\\beta}^{-1} \\cdot t_\\alpha, \\]\n\\[ w_\\beta(w_\\alpha w_\\beta)^2 = w_\\beta w_{3\\alpha+\\beta}^{-1} w_\\beta^{-1} \\cdot s_\\beta(t_\\alpha) \\cdot t_\\beta = w_{3\\alpha+2\\beta}^{-1} \\cdot t_\\alpha t_\\beta \\cdot t_\\beta = w_{3\\alpha+2\\beta}^{-1} \\cdot t_\\alpha, \\]\n\\[ w_\\alpha(w_\\beta w_\\alpha)^3 = w_\\alpha w_{3\\alpha+2\\beta}^{-1} w_\\alpha^{-1} = w_{3\\alpha+2\\beta}^{-1}, \\]\n\\[ w_\\beta(w_\\alpha w_\\beta)^4 = w_\\beta w_{3\\alpha+2\\beta}^{-1} w_\\beta^{-1} \\cdot t_\\beta = w_{3\\alpha+\\beta} \\cdot t_\\beta, \\]\n\\[ w_\\alpha(w_\\beta w_\\alpha)^5 = w_\\alpha w_{3\\alpha+\\beta} w_\\alpha^{-1} \\cdot s_\\alpha(t_\\beta) \\cdot t_\\alpha = w_\\beta \\cdot t_\\beta t_\\alpha \\cdot t_\\alpha = w_\\beta^{-1}. \\]\n<!-- p.301 -->\nWhence\n\\[ (w_\\alpha w_\\beta)^6 = (w_\\beta w_\\alpha)^6 = e. \\]</p>"
+    },
+    {
+     "id": "XXIII.3.4.10",
+     "type": "remarque",
+     "label": "3.4.10",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.3.4.10\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">3.4.10</span></div>\n  <div class=\"thm-body\"><p>Condition (v) of <a class=\"ref\" href=\"#XXIII.2.4\">2.4</a> is made up of\n\\[ (A) \\begin{cases} \\operatorname{int}(h_\\alpha h_\\beta h_\\alpha h_\\beta h_\\alpha)\\, v_\\beta = v_\\beta, \\\\ \\operatorname{int}(h_\\beta h_\\alpha h_\\beta h_\\alpha h_\\beta)\\, v_\\alpha = v_\\alpha, \\end{cases} \\]\nand, setting\n\\[ v_{\\alpha+\\beta} = \\operatorname{int}(h_\\beta) v_\\alpha, \\qquad v_{2\\alpha+\\beta} = \\operatorname{int}(h_\\alpha h_\\beta) v_\\alpha, \\]\n\\[ v_{3\\alpha+\\beta} = \\operatorname{int}(h_\\alpha) v_\\beta^{-1}, \\qquad v_{3\\alpha+2\\beta} = \\operatorname{int}(h_\\beta h_\\alpha) v_\\beta^{-1}, \\]\nof the commutation relations:\n\\[ (B) \\begin{cases} v_\\beta\\, v_\\alpha = v_\\alpha\\, v_\\beta\\, v_{\\alpha+\\beta}\\, v_{2\\alpha+\\beta}\\, v_{3\\alpha+\\beta}\\, v_{3\\alpha+2\\beta}, \\\\ v_{\\alpha+\\beta}\\, v_\\alpha = v_\\alpha\\, v_{\\alpha+\\beta}\\, v_{2\\alpha+\\beta}^2\\, v_{3\\alpha+\\beta}^3\\, v_{3\\alpha+2\\beta}^3, \\\\ v_{2\\alpha+\\beta}\\, v_\\alpha = v_\\alpha\\, v_{2\\alpha+\\beta}\\, v_{3\\alpha+\\beta}^3, \\\\ v_{3\\alpha+\\beta}\\, v_\\alpha = v_\\alpha\\, v_{3\\alpha+\\beta}, \\\\ v_{3\\alpha+2\\beta}\\, v_\\alpha = v_\\alpha\\, v_{3\\alpha+2\\beta}, \\end{cases} \\]\n\\[ (B) \\begin{cases} v_{\\alpha+\\beta}\\, v_\\beta = v_\\beta\\, v_{\\alpha+\\beta}, \\\\ v_{2\\alpha+\\beta}\\, v_\\beta = v_\\beta\\, v_{2\\alpha+\\beta}, \\\\ v_{3\\alpha+\\beta}\\, v_\\beta = v_\\beta\\, v_{3\\alpha+\\beta}\\, v_{3\\alpha+2\\beta}^{-1}, \\\\ v_{3\\alpha+2\\beta}\\, v_\\beta = v_\\beta\\, v_{3\\alpha+2\\beta}, \\\\ v_{2\\alpha+\\beta}\\, v_{\\alpha+\\beta} = v_{\\alpha+\\beta}\\, v_{2\\alpha+\\beta}\\, v_{3\\alpha+2\\beta}^3, \\end{cases} \\]\n\\[ (B) \\begin{cases} v_{3\\alpha+\\beta}\\, v_{\\alpha+\\beta} = v_{\\alpha+\\beta}\\, v_{3\\alpha+\\beta}, \\\\ v_{3\\alpha+2\\beta}\\, v_{\\alpha+\\beta} = v_{\\alpha+\\beta}\\, v_{3\\alpha+2\\beta}, \\\\ v_{3\\alpha+\\beta}\\, v_{2\\alpha+\\beta} = v_{2\\alpha+\\beta}\\, v_{3\\alpha+\\beta}, \\\\ v_{3\\alpha+2\\beta}\\, v_{2\\alpha+\\beta} = v_{2\\alpha+\\beta}\\, v_{3\\alpha+2\\beta}, \\\\ v_{3\\alpha+2\\beta}\\, v_{3\\alpha+\\beta} = v_{3\\alpha+\\beta}\\, v_{3\\alpha+2\\beta}. \\end{cases} \\]</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.5\">3.5. Explicit form of the theorem on generators and relations</h3>"
+    },
+    {
+     "id": "XXIII.3.5.1",
+     "type": "theoreme",
+     "label": "3.5.1",
+     "title": "Theorem",
+     "html": "<div class=\"thm thm-plain theoreme\" id=\"XXIII.3.5.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Theorem</span> <span class=\"thm-num\">3.5.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group, \\(T\\) its maximal torus, \\(R_0\\) its system of simple roots, \\(u_\\alpha \\in U_\\alpha(S)^*\\) and \\(w_\\alpha \\in \\operatorname{Norm}_G(T)(S)\\) the elements defined by the pinning \\((\\alpha \\in R_0)\\). Let\n\\[ f_T : T \\longrightarrow H, \\qquad f_\\alpha : U_\\alpha \\longrightarrow H, \\quad \\alpha \\in R_0 \\]\nbe group morphisms, \\(H\\) being an \\(S\\)-sheaf of groups for (fppf); let \\(h_\\alpha \\in H(S)\\), \\((\\alpha \\in R_0)\\) be sections of \\(H\\), and set \\(v_\\alpha = f_\\alpha(u_\\alpha)\\), \\(\\alpha \\in R_0\\). For there to exist a group morphism\n\\[ f : G \\longrightarrow H \\]\nextending \\(f_T\\), \\(f_\\alpha\\) \\((\\alpha \\in R_0)\\) and satisfying \\(f(w_\\alpha) = h_\\alpha\\) \\((\\alpha \\in R_0)\\) (and then necessarily unique), it is necessary and sufficient that the following conditions be satisfied:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>For every \\(S' \\to S\\), every \\(\\alpha \\in R_0\\), every \\(t \\in T(S')\\) and every \\(x \\in U_\\alpha(S')\\), we have\n\\[ (1) \\qquad \\operatorname{int}(f_T(t))\\, f_\\alpha(x) = f_\\alpha(\\operatorname{int}(t) x) = f_\\alpha(x^{\\alpha(t)}). \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For every \\(\\alpha \\in R_0\\), every \\(S' \\to S\\) and every \\(t \\in T(S')\\), we have\n\\[ (2) \\qquad \\operatorname{int}(h_\\alpha)\\, f_T(t) = f_T(s_\\alpha(t)) = f_T(t \\cdot \\alpha^*(\\alpha(t)^{-1})). \\]</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>For every \\(\\alpha \\in R_0\\), we have\n\\[ (3_1) \\qquad h_\\alpha^2 = f_T(\\alpha^*(-1)), \\]\n\\[ (4) \\qquad (h_\\alpha\\, v_\\alpha)^3 = e. \\]</p></li>\n<!-- p.304 -->\n<li><span class=\"item-label\"><span class=\"upshape\">(iv)</span></span> <p>For every pair \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), \\(\\alpha \\neq \\beta\\), such that \\((\\alpha^*, \\beta) = 0\\) (resp. \\((\\alpha^*, \\beta) = (\\beta^*, \\alpha) = -1\\), resp. \\((\\alpha^*, \\beta) = -2\\), resp. \\((\\alpha^*, \\beta) = -3\\)), we have:</p>\n<p>(a) the relation\n\\[ (3_2) \\begin{cases} (h_\\alpha h_\\beta)^2 = f_T(\\alpha^*(-1)\\, \\beta^*(-1)) &amp; \\text{if } (\\alpha^*, \\beta) = 0\\ ; \\\\ (h_\\alpha h_\\beta)^3 = e, &amp; \\text{if } (\\alpha^*, \\beta) = -1\\ ; \\\\ (h_\\alpha h_\\beta)^4 = f_T(\\alpha^*(-1)), &amp; \\text{if } (\\alpha^*, \\beta) = -2\\ ; \\\\ (h_\\alpha h_\\beta)^6 = e, &amp; \\text{if } (\\alpha^*, \\beta) = -3. \\end{cases} \\]</p>\n<p>(b) The relations (A) of <a class=\"ref\" href=\"#XXIII.3.1.3\">3.1.3</a> (resp. <a class=\"ref\" href=\"#XXIII.3.2.8\">3.2.8</a>, resp. <a class=\"ref\" href=\"#XXIII.3.3.7\">3.3.7</a>, resp. <a class=\"ref\" href=\"#XXIII.3.4.10\">3.4.10</a>);</p>\n<p>(c) The (resp. the three, resp. the six, resp. the fifteen) relation(s) (B) of <a class=\"ref\" href=\"#XXIII.3.1.3\">3.1.3</a> (resp. <a class=\"ref\" href=\"#XXIII.3.2.8\">3.2.8</a>, resp. <a class=\"ref\" href=\"#XXIII.3.3.7\">3.3.7</a>, resp. <a class=\"ref\" href=\"#XXIII.3.4.10\">3.4.10</a>).</p></li>\n</ol>\n<p>This follows at once from <a class=\"ref\" href=\"#XXIII.2.3\">2.3</a>, <a class=\"ref\" href=\"#XXIII.2.6\">2.6</a> and from the computations made in each particular case.</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.5.2",
+     "type": "remarque",
+     "label": "3.5.2",
+     "title": "Remark",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"XXIII.3.5.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remark</span> <span class=\"thm-num\">3.5.2</span></div>\n  <div class=\"thm-body\"><p>The preceding results may be presented in a slightly different manner: one gives oneself morphisms, for \\(\\alpha \\in R_0\\),\n\\[ a_\\alpha : T \\cdot U_\\alpha \\longrightarrow H, \\qquad b_\\alpha : \\operatorname{Norm}_{Z_\\alpha}(T) \\longrightarrow H\\ ; \\]\nthe conditions to be checked are the following:\n(1) all the \\(a_\\alpha\\) \\((\\alpha \\in R_0)\\) and all the \\(b_\\alpha\\) \\((\\alpha \\in R_0)\\) have the same restriction to \\(T\\);\n(2) for every \\(\\alpha \\in R_0\\), set\n\\[ h_\\alpha = b_\\alpha(w_\\alpha), \\qquad v_\\alpha = a_\\alpha(u_\\alpha)\\ ; \\]\nthen one has, for every \\(\\alpha \\in R_0\\), the relation\n\\[ (h_\\alpha\\, v_\\alpha)^3 = e, \\]\nand the conditions of (iv) above are satisfied.</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.3.5.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.3.5.3\">3.5.3.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Various applications of this theorem will be given in the next exposé. Let us point out one of them here: theorem <a class=\"ref\" href=\"#XXIII.3.5.1\">3.5.1</a> gives a description of \\(G\\) by generators and relations in the category of \\(S\\)-sheaves for (fppf); in other words, let us consider, for each \\(S' \\to S\\), the group \\(H(S')\\) generated by \\(T(S')\\), \\(U_\\alpha(S')\\), \\(\\alpha \\in R\\), and \\(w_\\alpha\\), \\(\\alpha \\in R\\), subject to the relations analogous to \\((1) \\ldots (3_2)\\), (A), (B); then \\(G\\) is none other than the sheaf associated with the presheaf \\(S' \\mapsto H(S')\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>In particular, if \\(S'\\) is the spectrum of an algebraically closed field \\(k\\), we have \\(G(S') = H(S')\\) (an immediate consequence of the Nullstellensatz in the form: \"a sieve of an algebraically closed field which is covering for (fppf) is trivial\"), so that <a class=\"ref\" href=\"#XXIII.3.5.1\">3.5.1</a> gives at once an explicit description by generators and relations of the \"abstract\" group \\(G(k)\\).</p>"
+    }
+   ],
    "footnotes": []
   },
   {
    "id": "XXIII-4",
-   "title": null,
-   "blocks": [],
+   "title": "4. Uniqueness of pinned groups: fundamental theorem",
+   "blocks": [
+    {
+     "id": "XXIII.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h2 id=\"XXIII.4\">4. Uniqueness of pinned groups: fundamental theorem</h2>"
+    },
+    {
+     "id": "XXIII.4.1",
+     "type": "theoreme",
+     "label": "4.1",
+     "title": "Theorem",
+     "html": "<div class=\"thm thm-plain theoreme\" id=\"XXIII.4.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Theorem</span> <span class=\"thm-num\">4.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a non-empty prescheme. The functor \\(\\mathcal{R}\\) of <a class=\"ref\" href=\"#XXIII.1.6\">1.6</a> is fully faithful: let \\(G\\) and \\(G'\\) be two pinned \\(S\\)-groups, \\(q\\) an integer \\(&gt; 0\\) such that \\(x \\mapsto x^q\\) is an endomorphism of \\(\\mathbb{G}_{a, S}\\), and \\(h : \\mathcal{R}(G') \\to \\mathcal{R}(G)\\) a \\(q\\)-morphism of pinned root data. There exists a unique morphism of pinned groups\n\\[ f : G \\longrightarrow G' \\]\nsuch that \\(\\mathcal{R}(f) = h\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Uniqueness is proved in <a class=\"ref\" href=\"#XXIII.1.9\">1.9</a>. It suffices to prove existence. By hypothesis, we have a bijection \\(u : R \\xrightarrow{\\sim} R'\\) and a map \\(q : R \\to q^{\\mathbb{N}}\\) such that\n\\[ h(u(\\alpha)) = q(\\alpha) \\alpha \\qquad \\text{and} \\qquad {}^t h(\\alpha^*) = q(\\alpha) u(\\alpha)^* \\]\nfor every \\(\\alpha \\in R\\). In particular, the semi-simple ranks of \\(G\\) and \\(G'\\) coincide.</p>"
+    },
+    {
+     "id": "XXIII.4.1.1",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.1\">4.1.1.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Suppose \\(\\operatorname{rgss}(G) = \\operatorname{rgss}(G') = 0\\). Then \\(G\\) and \\(G'\\) are tori: we have \\(G = T = D_S(M)\\), \\(G' = T' = D_S(M')\\) and \\(h\\) is simply a morphism of ordinary groups \\(h : M' \\to M\\). We then take \\(f = D_S(h)\\).</p>"
+    },
+    {
+     "id": "XXIII.4.1.2",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.2\">4.1.2.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Suppose \\(\\operatorname{rgss}(G) = \\operatorname{rgss}(G') = 1\\). Let us then consider\n\\[ f_T = D_S(h) : T \\longrightarrow T'. \\]\nBy hypothesis we have a commutative diagram, where \\(\\alpha' = u(\\alpha)\\):\n\\[ \\begin{array}{ccccc} \\mathbb{G}_{m,S} &amp; \\xrightarrow{\\alpha^*} &amp; T &amp; \\xrightarrow{\\alpha} &amp; \\mathbb{G}_{m,S} \\\\ {}^{q(\\alpha)}\\!\\!\\downarrow &amp; &amp; \\downarrow^{f_T} &amp; &amp; \\downarrow^{q(\\alpha)} \\\\ \\mathbb{G}_{m,S} &amp; \\xrightarrow{\\alpha'^*} &amp; T' &amp; \\xrightarrow{\\alpha'} &amp; \\mathbb{G}_{m,S} \\end{array} \\]\nOne then applies <a class=\"ref\" href=\"#XX.4.1\">Exp. XX, 4.1</a>.</p>"
+    },
+    {
+     "id": "XXIII.4.1.3",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.3\">4.1.3.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Suppose \\(\\operatorname{rgss}(G) = \\operatorname{rgss}(G') = 2\\). Then, by <a class=\"ref\" href=\"#XXI.7.5.3\">Exp. XXI, 7.5.3</a>, one knows all the possibilities for \\(h : \\mathcal{R}(G') \\to \\mathcal{R}(G)\\). Let us study them one after the other, checking in each case the conditions of <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a>.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us write \\(R_0 = \\{\\alpha, \\beta\\}\\), \\(R'_0 = \\{\\alpha', \\beta'\\}\\) in such a way that \\(u(\\alpha) = \\alpha'\\), \\(u(\\beta) = \\beta'\\).</p>"
+    },
+    {
+     "id": "XXIII.4.1.4",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.4\">4.1.4.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\\(G\\) and \\(G'\\) of type \\(A_1 + A_1\\). We then have\n\\[ h(\\alpha') = q\\alpha, \\qquad h(\\beta') = q_1 \\beta. \\]\n<!-- p.307 -->\nLet us show that the conditions of <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a> are satisfied. By <a class=\"ref\" href=\"#XXIII.3.1.2\">3.1.2 (ii)</a> (resp. (iii)), (ii) (resp. (iii)) is trivial. Let us prove (i).\nWe have\n\\[ D_S(h) t_{\\alpha\\beta} = D_S(h)(t_\\alpha t_\\beta) = {}^t h(\\alpha^*)(-1) \\cdot {}^t h(\\beta^*)(-1) \\]\n\\[ = \\alpha'^*(-1)^q\\, \\beta'^*(-1)^q = \\alpha'^*(-1)\\, \\beta'^*(-1) = t'_{\\alpha' \\beta'}. \\]</p>"
+    },
+    {
+     "id": "XXIII.4.1.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.5\">4.1.5.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\\(G\\) and \\(G'\\) of type \\(A_2\\). We then have\n\\[ h(\\alpha') = q\\alpha, \\qquad h(\\beta') = q\\beta. \\]\nSet \\(X_{\\alpha+\\beta} = \\operatorname{Ad}(w_\\beta) X_\\alpha\\) and \\(X'_{\\alpha'+\\beta'} = \\operatorname{Ad}(w_{\\beta'}) X_{\\alpha'}\\). Let us check the conditions of <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a>. For (i), one argues as above, with the help of <a class=\"ref\" href=\"#XXIII.3.2.1\">3.2.1 (i)</a>; for (ii), it is immediate by <a class=\"ref\" href=\"#XXIII.3.2.1\">3.2.1 (ii)</a>; it remains to check (iii). We have to check that\n\\[ p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(z) \\longmapsto p'_{\\alpha'}(x^q)\\, p'_{\\beta'}(y^q)\\, p'_{\\alpha'+\\beta'}(z^q) \\]\nis a group morphism. The only non-trivial commutation relation is that of <a class=\"ref\" href=\"#XXIII.3.2.1\">3.2.1 (iii)</a>, which is written\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(xy), \\]\n\\[ p'_{\\beta'}(y^q)\\, p'_{\\alpha'}(x^q) = p'_{\\alpha'}(x^q)\\, p'_{\\beta'}(y^q)\\, p'_{\\alpha'+\\beta'}(x^q y^q). \\]</p>"
+    },
+    {
+     "id": "XXIII.4.1.6",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.6\">4.1.6.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>One argues in the same way for \\(G\\) and \\(G'\\) of type \\(B_2\\) (resp. \\(G_2\\)), when the root exponents are equal, with the help of <a class=\"ref\" href=\"#XXIII.3.3.1\">3.3.1</a> (resp. <a class=\"ref\" href=\"#XXIII.3.4.1\">3.4.1</a>); it therefore remains, in order to complete the case of groups of rank 2, to treat the two exceptional cases of <a class=\"ref\" href=\"#XXI.7.5.3\">Exp. XXI, 7.5.3</a>.</p>"
+    },
+    {
+     "id": "XXIII.4.1.7",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.7\">4.1.7.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\\(G\\) and \\(G'\\) are of type \\(B_2\\), \\(S\\) is of characteristic 2, and one has \\(q(\\alpha) = 2q\\), \\(q(\\beta) = q\\). The positive roots are \\(\\{\\alpha, \\beta, \\alpha + \\beta, 2\\alpha + \\beta\\}\\) and \\(\\{\\alpha', \\beta', \\alpha' + \\beta', \\alpha' + 2\\beta'\\}\\) (note that the \"short\" roots are \\(\\alpha\\) and \\(\\beta'\\)). We have\n\\[ h(\\alpha') = 2q\\alpha, \\quad h(\\beta') = q\\beta, \\quad h(\\alpha' + \\beta') = q(2\\alpha + \\beta), \\quad h(\\alpha' + 2\\beta') = 2q(\\alpha + \\beta), \\]\nwhich gives\n\\[ u(\\alpha + \\beta) = \\alpha' + 2\\beta', \\qquad q(\\alpha + \\beta) = 2q, \\]\n\\[ u(2\\alpha + \\beta) = \\alpha' + \\beta', \\qquad q(2\\alpha + \\beta) = q. \\]\nSet\n\\[ X_{\\alpha+\\beta} = \\operatorname{Ad}(w_\\beta) X_\\alpha, \\qquad X_{2\\alpha+\\beta} = \\operatorname{Ad}(w_\\alpha) X_\\beta, \\]\n\\[ X'_{\\alpha'+\\beta'} = \\operatorname{Ad}(w'_{\\alpha'}) X'_{\\beta'}, \\qquad X'_{\\alpha'+2\\beta'} = \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'}. \\]\nLet us now check the conditions of <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a>.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>(i) Since \\(S\\) is of characteristic 2, one has \\(-1 = 1\\) on \\(S\\), hence \\(t_{\\alpha\\beta} = t_\\alpha = \\alpha^*(-1) = e = \\beta'^*(-1) = t'_{\\beta'} = t'_{\\alpha'\\beta'}\\) (cf. <a class=\"ref\" href=\"#XXIII.3.3.1\">3.3.1 (i)</a>).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>(ii) By construction one has\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = X_{2\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w'_{\\alpha'}) X'_{\\beta'} = X'_{\\alpha'+\\beta'} = X'_{u(2\\alpha+\\beta)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'} = X'_{\\alpha'+2\\beta'} = X'_{u(\\alpha+\\beta)}. \\]\nBy <a class=\"ref\" href=\"#XXIII.3.3.1\">3.3.1 (ii)</a> and the fact that \\(-1 = 1\\) on \\(S\\), one has on both sides\n\\[ \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = X_{\\alpha+\\beta}, \\quad \\operatorname{Ad}(w'_{\\alpha'}) X'_{u(\\alpha+\\beta)} = X'_{\\alpha'+2\\beta'} = X'_{u(\\alpha+\\beta)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{2\\alpha+\\beta} = X_\\beta, \\quad \\operatorname{Ad}(w'_{\\alpha'}) X'_{u(2\\alpha+\\beta)} = X'_{\\beta'} = X'_{u(\\beta)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{\\alpha+\\beta} = X_\\alpha, \\quad \\operatorname{Ad}(w'_{\\beta'}) X'_{u(\\alpha+\\beta)} = X'_{\\alpha'} = X'_{u(\\alpha)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{2\\alpha+\\beta} = X_{2\\alpha+\\beta}, \\quad \\operatorname{Ad}(w'_{\\beta'}) X'_{u(2\\alpha+\\beta)} = X'_{\\alpha'+\\beta'} = X'_{u(2\\alpha+\\beta)}. \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>(iii) By <a class=\"ref\" href=\"#XXIII.3.3.1\">3.3.1 (iii)</a>, one sees that the only non-trivial commutation relation in \\(U\\) (resp. \\(U'\\)) is\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(xy)\\, p_{2\\alpha+\\beta}(x^2 y), \\]\nresp.\n\\[ p'_{\\alpha'}(y')\\, p'_{\\beta'}(x') = p'_{\\beta'}(x')\\, p'_{\\alpha'}(y')\\, p'_{\\alpha'+\\beta'}(x' y')\\, p'_{\\alpha'+2\\beta'}(x'^2 y'). \\]\nWe must check that the morphism\n\\[ p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(z)\\, p_{2\\alpha+\\beta}(t) \\longmapsto p'_{\\alpha'}(x^{2q})\\, p'_{\\beta'}(y^q)\\, p'_{\\alpha'+2\\beta'}(z^{2q})\\, p'_{\\alpha'+\\beta'}(t^q) \\]\nis a group morphism; one sees at once that this amounts to seeing that\n\\[ p'_{\\beta'}(y^q)\\, p'_{\\alpha'}(x^{2q}) = p'_{\\alpha'}(x^{2q})\\, p'_{\\beta'}(y^q)\\, p'_{\\alpha'+2\\beta'}((xy)^{2q})\\, p'_{\\alpha'+\\beta'}((x^2 y)^q), \\]\nwhich is none other than the second relation above (on setting \\(y' = x^{2q}\\), \\(x' = y^q\\)).</p>"
+    },
+    {
+     "id": "XXIII.4.1.8",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.8\">4.1.8.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>\\(G\\) and \\(G'\\) are of type \\(G_2\\), \\(S\\) is of characteristic 3, and one has\n\\[ q(\\alpha) = 3q, \\qquad q(\\beta) = q. \\]\nThe positive roots are \\(\\{\\alpha, \\beta, \\alpha + \\beta, 2\\alpha + \\beta, 3\\alpha + \\beta, 3\\alpha + 2\\beta\\}\\) on the one hand, and \\(\\{\\alpha', \\beta', \\alpha' + \\beta', \\alpha' + 2\\beta', \\alpha' + 3\\beta', 2\\alpha' + 3\\beta'\\}\\) on the other (as in the preceding case, the short roots are \\(\\alpha\\) and \\(\\beta'\\)). We have\n\\[ h(\\alpha') = 3q\\alpha, \\quad h(\\beta') = q\\beta, \\quad h(\\alpha' + \\beta') = q(3\\alpha + \\beta), \\]\n\\[ h(\\alpha' + 2\\beta') = q(3\\alpha + 2\\beta), \\quad h(\\alpha' + 3\\beta') = 3q(\\alpha + \\beta), \\]\n\\[ h(2\\alpha' + 3\\beta') = 3q(2\\alpha + \\beta), \\]\nwhich gives\n\\[ u(\\alpha + \\beta) = \\alpha' + 3\\beta', \\quad q(\\alpha + \\beta) = 3q, \\]\n\\[ u(2\\alpha + \\beta) = 2\\alpha' + 3\\beta', \\quad q(2\\alpha + \\beta) = 3q, \\]\n\\[ u(3\\alpha + \\beta) = \\alpha' + \\beta', \\quad q(3\\alpha + \\beta) = q, \\]\n\\[ u(3\\alpha + 2\\beta) = \\alpha' + 2\\beta', \\quad q(3\\alpha + 2\\beta) = q. \\]\nSet\n\\[ X_{\\alpha+\\beta} = \\operatorname{Ad}(w_\\beta) X_\\alpha, \\qquad X_{2\\alpha+\\beta} = \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta}, \\]\n\\[ X_{3\\alpha+\\beta} = -\\operatorname{Ad}(w_\\alpha) X_\\beta, \\qquad X_{3\\alpha+2\\beta} = \\operatorname{Ad}(w_\\beta) X_{3\\alpha+\\beta}\\ ; \\]\n\\[ X'_{\\alpha'+\\beta'} = -\\operatorname{Ad}(w'_{\\alpha'}) X'_{\\beta'}, \\qquad X'_{\\alpha'+2\\beta'} = \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'+\\beta'}, \\]\n\\[ X'_{\\alpha'+3\\beta'} = \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'}, \\qquad X'_{2\\alpha'+3\\beta'} = \\operatorname{Ad}(w'_{\\alpha'}) X'_{\\alpha'+3\\beta'}. \\]\nLet us now check the conditions of <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a>.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>(i) One has \\(t_{\\alpha\\beta} = e\\) and \\(t'_{\\alpha'\\beta'} = e\\) by <a class=\"ref\" href=\"#XXIII.3.4.1\">3.4.1 (i)</a>.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>(ii) By construction one has\n\\[ \\operatorname{Ad}(w_\\beta) X_\\alpha = X_{\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'} = X'_{\\alpha'+3\\beta'} = X'_{u(\\alpha+\\beta)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_\\beta = -X_{3\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w'_{\\alpha'}) X'_{\\beta'} = -X'_{\\alpha'+\\beta'} = -X'_{u(3\\alpha+\\beta)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{3\\alpha+\\beta} = X_{3\\alpha+2\\beta}, \\qquad \\operatorname{Ad}(w'_{\\beta'}) X'_{u(3\\alpha+\\beta)} = \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'+\\beta'} = X'_{\\alpha'+2\\beta'} = X'_{u(3\\alpha+2\\beta)}\\ ; \\]\n\\[ \\operatorname{Ad}(w_\\alpha) X_{\\alpha+\\beta} = X_{2\\alpha+\\beta}, \\qquad \\operatorname{Ad}(w'_{\\alpha'}) X'_{u(\\alpha+\\beta)} = \\operatorname{Ad}(w'_{\\alpha'}) X'_{\\alpha'+3\\beta'} = X'_{2\\alpha'+3\\beta'} = X'_{u(2\\alpha+\\beta)}. \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>By <a class=\"ref\" href=\"#XXIII.3.4.1\">3.4.1 (ii)</a>, one has on both sides:\n\\[ \\operatorname{Ad}(w_\\alpha) X_{2\\alpha+\\beta} = -X_{\\alpha+\\beta}, \\quad \\operatorname{Ad}(w'_{\\alpha'}) X'_{u(2\\alpha+\\beta)} = \\operatorname{Ad}(w'_{\\alpha'}) X'_{2\\alpha'+3\\beta'} = -X'_{\\alpha'+3\\beta'} = -X'_{u(\\alpha+\\beta)}\\ ; \\]\n\\[ \\cdots \\]\n\\[ \\operatorname{Ad}(w_\\beta) X_{3\\alpha+2\\beta} = -X_{3\\alpha+\\beta}, \\quad \\operatorname{Ad}(w'_{\\beta'}) X'_{u(3\\alpha+2\\beta)} = \\operatorname{Ad}(w'_{\\beta'}) X'_{\\alpha'+2\\beta'} = -X'_{\\alpha'+\\beta'} = -X'_{u(3\\alpha+\\beta)}. \\]\n(The dots stand for 4 verifications of the same kind).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>(iii) The only non-trivial commutation relations in \\(U\\) and \\(U'\\) are, by <a class=\"ref\" href=\"#XXIII.3.4.1\">3.4.1 (iii)</a> (and taking into account that \\(3 = 0\\) on \\(S\\)):\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(xy)\\, p_{2\\alpha+\\beta}(x^2 y)\\, p_{3\\alpha+\\beta}(x^3 y)\\, p_{3\\alpha+2\\beta}(x^3 y^2), \\]\n\\[ p_{\\alpha+\\beta}(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_{\\alpha+\\beta}(y)\\, p_{2\\alpha+\\beta}(-xy), \\]\n\\[ p_{3\\alpha+\\beta}(y)\\, p_\\beta(x) = p_\\beta(x)\\, p_{3\\alpha+\\beta}(y)\\, p_{3\\alpha+2\\beta}(-xy)\\ ; \\]\n\\[ p'_{\\alpha'}(y')\\, p'_{\\beta'}(x') = \\]\n\\[ p'_{\\beta'}(x')\\, p'_{\\alpha'}(y')\\, p'_{\\alpha'+\\beta'}(-x'y')\\, p'_{\\alpha'+2\\beta'}(-x'^2 y')\\, p'_{\\alpha'+3\\beta'}(-x'^3 y')\\, p'_{2\\alpha'+3\\beta'}(-x'^3 y'^2), \\]\n\\[ p'_{\\alpha'+\\beta'}(y')\\, p'_{\\beta'}(x') = p'_{\\beta'}(x')\\, p'_{\\alpha'+\\beta'}(y')\\, p'_{\\alpha'+2\\beta'}(x'y'), \\]\n\\[ p'_{\\alpha'+3\\beta'}(y')\\, p'_{\\alpha'}(x') = p'_{\\alpha'}(x')\\, p'_{\\alpha'+3\\beta'}(y')\\, p'_{2\\alpha'+3\\beta'}(x'y'). \\]\nWe have to check that the morphism \\(\\varphi\\) from \\(U\\) into \\(U'\\) defined by\n\\[ \\varphi\\!\\left(p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(t)\\, p_{2\\alpha+\\beta}(u)\\, p_{3\\alpha+\\beta}(v)\\, p_{3\\alpha+2\\beta}(w)\\right) \\]\n\\[ = p'_{\\alpha'}(x^{3q})\\, p'_{\\beta'}(y^q)\\, p'_{\\alpha'+3\\beta'}(t^{3q})\\, p'_{2\\alpha'+3\\beta'}(u^{3q})\\, p'_{\\alpha'+\\beta'}(v^q)\\, p'_{\\alpha'+2\\beta'}(w^q) \\]\nis a group morphism. Now one checks immediately that the last three commutation relations may also be written\n\\[ p'_{\\beta'}(y^q)\\, p'_{\\alpha'}(x^{3q}) = \\]\n\\[ p'_{\\alpha'}(x^{3q})\\, p'_{\\beta'}(y^q)\\, p'_{\\alpha'+3\\beta'}((xy)^{3q})\\, p'_{2\\alpha'+3\\beta'}((x^2 y)^{3q})\\, p'_{\\alpha'+\\beta'}((x^3 y)^q)\\, p'_{\\alpha'+2\\beta'}((x^3 y^2)^q), \\]\n\\[ p'_{\\alpha'+3\\beta'}(y^{3q})\\, p'_{\\alpha'}(x^{3q}) = p'_{\\alpha'}(x^{3q})\\, p'_{\\alpha'+3\\beta'}(y^{3q})\\, p'_{2\\alpha'+3\\beta'}(-(xy)^{3q}), \\]\n\\[ p'_{\\alpha'+\\beta'}(y^q)\\, p'_{\\beta'}(x^q) = p'_{\\beta'}(x^q)\\, p'_{\\alpha'+\\beta'}(y^q)\\, p'_{\\alpha'+2\\beta'}(-(xy)^q)\\ ; \\]\nwhich shows that \\(\\varphi\\) is indeed a group morphism and completes the proof of <a class=\"ref\" href=\"#XXIII.4.1.7\">4.1.7</a>.</p>"
+    },
+    {
+     "id": "XXIII.4.1.9",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.4.1.9\">4.1.9.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><em>Case where \\(G\\) and \\(G'\\) are of semi-simple rank \\(\\geqslant 2\\).</em> For each root \\(\\alpha \\in R_0\\), let \\(\\alpha' = u(\\alpha) \\in R'_0 = u(R_0)\\). For each \\((\\alpha, \\beta) \\in R_0 \\times R_0\\), consider the pinned groups of semi-simple rank \\(\\leqslant 2\\), \\(Z_{\\alpha\\beta}\\) and \\(Z'_{\\alpha'\\beta'}\\). The group morphism \\(M' \\to M\\) underlying \\(h\\) defines a \\(q\\)-morphism of root data\n\\[ h_{\\alpha\\beta} : \\mathcal{R}(Z_{\\alpha\\beta}) \\longrightarrow \\mathcal{R}(Z'_{\\alpha'\\beta'}). \\]\nBy the preceding results, there therefore exists a morphism of pinned groups\n\\[ f_{\\alpha\\beta} : Z_{\\alpha\\beta} \\longrightarrow Z'_{\\alpha'\\beta'} \\]\n<!-- p.313 -->\nsuch that \\(\\mathcal{R}(f_{\\alpha\\beta}) = h_{\\alpha\\beta}\\). Let us prove that the \\(f_{\\alpha\\beta}\\) satisfy the gluing condition of <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a>; indeed \\(f_{\\alpha\\beta}|_{Z_\\alpha}\\) and \\(f_{\\alpha\\alpha}\\) are two morphisms of pinned groups\n\\[ Z_\\alpha \\longrightarrow Z'_{\\alpha'} \\]\ncorresponding to the same morphism of pinned root data, and hence coincide by the uniqueness result already proved. By <a class=\"ref\" href=\"#XXIII.2.5\">2.5</a> there therefore exists a group morphism\n\\[ f : G \\longrightarrow G' \\]\nextending the \\(f_{\\alpha\\beta}\\). This is obviously a morphism of pinned groups such that \\(\\mathcal{R}(f) = h\\), which completes the proof of Theorem <a class=\"ref\" href=\"#XXIII.4.1\">4.1</a>.</p>"
+    }
+   ],
    "footnotes": []
   },
   {
    "id": "XXIII-5",
-   "title": null,
-   "blocks": [],
-   "footnotes": []
+   "title": "5. Corollaries of the fundamental theorem",
+   "blocks": [
+    {
+     "id": "XXIII.5",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h2 id=\"XXIII.5\">5. Corollaries of the fundamental theorem</h2>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>The most important one is:</p>"
+    },
+    {
+     "id": "XXIII.5.1",
+     "type": "corollaire",
+     "label": "5.1",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a non-empty prescheme, \\(G\\) and \\(G'\\) two pinned \\(S\\)-groups, \\(h\\) an isomorphism of pinned root data\n\\[ h : \\mathcal{R}(G') \\xrightarrow{\\;\\sim\\;} \\mathcal{R}(G). \\]\nThere exists a unique isomorphism of pinned \\(S\\)-groups\n\\[ f : G \\xrightarrow{\\;\\sim\\;} G' \\]\nsuch that \\(\\mathcal{R}(f) = h\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Note that <a class=\"ref\" href=\"#XXIII.5.1\">5.1</a> also follows from <a class=\"ref\" href=\"#XXIII.3.5.1\">3.5.1</a> (the relations of <a class=\"ref\" href=\"#XXIII.3.5.1\">3.5.1</a> can be written using only the datum \\(\\mathcal{R}(G)\\)); note also that <a class=\"ref\" href=\"#XXIII.5.1\">5.1</a> follows from the most elementary part of the proof of <a class=\"ref\" href=\"#XXIII.4.1\">4.1</a> (there is no need to consider the \"exceptional isogenies\" of <a class=\"ref\" href=\"#XXIII.4.1.7\">4.1.7</a> and <a class=\"ref\" href=\"#XXIII.4.1.8\">4.1.8</a>).</p>"
+    },
+    {
+     "id": "XXIII.5.2",
+     "type": "corollaire",
+     "label": "5.2",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.2</span> (\"Uniqueness theorem\")</div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) and \\(G'\\) two splittable \\(S\\)-groups (<a class=\"ref\" href=\"#XXII.1.13\">Exp. XXII, 1.13</a>). If \\(G\\) and \\(G'\\) are of the same type (<a class=\"ref\" href=\"#XXII.2.6\">Exp. XXII, 2.6</a>), they are isomorphic.</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.5.3",
+     "type": "corollaire",
+     "label": "5.3",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.3</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) and \\(G'\\) two splittable \\(S\\)-groups. The following conditions are equivalent:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>\\(G\\) and \\(G'\\) are isomorphic.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>\\(G\\) and \\(G'\\) are isomorphic locally for the (fpqc) topology.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>There exists an \\(s \\in S\\) such that the \\(s\\)-groups \\(G_s\\) and \\(G'_s\\) are of the same type.</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, one obviously has (i) \\(\\Rightarrow\\) (ii) \\(\\Rightarrow\\) (iii). On the other hand, (iii) implies that \\(\\mathcal{R}(G) = \\mathcal{R}(G_s) = \\mathcal{R}(G'_s) = \\mathcal{R}(G')\\), hence that \\(G\\) and \\(G'\\) satisfy the condition of <a class=\"ref\" href=\"#XXIII.5.2\">5.2</a>.</p>"
+    },
+    {
+     "id": "XXIII.5.4",
+     "type": "corollaire",
+     "label": "5.4",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.4</span> (\"uniqueness of Chevalley schemes\")</div>\n  <div class=\"thm-body\"><p>Let \\(G\\) and \\(G'\\) be two reductive \\(\\mathbb{Z}\\)-groups possessing trivial maximal tori. <sup class=\"footnote-ref\"><a id=\"XXIII-fn1ref\" href=\"#XXIII-fn1\"><sup>*</sup></a></sup> The following conditions are equivalent:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>\\(G\\) and \\(G'\\) are isomorphic.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>There exists \\(s \\in \\operatorname{Spec}(\\mathbb{Z})\\) such that \\(G_s\\) and \\(G'_s\\) are of the same type.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>\\(G_{\\mathbb{C}}\\) and \\(G'_{\\mathbb{C}}\\) are of the same type.</p></li>\n</ol>\n<p>Indeed \\(G\\) and \\(G'\\) are splittable by <a class=\"ref\" href=\"#XXII.2.2\">Exp. XXII, 2.2</a>.</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.5.5",
+     "type": "corollaire",
+     "label": "5.5",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.5</span> (\"Existence of outer automorphisms\")</div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a pinned \\(S\\)-group, \\(h\\) an automorphism of the pinned root datum \\(\\mathcal{R}(G)\\). There exists a unique automorphism \\(u\\) of \\(G\\) respecting its pinning and such that \\(\\mathcal{R}(u) = h\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us make the preceding corollary explicit:</p>"
+    },
+    {
+     "id": "XXIII.5.5bis",
+     "type": "corollaire",
+     "label": "5.5.bis",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.5bis\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.5.bis</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a split reductive \\(S\\)-group, \\(R^+\\) a system of positive roots of \\(G\\). For each simple root \\(\\alpha\\), choose an isomorphism of vector groups \\(p_\\alpha : \\mathbb{G}_{a, S} \\xrightarrow{\\;\\sim\\;} U_\\alpha\\). Let \\(h\\) be an automorphism of \\(M\\) permuting the positive roots and the corresponding coroots: if \\(\\alpha \\in R^+\\), \\(h(\\alpha) \\in R^+\\) and \\(h^\\vee(\\alpha^*) = h(\\alpha)^*\\). There exists a unique automorphism \\(u\\) of \\(G\\) inducing \\(D_S(h)\\) on \\(T\\) and such that \\(u \\circ p_\\alpha = p_{h(\\alpha)}\\) for every simple root \\(\\alpha\\).</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.5.6",
+     "type": "corollaire",
+     "label": "5.6",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.6</span></div>\n  <div class=\"thm-body\"><p>Let \\(G\\) and \\(G'\\) be two reductive \\(S\\)-groups. The following conditions are equivalent:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>\\(G\\) and \\(G'\\) are isomorphic locally for (fpqc).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(i bis)</span></span> <p>\\(G\\) and \\(G'\\) are isomorphic locally for the étale topology.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>For every \\(s \\in S\\), \\(G_s\\) and \\(G'_s\\) are isomorphic.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>The functions \\(s \\mapsto \\text{type of } G_s\\) and \\(s \\mapsto \\text{type of } G'_s\\) are equal.</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed (i bis) \\(\\Rightarrow\\) (i) trivially, (i) \\(\\Rightarrow\\) (ii) by the principle of finite extension, (ii) \\(\\Rightarrow\\) (iii) trivially; it remains to prove (iii) \\(\\Rightarrow\\) (i bis). Now one may assume \\(G\\) and \\(G'\\) splittable (<a class=\"ref\" href=\"#XXII.2.3\">Exp. XXII, 2.3</a>), in which case the assertion follows from <a class=\"ref\" href=\"#XXIII.5.3\">5.3</a>.</p>"
+    },
+    {
+     "id": "XXIII.5.7",
+     "type": "corollaire",
+     "label": "5.7",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.7\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.7</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\(G\\) a reductive \\(S\\)-group, \\(G'\\) an affine, smooth \\(S\\)-group with connected fibres. Let \\(s \\in S\\) be such that \\(G_s\\) and \\(G'_s\\) are isomorphic; there exists an \\(S' \\to S\\) étale and covering \\(s\\) such that \\(G_{S'}\\) and \\(G'_{S'}\\) are isomorphic.</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, by <a class=\"ref\" href=\"#XIX.2.3\">Exp. XIX 2.3</a> and <a class=\"ref\" href=\"#XXII.2.1\">Exp. XXII 2.1</a>, one may assume \\(G\\) and \\(G'\\) reductive and splittable, and we are reduced to <a class=\"ref\" href=\"#XXIII.5.3\">5.3</a>.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>In the case where \\(S\\) is the spectrum of a field, one deduces from <a class=\"ref\" href=\"#XXIII.5.6\">5.6</a> and <a class=\"ref\" href=\"#XXIII.5.7\">5.7</a>:</p>"
+    },
+    {
+     "id": "XXIII.5.8",
+     "type": "corollaire",
+     "label": "5.8",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.8</span></div>\n  <div class=\"thm-body\"><p>Let \\(k\\) be a field and \\(G\\) and \\(G'\\) two reductive \\(k\\)-groups. The following conditions are equivalent:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>\\(G\\) and \\(G'\\) are of the same type.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>\\(G \\otimes_k \\bar{k}\\) and \\(G' \\otimes_k \\bar{k}\\) are isomorphic.</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>There exists a finite separable extension \\(K\\) of \\(k\\) such that \\(G \\otimes_k K\\) and \\(G' \\otimes_k K\\) are isomorphic.</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": "XXIII.5.9",
+     "type": "corollaire",
+     "label": "5.9",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.9\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.9</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a non-empty prescheme and \\(\\mathcal{R}\\) a root datum. The following conditions are equivalent:</p>\n<ol class=\"enumerate\">\n<li><span class=\"item-label\"><span class=\"upshape\">(i)</span></span> <p>There exists a pinned \\(S\\)-group of type \\(\\mathcal{R}\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(ii)</span></span> <p>There exists an \\(S\\)-group of type \\(\\mathcal{R}\\).</p></li>\n<li><span class=\"item-label\"><span class=\"upshape\">(iii)</span></span> <p>There exists locally for (fpqc) a reductive \\(S\\)-group of type \\(\\mathcal{R}\\).</p></li>\n</ol></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>It is obviously a matter of proving (iii) \\(\\Rightarrow\\) (i). To simplify the proof, let us suppose that there exists a faithfully flat quasi-compact morphism \\(S' \\to S\\) and a reductive \\(S'\\)-group \\(G'\\) of type \\(\\mathcal{R}\\). One may assume \\(G'\\) splittable; let us fix a pinning \\(E'\\) of \\(G'\\); write \\(\\mathcal{R} = \\mathcal{R}(G', E')\\). The two inverse images of \\((G', E')\\) on \\(S'' = S' \\times_S S'\\) are pinned groups \\((G''_1, E''_1)\\), \\((G''_2, E''_2)\\); one has canonical isomorphisms \\(p_i : \\mathcal{R}(G''_i, E''_i) \\xrightarrow{\\sim} \\mathcal{R}\\), whence an isomorphism\n\\[ p = p_2^{-1} \\circ p_1 : \\mathcal{R}(G''_1, E''_1) \\longrightarrow \\mathcal{R}(G''_2, E''_2). \\]\nBy the uniqueness theorem, there exists a unique isomorphism\n\\[ f : (G''_1, E''_1) \\xrightarrow{\\;\\sim\\;} (G''_2, E''_2) \\]\nsuch that \\(\\mathcal{R}(f) = p\\). We thus have on \\(G'\\) a gluing datum; it is a descent datum.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, one must verify a compatibility condition between the inverse images of \\(f\\) on \\(S'''\\), but it suffices to do so on the transforms of these arrows by \\(\\mathcal{R}\\), since the latter is fully faithful. Now \\(p\\) is indeed a descent datum, by construction, which shows that \\(f\\) is one as well. Since \\(G'\\) is affine, this descent datum is effective; since the pinning of \\(G'\\) is stable under the descent datum, one verifies easily that there exists a pinned \\(S\\)-group \\((G, E)\\) which gives \\((G', E')\\) by base extension and which is therefore of type \\(\\mathcal{R}\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><em>N. B.</em> Naturally, in the language of fibred categories, the preceding proof simplifies (and becomes intelligible).</p>"
+    },
+    {
+     "id": "XXIII.5.10",
+     "type": "corollaire",
+     "label": "5.10",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.5.10\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">5.10</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a non-empty prescheme. Let \\(\\mathcal{R}\\) be a pinned root datum such that there exists a reductive \\(S\\)-group of type \\(\\mathcal{R}\\). Then there exists a pinned \\(S\\)-group of type \\(\\mathcal{R}\\), unique up to a unique isomorphism.</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.5.11",
+     "type": "definition",
+     "label": "5.11",
+     "title": "Definition",
+     "html": "<div class=\"thm thm-plain definition\" id=\"XXIII.5.11\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">5.11</span></div>\n  <div class=\"thm-body\"><p>Under the preceding conditions, we shall denote by \\(\\operatorname{\\acute{E}p}_S(\\mathcal{R})\\) the unique pinned \\(S\\)-group of type \\(\\mathcal{R}\\), by \\(T_S(\\mathcal{R})\\) its canonical maximal torus, by \\(B_S(\\mathcal{R})\\) its canonical Borel group, \\(\\ldots\\)</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>If one has a morphism \\(S' \\to S\\) (\\(S'\\) non-empty), one may identify \\(\\operatorname{\\acute{E}p}_{S'}(\\mathcal{R})\\) with \\(\\operatorname{\\acute{E}p}_S(\\mathcal{R}) \\times_S S'\\), etc... In particular, if \\(\\operatorname{\\acute{E}p}_{\\operatorname{Spec}(\\mathbb{Z})}(\\mathcal{R})\\) exists (we shall see that this is always the case), it is denoted by \\(\\operatorname{\\acute{E}p}(\\mathcal{R})\\) and one has\n\\[ \\operatorname{\\acute{E}p}_S(\\mathcal{R}) = \\operatorname{\\acute{E}p}(\\mathcal{R}) \\times_{\\operatorname{Spec}(\\mathbb{Z})} S. \\]\nOne says that \\(\\operatorname{\\acute{E}p}(\\mathcal{R})\\) is the Chevalley group scheme of type \\(\\mathcal{R}\\).</p>"
+    },
+    {
+     "id": "XXIII.5.12",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.5.12\">5.12.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>It thus amounts to the same to say that the \\(S\\)-group sheaf \\(G\\) is a reductive \\(S\\)-group of type \\(\\mathcal{R}\\) or to say that it is locally isomorphic (for the étale or (fpqc) topology) to \\(\\operatorname{\\acute{E}p}_S(\\mathcal{R})\\). Likewise, by virtue of the conjugacy theorems, it amounts to the same to say that \\((G, T)\\) is a reductive \\(S\\)-group of type \\(\\mathcal{R}\\) equipped with a maximal torus or that it is locally isomorphic to \\((\\operatorname{\\acute{E}p}_S(\\mathcal{R}), T_S(\\mathcal{R}))\\); likewise with Borel groups or Killing couples.</p>"
+    }
+   ],
+   "footnotes": [
+    {
+     "id": "XXIII-fn1",
+     "number": "*",
+     "html": "<p>In fact, one can prove that every \\(\\mathbb{Z}\\)-torus is trivial. </p>"
+    }
+   ]
   },
   {
    "id": "XXIII-6",
-   "title": null,
-   "blocks": [],
-   "footnotes": []
+   "title": "6. Chevalley systems",
+   "blocks": [
+    {
+     "id": "XXIII.6",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h2 id=\"XXIII.6\">6. Chevalley systems</h2>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>The explicit computations of no. 3 have important numerical consequences. Let us first lay down the following definition:</p>"
+    },
+    {
+     "id": "XXIII.6.1",
+     "type": "definition",
+     "label": "6.1",
+     "title": "Definition",
+     "html": "<div class=\"thm thm-plain definition\" id=\"XXIII.6.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">6.1</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\((G, T, M, R)\\) a split \\(S\\)-group. By a Chevalley system of \\(G\\) is meant a family \\((X_\\alpha)_{\\alpha \\in R}\\) of elements\n\\[ X_\\alpha \\in \\Gamma(S, \\mathfrak{g}_\\alpha)^* \\]\nsatisfying the following condition:</p>\n<p>(SC) for every pair \\(\\alpha, \\beta \\in R\\), one has\n\\[ \\operatorname{Ad}(w_\\alpha(X_\\alpha))\\, X_\\beta = \\pm X_{s_\\alpha(\\beta)}. \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Recall (<a class=\"ref\" href=\"#XX.3.1\">Exp. XX, 3.1</a>) that\n\\[ w_\\alpha(X_\\alpha) = \\exp(X_\\alpha)\\, \\exp(-X_\\alpha^{-1})\\, \\exp(X_\\alpha). \\]</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us note that (SC) implies in particular \\(X_{-\\alpha} = \\pm X_\\alpha\\) for \\(\\alpha \\in R\\), by virtue of the relation (<a class=\"ref\" href=\"#XX.2.10\">Exp. XX, 2.10</a>) \\(\\operatorname{Ad}(w_\\alpha(X_\\alpha))\\, X_\\alpha = -X_{-\\alpha}\\).</p>"
+    },
+    {
+     "id": "XXIII.6.2",
+     "type": "proposition",
+     "label": "6.2",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.6.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">6.2</span></div>\n  <div class=\"thm-body\"><p>Every split group possesses a Chevalley system. More precisely, let \\((R_0, (X'_\\alpha)_{\\alpha \\in R_0})\\) be a pinning (<a class=\"ref\" href=\"#XXIII.1.1\">1.1</a>) of the split group \\((G, T, M, R)\\); there exists a Chevalley system \\((X_\\alpha)_{\\alpha \\in R}\\) of \\(G\\) such that \\(X_\\alpha = X'_\\alpha\\) for \\(\\alpha \\in R_0\\).</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us first show that it suffices to verify condition (SC) for \\(\\alpha \\in R_0\\); for every \\(\\alpha \\in R\\), there exists a sequence \\(\\{\\alpha_i\\} \\subset R_0\\) with \\(\\alpha = s_{\\alpha_1} \\cdots s_{\\alpha_n}(\\alpha_{n+1})\\), whence, applying condition (SC) for each of the \\(\\alpha_i\\),\n\\[ X_\\alpha = \\pm \\operatorname{Ad}(w_{\\alpha_1}(X_{\\alpha_1}) \\cdots w_{\\alpha_n}(X_{\\alpha_n}))\\, X_{\\alpha_{n+1}}. \\]\n<!-- p.319 -->\nBy <a class=\"ref\" href=\"#XXIII.3.1.1\">3.1.1 (iii)</a>, one has\n\\[ w_{\\alpha_1}(X_{\\alpha_1}) \\cdots w_{\\alpha_n}(X_{\\alpha_n})\\, w_{\\alpha_{n+1}}(X_{\\alpha_{n+1}})\\, w_{\\alpha_n}(X_{\\alpha_n})^{-1} \\cdots w_{\\alpha_1}(X_{\\alpha_1})^{-1} = \\alpha^*(\\pm 1)\\, w_\\alpha(X_\\alpha). \\]\nNow it suffices to note that \\(w_{\\alpha_i}(X_{\\alpha_i})^{-1} = \\alpha_i^*(-1) w_{\\alpha_i}(X_{\\alpha_i})\\) and that for every pair of roots \\((\\beta, \\gamma)\\), one has \\(\\beta(\\gamma^*(-1)) = (-1)^{(\\gamma^*, \\beta)} = \\pm 1\\), which implies that if (SC) is verified for the pairs \\((\\alpha_i, \\gamma)\\) \\((\\gamma \\in R)\\), it is so for every pair \\((\\alpha, \\beta)\\), \\((\\beta \\in R)\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Let us now construct a system \\((X_\\alpha)_{\\alpha \\in R}\\) in the following manner. For every \\(\\alpha \\in R\\), choose a sequence \\(\\{\\alpha_i\\} \\subset R_0\\) as above and define \\(X_\\alpha\\) by\n\\[ X_\\alpha = \\operatorname{Ad}(w_{\\alpha_i}(X_{\\alpha_1}) \\cdots w_{\\alpha_n}(X_{\\alpha_n}))\\, X'_{\\alpha_{n+1}}. \\]\nIn order to verify (SC), it suffices to prove:</p>"
+    },
+    {
+     "id": "XXIII.6.3",
+     "type": "lemme",
+     "label": "6.3",
+     "title": "Lemma",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"XXIII.6.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemma</span> <span class=\"thm-num\">6.3</span></div>\n  <div class=\"thm-body\"><p>Let \\((G, T, M, R, R_0, (X_\\alpha)_{\\alpha \\in R_0})\\) be a pinned \\(S\\)-group; let \\(\\alpha_i\\) \\((0 \\leqslant i \\leqslant n + 1)\\) be a sequence of simple roots such that\n\\[ \\operatorname{int}(s_{\\alpha_1} \\cdots s_{\\alpha_n})(\\alpha_{n+1}) = \\alpha_0. \\]\nThen\n\\[ \\operatorname{Ad}(w_{\\alpha_1} \\cdots w_{\\alpha_n})\\, X_{\\alpha_{n+1}} = \\pm X_{\\alpha_0}. \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Arguing as in <a class=\"ref\" href=\"#XXIII.2.3.4\">2.3.4</a> with the help of Tits's lemma, we are reduced to verifying Lemma <a class=\"ref\" href=\"#XXIII.6.3\">6.3</a> in the following two cases:</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>a) \\(G\\) is of semi-simple rank at most 2, or b) \\(w_{\\alpha_1} \\cdots w_{\\alpha_n}\\) is a section of \\(T\\).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>In case a), let us note that <a class=\"ref\" href=\"#XXIII.6.3\">6.3</a> is a consequence of <a class=\"ref\" href=\"#XXIII.6.2\">6.2</a> and that <a class=\"ref\" href=\"#XXIII.6.2\">6.2</a> has been verified in <a class=\"ref\" href=\"#XXIII.3.1.2\">3.1.2</a> (resp. <a class=\"ref\" href=\"#XXIII.3.2.1\">3.2.1</a>, resp. <a class=\"ref\" href=\"#XXIII.3.3.1\">3.3.1</a>, resp. <a class=\"ref\" href=\"#XXIII.3.4.1\">3.4.1</a>), (ii).</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>It remains, then, to prove <a class=\"ref\" href=\"#XXIII.6.3\">6.3</a> in case b), or, what amounts to the same, that if \\(\\{\\alpha_i\\}\\) is a sequence of simple roots such that \\(s_{\\alpha_1} \\cdots s_{\\alpha_n} = \\mathrm{id}\\), then \\(t = w_{\\alpha_1} \\cdots w_{\\alpha_n}\\) satisfies \\(\\alpha(t) = \\pm 1\\) for every root \\(\\alpha \\in R\\). By virtue of the structure of the Weyl group (<a class=\"ref\" href=\"#XXI.5.1\">Exp. XXI, 5.1</a>), the word \\(s_{\\alpha_1} \\cdots s_{\\alpha_n}\\) of the free group generated by the \\(s_\\alpha\\), \\(\\alpha \\in R_0\\), lies in the invariant subgroup generated by the \\((s_\\alpha s_\\beta)^{n_{\\alpha\\beta}}\\), \\((\\alpha, \\beta) \\in R_0 \\times R_0\\). We are thus reduced to the case where \\(s_{\\alpha_1} \\cdots s_{\\alpha_n}\\) is of the form\n\\[ s_{\\alpha_1} \\cdots s_{\\alpha_i}\\, (s_{\\alpha_{i+1}} s_{\\alpha_{i+2}})^{n_{\\alpha_{i+1} \\alpha_{i+2}}}\\, s_{\\alpha_i} \\cdots s_{\\alpha_1}. \\]\nThen one has\n\\[ t = s_{\\alpha_1} \\cdots s_{\\alpha_i}\\, (t_{\\alpha_{i+1} \\alpha_{i+2}}), \\]\nand we are reduced to verifying that for every pair of simple roots \\((\\alpha_1, \\alpha_2)\\) and every root \\(\\beta \\in R\\), one has \\(\\beta(t_{\\alpha_1 \\alpha_2}) = \\pm 1\\), which is trivial, in view of the values of \\(t_{\\alpha_1 \\alpha_2}\\) computed in no. 3 (part (i) of <a class=\"ref\" href=\"#XXIII.3.1.2\">3.1.2</a>, <a class=\"ref\" href=\"#XXIII.3.2.1\">3.2.1</a>, <a class=\"ref\" href=\"#XXIII.3.3.1\">3.3.1</a>, <a class=\"ref\" href=\"#XXIII.3.4.1\">3.4.1</a>).</p>"
+    },
+    {
+     "id": "XXIII.6.4",
+     "type": "proposition",
+     "label": "6.4",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"XXIII.6.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">6.4</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\((G, T, M, R)\\) a split \\(S\\)-group, \\((X_\\alpha)_{\\alpha \\in R}\\) a Chevalley system of \\(G\\). Let \\(\\alpha\\) and \\(\\beta\\) be two non-proportional roots; suppose\n\\[ \\operatorname{long}(\\alpha) \\leqslant \\operatorname{long}(\\beta), \\quad \\text{i.e.} \\quad |(\\beta^*, \\alpha)| \\leqslant |(\\alpha^*, \\beta)|. \\]\nLet \\(p\\) and \\(q\\) be the integers \\(\\geqslant 0\\) such that the set of roots of the form \\(\\beta + k\\alpha\\), \\(k \\in \\mathbb{Z}\\), is\n\\[ \\{\\beta - (p-1)\\alpha, \\ldots, \\beta, \\ldots, \\beta + q\\alpha\\}. \\]\n(cf. <a class=\"ref\" href=\"#XXI.2.3.5\">Exp. XXI, 2.3.5</a>; by loc. cit., one therefore has \\(-(\\alpha^*, \\beta) = q - p + 1\\)). Then the commutation relation between \\(U_\\alpha\\) and \\(U_\\beta\\) is given by the following table (which exhausts the possible cases,\n<!-- p.321 -->\nsince the length of the preceding root chain is \\(p + q - 1 \\leqslant 3\\)), where for each \\(\\gamma \\in R\\) we write \\(p_\\gamma(x) = \\exp(x X_\\gamma)\\):</p>\n<p>\\(p\\) arbitrary, \\(q = 0\\)\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y). \\]</p>\n<p>\\(p = 1\\), \\(q = 1\\)\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(\\pm xy). \\]</p>\n<p>\\(p = 1\\), \\(q = 2\\)\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(\\pm xy)\\, p_{2\\alpha+\\beta}(\\pm x^2 y). \\]</p>\n<p>\\(p = 1\\), \\(q = 3\\),\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(\\pm xy)\\, p_{2\\alpha+\\beta}(\\pm x^2 y)\\, p_{3\\alpha+\\beta}(\\pm x^3 y)\\, p_{3\\alpha+2\\beta}(\\pm x^3 y^2). \\]</p>\n<p>\\(p = 2\\), \\(q = 1\\),\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(\\pm 2xy). \\]</p>\n<p>\\(p = 2\\), \\(q = 2\\),\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(\\pm 2xy)\\, p_{2\\alpha+\\beta}(\\pm 3x^2 y)\\, p_{\\alpha+2\\beta}(\\pm 3xy^2). \\]</p>\n<p>\\(p = 3\\), \\(q = 1\\),\n\\[ p_\\beta(y)\\, p_\\alpha(x) = p_\\alpha(x)\\, p_\\beta(y)\\, p_{\\alpha+\\beta}(\\pm 3xy). \\]</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p><em>Proof.</em> By virtue of <a class=\"ref\" href=\"#XXI.3.5.4\">Exp. XXI, 3.5.4</a>, there exists a system of simple roots \\(R_0\\) of \\(R\\) such that \\(\\alpha \\in R_0\\) and such that there exist \\(\\alpha' \\in R_0\\) and \\(a, b \\geqslant 0\\) with \\(\\beta = a\\alpha + b\\alpha'\\). Consider the pinning \\((R_0, (X_\\alpha)_{\\alpha \\in R_0})\\) of \\(G\\). The commutation relation to be verified is a relation between elements of \\(U_{\\alpha\\alpha'}\\); we are thus reduced to the explicit computations of no. 3, and one concludes at once by condition (SC).</p>"
+    },
+    {
+     "id": "XXIII.6.5",
+     "type": "corollaire",
+     "label": "6.5",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.6.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">6.5</span> (Chevalley's rule)</div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme, \\((X_\\alpha)_{\\alpha \\in R}\\) a Chevalley system of the split \\(S\\)-group \\(G\\). If \\(\\alpha, \\beta, \\alpha + \\beta \\in R\\), then\n\\[ [X_\\alpha, X_\\beta] = \\pm p\\, X_{\\alpha+\\beta}, \\]\nwhere \\(p\\) is the smallest integer \\(&gt; 0\\) such that \\(\\beta - p\\alpha\\) is not a root.</p></div>\n</div>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>Indeed, since the assertion is symmetric in \\(\\alpha\\) and \\(\\beta\\), one may assume \\(\\operatorname{long}(\\alpha) \\leqslant \\operatorname{long}(\\beta)\\), and we are reduced to <a class=\"ref\" href=\"#XXIII.6.4\">6.4</a>.</p>"
+    },
+    {
+     "id": "XXIII.6.6",
+     "type": "corollaire",
+     "label": "6.6",
+     "title": "Corollary",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"XXIII.6.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">6.6</span></div>\n  <div class=\"thm-body\"><p>Let \\(S\\) be a prescheme such that \\(6 \\cdot 1_S \\neq 0\\) and \\((G, T, M, R)\\) a split \\(S\\)-group. If \\(R'\\) is a subset of \\(R\\) such that\n\\[ \\mathfrak{g}_{R'} = \\mathfrak{t} \\oplus \\coprod_{\\alpha \\in R'} \\mathfrak{g}_\\alpha \\]\nis a Lie subalgebra of \\(\\mathfrak{g}\\), then \\(R'\\) is a closed subset of \\(R\\) (<a class=\"ref\" href=\"#XXI.3.1.4\">Exp. XXI, 3.1.4</a>).</p></div>\n</div>"
+    },
+    {
+     "id": "XXIII.6.7",
+     "type": "heading",
+     "label": null,
+     "title": null,
+     "html": "<h3 id=\"XXIII.6.7\">6.7.</h3>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<p>It is possible to make precise the exact value of the various \\(\\pm\\) of this section, thanks to the study of the group \\(\\operatorname{Norm}_G(T)\\) and, more precisely, of the \"extended Weyl group\":\n\\[ W^* = \\operatorname{Norm}_{\\operatorname{\\acute{E}p}(\\mathcal{R})}(T(\\mathcal{R}))(\\mathbb{Z}) \\]\nwhich is an extension of \\(W(\\mathcal{R})\\) by an abelian group of type \\((2, 2, \\ldots, 2)\\), and which is \"responsible for the signs\" <sup class=\"footnote-ref\"><a id=\"XXIII-fn2ref\" href=\"#XXIII-fn2\"><sup>**</sup></a></sup>.</p>"
+    },
+    {
+     "id": null,
+     "type": "paragraph",
+     "label": null,
+     "title": null,
+     "html": "<hr>"
+    }
+   ],
+   "footnotes": [
+    {
+     "id": "XXIII-fn2",
+     "number": "**",
+     "html": "<p>cf. J. Tits: Sur les constantes de structure et le théorème d'existence des algèbres de Lie semi-simples, Publ. Math. I.H.É.S. n° 31. </p>"
+    }
+   ]
   }
  ]
 }

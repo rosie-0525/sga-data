@@ -14,7 +14,7 @@ corpus (sga1–sga7). The machine source of truth is
   reports deviations to `issues/glossary_deviations.json`.
 - *Seen* cites exemplar occurrences as `book:anchor` or `book:page#block`.
 
-## Mathematical terms (467)
+## Mathematical terms (493)
 
 | Français | English | Also accepted | Note | Seen |
 |---|---|---|---|---|
@@ -32,6 +32,7 @@ corpus (sga1–sga7). The machine source of truth is
 | algébrisation | algebraization | algebrisation |  | sga2:resume#1, sga7:9-7#15 |
 | ample | ample |  |  | sga1:III-7#4, sga2:X.2.2, sga3:XIV.4.8.1 |
 | amplitude | amplitude |  |  | sga5:IIIB.5.6, sga6:I.4.7, sga7:9-7#6 |
+| anisotrope | anisotropic |  | (adj) |  |
 | anneau | ring |  |  | sga1:introduction#4, sga2:I-0#6, sga3:I-2#11 |
 | anneau de Chern | Chern ring |  |  | sga6:V#2 |
 | application rationnelle | rational map | rational mapping |  | sga1:X-3#9, sga3:X-8#9, sga7:2#6 |
@@ -55,8 +56,10 @@ corpus (sga1–sga7). The machine source of truth is
 | catégorie fibrée | fibred category | fibered category, fibred, fibered |  | sga1:III.6.4, sga2:X-3#20, sga3:VIII-6#11 |
 | centralisateur | centralizer | centraliser |  | sga3:II.5.2, sga5:IIIB.5.11.3 |
 | centre | centre | center |  | sga3:I.2.3.6, sga5:IIIB-5#1, sga6:IX-1#32 |
+| chambre | chamber |  | chambre de Weyl → Weyl chamber |  |
 | changement de base | base change | change of base |  | sga1:I-4#15, sga2:VIII-2#66, sga3:I.1.6 |
 | chemin | path |  |  | sga1:V-5#19, sga2:X.3.7, sga6:0#5 |
+| chemin faisant | along the way | in passing, on the way | idiom; keeps chemin → path from matching it |  |
 | classe de chemins | class of paths | path class |  | sga1:V-5#19, sga7:1-5#16 |
 | classe de Chern | Chern class |  |  | sga5:III-4#111, sga6:0.1, sga7:11.1.0 |
 | classe de cohomologie | cohomology class |  |  | sga1:III-5#14, sga2:XI-1#5, sga5:III#2 |
@@ -96,11 +99,13 @@ corpus (sga1–sga7). The machine source of truth is
 | constant tordu | twisted constant | constant-twisted |  | sga3:X.5, sga5:VI.1.2, sga7:1-1#11 |
 | constructible | constructible |  |  | sga1:I-10#17, sga2:XII-1#25, sga3:V-7#4 |
 | contre-exemple | counterexample | counter-example |  | sga1:VIII.7.10, sga3:II-4#34, sga6:II.3.6 |
+| coracine | coroot |  |  |  |
 | corollaire | corollary |  |  | sga1:I.2.2, sga2:I.1.4, sga3:I.1.7.2 |
 | corps | field |  |  | sga1:introduction#4, sga2:I-0#6, sga3:I-4#25 |
 | corps de base | base field | ground field |  | sga1:II.5, sga2:IV.5.5, sga3:VIA-0#7 |
 | corps premier | prime field |  |  | sga1:X-2#20, sga3:VIIA-4#1, sga5:VI-1-2#10 |
 | corps résiduel | residue field |  |  | sga1:I.6.1, sga2:IV.3.1, sga3:III#1 |
+| couple de Killing | Killing couple | Killing pair | SGA3 |  |
 | courbe | curve |  |  | sga1:introduction#6, sga2:III.3.13, sga3:VIII-7#5 |
 | courbe elliptique | elliptic curve |  |  | sga1:X.2.5, sga2:XIII-5#6, sga3:VIII-7#5 |
 | couvrant | covering |  |  | sga1:XIII.1.11, sga3:III.3.3, sga6:I-1#9 |
@@ -118,6 +123,7 @@ corpus (sga1–sga7). The machine source of truth is
 | dégénérescence | degeneration | degeneracy |  | sga2:XIII-5#6, sga3:VIII-7#5, sga5:VII-2#1 |
 | degré | degree |  |  | sga1:I.4.10, sga2:II#53, sga3:V-7#4 |
 | démonstration | proof |  |  | sga1:introduction#7, sga2:I-0#6, sga3:I-1#40 |
+| déploiement | splitting | split | the datum splitting a reductive group; déployé → split |  |
 | déployé | split |  |  | sga3:II.5.1.cor, sga5:VII-6#21, sga6:IX.2 |
 | dérivation | derivation |  |  | sga1:II.4.14, sga3:II-3#61, sga5:III.2.1 |
 | dérivée logarithmique | logarithmic derivative |  |  | sga6:V-7#24 |
@@ -126,6 +132,7 @@ corpus (sga1–sga7). The machine source of truth is
 | dévissage | dévissage | devissage |  | sga1:IX.5.8, sga2:XII.1.6, sga3:XI-4#6 |
 | diagonalisable | diagonalizable | diagonalisable |  | sga3:I#1, sga7:8-3#26 |
 | diagramme | diagram |  |  | sga1:I.5.6, sga2:proof-IV-3-5, sga3:I-1#27 |
+| diagramme de Dynkin | Dynkin diagram |  |  |  |
 | différentielle | differential |  |  | sga1:II, sga2:I-0#3, sga3:II-2#7 |
 | dimension | dimension |  |  | sga1:introduction#17, sga2:III-3#15, sga3:I.5.2.1 |
 | dimension relative | relative dimension |  |  | sga1:II.1.5, sga3:VIB-5#13, sga5:I-3#69 |
@@ -152,6 +159,7 @@ corpus (sga1–sga7). The machine source of truth is
 | épimorphisme effectif | effective epimorphism |  |  | sga1:VIII.5.1, sga3:IV.1, sga6:XII.2.6 |
 | épimorphisme universel | universal epimorphism |  |  | sga3:IV.1.1 |
 | épinglage | pinning | épinglage | SGA3 |  |
+| épinglé | pinned | épinglé | (adj) SGA3; cf. épinglage → pinning |  |
 | équivalence de catégories | equivalence of categories | equivalence of the categories, equivalence between categories, equivalence between the categories |  | sga1:I.8.3, sga2:IV-1#16, sga3:I-1#15 |
 | espace | space |  |  | sga1:avertissement#4, sga2:I-0#3, sga3:I-1#45 |
 | espace affine | affine space |  |  | sga1:XII-1#4, sga2:XIV.1.12, sga3:X.3.4 |
@@ -167,9 +175,11 @@ corpus (sga1–sga7). The machine source of truth is
 | excédentaire | excess |  | (adj) | sga1:II-2#16, sga5:III-4#107, sga6:0.app.2.7 |
 | excès | excess |  |  |  |
 | excision | excision |  |  | sga2:I.2.2, sga5:VII-7#24 |
+| exposant radiciel | root exponent |  | collocation: distinct from radiciel → radicial |  |
 | extension | extension |  |  | sga1:I-1#1, sga2:eq:I.30, sga3:I-1#36 |
 | extension essentielle | essential extension |  |  | sga2:IV-4#17 |
 | extension galoisienne | Galois extension |  |  | sga1:I-11#3, sga3:XVII-2#15, sga5:X-4#15 |
+| facette | facet |  |  |  |
 | factoriel | factorial |  | = UFD | sga1:XI.6.5, sga2:XI-3#11, sga6:II.2.2.7 |
 | faisceau | sheaf | sheaves |  | sga1:introduction#12, sga2:resume#0, sga3:I-4#53 |
 | faisceau associé | associated sheaf |  |  | sga1:XIII-0#10, sga2:I.2.4, sga3:IV.4.3 |
@@ -222,6 +232,7 @@ corpus (sga1–sga7). The machine source of truth is
 | germe | germ |  |  | sga1:II.5.8, sga2:XIII-6#23, sga3:XVIII-0#1 |
 | germe de groupe | group germ |  |  | sga3:XVIII-0#1 |
 | groupe | group |  |  | sga1:introduction#4, sga2:resume#1, sga3:I |
+| groupe adjoint | adjoint group |  |  |  |
 | groupe d'homotopie | homotopy group |  |  | sga1:X-1#15, sga2:XIII-4#18 |
 | groupe d'inertie | inertia group |  |  | sga1:V-2#1, sga7:1-0#25 |
 | groupe de décomposition | decomposition group |  |  | sga1:V.2 |
@@ -230,6 +241,8 @@ corpus (sga1–sga7). The machine source of truth is
 | groupe de Weyl | Weyl group |  |  | sga3:XII, sga6:0-app-I#13 |
 | groupe dérivé | derived group |  |  | sga3:VIB.7.2 |
 | groupe fondamental | fundamental group |  |  | sga1:introduction#4, sga2:resume#1, sga3:X.1.2 |
+| groupe réductif | reductive group |  |  |  |
+| groupe semi-simple | semi-simple group | semisimple group |  |  |
 | groupoïde | groupoid |  |  | sga1:V-5#19, sga3:V-1#9, sga7:9-9#43 |
 | groupoïde fondamental | fundamental groupoid |  |  | sga1:V-5#19 |
 | hauteur | height |  |  | sga3:VIIA-4#15, sga6:X-1#94, sga7:9-2#25 |
@@ -312,6 +325,7 @@ corpus (sga1–sga7). The machine source of truth is
 | orthogonal *(orthogonaux)* | orthogonal |  |  | sga1:XI.5.2, sga2:IV-5#5, sga3:I-4#54 |
 | ouvert | open | open set, open subset |  | sga1:I-1#1, sga2:I-0#3, sga3:I-4#5 |
 | p-adique | p-adic |  |  | sga7:7-0#1 |
+| parabolique | parabolic |  | (adj) |  |
 | parafactoriel | parafactorial |  |  | sga2:XI.3.1 |
 | parfait | perfect |  |  | sga1:II.5.4, sga2:XIII-5#6, sga3:VIA-0#6 |
 | partie abélienne | abelian part |  |  | sga3:XV.8.4, sga7:8-4#44 |
@@ -363,12 +377,16 @@ corpus (sga1–sga7). The machine source of truth is
 | quarrable | squarable |  | SGA3: admitting fibre products / squarable | sga3:IV.1.4 |
 | quasi-cohérent | quasi-coherent |  |  | sga1:I-1#1, sga2:I-0#3, sga3:I-4#5 |
 | quasi-compact | quasi-compact |  |  | sga1:V-1#24, sga2:II.1, sga3:III.0.13 |
+| quasi-déployé | quasi-split |  | (adj) |  |
+| quasi-épinglé | quasi-pinned | quasi-épinglé | (adj) SGA3 |  |
 | quasi-fini | quasi-finite |  |  | sga1:I.2, sga3:IV-6#23, sga5:I.1.6 |
 | quasi-isotrivial | quasi-isotrivial |  |  | sga3:IX.1.1 |
 | quasi-projectif | quasi-projective |  |  | sga1:V-3#2, sga2:XII.5.6, sga3:V.7.1 |
 | quasi-séparé | quasi-separated |  |  | sga1:XIII.1.5, sga3:III.0.13, sga5:I.A.1.3 |
 | racine | root | radical | of an ideal = radical | sga1:X-3#16, sga2:def:III.1.1, sga3:I-4#25 |
 | racine de l'unité | root of unity | roots of unity |  | sga1:X-3#16, sga3:IX.4.7, sga7:1.0.0.7 |
+| racine positive | positive root |  |  |  |
+| racine simple | simple root |  |  |  |
 | radical unipotent | unipotent radical |  |  | sga3:XV-6#5, sga6:IX-4#5 |
 | radiciel | radicial | purely inseparable |  | sga1:I.5.1, sga2:XIV-2#41, sga3:VIB.2.6 |
 | raffinement | refinement |  |  | sga1:XIII-0#3, sga3:IV.4.2.1, sga5:III-6#145 |
@@ -384,6 +402,7 @@ corpus (sga1–sga7). The machine source of truth is
 | réductif | reductive |  |  | sga3:VIB.11.9, sga5:VII-6#16, sga6:0-app-I#13 |
 | réduction semi-stable | semi-stable reduction |  |  | sga7:1-5#1 |
 | réduit | reduced | reduces, reduce, concentrated, restrict |  | sga1:introduction#6, sga2:I-1#39, sga3:I-4#25 |
+| réflexion | reflection |  |  |  |
 | régulier | regular |  |  | sga1:I.9.1, sga2:III.2.2, sga3:VIA-1#14 |
 | relation d'équivalence | equivalence relation |  |  | sga1:VIII.4.2, sga3:IV.3, sga5:VII-9#186 |
 | représentable | representable |  |  | sga1:V-1#4, sga2:IV.1.2, sga3:I-1#3 |
@@ -394,6 +413,7 @@ corpus (sga1–sga7). The machine source of truth is
 | revêtement | covering | cover |  | sga1:introduction#6, sga2:X#1, sga3:X.1.1 |
 | revêtement étale | étale covering | etale covering, étale cover |  | sga1:introduction#12, sga2:X#1, sga3:X.4.0 |
 | revêtement principal | principal covering |  |  | sga1:V.2.8, sga3:X.1.1, sga5:IIIB.6.23 |
+| revêtement universel | universal covering | universal cover |  |  |
 | rigide | rigid |  |  | sga1:VI-9#9, sga3:XVI.1.2, sga6:II.2.4.2 |
 | rigidité | rigidity |  |  | sga3:IX.7.4, sga6:II.appendice.II.2, sga7:7-2#123 |
 | sans dénominateurs | without denominators |  |  | sga6:XIV.3 |
@@ -424,11 +444,14 @@ corpus (sga1–sga7). The machine source of truth is
 | sous-catégorie pleine | full subcategory |  |  | sga1:thm-I-5-2, sga2:IV-1#16, sga3:I-1#3 |
 | sous-ensemble | subset |  |  | sga1:VIII-1#14, sga2:XIV-3#35, sga3:I-1#5 |
 | sous-groupe | subgroup |  |  | sga1:I-11#2, sga2:XI-3#24, sga3:I-2#6 |
+| sous-groupe critique | critical subgroup |  | SGA3 |  |
 | sous-groupe de Borel | Borel subgroup |  |  | sga1:XI-1#6, sga3:XII-7#31, sga5:VII-6#21 |
 | sous-groupe de Cartan | Cartan subgroup |  |  | sga3:X.8.7 |
+| sous-groupe de Levi | Levi subgroup | Levi |  |  |
 | sous-groupe parabolique | parabolic subgroup |  |  | sga3:XII-7#31, sga6:IX.4.2 |
 | sous-schéma | subscheme |  |  | sga1:I-11#4, sga2:I-0#6, sga3:III#1 |
 | sous-schéma fermé | closed subscheme |  |  | sga1:I-11#4, sga2:XIII.1.3, sga3:III#1 |
+| sous-tore | subtorus | subtori |  |  |
 | spécialisation | specialization | specialisation |  | sga1:introduction#6, sga2:XII.3.8, sga3:VIB-8#19 |
 | spectre | spectrum | spectra |  | sga1:introduction#6, sga2:II.4, sga3:I-4#1 |
 | strictement local | strictly local |  |  | sga1:XIII.1.5, sga2:XIII-6#2, sga3:X-8#24 |
@@ -441,6 +464,8 @@ corpus (sga1–sga7). The machine source of truth is
 | surjectif | surjective |  |  | sga1:introduction#6, sga2:proof-I-1-12, sga3:II-5#9 |
 | symbole | symbol |  |  | sga1:VI-5#5, sga3:I-1#42, sga5:III-6#120 |
 | système de racines | root system |  |  | sga3:XIV-3#36, sga7:19.3.3 |
+| système de racines positives | system of positive roots | systems of positive roots, positive root system | SGA3 XXI; distinct from système de racines → root system |  |
+| système de racines simples | system of simple roots | systems of simple roots, simple root system | SGA3 XXI: a base of the root system; distinct from système de racines → root system |  |
 | système inductif | inductive system | direct system |  | sga2:II#36, sga3:IV.4.4.1, sga6:VI-4#42 |
 | système local | local system |  |  | sga1:V-5#22, sga2:XIII-4#20, sga7:9.13.1.5 |
 | système projectif | projective system | inverse system |  | sga1:rem:II.4.18, sga2:II#22, sga3:IV.4.4.1 |
@@ -463,6 +488,7 @@ corpus (sga1–sga7). The machine source of truth is
 | tordu | twisted |  |  | sga1:XIII.1.3.1, sga2:XII.5.2, sga3:VIII.4.5.1 |
 | tore | torus | tori |  | sga3:II.5.1.cor, sga6:0-app-I#13, sga7:1.6.1 |
 | tore maximal | maximal torus | maximal tori |  | sga3:XI.5.11, sga6:0-app-I#13, sga7:8-4#60 |
+| tore trivial | trivial torus | trivial tori |  |  |
 | torseur | torsor |  |  | sga1:XIII#4, sga2:XIV.1.4, sga3:VIII.4 |
 | torsion | torsion |  |  | sga1:I-11#3, sga2:XIII-6#4, sga3:I-4#25 |
 | totalement ramifié | totally ramified |  |  | sga1:X-3#16, sga5:XII-6#78 |
@@ -486,10 +512,11 @@ corpus (sga1–sga7). The machine source of truth is
 | voisinage infinitésimal | infinitesimal neighbourhood | infinitesimal neighborhood |  | sga1:I-1#1, sga3:VIIB-2#48, sga7:9-5#5 |
 | vrai groupe fondamental | true fundamental group |  |  | sga1:XI-2#15 |
 
-## Theorem-kind headings (36)
+## Theorem-kind headings (38)
 
 | Français | English |
 |---|---|
+| Application | Application |
 | Bibliographie | Bibliography |
 | Cas particulier | Special case |
 | Commentaires | Comments |
@@ -498,6 +525,7 @@ corpus (sga1–sga7). The machine source of truth is
 | Construction | Construction |
 | Construction-définition | Construction-definition |
 | Contre-exemple | Counterexample |
+| Contre-exemples | Counterexamples |
 | Corollaire | Corollary |
 | Corollaires | Corollaries |
 | Définition | Definition |
