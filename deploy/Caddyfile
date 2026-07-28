@@ -1,0 +1,13 @@
+# TLS terminator in front of the review server.
+#
+#   sudo cp deploy/Caddyfile /etc/caddy/Caddyfile
+#   sudo systemctl reload caddy
+#
+# Caddy obtains and renews the certificate itself over port 80, so the DNS A
+# record must already point at this box and the security group must already
+# allow 80 and 443 before this is started.
+
+dev.grothendiecksga.com {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:8000
+}

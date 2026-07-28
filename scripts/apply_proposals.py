@@ -31,13 +31,10 @@ from collections import defaultdict
 from pathlib import Path
 
 from proposals_lib import (
-    BOOKS, VERDICTS, data_dir, find_page, load_chapter, load_json,
-    proposals_path, rebuild_page_html, root_count, validate, write_chapter,
+    BOOKS, VERDICTS, chapter_path, check_alignment, check_replacement,
+    check_target, load_chapter, load_json, proposals_path,
+    rebuild_page_html, validate, write_chapter,
 )
-
-
-def chapter_path(book, lang, chapter_id):
-    return data_dir(book, lang) / "chapters" / f"{chapter_id}.json"
 
 
 def load_decisions(path):
@@ -45,13 +42,6 @@ def load_decisions(path):
     if not isinstance(doc, dict) or not isinstance(doc.get("decisions"), list):
         raise SystemExit(f"{path}: expected an object with a 'decisions' array")
     return doc
-
-
-def resolve_target(page, proposal):
-    """(container_list, index) for the record a proposal edits, or (None, None)."""
-    if proposal.get("target") == "footnote":
-        return page.get("footnotes") or [], proposal.get("footnoteIndex")
-    return page.get("blocks") or [], proposal.get("blockIndex")
 
 
 def main():
@@ -131,28 +121,16 @@ def main():
                             "lang": p["lang"], "chapterId": p["chapterId"], "edits": 0}
         entry = touched[key]
 
-        page = find_page(entry["chapter"], p["pageId"])
-        if page is None:
-            skipped.append(f"{pid}: no page {p['pageId']} in {path.name}")
+        err = check_replacement(new_html)
+        if err:
+            skipped.append(f"{pid}: {err}")
             counts["refused"] += 1
             continue
-        items, idx = resolve_target(page, p)
-        if idx is None or idx < 0 or idx >= len(items):
-            skipped.append(f"{pid}: {p.get('target', 'block')} index {idx} out of range "
-                           f"on {p['pageId']}")
-            counts["refused"] += 1
-            continue
-        rec = items[idx]
-
-        if rec.get("html") != p.get("before"):
-            skipped.append(f"{pid}: conflict — {p['pageId']}#{idx} no longer matches `before`")
-            counts["conflicts"] += 1
-            continue
-        n = root_count(new_html)
-        if n != 1:
-            skipped.append(f"{pid}: refused — replacement has {n} root elements "
-                           "(the viewer would keep only the first)")
-            counts["refused"] += 1
+        # Against the in-memory chapter, so several proposals can land in one file.
+        rec, err = check_target(entry["chapter"], p)
+        if err:
+            skipped.append(f"{pid}: {err}")
+            counts["conflicts" if err.startswith("conflict") else "refused"] += 1
             continue
         # A pre-existing fr/en id mismatch exists in the corpus (sga2 XIII-1
         # block 12), so a differing blockId is a warning, not a veto.
@@ -174,17 +152,9 @@ def main():
         for page in chapter.get("pages", []):
             if page.get("id") in entry["pages"]:
                 rebuild_page_html(page)
-        other = "en" if entry["lang"] == "fr" else "fr"
-        mate = load_chapter(args.book, other, entry["chapterId"])
-        if mate is not None:
-            mate_pages = {pg.get("id"): pg for pg in mate.get("pages", [])}
-            for page in chapter.get("pages", []):
-                mp = mate_pages.get(page.get("id"))
-                if mp is not None and len(page.get("blocks") or []) != len(mp.get("blocks") or []):
-                    raise SystemExit(
-                        f"ABORT: {entry['path'].name} page {page.get('id')} would have "
-                        f"{len(page.get('blocks') or [])} blocks vs {len(mp.get('blocks') or [])} "
-                        f"in {other} — the 1:1 alignment must hold")
+        err = check_alignment(args.book, entry["lang"], entry["chapterId"], chapter)
+        if err:
+            raise SystemExit(err)
         if not args.dry_run:
             write_chapter(entry["path"], chapter)
         written.append((entry["path"], entry["edits"]))

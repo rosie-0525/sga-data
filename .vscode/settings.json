@@ -1,0 +1,22 @@
+{
+    "liveServer.settings.port": 5501,
+    // Live Server reloads the whole page on any watched write. The review server
+    // rewrites sga*/data/** on every accepted verdict and a checking agent
+    // rewrites proposals.json, so without these the reader is thrown back to the
+    // top of the book mid-review. Use the panel's Refresh button instead — it
+    // re-reads the run and the chapter text in place.
+    // NB: this list REPLACES the extension's defaults, so they are repeated here.
+    "liveServer.settings.ignoreFiles": [
+        ".vscode/**",
+        ".git/**",
+        "**/*.scss",
+        "**/*.sass",
+        "**/*.ts",
+        "**/data/**",
+        "sga*/data/**",
+        "issues/**",
+        "deploy/**",
+        "nohup.out",
+        "**/*.log"
+    ]
+}

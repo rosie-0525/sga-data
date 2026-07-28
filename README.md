@@ -114,7 +114,9 @@ an agent that reads it and applies the corresponding fixes to the JSON data.
 ## Proposed changes (agent → viewer → data)
 
 The reverse direction: a checking agent audits a volume against its source and
-proposes concrete edits; a human adjudicates each one in the viewer.
+proposes concrete edits; a human adjudicates each one in the viewer. Two ways to
+run it: offline (below), or hosted, where the same panel writes straight to the
+corpus — see [`deploy/README.md`](deploy/README.md).
 
 ```sh
 # 1. the agent writes sgaN/data/proposals.json (see below)
@@ -140,6 +142,23 @@ A volume with no `sgaN/data/proposals.json` shows no review UI at all, so
 committing that file is what publishes a run (and deleting it takes it down).
 Dropping a `proposals.json` onto the page reviews it locally without committing
 anything. `decisions.json` is a local working file.
+
+### Hosted (viewer → data, no round-trip)
+
+`scripts/review_server.py` serves the working tree and applies each verdict as it
+is made, so the export → CLI → re-read loop disappears. Readers see the books,
+the proposals and the verdicts so far; only a logged-in admin gets the buttons.
+Both paths go through the same guards in `scripts/proposals_lib.py`, so a
+conflict or a content-losing replacement is refused identically either way.
+
+```sh
+python3 scripts/review_server.py --set-password    # once
+python3 scripts/review_server.py                   # 127.0.0.1:8000
+```
+
+Nothing is committed: the applied edits show up in `git diff` for you to review
+and push. Setup for the public deployment (Caddy, systemd, DNS) is in
+[`deploy/README.md`](deploy/README.md).
 
 `sga7/data/proposals.json` currently holds a sample run of 10 proposals — every
 missing-backslash math defect in the volume (`\(operatorname…`, `\(mathbb…`,

@@ -1,0 +1,45 @@
+# The review server, kept alive across reboots.
+#
+#   sudo cp deploy/sga-review.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now sga-review
+#   systemctl status sga-review
+#
+# Runs as `ubuntu` because it writes into the working tree: an accepted proposal
+# is a write to sgaN/data/<lang>/chapters/*.json.
+
+[Unit]
+Description=SGA translation viewer and proposed-changes review server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/dev/sga-data
+ExecStart=/usr/bin/python3 scripts/review_server.py --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=2
+
+# Only Caddy talks to this process, and it only ever needs the corpus and its
+# own audit log. The admin config under ~/.config stays readable (and, being
+# outside ReadWritePaths, unwritable).
+#
+# The audit directory must exist before the unit starts — systemd builds the
+# mount namespace from ReadWritePaths and fails with 226/NAMESPACE on a missing
+# path. The leading `-` keeps a missing directory from wedging the service in a
+# restart loop, so create it once:
+#   mkdir -p ~/.local/state/sga-review
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/ubuntu/dev/sga-data -/home/ubuntu/.local/state/sga-review
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+
+[Install]
+WantedBy=multi-user.target

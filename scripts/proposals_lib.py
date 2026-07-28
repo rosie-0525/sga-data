@@ -123,6 +123,108 @@ def find_record(book, lang, chapter_id, page_id, target="block",
     return items[idx]
 
 
+def chapter_path(book, lang, chapter_id):
+    return data_dir(book, lang) / "chapters" / f"{chapter_id}.json"
+
+
+def resolve_target(page, proposal):
+    """(container_list, index) for the record a proposal edits, or ([], None)."""
+    if proposal.get("target") == "footnote":
+        return page.get("footnotes") or [], proposal.get("footnoteIndex")
+    return page.get("blocks") or [], proposal.get("blockIndex")
+
+
+# ---------------------------------------------------------------------------
+# The guards
+#
+# One implementation, shared by the batch applier (apply_proposals.py) and the
+# review server (review_server.py). Every guard returns a message instead of
+# raising, so a caller serving HTTP can turn it into a 409 and a caller running
+# in a terminal can print it — but neither can skip it.
+
+def check_target(chapter, proposal):
+    """Locate the record a proposal edits inside an already-loaded chapter.
+
+    Returns (record, error). The address must resolve and the record's html must
+    still equal the proposal's `before` — that equality is the whole conflict
+    story, since `before` is the block's html verbatim at proposal time.
+    """
+    page = find_page(chapter, proposal.get("pageId"))
+    if page is None:
+        return None, f"no page {proposal.get('pageId')} in {proposal.get('chapterId')}"
+    items, idx = resolve_target(page, proposal)
+    if idx is None or idx < 0 or idx >= len(items):
+        return None, (f"{proposal.get('target', 'block')} index {idx} out of range "
+                      f"on {proposal.get('pageId')}")
+    rec = items[idx]
+    if rec.get("html") != proposal.get("before"):
+        return None, (f"conflict — {proposal.get('pageId')}#{idx} no longer matches "
+                      "`before`")
+    return rec, None
+
+
+def check_replacement(html):
+    """The viewer's blockEl() keeps only the first top-level element, so anything
+    but a single root silently loses content. Returns an error message or None."""
+    if not isinstance(html, str):
+        return "replacement is not a string"
+    n = root_count(html)
+    if n != 1:
+        return (f"refused — replacement has {n} root elements "
+                "(the viewer would keep only the first)")
+    return None
+
+
+def check_alignment(book, lang, chapter_id, chapter):
+    """The corpus is aligned 1:1 by block index, so an edit must never change a
+    page's block count relative to its mate language. Returns a message or None."""
+    other = "en" if lang == "fr" else "fr"
+    mate = load_chapter(book, other, chapter_id)
+    if mate is None:
+        return None
+    mate_pages = {pg.get("id"): pg for pg in mate.get("pages", [])}
+    for page in chapter.get("pages", []):
+        mp = mate_pages.get(page.get("id"))
+        if mp is None:
+            continue
+        mine, theirs = len(page.get("blocks") or []), len(mp.get("blocks") or [])
+        if mine != theirs:
+            return (f"ABORT: {chapter_id} page {page.get('id')} would have {mine} "
+                    f"blocks vs {theirs} in {other} — the 1:1 alignment must hold")
+    return None
+
+
+def apply_decision(book, proposal, new_html):
+    """Write one accepted/edited proposal into the chapter JSON.
+
+    Loads the chapter fresh from disk, runs every guard, and writes only if all
+    of them pass. Returns (ok, error, path). The caller is responsible for any
+    locking — see review_server.py, which serializes concurrent admins.
+    """
+    lang, chapter_id = proposal.get("lang"), proposal.get("chapterId")
+    path = chapter_path(book, lang, chapter_id)
+    chapter = load_chapter(book, lang, chapter_id)
+    if chapter is None:
+        return False, f"no chapter file {path}", path
+
+    err = check_replacement(new_html)
+    if err:
+        return False, err, path
+    rec, err = check_target(chapter, proposal)
+    if err:
+        return False, err, path
+
+    rec["html"] = new_html
+    page = find_page(chapter, proposal.get("pageId"))
+    rebuild_page_html(page)
+    err = check_alignment(book, lang, chapter_id, chapter)
+    if err:
+        return False, err, path
+
+    write_chapter(path, chapter)
+    return True, None, path
+
+
 # ---------------------------------------------------------------------------
 # Building a run
 
