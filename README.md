@@ -47,10 +47,9 @@ in git history through `a2317a4`.
 Edit the JSON under each volume's `data/` directly. French is the
 populated reference; English chapters are aligned to French **1:1 by block
 index**, so a block added or removed on one side must be mirrored on the other.
-Pages also carry an `html` field that is the concatenation of their block
-`html`s — rebuild it as `"\n".join(block htmls)` after editing any block.
-(A handful of pages predate that invariant, so don't assume it holds
-everywhere before you edit; do restore it on pages you touch.)
+A page's rendered HTML is just the concatenation of its `blocks[].html`; there is
+no page-level `html` field (it was dropped on 2026-07-29 — see
+`translation-viewer/docs/chapter.schema.md` for the schema).
 
 Math stays as `\(...\)` / `\[...\]` for client-side rendering — never
 pre-render it, and don't inject `tex.macros` into the HTML head.
@@ -98,6 +97,25 @@ python3 scripts/glossary_check.py --book sgaN        # one volume
 and `issues/glossary_summary.json`; `glossary_md.py` regenerates
 `glossary/GLOSSARY.md`. Prefer widening a term's accepted English variants in
 `glossary.json` over rewriting settled translations.
+
+When a decision does need the corpus brought into line, `glossary_sweep.py`
+enforces it instead of a hand pass:
+
+```sh
+python3 scripts/glossary_sweep.py --plan               # counts + worklist, writes nothing
+python3 scripts/glossary_sweep.py --emit --book sgaN   # append g-* proposals to the run
+python3 scripts/glossary_sweep.py --audit-reverse      # EN target where the FR term is absent
+```
+
+`glossary/sweep_rules.json` names the *rejected* English rendering per term —
+campaign state the glossary schema deliberately does not carry — and each rule's
+target is cross-checked against its `glossary.json` entry at load. A rule only
+fires where the **aligned French** matches, substitutes in prose only (block html
+is segmented on math spans and tags first, and the segments outside prose are
+asserted byte-identical afterwards), and emits a normal proposals run, so the
+existing guards and the review viewer apply unchanged. Context-dependent terms
+(«majorer», «au-dessus de», stalk vs fibre) are never scripted: they go to
+`issues/glossary_sweep_worklist.json` for per-occurrence review.
 
 ## Review workflow (the viewer)
 

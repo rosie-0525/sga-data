@@ -1,0 +1,127 @@
+{
+ "version": 1,
+ "_comment": "Rejected English renderings, per FR term. glossary.json says what a term SHOULD be; this file says what it currently is where it is wrong, which is campaign state, not a permanent property of the terminology. `to` is cross-checked against the glossary entry's `en` at load time. Mechanical rules only fire when the aligned FRENCH block matches `fr_regex`; spelling rules are English orthography and carry no FR gate.",
+ "rules": [
+  {
+   "fr": "groupe unité",
+   "fr_regex": "\\bgroupes?\\s+unité\\b",
+   "from": ["unit group"],
+   "to": "trivial group",
+   "note": "«section unité» and «élément unité» are legitimately unit section / unit element and are not matched by this rule"
+  },
+  {
+   "fr": "morphisme unité",
+   "fr_regex": "\\bmorphismes?\\s+unité\\b",
+   "from": ["unit morphism"],
+   "to": "trivial morphism"
+  },
+  {
+   "fr": "homomorphisme unité",
+   "fr_regex": "\\bhomomorphismes?\\s+unité\\b",
+   "from": ["unit homomorphism"],
+   "to": "trivial homomorphism"
+  },
+  {
+   "fr": "facteur direct",
+   "fr_regex": "\\bfacteurs?\\s+directs?\\b",
+   "from": ["direct factor"],
+   "to": "direct summand"
+  },
+  {
+   "fr": "partie localement fermée",
+   "fr_regex": "\\bparties?\\s+localement\\s+fermées?\\b",
+   "from": ["locally closed part"],
+   "to": "locally closed subset"
+  },
+  {
+   "fr": "partie fermée",
+   "fr_regex": "\\bparties?\\s+fermées?\\b",
+   "from": ["closed part"],
+   "to": "closed subset"
+  },
+  {
+   "fr": "partie ouverte",
+   "fr_regex": "\\bparties?\\s+ouvertes?\\b",
+   "from": ["open part"],
+   "to": "open subset"
+  },
+  {
+   "fr": "partie finie",
+   "fr_regex": "\\bparties?\\s+finies?\\b",
+   "from": ["finite part"],
+   "to": "finite subset",
+   "fr_veto": "[«\"“]\\s*parties?\\s+finies?\\s*[»\"”]",
+   "note": "vetoed when the French quotes it: « partie finie » names the finite component of a decomposition (sga3 X-4#11), like «partie unipotente» → unipotent part, and is not a subset"
+  },
+  {
+   "fr": "foncteur fibre",
+   "fr_regex": "\\bfoncteurs?\\s+fibres?\\b",
+   "from": ["stalk functor"],
+   "to": "fibre functor"
+  },
+  {
+   "fr": "catégorie clivée",
+   "fr_regex": "\\bcliv(?:é|ée|és|ées)\\b",
+   "from": ["cloven"],
+   "to": "cleaved"
+  },
+  {
+   "fr": "flasque",
+   "fr_regex": "\\bflasques?\\b",
+   "from": ["flabby"],
+   "to": "flasque",
+   "note": "\"flabby\" is in the entry's en_accept — accepted for reading, but the corpus keeps the French word, so the 5 stray occurrences are normalized"
+  },
+  {
+   "fr": "reprenant les notations",
+   "fr_regex": "\\breprenant\\s+les\\s+notations\\b",
+   "from": ["resuming the notation"],
+   "to": "using the notation"
+  }
+ ],
+ "spelling": [
+  {
+   "id": "fibre",
+   "map": {
+    "fiber": "fibre",
+    "fibers": "fibres",
+    "fibered": "fibred",
+    "fibering": "fibring",
+    "fiberwise": "fibrewise"
+   },
+   "skip_bibliography": true,
+   "note": "British spelling is the house form (glossary «fibre»). Bibliography blocks are skipped — English paper titles keep their own spelling (sga6 II-bibliographie cites Shih, «Fiber cobordism…»)."
+  }
+ ],
+ "judgment": [
+  {
+   "fr": "majorer",
+   "fr_regex": "\\bmajor(?:e|es|ent|er|é|ée|és|ées|ant|ants)\\b",
+   "watch": ["dominate", "dominates", "dominated", "dominating"],
+   "suggest": "contain",
+   "reason": "«H majore K» is \"H contains K\" in a subgroup/subscheme-inclusion context; elsewhere bound / upper bound"
+  },
+  {
+   "fr": "au-dessus de",
+   "fr_regex": "\\bau-dessus d",
+   "watch": ["above"],
+   "suggest": "over",
+   "reason": "scheme-theoretic «X au-dessus de S» is \"X over S\"; \"above\" is correct only in its ordinary spatial/textual sense",
+   "en_filter": "\\babove\\s+(?:\\\\\\(|[A-Z]|a\\b|an\\b|every\\b|each\\b|any\\b)"
+  },
+  {
+   "fr": "fibre",
+   "fr_regex": "\\bfibres?\\b",
+   "watch": ["stalk", "stalks"],
+   "suggest": "fibre",
+   "reason": "the sheaf-at-a-point sense is \"stalk\", the topos/Galois sense is \"fibre\" — fixes exist in both directions, never scripted"
+  },
+  {
+   "fr": "numéro",
+   "fr_regex": "\\bnuméros?\\b",
+   "watch": ["article", "articles"],
+   "suggest": "section",
+   "reason": "«ce numéro» is the numbered section of the exposé, not an article"
+  }
+ ]
+}

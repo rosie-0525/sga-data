@@ -215,8 +215,6 @@ def apply_decision(book, proposal, new_html):
         return False, err, path
 
     rec["html"] = new_html
-    page = find_page(chapter, proposal.get("pageId"))
-    rebuild_page_html(page)
     err = check_alignment(book, lang, chapter_id, chapter)
     if err:
         return False, err, path
@@ -347,13 +345,3 @@ def write_chapter(path, obj):
     had_newline = path.read_text(encoding="utf-8").endswith("\n")
     text = json.dumps(obj, ensure_ascii=False, indent=1)
     path.write_text(text + ("\n" if had_newline else ""), encoding="utf-8")
-
-
-def rebuild_page_html(page):
-    """sga1/sga2/sga4.5 pages carry an `html` field that is the concatenation of
-    their blocks' html. Rebuild it after editing a block; pages without the
-    field (sga3-sga7) are left alone."""
-    if "html" not in page:
-        return False
-    page["html"] = "\n".join(b.get("html", "") for b in page.get("blocks", []))
-    return True

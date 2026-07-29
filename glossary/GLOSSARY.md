@@ -14,7 +14,7 @@ corpus (sga1–sga7). The machine source of truth is
   reports deviations to `issues/glossary_deviations.json`.
 - *Seen* cites exemplar occurrences as `book:anchor` or `book:page#block`.
 
-## Mathematical terms (498)
+## Mathematical terms (519)
 
 | Français | English | Also accepted | Note | Seen |
 |---|---|---|---|---|
@@ -22,6 +22,7 @@ corpus (sga1–sga7). The machine source of truth is
 | accouplement | pairing |  |  | sga1:VI-2#24, sga2:V-1#33, sga3:VIII-1#4 |
 | adique | adic |  |  | sga2:IX-s3#2, sga3:XI.3.1, sga7:9.7.2.6 |
 | adjoint | adjoint |  |  | sga1:V-5#4, sga2:I-1#35, sga3:I-1#31 |
+| adjoint à gauche | left adjoint | left adjoint to, left adjoint of | prefer "left adjoint to F" over "left adjoint of F" | sga3:VIIA-5#15, sga3:VIIA-5#26, sga3:VIIA-8#2 |
 | adjonction | adjunction |  |  | sga1:XI-6#10, sga3:IV.4.4.1, sga5:I-1#6 |
 | affine | affine |  |  | sga1:I-5#4, sga2:II#12, sga3:I.4.2 |
 | algèbre | algebra |  |  | sga1:introduction#10, sga2:bib-Tohoku, sga3:I-2#11 |
@@ -37,6 +38,7 @@ corpus (sga1–sga7). The machine source of truth is
 | anneau de Chern | Chern ring |  |  | sga6:V#2 |
 | application rationnelle | rational map | rational mapping |  | sga1:X-3#9, sga3:X-8#9, sga7:2#6 |
 | artinien | artinian |  |  | sga1:I-6#5, sga2:IV.3.1, sga3:III#1 |
+| au-dessus de | over | above, lying over | scheme-theoretic «X au-dessus de S» is "X over S"; "above" is only correct in its ordinary spatial/textual sense. Per-occurrence judgment | sga1:I-5#4, sga1:I-7#27, sga1:I-8#6 |
 | automorphisme | automorphism |  |  | sga1:rem:II.4.18, sga3:I-2#16, sga5:VI-1-2#17 |
 | avec dénominateurs | with denominators |  |  | sga6:XIV-4#21 |
 | axiome | axiom |  |  | sga1:V-2#30, sga3:I-2#11, sga6:0-app-I#24 |
@@ -52,6 +54,7 @@ corpus (sga1–sga7). The machine source of truth is
 | cartésien | cartesian |  |  | sga1:I.3.6, sga2:proof-XII-4-3, sga3:I-1#44 |
 | catégorie | category |  |  | sga1:avertissement#3, sga2:I-1#1, sga3:I-1#2 |
 | catégorie abélienne | abelian category |  |  | sga1:XI-4#29, sga2:IV-4#15, sga3:III-4#1 |
+| catégorie clivée | cleaved category | cloven category, cleaved | the corpus renders «clivage/clivée» as cleavage/cleaved | sga1:VI.7, sga1:VI.7.1, sga1:VI-7#7 |
 | catégorie dérivée | derived category |  |  | sga2:XIV-1#2, sga5:I-1#1, sga6:0.3.1 |
 | catégorie fibrée | fibred category | fibered category, fibred, fibered |  | sga1:III.6.4, sga2:X-3#20, sga3:VIII-6#11 |
 | centralisateur | centralizer | centraliser |  | sga3:II.5.2, sga5:IIIB.5.11.3 |
@@ -66,6 +69,7 @@ corpus (sga1–sga7). The machine source of truth is
 | classe de Todd | Todd class |  |  | sga6:XIV-2#1 |
 | classe fondamentale | fundamental class |  |  | sga5:I.3.1.4 |
 | classe fondamentale locale | local fundamental class |  |  | sga5:I.3.1.4 |
+| clivage | cleavage |  |  | sga1:VI.7.1, sga1:VI-7#2, sga1:VI-7#4 |
 | clôture algébrique | algebraic closure |  |  | sga1:I-4#19, sga2:XIII-2#8, sga3:VIA-0#15 |
 | clôture intégrale | integral closure |  |  | sga1:XIII.2.3, sga3:X-8#24, sga5:VI-1-4#63 |
 | clôture séparable | separable closure |  |  | sga1:V.8.1, sga2:XIII-6#2, sga3:VIIB-2#45 |
@@ -86,6 +90,7 @@ corpus (sga1–sga7). The machine source of truth is
 | complexe parfait | perfect complex |  |  | sga5:III-3#7, sga6:0.3.1 |
 | composante connexe | connected component |  |  | sga1:introduction#6, sga2:XIII-4#5, sga3:VIA.2 |
 | composante neutre | identity component | neutral component |  | sga3:VIA-2#13, sga6:X-2#48, sga7:1-6#1 |
+| composé de corps | product of fields |  | reads with «composé direct» → direct product; not the calque "composite of fields" when the object is a ring | sga1:XI.6.6, sga1:XI.6.10 |
 | composé direct | direct product |  | Grothendieck's variant of «produit direct» (of rings, fields, algebras); never the calque "direct composite" | sga1:IX.1.9, sga2:X-2#37, sga4:VIII-4#3 |
 | condition | condition | provided |  | sga1:I.2.1, sga2:resume#1, sga3:I-2#11 |
 | condition de Lefschetz | Lefschetz condition |  |  | sga2:X-2#1 |
@@ -116,6 +121,7 @@ corpus (sga1–sga7). The machine source of truth is
 | cycle | cycle |  |  | sga2:V.1.2, sga5:I.3.1.4, sga6:0.1 |
 | cycle évanescent | vanishing cycle |  |  | sga7:1.2 |
 | de longueur finie | of finite length | finite length |  | sga2:proof-IV-3-5, sga3:VIIB-0#12, sga5:VI-3#2 |
+| de même espèce | of the same kind | of the same type | not "of the same species" | sga3:II.3.8.cor, sga5:XV-1#16, sga6:0-app-II#128 |
 | de présentation finie | of finite presentation | finite presentation |  | sga1:VIII.1.10, sga2:IV-1#14, sga3:III.0.6 |
 | de type fini | of finite type | finite type, finitely generated |  | sga1:avertissement#4, sga2:III-1#3, sga3:I-4#25 |
 | de type multiplicatif | of multiplicative type | multiplicative type |  | sga3:VIIB-2#54, sga6:XIII.3.12, sga7:8-1#68 |
@@ -181,6 +187,7 @@ corpus (sga1–sga7). The machine source of truth is
 | extension essentielle | essential extension |  |  | sga2:IV-4#17 |
 | extension galoisienne | Galois extension |  |  | sga1:I-11#3, sga3:XVII-2#15, sga5:X-4#15 |
 | facette | facet |  |  |  |
+| facteur direct | direct summand | direct factor | «stable par facteurs directs» = closed under direct summands; "direct factor" is the older calque, kept accepted for reading but not used in the corpus | sga1:I-9#23, sga1:II.4.4, sga1:II-4#19 |
 | factoriel | factorial |  | = UFD | sga1:XI.6.5, sga2:XI-3#11, sga6:II.2.2.7 |
 | faisceau | sheaf | sheaves |  | sga1:introduction#12, sga2:resume#0, sga3:I-4#53 |
 | faisceau associé | associated sheaf |  |  | sga1:XIII-0#10, sga2:I.2.4, sga3:IV.4.3 |
@@ -192,7 +199,7 @@ corpus (sga1–sga7). The machine source of truth is
 | fermé | closed | closed set, closed subset |  | sga1:I-1#1, sga2:I-0#3, sga3:II-3#8 |
 | fermeture intégrale | integral closure |  |  | sga7:2#24 |
 | fibration | fibration |  |  | sga1:rem:XIII.4.6, sga3:XIII-3#9, sga6:0#33 |
-| fibre | fibre | fiber, stalk | of a sheaf at a point = stalk | sga1:I-2#2, sga2:VII-s2#21, sga3:III-4#27 |
+| fibre | fibre | fiber, stalk | of a sheaf at a point = stalk; British spelling fibre/fibred is the house form throughout the corpus | sga1:I-2#2, sga2:VII-s2#21, sga3:III-4#27 |
 | fibré normal | normal bundle |  |  | sga6:0-app-II#124, sga7:14-3-2#28 |
 | fibré principal | principal bundle |  |  | sga1:V-2#17, sga3:IV.5.1.5 |
 | fibré principal homogène | principal homogeneous bundle | principal homogeneous space |  | sga1:XI-4#5, sga3:IV.5.1.5 |
@@ -204,10 +211,13 @@ corpus (sga1–sga7). The machine source of truth is
 | filtration de Hodge | Hodge filtration |  |  | sga7:9-13#85 |
 | fini | finite |  |  | sga1:avertissement#4, sga2:I-0#6, sga3:I-1#44 |
 | finitude | finiteness | finitude | «Th. finitude» citations keep the French title | sga1:I-4#12, sga2:resume#1, sga3:IX.2.3 |
+| flasque | flasque | flabby | the corpus keeps the French word (Godement's «faisceau flasque»); "flabby" is accepted for reading but not used | sga2:I.1.8, sga2:proof-I-1-12, sga2:I.1.9 |
 | flèche | arrow | map, morphism |  | sga1:I.7.8, sga2:II#76, sga3:I#2 |
 | foncteur | functor |  |  | sga1:thm-I-5-2, sga2:I.1, sga3:I#2 |
 | foncteur dérivé | derived functor |  |  | sga1:IV-1#3, sga2:I.2.1, sga3:I-5#2 |
 | foncteur dualisant | dualizing functor | dualising functor |  | sga2:IV, sga5:I-introduction#2 |
+| foncteur fibre | fibre functor | fiber functor | not "stalk functor" — the fibre functor of a topos/Galois category, distinct from the stalk of a sheaf at a point | sga1:V-7#8, sga1:IX.5.8, sga2:XIV.1.9 |
+| foncteur spectral | spectral functor |  | Tohoku §2.4's notion (a functor producing spectral sequences); distinct from «suite spectrale» → spectral sequence, and not to be flattened into it | sga2:VI-1#12, sga2:VI-1#14, sga2:VI-1#15 |
 | fonction | function |  |  | sga1:introduction#12, sga2:VIII.2.4, sga3:I-1#45 |
 | fonction holomorphe | holomorphic function |  |  | sga1:VIII.6.3, sga6:II.2.4.2, sga7:10-2#103 |
 | fonctorialité | functoriality |  |  | sga1:VI-3#67, sga2:IX-1#27, sga3:II-2#3 |
@@ -244,6 +254,7 @@ corpus (sga1–sga7). The machine source of truth is
 | groupe fondamental | fundamental group |  |  | sga1:introduction#4, sga2:resume#1, sga3:X.1.2 |
 | groupe réductif | reductive group |  |  |  |
 | groupe semi-simple | semi-simple group | semisimple group |  |  |
+| groupe unité | trivial group |  | not "unit group" — «groupe unité» is the trivial (identity) group scheme, not the group of units; «section unité» and «élément unité» keep unit section / unit element | sga3:VIB-1#13, sga3:VIB.1.4.2, sga3:VIB-1#23 |
 | groupoïde | groupoid |  |  | sga1:V-5#19, sga3:V-1#9, sga7:9-9#43 |
 | groupoïde fondamental | fundamental groupoid |  |  | sga1:V-5#19 |
 | hauteur | height |  |  | sga3:VIIA-4#15, sga6:X-1#94, sga7:9-2#25 |
@@ -252,6 +263,7 @@ corpus (sga1–sga7). The machine source of truth is
 | homologie | homology |  |  | sga1:X.2.13, sga2:VIII.1.3, sga3:I-5#2 |
 | homomorphisme | homomorphism |  |  | sga1:introduction#6, sga2:I-1#12, sga3:I.2.1.1 |
 | homomorphisme de spécialisation | specialization homomorphism | specialisation homomorphism |  | sga1:X-2#12, sga6:X.7.3 |
+| homomorphisme unité | trivial homomorphism |  | not "unit homomorphism" — see «groupe unité» | sga3:IX.3.5, sga3:IX.5.2, sga3:IX.5.3 |
 | homotopie | homotopy |  |  | sga1:X.1, sga2:VIII.1.4, sga3:I.5.2.2 |
 | hypercohomologie | hypercohomology |  |  | sga2:XIV-1#84, sga5:III#2, sga6:III-2#14 |
 | hyperplan | hyperplane |  |  | sga1:IV#1, sga2:I-0#6, sga3:XVII-4#6 |
@@ -297,6 +309,7 @@ corpus (sga1–sga7). The machine source of truth is
 | localement trivial | locally trivial |  |  | sga1:VI-s2#2, sga3:IV.5.1.5, sga6:0-app-II#53 |
 | localisation | localization | localisation |  | sga1:II.4.14, sga2:I-0#3, sga3:IX.1.2 |
 | longueur | length |  |  | sga1:avertissement#3, sga2:III-2#21, sga3:VIIB-0#12 |
+| majorer *(majore, majorent, majoré, majorée, majorés, majorées, majorant)* | bound | contain, dominate, upper bound | (v) context-dependent: in a subgroup/subscheme-inclusion context «H majore K» is "H contains K"; elsewhere bound / upper bound. Per-occurrence judgment — see issues/glossary_sweep_worklist.json | sga1:V-5#4, sga3:IV.2.4, sga3:IV.3.1.6 |
 | matrice | matrix | matrices |  | sga1:I.9.7, sga2:XIII-5#13, sga3:IX-7#7 |
 | modèle | model |  |  | sga1:X-3#14, sga2:XIII-6#38, sga3:I-4#1 |
 | modèle de Néron | Néron model | Neron model |  | sga7:1-6#1 |
@@ -310,6 +323,7 @@ corpus (sga1–sga7). The machine source of truth is
 | morphisme d'immersion fermée | closed immersion |  | not "closed immersion morphism" — see «morphisme d'immersion» | sga1:I-1#1 |
 | morphisme d'immersion régulière | regular immersion |  | not "morphism of regular immersion" — see «morphisme d'immersion» | sga1:II-4#52 |
 | morphisme propre | proper morphism | proper | «propre» only as collocations — bare it also means "own" | sga1:introduction#6, sga2:I-0#5, sga5:I-3#26 |
+| morphisme unité | trivial morphism |  | the morphism factoring through the identity section; not "unit morphism" | sga3:III-1#11, sga3:III.2.4, sga3:III-2#9 |
 | net *(nette)* | unramified | net, non-ramified | (adj) older synonym of «non ramifié»; some translations keep «net» | sga1:I.3, sga7:9.1.3.1 |
 | nilpotent | nilpotent |  |  | sga1:avertissement#4, sga2:III-2#11, sga3:II#2 |
 | noethérien | noetherian |  |  | sga1:I#1, sga2:I-0#5, sga3:V-2#5 |
@@ -333,10 +347,15 @@ corpus (sga1–sga7). The machine source of truth is
 | parafactoriel | parafactorial |  |  | sga2:XI.3.1 |
 | parfait | perfect |  |  | sga1:II.5.4, sga2:XIII-5#6, sga3:VIA-0#6 |
 | partie abélienne | abelian part |  |  | sga3:XV.8.4, sga7:8-4#44 |
+| partie fermée | closed subset |  | not "closed part" | sga1:IV.6.1, sga1:IV.6.3, sga1:IV.6.4 |
+| partie finie | finite subset |  | not "finite part" | sga1:V-1#28, sga1:VIII-7#28, sga1:VIII-7#32 |
 | partie fixe | fixed part |  |  | sga7:9-sommaire#3 |
+| partie localement fermée | locally closed subset |  | not "locally closed part" | sga1:IV-6#2, sga1:IV-6#28, sga1:VIII.4.5 |
+| partie ouverte | open subset |  | not "open part" | sga1:I.10.1, sga1:IV.6.1, sga1:IV.6.4 |
 | partie primitive | primitive part |  |  | sga6:XIV-8#2, sga7:11.2.6 |
 | partie torique | toric part |  |  | sga3:XV.8.4, sga7:9-sommaire#3 |
 | partie unipotente | unipotent part |  |  | sga3:XIII-2#14, sga7:9-2#28 |
+| parution | publication |  | not "appearance" in the sense of looks | sga1:introduction#8, sga1:avertissement#3, sga1:avertissement#4 |
 | pinceau | pencil |  |  | sga7:2#4 |
 | pinceau de Lefschetz | Lefschetz pencil |  |  | sga7:2#4 |
 | plat | flat |  |  | sga1:avertissement#6, sga2:III.2.11, sga3:I-4#25 |
@@ -410,6 +429,7 @@ corpus (sga1–sga7). The machine source of truth is
 | réflexion | reflection |  |  |  |
 | régulier | regular |  |  | sga1:I.9.1, sga2:III.2.2, sga3:VIA-1#14 |
 | relation d'équivalence | equivalence relation |  |  | sga1:VIII.4.2, sga3:IV.3, sga5:VII-9#186 |
+| reprenant les notations | using the notation | with the notation, keeping the notation | not "resuming the notation" — «reprendre» here is "take up / use again" | sga1:XIII.3.1.3, sga2:XIV-4#29, sga3:VIIA-6#16 |
 | représentable | representable |  |  | sga1:V-1#4, sga2:IV.1.2, sga3:I-1#3 |
 | réseau | lattice |  |  | sga3:XIV-3#36, sga7:9-10#38 |
 | résidu | residue |  |  | sga2:IV.5.5, sga5:III.6.8, sga6:VIII-5#56 |
@@ -431,6 +451,7 @@ corpus (sga1–sga7). The machine source of truth is
 | scindé | split |  |  | sga1:VI.9, sga3:I.4.7.4, sga5:XV-3#128 |
 | section | section |  |  | sga1:I.4.10, sga2:I-0#6, sga3:I-1#13 |
 | section hyperplane | hyperplane section |  |  | sga1:IV#1, sga2:I-0#6, sga5:VII-7#1 |
+| section identique | identity section | unit section | not "identical section" | sga1:XIII-3#55, sga1:XIII-3#60, sga1:XIII-3#85 |
 | section régulière | regular section |  |  | sga2:XIII.4.3, sga3:XIII.3.2, sga6:0.app.2.3bis.cor2 |
 | section zéro | zero section |  |  | sga3:II-2#2 |
 | semi-simple | semi-simple |  |  | sga3:IX.1.2, sga6:XIV-4#43, sga7:9.5.14 |

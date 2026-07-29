@@ -33,7 +33,7 @@ from pathlib import Path
 from proposals_lib import (
     BOOKS, VERDICTS, chapter_path, check_alignment, check_replacement,
     check_target, load_chapter, load_json, proposals_path,
-    rebuild_page_html, validate, write_chapter,
+    validate, write_chapter,
 )
 
 
@@ -117,7 +117,7 @@ def main():
                 skipped.append(f"{pid}: no chapter file {path}")
                 counts["refused"] += 1
                 continue
-            touched[key] = {"path": path, "chapter": chapter, "pages": set(),
+            touched[key] = {"path": path, "chapter": chapter,
                             "lang": p["lang"], "chapterId": p["chapterId"], "edits": 0}
         entry = touched[key]
 
@@ -139,7 +139,6 @@ def main():
                            f"{rec.get('id')!r} (applied anyway, index is canonical)")
 
         rec["html"] = new_html
-        entry["pages"].add(p["pageId"])
         entry["edits"] += 1
         counts["edited" if verdict == "edit" else "applied"] += 1
 
@@ -149,9 +148,6 @@ def main():
         if not entry["edits"]:
             continue
         chapter = entry["chapter"]
-        for page in chapter.get("pages", []):
-            if page.get("id") in entry["pages"]:
-                rebuild_page_html(page)
         err = check_alignment(args.book, entry["lang"], entry["chapterId"], chapter)
         if err:
             raise SystemExit(err)

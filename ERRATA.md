@@ -182,3 +182,20 @@ quasi-projective". Kept as printed.
 In the displayed coefficient formula after (4.3.2), the original prints
 `(1/(α₁! ⋯ a_d!))` where `α_d!` is clearly meant. The transcription silently
 normalizes this to `\alpha_d!`.
+
+---
+
+# SGA 7 — anomalies in the printed typescript
+
+## Exposé XX, p. 6 (vol. p. 346) — "S annexe" for "S connexe"
+
+Proposition 1.5.3, hypothesis line:
+
+> Supposons f, g propres, S **annexe**, et soit q ∈ ℤ.
+
+The typescript prints "annexe" — verified on the page image at 200 dpi, not just
+in the PDF's (noisy) OCR layer, so this is the source's own misprint and not a
+transcription artifact. "Annexe" is not a French mathematical adjective; the
+hypothesis wanted is *S connexe* (S connected), as in the neighbouring statements
+of §1. **Corrected** in `sga7/data/fr/chapters/20.json` (block 40) on 2026-07-29
+under the policy above, the English rendering "S connected" agreeing with it.

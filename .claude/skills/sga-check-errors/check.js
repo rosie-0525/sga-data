@@ -31,7 +31,7 @@
 //   - mjx-merror elements             (DOM)
 //   - leaked \word macro tokens       (DOM, post-typeset text nodes)
 //   - ??? / ?? unresolved-ref markers (DOM)
-//   - \ref/\eqref surviving into math (static, over page.html)
+//   - \ref/\eqref surviving into math (static, over the assembled page html)
 //   - internal #anchor links that resolve to nothing via the manifest (static)
 //   - blocks whose html isn't a single root element (DOM, per-block — see
 //     checkBlockShapes; translation-viewer's blockEl() keeps only
@@ -129,7 +129,7 @@ function loadLanguageContent(lang, manifest) {
     try {
       chapter = readJSON(cpath);
     } catch (e) {
-      pages.push({ chapterId: ch.id, page: { id: ch.id, title: ch.title, html: '', __readError: String(e) } });
+      pages.push({ chapterId: ch.id, page: { id: ch.id, title: ch.title, __readError: String(e) } });
       return;
     }
     (chapter.pages || []).forEach((pg) => pages.push({ chapterId: ch.id, page: pg }));
@@ -138,15 +138,12 @@ function loadLanguageContent(lang, manifest) {
 }
 
 // Mirror translation-viewer/viewer.js's renderAligned(): a page's shipped HTML
-// is the concatenation of its blocks[].html (viewer.js blockEl — the viewer
-// never reads a page-level `html` field; sga1's is a legacy leftover), plus the
-// per-language no-translation placeholder and footnotesEl(), so we typeset
-// exactly what ships to the browser.
+// is the concatenation of its blocks[].html (viewer.js blockEl — pages carry no
+// page-level `html` field), plus the per-language no-translation placeholder and
+// footnotesEl(), so we typeset exactly what ships to the browser.
 function assemblePageHtml(pg, lang, config) {
   const strings = (config && config.languages && config.languages[lang]) || {};
-  let html = (pg.blocks && pg.blocks.length)
-    ? pg.blocks.map((b) => b.html || '').join('\n')
-    : (pg.html || '');
+  let html = (pg.blocks || []).map((b) => b.html || '').join('\n');
   if (!html.trim()) {
     html = '<h1>' + (pg.title || '') + '</h1>' +
       '<p class="muted"><em>' + (strings.notrans || '(no translation)') + '</em></p>';
