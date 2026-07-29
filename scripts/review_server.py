@@ -185,6 +185,30 @@ def load_decisions(book):
     return out
 
 
+def progress_all():
+    """{book: {total, decided}} for every book with a run published.
+
+    What the landing page draws its bars from. `decided` counts the proposals of
+    the *current* run that carry a verdict, so a decisions file left over from an
+    earlier run contributes nothing rather than overcounting. Staleness is not
+    computed: it would mean reading every chapter of every book to answer one
+    page load.
+    """
+    out = {}
+    for book in BOOKS:
+        run = load_run(book)
+        if run is None:
+            continue
+        ids = {p.get("id") for p in (run.get("proposals") or []) if p.get("id")}
+        decided = load_decisions(book)
+        out[book] = {
+            "total": len(ids),
+            "decided": sum(1 for pid, d in decided.items()
+                           if pid in ids and d.get("verdict") in VERDICTS),
+        }
+    return out
+
+
 def save_decisions(book, by_id):
     """Written in the viewer's own export schema, so this file doubles as a
     decisions.json that apply_proposals.py --decisions can replay offline."""
@@ -307,6 +331,10 @@ class ReviewHandler(SimpleHTTPRequestHandler):
         route = self.path.split("?")[0]
         if route == "/api/session":
             return self.send_json({"ok": True, "admin": self.is_admin()})
+        if route == "/api/progress":
+            with LOCK:
+                books = progress_all()
+            return self.send_json({"ok": True, "books": books})
         if route.startswith("/api/"):
             return self.fail(HTTPStatus.NOT_FOUND, "no such endpoint")
         if self.denied():

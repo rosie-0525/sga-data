@@ -14,7 +14,7 @@ corpus (sga1–sga7). The machine source of truth is
   reports deviations to `issues/glossary_deviations.json`.
 - *Seen* cites exemplar occurrences as `book:anchor` or `book:page#block`.
 
-## Mathematical terms (493)
+## Mathematical terms (498)
 
 | Français | English | Also accepted | Note | Seen |
 |---|---|---|---|---|
@@ -86,6 +86,7 @@ corpus (sga1–sga7). The machine source of truth is
 | complexe parfait | perfect complex |  |  | sga5:III-3#7, sga6:0.3.1 |
 | composante connexe | connected component |  |  | sga1:introduction#6, sga2:XIII-4#5, sga3:VIA.2 |
 | composante neutre | identity component | neutral component |  | sga3:VIA-2#13, sga6:X-2#48, sga7:1-6#1 |
+| composé direct | direct product |  | Grothendieck's variant of «produit direct» (of rings, fields, algebras); never the calque "direct composite" | sga1:IX.1.9, sga2:X-2#37, sga4:VIII-4#3 |
 | condition | condition | provided |  | sga1:I.2.1, sga2:resume#1, sga3:I-2#11 |
 | condition de Lefschetz | Lefschetz condition |  |  | sga2:X-2#1 |
 | conducteur | conductor |  |  | sga7:9-sommaire#5 |
@@ -305,6 +306,9 @@ corpus (sga1–sga7). The machine source of truth is
 | monodromie | monodromy |  |  | sga1:introduction#12, sga7:1.1 |
 | monomorphisme | monomorphism |  |  | sga1:IV-1#3, sga2:I-1#46, sga3:I-1#5 |
 | morphisme | morphism | map |  | sga1:introduction#5, sga2:I-0#5, sga3:I-1#5 |
+| morphisme d'immersion | immersion |  | drop «morphisme»: in English an immersion *is* a morphism — never "immersion morphism" / "morphism of immersion". Same for the «morphisme canonique d'immersion» word order. | sga1:II-4#39, sga3:XIV-2#39 |
+| morphisme d'immersion fermée | closed immersion |  | not "closed immersion morphism" — see «morphisme d'immersion» | sga1:I-1#1 |
+| morphisme d'immersion régulière | regular immersion |  | not "morphism of regular immersion" — see «morphisme d'immersion» | sga1:II-4#52 |
 | morphisme propre | proper morphism | proper | «propre» only as collocations — bare it also means "own" | sga1:introduction#6, sga2:I-0#5, sga5:I-3#26 |
 | net *(nette)* | unramified | net, non-ramified | (adj) older synonym of «non ramifié»; some translations keep «net» | sga1:I.3, sga7:9.1.3.1 |
 | nilpotent | nilpotent |  |  | sga1:avertissement#4, sga2:III-2#11, sga3:II#2 |
@@ -358,6 +362,7 @@ corpus (sga1–sga7). The machine source of truth is
 | pro-objet | pro-object |  |  | sga1:V-4#5, sga2:XIII-5#4, sga5:III-6#24 |
 | pro-objet fondamental | fundamental pro-object |  |  | sga1:V.5.1 |
 | produit | product |  |  | sga1:introduction#6, sga2:III-3#22, sga3:I-1#6 |
+| produit direct | direct product |  |  | sga1:XIII-2#2, sga3:VIIB-0#31, sga5:IIIB.3.1 |
 | produit fibré | fibre product | fiber product, fibred product, fibered product |  | sga1:introduction#6, sga3:I-1#6, sga5:III-5#47 |
 | produit tensoriel | tensor product |  |  | sga1:II-4#62, sga2:proof-IV-4-7, sga3:III.0.6 |
 | profini | profinite |  |  | sga1:introduction#7, sga3:VIIB-0#45, sga5:I.5.1.9 |

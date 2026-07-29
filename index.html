@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Séminaire de Géométrie Algébrique du Bois-Marie</title>
+<title>SGA reviewer</title>
 <link rel="icon" href="data:,">
 <style>
   :root { --accent:#7a1f1f; --bg:#fbfaf7; --sidebar-bg:#f1efe9; --border:#ddd9cf; --text:#1d1d1b; --muted:#6b675e; }
@@ -14,8 +14,7 @@
     background: var(--bg); color: var(--text); line-height: 1.55;
   }
   header { background: var(--accent); color: #fff; padding: 2.5rem 1.5rem; text-align: center; }
-  header h1 { margin: 0 0 .3rem; font-size: 1.8rem; letter-spacing: .02em; }
-  header p { margin: 0; opacity: .85; font-style: italic; }
+  header h1 { margin: 0; font-size: 1.8rem; letter-spacing: .02em; }
   main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
   ul.volumes { list-style: none; margin: 0; padding: 0; }
   li.volume { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 1rem; background: #fff; }
@@ -23,6 +22,13 @@
   li.volume a:hover { background: var(--sidebar-bg); }
   .vol-num { display: block; font-weight: 700; color: var(--accent); font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .2rem; }
   .vol-title { font-size: 1.1rem; }
+  /* Review progress. Hidden until the counts arrive, so a book with no run
+     published (or a fetch that fails) looks exactly as it did before. */
+  .vol-progress { display: none; align-items: center; gap: .6rem; margin-top: .55rem; }
+  .vol-progress.ready { display: flex; }
+  .vol-progress .bar { flex: 1; height: 6px; border-radius: 3px; background: var(--sidebar-bg); border: 1px solid var(--border); overflow: hidden; }
+  .vol-progress .fill { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 3px; transition: width .3s ease; }
+  .vol-progress .label { font-size: .78rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
   li.volume.coming-soon { opacity: .55; }
   li.volume.coming-soon .vol-num::after { content: " — à venir"; font-weight: 400; text-transform: none; color: var(--muted); }
   footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 2rem 1.5rem; }
@@ -39,45 +45,140 @@
 </head>
 <body>
 <header>
-  <h1>Séminaire de Géométrie Algébrique du Bois-Marie</h1>
-  <p>Éditions traduites — visualiseur bilingue parallèle</p>
+  <h1>Review SGA translation</h1>
 </header>
 <main>
   <ul class="volumes">
     <li class="volume"><a href="sga1/paper.html">
       <span class="vol-num">SGA 1</span>
       <span class="vol-title">Revêtements étales et groupe fondamental</span>
+      <span class="vol-progress" data-book="sga1"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga2/paper.html">
       <span class="vol-num">SGA 2</span>
       <span class="vol-title">Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz locaux et globaux</span>
+      <span class="vol-progress" data-book="sga2"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga3/paper.html">
       <span class="vol-num">SGA 3</span>
       <span class="vol-title">Schémas en groupes</span>
+      <span class="vol-progress" data-book="sga3"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga4/paper.html">
       <span class="vol-num">SGA 4</span>
       <span class="vol-title">Théorie des topos et cohomologie étale des schémas</span>
+      <span class="vol-progress" data-book="sga4"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga4.5/paper.html">
       <span class="vol-num">SGA 4½</span>
       <span class="vol-title">Cohomologie étale</span>
+      <span class="vol-progress" data-book="sga4.5"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga5/paper.html">
       <span class="vol-num">SGA 5</span>
       <span class="vol-title">Cohomologie ℓ-adique et fonctions L</span>
+      <span class="vol-progress" data-book="sga5"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga6/paper.html">
       <span class="vol-num">SGA 6</span>
       <span class="vol-title">Théorie des intersections et théorème de Riemann-Roch</span>
+      <span class="vol-progress" data-book="sga6"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga7/paper.html">
       <span class="vol-num">SGA 7</span>
       <span class="vol-title">Groupes de monodromie en géométrie algébrique</span>
+      <span class="vol-progress" data-book="sga7"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
   </ul>
 </main>
 <footer>Bilingual viewer of Séminaire de Géométrie Algébrique du Bois-Marie (SGA), by Grothendieck et al.</footer>
+<script>
+/* How far the review of each volume has got: decided / proposed changes.
+   "Decided" is a proposal carrying a verdict (accept / edit / reject); anything
+   else is pending. Staleness is not computed here — it would mean reading every
+   chapter of every book to draw eight bars.
+
+   Served (scripts/review_server.py): one small /api/progress answers for all
+   eight books. Static host (GitHub Pages, python3 -m http.server): that 404s,
+   and each book is counted in the browser from its own proposals.json plus
+   whichever verdict store the book page itself would use off-server — the
+   localStorage set proposals.js writes under 'tvDecisions:<book>', else a
+   published data/decisions.json. A book we cannot count keeps its bar hidden.
+
+   A volume with work left links to paper.html?review=pending, which opens the
+   book on the first block still awaiting a verdict. */
+(function () {
+  'use strict';
+
+  var VERDICTS = { accept: 1, edit: 1, reject: 1 };
+  var els = [].slice.call(document.querySelectorAll('.vol-progress'));
+
+  function render(el, counts) {
+    if (!counts || !counts.total) return;          // no run published — stay hidden
+    var done = Math.min(counts.decided || 0, counts.total);
+    el.querySelector('.fill').style.width = (100 * done / counts.total).toFixed(1) + '%';
+    el.querySelector('.label').textContent = done + '/' + counts.total + ' changes';
+    el.classList.add('ready');
+    // Still work to do: send the click to it. Progressive enhancement — the plain
+    // sgaN/paper.html href in the markup stands for a finished volume, a click
+    // that beats the counts, or a host where the counts never arrive.
+    var link = done < counts.total && el.closest('a');
+    if (link) link.setAttribute('href', el.getAttribute('data-book') + '/paper.html?review=pending');
+  }
+
+  function getJSON(url) {
+    return fetch(url).then(function (r) { return r.ok ? r.json() : null; })
+                     .catch(function () { return null; });
+  }
+
+  // Verdicts recorded in this browser, for a book served without a decisions.json.
+  function storedDecisions(book) {
+    try {
+      var raw = JSON.parse(localStorage.getItem('tvDecisions:' + book) || 'null');
+      return (raw && raw.map) || null;
+    } catch (_) { return null; }
+  }
+
+  // A verdict only counts against the run now published: an id we do not know is
+  // left over from an earlier run, and counting it would overstate the progress.
+  function countDecided(ids, entries) {
+    var n = 0;
+    Object.keys(entries || {}).forEach(function (id) {
+      var d = entries[id];
+      if (d && VERDICTS[d.verdict] && ids[id]) n++;
+    });
+    return n;
+  }
+
+  function countInBrowser(el) {
+    var book = el.getAttribute('data-book');
+    return getJSON(book + '/data/proposals.json').then(function (run) {
+      if (!run || !run.proposals) return null;
+      var ids = {}, total = 0;
+      run.proposals.forEach(function (p) {
+        if (p && p.id && !ids[p.id]) { ids[p.id] = 1; total++; }
+      });
+      // Same precedence proposals.js uses off-server: this browser's own set is
+      // the one the book page will show, so the bar must agree with it. Only when
+      // there is none does a published decisions.json speak for the book.
+      var mine = storedDecisions(book);
+      if (mine) return { total: total, decided: countDecided(ids, mine) };
+      return getJSON(book + '/data/decisions.json').then(function (doc) {
+        var entries = {};
+        ((doc && doc.decisions) || []).forEach(function (d) { if (d && d.id) entries[d.id] = d; });
+        return { total: total, decided: countDecided(ids, entries) };
+      });
+    }).then(function (counts) { render(el, counts); });
+  }
+
+  getJSON('/api/progress').then(function (j) {
+    if (j && j.ok && j.books) {
+      els.forEach(function (el) { render(el, j.books[el.getAttribute('data-book')]); });
+      return;
+    }
+    els.forEach(countInBrowser);   // in parallel: each bar fills as its book lands
+  });
+})();
+</script>
 </body>
 </html>
