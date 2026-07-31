@@ -54,6 +54,16 @@ no page-level `html` field (it was dropped on 2026-07-29 — see
 Math stays as `\(...\)` / `\[...\]` for client-side rendering — never
 pre-render it, and don't inject `tex.macros` into the HTML head.
 
+A note **this** edition adds — a transcription note, a translator's note, the
+record of a correction — is not a footnote of SGA and is not presented as one.
+Give the record `"kind": "editorial"` and a `number` to serve as its marker
+(`*`, `†`, …), and class its in-text reference `footnote-ref ed-ref`; the viewer
+then lists it apart from the printed notes, under the `ednotes` caption, so it
+never renumbers the source's own apparatus. Notes printed in the source edition
+— including the editor's 1976 notes in SGA 4½ VIII — carry no `kind` and stay in
+the numbered list. Sites where the text itself was corrected also belong in
+`ERRATA.md`.
+
 Preview with `python3 -m http.server` from the repo root (so `paper.html`'s
 `../translation-viewer/...` references resolve), then open
 `http://localhost:8000/sgaN/paper.html`, or

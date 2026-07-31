@@ -1,37 +1,37 @@
 {
- "generatedAt": "2026-07-29T10:54:16Z",
+ "generatedAt": "2026-07-31T10:16:41Z",
  "generator": "proposal_triage.py — diff-shape classification, no source read",
- "totalOpen": 1450,
+ "totalOpen": 1297,
  "runs": {
   "sga1": {
    "generatedAt": "2026-07-27T18:14:36Z",
    "generator": "codex French transcription audit",
    "baseCommit": "00f7c46",
-   "open": 66
+   "open": 47
   },
   "sga2": {
    "generatedAt": "2026-07-27T20:28:52Z",
    "generator": "codex transcription+translation audit",
    "baseCommit": "00f7c46",
-   "open": 274
+   "open": 273
   },
   "sga3": {
    "generatedAt": "2026-07-27T23:45:56Z",
    "generator": "codex transcription+translation audit",
    "baseCommit": "00f7c46",
-   "open": 146
+   "open": 140
   },
   "sga4": {
    "generatedAt": "2026-07-28T04:09:07Z",
    "generator": "codex transcription+translation audit",
    "baseCommit": "00f7c46",
-   "open": 113
+   "open": 111
   },
   "sga4.5": {
    "generatedAt": "2026-07-28T01:44:27Z",
    "generator": "codex transcription+translation audit",
    "baseCommit": "00f7c46",
-   "open": 437
+   "open": 313
   },
   "sga5": {
    "generatedAt": "2026-07-28T05:23:40Z",
@@ -49,40 +49,39 @@
    "generatedAt": "2026-07-28T09:43:13Z",
    "generator": "codex French transcription audit",
    "baseCommit": "00f7c46",
-   "open": 112
+   "open": 111
   }
  },
  "byFamily": {
-  "prose": 579,
-  "math": 798,
-  "markup": 73
+  "prose": 477,
+  "math": 750,
+  "markup": 70
  },
  "byState": {
-  "applicable": 1441,
-  "stale": 9
+  "applicable": 1297
  },
  "buckets": {
   "math-symbol": {
    "family": "math",
-   "n": 199,
+   "n": 187,
    "reviewerCheck": "compare the symbol against the French/original formula",
    "byBook": {
-    "sga1": 8,
+    "sga1": 6,
     "sga2": 53,
     "sga3": 20,
     "sga4": 13,
-    "sga4.5": 68,
+    "sga4.5": 58,
     "sga5": 18,
     "sga6": 9,
     "sga7": 10
    },
    "byLang": {
-    "en": 118,
-    "fr": 81
+    "en": 114,
+    "fr": 73
    },
    "byAuthorCategory": {
     "markup": 6,
-    "transcription": 175,
+    "transcription": 163,
     "translation": 18
    },
    "examples": [
@@ -103,43 +102,39 @@
      "diff": "-\"'\""
     },
     {
-     "id": "p-sga1-en-XI-4-bl20",
-     "diff": "'X' → 'S'  'X' → 'S'  'X' → 'S'"
+     "id": "p-sga1-en-XII-5-bl42",
+     "diff": "'f' → 'p'"
     }
    ],
-   "medianDiffChars": 90
+   "medianDiffChars": 84
   },
   "math-macro": {
    "family": "math",
-   "n": 163,
+   "n": 155,
    "reviewerCheck": "compare the TeX against the French/original formula",
    "byBook": {
-    "sga1": 4,
+    "sga1": 3,
     "sga2": 43,
     "sga3": 29,
     "sga4": 13,
-    "sga4.5": 35,
+    "sga4.5": 28,
     "sga5": 20,
     "sga6": 12,
     "sga7": 7
    },
    "byLang": {
-    "en": 78,
-    "fr": 85
+    "en": 73,
+    "fr": 82
    },
    "byAuthorCategory": {
-    "markup": 26,
-    "transcription": 124,
+    "markup": 25,
+    "transcription": 117,
     "translation": 13
    },
    "examples": [
     {
      "id": "p-sga1-en-X-3-bl8",
      "diff": "-\"'\"  -'=X'  '=' → '\\\\setminus '"
-    },
-    {
-     "id": "p-sga1-en-X-3-bl16",
-     "diff": "-'\\\\(p\\\\) '"
     },
     {
      "id": "p-sga1-en-XII-1-bl13",
@@ -152,32 +147,83 @@
     {
      "id": "p-sga2-en-I-I-1-bl2",
      "diff": "+'the '  +' of'  '\\\\in' → '\\\\text{ belongs to }'"
+    },
+    {
+     "id": "p-sga2-en-I-I-1-bl4",
+     "diff": "+'the '  +' of'  '\\\\subset' → '\\\\text{ is contained in }'"
     }
    ],
-   "medianDiffChars": 124
+   "medianDiffChars": 118
+  },
+  "mixed-math-prose": {
+   "family": "math",
+   "n": 131,
+   "reviewerCheck": "read the sentence and the formula together",
+   "byBook": {
+    "sga1": 5,
+    "sga2": 38,
+    "sga3": 14,
+    "sga4": 2,
+    "sga4.5": 42,
+    "sga5": 10,
+    "sga6": 4,
+    "sga7": 16
+   },
+   "byLang": {
+    "en": 68,
+    "fr": 63
+   },
+   "byAuthorCategory": {
+    "markup": 18,
+    "transcription": 79,
+    "translation": 34
+   },
+   "examples": [
+    {
+     "id": "p-sga1-en-X-3-bl18",
+     "diff": "'L' → 'M'  -\"'\"  'm' → 'n'  (+2 more)"
+    },
+    {
+     "id": "p-sga1-en-XI-3-bl10",
+     "diff": "+\"'\"  +\"'\"  +'is '  (+1 more)"
+    },
+    {
+     "id": "p-sga1-en-XI-4-bl24",
+     "diff": "'X' → 'S'  'X' → 'S'  'X' → 'S'  (+7 more)"
+    },
+    {
+     "id": "p-sga1-en-XI-6-bl10",
+     "diff": "+' \\\\(n\\\\)-th'"
+    },
+    {
+     "id": "p-sga1-en-XII-5-bl51",
+     "diff": "'defined' → 'defining'  'by \\\\(\\\\mathscr{F}_1\\\\)' → \"\\\\(\\\\mathscr{X}_1'\\\\)\""
+    }
+   ],
+   "medianDiffChars": 71
   },
   "phrase-rewrite": {
    "family": "prose",
-   "n": 157,
+   "n": 130,
    "reviewerCheck": "read the sentence against the aligned French",
    "byBook": {
-    "sga1": 7,
+    "sga1": 3,
     "sga2": 24,
-    "sga3": 22,
+    "sga3": 19,
     "sga4": 35,
-    "sga4.5": 42,
+    "sga4.5": 23,
     "sga5": 5,
     "sga6": 4,
-    "sga7": 18
+    "sga7": 17
    },
    "byLang": {
-    "en": 105,
-    "fr": 52
+    "en": 94,
+    "fr": 36
    },
    "byAuthorCategory": {
     "markup": 5,
-    "transcription": 56,
-    "translation": 96
+    "transcription": 39,
+    "translation": 86
    },
    "examples": [
     {
@@ -193,36 +239,35 @@
      "diff": "'direct' → 'disjoint'  'sum' → 'union'"
     },
     {
-     "id": "p-sga1-en-introduction-bl6",
-     "diff": "'little' → 'minor details'"
+     "id": "p-sga2-en-III-3-bl24",
+     "diff": "'have seen' → 'saw'  'Exp' → 'Exposé'  +'the '  (+1 more)"
     },
     {
-     "id": "p-sga1-en-introduction-bl10",
-     "diff": "'to the' → 'as'  'measure of the needs' → 'needed'"
+     "id": "p-sga2-en-VI-2-bl10",
+     "diff": "'functor' → 'morphism'  'morphisms' → 'functors'"
     }
    ],
    "medianDiffChars": 23
   },
   "spelling-inflection": {
    "family": "prose",
-   "n": 147,
+   "n": 114,
    "reviewerCheck": "typo / agreement fix — check the word, not the sentence",
    "byBook": {
     "sga2": 7,
     "sga3": 25,
     "sga4": 7,
-    "sga4.5": 96,
+    "sga4.5": 63,
     "sga5": 2,
     "sga6": 1,
     "sga7": 9
    },
    "byLang": {
     "en": 30,
-    "fr": 117
+    "fr": 84
    },
    "byAuthorCategory": {
-    "markup": 1,
-    "transcription": 131,
+    "transcription": 99,
     "translation": 15
    },
    "examples": [
@@ -248,53 +293,6 @@
     }
    ],
    "medianDiffChars": 15
-  },
-  "mixed-math-prose": {
-   "family": "math",
-   "n": 143,
-   "reviewerCheck": "read the sentence and the formula together",
-   "byBook": {
-    "sga1": 5,
-    "sga2": 38,
-    "sga3": 14,
-    "sga4": 2,
-    "sga4.5": 54,
-    "sga5": 10,
-    "sga6": 4,
-    "sga7": 16
-   },
-   "byLang": {
-    "en": 70,
-    "fr": 73
-   },
-   "byAuthorCategory": {
-    "markup": 18,
-    "transcription": 89,
-    "translation": 36
-   },
-   "examples": [
-    {
-     "id": "p-sga1-en-X-3-bl18",
-     "diff": "'L' → 'M'  -\"'\"  'm' → 'n'  (+2 more)"
-    },
-    {
-     "id": "p-sga1-en-XI-3-bl10",
-     "diff": "+\"'\"  +\"'\"  +'is '  (+1 more)"
-    },
-    {
-     "id": "p-sga1-en-XI-4-bl24",
-     "diff": "'X' → 'S'  'X' → 'S'  'X' → 'S'  (+7 more)"
-    },
-    {
-     "id": "p-sga1-en-XI-6-bl10",
-     "diff": "+' \\\\(n\\\\)-th'"
-    },
-    {
-     "id": "p-sga1-en-XII-5-bl51",
-     "diff": "'defined' → 'defining'  'by \\\\(\\\\mathscr{F}_1\\\\)' → \"\\\\(\\\\mathscr{X}_1'\\\\)\""
-    }
-   ],
-   "medianDiffChars": 70
   },
   "math-untranslated-french": {
    "family": "math",
@@ -342,32 +340,27 @@
   },
   "math-expression": {
    "family": "math",
-   "n": 78,
+   "n": 67,
    "reviewerCheck": "read the whole formula against the French",
    "byBook": {
-    "sga1": 1,
     "sga2": 17,
     "sga3": 3,
     "sga4": 9,
-    "sga4.5": 26,
+    "sga4.5": 16,
     "sga5": 13,
     "sga6": 5,
     "sga7": 4
    },
    "byLang": {
-    "en": 39,
-    "fr": 39
+    "en": 38,
+    "fr": 29
    },
    "byAuthorCategory": {
-    "markup": 12,
-    "transcription": 58,
+    "markup": 11,
+    "transcription": 48,
     "translation": 8
    },
    "examples": [
-    {
-     "id": "p-sga1-fr-IV-6-bl20",
-     "diff": "'(' → 'q'  -'q)'"
-    },
     {
      "id": "p-sga2-en-II-bl62",
      "diff": "+', n'"
@@ -383,31 +376,35 @@
     {
      "id": "p-sga2-en-V-1-bl20",
      "diff": "-'(-1)^{s}'"
+    },
+    {
+     "id": "p-sga2-en-V-1-bl22",
+     "diff": "-'(-1) '"
     }
    ],
-   "medianDiffChars": 121
+   "medianDiffChars": 108
   },
   "markup-mixed": {
    "family": "markup",
-   "n": 64,
+   "n": 61,
    "reviewerCheck": "markup + content in one edit — read both",
    "byBook": {
-    "sga1": 5,
+    "sga1": 3,
     "sga2": 23,
     "sga3": 3,
     "sga4": 1,
-    "sga4.5": 22,
+    "sga4.5": 21,
     "sga5": 3,
     "sga6": 2,
     "sga7": 5
    },
    "byLang": {
     "en": 24,
-    "fr": 40
+    "fr": 37
    },
    "byAuthorCategory": {
     "markup": 26,
-    "transcription": 28,
+    "transcription": 25,
     "translation": 10
    },
    "examples": [
@@ -416,51 +413,47 @@
      "diff": "'After' → '<p>Based on'  '⏎' → ' '  '  ' → ' '  (+1 more)"
     },
     {
-     "id": "p-sga1-fr-III-7-fn1-page",
-     "diff": "+'<span>'  +'81'  +'</span>'"
-    },
-    {
-     "id": "p-sga1-fr-III-7-fn3-page",
-     "diff": "+'<span>'  +'83'  +'</span>'"
-    },
-    {
      "id": "p-sga1-fr-XI-4-fn0",
      "diff": "+'<span>'  +'296'  +'</span>'"
     },
     {
      "id": "p-sga1-fr-XI-4-fn2",
      "diff": "+'<span>'  +'293'  +'</span>'"
+    },
+    {
+     "id": "p-sga2-en-III-3-bl3",
+     "diff": "'If' → 'The equivalence of (i) and (ii) was proved in Proposition…'  -', since the sheaf associated with the presheaf</p>⏎<div c…'"
+    },
+    {
+     "id": "p-sga2-en-III-3-bl5",
+     "diff": "+' (cf. Proposition <a class=\"ref\" href=\"#III.2.4\">2.4</a>)'  ',  now' → ';'  'they' → 'these conditions'  (+3 more)"
     }
    ],
    "medianDiffChars": 62
   },
   "prose-omission": {
    "family": "prose",
-   "n": 52,
+   "n": 48,
    "reviewerCheck": "compare with the aligned French: is the phrase really absent?",
    "byBook": {
-    "sga1": 2,
+    "sga1": 1,
     "sga2": 13,
     "sga3": 9,
     "sga4": 5,
-    "sga4.5": 14,
+    "sga4.5": 11,
     "sga5": 7,
     "sga6": 1,
     "sga7": 1
    },
    "byLang": {
-    "en": 25,
-    "fr": 27
+    "en": 23,
+    "fr": 25
    },
    "byAuthorCategory": {
-    "transcription": 28,
-    "translation": 24
+    "transcription": 26,
+    "translation": 22
    },
    "examples": [
-    {
-     "id": "p-sga1-en-introduction-bl8",
-     "diff": "+' serving'"
-    },
     {
      "id": "p-sga1-fr-XIII-2-bl126",
      "diff": "+', I § 5, ex. 2'"
@@ -476,6 +469,10 @@
     {
      "id": "p-sga2-en-IV-1-bl14",
      "diff": "+' additive'"
+    },
+    {
+     "id": "p-sga2-en-V-1-bl45",
+     "diff": "+'+1'  +'+1'"
     }
    ],
    "medianDiffChars": 4
@@ -527,24 +524,23 @@
   },
   "unmarked-math": {
    "family": "math",
-   "n": 37,
+   "n": 36,
    "reviewerCheck": "text that should be math (or the reverse) — check it renders",
    "byBook": {
     "sga2": 1,
     "sga3": 1,
-    "sga4.5": 1,
     "sga5": 13,
     "sga6": 12,
     "sga7": 9
    },
    "byLang": {
-    "en": 15,
+    "en": 14,
     "fr": 22
    },
    "byAuthorCategory": {
     "markup": 14,
     "transcription": 17,
-    "translation": 6
+    "translation": 5
    },
    "examples": [
     {
@@ -556,60 +552,19 @@
      "diff": "'M' → '\\\\(\\\\mathrm{M}_a\\\\)'"
     },
     {
-     "id": "p-sga4.5-en-I:2-bl30",
-     "diff": "'a' → '\\\\(a\\\\)'"
-    },
-    {
      "id": "p-sga5-en-IIIB-6-bl33",
      "diff": "'\\\\(analogue à (III 3.2.1)\\\\)' → 'analogous to (III 3.2.1)'"
     },
     {
      "id": "p-sga5-en-V-2-bl8",
      "diff": "'there' → '\\\\(X\\\\)'"
+    },
+    {
+     "id": "p-sga5-fr-V-2-bl16",
+     "diff": "'(s+t)' → '\\\\(r+t\\\\)'"
     }
    ],
-   "medianDiffChars": 17
-  },
-  "french-wording": {
-   "family": "prose",
-   "n": 35,
-   "reviewerCheck": "one French word swapped for another — check the source scan",
-   "byBook": {
-    "sga2": 5,
-    "sga3": 1,
-    "sga4.5": 26,
-    "sga5": 1,
-    "sga7": 2
-   },
-   "byLang": {
-    "fr": 35
-   },
-   "byAuthorCategory": {
-    "transcription": 35
-   },
-   "examples": [
-    {
-     "id": "p-sga2-fr-V-3-bl2",
-     "diff": "'d' → 'à'"
-    },
-    {
-     "id": "p-sga2-fr-X-1-bl4",
-     "diff": "'I' → '1'"
-    },
-    {
-     "id": "p-sga2-fr-XI-10",
-     "diff": "'a' → 'ait'"
-    },
-    {
-     "id": "p-sga2-fr-XIII-4-bl18",
-     "diff": "'précédents' → 'suivants'"
-    },
-    {
-     "id": "p-sga2-fr-XIII-5-bl15",
-     "diff": "'ces' → 'les'"
-    }
-   ],
-   "medianDiffChars": 4
+   "medianDiffChars": 20
   },
   "math-text-wording": {
    "family": "math",
@@ -653,48 +608,6 @@
    ],
    "medianDiffChars": 222
   },
-  "word-order": {
-   "family": "prose",
-   "n": 28,
-   "reviewerCheck": "read the sentence; meaning-preserving in most cases",
-   "byBook": {
-    "sga1": 1,
-    "sga2": 1,
-    "sga3": 1,
-    "sga4": 12,
-    "sga4.5": 13
-   },
-   "byLang": {
-    "en": 28
-   },
-   "byAuthorCategory": {
-    "transcription": 1,
-    "translation": 27
-   },
-   "examples": [
-    {
-     "id": "p-sga1-en-V-5-bl4",
-     "diff": "+'finite discrete '  -' finite discrete'"
-    },
-    {
-     "id": "p-sga2-en-IX-1-bl58",
-     "diff": "+'graded '  -' graded'"
-    },
-    {
-     "id": "p-sga3-en-IV-5-bl8",
-     "diff": "+'P/'  -'/P'"
-    },
-    {
-     "id": "p-sga4-en-I-7-bl45",
-     "diff": "+'injective '  -'injective '  +'effective '  (+1 more)"
-    },
-    {
-     "id": "p-sga4-en-I-8-bl109",
-     "diff": "+'filtered inductive⏎'  -'⏎inductive filtered'"
-    }
-   ],
-   "medianDiffChars": 20
-  },
   "capitalization": {
    "family": "prose",
    "n": 25,
@@ -737,22 +650,104 @@
    ],
    "medianDiffChars": 14
   },
+  "french-wording": {
+   "family": "prose",
+   "n": 23,
+   "reviewerCheck": "one French word swapped for another — check the source scan",
+   "byBook": {
+    "sga2": 5,
+    "sga3": 1,
+    "sga4.5": 14,
+    "sga5": 1,
+    "sga7": 2
+   },
+   "byLang": {
+    "fr": 23
+   },
+   "byAuthorCategory": {
+    "transcription": 23
+   },
+   "examples": [
+    {
+     "id": "p-sga2-fr-V-3-bl2",
+     "diff": "'d' → 'à'"
+    },
+    {
+     "id": "p-sga2-fr-X-1-bl4",
+     "diff": "'I' → '1'"
+    },
+    {
+     "id": "p-sga2-fr-XI-10",
+     "diff": "'a' → 'ait'"
+    },
+    {
+     "id": "p-sga2-fr-XIII-4-bl18",
+     "diff": "'précédents' → 'suivants'"
+    },
+    {
+     "id": "p-sga2-fr-XIII-5-bl15",
+     "diff": "'ces' → 'les'"
+    }
+   ],
+   "medianDiffChars": 4
+  },
+  "word-order": {
+   "family": "prose",
+   "n": 20,
+   "reviewerCheck": "read the sentence; meaning-preserving in most cases",
+   "byBook": {
+    "sga2": 1,
+    "sga3": 1,
+    "sga4": 12,
+    "sga4.5": 6
+   },
+   "byLang": {
+    "en": 20
+   },
+   "byAuthorCategory": {
+    "transcription": 1,
+    "translation": 19
+   },
+   "examples": [
+    {
+     "id": "p-sga2-en-IX-1-bl58",
+     "diff": "+'graded '  -' graded'"
+    },
+    {
+     "id": "p-sga3-en-IV-5-bl8",
+     "diff": "+'P/'  -'/P'"
+    },
+    {
+     "id": "p-sga4-en-I-7-bl45",
+     "diff": "+'injective '  -'injective '  +'effective '  (+1 more)"
+    },
+    {
+     "id": "p-sga4-en-I-8-bl109",
+     "diff": "+'filtered inductive⏎'  -'⏎inductive filtered'"
+    },
+    {
+     "id": "p-sga4-en-II-4-bl44",
+     "diff": "+'canonical '  -'⏎canonical'"
+    }
+   ],
+   "medianDiffChars": 20
+  },
   "accent": {
    "family": "prose",
-   "n": 22,
+   "n": 19,
    "reviewerCheck": "French spelling — check the word, not the sentence",
    "byBook": {
     "sga2": 6,
     "sga4": 3,
-    "sga4.5": 10,
+    "sga4.5": 7,
     "sga6": 3
    },
    "byLang": {
     "en": 1,
-    "fr": 21
+    "fr": 18
    },
    "byAuthorCategory": {
-    "transcription": 22
+    "transcription": 19
    },
    "examples": [
     {
@@ -776,71 +771,27 @@
      "diff": "'.iêmes' → '-ièmes'"
     }
    ],
-   "medianDiffChars": 12
-  },
-  "math-delimiter": {
-   "family": "math",
-   "n": 22,
-   "reviewerCheck": "check the formula still parses and brackets balance",
-   "byBook": {
-    "sga1": 2,
-    "sga2": 10,
-    "sga4": 1,
-    "sga4.5": 6,
-    "sga6": 2,
-    "sga7": 1
-   },
-   "byLang": {
-    "en": 8,
-    "fr": 14
-   },
-   "byAuthorCategory": {
-    "markup": 14,
-    "transcription": 8
-   },
-   "examples": [
-    {
-     "id": "p-sga1-en-VIII-4-bl20",
-     "diff": "+')'"
-    },
-    {
-     "id": "p-sga1-fr-VI-VI-11-b1",
-     "diff": "+'}'  -'}'"
-    },
-    {
-     "id": "p-sga2-en-VIII-2-bl69",
-     "diff": "+')'"
-    },
-    {
-     "id": "p-sga2-en-VIII-2-bl77",
-     "diff": "+')'"
-    },
-    {
-     "id": "p-sga2-en-XII-1-bl42",
-     "diff": "+')'"
-    }
-   ],
-   "medianDiffChars": 187
+   "medianDiffChars": 8
   },
   "prose-deletion": {
    "family": "prose",
-   "n": 20,
+   "n": 19,
    "reviewerCheck": "compare with the aligned French: is the phrase really spurious?",
    "byBook": {
     "sga1": 3,
     "sga2": 5,
     "sga3": 1,
-    "sga4.5": 4,
+    "sga4.5": 3,
     "sga5": 4,
     "sga6": 2,
     "sga7": 1
    },
    "byLang": {
     "en": 12,
-    "fr": 8
+    "fr": 7
    },
    "byAuthorCategory": {
-    "transcription": 14,
+    "transcription": 13,
     "translation": 6
    },
    "examples": [
@@ -869,24 +820,24 @@
   },
   "terminology": {
    "family": "prose",
-   "n": 20,
+   "n": 19,
    "reviewerCheck": "glossary call — check glossary/GLOSSARY.md, then scripts/glossary_check.py",
    "byBook": {
     "sga1": 1,
-    "sga2": 3,
-    "sga3": 7,
+    "sga2": 2,
+    "sga3": 8,
     "sga4": 1,
-    "sga4.5": 3,
+    "sga4.5": 2,
     "sga5": 4,
     "sga6": 1
    },
    "byLang": {
-    "en": 20
+    "en": 19
    },
    "byAuthorCategory": {
     "markup": 1,
     "transcription": 8,
-    "translation": 11
+    "translation": 10
    },
    "examples": [
     {
@@ -902,15 +853,58 @@
      "diff": "'loc.' → 'locally'"
     },
     {
-     "id": "p-sga2-en-resume-bl1",
-     "diff": "'or' → 'and'"
-    },
-    {
      "id": "p-sga3-en-VIB-1-bl5",
      "diff": "'G' → 'H'"
+    },
+    {
+     "id": "p-sga3-en-VIB-1-bl22",
+     "diff": "'k' → 'A'"
     }
    ],
    "medianDiffChars": 3
+  },
+  "math-delimiter": {
+   "family": "math",
+   "n": 18,
+   "reviewerCheck": "check the formula still parses and brackets balance",
+   "byBook": {
+    "sga2": 10,
+    "sga4": 1,
+    "sga4.5": 4,
+    "sga6": 2,
+    "sga7": 1
+   },
+   "byLang": {
+    "en": 7,
+    "fr": 11
+   },
+   "byAuthorCategory": {
+    "markup": 12,
+    "transcription": 6
+   },
+   "examples": [
+    {
+     "id": "p-sga2-en-VIII-2-bl69",
+     "diff": "+')'"
+    },
+    {
+     "id": "p-sga2-en-VIII-2-bl77",
+     "diff": "+')'"
+    },
+    {
+     "id": "p-sga2-en-XII-1-bl42",
+     "diff": "+')'"
+    },
+    {
+     "id": "p-sga2-en-XII-3-bl15",
+     "diff": "+')'"
+    },
+    {
+     "id": "p-sga2-en-XII-5-bl11",
+     "diff": "+')'"
+    }
+   ],
+   "medianDiffChars": 189
   },
   "math-lost-backslash": {
    "family": "math",
@@ -954,21 +948,21 @@
   },
   "punctuation": {
    "family": "prose",
-   "n": 13,
+   "n": 11,
    "reviewerCheck": "read the sentence",
    "byBook": {
     "sga2": 3,
     "sga4": 1,
-    "sga4.5": 7,
+    "sga4.5": 5,
     "sga5": 2
    },
    "byLang": {
     "en": 4,
-    "fr": 9
+    "fr": 7
    },
    "byAuthorCategory": {
     "markup": 5,
-    "transcription": 8
+    "transcription": 6
    },
    "examples": [
     {
@@ -993,45 +987,6 @@
     }
    ],
    "medianDiffChars": 1
-  },
-  "hyphen-linebreak": {
-   "family": "prose",
-   "n": 11,
-   "reviewerCheck": "none — mechanical rejoin of a hyphenated line break",
-   "byBook": {
-    "sga1": 5,
-    "sga3": 4,
-    "sga4": 2
-   },
-   "byLang": {
-    "fr": 11
-   },
-   "byAuthorCategory": {
-    "transcription": 11
-   },
-   "examples": [
-    {
-     "id": "p-sga1-fr-I-9-bl32",
-     "diff": "'dé\\xadmon\\xadstra\\xadtion' → 'démonstration'"
-    },
-    {
-     "id": "p-sga1-fr-II-II-4-b68",
-     "diff": "'opé\\xadra\\xadteur' → 'opérateur'"
-    },
-    {
-     "id": "p-sga1-fr-V-1-bl31",
-     "diff": "'auto\\xadmor\\xadphismes' → 'automorphismes'"
-    },
-    {
-     "id": "p-sga1-fr-V-4-bl2",
-     "diff": "'épi\\xadmor\\xadphismes' → 'épimorphismes'"
-    },
-    {
-     "id": "p-sga1-fr-VIII-5-bl23",
-     "diff": "'épi\\xadmor\\xadphisme' → 'épimorphisme'"
-    }
-   ],
-   "medianDiffChars": 28
   },
   "markup-tag": {
    "family": "markup",
@@ -1177,23 +1132,6 @@
  "records": [
   {
    "book": "sga1",
-   "id": "p-sga1-en-V-5-bl4",
-   "lang": "en",
-   "chapterId": "V",
-   "pageId": "V-5",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 32,
-   "diff": "+'finite discrete '  -' finite discrete'",
-   "rationale": "FR « limite projective d’espaces à opérateurs finis discrets » means an inverse limit of finite discrete spaces carrying operators; the current wording incorrectly makes the operators finite and discrete."
-  },
-  {
-   "book": "sga1",
    "id": "p-sga1-en-V-6-bl30",
    "lang": "en",
    "chapterId": "V",
@@ -1211,23 +1149,6 @@
   },
   {
    "book": "sga1",
-   "id": "p-sga1-en-VIII-4-bl20",
-   "lang": "en",
-   "chapterId": "VIII",
-   "pageId": "VIII-4",
-   "target": "block",
-   "authorCategory": "markup",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-delimiter",
-   "edits": 1,
-   "diffChars": 73,
-   "diff": "+')'",
-   "rationale": "The displayed formula has an unmatched opening parenthesis; add the missing closing parenthesis."
-  },
-  {
-   "book": "sga1",
    "id": "p-sga1-en-X-3-bl8",
    "lang": "en",
    "chapterId": "X",
@@ -1242,23 +1163,6 @@
    "diffChars": 130,
    "diff": "-\"'\"  -'=X'  '=' → '\\\\setminus '",
    "rationale": "Repairs three self-contradictory transcription slips in the normalization argument: the source category is over X, restriction is X'×_X U, and the étale locus is the complement of f^{-1}(Z)."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-X-3-bl16",
-   "lang": "en",
-   "chapterId": "X",
-   "pageId": "X-3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 6,
-   "diff": "-'\\\\(p\\\\) '",
-   "rationale": "The stray p makes the definition contradictory; tame ramification requires the inertia order to be prime to the residue characteristic."
   },
   {
    "book": "sga1",
@@ -1378,40 +1282,6 @@
    "diffChars": 43,
    "diff": "-\"'\"",
    "rationale": "S' is a variable S-prescheme, hence an object of Sch_{/S}, not Sch_{/S'}."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-XI-4-bl20",
-   "lang": "en",
-   "chapterId": "XI",
-   "pageId": "XI-4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 526,
-   "diff": "'X' → 'S'  'X' → 'S'  'X' → 'S'",
-   "rationale": "The cohomology functors here are H⁰(S,−); X is undefined."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-XI-4-bl22",
-   "lang": "en",
-   "chapterId": "XI",
-   "pageId": "XI-4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 250,
-   "diff": "'X' → 'S'  'X' → 'S'",
-   "rationale": "The connecting map is over the fixed base S; X is undefined."
   },
   {
    "book": "sga1",
@@ -1633,244 +1503,6 @@
    "diffChars": 22,
    "diff": "'direct' → 'disjoint'  'sum' → 'union'",
    "rationale": "For schemes, FR « la somme directe des U_i » here is the coproduct/disjoint union, not a direct sum."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-introduction-bl6",
-   "lang": "en",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 1,
-   "diffChars": 19,
-   "diff": "'little' → 'minor details'",
-   "rationale": "French « à peu de chose près » means “up to minor details”; “up to little” is not an English rendering of this mathematical qualifier."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-introduction-bl8",
-   "lang": "en",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "prose-omission",
-   "edits": 1,
-   "diffChars": 8,
-   "diff": "+' serving'",
-   "rationale": "The duplicated “as” is ungrammatical; French « ainsi que comme ouvrage de référence » means that the volume may also serve as a reference work."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-introduction-bl10",
-   "lang": "en",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 34,
-   "diff": "'to the' → 'as'  'measure of the needs' → 'needed'",
-   "rationale": "French « dans la mesure des besoins » is the idiom “as needed”; the literal “to the measure of the needs” is not idiomatic English."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-en-introduction-bl17",
-   "lang": "en",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 21,
-   "diff": "-' series'  -'of the '  +' series'",
-   "rationale": "French « dans la série des Lecture Notes » means “in the Lecture Notes series”; the current word order is a literal and unidiomatic calque."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-I-9-bl32",
-   "lang": "fr",
-   "chapterId": "I",
-   "pageId": "I-9",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 29,
-   "diff": "'dé\\xadmon\\xadstra\\xadtion' → 'démonstration'",
-   "rationale": "Remove spurious discretionary soft hyphen(s): dé­mon­stra­tion → démonstration."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-II-II-4-b50",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II-4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 20,
-   "diff": "'pré\\xadschéma' → 'préschéma'  +' '",
-   "rationale": "Retirer le trait d'union conditionnel parasite dans « préschéma » et rétablir l'espace manquante après « si et seulement si »."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-II-II-4-b68",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II-4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 20,
-   "diff": "'opé\\xadra\\xadteur' → 'opérateur'",
-   "rationale": "Retirer les traits d'union conditionnels parasites dans « opérateur »."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-III-7-fn1-page",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III-7",
-   "target": "footnote",
-   "authorCategory": "transcription",
-   "family": "markup",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "markup-mixed",
-   "edits": 3,
-   "diffChars": 15,
-   "diff": "+'<span>'  +'81'  +'</span>'",
-   "rationale": "La référence de page a été omise lors de la conversion; la note citée se trouve p. 81."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-III-7-fn3-page",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III-7",
-   "target": "footnote",
-   "authorCategory": "transcription",
-   "family": "markup",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "markup-mixed",
-   "edits": 3,
-   "diffChars": 15,
-   "diff": "+'<span>'  +'83'  +'</span>'",
-   "rationale": "La référence de page a été omise lors de la conversion; la note citée se trouve p. 83."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-IV-6-bl20",
-   "lang": "fr",
-   "chapterId": "IV",
-   "pageId": "IV-6",
-   "target": "block",
-   "authorCategory": "markup",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 110,
-   "diff": "'(' → 'q'  -'q)'",
-   "rationale": "The malformed math atom \\(\\mathfrak{(}q\\) is a conversion of source `\\goth(q)`; the lemma consistently denotes this prime ideal by \\(\\mathfrak{q}\\), so the intended quotient is \\(A/\\mathfrak{q}\\)."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-V-1-bl31",
-   "lang": "fr",
-   "chapterId": "V",
-   "pageId": "V-1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 30,
-   "diff": "'auto\\xadmor\\xadphismes' → 'automorphismes'",
-   "rationale": "Retirer les traits d’union conditionnels parasites à l’intérieur de « automorphismes »; ils proviennent des commandes de césure LaTeX et ne font pas partie du texte."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-V-4-bl2",
-   "lang": "fr",
-   "chapterId": "V",
-   "pageId": "V-4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 28,
-   "diff": "'épi\\xadmor\\xadphismes' → 'épimorphismes'",
-   "rationale": "Retirer les traits d’union conditionnels parasites à l’intérieur de « épimorphismes »; ils proviennent des commandes de césure LaTeX et ne font pas partie du texte."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-VI-VI-11-b1",
-   "lang": "fr",
-   "chapterId": "VI",
-   "pageId": "VI-11",
-   "target": "block",
-   "authorCategory": "markup",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-delimiter",
-   "edits": 1,
-   "diffChars": 200,
-   "diff": "+'}'  -'}'",
-   "rationale": "The LaTeX source expresses the functor as F: E → C; the conversion incorrectly placed the arrow and target inside the argument of \\mathscr. Restore separate math alphabets around E and C."
-  },
-  {
-   "book": "sga1",
-   "id": "p-sga1-fr-VIII-5-bl23",
-   "lang": "fr",
-   "chapterId": "VIII",
-   "pageId": "VIII-5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 26,
-   "diff": "'épi\\xadmor\\xadphisme' → 'épimorphisme'",
-   "rationale": "Les césures invisibles insérées dans « épimorphisme » ne figurent pas dans le mot du source et introduisent des caractères parasites."
   },
   {
    "book": "sga1",
@@ -4455,23 +4087,6 @@
    "diffChars": 20,
    "diff": "'etale' → 'étale'  'etale' → 'étale'",
    "rationale": "Restore the acute accent in both occurrences of the established term “étale depth”; the repository glossary uses “étale depth”, and the linked English chapter consistently spells “étale” with the accent."
-  },
-  {
-   "book": "sga2",
-   "id": "p-sga2-en-resume-bl1",
-   "lang": "en",
-   "chapterId": "resume",
-   "pageId": "resume",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "terminology",
-   "edits": 1,
-   "diffChars": 5,
-   "diff": "'or' → 'and'",
-   "rationale": "The author-supplied English abstract states that the Lefschetz result applies to both the fundamental group and the Picard group; ‘or’ incorrectly weakens that scope."
   },
   {
    "book": "sga2",
@@ -7236,8 +6851,8 @@
    "target": "block",
    "authorCategory": "transcription",
    "family": "math",
-   "state": "stale",
-   "stateDetail": "conflict — IV-5#28 no longer matches `before`",
+   "state": "applicable",
+   "stateDetail": null,
    "bucket": "math-symbol",
    "edits": 1,
    "diffChars": 115,
@@ -7525,8 +7140,8 @@
    "target": "block",
    "authorCategory": "transcription",
    "family": "math",
-   "state": "stale",
-   "stateDetail": "conflict — VIB-7#5 no longer matches `before`",
+   "state": "applicable",
+   "stateDetail": null,
    "bucket": "math-macro",
    "edits": 2,
    "diffChars": 111,
@@ -8392,47 +8007,13 @@
    "target": "block",
    "authorCategory": "translation",
    "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — XVI-3#21 no longer matches `before`",
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 51,
-   "diff": "'dominates' → 'contains'  'dominates' → 'contains'  'dominates' → 'contains'",
-   "rationale": "In this subgroup-inclusion context, French « majorer » means “contain”; “dominate” denotes a different mathematical relation."
-  },
-  {
-   "book": "sga3",
-   "id": "p-sga3-en-XVI-6-b2",
-   "lang": "en",
-   "chapterId": "XVI",
-   "pageId": "XVI-6",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — XVI-6#2 no longer matches `before`",
+   "state": "applicable",
+   "stateDetail": null,
    "bucket": "phrase-rewrite",
    "edits": 2,
-   "diffChars": 22,
-   "diff": "'dominated' → 'contained'  'by' → 'in'",
+   "diffChars": 34,
+   "diff": "'dominates' → 'contains'  'dominates' → 'contains'",
    "rationale": "In this subgroup-inclusion context, French « majorer » means “contain”; “dominate” denotes a different mathematical relation."
-  },
-  {
-   "book": "sga3",
-   "id": "p-sga3-en-XVII-5-bl81",
-   "lang": "en",
-   "chapterId": "XVII",
-   "pageId": "XVII-5",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — XVII-5#81 no longer matches `before`",
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 51,
-   "diff": "'dominates' → 'contains'  'dominates' → 'contains'  'dominates' → 'contains'",
-   "rationale": "In this subgroup/subscheme inclusion context, French « majorer » means “contain”; “dominate” denotes a different mathematical relation."
   },
   {
    "book": "sga3",
@@ -8443,12 +8024,12 @@
    "target": "block",
    "authorCategory": "translation",
    "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — XVII-7#15 no longer matches `before`",
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 34,
-   "diff": "'dominates' → 'contains'  'dominates' → 'contains'",
+   "state": "applicable",
+   "stateDetail": null,
+   "bucket": "terminology",
+   "edits": 1,
+   "diffChars": 17,
+   "diff": "'dominates' → 'contains'",
    "rationale": "In this subgroup/subscheme inclusion context, French « majorer » means “contain”; “dominate” denotes a different mathematical relation."
   },
   {
@@ -8844,23 +8425,6 @@
   },
   {
    "book": "sga3",
-   "id": "p-sga3-fr-VIB-VIB-10-3",
-   "lang": "fr",
-   "chapterId": "VIB",
-   "pageId": "VIB-10",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 24,
-   "diff": "'appli-⏎cation' → 'application'",
-   "rationale": "Supprime 1 césure de fin de ligne introduite lors de la transcription du PDF source."
-  },
-  {
-   "book": "sga3",
    "id": "p-sga3-fr-VIIA-0001",
    "lang": "fr",
    "chapterId": "VIIA",
@@ -8909,57 +8473,6 @@
    "diffChars": 21,
    "diff": "'sousjacent' → 'sous-jacent'",
    "rationale": "Rétablit le trait d’union perdu à une coupure de ligne : le français imprimé porte « sous-jacent »."
-  },
-  {
-   "book": "sga3",
-   "id": "p-sga3-fr-VIII-VIII-1-bl15",
-   "lang": "fr",
-   "chapterId": "VIII",
-   "pageId": "VIII-1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 2,
-   "diffChars": 46,
-   "diff": "'ré-⏎flexif' → 'réflexif'  'repré-⏎sentable' → 'représentable'",
-   "rationale": "Remove pdf line-wrap hyphenation embedded in words."
-  },
-  {
-   "book": "sga3",
-   "id": "p-sga3-fr-VIII-VIII-2-bl2",
-   "lang": "fr",
-   "chapterId": "VIII",
-   "pageId": "VIII-2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 2,
-   "diffChars": 54,
-   "diff": "'ordi-⏎naire' → 'ordinaire'  'caracté-⏎ristiques' → 'caractéristiques'",
-   "rationale": "Remove pdf line-wrap hyphenation embedded in words."
-  },
-  {
-   "book": "sga3",
-   "id": "p-sga3-fr-VIII-VIII-3-bl4",
-   "lang": "fr",
-   "chapterId": "VIII",
-   "pageId": "VIII-3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 28,
-   "diff": "'monomor-⏎phisme' → 'monomorphisme'",
-   "rationale": "Remove pdf line-wrap hyphenation embedded in words."
   },
   {
    "book": "sga3",
@@ -11054,40 +10567,6 @@
   },
   {
    "book": "sga4",
-   "id": "p-sga4-fr-X-3-bl7",
-   "lang": "fr",
-   "chapterId": "X",
-   "pageId": "X-3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 2,
-   "diffChars": 58,
-   "diff": "'caractéristi-⏎que' → 'caractéristique'  'cer-⏎tainement' → 'certainement'",
-   "rationale": "Remove PDF line-break hyphenation retained inside words."
-  },
-  {
-   "book": "sga4",
-   "id": "p-sga4-fr-X-3-bl14",
-   "lang": "fr",
-   "chapterId": "X",
-   "pageId": "X-3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "hyphen-linebreak",
-   "edits": 1,
-   "diffChars": 22,
-   "diff": "'valua-⏎  tion' → 'valuation'",
-   "rationale": "Remove PDF line-break hyphenation retained inside words."
-  },
-  {
-   "book": "sga4",
    "id": "p-sga4-fr-X-4-bl13",
    "lang": "fr",
    "chapterId": "X",
@@ -11360,91 +10839,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-en-I:2-bl30",
-   "lang": "en",
-   "chapterId": "I",
-   "pageId": "I:2",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "unmarked-math",
-   "edits": 1,
-   "diffChars": 6,
-   "diff": "'a' → '\\\\(a\\\\)'",
-   "rationale": "FR « et a admet » has mathematical variable \\(a\\); the English dropped its math markup."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-I:4-bl25",
-   "lang": "en",
-   "chapterId": "I",
-   "pageId": "I:4",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "terminology",
-   "edits": 1,
-   "diffChars": 5,
-   "diff": "'a⏎' → 'an '",
-   "rationale": "The indefinite article must be “an” before the pronounced letter \\(X\\)."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-I:4-bl68",
-   "lang": "en",
-   "chapterId": "I",
-   "pageId": "I:4",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 22,
-   "diff": "+'noetherian '  -'⏎noetherian'",
-   "rationale": "FR « de schémas noethériens » means “of noetherian schemes”; the current word order is ungrammatical."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-I:4-bl79",
-   "lang": "en",
-   "chapterId": "I",
-   "pageId": "I:4",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 28,
-   "diff": "+'constructible '  -'⏎constructible'",
-   "rationale": "FR « un faisceau constructible » means “a constructible sheaf,” not “a sheaf constructible.”"
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-I:5-bl63",
-   "lang": "en",
-   "chapterId": "I",
-   "pageId": "I:5",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 16,
-   "diff": "+'generic '  -'⏎generic'",
-   "rationale": "FR « le point générique de \\(S\\) » means “the generic point of \\(S\\)."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-en-II:1-bl35",
    "lang": "en",
    "chapterId": "II",
@@ -11462,57 +10856,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-en-II:2-bl6",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 20,
-   "diff": "+'geometric '  -'⏎geometric'",
-   "rationale": "Correct the mistranslated French noun phrase « au point géométrique »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:2-bl26",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 20,
-   "diff": "+'geometric '  -'⏎geometric'",
-   "rationale": "Correct the mistranslated French noun phrase « en un point géométrique »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:4-bl22",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 16,
-   "diff": "+'bounded '  -'⏎bounded'",
-   "rationale": "Correct English adjective placement in the translation of « les complexes bornés »."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-en-II:4-bl25",
    "lang": "en",
    "chapterId": "II",
@@ -11527,108 +10870,6 @@
    "diffChars": 26,
    "diff": "-'complexes⏎'  'of' → 'complexes with'",
    "rationale": "Correct English word order in the translation of « les complexes bornés filtrés de filtration finie »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:4-bl77",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 3,
-   "diffChars": 21,
-   "diff": "'\\\\(k\\\\)' → 'an'  '⏎' → ' '  +' field \\\\(k\\\\)'",
-   "rationale": "Restore the English noun phrase corresponding to « sur k algébriquement clos »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:4-bl80",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "word-order",
-   "edits": 2,
-   "diffChars": 24,
-   "diff": "+'geometric '  -'⏎    geometric'",
-   "rationale": "Correct the mistranslated French noun phrase « en tout point géométrique »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:5-bl42",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 28,
-   "diff": "-'extended '  -' classes of'  +' classes'",
-   "rationale": "Use the standard English rendering of « une somme étendue aux classes de H-conjugaison »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:5-bl47",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 18,
-   "diff": "'itself' → 'it'  'by' → 'via'  +' maps'",
-   "rationale": "Remove the ungrammatical literal construction and accurately express the stated action."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:5-bl58",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 34,
-   "diff": "'is' → 'gives,'  'derived' → 'upon deriving'  ' into' → ','",
-   "rationale": "Correct the unidiomatic translation of « se dérive … en un isomorphisme »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-II:6-bl2",
-   "lang": "en",
-   "chapterId": "II",
-   "pageId": "II:6",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "prose-omission",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "+' and'",
-   "rationale": "Supply the missing coordination in the translation of « séparé de type fini »."
   },
   {
    "book": "sga4.5",
@@ -11666,57 +10907,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-en-III:2-bl12",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 6,
-   "diff": "+'^f'  +'^f'  '1' → 'q'",
-   "rationale": "The determinant parameter must be t^f throughout, and the spectral-sequence grading gives the sign (-1)^(p+q), not (-1)^(p+1)."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:2-bl20",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 4,
-   "diffChars": 46,
-   "diff": "'X' → '\\\\mathscr{K}'  -' reduced to'  '⏎' → ' '  (+1 more)",
-   "rationale": "X is the scheme and cannot be 'reduced to a sheaf'; the special case concerns the complex K, as the displayed specialization of Theorem 2.2 confirms."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:2-bl31",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 264,
-   "diff": "'m' → 'n'",
-   "rationale": "The summation index is n, so the Euler factor has exponent n·deg(x); m is not defined here."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-en-III:2-bl46",
    "lang": "en",
    "chapterId": "III",
@@ -11748,91 +10938,6 @@
    "diffChars": 118,
    "diff": "'^' → ' '",
    "rationale": "A p-linear map sends I^n into I^(pn), as also used later in the same proof; p^n is incorrect."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:3-bl21",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 186,
-   "diff": "'F' → 'f'",
-   "rationale": "Since q=p^f, the q-power Frobenius is the f-th power of absolute Frobenius; uppercase F is a transcription error."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:3-bl22",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 638,
-   "diff": "-' \\\\ar[r]'  +'\\\\overline{'  +'}'",
-   "rationale": "Remove the duplicate arrow command and restore the coherent extension as the lower-right object of the second diagram."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:3-bl25",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 152,
-   "diff": "+'\\\\mathscr{'  +'}'",
-   "rationale": "The endomorphism Phi^f acts on the coherent extension with script G, consistently with the surrounding diagrams."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:3-bl31",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 558,
-   "diff": "+'\\\\mathscr{'  +'}'",
-   "rationale": "Both terms of Phi−1 act on the same coherent sheaf; the first occurrence is missing the script-G notation."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-en-III:3-bl32",
-   "lang": "en",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 150,
-   "diff": "'m' → ','",
-   "rationale": "The cohomology arguments require a comma; the stray m makes the formula malformed."
   },
   {
    "book": "sga4.5",
@@ -13723,635 +12828,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-en-note-s1-bl1",
-   "lang": "en",
-   "chapterId": "note",
-   "pageId": "note-s1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 56,
-   "diff": "+'\\\\underline{'  +'}'",
-   "rationale": "Restore the distinct sheaf-Hom notation: source \\Hom is the calligraphic sheaf Hom, represented elsewhere in this corpus as \\(\\underline{\\operatorname{Hom}}\\); ordinary \\(\\operatorname{Hom}\\) contradicts the distinction explained by this sentence."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-I:1-bl48",
-   "lang": "fr",
-   "chapterId": "I",
-   "pageId": "I:1",
-   "target": "block",
-   "authorCategory": "markup",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 28,
-   "diff": "'homo~morphisme' → 'homom̃orphisme'",
-   "rationale": "La source LaTeX uses the accent command `\\~m`; the HTML transcription exposes a literal tilde instead of rendering the tilde over the m."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II-bl1",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 8,
-   "diff": "'saui' → 'sauf'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II-bl2",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "accent",
-   "edits": 1,
-   "diffChars": 12,
-   "diff": "'résume' → 'résumé'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl2",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 5,
-   "diff": "'un' → 'une'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl3",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "accent",
-   "edits": 1,
-   "diffChars": 14,
-   "diff": "'affecte' → 'affecté'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl4",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 17,
-   "diff": "'identifie' → 'identité'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl13",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "prose-deletion",
-   "edits": 1,
-   "diffChars": 2,
-   "diff": "-'c⏎'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl17",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 61,
-   "diff": "+' de'  'U' → 'Y'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl21",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 73,
-   "diff": "'ii' → 'i'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl22",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'la' → 'le'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl27",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-delimiter",
-   "edits": 1,
-   "diffChars": 173,
-   "diff": "-')'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl33",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "accent",
-   "edits": 1,
-   "diffChars": 2,
-   "diff": "'à' → 'a'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:1-bl35",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 9,
-   "diff": "'serra' → 'sera'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl2",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 21,
-   "diff": "'isomorphe' → 'isomorphisme'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl3",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 20,
-   "diff": "'différents' → 'différente'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl6",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 17,
-   "diff": "'sux' → 'aux'  'le' → 'la'  'en le' → 'au'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl9",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 11,
-   "diff": "'lisse' → 'lisses'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl11",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 15,
-   "diff": "'et il' → 'Il'  'sont' → 'soit'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl15",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 122,
-   "diff": "'qui' → 'que'  '+' → '='",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl18",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 11,
-   "diff": "'claire' → 'clair'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl24",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 78,
-   "diff": "'Z' → 'Q'  'le' → 'la'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl26",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'la' → 'le'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl32",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 17,
-   "diff": "'démontrer' → 'démontre'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:2-bl33",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 2,
-   "diffChars": 22,
-   "diff": "'faisceau' → 'faisceaux'  'une' → 'un'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:3-bl9",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 24,
-   "diff": "'nombre' → 'membre'  'trouva' → 'trouve'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:3-bl11",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'su' → 'au'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:3-bl14",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 9,
-   "diff": "'tout' → 'toute'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:3-bl34",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 11,
-   "diff": "'Un' → 'Une'  'dex' → 'des'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl1",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 2,
-   "diffChars": 18,
-   "diff": "'une' → 'un'  'énoncer' → 'énoncé'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl3",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 19,
-   "diff": "'catégorie' → 'catégories'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl4",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 2,
-   "diffChars": 64,
-   "diff": "+\"'\"  +\"'\"",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl6",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 21,
-   "diff": "'introduits' → 'introduites'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl7",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 35,
-   "diff": "'par' → 'note'  'f' → 'i'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl8",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 32,
-   "diff": "'une' → 'un'  +\"'\"",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl21",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 158,
-   "diff": "'h' → 'H'  'D' → 'd'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl22",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 37,
-   "diff": "\"d'\" → 'dont les '  +' sont'  'isomorphe' → 'isomorphisme'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-fr-II:4-bl25",
    "lang": "fr",
    "chapterId": "II",
@@ -14365,686 +12841,6 @@
    "edits": 6,
    "diffChars": 181,
    "diff": "\"d'\" → 'dont les '  +' sont'  -'\\\\(\\\\mathsf{DF}_\\\\text{parf}(\\\\Lambda)\\\\) '  (+3 more)",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl31",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 71,
-   "diff": "'DF' → 'D'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl34",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 383,
-   "diff": "+'{-'  +'}'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl35",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 57,
-   "diff": "+'{-'  +'}'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl36",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 657,
-   "diff": "+'{-'  +'}'  +'-'  (+1 more)",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl38",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 21,
-   "diff": "'vérifient' → 'vérifiant'  'e' → 'de'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl40",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-delimiter",
-   "edits": 1,
-   "diffChars": 95,
-   "diff": "-')'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl45",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 29,
-   "diff": "+'{\\\\mathscr{'  +\"}'}\"  -' u'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl58",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 28,
-   "diff": "'acyclique' → 'acycliques'  +' est'  'un' → 'une'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl66",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 262,
-   "diff": "'+' → '-'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl76",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'on' → 'un'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl79",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 39,
-   "diff": "'construits' → 'construites'  ' ⏎m⏎ethode' → ' méthode'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl80",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 14,
-   "diff": "'est' → 'et'  'un' → 'en'  +' soit'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl81",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 12,
-   "diff": "'Prouve' → 'Preuve'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl82",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'la' → 'le'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl86",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "markup",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "markup-mixed",
-   "edits": 4,
-   "diffChars": 51,
-   "diff": "'su' → 'au'  'La' → 'Le'  '?' → '<a class=\"ref\" href=\"#II:eq:4-3-1\">4.3'  (+1 more)",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl88",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'su' → 'au'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:4-bl90",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:4",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "punctuation",
-   "edits": 1,
-   "diffChars": 1,
-   "diff": "-','",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl2",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'La' → 'Le'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl3",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 14,
-   "diff": "'suivent' → 'suivant'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl9",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'la' → 'le'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl10",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "prose-omission",
-   "edits": 1,
-   "diffChars": 3,
-   "diff": "+' de'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl12",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 11,
-   "diff": "'court' → 'courte'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl17",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 265,
-   "diff": "+'(f) - v'  '-' → '='",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl19",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 23,
-   "diff": "'commutative' → 'commutatives'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl21",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 56,
-   "diff": "'a' → 'h'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl27",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 4,
-   "diff": "'le' → 'la'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl29",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 32,
-   "diff": "'H' → 'M'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl30",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 18,
-   "diff": "'I' → 'Il'  'notions ' → 'notons-'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl31",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 10,
-   "diff": "'F' → 'P'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl34",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 23,
-   "diff": "'un groupe' → 'une'  +' de groupes'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl42",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 5,
-   "diff": "'oùu' → 'où'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl48",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 22,
-   "diff": "'Y' → '\\\\gamma'  'lles' → 'les'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl52",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 22,
-   "diff": "'le' → 'la'  'constants' → 'constante'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl58",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "prose-omission",
-   "edits": 1,
-   "diffChars": 3,
-   "diff": "+' en'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl62",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "punctuation",
-   "edits": 1,
-   "diffChars": 2,
-   "diff": "',' → '.'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl63",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 335,
-   "diff": "+'*'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:5-bl64",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:5",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 150,
-   "diff": "'^' → '_'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:6-bl1",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:6",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 13,
-   "diff": "'nombre' → 'nombres'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:6-bl11",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:6",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 21,
-   "diff": "'filtrations' → 'filtration'",
-   "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-II:6-bl18",
-   "lang": "fr",
-   "chapterId": "II",
-   "pageId": "II:6",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 18,
-   "diff": "'vérifiant' → 'vérifient'",
    "rationale": "Correct French transcription/typography or a corrupted mathematical expression."
   },
   {
@@ -15066,57 +12862,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl12",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 8,
-   "diff": "'tela' → 'tels'",
-   "rationale": "Corriger la coquille française « tela » en « tels »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl15",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 5,
-   "diff": "'st' → 'est'",
-   "rationale": "Rétablir le verbe manquant dans « TK est réduit »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl17",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 13,
-   "diff": "'module' → 'modules'",
-   "rationale": "Accorder le nom au pluriel dans « A-modules projectifs »."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-fr-III:1-bl34",
    "lang": "fr",
    "chapterId": "III",
@@ -15131,108 +12876,6 @@
    "diffChars": 146,
    "diff": "'i' → 'j'  'i' → 'j'",
    "rationale": "Le second indice doit être j dans les deux produits tensoriels, conformément à i+j=n et à la formule précédente."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl39",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 18,
-   "diff": "'Précédons' → 'Procédons'",
-   "rationale": "Corriger la coquille « Précédons » en « Procédons »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl41",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 23,
-   "diff": "'appliqué' → 'appliquée'  'ou' → 'au'  'a' → 'à'",
-   "rationale": "Corriger l'accord et les deux prépositions dans « appliquée au complexe K réduit à M »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl51",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 4,
-   "diffChars": 43,
-   "diff": "'appliquent' → 'appliquant'  'un' → 'une'  'entres' → 'entre'  (+1 more)",
-   "rationale": "Corriger quatre coquilles grammaticales manifestes dans la réduction au cas de rang 1."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:1-bl54",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 20,
-   "diff": "'Appliquent' → 'Appliquant'",
-   "rationale": "Corriger la forme du participe présent « Appliquant »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:2-bl12",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 6,
-   "diff": "+'^f'  +'^f'  '1' → 'q'",
-   "rationale": "Le paramètre du déterminant est t^f dans toute la formule, et la graduation de la suite spectrale donne le signe (-1)^(p+q)."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:2-bl20",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 3,
-   "diffChars": 29,
-   "diff": "'X' → '\\\\mathscr{K}'  'su' → 'au'  'est' → 'en'",
-   "rationale": "Le cas particulier porte sur le complexe K, réduit au faisceau constant en degré 0; X ne peut pas être « réduit sur un faisceau »."
   },
   {
    "book": "sga4.5",
@@ -15253,40 +12896,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:2-bl31",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 264,
-   "diff": "'m' → 'n'",
-   "rationale": "L'indice de sommation est n; m n'est pas défini dans ce produit eulérien."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:2-bl34",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:2",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 2,
-   "diffChars": 30,
-   "diff": "'apparait' → 'apparaît'  'indenée' → 'indexée'",
-   "rationale": "Corriger les coquilles « apparait » et « indenée »."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-fr-III:2-bl46",
    "lang": "fr",
    "chapterId": "III",
@@ -15304,57 +12913,6 @@
   },
   {
    "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl2",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 3,
-   "diffChars": 208,
-   "diff": "+'est '  +'espaces '  '\\\\phi' → '\\\\Phi'",
-   "rationale": "Rétablir le verbe, le nom « espaces », et la majuscule cohérente de Φ dans la définition."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl4",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 5,
-   "diff": "'un' → 'une'",
-   "rationale": "Accorder l'article dans « une suite exacte »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl8",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 6,
-   "diff": "'ext' → 'est'",
-   "rationale": "Corriger la coquille « ext » en « est »."
-  },
-  {
-   "book": "sga4.5",
    "id": "p-sga4.5-fr-III:3-bl9",
    "lang": "fr",
    "chapterId": "III",
@@ -15369,108 +12927,6 @@
    "diffChars": 152,
    "diff": "'^' → ' '  -' de'  'en' → 'et'  (+1 more)",
    "rationale": "Corriger l'exposant pn d'une application p-linéaire et trois coquilles françaises dans la preuve."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl21",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-symbol",
-   "edits": 1,
-   "diffChars": 186,
-   "diff": "'F' → 'f'",
-   "rationale": "Puisque q=p^f, le Frobenius considéré est la f-ième puissance du Frobenius absolu."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl22",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "markup",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 638,
-   "diff": "-' \\\\ar[r]'  +'\\\\overline{'  +'}'",
-   "rationale": "Supprimer la flèche horizontale dupliquée et rétablir le prolongement cohérent comme objet inférieur droit du second diagramme."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl25",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 152,
-   "diff": "+'\\\\mathscr{'  +'}'",
-   "rationale": "L'endomorphisme Φ^f agit sur le prolongement cohérent, avec le G calligraphique utilisé dans les diagrammes voisins."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl31",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-macro",
-   "edits": 1,
-   "diffChars": 558,
-   "diff": "+'\\\\mathscr{'  +'}'",
-   "rationale": "Les deux termes de Φ−1 agissent sur le même faisceau cohérent; le premier G doit être calligraphique."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl32",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "math-expression",
-   "edits": 1,
-   "diffChars": 150,
-   "diff": "'m' → ','",
-   "rationale": "Rétablir la virgule séparant les deux arguments de cohomologie; le m parasite rendait la formule mal formée."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-III:3-bl35",
-   "lang": "fr",
-   "chapterId": "III",
-   "pageId": "III:3",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "math",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "mixed-math-prose",
-   "edits": 2,
-   "diffChars": 88,
-   "diff": "'\\\\phi' → '\\\\Phi'  '\\\\phi' → '\\\\Phi'  +'et linéaire '",
-   "rationale": "Uniformiser la notation Φ et rétablir que les extensions de Φ et F sont respectivement p-linéaire et linéaire."
   },
   {
    "book": "sga4.5",
@@ -15624,23 +13080,6 @@
    "diffChars": 19,
    "diff": "'connection' → 'connexion'",
    "rationale": "Correct the French spelling “connexion”."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-IV:1-bl29",
-   "lang": "fr",
-   "chapterId": "IV",
-   "pageId": "IV:1",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 23,
-   "diff": "'reservirons' → 'resserviront'",
-   "rationale": "Correct the verb and its agreement with plural “remarques”."
   },
   {
    "book": "sga4.5",
@@ -18720,74 +16159,6 @@
    "rationale": "Correct the evident transposition typo « Arpès » to « Après »."
   },
   {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-introduction-bl3",
-   "lang": "fr",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "phrase-rewrite",
-   "edits": 3,
-   "diffChars": 39,
-   "diff": "'complété' → 'complète'  +\"l'\"  'digression' → 'digressions'",
-   "rationale": "Corriger trois coquilles grammaticales manifestes : accord de « démonstration », article élidé devant « utilisateur » et pluriel de « digressions »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-introduction-bl4",
-   "lang": "fr",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "french-wording",
-   "edits": 1,
-   "diffChars": 8,
-   "diff": "'cette' → 'ces'",
-   "rationale": "Accorder le démonstratif avec le pluriel « classes »."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-introduction-bl5",
-   "lang": "fr",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 3,
-   "diffChars": 55,
-   "diff": "'leur' → 'leurs'  'introduction' → 'introductions'  'respective' → 'respectives'",
-   "rationale": "Mettre au pluriel le nom et l’adjectif, puisque le renvoi porte sur les introductions de plusieurs exposés."
-  },
-  {
-   "book": "sga4.5",
-   "id": "p-sga4.5-fr-introduction-bl6",
-   "lang": "fr",
-   "chapterId": "introduction",
-   "pageId": "introduction",
-   "target": "block",
-   "authorCategory": "transcription",
-   "family": "prose",
-   "state": "applicable",
-   "stateDetail": null,
-   "bucket": "spelling-inflection",
-   "edits": 1,
-   "diffChars": 14,
-   "diff": "'étaien:' → 'étaient'",
-   "rationale": "Réparer la fin corrompue de « étaient »."
-  },
-  {
    "book": "sga5",
    "id": "p-sga5-en-I-4-bl24",
    "lang": "en",
@@ -21805,8 +19176,8 @@
    "target": "block",
    "authorCategory": "translation",
    "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — III-4#57 no longer matches `before`",
+   "state": "applicable",
+   "stateDetail": null,
    "bucket": "terminology",
    "edits": 1,
    "diffChars": 5,
@@ -24525,8 +21896,8 @@
    "target": "block",
    "authorCategory": "translation",
    "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — 19-4#4 no longer matches `before`",
+   "state": "applicable",
+   "stateDetail": null,
    "bucket": "phrase-rewrite",
    "edits": 1,
    "diffChars": 30,
@@ -24957,23 +22328,6 @@
    "diffChars": 46,
    "diff": "'\\\\(analogue à (1.3.1.2)\\\\)' → 'analogous to (1.3.1.2)'",
    "rationale": "The phrase « analogue à » was left untranslated and incorrectly enclosed in math markup."
-  },
-  {
-   "book": "sga7",
-   "id": "p-sga7-en-9-over-9-13-116",
-   "lang": "en",
-   "chapterId": "9",
-   "pageId": "9-13",
-   "target": "block",
-   "authorCategory": "translation",
-   "family": "prose",
-   "state": "stale",
-   "stateDetail": "conflict — 9-13#116 no longer matches `before`",
-   "bucket": "phrase-rewrite",
-   "edits": 2,
-   "diffChars": 18,
-   "diff": "'above' → 'over'  'above' → 'over'",
-   "rationale": "Both occurrences of French « au-dessus de » refer to a relative base and require “over.”"
   },
   {
    "book": "sga7",

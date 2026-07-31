@@ -1,7 +1,7 @@
 {
  "chapter_id": "III",
  "title": "\\(L\\)-functions modulo \\(\\ell^n\\) and modulo \\(p\\)",
- "number": "3",
+ "number": "III",
  "pages": [
   {
    "id": "III",
@@ -10,9 +10,9 @@
     {
      "id": "III",
      "type": "heading",
-     "label": "3",
+     "label": "III",
      "title": null,
-     "html": "<h1 id=\"III\">3 \\(L\\)-functions modulo \\(\\ell^n\\) and modulo \\(p\\)</h1>"
+     "html": "<h1 id=\"III\">EXPOSÉ III<br>\\(L\\)-functions modulo \\(\\ell^n\\) and modulo \\(p\\)</h1>"
     },
     {
      "id": null,
@@ -525,7 +525,7 @@
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-III:2-3\">\n\\begin{align*}\n\\det\\left(1-F^* t, \\mathsf{R}\\Gamma_c(X,\\mathscr{K})\\right)\n    &amp;= \\prod_n \\det\\left(1-F^* t^f,\\underline{\\operatorname{H}}_c^n(X,\\mathscr{K})\\right)^{(-1)^n} \\\\\n    &amp;= \\prod_{p,q} \\det\\left(1-F^* t,\\underline{\\operatorname{H}}_c^p(X,\\underline{\\underline{\\operatorname{H}}}^q(\\mathscr{K}))\\right)^{(-1)^{p+1}} \\text{.}\n\\end{align*}\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-III:2-3\">\n\\begin{align*}\n\\det\\left(1-F^* t^f, \\mathsf{R}\\Gamma_c(X,\\mathscr{K})\\right)\n    &amp;= \\prod_n \\det\\left(1-F^* t^f,\\underline{\\operatorname{H}}_c^n(X,\\mathscr{K})\\right)^{(-1)^n} \\\\\n    &amp;= \\prod_{p,q} \\det\\left(1-F^* t^f,\\underline{\\operatorname{H}}_c^p(X,\\underline{\\underline{\\operatorname{H}}}^q(\\mathscr{K}))\\right)^{(-1)^{p+q}} \\text{.}\n\\end{align*}\n</div>"
     },
     {
      "id": null,
@@ -581,7 +581,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>The special case of b) where \\(A=\\mathbb{Z}/p\\), and where \\(X\\) is reduced to the constant\nsheaf \\(\\mathbb{Z}/p\\) in degree \\(0\\);</p>"
+     "html": "<p>The special case of b) where \\(A=\\mathbb{Z}/p\\), and where \\(\\mathscr{K}\\) is the constant sheaf \\(\\mathbb{Z}/p\\) concentrated in degree \\(0\\);</p>"
     },
     {
      "id": "disp-III:2-5",
@@ -658,7 +658,7 @@
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-III:2-6\">\n\\[\nL(X_0,\\mathscr{K}_0) = \\prod_{x\\in |X_0|} \\sum_n \\operatorname{tr}\\left(F_x^*,\\Gamma^n\\mathscr{K}\\right) t^{m\\deg(x)} \\text{.}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-III:2-6\">\n\\[\nL(X_0,\\mathscr{K}_0) = \\prod_{x\\in |X_0|} \\sum_n \\operatorname{tr}\\left(F_x^*,\\Gamma^n\\mathscr{K}\\right) t^{n\\deg(x)} \\text{.}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -932,14 +932,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Suppose now that \\(\\overline{S}\\) is a scheme over \\(\\mathbb{F}_q\\) (\\(q=p^f\\)) and,\nin accordance with the conventions of Rapport §<a class=\"ref\" href=\"#II:1\">1</a>, let us write\n\\(S_0,\\overline{S}_0,G_0,\\mathscr{G}_0,\\overline{\\mathscr{G}}_0\\) instead of \\(S,\\dots\\). Lemma\n<a class=\"ref\" href=\"#III:3-5\">3.5</a>, for \\(F_\\text{abs}^F:S_0\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} S_0\\), gives a commutative diagram</p>"
+     "html": "<p>Suppose now that \\(\\overline{S}\\) is a scheme over \\(\\mathbb{F}_q\\) (\\(q=p^f\\)) and,\nin accordance with the conventions of Rapport §<a class=\"ref\" href=\"#II:1\">1</a>, let us write\n\\(S_0,\\overline{S}_0,G_0,\\mathscr{G}_0,\\overline{\\mathscr{G}}_0\\) instead of \\(S,\\dots\\). Lemma\n<a class=\"ref\" href=\"#III:3-5\">3.5</a>, for \\(F_\\text{abs}^f:S_0\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} S_0\\), gives a commutative diagram</p>"
     },
     {
      "id": "disp-III:3-6",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-III:3-6\">\n\\[\n\\xymatrix{\n  F^* G_0 \\ar[r] \\ar[d] \n    &amp; G_0 \\ar[d] \\\\\n  F^*\\mathscr{G}_0 \\ar[r]^-{(\\Phi^f)'} \\ar[r] \n    &amp; \\mathscr{G}_0 \n}\\qquad\\text{, then}\\qquad \n\\xymatrix{\n  F^*(j_! G_0) \\ar[r] \\ar[d] \n    &amp; j_!G_0 \\ar[d] \\\\\n  F^*\\overline{\\mathscr{G}}_0 \\ar[r]^-{(\\Phi^f)'}\n    &amp; \\mathscr{G}_0\n}\\text{,}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-III:3-6\">\n\\[\n\\xymatrix{\n  F^* G_0 \\ar[r] \\ar[d] \n    &amp; G_0 \\ar[d] \\\\\n  F^*\\mathscr{G}_0 \\ar[r]^-{(\\Phi^f)'} \n    &amp; \\mathscr{G}_0 \n}\\qquad\\text{, then}\\qquad \n\\xymatrix{\n  F^*(j_! G_0) \\ar[r] \\ar[d] \n    &amp; j_!G_0 \\ar[d] \\\\\n  F^*\\overline{\\mathscr{G}}_0 \\ar[r]^-{(\\Phi^f)'}\n    &amp; \\overline{\\mathscr{G}}_0\n}\\text{,}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -960,7 +960,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>where the second row is obtained by extension of scalars from \\(\\mathbb{F}_q\\) to\n\\(\\mathbb{F}\\) of the \\(\\mathbb{F}_q\\)-linear endomorphism \\(\\Phi^f\\) of\n\\(\\underline{\\operatorname{H}}^\\bullet(\\overline{S}_0,\\overline{G}_0)\\).</p>"
+     "html": "<p>where the second row is obtained by extension of scalars from \\(\\mathbb{F}_q\\) to\n\\(\\mathbb{F}\\) of the \\(\\mathbb{F}_q\\)-linear endomorphism \\(\\Phi^f\\) of\n\\(\\underline{\\operatorname{H}}^\\bullet(\\overline{S}_0,\\overline{\\mathscr{G}}_0)\\).</p>"
     },
     {
      "id": null,
@@ -1002,14 +1002,14 @@
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-III:3-9\">\n\\[\n\\underline{\\operatorname{H}}_c^i(S,G) = \\ker\\left(\\Phi-1 : \\underline{\\operatorname{H}}^i(\\overline{S},\\overline{G}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\underline{\\operatorname{H}}^i(\\overline{S},\\overline{\\mathscr{G}})\\right) \\text{,}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-III:3-9\">\n\\[\n\\underline{\\operatorname{H}}_c^i(S,G) = \\ker\\left(\\Phi-1 : \\underline{\\operatorname{H}}^i(\\overline{S},\\overline{\\mathscr{G}}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\underline{\\operatorname{H}}^i(\\overline{S},\\overline{\\mathscr{G}})\\right) \\text{,}\n\\]\n</div>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>and \\(F^*\\) is induced by the \\(\\mathbb{F}\\)-linear extension to\n\\(\\underline{\\operatorname{H}}^i(\\overline{S},\\overline{\\mathscr{G}}) = \\underline{\\operatorname{H}}^i(\\overline{S}_0,\\overline{\\mathscr{G}}_0)\\otimes_{\\mathbb{F}_q}\\mathbb{F}\\) of\nthe \\(\\mathbb{F}_q\\)-linear endomorphism \\(\\Phi^f\\) of \\(\\underline{\\operatorname{H}}^i(\\overline{S}_0m\\overline{\\mathscr{G}}_0)\\).</p>"
+     "html": "<p>and \\(F^*\\) is induced by the \\(\\mathbb{F}\\)-linear extension to\n\\(\\underline{\\operatorname{H}}^i(\\overline{S},\\overline{\\mathscr{G}}) = \\underline{\\operatorname{H}}^i(\\overline{S}_0,\\overline{\\mathscr{G}}_0)\\otimes_{\\mathbb{F}_q}\\mathbb{F}\\) of\nthe \\(\\mathbb{F}_q\\)-linear endomorphism \\(\\Phi^f\\) of \\(\\underline{\\operatorname{H}}^i(\\overline{S}_0,\\overline{\\mathscr{G}}_0)\\).</p>"
     },
     {
      "id": null,

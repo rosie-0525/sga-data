@@ -136,6 +136,56 @@ quoted wording.
 
 ---
 
+# SGA 4½ — anomalies in the source text
+
+The volume's reference is the LaTeX transcription in the `sga4.5/sga4.5/`
+submodule, which reproduces the print; the sites below were checked against the
+French PDF on 2026-07-31.
+
+## Introduction, 3rd paragraph — three grammatical slips
+
+> Le "Rapport sur la formule des traces" contient une démonstration
+> **complété** de la formule des traces … Ce Rapport devrait permettre à
+> **utilisateur** d'oublier SGA 5, qu'on pourra considérer comme une série de
+> **digression**, certaines très intéressantes.
+
+All three are **corrected** in `sga4.5/data/fr/chapters/introduction.json`
+(block 3) and in `sga4.5/sga4.5/sga4.5-intro.tex`:
+
+- `complété` → `complète` — agreement with the feminine *démonstration*.
+- `à utilisateur` → `à l'utilisateur` — the elided article is missing.
+- `digression` → `digressions` — *une série de* takes a plural count noun, and
+  the apposition *certaines très intéressantes* (feminine plural) has no
+  antecedent without it. The English side already read "a series of
+  digressions".
+
+The last of these is signalled to the reader: the French page carries the
+editorial note `fn-introduction-1` (`kind: "editorial"`, marker `*`) recording
+the printed singular, listed apart from the volume's own footnotes — including
+the editor's 1976 notes in Exposé VIII, which are part of the print. The first
+two are silent, being plain typography.
+
+## Introduction, 4th paragraph — one more agreement slip
+
+> L'exposé "La classe de cohomologie associée à un cycle" définit **cette
+> classes** dans divers contextes …
+
+`cette classes` → `cette classe`, **corrected** in
+`sga4.5/data/fr/chapters/introduction.json` (block 4) and in
+`sga4.5/sga4.5/sga4.5-intro.tex`. The demonstrative resumes the singular *la
+classe de cohomologie* of the exposé's title just quoted, so the noun, not the
+demonstrative, carries the slip. The English "defines these classes" is
+corrected to "defines this class" to match.
+
+The correction is silent, being plain typography.
+
+Not an anomaly, though a proposal flagged it: the next paragraph's *je renvoie
+à leur introduction respective* is the original wording and is idiomatic French
+— the distributive singular after *respectif*. It stands; the English renders
+it "their respective introductions".
+
+---
+
 # SGA 6 — anomalies in the printed 1971 edition
 
 Flagged during the English translation, checked against the scans in
