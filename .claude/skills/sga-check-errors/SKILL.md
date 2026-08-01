@@ -36,8 +36,8 @@ needs no network** — only the one-time puppeteer/Chromium install does.
 
 Outputs:
 - live progress on stderr (one line per page, `ok` or `ISSUES …` with
-  per-channel counts: `merror`, `leak`, `refMath`, `mark`, `dangling`, `tag`,
-  `quote`, `blockShape`)
+  per-channel counts: `merror`, `leak`, `refMath`, `mark`, `dangling`,
+  `footnote`, `tag`, `quote`, `blockShape`)
 - four structured files under the repo-root `issues/`, **aggregated across all
   books**. Each category file is one flat array of failing-page records
   (a fully clean category → `[]`); every record carries `book` (e.g. `"sga5"`)
@@ -47,7 +47,7 @@ Outputs:
   - `issues/mathjax_errors.json` — typeset failures, `mjx-merror`, leaked
     `\command` macros
   - `issues/crossref_errors.json` — `\ref`/`\eqref` in math, `???`/`??`
-    markers, dangling `#anchor` links
+    markers, dangling `#anchor` links, footnote backref pairing
   - `issues/other_errors.json` — equation-tag dropout, closing-guillemet
     spacing (`»` glued to the following word), multi-root content blocks, plus
     `fatal` / page-level / console errors
@@ -94,7 +94,7 @@ while keeping full XyJax fidelity.
 
 Each check below is routed to one of the three output files by category:
 **MathJax** (`mathjax_errors.json`) — checks 1, 2 + `typesetError`;
-**Cross-references** (`crossref_errors.json`) — checks 3, 4, 5;
+**Cross-references** (`crossref_errors.json`) — checks 3, 4, 5, 5b;
 **Other** (`other_errors.json`) — checks 6, 7, 8 + `fatal` / page / console errors.
 
 Per-page DOM passes (scoped to the scratch container so the static viewer chrome
@@ -122,9 +122,22 @@ Static passes (over the JSON block html, in Node):
    a math environment; reported by label as a regression guard.
 5. **Internal-link integrity** — every `<a href="#frag">` whose fragment
    resolves to nothing. In the SPA the viewer resolves a fragment
-   (`viewer.js` `resolveHash`) if it is a page id, an `anchor_index` key, a
-   same-page element id, or a `toc-anchor-<X>` fallback; anything else would
+   (`viewer.js` `resolveHash`) if it is a page id, a same-page element id, an
+   `anchor_index` key, or a `toc-anchor-<X>` fallback; anything else would
    404 in the viewer.
+5b. **Footnote backref pairing** — check 5 passes a fragment that resolves to a
+   same-page id, which is correct for a click (the viewer looks the id up in the
+   live DOM before consulting the index) but hides an index that never learned
+   about the anchor. Each footnote is therefore checked as a pair in its own
+   right: `[fn-noref]` — the note has no `id="<id>ref"` marker on its page, so
+   its ↩ has nothing to return to; `[fn-unindexed]` — the note or its marker is
+   missing from `anchor_index`, so deep links (`paper.html#<id>ref`) and
+   cross-page jumps fail even though same-page clicks work; `[fn-misindexed]` —
+   `anchor_index` maps it to a different page than the one holding it, which in
+   practice means one marker id was emitted on two pages. Editorial notes
+   (`kind: "editorial"`) are where this recurs, since they are added after the
+   convert step built the index. `scripts/repair_anchor_index.py` rebuilds the
+   index from the pages and fixes the indexing cases.
 6. **Equation-tag dropout** — a numbered display-math block carries one `\label`
    (hence one number) per row; the converter emits the first label as the
    `<div class="equation">` id and the rest as `label-anchor` spans, and

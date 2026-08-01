@@ -138,9 +138,12 @@ quoted wording.
 
 # SGA 4½ — anomalies in the source text
 
-The volume's reference is the LaTeX transcription in the `sga4.5/sga4.5/`
-submodule, which reproduces the print; the sites below were checked against the
-French PDF on 2026-07-31.
+The volume's reference is the source PDFs under `sga4.5/source/`
+(`ExposeI.pdf` … `ExposeVIII.pdf`). The introduction sites below were checked
+against the French PDF on 2026-07-31, when the volume's reference was still the
+LaTeX transcription in the `sga4.5/sga4.5/` submodule (removed since; the file
+names quoted in that section refer to it). The exposé sites in the last section
+come from the 2026-08-01 reader review.
 
 ## Introduction, 3rd paragraph — three grammatical slips
 
@@ -183,6 +186,92 @@ Not an anomaly, though a proposal flagged it: the next paragraph's *je renvoie
 à leur introduction respective* is the original wording and is idiomatic French
 — the distributive singular after *respectif*. It stands; the English renders
 it "their respective introductions".
+
+## Fil d'Ariane, 2nd paragraph — one agreement slip
+
+The chapter `fil-dariane` («Un fil d'Ariane pour SGA 4, SGA 4½ et SGA 5»,
+printed pp. 1–3) has no counterpart in the LaTeX source and was transcribed
+directly from `FilDAriane.pdf` on 2026-08-01. One site is corrected:
+
+> Elle est commencée par Artin dans l'exposé IX de SGA 4 ; des conséquences,
+> quant à la dimension **cohomologiques**, sont données dans X.
+
+`cohomologiques` → `cohomologique` — agreement with the singular *la
+dimension*. Signalled to the reader by the editorial note `fn-fil-dariane-1`
+(`kind: "editorial"`, marker `*`) in
+`sga4.5/data/fr/chapters/fil-dariane.json`.
+
+Kept as printed: the odd reference punctuation «Publ. Math. IHES 36 (1969)
+p. 23-58-§3» in the 3rd paragraph. Silent, being plain typography: typewriter
+quotes and dashes set as “…” and –, and «Math.349» spaced as «Math. 349» in
+bibliography entry [2].
+
+## Exposés II–VIII — sites corrected in the 2026-08-01 reader review
+
+Each of the sites below prints something the French page now corrects, and each
+carries its own **editorial note** (`kind: "editorial"`) on that page recording
+what the print reads — so the list is a finding aid, not the record itself. The
+notes are marked `*`, `†`, `‡`, `§` per page and listed apart from the volume's
+own footnotes (including the editor's 1976 notes in Exposé VIII).
+
+| Page | Print reads | Correction |
+|---|---|---|
+| II:6 | «aux deux **particuliers** 5.1 et 5.2» | «aux deux **cas** particuliers» |
+| III:1 | `\Gamma_ext(𝒢)` in Lemme 1.3 | `\Gamma_ext^n(𝒢)`, per the definition recalled in 1.2 |
+| III:1 | `Γ^iK′ ⊗ Γ^iK″` after 1.9, in the simple and in the double complex alike | second exponent `j`, as `i+j=n` and the trace formula that follows require |
+| III:2 | «à **degré** positifs» in 2.8 | «degrés» |
+| III:3 | «une section **de** *x* de Ker(Φ−1)» in 3.3 b) | the spurious «de» dropped |
+| III:3 | «les faisceaux **correspondant** sur S̄_ét» in 3.3 c) | «correspondants» |
+| III:4 | `Σ_{x∈𝔸¹ᶠ} tr(F*, π_*ℤ/2)` | subscripts `x` added, as the trace formula requires |
+| IV:2 | «génériques de Y **nour** ramène» | «nous ramène» |
+| IV:2 | «D'après **(iv)**» | «(iii)» — the only assertion giving the formula that follows |
+| V:3 | «par **(2.2.1)**» | (3.2.1) |
+| V:3 | `R pr_{2*}𝒢` in the last two terms of (3.2.2) | `R pr_{1*}𝒢` |
+| V:3 | `{ℬ'}¹ = ker(d)` | `ℬ¹` — ℬ′ is the complex thereby obtained |
+| VI:1 | «les **objects**» | «objets» |
+| VI:1 | «d'**ambiguité**» | «ambiguïté» |
+| VI:1 | `ℱ(χ, f)` in 1.8(iii) | `ℱ(χ, f₀)`, per the notations of 1.7 d) |
+| VI:1 | «**ques** divers types» | «que divers types» |
+| VI:2 | «n'était pas **exclus**» | «exclu» (agreement with `J = ∅`) |
+| VI:3 | «à *n* **variable**» | «variables» |
+| VI:3 | «le nombre d'hyperplans **rationnel**» | «rationnels» |
+| VI:4 | «est **envoyé** isomorphiquement» | «envoyée» (la droite *D*) |
+| VI:4 | «modérée **a** l'infini» | «à l'infini» |
+| VI:5 | «diverses **façon** équivalentes» | «façons» |
+| VI:5 | «un corps de **nombre**» | «nombres» |
+| VI:5 | «celles **telle que**» | «telles que» |
+| VII:1 | «**à** l'avantage de remplacer» | «a l'avantage» (the verb *avoir*) |
+| VII:2 | closing parenthesis missing | added |
+| VII:3 | «On suppose que X ⟨⟩ de type fini» | «est» added |
+| VII:3 | `R^iΨ_η(ℱ)` in the Leray sequence (1) | `R^qΨ_η(ℱ)` |
+| VII:5 | «l'image inverse D̃ de D dans **Y**» | «dans Ỹ» |
+| VII:5 | `f_i : Y∖D_i → **D**` | `→ Y` |
+| VII:5 | `sp(u′) sp(u″) = sp(u u′)` | `sp(u′) sp(u) = sp(u u′)` |
+| VII:5 | «image de **s** (resp. **t**) dans S» | `s′`, `t′` |
+| VIII:1 | `β∘α = β∘T^i(α)` | `T^i(β)∘α` — α takes values in `T^i(Y)` |
+| VIII:1 | `d_{Y•}` in the lower-right corner of the matrix | `d_{Z•}` |
+| VIII:1 | `F^{i+-}(X)` | `F^{i+1}(X)` |
+| erratum | «**Arpès** l'énoncé» | «Après» |
+
+### Kept as printed
+
+- **II 4.4** — the description of `DF_parf(Λ)` reads «tels que les **Gr^p_F(Λ)**
+  soient dans D_parf(Λ) et presque tous nuls» (`ExposeII.pdf` p. 22). The
+  argument wants `gr^p_F(K)` — Λ carries no filtration — but the print has Λ,
+  and it stands on both sides. (This clause had been lost from the French page
+  altogether in transcription; it is restored here as printed.)
+- **VI 4.4** — «τ(χ,ψ)·τ(χ⁻¹,ψ⁻¹) = q, i.e. |τ(χ,ψ)| **= q**». The second
+  equality wants `q^{1/2}`; the print has `q` (checked at high resolution,
+  `ExposeVI.pdf` p. 30). Transcribed as printed on both sides.
+- **VI 7.19** — «**Il s'agit** donc sur `H_c^{n-1}(V_a, ℱ(ψσ))`» for *Il agit*.
+  Kept in French; the English renders it "It therefore acts on".
+- **VI 7.19** — the print writes the symmetric group `S_m` in 7.19 and `S_n` in
+  7.20; the transcription uses `S_n` throughout.
+- **VII 5.1.3(i)** and **VI 7.19** aside, the review's remaining corrections were
+  to *this edition's* transcription and translation (leaked `\sf`, `G+m^I` for
+  `𝔾_m^I`, `X-0` for `X_0`, a doubled clause, four English headings printing
+  their number twice, and the `\label`/`\ref` leakage repaired in Exposé VIII
+  §§1–2), not to the print, and so are not errata.
 
 ---
 

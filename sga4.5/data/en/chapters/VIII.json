@@ -62,14 +62,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Let \\(X\\), \\(Y\\), \\(Z\\) be three objects of \\(\\mathscr{A}\\), \\(\\alpha\\in \\hom^i(X,Y)\\),\n\\(\\beta\\in \\hom^j(X,Y)\\). We shall define the composite \\(\\beta\\circ\\alpha\\)\nbelonging to \\(\\hom^{i+j}(X,Z)\\) by:</p>"
+     "html": "<p>Let \\(X\\), \\(Y\\), \\(Z\\) be three objects of \\(\\mathscr{A}\\), \\(\\alpha\\in \\hom^i(X,Y)\\),\n\\(\\beta\\in \\hom^j(Y,Z)\\). We shall define the composite \\(\\beta\\circ\\alpha\\)\nbelonging to \\(\\hom^{i+j}(X,Z)\\) by:</p>"
     },
     {
      "id": "disp-VIII:1-2",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-2\">\n\\[\n\\beta\\circ \\alpha = \\beta\\circ T^i(\\alpha) \\text{.}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-2\">\n\\[\n\\beta\\circ \\alpha = T^i(\\beta)\\circ \\alpha \\text{.}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -153,35 +153,21 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-6\">TR1</h3>"
+     "html": "<h3 id=\"sub-VIII:1-6\"><span class=\"label-anchor\" id=\"VIII:TR1\"></span>TR1</h3>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>VIII:TR1</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>Every triangle isomorphic to a distinguished triangle is distinguished. Every\nmorphism \\(u:X\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} Y\\) is contained in a distinguished triangle\n\\((X,Y,Z,u,v,w)\\). The triangle \\((X,X,0,\\operatorname{id}_{X'},0,0)\\) is\ndistinguished.</p>"
+     "html": "<p>Every triangle isomorphic to a distinguished triangle is distinguished. Every\nmorphism \\(u:X\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} Y\\) is contained in a distinguished triangle\n\\((X,Y,Z,u,v,w)\\). The triangle \\((X,X,0,\\operatorname{id}_{X},0,0)\\) is\ndistinguished.</p>"
     },
     {
      "id": "sub-VIII:1-7",
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-7\">TR2</h3>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>VIII:TR2</p>"
+     "html": "<h3 id=\"sub-VIII:1-7\"><span class=\"label-anchor\" id=\"VIII:TR2\"></span>TR2</h3>"
     },
     {
      "id": null,
@@ -195,14 +181,7 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-8\">TR3</h3>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>VIII:TR3</p>"
+     "html": "<h3 id=\"sub-VIII:1-8\"><span class=\"label-anchor\" id=\"VIII:TR3\"></span>TR3</h3>"
     },
     {
      "id": null,
@@ -216,14 +195,7 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-9\">TR4</h3>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>VIII:TR4</p>"
+     "html": "<h3 id=\"sub-VIII:1-9\"><span class=\"label-anchor\" id=\"VIII:TR4\"></span>TR4</h3>"
     },
     {
      "id": "disp-VIII:1-10",
@@ -258,7 +230,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>From the axioms VIII:TR1TR1,\nVIII:TR2TR2, VIII:TR3TR3 one immediately deduces the following property:</p>"
+     "html": "<p>From the axioms <a class=\"ref\" href=\"#VIII:TR1\">TR1</a>,\n<a class=\"ref\" href=\"#VIII:TR2\">TR2</a>, <a class=\"ref\" href=\"#VIII:TR3\">TR3</a> one immediately deduces the following property:</p>"
     },
     {
      "id": "VIII:1-1-2",
@@ -279,7 +251,7 @@
      "type": "list",
      "label": null,
      "title": null,
-     "html": "<ul class=\"itemize\">\n<li><p>\\((f,g,h)\\) being a morphism of distinguished triangles and \\(f,g\\)\n    isomorphisms.</p></li>\n<li><p>The distinguished triangles built on a morphism\n    (VIII:TR1TR1) are all isomorphic (<em>but the\n    isomorphisms are not, in general, uniquely determined</em>).</p></li>\n<li><p>When, in a distinguished triangle, one of the morphisms admits a kernel\n    or a cokernel, the latter splits, i.e. it is of the form:</p>\n<div class=\"displaymath\" id=\"disp-VIII:1-13\">\n\\[\n\\xymatrix{\n      &amp; Z+T(X) \\ar[dl] \\\\\n      X+Y \\ar[rr] \n        &amp; &amp; Y+Z \\ar[ul]\n    }\n\\]\n</div></li>\n<li><p>The sum of two distinguished triangles is distinguished. (One uses\n    the axiom VIII:TR4TR4.)</p></li>\n</ul>"
+     "html": "<ul class=\"itemize\">\n<li><p>\\((f,g,h)\\) being a morphism of distinguished triangles and \\(f,g\\)\n    isomorphisms.</p></li>\n<li><p>The distinguished triangles built on a morphism\n    (<a class=\"ref\" href=\"#VIII:TR1\">TR1</a>) are all isomorphic (<em>but the\n    isomorphisms are not, in general, uniquely determined</em>).</p></li>\n<li><p>When, in a distinguished triangle, one of the morphisms admits a kernel\n    or a cokernel, the latter splits, i.e. it is of the form:</p>\n<div class=\"displaymath\" id=\"disp-VIII:1-13\">\n\\[\n\\xymatrix{\n      &amp; Z+T(X) \\ar[dl] \\\\\n      X+Y \\ar[rr] \n        &amp; &amp; Y+Z \\ar[ul]\n    }\n\\]\n</div></li>\n<li><p>The sum of two distinguished triangles is distinguished. (One uses\n    the axiom <a class=\"ref\" href=\"#VIII:TR4\">TR4</a>.)</p></li>\n</ul>"
     },
     {
      "id": "VIII:1-2",
@@ -391,7 +363,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>One will call a distinguished triangle in \\(\\mathsf{K}(\\mathscr{A})\\) any triangle\n<em>isomorphic</em> to a triangle coming from \\(\\mathscr{C}\\). The family of distinguished\ntriangles satisfies the axioms VIII:TR1TR1,\nVIII:TR2TR2, VIII:TR3TR3 and\nVIII:TR4TR4. By abuse of notation \\(\\mathsf{K}(\\mathscr{A})\\) will denote the\ncategory \\(\\mathsf{K}(\\mathscr{A})\\) triangulated by the family of triangles defined\nabove.</p>"
+     "html": "<p>One will call a distinguished triangle in \\(\\mathsf{K}(\\mathscr{A})\\) any triangle\n<em>isomorphic</em> to a triangle coming from \\(\\mathscr{C}\\). The family of distinguished\ntriangles satisfies the axioms <a class=\"ref\" href=\"#VIII:TR1\">TR1</a>,\n<a class=\"ref\" href=\"#VIII:TR2\">TR2</a>, <a class=\"ref\" href=\"#VIII:TR3\">TR3</a> and\n<a class=\"ref\" href=\"#VIII:TR4\">TR4</a>. By abuse of notation \\(\\mathsf{K}(\\mathscr{A})\\) will denote the\ncategory \\(\\mathsf{K}(\\mathscr{A})\\) triangulated by the family of triangles defined\nabove.</p>"
     },
     {
      "id": "VIII:1-2-3",
@@ -496,7 +468,7 @@
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-24\">\n\\[\n\\begin{pmatrix}\n    d_{X^\\bullet} &amp; \\varphi_n \\\\\n    0 &amp; d_{Y^\\bullet} \n  \\end{pmatrix}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-24\">\n\\[\n\\begin{pmatrix}\n    d_{X^\\bullet} &amp; \\varphi_n \\\\\n    0 &amp; d_{Z^\\bullet} \n  \\end{pmatrix}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -552,14 +524,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>The functor \\(F\\circ T^i\\) will often be denoted \\(F^i\\). By virtue of the axiom\nVIII:TR2TR2 of triangulated categories, one has the unbounded exact\nsequence:</p>"
+     "html": "<p>The functor \\(F\\circ T^i\\) will often be denoted \\(F^i\\). By virtue of the axiom\n<a class=\"ref\" href=\"#VIII:TR2\">TR2</a> of triangulated categories, one has the unbounded exact\nsequence:</p>"
     },
     {
      "id": "disp-VIII:1-29",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-29\">\n\\[\n\\xymatrix{\n  \\cdots \\ar[r] \n    &amp; F^i(X) \\ar[r] \n    &amp; F^i(Y) \\ar[r] \n    &amp; F^i(Z) \\ar[r] \n    &amp; F^{i+-}(X) \\ar[r] \n    &amp; \\cdots \n}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-29\">\n\\[\n\\xymatrix{\n  \\cdots \\ar[r] \n    &amp; F^i(X) \\ar[r] \n    &amp; F^i(Y) \\ar[r] \n    &amp; F^i(Z) \\ar[r] \n    &amp; F^{i+1}(X) \\ar[r] \n    &amp; \\cdots \n}\n\\]\n</div>"
     },
     {
      "id": "VIII:1-3-2",
@@ -746,7 +718,7 @@
      "type": "definition",
      "label": null,
      "title": "Definition",
-     "html": "<div class=\"thm thm-remark definition\" id=\"thm-VIII:2-1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span></div>\n  <div class=\"thm-body\"><p>Let \\(\\mathscr{A}\\) be a triangulated category. A set \\(S\\) of morphisms of \\(\\mathscr{A}\\)\nis called a <em>multiplicative system of morphisms</em> if it has the\nfollowing five properties:</p>\n<h4>FR1</h4>\n<p>VIII:FR1\nIf \\(f,g\\in S\\) and if \\(f\\) and \\(g\\) are composable, \\(f\\circ g\\in S\\). For every\nobject \\(X\\) of \\(\\mathscr{A}\\), the identity morphism of \\(X\\) is an element of \\(S\\).</p>\n<h4>FR2</h4>\n<p>VIII:FR2\nIn the category \\(\\mathscr{A}\\), every diagram</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-2\">\n\\[\n\\xymatrix{\n  &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>can be completed into a commutative diagram</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-3\">\n\\[\n\\xymatrix{\n  P \\ar[r]^-g \\ar[d]^-{t\\in S} \n    &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>Moreover the symmetric property holds.</p>\n<h4>FR3</h4>\n<p>VIII:FR3\nIf \\(f\\) and \\(g\\) are morphisms, the following properties are\nequivalent:</p>\n<ol class=\"enumerate\">\n<li><p>there exists an \\(s\\in S\\) such that \\(s\\circ f=s\\circ g\\)</p></li>\n<li><p>there exists a \\(t\\in S\\) such that \\(f\\circ t=g\\circ t\\)</p></li>\n</ol>\n<h4>FR4</h4>\n<p>VIII:FR4\nLet \\(T\\) be the translation functor of \\(\\mathscr{A}\\). For every element \\(s\\) of \\(S\\),\n\\(T(s)\\in S\\).</p>\n<h4>FR5</h4>\n<p>VIII:FR5\n\\((X,Y,Z,u,v,w)\\), \\((X',Y',Z',u',v',w')\\) being two distinguished triangles,\n\\(f\\) and \\(g\\) two elements of \\(S\\) such that the pair \\((f,g)\\) is a\nmorphism from \\(u\\) to \\(u'\\), there exists a morphism \\(h\\in S\\) such that\n\\((f,g,h)\\) is a morphism of triangles.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark definition\" id=\"thm-VIII:2-1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span></div>\n  <div class=\"thm-body\"><p>Let \\(\\mathscr{A}\\) be a triangulated category. A set \\(S\\) of morphisms of \\(\\mathscr{A}\\)\nis called a <em>multiplicative system of morphisms</em> if it has the\nfollowing five properties:</p>\n<h4 id=\"VIII:FR1\">FR1</h4>\n<p>If \\(f,g\\in S\\) and if \\(f\\) and \\(g\\) are composable, \\(f\\circ g\\in S\\). For every\nobject \\(X\\) of \\(\\mathscr{A}\\), the identity morphism of \\(X\\) is an element of \\(S\\).</p>\n<h4 id=\"VIII:FR2\">FR2</h4>\n<p>In the category \\(\\mathscr{A}\\), every diagram</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-2\">\n\\[\n\\xymatrix{\n  &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>can be completed into a commutative diagram</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-3\">\n\\[\n\\xymatrix{\n  P \\ar[r]^-g \\ar[d]^-{t\\in S} \n    &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>Moreover the symmetric property holds.</p>\n<h4 id=\"VIII:FR3\">FR3</h4>\n<p>If \\(f\\) and \\(g\\) are morphisms, the following properties are\nequivalent:</p>\n<ol class=\"enumerate\">\n<li><p>there exists an \\(s\\in S\\) such that \\(s\\circ f=s\\circ g\\)</p></li>\n<li><p>there exists a \\(t\\in S\\) such that \\(f\\circ t=g\\circ t\\)</p></li>\n</ol>\n<h4 id=\"VIII:FR4\">FR4</h4>\n<p>Let \\(T\\) be the translation functor of \\(\\mathscr{A}\\). For every element \\(s\\) of \\(S\\),\n\\(T(s)\\in S\\).</p>\n<h4 id=\"VIII:FR5\">FR5</h4>\n<p>\\((X,Y,Z,u,v,w)\\), \\((X',Y',Z',u',v',w')\\) being two distinguished triangles,\n\\(f\\) and \\(g\\) two elements of \\(S\\) such that the pair \\((f,g)\\) is a\nmorphism from \\(u\\) to \\(u'\\), there exists a morphism \\(h\\in S\\) such that\n\\((f,g,h)\\) is a morphism of triangles.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -816,35 +788,35 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:2-4\">Problem 1</h3>"
+     "html": "<h3 id=\"sub-VIII:2-4\"><span class=\"label-anchor\" id=\"VIII:prob1\"></span>Problem 1</h3>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>VIII:prob1\nTo find a triangulated category \\(\\mathscr{A}/\\mathscr{B}\\) and an exact functor\n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}/\\mathscr{B}\\) such that every exact functor from \\(\\mathscr{A}\\) to a triangulated\ncategory \\(\\mathscr{A}'\\) that carries the objects of \\(\\mathscr{B}\\) to zero objects of\n\\(\\mathscr{A}'\\) admits, in a unique way, a factorization of the form \\(G\\circ Q\\)\nwhere \\(G\\) is an exact functor.</p>"
+     "html": "<p>To find a triangulated category \\(\\mathscr{A}/\\mathscr{B}\\) and an exact functor\n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}/\\mathscr{B}\\) such that every exact functor from \\(\\mathscr{A}\\) to a triangulated\ncategory \\(\\mathscr{A}'\\) that carries the objects of \\(\\mathscr{B}\\) to zero objects of\n\\(\\mathscr{A}'\\) admits, in a unique way, a factorization of the form \\(G\\circ Q\\)\nwhere \\(G\\) is an exact functor.</p>"
     },
     {
      "id": "sub-VIII:2-5",
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:2-5\">Problem 2</h3>"
+     "html": "<h3 id=\"sub-VIII:2-5\"><span class=\"label-anchor\" id=\"VIII:prob2\"></span>Problem 2</h3>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>VIII:prob2\nTo find a triangulated category \\(\\mathscr{A}_S\\) and an exact functor\n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}_S\\) such that every exact functor from \\(\\mathscr{A}\\) to a triangulated\ncategory \\(\\mathscr{A}'\\) that carries the morphisms of \\(S\\) to isomorphisms of\n\\(\\mathscr{A}'\\) admits, in a unique way, a factorization of the form\n\\(G\\circ Q\\) where \\(G\\) is an exact functor.</p>"
+     "html": "<p>To find a triangulated category \\(\\mathscr{A}_S\\) and an exact functor\n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}_S\\) such that every exact functor from \\(\\mathscr{A}\\) to a triangulated\ncategory \\(\\mathscr{A}'\\) that carries the morphisms of \\(S\\) to isomorphisms of\n\\(\\mathscr{A}'\\) admits, in a unique way, a factorization of the form\n\\(G\\circ Q\\) where \\(G\\) is an exact functor.</p>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>(The writer begs the reader's indulgence for the use of this\noutdated and old-fashioned language.) We shall show, in the following\nsection, that VIII:prob2problem 2 admits a solution. Hence\nthe corresponding VIII:prob1problem 1 admits the same solution.</p>"
+     "html": "<p>(The writer begs the reader's indulgence for the use of this\noutdated and old-fashioned language.) We shall show, in the following\nsection, that <a class=\"ref\" href=\"#VIII:prob2\">problem 2</a> admits a solution. Hence\nthe corresponding <a class=\"ref\" href=\"#VIII:prob1\">problem 1</a> admits the same solution.</p>"
     },
     {
      "id": "VIII:2-3",
@@ -865,7 +837,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Let \\(\\mathscr{A}\\) be a triangulated category, \\(S\\) a saturated multiplicative\nsystem. Let us denote by \\(\\mathscr{A}[S^{-1}]\\) the category of fractions of \\(\\mathscr{A}\\)\nfor the set of morphisms \\(S\\), and by \\(Q\\) the canonical functor from \\(\\mathscr{A}\\) to\n\\(\\mathscr{A}[S^{-1}]\\). The pair \\((\\mathscr{A}[S^{-1}],Q)\\) solves the following problem: Every\nfunctor from \\(\\mathscr{A}\\) to an arbitrary category (not necessarily\nadditive) that carries the morphisms of \\(S\\) to isomorphisms factors, in a\nunique way, through \\((\\mathscr{A}[S^{-1}],Q)\\). Such a pair always exists, with no\nhypothesis on the set of morphisms \\(S\\) <span class=\"cite\">[<a class=\"cite-src\" id=\"gz67-cite-1\" href=\"#gz67\">18</a>]</span><a class=\"footnote-ref\" id=\"fn-VIII:2-1ref\" href=\"#fn-VIII:2-1\"><sup>1</sup></a>. However the set\nof morphisms \\(S\\), being a saturated multiplicative system, has the\nproperties VIII:FR1FR1, VIII:FR2FR2,\nVIII:FR3FR3. Consequently, by <span class=\"cite\">[<a class=\"cite-src\" id=\"gz67-cite-2\" href=\"#gz67\">18</a>]</span>, the category\n\\(\\mathscr{A}[S^{-1}]\\) can be obtained by a calculus of fractions, on the right or on the\nleft. We shall recall how one obtains \\(\\mathscr{A}[S^{-1}]\\) by a calculus of\nfractions on the right. (The calculus of fractions on the left is obtained by the\nprocedure of reversing the arrows.)</p>"
+     "html": "<p>Let \\(\\mathscr{A}\\) be a triangulated category, \\(S\\) a saturated multiplicative\nsystem. Let us denote by \\(\\mathscr{A}[S^{-1}]\\) the category of fractions of \\(\\mathscr{A}\\)\nfor the set of morphisms \\(S\\), and by \\(Q\\) the canonical functor from \\(\\mathscr{A}\\) to\n\\(\\mathscr{A}[S^{-1}]\\). The pair \\((\\mathscr{A}[S^{-1}],Q)\\) solves the following problem: Every\nfunctor from \\(\\mathscr{A}\\) to an arbitrary category (not necessarily\nadditive) that carries the morphisms of \\(S\\) to isomorphisms factors, in a\nunique way, through \\((\\mathscr{A}[S^{-1}],Q)\\). Such a pair always exists, with no\nhypothesis on the set of morphisms \\(S\\) <span class=\"cite\">[<a class=\"cite-src\" id=\"gz67-cite-1\" href=\"#gz67\">18</a>]</span><a class=\"footnote-ref\" id=\"fn-VIII:2-1ref\" href=\"#fn-VIII:2-1\"><sup>1</sup></a>. However the set\nof morphisms \\(S\\), being a saturated multiplicative system, has the\nproperties <a class=\"ref\" href=\"#VIII:FR1\">FR1</a>, <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>,\n<a class=\"ref\" href=\"#VIII:FR3\">FR3</a>. Consequently, by <span class=\"cite\">[<a class=\"cite-src\" id=\"gz67-cite-2\" href=\"#gz67\">18</a>]</span>, the category\n\\(\\mathscr{A}[S^{-1}]\\) can be obtained by a calculus of fractions, on the right or on the\nleft. We shall recall how one obtains \\(\\mathscr{A}[S^{-1}]\\) by a calculus of\nfractions on the right. (The calculus of fractions on the left is obtained by the\nprocedure of reversing the arrows.)</p>"
     },
     {
      "id": "VIII:2-3-2",
@@ -886,7 +858,7 @@
      "type": "list",
      "label": null,
      "title": null,
-     "html": "<ul class=\"itemize\">\n<li><p>For every object \\(X\\) of \\(\\mathscr{A}\\), let \\(S_X\\) denote the category of\n    arrows belonging to \\(S\\), having target \\(X\\). To every object \\(Y\\) of\n    \\(\\mathscr{A}\\) one associates, functorially in \\(Y\\), the following functor on\n    \\(S_X^\\circ\\) with values in the category of sets:\n    (\\(S_X^\\circ\\) denotes the opposite category)</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-6\">\n\\[\nH_Y:s\\mapsto \\hom(\\operatorname{source}(s),Y) \\text{.}\n\\]\n</div>\n<p>One then sets:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-7\">\n\\[\n\\hom_{\\mathscr{A}[S^{-1}]}(X,Y) = \\varinjlim_{S_X^\\circ} H_Y \\text{.}\n\\]\n</div>\n<p>For everything concerning inductive limits, we refer to\n    <span class=\"cite\">[<a class=\"cite-src\" id=\"ar62-cite-2\" href=\"#ar62\">1</a>]</span>.</p>\n<p>One then observes, with pleasure, using VIII:FR1FR1,\n    VIII:FR2FR2, VIII:FR3FR3, that the category\n    \\(S_X^\\circ\\) possesses the properties L1, L2, L3. The inductive limits\n    therefore possess all the good properties of inductive limits\n    over filtered ordered sets.</p></li>\n<li><p>Let \\(X\\), \\(Y\\), \\(Z\\) be three objects of \\(\\mathscr{A}\\), \\(a\\) an element of\n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Y)\\) and \\(b\\) an element of\n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(Y,Z)\\). Let \\(s\\) be an object of \\(S_X\\), \\(\\underline a\\) an\n    element of \\(\\hom(\\operatorname{source}(s),Y)\\) whose image is \\(a\\), and\n    an object of \\(S_y\\), \\(\\underline b\\) an element of\n    \\(\\hom(\\operatorname{source}(t),Z)\\) whose image is \\(b\\). One then has a\n    diagram:</p>\n<div class=\"equation\" id=\"VIII:eq:2-3-2-1\">\n\\[\n\\tag{1}\n    \\xymatrix{\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; \n        &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; \n        &amp; Y \n        &amp; \n        &amp; Z \n    }\n\\]\n</div>\n<p>which, by VIII:FR2FR2, can be completed into a\n    diagram:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-8\">\n\\[\n\\xymatrix{\n      &amp; &amp; \\bullet \\ar[dl]_-{t'} \\ar[dr]^-{\\underline c} \\\\\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; &amp; Y \n        &amp; &amp; Z \n    }\n\\]\n</div>\n<p>Let us denote by \\(b\\circ a\\) the image in \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Z)\\) of the morphism\n    \\(\\underline{b\\circ c}\\). One checks that, thanks to the properties\n    VIII:FR1FR1, VIII:FR2FR2,\n    VIII:FR3FR3, \\(b\\circ a\\) does not depend on the chosen representatives\n    \\(\\underline a\\) and \\(\\underline b\\), and that it also does not depend\n    on the manner of completing the diagram (<a class=\"ref\" href=\"#VIII:eq:2-3-2-1\">1</a>). One\n    checks moreover that one has thereby defined a category \\(\\mathscr{A}[S^{-1}]\\).</p></li>\n</ul>"
+     "html": "<ul class=\"itemize\">\n<li><p>For every object \\(X\\) of \\(\\mathscr{A}\\), let \\(S_X\\) denote the category of\n    arrows belonging to \\(S\\), having target \\(X\\). To every object \\(Y\\) of\n    \\(\\mathscr{A}\\) one associates, functorially in \\(Y\\), the following functor on\n    \\(S_X^\\circ\\) with values in the category of sets:\n    (\\(S_X^\\circ\\) denotes the opposite category)</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-6\">\n\\[\nH_Y:s\\mapsto \\hom(\\operatorname{source}(s),Y) \\text{.}\n\\]\n</div>\n<p>One then sets:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-7\">\n\\[\n\\hom_{\\mathscr{A}[S^{-1}]}(X,Y) = \\varinjlim_{S_X^\\circ} H_Y \\text{.}\n\\]\n</div>\n<p>For everything concerning inductive limits, we refer to\n    <span class=\"cite\">[<a class=\"cite-src\" id=\"ar62-cite-2\" href=\"#ar62\">1</a>]</span>.</p>\n<p>One then observes, with pleasure, using <a class=\"ref\" href=\"#VIII:FR1\">FR1</a>,\n    <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>, <a class=\"ref\" href=\"#VIII:FR3\">FR3</a>, that the category\n    \\(S_X^\\circ\\) possesses the properties L1, L2, L3. The inductive limits\n    therefore possess all the good properties of inductive limits\n    over filtered ordered sets.</p></li>\n<li><p>Let \\(X\\), \\(Y\\), \\(Z\\) be three objects of \\(\\mathscr{A}\\), \\(a\\) an element of\n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Y)\\) and \\(b\\) an element of\n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(Y,Z)\\). Let \\(s\\) be an object of \\(S_X\\), \\(\\underline a\\) an\n    element of \\(\\hom(\\operatorname{source}(s),Y)\\) whose image is \\(a\\), and\n    an object of \\(S_y\\), \\(\\underline b\\) an element of\n    \\(\\hom(\\operatorname{source}(t),Z)\\) whose image is \\(b\\). One then has a\n    diagram:</p>\n<div class=\"equation\" id=\"VIII:eq:2-3-2-1\">\n\\[\n\\tag{1}\n    \\xymatrix{\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; \n        &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; \n        &amp; Y \n        &amp; \n        &amp; Z \n    }\n\\]\n</div>\n<p>which, by <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>, can be completed into a\n    diagram:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-8\">\n\\[\n\\xymatrix{\n      &amp; &amp; \\bullet \\ar[dl]_-{t'} \\ar[dr]^-{\\underline c} \\\\\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; &amp; Y \n        &amp; &amp; Z \n    }\n\\]\n</div>\n<p>Let us denote by \\(b\\circ a\\) the image in \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Z)\\) of the morphism\n    \\(\\underline{b\\circ c}\\). One checks that, thanks to the properties\n    <a class=\"ref\" href=\"#VIII:FR1\">FR1</a>, <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>,\n    <a class=\"ref\" href=\"#VIII:FR3\">FR3</a>, \\(b\\circ a\\) does not depend on the chosen representatives\n    \\(\\underline a\\) and \\(\\underline b\\), and that it also does not depend\n    on the manner of completing the diagram (<a class=\"ref\" href=\"#VIII:eq:2-3-2-1\">1</a>). One\n    checks moreover that one has thereby defined a category \\(\\mathscr{A}[S^{-1}]\\).</p></li>\n</ul>"
     },
     {
      "id": null,
@@ -900,7 +872,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Since \\(\\mathscr{A}\\) is an additive category, \\(\\mathscr{A}[S^{-1}]\\) is an additive\ncategory. Moreover, using VIII:FR4FR4 one shows that there\nexists one and only one translation functor on \\(\\mathscr{A}[S^{-1}]\\), which we shall\ndenote by \\(T\\), satisfying the relation:</p>"
+     "html": "<p>Since \\(\\mathscr{A}\\) is an additive category, \\(\\mathscr{A}[S^{-1}]\\) is an additive\ncategory. Moreover, using <a class=\"ref\" href=\"#VIII:FR4\">FR4</a> one shows that there\nexists one and only one translation functor on \\(\\mathscr{A}[S^{-1}]\\), which we shall\ndenote by \\(T\\), satisfying the relation:</p>"
     },
     {
      "id": "disp-VIII:2-9",
@@ -914,14 +886,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Finally, with the help of VIII:FR5FR5, one shows that there exists one\nand only one triangulated structure on \\(\\mathscr{A}[S^{-1}]\\) such that the functor \\(Q\\)\nis exact. The distinguished triangles of \\(\\mathscr{A}[S^{-1}]\\) are none other than the\ntriangles isomorphic to the images, under \\(Q\\), of the distinguished triangles of \\(\\mathscr{A}\\).\nDenoting by \\(\\mathscr{A}_S\\) the category \\(\\mathscr{A}[S^{-1}]\\) equipped with this\ntriangulated structure, one shows without difficulty that the pair\n\\((\\mathscr{A}_S,Q)\\) is a solution to VIII:prob2problem 2.</p>"
+     "html": "<p>Finally, with the help of <a class=\"ref\" href=\"#VIII:FR5\">FR5</a>, one shows that there exists one\nand only one triangulated structure on \\(\\mathscr{A}[S^{-1}]\\) such that the functor \\(Q\\)\nis exact. The distinguished triangles of \\(\\mathscr{A}[S^{-1}]\\) are none other than the\ntriangles isomorphic to the images, under \\(Q\\), of the distinguished triangles of \\(\\mathscr{A}\\).\nDenoting by \\(\\mathscr{A}_S\\) the category \\(\\mathscr{A}[S^{-1}]\\) equipped with this\ntriangulated structure, one shows without difficulty that the pair\n\\((\\mathscr{A}_S,Q)\\) is a solution to <a class=\"ref\" href=\"#VIII:prob2\">problem 2</a>.</p>"
     },
     {
      "id": "VIII:2-3-3",
      "type": "definition",
      "label": "2.3.3",
      "title": "Definition",
-     "html": "<div class=\"thm thm-remark definition\" id=\"VIII:2-3-3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">2.3.3</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-3-3\"></span>\nLet \\(\\mathscr{A}\\) be a triangulated category, \\(\\mathscr{B}\\) a thick subcategory\nof \\(\\mathscr{A}\\), \\((Q,\\mathscr{A}/\\mathscr{B})\\) the solution of VIII:prob1problem 1\n(§<a class=\"ref\" href=\"#VIII:2-2\">2.2</a>). \\(\\mathscr{A}/\\mathscr{B}\\) will be called the <em>quotient category</em> of\n\\(\\mathscr{A}\\) by \\(\\mathscr{B}\\). \\(Q\\) will be called the canonical passage-to-the-quotient\nfunctor. More generally, let \\(\\mathscr{N}\\) be a triangulated subcategory of\n\\(\\mathscr{A}\\) and let \\(\\underline{\\mathscr{N}}\\) be the smallest thick subcategory\ncontaining \\(\\mathscr{N}\\). The quotient category of \\(\\mathscr{A}\\) by \\(\\mathscr{N}\\): \\(\\mathscr{A}/\\mathscr{N}\\) will by\ndefinition be \\(\\mathscr{A}/\\underline{\\mathscr{N}}\\).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark definition\" id=\"VIII:2-3-3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Definition</span> <span class=\"thm-num\">2.3.3</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-3-3\"></span>\nLet \\(\\mathscr{A}\\) be a triangulated category, \\(\\mathscr{B}\\) a thick subcategory\nof \\(\\mathscr{A}\\), \\((Q,\\mathscr{A}/\\mathscr{B})\\) the solution of <a class=\"ref\" href=\"#VIII:prob1\">problem 1</a>\n(§<a class=\"ref\" href=\"#VIII:2-2\">2.2</a>). \\(\\mathscr{A}/\\mathscr{B}\\) will be called the <em>quotient category</em> of\n\\(\\mathscr{A}\\) by \\(\\mathscr{B}\\). \\(Q\\) will be called the canonical passage-to-the-quotient\nfunctor. More generally, let \\(\\mathscr{N}\\) be a triangulated subcategory of\n\\(\\mathscr{A}\\) and let \\(\\underline{\\mathscr{N}}\\) be the smallest thick subcategory\ncontaining \\(\\mathscr{N}\\). The quotient category of \\(\\mathscr{A}\\) by \\(\\mathscr{N}\\): \\(\\mathscr{A}/\\mathscr{N}\\) will by\ndefinition be \\(\\mathscr{A}/\\underline{\\mathscr{N}}\\).</p></div>\n</div>"
     },
     {
      "id": "VIII:2-4",
@@ -949,7 +921,7 @@
      "type": "theorem",
      "label": "2.4.2",
      "title": "Theorem",
-     "html": "<div class=\"thm thm-plain theorem\" id=\"VIII:2-4-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Theorem</span> <span class=\"thm-num\">2.4.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-4-2\"></span>\nLet \\(\\mathscr{A}\\) be a triangulated category, \\(\\mathscr{B}\\) a triangulated\nsubcategory, \\(\\mathscr{N}\\) a thick subcategory of \\(\\mathscr{A}\\), \\(S=\\varphi(\\mathscr{N})\\)\nthe corresponding saturated multiplicative system.</p>\n<ol class=\"enumerate\">\n<li><p>The category \\(\\mathscr{N}\\cap\\mathscr{B}\\) is a thick subcategory of\n    \\(\\mathscr{B}\\). The corresponding multiplicative system is \\(S\\cap \\mathscr{B}\\).</p></li>\n<li><p>The two following properties are equivalent:</p>\n<ol class=\"enumerate\">\n<li><p>For every object \\(X\\) of \\(\\mathscr{B}\\) and every morphism \\(s:R\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) where \\(s\\)\n        is an element of \\(S\\), there exists a morphism \\(s':R'\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} R\\) where\n        \\(s\\circ'\\) is an element of \\(S\\cap \\mathscr{B}\\); and\n        \\(R'\\in\\operatorname{Ob}\\mathscr{B}\\).</p></li>\n<li><p>Every morphism from an object \\(X\\) of \\(\\mathscr{B}\\) into an object \\(Y\\) of \\(\\mathscr{N}\\)\n        factors through an object of \\(\\mathscr{N}\\cap \\mathscr{B}\\).</p></li>\n</ol></li>\n<li><p>The properties (i)' and (ii)' obtained from (i) and (ii) by\n    reversing the arrows are equivalent.</p></li>\n<li><p>If properties (i) and (ii) hold, or else if\n    properties (i)' and (ii)' hold, the canonical functor</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-10\">\n\\[\n\\xymatrix{\n      \\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B} \\ar[r] &amp; \\mathscr{A}/\\mathscr{N}\n    }\n\\]\n</div>\n<p>is faithful.</p>\n<p>Since this functor is injective on objects, it realizes\n    \\(\\mathscr{B}/\\mathscr{N}\\cap\\mathscr{B}\\) as a subcategory of \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n<li><p>If moreover \\(\\mathscr{B}\\) is a full subcategory of \\(\\mathscr{A}\\),\n    \\(\\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B}\\) is a full subcategory of \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-plain theorem\" id=\"VIII:2-4-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Theorem</span> <span class=\"thm-num\">2.4.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-4-2\"></span>\nLet \\(\\mathscr{A}\\) be a triangulated category, \\(\\mathscr{B}\\) a triangulated\nsubcategory, \\(\\mathscr{N}\\) a thick subcategory of \\(\\mathscr{A}\\), \\(S=\\varphi(\\mathscr{N})\\)\nthe corresponding saturated multiplicative system.</p>\n<ol class=\"enumerate\">\n<li><p>The category \\(\\mathscr{N}\\cap\\mathscr{B}\\) is a thick subcategory of\n    \\(\\mathscr{B}\\). The corresponding multiplicative system is \\(S\\cap \\mathscr{B}\\).</p></li>\n<li><p>The two following properties are equivalent:</p>\n<ol class=\"enumerate\">\n<li><p>For every object \\(X\\) of \\(\\mathscr{B}\\) and every morphism \\(s:R\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) where \\(s\\)\n        is an element of \\(S\\), there exists a morphism \\(s':R'\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} R\\) where\n        \\(s\\circ s'\\) is an element of \\(S\\cap \\mathscr{B}\\); and\n        \\(R'\\in\\operatorname{Ob}\\mathscr{B}\\).</p></li>\n<li><p>Every morphism from an object \\(X\\) of \\(\\mathscr{B}\\) into an object \\(Y\\) of \\(\\mathscr{N}\\)\n        factors through an object of \\(\\mathscr{N}\\cap \\mathscr{B}\\).</p></li>\n</ol></li>\n<li><p>The properties (i)' and (ii)' obtained from (i) and (ii) by\n    reversing the arrows are equivalent.</p></li>\n<li><p>If properties (i) and (ii) hold, or else if\n    properties (i)' and (ii)' hold, the canonical functor</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-10\">\n\\[\n\\xymatrix{\n      \\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B} \\ar[r] &amp; \\mathscr{A}/\\mathscr{N}\n    }\n\\]\n</div>\n<p>is faithful.</p>\n<p>Since this functor is injective on objects, it realizes\n    \\(\\mathscr{B}/\\mathscr{N}\\cap\\mathscr{B}\\) as a subcategory of \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n<li><p>If moreover \\(\\mathscr{B}\\) is a full subcategory of \\(\\mathscr{A}\\),\n    \\(\\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B}\\) is a full subcategory of \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n</ol></div>\n</div>"
     },
     {
      "id": "VIII:2-4-3",
@@ -1040,7 +1012,7 @@
      "type": "proposition",
      "label": "2.6.4",
      "title": "Proposition",
-     "html": "<div class=\"thm thm-plain proposition\" id=\"VIII:2-6-4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">2.6.4</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-6-4\"></span>\nLet \\(\\mathscr{A}\\) be a triangulated category, \\(\\mathscr{B}\\) a thick subcategory\nof \\(\\mathscr{A}\\), \\(\\mathscr{B}^\\bot\\) the orthogonal on the right of \\(\\mathscr{B}\\), \\(S(\\mathscr{B})\\),\n\\(s(\\mathscr{B}^\\bot)\\) the corresponding multiplicative systems, \\(Q\\) and \\(Q^\\bot\\) the\ncanonical passage-to-the-quotient functors. For an object \\(x\\) of\n\\(\\mathscr{A}\\), let us consider the following properties:</p>\n<ol class=\"enumerate\">\n<li><p>\\(X\\) maps by a morphism of \\(S(\\mathscr{B})\\) into an object of \\(\\mathscr{B}^\\bot\\).</p></li>\n<li><p>\\(X\\) receives, by a morphism of \\(S(\\mathscr{B}^\\bot)\\), an object of \\(\\mathscr{B}\\).</p></li>\n<li><p>The category \\(S_X(\\mathscr{B})\\) of the arrows of \\(S(\\mathscr{B})\\) with source \\(X\\)\n    admits a final object.</p></li>\n<li><p>The category \\(S^X(\\mathscr{B}^\\bot)\\) of the arrows of \\(S(\\mathscr{B}^\\bot)\\) with target\n    \\(X\\) admits an initial object.</p></li>\n<li><p>The category \\(\\mathscr{B}/X\\) of the objects of \\(\\mathscr{B}\\) over \\(X\\) admits a\n    final object.</p></li>\n<li><p>The category \\(\\mathscr{B}^\\bot/X\\) of the objects of \\(\\mathscr{B}^\\bot\\) under \\(X\\)\n    admits an initial object.</p></li>\n</ol>\n<p>One then has</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-20\">\n\\[\n\\xymatrix@=0.5cm{\n  &amp; &amp; &amp; &amp; (iv) \\\\\n  (i) \\ar@{&lt;=&gt;}[r] \n    &amp; (ii) \\ar@{&lt;=&gt;}[r] \n    &amp; (iii) \\ar@{&lt;=&gt;}[r] \n    &amp; (v) \\ar@{=&gt;}[ur] \\ar@{=&gt;}[dr] \\\\\n  &amp; &amp; &amp; &amp; (vi) \n}\n\\]\n</div>\n<p>If moreover \\(^\\bot(\\mathscr{B}^\\bot)=\\mathscr{B}\\), then all the properties are\nequivalent.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain proposition\" id=\"VIII:2-6-4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">2.6.4</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-6-4\"></span>\nLet \\(\\mathscr{A}\\) be a triangulated category, \\(\\mathscr{B}\\) a thick subcategory\nof \\(\\mathscr{A}\\), \\(\\mathscr{B}^\\bot\\) the orthogonal on the right of \\(\\mathscr{B}\\), \\(S(\\mathscr{B})\\),\n\\(S(\\mathscr{B}^\\bot)\\) the corresponding multiplicative systems, \\(Q\\) and \\(Q^\\bot\\) the\ncanonical passage-to-the-quotient functors. For an object \\(X\\) of\n\\(\\mathscr{A}\\), let us consider the following properties:</p>\n<ol class=\"enumerate\">\n<li><p>\\(X\\) maps by a morphism of \\(S(\\mathscr{B})\\) into an object of \\(\\mathscr{B}^\\bot\\).</p></li>\n<li><p>\\(X\\) receives, by a morphism of \\(S(\\mathscr{B}^\\bot)\\), an object of \\(\\mathscr{B}\\).</p></li>\n<li><p>The category \\(S_X(\\mathscr{B})\\) of the arrows of \\(S(\\mathscr{B})\\) with source \\(X\\)\n    admits a final object.</p></li>\n<li><p>The category \\(S^X(\\mathscr{B}^\\bot)\\) of the arrows of \\(S(\\mathscr{B}^\\bot)\\) with target\n    \\(X\\) admits an initial object.</p></li>\n<li><p>The category \\(\\mathscr{B}/X\\) of the objects of \\(\\mathscr{B}\\) over \\(X\\) admits a\n    final object.</p></li>\n<li><p>The category \\(\\mathscr{B}^\\bot/X\\) of the objects of \\(\\mathscr{B}^\\bot\\) under \\(X\\)\n    admits an initial object.</p></li>\n</ol>\n<p>One then has</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-20\">\n\\[\n\\xymatrix@=0.5cm{\n  &amp; &amp; &amp; &amp; (iv) \\\\\n  (i) \\ar@{&lt;=&gt;}[r] \n    &amp; (ii) \\ar@{&lt;=&gt;}[r] \n    &amp; (iii) \\ar@{&lt;=&gt;}[r] \n    &amp; (v) \\ar@{=&gt;}[ur] \\ar@{=&gt;}[dr] \\\\\n  &amp; &amp; &amp; &amp; (vi) \n}\n\\]\n</div>\n<p>If moreover \\(^\\bot(\\mathscr{B}^\\bot)=\\mathscr{B}\\), then all the properties are\nequivalent.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1348,7 +1320,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Let \\(X^\\bullet\\) and \\(Y^\\bullet\\) be two objects of \\(\\mathsf{C}(\\mathscr{A})\\) (resp. \\(\\mathsf{K}(\\mathscr{A})\\))\nand \\(D:\\mathsf{C}(\\mathscr{A}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathsf{D}(\\mathscr{A})\\) (resp. \\(Q:\\mathsf{K}(\\mathscr{A}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathsf{D}(\\mathscr{A})\\)) the functor\ncanonical.</p>"
+     "html": "<p>Let \\(X^\\bullet\\) and \\(Y^\\bullet\\) be two objects of \\(\\mathsf{C}(\\mathscr{A})\\) (resp. \\(\\mathsf{K}(\\mathscr{A})\\))\nand \\(D:\\mathsf{C}(\\mathscr{A}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathsf{D}(\\mathscr{A})\\) (resp. \\(Q:\\mathsf{K}(\\mathscr{A}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathsf{D}(\\mathscr{A})\\)) the canonical functor.</p>"
     },
     {
      "id": "VIII:3-2-1",
@@ -1608,7 +1580,7 @@
      "type": "corollary",
      "label": "4.2.4",
      "title": "Corollary",
-     "html": "<div class=\"thm thm-plain corollary\" id=\"VIII:4-2-3-1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">4.2.4</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:4-2-3-1\"></span>\nSuppose that \\(\\ast=+\\) (resp. \\(\\ast=-\\)) in the hypotheses of the preceding\ntheorem, and that \\(\\mathscr{A}\\) has enough injectives (resp. of\nprojectives). Then Theorem <a class=\"ref\" href=\"#VIII:4-2-3\">4.2.3</a> applies, taking for\n\\(\\mathscr{C}\\) the category of injective (resp. projective) complexes. Suppose moreover\nthat \\(\\mathscr{A}\\) is of finite cohomological dimension; then the theorem\napplies, without restriction on \\(\\ast\\), taking for \\(\\mathscr{C}\\) the category\nof injective (resp. projective) complexes.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain corollary\" id=\"VIII:4-2-3-1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">4.2.4</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:4-2-3-1\"></span>\nSuppose that \\(\\ast=+\\) (resp. \\(\\ast=-\\)) in the hypotheses of the preceding\ntheorem, and that \\(\\mathscr{A}\\) has enough injectives (resp.\nprojectives). Then Theorem <a class=\"ref\" href=\"#VIII:4-2-3\">4.2.3</a> applies, taking for\n\\(\\mathscr{C}\\) the category of injective (resp. projective) complexes. Suppose moreover\nthat \\(\\mathscr{A}\\) is of finite cohomological dimension; then the theorem\napplies, without restriction on \\(\\ast\\), taking for \\(\\mathscr{C}\\) the category\nof injective (resp. projective) complexes.</p></div>\n</div>"
     },
     {
      "id": "VIII:4-2-5",
@@ -1622,7 +1594,7 @@
      "type": "corollary",
      "label": "4.2.6",
      "title": "Corollary",
-     "html": "<div class=\"thm thm-plain corollary\" id=\"VIII:4-2-3-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">4.2.6</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:4-2-3-2\"></span>\nThe data are those of Definition <a class=\"ref\" href=\"#VIII:4-2-5\">4.2.5</a>. Suppose that there\nexists a set \\(\\sigma\\) of objects of \\(\\mathscr{A}\\), stable under direct sum,\nhaving the following properties:</p>\n<ol class=\"enumerate\">\n<li><p>Every acyclic complex \\(\\in \\operatorname{Ob}{\\mathsf{K}^+(\\mathscr{A})}\\) (resp.\n    \\(\\in\\operatorname{Ob}{\\mathsf{K}^-(\\mathscr{A})}\\)) of objects of \\(\\sigma\\) is transformed\n    by \\(f\\) into an acyclic complex.</p></li>\n<li><p>Every object \\(X\\) of \\(\\mathscr{A}\\) injects into (resp. is a quotient of) an object\n    of \\(\\sigma\\). The hypotheses of Theorem <a class=\"ref\" href=\"#VIII:2-4-3\">2.4.3</a> are\n    satisfied by taking \\(\\ast=+\\) (resp. \\(\\ast=-\\)) and by taking for the\n    category \\(\\mathscr{C}\\) the category of complexes whose objects, in every\n    degree, are elements of \\(\\sigma\\). The elements of \\(\\sigma\\)\n    are right (resp. left) \\(f\\)-acyclic objects.</p></li>\n</ol>\n<p>If moreover \\(f\\) is of finite cohomological dimension on the right (resp. on the\nleft), the set of right (resp. left) \\(f\\)-acyclic objects\n[possesses, in addition to properties (1) and (2) above, property\n(2) of Proposition <a class=\"ref\" href=\"#VIII:3-1-9\">3.1.9</a>. Theorem <a class=\"ref\" href=\"#VIII:4-2-3\">4.2.3</a>\nthen applies to the functor \\(\\mathsf{K} f\\) by taking for the category \\(\\mathscr{C}\\) the\ncategory of complexes whose objects are right (resp. left) \\(f\\)-acyclic\nin every degree. The functor \\(\\mathsf{R} f\\) (resp. \\(\\mathsf{L} f\\)) exists\nand induces on \\(\\mathsf{D}^+(\\mathscr{A})\\) the functor \\(\\mathsf{R}^+ f\\) (resp. \\(\\mathsf{L}^+ f\\)) and on\n\\(\\mathsf{D}^-(\\mathscr{A})\\) the functor \\(\\mathsf{R}^- f\\) (resp. \\(\\mathsf{L}^- f\\)).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain corollary\" id=\"VIII:4-2-3-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollary</span> <span class=\"thm-num\">4.2.6</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:4-2-3-2\"></span>\nThe data are those of Definition <a class=\"ref\" href=\"#VIII:4-2-5\">4.2.5</a>. Suppose that there\nexists a set \\(\\sigma\\) of objects of \\(\\mathscr{A}\\), stable under direct sum,\nhaving the following properties:</p>\n<ol class=\"enumerate\">\n<li><p>Every acyclic complex \\(\\in \\operatorname{Ob}{\\mathsf{K}^+(\\mathscr{A})}\\) (resp.\n    \\(\\in\\operatorname{Ob}{\\mathsf{K}^-(\\mathscr{A})}\\)) of objects of \\(\\sigma\\) is transformed\n    by \\(f\\) into an acyclic complex.</p></li>\n<li><p>Every object \\(X\\) of \\(\\mathscr{A}\\) injects into (resp. is a quotient of) an object\n    of \\(\\sigma\\). The hypotheses of Theorem <a class=\"ref\" href=\"#VIII:2-4-3\">2.4.3</a> are\n    satisfied by taking \\(\\ast=+\\) (resp. \\(\\ast=-\\)) and by taking for the\n    category \\(\\mathscr{C}\\) the category of complexes whose objects, in every\n    degree, are elements of \\(\\sigma\\). The elements of \\(\\sigma\\)\n    are right (resp. left) \\(f\\)-acyclic objects.</p></li>\n</ol>\n<p>If moreover \\(f\\) is of finite cohomological dimension on the right (resp. on the\nleft), the set of right (resp. left) \\(f\\)-acyclic objects\npossesses, in addition to properties (1) and (2) above, property\n(2) of Proposition <a class=\"ref\" href=\"#VIII:3-1-9\">3.1.9</a>. Theorem <a class=\"ref\" href=\"#VIII:4-2-3\">4.2.3</a>\nthen applies to the functor \\(\\mathsf{K} f\\) by taking for the category \\(\\mathscr{C}\\) the\ncategory of complexes whose objects are right (resp. left) \\(f\\)-acyclic\nin every degree. The functor \\(\\mathsf{R} f\\) (resp. \\(\\mathsf{L} f\\)) exists\nand induces on \\(\\mathsf{D}^+(\\mathscr{A})\\) the functor \\(\\mathsf{R}^+ f\\) (resp. \\(\\mathsf{L}^+ f\\)) and on\n\\(\\mathsf{D}^-(\\mathscr{A})\\) the functor \\(\\mathsf{R}^- f\\) (resp. \\(\\mathsf{L}^- f\\)).</p></div>\n</div>"
     },
     {
      "id": "VIII:4-3",
