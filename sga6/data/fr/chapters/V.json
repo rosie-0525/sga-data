@@ -194,7 +194,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Pour tout \\(n\\), nous noterons \\(f_n\\) l'endomorphisme de \\(K[X_1,\\ldots,X_n]\\) défini par \\(f_n(X_i)=X_i\\) si \\(i&lt;n\\), \\(f_n(X_n)=0\\). Il se factorise par l'inclusion de \\(K[X_1,\\ldots,X_{n-1}]\\) dans \\(K[X_1,\\ldots,X_n]\\), ce qui montre que l'homomorphisme de \\(H(K[X_1,\\ldots,X_{n-1}])\\) dans \\(H(K[X_1,\\ldots,X_n])\\) est injectif, et nous permettra d'identifier le premier à un sous-groupe du second, et de même nous considérerons \\(H(K[X_i]_{i\\geq1})\\) comme contenu dans \\(H(K[X_i]_{i\\geq1})\\).</p>"
+     "html": "<p>Pour tout \\(n\\), nous noterons \\(f_n\\) l'endomorphisme de \\(K[X_1,\\ldots,X_n]\\) défini par \\(f_n(X_i)=X_i\\) si \\(i&lt;n\\), \\(f_n(X_n)=0\\). Il se factorise par l'inclusion de \\(K[X_1,\\ldots,X_{n-1}]\\) dans \\(K[X_1,\\ldots,X_n]\\), ce qui montre que l'homomorphisme de \\(H(K[X_1,\\ldots,X_{n-1}])\\) dans \\(H(K[X_1,\\ldots,X_n])\\) est injectif, et nous permettra d'identifier le premier à un sous-groupe du second, et de même nous considérerons \\(H(K[X_1,\\ldots,X_n])\\) comme contenu dans \\(H(K[X_i]_{i\\geq1})\\).</p>"
     },
     {
      "id": null,
@@ -2903,14 +2903,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>L'anneau \\(A\\) muni de cette multiplication n'est plus unitaire ; on considère donc l'anneau \\(\\mathbb Z\\times A\\), obtenu par adjonction d'une unité à \\(A\\). Ses opérations sont donc définie par :</p>"
+     "html": "<p>L'anneau \\(A\\) muni de cette multiplication n'est plus unitaire ; on considère donc l'anneau \\(\\mathbb Z\\times A\\), obtenu par adjonction d'une unité à \\(A\\). Ses opérations sont donc définies<a class=\"footnote-ref ed-ref\" id=\"fn-V-5-1ref\" href=\"#fn-V-5-1\"><sup>*</sup></a> par<a class=\"footnote-ref ed-ref\" id=\"fn-V-5-2ref\" href=\"#fn-V-5-2\"><sup>†</sup></a> :</p>"
     },
     {
      "id": null,
      "type": "div",
      "label": null,
      "title": null,
-     "html": "<div class=\"display-formula\">\\[(5.5.2)\\qquad\n\\begin{aligned}\n(n,x)+(n',x')&amp;=(n+n',x+x')\\\\\n(n,x).(n',x')&amp;=(nn',nx'+n'x+x\\mathbin{\\mathop{.}\\limits_N}y)\n\\end{aligned}\\]</div>"
+     "html": "<div class=\"display-formula\">\\[(5.5.2)\\qquad\n\\begin{aligned}\n(n,x)+(n',x')&amp;=(n+n',x+x')\\\\\n(n,x).(n',x')&amp;=(nn',nx'+n'x+x\\mathbin{\\mathop{.}\\limits_N}x')\n\\end{aligned}\\]</div>"
     },
     {
      "id": null,
@@ -2938,14 +2938,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Dans le \\(\\lambda\\)-anneau \\(A_N\\), on peut définir des opérations \\(\\gamma\\) (3.2). Pour \\(x\\in\\Lambda\\), la valeur de \\(\\gamma^p\\) calculée sur l'élément \\((0,x)\\) de \\(A_N\\) est donnée par :</p>"
+     "html": "<p>Dans le \\(\\lambda\\)-anneau \\(A_N\\), on peut définir des opérations \\(\\gamma\\) (3.2). Pour \\(x\\in A\\), la valeur de \\(\\gamma^p\\) calculée sur l'élément \\((0,x)\\) de \\(A_N\\) est donnée par<a class=\"footnote-ref ed-ref\" id=\"fn-V-5-3ref\" href=\"#fn-V-5-3\"><sup>‡</sup></a> :</p>"
     },
     {
      "id": null,
      "type": "div",
      "label": null,
      "title": null,
-     "html": "<div class=\"display-formula\">\\[\\gamma^p(0,x)=\\sum_{i=0}^{p-1}\\binom{p-1}i\\lambda^i(N,x),\\]</div>"
+     "html": "<div class=\"display-formula\">\\[\\gamma^p(0,x)=\\sum_{i=0}^{p-1}\\binom{p-1}i\\lambda^{p-i}(N,x),\\]</div>"
     },
     {
      "id": null,
@@ -3088,7 +3088,26 @@
      "html": "<p>D'après 4.7, il existe un \\(K\\)-\\(\\lambda\\)-homomorphisme \\(A_0\\longrightarrow A\\) compatible aux augmentations envoyant \\(N'_0\\) sur \\(N-d\\), et \\(X'_0\\) sur \\(x-\\varepsilon(x)\\), donc \\(N_0\\) sur \\(N\\) et \\(X_0\\) sur \\(x\\), d'où le résultat, l'homomorphisme étant compatible aux filtrations.</p>"
     }
    ],
-   "footnotes": []
+   "footnotes": [
+    {
+     "id": "fn-V-5-1",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte original porte « définie » ; corrigé ici en « définies »."
+    },
+    {
+     "id": "fn-V-5-2",
+     "number": "†",
+     "kind": "editorial",
+     "html": "Dans la seconde formule de (5.5.2) ci-dessous, la coquille « \\(x\\mathbin{\\mathop{.}\\limits_N}y\\) » du texte original est corrigée ici en « \\(x\\mathbin{\\mathop{.}\\limits_N}x'\\) »."
+    },
+    {
+     "id": "fn-V-5-3",
+     "number": "‡",
+     "kind": "editorial",
+     "html": "Dans la formule ci-dessous, le texte original imprime « \\(\\lambda^i(N,x)\\) » ; corrigé ici en « \\(\\lambda^{p-i}(N,x)\\) »."
+    }
+   ]
   },
   {
    "id": "V-6",
@@ -3498,7 +3517,7 @@
      "type": "proposition",
      "label": "6.6.1.",
      "title": "Proposition",
-     "html": "<div class=\"thm thm-plain proposition\" id=\"V.6.6.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">6.6.1.</span></div>\n  <div class=\"thm-body\"><p>Soit \\(x\\in\\operatorname{Ch}A\\) un élément de la forme \\(x=(n,1+\\cdots+a_n)\\). Alors :</p>\n  <p>i) \\(\\lambda^i(x)=0\\) pour \\(i\\geq n\\) ;</p>\n  <p>ii) \\(\\lambda^n(x)=(1,1+a_1)\\)</p>\n  <p>iii) \\(\\sum_{i=0}^n(-1)^i\\lambda^i(x)=0,1-(n-1)!a_n+\\cdots)\\), les termes non écrits étant de degré \\(&gt;n\\).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain proposition\" id=\"V.6.6.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">6.6.1.</span></div>\n  <div class=\"thm-body\"><p>Soit \\(x\\in\\operatorname{Ch}A\\) un élément de la forme \\(x=(n,1+\\cdots+a_n)\\). Alors :</p>\n  <p>i) \\(\\lambda^i(x)=0\\) pour \\(i&gt;n\\)<a class=\"footnote-ref ed-ref\" id=\"fn-V-6-1ref\" href=\"#fn-V-6-1\"><sup>*</sup></a> ;</p>\n  <p>ii) \\(\\lambda^n(x)=(1,1+a_1)\\)</p>\n  <p>iii) \\(\\sum_{i=0}^n(-1)^i\\lambda^i(x)=(0,1-(n-1)!a_n+\\cdots)\\), les termes non écrits étant de degré \\(&gt;n\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3841,7 +3860,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>On peut trouver des éléments \\(z_{\\alpha,j}\\) \\(R\\), et \\(a_\\alpha\\in K\\) tels que :</p>"
+     "html": "<p>On peut trouver des éléments \\(x_{\\alpha,j}\\in R\\)<a class=\"footnote-ref ed-ref\" id=\"fn-V-6-2ref\" href=\"#fn-V-6-2\"><sup>†</sup></a>, et \\(a_\\alpha\\in K\\) tels que :</p>"
     },
     {
      "id": null,
@@ -3855,7 +3874,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>avec \\(i_1+\\cdots+i_k\\geq i\\), et \\(\\varepsilon(z_{\\alpha,j})=0\\) pour tout \\(\\alpha\\) et tout \\(j\\). Soit \\(R_0\\) la \\(K\\)-\\(\\lambda\\)-algèbre engendrée par des générateurs \\(N'_0,X_{\\alpha,j}\\) soumis aux relations :</p>"
+     "html": "<p>avec \\(i_1+\\cdots+i_k\\geq i\\), et \\(\\varepsilon(x_{\\alpha,j})=0\\) pour tout \\(\\alpha\\) et tout \\(j\\). Soit \\(R_0\\) la \\(K\\)-\\(\\lambda\\)-algèbre engendrée par des générateurs \\(N'_0,X_{\\alpha,j}\\) soumis aux relations :</p>"
     },
     {
      "id": null,
@@ -4222,7 +4241,20 @@
      "html": "<p>comme \\(\\Omega\\) est à degrés bornés, la flèche verticale de droite est un isomorphisme (6.12), et en utilisant 6.11, on obtient donc un morphisme : \\(\\operatorname{Gr}\\Lambda\\longrightarrow\\Omega\\), le composé des deux étant l'identité d'après la propriété universelle de \\(\\Omega\\).</p>"
     }
    ],
-   "footnotes": []
+   "footnotes": [
+    {
+     "id": "fn-V-6-1",
+     "number": "*",
+     "kind": "editorial",
+     "html": "En i), le texte original imprime « \\(i\\geq n\\) » ; corrigé ici en « \\(i>n\\) ». En iii), la parenthèse ouvrante de « \\((0,1-(n-1)!a_n+\\cdots)\\) », absente du texte original, a été rétablie."
+    },
+    {
+     "id": "fn-V-6-2",
+     "number": "†",
+     "kind": "editorial",
+     "html": "Le texte original porte « \\(z_{\\alpha,j}\\) » ; corrigé ici en « \\(x_{\\alpha,j}\\) »."
+    }
+   ]
   },
   {
    "id": "V-7",
@@ -4296,7 +4328,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>D'après (7.1.1), les \\(\\psi^k\\) sont des polynomes isobares de poids \\(k\\) par rapport aux \\(\\lambda^i\\), avec \\(i=1,\\ldots,k\\). Donnons par exemple les valeurs de \\(\\psi^1\\) et \\(\\psi^2\\) :</p>"
+     "html": "<p>D'après (7.1.1), les \\(\\psi^k\\) sont des polynômes<a class=\"footnote-ref ed-ref\" id=\"fn-V-7-1ref\" href=\"#fn-V-7-1\"><sup>*</sup></a> isobares de poids \\(k\\) par rapport aux \\(\\lambda^i\\), avec \\(i=1,\\ldots,k\\). Donnons par exemple les valeurs de \\(\\psi^1\\) et \\(\\psi^2\\) :</p>"
     },
     {
      "id": null,
@@ -4345,7 +4377,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Il est clair d'après la formule (7.1.1) que les \\(\\psi^k\\) commutent aux \\(\\lambda\\)-homomorphismes. Si \\(K\\), \\(K'\\) sont des pré-\\(\\lambda\\)-anneaux de caractéristique nulle, il est nécéssaire et suffisant qu'un homomorphisme \\(f:K\\to K'\\) commute aux \\(\\psi^k\\) pour qu'il soit un \\(\\lambda\\)-homomorphisme : cela résulte de 7.2, les \\(\\lambda^i\\) s'expriment comme polynômes par rapport aux \\(\\psi^k\\).</p>"
+     "html": "<p>Il est clair d'après la formule (7.1.1) que les \\(\\psi^k\\) commutent aux \\(\\lambda\\)-homomorphismes. Si \\(K\\), \\(K'\\) sont des pré-\\(\\lambda\\)-anneaux de caractéristique nulle, il est nécessaire<a class=\"footnote-ref ed-ref\" id=\"fn-V-7-2ref\" href=\"#fn-V-7-2\"><sup>†</sup></a> et suffisant qu'un homomorphisme \\(f:K\\to K'\\) commute aux \\(\\psi^k\\) pour qu'il soit un \\(\\lambda\\)-homomorphisme : cela résulte de 7.2, les \\(\\lambda^i\\) s'expriment comme polynômes<a class=\"footnote-ref ed-ref\" id=\"fn-V-7-3ref\" href=\"#fn-V-7-3\"><sup>‡</sup></a> par rapport aux \\(\\psi^k\\).</p>"
     },
     {
      "id": "V.7.4",
@@ -4366,14 +4398,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>i) Si \\(K\\) est un \\(\\lambda\\)-anneau, on a \\(\\lambda_t(1)=1+t\\), d'où :</p>"
+     "html": "<p>i) Si \\(K\\) est un \\(\\lambda\\)-anneau, on a \\(\\lambda_t(1)=1+t\\), d'où<a class=\"footnote-ref ed-ref\" id=\"fn-V-7-4ref\" href=\"#fn-V-7-4\"><sup>§</sup></a> :</p>"
     },
     {
      "id": null,
      "type": "div",
      "label": null,
      "title": null,
-     "html": "<div class=\"display-formula\">\\[\\frac{d}{dt}(\\lambda_t(1))/\\lambda_t(1)=1/1+t=\\sum_{k=1}^\\infty(-1)^{k-1}t^{k-1},\\ \\text{et par suite :}\\]</div>"
+     "html": "<div class=\"display-formula\">\\[\\frac{d}{dt}(\\lambda_t(1))/\\lambda_t(1)=1/(1+t)=\\sum_{k=1}^\\infty(-1)^{k-1}t^{k-1},\\ \\text{et par suite :}\\]</div>"
     },
     {
      "id": null,
@@ -4408,14 +4440,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>La seconde des formules (7.5.1) exprime donc la commutativité du diagramme écrit plus haut. Si on suppose que \\(K\\) est un \\(\\lambda\\)-anneau, le carré de gauche est commutatif, et il suffit de vérifier la commutativité de celui de droite. Or il s'agit d'un diagramme d'homomorphismes de foncteurs sur \\(\\mathcal C_0\\), ayant pour source \\(\\widehat G\\times\\widehat G\\) ; il suffit donc d'après 1.10 de vérifier la commutativité pour \\((1+Xt,1+Yt)\\) ; on a alors :</p>"
+     "html": "<p>La seconde des formules (7.5.1) exprime donc la commutativité du diagramme écrit plus haut. Si on suppose que \\(K\\) est un \\(\\lambda\\)-anneau, le carré de gauche est commutatif, et il suffit de vérifier la commutativité de celui de droite. Or il s'agit d'un diagramme d'homomorphismes de foncteurs sur \\(\\mathcal C_0\\), ayant pour source \\(\\widehat G\\times\\widehat G\\) ; il suffit donc d'après 1.10 de vérifier la commutativité pour \\((1+Xt,1+Yt)\\) ; on a alors<a class=\"footnote-ref ed-ref\" id=\"fn-V-7-5ref\" href=\"#fn-V-7-5\"><sup>¶</sup></a> :</p>"
     },
     {
      "id": null,
      "type": "div",
      "label": null,
      "title": null,
-     "html": "<div class=\"display-formula\">\\[\n\\begin{aligned}\n&amp;\\phi^k(1+Xt)=X^k\\ (\\ (k-1)\\text{-ième coefficient de }X/1+Xt\\ )\\ ;\\quad\\phi^k(1+Yt)=Y^k\\ ;\\\\\n&amp;\\phi^k((1+Xt)\\circ(1+Yt))=\\phi^k(1+XYt)=(XY)^k=\\phi^k(1+Xt)\\phi^k(1+Yt),\n\\end{aligned}\\]</div>"
+     "html": "<div class=\"display-formula\">\\[\n\\begin{aligned}\n&amp;\\phi^k(1+Xt)=X^k\\ (\\ (k-1)\\text{-ième coefficient de }X/(1+Xt)\\ )\\ ;\\quad\\phi^k(1+Yt)=Y^k\\ ;\\\\\n&amp;\\phi^k((1+Xt)\\circ(1+Yt))=\\phi^k(1+XYt)=(XY)^k=\\phi^k(1+Xt)\\phi^k(1+Yt),\n\\end{aligned}\\]</div>"
     },
     {
      "id": null,
@@ -4516,7 +4548,38 @@
      "html": "<p>Enfin, la relation \\(\\lambda_t(1)=1+t\\) s'obtient par intégration à partir des relations \\(\\psi^k(1)=1\\).</p>"
     }
    ],
-   "footnotes": []
+   "footnotes": [
+    {
+     "id": "fn-V-7-1",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte original imprime « polynomes » ; l'accent est rétabli ici (« polynômes »)."
+    },
+    {
+     "id": "fn-V-7-2",
+     "number": "†",
+     "kind": "editorial",
+     "html": "L'accent transposé de « nécessaire » dans le texte original est corrigé ici."
+    },
+    {
+     "id": "fn-V-7-3",
+     "number": "‡",
+     "kind": "editorial",
+     "html": "Le texte original imprime « polynomes » ; l'accent est rétabli ici (« polynômes »)."
+    },
+    {
+     "id": "fn-V-7-4",
+     "number": "§",
+     "kind": "editorial",
+     "html": "Dans la formule ci-dessous, une parenthèse a été ajoutée autour de « 1+t » (« 1/(1+t) ») pour la clarté."
+    },
+    {
+     "id": "fn-V-7-5",
+     "number": "¶",
+     "kind": "editorial",
+     "html": "Dans la formule ci-dessous, le dénominateur a été parenthésé (« X/(1+Xt) ») pour la clarté."
+    }
+   ]
   },
   {
    "id": "V-biblio",

@@ -42,6 +42,15 @@ partway through.
   `data/*/chapters/fil-dariane.json` was therefore transcribed (and translated) directly
   from this scan on 2026-08-01, unlike the other chapters, which derive from the LaTeX
   source.
-- **`data/*/chapters/bibliographie.json`** comes from the LaTeX source's
-  `\bibliography{sga-sources}` and has no counterpart in the original scan, where
-  references sit inside each exposé.
+- **Bibliographies.** The LaTeX source replaced the book's per-exposé
+  bibliographies with a consolidated `\bibliography{sga-sources}` at the end
+  (formerly `data/*/chapters/bibliographie.json`), renumbering every in-text
+  citation against it and dropping most locators. On 2026-08-02 that
+  consolidated bibliography was removed and the original structure restored
+  from this scan: the four printed bibliographies (Exposé I pp. B-1/B-2 = 74–75,
+  Exposé II p. 33, Exposé VI p. 65, and Illusie's appendix to Exposé VII on
+  p. A.10) were transcribed into their chapters (`I-bib`, `II-bib`, `VI-bib`
+  pages; appended to `VII:5`), and every in-text citation was checked against
+  the scan and restored to its printed form — per-exposé bracket numbers where
+  the print has them, inline references (e.g. «SGA 4 XVII 5.2.11», «GAGA»,
+  «[C.G.G.]») with their locators where it does not.

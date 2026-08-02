@@ -16,7 +16,7 @@ quoted wording.
 
 ---
 
-## Exposé XXI — Données radicielles (`XXI.html`, source `origExpo21.pdf`)
+## Exposé XXI — Données radicielles (`XXI.html`, source `ExposeXXI.pdf`)
 
 ### Corrected (unambiguous)
 - line 91, Lemme 1.1.4 — PDF prints "alors α = s" (and `s` for `β` inside its own
@@ -45,7 +45,7 @@ quoted wording.
 
 ---
 
-## Exposé XXII — Groupes réductifs : déploiements, sous-groupes, groupes quotients (`XXII.html`, source `origExpo22.pdf`)
+## Exposé XXII — Groupes réductifs : déploiements, sous-groupes, groupes quotients (`XXII.html`, source `ExposeXXII.pdf`)
 
 ### Corrected (unambiguous)
 - 5.5.2 proof — "X = 0" → `x = 0`.
@@ -89,7 +89,7 @@ quoted wording.
 
 ---
 
-## Exposé XXIV — Automorphismes des groupes réductifs (`XXIV.html`, source `origExpo24.pdf`)
+## Exposé XXIV — Automorphismes des groupes réductifs (`XXIV.html`, source `ExposeXXIV.pdf`)
 
 ### Corrected (unambiguous)
 - line 200 — print reads "éléments de H³(G, ℒie(G/k)) V)" with a dropped symbol
@@ -110,7 +110,7 @@ quoted wording.
 
 ---
 
-## Exposé XXVI — Sous-groupes paraboliques des groupes réductifs (`XXVI.html`, source `origExpo26.pdf`)
+## Exposé XXVI — Sous-groupes paraboliques des groupes réductifs (`XXVI.html`, source `ExposeXXVI.pdf`)
 
 ### Kept as printed (suspect)
 - line 45 — "théorème de conjugaison (5.14)" (no 5.14 exists in the exposé);
@@ -133,6 +133,41 @@ quoted wording.
 - line 1429, 7.8 — "Notons t_α(H)" (genuinely prints t_α twice here, though
   7.9/7.13 use t_r; both kept exactly as printed).
 - line 1513, 7.15 — "corps résiduel de s₀".
+
+---
+
+# SGA 2 — sites corrected in the 2026-08-02 reader review
+
+The volume's reference is the SMF re-edition source
+`sga2/source/smf_doc-math_4_01.tex`, whose `\sisi{a}{b}` macro records both
+readings at each annotated site (`a` = the original 1968 print, `b` = the SMF
+correction). Each correction below carries an **editorial note**
+(`kind: "editorial"`, markers `*`, `†` per page) on the French page recording
+the print reading; the English page follows the corrected French.
+
+| Page | Print reads | Correction | Evidence |
+|---|---|---|---|
+| II (block 18) | «(EGA III 1.4.3.2)» also for the case i ⩾ 2 | «EGA III 1.4.3.1» | `\sisi{2}{1}` |
+| II (Prop. 9 proof) | `t_{n'} = 0` | `t_{n', n} = 0` | `\sisi{t_{n'}}{t_{n', n}}` |
+| III-2 (proof after 2.4) | `Ext_A^{i-1}(N, M)=0 si i ⩽ n−1` | `Ext_A^{i-1}(N, M/f₁M)=0 si i ⩽ n` | the print's own slip (no `\sisi`); the induction runs on `M/f₁M` and the next sentence uses `i ⩽ n` |
+| III-3 (proof of 3.3) | `(H_Y(X, F))^{p+q}` | `H_Y^{p+q}(X, F)` | `\sisi` |
+
+Note on the first site: the reviewer's comment stated the direction as
+"original was 1.4.3.1, corrected to 1.4.3.2", but both the `\sisi{2}{1}`
+annotation and the applied proposal history show the print read **1.4.3.2**
+and the re-edition corrects the second citation to **1.4.3.1**; the note
+records the direction supported by the source.
+
+Translation/transcription repairs made in the same pass (not print anomalies):
+Remarque 30 in I-2 (fr «sur x» → «sur X», comma after «faisceau», en sentence
+retranslated "is a sheaf, an extension to X …"); the equation tags
+(7.2)–(7.5) of Exposé II section 7 renumbered (7.3)–(7.6) in the English page
+(the French had already been aligned with the SMF numbering) together with all
+in-text `eqref`s and the blocks' `label` fields; the dangling
+«note (1), page )» after "SERRE, op. cit." in III.2.8 trimmed in both
+languages (the print resolves the note and page by reference; the transcription
+had lost the numbers); an in-body translator's note (N.d.T.) added in both
+languages to Lemme III.2.1 (v), noting that 𝔪_𝔭 denotes 𝔭A_𝔭.
 
 ---
 
@@ -283,6 +318,49 @@ language versions of the viewer data; this is the record of what they are and
 what was almost certainly meant. (Migrated here from `sga6/typos.md` on
 2026-07-27, when that file's other section — three transcription remnants in
 Exposé X, fixed 2026-07-18 — was verified clean in fr and en and dropped.)
+
+## Sites corrected in the 2026-08-02 reader review
+
+Unlike the kept-verbatim list above, each site below is now **corrected** in
+the data, and (where the print itself is at fault) carries an **editorial
+note** (`kind: "editorial"`, markers `*`–`¶` per page) on the French page
+recording the print reading; the English page follows the corrected French.
+
+| Page | Print reads | Correction |
+|---|---|---|
+| I-3 (Cor. 3.7.2) | «SGAA VIII 7.8» | «SGA 4 VIII 7.8» |
+| V-5 (5.5) | «Ses opérations sont donc **définie** par» | «définies» |
+| V-5 (5.5.2) | `x ·_N y` in the second line | `x ·_N x′` |
+| V-5 (after 5.5.3) | `λ^i(N,x)` in the γ^p formula | `λ^{p−i}(N,x)` (binomial `\binom{p-1}{i}` requires it) |
+| V-6 (Prop. 6.6.1 i) | `λ^i(x)=0 pour i ⩾ n` | `i > n` (λⁿ(x) ≠ 0 by ii) |
+| V-6 (Prop. 6.6.1 iii) | `= 0,1−(n−1)!aₙ+⋯)` | opening parenthesis restored: `= (0,1−(n−1)!aₙ+⋯)` |
+| V-6 (proof of 6.10) | `z_{α,j}` | `x_{α,j}` (the formula and relations use x) |
+| V-7 (7.1, 7.2) | «polynomes» (twice), transposed accent in «nécessaire» | accents fixed |
+| V-7 (7.4, 7.5) | `1/1+t`, `X/1+Xt` | denominators parenthesized for clarity |
+| VI-6 (Th. 6.9) | «et **à** fortiori» | «a fortiori» |
+| VIII-4 (after VII 3.4) | `g^*(y)` | `g^*(x)` |
+| XIII-4 (proof) | `Φ(G′^τ) ⊃ G^τ` | `Φ^{-1}(G′^τ) ⊃ G^τ` (as the sentence that follows argues) |
+
+**Exposé XIV, notation `Gr˙` (raised dot).** The typescript writes the graded
+rings with a raised dot — `Gr˙(X)`, `Gr˙_top(X)` — which the transcription had
+rendered as a prime (`Gr′`). Checked against the scan page by page
+(`ExposeXIV.pdf`, printed pp. XIV-3…21): every such site in Exposé XIV
+(sections 3–8, 43 fields per language, including the section-5 title and the
+manifest TOC entry) now reads `\operatorname{Gr}^{\bullet}`; the graded pieces
+`Gr^i_top`, `Gr^2_top`, `Gr^1_top` (plain numeric superscripts in print, no
+dot) had their spurious primes removed. **Follow-up:** chapters 0 and X still
+transcribe the raised dot as an apostrophe (`K′`, `Gr′`, alongside `K_•`,
+`Gr_•` for the lower dot), and `K′` keeps that convention throughout the book —
+left untouched pending a decision on the book-wide convention.
+
+Transcription repairs made in the same pass (not print anomalies): EN V-1
+("regard H(K[X₁,…,Xₙ]) as contained in H(K[X_i]_{i⩾1})" — the first group was
+duplicated); EN X-1/X-3 exposé reference "(V)" had been set as math italic
+\(V\); EN X-4 (4.4.2) `K.(Y)` → `K_\bullet(Y)`; FR X-7 (7.7.2) missing
+backslash in `{\scriptstyle i^*}`; X-7 §7.18.1 page-break paragraph split
+merged in both languages (the EN even split mid-word "cri-/teria"); EN XIV-1
+citation `[6]` → `[3]` (Bott–Samelson, as in the French); EN XIV-4 (4.1)
+arrow label `χ` → `γ` (as in the French and the print).
 
 ## Exposé XII, p. 19 (vol. p. 613) — "restreindre" for "restreinte"
 
