@@ -607,10 +607,15 @@ def _chain_role(block):
 # Building the rewritten records
 
 def strip_full_u(body):
-    """Remove <u> wrappers that span an entire paragraph (sga7's italic
-    stand-in); keep every other <u> (defined-term emphasis)."""
+    """Remove <u> wrappers used as the italic stand-in: spanning an entire
+    paragraph, or the whole of an enumerated item after its '(i)'/'a)' mark.
+    Keep every other <u> (defined-term emphasis)."""
     out = re.sub(r"<p([^>]*)>\s*<u>((?:(?!</?u>).)*)</u>\s*</p>",
                  r"<p\1>\2</p>", body, flags=re.S)
+    out = re.sub(r"<p([^>]*)>\s*"
+                 r"((?:\\\(|[(\[])?[a-z0-9ivx]{1,4}[)\]'’]{0,2}(?:\\\))?[.)]?\s*)"
+                 r"<u>((?:(?!</?u>).)*)</u>\s*</p>",
+                 r"<p\1>\2\3</p>", out, flags=re.S)
     if out.startswith("<u>") and out.rstrip().endswith("</u>") \
             and "<u>" not in out[3:] and out.count("</u>") == 1:
         out = out[3:].rstrip()[:-4]
