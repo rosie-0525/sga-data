@@ -194,7 +194,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[m_r(K')=\\bigl(K'_{n+1}/\\ell^{n+1}K'_{n+r}\\bigr)_{n\\in\\mathbb N}\\]\n</p>"
+     "html": "<p>\n\\[m_r(K')=\\bigl(K'_{n+r}/\\ell^{n+1}K'_{n+r}\\bigr)_{n\\in\\mathbb N}\\]\n</p>"
     },
     {
      "id": null,
@@ -383,7 +383,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>We know that the category of locally constant constructible torsion abelian sheaves on a prescheme \\(T\\) is equivalent to the category of étale coverings of \\(T\\) equipped with a structure of abelian \\(X\\)-group. Now let \\(X\\) be a <u>connected</u> locally noetherian prescheme. Let us denote by \\(R_X\\) the category of étale coverings of \\(X\\) and by \\(\\operatorname{Ensf}\\) that of finite sets. If \\(a\\) is a geometric point of \\(X\\), let \\(F_a\\) be the functor:</p>"
+     "html": "<p>We know that the category of locally constant constructible torsion abelian sheaves on a prescheme \\(T\\) is equivalent to the category of étale coverings of \\(T\\) equipped with a structure of abelian \\(T\\)-group. Now let \\(X\\) be a <u>connected</u> locally noetherian prescheme. Let us denote by \\(R_X\\) the category of étale coverings of \\(X\\) and by \\(\\operatorname{Ensf}\\) that of finite sets. If \\(a\\) is a geometric point of \\(X\\), let \\(F_a\\) be the functor:</p>"
     },
     {
      "id": null,
@@ -1510,7 +1510,7 @@
      "type": "definition",
      "label": null,
      "title": "Definition 1.5.1.",
-     "html": "<div class=\"thm definition\" id=\"VI.1.5.1\"><div class=\"thm-head\"><span class=\"thm-name\"><u>Definition 1.5.1.</u></span> Let \\(X\\) be a locally noetherian prescheme. An object \\(F\\) of \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\) is called a constructible \\((\\operatorname{AR}\\text{-}\\mathbb Z_\\ell)\\)-sheaf if \\(X\\) admits a covering</div></div>"
+     "html": "<div class=\"thm definition\" id=\"VI.1.5.1\"><div class=\"thm-head\"><span class=\"thm-name\"><u>Definition 1.5.1.</u></span> Let \\(X\\) be a locally noetherian prescheme. An object \\(F\\) of \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\) is called a constructible \\((\\operatorname{AR}\\text{-}\\mathbb Z_\\ell)\\)-sheaf if \\(X\\) admits a covering</div><div class=\"thm-body\">\\[(U_i)_{i\\in I}\\]</div></div>"
     },
     {
      "id": null,
@@ -1867,7 +1867,7 @@
      "type": "proposition",
      "label": null,
      "title": "Proposition 2.2.4.",
-     "html": "<div class=\"thm proposition\" id=\"VI.2.2.4\"><div class=\"thm-head\"><span class=\"thm-name\"><u>Proposition 2.2.4.</u></span> <u>(Spectral sequence of LERAY).</u> Let \\(f:X\\longrightarrow Y\\) and \\(g:Y\\longrightarrow Z\\) be two separated morphisms of finite type of locally noetherian preschemes and \\(F\\) a constructible \\(\\mathbb Z_\\ell\\)-sheaf (resp. \\((\\operatorname{AR},\\mathbb Z_\\ell)\\)-sheaf). There exists in \\(\\mathbb Z_\\ell\\text{-}\\operatorname{fc}(Z)\\) a biregular spectral sequence (EGA \\(0_{\\mathrm{III}}\\) 11.1.3) functorial in \\(F\\):</div><div class=\"thm-body\">\n\\[R_!^i g\\bigl(R_!^j f(F)\\bigr)\\Longrightarrow R_!^{i+j}(g\\circ f)(F).\\]\n<p><u>Proof</u>: By the equivalence of categories (1.5.5) and the way in which the higher direct images are defined for constructible \\(\\mathbb Z_\\ell\\)-sheaves, it suffices to prove the analogous statement for constructible \\((\\operatorname{AR},\\mathbb Z_\\ell)\\)-sheaves. For every abelian category \\(C\\), let us agree to denote by</p>\n\\[\\operatorname{Sp}(C)\\]\n\n<!-- Source PDF page 26 (printed page 276) -->\n<p>the category of spectral sequences starting at degree 2 with values in \\(C\\). Associating to every object \\(F\\) of \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\) the ordinary LERAY spectral sequence, obtained by extension to projective systems,</p>\n\\[R_!^i g\\bigl(R_!^j f(F)\\bigr)\\Longrightarrow R_!^{i+j}(g\\circ f)(F),\\tag{S}\\]\n<p>it is clear that we obtain a functor</p>\n\\[\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\longrightarrow\\operatorname{Sp}\\bigl(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(Z))\\bigr),\\]\n<p>which by restriction yields, by (2.2.1) and the fact that \\(U(Z)\\) is thick in \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(Z))\\), a functor:</p>\n\\[U(X)\\longrightarrow\\operatorname{Sp}(U(Z)).\\tag{1}\\]\n<p>The canonical functor \\(U(Z)\\longrightarrow(\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(Z)\\) being exact, we deduce from (1) an additive functor:</p>\n\\[E:U(X)\\longrightarrow\\operatorname{Sp}\\bigl((\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(Z)\\bigr).\\tag{2}\\]\n<p>For every object \\(F\\) of \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\), the associated spectral sequence \\(S\\) is biregular: this follows from the analogous assertion for the components of the projective system \\(F\\) and from the fact that the spectral sequence under consideration is supported in the first quadrant. This shows that for every object of \\(U(X)\\), the corresponding spectral sequence is biregular.</p>\n<p>Moreover, if \\(u:F\\longrightarrow G\\) is a morphism of \\(U(X)\\) whose kernel and cokernel are locally \\(\\operatorname{AR}\\)-null, it follows from the fact that the higher direct images transform locally \\(\\operatorname{AR}\\)-null projective systems into locally \\(\\operatorname{AR}\\)-null projective systems that \\(E(u)\\) is an isomorphism on the terms \\(E_2^{pq}\\); it is therefore an isomorphism, since the spectral sequences under consideration are biregular. We deduce that (2) defines by passage to the quotient a functor</p>\n\\[(\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(X)\\longrightarrow\\operatorname{Sp}\\bigl((\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(Z)\\bigr),\\tag{3}\\]\n\n<!-- Source PDF page 27 (printed page 277) -->\n<p>associating precisely to every constructible \\((\\operatorname{AR},\\mathbb Z_\\ell)\\)-sheaf \\(F\\) a biregular spectral sequence:</p>\n\\[R_!^i f\\bigl(R_!^j g(F)\\bigr)\\Longrightarrow R_!^{i+j}(g\\circ f)(F).\\]\n</div></div>"
+     "html": "<div class=\"thm proposition\" id=\"VI.2.2.4\"><div class=\"thm-head\"><span class=\"thm-name\"><u>Proposition 2.2.4.</u></span> <u>(Spectral sequence of LERAY).</u> Let \\(f:X\\longrightarrow Y\\) and \\(g:Y\\longrightarrow Z\\) be two separated morphisms of finite type of locally noetherian preschemes and \\(F\\) a constructible \\(\\mathbb Z_\\ell\\)-sheaf (resp. \\((\\operatorname{AR},\\mathbb Z_\\ell)\\)-sheaf). There exists in \\(\\mathbb Z_\\ell\\text{-}\\operatorname{fc}(Z)\\) a biregular spectral sequence (EGA \\(0_{\\mathrm{III}}\\) 11.1.3) functorial in \\(F\\):</div><div class=\"thm-body\">\n\\[R_!^i g\\bigl(R_!^j f(F)\\bigr)\\Longrightarrow R_!^{i+j}(g\\circ f)(F).\\]\n<p><u>Proof</u>: By the equivalence of categories (1.5.5) and the way in which the higher direct images are defined for constructible \\(\\mathbb Z_\\ell\\)-sheaves, it suffices to prove the analogous statement for constructible \\((\\operatorname{AR},\\mathbb Z_\\ell)\\)-sheaves. For every abelian category \\(C\\), let us agree to denote by</p>\n\\[\\operatorname{Sp}(C)\\]\n\n<!-- Source PDF page 26 (printed page 276) -->\n<p>the category of spectral sequences starting at degree 2 with values in \\(C\\). Associating to every object \\(F\\) of \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\) the ordinary LERAY spectral sequence, obtained by extension to projective systems,</p>\n\\[R_!^i g\\bigl(R_!^j f(F)\\bigr)\\Longrightarrow R_!^{i+j}(g\\circ f)(F),\\tag{S}\\]\n<p>it is clear that we obtain a functor</p>\n\\[\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\longrightarrow\\operatorname{Sp}\\bigl(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(Z))\\bigr),\\]\n<p>which by restriction yields, by (2.2.1) and the fact that \\(U(Z)\\) is thick in \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(Z))\\), a functor:</p>\n\\[U(X)\\longrightarrow\\operatorname{Sp}(U(Z)).\\tag{1}\\]\n<p>The canonical functor \\(U(Z)\\longrightarrow(\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(Z)\\) being exact, we deduce from (1) an additive functor:</p>\n\\[E:U(X)\\longrightarrow\\operatorname{Sp}\\bigl((\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(Z)\\bigr).\\tag{2}\\]\n<p>For every object \\(F\\) of \\(\\operatorname{Hom}(\\mathbb N^\\circ,\\operatorname{Ab}(X))\\), the associated spectral sequence \\(S\\) is biregular: this follows from the analogous assertion for the components of the projective system \\(F\\) and from the fact that the spectral sequence under consideration is supported in the first quadrant. This shows that for every object of \\(U(X)\\), the corresponding spectral sequence is biregular.</p>\n<p>Moreover, if \\(u:F\\longrightarrow G\\) is a morphism of \\(U(X)\\) whose kernel and cokernel are locally \\(\\operatorname{AR}\\)-null, it follows from the fact that the higher direct images transform locally \\(\\operatorname{AR}\\)-null projective systems into locally \\(\\operatorname{AR}\\)-null projective systems that \\(E(u)\\) is an isomorphism on the terms \\(E_2^{pq}\\); it is therefore an isomorphism, since the spectral sequences under consideration are biregular. We deduce that (2) defines by passage to the quotient a functor</p>\n\\[(\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(X)\\longrightarrow\\operatorname{Sp}\\bigl((\\operatorname{AR},\\mathbb Z_\\ell)\\text{-}\\operatorname{fc}(Z)\\bigr),\\tag{3}\\]\n\n<!-- Source PDF page 27 (printed page 277) -->\n<p>associating precisely to every constructible \\((\\operatorname{AR},\\mathbb Z_\\ell)\\)-sheaf \\(F\\) a biregular spectral sequence:</p>\n\\[R_!^i g\\bigl(R_!^j f(F)\\bigr)\\Longrightarrow R_!^{i+j}(g\\circ f)(F).\\]\n</div></div>"
     },
     {
      "id": "VI.2.2.5",
@@ -2098,7 +2098,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>deduced from raising to the \\(\\ell^{n'-n}:\\mu_X^{(n')}\\longrightarrow\\mu_X^{(n)}\\)-th power.</p>"
+     "html": "<p>induced by the \\(\\ell^{n'-n}\\)-power map \\(\\mu_X^{(n')}\\longrightarrow\\mu_X^{(n)}\\).</p>"
     },
     {
      "id": null,
@@ -2220,7 +2220,7 @@
     {
      "id": "VI-fn-x3",
      "number": "(**)",
-     "html": "In the non-excedentary case, see (SGA 4<sup>1/2</sup> Cycle 2.3.8) for\na precise statement."
+     "html": "<p>In the non-excess case, see (SGA 4<sup>1/2</sup> Cycle 2.3.8) for\na precise statement.</p>"
     }
    ]
   }
