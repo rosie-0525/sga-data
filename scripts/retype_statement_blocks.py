@@ -422,8 +422,10 @@ def build_proof(name, body_html, root_id, part=None, group=None):
             f'</div>')
 
 
-def metadata(kind, num, name):
-    return {"type": kind, "label": canonical_num(num), "title": name}
+def make_rec(rec_id, kind, label, title, html):
+    """Block records in the corpus's key order (id, type, label, title, html)."""
+    return {"id": rec_id or None, "type": kind, "label": label,
+            "title": title, "html": html}
 
 
 # ---------------------------------------------------------------------------
@@ -667,10 +669,9 @@ def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted):
         recs = []
         for n, (k, html) in enumerate(pieces):
             old = blocks[k]
-            rec = {"id": (root_id if n == 0 else old.get("id")),
-                   "type": "proof", "label": None,
-                   "title": name if n == 0 else None, "html": html}
-            recs.append((k, rec))
+            recs.append((k, make_rec(root_id if n == 0 else old.get("id"),
+                                     "proof", None,
+                                     name if n == 0 else None, html)))
         return recs, notes
 
     # statement
@@ -695,7 +696,7 @@ def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted):
             parts.append(strip_full_u(blk["html"].rstrip()))
     body_html = "\n  ".join(parts)
     html = build_thm(kind, thm_head_html(name, num, attribution), body_html, root_id)
-    rec = dict(metadata(kind, num, name), id=root_id or None, html=html)
+    rec = make_rec(root_id, kind, num, name, html)
     return [(entry.index, rec)], notes
 
 
@@ -796,8 +797,7 @@ def normalize_block(block, lang, book):
         name = display_name(kind, plural, lang, prefix)
         out = build_thm(kind, thm_head_html(name, canonical_num(num), attribution),
                         body, root_id)
-        rec = dict(metadata(kind, canonical_num(num), name),
-                   id=root_id or None, html=out)
+        rec = make_rec(root_id, kind, canonical_num(num), name, out)
         return rec, ["legacy-shell"]
 
     m = THM_SHELL_RE.match(html)
@@ -815,8 +815,7 @@ def normalize_block(block, lang, book):
             idattr = f' id="{root_id}"' if root_id else ""
             out = (f'<div class="thm {css} {kind} continuation"{idattr}>\n'
                    f'  <div class="thm-body">{body}</div>\n</div>')
-            rec = {"type": kind, "label": None, "title": None,
-                   "id": root_id or None, "html": out}
+            rec = make_rec(root_id, kind, None, None, out)
             return rec, ["headless-continuation"]
         return None, "shell-shape"
     cls_kind = kind_from_classes(classes)
@@ -862,8 +861,7 @@ def normalize_block(block, lang, book):
     root_id = root_own_id(block)
     name = display_name(kind, plural, lang, prefix)
     out = build_thm(kind, new_head, body, root_id)
-    rec = dict(metadata(kind, canonical_num(num), name), id=root_id or None,
-               html=out)
+    rec = make_rec(root_id, kind, canonical_num(num), name, out)
     return rec, notes
 
 
