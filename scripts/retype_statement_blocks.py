@@ -275,7 +275,7 @@ def _parse_head_text(inner, lang):
     text = re.sub(r"\s+", " ", inner).strip()
     m = re.match(
         r"\A(?P<words>[^\d\\]{2,60}?)\s*"
-        r"(?P<num>\d+(?:\.\d+)*(?:\s*(?:bis|ter))?(?:\\\([^()\\]{1,12}\\\))?)?"
+        r"(?P<num>(?:\d+|[A-Z]\.\d+)(?:\.\d+)*(?:\s*(?:bis|ter))?(?:\\\([^()\\]{1,12}\\\))?)?"
         r"\s*(?P<punct>[.:]|[–—-])?\s*\Z", text, re.S)
     if not m or not m["words"]:
         return None
@@ -322,11 +322,8 @@ def _take_attribution(body, family):
         return None, body, False           # for proofs the paren is content
     if ENUM_RE.match(content) or not rest.strip():
         return None, body, False           # enumerator, or the paren IS the body
-    if re.match(r"\A(?:cf\b|Cf\b|d'après|following|voir|see\b|loc\.|\[|∗|\*)",
-                content) or re.search(r"\bcf\.", content):
-        rest = re.sub(r"\A[.:]\s*", "", rest)
-        return paren, rest, False
-    return None, body, True                # unclear: caller sends to worklist
+    rest = re.sub(r"\A[.:]\s*", "", rest)
+    return paren, rest, False
 
 
 def parse_head(html, lang):
@@ -400,7 +397,7 @@ def thm_head_html(name, num, attribution):
     if num:
         parts.append(f'<span class="thm-num">{num}</span>')
     if attribution:
-        parts.append(attribution)
+        parts.append(re.sub(r"</?u>", "", attribution))
     return " ".join(parts)
 
 
@@ -471,7 +468,7 @@ def starts_with_enum(block):
 # ---------------------------------------------------------------------------
 # Extent detection
 
-MAX_CHAIN = 60
+MAX_CHAIN = 120
 
 
 def detect_extent(blocks, i, head, lang):
@@ -714,8 +711,15 @@ LEGACY_SHELL_RE = re.compile(
     r'\A<div class="(?P<cls>theorem|lemma|corollary|proposition)"(?P<attrs>[^>]*)>'
     r'\s*(?P<inner>.*)</div>\s*\Z', re.S)
 TITLE_SPAN_RE = re.compile(
-    r'\A\s*<p[^>]*>\s*<span class="(?:theorem-title|thm-num)">'
-    r'(?P<t>[^<]*)</span>\s*(?P<rest>.*)\Z', re.S)
+    r'\A\s*<p[^>]*>\s*<span class="(?:(?:theorem|lemma|corollary|proposition)'
+    r'-title|thm-num)">(?P<t>.*?)</span>\s*(?P<rest>.*)\Z', re.S)
+LEGACY_LEAD_RE = re.compile(
+    r'\A\s*<p[^>]*>\s*(?P<lead>[^<]{3,80}?)\s*[–—-]\s*(?P<rest>.*)\Z', re.S)
+HEADONLY_DIV_RE = re.compile(
+    r'\A<div class="(?P<cls>[^"]*)"(?P<attrs>[^>]*)>\s*'
+    r'<(?P<tag>div|span) class="thm-head">(?P<head>.*?)</(?P=tag)>\s*</div>\s*\Z',
+    re.S)
+SPAN_RE = re.compile(r'<span class="thm-(?:name|num|title)">.*?</span>', re.S)
 
 
 def kind_from_classes(classes):
@@ -729,7 +733,7 @@ def kind_from_classes(classes):
     return None
 
 
-NUMTOK_RE = re.compile(r"\A\d+(?:\.\d+)*(?:\\\([^()\\]{1,12}\\\))?[.:]?\Z")
+NUMTOK_RE = re.compile(r"\A(?:\d+|[A-Z])(?:\.\d+)*(?:\\\([^()\\]{1,12}\\\))?[.:]?\Z")
 
 
 def parse_shell_head(head_html, lang):
@@ -775,33 +779,12 @@ def normalize_block(block, lang, book):
     if tag != "div" or ("thm" not in classes and not LEGACY_SHELL_RE.match(html)):
         return None, "not-a-shell"
 
-    if "thm" not in classes:  # sga5 legacy div.theorem
-        m = LEGACY_SHELL_RE.match(html)
-        tm = TITLE_SPAN_RE.match(m["inner"])
-        if not tm:
-            return None, "legacy-no-title"
-        parsed = _legacy_title(tm["t"], lang)
-        if not parsed:
-            return None, "legacy-title-unparsed"
-        kind, plural, prefix, num, attribution = parsed
-        body_first = tm["rest"]
-        if not body_first.rstrip().endswith("</div>"):
-            return None, "legacy-shape"
-        inner_rest = body_first.rstrip()
-        # tm['rest'] runs to the legacy shell's end; first paragraph is open
-        body = "<p>" + inner_rest
-        body = re.sub(r"</div>\s*\Z", "", body).rstrip()
-        if not body.endswith("</p>"):
-            body += "</p>"
-        root_id = root_own_id(block)
-        name = display_name(kind, plural, lang, prefix)
-        out = build_thm(kind, thm_head_html(name, canonical_num(num), attribution),
-                        body, root_id)
-        rec = make_rec(root_id, kind, canonical_num(num), name, out)
-        return rec, ["legacy-shell"]
+    if "thm" not in classes:  # sga5 legacy div.theorem shells
+        return _normalize_legacy(block, html, lang)
 
     m = THM_SHELL_RE.match(html)
-    if not m:
+    ho = None if m else HEADONLY_DIV_RE.match(html)
+    if not m and not ho:
         hm = HEADLESS_SHELL_RE.match(html)
         if hm:
             # a statement continued from the previous printed page: keep it
@@ -818,8 +801,10 @@ def normalize_block(block, lang, book):
             rec = make_rec(root_id, kind, None, None, out)
             return rec, ["headless-continuation"]
         return None, "shell-shape"
+
     cls_kind = kind_from_classes(classes)
-    head_html = m["head"]
+    head_html = (m or ho)["head"]
+    old_body = m["body"] if m else ""
     parsed = parse_shell_head(head_html, lang)
     leftover = ""
     if parsed:
@@ -829,19 +814,47 @@ def normalize_block(block, lang, book):
         kind, plural, prefix, num, attribution = cls_kind, False, "", None, None
         if kind is None:
             return None, "head-unparsed"
-    body = m["body"]
     notes = []
     spans = bool(re.search(r'<span class="thm-(?:name|num)">', head_html))
-    outside = visible_text(re.sub(
-        r'<span class="thm-(?:name|num|title)">.*?</span>', "", head_html,
-        flags=re.S)).strip(" .:")
-    if spans and (len(outside) <= 20 or outside.startswith("(")):
+    outside_html = (SPAN_RE.sub("", head_html) if spans else "").strip()
+    outside = visible_text(outside_html)
+    dash = bool(re.match(r"\A\s*[–—]", outside))
+    stranded_out = len(outside.strip(" .:")) > 20 and not outside.startswith("(")
+
+    if spans and (dash or ho is not None or stranded_out):
+        # the SMF dash form: 'Kind N.N. — statement…' with the statement text
+        # sitting inside the head (and, for head-only shells, no body at all).
+        # Move it into the body; an attribution paren after the dash stays in
+        # the head.
+        stranded = re.sub(r"\A\s*(?:[–—]|:)?\s*", "", outside_html.strip())
+        attr2, stranded, _amb = _take_attribution(stranded, "statement")
+        attribution = attribution or attr2
+        stranded = strip_full_u(stranded.strip())
+        body_parts = []
+        if stranded:
+            body_parts.append(f"<p>{stranded}</p>")
+        if old_body.strip():
+            body_parts.append(old_body.strip())
+        if not body_parts:
+            return None, "dash-head-empty"
+        body = "\n  ".join(body_parts)
+        new_head = thm_head_html(display_name(kind, plural, lang, prefix),
+                                 canonical_num(num), attribution)
+        notes.append("stranded-head-moved")
+    elif spans and (len(outside.strip(" .:")) <= 20 or outside.startswith("(")):
         # well-formed head: keep it verbatim (footnote refs, name phrases,
-        # title spans and all), just drop <u> used as an italic stand-in
+        # title spans and all), just drop <u> used as an italic stand-in;
+        # fold an ALL-CAPS keyword down to the canonical display name
         new_head = re.sub(r"</?u>", "", head_html).strip()
+        kw = KINDS[kind][1][lang] if not plural else PLURALS.get(
+            kind, {}).get(lang, KINDS[kind][1][lang])
+        new_head = re.sub(
+            r'(<span class="thm-name">\s*)([A-ZÉÈÀÔ]{4,})(\s*</span>)',
+            lambda mm: mm.group(1) + kw + mm.group(3), new_head)
         if num is None:
             nm = re.search(r'<span class="thm-num">(.*?)</span>', head_html, re.S)
             num = visible_text(nm.group(1)).strip(".: ") if nm else None
+        body = old_body
     elif spans:
         return None, f"head-stranded-outside-spans:{outside[:40]!r}"
     else:
@@ -849,6 +862,7 @@ def normalize_block(block, lang, book):
         # rebuild would lose
         if re.search(r"<(?!/?(?:u|em|strong|b)\b)", head_html):
             return None, "head-markup-unrebuildable"
+        body = old_body
         if leftover:
             if len(leftover) <= 15:
                 return None, f"head-leftover:{leftover!r}"
@@ -865,11 +879,95 @@ def normalize_block(block, lang, book):
     return rec, notes
 
 
+def _normalize_legacy(block, html, lang):
+    """sga5's third encoding: <div class="theorem" id=…><p><span
+    class="theorem-title">Proposition 4.7.16.</span> body…</p>…</div>, with
+    variants lacking the title span ('Théorème 6.10 – …' as plain text)."""
+    m = LEGACY_SHELL_RE.match(html)
+    tm = TITLE_SPAN_RE.match(m["inner"])
+    if tm:
+        parsed = _legacy_title(visible_text(tm["t"]), lang)
+        if not parsed:
+            return None, "legacy-title-unparsed"
+        kind, plural, prefix, num, attribution = parsed
+        rest = re.sub(r"\A\s*[–—-]\s*", "", tm["rest"].strip())
+    else:
+        lm = LEGACY_LEAD_RE.match(m["inner"])
+        if not lm:
+            return None, "legacy-no-title"
+        parsed = _legacy_title(lm["lead"], lang)
+        if not parsed:
+            return None, "legacy-title-unparsed"
+        kind, plural, prefix, num, attribution = parsed
+        rest = lm["rest"].strip()
+    body = "<p>" + rest if not rest.startswith("<") or rest.startswith("<u>") \
+        else rest
+    if not body.rstrip().endswith(("</p>", "</div>", "\\]")):
+        body = body.rstrip() + "</p>"
+    body = strip_full_u(body)
+    root_id = root_own_id(block)
+    name = display_name(kind, plural, lang, prefix)
+    out = build_thm(kind, thm_head_html(name, canonical_num(num), attribution),
+                    body, root_id)
+    rec = make_rec(root_id, kind, canonical_num(num), name, out)
+    return rec, ["legacy-shell"]
+
+
+def split_shell_block(block, lang):
+    """([records], None) or (None, reason). For the dash-form shells whose
+    thm-body is really the (unmarked, as printed) proof: the statement text
+    stranded in the head becomes the thm body, and the old body's top-level
+    pieces become following plain blocks."""
+    html = block.get("html") or ""
+    m = THM_SHELL_RE.match(html)
+    if not m:
+        return None, "not-a-shell"
+    classes = (block_root(html)[1] or "").split()
+    parsed = parse_shell_head(m["head"], lang)
+    if not parsed:
+        return None, "head-unparsed"
+    kind, plural, prefix, num, attribution, _left = parsed
+    kind = kind or kind_from_classes(classes)
+    outside_html = SPAN_RE.sub("", m["head"]).strip()
+    stranded = re.sub(r"\A\s*(?:[–—]|:)?\s*", "", outside_html)
+    attr2, stranded, _amb = _take_attribution(stranded, "statement")
+    attribution = attribution or attr2
+    stranded = strip_full_u(stranded.strip())
+    if not visible_text(stranded):
+        return None, "no-stranded-statement"
+    body = m["body"].strip()
+    chunks = re.findall(r"<p\b.*?</p>|\\\[.*?\\\]", body, re.S)
+    if _canon(visible_text("".join(chunks))) != _canon(visible_text(body)):
+        return None, "body-segmentation-lossy"
+    root_id = root_own_id(block)
+    name = display_name(kind, plural, lang, prefix)
+    thm = make_rec(root_id, kind, canonical_num(num), name,
+                   build_thm(kind,
+                             thm_head_html(name, canonical_num(num), attribution),
+                             f"<p>{stranded}</p>", root_id))
+    recs = [thm]
+    for c in chunks:
+        chtml = c if c.startswith("<p") else f"<p>{c}</p>"
+        recs.append(make_rec(None, "paragraph", None, None, chtml))
+    ids_b = rec_ids(html)
+    ids_a = [i for r in recs for i in rec_ids(r["html"])]
+    if sorted(ids_b) != sorted(ids_a):
+        return None, f"id drift {set(ids_b) ^ set(ids_a)!r}"
+    for r in recs:
+        if root_count(r["html"]) != 1:
+            return None, "multi-root piece"
+    canonize = lambda s: _canon(re.sub(r"[.:—–]", "", s).casefold())
+    if canonize(visible_text(html)) != canonize(
+            " ".join(visible_text(r["html"]) for r in recs)):
+        return None, "text drift"
+    return recs, None
+
+
 def _legacy_title(text, lang):
     text = re.sub(r"\s+", " ", text).strip()
     m = re.match(
         r"\A(?P<words>[^\d]{2,60}?)\s*"
-        r"(?P<num>\d+(?:\.\d+)*)?\s*"
+        r"(?P<num>(?:\d+|[A-Z]\.\d+)(?:\.\d+)*)?\s*"
         r"(?P<attr>\([^)]{2,80}\))?\s*[.:]?\s*\Z", text)
     if not m:
         return None
@@ -1000,7 +1098,10 @@ def run_book(book, chapters, phases, write, overrides_path):
 
             # ---- normalize -------------------------------------------------
             if "normalize" in phases:
+                page_ov = overrides.get((book, cid, page_id), {})
                 for idx in range(len(page_fr["blocks"])):
+                    if page_ov.get(idx, {}).get("action") in ("skip", "split"):
+                        continue
                     pair, notes_all, ok = {}, [], True
                     for lang in LANGS:
                         blk = (page_fr if lang == "fr" else page_en)["blocks"][idx]
@@ -1053,12 +1154,18 @@ def run_book(book, chapters, phases, write, overrides_path):
 
             # ---- retype + merge -------------------------------------------
             if "retype" in phases or "merge" in phases:
-                ov = overrides.get((book, cid, page_id), {})
-                for key, rec_ov in ov.items():
-                    if rec_ov.get("fingerprint") and key < len(page_en["blocks"]) \
-                            and rec_ov["fingerprint"] != fingerprint(
-                                page_en["blocks"][key]["html"]):
-                        sys.exit(f"refused — stale override at {cid}/{page_id}#{key}")
+                ov = dict(overrides.get((book, cid, page_id), {}))
+                for key, rec_ov in list(ov.items()):
+                    if not rec_ov.get("fingerprint") or key >= len(page_en["blocks"]):
+                        continue
+                    cur = page_en["blocks"][key]["html"]
+                    if rec_ov["fingerprint"] == fingerprint(cur):
+                        continue
+                    if re.match(r'<div class="(?:thm (?:thm-plain|thm-remark)'
+                                r'|proof)\b', cur):
+                        del ov[key]  # already applied on a previous run
+                        continue
+                    sys.exit(f"refused — stale override at {cid}/{page_id}#{key}")
                 entries, work = plan_page(book, page_en, page_fr, ov, None)
                 for i, reason, excerpt in work:
                     worklist.append(dict(book=book, chapterId=cid, pageId=page_id,
@@ -1127,13 +1234,49 @@ def run_book(book, chapters, phases, write, overrides_path):
                             for k, rec in pair[lang]:
                                 blocks[k] = rec
                             dirty[lang] = True
-                # merges last, descending, so earlier indices stay valid
-                for e, pair in sorted(merges, key=lambda t: -t[0].index):
-                    lo, hi = e.chain[0][0], e.chain[-1][0]
-                    for lang in LANGS:
-                        blocks = (page_fr if lang == "fr" else page_en)["blocks"]
-                        blocks[lo:hi + 1] = [pair[lang][0][1]]
-                        dirty[lang] = True
+                # hand-decided splits (override action 'split'): one theorem
+                # shell whose body is really the proof becomes a thm block
+                # followed by the body's own paragraphs, unmarked — as printed
+                if "merge" in phases:
+                    for idx, rec_ov in sorted(ov.items()):
+                        if rec_ov.get("action") != "split":
+                            continue
+                        pair, problems = {}, []
+                        for lang in LANGS:
+                            blocks = (page_fr if lang == "fr" else page_en)["blocks"]
+                            out, err = split_shell_block(blocks[idx], lang)
+                            if out is None:
+                                problems.append(f"{lang}: {err}")
+                            else:
+                                pair[lang] = out
+                        if problems or len(set(len(p) for p in pair.values())) != 1:
+                            worklist.append(dict(
+                                book=book, chapterId=cid, pageId=page_id,
+                                blockIndex=idx, lang="both",
+                                reason="split-guard:" + "; ".join(problems)[:200],
+                                excerpt="", fingerprint=rec_ov.get("fingerprint", "")))
+                            continue
+                        stats["merge"] += 1
+                        stats["notes"].append(f"{cid}/{page_id}#{idx} split "
+                                              f"into {len(pair['fr'])}")
+                        if write:
+                            merges.append((("split", idx), pair))
+                # merges and splits last, descending, so earlier indices hold
+                def _op_index(t):
+                    return t[0][1] if isinstance(t[0], tuple) else t[0].index
+                for op, pair in sorted(merges, key=_op_index, reverse=True):
+                    if isinstance(op, tuple):  # split: 1 -> n blocks
+                        idx = op[1]
+                        for lang in LANGS:
+                            blocks = (page_fr if lang == "fr" else page_en)["blocks"]
+                            blocks[idx:idx + 1] = pair[lang]
+                            dirty[lang] = True
+                    else:
+                        lo, hi = op.chain[0][0], op.chain[-1][0]
+                        for lang in LANGS:
+                            blocks = (page_fr if lang == "fr" else page_en)["blocks"]
+                            blocks[lo:hi + 1] = [pair[lang][0][1]]
+                            dirty[lang] = True
 
         if write:
             for lang in LANGS:
@@ -1163,7 +1306,7 @@ def _split_shell(html):
 def _normalize_text_guard(before, after, moved=False):
     """Word content must survive everywhere; the body must survive with its
     punctuation too. Head punctuation may change (canonical '1.3.' form)."""
-    nopunct = lambda s: re.sub(r"[.:—–]", "", s)
+    nopunct = lambda s: re.sub(r"[.:—–]", "", s).casefold()
     if _canon(nopunct(visible_text(before))) != _canon(nopunct(visible_text(after))):
         return ["text drift:\n      was: "
                 f"{visible_text(before)[:160]!r}\n      now: "
