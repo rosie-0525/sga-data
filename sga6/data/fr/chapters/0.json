@@ -663,18 +663,18 @@
      "html": "<p>Soient \\(N\\) et \\(F\\) deux espaces vectoriels de dimensions finies \\(q,q'\\) sur\nun corps \\(k\\) algébriquement clos de caractéristique \\(0\\) ; soit \\(N^{(p)}\\) le noyau\nde l'application \\((a_1,\\dots,a_p) \\to a_1 + \\dots + a_p\\) de \\(N^p\\) dans \\(N\\). On\nfait opérer le groupe symétrique \\(\\mathfrak{S}_p\\) sur \\(N^p\\), donc sur \\(N^{(p)}\\) donc sur\n\\({\\textstyle\\bigwedge}(N^{(p)})\\), puis sur \\(\\bigotimes^p F\\) et sur \\({\\textstyle\\bigwedge}(N^{(p)}) \\otimes \\bigotimes^p F\\). Considérons cet espace\nvectoriel comme un module gradué sur \\(\\mathfrak{S}_p \\times \\mathrm{Gl}(N) \\times \\mathrm{Gl}(F)\\) et prenons\nsa \"partie alternée\" qui est un module gradué sur \\(\\mathrm{Gl}(N) \\times \\mathrm{Gl}(F) = G\\).\nOn a alors\n\\[\\lambda^p(N,F) = \\mathrm{E}_G\\left(\\left({\\textstyle\\bigwedge}(N^{(p)}) \\otimes \\bigotimes^p F\\right)^{\\mathrm{alt}}\\right) . \\tag{1.33}\\]\nN.B. Si \\(M\\) est un complexe de \\(G\\)-modules, on note \\(\\mathrm{E}_G(M)\\) la somme alternée\ndans \\(K(G)\\) des classes des composantes de \\(M\\) ; c'est la caractéristique\nd'Euler-Poincaré de \\(M\\) ; dans la formule (1.33), le premier membre\n\\(\\lambda^p(N,F)\\) désigne l'élément de l'anneau \\(K(G)\\) obtenu en substituant aux variables\n\\(\\lambda^i N\\) et \\(\\lambda^i F\\) les classes dans \\(K(G)\\) des \\(G\\)-modules \\(\\wedge^i(N)\\) et \\(\\wedge^i(F)\\)\nrespectivement.</p>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-0-app-I-b37",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration</u> : En développant le deuxième membre de (1.32) par la\ndeuxième formule (1.11), on voit que la première assertion est prouvée\nsi on prouve l'assertion analogue obtenue en faisant \\(x = 1\\), i.e. si l'on\nprouve que dans le \\(\\lambda\\)-anneau \\(\\mathbb{Z}[\\lambda^1 N,\\dots,\\lambda^q N]\\) où \\(\\lambda^i N = 0\\) pour \\(i &gt; q\\), l'élément\n\\(\\lambda^p(\\lambda_{-1}(N))\\) est divisible par \\(\\lambda_{-1}(N)\\). A priori, le quotient\n\\(\\lambda^p(N,1) = \\lambda^p(\\lambda_{-1}(N))/\\lambda_{-1}(N)\\) est une série formelle contenue dans le corps\ndes quotients \\(K\\) de l'anneau des séries formelles en les \\(\\lambda^i N\\) pour\n\\(1 \\leq i \\leq q\\). D'autre part, désignons aussi par \\(N\\) un vectoriel de dimension\n\\(q\\) sur un corps algébriquement clos \\(k\\) de caractéristique \\(0\\), et considérons\nl'élément \\(\\ell^p(N) = \\mathrm{E}_G(({\\textstyle\\bigwedge}(N^{(p)}))^{\\mathrm{alt}}) \\in K(G)\\), où maintenant\nl'on a \\(G = \\mathrm{Gl}(N)\\). On sait (§ 2, théorème 1.1) que \\(K(G)\\) s'identifie\nau sous-anneau de \\(K\\) engendré par les \\(\\lambda^i N\\) pour \\(1 \\leq i \\leq q\\) et par l'inverse\nde \\(\\lambda^q N\\). D'autre part, on vérifie facilement dans cet anneau que l'on\na \\(\\ell^p(N) \\lambda_{-1}(N) = \\lambda^p(\\lambda_{-1}(N))\\). Comme on est dans un grand corps \\(K\\) et que\n\\(\\lambda_{-1}(N) \\neq 0\\), on en conclut \\(\\ell^p(N) = \\lambda^p(N,1)\\) ; les deux membres sont dans\nl'intersection de \\(K(G)\\) et de l'anneau des séries formelles en les \\(\\lambda^i N\\),\ndonc sont des polynômes en les \\(\\lambda^i N\\).</p>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-0-app-I-b37\" data-proof-group=\"proof-0-app-I-b37\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>En développant le deuxième membre de (1.32) par la\ndeuxième formule (1.11), on voit que la première assertion est prouvée\nsi on prouve l'assertion analogue obtenue en faisant \\(x = 1\\), i.e. si l'on\nprouve que dans le \\(\\lambda\\)-anneau \\(\\mathbb{Z}[\\lambda^1 N,\\dots,\\lambda^q N]\\) où \\(\\lambda^i N = 0\\) pour \\(i &gt; q\\), l'élément\n\\(\\lambda^p(\\lambda_{-1}(N))\\) est divisible par \\(\\lambda_{-1}(N)\\). A priori, le quotient\n\\(\\lambda^p(N,1) = \\lambda^p(\\lambda_{-1}(N))/\\lambda_{-1}(N)\\) est une série formelle contenue dans le corps\ndes quotients \\(K\\) de l'anneau des séries formelles en les \\(\\lambda^i N\\) pour\n\\(1 \\leq i \\leq q\\). D'autre part, désignons aussi par \\(N\\) un vectoriel de dimension\n\\(q\\) sur un corps algébriquement clos \\(k\\) de caractéristique \\(0\\), et considérons\nl'élément \\(\\ell^p(N) = \\mathrm{E}_G(({\\textstyle\\bigwedge}(N^{(p)}))^{\\mathrm{alt}}) \\in K(G)\\), où maintenant\nl'on a \\(G = \\mathrm{Gl}(N)\\). On sait (§ 2, théorème 1.1) que \\(K(G)\\) s'identifie\nau sous-anneau de \\(K\\) engendré par les \\(\\lambda^i N\\) pour \\(1 \\leq i \\leq q\\) et par l'inverse\nde \\(\\lambda^q N\\). D'autre part, on vérifie facilement dans cet anneau que l'on\na \\(\\ell^p(N) \\lambda_{-1}(N) = \\lambda^p(\\lambda_{-1}(N))\\). Comme on est dans un grand corps \\(K\\) et que\n\\(\\lambda_{-1}(N) \\neq 0\\), on en conclut \\(\\ell^p(N) = \\lambda^p(N,1)\\) ; les deux membres sont dans\nl'intersection de \\(K(G)\\) et de l'anneau des séries formelles en les \\(\\lambda^i N\\),\ndonc sont des polynômes en les \\(\\lambda^i N\\).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Pour prouver (1.33) dans le cas général, on vérifie que le deuxième\nmembre satisfait dans \\(K(G)\\) à la formule analogue à (1.32), c'est-à-dire\nque son produit par \\(\\lambda_{-1}(N)\\) est \\(\\lambda^p(F \\lambda_{-1}(N))\\). De même, le produit de\n\\(\\lambda^p(N,F) \\in K(G)\\) par \\(\\lambda_{-1}(N)\\) est \\(\\lambda^p(F \\lambda_{-1}(N))\\), comme il résulte du fait\nque \\(K(G)\\) est <u>spécial</u>. Comme \\(K(G)\\) est intègre (cf § 2) et que \\(\\lambda_{-1}(N) \\neq 0\\)\n(même référence), on a bien démontré la formule (1.33). cqfd.</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-0-app-I-b37\">\n  <div class=\"proof-body\"><p>Pour prouver (1.33) dans le cas général, on vérifie que le deuxième\nmembre satisfait dans \\(K(G)\\) à la formule analogue à (1.32), c'est-à-dire\nque son produit par \\(\\lambda_{-1}(N)\\) est \\(\\lambda^p(F \\lambda_{-1}(N))\\). De même, le produit de\n\\(\\lambda^p(N,F) \\in K(G)\\) par \\(\\lambda_{-1}(N)\\) est \\(\\lambda^p(F \\lambda_{-1}(N))\\), comme il résulte du fait\nque \\(K(G)\\) est <u>spécial</u>. Comme \\(K(G)\\) est intègre (cf § 2) et que \\(\\lambda_{-1}(N) \\neq 0\\)\n(même référence), on a bien démontré la formule (1.33). cqfd.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -712,11 +712,11 @@
      "html": "<div class=\"thm thm-plain proposition\" id=\"0.app.1.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">1.5</span></div>\n  <div class=\"thm-body\"><p>Soient \\(A\\) un anneau gradué commutatif avec unité, \\(N\\)\n  un élément de \\(\\tilde{A}\\) de la forme \\(N = [q, 1 + N^1 + \\dots + N^q]\\) et \\(x\\) un élément\n  quelconque de \\(\\tilde{A}\\) : \\(x = [\\nu, 1 + \\sum_{i \\geq 1} x^i]\\). Alors, pour tout entier \\(j \\geq 0\\),\n  on a \\(\\gamma^{q+j}(N,x) \\in \\tilde{A}^j\\), et la composante de degré \\(j\\) de \\(\\gamma^{q+j}(N,x)\\) est\n  de la forme\n  \\[(\\gamma^{q+j}(N,x))^{(j)} = (-1)^{j-1}(j - 1)! \\, G_{q,j}(\\nu,x^1,\\dots,x^j; N^1,\\dots,N^j) , \\tag{1.38}\\]\n  où \\(G_{q,j}\\) est un polynôme universel à coefficients entiers caractérisé par\n  la condition\n  \\[G_{q,j}(\\nu,x^1,\\dots,N^j) \\, N^q = (-1)^q (x \\ast \\lambda_{-1}(N))^{(q+j)} . \\tag{1.39}\\]</p></div>\n</div>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-0-app-I-b44",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration</u>. On peut supposer que \\(A\\) est l'anneau des polynômes à coefficients\nentiers en des indéterminées \\(x^i\\) et \\(N^j\\) (avec \\(1 \\leq j \\leq q\\)). Comme\non a évidemment, combinant (1.32) et (1.37)\n\\[\\gamma^n(N,x)\\lambda_{-1}(N) = \\gamma^n(x \\lambda_{-1}(N)) , \\tag{1.40}\\]\net que, pour \\(n = q + j\\), le deuxième membre est de filtration \\(\\geq q + j\\)\n(utiliser la formule (1.22 bis) en tenant compte de ce que \\(x \\lambda_{-1}(N)\\) est\nd'augmentation nulle), tandis que \\(\\lambda_{-1}(N)\\) est de filtration \\(q\\) \\(formule\n(1.22)\\), il en résulte que \\(\\gamma^n(N,x)\\) est de filtration \\(j\\), puisque en\nvertu de (1.18) le gradué associé à \\(A\\) est ici <u>intègre</u>. Utilisant les\nformules précédentes, on obtient immédiatement la forme indiquée pour\n\\((\\gamma^{q+j}(N,x))^{(j)}\\). cqfd.</p>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof\" id=\"proof-0-app-I-b44\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>On peut supposer que \\(A\\) est l'anneau des polynômes à coefficients\nentiers en des indéterminées \\(x^i\\) et \\(N^j\\) (avec \\(1 \\leq j \\leq q\\)). Comme\non a évidemment, combinant (1.32) et (1.37)\n\\[\\gamma^n(N,x)\\lambda_{-1}(N) = \\gamma^n(x \\lambda_{-1}(N)) , \\tag{1.40}\\]\net que, pour \\(n = q + j\\), le deuxième membre est de filtration \\(\\geq q + j\\)\n(utiliser la formule (1.22 bis) en tenant compte de ce que \\(x \\lambda_{-1}(N)\\) est\nd'augmentation nulle), tandis que \\(\\lambda_{-1}(N)\\) est de filtration \\(q\\) \\(formule\n(1.22)\\), il en résulte que \\(\\gamma^n(N,x)\\) est de filtration \\(j\\), puisque en\nvertu de (1.18) le gradué associé à \\(A\\) est ici <u>intègre</u>. Utilisant les\nformules précédentes, on obtient immédiatement la forme indiquée pour\n\\((\\gamma^{q+j}(N,x))^{(j)}\\). cqfd.</p></div>\n</div>"
     }
    ],
    "footnotes": [
@@ -902,18 +902,18 @@
      "html": "<div class=\"thm thm-plain theoreme\" id=\"0.app.2.3bis\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span> <span class=\"thm-num\">2.3</span></div>\n  <div class=\"thm-body\"><p>Soient \\(\\mathcal{C}\\) une catégorie abélienne et \\(\\mathcal{C}_o \\subset \\mathcal{C}_1\\) deux sous-classes\n  telles que les classes (à isomorphisme près) d'objets de \\(\\mathcal{C}_1\\) forment un\n  ensemble. On suppose les conditions suivantes satisfaites</p>\n  <p>(i) Pour toute suite exacte \\(0 \\to A' \\to A \\to A'' \\to 0\\) dans \\(\\mathcal{C}\\) telle\n  que \\(A\\) et \\(A''\\) soient dans \\(\\mathcal{C}_o\\) (resp. \\(\\mathcal{C}_1\\)), on a \\(A' \\in \\mathcal{C}_o\\) (resp. \\(A' \\in \\mathcal{C}_1\\)).</p>\n  <p>(ii) Soient \\(u \\colon A \\to B\\) et \\(v \\colon C \\to B\\) avec \\(A, B, C \\in \\mathcal{C}_1\\) et \\(u\\) surjectif ;\n  alors il existe \\(L \\in \\mathcal{C}_o\\) et des homomorphismes \\(u' \\colon L \\to C\\) et \\(v' \\colon L \\to A\\)\n  tels que \\(u'\\) soit surjectif et \\(vu' = uv'\\) .</p>\n  <p>(iii) Pour tout \\(A \\in \\mathcal{C}_1\\), il existe un entier \\(d = d(A)\\) tel que pour\n  toute résolution gauche \\(L\\) de \\(A\\) par des objets de \\(\\mathcal{C}_o\\), on ait \\(Z_d(L) \\in \\mathcal{C}_o\\)\n  (\\(Z_d\\) désigne les cycles de dimension \\(d\\)).</p>\n  <p>Dans ces conditions, l'homomorphisme canonique de \\(K(\\mathcal{C}_o)\\) dans \\(K(\\mathcal{C}_1)\\)\n  est un isomorphisme.</p></div>\n</div>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-0-app-II-b20",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Principe de la démonstration</u> : soit \\(A \\in \\mathcal{C}_1\\) ; il existe en vertu de\n(ii) et (iii) une résolution finie \\(L\\) de \\(A\\) par des objets de \\(\\mathcal{C}_o\\) ; posons\nalors \\(f(A) = \\sum_{i \\geq 0} (-1)^i \\gamma_{\\mathcal{C}_o}(L^i)\\). On montre que l'élément de \\(K(\\mathcal{C}_o)\\) ainsi construit\nne dépend pas de la résolution \\(L\\) choisie : si on a une deuxième résolution\n\\(L'\\), on \"coiffe\" \\(L\\) et \\(L'\\) par une troisième résolution \\(L''\\), avec des\nhomomorphismes <u>surjectifs</u> de \\(L''\\) dans \\(L\\) et \\(L'\\) (ce qui est possible grâce\nà (i) et (ii) ; on est alors ramené à prouver \\(\\mathrm{E}_{\\mathcal{C}_o}(L) = \\mathrm{E}_{\\mathcal{C}_o}(L'')\\). Or la\ndifférence des deux est \\(\\mathrm{E}_{\\mathcal{C}_o}(N)\\) où \\(N\\) est le noyau de l'homomorphisme surjectif\nde \\(L''\\) sur \\(L\\), noyau qui est dans \\(\\mathcal{C}_o\\) d'après (i). Or \\(N\\) est un complexe\nacyclique en toutes dimensions, d'où \\(\\mathrm{E}_{\\mathcal{C}_o}(N) = 0\\), d'où la conclusion (N.B.\n\\(\\mathrm{E}_{\\mathcal{C}_o}(L)\\), pour un complexe fini à valeurs dans \\(\\mathcal{C}_o\\), désigne la caractéristique\nd'Euler-Poincaré \\(\\sum_{i \\geq 0} (-1)^i \\gamma_{\\mathcal{C}_o}(L^i)\\) de \\(L\\)).</p>"
+     "title": "Principe de la démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-0-app-II-b20\" data-proof-group=\"proof-0-app-II-b20\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Principe de la démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>soit \\(A \\in \\mathcal{C}_1\\) ; il existe en vertu de\n(ii) et (iii) une résolution finie \\(L\\) de \\(A\\) par des objets de \\(\\mathcal{C}_o\\) ; posons\nalors \\(f(A) = \\sum_{i \\geq 0} (-1)^i \\gamma_{\\mathcal{C}_o}(L^i)\\). On montre que l'élément de \\(K(\\mathcal{C}_o)\\) ainsi construit\nne dépend pas de la résolution \\(L\\) choisie : si on a une deuxième résolution\n\\(L'\\), on \"coiffe\" \\(L\\) et \\(L'\\) par une troisième résolution \\(L''\\), avec des\nhomomorphismes <u>surjectifs</u> de \\(L''\\) dans \\(L\\) et \\(L'\\) (ce qui est possible grâce\nà (i) et (ii) ; on est alors ramené à prouver \\(\\mathrm{E}_{\\mathcal{C}_o}(L) = \\mathrm{E}_{\\mathcal{C}_o}(L'')\\). Or la\ndifférence des deux est \\(\\mathrm{E}_{\\mathcal{C}_o}(N)\\) où \\(N\\) est le noyau de l'homomorphisme surjectif\nde \\(L''\\) sur \\(L\\), noyau qui est dans \\(\\mathcal{C}_o\\) d'après (i). Or \\(N\\) est un complexe\nacyclique en toutes dimensions, d'où \\(\\mathrm{E}_{\\mathcal{C}_o}(N) = 0\\), d'où la conclusion (N.B.\n\\(\\mathrm{E}_{\\mathcal{C}_o}(L)\\), pour un complexe fini à valeurs dans \\(\\mathcal{C}_o\\), désigne la caractéristique\nd'Euler-Poincaré \\(\\sum_{i \\geq 0} (-1)^i \\gamma_{\\mathcal{C}_o}(L^i)\\) de \\(L\\)).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>On prouve de façon analogue que la fonction \\(f \\colon \\mathcal{C}_1 \\to K(\\mathcal{C}_o)\\) ainsi\nconstruite est <u>additive</u>, donc définit un homomorphisme de \\(K(\\mathcal{C}_1)\\) dans \\(K(\\mathcal{C}_o)\\),\net il est immédiat que cet homomorphisme est inverse de l'homomorphisme\ncanonique de \\(K(\\mathcal{C}_o)\\) dans \\(K(\\mathcal{C}_1)\\). cqfd.</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-0-app-II-b20\">\n  <div class=\"proof-body\"><p>On prouve de façon analogue que la fonction \\(f \\colon \\mathcal{C}_1 \\to K(\\mathcal{C}_o)\\) ainsi\nconstruite est <u>additive</u>, donc définit un homomorphisme de \\(K(\\mathcal{C}_1)\\) dans \\(K(\\mathcal{C}_o)\\),\net il est immédiat que cet homomorphisme est inverse de l'homomorphisme\ncanonique de \\(K(\\mathcal{C}_o)\\) dans \\(K(\\mathcal{C}_1)\\). cqfd.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1098,11 +1098,11 @@
      "html": "<p>N.B. Il est clair que le groupe \\(\\mathfrak{S}_p\\) agit sur le faisceau \\(\\operatorname{Tor}_i(F,F,\\dots,F)\\).</p>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-0-app-II-b48",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Principe de la démonstration</u> : on considère une résolution finie \\(L\\) de \\(F\\)\npar des faisceaux localement libres \\(L_i\\), et l'on utilise le lemme général\nsuivant :</p>"
+     "title": "Principe de la démonstration",
+     "html": "<div class=\"proof\" id=\"proof-0-app-II-b48\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Principe de la démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>on considère une résolution finie \\(L\\) de \\(F\\)\npar des faisceaux localement libres \\(L_i\\), et l'on utilise le lemme général\nsuivant :</p></div>\n</div>"
     },
     {
      "id": "0.app.2.9",
@@ -1343,11 +1343,11 @@
      "html": "<div class=\"thm thm-plain theoreme\" id=\"0.app.2.14\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span> <span class=\"thm-num\">2.14</span></div>\n  <div class=\"thm-body\"><p>Soient \\(x_i\\) (\\(1 \\leq i \\leq q\\)) et \\(E_j\\) (\\(1 \\leq j \\leq r\\)) des lettres, \\(n_j\\)\n  (\\(1 \\leq j \\leq r\\)) des entiers \\(&gt; 0\\) ; considérons les symboles \\(\\lambda^k(x_i)\\) avec \\(k \\geq 1\\)\n  et \\(\\lambda^k(E_j)\\) avec \\(1 \\leq k \\leq n_j\\) comme des indéterminées et soit \\(R\\) un polynôme à\n  coefficients entiers en ces indéterminées. On suppose que, pour tout anneau\n  gradué \\(A\\), lorsque l'on substitue dans \\(R\\) aux \\(x_i\\) des éléments \\(\\xi_i\\) et aux\n  \\(E_j\\) des éléments \\(\\eta_j\\) de \\(\\tilde{A}\\) soumis aux restrictions \\(\\varepsilon(\\xi_i) = 0\\) et\n  \\(\\eta_j = [n_j, 1 + \\eta_j^{(1)} + \\dots + \\eta_j^{(n_j)}]\\) (donc \\(\\eta_j^{(k)} = 0\\) pour \\(k &gt; n_j\\)), on ait\n  \\[R((\\lambda^k(\\xi_i)),(\\lambda^k(\\eta_j))) \\in \\tilde{A}^p\\]\n  Soit alors \\(X\\) une variété quasi-projective irréductible non singulière.\n  Quels que soient les éléments \\(x_i'\\) de \\(K(X)\\) et les fibrés vectoriels \\(E_j'\\) de\n  dimension \\(n_j\\) sur \\(X\\) (\\(1 \\leq i \\leq q\\), \\(1 \\leq j \\leq r\\)), on a\n  \\[R((\\lambda^k(x_i')),(\\lambda^k(\\gamma(E_j')))) \\in K(X)^p\\]<sup class=\"footnote-ref\"><a id=\"0-fn14ref\" href=\"#0-fn14\">(∗)</a></sup>.</p></div>\n</div>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-0-app-II-b83",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration</u> : En vertu du § 2, les \\(x_i'\\) sont eux-mêmes des différences\nd'éléments de la forme \\(\\gamma(E)\\), \\(E\\) étant un fibré vectoriel. D'autre part, en\nsupposant \\(X\\) localement fermé dans un espace projectif \\(P\\), il résulte du § 2\net de la proposition 2.5 que, pour tout \\(F \\in \\mathscr{F}(X)\\), le faisceau \\(F(n)\\) est\nengendré par ses sections pour \\(n\\) assez grand. Si \\(F\\) est défini par un fibré\nvectoriel \\(E\\), cela prouve que \\(E(n)\\) est l'image réciproque du fibré vectoriel\ncanonique sur une variété grasmannienne \\(G\\) par un morphisme de \\(X\\) dans \\(G\\).\nConsidérant le morphisme correspondant de \\(X\\) dans \\(P \\times G\\), on voit que \\(E\\) est\nl'image réciproque d'un fibré vectoriel sur \\(P \\times G\\). On voit donc, appliquant\nceci à tous les fibrés vectoriels qui interviennent, et utilisant le corollaire\n2 du théorème 2.12, qu'<u>on est ramené au cas où \\(X\\) est un produit de\ngrasmanniennes</u>. Dans ce cas, la conclusion résultera du lemme suivant :</p>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof\" id=\"proof-0-app-II-b83\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>En vertu du § 2, les \\(x_i'\\) sont eux-mêmes des différences\nd'éléments de la forme \\(\\gamma(E)\\), \\(E\\) étant un fibré vectoriel. D'autre part, en\nsupposant \\(X\\) localement fermé dans un espace projectif \\(P\\), il résulte du § 2\net de la proposition 2.5 que, pour tout \\(F \\in \\mathscr{F}(X)\\), le faisceau \\(F(n)\\) est\nengendré par ses sections pour \\(n\\) assez grand. Si \\(F\\) est défini par un fibré\nvectoriel \\(E\\), cela prouve que \\(E(n)\\) est l'image réciproque du fibré vectoriel\ncanonique sur une variété grasmannienne \\(G\\) par un morphisme de \\(X\\) dans \\(G\\).\nConsidérant le morphisme correspondant de \\(X\\) dans \\(P \\times G\\), on voit que \\(E\\) est\nl'image réciproque d'un fibré vectoriel sur \\(P \\times G\\). On voit donc, appliquant\nceci à tous les fibrés vectoriels qui interviennent, et utilisant le corollaire\n2 du théorème 2.12, qu'<u>on est ramené au cas où \\(X\\) est un produit de\ngrasmanniennes</u>. Dans ce cas, la conclusion résultera du lemme suivant :</p></div>\n</div>"
     },
     {
      "id": "0.app.2.15",
@@ -1470,10 +1470,10 @@
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "remarque",
      "label": null,
-     "title": null,
-     "html": "<p><u>Remarque</u> : Le corollaire 2 rend plausible la validité de (2.35) dans tous\nles cas ; il devrait en exister une démonstration directe. On prouve en\ntout cas facilement la deuxième formule (2.35) modulo le sous-groupe de\ntorsion de \\(G(K(X))\\), et en caractéristique \\(0\\), cette même formule est une\nconséquence du théorème de Riemann-Roch. L'intérêt de (2.35) (lorsqu'elle\nest vraie) tient à ce qu'elle montre que \\(\\varphi\\) est injective modulo des groupes\nde torsion (peut-être toujours nuls !<sup class=\"footnote-ref\"><a id=\"0-fn15ref\" href=\"#0-fn15\">(∗)</a></sup>), de sorte qu'on \"ne perd pas beaucoup\"\nà définir les classes de Chern comme des éléments de \\(G(K(X))\\) ; si\nl'on fait le produit tensoriel par \\(\\mathbb{Q}\\), comme on le fera plus loin pour le\nthéorème de Riemann-Roch, les deux définitions des classes de Chern seraient\nalors identiques.</p>"
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span></div>\n  <div class=\"thm-body\"><p>Le corollaire 2 rend plausible la validité de (2.35) dans tous\nles cas ; il devrait en exister une démonstration directe. On prouve en\ntout cas facilement la deuxième formule (2.35) modulo le sous-groupe de\ntorsion de \\(G(K(X))\\), et en caractéristique \\(0\\), cette même formule est une\nconséquence du théorème de Riemann-Roch. L'intérêt de (2.35) (lorsqu'elle\nest vraie) tient à ce qu'elle montre que \\(\\varphi\\) est injective modulo des groupes\nde torsion (peut-être toujours nuls !<sup class=\"footnote-ref\"><a id=\"0-fn15ref\" href=\"#0-fn15\">(∗)</a></sup>), de sorte qu'on \"ne perd pas beaucoup\"\nà définir les classes de Chern comme des éléments de \\(G(K(X))\\) ; si\nl'on fait le produit tensoriel par \\(\\mathbb{Q}\\), comme on le fera plus loin pour le\nthéorème de Riemann-Roch, les deux définitions des classes de Chern seraient\nalors identiques.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1638,10 +1638,10 @@
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "remarque",
      "label": null,
-     "title": null,
-     "html": "<p><u>Remarques</u> : Contrairement à (2.38), la formule (2.37) est une \"formule sans\ndénominateur\". Elle n'a été démontrée (même en caractéristique \\(0\\)) qu'en\nse plaçant dans \\(G(K(X))\\) et non dans \\(A(X)\\), ce qui n'est peut-être pas la\nmême chose. Elle est certainement vraie en toute caractéristique et dans\n\\(A(X)\\). Notons que l'on vérifie tout de suite que les images des deux membres\npar \\(i^*\\) sont les mêmes, d'où résulte en appliquant \\(i_*\\) que le produit de leur\ndifférence par \\(N^q\\) est nulle. Cela suggère une méthode de démonstration\ncomplètement différente, en essayant d'obtenir \\(Y\\) comme image réciproque\ntransversale d'une sous-variété \\(Y'\\) dans une variété \\(X'\\), qui soit telle qu'en\ndimension \\(\\leq n = \\dim X\\), la classe de \\(Y'\\) dans \\(A(X')\\) ne soit pas diviseur de\n\\(0\\).... Malheureusement on ne peut espérer que \\(X'\\) soit une grasmannienne ou\nquelque chose d'approchant.</p>"
+     "title": "Remarques",
+     "html": "<div class=\"thm thm-remark remarque\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarques</span></div>\n  <div class=\"thm-body\"><p>Contrairement à (2.38), la formule (2.37) est une \"formule sans\ndénominateur\". Elle n'a été démontrée (même en caractéristique \\(0\\)) qu'en\nse plaçant dans \\(G(K(X))\\) et non dans \\(A(X)\\), ce qui n'est peut-être pas la\nmême chose. Elle est certainement vraie en toute caractéristique et dans\n\\(A(X)\\). Notons que l'on vérifie tout de suite que les images des deux membres\npar \\(i^*\\) sont les mêmes, d'où résulte en appliquant \\(i_*\\) que le produit de leur\ndifférence par \\(N^q\\) est nulle. Cela suggère une méthode de démonstration\ncomplètement différente, en essayant d'obtenir \\(Y\\) comme image réciproque\ntransversale d'une sous-variété \\(Y'\\) dans une variété \\(X'\\), qui soit telle qu'en\ndimension \\(\\leq n = \\dim X\\), la classe de \\(Y'\\) dans \\(A(X')\\) ne soit pas diviseur de\n\\(0\\).... Malheureusement on ne peut espérer que \\(X'\\) soit une grasmannienne ou\nquelque chose d'approchant.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1869,11 +1869,11 @@
      "html": "<div class=\"thm thm-plain theoreme\" id=\"0.app.demo.RR\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème de Riemann-Roch</span></div>\n  <div class=\"thm-body\"><p>Soit \\(f \\colon Y \\to X\\) un morphisme (∗ application régulière ∗)\n  propre d'une variété quasi-projective non singulière \\(Y\\) dans\n  une autre \\(X\\), et soit \\(y \\in K(Y)\\). On a :\n  \\[f_*(\\operatorname{ch}(y)T(Y)) = \\operatorname{ch}(f_!(y))T(X) \\quad \\text{dans } A(X) \\otimes \\mathbb{Q} . \\tag{1}\\]</p></div>\n</div>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-0-app-demo-b14",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration</u> (∗ abrégée ∗).</p>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof\" id=\"proof-0-app-demo-b14\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>(∗ abrégée ∗).</p></div>\n</div>"
     },
     {
      "id": "0.app.demo.L1",
