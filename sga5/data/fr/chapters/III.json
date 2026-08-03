@@ -1114,10 +1114,10 @@
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "exemple",
      "label": null,
-     "title": null,
-     "html": "<p><u>Exemples</u> : a) Supposons \\(c\\) propre et \\(c_2\\) de tor-dimension\nfinie et de dimension relative \\(\\leq N\\). Le morphisme trace\n(SGA 4<sup>1/2</sup> Cycle 2.3.3)</p>"
+     "title": "Exemples",
+     "html": "<div class=\"thm thm-remark exemple\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Exemples</span></div>\n  <div class=\"thm-body\"><p>a) Supposons \\(c\\) propre et \\(c_2\\) de tor-dimension\nfinie et de dimension relative \\(\\leq N\\). Le morphisme trace\n(SGA 4<sup>1/2</sup> Cycle 2.3.3)</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1862,347 +1862,347 @@
      "html": "<div class=\"thm thm-plain theoreme\" id=\"III.4.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span>\n<span class=\"thm-num\">4.4.</span></div>\n  <div class=\"thm-body\"><p>Soient, pour \\(i=1,2\\),\n\\(f_i:X_i\\longrightarrow Y_i\\) un \\(S\\)-morphisme propre,\n\\(f=f_1\\times_Sf_2:X\\longrightarrow Y\\),\n\\(p_i:X\\longrightarrow X_i\\), \\(q_i:Y\\longrightarrow Y_i\\) les projections.\nSoit d'autre part</p>\n\\[\n\\xymatrix{\n&amp;C'\\ar[dl]_{c'}&amp;C\\ar[l]\\ar[dl]_c\\ar[d]^g\\\\\nX&amp;C''\\ar[l]_{c''}\\ar[u]\\ar[d]^{f'}&amp;D\\ar[l]\\ar[d]\\\\\nY&amp;D''\\ar[l]_{d''}&amp;D'\\ar[l]\\ar[ul]_{d'}\n} \\tag{4.4.0}\n\\]\n<p>un cube commutatif à faces horizontales cartésiennes, avec \\(c'\\),\n\\(c''\\), \\(d'\\), \\(d''\\) propres. On pose\n\\(c_i'=p_ic'\\), \\(c_i''=p_ic''\\), \\(d_i'=q_id'\\), \\(d_i''=q_id''\\).\nEnfin, soient \\(L_i\\in\\operatorname{ob}D_{ctf}(X_i)\\). On a alors un carré\ncommutatif</p>\n\\[\n\\xymatrix{\nf_*c_*'R\\underline{\\operatorname{Hom}}(c_1'^*L_1,c_2'^!L_2)\n\\mathbin{\\overset L\\otimes}\nf_*c_*''R\\underline{\\operatorname{Hom}}(c_2''^*L_2,c_1''^!L_1)\n\\ar[r]^{(1)}\\ar[d]_{(2)}&amp;f_*c_*K_C\\ar[d]^{(4)}\\\\\nd_*'R\\underline{\\operatorname{Hom}}(d_1'^*M_1,d_2'^!M_2)\n\\mathbin{\\overset L\\otimes}\nd_*''R\\underline{\\operatorname{Hom}}(d_2''^*M_2,d_1''^!M_1)\n\\ar[r]^{(3)}&amp;d_*K_D\n} \\tag{4.4.1}\n\\]\n<p>où \\(M_i=f_{i*}L_i\\), (3) est donné par 4.2.4, (1) déduit de 4.2.4\npar application de \\(f_*\\) et composition avec la flèche canonique\n\\(f_*c_*'E\\mathbin{\\overset L\\otimes}f_*c_*''F\\longrightarrow\nf_*(c_*'E\\mathbin{\\overset L\\otimes}c_*''F)\\), (2) est produit tensoriel\ndes flèches 3.7.5 relatives aux faces contenant \\(f\\), et (4) est défini\npar la flèche d'adjonction \\(g_*K_C=g_*g^!K_D\\longrightarrow K_D\\).</p></div>\n</div>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-III-4-b39",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration</u> — Posons\n\\(DL_1\\mathbin{\\overset L\\otimes}_S L_2=P\\),\n\\(L_1\\mathbin{\\overset L\\otimes}_S DL_2=Q\\),\n\\(DM_1\\mathbin{\\overset L\\otimes}_S M_2=E\\),\n\\(M_1\\mathbin{\\overset L\\otimes}_S DM_2=F\\). Considérons le diagramme</p>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-III-4-b39\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>Posons\n\\(DL_1\\mathbin{\\overset L\\otimes}_S L_2=P\\),\n\\(L_1\\mathbin{\\overset L\\otimes}_S DL_2=Q\\),\n\\(DM_1\\mathbin{\\overset L\\otimes}_S M_2=E\\),\n\\(M_1\\mathbin{\\overset L\\otimes}_S DM_2=F\\). Considérons le diagramme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nf_*c_*'c'^!P\\mathbin{\\overset L\\otimes}f_*c_*''c''^!Q\\ar[r]^{(1)}\\ar[d]_{(8)}&amp;\nf_*c_*c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[r]^{(2)}\\ar[d]_{(9)}&amp;f_*c_*c^!K_X\\ar[d]^{(10)}\\\\\nd_*'d'^!f_*P\\mathbin{\\overset L\\otimes}d_*''d''^!f_*Q\\ar[r]^{(3)}\\ar[d]_{(11)}&amp;\nd_*d'^!(f_*P\\mathbin{\\overset L\\otimes}f_*Q)\\ar[r]^{(4)}\\ar[d]_{(12)}&amp;\nd_*d^!f_*(P\\mathbin{\\overset L\\otimes}Q)\\ar[r]^{(5)}&amp;d_*d^!f_*K_X\\ar[d]^{(13)}\\\\\nd_*'d'^!E\\mathbin{\\overset L\\otimes}d_*''d''^!F\\ar[r]^{(6)}&amp;\nd_*d^!(E\\mathbin{\\overset L\\otimes}F)\\ar[rr]^{(7)}&amp;&amp;d_*d^!K_Y\n} \\tag{4.4.2}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nf_*c_*'c'^!P\\mathbin{\\overset L\\otimes}f_*c_*''c''^!Q\\ar[r]^{(1)}\\ar[d]_{(8)}&amp;\nf_*c_*c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[r]^{(2)}\\ar[d]_{(9)}&amp;f_*c_*c^!K_X\\ar[d]^{(10)}\\\\\nd_*'d'^!f_*P\\mathbin{\\overset L\\otimes}d_*''d''^!f_*Q\\ar[r]^{(3)}\\ar[d]_{(11)}&amp;\nd_*d'^!(f_*P\\mathbin{\\overset L\\otimes}f_*Q)\\ar[r]^{(4)}\\ar[d]_{(12)}&amp;\nd_*d^!f_*(P\\mathbin{\\overset L\\otimes}Q)\\ar[r]^{(5)}&amp;d_*d^!f_*K_X\\ar[d]^{(13)}\\\\\nd_*'d'^!E\\mathbin{\\overset L\\otimes}d_*''d''^!F\\ar[r]^{(6)}&amp;\nd_*d^!(E\\mathbin{\\overset L\\otimes}F)\\ar[rr]^{(7)}&amp;&amp;d_*d^!K_Y\n} \\tag{4.4.2}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où les flèches sont les suivantes : (1) est déduite de 4.2.2 par application de\n\\(f_*\\), (2) est défini par 4.1.2, (3) est donné par 4.2.2, (4) par la flèche\ncanonique \\(f_*P\\mathbin{\\overset L\\otimes}f_*Q\\longrightarrow\nf_*(P\\mathbin{\\overset L\\otimes}Q)\\), (5) par 4.1.2, (6) par 4.2.2, (7) par\n4.1.2, (8) est produit tensoriel de flèches 3.7.3, (9) et (10) sont définis\npar 3.7.3, (11) et (12) par les isomorphismes\n\\(f_*P\\longrightarrow E\\), \\(f_*Q\\longrightarrow F\\) (3.3.1),\n(13) par la flèche d'adjonction \\(f_*K_X\\longrightarrow K_Y\\). Par définition,\n4.4.1 s'identifie, par 3.1.1 et 3.2.1, au bord extérieur de 4.4.2. Il suffit\ndonc de prouver que les carrés \\(A\\), \\(B\\), \\(C\\), \\(D\\) sont commutatifs. La\ncommutativité de \\(B\\) et \\(C\\) est évidente, par fonctorialité. Il reste à\ndémontrer celle de \\(A\\) et \\(D\\).</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où les flèches sont les suivantes : (1) est déduite de 4.2.2 par application de\n\\(f_*\\), (2) est défini par 4.1.2, (3) est donné par 4.2.2, (4) par la flèche\ncanonique \\(f_*P\\mathbin{\\overset L\\otimes}f_*Q\\longrightarrow\nf_*(P\\mathbin{\\overset L\\otimes}Q)\\), (5) par 4.1.2, (6) par 4.2.2, (7) par\n4.1.2, (8) est produit tensoriel de flèches 3.7.3, (9) et (10) sont définis\npar 3.7.3, (11) et (12) par les isomorphismes\n\\(f_*P\\longrightarrow E\\), \\(f_*Q\\longrightarrow F\\) (3.3.1),\n(13) par la flèche d'adjonction \\(f_*K_X\\longrightarrow K_Y\\). Par définition,\n4.4.1 s'identifie, par 3.1.1 et 3.2.1, au bord extérieur de 4.4.2. Il suffit\ndonc de prouver que les carrés \\(A\\), \\(B\\), \\(C\\), \\(D\\) sont commutatifs. La\ncommutativité de \\(B\\) et \\(C\\) est évidente, par fonctorialité. Il reste à\ndémontrer celle de \\(A\\) et \\(D\\).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>a) <u>Commutativité de \\(D\\)</u>. Il suffit de prouver que le carré</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>a) <u>Commutativité de \\(D\\)</u>. Il suffit de prouver que le carré</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nf_*P\\mathbin{\\overset L\\otimes}f_*Q\\ar[r]\\ar[d]&amp;f_*K_X\\ar[d]\\\\\nE\\mathbin{\\overset L\\otimes}F\\ar[r]&amp;K_Y\n} \\tag{4.4.3}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nf_*P\\mathbin{\\overset L\\otimes}f_*Q\\ar[r]\\ar[d]&amp;f_*K_X\\ar[d]\\\\\nE\\mathbin{\\overset L\\otimes}F\\ar[r]&amp;K_Y\n} \\tag{4.4.3}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>(correspondant à \\(D\\) pour \\(d=\\operatorname{Id}\\)) commute. Rappelons que\nl'accouplement \\(P\\mathbin{\\overset L\\otimes}Q\\longrightarrow K_X\\) (resp.\n\\(E\\mathbin{\\overset L\\otimes}F\\longrightarrow K_Y\\)) est produit tensoriel\nexterne des flèches d'évaluation\n\\(DL_i\\mathbin{\\overset L\\otimes}L_i\\longrightarrow K_{X_i}\\)\n(resp. \\(DM_i\\mathbin{\\overset L\\otimes}M_i\\longrightarrow K_{Y_i}\\)). Par les\nisomorphismes de Künneth\n\\(f_{1*}DL_1\\mathbin{\\overset L\\otimes}_S f_{2*}L_2\\xrightarrow{\\sim}f_*P\\),\n\\(f_{1*}L_1\\mathbin{\\overset L\\otimes}_S f_{2*}DL_2\\xrightarrow{\\sim}f_*Q\\),\n4.4.3 s'identifie donc au produit tensoriel externe des carrés</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>(correspondant à \\(D\\) pour \\(d=\\operatorname{Id}\\)) commute. Rappelons que\nl'accouplement \\(P\\mathbin{\\overset L\\otimes}Q\\longrightarrow K_X\\) (resp.\n\\(E\\mathbin{\\overset L\\otimes}F\\longrightarrow K_Y\\)) est produit tensoriel\nexterne des flèches d'évaluation\n\\(DL_i\\mathbin{\\overset L\\otimes}L_i\\longrightarrow K_{X_i}\\)\n(resp. \\(DM_i\\mathbin{\\overset L\\otimes}M_i\\longrightarrow K_{Y_i}\\)). Par les\nisomorphismes de Künneth\n\\(f_{1*}DL_1\\mathbin{\\overset L\\otimes}_S f_{2*}L_2\\xrightarrow{\\sim}f_*P\\),\n\\(f_{1*}L_1\\mathbin{\\overset L\\otimes}_S f_{2*}DL_2\\xrightarrow{\\sim}f_*Q\\),\n4.4.3 s'identifie donc au produit tensoriel externe des carrés</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nf_{i*}DL_i\\mathbin{\\overset L\\otimes}f_{i*}L_i\\ar[r]^{(1)}\\ar[d]_{(3)}&amp;f_{i*}K_{X_i}\\ar[d]^{(4)}\\\\\nDM_i\\mathbin{\\overset L\\otimes}M_i\\ar[r]^{(2)}&amp;K_{Y_i}\n} \\tag{4.4.4}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nf_{i*}DL_i\\mathbin{\\overset L\\otimes}f_{i*}L_i\\ar[r]^{(1)}\\ar[d]_{(3)}&amp;f_{i*}K_{X_i}\\ar[d]^{(4)}\\\\\nDM_i\\mathbin{\\overset L\\otimes}M_i\\ar[r]^{(2)}&amp;K_{Y_i}\n} \\tag{4.4.4}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où (2) est la flèche d'évaluation, (1) le composé de la flèche canonique</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où (2) est la flèche d'évaluation, (1) le composé de la flèche canonique</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\\(f_{i*}DL_i\\mathbin{\\overset L\\otimes}f_{i*}L_i\\longrightarrow\nf_{i*}(DL_i\\mathbin{\\overset L\\otimes}L_i)\\) et de la flèche définie par la\nflèche d'évaluation, (3) est produit tensoriel de l'isomorphisme de dualité\n\\(f_{i*}DL_i\\longrightarrow DM_i\\) et de la flèche identique de \\(M_i\\), (4)\nest la flèche d'adjonction. Il suffit donc de vérifier la commutativité des\ncarrés 4.4.4. Comme l'isomorphisme de dualité ci-dessus est composé de la\nflèche canonique (SGA 4 XVIII 3.1.9.5)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\\(f_{i*}DL_i\\mathbin{\\overset L\\otimes}f_{i*}L_i\\longrightarrow\nf_{i*}(DL_i\\mathbin{\\overset L\\otimes}L_i)\\) et de la flèche définie par la\nflèche d'évaluation, (3) est produit tensoriel de l'isomorphisme de dualité\n\\(f_{i*}DL_i\\longrightarrow DM_i\\) et de la flèche identique de \\(M_i\\), (4)\nest la flèche d'adjonction. Il suffit donc de vérifier la commutativité des\ncarrés 4.4.4. Comme l'isomorphisme de dualité ci-dessus est composé de la\nflèche canonique (SGA 4 XVIII 3.1.9.5)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\nf_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\longrightarrow\nR\\underline{\\operatorname{Hom}}(f_{i*}L_i,f_{i*}K_{X_i})\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\nf_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\longrightarrow\nR\\underline{\\operatorname{Hom}}(f_{i*}L_i,f_{i*}K_{X_i})\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>et de la flèche déduite de la flèche d'adjonction\n\\(f_{i*}K_{X_i}\\longrightarrow K_{Y_i}\\), il suffit de voir que le carré\nsuivant commute</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>et de la flèche déduite de la flèche d'adjonction\n\\(f_{i*}K_{X_i}\\longrightarrow K_{Y_i}\\), il suffit de voir que le carré\nsuivant commute</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nf_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\mathbin{\\overset L\\otimes}f_{i*}L_i\n \\ar[r]^{(1)}\\ar[d]_{(3)}&amp;f_{i*}K_{X_i}\\ar[d]^{\\mathrm{Id}}\\\\\nR\\underline{\\operatorname{Hom}}(f_{i*}L_i,f_{i*}K_{X_i})\\mathbin{\\overset L\\otimes}f_{i*}L_i\n \\ar[r]^{(2)}&amp;f_{i*}K_{X_i}\n} \\tag{4.4.5}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nf_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\mathbin{\\overset L\\otimes}f_{i*}L_i\n \\ar[r]^{(1)}\\ar[d]_{(3)}&amp;f_{i*}K_{X_i}\\ar[d]^{\\mathrm{Id}}\\\\\nR\\underline{\\operatorname{Hom}}(f_{i*}L_i,f_{i*}K_{X_i})\\mathbin{\\overset L\\otimes}f_{i*}L_i\n \\ar[r]^{(2)}&amp;f_{i*}K_{X_i}\n} \\tag{4.4.5}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où (1) est la flèche (1) de 4.4.4, (2) la flèche d'évaluation, et (3) le\nproduit tensoriel par \\(f_{i*}L_i\\) de la flèche canonique qu'on vient de\nmentionner. Or, plus généralement, pour toute flèche\n\\(N_i\\longrightarrow f_{i*}L_i\\) de \\(D_{ctf}(X_i)\\), i.e. toute flèche\n\\(L_i\\xrightarrow{u}N_i\\) de type 1 au-dessus de \\(f_i\\), le triangle</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où (1) est la flèche (1) de 4.4.4, (2) la flèche d'évaluation, et (3) le\nproduit tensoriel par \\(f_{i*}L_i\\) de la flèche canonique qu'on vient de\nmentionner. Or, plus généralement, pour toute flèche\n\\(N_i\\longrightarrow f_{i*}L_i\\) de \\(D_{ctf}(X_i)\\), i.e. toute flèche\n\\(L_i\\xrightarrow{u}N_i\\) de type 1 au-dessus de \\(f_i\\), le triangle</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nf_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\mathbin{\\overset L\\otimes}N_i\n \\ar[d]\\ar[dr]&amp;\\\\\nR\\underline{\\operatorname{Hom}}(N_i,f_{i*}K_{X_i})\\mathbin{\\overset L\\otimes}N_i\n \\ar[r]&amp;f_{i*}K_{X_i}\n}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nf_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\mathbin{\\overset L\\otimes}N_i\n \\ar[d]\\ar[dr]&amp;\\\\\nR\\underline{\\operatorname{Hom}}(N_i,f_{i*}K_{X_i})\\mathbin{\\overset L\\otimes}N_i\n \\ar[r]&amp;f_{i*}K_{X_i}\n}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>déduit de 4.4.5 commute : on peut en effet, par fonctorialité, supposer que\n\\(L_i=f_i^*N_i\\), \\(u\\) étant donné par l'identité de \\(L_i\\) ; la flèche\n\\(f_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\longrightarrow\nR\\underline{\\operatorname{Hom}}(N_i,f_{i*}K_{X_i})\\) est alors l'inverse de\nl'isomorphisme de dualité triviale, et la commutativité du triangle se vérifie\nimmédiatement au niveau des complexes, en résolvant \\(N_i\\) platement et\n\\(K_{X_i}\\) injectivement.</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>déduit de 4.4.5 commute : on peut en effet, par fonctorialité, supposer que\n\\(L_i=f_i^*N_i\\), \\(u\\) étant donné par l'identité de \\(L_i\\) ; la flèche\n\\(f_{i*}R\\underline{\\operatorname{Hom}}(L_i,K_{X_i})\\longrightarrow\nR\\underline{\\operatorname{Hom}}(N_i,f_{i*}K_{X_i})\\) est alors l'inverse de\nl'isomorphisme de dualité triviale, et la commutativité du triangle se vérifie\nimmédiatement au niveau des complexes, en résolvant \\(N_i\\) platement et\n\\(K_{X_i}\\) injectivement.</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>b) <u>Commutativité de \\(A\\)</u>. Se reportant à la définition de 3.7.3, on\nvoit qu'il suffit de vérifier cette commutativité dans chacun des cas suivants :\n(i) \\(X_i=Y_i\\), \\(f_i=\\) flèche identique de \\(X_i\\) ; (ii) les faces latérales\nde 4.4.0 sont cartésiennes. Plaçons-nous dans le cas (i). Le carré \\(A\\) est le\nbord extérieur du diagramme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>b) <u>Commutativité de \\(A\\)</u>. Se reportant à la définition de 3.7.3, on\nvoit qu'il suffit de vérifier cette commutativité dans chacun des cas suivants :\n(i) \\(X_i=Y_i\\), \\(f_i=\\) flèche identique de \\(X_i\\) ; (ii) les faces latérales\nde 4.4.0 sont cartésiennes. Plaçons-nous dans le cas (i). Le carré \\(A\\) est le\nbord extérieur du diagramme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nc_*'c'^!P\\mathbin{\\overset L\\otimes}c_*''c''^!Q\\ar[r]^-{\\sim}\\ar[d]_{(8)}&amp;\nc_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\ar[r]\\ar[d]&amp;c_*c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]^{(9)}\\\\\nd_*'d'^!P\\mathbin{\\overset L\\otimes}d_*''d''^!Q\\ar[r]^-{\\sim}&amp;\nd_*(d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q)\\ar[r]&amp;d_*d^!(P\\mathbin{\\overset L\\otimes}Q)\n}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nc_*'c'^!P\\mathbin{\\overset L\\otimes}c_*''c''^!Q\\ar[r]^-{\\sim}\\ar[d]_{(8)}&amp;\nc_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\ar[r]\\ar[d]&amp;c_*c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]^{(9)}\\\\\nd_*'d'^!P\\mathbin{\\overset L\\otimes}d_*''d''^!Q\\ar[r]^-{\\sim}&amp;\nd_*(d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q)\\ar[r]&amp;d_*d^!(P\\mathbin{\\overset L\\otimes}Q)\n}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>dans lequel les isomorphismes horizontaux de \\(A_1\\) sont des\nisomorphismes de Künneth, les flèches horizontales de \\(A_2\\) sont données\npar 4.2.1, et la flèche verticale médiane est déduite par application de\n\\(d_*\\) de la flèche\n\\(g_!(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\longrightarrow\nd'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\) définie, via Künneth, par le produit\ntensoriel externe des flèches d'adjonction\n\\(f'_!c'^!P\\longrightarrow d'^!P\\), \\(f''_!c''^!Q\\longrightarrow d''^!Q\\).\nOr ces flèches d'adjonction et les flèches identiques de \\(d'^!d'^!P\\),\n\\(d''^!d''^!Q\\) définissent des triangles commutatifs de flèches de type 3\n(1.4)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>dans lequel les isomorphismes horizontaux de \\(A_1\\) sont des\nisomorphismes de Künneth, les flèches horizontales de \\(A_2\\) sont données\npar 4.2.1, et la flèche verticale médiane est déduite par application de\n\\(d_*\\) de la flèche\n\\(g_!(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\longrightarrow\nd'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\) définie, via Künneth, par le produit\ntensoriel externe des flèches d'adjonction\n\\(f'_!c'^!P\\longrightarrow d'^!P\\), \\(f''_!c''^!Q\\longrightarrow d''^!Q\\).\nOr ces flèches d'adjonction et les flèches identiques de \\(d'^!d'^!P\\),\n\\(d''^!d''^!Q\\) définissent des triangles commutatifs de flèches de type 3\n(1.4)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{&amp;c'^!P\\ar[dl]\\ar[d]&amp;&amp;&amp;c''^!Q\\ar[dl]\\ar[d]\\\\\nd'^!d'^!P&amp;d'^!P\\ar[l]&amp;&amp;d''^!d''^!Q&amp;d''^!Q\\ar[l]}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{&amp;c'^!P\\ar[dl]\\ar[d]&amp;&amp;&amp;c''^!Q\\ar[dl]\\ar[d]\\\\\nd'^!d'^!P&amp;d'^!P\\ar[l]&amp;&amp;d''^!d''^!Q&amp;d''^!Q\\ar[l]}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>au-dessus de</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>au-dessus de</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{&amp;C'\\ar[dl]_{c'}\\ar[d]^{f'}&amp;&amp;&amp;C''\\ar[dl]_{c''}\\ar[d]^{f''}\\\\\nX&amp;D'\\ar[l]^{d'}&amp;&amp;X&amp;D''\\ar[l]^{d''}}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{&amp;C'\\ar[dl]_{c'}\\ar[d]^{f'}&amp;&amp;&amp;C''\\ar[dl]_{c''}\\ar[d]^{f''}\\\\\nX&amp;D'\\ar[l]^{d'}&amp;&amp;X&amp;D''\\ar[l]^{d''}}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Par produit tensoriel externe (sur \\(X\\)), ces triangles fournissent un\ntriangle commutatif</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>Par produit tensoriel externe (sur \\(X\\)), ces triangles fournissent un\ntriangle commutatif</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{&amp;c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\ar[dl]\\ar[d]&amp;&amp;\\text{au-dessus de}&amp;&amp;C\\ar[dl]_c\\ar[d]^g\\\\\nd'^!d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!d''^!Q&amp;d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[l]&amp;&amp;&amp;X&amp;D\\ar[l]^d}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{&amp;c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\ar[dl]\\ar[d]&amp;&amp;\\text{au-dessus de}&amp;&amp;C\\ar[dl]_c\\ar[d]^g\\\\\nd'^!d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!d''^!Q&amp;d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[l]&amp;&amp;&amp;X&amp;D\\ar[l]^d}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>La commutativité de ce triangle équivaut à celle du carré déduit de\n\\(A_1\\) en inversant les flèches horizontales. On a d'autre part des\ntriangles commutatifs de flèches de type 3</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>La commutativité de ce triangle équivaut à celle du carré déduit de\n\\(A_1\\) en inversant les flèches horizontales. On a d'autre part des\ntriangles commutatifs de flèches de type 3</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{&amp;c'^!P\\ar[dl]\\ar[d]&amp;&amp;&amp;c''^!Q\\ar[dl]\\ar[d]\\\\\nP&amp;d'^!P\\ar[l]&amp;&amp;Q&amp;d''^!Q\\ar[l]}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{&amp;c'^!P\\ar[dl]\\ar[d]&amp;&amp;&amp;c''^!Q\\ar[dl]\\ar[d]\\\\\nP&amp;d'^!P\\ar[l]&amp;&amp;Q&amp;d''^!Q\\ar[l]}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>définis par les flèches identiques de \\(d'^!P\\), \\(c'^!P\\), \\(d''^!Q\\),\n\\(c''^!Q\\). Par produit tensoriel externe, on en déduit un triangle commutatif</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>définis par les flèches identiques de \\(d'^!P\\), \\(c'^!P\\), \\(d''^!Q\\),\n\\(c''^!Q\\). Par produit tensoriel externe, on en déduit un triangle commutatif</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{&amp;c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\ar[dl]\\ar[d]\\\\\nP\\mathbin{\\overset L\\otimes}Q&amp;d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[l]}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{&amp;c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\ar[dl]\\ar[d]\\\\\nP\\mathbin{\\overset L\\otimes}Q&amp;d'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[l]}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>qu'on peut interpréter comme un morphisme de flèches de type 3 au-dessus\nde \\(g:C\\longrightarrow D\\) :</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>qu'on peut interpréter comme un morphisme de flèches de type 3 au-dessus\nde \\(g:C\\longrightarrow D\\) :</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nc'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\ar[r]\\ar[d]&amp;c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]\\\\\nd'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[r]&amp;d^!(P\\mathbin{\\overset L\\otimes}Q)\n}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nc'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\ar[r]\\ar[d]&amp;c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]\\\\\nd'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[r]&amp;d^!(P\\mathbin{\\overset L\\otimes}Q)\n}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>ou encore comme un carré commutatif au-dessus de \\(D\\) :</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>ou encore comme un carré commutatif au-dessus de \\(D\\) :</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\ng_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\ar[r]\\ar[d]&amp;g_*c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]\\\\\nd'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[r]&amp;d^!(P\\mathbin{\\overset L\\otimes}Q)\n}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\ng_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\ar[r]\\ar[d]&amp;g_*c^!(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]\\\\\nd'^!P\\mathbin{\\overset L\\otimes}_Xd''^!Q\\ar[r]&amp;d^!(P\\mathbin{\\overset L\\otimes}Q)\n}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Mais le carré déduit de ce dernier par application de \\(d_*\\) n'est autre\nque \\(A_2\\), d'où la commutativité de \\(A\\) dans le cas (i). Il reste à traiter\nle cas (ii). Les faces de 4.4.0 contenant \\(f\\) étant cartésiennes, les flèches</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>Mais le carré déduit de ce dernier par application de \\(d_*\\) n'est autre\nque \\(A_2\\), d'où la commutativité de \\(A\\) dans le cas (i). Il reste à traiter\nle cas (ii). Les faces de 4.4.0 contenant \\(f\\) étant cartésiennes, les flèches</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\nf'_*c'^!P\\longrightarrow d'^!f_*P,\\qquad\nf''_*c''^!Q\\longrightarrow d''^!f_*Q \\quad(3.7.3)\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\nf'_*c'^!P\\longrightarrow d'^!f_*P,\\qquad\nf''_*c''^!Q\\longrightarrow d''^!f_*Q \\quad(3.7.3)\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>sont des isomorphismes. Leurs inverses définissent des flèches de type 1\n\\(c'^!P\\longrightarrow d'^!f_*P\\), \\(c''^!Q\\longrightarrow d''^!f_*Q\\)\nau-dessus de \\(f'\\), \\(f''\\), d'où, par image directe, des carrés commutatifs\nde flèches de type 1</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>sont des isomorphismes. Leurs inverses définissent des flèches de type 1\n\\(c'^!P\\longrightarrow d'^!f_*P\\), \\(c''^!Q\\longrightarrow d''^!f_*Q\\)\nau-dessus de \\(f'\\), \\(f''\\), d'où, par image directe, des carrés commutatifs\nde flèches de type 1</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{c_*'c'^!P&amp;c'^!P\\ar[l]\\ar[d]\\\\d_*'d'^!P&amp;d'^!f_*P\\ar[l]}\n\\qquad\n\\xymatrix{c_*''c''^!Q&amp;c''^!Q\\ar[l]\\ar[d]\\\\d_*''d''^!Q&amp;d''^!f_*Q\\ar[l]}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{c_*'c'^!P&amp;c'^!P\\ar[l]\\ar[d]\\\\d_*'d'^!P&amp;d'^!f_*P\\ar[l]}\n\\qquad\n\\xymatrix{c_*''c''^!Q&amp;c''^!Q\\ar[l]\\ar[d]\\\\d_*''d''^!Q&amp;d''^!f_*Q\\ar[l]}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>au-dessus des faces de 4.4.0 contenant \\(f\\). Par produit tensoriel, on en\ndéduit un carré commutatif de \\(D_{ctf}(Y)\\)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>au-dessus des faces de 4.4.0 contenant \\(f\\). Par produit tensoriel, on en\ndéduit un carré commutatif de \\(D_{ctf}(Y)\\)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nd_*'d'^!f_*P\\mathbin{\\overset L\\otimes}d_*''d''^!f_*Q\\ar[r]\\ar[d]&amp;\nd_*(d'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q)\\ar[d]\\\\\nf_*c_*'c'^!P\\mathbin{\\overset L\\otimes}f_*c_*''c''^!Q\\ar[r]&amp;\nd_*g_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\n} \\tag{4.4.6}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nd_*'d'^!f_*P\\mathbin{\\overset L\\otimes}d_*''d''^!f_*Q\\ar[r]\\ar[d]&amp;\nd_*(d'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q)\\ar[d]\\\\\nf_*c_*'c'^!P\\mathbin{\\overset L\\otimes}f_*c_*''c''^!Q\\ar[r]&amp;\nd_*g_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\n} \\tag{4.4.6}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où la flèche verticale de gauche est l'inverse de (8), les flèches\nhorizontales sont données par Künneth, et la flèche verticale de droite par\nproduit tensoriel externe sur \\(Y\\) des flèches\n\\(f'_*c'^!P\\longrightarrow d'^!f_*P\\),\n\\(f''_*c''^!Q\\longrightarrow d''^!f_*Q\\). Le même produit tensoriel définit\nla flèche verticale de gauche du carré</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où la flèche verticale de gauche est l'inverse de (8), les flèches\nhorizontales sont données par Künneth, et la flèche verticale de droite par\nproduit tensoriel externe sur \\(Y\\) des flèches\n\\(f'_*c'^!P\\longrightarrow d'^!f_*P\\),\n\\(f''_*c''^!Q\\longrightarrow d''^!f_*Q\\). Le même produit tensoriel définit\nla flèche verticale de gauche du carré</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nd'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q\\ar[r]\\ar[d]&amp;d^!f_*(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]\\\\\ng_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\ar[r]&amp;g_*c^!(P\\mathbin{\\overset L\\otimes}Q)\n} \\tag{4.4.7}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nd'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q\\ar[r]\\ar[d]&amp;d^!f_*(P\\mathbin{\\overset L\\otimes}Q)\\ar[d]\\\\\ng_*(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q)\\ar[r]&amp;g_*c^!(P\\mathbin{\\overset L\\otimes}Q)\n} \\tag{4.4.7}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où la flèche verticale de droite est 3.7.3, et les flèches horizontales\nsont définies par 4.2.1. Le bord extérieur du diagramme composé de 4.4.6 et\nde \\(d_*(4.4.7)\\) est le carré déduit de \\(A\\) en inversant les flèches\nverticales. Il suffit donc de prouver que 4.4.7 commute, en d'autres termes\nque les flèches 4.2.1</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où la flèche verticale de droite est 3.7.3, et les flèches horizontales\nsont définies par 4.2.1. Le bord extérieur du diagramme composé de 4.4.6 et\nde \\(d_*(4.4.7)\\) est le carré déduit de \\(A\\) en inversant les flèches\nverticales. Il suffit donc de prouver que 4.4.7 commute, en d'autres termes\nque les flèches 4.2.1</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\nc'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\longrightarrow c^!(P\\mathbin{\\overset L\\otimes}Q),\n\\qquad d'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q\\longrightarrow\nd^!f_*(P\\mathbin{\\overset L\\otimes}Q)\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\nc'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\longrightarrow c^!(P\\mathbin{\\overset L\\otimes}Q),\n\\qquad d'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q\\longrightarrow\nd^!f_*(P\\mathbin{\\overset L\\otimes}Q)\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>définissent un morphisme de\n\\(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\longrightarrow\nd'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q\\) dans\n\\(c^!(P\\mathbin{\\overset L\\otimes}Q)\\longrightarrow\nd^!f_*(P\\mathbin{\\overset L\\otimes}Q)\\), considérées comme flèches de type 1\nau-dessus de \\(g\\). Par adjonction, on est ramené à vérifier que les produits\ntensoriels de flèches d'adjonction</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>définissent un morphisme de\n\\(c'^!P\\mathbin{\\overset L\\otimes}_Xc''^!Q\\longrightarrow\nd'^!f_*P\\mathbin{\\overset L\\otimes}_Yd''^!f_*Q\\) dans\n\\(c^!(P\\mathbin{\\overset L\\otimes}Q)\\longrightarrow\nd^!f_*(P\\mathbin{\\overset L\\otimes}Q)\\), considérées comme flèches de type 1\nau-dessus de \\(g\\). Par adjonction, on est ramené à vérifier que les produits\ntensoriels de flèches d'adjonction</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\nc_*'c'^!P\\mathbin{\\overset L\\otimes}c_*''c''^!Q\\longrightarrow\nP\\mathbin{\\overset L\\otimes}Q,\\qquad\nd_*'d'^!f_*P\\mathbin{\\overset L\\otimes}d_*''d''^!f_*Q\\longrightarrow\nf_*P\\mathbin{\\overset L\\otimes}f_*Q\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\nc_*'c'^!P\\mathbin{\\overset L\\otimes}c_*''c''^!Q\\longrightarrow\nP\\mathbin{\\overset L\\otimes}Q,\\qquad\nd_*'d'^!f_*P\\mathbin{\\overset L\\otimes}d_*''d''^!f_*Q\\longrightarrow\nf_*P\\mathbin{\\overset L\\otimes}f_*Q\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>définissent un morphisme, entre flèches de type 1 au-dessus de \\(f\\), du\nproduit tensoriel des flèches\n\\(c_*'c'^!P\\longrightarrow d_*'d'^!f_*P\\) et\n\\(c_*''c''^!Q\\longrightarrow d_*''d''^!f_*Q\\) dans le produit tensoriel des\nflèches \\(P\\longrightarrow f_*P\\) et \\(Q\\longrightarrow f_*Q\\). Il suffit\npour cela de vérifier que les flèches d'adjonction\n\\(c_*'c'^!P\\longrightarrow P\\), \\(d_*'d'^!f_*P\\longrightarrow f_*P\\)\ndéfinissent un morphisme de\n\\(c_*'c'^!P\\longrightarrow d_*'d'^!f_*P\\) dans\n\\(P\\longrightarrow f_*P\\), ainsi que l'assertion analogue</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>définissent un morphisme, entre flèches de type 1 au-dessus de \\(f\\), du\nproduit tensoriel des flèches\n\\(c_*'c'^!P\\longrightarrow d_*'d'^!f_*P\\) et\n\\(c_*''c''^!Q\\longrightarrow d_*''d''^!f_*Q\\) dans le produit tensoriel des\nflèches \\(P\\longrightarrow f_*P\\) et \\(Q\\longrightarrow f_*Q\\). Il suffit\npour cela de vérifier que les flèches d'adjonction\n\\(c_*'c'^!P\\longrightarrow P\\), \\(d_*'d'^!f_*P\\longrightarrow f_*P\\)\ndéfinissent un morphisme de\n\\(c_*'c'^!P\\longrightarrow d_*'d'^!f_*P\\) dans\n\\(P\\longrightarrow f_*P\\), ainsi que l'assertion analogue</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>avec \\((c'',d'')\\). On peut se borner au cas de \\((c',d')\\), l'énoncé étant le même dans\nles deux cas. Il s'agit de voir que le triangle</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>avec \\((c'',d'')\\). On peut se borner au cas de \\((c',d')\\), l'énoncé étant le même dans\nles deux cas. Il s'agit de voir que le triangle</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\n&amp;f'_*c'^!c'^!P\\ar[dl]\\ar[d]^{\\sim}&amp;\\\\\nf_*P&amp;d'^!d'^!f_*P\\ar[l]\n}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\n&amp;f'_*c'^!c'^!P\\ar[dl]\\ar[d]^{\\sim}&amp;\\\\\nf_*P&amp;d'^!d'^!f_*P\\ar[l]\n}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où les flèches horizontale et oblique sont données par les flèches d'adjonction et\nla flèche verticale par l'isomorphisme 3.7.3, est commutatif. Compte tenu de la définition\nde 3.7.3 (SGA 4 XVIII 3.1.12.3) comme transposée d'un isomorphisme de changement de base,\non est ramené, en appliquant le foncteur \\(\\operatorname{Hom}(R,-)\\)\n(\\(R\\in\\operatorname{ob}D_{ctf}(Y)\\)), à vérifier la commutativité du carré</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où les flèches horizontale et oblique sont données par les flèches d'adjonction et\nla flèche verticale par l'isomorphisme 3.7.3, est commutatif. Compte tenu de la définition\nde 3.7.3 (SGA 4 XVIII 3.1.12.3) comme transposée d'un isomorphisme de changement de base,\non est ramené, en appliquant le foncteur \\(\\operatorname{Hom}(R,-)\\)\n(\\(R\\in\\operatorname{ob}D_{ctf}(Y)\\)), à vérifier la commutativité du carré</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\xymatrix{\nc'_*c'^!f^*R\\ar[r]^{\\mathrm{Id}}&amp;c'_*f'^!d'^*R\\\\\nf^*R\\ar[u]\\ar[r]&amp;f^*d'_*d'^*R\\ar[u]_{\\sim}\n}\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>\n\\[\n\\xymatrix{\nc'_*c'^!f^*R\\ar[r]^{\\mathrm{Id}}&amp;c'_*f'^!d'^*R\\\\\nf^*R\\ar[u]\\ar[r]&amp;f^*d'_*d'^*R\\ar[u]_{\\sim}\n}\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où la flèche verticale de gauche (resp. horizontale inférieure) est définie par la\nflèche d'adjonction \\(1\\longrightarrow c'_*c'^*\\) (resp. \\(1\\longrightarrow d'_*d'^*\\)),\net la flèche verticale de droite par l'isomorphisme de changement de base\n\\(f^*d'_*\\xrightarrow{\\sim}c'_*f'^*\\). Or ce carré commute par définition même de la\nflèche de changement de base. La commutativité de \\(A\\) est donc établie, ce qui achève la\ndémonstration du théorème.</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-III-4-b39\">\n  <div class=\"proof-body\"><p>où la flèche verticale de gauche (resp. horizontale inférieure) est définie par la\nflèche d'adjonction \\(1\\longrightarrow c'_*c'^*\\) (resp. \\(1\\longrightarrow d'_*d'^*\\)),\net la flèche verticale de droite par l'isomorphisme de changement de base\n\\(f^*d'_*\\xrightarrow{\\sim}c'_*f'^*\\). Or ce carré commute par définition même de la\nflèche de changement de base. La commutativité de \\(A\\) est donc établie, ce qui achève la\ndémonstration du théorème.</p></div>\n</div>"
     },
     {
      "id": "III.4.5",
@@ -3892,95 +3892,95 @@
      "html": "<div class=\"thm thm-plain corollaire\" id=\"III.6.12\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">6.12.</span></div>\n  <div class=\"thm-body\"><p><u>(formule de\nWoods-Hole [1]). On suppose que \\(S\\) est le spectre d'un corps. Soient \\(X\\) un\n\\(S\\)-schéma propre et lisse, \\(F\\) un \\(S\\)-endomorphisme de \\(X\\), \\(L\\) un\nobjet de \\(D(X)_{\\rm parf}\\) (i.e. un complexe parfait sur \\(X\\)),</u>\n\\(u\\in\\operatorname{Hom}(F^*L,L)\\). <u>On suppose que le schéma des points fixes\n\\(X^F\\) est fini et formé de points transversaux (i.e. où le graphe de \\(F\\) coupe\ntransversalement la diagonale). Alors on a</u></p>\n\\[\n\\sum_i(-1)^i\\operatorname{Tr}((F,u),H^i(X,L))\n=\\sum_{x\\in X^F}\\operatorname{Tr}(u_x)/\\det(1-dF_x),\n\\]\n<p>où \\((F,u)\\) est l'endomorphisme de \\(H^i(X,L)\\) composé de\n\\(H^i(X,L)\\longrightarrow H^i(X,F^*L)\\)</p>\n\n<!-- Source PDF page 60 (printed page 132) -->\n<p>(image inverse) et de \\(H^i(X,u)\\), \\(\\operatorname{Tr}(u_x)\\) désigne la\nvaleur en \\(x\\) de l'endomorphisme induit par \\(u\\) sur la fibre de \\(L\\) en \\(x\\),\net \\(\\det(1-dF_x)\\) la valeur en \\(x\\) du déterminant de l'application (1 −\napplication induite par \\(F\\) sur \\(\\Omega^1_{X,x}\\)).</p></div>\n</div>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-III-6-b124",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration.</u> On applique 6.10 en tenant compte de 6.11 a), b). Posons\n\\(Z=X\\times_SX\\). Soit \\(x\\in X^F\\). Près de \\(x\\), choisissons un système de\ncoordonnées locales \\((x_1,\\ldots,x_n)\\) (définissant un morphisme étale dans\n\\(\\mathbb A^n_S\\)), posons \\(F_i=x_iF\\), notons \\((x_1,\\ldots,x_n,y_1,\\ldots,y_n)\\)\nles coordonnées locales correspondantes sur \\(Z\\) près de\n\\(z=(x,x)\\) \\((x_i=x_i\\otimes1), (y_i=1\\otimes x_i)\\). Alors, près de \\(z\\),\n\\((x_1-y_1,\\ldots,x_n-y_n)\\) (resp. \\((y_1-F_1,\\ldots,y_n-F_n)\\)) est un système\nrégulier d'équations de la diagonale \\(A\\) (resp. du graphe \\(B\\) de \\(F\\)). La\ncontribution du second membre de 6.11.1 en \\(z\\) est</p>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-III-6-b124\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>On applique 6.10 en tenant compte de 6.11 a), b). Posons\n\\(Z=X\\times_SX\\). Soit \\(x\\in X^F\\). Près de \\(x\\), choisissons un système de\ncoordonnées locales \\((x_1,\\ldots,x_n)\\) (définissant un morphisme étale dans\n\\(\\mathbb A^n_S\\)), posons \\(F_i=x_iF\\), notons \\((x_1,\\ldots,x_n,y_1,\\ldots,y_n)\\)\nles coordonnées locales correspondantes sur \\(Z\\) près de\n\\(z=(x,x)\\) \\((x_i=x_i\\otimes1), (y_i=1\\otimes x_i)\\). Alors, près de \\(z\\),\n\\((x_1-y_1,\\ldots,x_n-y_n)\\) (resp. \\((y_1-F_1,\\ldots,y_n-F_n)\\)) est un système\nrégulier d'équations de la diagonale \\(A\\) (resp. du graphe \\(B\\) de \\(F\\)). La\ncontribution du second membre de 6.11.1 en \\(z\\) est</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\langle u,1\\rangle_z=\\operatorname{Res}_z\\left(\\operatorname{Tr}(u)\n\\frac{dx_1\\cdots dx_n\\,dy_1\\cdots dy_n}\n{(x_1-y_1)\\cdots(x_n-y_n)(y_1-F_1)\\cdots(y_n-F_n)}\\right).\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>\n\\[\n\\langle u,1\\rangle_z=\\operatorname{Res}_z\\left(\\operatorname{Tr}(u)\n\\frac{dx_1\\cdots dx_n\\,dy_1\\cdots dy_n}\n{(x_1-y_1)\\cdots(x_n-y_n)(y_1-F_1)\\cdots(y_n-F_n)}\\right).\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Notons qu'au numérateur on peut remplacer \\(dy_i\\) par</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>Notons qu'au numérateur on peut remplacer \\(dy_i\\) par</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\ndy_i-dF_i=dy_i-\\sum_{1\\leq j\\leq n}(dF_i/dx_j)dx_j.\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>\n\\[\ndy_i-dF_i=dy_i-\\sum_{1\\leq j\\leq n}(dF_i/dx_j)dx_j.\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Appliquant alors la formule ([8] III 9 R3) à la situation\n\\((B\\longrightarrow Z\\longrightarrow S)\\),\n\\((s_1,\\ldots,s_p)=(y_1-F_1,\\ldots,y_n-F_n)\\),\n\\((t_1,\\ldots,t_n)=(x_1-y_1,\\ldots,x_n-y_n)\\),\n\\(\\omega=(\\operatorname{Tr}(u)\\,dx_1\\cdots dx_n)\\), on obtient</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>Appliquant alors la formule ([8] III 9 R3) à la situation\n\\((B\\longrightarrow Z\\longrightarrow S)\\),\n\\((s_1,\\ldots,s_p)=(y_1-F_1,\\ldots,y_n-F_n)\\),\n\\((t_1,\\ldots,t_n)=(x_1-y_1,\\ldots,x_n-y_n)\\),\n\\(\\omega=(\\operatorname{Tr}(u)\\,dx_1\\cdots dx_n)\\), on obtient</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n(*)\\qquad \\langle u,1\\rangle_z=\\operatorname{Res}_x\\left(\n\\operatorname{Tr}(u)\\frac{dx_1\\cdots dx_n}\n{(x_1-F_1)\\cdots(x_n-F_n)}\\right).\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>\n\\[\n(*)\\qquad \\langle u,1\\rangle_z=\\operatorname{Res}_x\\left(\n\\operatorname{Tr}(u)\\frac{dx_1\\cdots dx_n}\n{(x_1-F_1)\\cdots(x_n-F_n)}\\right).\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Comme \\(x\\) est transversal, les \\(x_i-F_i\\) forment un système régulier de\nparamètres de \\(\\mathcal O_{X,x}\\), donc on peut écrire, près de \\(x\\),</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>Comme \\(x\\) est transversal, les \\(x_i-F_i\\) forment un système régulier de\nparamètres de \\(\\mathcal O_{X,x}\\), donc on peut écrire, près de \\(x\\),</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\nx_i=\\sum_j(x_j-F_j)c_{ij},\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>\n\\[\nx_i=\\sum_j(x_j-F_j)c_{ij},\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où \\((c_{ij})\\) est une matrice de sections de \\(\\mathcal O_X\\) inversible en\n\\(x\\), son déterminant ayant pour valeur en \\(x\\)\n\\(\\det(1-dF_x)^{-1}\\). Grâce à ([8] III 9 R1) on déduit donc de (*)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>où \\((c_{ij})\\) est une matrice de sections de \\(\\mathcal O_X\\) inversible en\n\\(x\\), son déterminant ayant pour valeur en \\(x\\)\n\\(\\det(1-dF_x)^{-1}\\). Grâce à ([8] III 9 R1) on déduit donc de (*)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\langle u,1\\rangle_z=\\operatorname{Res}_x\\left(\n\\operatorname{Tr}(u)\\det(c_{ij})\\frac{dx_1\\cdots dx_n}{x_1\\cdots x_n}\\right),\n\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>\n\\[\n\\langle u,1\\rangle_z=\\operatorname{Res}_x\\left(\n\\operatorname{Tr}(u)\\det(c_{ij})\\frac{dx_1\\cdots dx_n}{x_1\\cdots x_n}\\right),\n\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>d'où, par ([8] III 9 R6),</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>d'où, par ([8] III 9 R6),</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[\n\\langle u,1\\rangle_z=\\operatorname{Tr}(u(x))\\det(c_{ij}(x))\n=\\operatorname{Tr}(u(x))\\det(1-dF_x)^{-1}.\n\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>\n\\[\n\\langle u,1\\rangle_z=\\operatorname{Tr}(u(x))\\det(c_{ij}(x))\n=\\operatorname{Tr}(u(x))\\det(1-dF_x)^{-1}.\n\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Le corollaire résulte donc de 6.11.1.</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-III-6-b124\">\n  <div class=\"proof-body\"><p>Le corollaire résulte donc de 6.11.1.</p></div>\n</div>"
     },
     {
      "id": "III.6.12.1",
