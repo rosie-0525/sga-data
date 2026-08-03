@@ -53,6 +53,9 @@ from proposals_lib import chapter_path, check_alignment, root_count, write_chapt
 from repair_anchor_index import ID_RE
 
 LANGS = ("fr", "en")
+# sga7 Exposé VI is originally English: its fr column carries the English
+# original verbatim, so rebuilt heads keep the English display names there.
+DISPLAY_LANG_EN = {("sga7", "6")}
 WORKLIST_PATH = ROOT / "issues" / "retype_worklist.json"
 
 # ---------------------------------------------------------------------------
@@ -82,7 +85,9 @@ KINDS = {
     "construction": ("thm-remark", {"en": "Construction", "fr": "Construction"}),
     "probleme":     ("thm-remark", {"en": "Problem",     "fr": "Problème"}),
     "question":     ("thm-remark", {"en": "Question",    "fr": "Question"}),
-    "rappel":       ("thm-remark", {"en": "Recall",      "fr": "Rappel"}),
+    "rappel":       ("thm-remark", {"en": "Reminder",    "fr": "Rappel"}),
+    "verification": ("thm-remark", {"en": "Verification", "fr": "Vérification"}),
+    "reformulation": ("thm-remark", {"en": "Reformulation", "fr": "Reformulation"}),
 }
 
 # keyword (lowercased, accents kept) -> (kind, plural?)
@@ -105,6 +110,8 @@ KEYWORDS = {
         "construction": ("construction", False),
         "problem": ("probleme", False), "problems": ("probleme", True),
         "question": ("question", False), "questions": ("question", True),
+        "reminder": ("rappel", False), "verification": ("verification", False),
+        "reformulation": ("reformulation", False),
     },
     "fr": {
         "théorème": ("theoreme", False), "théorèmes": ("theoreme", True),
@@ -125,6 +132,8 @@ KEYWORDS = {
         "problème": ("probleme", False), "problèmes": ("probleme", True),
         "question": ("question", False), "questions": ("question", True),
         "rappel": ("rappel", False), "rappels": ("rappel", True),
+        "vérification": ("verification", False),
+        "reformulation": ("reformulation", False),
     },
 }
 PLURALS = {
@@ -187,7 +196,7 @@ WRAPPERS = [  # (open, close) — longest first
     ("<b>", "</b>"),
 ]
 
-NUM_RE = re.compile(r"\A(\d+(?:\.\d+)*(?:\s*(?:bis|ter))?(?:\\\([^()\\]{1,12}\\\))?)\s*\Z")
+NUM_RE = re.compile(r"\A(\d+(?:\.\d+)*(?:[.\s]?(?:bis|ter))?(?:\.?\\\([^()\\]{1,12}\\\))?)\s*\Z")
 ENUM_RE = re.compile(r"\A(?:[ivxlcdm]{1,6}|[a-hj-z]|[A-H]|\d{1,2})(?:\s+bis)?\Z")
 P_OPEN_RE = re.compile(r"\A<p(?P<attrs>(?:\s+[a-z-]+=\"[^\"]*\")*)\s*>", re.S)
 MATH_P_RE = re.compile(r"\A<p[^>]*>\s*(?P<m>\\\[.*\\\])\s*</p>\s*\Z", re.S)
@@ -275,7 +284,7 @@ def _parse_head_text(inner, lang):
     text = re.sub(r"\s+", " ", inner).strip()
     m = re.match(
         r"\A(?P<words>[^\d\\]{2,60}?)\s*"
-        r"(?P<num>(?:\d+|[A-Z]\.\d+)(?:\.\d+)*(?:\s*(?:bis|ter))?(?:\\\([^()\\]{1,12}\\\))?)?"
+        r"(?P<num>(?:\d+|[A-Z]\.\d+)(?:\.\d+)*(?:[.\s]?(?:bis|ter))?(?:\.?\\\([^()\\]{1,12}\\\))?)?"
         r"\s*(?P<punct>[.:]|[–—-])?\s*\Z", text, re.S)
     if not m or not m["words"]:
         return None
@@ -392,10 +401,14 @@ def build_thm(kind, head_html, body_html, root_id):
             f'</div>')
 
 
-def thm_head_html(name, num, attribution):
+def thm_head_html(name, num, attribution, numfirst=False):
     parts = [f'<span class="thm-name">{name}</span>']
     if num:
-        parts.append(f'<span class="thm-num">{num}</span>')
+        numspan = f'<span class="thm-num">{num}</span>'
+        if numfirst:  # the printed '1.1.2 Théorème …' order is kept
+            parts.insert(0, numspan)
+        else:
+            parts.append(numspan)
     if attribution:
         parts.append(re.sub(r"</?u>", "", attribution))
     return " ".join(parts)
@@ -635,7 +648,7 @@ def root_own_id(block):
     return m.group(1) if m else None
 
 
-def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted):
+def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted, dlang=None):
     """New records for one Entry in one language. Returns (records, notes)."""
     i = entry.index
     src = blocks[i]
@@ -644,12 +657,13 @@ def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted):
         raise ValueError(f"{lang} head unparseable at {page_id}#{i}")
     root_id = root_own_id(src)
     notes = []
+    dlang = dlang or lang
 
     if entry.head.family == "proof":
         name = head.phrase
-        base = PROOF_RE[lang].match(re.sub(r"\s+", " ", name))
-        if base is None:  # leaked English head in fr: rebuild from table
-            name = fr_proof_name if lang == "fr" else PROOF_NAME["en"]
+        base = PROOF_RE[dlang].match(re.sub(r"\s+", " ", name))
+        if base is None:  # leaked head in the wrong language: rebuild
+            name = fr_proof_name if dlang == "fr" else PROOF_NAME["en"]
             notes.append(f"{lang} head {head.phrase!r} -> {name!r}")
         if not root_id:
             root_id = minted
@@ -679,7 +693,7 @@ def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted):
     # statement
     kind = entry.head.kind
     name = display_name(kind, head.plural if head.kind else entry.head.plural,
-                        lang, head.prefix or "")
+                        dlang, head.prefix or "")
     if head.foreign or head.kind != kind:
         notes.append(f"{lang} head {head.phrase!r} -> {name!r}")
     num = canonical_num(head.num or entry.head.num)
@@ -707,8 +721,13 @@ def retype_records(entry, blocks, lang, page_id, fr_proof_name, minted):
 
 THM_SHELL_RE = re.compile(
     r'\A<div class="(?P<cls>[^"]*)"(?P<attrs>[^>]*)>\s*'
-    r'<div class="thm-head">(?P<head>.*?)</div>\s*'
-    r'<div class="thm-body">(?P<body>.*)</div>\s*</div>\s*\Z', re.S)
+    r'<(?P<ht>div|span) class="thm-head"(?P<hattrs>[^>]*)>(?P<head>.*?)</(?P=ht)>\s*'
+    r'<(?P<bt>div|span) class="thm-body"(?P<battrs>[^>]*)>(?P<body>.*)</(?P=bt)>\s*</div>\s*\Z',
+    re.S)
+THM_LOOSE_RE = re.compile(
+    r'\A<div class="(?P<cls>[^"]*)"(?P<attrs>[^>]*)>\s*'
+    r'<(?P<ht>div|span) class="thm-head"(?P<hattrs>[^>]*)>(?P<head>.*?)</(?P=ht)>\s*'
+    r'(?P<body>.*?)\s*</div>\s*\Z', re.S)
 HEADLESS_SHELL_RE = re.compile(
     r'\A<div class="(?P<cls>[^"]*)"(?P<attrs>[^>]*)>\s*'
     r'<div class="thm-body">(?P<body>.*)</div>\s*</div>\s*\Z', re.S)
@@ -722,7 +741,7 @@ LEGACY_LEAD_RE = re.compile(
     r'\A\s*<p[^>]*>\s*(?P<lead>[^<]{3,80}?)\s*[–—-]\s*(?P<rest>.*)\Z', re.S)
 HEADONLY_DIV_RE = re.compile(
     r'\A<div class="(?P<cls>[^"]*)"(?P<attrs>[^>]*)>\s*'
-    r'<(?P<tag>div|span) class="thm-head">(?P<head>.*?)</(?P=tag)>\s*</div>\s*\Z',
+    r'<(?P<tag>div|span) class="thm-head"(?P<hattrs>[^>]*)>(?P<head>.*?)</(?P=tag)>\s*</div>\s*\Z',
     re.S)
 SPAN_RE = re.compile(r'<span class="thm-(?:name|num|title)">.*?</span>', re.S)
 
@@ -738,7 +757,7 @@ def kind_from_classes(classes):
     return None
 
 
-NUMTOK_RE = re.compile(r"\A(?:\d+|[A-Z])(?:\.\d+)*(?:\\\([^()\\]{1,12}\\\))?[.:]?\Z")
+NUMTOK_RE = re.compile(r"\A(?:\d+|[A-Z])(?:\.\d+)*(?:\.?(?:bis|ter))?(?:\.?\\\([^()\\]{1,12}\\\))?[.:]?\Z")
 
 
 def parse_shell_head(head_html, lang):
@@ -762,6 +781,9 @@ def parse_shell_head(head_html, lang):
         if rest and NUMTOK_RE.match(rest[0]):
             num = rest[0].rstrip(".:")
             rest = rest[1:]
+        numfirst = False
+        if num is None and prefix and NUMTOK_RE.match(prefix):
+            num, prefix, numfirst = prefix.rstrip(".:"), "", True
         tail = " ".join(rest).strip()
         attribution = None
         if tail.startswith("("):
@@ -771,25 +793,37 @@ def parse_shell_head(head_html, lang):
                 depth -= ch == ")"
                 if depth == 0:
                     break
-            attribution, tail = tail[:j + 1], tail[j + 1:].strip(" .:")
-        return kind, plural, prefix, num, attribution, tail
+            cand = tail[:j + 1]
+            if not ENUM_RE.match(cand[1:-1].strip()):
+                attribution, tail = cand, tail[j + 1:].strip(" .:")
+        # a short mathless tail on a number-first head, or one opening with a
+        # French particle, is part of the printed name ("Théorème d'isotopie
+        # de Thom"), not stranded statement text
+        suffix = ""
+        if tail and "\\(" not in tail and len(tail) <= 40 and (
+                numfirst or re.match(r"\A(?:d'|d’|de |des |du )", tail)):
+            suffix, tail = tail.rstrip(" ."), ""
+        return kind, plural, prefix, num, attribution, tail, numfirst, suffix
     return None
 
 
-def normalize_block(block, lang, book):
+def normalize_block(block, lang, book, dlang=None):
     """Canonical (record, notes) for an existing theorem shell, or (None, reason)."""
     html = block.get("html") or ""
     tag, cls = block_root(html)
     classes = cls.split()
+    dlang = dlang or lang
     if tag != "div" or ("thm" not in classes and not LEGACY_SHELL_RE.match(html)):
         return None, "not-a-shell"
 
     if "thm" not in classes:  # sga5 legacy div.theorem shells
-        return _normalize_legacy(block, html, lang)
+        return _normalize_legacy(block, html, lang, dlang)
 
     m = THM_SHELL_RE.match(html)
-    ho = None if m else HEADONLY_DIV_RE.match(html)
-    if not m and not ho:
+    if not m:
+        # bare body content (or none at all) after the head, no thm-body
+        m = THM_LOOSE_RE.match(html)
+    if not m:
         hm = HEADLESS_SHELL_RE.match(html)
         if hm:
             # a statement continued from the previous printed page: keep it
@@ -808,25 +842,44 @@ def normalize_block(block, lang, book):
         return None, "shell-shape"
 
     cls_kind = kind_from_classes(classes)
-    head_html = (m or ho)["head"]
-    old_body = m["body"] if m else ""
+    head_html = m["head"]
+    old_body = m["body"]
     parsed = parse_shell_head(head_html, lang)
-    leftover = ""
+    leftover, numfirst, name_suffix = "", False, ""
     if parsed:
         # the head's printed word is the truth; the class is a fallback
-        kind, plural, prefix, num, attribution, leftover = parsed
+        kind, plural, prefix, num, attribution, leftover, numfirst, \
+            name_suffix = parsed
     else:
         kind, plural, prefix, num, attribution = cls_kind, False, "", None, None
         if kind is None:
             return None, "head-unparsed"
+        head_text = visible_text(head_html)
+        if head_text and head_text[:1].islower() and not old_body.strip():
+            # a continuation fragment mis-wrapped as a head: make it a
+            # head-less continuation shell instead
+            body = strip_full_u(head_html.strip())
+            if not body.startswith("<p"):
+                body = f"<p>{body}</p>"
+            root_id = root_own_id(block)
+            css = KINDS[kind][0]
+            idattr = f' id="{root_id}"' if root_id else ""
+            out = (f'<div class="thm {css} {kind} continuation"{idattr}>\n'
+                   f'  <div class="thm-body">{body}</div>\n</div>')
+            return make_rec(root_id, kind, None, None, out), \
+                ["headless-continuation"]
     notes = []
+    head_comments = re.findall(r"<!--.*?-->", head_html, re.S)
+    if head_comments:
+        head_html = re.sub(r"\s*<!--.*?-->\s*", " ", head_html, flags=re.S)
+        notes.append("head-comment-moved")
     spans = bool(re.search(r'<span class="thm-(?:name|num)">', head_html))
     outside_html = (SPAN_RE.sub("", head_html) if spans else "").strip()
     outside = visible_text(outside_html)
     dash = bool(re.match(r"\A\s*[–—]", outside))
     stranded_out = len(outside.strip(" .:")) > 20 and not outside.startswith("(")
 
-    if spans and (dash or ho is not None or stranded_out):
+    if spans and (dash or not old_body.strip() or stranded_out):
         # the SMF dash form: 'Kind N.N. — statement…' with the statement text
         # sitting inside the head (and, for head-only shells, no body at all).
         # Move it into the body; an attribution paren after the dash stays in
@@ -843,16 +896,19 @@ def normalize_block(block, lang, book):
         if not body_parts:
             return None, "dash-head-empty"
         body = "\n  ".join(body_parts)
-        new_head = thm_head_html(display_name(kind, plural, lang, prefix),
-                                 canonical_num(num), attribution)
+        name0 = display_name(kind, plural, dlang, prefix)
+        if name_suffix:
+            name0 += " " + name_suffix
+        new_head = thm_head_html(name0, canonical_num(num), attribution,
+                                 numfirst)
         notes.append("stranded-head-moved")
     elif spans and (len(outside.strip(" .:")) <= 20 or outside.startswith("(")):
         # well-formed head: keep it verbatim (footnote refs, name phrases,
         # title spans and all), just drop <u> used as an italic stand-in;
         # fold an ALL-CAPS keyword down to the canonical display name
         new_head = re.sub(r"</?u>", "", head_html).strip()
-        kw = KINDS[kind][1][lang] if not plural else PLURALS.get(
-            kind, {}).get(lang, KINDS[kind][1][lang])
+        kw = KINDS[kind][1][dlang] if not plural else PLURALS.get(
+            kind, {}).get(dlang, KINDS[kind][1][dlang])
         new_head = re.sub(
             r'(<span class="thm-name">\s*)([A-ZÉÈÀÔ]{4,})(\s*</span>)',
             lambda mm: mm.group(1) + kw + mm.group(3), new_head)
@@ -863,28 +919,45 @@ def normalize_block(block, lang, book):
     elif spans:
         return None, f"head-stranded-outside-spans:{outside[:40]!r}"
     else:
-        # rebuild from text — refuse when the head carries markup a text
-        # rebuild would lose
-        if re.search(r"<(?!/?(?:u|em|strong|b)\b)", head_html):
-            return None, "head-markup-unrebuildable"
         body = old_body
         if leftover:
-            if len(leftover) <= 15:
-                return None, f"head-leftover:{leftover!r}"
-            # statement text stranded inside the head — move it to the body
-            body = f"<p>{leftover}</p>\n  " + body.lstrip()
+            # statement text stranded inside the head — move it to the body,
+            # as html where the lead wrapper can be split off cleanly
+            w = _match_wrapper(head_html.lstrip())
+            if w:
+                rem = head_html.lstrip()[w[3]:]
+                rem = re.sub(r"\A\s*(?:[–—-]|:)?\s*", "", rem).strip()
+                rem = re.sub(r"</?u>", "", rem)
+                if rem:
+                    body = f"<p>{rem}</p>\n  " + body.lstrip()
+            elif re.search(r"<(?!/?(?:u|em|strong|b|br)\b)", head_html):
+                return None, "head-markup-unrebuildable"
+            else:
+                body = f"<p>{leftover}</p>\n  " + body.lstrip()
             notes.append("stranded-head-moved")
-        new_head = thm_head_html(display_name(kind, plural, lang, prefix),
-                                 canonical_num(num), attribution)
+        elif re.search(r"<(?!/?(?:u|em|strong|b)\b)", head_html):
+            # the head is discarded wholesale: refuse if that would lose markup
+            return None, "head-markup-unrebuildable"
+        name0 = display_name(kind, plural, dlang, prefix)
+        if name_suffix:
+            name0 += " " + name_suffix
+        new_head = thm_head_html(name0, canonical_num(num), attribution,
+                                 numfirst)
     body = strip_full_u(body).strip()
+    if head_comments:
+        body = body + "\n" + "\n".join(head_comments)
     root_id = root_own_id(block)
-    name = display_name(kind, plural, lang, prefix)
+    hid = re.search(r'\bid="([^"]+)"', m.groupdict().get("hattrs") or "")
+    root_id = root_id or (hid.group(1) if hid else None)
+    name = display_name(kind, plural, dlang, prefix)
+    if name_suffix:
+        name = name + " " + name_suffix
     out = build_thm(kind, new_head, body, root_id)
     rec = make_rec(root_id, kind, canonical_num(num), name, out)
     return rec, notes
 
 
-def _normalize_legacy(block, html, lang):
+def _normalize_legacy(block, html, lang, dlang=None):
     """sga5's third encoding: <div class="theorem" id=…><p><span
     class="theorem-title">Proposition 4.7.16.</span> body…</p>…</div>, with
     variants lacking the title span ('Théorème 6.10 – …' as plain text)."""
@@ -911,7 +984,7 @@ def _normalize_legacy(block, html, lang):
         body = body.rstrip() + "</p>"
     body = strip_full_u(body)
     root_id = root_own_id(block)
-    name = display_name(kind, plural, lang, prefix)
+    name = display_name(kind, plural, dlang or lang, prefix)
     out = build_thm(kind, thm_head_html(name, canonical_num(num), attribution),
                     body, root_id)
     rec = make_rec(root_id, kind, canonical_num(num), name, out)
@@ -931,7 +1004,7 @@ def split_shell_block(block, lang):
     parsed = parse_shell_head(m["head"], lang)
     if not parsed:
         return None, "head-unparsed"
-    kind, plural, prefix, num, attribution, _left = parsed
+    kind, plural, prefix, num, attribution, _left, _numfirst, _suffix = parsed
     kind = kind or kind_from_classes(classes)
     outside_html = SPAN_RE.sub("", m["head"]).strip()
     stranded = re.sub(r"\A\s*(?:[–—]|:)?\s*", "", outside_html)
@@ -1104,6 +1177,7 @@ def run_book(book, chapters, phases, write, overrides_path):
             # ---- normalize -------------------------------------------------
             if "normalize" in phases:
                 page_ov = overrides.get((book, cid, page_id), {})
+                dlang_fr = "en" if (book, cid) in DISPLAY_LANG_EN else "fr"
                 for idx in range(len(page_fr["blocks"])):
                     if page_ov.get(idx, {}).get("action") in ("skip", "split"):
                         continue
@@ -1116,7 +1190,9 @@ def run_book(book, chapters, phases, write, overrides_path):
                                 or LEGACY_SHELL_RE.match(blk.get("html") or "")):
                             ok = False
                             break
-                        rec, notes = normalize_block(blk, lang, book)
+                        rec, notes = normalize_block(
+                            blk, lang, book,
+                            dlang=dlang_fr if lang == "fr" else "en")
                         if rec is None:
                             worklist.append(dict(
                                 book=book, chapterId=cid, pageId=page_id,
@@ -1198,7 +1274,9 @@ def run_book(book, chapters, phases, write, overrides_path):
                         blocks = (page_fr if lang == "fr" else page_en)["blocks"]
                         try:
                             recs, notes = retype_records(
-                                e, blocks, lang, page_id, fr_proof, minted)
+                                e, blocks, lang, page_id, fr_proof, minted,
+                                dlang=("en" if (lang == "fr" and (book, cid)
+                                       in DISPLAY_LANG_EN) else lang))
                         except ValueError as exc:
                             problems.append(str(exc))
                             break
