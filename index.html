@@ -31,6 +31,19 @@
   .vol-progress .label { font-size: .78rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
   li.volume.coming-soon { opacity: .55; }
   li.volume.coming-soon .vol-num::after { content: " — à venir"; font-weight: 400; text-transform: none; color: var(--muted); }
+  /* Featured exposé card. Hidden until summaries.json arrives, so a host
+     without the file looks exactly as it did before. */
+  .featured { border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 6px; background: #fff; padding: 1.1rem 1.4rem 1.2rem; margin-bottom: 2rem; }
+  .feat-head { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; flex-wrap: wrap; margin-bottom: .45rem; }
+  .feat-kicker { font-weight: 700; color: var(--accent); font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; }
+  .feat-actions { display: flex; gap: .4rem; }
+  .feat-btn { font: inherit; font-size: .78rem; color: var(--muted); background: var(--sidebar-bg); border: 1px solid var(--border); border-radius: 4px; padding: .15rem .55rem; cursor: pointer; }
+  .feat-btn:hover { color: var(--text); border-color: var(--muted); }
+  .feat-link { display: block; text-decoration: none; color: var(--text); }
+  .feat-ref { display: block; font-size: .8rem; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+  .feat-title { display: block; font-size: 1.15rem; margin: .15rem 0 .4rem; }
+  .feat-link:hover .feat-title { color: var(--accent); }
+  .feat-summary { display: block; font-size: .95rem; }
   footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 2rem 1.5rem; }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -48,6 +61,20 @@
   <h1>Review SGA translation</h1>
 </header>
 <main>
+  <section class="featured" id="featured" hidden>
+    <div class="feat-head">
+      <span class="feat-kicker" id="feat-kicker">Today's exposé</span>
+      <span class="feat-actions">
+        <button type="button" class="feat-btn" id="feat-lang">FR</button>
+        <button type="button" class="feat-btn" id="feat-shuffle">↻ another</button>
+      </span>
+    </div>
+    <a class="feat-link" id="feat-link" href="#">
+      <span class="feat-ref"></span>
+      <span class="feat-title"></span>
+      <span class="feat-summary"></span>
+    </a>
+  </section>
   <ul class="volumes">
     <li class="volume"><a href="sga1/paper.html">
       <span class="vol-num">SGA 1</span>
@@ -178,6 +205,95 @@
     }
     els.forEach(countInBrowser);   // in parallel: each bar fills as its book lands
   });
+})();
+
+/* Featured exposé: one beginner hook a day, drawn from summaries.json (built
+   and validated by scripts/build_summaries.py). The seed is the local date —
+   overridable as ?date=YYYY-MM-DD for testing — so every visitor gets the
+   same three exposés on a given day, and ↻ cycles through them. English by
+   default; the FR/EN button flips the card and is remembered per browser.
+   No summaries.json or a failed fetch: the card simply stays hidden. */
+(function () {
+  'use strict';
+
+  var box = document.getElementById('featured');
+  var refEl = box.querySelector('.feat-ref');
+  var titleEl = box.querySelector('.feat-title');
+  var sumEl = box.querySelector('.feat-summary');
+  var linkEl = document.getElementById('feat-link');
+  var kickerEl = document.getElementById('feat-kicker');
+  var langBtn = document.getElementById('feat-lang');
+  var shufBtn = document.getElementById('feat-shuffle');
+
+  function fnv1a(s) {
+    var h = 2166136261;
+    for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') +
+           '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  var lang = 'en';
+  try { lang = localStorage.getItem('sgaFeatLang') || 'en'; } catch (_) {}
+
+  var entries, picks = [], cur = 0;
+
+  function render() {
+    var e = entries[picks[cur]];
+    var fr = lang === 'fr';
+    kickerEl.textContent = fr ? 'Exposé du jour' : "Today's exposé";
+    refEl.textContent = e.book_label + ' · Exposé ' + e.number;
+    titleEl.textContent = fr ? e.title_fr : e.title_en;
+    sumEl.textContent = fr ? e.summary_fr : e.summary_en;
+    linkEl.setAttribute('href', e.href);
+    langBtn.textContent = fr ? 'EN' : 'FR';
+    langBtn.setAttribute('title', fr ? 'Switch to English' : 'Passer au français');
+    shufBtn.textContent = fr ? '↻ un autre' : '↻ another';
+    box.hidden = false;
+  }
+
+  langBtn.addEventListener('click', function () {
+    lang = lang === 'fr' ? 'en' : 'fr';
+    try { localStorage.setItem('sgaFeatLang', lang); } catch (_) {}
+    render();
+  });
+
+  shufBtn.addEventListener('click', function () {
+    cur = (cur + 1) % picks.length;
+    render();
+  });
+
+  fetch('summaries.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .catch(function () { return null; })
+    .then(function (doc) {
+      // Only fully authored entries can be featured — a skeleton refresh may
+      // add a new exposé whose summaries are still being written.
+      entries = ((doc && doc.entries) || []).filter(function (e) {
+        return e.summary_en && e.summary_fr;
+      });
+      if (!entries.length) return;
+      var day = new URLSearchParams(location.search).get('date') || today();
+      var rnd = mulberry32(fnv1a(day));
+      while (picks.length < Math.min(3, entries.length)) {
+        var k = Math.floor(rnd() * entries.length);
+        if (picks.indexOf(k) < 0) picks.push(k);
+      }
+      render();
+    });
 })();
 </script>
 </body>

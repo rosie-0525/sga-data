@@ -17,7 +17,8 @@ original LaTeX).
 
 | Path | What it is |
 |---|---|
-| `index.html` | Landing page listing every volume, linking to its `paper.html`. |
+| `index.html` | Landing page listing every volume, linking to its `paper.html`. Also shows the daily "featured exposé" card: three date-seeded picks from `summaries.json`, EN/FR toggle, `?date=YYYY-MM-DD` to preview another day. |
+| `summaries.json` | One beginner-facing bilingual hook per exposé (125 entries), plus render-ready display titles and deep links. Owned by `scripts/build_summaries.py` (`--write` skeleton, `--merge` authored text, `--check` coverage gate). |
 | `sga1/`, `sga2/`, … | One self-contained directory per volume (see below). |
 | `translation-viewer/` | Git submodule — the generic bilingual/aligned-column viewer engine shared by every volume: MathJax 3 SVG + XyJax-v3 (vendored, fully offline) for rendering, plus the in-page comment/error-flagging tool and the proposed-changes review UI. |
 | `glossary/` | `glossary.json` is the FR→EN terminology source of truth; `GLOSSARY.md` is generated from it; `candidates/` holds the extraction inputs. |
