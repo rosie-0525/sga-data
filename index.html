@@ -44,8 +44,26 @@
   .feat-title { display: block; font-size: 1.15rem; margin: .15rem 0 .4rem; }
   .feat-link:hover .feat-title { color: var(--accent); }
   .feat-summary { display: block; font-size: .95rem; }
+  .feat-summary span { display: block; }
+  .feat-summary span + span { margin-top: .55rem; }
   footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 2rem 1.5rem; }
 </style>
+<!-- Titles and summaries carry inline TeX \( … \) (built by
+     scripts/build_summaries.py); the viewer's vendored MathJax typesets it.
+     pageReady re-typesets the featured card in case it rendered while the
+     library was still loading. -->
+<script>
+  window.MathJax = {
+    startup: {
+      pageReady: function () {
+        return MathJax.startup.defaultPageReady().then(function () {
+          if (window.typesetFeatured) window.typesetFeatured();
+        });
+      }
+    }
+  };
+</script>
+<script src="translation-viewer/vendor/mathjax/tex-svg-full.js" async></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZJ77THRKN"></script>
 <script>
@@ -103,7 +121,7 @@
     </a></li>
     <li class="volume"><a href="sga5/paper.html">
       <span class="vol-num">SGA 5</span>
-      <span class="vol-title">Cohomologie ℓ-adique et fonctions L</span>
+      <span class="vol-title">Cohomologie \(\ell\)-adique et fonctions L</span>
       <span class="vol-progress" data-book="sga5"><span class="bar"><span class="fill"></span></span><span class="label"></span></span>
     </a></li>
     <li class="volume"><a href="sga6/paper.html">
@@ -251,18 +269,40 @@
 
   var entries, picks = [], cur = 0;
 
+  // Titles and summaries carry inline TeX \( … \). Each render replaces the
+  // card's text, so each render re-typesets the box; calls are chained on
+  // MathJax's own promise (the documented pattern for dynamic content). If
+  // the library has not finished loading yet, pageReady (see <head>) calls
+  // back once it has.
+  function typeset() {
+    if (!(window.MathJax && MathJax.typesetPromise)) return;
+    MathJax.startup.promise = MathJax.startup.promise.then(function () {
+      MathJax.typesetClear([box]);
+      return MathJax.typesetPromise([box]);
+    }).catch(function (err) { console.error('MathJax typeset', err); });
+  }
+  window.typesetFeatured = typeset;
+
   function render() {
     var e = entries[picks[cur]];
     var fr = lang === 'fr';
     kickerEl.textContent = fr ? 'Exposé du jour' : "Today's exposé";
     refEl.textContent = e.book_label + ' · Exposé ' + e.number;
     titleEl.textContent = fr ? e.title_fr : e.title_en;
-    sumEl.textContent = fr ? e.summary_fr : e.summary_en;
+    // Text with blank-line paragraph breaks; textContent on one span would
+    // collapse them, so each paragraph gets its own block.
+    sumEl.textContent = '';
+    (fr ? e.summary_fr : e.summary_en).split(/\n\s*\n/).forEach(function (par) {
+      var p = document.createElement('span');
+      p.textContent = par;
+      sumEl.appendChild(p);
+    });
     linkEl.setAttribute('href', e.href);
     langBtn.textContent = fr ? 'EN' : 'FR';
     langBtn.setAttribute('title', fr ? 'Switch to English' : 'Passer au français');
     shufBtn.textContent = fr ? '↻ un autre' : '↻ another';
     box.hidden = false;
+    typeset();
   }
 
   langBtn.addEventListener('click', function () {

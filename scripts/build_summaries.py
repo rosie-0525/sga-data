@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
 """Beginner-facing exposé summaries for the landing page (summaries.json).
 
-index.html shows a daily "featured exposé" card: title plus a short
-bilingual hook, picked date-deterministically from repo-root summaries.json.
+index.html shows a daily "featured exposé" card: title plus a bilingual
+two-paragraph summary (hook, then a concrete mathematical takeaway;
+paragraphs separated by a blank line; math is written as inline TeX
+\\( … \\) — the card loads the viewer's MathJax and typesets it), picked
+date-deterministically from repo-root summaries.json.
 That file is owned by this script; the convert step never touches it, so
 hand-written text survives any upstream manifest regeneration.
 
 The skeleton (identity, display titles, deep links) is derived from each
 book's fr manifest (`alias == "EXPOSÉ"` chapters) and the en chapter files.
-Titles are made render-ready at ingestion — index.html has no MathJax, so
-inline TeX folds to Unicode (\\(\\ell\\) → ℓ), shouty ALL-CAPS titles are
-sentence-cased (known proper nouns re-capitalized) and `EXPOSÉ N` prefixes
-dropped, N being the chapter's own number — a generic roman-numeral regex
-would eat the "A" of "EXPOSÉ XII A THEOREM…". summary_fr / summary_en start
-empty and are hand-written (see --merge); --write never overwrites a
-non-empty authored field (title_fr, title_en, summary_fr, summary_en), it
-only refreshes identity fields (number, href, order) and adds/drops entries
-to match the manifests.
+Titles are made render-ready at ingestion — inline TeX \\( … \\) spans are
+kept verbatim (the card typesets them), shouty ALL-CAPS titles are
+sentence-cased around the math (known proper nouns re-capitalized) and
+`EXPOSÉ N` prefixes dropped, N being the chapter's own number — a generic
+roman-numeral regex would eat the "A" of "EXPOSÉ XII A THEOREM…".
+summary_fr / summary_en start empty and are hand-written (see --merge);
+--write never overwrites a non-empty authored field (title_fr, title_en,
+summary_fr, summary_en), it only refreshes identity fields (number, href,
+order) and adds/drops entries to match the manifests.
 
 Usage:
   build_summaries.py                 # dry run: report skeleton drift
@@ -45,21 +48,6 @@ IDENTITY = ("book_label", "number", "href")
 # Title normalization
 
 MATH_SPAN_RE = re.compile(r"\\\((.*?)\\\)", re.S)
-# Innermost-first, iterated to a fixed point: \mathop{\underline{\mathrm{X}}}
-# unwraps in three passes.
-TEX_STEPS = [
-    (re.compile(r"\\(?:operatorname|mathrm|mathop|mathbf|mathit|underline|"
-                r"text)\{([^{}]*)\}"), r"\1"),
-    (re.compile(r"\\nolimits"), ""),
-    (re.compile(r"\\ell\b"), "ℓ"),
-    (re.compile(r"\\lambda\b"), "λ"),
-    (re.compile(r"\\zeta\b"), "ζ"),
-    (re.compile(r"\^\{?\\bullet\}?"), "•"),
-    (re.compile(r"\^\{?i\}?"), "ⁱ"),
-    (re.compile(r"\^\{?n\}?"), "ⁿ"),
-    (re.compile(r"\\[,;!]"), " "),
-    (re.compile(r"'"), "′"),
-]
 
 # Proper nouns flattened by sentence-casing an ALL-CAPS title. Plain \b so
 # hyphenated pairs (Riemann-Roch, Euler-Poincaré) match word by word.
@@ -76,14 +64,19 @@ FIRST_LETTER_RE = re.compile(r"[a-zà-öø-ÿ]")
 AFTER_STOP_RE = re.compile(r"(?<=[.!?])(\s+)([a-zà-öø-ÿ])")
 
 
-def fold_math(tex):
-    """One \\( … \\) body → plain Unicode text."""
-    prev = None
-    while prev != tex:
-        prev = tex
-        for pat, repl in TEX_STEPS:
-            tex = pat.sub(repl, tex)
-    return tex
+def mask_math(text):
+    """Replace \\( … \\) spans with placeholders so casing and validation
+    see prose only. Returns (masked, spans); unmask_math reverses."""
+    spans = []
+
+    def _sub(m):
+        spans.append(m.group(0))
+        return "\x00%d\x00" % (len(spans) - 1)
+    return MATH_SPAN_RE.sub(_sub, text), spans
+
+
+def unmask_math(text, spans):
+    return re.sub("\x00(\\d+)\x00", lambda m: spans[int(m.group(1))], text)
 
 
 def shouty(text):
@@ -118,12 +111,12 @@ def sentence_case(text):
 
 
 def normalize_title(raw, number):
-    title = MATH_SPAN_RE.sub(lambda m: fold_math(m.group(1)), raw)
-    title = strip_expose_prefix(title, number)
+    title = strip_expose_prefix(raw, number)
     title = re.sub(r"\s+", " ", title).strip()
-    if shouty(title):
-        title = sentence_case(title)
-    return title
+    masked, spans = mask_math(title)
+    if shouty(masked):
+        masked = sentence_case(masked)
+    return unmask_math(masked, spans)
 
 
 # ---------------------------------------------------------------------------
@@ -261,18 +254,36 @@ def do_check():
             if not text.strip():
                 problems.append(f"{where}: {f} empty")
                 continue
-            if "\\" in text:
-                problems.append(f"{where}: {f} has a TeX remnant: {text!r}")
-            if "<" in text or ">" in text:
+            # Math lives in \( … \) spans (MathJax on the card); prose is
+            # what remains once they are masked out.
+            prose, spans = mask_math(text)
+            if "\\(" in prose or "\\)" in prose:
+                problems.append(f"{where}: {f} has an unmatched \\( or "
+                                f"\\): {text!r}")
+            elif "\\" in prose:
+                problems.append(f"{where}: {f} has TeX outside \\( … \\) "
+                                f"math: {text!r}")
+            for s in spans:
+                body = s[2:-2].strip()
+                if not body:
+                    problems.append(f"{where}: {f} has an empty math span")
+                elif any(ord(c) > 127 for c in body):
+                    problems.append(f"{where}: {f} math span must be plain "
+                                    f"ASCII TeX: {s!r}")
+            if "<" in prose or ">" in prose:
                 problems.append(f"{where}: {f} has markup (card renders "
-                                f"plain text): {text!r}")
-            if f.startswith("title") and shouty(text):
+                                f"text + TeX only): {text!r}")
+            if f.startswith("title") and shouty(prose):
                 problems.append(f"{where}: {f} still ALL-CAPS: {text!r}")
             if f.startswith("summary"):
-                words = len(text.split())
-                if not 18 <= words <= 60:
+                paras = [p for p in re.split(r"\n\s*\n", text) if p.strip()]
+                if len(paras) != 2:
+                    warnings.append(f"{where}: {f} has {len(paras)} "
+                                    f"paragraph(s) (card expects 2)")
+                words = len(prose.split())   # one math span ≈ one word
+                if not 55 <= words <= 140:
                     warnings.append(f"{where}: {f} is {words} words "
-                                    f"(aim for 25–45)")
+                                    f"(aim for 70–120)")
     for line in problems:
         print(f"! {line}")
     for line in warnings:
