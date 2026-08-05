@@ -62,14 +62,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Soient \\(X\\), \\(Y\\), \\(Z\\) trois objets de \\(\\mathscr{A}\\), \\(\\alpha\\in \\hom^i(X,Y)\\), \n\\(\\beta\\in \\hom^j(X,Y)\\). Nous définirons le composé \\(\\beta\\circ\\alpha\\) \nappartenant à \\(\\hom^{i+j}(X,Z)\\) par:</p>"
+     "html": "<p>Soient \\(X\\), \\(Y\\), \\(Z\\) trois objets de \\(\\mathscr{A}\\), \\(\\alpha\\in \\hom^i(X,Y)\\), \n\\(\\beta\\in \\hom^j(Y,Z)\\). Nous définirons le composé \\(\\beta\\circ\\alpha\\) \nappartenant à \\(\\hom^{i+j}(X,Z)\\) par<a class=\"footnote-ref ed-ref\" id=\"fn-VIII:1-3ref\" href=\"#fn-VIII:1-3\"><sup>*</sup></a>:</p>"
     },
     {
      "id": "disp-VIII:1-2",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-2\">\n\\[\n\\beta\\circ \\alpha = \\beta\\circ T^i(\\alpha) \\text{.}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-2\">\n\\[\n\\beta\\circ \\alpha = T^i(\\beta)\\circ \\alpha \\text{.}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -153,35 +153,21 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-6\">TR1</h3>"
+     "html": "<h3 id=\"sub-VIII:1-6\"><span class=\"label-anchor\" id=\"VIII:TR1\"></span>TR1</h3>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>VIII:TR1</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>Tout triangle isomorphe à triangle distingué est distingué. Tout \nmorphisme \\(u:X\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} Y\\) est contenu dans un triangle distingué \n\\((X,Y,Z,u,v,w)\\). Le triangle \\((X,X,0,\\operatorname{id}_{X'},0,0)\\) est \ndistingué.</p>"
+     "html": "<p>Tout triangle isomorphe à triangle distingué est distingué. Tout \nmorphisme \\(u:X\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} Y\\) est contenu dans un triangle distingué \n\\((X,Y,Z,u,v,w)\\). Le triangle \\((X,X,0,\\operatorname{id}_X,0,0)\\) est \ndistingué.</p>"
     },
     {
      "id": "sub-VIII:1-7",
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-7\">TR2</h3>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>VIII:TR2</p>"
+     "html": "<h3 id=\"sub-VIII:1-7\"><span class=\"label-anchor\" id=\"VIII:TR2\"></span>TR2</h3>"
     },
     {
      "id": null,
@@ -195,14 +181,7 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-8\">TR3</h3>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>VIII:TR3</p>"
+     "html": "<h3 id=\"sub-VIII:1-8\"><span class=\"label-anchor\" id=\"VIII:TR3\"></span>TR3</h3>"
     },
     {
      "id": null,
@@ -216,14 +195,7 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:1-9\">TR4</h3>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>VIII:TR4</p>"
+     "html": "<h3 id=\"sub-VIII:1-9\"><span class=\"label-anchor\" id=\"VIII:TR4\"></span>TR4</h3>"
     },
     {
      "id": "disp-VIII:1-10",
@@ -258,7 +230,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>On déduit immédiatement dex axiomes VIII:TR1TR1, \nVIII:TR2TR2, VIII:TR3TR3 la propriété suivante:</p>"
+     "html": "<p>On déduit immédiatement dex axiomes <a class=\"ref\" href=\"#VIII:TR1\">TR1</a>, \n<a class=\"ref\" href=\"#VIII:TR2\">TR2</a>, <a class=\"ref\" href=\"#VIII:TR3\">TR3</a> la propriété suivante:</p>"
     },
     {
      "id": "VIII:1-1-2",
@@ -279,7 +251,7 @@
      "type": "list",
      "label": null,
      "title": null,
-     "html": "<ul class=\"itemize\">\n<li><p>\\((f,g,h)\\) étant un morphisme de triangle distingué et \\(f,g\\) des \n    isomorphismes.</p></li>\n<li><p>Les triangles distingués construits sur un morphisme \n    (VIII:TR1TR1), sont tour isomorphismes (<em>mais les \n    isomorphismes ne sont pas, en général, uniquoment déterminés</em>).</p></li>\n<li><p>Lorsque dans un triangle distingué, un des morphismes admet un noyau \n    ou un conoyau, celui-ci se scinde i.e. il est de la forme:</p>\n<div class=\"displaymath\" id=\"disp-VIII:1-13\">\n\\[\n\\xymatrix{\n      &amp; Z+T(X) \\ar[dl] \\\\\n      X+Y \\ar[rr] \n        &amp; &amp; Y+Z \\ar[ul]\n    }\n\\]\n</div></li>\n<li><p>La somme de deux triangles distingués est distinguée. (On utilise \n    l'axiome VIII:TR4TR4).</p></li>\n</ul>"
+     "html": "<ul class=\"itemize\">\n<li><p>\\((f,g,h)\\) étant un morphisme de triangle distingué et \\(f,g\\) des \n    isomorphismes.</p></li>\n<li><p>Les triangles distingués construits sur un morphisme \n    (<a class=\"ref\" href=\"#VIII:TR1\">TR1</a>), sont tour isomorphismes (<em>mais les \n    isomorphismes ne sont pas, en général, uniquoment déterminés</em>).</p></li>\n<li><p>Lorsque dans un triangle distingué, un des morphismes admet un noyau \n    ou un conoyau, celui-ci se scinde i.e. il est de la forme:</p>\n<div class=\"displaymath\" id=\"disp-VIII:1-13\">\n\\[\n\\xymatrix{\n      &amp; Z+T(X) \\ar[dl] \\\\\n      X+Y \\ar[rr] \n        &amp; &amp; Y+Z \\ar[ul]\n    }\n\\]\n</div></li>\n<li><p>La somme de deux triangles distingués est distinguée. (On utilise \n    l'axiome <a class=\"ref\" href=\"#VIII:TR4\">TR4</a>).</p></li>\n</ul>"
     },
     {
      "id": "VIII:1-2",
@@ -391,7 +363,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>On appellera triangle distingué dans \\(\\mathsf{K}(\\mathscr{A})\\), tout triangle \n<em>isomorphe</em> à un triangle provenant de \\(\\mathscr{C}\\). La famille des triangles \ndistingués vérifie les axioms VIII:TR1TR1, \nVIII:TR2TR2, VIII:TR3TR3 et \nVIII:TR4TR4. Par abus de notation \\(\\mathsf{K}(\\mathscr{A})\\) désignera la \ncatégorie \\(\\mathsf{K}(\\mathscr{A})\\) triangulée par la famille de triangles définie \nci-dessus.</p>"
+     "html": "<p>On appellera triangle distingué dans \\(\\mathsf{K}(\\mathscr{A})\\), tout triangle \n<em>isomorphe</em> à un triangle provenant de \\(\\mathscr{C}\\). La famille des triangles \ndistingués vérifie les axioms <a class=\"ref\" href=\"#VIII:TR1\">TR1</a>, \n<a class=\"ref\" href=\"#VIII:TR2\">TR2</a>, <a class=\"ref\" href=\"#VIII:TR3\">TR3</a> et \n<a class=\"ref\" href=\"#VIII:TR4\">TR4</a>. Par abus de notation \\(\\mathsf{K}(\\mathscr{A})\\) désignera la \ncatégorie \\(\\mathsf{K}(\\mathscr{A})\\) triangulée par la famille de triangles définie \nci-dessus.</p>"
     },
     {
      "id": "VIII:1-2-3",
@@ -489,14 +461,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>La matrice de la différentielle de \\(Y^\\bullet\\), dans la décomposition en \nsomme directe si-dessus est de la forme:</p>"
+     "html": "<p>La matrice de la différentielle de \\(Y^\\bullet\\), dans la décomposition en \nsomme directe si-dessus est de la forme<a class=\"footnote-ref ed-ref\" id=\"fn-VIII:1-4ref\" href=\"#fn-VIII:1-4\"><sup>†</sup></a>:</p>"
     },
     {
      "id": "disp-VIII:1-24",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-24\">\n\\[\n\\begin{pmatrix}\n    d_{X^\\bullet} &amp; \\varphi_n \\\\\n    0 &amp; d_{Y^\\bullet} \n  \\end{pmatrix}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-24\">\n\\[\n\\begin{pmatrix}\n    d_{X^\\bullet} &amp; \\varphi_n \\\\\n    0 &amp; d_{Z^\\bullet} \n  \\end{pmatrix}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -552,14 +524,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Le foncteur \\(F\\circ T^i\\) sera souvent noté \\(F^i\\). En vertu de l'axiome \nVIII:TR2TR2 des catégories triangulées, on a la suite \nexacte illimitée:</p>"
+     "html": "<p>Le foncteur \\(F\\circ T^i\\) sera souvent noté \\(F^i\\). En vertu de l'axiome \n<a class=\"ref\" href=\"#VIII:TR2\">TR2</a> des catégories triangulées, on a la suite \nexacte illimitée<a class=\"footnote-ref ed-ref\" id=\"fn-VIII:1-5ref\" href=\"#fn-VIII:1-5\"><sup>‡</sup></a>:</p>"
     },
     {
      "id": "disp-VIII:1-29",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-29\">\n\\[\n\\xymatrix{\n  \\cdots \\ar[r] \n    &amp; F^i(X) \\ar[r] \n    &amp; F^i(Y) \\ar[r] \n    &amp; F^i(Z) \\ar[r] \n    &amp; F^{i+-}(X) \\ar[r] \n    &amp; \\cdots \n}\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-VIII:1-29\">\n\\[\n\\xymatrix{\n  \\cdots \\ar[r] \n    &amp; F^i(X) \\ar[r] \n    &amp; F^i(Y) \\ar[r] \n    &amp; F^i(Z) \\ar[r] \n    &amp; F^{i+1}(X) \\ar[r] \n    &amp; \\cdots \n}\n\\]\n</div>"
     },
     {
      "id": "VIII:1-3-2",
@@ -685,12 +657,30 @@
     {
      "id": "fn-VIII:1-1",
      "number": "1",
-     "html": "Texte modifié en 1976: le texte original demandait une \négalité \\(F\\circ T=T'\\circ F\\). Le cas des foncteurs à plusieurs variables \nest discuté dans <span class=\"cite\">[<a class=\"cite-src\" id=\"sga4-cite-53\" href=\"#sga4\">2</a>]</span>. Il pose un problème de signes."
+     "html": "Texte modifié en 1976: le texte original demandait une \négalité \\(F\\circ T=T'\\circ F\\). Le cas des foncteurs à plusieurs variables \nest discuté dans SGA 4 XVII 0.3. Il pose un problème de signes."
     },
     {
      "id": "fn-VIII:1-2",
      "number": "2",
      "html": "Texte modifié en 1976, pour assurer la validité de \n<a class=\"ref\" href=\"#VIII:1-2-4\">1.2.4</a>."
+    },
+    {
+     "id": "fn-VIII:1-3",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte imprimé écrit \\(\\beta\\circ\\alpha=\\beta\\circ T^i(\\alpha)\\) ; le composé n'a de sens qu'écrit \\(T^i(\\beta)\\circ\\alpha\\), \\(\\alpha\\) étant à valeurs dans \\(T^i(Y)\\)."
+    },
+    {
+     "id": "fn-VIII:1-4",
+     "number": "†",
+     "kind": "editorial",
+     "html": "Le texte imprimé porte \\(d_{Y^\\bullet}\\) au coin inférieur droit de la matrice ; c'est \\(d_{Z^\\bullet}\\), la différentielle du second facteur, qu'il faut lire."
+    },
+    {
+     "id": "fn-VIII:1-5",
+     "number": "‡",
+     "kind": "editorial",
+     "html": "Le texte imprimé porte \\(F^{i+-}(X)\\) dans la suite qui suit ; il faut lire \\(F^{i+1}(X)\\)."
     }
    ],
    "bibliography": []
@@ -746,7 +736,7 @@
      "type": "definition",
      "label": null,
      "title": "Définition",
-     "html": "<div class=\"thm thm-remark definition\" id=\"thm-VIII:2-1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Définition</span></div>\n  <div class=\"thm-body\"><p>Soit \\(\\mathscr{A}\\) un catégorie triangulée. Un ensemble \\(S\\) de morphismes de \\(\\mathscr{A}\\) \nest appelé <em>système multiplicatif de morphismes</em> si'il posède les \ncinq propriétés suivantes:</p>\n<h4>FR1</h4>\n<p>VIII:FR1\nSi \\(f,g\\in S\\) et si \\(f\\) et \\(g\\) sont composables, \\(f\\circ g\\in S\\). Pout tout \nobjet \\(X\\) de \\(\\mathscr{A}\\), le morphisme identique de \\(X\\) est un élément de \\(S\\).</p>\n<h4>FR2</h4>\n<p>VIII:FR2\nDans la catégorie \\(\\mathscr{A}\\), tout diagramme</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-2\">\n\\[\n\\xymatrix{\n  &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>se complète en un diagramme commutatif</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-3\">\n\\[\n\\xymatrix{\n  P \\ar[r]^-g \\ar[d]^-{t\\in S} \n    &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>De plus la propriété symétrique est vraie.</p>\n<h4>FR3</h4>\n<p>VIII:FR3\nSi \\(f\\) et \\(g\\) sont des morphismes, les propriétés suivantes sont \néquivalentes:</p>\n<ol class=\"enumerate\">\n<li><p>il existe un \\(s\\in S\\) tel que \\(s\\circ f=s\\circ g\\)</p></li>\n<li><p>il existe un \\(t\\in S\\) tel que \\(f\\circ t=g\\circ t\\)</p></li>\n</ol>\n<h4>FR4</h4>\n<p>VIII:FR4\nSoit \\(T\\) le foncteur de translation de \\(\\mathscr{A}\\). Par tout élément \\(s\\) de \\(S\\), \n\\(T(s)\\in S\\).</p>\n<h4>FR5</h4>\n<p>VIII:FR5\n\\((X,Y,Z,u,v,w)\\), \\((X',Y',Z',u',v',w')\\) étant deux triangles distinguées, \n\\(f\\) et \\(g\\) deux éléments de \\(S\\) tels que le couple \\((f,g)\\) soit un \nmorphisme de \\(u\\) dans \\(u'\\), il existe un morphisme \\(h\\in S\\), tel que \n\\((f,g,h)\\) soit un morphisme de triangle.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark definition\" id=\"thm-VIII:2-1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Définition</span></div>\n  <div class=\"thm-body\"><p>Soit \\(\\mathscr{A}\\) un catégorie triangulée. Un ensemble \\(S\\) de morphismes de \\(\\mathscr{A}\\) \nest appelé <em>système multiplicatif de morphismes</em> si'il posède les \ncinq propriétés suivantes:</p>\n<h4 id=\"VIII:FR1\">FR1</h4>\n<p>Si \\(f,g\\in S\\) et si \\(f\\) et \\(g\\) sont composables, \\(f\\circ g\\in S\\). Pout tout \nobjet \\(X\\) de \\(\\mathscr{A}\\), le morphisme identique de \\(X\\) est un élément de \\(S\\).</p>\n<h4 id=\"VIII:FR2\">FR2</h4>\n<p>Dans la catégorie \\(\\mathscr{A}\\), tout diagramme</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-2\">\n\\[\n\\xymatrix{\n  &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>se complète en un diagramme commutatif</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-3\">\n\\[\n\\xymatrix{\n  P \\ar[r]^-g \\ar[d]^-{t\\in S} \n    &amp; Y \\ar[d]^-{s\\in S} \\\\\n  Z \\ar[r]^-f \n    &amp; X \n}\n\\]\n</div>\n<p>De plus la propriété symétrique est vraie.</p>\n<h4 id=\"VIII:FR3\">FR3</h4>\n<p>Si \\(f\\) et \\(g\\) sont des morphismes, les propriétés suivantes sont \néquivalentes:</p>\n<ol class=\"enumerate\">\n<li><p>il existe un \\(s\\in S\\) tel que \\(s\\circ f=s\\circ g\\)</p></li>\n<li><p>il existe un \\(t\\in S\\) tel que \\(f\\circ t=g\\circ t\\)</p></li>\n</ol>\n<h4 id=\"VIII:FR4\">FR4</h4>\n<p>Soit \\(T\\) le foncteur de translation de \\(\\mathscr{A}\\). Par tout élément \\(s\\) de \\(S\\), \n\\(T(s)\\in S\\).</p>\n<h4 id=\"VIII:FR5\">FR5</h4>\n<p>\\((X,Y,Z,u,v,w)\\), \\((X',Y',Z',u',v',w')\\) étant deux triangles distinguées, \n\\(f\\) et \\(g\\) deux éléments de \\(S\\) tels que le couple \\((f,g)\\) soit un \nmorphisme de \\(u\\) dans \\(u'\\), il existe un morphisme \\(h\\in S\\), tel que \n\\((f,g,h)\\) soit un morphisme de triangle.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -816,35 +806,35 @@
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:2-4\">Problème 1</h3>"
+     "html": "<h3 id=\"sub-VIII:2-4\"><span class=\"label-anchor\" id=\"VIII:prob1\"></span>Problème 1</h3>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>VIII:prob1\nTrouver une catégorie triangulée \\(\\mathscr{A}/\\mathscr{B}\\) et un foncteur exact \n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}/\\mathscr{B}\\) tels que tout foncteur exact de \\(\\mathscr{A}\\) dans une catégorie \ntriangulée \\(\\mathscr{A}'\\), transformant les objets de \\(\\mathscr{B}\\) en objets nuls de \n\\(\\mathscr{A}'\\), admette, de manière unique, une factorisation de la forme \\(G\\circ Q\\) \noù \\(G\\) est un foncteur exact.</p>"
+     "html": "<p>Trouver une catégorie triangulée \\(\\mathscr{A}/\\mathscr{B}\\) et un foncteur exact \n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}/\\mathscr{B}\\) tels que tout foncteur exact de \\(\\mathscr{A}\\) dans une catégorie \ntriangulée \\(\\mathscr{A}'\\), transformant les objets de \\(\\mathscr{B}\\) en objets nuls de \n\\(\\mathscr{A}'\\), admette, de manière unique, une factorisation de la forme \\(G\\circ Q\\) \noù \\(G\\) est un foncteur exact.</p>"
     },
     {
      "id": "sub-VIII:2-5",
      "type": "heading",
      "label": null,
      "title": null,
-     "html": "<h3 id=\"sub-VIII:2-5\">Problème 2</h3>"
+     "html": "<h3 id=\"sub-VIII:2-5\"><span class=\"label-anchor\" id=\"VIII:prob2\"></span>Problème 2</h3>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>VIII:prob2\nTrouver une catégorie triangulée \\(\\mathscr{A}_S\\) et un foncteur exact \n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}_S\\) tels que tout foncteur exact de \\(\\mathscr{A}\\) dans une catégorie \ntriangulée \\(\\mathscr{A}'\\), transformant les morphismes de \\(S\\) en isomorphismes de \n\\(\\mathscr{A}'\\), admette, de manière unique, une factorisation de la forme \n\\(G\\circ Q\\) où \\(G\\) est un foncteur exact.</p>"
+     "html": "<p>Trouver une catégorie triangulée \\(\\mathscr{A}_S\\) et un foncteur exact \n\\(Q:\\mathscr{A}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{A}_S\\) tels que tout foncteur exact de \\(\\mathscr{A}\\) dans une catégorie \ntriangulée \\(\\mathscr{A}'\\), transformant les morphismes de \\(S\\) en isomorphismes de \n\\(\\mathscr{A}'\\), admette, de manière unique, une factorisation de la forme \n\\(G\\circ Q\\) où \\(G\\) est un foncteur exact.</p>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>(Le rédacteur prie le lecteur de bien vouloir l'excuser pour l'emploi de ce \nlangage désuet et rétrograde.) Nous allons montrer, dans le numéro \nsuivant, que le VIII:prob2problème 2 admet une solution. Donc \nle VIII:prob1problème 1 correspondant admet la même solution.</p>"
+     "html": "<p>(Le rédacteur prie le lecteur de bien vouloir l'excuser pour l'emploi de ce \nlangage désuet et rétrograde.) Nous allons montrer, dans le numéro \nsuivant, que le <a class=\"ref\" href=\"#VIII:prob2\">problème 2</a> admet une solution. Donc \nle <a class=\"ref\" href=\"#VIII:prob1\">problème 1</a> correspondant admet la même solution.</p>"
     },
     {
      "id": "VIII:2-3",
@@ -865,7 +855,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Soient \\(\\mathscr{A}\\) un catégorie triangulée, \\(S\\) un système multiplicatif \nsaturé. Désignons par \\(\\mathscr{A}[S^{-1}]\\) la catégorie de fraction de \\(\\mathscr{A}\\) \npour l'ensemble de morphismes \\(S\\) et \\(Q\\) le foncteur canonique de \\(\\mathscr{A}\\) dans \n\\(\\mathscr{A}[S^{-1}]\\). Le couple \\((\\mathscr{A}[S^{-1}],Q)\\) résout le problème suivant: Tout \nfoncteur de \\(\\mathscr{A}\\) dans une catégorie quelconque (non nécessairement \nadditive) transformant morphisme de \\(S\\) en isomorphisme, se factorise, d'une \nmanière unique, par \\((\\mathscr{A}[S^{-1}],Q)\\). Un tel couple existe toujours, sans \nhypothèse sur l'ensemble de morphismes \\(S\\) <span class=\"cite\">[<a class=\"cite-src\" id=\"gz67-cite-1\" href=\"#gz67\">18</a>]</span><a class=\"footnote-ref\" id=\"fn-VIII:2-1ref\" href=\"#fn-VIII:2-1\"><sup>1</sup></a>. Cependant l'ensemble \nde morphismes \\(S\\), étant un systme multiplicatif saturé, possède les \npropriétés VIII:FR1FR1, VIII:FR2FR2, \nVIII:FR3FR3. Par suite, d'après <span class=\"cite\">[<a class=\"cite-src\" id=\"gz67-cite-2\" href=\"#gz67\">18</a>]</span>, la catégorie \n\\(\\mathscr{A}[S^{-1}]\\) peut s'obtenir par un calcul de fractions, à droite ou à \ngauche. Nous allons rappeler comment on obtient \\(\\mathscr{A}[S^{-1}]\\) par un calcul de \nfractions à droite. (Le calcul de fractions à gauche s'obtient par le \nprocédé du renversement des flèches.)</p>"
+     "html": "<p>Soient \\(\\mathscr{A}\\) un catégorie triangulée, \\(S\\) un système multiplicatif \nsaturé. Désignons par \\(\\mathscr{A}[S^{-1}]\\) la catégorie de fraction de \\(\\mathscr{A}\\) \npour l'ensemble de morphismes \\(S\\) et \\(Q\\) le foncteur canonique de \\(\\mathscr{A}\\) dans \n\\(\\mathscr{A}[S^{-1}]\\). Le couple \\((\\mathscr{A}[S^{-1}],Q)\\) résout le problème suivant: Tout \nfoncteur de \\(\\mathscr{A}\\) dans une catégorie quelconque (non nécessairement \nadditive) transformant morphisme de \\(S\\) en isomorphisme, se factorise, d'une \nmanière unique, par \\((\\mathscr{A}[S^{-1}],Q)\\). Un tel couple existe toujours, sans \nhypothèse sur l'ensemble de morphismes \\(S\\) [C.G.G.]<a class=\"footnote-ref\" id=\"fn-VIII:2-1ref\" href=\"#fn-VIII:2-1\"><sup>1</sup></a>. Cependant l'ensemble \nde morphismes \\(S\\), étant un systme multiplicatif saturé, possède les \npropriétés <a class=\"ref\" href=\"#VIII:FR1\">FR1</a>, <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>, \n<a class=\"ref\" href=\"#VIII:FR3\">FR3</a>. Par suite, d'après C.G.G., la catégorie \n\\(\\mathscr{A}[S^{-1}]\\) peut s'obtenir par un calcul de fractions, à droite ou à \ngauche. Nous allons rappeler comment on obtient \\(\\mathscr{A}[S^{-1}]\\) par un calcul de \nfractions à droite. (Le calcul de fractions à gauche s'obtient par le \nprocédé du renversement des flèches.)</p>"
     },
     {
      "id": "VIII:2-3-2",
@@ -886,7 +876,7 @@
      "type": "list",
      "label": null,
      "title": null,
-     "html": "<ul class=\"itemize\">\n<li><p>Pour tout objet \\(X\\) de \\(\\mathscr{A}\\), désignons par \\(S_X\\) la catégorie des \n    flèches appartenant à \\(S\\), ayant pour but \\(X\\). A tout objet \\(Y\\) de \n    \\(\\mathscr{A}\\), on associe, fonctoriellement en \\(Y\\), le foncteur suivant sur \n    \\(S_X^\\circ\\) à valeur dans la catégorie des ensembles: \n    (\\(S_X^\\circ\\) désigne la catégorie opposée)</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-6\">\n\\[\nH_Y:s\\mapsto \\hom(\\operatorname{source}(s),Y) \\text{.}\n\\]\n</div>\n<p>On pose alors:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-7\">\n\\[\n\\hom_{\\mathscr{A}[S^{-1}]}(X,Y) = \\varinjlim_{S_X^\\circ} H_Y \\text{.}\n\\]\n</div>\n<p>Pour tout ce qui concerne les limites inductives, on se référera à \n    <span class=\"cite\">[<a class=\"cite-src\" id=\"ar62-cite-2\" href=\"#ar62\">1</a>]</span>.</p>\n<p>On constatera alors, avec plaisir en utilisant VIII:FR1FR1, \n    VIII:FR2FR2, VIII:FR3FR3 que la catégorie \n    \\(S_X^\\circ\\) possède les propriétés L1, L2, L3. Les limites inductives \n    possèdent donc toutes les bonnes propriétés des limites inductives \n    sur les ensembles ordonnés filtrants.</p></li>\n<li><p>Soient \\(X\\), \\(Y\\), \\(Z\\), trois objets de \\(\\mathscr{A}\\), \\(a\\) un élément de \n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Y)\\) et \\(b\\) un élément de \n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(Y,Z)\\). Soient \\(s\\) un objet de \\(S_X\\), \\(\\underline a\\) un \n    élément de \\(\\hom(\\operatorname{source}(s),Y)\\) dont l'image est \\(a\\) et \n    un objet de \\(S_y\\), \\(\\underline b\\) un élément de \n    \\(\\hom(\\operatorname{source}(t),Z)\\) dont l'image est \\(b\\). On a alors un \n    diagramme:</p>\n<div class=\"equation\" id=\"VIII:eq:2-3-2-1\">\n\\[\n\\tag{1}\n    \\xymatrix{\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; \n        &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; \n        &amp; Y \n        &amp; \n        &amp; Z \n    }\n\\]\n</div>\n<p>que, d'après VIII:FR2FR2, on peut compléter en un \n    diagramme:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-8\">\n\\[\n\\xymatrix{\n      &amp; &amp; \\bullet \\ar[dl]_-{t'} \\ar[dr]^-{\\underline c} \\\\\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; &amp; Y \n        &amp; &amp; Z \n    }\n\\]\n</div>\n<p>Notons \\(b\\circ a\\) l'image dans \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Z)\\) du morphisme \n    \\(\\underline{b\\circ c}\\). On vérifie que grâce aux propriétés \n    VIII:FR1FR1, VIII:FR2FR2, \n    VIII:FR3FR3, \\(b\\circ a\\) ne dépend pas des représentants \n    \\(\\underline a\\) et \\(\\underline b\\) choisis et qu'il ne dépend pas non plus \n    de la manière de compléter le diagramme (<a class=\"ref\" href=\"#VIII:eq:2-3-2-1\">1</a>). On \n    vérifie de plus qu'on a ainsi défini une catégorie \\(\\mathscr{A}[S^{-1}]\\).</p></li>\n</ul>"
+     "html": "<ul class=\"itemize\">\n<li><p>Pour tout objet \\(X\\) de \\(\\mathscr{A}\\), désignons par \\(S_X\\) la catégorie des \n    flèches appartenant à \\(S\\), ayant pour but \\(X\\). A tout objet \\(Y\\) de \n    \\(\\mathscr{A}\\), on associe, fonctoriellement en \\(Y\\), le foncteur suivant sur \n    \\(S_X^\\circ\\) à valeur dans la catégorie des ensembles: \n    (\\(S_X^\\circ\\) désigne la catégorie opposée)</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-6\">\n\\[\nH_Y:s\\mapsto \\hom(\\operatorname{source}(s),Y) \\text{.}\n\\]\n</div>\n<p>On pose alors:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-7\">\n\\[\n\\hom_{\\mathscr{A}[S^{-1}]}(X,Y) = \\varinjlim_{S_X^\\circ} H_Y \\text{.}\n\\]\n</div>\n<p>(Pour tout ce qui concerne les limites inductives, on se référera à \n    “Grothendieck Topologies”).</p>\n<p>On constatera alors, avec plaisir en utilisant <a class=\"ref\" href=\"#VIII:FR1\">FR1</a>, \n    <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>, <a class=\"ref\" href=\"#VIII:FR3\">FR3</a> que la catégorie \n    \\(S_X^\\circ\\) possède les propriétés L1, L2, L3. Les limites inductives \n    possèdent donc toutes les bonnes propriétés des limites inductives \n    sur les ensembles ordonnés filtrants.</p></li>\n<li><p>Soient \\(X\\), \\(Y\\), \\(Z\\), trois objets de \\(\\mathscr{A}\\), \\(a\\) un élément de \n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Y)\\) et \\(b\\) un élément de \n    \\(\\hom_{\\mathscr{A}[S^{-1}]}(Y,Z)\\). Soient \\(s\\) un objet de \\(S_X\\), \\(\\underline a\\) un \n    élément de \\(\\hom(\\operatorname{source}(s),Y)\\) dont l'image est \\(a\\) et \n    un objet de \\(S_y\\), \\(\\underline b\\) un élément de \n    \\(\\hom(\\operatorname{source}(t),Z)\\) dont l'image est \\(b\\). On a alors un \n    diagramme:</p>\n<div class=\"equation\" id=\"VIII:eq:2-3-2-1\">\n\\[\n\\tag{1}\n    \\xymatrix{\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; \n        &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; \n        &amp; Y \n        &amp; \n        &amp; Z \n    }\n\\]\n</div>\n<p>que, d'après <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>, on peut compléter en un \n    diagramme:</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-8\">\n\\[\n\\xymatrix{\n      &amp; &amp; \\bullet \\ar[dl]_-{t'} \\ar[dr]^-{\\underline c} \\\\\n      &amp; \\bullet \\ar[dl]_-s \\ar[dr]^-{\\underline a} \n        &amp; &amp; \\bullet \\ar[dl]_-t \\ar[dr]^-{\\underline b} \\\\\n      X \n        &amp; &amp; Y \n        &amp; &amp; Z \n    }\n\\]\n</div>\n<p>Notons \\(b\\circ a\\) l'image dans \\(\\hom_{\\mathscr{A}[S^{-1}]}(X,Z)\\) du morphisme \n    \\(\\underline{b\\circ c}\\). On vérifie que grâce aux propriétés \n    <a class=\"ref\" href=\"#VIII:FR1\">FR1</a>, <a class=\"ref\" href=\"#VIII:FR2\">FR2</a>, \n    <a class=\"ref\" href=\"#VIII:FR3\">FR3</a>, \\(b\\circ a\\) ne dépend pas des représentants \n    \\(\\underline a\\) et \\(\\underline b\\) choisis et qu'il ne dépend pas non plus \n    de la manière de compléter le diagramme (<a class=\"ref\" href=\"#VIII:eq:2-3-2-1\">1</a>). On \n    vérifie de plus qu'on a ainsi défini une catégorie \\(\\mathscr{A}[S^{-1}]\\).</p></li>\n</ul>"
     },
     {
      "id": null,
@@ -900,7 +890,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>\\(\\mathscr{A}\\) étant une catégorie additive, \\(\\mathscr{A}[S^{-1}]\\) est une catégorie \nadditive. De plus, on démontre en utilisant VIII:FR4FR4 qu'il \nexiste un et un seul foncteur de translation sur \\(\\mathscr{A}[S^{-1}]\\), que nous \nnoterons \\(T\\), vérifiant la relation:</p>"
+     "html": "<p>\\(\\mathscr{A}\\) étant une catégorie additive, \\(\\mathscr{A}[S^{-1}]\\) est une catégorie \nadditive. De plus, on démontre en utilisant <a class=\"ref\" href=\"#VIII:FR4\">FR4</a> qu'il \nexiste un et un seul foncteur de translation sur \\(\\mathscr{A}[S^{-1}]\\), que nous \nnoterons \\(T\\), vérifiant la relation:</p>"
     },
     {
      "id": "disp-VIII:2-9",
@@ -914,14 +904,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Enfin, à l'aide de VIII:FR5FR5, on démontre qu'il existe une \net une seule structure triangulée sur \\(\\mathscr{A}[S^{-1}]\\) telle que le foncteur \\(Q\\) \nsoit exact. Les triangles distingués de \\(\\mathscr{A}[S^{-1}]\\) ne sont qutre que les \ntriangles isomorphes aux images, par \\(Q\\), des triangles distingués de \\(\\mathscr{A}\\). \nEn désignant par \\(\\mathscr{A}_S\\), la catégorie \\(\\mathscr{A}[S^{-1}]\\) muni de cette \nstructure triangulée, on démontre sans difficulté que le couple \n\\((\\mathscr{A}_S,Q)\\) est une solution au VIII:prob2problème 2.</p>"
+     "html": "<p>Enfin, à l'aide de <a class=\"ref\" href=\"#VIII:FR5\">FR5</a>, on démontre qu'il existe une \net une seule structure triangulée sur \\(\\mathscr{A}[S^{-1}]\\) telle que le foncteur \\(Q\\) \nsoit exact. Les triangles distingués de \\(\\mathscr{A}[S^{-1}]\\) ne sont qutre que les \ntriangles isomorphes aux images, par \\(Q\\), des triangles distingués de \\(\\mathscr{A}\\). \nEn désignant par \\(\\mathscr{A}_S\\), la catégorie \\(\\mathscr{A}[S^{-1}]\\) muni de cette \nstructure triangulée, on démontre sans difficulté que le couple \n\\((\\mathscr{A}_S,Q)\\) est une solution au <a class=\"ref\" href=\"#VIII:prob2\">problème 2</a>.</p>"
     },
     {
      "id": "VIII:2-3-3",
      "type": "definition",
      "label": "2.3.3",
      "title": "Définition",
-     "html": "<div class=\"thm thm-remark definition\" id=\"VIII:2-3-3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Définition</span> <span class=\"thm-num\">2.3.3</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-3-3\"></span>\nSoient \\(\\mathscr{A}\\) un catégorie triangulée, \\(\\mathscr{B}\\) une sous-catégorie épaisse \nde \\(\\mathscr{A}\\), \\((Q,\\mathscr{A}/\\mathscr{B})\\) la solution du VIII:prob1problème 1 \n(§<a class=\"ref\" href=\"#VIII:2-2\">2.2</a>). \\(\\mathscr{A}/\\mathscr{B}\\) sera appelée la <em>catégorie quotient</em> de \n\\(\\mathscr{A}\\) par \\(\\mathscr{B}\\). \\(Q\\) sera appelé le foncteur canonique de passage au \nquotient. Plus généralement soit \\(\\mathscr{N}\\) une sous-catégorie triangulée de \n\\(\\mathscr{A}\\) et soit \\(\\underline{\\mathscr{N}}\\) la plus petit sous-catégorie épaisse \ncontenant \\(\\mathscr{N}\\). La catégorie quotient de \\(\\mathscr{A}\\) par \\(\\mathscr{N}\\): \\(\\mathscr{A}/\\mathscr{N}\\) sera par \ndéfinition \\(\\mathscr{A}/\\underline{\\mathscr{N}}\\).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark definition\" id=\"VIII:2-3-3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Définition</span> <span class=\"thm-num\">2.3.3</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-3-3\"></span>\nSoient \\(\\mathscr{A}\\) un catégorie triangulée, \\(\\mathscr{B}\\) une sous-catégorie épaisse \nde \\(\\mathscr{A}\\), \\((Q,\\mathscr{A}/\\mathscr{B})\\) la solution du <a class=\"ref\" href=\"#VIII:prob1\">problème 1</a> \n(§<a class=\"ref\" href=\"#VIII:2-2\">2.2</a>). \\(\\mathscr{A}/\\mathscr{B}\\) sera appelée la <em>catégorie quotient</em> de \n\\(\\mathscr{A}\\) par \\(\\mathscr{B}\\). \\(Q\\) sera appelé le foncteur canonique de passage au \nquotient. Plus généralement soit \\(\\mathscr{N}\\) une sous-catégorie triangulée de \n\\(\\mathscr{A}\\) et soit \\(\\underline{\\mathscr{N}}\\) la plus petit sous-catégorie épaisse \ncontenant \\(\\mathscr{N}\\). La catégorie quotient de \\(\\mathscr{A}\\) par \\(\\mathscr{N}\\): \\(\\mathscr{A}/\\mathscr{N}\\) sera par \ndéfinition \\(\\mathscr{A}/\\underline{\\mathscr{N}}\\).</p></div>\n</div>"
     },
     {
      "id": "VIII:2-4",
@@ -949,7 +939,7 @@
      "type": "theorem",
      "label": "2.4.2",
      "title": "Théorème",
-     "html": "<div class=\"thm thm-plain theorem\" id=\"VIII:2-4-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span> <span class=\"thm-num\">2.4.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-4-2\"></span>\nSoient \\(\\mathscr{A}\\) une catégorie triangulée, \\(\\mathscr{B}\\) un sous-catégorie \ntriangulée, \\(\\mathscr{N}\\) une sous-catégorie épaisse de \\(\\mathscr{A}\\), \\(S=\\varphi(\\mathscr{N})\\) \nle système multiplicatif saturé correspondant.</p>\n<ol class=\"enumerate\">\n<li><p>La catégorie \\(\\mathscr{N}\\cap\\mathscr{B}\\) est une sous-catégorie épaisse de \n    \\(\\mathscr{B}\\). Le système multiplicatif correspondant est \\(S\\cap \\mathscr{B}\\).</p></li>\n<li><p>Les deux propriétés suivantes sont équivalentes:</p>\n<ol class=\"enumerate\">\n<li><p>Pour tout objet \\(X\\) de \\(\\mathscr{B}\\) et tout morphisme \\(s:R\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) où \\(s\\) \n        est un élément de \\(S\\), il existe un morphisme \\(s':R'\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} R\\) où \n        \\(s\\circ'\\) est un élément de \\(S\\cap \\mathscr{B}\\); et \n        \\(R'\\in\\operatorname{Ob}\\mathscr{B}\\).</p></li>\n<li><p>Tout morphisme d'un objet \\(X\\) de \\(\\mathscr{B}\\) dans un objet \\(Y\\) de \\(\\mathscr{N}\\) \n        se factorise par un objet de \\(\\mathscr{N}\\cap \\mathscr{B}\\).</p></li>\n</ol></li>\n<li><p>Les propriétés (i)' et (ii)' obtenues à partir de (i) et (ii) en \n    renversant les flèches sont équivalents.</p></li>\n<li><p>Si les proprietés (i) et (ii) sont vérifiées ou bien si les \n    propriétés (i)' et (ii)' sont vérifiées, le foncteur canonique</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-10\">\n\\[\n\\xymatrix{\n      \\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B} \\ar[r] &amp; \\mathscr{A}/\\mathscr{N}\n    }\n\\]\n</div>\n<p>est fidèle.</p>\n<p>Comme ce foncteur est injectif sur les objets, il réalise \n    \\(\\mathscr{B}/\\mathscr{N}\\cap\\mathscr{B}\\) comme sous-catégorie de \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n<li><p>Si de plus \\(\\mathscr{B}\\) est une sous-catégorie pleine de \\(\\mathscr{A}\\), \n    \\(\\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B}\\) est une sous-catégorie pleine de \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-plain theorem\" id=\"VIII:2-4-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span> <span class=\"thm-num\">2.4.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-4-2\"></span>\nSoient \\(\\mathscr{A}\\) une catégorie triangulée, \\(\\mathscr{B}\\) un sous-catégorie \ntriangulée, \\(\\mathscr{N}\\) une sous-catégorie épaisse de \\(\\mathscr{A}\\), \\(S=\\varphi(\\mathscr{N})\\) \nle système multiplicatif saturé correspondant.</p>\n<ol class=\"enumerate\">\n<li><p>La catégorie \\(\\mathscr{N}\\cap\\mathscr{B}\\) est une sous-catégorie épaisse de \n    \\(\\mathscr{B}\\). Le système multiplicatif correspondant est \\(S\\cap \\mathscr{B}\\).</p></li>\n<li><p>Les deux propriétés suivantes sont équivalentes:</p>\n<ol class=\"enumerate\">\n<li><p>Pour tout objet \\(X\\) de \\(\\mathscr{B}\\) et tout morphisme \\(s:R\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) où \\(s\\) \n        est un élément de \\(S\\), il existe un morphisme \\(s':R'\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} R\\) où \n        \\(s\\circ s'\\) est un élément de \\(S\\cap \\mathscr{B}\\); et \n        \\(R'\\in\\operatorname{Ob}\\mathscr{B}\\).</p></li>\n<li><p>Tout morphisme d'un objet \\(X\\) de \\(\\mathscr{B}\\) dans un objet \\(Y\\) de \\(\\mathscr{N}\\) \n        se factorise par un objet de \\(\\mathscr{N}\\cap \\mathscr{B}\\).</p></li>\n</ol></li>\n<li><p>Les propriétés (i)' et (ii)' obtenues à partir de (i) et (ii) en \n    renversant les flèches sont équivalents.</p></li>\n<li><p>Si les proprietés (i) et (ii) sont vérifiées ou bien si les \n    propriétés (i)' et (ii)' sont vérifiées, le foncteur canonique</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-10\">\n\\[\n\\xymatrix{\n      \\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B} \\ar[r] &amp; \\mathscr{A}/\\mathscr{N}\n    }\n\\]\n</div>\n<p>est fidèle.</p>\n<p>Comme ce foncteur est injectif sur les objets, il réalise \n    \\(\\mathscr{B}/\\mathscr{N}\\cap\\mathscr{B}\\) comme sous-catégorie de \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n<li><p>Si de plus \\(\\mathscr{B}\\) est une sous-catégorie pleine de \\(\\mathscr{A}\\), \n    \\(\\mathscr{B}/\\mathscr{N}\\cap \\mathscr{B}\\) est une sous-catégorie pleine de \\(\\mathscr{A}/\\mathscr{N}\\).</p></li>\n</ol></div>\n</div>"
     },
     {
      "id": "VIII:2-4-3",
@@ -1040,7 +1030,7 @@
      "type": "proposition",
      "label": "2.6.4",
      "title": "Proposition",
-     "html": "<div class=\"thm thm-plain proposition\" id=\"VIII:2-6-4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">2.6.4</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-6-4\"></span>\nSoient \\(\\mathscr{A}\\) une catégorie triangulée, \\(\\mathscr{B}\\) une sous-catégorie \népaisse de \\(\\mathscr{A}\\), \\(\\mathscr{B}^\\bot\\) l'orthogonale à droite de \\(\\mathscr{B}\\), \\(S(\\mathscr{B})\\), \n\\(s(\\mathscr{B}^\\bot)\\) les systèmes multiplicatifs correspondants, \\(Q\\) et \\(Q^\\bot\\) les \nfoncteurs canoniques de passage au quotient. Considérons pour un objet \\(x\\) de \n\\(\\mathscr{A}\\), les propriétés suivantes:</p>\n<ol class=\"enumerate\">\n<li><p>\\(X\\) s'envoie par un morphisme de \\(S(\\mathscr{B})\\) dans un objet de \\(\\mathscr{B}^\\bot\\).</p></li>\n<li><p>\\(X\\) reçoit par un morphisme de \\(S(\\mathscr{B}^\\bot)\\) un objet de \\(\\mathscr{B}\\).</p></li>\n<li><p>La catégorie \\(S_X(\\mathscr{B})\\) des flèches de \\(S(\\mathscr{B})\\) de source \\(X\\), \n    admet un objet final.</p></li>\n<li><p>La catégorie \\(S^X(\\mathscr{B}^\\bot)\\) des flèches de \\(S(\\mathscr{B}^\\bot)\\) de but \n    \\(X\\), admet un objet initial.</p></li>\n<li><p>La catégorie \\(\\mathscr{B}/X\\) des objets de \\(\\mathscr{B}\\) au-dessus de \\(X\\), admet un \n    objet final.</p></li>\n<li><p>La catégorie \\(\\mathscr{B}^\\bot/X\\) des objets de \\(\\mathscr{B}^\\bot\\) au-dessous de \\(X\\) \n    admet un objet initial.</p></li>\n</ol>\n<p>On a alors</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-20\">\n\\[\n\\xymatrix@=0.5cm{\n  &amp; &amp; &amp; &amp; (iv) \\\\\n  (i) \\ar@{&lt;=&gt;}[r] \n    &amp; (ii) \\ar@{&lt;=&gt;}[r] \n    &amp; (iii) \\ar@{&lt;=&gt;}[r] \n    &amp; (v) \\ar@{=&gt;}[ur] \\ar@{=&gt;}[dr] \\\\\n  &amp; &amp; &amp; &amp; (vi) \n}\n\\]\n</div>\n<p>Si de plus \\(^\\bot(\\mathscr{B}^\\bot)=\\mathscr{B}\\) alors toutes les propriétés sont \néquivalentes.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain proposition\" id=\"VIII:2-6-4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">2.6.4</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:2-6-4\"></span>\nSoient \\(\\mathscr{A}\\) une catégorie triangulée, \\(\\mathscr{B}\\) une sous-catégorie \népaisse de \\(\\mathscr{A}\\), \\(\\mathscr{B}^\\bot\\) l'orthogonale à droite de \\(\\mathscr{B}\\), \\(S(\\mathscr{B})\\), \n\\(S(\\mathscr{B}^\\bot)\\) les systèmes multiplicatifs correspondants, \\(Q\\) et \\(Q^\\bot\\) les \nfoncteurs canoniques de passage au quotient. Considérons pour un objet \\(x\\) de \n\\(\\mathscr{A}\\), les propriétés suivantes:</p>\n<ol class=\"enumerate\">\n<li><p>\\(X\\) s'envoie par un morphisme de \\(S(\\mathscr{B})\\) dans un objet de \\(\\mathscr{B}^\\bot\\).</p></li>\n<li><p>\\(X\\) reçoit par un morphisme de \\(S(\\mathscr{B}^\\bot)\\) un objet de \\(\\mathscr{B}\\).</p></li>\n<li><p>La catégorie \\(S_X(\\mathscr{B})\\) des flèches de \\(S(\\mathscr{B})\\) de source \\(X\\), \n    admet un objet final.</p></li>\n<li><p>La catégorie \\(S^X(\\mathscr{B}^\\bot)\\) des flèches de \\(S(\\mathscr{B}^\\bot)\\) de but \n    \\(X\\), admet un objet initial.</p></li>\n<li><p>La catégorie \\(\\mathscr{B}/X\\) des objets de \\(\\mathscr{B}\\) au-dessus de \\(X\\), admet un \n    objet final.</p></li>\n<li><p>La catégorie \\(\\mathscr{B}^\\bot/X\\) des objets de \\(\\mathscr{B}^\\bot\\) au-dessous de \\(X\\) \n    admet un objet initial.</p></li>\n</ol>\n<p>On a alors</p>\n<div class=\"displaymath\" id=\"disp-VIII:2-20\">\n\\[\n\\xymatrix@=0.5cm{\n  &amp; &amp; &amp; &amp; (iv) \\\\\n  (i) \\ar@{&lt;=&gt;}[r] \n    &amp; (ii) \\ar@{&lt;=&gt;}[r] \n    &amp; (iii) \\ar@{&lt;=&gt;}[r] \n    &amp; (v) \\ar@{=&gt;}[ur] \\ar@{=&gt;}[dr] \\\\\n  &amp; &amp; &amp; &amp; (vi) \n}\n\\]\n</div>\n<p>Si de plus \\(^\\bot(\\mathscr{B}^\\bot)=\\mathscr{B}\\) alors toutes les propriétés sont \néquivalentes.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1082,7 +1072,7 @@
     {
      "id": "fn-VIII:2-1",
      "number": "1",
-     "html": "The \noriginal text references [C.G.G] here. Most likely, this is the lost work \n<em>Catégories et foncteurs</em> by Chevalley, Gabriel and Grothendieck, \nreferenced in<span class=\"cite\">[<a class=\"cite-src\" id=\"sc72-cite-1\" href=\"#sc72\">31</a>]</span>."
+     "html": "The \noriginal text references [C.G.G] here. Most likely, this is the lost work \n<em>Catégories et foncteurs</em> by Chevalley, Gabriel and Grothendieck, \nreferenced in G. Schiffmann, <em>Théorie élémentaire des catégories</em>, Séminaire Banach, Lecture Notes in Mathematics 277, Springer, 1972."
     }
    ],
    "bibliography": []
@@ -1622,7 +1612,7 @@
      "type": "corollary",
      "label": "4.2.6",
      "title": "Corollaire",
-     "html": "<div class=\"thm thm-plain corollary\" id=\"VIII:4-2-3-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">4.2.6</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:4-2-3-2\"></span> \nLes données sont celles de la définition <a class=\"ref\" href=\"#VIII:4-2-5\">4.2.5</a>. Supposons qu'il \nexiste un ensemble \\(\\sigma\\) d'objets de \\(\\mathscr{A}\\) stable par somme directe \npossédant les propriétés suivantes:</p>\n<ol class=\"enumerate\">\n<li><p>Tout complexe acyclique \\(\\in \\operatorname{Ob}{\\mathsf{K}^+(\\mathscr{A})}\\) (resp. \n    \\(\\in\\operatorname{Ob}{\\mathsf{K}^-(\\mathscr{A})}\\)) d'objets de \\(\\sigma\\), est transformé \n    par \\(f\\) en complexe acyclique.</p></li>\n<li><p>Tout objet \\(X\\) de \\(\\mathscr{A}\\) s'injecte dans (resp. est quotient de) un objet \n    de \\(\\sigma\\). Les hypothèses du théorème <a class=\"ref\" href=\"#VIII:2-4-3\">2.4.3</a> sont \n    vérifiées en prenant \\(\\ast=+\\) (resp. \\(\\ast=-\\)) et en prenant pour \n    catégorie \\(\\mathscr{C}\\), la catégorie des complexes dont les objets et tout \n    degré sont des éléments de \\(\\sigma\\). Les éléments de \\(\\sigma\\) \n    sont des objets \\(f\\)-acycliques à droite (resp. à gauche).</p></li>\n</ol>\n<p>Si de plus \\(f\\) est de dimension cohomologique finie à droite (resp. à \ngauche), l'ensemble des objets \\(f\\)-acycliques à droite (resp. à gauche) \n[pssède en plus des propriétés (1) et (2) ci-dessus, la propriété \n(2) de proposition <a class=\"ref\" href=\"#VIII:3-1-9\">3.1.9</a>. Le Théorème <a class=\"ref\" href=\"#VIII:4-2-3\">4.2.3</a> \ns'applique alors au foncteur \\(\\mathsf{K} f\\) en prenant pour catégorie \\(\\mathscr{C}\\) la \ncatégorie des complexes dont les objets sont \\(f\\)-acycliques à droite \n(resp. à gauche) en tout degré. Le foncteur \\(\\mathsf{R} f\\) (resp. \\(\\mathsf{L} f\\)) existe \net induit sur \\(\\mathsf{D}^+(\\mathscr{A})\\) le foncteur \\(\\mathsf{R}^+ f\\) (resp. \\(\\mathsf{L}^+ f\\)) et sur \n\\(\\mathsf{D}^-(\\mathscr{A})\\) le foncteur \\(\\mathsf{R}^- f\\) (resp. \\(\\mathsf{L}^- f\\)).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain corollary\" id=\"VIII:4-2-3-2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">4.2.6</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII:4-2-3-2\"></span> \nLes données sont celles de la définition <a class=\"ref\" href=\"#VIII:4-2-5\">4.2.5</a>. Supposons qu'il \nexiste un ensemble \\(\\sigma\\) d'objets de \\(\\mathscr{A}\\) stable par somme directe \npossédant les propriétés suivantes:</p>\n<ol class=\"enumerate\">\n<li><p>Tout complexe acyclique \\(\\in \\operatorname{Ob}{\\mathsf{K}^+(\\mathscr{A})}\\) (resp. \n    \\(\\in\\operatorname{Ob}{\\mathsf{K}^-(\\mathscr{A})}\\)) d'objets de \\(\\sigma\\), est transformé \n    par \\(f\\) en complexe acyclique.</p></li>\n<li><p>Tout objet \\(X\\) de \\(\\mathscr{A}\\) s'injecte dans (resp. est quotient de) un objet \n    de \\(\\sigma\\). Les hypothèses du théorème <a class=\"ref\" href=\"#VIII:2-4-3\">2.4.3</a> sont \n    vérifiées en prenant \\(\\ast=+\\) (resp. \\(\\ast=-\\)) et en prenant pour \n    catégorie \\(\\mathscr{C}\\), la catégorie des complexes dont les objets et tout \n    degré sont des éléments de \\(\\sigma\\). Les éléments de \\(\\sigma\\) \n    sont des objets \\(f\\)-acycliques à droite (resp. à gauche).</p></li>\n</ol>\n<p>Si de plus \\(f\\) est de dimension cohomologique finie à droite (resp. à \ngauche), l'ensemble des objets \\(f\\)-acycliques à droite (resp. à gauche) \npossède en plus des propriétés (1) et (2) ci-dessus, la propriété \n(2) de proposition <a class=\"ref\" href=\"#VIII:3-1-9\">3.1.9</a>. Le Théorème <a class=\"ref\" href=\"#VIII:4-2-3\">4.2.3</a> \ns'applique alors au foncteur \\(\\mathsf{K} f\\) en prenant pour catégorie \\(\\mathscr{C}\\) la \ncatégorie des complexes dont les objets sont \\(f\\)-acycliques à droite \n(resp. à gauche) en tout degré. Le foncteur \\(\\mathsf{R} f\\) (resp. \\(\\mathsf{L} f\\)) existe \net induit sur \\(\\mathsf{D}^+(\\mathscr{A})\\) le foncteur \\(\\mathsf{R}^+ f\\) (resp. \\(\\mathsf{L}^+ f\\)) et sur \n\\(\\mathsf{D}^-(\\mathscr{A})\\) le foncteur \\(\\mathsf{R}^- f\\) (resp. \\(\\mathsf{L}^- f\\)).</p></div>\n</div>"
     },
     {
      "id": "VIII:4-3",
@@ -1713,7 +1703,7 @@
     {
      "id": "fn-VIII:4-1",
      "number": "1",
-     "html": "Une définition plus maniable (et en \npractique équivalente) est donnée dans <span class=\"cite\">[<a class=\"cite-src\" id=\"sga4-cite-54\" href=\"#sga4\">2</a>]</span>."
+     "html": "Une définition plus maniable (et en pratique équivalente) est donnée dans SGA 4 XVII 1.2."
     }
    ],
    "bibliography": []

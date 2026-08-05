@@ -2,44 +2,54 @@
   "volume": "SGA 3",
   "bookTitle": "SGA 3 — Schémas en Groupes",
   "sourceDir": ".",
+  "origin": {
+    "pdfs": [
+      { "pdf": "../sga3-1.pdf", "tome": 1, "pages": 580, "note": "Springer Lecture Notes in Mathematics 151 (1970), scan with an OCR text layer." },
+      { "pdf": "../sga3-2.pdf", "tome": 2, "pages": 664, "note": "Springer Lecture Notes in Mathematics 152 (1970), scan with an OCR text layer." },
+      { "pdf": "../sga3-3.pdf", "tome": 3, "pages": 538, "note": "Springer Lecture Notes in Mathematics 153 (1970), scan with an OCR text layer." }
+    ],
+    "note": "Split page-for-page with qpdf --pages (object-level copy); no page was re-rendered or recompressed."
+  },
+  "pageOffset": {
+    "note": "Printed page → PDF page is uniform within each tome: +16 in tome 1, +10 in tome 2, +9 in tome 3 (each tome's body restarts at printed p. 1). Verified against the printed running numbers on every numbered page; exposé title pages are unnumbered but counted."
+  },
   "entries": [
-    { "pdf": "origExp1.pdf", "chapter_id": "I", "kind": "expose" },
-    { "pdf": "origExp2.pdf", "chapter_id": "II", "kind": "expose" },
-    { "pdf": "origExp3.pdf", "chapter_id": "III", "kind": "expose" },
-    { "pdf": "origExp4.pdf", "chapter_id": "IV", "kind": "expose" },
-    { "pdf": "origExp5.pdf", "chapter_id": "V", "kind": "expose" },
-    { "pdf": "origExp6A.pdf", "chapter_id": "VIA", "kind": "expose" },
-    { "pdf": "origExp6B.pdf", "chapter_id": "VIB", "kind": "expose" },
-    { "pdf": "origExp7A.pdf", "chapter_id": "VIIA", "kind": "expose" },
-    { "pdf": "origExp7B.pdf", "chapter_id": "VIIB", "kind": "expose" },
-    { "pdf": "Exp8-8nov09.pdf", "chapter_id": "VIII", "kind": "expose" },
-    { "pdf": "Exp9-8nov09.pdf", "chapter_id": "IX", "kind": "expose" },
-    { "pdf": "Expo10-8nov09.pdf", "chapter_id": "X", "kind": "expose" },
-    { "pdf": "Expo11.pdf", "chapter_id": "XI", "kind": "expose" },
-    { "pdf": "Expo12.pdf", "chapter_id": "XII", "kind": "expose" },
-    { "pdf": "Expo13.pdf", "chapter_id": "XIII", "kind": "expose" },
-    { "pdf": "Expo14.pdf", "chapter_id": "XIV", "kind": "expose" },
-    { "pdf": "Expo15.pdf", "chapter_id": "XV", "kind": "expose" },
-    { "pdf": "Expo16.pdf", "chapter_id": "XVI", "kind": "expose" },
-    { "pdf": "Expo17.pdf", "chapter_id": "XVII", "kind": "expose" },
-    { "pdf": "Expo18.pdf", "chapter_id": "XVIII", "kind": "expose" },
-    { "pdf": "origExpo19.pdf", "chapter_id": "XIX", "kind": "expose" },
-    { "pdf": "origExpo20.pdf", "chapter_id": "XX", "kind": "expose" },
-    { "pdf": "origExpo21.pdf", "chapter_id": "XXI", "kind": "expose" },
-    { "pdf": "origExpo22.pdf", "chapter_id": "XXII", "kind": "expose" },
-    { "pdf": "origExpo23.pdf", "chapter_id": "XXIII", "kind": "expose" },
-    { "pdf": "origExpo24.pdf", "chapter_id": "XXIV", "kind": "expose" },
-    { "pdf": "origExpo25.pdf", "chapter_id": "XXV", "kind": "expose" },
-    { "pdf": "origExpo26.pdf", "chapter_id": "XXVI", "kind": "expose" },
-    { "pdf": "origIntroAG.pdf", "chapter_id": ["avertissement", "introduction"], "kind": "front-matter", "note": "6pp, contains both an Avertissement and an Introduction; split into two front-matter chapters as sga1 does." }
+    { "pdf": "frontmatterTome1.pdf", "tome": 1, "pdfPages": "1-16", "bookPages": "cover, i–xv", "chapter_id": "avertissement", "kind": "front-matter", "note": "Series/imprint/title pages (PDF 1–4), Avertissement (PDF 5–6, pp. iv–v = chapter `avertissement`), Introduction (PDF 7–11, pp. vi–x = chapter `introduction`), Table des matières of the tome (PDF 12–16, pp. xi–xv)." },
+    { "pdf": "ExposeI.pdf", "tome": 1, "pdfPages": "17-58", "bookPages": "1–42", "chapter_id": "I", "kind": "expose", "title": "Structures algébriques. Cohomologie des groupes", "note": "par M. Demazure." },
+    { "pdf": "ExposeII.pdf", "tome": 1, "pdfPages": "59-98", "bookPages": "43–82", "chapter_id": "II", "kind": "expose", "title": "Fibrés tangents – Algèbres de Lie", "note": "par M. Demazure." },
+    { "pdf": "ExposeIII.pdf", "tome": 1, "pdfPages": "99-175", "bookPages": "83–159", "chapter_id": "III", "kind": "expose", "title": "Extensions infinitésimales", "note": "par M. Demazure." },
+    { "pdf": "ExposeIV.pdf", "tome": 1, "pdfPages": "176-266", "bookPages": "160–250", "chapter_id": "IV", "kind": "expose", "title": "Topologies et faisceaux", "note": "par M. Demazure. Includes its own bibliography (printed p. 250)." },
+    { "pdf": "ExposeV.pdf", "tome": 1, "pdfPages": "267-302", "bookPages": "251–286", "chapter_id": "V", "kind": "expose", "title": "Construction de préschémas quotient", "note": "par P. Gabriel." },
+    { "pdf": "ExposeVIA.pdf", "tome": 1, "pdfPages": "303-333", "bookPages": "287–317", "chapter_id": "VIA", "kind": "expose", "title": "Généralités sur les groupes algébriques", "note": "par P. Gabriel." },
+    { "pdf": "ExposeVIB.pdf", "tome": 1, "pdfPages": "334-426", "bookPages": "318–410", "chapter_id": "VIB", "kind": "expose", "title": "Généralités sur les préschémas en groupes", "note": "par J.E. Bertin." },
+    { "pdf": "ExposeVIIA.pdf", "tome": 1, "pdfPages": "427-491", "bookPages": "411–475", "chapter_id": "VIIA", "kind": "expose", "title": "Étude infinitésimale des schémas en groupes", "note": "par P. Gabriel." },
+    { "pdf": "ExposeVIIB.pdf", "tome": 1, "pdfPages": "492-578", "bookPages": "476–562", "chapter_id": "VIIB", "kind": "expose", "title": "Étude infinitésimale des schémas en groupes : groupes formels", "note": "par P. Gabriel." },
+    { "pdf": "backmatterTome1.pdf", "tome": 1, "pdfPages": "579-580", "bookPages": "563–564", "chapter_id": null, "kind": "back-matter", "title": "Index des notations du tome I" },
+    { "pdf": "frontmatterTome2.pdf", "tome": 2, "pdfPages": "1-10", "bookPages": "cover, i–ix", "chapter_id": null, "kind": "front-matter", "note": "Series/imprint/title pages (PDF 1–4) and the Table des matières of the tome (PDF 5–10)." },
+    { "pdf": "ExposeVIII.pdf", "tome": 2, "pdfPages": "11-46", "bookPages": "1–36", "chapter_id": "VIII", "kind": "expose", "title": "Groupes diagonalisables", "note": "par A. Grothendieck." },
+    { "pdf": "ExposeIX.pdf", "tome": 2, "pdfPages": "47-86", "bookPages": "37–76", "chapter_id": "IX", "kind": "expose", "title": "Groupes de type multiplicatif : homomorphismes dans un schéma en groupes", "note": "par A. Grothendieck." },
+    { "pdf": "ExposeX.pdf", "tome": 2, "pdfPages": "87-136", "bookPages": "77–126", "chapter_id": "X", "kind": "expose", "title": "Caractérisation et classification des groupes de type multiplicatif", "note": "par A. Grothendieck." },
+    { "pdf": "ExposeXI.pdf", "tome": 2, "pdfPages": "137-189", "bookPages": "127–179", "chapter_id": "XI", "kind": "expose", "title": "Critères de représentabilité. Applications aux sous-groupes de type multiplicatif des schémas en groupes affines", "note": "par A. Grothendieck." },
+    { "pdf": "ExposeXII.pdf", "tome": 2, "pdfPages": "190-258", "bookPages": "180–248", "chapter_id": "XII", "kind": "expose", "title": "Tores maximaux, groupe de Weyl, sous-groupes de Cartan, centre réductif des schémas en groupes lisses et affines", "note": "par A. Grothendieck." },
+    { "pdf": "ExposeXIII.pdf", "tome": 2, "pdfPages": "259-305", "bookPages": "249–295", "chapter_id": "XIII", "kind": "expose", "title": "Éléments réguliers des groupes algébriques et des algèbres de Lie", "note": "par A. Grothendieck." },
+    { "pdf": "ExposeXIV.pdf", "tome": 2, "pdfPages": "306-358", "bookPages": "296–348", "chapter_id": "XIV", "kind": "expose", "title": "Éléments réguliers : suite, application aux groupes algébriques", "note": "par A. Grothendieck, avec un appendice." },
+    { "pdf": "ExposeXV.pdf", "tome": 2, "pdfPages": "359-493", "bookPages": "349–483", "chapter_id": "XV", "kind": "expose", "title": "Compléments sur les sous-tores d'un préschéma en groupes. Application aux groupes lisses", "note": "par M. Raynaud." },
+    { "pdf": "ExposeXVI.pdf", "tome": 2, "pdfPages": "494-541", "bookPages": "484–531", "chapter_id": "XVI", "kind": "expose", "title": "Groupes de rang unipotent nul", "note": "par M. Raynaud." },
+    { "pdf": "ExposeXVII.pdf", "tome": 2, "pdfPages": "542-641", "bookPages": "532–631", "chapter_id": "XVII", "kind": "expose", "title": "Groupes algébriques unipotents. Extensions entre groupes unipotents et groupes de type multiplicatif", "note": "par M. Raynaud." },
+    { "pdf": "ExposeXVIII.pdf", "tome": 2, "pdfPages": "642-663", "bookPages": "632–653", "chapter_id": "XVIII", "kind": "expose", "title": "Théorème de Weil sur la construction d'un groupe à partir d'une loi rationnelle", "note": "par M. Artin." },
+    { "pdf": "backmatterTome2.pdf", "tome": 2, "pdfPages": "664", "bookPages": "654", "chapter_id": null, "kind": "back-matter", "title": "Index des notations (tome 2)" },
+    { "pdf": "frontmatterTome3.pdf", "tome": 3, "pdfPages": "1-9", "bookPages": "cover, i–viii", "chapter_id": null, "kind": "front-matter", "note": "Series/imprint/title pages (PDF 1–4) and the Table des matières of the tome (PDF 5–9)." },
+    { "pdf": "ExposeXIX.pdf", "tome": 3, "pdfPages": "10-43", "bookPages": "1–34", "chapter_id": "XIX", "kind": "expose", "title": "Groupes réductifs — généralités", "note": "par M. Demazure." },
+    { "pdf": "ExposeXX.pdf", "tome": 3, "pdfPages": "44-93", "bookPages": "35–84", "chapter_id": "XX", "kind": "expose", "title": "Groupes réductifs de rang semi-simple 1", "note": "par M. Demazure." },
+    { "pdf": "ExposeXXI.pdf", "tome": 3, "pdfPages": "94-164", "bookPages": "85–155", "chapter_id": "XXI", "kind": "expose", "title": "Données radicielles", "note": "par M. Demazure." },
+    { "pdf": "ExposeXXII.pdf", "tome": 3, "pdfPages": "165-271", "bookPages": "156–262", "chapter_id": "XXII", "kind": "expose", "title": "Groupes réductifs : déploiements, sous-groupes, groupes quotients", "note": "par M. Demazure." },
+    { "pdf": "ExposeXXIII.pdf", "tome": 3, "pdfPages": "272-331", "bookPages": "263–322", "chapter_id": "XXIII", "kind": "expose", "title": "Groupes réductifs : unicité des groupes épinglés", "note": "par M. Demazure." },
+    { "pdf": "ExposeXXIV.pdf", "tome": 3, "pdfPages": "332-418", "bookPages": "323–409", "chapter_id": "XXIV", "kind": "expose", "title": "Automorphismes des groupes réductifs", "note": "par M. Demazure." },
+    { "pdf": "ExposeXXV.pdf", "tome": 3, "pdfPages": "419-434", "bookPages": "410–425", "chapter_id": "XXV", "kind": "expose", "title": "Le théorème d'existence", "note": "par M. Demazure." },
+    { "pdf": "ExposeXXVI.pdf", "tome": 3, "pdfPages": "435-526", "bookPages": "426–517", "chapter_id": "XXVI", "kind": "expose", "title": "Sous-groupes paraboliques des groupes réductifs", "note": "par M. Demazure." },
+    { "pdf": "backmatterTome3.pdf", "tome": 3, "pdfPages": "527-538", "bookPages": "518–529", "chapter_id": null, "kind": "back-matter", "title": "Index des notations (PDF 527–528); Index terminologique of the whole seminar (PDF 529–538)" }
   ],
-  "excluded": [
-    { "pdf": "origTable_mat.pdf", "reason": "table of contents only — used to cross-check exposé titles/tome grouping, not converted into a viewer page" },
-    { "pdf": "Tabmat3ssguide.pdf", "reason": "table of contents (tome 3) only — same as above" },
-    { "pdf": "Index1-23mai11.pdf", "reason": "page-numbered terminology index — meaningless in reflowed HTML, same documented gap as sga1" },
-    { "pdf": "indexTome3-29mars.pdf", "reason": "page-numbered terminology index (tome 3) — same as above" }
-  ],
-  "outOfScope": [
-    { "pdf": "Hu_Mass equidistribution on the torus in the depth aspect_2020.pdf", "reason": "unrelated modern paper, not part of the SGA 3 source corpus — appeared in the source directory unexpectedly, flagged to user, left untouched and excluded from processing" }
+  "gaps": [
+    { "what": "Indexes (backmatterTome1/2/3.pdf)", "reason": "Not transcribed: no counterpart chapters in data/." }
   ]
 }

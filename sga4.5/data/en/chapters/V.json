@@ -19,7 +19,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>This exposé contains a few theorems and compatibilities, all\nrelating to Poincaré duality. In section <a class=\"ref\" href=\"#V:1\">1</a>, the local\nbiduality theorem in dimension \\(1\\) <span class=\"cite\">[<a class=\"cite-src\" id=\"sga5-cite-11\" href=\"#sga5\">21</a>]</span> and a few calculations of\ntwo. In section <a class=\"ref\" href=\"#V:2\">2</a>, a very economical proof of Poincaré\nduality on curves, which M. Artin taught me. In section\n<a class=\"ref\" href=\"#V:3\">3</a>, a compatibility linking two definitions of\nthe pairing that gives rise to Poincaré duality for curves: by\ncup-product, or by self-duality of the Jacobian. In section <a class=\"ref\" href=\"#V:4\">4</a>,\nfinally, the proof of the compatibility of the title.</p>"
+     "html": "<p>This exposé contains a few theorems and compatibilities, all\nrelating to Poincaré duality. In section <a class=\"ref\" href=\"#V:1\">1</a>, the local\nbiduality theorem in dimension \\(1\\) (SGA 5 I 5.1) and a few calculations of duals. In section <a class=\"ref\" href=\"#V:2\">2</a>, a very economical proof of Poincaré\nduality on curves, which M. Artin taught me. In section\n<a class=\"ref\" href=\"#V:3\">3</a>, a compatibility linking two definitions of\nthe pairing that gives rise to Poincaré duality for curves: by\ncup-product, or by self-duality of the Jacobian. In section <a class=\"ref\" href=\"#V:4\">4</a>,\nfinally, the proof of the compatibility of the title.</p>"
     },
     {
      "id": null,
@@ -202,7 +202,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>If \\(p\\) is the residue characteristic exponent, \\(I\\) is an extension of a\ngroup isomorphic to \\(\\widehat{\\mathbb{Z}}_{p'} = \\varprojlim_{(m,p)=1} \\mathbb{Z}/m\\) by a\n\\(p\\)-group \\(P\\). Since \\(P\\) is prime to the order of \\(M\\), we have\n\\(\\underline{\\operatorname{H}}^1(P,M)=0\\) (\\(i&gt;0\\)) and \\((M_I)^P=(M^P)_I\\). This allows us to replace \\(M\\) by\n\\(M^P\\) and \\(I\\) by \\(I/P\\). Finally, we have a functorial isomorphism\n\\(\\underline{\\operatorname{H}}^1(\\widehat{\\mathbb{Z}}_{p'},M)\\sim (\\)coinvariants of \\(\\widehat{\\mathbb{Z}}_{p'}\\), in \\(M)\\),\nwhence the theorem.</p>"
+     "html": "<p>If \\(p\\) is the residue characteristic exponent, \\(I\\) is an extension of a\ngroup isomorphic to \\(\\widehat{\\mathbb{Z}}_{p'} = \\varprojlim_{(m,p)=1} \\mathbb{Z}/m\\) by a\n\\(p\\)-group \\(P\\). Since \\(P\\) is prime to the order of \\(M\\), we have\n\\(\\underline{\\operatorname{H}}^i(P,M)=0\\) (\\(i&gt;0\\)) and \\((M_I)^P=(M^P)_I\\). This allows us to replace \\(M\\) by\n\\(M^P\\) and \\(I\\) by \\(I/P\\). Finally, we have a functorial isomorphism\n\\(\\underline{\\operatorname{H}}^1(\\widehat{\\mathbb{Z}}_{p'},M)\\sim (\\)coinvariants of \\(\\widehat{\\mathbb{Z}}_{p'}\\), in \\(M)\\),\nwhence the theorem.</p>"
     },
     {
      "id": "V:1-4",
@@ -245,7 +245,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Let \\(X\\) be a projective smooth curve over \\(k\\) algebraically closed. We set\n\\(\\mathscr{K}_X=\\mathbb{Z}/n(1)[2]\\) and, for \\(\\mathscr{K}\\in\\operatorname{Ob} \\mathsf{D}_c^b(X,\\mathbb{Z}/n)\\),\n\\(D\\mathscr{K}=\\mathsf{R}\\underline{\\operatorname{Hom}}(\\mathscr{K},\\mathscr{K}_X)\\). For \\(M\\) a \\(\\mathbb{Z}/n\\)-module, we also set\n\\(D M = \\hom(M,\\mathbb{Z}/n)\\); likewise for complexes of modules. The trace\nmorphism \\(\\underline{\\operatorname{H}}^0(X,\\mathscr{K}_X) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathbb{Z}/n\\), or \\(\\mathsf{R}\\Gamma(X,\\mathscr{K}_X)\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathbb{Z}/n\\), defines a\npairing \\(\\mathsf{R}\\Gamma(X,\\mathscr{K})\\overset{\\mathsf{L}}{\\otimes}\\mathsf{R}\\Gamma(X,D\\mathscr{K}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathbb{Z}/n\\). Poincaré\nduality between cohomology and cohomology with proper supports of an open\n\\(j:U\\hookrightarrow X\\) of \\(X\\) says that, for \\(\\mathscr{K}=j_!\\mathbb{Z}/n\\), this pairing\nidentifies each factor with the dual of the other.</p>"
+     "html": "<p>Let \\(X\\) be a smooth projective curve over an algebraically closed field \\(k\\). We set\n\\(\\mathscr{K}_X=\\mathbb{Z}/n(1)[2]\\) and, for \\(\\mathscr{K}\\in\\operatorname{Ob} \\mathsf{D}_c^b(X,\\mathbb{Z}/n)\\),\n\\(D\\mathscr{K}=\\mathsf{R}\\underline{\\operatorname{Hom}}(\\mathscr{K},\\mathscr{K}_X)\\). For \\(M\\) a \\(\\mathbb{Z}/n\\)-module, we also set\n\\(D M = \\hom(M,\\mathbb{Z}/n)\\); likewise for complexes of modules. The trace\nmorphism \\(\\underline{\\operatorname{H}}^0(X,\\mathscr{K}_X) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathbb{Z}/n\\), or \\(\\mathsf{R}\\Gamma(X,\\mathscr{K}_X)\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathbb{Z}/n\\), defines a\npairing \\(\\mathsf{R}\\Gamma(X,\\mathscr{K})\\overset{\\mathsf{L}}{\\otimes}\\mathsf{R}\\Gamma(X,D\\mathscr{K}) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathbb{Z}/n\\). Poincaré\nduality between cohomology and cohomology with proper supports of an open\n\\(j:U\\hookrightarrow X\\) of \\(X\\) says that, for \\(\\mathscr{K}=j_!\\mathbb{Z}/n\\), this pairing\nidentifies each factor with the dual of the other.</p>"
     },
     {
      "id": null,
@@ -301,7 +301,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>We reduce to checking that for \\(f\\) finite, we have that\n\\(f_\\ast \\mathsf{R} f^!\\mathscr{K}_Y = \\mathsf{R}\\underline{\\operatorname{Hom}}(f_\\ast\\mathbb{Z}/n,\\mathscr{K}_Y)\\) is \\(f_\\ast\\mathbb{Z}/n\\), with \\(\\operatorname{tr}_f\\)\nas adjunction arrow. The vanishing of the \\(\\operatorname{Ext}^i\\) (\\(i&gt;0\\)) follows from\n<a class=\"ref\" href=\"#V:1-3\">1.3</a>, and the assertion follows.</p>"
+     "html": "<p>We reduce to checking, for \\(f\\) finite, that\n\\(f_\\ast \\mathsf{R} f^!\\mathscr{K}_Y = \\mathsf{R}\\underline{\\operatorname{Hom}}(f_\\ast\\mathbb{Z}/n,\\mathscr{K}_Y)\\) is \\(f_\\ast\\mathbb{Z}/n\\), with \\(\\operatorname{tr}_f\\)\nas adjunction arrow. The vanishing of the \\(\\operatorname{Ext}^i\\) (\\(i&gt;0\\)) follows from\n<a class=\"ref\" href=\"#V:1-3\">1.3</a>, and the assertion follows.</p>"
     },
     {
      "id": null,
@@ -547,7 +547,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Let \\(e\\) be the difference of the images in \\(\\underline{\\operatorname{H}}^2(X\\times \\overline{X},j_!\\boldsymbol{\\mu}_n)\\) of the\ncohomology classes of \\(\\Delta\\) and \\(X\\times\\{0\\}\\) being of Künneth\ntype \\((0,2)\\), we have \\(c^{1,1}=e^{1,1}\\). Consider the Leray spectral sequence\nfor \\(\\mathrm{pr}_1:X\\times \\overline{X}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) and the sheaf \\(j_!\\boldsymbol{\\mu}_n\\):</p>"
+     "html": "<p>Let \\(e\\) be the difference of the images in \\(\\underline{\\operatorname{H}}^2(X\\times \\overline{X},j_!\\boldsymbol{\\mu}_n)\\) of the\ncohomology classes of \\(\\Delta\\) and \\(X\\times\\{0\\}\\). The class of \\(X\\times\\{0\\}\\)\nbeing of Künneth type \\((0,2)\\), we have \\(c^{1,1}=e^{1,1}\\). Consider the Leray spectral sequence\nfor \\(\\mathrm{pr}_1:X\\times \\overline{X}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) and the sheaf \\(j_!\\boldsymbol{\\mu}_n\\):</p>"
     },
     {
      "id": "disp-V:3-5",
@@ -589,14 +589,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>The direct image under \\(\\mathsf{R}\\mathrm{pr}_{1\\ast}\\) of the distinguished triangle defined by\n(<a class=\"ref\" href=\"#V:eq:2-2-1\">2.2.1</a>) is a distinguished triangle</p>"
+     "html": "<p>The direct image under \\(\\mathsf{R}\\mathrm{pr}_{1\\ast}\\) of the distinguished triangle defined by\n(<a class=\"ref\" href=\"#V:eq:3-2-1\">3.2.1</a>) is a distinguished triangle</p>"
     },
     {
      "id": "V:eq:3-2-2",
      "type": "equation",
      "label": "3.2.2",
      "title": null,
-     "html": "<div class=\"equation\" id=\"V:eq:3-2-2\">\n\\[\n\\tag{3.2.2}\n\\xymatrix{\n  &amp; \\ar[r]^-\\partial \n    &amp; \\mathsf{R} \\mathrm{pr}_{1\\ast} j_!\\boldsymbol{\\mu}_n \\ar[r] \n    &amp; \\mathsf{R} \\mathrm{pr}_{2\\ast}\\mathscr{G} \\ar[r] \n    &amp; \\mathsf{R} \\mathrm{pr}_{2\\ast}\\mathscr{G} \\ar[r]^-\\partial \n    &amp; \n}\n\\]\n</div>"
+     "html": "<div class=\"equation\" id=\"V:eq:3-2-2\">\n\\[\n\\tag{3.2.2}\n\\xymatrix{\n  &amp; \\ar[r]^-\\partial \n    &amp; \\mathsf{R} \\mathrm{pr}_{1\\ast} j_!\\boldsymbol{\\mu}_n \\ar[r] \n    &amp; \\mathsf{R} \\mathrm{pr}_{1\\ast}\\mathscr{G} \\ar[r] \n    &amp; \\mathsf{R} \\mathrm{pr}_{1\\ast}\\mathscr{G} \\ar[r]^-\\partial \n    &amp; \n}\n\\]\n</div>"
     },
     {
      "id": null,
@@ -659,7 +659,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>obtained by replacing \\({\\mathscr{B}'}^1=\\ker(d)\\) by the inverse image, under\n\\(\\ker(d)\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\underline{\\underline{\\operatorname{H}}}^1(\\mathscr{B}) = \\operatorname{Pic}_D(\\overline{X})\\) over \\(X\\), of\n\\(\\operatorname{Pic}_D^0(\\overline{X})\\) over \\(X\\). Let \\(\\mathscr{A}'=\\mathscr{A}\\cap \\mathscr{B}'\\) and \\(\\mathscr{C}'\\) be the image of\n\\(\\mathscr{B}'\\). We have \\(\\mathscr{A}'=\\tau_{\\leqslant 1}(\\mathscr{A})\\), and \\(\\mathscr{C}'\\) is deduced from \\(\\mathscr{C}\\)\nas \\(\\mathscr{B}'\\) from \\(\\mathscr{B}\\), whence a commutative diagram of short exact sequences</p>"
+     "html": "<p>obtained by replacing \\(\\mathscr{B}^1=\\ker(d)\\) by the inverse image, under\n\\(\\ker(d)\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\underline{\\underline{\\operatorname{H}}}^1(\\mathscr{B}) = \\operatorname{Pic}_D(\\overline{X})\\) over \\(X\\), of\n\\(\\operatorname{Pic}_D^0(\\overline{X})\\) over \\(X\\). Let \\(\\mathscr{A}'=\\mathscr{A}\\cap \\mathscr{B}'\\) and \\(\\mathscr{C}'\\) be the image of\n\\(\\mathscr{B}'\\). We have \\(\\mathscr{A}'=\\tau_{\\leqslant 1}(\\mathscr{A})\\), and \\(\\mathscr{C}'\\) is deduced from \\(\\mathscr{C}\\)\nas \\(\\mathscr{B}'\\) from \\(\\mathscr{B}\\), whence a commutative diagram of short exact sequences</p>"
     },
     {
      "id": "V:eq:3-2-3",
@@ -806,7 +806,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>The sign – comes from the permutation of two symbols of degree \\(1\\) in\n(1). Since \\(c\\smallsmile\\mathrm{pr}_1^\\ast x\\) and\n\\(c^{1,1}\\smallsmile \\mathrm{pr}_1^\\ast\\) have the same \\((2,1)\\)-Künneth component,\nand since \\(u'=c^{1,1}\\), we have</p>"
+     "html": "<p>The sign – comes from the permutation of two symbols of degree \\(1\\) in\n(1). Since \\(c\\smallsmile\\mathrm{pr}_1^\\ast x\\) and\n\\(c^{1,1}\\smallsmile \\mathrm{pr}_1^\\ast x\\) have the same \\((2,1)\\)-Künneth component,\nand since \\(u'=c^{1,1}\\), we have</p>"
     },
     {
      "id": "disp-V:3-14",
@@ -849,7 +849,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>In <span class=\"cite\">[<a class=\"cite-src\" id=\"sga4-cite-33\" href=\"#sga4\">2</a>]</span>, in the grip of discouragement, I did not check\nthe compatibility of the title. Although it turns out to be nothing but smoke, I feel\nbound to remedy this gap here. For \\(f:X\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} S\\) separated of finite\ntype, it was a matter of checking that the adjunction morphism\n\\(\\mathsf{R} f_!\\mathsf{R} f^!\\mathscr{L}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{L}\\) is compatible with every étale localization\n\\(k:V\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} S\\). Denoting by \\(k\\) and \\(f\\) several arrows, as below,\nwe must check a commutativity:</p>"
+     "html": "<p>In SGA 4 XVIII, in the grip of discouragement, I did not check\nthe compatibility announced in the title. Although it turns out to be nothing but smoke, I feel\nbound to remedy this gap here. For a separated morphism of finite type \\(f:X\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} S\\),\nit was a matter of checking that the adjunction morphism\n\\(\\mathsf{R} f_!\\mathsf{R} f^!\\mathscr{L}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\mathscr{L}\\) is compatible with every étale localization\n\\(k:V\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} S\\). Denoting by \\(k\\) and \\(f\\) several arrows, as below,\nwe must check a commutativity:</p>"
     },
     {
      "id": "disp-V:4-1",
@@ -898,7 +898,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>In the first row, one finds a homomorphism\n\\(k _! f^! \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} f_! f^! k f_! f^!\\), defined because \\(k f_! f^!\\) is of the\nform \\(f_! X\\) (\\(X=k f^!\\)); it has as retraction the adjunction morphism\nin the second row, and the commutativity of the lower square expresses the\nfunctoriality of this adjunction morphism.</p>"
+     "html": "<p>In the first row, one finds a homomorphism\n\\(k f_! f^! \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} f_! f^! k f_! f^!\\), defined because \\(k f_! f^!\\) is of the\nform \\(f_! X\\) (\\(X=k f^!\\)); it has as retraction the adjunction morphism\nin the second row, and the commutativity of the lower square expresses the\nfunctoriality of this adjunction morphism.</p>"
     }
    ],
    "footnotes": [],

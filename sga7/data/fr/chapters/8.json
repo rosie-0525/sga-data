@@ -1010,59 +1010,59 @@
     },
     {
      "id": "8.2.1.10",
-     "type": "lemma",
+     "type": "lemme",
+     "label": "2.1.10.",
+     "title": "Lemme",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"8.2.1.10\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">2.1.10.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P\\) et \\(Q\\) deux Groupes commutatifs, \\(n&gt;0\\) un entier. Alors le diagramme suivant est anticommutatif, où \\(\\alpha\\) est défini dans (2.1.1) :</p>\n  \\[(2.1.10.1)\\qquad\n\\xymatrix{\n{{}_nP\\otimes{}_nQ}\\ar[r]^{\\sim}\\ar[d]_{\\alpha^n_{P,Q}}&amp;{{}_nQ\\otimes{}_nP}\\ar[d]^{\\alpha^n_{Q,P}}\\\\\n{\\underline{\\operatorname{Tor}}_1(P,Q)}\\ar[r]^{\\sim}&amp;{\\underline{\\operatorname{Tor}}_1(Q,P)}},\\]\n<p>les flèches horizontales étant les isomorphismes de symétrie.</p></div>\n</div>"
+    },
+    {
+     "id": "proof-8-2-b41",
+     "type": "proof",
      "label": null,
-     "title": "Lemme 2.1.10.",
-     "html": "<div class=\"thm lemma\" id=\"8.2.1.10\">\n<div class=\"thm-head\"><span class=\"thm-name\"><u>Lemme 2.1.10.</u></span> <u>Soient \\(P\\) et \\(Q\\) deux Groupes commutatifs, \\(n&gt;0\\) un entier. Alors le diagramme suivant est anticommutatif, où \\(\\alpha\\) est défini dans (2.1.1) :</u></div>\n<div class=\"thm-body\">\n\\[(2.1.10.1)\\qquad\n\\xymatrix{\n{{}_nP\\otimes{}_nQ}\\ar[r]^{\\sim}\\ar[d]_{\\alpha^n_{P,Q}}&amp;{{}_nQ\\otimes{}_nP}\\ar[d]^{\\alpha^n_{Q,P}}\\\\\n{\\underline{\\operatorname{Tor}}_1(P,Q)}\\ar[r]^{\\sim}&amp;{\\underline{\\operatorname{Tor}}_1(Q,P)}},\\]\n<p><u>les flèches horizontales étant les isomorphismes de symétrie.</u></p>\n</div></div>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-8-2-b41\" data-proof-group=\"proof-8-2-b41\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>Le procédé de 2.1.8 nous ramène aussitôt au cas où on a \\(P=Q=(\\mathbb Z/n\\mathbb Z)_T\\), et à prouver alors que les deux isomorphismes (2.1.8.1) obtenus en résolvant, par (2.1.8.2), le premier et le deuxième argument respectivement intervenant dans le \\(\\underline{\\operatorname{Tor}}_1\\), on trouve des isomorphismes qui diffèrent par le signe (ou encore, que l'isomorphisme de symétrie sur \\(\\underline{\\operatorname{Tor}}_1^{\\mathbb Z}(\\mathbb Z/n\\mathbb Z,\\mathbb Z/n\\mathbb Z)\\) est \\(-\\mathrm{id}\\)). On peut évidemment supposer pour ceci que \\(T\\) est le topos ponctuel, i.e. qu'on travaille dans la catégorie des groupes commutatifs ordinaires. Or soit \\(L_\\bullet\\) le complexe</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p><u>Démonstration.</u> Le procédé de 2.1.8 nous ramène aussitôt au cas où on a \\(P=Q=(\\mathbb Z/n\\mathbb Z)_T\\), et à prouver alors que les deux isomorphismes (2.1.8.1) obtenus en résolvant, par (2.1.8.2), le premier et le deuxième argument respectivement intervenant dans le \\(\\underline{\\operatorname{Tor}}_1\\), on trouve des isomorphismes qui diffèrent par le signe (ou encore, que l'isomorphisme de symétrie sur \\(\\underline{\\operatorname{Tor}}_1^{\\mathbb Z}(\\mathbb Z/n\\mathbb Z,\\mathbb Z/n\\mathbb Z)\\) est \\(-\\mathrm{id}\\)). On peut évidemment supposer pour ceci que \\(T\\) est le topos ponctuel, i.e. qu'on travaille dans la catégorie des groupes commutatifs ordinaires. Or soit \\(L_\\bullet\\) le complexe</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b41\">\n  <div class=\"proof-body\"><p>\n\n\\[L_\\bullet=\\quad0\\longrightarrow\\mathbb Z\\mathrel{\\mathop{\\longrightarrow}^{n}}\\mathbb Z\\longrightarrow0,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[L_\\bullet=\\quad0\\longrightarrow\\mathbb Z\\mathrel{\\mathop{\\longrightarrow}^{n}}\\mathbb Z\\longrightarrow0,\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b41\">\n  <div class=\"proof-body\"><p>considéré comme résolution plate de \\(P=Q=\\mathbb Z/n\\mathbb Z\\). Utilisons \\(L_\\bullet\\otimes L_\\bullet\\) pour le calcul de \\(\\operatorname{Tor}_1(P,Q)=\\operatorname{Tor}_1(\\mathbb Z/n\\mathbb Z,\\mathbb Z/n\\mathbb Z)\\), alors les isomorphismes avec le \\(H_1\\) de \\(L_\\bullet\\otimes\\mathbb Z/n\\mathbb Z\\) (qui permet de définir \\(\\alpha\\)) et avec le \\(H_1\\) de \\(\\mathbb Z/n\\mathbb Z\\otimes L_\\bullet\\) (qui permet de définir \\(\\beta\\)) sont définis respectivement par l'augmentation \\(L_\\bullet\\longrightarrow\\mathbb Z/n\\mathbb Z\\) du deuxième et du premier facteur de \\(L_\\bullet\\otimes L_\\bullet\\). Il s'ensuit aussitôt que \\(\\alpha(1,1)\\) est représenté par le cycle</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>considéré comme résolution plate de \\(P=Q=\\mathbb Z/n\\mathbb Z\\). Utilisons \\(L_\\bullet\\otimes L_\\bullet\\) pour le calcul de \\(\\operatorname{Tor}_1(P,Q)=\\operatorname{Tor}_1(\\mathbb Z/n\\mathbb Z,\\mathbb Z/n\\mathbb Z)\\), alors les isomorphismes avec le \\(H_1\\) de \\(L_\\bullet\\otimes\\mathbb Z/n\\mathbb Z\\) (qui permet de définir \\(\\alpha\\)) et avec le \\(H_1\\) de \\(\\mathbb Z/n\\mathbb Z\\otimes L_\\bullet\\) (qui permet de définir \\(\\beta\\)) sont définis respectivement par l'augmentation \\(L_\\bullet\\longrightarrow\\mathbb Z/n\\mathbb Z\\) du deuxième et du premier facteur de \\(L_\\bullet\\otimes L_\\bullet\\). Il s'ensuit aussitôt que \\(\\alpha(1,1)\\) est représenté par le cycle</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b41\">\n  <div class=\"proof-body\"><p>\n\n\\[-1_0\\otimes1_1+1_1\\otimes1_0\\in(L_\\bullet\\otimes L_\\bullet)_1\n=L_0\\otimes L_1+L_1\\otimes L_0\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[-1_0\\otimes1_1+1_1\\otimes1_0\\in(L_\\bullet\\otimes L_\\bullet)_1\n=L_0\\otimes L_1+L_1\\otimes L_0\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b41\">\n  <div class=\"proof-body\"><p>(NB on désigne par \\(1_0\\) et \\(1_1\\) respectivement l'élément 1 de \\(L_0\\) et de \\(L_1\\)), tandis que \\(\\beta(1,1)\\) est représenté par le cycle \\(1_0\\otimes1_1-1_1\\otimes1_0\\). Cela prouve donc 2.1.10.</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>(NB on désigne par \\(1_0\\) et \\(1_1\\) respectivement l'élément 1 de \\(L_0\\) et de \\(L_1\\)), tandis que \\(\\beta(1,1)\\) est représenté par le cycle \\(1_0\\otimes1_1-1_1\\otimes1_0\\). Cela prouve donc 2.1.10.</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>Pour terminer ces généralités sur les accouplements \\(\\alpha\\), il faut encore préciser les relations entre les divers homomorphismes \\(\\alpha^n_{P,Q}\\), pour \\(n\\) variable. Le résultat principal est donné dans le</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-8-2-b41\">\n  <div class=\"proof-body\"><p>Pour terminer ces généralités sur les accouplements \\(\\alpha\\), il faut encore préciser les relations entre les divers homomorphismes \\(\\alpha^n_{P,Q}\\), pour \\(n\\) variable. Le résultat principal est donné dans le</p></div>\n</div>"
     },
     {
      "id": "8.2.1.11",
-     "type": "lemma",
-     "label": null,
-     "title": "Lemme 2.1.11.",
-     "html": "<div class=\"thm lemma\" id=\"8.2.1.11\">\n<div class=\"thm-head\"><span class=\"thm-name\"><u>Lemme 2.1.11.</u></span> <u>Soient \\(P,Q\\) deux Groupes commutatifs de \\(T\\), \\(n\\) et \\(n'\\) deux entiers \\(&gt;0\\) tels que \\(n'\\) soit un multiple de \\(n\\), soit \\(n'=mn\\). Alors on a commutativité dans le diagramme suivant</u></div>\n<div class=\"thm-body\">\n\\[(2.1.11.1)\\qquad\n\\xymatrix@C=4em@R=3em{\n&amp;{{}_{n'}P\\otimes{}_nQ}\\ar[dl]_{p_m\\otimes\\mathrm{id}_{{}_nQ}}\\ar[dr]^{\\mathrm{id}_{{}_{n'}P}\\otimes i_m}&amp;\\\\\n{{}_nP\\otimes{}_nQ}\\ar[dr]_{\\alpha^n_{P,Q}}&amp;&amp;{{}_{n'}P\\otimes{}_{n'}Q}\\ar[dl]^{\\alpha^{n'}_{P,Q}}\\\\\n&amp;{\\underline{\\operatorname{Tor}}_1(P,Q)}&amp;\n}\\]\n<p><u>où \\(p_m:{}_{n'}P\\longrightarrow{}_nP\\) désigne l'homomorphisme induit par \\(m.\\mathrm{id}_P\\), et \\(i_m:{}_nQ\\longrightarrow{}_{n'}Q\\) désigne l'inclusion. On a de même commutativité dans le diagramme analogue (2.1.11.2), symétrique de (2.1.11.1), dont les sommets sont les mêmes que ceux de (2.1.11.1), sauf le sommet supérieur \\({}_{n'}P\\otimes{}_nQ\\), qui est remplacé par \\({}_nP\\otimes{}_{n'}Q\\).</u></p>\n</div></div>"
+     "type": "lemme",
+     "label": "2.1.11.",
+     "title": "Lemme",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"8.2.1.11\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">2.1.11.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P,Q\\) deux Groupes commutatifs de \\(T\\), \\(n\\) et \\(n'\\) deux entiers \\(&gt;0\\) tels que \\(n'\\) soit un multiple de \\(n\\), soit \\(n'=mn\\). Alors on a commutativité dans le diagramme suivant</p>\n  \\[(2.1.11.1)\\qquad\n\\xymatrix@C=4em@R=3em{\n&amp;{{}_{n'}P\\otimes{}_nQ}\\ar[dl]_{p_m\\otimes\\mathrm{id}_{{}_nQ}}\\ar[dr]^{\\mathrm{id}_{{}_{n'}P}\\otimes i_m}&amp;\\\\\n{{}_nP\\otimes{}_nQ}\\ar[dr]_{\\alpha^n_{P,Q}}&amp;&amp;{{}_{n'}P\\otimes{}_{n'}Q}\\ar[dl]^{\\alpha^{n'}_{P,Q}}\\\\\n&amp;{\\underline{\\operatorname{Tor}}_1(P,Q)}&amp;\n}\\]\n<p>où \\(p_m:{}_{n'}P\\longrightarrow{}_nP\\) désigne l'homomorphisme induit par \\(m.\\mathrm{id}_P\\), et \\(i_m:{}_nQ\\longrightarrow{}_{n'}Q\\) désigne l'inclusion. On a de même commutativité dans le diagramme analogue (2.1.11.2), symétrique de (2.1.11.1), dont les sommets sont les mêmes que ceux de (2.1.11.1), sauf le sommet supérieur \\({}_{n'}P\\otimes{}_nQ\\), qui est remplacé par \\({}_nP\\otimes{}_{n'}Q\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1101,10 +1101,10 @@
     },
     {
      "id": "8.2.1.12",
-     "type": "corollary",
-     "label": null,
-     "title": "Corollaire 2.1.12.",
-     "html": "<div class=\"thm corollary\" id=\"8.2.1.12\">\n<div class=\"thm-head\"><span class=\"thm-name\"><u>Corollaire 2.1.12.</u></span> <u>Avec les notations de 2.1.11, on a commutativité dans le diagramme suivant</u></div>\n<div class=\"thm-body\">\n\\[(2.1.12.1)\\qquad\n\\xymatrix@C=5em@R=3em{\n{{}_{n'}P\\otimes{}_{n'}Q}\\ar[r]^{m\\otimes m}\\ar[d]_{\\alpha^{n'}_{P,Q}}&amp;{{}_nP\\otimes{}_nQ}\\ar[d]^{\\alpha^n_{P,Q}}\\\\\n{{}_{n'}\\underline{\\operatorname{Tor}}_1(P,Q)}\\ar[r]^{m}&amp;{{}_n\\underline{\\operatorname{Tor}}_1(P,Q)}},\\]\n<p><u>où, dans la description des flèches horizontales, \\(m\\) désigne les homomorphismes \\({}_{n'}E\\longrightarrow{}_nE\\) induits par \\(m.\\mathrm{id}_E\\) (pour \\(E\\) égal respectivement à \\(P,Q\\) et à \\(\\underline{\\operatorname{Tor}}_1(P,Q)\\)).</u></p>\n</div></div>"
+     "type": "corollaire",
+     "label": "2.1.12.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.2.1.12\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">2.1.12.</span></div>\n  <div class=\"thm-body\"><p>Avec les notations de 2.1.11, on a commutativité dans le diagramme suivant</p>\n  \\[(2.1.12.1)\\qquad\n\\xymatrix@C=5em@R=3em{\n{{}_{n'}P\\otimes{}_{n'}Q}\\ar[r]^{m\\otimes m}\\ar[d]_{\\alpha^{n'}_{P,Q}}&amp;{{}_nP\\otimes{}_nQ}\\ar[d]^{\\alpha^n_{P,Q}}\\\\\n{{}_{n'}\\underline{\\operatorname{Tor}}_1(P,Q)}\\ar[r]^{m}&amp;{{}_n\\underline{\\operatorname{Tor}}_1(P,Q)}},\\]\n<p>où, dans la description des flèches horizontales, \\(m\\) désigne les homomorphismes \\({}_{n'}E\\longrightarrow{}_nE\\) induits par \\(m.\\mathrm{id}_E\\) (pour \\(E\\) égal respectivement à \\(P,Q\\) et à \\(\\underline{\\operatorname{Tor}}_1(P,Q)\\)).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1164,17 +1164,10 @@
     },
     {
      "id": "8.2.1.14",
-     "type": "paragraph",
+     "type": "remarque",
      "label": null,
-     "title": null,
-     "html": "<p id=\"8.2.1.14\"><u>Remarque</u> 2.1.14. On peut généraliser la construction de l'homomorphisme (2.1.1) et les résultats 2.1.10 et 2.1.11 le concernant au cas où on se donne un Anneau commutatif \\(A\\) sur \\(T\\), et deux Idéaux \\(\\mathfrak a\\) et \\(\\mathfrak b\\) de \\(A\\) (qui dans le cas traités précédemment se réduisent au même Idéal \\(n\\mathbb Z_T\\) de l'Anneau constant \\(\\mathbb Z_T\\) sur \\(T\\)). On définit alors un homomorphisme fonctoriel en les \\(A\\)-Modules \\(P,Q\\) :</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\n\\[(2.1.14.1)\\qquad {}_{\\mathfrak a}P\\otimes{}_{\\mathfrak b}Q\n\\mathrel{\\mathop{\\longrightarrow}^{\\alpha}}\n\\underline{\\operatorname{Hom}}_A(\\mathfrak a\\cap\\mathfrak b/\\mathfrak a\\mathfrak b,\n\\underline{\\operatorname{Tor}}_1^A(P,Q)),\\]\n\n</p>"
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.2.1.14\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span></div>\n  <div class=\"thm-body\"><p>2.1.14. On peut généraliser la construction de l'homomorphisme (2.1.1) et les résultats 2.1.10 et 2.1.11 le concernant au cas où on se donne un Anneau commutatif \\(A\\) sur \\(T\\), et deux Idéaux \\(\\mathfrak a\\) et \\(\\mathfrak b\\) de \\(A\\) (qui dans le cas traités précédemment se réduisent au même Idéal \\(n\\mathbb Z_T\\) de l'Anneau constant \\(\\mathbb Z_T\\) sur \\(T\\)). On définit alors un homomorphisme fonctoriel en les \\(A\\)-Modules \\(P,Q\\) : \\[(2.1.14.1)\\qquad {}_{\\mathfrak a}P\\otimes{}_{\\mathfrak b}Q\n\\mathrel{\\mathop{\\longrightarrow}^{\\alpha}}\n\\underline{\\operatorname{Hom}}_A(\\mathfrak a\\cap\\mathfrak b/\\mathfrak a\\mathfrak b,\n\\underline{\\operatorname{Tor}}_1^A(P,Q)),\\]</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1466,9 +1459,9 @@
     {
      "id": "8.2.2.11",
      "type": "proposition",
-     "label": null,
-     "title": "Proposition 2.2.11.",
-     "html": "<div class=\"thm proposition\" id=\"8.2.2.11\">\n<div class=\"thm-head\"><span class=\"thm-name\"><u>Proposition 2.2.11.</u></span> <u>On a anticommutativité dans les diagrammes suivants</u> :</div>\n<div class=\"thm-body\">\n\\[(2.2.11.1)\\qquad \\xymatrix{\n\\operatorname{Biext}^1(P,Q;G)\\ar[r]^{\\sim}\\ar[d]_{\\varphi^n_{P,Q}}&amp;\n\\operatorname{Biext}^1(Q,P;G)\\ar[d]^{\\varphi^n_{Q,P}}\\\\\n\\operatorname{Hom}({}_nP\\otimes{}_nQ,G)\\ar[r]^{\\sim}&amp;\n\\operatorname{Hom}({}_nQ\\otimes{}_nP,G),\n}\\]\n\n\\[(2.2.11.2)\\qquad \\xymatrix{\n\\operatorname{Biext}^1(P,Q;G)\\ar[r]^{\\sim}\\ar[d]_{\\varphi^{(\\ell)}_{P,Q}}&amp;\n\\operatorname{Biext}^1(Q,P;G)\\ar[d]^{\\varphi^{(\\ell)}_{Q,P}}\\\\\n\\operatorname{Hom}(T_\\ell(P)\\otimes T_\\ell(Q),T_\\ell(G))\\ar[r]^{\\sim}&amp;\n\\operatorname{Hom}(T_\\ell(Q)\\otimes T_\\ell(P),T_\\ell(G)),\n}\\]\n<p><u>où les flèches horizontales sont les flèches de symétrie.</u></p>\n</div></div>"
+     "label": "2.2.11.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.2.2.11\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">2.2.11.</span></div>\n  <div class=\"thm-body\"><p><u>On a anticommutativité dans les diagrammes suivants</u> :</p>\n  \\[(2.2.11.1)\\qquad \\xymatrix{\n\\operatorname{Biext}^1(P,Q;G)\\ar[r]^{\\sim}\\ar[d]_{\\varphi^n_{P,Q}}&amp;\n\\operatorname{Biext}^1(Q,P;G)\\ar[d]^{\\varphi^n_{Q,P}}\\\\\n\\operatorname{Hom}({}_nP\\otimes{}_nQ,G)\\ar[r]^{\\sim}&amp;\n\\operatorname{Hom}({}_nQ\\otimes{}_nP,G),\n}\\]\n\n\\[(2.2.11.2)\\qquad \\xymatrix{\n\\operatorname{Biext}^1(P,Q;G)\\ar[r]^{\\sim}\\ar[d]_{\\varphi^{(\\ell)}_{P,Q}}&amp;\n\\operatorname{Biext}^1(Q,P;G)\\ar[d]^{\\varphi^{(\\ell)}_{Q,P}}\\\\\n\\operatorname{Hom}(T_\\ell(P)\\otimes T_\\ell(Q),T_\\ell(G))\\ar[r]^{\\sim}&amp;\n\\operatorname{Hom}(T_\\ell(Q)\\otimes T_\\ell(P),T_\\ell(G)),\n}\\]\n<p>où les flèches horizontales sont les flèches de symétrie.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1479,24 +1472,17 @@
     },
     {
      "id": "8.2.2.12",
-     "type": "corollary",
-     "label": null,
-     "title": "Corollaire 2.2.12.",
-     "html": "<div class=\"thm corollary\" id=\"8.2.2.12\">\n<div class=\"thm-head\"><span class=\"thm-name\"><u>Corollaire 2.2.12.</u></span> <u>Supposons \\(P=Q\\), et supposons que \\(\\xi\\) soit la classe\nd'une biextension symétrique (resp. antisymétrique) de \\((P,Q)\\) par \\(G\\), i.e. qu'on ait \\({}^s\\xi=\\xi\\) (resp. \\({}^s\\xi=-\\xi\\)), où\n\\({}^s\\xi\\) désigne l'image de \\(\\xi\\) par symétrie. Alors les applications bilinéaires \\(\\varphi^n_\\xi\\) (sur \\({}_nP\\times{}_nP\\)) et\n\\(\\varphi^{(\\ell)}_\\xi\\) (sur \\(T_\\ell(P)\\times T_\\ell(P)\\)) sont antisymétriques (resp. symétriques).</u></div>\n</div>"
+     "type": "corollaire",
+     "label": "2.2.12.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.2.2.12\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">2.2.12.</span></div>\n  <div class=\"thm-body\"><p>Supposons \\(P=Q\\), et supposons que \\(\\xi\\) soit la classe\nd'une biextension symétrique (resp. antisymétrique) de \\((P,Q)\\) par \\(G\\), i.e. qu'on ait \\({}^s\\xi=\\xi\\) (resp. \\({}^s\\xi=-\\xi\\)), où\n\\({}^s\\xi\\) désigne l'image de \\(\\xi\\) par symétrie. Alors les applications bilinéaires \\(\\varphi^n_\\xi\\) (sur \\({}_nP\\times{}_nP\\)) et\n\\(\\varphi^{(\\ell)}_\\xi\\) (sur \\(T_\\ell(P)\\times T_\\ell(P)\\)) sont antisymétriques (resp. symétriques).</p></div>\n</div>"
     },
     {
      "id": "8.2.2.13",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.2.2.13\"><u>Remarque 2.2.13.</u> Supposons \\(\\xi\\) symétrique. Si \\(n\\) (resp. \\(\\ell\\)) est impair, alors\nil résulte de 2.2.12 que \\(\\varphi^n_\\xi\\) (resp. \\(\\varphi^{(\\ell)}_\\xi\\)) est même une forme alternée.\nCette conclusion n'est pas valable en général sans la restriction \\(n\\) resp. \\(\\ell\\) impair, comme on voit déjà dans le cas où \\(P\\) est le groupe ordinaire\n\\(\\mathbb Z/2\\mathbb Z\\), et \\(G=\\mathbb Z/2\\mathbb Z\\). Supposons cependant que l'on ait \\(2P=P\\),\n(ce qui est le cas en particulier si \\(P\\) est un schéma abélien, en travaillant comme d'habitude avec la topologie fppf (ou fpqc)), alors il est\nencore vrai que les formes précédentes sont alternées. Il suffit de voir que \\(\\varphi^{2^\\nu}(x,x)=0\\), or, comme \\(2P=P\\), on peut supposer que l'élément donné\n\\(x\\in{}_{2^\\nu}P(S)\\) est de la forme \\(2y\\), avec \\(y\\in{}_{2^{\\nu+1}}P(S)\\), et on a alors</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\n\\[\\varphi^{2^\\nu}(x,x)=2\\varphi^{2^{\\nu+1}}(y,y)=0,\\quad\\text{puisque }\\varphi^{2^{\\nu+1}}\\text{ est antisymétrique}.\\]\n\n</p>"
+     "type": "remarque",
+     "label": "2.2.13.",
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.2.2.13\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">2.2.13.</span></div>\n  <div class=\"thm-body\"><p>Supposons \\(\\xi\\) symétrique. Si \\(n\\) (resp. \\(\\ell\\)) est impair, alors\nil résulte de 2.2.12 que \\(\\varphi^n_\\xi\\) (resp. \\(\\varphi^{(\\ell)}_\\xi\\)) est même une forme alternée.\nCette conclusion n'est pas valable en général sans la restriction \\(n\\) resp. \\(\\ell\\) impair, comme on voit déjà dans le cas où \\(P\\) est le groupe ordinaire\n\\(\\mathbb Z/2\\mathbb Z\\), et \\(G=\\mathbb Z/2\\mathbb Z\\). Supposons cependant que l'on ait \\(2P=P\\),\n(ce qui est le cas en particulier si \\(P\\) est un schéma abélien, en travaillant comme d'habitude avec la topologie fppf (ou fpqc)), alors il est\nencore vrai que les formes précédentes sont alternées. Il suffit de voir que \\(\\varphi^{2^\\nu}(x,x)=0\\), or, comme \\(2P=P\\), on peut supposer que l'élément donné\n\\(x\\in{}_{2^\\nu}P(S)\\) est de la forme \\(2y\\), avec \\(y\\in{}_{2^{\\nu+1}}P(S)\\), et on a alors \\[\\varphi^{2^\\nu}(x,x)=2\\varphi^{2^{\\nu+1}}(y,y)=0,\\quad\\text{puisque }\\varphi^{2^{\\nu+1}}\\text{ est antisymétrique}.\\]</p></div>\n</div>"
     },
     {
      "id": "8.2.3",
@@ -1662,9 +1648,9 @@
     {
      "id": "8.2.3.11",
      "type": "proposition",
-     "label": null,
-     "title": "Proposition 2.3.11.",
-     "html": "<div class=\"thm proposition\" id=\"8.2.3.11\">\n<div class=\"thm-head\"><span class=\"thm-name\">Proposition 2.3.11.</span></div>\n<div class=\"thm-body\"><p>Le diagramme (2.3.10) est anticommutatif.</p></div></div>"
+     "label": "2.3.11.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.2.3.11\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition 2.3.11.</span></div>\n  <div class=\"thm-body\"><p>Le diagramme (2.3.10) est anticommutatif.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -1674,508 +1660,508 @@
      "html": "<p>Dans le cas où \\(\\underline{\\operatorname{Hom}}(Q,G)=0\\), cet énoncé redonne donc une\ncaractérisation de l'homomorphisme \\(\\varphi^n\\) de (2.2.2) en termes des homomorphismes\n(2.3.5) et (2.3.9), qui est celle utilisée précédemment en théorie des schémas abéliens\n(où d'ailleurs on a \\(nQ=Q\\)).</p>"
     },
     {
-     "id": null,
-     "type": "paragraph",
+     "id": "proof-8-2-b135",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<p><u>Démonstration de 2.3.11</u> <sup>(<a href=\"#8-8.fn-1\" id=\"8-8.fn-1ref\">*</a>)</sup>.\nSoient \\(\\xi\\) un élément de \\(\\operatorname{Biext}^1(P,Q;G)\\),\n\\(\\varphi_\\xi:{}_nP\\otimes{}_nQ\\longrightarrow G\\) l'accouplement associé, et\n\\(u_\\xi:{}_nP\\longrightarrow\\underline{\\operatorname{Ext}}^1(nQ,G)\\)\nl'homomorphisme image de \\(\\xi\\) par (2.3.5). Il faut prouver que \\(-u_\\xi\\) se\ndéduit de \\(\\varphi_\\xi\\) par la flèche (2.3.9), i.e. que c'est le composé</p>"
+     "title": "Démonstration de 2.3.11",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-8-2-b135\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration de 2.3.11</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p><sup>(<a href=\"#8-8.fn-1\" id=\"8-8.fn-1ref\">*</a>)</sup>.\nSoient \\(\\xi\\) un élément de \\(\\operatorname{Biext}^1(P,Q;G)\\),\n\\(\\varphi_\\xi:{}_nP\\otimes{}_nQ\\longrightarrow G\\) l'accouplement associé, et\n\\(u_\\xi:{}_nP\\longrightarrow\\underline{\\operatorname{Ext}}^1(nQ,G)\\)\nl'homomorphisme image de \\(\\xi\\) par (2.3.5). Il faut prouver que \\(-u_\\xi\\) se\ndéduit de \\(\\varphi_\\xi\\) par la flèche (2.3.9), i.e. que c'est le composé</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[(*)\\qquad {}_nP\\xrightarrow{\\ \\varphi_\\xi\\ }\n\\underline{\\operatorname{Hom}}({}_nQ,G)\\xrightarrow{\\ (2.3.8)\\ }\n{}_n\\underline{\\operatorname{Ext}}^1(nQ,G).\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[(*)\\qquad {}_nP\\xrightarrow{\\ \\varphi_\\xi\\ }\n\\underline{\\operatorname{Hom}}({}_nQ,G)\\xrightarrow{\\ (2.3.8)\\ }\n{}_n\\underline{\\operatorname{Ext}}^1(nQ,G).\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Pour prouver ceci, on peut supposer donnée une section \\(x\\) de \\({}_nP\\) et prouver\nque son image \\(-u_\\xi\\) est égale à son image par le composé (*). (Ceci nous permettrait,\nsi nous le désirions, de nous ramener au cas où \\(P=(\\mathbb Z/n\\mathbb Z)_T\\), mais cette\nréduction ne nous sera pas nécessaire.)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Pour prouver ceci, on peut supposer donnée une section \\(x\\) de \\({}_nP\\) et prouver\nque son image \\(-u_\\xi\\) est égale à son image par le composé (*). (Ceci nous permettrait,\nsi nous le désirions, de nous ramener au cas où \\(P=(\\mathbb Z/n\\mathbb Z)_T\\), mais cette\nréduction ne nous sera pas nécessaire.)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>a) Choisissons des résolutions plates \\(L_\\bullet\\) et \\(M_\\bullet\\),</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>a) Choisissons des résolutions plates \\(L_\\bullet\\) et \\(M_\\bullet\\),</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow L_1\\longrightarrow L_0\\longrightarrow0,\n\\qquad 0\\longrightarrow M_1\\longrightarrow M_0\\longrightarrow0\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[0\\longrightarrow L_1\\longrightarrow L_0\\longrightarrow0,\n\\qquad 0\\longrightarrow M_1\\longrightarrow M_0\\longrightarrow0\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>de \\(P\\) et \\(Q\\) respectivement, une résolution plate de \\(P\\) (par exemple) étant\nobtenue en écrivant \\(P\\) comme quotient d'un \\(\\mathbb Z_T\\)-Module plat \\(L_0\\), et en\ndésignant par \\(L_1\\) le noyau de \\(L_0\\longrightarrow P\\) (qui est plat, car sans torsion).\nOn en déduit un complexe \\(L_\\bullet\\otimes M_\\bullet\\)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>de \\(P\\) et \\(Q\\) respectivement, une résolution plate de \\(P\\) (par exemple) étant\nobtenue en écrivant \\(P\\) comme quotient d'un \\(\\mathbb Z_T\\)-Module plat \\(L_0\\), et en\ndésignant par \\(L_1\\) le noyau de \\(L_0\\longrightarrow P\\) (qui est plat, car sans torsion).\nOn en déduit un complexe \\(L_\\bullet\\otimes M_\\bullet\\)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow L_1\\otimes M_1\\xrightarrow{d_2}\nL_1\\otimes M_0+L_0\\otimes M_1\\xrightarrow{d_1}L_0\\otimes M_0\\longrightarrow0,\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[0\\longrightarrow L_1\\otimes M_1\\xrightarrow{d_2}\nL_1\\otimes M_0+L_0\\otimes M_1\\xrightarrow{d_1}L_0\\otimes M_0\\longrightarrow0,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>dont le faisceau \\(\\underline H_1\\) nous servira de\n\\(\\underline{\\operatorname{Tor}}_1(P,Q)\\). Désignons par \\(L'_0\\) resp. \\(M'_0\\) le\nsous-faisceau de \\(L_0\\) resp. \\(M_0\\) image inverse de \\({}_nP\\) resp. \\({}_nQ\\), de\nsorte que le complexe \\(0\\longrightarrow L_1\\longrightarrow L'_0\\longrightarrow0\\)\n(resp. le complexe \\(0\\longrightarrow M_1\\longrightarrow M'_0\\longrightarrow0\\)) est une\nrésolution plate de \\({}_nP\\) (resp. de \\({}_nQ\\)). On peut alors expliciter\nl'homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>dont le faisceau \\(\\underline H_1\\) nous servira de\n\\(\\underline{\\operatorname{Tor}}_1(P,Q)\\). Désignons par \\(L'_0\\) resp. \\(M'_0\\) le\nsous-faisceau de \\(L_0\\) resp. \\(M_0\\) image inverse de \\({}_nP\\) resp. \\({}_nQ\\), de\nsorte que le complexe \\(0\\longrightarrow L_1\\longrightarrow L'_0\\longrightarrow0\\)\n(resp. le complexe \\(0\\longrightarrow M_1\\longrightarrow M'_0\\longrightarrow0\\)) est une\nrésolution plate de \\({}_nP\\) (resp. de \\({}_nQ\\)). On peut alors expliciter\nl'homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[{}_nP\\otimes{}_nQ\\longrightarrow\\underline{\\operatorname{Tor}}_1(P,Q)\n=\\underline H_1(L_\\bullet\\otimes M_\\bullet)\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[{}_nP\\otimes{}_nQ\\longrightarrow\\underline{\\operatorname{Tor}}_1(P,Q)\n=\\underline H_1(L_\\bullet\\otimes M_\\bullet)\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>par passage au quotient à partir de l'homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>par passage au quotient à partir de l'homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[L'_0\\otimes M'_0\\longrightarrow\\underline H_1(L_\\bullet\\otimes M_\\bullet)\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[L'_0\\otimes M'_0\\longrightarrow\\underline H_1(L_\\bullet\\otimes M_\\bullet)\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>donné par</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>donné par</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[x_0\\otimes y_0\\longmapsto\\text{classe du 1-cycle }\n[nx_0]\\otimes y_0-x_0\\otimes[ny_0],\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[x_0\\otimes y_0\\longmapsto\\text{classe du 1-cycle }\n[nx_0]\\otimes y_0-x_0\\otimes[ny_0],\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où les crochets \\([\\ ]\\) indiquent que l'élément envisagé est considéré comme section\ndu sous-faisceau \\(L_1\\) de \\(L_0\\) resp. \\(M_1\\) de \\(M_0\\). L'explicitation précédente\nrésulte en effet du calcul fait dans la démonstration de 2.1.10.</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>où les crochets \\([\\ ]\\) indiquent que l'élément envisagé est considéré comme section\ndu sous-faisceau \\(L_1\\) de \\(L_0\\) resp. \\(M_1\\) de \\(M_0\\). L'explicitation précédente\nrésulte en effet du calcul fait dans la démonstration de 2.1.10.</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>b) Prenons une résolution injective</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>b) Prenons une résolution injective</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow C^0\\xrightarrow{d^0}C^1\\longrightarrow\\cdots\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[0\\longrightarrow C^0\\xrightarrow{d^0}C^1\\longrightarrow\\cdots\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>de \\(G\\), et identifions \\(\\operatorname{Biext}^1(P,Q;G)\\) à\n\\(\\operatorname{Ext}^1(P\\mathbin{\\overset{\\mathbb L}{\\otimes}}Q,G)\n=H^1(\\operatorname{Hom}(L_\\bullet\\otimes M_\\bullet,C^\\bullet))\\).\nDonc l'élément \\(\\xi\\) peut s'interpréter comme un couple \\(f_1,f_0\\) d'homomorphismes,\ndonnant lieu à un diagramme anticommutatif</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>de \\(G\\), et identifions \\(\\operatorname{Biext}^1(P,Q;G)\\) à\n\\(\\operatorname{Ext}^1(P\\mathbin{\\overset{\\mathbb L}{\\otimes}}Q,G)\n=H^1(\\operatorname{Hom}(L_\\bullet\\otimes M_\\bullet,C^\\bullet))\\).\nDonc l'élément \\(\\xi\\) peut s'interpréter comme un couple \\(f_1,f_0\\) d'homomorphismes,\ndonnant lieu à un diagramme anticommutatif</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[(2.3.12)\\qquad\n\\begin{array}{ccc}\nL_1\\otimes M_0+L_0\\otimes M_1&amp;\\xrightarrow{d_1}&amp;L_0\\otimes M_0\\\\\n\\scriptstyle f_1\\downarrow&amp;&amp;\\downarrow\\scriptstyle f_0\\\\\nC^0&amp;\\xrightarrow{d^0}&amp;C^1.\n\\end{array}\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[(2.3.12)\\qquad\n\\begin{array}{ccc}\nL_1\\otimes M_0+L_0\\otimes M_1&amp;\\xrightarrow{d_1}&amp;L_0\\otimes M_0\\\\\n\\scriptstyle f_1\\downarrow&amp;&amp;\\downarrow\\scriptstyle f_0\\\\\nC^0&amp;\\xrightarrow{d^0}&amp;C^1.\n\\end{array}\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Par définition, l'accouplement</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Par définition, l'accouplement</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\varphi_\\xi:{}_nP\\otimes{}_nQ\\longrightarrow G\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\varphi_\\xi:{}_nP\\otimes{}_nQ\\longrightarrow G\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>se déduit alors par passage au quotient de l'homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>se déduit alors par passage au quotient de l'homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\varphi:L'_0\\otimes M'_0\\longrightarrow G\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\varphi:L'_0\\otimes M'_0\\longrightarrow G\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>donné par</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>donné par</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[(2.3.13)\\qquad \\varphi(x_0\\otimes y_0)=\nf_1([nx_0]\\otimes y_0-x_0\\otimes[ny_0])\\in G=\\operatorname{Ker}(C^0\\longrightarrow C^1).\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[(2.3.13)\\qquad \\varphi(x_0\\otimes y_0)=\nf_1([nx_0]\\otimes y_0-x_0\\otimes[ny_0])\\in G=\\operatorname{Ker}(C^0\\longrightarrow C^1).\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Nous pouvons supposer que la section donnée \\(x\\) de \\({}_nP\\) se relève en une\nsection \\(x_0\\) de \\(L'_0\\) (car l'assertion (2.3.11) est locale sur \\(T\\)), et la formule\nprécédente, où \\(y_0\\) est considéré comme variable, définit donc un homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Nous pouvons supposer que la section donnée \\(x\\) de \\({}_nP\\) se relève en une\nsection \\(x_0\\) de \\(L'_0\\) (car l'assertion (2.3.11) est locale sur \\(T\\)), et la formule\nprécédente, où \\(y_0\\) est considéré comme variable, définit donc un homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[(2.3.14)\\qquad \\varphi'_0:M'_0\\longrightarrow G,\\qquad\ny_0\\longmapsto f_1([nx_0]\\otimes y_0-x_0\\otimes[ny_0]),\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[(2.3.14)\\qquad \\varphi'_0:M'_0\\longrightarrow G,\\qquad\ny_0\\longmapsto f_1([nx_0]\\otimes y_0-x_0\\otimes[ny_0]),\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>qui passe au quotient pour nous donner l'homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>qui passe au quotient pour nous donner l'homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[{}_nQ\\longrightarrow G,\\qquad y\\longmapsto\\varphi_\\xi(x,y)\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[{}_nQ\\longrightarrow G,\\qquad y\\longmapsto\\varphi_\\xi(x,y)\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>associé à \\(\\varphi_\\xi\\) et à \\(x\\).</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>associé à \\(\\varphi_\\xi\\) et à \\(x\\).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>c) Il faut prendre l'image de cet homomorphisme par l'opérateur \\(\\partial\\) de (2.3.7),\nassocié à la suite exacte (2.3.6). Or \\(nQ\\simeq Q/{}_nQ\\) est évidemment aussi\nisomorphe à \\(M_0/M'_0\\), de sorte qu'on a un homomorphisme de suites exactes</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>c) Il faut prendre l'image de cet homomorphisme par l'opérateur \\(\\partial\\) de (2.3.7),\nassocié à la suite exacte (2.3.6). Or \\(nQ\\simeq Q/{}_nQ\\) est évidemment aussi\nisomorphe à \\(M_0/M'_0\\), de sorte qu'on a un homomorphisme de suites exactes</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\begin{array}{ccccccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow&amp;M_0/M'_0&amp;\\longrightarrow&amp;0\\\\\n&amp;&amp;\\downarrow&amp;&amp;\\downarrow&amp;&amp;\\wr\\downarrow\\\\\n0&amp;\\longrightarrow&amp;{}_nQ&amp;\\longrightarrow&amp;Q&amp;\\longrightarrow&amp;nQ&amp;\\longrightarrow&amp;0,\n\\end{array}\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\begin{array}{ccccccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow&amp;M_0/M'_0&amp;\\longrightarrow&amp;0\\\\\n&amp;&amp;\\downarrow&amp;&amp;\\downarrow&amp;&amp;\\wr\\downarrow\\\\\n0&amp;\\longrightarrow&amp;{}_nQ&amp;\\longrightarrow&amp;Q&amp;\\longrightarrow&amp;nQ&amp;\\longrightarrow&amp;0,\n\\end{array}\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>où la dernière flèche verticale est un isomorphisme. Ceci montre que la section cherchée\nde \\(\\underline{\\operatorname{Ext}}^1(nQ,G)\\) peut aussi être calculée comme l'image de\n\\(\\varphi'\\) (2.3.14) par l'opérateur cobord</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>où la dernière flèche verticale est un isomorphisme. Ceci montre que la section cherchée\nde \\(\\underline{\\operatorname{Ext}}^1(nQ,G)\\) peut aussi être calculée comme l'image de\n\\(\\varphi'\\) (2.3.14) par l'opérateur cobord</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\underline{\\operatorname{Hom}}(M'_0,G)\\xrightarrow{\\partial}\n\\underline{\\operatorname{Ext}}^1(M_0/M'_0,G),\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\underline{\\operatorname{Hom}}(M'_0,G)\\xrightarrow{\\partial}\n\\underline{\\operatorname{Ext}}^1(M_0/M'_0,G),\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>ou encore la section du deuxième membre définie par l'élément du \\(\\operatorname{Ext}^1\\)\nglobal image de \\(\\varphi'\\) par l'opérateur cobord</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>ou encore la section du deuxième membre définie par l'élément du \\(\\operatorname{Ext}^1\\)\nglobal image de \\(\\varphi'\\) par l'opérateur cobord</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\operatorname{Hom}(M'_0,G)\\longrightarrow\\operatorname{Ext}^1(M_0/M'_0,G).\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\operatorname{Hom}(M'_0,G)\\longrightarrow\\operatorname{Ext}^1(M_0/M'_0,G).\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>La construction habituelle de l'opérateur cobord nous donne alors la recette suivante :\non prolonge le composé (2.3.13)</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>La construction habituelle de l'opérateur cobord nous donne alors la recette suivante :\non prolonge le composé (2.3.13)</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[M'_0\\xrightarrow{\\ \\varphi'\\ }G\\longrightarrow C^0\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[M'_0\\xrightarrow{\\ \\varphi'\\ }G\\longrightarrow C^0\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>en un homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>en un homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\psi:M_0\\longrightarrow C^0,\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\psi:M_0\\longrightarrow C^0,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>ce qui est possible puisque \\(C^0\\) est injectif, et on considère l'unique homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>ce qui est possible puisque \\(C^0\\) est injectif, et on considère l'unique homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[(2.3.15)\\qquad \\lambda:M_0/M'_0\\longrightarrow C^1\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[(2.3.15)\\qquad \\lambda:M_0/M'_0\\longrightarrow C^1\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>rendant commutatif le diagramme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>rendant commutatif le diagramme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\begin{array}{ccccccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow&amp;M_0/M'_0&amp;\\longrightarrow&amp;0\\\\\n&amp;&amp;\\scriptstyle\\varphi'\\downarrow&amp;&amp;\\scriptstyle\\psi\\downarrow&amp;&amp;\\scriptstyle\\lambda\\downarrow\\\\\n0&amp;\\longrightarrow&amp;G&amp;\\longrightarrow&amp;C^0&amp;\\xrightarrow{d^0}&amp;C^1.\n\\end{array}\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\begin{array}{ccccccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow&amp;M_0/M'_0&amp;\\longrightarrow&amp;0\\\\\n&amp;&amp;\\scriptstyle\\varphi'\\downarrow&amp;&amp;\\scriptstyle\\psi\\downarrow&amp;&amp;\\scriptstyle\\lambda\\downarrow\\\\\n0&amp;\\longrightarrow&amp;G&amp;\\longrightarrow&amp;C^0&amp;\\xrightarrow{d^0}&amp;C^1.\n\\end{array}\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Il est clair que (2.3.15) est à valeurs dans les 1-cocycles, i.e. est un 1-cocycle, et\nque ce dernier représente l'élément cherché de\n\\(\\operatorname{Ext}^1(nQ,G)=\\operatorname{Ext}^1(M_0/M'_0,G)\\).</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Il est clair que (2.3.15) est à valeurs dans les 1-cocycles, i.e. est un 1-cocycle, et\nque ce dernier représente l'élément cherché de\n\\(\\operatorname{Ext}^1(nQ,G)=\\operatorname{Ext}^1(M_0/M'_0,G)\\).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>d) Il reste à expliciter la section de \\(\\underline{\\operatorname{Ext}}^1(nQ,G)\\) déduite\nde \\(\\xi\\) et de \\(x\\) grâce à la flèche (2.3.5) du diagramme (2.3.10). Pour ceci, nous\npouvons ignorer le fait que la section \\(x\\) de \\(P\\) est annulée par \\(n\\), et on trouve\nla description suivante, en termes de relèvement choisi \\(x_0\\) de \\(x\\) en une section de\n\\(L_0\\) : cette dernière définit un homomorphisme d'augmentation</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>d) Il reste à expliciter la section de \\(\\underline{\\operatorname{Ext}}^1(nQ,G)\\) déduite\nde \\(\\xi\\) et de \\(x\\) grâce à la flèche (2.3.5) du diagramme (2.3.10). Pour ceci, nous\npouvons ignorer le fait que la section \\(x\\) de \\(P\\) est annulée par \\(n\\), et on trouve\nla description suivante, en termes de relèvement choisi \\(x_0\\) de \\(x\\) en une section de\n\\(L_0\\) : cette dernière définit un homomorphisme d'augmentation</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[u:M_\\bullet\\longrightarrow L_\\bullet\\otimes M_\\bullet,\\qquad\ny_0\\longmapsto x_0\\otimes y_0,\\quad y_1\\longmapsto x_0\\otimes y_1,\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[u:M_\\bullet\\longrightarrow L_\\bullet\\otimes M_\\bullet,\\qquad\ny_0\\longmapsto x_0\\otimes y_0,\\quad y_1\\longmapsto x_0\\otimes y_1,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>et la section de \\(\\operatorname{Ext}^1(Q,G)\\) déduite de (2.3.1) est celle qui se déduit\nde l'élément \\(\\xi\\) de \\(\\operatorname{Ext}^1(L_\\bullet\\otimes M_\\bullet,G)\\) en composant\navec l'homomorphisme précédent, donc est donnée par l'homomorphisme de degré 1</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>et la section de \\(\\operatorname{Ext}^1(Q,G)\\) déduite de (2.3.1) est celle qui se déduit\nde l'élément \\(\\xi\\) de \\(\\operatorname{Ext}^1(L_\\bullet\\otimes M_\\bullet,G)\\) en composant\navec l'homomorphisme précédent, donc est donnée par l'homomorphisme de degré 1</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\begin{array}{ccccc}\n0&amp;\\longrightarrow&amp;M_1&amp;\\xrightarrow{d_1}&amp;M_0&amp;\\longrightarrow0\\\\\n&amp;&amp;\\scriptstyle y_1\\mapsto f_1(x_0\\otimes y_1)\\downarrow&amp;&amp;\n\\downarrow\\scriptstyle y_0\\mapsto f_0(x_0\\otimes y_0)\\\\\n0&amp;\\longrightarrow&amp;C^0&amp;\\xrightarrow{d^0}&amp;C^1&amp;\\longrightarrow\\cdots .\n\\end{array}\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\begin{array}{ccccc}\n0&amp;\\longrightarrow&amp;M_1&amp;\\xrightarrow{d_1}&amp;M_0&amp;\\longrightarrow0\\\\\n&amp;&amp;\\scriptstyle y_1\\mapsto f_1(x_0\\otimes y_1)\\downarrow&amp;&amp;\n\\downarrow\\scriptstyle y_0\\mapsto f_0(x_0\\otimes y_0)\\\\\n0&amp;\\longrightarrow&amp;C^0&amp;\\xrightarrow{d^0}&amp;C^1&amp;\\longrightarrow\\cdots .\n\\end{array}\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Pour prendre la restriction de cette classe à \\(nQ\\hookrightarrow Q\\), utilisons\nl'isomorphisme \\(nQ\\simeq M_0/M'_0\\), qui fournit une résolution plate</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Pour prendre la restriction de cette classe à \\(nQ\\hookrightarrow Q\\), utilisons\nl'isomorphisme \\(nQ\\simeq M_0/M'_0\\), qui fournit une résolution plate</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow M'_0\\longrightarrow M_0\\longrightarrow0\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[0\\longrightarrow M'_0\\longrightarrow M_0\\longrightarrow0\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>de \\(nQ\\), l'inclusion \\(nQ\\hookrightarrow Q\\) étant remontée en un homomorphisme de\nrésolutions</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>de \\(nQ\\), l'inclusion \\(nQ\\hookrightarrow Q\\) étant remontée en un homomorphisme de\nrésolutions</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\begin{array}{ccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow0\\\\\n&amp;&amp;\\scriptstyle y_0\\mapsto[ny_0]\\downarrow&amp;&amp;\n\\downarrow\\scriptstyle y_0\\mapsto ny_0\\\\[-2pt]\n0&amp;\\longrightarrow&amp;M_1&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow0.\n\\end{array}\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\begin{array}{ccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow0\\\\\n&amp;&amp;\\scriptstyle y_0\\mapsto[ny_0]\\downarrow&amp;&amp;\n\\downarrow\\scriptstyle y_0\\mapsto ny_0\\\\[-2pt]\n0&amp;\\longrightarrow&amp;M_1&amp;\\longrightarrow&amp;M_0&amp;\\longrightarrow0.\n\\end{array}\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Par composition, on voit donc que la section cherchée de\n\\(\\underline{\\operatorname{Ext}}^1(nQ,G)\\) est associée à l'élément de\n\\(\\operatorname{Ext}^1(nQ,G)\\) représenté par l'homomorphisme de complexes de degré 1</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Par composition, on voit donc que la section cherchée de\n\\(\\underline{\\operatorname{Ext}}^1(nQ,G)\\) est associée à l'élément de\n\\(\\operatorname{Ext}^1(nQ,G)\\) représenté par l'homomorphisme de complexes de degré 1</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\begin{array}{ccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\xrightarrow{d_1}&amp;M_0&amp;\\longrightarrow0\\\\\n&amp;&amp;\\scriptstyle g_1\\downarrow&amp;&amp;\\downarrow\\scriptstyle g_0\\\\\n0&amp;\\longrightarrow&amp;C^0&amp;\\longrightarrow&amp;C^1&amp;\\longrightarrow\\cdots,\n\\end{array}\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\begin{array}{ccccc}\n0&amp;\\longrightarrow&amp;M'_0&amp;\\xrightarrow{d_1}&amp;M_0&amp;\\longrightarrow0\\\\\n&amp;&amp;\\scriptstyle g_1\\downarrow&amp;&amp;\\downarrow\\scriptstyle g_0\\\\\n0&amp;\\longrightarrow&amp;C^0&amp;\\longrightarrow&amp;C^1&amp;\\longrightarrow\\cdots,\n\\end{array}\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>avec</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>avec</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[g_1(y'_0)=f_1(x_0\\otimes[ny'_0]),\\qquad g_0(y_0)=nf_0(x_0\\otimes y_0).\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[g_1(y'_0)=f_1(x_0\\otimes[ny'_0]),\\qquad g_0(y_0)=nf_0(x_0\\otimes y_0).\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>e) Utilisant maintenant le fait que \\(x\\) est une section de \\({}_nP\\), montrons que\nl'élément précédent de \\(\\operatorname{Ext}^1(nQ,G)\\) est opposé de celui défini par\n(2.3.15). Pour ceci, notons que pour tout homomorphisme</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>e) Utilisant maintenant le fait que \\(x\\) est une section de \\({}_nP\\), montrons que\nl'élément précédent de \\(\\operatorname{Ext}^1(nQ,G)\\) est opposé de celui défini par\n(2.3.15). Pour ceci, notons que pour tout homomorphisme</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[h:M_0\\longrightarrow C^0,\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[h:M_0\\longrightarrow C^0,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>l'élément du \\(\\operatorname{Ext}^1\\) envisagé dans d) ne change pas si on change\n\\(g_1,g_0\\) respectivement en</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>l'élément du \\(\\operatorname{Ext}^1\\) envisagé dans d) ne change pas si on change\n\\(g_1,g_0\\) respectivement en</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[g'_1=g_1+hd_1,\\qquad g'_0=g_0-d^0h.\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[g'_1=g_1+hd_1,\\qquad g'_0=g_0-d^0h.\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Or on dispose d'un homomorphisme \\(\\psi:M_0\\longrightarrow C^0\\) construit dans c),\nqui par définition satisfait la condition</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>Or on dispose d'un homomorphisme \\(\\psi:M_0\\longrightarrow C^0\\) construit dans c),\nqui par définition satisfait la condition</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\psi(y'_0)=f_1([nx_0]\\otimes y'_0-x_0\\otimes[ny'_0])\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[\\psi(y'_0)=f_1([nx_0]\\otimes y'_0-x_0\\otimes[ny'_0])\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>pour \\(y'_0\\) section de \\(M'_0\\), ce qui s'écrit encore</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>pour \\(y'_0\\) section de \\(M'_0\\), ce qui s'écrit encore</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[f_1(x_0\\otimes[ny'_0])\\;(=g_1(y'_0))\n=f_1([nx_0]\\otimes y'_0)-\\psi(y'_0);\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[f_1(x_0\\otimes[ny'_0])\\;(=g_1(y'_0))\n=f_1([nx_0]\\otimes y'_0)-\\psi(y'_0);\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>définissons donc \\(h:M_0\\longrightarrow C^0\\) par</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>définissons donc \\(h:M_0\\longrightarrow C^0\\) par</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[h(y_0)=-f_1([nx_0]\\otimes y_0)+\\psi(y_0);\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[h(y_0)=-f_1([nx_0]\\otimes y_0)+\\psi(y_0);\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>donc par construction on aura</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>donc par construction on aura</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[g'_1=0,\\qquad\ng'_0(y_0)=nf_0(x_0\\otimes y_0)+d^0f_1([nx_0]\\otimes y_0)-d^0\\psi(y_0),\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[g'_1=0,\\qquad\ng'_0(y_0)=nf_0(x_0\\otimes y_0)+d^0f_1([nx_0]\\otimes y_0)-d^0\\psi(y_0),\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>or on a \\(d^0f_1=-f_0d_1\\) donc\n\\(d^0f_1([nx_0]\\otimes y_0)=-f_0(nx\\otimes y_0)\\), et il reste</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>or on a \\(d^0f_1=-f_0d_1\\) donc\n\\(d^0f_1([nx_0]\\otimes y_0)=-f_0(nx\\otimes y_0)\\), et il reste</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[g'_1=0,\\qquad g'_0=-d^0\\psi,\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>\n\n\\[g'_1=0,\\qquad g'_0=-d^0\\psi,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>de sorte que l'élément envisagé est celui défini par l'homomorphisme\n\\(M_0/M'_0\\xrightarrow{\\sim}nQ\\longrightarrow C^1\\) déduit de \\(-d^0\\psi\\) par passage\nau quotient. On trouve donc l'opposé de l'élément défini par (2.3.15).</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-8-2-b135\">\n  <div class=\"proof-body\"><p>de sorte que l'élément envisagé est celui défini par l'homomorphisme\n\\(M_0/M'_0\\xrightarrow{\\sim}nQ\\longrightarrow C^1\\) déduit de \\(-d^0\\psi\\) par passage\nau quotient. On trouve donc l'opposé de l'élément défini par (2.3.15).</p></div>\n</div>"
     },
     {
      "id": "8.2.3.16",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.2.3.16\"><u>Remarques 2.3.16.</u> La démonstration précédente donne en fait une\ncompatibilité légèrement plus précise que celle indiquée dans 2.3.11, obtenue en choisissant\nune section \\(x\\) de \\({}_nP\\). Cette section définit alors un homomorphisme\n\\(y\\longmapsto\\varphi_\\xi(x,y)\\) de \\({}_nQ\\) dans \\(G\\), d'où par l'homomorphisme cobord\nrelatif à (2.3.6) un élément de \\(\\operatorname{Ext}^1(nQ,G)\\). D'autre part, oubliant que\n\\(x\\) est annulé par \\(n\\), on considère l'homomorphisme \\(\\mathbb Z_T\\longrightarrow P\\)\ndéfini par \\(x\\), d'où par image inverse une biextension de \\((\\mathbb Z_T,Q)\\) par \\(G\\),\ndont la classe peut s'interpréter comme un élément de \\(\\operatorname{Ext}^1(Q,G)\\), et\ninduit donc un élément de \\(\\operatorname{Ext}^1(nQ,G)\\). Ceci posé, les deux éléments\nobtenus dans \\(\\operatorname{Ext}^1(nQ,G)\\) sont <u>opposés</u>.</p>"
+     "type": "remarque",
+     "label": "2.3.16.",
+     "title": "Remarques",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.2.3.16\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarques</span> <span class=\"thm-num\">2.3.16.</span></div>\n  <div class=\"thm-body\"><p>La démonstration précédente donne en fait une\ncompatibilité légèrement plus précise que celle indiquée dans 2.3.11, obtenue en choisissant\nune section \\(x\\) de \\({}_nP\\). Cette section définit alors un homomorphisme\n\\(y\\longmapsto\\varphi_\\xi(x,y)\\) de \\({}_nQ\\) dans \\(G\\), d'où par l'homomorphisme cobord\nrelatif à (2.3.6) un élément de \\(\\operatorname{Ext}^1(nQ,G)\\). D'autre part, oubliant que\n\\(x\\) est annulé par \\(n\\), on considère l'homomorphisme \\(\\mathbb Z_T\\longrightarrow P\\)\ndéfini par \\(x\\), d'où par image inverse une biextension de \\((\\mathbb Z_T,Q)\\) par \\(G\\),\ndont la classe peut s'interpréter comme un élément de \\(\\operatorname{Ext}^1(Q,G)\\), et\ninduit donc un élément de \\(\\operatorname{Ext}^1(nQ,G)\\). Ceci posé, les deux éléments\nobtenus dans \\(\\operatorname{Ext}^1(nQ,G)\\) sont <u>opposés</u>.</p></div>\n</div>"
     },
     {
      "id": "8.2.3.17",
@@ -2556,101 +2542,101 @@
     },
     {
      "id": "8.3.3.1",
-     "type": "theoreme",
+     "type": "proposition",
+     "label": "3.3.1.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.3.3.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.3.1.</span></div>\n  <div class=\"thm-body\"><p>Soit \\(Q\\) un schéma en groupes commutatifs sur \\(S\\), et\nsupposons que \\(Q\\) soit fini localement libre sur \\(S\\), ou que \\(Q\\) soit de\ntype fini et de type multiplicatif sur \\(S\\) (SGA 3 IX). Alors on a</p>\n\n\\[\\underline{\\operatorname{Ext}}^1(Q,G_m)=0.\\]</div>\n</div>"
+    },
+    {
+     "id": "proof-8-3-b20",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.3.3.1\"><span class=\"thm-head\"><u>Proposition 3.3.1.</u></span>\n<div class=\"thm-body\"><p><u>Soit \\(Q\\) un schéma en groupes commutatifs sur \\(S\\), et\nsupposons que \\(Q\\) soit fini localement libre sur \\(S\\), ou que \\(Q\\) soit de\ntype fini et de type multiplicatif sur \\(S\\) (SGA 3 IX). Alors on a</u></p>\n\n\\[\\underline{\\operatorname{Ext}}^1(Q,G_m)=0.\\]\n</div></div>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-8-3-b20\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>Distinguons les deux cas envisagés.</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p><u>Démonstration.</u> Distinguons les deux cas envisagés.</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>a) \\(Q\\) est fini localement libre sur \\(S\\). Il faut prouver que\ntoute extension \\(E\\) de \\(Q\\) par \\(G_m\\) splitte localement pour la topologie \\(fppf\\).\nOn peut supposer évidemment \\(S\\) affine ; il existe alors un entier \\(n&gt;0\\)\ntel qu'on ait \\(nQ=0\\) (SGA 3 IX 6.1). D'autre part, on sait que \\(n\\operatorname{id}\\) est\nun épimorphisme dans \\(G_m\\) pour \\(fppf\\), donc la suite exacte « de Kummer »</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>a) \\(Q\\) est fini localement libre sur \\(S\\). Il faut prouver que\ntoute extension \\(E\\) de \\(Q\\) par \\(G_m\\) splitte localement pour la topologie \\(fppf\\).\nOn peut supposer évidemment \\(S\\) affine ; il existe alors un entier \\(n&gt;0\\)\ntel qu'on ait \\(nQ=0\\) (SGA 3 IX 6.1). D'autre part, on sait que \\(n\\operatorname{id}\\) est\nun épimorphisme dans \\(G_m\\) pour \\(fppf\\), donc la suite exacte « de Kummer »</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>\n\n\\[0\\longrightarrow\\mu_n\\longrightarrow G_m\\mathrel{\\mathop\\longrightarrow^n}G_m\\longrightarrow0\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow\\mu_n\\longrightarrow G_m\\mathrel{\\mathop\\longrightarrow^n}G_m\\longrightarrow0\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>donne naissance à une suite exacte des \\(\\underline{\\operatorname{Ext}}^i(Q,-)\\), qui nous donne un\n<u>épimorphisme</u></p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>donne naissance à une suite exacte des \\(\\underline{\\operatorname{Ext}}^i(Q,-)\\), qui nous donne un\n<u>épimorphisme</u></p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>\n\n\\[\\underline{\\operatorname{Ext}}^1(Q,\\mu_n)\\longrightarrow\n{}_n\\underline{\\operatorname{Ext}}^1(Q,G_m)=\\underline{\\operatorname{Ext}}^1(Q,G_m),\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\underline{\\operatorname{Ext}}^1(Q,\\mu_n)\\longrightarrow\n{}_n\\underline{\\operatorname{Ext}}^1(Q,G_m)=\\underline{\\operatorname{Ext}}^1(Q,G_m),\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>la dernière égalité provenant du fait que la multiplication par \\(n\\) étant\nnulle dans \\(Q\\), est également nulle dans \\(\\underline{\\operatorname{Ext}}^1(Q,G_m)\\). Cela montre que\nl'extension \\(E\\) provient d'une extension \\(F\\) de \\(Q\\) par \\(\\mu_n\\) ; \\(F\\) est représentable par un schéma fini localement libre sur \\(S\\) (théorie de la descente\nfpqc, SGA 1 VIII). A cause des propriétés connues de la dualité de\nCartier des groupes finis localement libres (SGA 3 VII 3), le dual\n\\(D(F)=\\underline{\\operatorname{Hom}}(F,G_m)\\) est une extension de \\(D(\\mu_n)\\) par \\(D(Q)\\). (Il faut voir\nque si \\(A\\longrightarrow B\\) est un monomorphisme de groupes commutatifs finis localement libres sur \\(S\\), alors \\(D(B)\\longrightarrow D(A)\\) est un morphisme fidèlement\nplat. Comme \\(D(B)\\) et \\(D(A)\\) sont également finis localement libres sur\n\\(S\\), le critère de fidèle platitude par fibres s'applique et nous ramène\nau cas où \\(S\\) est le spectre d'un corps \\(k\\). Dans ce cas, notre assertion\nsignifie simplement que l'homomorphisme sur les anneaux affines\n\\(k(D(A))\\longrightarrow k(D(B))\\) est injectif (SGA 3 VI<sub>B</sub> 11.14), or cet homomorphisme\nest transposé de l'homomorphisme \\(k(B)\\longrightarrow k(A)\\), qui est surjectif puisque\n\\(A\\longrightarrow B\\) est une immersion fermée (SGA 3 VI<sub>B</sub> 1.4.2). Donc\n\\(k(D(A))\\longrightarrow k(D(B))\\) est bien injectif, cqfd.) Or l'inclusion \\(\\mu_n\\longrightarrow G_m\\)\ns'identifie à une section de \\(D(\\mu_n)=\\underline{\\operatorname{Hom}}(\\mu_n,G_m)\\), et tout revient à\nprouver que cette inclusion se prolonge, localement \\(fppf\\) sur \\(S\\), en un\nhomomorphisme \\(F\\longrightarrow G_m\\), i.e. que la section envisagée de \\(D(\\mu_n)\\) se\nrelève localement \\(fppf\\) en une section de \\(D(F)\\). Or ceci est clair,\npuisque \\(D(F)\\longrightarrow D(\\mu_n)\\) est fidèlement plat et de présentation finie.</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>la dernière égalité provenant du fait que la multiplication par \\(n\\) étant\nnulle dans \\(Q\\), est également nulle dans \\(\\underline{\\operatorname{Ext}}^1(Q,G_m)\\). Cela montre que\nl'extension \\(E\\) provient d'une extension \\(F\\) de \\(Q\\) par \\(\\mu_n\\) ; \\(F\\) est représentable par un schéma fini localement libre sur \\(S\\) (théorie de la descente\nfpqc, SGA 1 VIII). A cause des propriétés connues de la dualité de\nCartier des groupes finis localement libres (SGA 3 VII 3), le dual\n\\(D(F)=\\underline{\\operatorname{Hom}}(F,G_m)\\) est une extension de \\(D(\\mu_n)\\) par \\(D(Q)\\). (Il faut voir\nque si \\(A\\longrightarrow B\\) est un monomorphisme de groupes commutatifs finis localement libres sur \\(S\\), alors \\(D(B)\\longrightarrow D(A)\\) est un morphisme fidèlement\nplat. Comme \\(D(B)\\) et \\(D(A)\\) sont également finis localement libres sur\n\\(S\\), le critère de fidèle platitude par fibres s'applique et nous ramène\nau cas où \\(S\\) est le spectre d'un corps \\(k\\). Dans ce cas, notre assertion\nsignifie simplement que l'homomorphisme sur les anneaux affines\n\\(k(D(A))\\longrightarrow k(D(B))\\) est injectif (SGA 3 VI<sub>B</sub> 11.14), or cet homomorphisme\nest transposé de l'homomorphisme \\(k(B)\\longrightarrow k(A)\\), qui est surjectif puisque\n\\(A\\longrightarrow B\\) est une immersion fermée (SGA 3 VI<sub>B</sub> 1.4.2). Donc\n\\(k(D(A))\\longrightarrow k(D(B))\\) est bien injectif, cqfd.) Or l'inclusion \\(\\mu_n\\longrightarrow G_m\\)\ns'identifie à une section de \\(D(\\mu_n)=\\underline{\\operatorname{Hom}}(\\mu_n,G_m)\\), et tout revient à\nprouver que cette inclusion se prolonge, localement \\(fppf\\) sur \\(S\\), en un\nhomomorphisme \\(F\\longrightarrow G_m\\), i.e. que la section envisagée de \\(D(\\mu_n)\\) se\nrelève localement \\(fppf\\) en une section de \\(D(F)\\). Or ceci est clair,\npuisque \\(D(F)\\longrightarrow D(\\mu_n)\\) est fidèlement plat et de présentation finie.</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>b) En vertu de (SGA 3 X 4.5), quitte à se localiser sur \\(S\\)\npour la topologie étale, on peut supposer que \\(Q\\) est diagonalisable, i.e.\nde la forme \\(D(M)\\), où \\(M\\) est un \\(\\mathbb Z\\)-module de type fini. Soit \\(T\\) le sous-module\nde torsion de \\(M\\), et \\(L=M/T\\) le quotient, qui est isomorphe à \\(\\mathbb Z^r\\).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>b) En vertu de (SGA 3 X 4.5), quitte à se localiser sur \\(S\\)\npour la topologie étale, on peut supposer que \\(Q\\) est diagonalisable, i.e.\nde la forme \\(D(M)\\), où \\(M\\) est un \\(\\mathbb Z\\)-module de type fini. Soit \\(T\\) le sous-module\nde torsion de \\(M\\), et \\(L=M/T\\) le quotient, qui est isomorphe à \\(\\mathbb Z^r\\).</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>Alors la suite exacte \\(0\\longrightarrow T\\longrightarrow M\\longrightarrow L\\longrightarrow0\\) donne une suite exacte</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Alors la suite exacte \\(0\\longrightarrow T\\longrightarrow M\\longrightarrow L\\longrightarrow0\\) donne une suite exacte</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>\n\n\\[0\\longrightarrow D(L)\\longrightarrow D(M)\\longrightarrow D(T)\\longrightarrow0\\quad\\text{(SGA 3 IX 3.1)},\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow D(L)\\longrightarrow D(M)\\longrightarrow D(T)\\longrightarrow0\\quad\\text{(SGA 3 IX 3.1)},\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>donc on est ramené à prouver séparément que le\n\\(\\underline{\\operatorname{Ext}}^1\\) de \\(D(L)\\) et de \\(D(T)\\) avec \\(G_m\\) est nul.\nLe cas de \\(D(T)\\) est justiciable de a), le cas de \\(D(L)\\) se ramène à celui\noù \\(L=\\mathbb Z\\), de sorte qu'on est réduit à vérifier que l'on a</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>donc on est ramené à prouver séparément que le\n\\(\\underline{\\operatorname{Ext}}^1\\) de \\(D(L)\\) et de \\(D(T)\\) avec \\(G_m\\) est nul.\nLe cas de \\(D(T)\\) est justiciable de a), le cas de \\(D(L)\\) se ramène à celui\noù \\(L=\\mathbb Z\\), de sorte qu'on est réduit à vérifier que l'on a</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>\n\n\\[\\underline{\\operatorname{Ext}}^1(G_m,G_m)=0,\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\n\\[\\underline{\\operatorname{Ext}}^1(G_m,G_m)=0,\\]\n\n</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>i.e. que toute extension \\(E\\) de \\(G_m\\) par \\(G_m\\) est localement triviale fppf.\nOr une telle extension est représentable par un schéma en groupes\naffine et plat sur \\(S\\) (théorie de la descente fpqc SGA 1 VIII), dont\nles fibres sont des tores, c'est donc un tore (SGA 3 X 4.9 et     ).\nEn vertu de SGA 3 X 4.5, on peut supposer que \\(E\\) est un tore trivial\n\\(D(R)\\simeq G_m^2\\). De plus, quitte à se localiser au sens de Zariski, on\npeut supposer que le monomorphisme \\(G_m\\longrightarrow E=D(R)\\) provient d'un morphisme\nconstant \\(R\\longrightarrow\\mathbb Z_S\\) (SGA 3 VIII 1.4), et celui-ci est nécessairement\nun épimorphisme (SGA 3 VIII 3.2 b)). Choisissant un \\(r\\in R\\) au-dessus\nde l'élément 1 de \\(\\mathbb Z\\), on trouve donc un homomorphisme \\(E\\longrightarrow G_m\\) qui\nscinde l'extension \\(E\\), ce qui prouve l'assertion voulue.</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-8-3-b20\">\n  <div class=\"proof-body\"><p>i.e. que toute extension \\(E\\) de \\(G_m\\) par \\(G_m\\) est localement triviale fppf.\nOr une telle extension est représentable par un schéma en groupes\naffine et plat sur \\(S\\) (théorie de la descente fpqc SGA 1 VIII), dont\nles fibres sont des tores, c'est donc un tore (SGA 3 X 4.9 et     ).\nEn vertu de SGA 3 X 4.5, on peut supposer que \\(E\\) est un tore trivial\n\\(D(R)\\simeq G_m^2\\). De plus, quitte à se localiser au sens de Zariski, on\npeut supposer que le monomorphisme \\(G_m\\longrightarrow E=D(R)\\) provient d'un morphisme\nconstant \\(R\\longrightarrow\\mathbb Z_S\\) (SGA 3 VIII 1.4), et celui-ci est nécessairement\nun épimorphisme (SGA 3 VIII 3.2 b)). Choisissant un \\(r\\in R\\) au-dessus\nde l'élément 1 de \\(\\mathbb Z\\), on trouve donc un homomorphisme \\(E\\longrightarrow G_m\\) qui\nscinde l'extension \\(E\\), ce qui prouve l'assertion voulue.</p></div>\n</div>"
     },
     {
      "id": "8.3.3.2",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.3.3.2\"><span class=\"thm-head\"><u>Corollaire 3.3.2.</u></span>\n<div class=\"thm-body\"><p><u>Soit \\(Q\\) comme dans 3.3.1. Alors on a, pour tout \\(P\\),\nun isomorphisme canonique</u></p>\n\n\\[(3.3.2.1)\\qquad \\operatorname{Biext}^1(P,Q;G_m)\\xleftarrow{\\sim}\n\\operatorname{Ext}^1(P,D(Q)),\\]\n\n<p><u>où \\(D(Q)\\) désigne le dual de Cartier \\(\\underline{\\operatorname{Hom}}(Q,G_m)\\) de \\(Q\\). Plus précisément,\nle foncteur canonique (1.1.6) est une équivalence de la catégorie des\nextensions de \\(P\\) par \\(D(Q)\\) avec la catégorie des biextensions de \\((P,Q)\\)\npar \\(G_m\\).</u></p></div></div>"
+     "type": "corollaire",
+     "label": "3.3.2.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.3.3.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">3.3.2.</span></div>\n  <div class=\"thm-body\"><p>Soit \\(Q\\) comme dans 3.3.1. Alors on a, pour tout \\(P\\),\nun isomorphisme canonique</p>\n\n\\[(3.3.2.1)\\qquad \\operatorname{Biext}^1(P,Q;G_m)\\xleftarrow{\\sim}\n\\operatorname{Ext}^1(P,D(Q)),\\]\n\n<p>où \\(D(Q)\\) désigne le dual de Cartier \\(\\underline{\\operatorname{Hom}}(Q,G_m)\\) de \\(Q\\). Plus précisément,\nle foncteur canonique (1.1.6) est une équivalence de la catégorie des\nextensions de \\(P\\) par \\(D(Q)\\) avec la catégorie des biextensions de \\((P,Q)\\)\npar \\(G_m\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -2661,10 +2647,10 @@
     },
     {
      "id": "8.3.3.3",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.3.3.3\"><u>Remarques 3.3.3.</u> Sous les conditions de 3.3.1, \\(D(Q)\\) est représentable\npar un schéma en groupes séparé, localement de présentation finie et\nlocalement quasi-fini sur \\(S\\). Plus précisément, si \\(Q\\) est fini localement\nlibre sur \\(S\\), il en est de même de \\(D(Q)\\) comme il est bien connu\n(SGA 3 VII 3), et si \\(Q\\) est de type multiplicatif, alors \\(D(Q)\\) est un\n« <u>groupe constant tordu à engendrement fini</u> » (SGA 3 X 5.1), comme il\na été vu dans (SGA 3 IX 4.5 et X 5.7). Si \\(P\\) est un schéma en groupes,\ntoute extension de \\(P\\) par \\(D(Q)\\) est donc représentable, d'après un lemme\nconnu de la théorie de la descente fpqc (SGA 3 X 5.4).</p>"
+     "type": "remarque",
+     "label": "3.3.3.",
+     "title": "Remarques",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.3.3.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarques</span> <span class=\"thm-num\">3.3.3.</span></div>\n  <div class=\"thm-body\"><p>Sous les conditions de 3.3.1, \\(D(Q)\\) est représentable\npar un schéma en groupes séparé, localement de présentation finie et\nlocalement quasi-fini sur \\(S\\). Plus précisément, si \\(Q\\) est fini localement\nlibre sur \\(S\\), il en est de même de \\(D(Q)\\) comme il est bien connu\n(SGA 3 VII 3), et si \\(Q\\) est de type multiplicatif, alors \\(D(Q)\\) est un\n« <u>groupe constant tordu à engendrement fini</u> » (SGA 3 X 5.1), comme il\na été vu dans (SGA 3 IX 4.5 et X 5.7). Si \\(P\\) est un schéma en groupes,\ntoute extension de \\(P\\) par \\(D(Q)\\) est donc représentable, d'après un lemme\nconnu de la théorie de la descente fpqc (SGA 3 X 5.4).</p></div>\n</div>"
     },
     {
      "id": "8.3.3.4",
@@ -2675,10 +2661,10 @@
     },
     {
      "id": "8.3.4",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.3.4\"><span class=\"thm-head\"><u>Proposition 3.4.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P\\) un schéma en groupes lisse de présentation\nfinie sur \\(S\\) et à fibres connexes, \\(Q\\) un tore sur \\(S\\). Alors la catégorie\ndes biextensions de \\((P,Q)\\) par \\(G_m\\) est équivalente à la catégorie ponctuelle, i.e. on a</u></p>\n\n\\[(3.4.1)\\qquad \\operatorname{Biext}^0(P,Q;G_m)=\\operatorname{Biext}^1(P,Q;G_m)=0.\\]\n</div></div>"
+     "type": "proposition",
+     "label": "3.4.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.3.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.4.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P\\) un schéma en groupes lisse de présentation\nfinie sur \\(S\\) et à fibres connexes, \\(Q\\) un tore sur \\(S\\). Alors la catégorie\ndes biextensions de \\((P,Q)\\) par \\(G_m\\) est équivalente à la catégorie ponctuelle, i.e. on a</p>\n\n\\[(3.4.1)\\qquad \\operatorname{Biext}^0(P,Q;G_m)=\\operatorname{Biext}^1(P,Q;G_m)=0.\\]</div>\n</div>"
     },
     {
      "id": null,
@@ -2703,10 +2689,10 @@
     },
     {
      "id": "8.3.4.2",
-     "type": "lemma",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm lemma\" id=\"8.3.4.2\"><span class=\"thm-head\"><u>Lemme 3.4.2.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma, \\(P\\) un \\(S\\)-schéma lisse de présentation\nfinie, à fibres géométriques connexes, \\(Z\\) un groupe, \\(E\\) un \\(Z_P\\)-torseur\n(pour la topologie fppf, la topologie étale ou la topologie fpqc, cela\nrevient au même, cf. SGA 3 X 5.4 ...), \\(e\\) une section de \\(P\\) sur \\(S\\), \\(e'\\)\nune section de \\(E\\) sur \\(S\\) au-dessus de \\(e\\) (i.e. une section de \\(e^{-1}(E)\\) sur \\(S\\)).\nPour que \\(E\\) soit trivial, il (faut et il) suffit que pour tout \\(s\\in S\\), le\ntorseur induit \\(E_s\\) de \\(P_s\\) le soit, et alors il existe une unique section\n\\(f\\) de \\(E\\) sur \\(P\\) telle que \\(f\\circ e=e'\\).</u></p></div></div>"
+     "type": "lemme",
+     "label": "3.4.2.",
+     "title": "Lemme",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"8.3.4.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">3.4.2.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma, \\(P\\) un \\(S\\)-schéma lisse de présentation\nfinie, à fibres géométriques connexes, \\(Z\\) un groupe, \\(E\\) un \\(Z_P\\)-torseur\n(pour la topologie fppf, la topologie étale ou la topologie fpqc, cela\nrevient au même, cf. SGA 3 X 5.4 ...), \\(e\\) une section de \\(P\\) sur \\(S\\), \\(e'\\)\nune section de \\(E\\) sur \\(S\\) au-dessus de \\(e\\) (i.e. une section de \\(e^{-1}(E)\\) sur \\(S\\)).\nPour que \\(E\\) soit trivial, il (faut et il) suffit que pour tout \\(s\\in S\\), le\ntorseur induit \\(E_s\\) de \\(P_s\\) le soit, et alors il existe une unique section\n\\(f\\) de \\(E\\) sur \\(P\\) telle que \\(f\\circ e=e'\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -2717,17 +2703,17 @@
     },
     {
      "id": "8.3.4.3",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.3.4.3\"><u>Remarque 3.4.3.</u> On peut « écraser » le lemme 3.4.2 par des références\nsavantes, savoir (SGA 4 XV 1.15, cas n=1, et 4.1).</p>"
+     "type": "remarque",
+     "label": "3.4.3.",
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.3.4.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">3.4.3.</span></div>\n  <div class=\"thm-body\"><p>On peut « écraser » le lemme 3.4.2 par des références\nsavantes, savoir (SGA 4 XV 1.15, cas n=1, et 4.1).</p></div>\n</div>"
     },
     {
      "id": "8.3.5",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.3.5\"><span class=\"thm-head\"><u>Corollaire 3.5.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P\\) un schéma en groupes lisse de présentation finie\nsur \\(S\\), à fibres connexes, \\(0\\longrightarrow Q'\\longrightarrow Q\\longrightarrow Q''\\longrightarrow0\\) une suite exacte\nde Groupes commutatifs sur \\(S\\), avec \\(Q'\\) un tore. Alors le foncteur « image\ninverse de biextensions »</u></p>\n\n\\[(3.5.1)\\qquad \\operatorname{BIEXT}(P,Q'';G_m)\\xrightarrow{\\sim}\n\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n<p><u>est une équivalence de catégories, en particulier les homomorphismes\nnaturels suivants sont des isomorphismes</u></p>\n\n\\[(3.5.2)\\qquad \\operatorname{Biext}^i(P,Q'';G_m)\\xrightarrow{\\sim}\n\\operatorname{Biext}^i(P,Q;G_m),\\qquad i=0,1.\\]\n</div></div>"
+     "type": "corollaire",
+     "label": "3.5.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.3.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">3.5.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P\\) un schéma en groupes lisse de présentation finie\nsur \\(S\\), à fibres connexes, \\(0\\longrightarrow Q'\\longrightarrow Q\\longrightarrow Q''\\longrightarrow0\\) une suite exacte\nde Groupes commutatifs sur \\(S\\), avec \\(Q'\\) un tore. Alors le foncteur « image\ninverse de biextensions »</p>\n\n\\[(3.5.1)\\qquad \\operatorname{BIEXT}(P,Q'';G_m)\\xrightarrow{\\sim}\n\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n<p>est une équivalence de catégories, en particulier les homomorphismes\nnaturels suivants sont des isomorphismes</p>\n\n\\[(3.5.2)\\qquad \\operatorname{Biext}^i(P,Q'';G_m)\\xrightarrow{\\sim}\n\\operatorname{Biext}^i(P,Q;G_m),\\qquad i=0,1.\\]</div>\n</div>"
     },
     {
      "id": null,
@@ -2745,17 +2731,10 @@
     },
     {
      "id": "8.3.6",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.3.6\"><u>Remarque 3.6.</u> Bien entendu, l'énoncé symétrique déduit de 3.5, obtenu\nen échangeant la gauche et la droite, est également valable, et se\ndéduit d'ailleurs formellement de 3.5 par l'opération de passage aux\nbiextensions symétriques (VII 2.7). Lorsqu'on suppose, <u>en plus</u> des\ndonnées et hypothèses de 3.5, qu'on a les données et hypothèses symétriques,\ni.e. \\(Q\\) est à fibres connexes (ou encore \\(Q''\\) à fibres connexes,\ncela revient au même puisque \\(Q'\\) est à fibres connexes), et qu'on a\nune suite exacte \\(0\\longrightarrow P'\\longrightarrow P\\longrightarrow P''\\longrightarrow0\\) avec \\(P'\\) un tore, alors\nl'application successive de 3.5, et de l'énoncé symétrique appliqué\nà la précédente suite exacte et à \\(Q''\\), montrent que le foncteur</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\n\\[(3.6.1)\\qquad \\operatorname{BIEXT}(P'',Q'';G_m)\\xrightarrow{\\sim}\n\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n</p>"
+     "type": "remarque",
+     "label": "3.6.",
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.3.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">3.6.</span></div>\n  <div class=\"thm-body\"><p>Bien entendu, l'énoncé symétrique déduit de 3.5, obtenu\nen échangeant la gauche et la droite, est également valable, et se\ndéduit d'ailleurs formellement de 3.5 par l'opération de passage aux\nbiextensions symétriques (VII 2.7). Lorsqu'on suppose, <u>en plus</u> des\ndonnées et hypothèses de 3.5, qu'on a les données et hypothèses symétriques,\ni.e. \\(Q\\) est à fibres connexes (ou encore \\(Q''\\) à fibres connexes,\ncela revient au même puisque \\(Q'\\) est à fibres connexes), et qu'on a\nune suite exacte \\(0\\longrightarrow P'\\longrightarrow P\\longrightarrow P''\\longrightarrow0\\) avec \\(P'\\) un tore, alors\nl'application successive de 3.5, et de l'énoncé symétrique appliqué\nà la précédente suite exacte et à \\(Q''\\), montrent que le foncteur \\[(3.6.1)\\qquad \\operatorname{BIEXT}(P'',Q'';G_m)\\xrightarrow{\\sim}\n\\operatorname{BIEXT}(P,Q;G_m)\\]</p></div>\n</div>"
     },
     {
      "id": null,
@@ -2773,10 +2752,10 @@
     },
     {
      "id": "8.3.7",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.3.7\"><span class=\"thm-head\"><u>Proposition 3.7.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(A\\) un schéma abélien sur \\(S\\), \\(T\\) un schéma en groupes\nde type multiplicatif (SGA 3 IX) et de type fini sur \\(S\\), \\(M=\\underline{\\operatorname{Hom}}(T,G_m)\\)\nle dual de Cartier de \\(T\\) (qui est un groupe constant tordu à engendrement\nfini sur \\(S\\) (3.3.3)). Alors les catégories \\(\\operatorname{EXT}(A,T)\\) et \\(\\operatorname{BIEXT}(A,M;G_m)\\),\nformées respectivement des extensions commutatives de \\(A\\) par \\(T\\) et des\nbiextensions de \\((A,M)\\) par \\(G_m\\), sont rigides, et canoniquement équivalentes,\net les groupes des classes d'objets de ces catégories sont canoniquement\nisomorphes à \\(\\operatorname{Hom}(M,A^*)\\), où \\(A^*=\\underline{\\operatorname{Ext}}^1(A,G_m)\\) est le schéma abélien dual\nde \\(A\\) (3.2). En particulier, on a un isomorphisme canonique</u></p>\n\n\\[(3.7.1)\\qquad \\operatorname{Ext}^1(A,T)\\xrightarrow{\\sim}\\operatorname{Hom}(M,A^*).\\]\n</div></div>"
+     "type": "proposition",
+     "label": "3.7.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.3.7\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.7.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(A\\) un schéma abélien sur \\(S\\), \\(T\\) un schéma en groupes\nde type multiplicatif (SGA 3 IX) et de type fini sur \\(S\\), \\(M=\\underline{\\operatorname{Hom}}(T,G_m)\\)\nle dual de Cartier de \\(T\\) (qui est un groupe constant tordu à engendrement\nfini sur \\(S\\) (3.3.3)). Alors les catégories \\(\\operatorname{EXT}(A,T)\\) et \\(\\operatorname{BIEXT}(A,M;G_m)\\),\nformées respectivement des extensions commutatives de \\(A\\) par \\(T\\) et des\nbiextensions de \\((A,M)\\) par \\(G_m\\), sont rigides, et canoniquement équivalentes,\net les groupes des classes d'objets de ces catégories sont canoniquement\nisomorphes à \\(\\operatorname{Hom}(M,A^*)\\), où \\(A^*=\\underline{\\operatorname{Ext}}^1(A,G_m)\\) est le schéma abélien dual\nde \\(A\\) (3.2). En particulier, on a un isomorphisme canonique</p>\n\n\\[(3.7.1)\\qquad \\operatorname{Ext}^1(A,T)\\xrightarrow{\\sim}\\operatorname{Hom}(M,A^*).\\]</div>\n</div>"
     },
     {
      "id": null,
@@ -2843,10 +2822,10 @@
     },
     {
      "id": "8.4.1",
-     "type": "lemma",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm lemma\" id=\"8.4.1\"><span class=\"thm-head\"><u>Lemme 4.1.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(k\\) un corps, \\(X\\) et \\(Y\\) deux \\(k\\)-schémas de type fini,\nséparables et géométriquement connexes, munis de points \\(e_X\\) resp. \\(e_Y\\)\nrationnels sur \\(k\\). Alors tout morphisme \\(X\\times Y\\longrightarrow G_m\\) qui est trivial sur\nles deux sous-schémas \\(X\\times e_Y\\) et \\(e_X\\times Y\\) est trivial.</u></p></div></div>"
+     "type": "lemme",
+     "label": "4.1.",
+     "title": "Lemme",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"8.4.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">4.1.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(k\\) un corps, \\(X\\) et \\(Y\\) deux \\(k\\)-schémas de type fini,\nséparables et géométriquement connexes, munis de points \\(e_X\\) resp. \\(e_Y\\)\nrationnels sur \\(k\\). Alors tout morphisme \\(X\\times Y\\longrightarrow G_m\\) qui est trivial sur\nles deux sous-schémas \\(X\\times e_Y\\) et \\(e_X\\times Y\\) est trivial.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -2857,17 +2836,17 @@
     },
     {
      "id": "8.4.2",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.4.2\"><span class=\"thm-head\"><u>Proposition 4.2.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P\\) un groupe lisse et connexe sur le corps \\(k\\).\nAlors le foncteur naturel de la catégorie des extensions de Groupes de\n\\(P\\) par \\(G_m\\) dans la catégorie des Modules inversibles sur \\(P\\) rigidifiés en\nl'élément neutre \\(e_P\\) de \\(P\\) est pleinement fidèle. Son image essentielle\nest formée des Modules inversibles rigidifiés \\(L\\) sur \\(P\\) tels que l'on ait\n\\(\\pi^*(L)\\simeq\\operatorname{pr}_1^*(L)\\operatorname{pr}_2^*(L)\\), où \\(\\pi:P\\times P\\longrightarrow P\\) est la loi de composition de \\(P\\),\net \\(\\operatorname{pr}_1\\) et \\(\\operatorname{pr}_2\\) sont les deux projections du produit.</u></p></div></div>"
+     "type": "proposition",
+     "label": "4.2.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.4.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">4.2.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P\\) un groupe lisse et connexe sur le corps \\(k\\).\nAlors le foncteur naturel de la catégorie des extensions de Groupes de\n\\(P\\) par \\(G_m\\) dans la catégorie des Modules inversibles sur \\(P\\) rigidifiés en\nl'élément neutre \\(e_P\\) de \\(P\\) est pleinement fidèle. Son image essentielle\nest formée des Modules inversibles rigidifiés \\(L\\) sur \\(P\\) tels que l'on ait\n\\(\\pi^*(L)\\simeq\\operatorname{pr}_1^*(L)\\operatorname{pr}_2^*(L)\\), où \\(\\pi:P\\times P\\longrightarrow P\\) est la loi de composition de \\(P\\),\net \\(\\operatorname{pr}_1\\) et \\(\\operatorname{pr}_2\\) sont les deux projections du produit.</p></div>\n</div>"
     },
     {
      "id": "8.4.3",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.4.3\"><span class=\"thm-head\"><u>Proposition 4.3.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P\\) et \\(Q\\) deux Groupes algébriques lisses et\nconnexes sur le corps \\(k\\). Alors le foncteur naturel de la catégorie des\nbiextensions de \\((P,Q)\\) par \\(G_m\\), dans la catégorie des Modules inversibles\nsur \\(P\\times Q\\) birigidifiés par rapport aux sections unités \\(e_P,e_Q\\) de \\(P\\) resp. \\(Q\\),\nest pleinement fidèle, les deux catégories envisagées étant par ailleurs\nrigides. Pour qu'un Module inversible birigidifié \\(L\\) sur \\(P\\times Q\\) provienne\nd'une biextension, il faut et il suffit que ses images inverses sur\n\\(P\\times P\\times Q\\) et \\(P\\times Q\\times Q\\) par \\(\\pi_P\\times\\operatorname{id}_Q\\) et \\(\\operatorname{id}_P\\times\\pi_Q\\) satisfassent au « théorème du cube »\n([1] ou [2]).</u></p></div></div>"
+     "type": "proposition",
+     "label": "4.3.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.4.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">4.3.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P\\) et \\(Q\\) deux Groupes algébriques lisses et\nconnexes sur le corps \\(k\\). Alors le foncteur naturel de la catégorie des\nbiextensions de \\((P,Q)\\) par \\(G_m\\), dans la catégorie des Modules inversibles\nsur \\(P\\times Q\\) birigidifiés par rapport aux sections unités \\(e_P,e_Q\\) de \\(P\\) resp. \\(Q\\),\nest pleinement fidèle, les deux catégories envisagées étant par ailleurs\nrigides. Pour qu'un Module inversible birigidifié \\(L\\) sur \\(P\\times Q\\) provienne\nd'une biextension, il faut et il suffit que ses images inverses sur\n\\(P\\times P\\times Q\\) et \\(P\\times Q\\times Q\\) par \\(\\pi_P\\times\\operatorname{id}_Q\\) et \\(\\operatorname{id}_P\\times\\pi_Q\\) satisfassent au « théorème du cube »\n([1] ou [2]).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -2892,17 +2871,17 @@
     },
     {
      "id": "8.4.5",
-     "type": "lemma",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm lemma\" id=\"8.4.5\"><span class=\"thm-head\"><u>Lemme 4.5.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(f:X\\longrightarrow Y\\) un morphisme lisse surjectif à fibres\nintègres, avec \\(Y\\) normal intègre de point générique \\(y\\), \\(L\\) un Module\ninversible sur \\(X\\) dont la restriction à \\(X_y\\) soit trivial. Alors il existe\nun Module inversible \\(M\\) sur \\(Y\\) tel que \\(L\\) soit isomorphe à \\(f^*(M)\\).</u></p></div></div>"
+     "type": "lemme",
+     "label": "4.5.",
+     "title": "Lemme",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"8.4.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">4.5.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(f:X\\longrightarrow Y\\) un morphisme lisse surjectif à fibres\nintègres, avec \\(Y\\) normal intègre de point générique \\(y\\), \\(L\\) un Module\ninversible sur \\(X\\) dont la restriction à \\(X_y\\) soit trivial. Alors il existe\nun Module inversible \\(M\\) sur \\(Y\\) tel que \\(L\\) soit isomorphe à \\(f^*(M)\\).</p></div>\n</div>"
     },
     {
      "id": "8.4.6",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.4.6\"><span class=\"thm-head\"><u>Proposition 4.6.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P,Q\\) deux groupes algébriques lisses et connexes\nsur le corps \\(k\\), avec \\(P\\) affine. On suppose de plus que \\(P\\) admet une suite\nde composition dont chacun des facteurs est un tore, ou est isomorphe\nau groupe additif \\(G_a\\) (condition vérifiée en particulier si \\(k\\) est parfait\n[SGA 3, XVII 7.2.1, 4.1.1 (i) \\(\\Longleftrightarrow\\) (ii) et 4.1.5]), ou que \\(Q\\) soit\nextension d'une variété abélienne \\(B\\) par un groupe algébrique lisse,\nconnexe et affine satisfaisant à la condition précédente. Sous ces\nconditions, tout Module inversible birigidifié \\(L\\) sur \\(P\\times Q\\) est trivial,\nà fortiori (4.3) toute biextension de \\((P,Q)\\) par \\(G_m\\) est triviale.</u></p></div></div>"
+     "type": "proposition",
+     "label": "4.6.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.4.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">4.6.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P,Q\\) deux groupes algébriques lisses et connexes\nsur le corps \\(k\\), avec \\(P\\) affine. On suppose de plus que \\(P\\) admet une suite\nde composition dont chacun des facteurs est un tore, ou est isomorphe\nau groupe additif \\(G_a\\) (condition vérifiée en particulier si \\(k\\) est parfait\n[SGA 3, XVII 7.2.1, 4.1.1 (i) \\(\\Longleftrightarrow\\) (ii) et 4.1.5]), ou que \\(Q\\) soit\nextension d'une variété abélienne \\(B\\) par un groupe algébrique lisse,\nconnexe et affine satisfaisant à la condition précédente. Sous ces\nconditions, tout Module inversible birigidifié \\(L\\) sur \\(P\\times Q\\) est trivial,\nà fortiori (4.3) toute biextension de \\((P,Q)\\) par \\(G_m\\) est triviale.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -2955,10 +2934,10 @@
     },
     {
      "id": "8.4.7",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.4.7\"><span class=\"thm-head\"><u>Proposition 4.7.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P,Q\\) deux groupes algébriques lisses et connexes\nsur le corps \\(k\\). Supposons que \\(P\\) soit extension d'un schéma abélien \\(A\\)\npar un groupe algébrique lisse, connexe et affine \\(L\\) admettant une suite\nde composition dont chaque facteur soit isomorphe à un tore ou à \\(G_a\\)\n(condition toujours remplie si \\(k\\) est parfait). Alors le foncteur envisagé\ndans 1.3 est une équivalence de catégories, i.e. tout Module inversible\nbirigidifié \\(L\\) sur \\(P\\times Q\\) provient d'une biextension de \\((P,Q)\\). De plus,\nle foncteur de catégories rigides</u></p>\n\n\\[\\operatorname{BIEXT}(A,Q;G_m)\\longrightarrow\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n<p><u>est une équivalence de catégories, en d'autres termes, il donne naissance\nà un isomorphisme de groupes :</u></p>\n\n\\[(4.7.1)\\qquad \\operatorname{Biext}^1(A,Q;G_m)\\xrightarrow{\\sim}\\operatorname{Biext}^1(P,Q;G_m).\\]\n</div></div>"
+     "type": "proposition",
+     "label": "4.7.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.4.7\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">4.7.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P,Q\\) deux groupes algébriques lisses et connexes\nsur le corps \\(k\\). Supposons que \\(P\\) soit extension d'un schéma abélien \\(A\\)\npar un groupe algébrique lisse, connexe et affine \\(L\\) admettant une suite\nde composition dont chaque facteur soit isomorphe à un tore ou à \\(G_a\\)\n(condition toujours remplie si \\(k\\) est parfait). Alors le foncteur envisagé\ndans 1.3 est une équivalence de catégories, i.e. tout Module inversible\nbirigidifié \\(L\\) sur \\(P\\times Q\\) provient d'une biextension de \\((P,Q)\\). De plus,\nle foncteur de catégories rigides</p>\n\n\\[\\operatorname{BIEXT}(A,Q;G_m)\\longrightarrow\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n<p>est une équivalence de catégories, en d'autres termes, il donne naissance\nà un isomorphisme de groupes :</p>\n\n\\[(4.7.1)\\qquad \\operatorname{Biext}^1(A,Q;G_m)\\xrightarrow{\\sim}\\operatorname{Biext}^1(P,Q;G_m).\\]</div>\n</div>"
     },
     {
      "id": null,
@@ -3032,10 +3011,10 @@
     },
     {
      "id": "8.4.8",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.4.8\"><span class=\"thm-head\"><u>Corollaire 4.8.</u></span>\n<div class=\"thm-body\"><p><u>Sous les conditions de 4.7, supposons que \\(Q\\) soit extension\nd'un groupe algébrique \\(B\\) (nécessairement lisse et connexe) par un groupe\nalgébrique \\(M\\) qui est lisse, connexe et affine. Alors le foncteur de\ncatégories rigides</u></p>\n\n\\[\\operatorname{BIEXT}(A,B;G_m)\\longrightarrow\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n<p><u>est une équivalence de catégories, en d'autres termes, elle donne naissance\nà un isomorphisme de groupes</u></p>\n\n\\[(4.8.1)\\qquad \\operatorname{Biext}^1(A,B;G_m)\\xrightarrow{\\sim}\\operatorname{Biext}^1(P,Q;G_m).\\]\n</div></div>"
+     "type": "corollaire",
+     "label": "4.8.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.4.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">4.8.</span></div>\n  <div class=\"thm-body\"><p>Sous les conditions de 4.7, supposons que \\(Q\\) soit extension\nd'un groupe algébrique \\(B\\) (nécessairement lisse et connexe) par un groupe\nalgébrique \\(M\\) qui est lisse, connexe et affine. Alors le foncteur de\ncatégories rigides</p>\n\n\\[\\operatorname{BIEXT}(A,B;G_m)\\longrightarrow\\operatorname{BIEXT}(P,Q;G_m)\\]\n\n<p>est une équivalence de catégories, en d'autres termes, elle donne naissance\nà un isomorphisme de groupes</p>\n\n\\[(4.8.1)\\qquad \\operatorname{Biext}^1(A,B;G_m)\\xrightarrow{\\sim}\\operatorname{Biext}^1(P,Q;G_m).\\]</div>\n</div>"
     },
     {
      "id": null,
@@ -3088,17 +3067,10 @@
     },
     {
      "id": "8.4.9",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.4.9\"><u>Remarque 4.9.</u>   Soient \\(P,Q\\) deux groupes algébriques lisses et connexes sur\nun corps parfait \\(k\\). On sait alors [3] que chacun d'eux est extension d'un\nschéma abélien par un groupe lisse, connexe et affine, ce dernier étant\nproduit d'un tore par une extension multiple de groupes \\(G_a\\) (cf. référence\ndonnée dans 4.6) :</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\n\\[0\\longrightarrow L\\longrightarrow P\\longrightarrow A\\longrightarrow0,\\qquad\n0\\longrightarrow M\\longrightarrow Q\\longrightarrow B\\longrightarrow0.\\]\n\n</p>"
+     "type": "remarque",
+     "label": "4.9.",
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.4.9\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">4.9.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P,Q\\) deux groupes algébriques lisses et connexes sur\nun corps parfait \\(k\\). On sait alors [3] que chacun d'eux est extension d'un\nschéma abélien par un groupe lisse, connexe et affine, ce dernier étant\nproduit d'un tore par une extension multiple de groupes \\(G_a\\) (cf. référence\ndonnée dans 4.6) : \\[0\\longrightarrow L\\longrightarrow P\\longrightarrow A\\longrightarrow0,\\qquad\n0\\longrightarrow M\\longrightarrow Q\\longrightarrow B\\longrightarrow0.\\]</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3109,10 +3081,10 @@
     },
     {
      "id": "8.4.10",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.4.10\"><span class=\"thm-head\"><u>Corollaire 4.10.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(P\\) et \\(Q\\) deux groupes algébriques lisses et connexes\nsur \\(k\\), \\(L\\) un sous-groupe algébrique affine lisse et connexe de \\(P\\), \\(E\\) une\nbiextension de \\((P,Q)\\) par \\(G_m\\), d'où par 2.2 un accouplement déduit de \\(E\\)</u></p>\n\n\\[T_\\ell(P)\\times T_\\ell(Q)\\longrightarrow T_\\ell(G_m).\\]\n\n<p><u>Alors l'accouplement induit</u></p>\n\n\\[T_\\ell(L)\\times T_\\ell(Q)\\longrightarrow T_\\ell(G_m)\\]\n\n<p><u>est nul.</u></p></div></div>"
+     "type": "corollaire",
+     "label": "4.10.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.4.10\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">4.10.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(P\\) et \\(Q\\) deux groupes algébriques lisses et connexes\nsur \\(k\\), \\(L\\) un sous-groupe algébrique affine lisse et connexe de \\(P\\), \\(E\\) une\nbiextension de \\((P,Q)\\) par \\(G_m\\), d'où par 2.2 un accouplement déduit de \\(E\\)</p>\n\n\\[T_\\ell(P)\\times T_\\ell(Q)\\longrightarrow T_\\ell(G_m).\\]\n\n<p>Alors l'accouplement induit</p>\n\n\\[T_\\ell(L)\\times T_\\ell(Q)\\longrightarrow T_\\ell(G_m)\\]\n\n<p>est nul.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3284,10 +3256,10 @@
     },
     {
      "id": "8.4.13",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.4.13\"><span class=\"thm-head\"><u>Proposition 4.13.</u></span>\n<div class=\"thm-body\"><p><u>Sous les conditions de 4.12, supposons que \\(L\\) soit un\nModule inversible ample sur \\(P\\). Alors si la biextension \\(\\delta(L)\\) de \\((P,P)\\)\npar \\(G_{m_k}\\) est définie, elle est séparante (4.11) ; si \\(P\\) est extension\nd'un schéma abélien \\(A\\) par un groupe affine lisse connexe \\(L\\) satisfaisant\nla condition de 4.7, alors la biextension de \\((A,A)\\) dont \\(\\delta(L)\\) provient\n(en vertu de 4.8) est de la forme \\(\\delta(M)\\), où \\(M\\) est un Module inversible\nample sur \\(A\\).</u></p></div></div>"
+     "type": "proposition",
+     "label": "4.13.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.4.13\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">4.13.</span></div>\n  <div class=\"thm-body\"><p>Sous les conditions de 4.12, supposons que \\(L\\) soit un\nModule inversible ample sur \\(P\\). Alors si la biextension \\(\\delta(L)\\) de \\((P,P)\\)\npar \\(G_{m_k}\\) est définie, elle est séparante (4.11) ; si \\(P\\) est extension\nd'un schéma abélien \\(A\\) par un groupe affine lisse connexe \\(L\\) satisfaisant\nla condition de 4.7, alors la biextension de \\((A,A)\\) dont \\(\\delta(L)\\) provient\n(en vertu de 4.8) est de la forme \\(\\delta(M)\\), où \\(M\\) est un Module inversible\nample sur \\(A\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3298,17 +3270,10 @@
     },
     {
      "id": "8.4.14",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.4.14\"><u>Remarque 4.14.</u>   Plaçons nous dans le cas favorable où \\(P\\) est extension d'un\nschéma abélien \\(A\\) par un groupe \\(L\\) extension multiple de tores et de groupes\n\\(G_a\\), et considérons l'homomorphisme composé canonique</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\n\\[(4.14.1)\\qquad \\operatorname{NS}(A)\\xrightarrow{\\delta}\n\\operatorname{Biext}^1(A,A;G_m)\\xrightarrow{\\sim}\\operatorname{Biext}^1(P,P;G_m).\\]\n\n</p>"
+     "type": "remarque",
+     "label": "4.14.",
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.4.14\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">4.14.</span></div>\n  <div class=\"thm-body\"><p>Plaçons nous dans le cas favorable où \\(P\\) est extension d'un\nschéma abélien \\(A\\) par un groupe \\(L\\) extension multiple de tores et de groupes\n\\(G_a\\), et considérons l'homomorphisme composé canonique \\[(4.14.1)\\qquad \\operatorname{NS}(A)\\xrightarrow{\\delta}\n\\operatorname{Biext}^1(A,A;G_m)\\xrightarrow{\\sim}\\operatorname{Biext}^1(P,P;G_m).\\]</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3389,10 +3354,10 @@
     },
     {
      "id": "8.5.1",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.5.1\"><span class=\"thm-head\"><u>Proposition 5.1.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma géométriquement unibranche et irréductible\nde point générique \\(\\eta\\), \\(Z\\) un groupe sans torsion, d'où un schéma en groupes\nconstant \\(Z_S\\) sur \\(S\\). Alors tout torseur \\(E\\) sous le schéma en groupes \\(Z_S\\)\nest trivial, et le foncteur \\(E\\longmapsto E(\\eta)\\) de la catégorie des torseurs sous \\(Z_S\\)\ndans la catégorie des torseurs sous \\(Z=Z_S(\\eta)\\) est une équivalence de catégories.</u></p></div></div>"
+     "type": "proposition",
+     "label": "5.1.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.5.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">5.1.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma géométriquement unibranche et irréductible\nde point générique \\(\\eta\\), \\(Z\\) un groupe sans torsion, d'où un schéma en groupes\nconstant \\(Z_S\\) sur \\(S\\). Alors tout torseur \\(E\\) sous le schéma en groupes \\(Z_S\\)\nest trivial, et le foncteur \\(E\\longmapsto E(\\eta)\\) de la catégorie des torseurs sous \\(Z_S\\)\ndans la catégorie des torseurs sous \\(Z=Z_S(\\eta)\\) est une équivalence de catégories.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3487,10 +3452,10 @@
     },
     {
      "id": "8.5.2",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.5.2\"><span class=\"thm-head\"><u>Corollaire 5.2.</u></span>\n<div class=\"thm-body\"><p><u>Avec les notations de 5.1, soit \\(P\\) un schéma lisse sur \\(S\\).\nAlors tout torseur \\(E\\) sous \\(Z_P\\) est trivial, et le foncteur \\(E\\longmapsto E_\\eta\\) de la\ncatégorie des torseurs sur \\(P\\), de groupe \\(Z_P\\), dans la catégorie des torseurs\nsur \\(P_\\eta\\) de groupe \\(Z_{P_\\eta}\\), est une équivalence de catégories.</u></p></div></div>"
+     "type": "corollaire",
+     "label": "5.2.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.5.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">5.2.</span></div>\n  <div class=\"thm-body\"><p>Avec les notations de 5.1, soit \\(P\\) un schéma lisse sur \\(S\\).\nAlors tout torseur \\(E\\) sous \\(Z_P\\) est trivial, et le foncteur \\(E\\longmapsto E_\\eta\\) de la\ncatégorie des torseurs sur \\(P\\), de groupe \\(Z_P\\), dans la catégorie des torseurs\nsur \\(P_\\eta\\) de groupe \\(Z_{P_\\eta}\\), est une équivalence de catégories.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3508,10 +3473,10 @@
     },
     {
      "id": "8.5.3",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.5.3\"><span class=\"thm-head\"><u>Proposition 5.3.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) et \\(Z\\) comme dans 5.1, et \\(P\\) un schéma en groupes\nlisse sur \\(S\\). Considérons les extensions \\(E\\) de schémas en groupes de \\(P\\) par \\(Z_S\\).\nAlors le foncteur \\(E\\longmapsto E_\\eta\\), allant de la catégorie de ces extensions\ndans celle des extensions de schémas en groupes de \\(P_\\eta\\) par \\(Z_\\eta\\), est une\néquivalence de catégories. Si \\(P\\) et \\(Z\\) sont commutatifs, ce foncteur induit\naussi une équivalence entre les catégories d'extensions commutatives\ncorrespondantes.</u></p></div></div>"
+     "type": "proposition",
+     "label": "5.3.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.5.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">5.3.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) et \\(Z\\) comme dans 5.1, et \\(P\\) un schéma en groupes\nlisse sur \\(S\\). Considérons les extensions \\(E\\) de schémas en groupes de \\(P\\) par \\(Z_S\\).\nAlors le foncteur \\(E\\longmapsto E_\\eta\\), allant de la catégorie de ces extensions\ndans celle des extensions de schémas en groupes de \\(P_\\eta\\) par \\(Z_\\eta\\), est une\néquivalence de catégories. Si \\(P\\) et \\(Z\\) sont commutatifs, ce foncteur induit\naussi une équivalence entre les catégories d'extensions commutatives\ncorrespondantes.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3522,10 +3487,10 @@
     },
     {
      "id": "8.5.4",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.5.4\"><span class=\"thm-head\"><u>Corollaire 5.4.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S,Z\\) comme dans 5.1, et \\(P,Q\\) deux schémas en groupes\nlisses sur \\(S\\). On suppose \\(P,Q,Z\\) commutatifs, et on considère les biextensions\n\\(E\\) de \\((P,Q)\\) par \\(Z_S\\). Alors le foncteur \\(E\\longmapsto E_\\eta\\) qui va de la catégorie\nde ces biextensions dans la catégorie des biextensions de \\((P_\\eta,Q_\\eta)\\) par \\(Z_\\eta\\),\nest une équivalence de catégories.</u></p></div></div>"
+     "type": "corollaire",
+     "label": "5.4.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.5.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">5.4.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S,Z\\) comme dans 5.1, et \\(P,Q\\) deux schémas en groupes\nlisses sur \\(S\\). On suppose \\(P,Q,Z\\) commutatifs, et on considère les biextensions\n\\(E\\) de \\((P,Q)\\) par \\(Z_S\\). Alors le foncteur \\(E\\longmapsto E_\\eta\\) qui va de la catégorie\nde ces biextensions dans la catégorie des biextensions de \\((P_\\eta,Q_\\eta)\\) par \\(Z_\\eta\\),\nest une équivalence de catégories.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3536,10 +3501,10 @@
     },
     {
      "id": "8.5.5",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.5.5\"><span class=\"thm-head\"><u>Proposition 5.5.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(k\\) un corps, \\(Z\\) un groupe sans torsion, \\(P\\) un\n\\(k\\)-schéma en groupes localement de type fini, \\(P^0\\) la composante neutre,\n\\(\\Phi=P/P^0\\) le groupe des composantes connexes (SGA 3 VI<sub>A</sub> 4). Alors</u></p>\n\n<p><u>(i)   Le foncteur naturel allant de la catégorie des schémas\nen groupes, extensions (resp. extensions commutatives) de \\(\\Phi\\) par \\(Z_k\\),\ndans la catégorie des schémas en groupes extensions (resp. extensions\ncommutatives) de \\(P\\) par \\(Z_k\\), est une équivalence de catégories. En particulier,\nsi \\(P\\) est connexe, toute extension de \\(P\\) par \\(Z_k\\) est triviale,\net la catégorie de ces extensions est rigide.</u></p>\n\n<p><u>(ii)   Supposons que \\(\\Phi\\) soit un groupe de torsion (p. ex. \\(P\\) de\ntype fini), et \\(P\\) et \\(Z\\) commutatifs. Alors la catégorie des extensions\nde \\(P\\) par \\(Z_k\\) est rigide, i.e. tout automorphisme d'un objet de cette\ncatégorie est trivial. Si de plus il existe \\(n&gt;0\\) tel que \\(n.\\operatorname{id}_\\Phi=0\\),\npar exemple si \\(\\Phi\\) est fini, p. ex. \\(Z\\) de type fini, alors le groupe des classes\nd'extensions commutatives de \\(P\\) par \\(G_k\\) est donné par un isomorphisme\ncanonique</u></p>\n\n\\[(5.5.1)\\qquad \\operatorname{Ext}^1(P,Z_k)\\xleftarrow{\\sim}\n\\operatorname{Hom}(\\Phi,(Z\\otimes_{\\mathbb Z}\\mathbb Q)/Z),\\]\n\n<p><u>donné par l'opérateur cobord de la suite exacte des \\(\\operatorname{Ext}\\) déduite de la\nsuite exacte</u></p>\n\n\\[(5.5.2)\\qquad 0\\longrightarrow Z\\longrightarrow Z\\otimes_{\\mathbb Z}\\mathbb Q\n\\longrightarrow (Z\\otimes_{\\mathbb Z}\\mathbb Q)/Z\\longrightarrow0.\\]\n</div></div>"
+     "type": "proposition",
+     "label": "5.5.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.5.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">5.5.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(k\\) un corps, \\(Z\\) un groupe sans torsion, \\(P\\) un\n\\(k\\)-schéma en groupes localement de type fini, \\(P^0\\) la composante neutre,\n\\(\\Phi=P/P^0\\) le groupe des composantes connexes (SGA 3 VI<sub>A</sub> 4). Alors</p>\n\n<p>(i)   Le foncteur naturel allant de la catégorie des schémas\nen groupes, extensions (resp. extensions commutatives) de \\(\\Phi\\) par \\(Z_k\\),\ndans la catégorie des schémas en groupes extensions (resp. extensions\ncommutatives) de \\(P\\) par \\(Z_k\\), est une équivalence de catégories. En particulier,\nsi \\(P\\) est connexe, toute extension de \\(P\\) par \\(Z_k\\) est triviale,\net la catégorie de ces extensions est rigide.</p>\n\n<p>(ii)   Supposons que \\(\\Phi\\) soit un groupe de torsion (p. ex. \\(P\\) de\ntype fini), et \\(P\\) et \\(Z\\) commutatifs. Alors la catégorie des extensions\nde \\(P\\) par \\(Z_k\\) est rigide, i.e. tout automorphisme d'un objet de cette\ncatégorie est trivial. Si de plus il existe \\(n&gt;0\\) tel que \\(n.\\operatorname{id}_\\Phi=0\\),\npar exemple si \\(\\Phi\\) est fini, p. ex. \\(Z\\) de type fini, alors le groupe des classes\nd'extensions commutatives de \\(P\\) par \\(G_k\\) est donné par un isomorphisme\ncanonique</p>\n\n\\[(5.5.1)\\qquad \\operatorname{Ext}^1(P,Z_k)\\xleftarrow{\\sim}\n\\operatorname{Hom}(\\Phi,(Z\\otimes_{\\mathbb Z}\\mathbb Q)/Z),\\]\n\n<p>donné par l'opérateur cobord de la suite exacte des \\(\\operatorname{Ext}\\) déduite de la\nsuite exacte</p>\n\n\\[(5.5.2)\\qquad 0\\longrightarrow Z\\longrightarrow Z\\otimes_{\\mathbb Z}\\mathbb Q\n\\longrightarrow (Z\\otimes_{\\mathbb Z}\\mathbb Q)/Z\\longrightarrow0.\\]</div>\n</div>"
     },
     {
      "id": null,
@@ -3620,10 +3585,10 @@
     },
     {
      "id": "8.5.6",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.5.6\"><span class=\"thm-head\"><u>Corollaire 5.6.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(k\\) un corps, \\(Z\\) un groupe commutatif sans torsion,\n\\(P\\) et \\(Q\\) deux schémas en groupes commutatifs localement de type fini sur\n\\(k\\), \\(\\Phi=P/P^0\\) et \\(\\Psi=Q/Q^0\\) les groupes des composantes neutres. Alors :</u></p>\n\n<p><u>(i)   Le foncteur naturel, allant de la catégorie des biextensions\nde \\((\\Phi,\\Psi)\\) par \\(Z_k\\) dans celle des biextensions de \\((P,Q)\\) par \\(Z_k\\), est une équivalence\nde catégories. Si en particulier \\(P\\) ou \\(Q\\) est connexe, la catégorie des\nbiextensions de \\((P,Q)\\) par \\(Z_k\\) est équivalente à la catégorie ponctuelle.</u></p>\n\n<p><u>(ii)   Supposons que \\(\\Phi\\) ou \\(\\Psi\\) soit un groupe de torsion. Alors\nla catégorie des biextensions de \\((P,Q)\\) par \\(Z_k\\) est rigide. Si de plus\nil existe un entier \\(n&gt;0\\) tel que \\(n.\\operatorname{id}_\\Phi=0\\) ou \\(n.\\operatorname{id}_\\Psi=0\\), alors le\ngroupe des classes de biextensions de \\((P,Q)\\) par \\(Z_k\\) est donné par un\nisomorphisme canonique</u></p>\n\n\\[(5.6.1)\\qquad \\operatorname{Biext}^1(P,Q;G_k)\\xleftarrow{\\sim}\n\\operatorname{Hom}(\\Phi\\otimes\\Psi,(Z\\otimes_{\\mathbb Z}\\mathbb Q)/Z),\\]\n\n<p><u>donné par l'opérateur cobord de la suite exacte des \\(\\operatorname{Biext}^i\\) (\\(i=0,1\\))\ndéduite de la suite exacte (5.5.2).</u></p></div></div>"
+     "type": "corollaire",
+     "label": "5.6.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.5.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">5.6.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(k\\) un corps, \\(Z\\) un groupe commutatif sans torsion,\n\\(P\\) et \\(Q\\) deux schémas en groupes commutatifs localement de type fini sur\n\\(k\\), \\(\\Phi=P/P^0\\) et \\(\\Psi=Q/Q^0\\) les groupes des composantes neutres. Alors :</p>\n\n<p>(i)   Le foncteur naturel, allant de la catégorie des biextensions\nde \\((\\Phi,\\Psi)\\) par \\(Z_k\\) dans celle des biextensions de \\((P,Q)\\) par \\(Z_k\\), est une équivalence\nde catégories. Si en particulier \\(P\\) ou \\(Q\\) est connexe, la catégorie des\nbiextensions de \\((P,Q)\\) par \\(Z_k\\) est équivalente à la catégorie ponctuelle.</p>\n\n<p>(ii)   Supposons que \\(\\Phi\\) ou \\(\\Psi\\) soit un groupe de torsion. Alors\nla catégorie des biextensions de \\((P,Q)\\) par \\(Z_k\\) est rigide. Si de plus\nil existe un entier \\(n&gt;0\\) tel que \\(n.\\operatorname{id}_\\Phi=0\\) ou \\(n.\\operatorname{id}_\\Psi=0\\), alors le\ngroupe des classes de biextensions de \\((P,Q)\\) par \\(Z_k\\) est donné par un\nisomorphisme canonique</p>\n\n\\[(5.6.1)\\qquad \\operatorname{Biext}^1(P,Q;G_k)\\xleftarrow{\\sim}\n\\operatorname{Hom}(\\Phi\\otimes\\Psi,(Z\\otimes_{\\mathbb Z}\\mathbb Q)/Z),\\]\n\n<p>donné par l'opérateur cobord de la suite exacte des \\(\\operatorname{Biext}^i\\) (\\(i=0,1\\))\ndéduite de la suite exacte (5.5.2).</p></div>\n</div>"
     },
     {
      "id": "8.5.7",
@@ -3760,10 +3725,10 @@
     },
     {
      "id": "8.5.9",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.5.9\"><span class=\"thm-head\"><u>Proposition 5.9.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma, \\(T\\) un sous-schéma fermé, \\(G\\) un groupe\ncommutatif, \\(G_{S,T}\\) le schéma en groupes constant tronqué correspondant\nsur \\(S\\) défini dans 5.7, \\(P\\) un schéma en groupes commutatifs sur \\(S\\). Alors\nle foncteur de restriction à \\(T\\) induit une équivalence entre la catégorie\ndes faisceaux en groupes commutatifs extensions de \\(P\\) par \\(G_{S,T}\\), et la\ncatégorie des faisceaux en groupes commutatifs extensions de \\(P_T\\) par \\(G_T\\).</u></p></div></div>"
+     "type": "proposition",
+     "label": "5.9.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.5.9\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">5.9.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma, \\(T\\) un sous-schéma fermé, \\(G\\) un groupe\ncommutatif, \\(G_{S,T}\\) le schéma en groupes constant tronqué correspondant\nsur \\(S\\) défini dans 5.7, \\(P\\) un schéma en groupes commutatifs sur \\(S\\). Alors\nle foncteur de restriction à \\(T\\) induit une équivalence entre la catégorie\ndes faisceaux en groupes commutatifs extensions de \\(P\\) par \\(G_{S,T}\\), et la\ncatégorie des faisceaux en groupes commutatifs extensions de \\(P_T\\) par \\(G_T\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -3774,10 +3739,10 @@
     },
     {
      "id": "8.5.10",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.5.10\"><span class=\"thm-head\"><u>Corollaire 5.10.</u></span>\n<div class=\"thm-body\"><p><u>Avec les notations de 5.9, soit de plus \\(Q\\) un schéma en\ngroupes commutatifs sur \\(S\\). Alors le foncteur restriction à \\(T\\) induit\nune équivalence entre la catégorie des biextensions de \\((P,Q)\\) par \\(Z_{S,T}\\),\net la catégorie des biextensions de \\((P_T,Q_T)\\) par \\(Z_T\\).</u></p></div></div>"
+     "type": "corollaire",
+     "label": "5.10.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.5.10\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">5.10.</span></div>\n  <div class=\"thm-body\"><p>Avec les notations de 5.9, soit de plus \\(Q\\) un schéma en\ngroupes commutatifs sur \\(S\\). Alors le foncteur restriction à \\(T\\) induit\nune équivalence entre la catégorie des biextensions de \\((P,Q)\\) par \\(Z_{S,T}\\),\net la catégorie des biextensions de \\((P_T,Q_T)\\) par \\(Z_T\\).</p></div>\n</div>"
     }
    ],
    "footnotes": []
@@ -3851,10 +3816,10 @@
     },
     {
      "id": "8.6.2",
-     "type": "lemma",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm lemma\" id=\"8.6.2\"><span class=\"thm-head\"><u>Lemme 6.2.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma, \\(T\\) un sous-schéma fermé, \\(U=S-T\\), \\(G\\) un\nGroupe commutatif sur \\(S\\). La catégorie des Groupes commutatifs sur \\(S\\)\nextensions de \\(\\mathbb Z_{S,T}\\) (défini dans (5.7)) par \\(G\\) est équivalente à la\ncatégorie des couples \\((F,s)\\) formés d'un torseur \\(F\\) sous \\(G\\) et d'une\nsection \\(s\\) de \\(F|U\\). Si \\(\\alpha:S\\longrightarrow\\mathbb Z_{S,T}\\) est la section de \\(\\mathbb Z_{S,T}\\) image\nde la section \\(1\\) de \\(\\mathbb Z_S\\) sur \\(S\\), à l'extension \\(\\overline G\\) de \\(\\mathbb Z_{S,T}\\) par \\(G\\) correspond\nle torseur \\(F=\\alpha^*(\\overline G)\\) sous \\(G\\), muni de la section de \\(F|U\\) donnée par\nla restriction à \\(U\\) de la section unité de \\(\\overline G\\).</u></p></div></div>"
+     "type": "lemme",
+     "label": "6.2.",
+     "title": "Lemme",
+     "html": "<div class=\"thm thm-plain lemme\" id=\"8.6.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">6.2.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma, \\(T\\) un sous-schéma fermé, \\(U=S-T\\), \\(G\\) un\nGroupe commutatif sur \\(S\\). La catégorie des Groupes commutatifs sur \\(S\\)\nextensions de \\(\\mathbb Z_{S,T}\\) (défini dans (5.7)) par \\(G\\) est équivalente à la\ncatégorie des couples \\((F,s)\\) formés d'un torseur \\(F\\) sous \\(G\\) et d'une\nsection \\(s\\) de \\(F|U\\). Si \\(\\alpha:S\\longrightarrow\\mathbb Z_{S,T}\\) est la section de \\(\\mathbb Z_{S,T}\\) image\nde la section \\(1\\) de \\(\\mathbb Z_S\\) sur \\(S\\), à l'extension \\(\\overline G\\) de \\(\\mathbb Z_{S,T}\\) par \\(G\\) correspond\nle torseur \\(F=\\alpha^*(\\overline G)\\) sous \\(G\\), muni de la section de \\(F|U\\) donnée par\nla restriction à \\(U\\) de la section unité de \\(\\overline G\\).</p></div>\n</div>"
     },
     {
      "id": "8.6.2.1",
@@ -3985,9 +3950,9 @@
     {
      "id": "8.6.5",
      "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.6.5\"><span class=\"thm-head\"><u>Théorème 6.5.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma normal localement intègre, \\(D\\) un diviseur\npositif sur \\(S\\), sans composantes multiples, tel que le support de \\(D\\) soit\ngéométriquement unibranche et localement intègre. Soit \\(\\overline G\\) le modèle de\nNéron-Raynaud de \\(G_m\\) sur \\(S\\) relatif à \\(D\\) (6.3), et considérons la catégorie\ndes torseurs \\(E\\) sur \\(S\\) sous le schéma en groupes \\(\\overline G\\). Le foncteur restriction</u></p>\n\\[E\\longmapsto E_U=E|U,\\]\n<p><u>qui va de cette catégorie dans la catégorie des torseurs sur \\(U\\) sous\nle schéma en groupes \\(G_{mU}\\), est pleinement fidèle. Si \\(S\\) est un schéma\nrégulier (plus généralement, si ces anneaux locaux sont factoriels),\nalors ce foncteur est même une équivalence de catégories.</u></p></div></div>"
+     "label": "6.5.",
+     "title": "Théorème",
+     "html": "<div class=\"thm thm-plain theoreme\" id=\"8.6.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span> <span class=\"thm-num\">6.5.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma normal localement intègre, \\(D\\) un diviseur\npositif sur \\(S\\), sans composantes multiples, tel que le support de \\(D\\) soit\ngéométriquement unibranche et localement intègre. Soit \\(\\overline G\\) le modèle de\nNéron-Raynaud de \\(G_m\\) sur \\(S\\) relatif à \\(D\\) (6.3), et considérons la catégorie\ndes torseurs \\(E\\) sur \\(S\\) sous le schéma en groupes \\(\\overline G\\). Le foncteur restriction</p>\n\\[E\\longmapsto E_U=E|U,\\]\n<p>qui va de cette catégorie dans la catégorie des torseurs sur \\(U\\) sous\nle schéma en groupes \\(G_{mU}\\), est pleinement fidèle. Si \\(S\\) est un schéma\nrégulier (plus généralement, si ces anneaux locaux sont factoriels),\nalors ce foncteur est même une équivalence de catégories.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -4040,10 +4005,10 @@
     },
     {
      "id": "8.6.6",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.6.6\"><span class=\"thm-head\"><u>Corollaire 6.6.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma localement noethérien et régulier,\n\\(D\\) un sous-schéma fermé réduit géométriquement unibranche et purement\n1-codimensionnel (définissant donc un diviseur sur \\(S\\)), \\(\\overline G\\) le modèle de\nNéron-Raynaud de \\(G_m\\) relatif à \\(D\\), \\(P\\) un schéma en groupes commutatifs\nlisse sur \\(S\\). Considérons la catégorie des extensions commutatives de\nfaisceaux en Groupes de \\(P\\) par \\(\\overline G\\). Alors le foncteur restriction à \\(U\\),\n\\(E\\longmapsto E|U\\), induit une équivalence de cette catégorie avec la catégorie\ndes extensions de \\(P_U\\) par \\(G_{m,U}\\).</u></p></div></div>"
+     "type": "corollaire",
+     "label": "6.6.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.6.6\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">6.6.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma localement noethérien et régulier,\n\\(D\\) un sous-schéma fermé réduit géométriquement unibranche et purement\n1-codimensionnel (définissant donc un diviseur sur \\(S\\)), \\(\\overline G\\) le modèle de\nNéron-Raynaud de \\(G_m\\) relatif à \\(D\\), \\(P\\) un schéma en groupes commutatifs\nlisse sur \\(S\\). Considérons la catégorie des extensions commutatives de\nfaisceaux en Groupes de \\(P\\) par \\(\\overline G\\). Alors le foncteur restriction à \\(U\\),\n\\(E\\longmapsto E|U\\), induit une équivalence de cette catégorie avec la catégorie\ndes extensions de \\(P_U\\) par \\(G_{m,U}\\).</p></div>\n</div>"
     },
     {
      "id": "8.6.6.1",
@@ -4061,31 +4026,17 @@
     },
     {
      "id": "8.6.7",
-     "type": "corollary",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\" id=\"8.6.7\"><span class=\"thm-head\"><u>Corollaire 6.7.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S,D,\\overline G\\) comme dans 6.6, et \\(P,Q\\) deux schémas en\ngroupes commutatifs et lisses sur \\(S\\). On considère la catégorie des\nbiextensions de \\((P,Q)\\) par \\(\\overline G\\). Alors le foncteur restriction à \\(U\\),\n\\(E\\longmapsto E|U\\), qui va de cette catégorie dans la catégorie des biextensions\nde \\((P_U,Q_U)\\) par \\(G_{m,U}\\), est une équivalence de catégories.</u></p></div></div>"
+     "type": "corollaire",
+     "label": "6.7.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.6.7\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">6.7.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S,D,\\overline G\\) comme dans 6.6, et \\(P,Q\\) deux schémas en\ngroupes commutatifs et lisses sur \\(S\\). On considère la catégorie des\nbiextensions de \\((P,Q)\\) par \\(\\overline G\\). Alors le foncteur restriction à \\(U\\),\n\\(E\\longmapsto E|U\\), qui va de cette catégorie dans la catégorie des biextensions\nde \\((P_U,Q_U)\\) par \\(G_{m,U}\\), est une équivalence de catégories.</p></div>\n</div>"
     },
     {
      "id": "8.6.8",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.6.8\"><strong><u>Remarques 6.8.</u></strong>   a)   Nous appliquerons 6.6 et 6.7 lorsque \\(S\\) est un trait,\net \\(D\\) le diviseur défini par l'inclusion du point fermé \\(s\\) de \\(S\\) dans \\(S\\).\nDans ce cas, \\(U\\) est le spectre du corps des fractions \\(K\\) de \\(S\\), et \\(\\overline G\\) est\nle modèle de Néron habituel du groupe multiplicatif sur \\(K\\), introduit\npar Raynaud. On notera que, même en se bornant à ce cas, la démonstration\nde 6.6 et de 6.7 utilise 6.5 sur des bases plus générales que des traits\n(telles que \\(P\\) et ses puissances cartésiennes ...). Néanmoins, il suffit\ndans ce cas de connaître l'<u>existence</u> du modèle de Néron \\(\\overline G\\) dans le cas\nparticulier envisagé, pour en conclure formellement 6.5 pour des schémas\nde base lisses sur \\(S\\), donc pour obtenir 6.6 et 6.7. Pour nous, l'introduction\nde \\(\\overline G\\) sera surtout un intermédiaire commode pour étudier\nau numéro suivant le problème des prolongements d'extensions et de\nbiextensions par le groupe multiplicatif.</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>b)   On peut définir un modèle de Néron-Raynaud \\(\\overline G\\) de \\(G_{m,U}\\),\nsatisfaisant à la condition fondamentale (6.4.2) pour tout \\(S'\\) lisse\nsur \\(S\\), sous des conditions nettement plus générales que celles envisagées\nplus haut, \\(U\\) étant simplement un ouvert schématiquement dense d'un\nschéma localement noethérien <u>normal</u> \\(S\\). Dans ce cas, \\(\\overline G\\) sera un <u>faisceau au\nfppf</u>, pas nécessairement représentable. Désignant par \\(\\underline D\\) le faisceau,\nsur le petit site étale de \\(S\\), des diviseurs sur \\(S\\) de support contenu\ndans \\(T=S-U\\), et (par abus de langage) par la même lettre l'extension canonique\nde \\(\\underline D\\) en un faisceau sur \\((\\operatorname{Sch})/S\\) (dont les sections sur le schéma relatif\n\\(f:S'\\longrightarrow S\\) sont les sections de \\(f_{\\mathrm{et}}^*(\\underline D)\\) sur \\(S'\\)), le modèle cherché est\nune extension de Groupes</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\n\\[(6.8.1)\\qquad 0\\longrightarrow G_{mS}\\longrightarrow\\overline G\n\\longrightarrow\\underline D\\longrightarrow0.\\]\n\n</p>"
+     "type": "remarque",
+     "label": "6.8.",
+     "title": "Remarques",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.6.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarques</span> <span class=\"thm-num\">6.8.</span></div>\n  <div class=\"thm-body\"><p>a)   Nous appliquerons 6.6 et 6.7 lorsque \\(S\\) est un trait,\net \\(D\\) le diviseur défini par l'inclusion du point fermé \\(s\\) de \\(S\\) dans \\(S\\).\nDans ce cas, \\(U\\) est le spectre du corps des fractions \\(K\\) de \\(S\\), et \\(\\overline G\\) est\nle modèle de Néron habituel du groupe multiplicatif sur \\(K\\), introduit\npar Raynaud. On notera que, même en se bornant à ce cas, la démonstration\nde 6.6 et de 6.7 utilise 6.5 sur des bases plus générales que des traits\n(telles que \\(P\\) et ses puissances cartésiennes ...). Néanmoins, il suffit\ndans ce cas de connaître l'<u>existence</u> du modèle de Néron \\(\\overline G\\) dans le cas\nparticulier envisagé, pour en conclure formellement 6.5 pour des schémas\nde base lisses sur \\(S\\), donc pour obtenir 6.6 et 6.7. Pour nous, l'introduction\nde \\(\\overline G\\) sera surtout un intermédiaire commode pour étudier\nau numéro suivant le problème des prolongements d'extensions et de\nbiextensions par le groupe multiplicatif.</p>\n  <p>b)   On peut définir un modèle de Néron-Raynaud \\(\\overline G\\) de \\(G_{m,U}\\),\nsatisfaisant à la condition fondamentale (6.4.2) pour tout \\(S'\\) lisse\nsur \\(S\\), sous des conditions nettement plus générales que celles envisagées\nplus haut, \\(U\\) étant simplement un ouvert schématiquement dense d'un\nschéma localement noethérien <u>normal</u> \\(S\\). Dans ce cas, \\(\\overline G\\) sera un <u>faisceau au\nfppf</u>, pas nécessairement représentable. Désignant par \\(\\underline D\\) le faisceau,\nsur le petit site étale de \\(S\\), des diviseurs sur \\(S\\) de support contenu\ndans \\(T=S-U\\), et (par abus de langage) par la même lettre l'extension canonique\nde \\(\\underline D\\) en un faisceau sur \\((\\operatorname{Sch})/S\\) (dont les sections sur le schéma relatif\n\\(f:S'\\longrightarrow S\\) sont les sections de \\(f_{\\mathrm{et}}^*(\\underline D)\\) sur \\(S'\\)), le modèle cherché est\nune extension de Groupes \\[(6.8.1)\\qquad 0\\longrightarrow G_{mS}\\longrightarrow\\overline G\n\\longrightarrow\\underline D\\longrightarrow0.\\]</p></div>\n</div>"
     },
     {
      "id": null,
@@ -4159,10 +4110,10 @@
     },
     {
      "id": null,
-     "type": "corollary",
+     "type": "corollaire",
      "label": null,
-     "title": null,
-     "html": "<div class=\"thm corollary\"><span class=\"thm-head\"><u>Corollaire.</u></span>\n<div class=\"thm-body\"><p><u>Soient \\(S\\) un schéma noethérien normal, \\(Y\\) un diviseur géométriquement\nunibranche et \\(U=S-Y\\) :</u></p>\n\\[U\\xhookrightarrow{\\ j\\ }S\\xhookleftarrow{\\ i\\ }Y.\\]\n<p><u>Il existe un unique schéma en groupes lisse \\(\\mathcal G_m\\) sur \\(S\\), tel qu'après tout\nchangement de base lisse, on ait \\(\\mathcal G_m|_{S'_{\\mathrm{et}}}=j_*G_{mU}\\).</u></p></div></div>"
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma noethérien normal, \\(Y\\) un diviseur géométriquement\nunibranche et \\(U=S-Y\\) :</p>\n\\[U\\xhookrightarrow{\\ j\\ }S\\xhookleftarrow{\\ i\\ }Y.\\]\n<p>Il existe un unique schéma en groupes lisse \\(\\mathcal G_m\\) sur \\(S\\), tel qu'après tout\nchangement de base lisse, on ait \\(\\mathcal G_m|_{S'_{\\mathrm{et}}}=j_*G_{mU}\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -4221,122 +4172,115 @@
     },
     {
      "id": "8.7.1",
-     "type": "theorem",
+     "type": "theoreme",
+     "label": "7.1.",
+     "title": "Théorème",
+     "html": "<div class=\"thm thm-plain theoreme\" id=\"8.7.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Théorème</span> <span class=\"thm-num\">7.1.</span></div>\n  <div class=\"thm-body\"><p>Les notations sont celles rappelées dans 7.0.</p>\n\n<p>a)   Supposons que le groupe des composantes connexes de la fibre\nspéciale de \\(P\\),</p>\n\\[\\Phi=P_o/P_o^o\\]\n<p>soit un groupe de torsion, — ce qui est le cas en particulier si \\(P\\) est\nde type fini sur \\(S\\) ; alors le foncteur \\(E\\longmapsto E_\\eta\\) de la catégorie des\nextensions de \\(P\\) par \\(G_{mS}\\) dans la catégorie des extensions de \\(P_\\eta\\) par \\(G_{m\\eta}\\)\nest pleinement fidèle. Supposons qu'il existe un entier \\(n&gt;0\\) tel que\n\\(n\\Phi=0\\), alors si \\(E_\\eta\\) est une extension de \\(P_\\eta\\) par \\(G_{m\\eta}\\), il lui est associé\nun homomorphisme canonique</p>\n\\[(7.1.1)\\qquad d(E_\\eta):\\Phi\\longrightarrow(\\mathbb Q/\\mathbb Z)_k,\\]\n<p>dont l'annulation est nécessaire et suffisante pour que l'extension \\(E_\\eta\\)\nsoit isomorphe à la fibre générique d'une extension de \\(P\\) par \\(G_{mS}\\). En\nparticulier, si \\(P_o\\) est connexe, le foncteur précédent \\(E\\longmapsto E_\\eta\\) est une\néquivalence de catégories.</p>\n\n<p>b)   Soient \\(P\\) et \\(Q\\) deux schémas en groupes lisses sur \\(S\\), posons</p>\n\\[\\Phi=P_o/P_o^o,\\qquad \\Psi=Q_o/Q_o^o,\\]\n<p>et supposons que \\(\\Phi\\) ou \\(\\Psi\\) soit un groupe de torsion (par exemple \\(P\\) ou \\(Q\\) de\ntype fini sur \\(S\\)) ; alors le foncteur \\(E\\longmapsto E_\\eta\\) dans la catégorie des\nbiextensions de \\((P,Q)\\) par \\(G_{mS}\\) dans la catégorie des biextensions de\n\\((P_\\eta,Q_\\eta)\\) par \\(G_{m\\eta}\\) est pleinement fidèle. Supposons qu'il existe un entier \\(n&gt;0\\)\ntel que \\(n\\Phi=0\\) ou \\(n\\Psi=0\\), alors si \\(E_\\eta\\) est une biextension de \\((P_\\eta,Q_\\eta)\\) par\n\\(G_{m\\eta}\\), il lui est associé un accouplement canonique</p>\n\\[(7.1.2)\\qquad d(E_\\eta):\\Phi\\otimes_{\\mathbb Z}\\Psi\\longrightarrow(\\mathbb Q/\\mathbb Z)_k,\\]\n<p>dont l'annulation est nécessaire et suffisante pour que \\(E\\) soit isomorphe\nà la fibre générique d'une biextension \\(E\\) de \\((P,Q)\\) par \\(G_{mS}\\). En particulier,\nsi \\(P_o\\) ou \\(Q_o\\) est connexe, le foncteur précédent \\(E\\longmapsto E_\\eta\\) est une équivalence\nde catégories.</p></div>\n</div>"
+    },
+    {
+     "id": "proof-8-7-b3",
+     "type": "proof",
      "label": null,
-     "title": null,
-     "html": "<div class=\"thm theorem\" id=\"8.7.1\"><span class=\"thm-head\"><u>Théorème 7.1.</u></span>\n<div class=\"thm-body\"><p><u>Les notations sont celles rappelées dans 7.0.</u></p>\n\n<p>a)   <u>Supposons que le groupe des composantes connexes de la fibre\nspéciale de \\(P\\),</u></p>\n\\[\\Phi=P_o/P_o^o\\]\n<p><u>soit un groupe de torsion, — ce qui est le cas en particulier si \\(P\\) est\nde type fini sur \\(S\\) ; alors le foncteur \\(E\\longmapsto E_\\eta\\) de la catégorie des\nextensions de \\(P\\) par \\(G_{mS}\\) dans la catégorie des extensions de \\(P_\\eta\\) par \\(G_{m\\eta}\\)\nest pleinement fidèle. Supposons qu'il existe un entier \\(n&gt;0\\) tel que\n\\(n\\Phi=0\\), alors si \\(E_\\eta\\) est une extension de \\(P_\\eta\\) par \\(G_{m\\eta}\\), il lui est associé\nun homomorphisme canonique</u></p>\n\\[(7.1.1)\\qquad d(E_\\eta):\\Phi\\longrightarrow(\\mathbb Q/\\mathbb Z)_k,\\]\n<p><u>dont l'annulation est nécessaire et suffisante pour que l'extension \\(E_\\eta\\)\nsoit isomorphe à la fibre générique d'une extension de \\(P\\) par \\(G_{mS}\\). En\nparticulier, si \\(P_o\\) est connexe, le foncteur précédent \\(E\\longmapsto E_\\eta\\) est une\néquivalence de catégories.</u></p>\n\n<p>b)   <u>Soient \\(P\\) et \\(Q\\) deux schémas en groupes lisses sur \\(S\\), posons</u></p>\n\\[\\Phi=P_o/P_o^o,\\qquad \\Psi=Q_o/Q_o^o,\\]\n<p><u>et supposons que \\(\\Phi\\) ou \\(\\Psi\\) soit un groupe de torsion (par exemple \\(P\\) ou \\(Q\\) de\ntype fini sur \\(S\\)) ; alors le foncteur \\(E\\longmapsto E_\\eta\\) dans la catégorie des\nbiextensions de \\((P,Q)\\) par \\(G_{mS}\\) dans la catégorie des biextensions de\n\\((P_\\eta,Q_\\eta)\\) par \\(G_{m\\eta}\\) est pleinement fidèle. Supposons qu'il existe un entier \\(n&gt;0\\)\ntel que \\(n\\Phi=0\\) ou \\(n\\Psi=0\\), alors si \\(E_\\eta\\) est une biextension de \\((P_\\eta,Q_\\eta)\\) par\n\\(G_{m\\eta}\\), il lui est associé un accouplement canonique</u></p>\n\\[(7.1.2)\\qquad d(E_\\eta):\\Phi\\otimes_{\\mathbb Z}\\Psi\\longrightarrow(\\mathbb Q/\\mathbb Z)_k,\\]\n<p><u>dont l'annulation est nécessaire et suffisante pour que \\(E\\) soit isomorphe\nà la fibre générique d'une biextension \\(E\\) de \\((P,Q)\\) par \\(G_{mS}\\). En particulier,\nsi \\(P_o\\) ou \\(Q_o\\) est connexe, le foncteur précédent \\(E\\longmapsto E_\\eta\\) est une équivalence\nde catégories.</u></p></div></div>"
+     "title": "Démonstration",
+     "html": "<div class=\"proof proof-part proof-first\" id=\"proof-8-7-b3\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>a)   Soit \\(\\overline G\\) le modèle de Néron-Raynaud de \\(G_m\\). Le foncteur\nenvisagé est le composé du foncteur \"extension du noyau \\(G_{mS}\\longrightarrow\\overline G\\)\" avec\nle foncteur \"restriction à \\(\\eta\\)\" défini sur la catégorie des biextensions\npar \\(\\overline G\\). Ce dernier foncteur étant une équivalence de catégories en vertu\nde 6.6, on est ramené à étudier le premier foncteur. Pour ceci, on utilise\nla suite exacte de schémas en groupes</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p><u>Démonstration.</u>   a)   Soit \\(\\overline G\\) le modèle de Néron-Raynaud de \\(G_m\\). Le foncteur\nenvisagé est le composé du foncteur \"extension du noyau \\(G_{mS}\\longrightarrow\\overline G\\)\" avec\nle foncteur \"restriction à \\(\\eta\\)\" défini sur la catégorie des biextensions\npar \\(\\overline G\\). Ce dernier foncteur étant une équivalence de catégories en vertu\nde 6.6, on est ramené à étudier le premier foncteur. Pour ceci, on utilise\nla suite exacte de schémas en groupes</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>\n\\[(7.1.3)\\qquad 0\\longrightarrow G_{mS}\\longrightarrow\\overline G\\longrightarrow\\mathbb Z_{S,s}\\longrightarrow0,\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[(7.1.3)\\qquad 0\\longrightarrow G_{mS}\\longrightarrow\\overline G\\longrightarrow\\mathbb Z_{S,s}\\longrightarrow0,\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>la notation pour \\(\\mathbb Z_{S,s}\\) étant celle de 5.7. La suite exacte des \\(\\operatorname{Ext}^i\\)\n(\\(i=0,1\\)) associée à cette suite exacte nous montre que pour que le foncteur\nenvisagé soit pleinement fidèle, il faut et il suffit que l'on ait</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>la notation pour \\(\\mathbb Z_{S,s}\\) étant celle de 5.7. La suite exacte des \\(\\operatorname{Ext}^i\\)\n(\\(i=0,1\\)) associée à cette suite exacte nous montre que pour que le foncteur\nenvisagé soit pleinement fidèle, il faut et il suffit que l'on ait</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>\n\\[(7.1.4)\\qquad \\operatorname{Hom}(P,\\mathbb Z_{S,s})=0,\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[(7.1.4)\\qquad \\operatorname{Hom}(P,\\mathbb Z_{S,s})=0,\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>et que l'obstruction, pour une extension \\(\\overline E\\) de \\(P\\) par \\(\\overline G\\), de provenir\nd'une extension \\(E\\) de \\(P\\) par \\(G_{mS}\\) se trouve dans</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>et que l'obstruction, pour une extension \\(\\overline E\\) de \\(P\\) par \\(\\overline G\\), de provenir\nd'une extension \\(E\\) de \\(P\\) par \\(G_{mS}\\) se trouve dans</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>\n\\[(7.1.5)\\qquad \\operatorname{Ext}^1(P,\\mathbb Z_{S,s}).\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[(7.1.5)\\qquad \\operatorname{Ext}^1(P,\\mathbb Z_{S,s}).\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>Or le premier groupe (7.1.4) est isomorphe à \\(\\operatorname{Hom}(P_o,\\mathbb Z_k)\\) en vertu de\n(5.7.2), qui est isomorphe lui-même à \\(\\operatorname{Hom}(\\Phi,\\mathbb Z_k)\\), de sorte que (7.1.4)\néquivaut à la relation</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Or le premier groupe (7.1.4) est isomorphe à \\(\\operatorname{Hom}(P_o,\\mathbb Z_k)\\) en vertu de\n(5.7.2), qui est isomorphe lui-même à \\(\\operatorname{Hom}(\\Phi,\\mathbb Z_k)\\), de sorte que (7.1.4)\néquivaut à la relation</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>\n\\[(7.1.4\\ \\mathrm{bis})\\qquad \\operatorname{Hom}(\\Phi,\\mathbb Z_k)=0.\\]\n\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[(7.1.4\\ \\mathrm{bis})\\qquad \\operatorname{Hom}(\\Phi,\\mathbb Z_k)=0.\\]\n\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>Cette relation est certainement vérifiée si \\(\\Phi\\) est un groupe de torsion.\nD'autre part, si on a même \\(n\\Phi=0\\), alors en vertu de 5.9 et 5.5 on a\ndes isomorphismes canoniques</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>Cette relation est certainement vérifiée si \\(\\Phi\\) est un groupe de torsion.\nD'autre part, si on a même \\(n\\Phi=0\\), alors en vertu de 5.9 et 5.5 on a\ndes isomorphismes canoniques</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>\n\\[(7.1.6)\\qquad \\operatorname{Ext}^1(P,\\mathbb Z_{S,s})\\mathrel{\\widetilde\\longrightarrow}\n\\operatorname{Ext}^1(P_o,\\mathbb Z_k)\\mathrel{\\widetilde\\longrightarrow}\n\\operatorname{Hom}(\\Phi,(\\mathbb Q/\\mathbb Z)_k),\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[(7.1.6)\\qquad \\operatorname{Ext}^1(P,\\mathbb Z_{S,s})\\mathrel{\\widetilde\\longrightarrow}\n\\operatorname{Ext}^1(P_o,\\mathbb Z_k)\\mathrel{\\widetilde\\longrightarrow}\n\\operatorname{Hom}(\\Phi,(\\mathbb Q/\\mathbb Z)_k),\\]\n</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>ce qui achève de prouver 7.1 a).</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>ce qui achève de prouver 7.1 a).</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>b)   La démonstration est essentiellement la même. On est ramené,\ngrâce à 6.7, à étudier le foncteur \"extension du noyau \\(G_{mS}\\longrightarrow\\overline G\\)\" de\nla catégorie des biextensions de \\((P,Q)\\) par \\(G_{mS}\\) dans celle des biextensions\nde \\((P,Q)\\) par \\(\\overline G\\). Cette étude se fait en utilisant la suite exacte (7.1.3),\net la suite exacte des \\(\\operatorname{Biext}^i\\) (\\(i=0,1\\)) associée (VII 3.7.5). La pleine\nfidélité du foncteur envisagé équivaut à la relation</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>b)   La démonstration est essentiellement la même. On est ramené,\ngrâce à 6.7, à étudier le foncteur \"extension du noyau \\(G_{mS}\\longrightarrow\\overline G\\)\" de\nla catégorie des biextensions de \\((P,Q)\\) par \\(G_{mS}\\) dans celle des biextensions\nde \\((P,Q)\\) par \\(\\overline G\\). Cette étude se fait en utilisant la suite exacte (7.1.3),\net la suite exacte des \\(\\operatorname{Biext}^i\\) (\\(i=0,1\\)) associée (VII 3.7.5). La pleine\nfidélité du foncteur envisagé équivaut à la relation</p>"
+     "html": "<div class=\"proof proof-part proof-cont\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>\n\\[(7.1.7)\\qquad \\operatorname{Hom}(P\\otimes Q,\\mathbb Z_{S,s})=0,\\]\n</p></div>\n</div>"
     },
     {
      "id": null,
-     "type": "paragraph",
+     "type": "proof",
      "label": null,
      "title": null,
-     "html": "<p>\n\\[(7.1.7)\\qquad \\operatorname{Hom}(P\\otimes Q,\\mathbb Z_{S,s})=0,\\]\n</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>or le premier membre est isomorphe à \\(\\operatorname{Hom}(P_o\\otimes Q_o,\\mathbb Z_k)\\) en vertu de (5.7.2),\ndonc à \\(\\operatorname{Hom}(\\Phi\\otimes\\Psi,\\mathbb Z_k)\\), groupe qui est bien nul si \\(\\Phi\\) ou \\(\\Psi\\) est un groupe\nde torsion. D'autre part, pour une biextension donnée \\(\\overline E\\) de \\((P,Q)\\) par \\(\\overline G\\),\nl'obstruction à ce qu'elle provienne d'une biextension \\(E\\) de \\((P,Q)\\) par\n\\(G_{mS}\\) se trouve dans \\(\\operatorname{Biext}^1(P,Q;\\mathbb Z_{S,s})\\), qui est isomorphe en vertu de 5.10\nà \\(\\operatorname{Biext}^1(P_o,Q_o,\\mathbb Z_k)\\), lui-même isomorphe (si \\(n\\Phi=0\\) ou \\(n\\Psi=0\\)) à\n\\(\\operatorname{Hom}(\\Phi\\otimes\\Psi,\\mathbb Q/\\mathbb Z)\\) en vertu de 5.6. Cela achève la démonstration de 7.1.</p>"
+     "html": "<div class=\"proof proof-part proof-cont proof-last\" data-proof-group=\"proof-8-7-b3\">\n  <div class=\"proof-body\"><p>or le premier membre est isomorphe à \\(\\operatorname{Hom}(P_o\\otimes Q_o,\\mathbb Z_k)\\) en vertu de (5.7.2),\ndonc à \\(\\operatorname{Hom}(\\Phi\\otimes\\Psi,\\mathbb Z_k)\\), groupe qui est bien nul si \\(\\Phi\\) ou \\(\\Psi\\) est un groupe\nde torsion. D'autre part, pour une biextension donnée \\(\\overline E\\) de \\((P,Q)\\) par \\(\\overline G\\),\nl'obstruction à ce qu'elle provienne d'une biextension \\(E\\) de \\((P,Q)\\) par\n\\(G_{mS}\\) se trouve dans \\(\\operatorname{Biext}^1(P,Q;\\mathbb Z_{S,s})\\), qui est isomorphe en vertu de 5.10\nà \\(\\operatorname{Biext}^1(P_o,Q_o,\\mathbb Z_k)\\), lui-même isomorphe (si \\(n\\Phi=0\\) ou \\(n\\Psi=0\\)) à\n\\(\\operatorname{Hom}(\\Phi\\otimes\\Psi,\\mathbb Q/\\mathbb Z)\\) en vertu de 5.6. Cela achève la démonstration de 7.1.</p></div>\n</div>"
     },
     {
      "id": "8.7.2",
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p id=\"8.7.2\"><strong><u>Remarque 7.2.</u></strong>   On peut se proposer, étant donné un schéma en groupes lisse\n\\(P\\) sur un schéma localement noethérien régulier connexe \\(S\\) de point générique \\(\\eta\\), d'étudier le foncteur \\(E\\longmapsto E_\\eta\\) de la catégorie des extensions\nde \\(P\\) par \\(G_{mS}\\) dans celle des extensions de \\(P_\\eta\\) par \\(G_{m\\eta}\\). Ce problème se\nramène en fait facilement à celui traité dans 7.1 a). Supposons pour\nsimplifier \\(P\\) de type fini sur \\(S\\). Alors il résulte facilement de 7.1\nque le foncteur envisagé est pleinement fidèle<sup><a href=\"#8-fn-8.7.2\" id=\"8-fn-8.7.2ref\">*</a></sup>. On en déduit aisément\nque si \\(E_\\eta\\) est une extension de \\(P_\\eta\\) par \\(G_{m\\eta}\\), alors pour que celle-ci soit\nisomorphe à la fibre générique d'une extension \\(E\\) de \\(P\\) par \\(G_{mS}\\), il faut\net il suffit que pour tout \\(s\\in S\\) tel que \\(\\dim\\operatorname{Spec}(\\mathcal O_{S,s})=1\\), le problème\nde prolongement analogue obtenu par le changement de base \\(\\operatorname{Spec}(\\mathcal O_{S,s})\\longrightarrow S\\)\nait une solution, — ce qui, en vertu de 7.1 a), s'exprime par la nullité\nd'un certain homomorphisme</p>"
-    },
-    {
-     "id": null,
-     "type": "paragraph",
-     "label": null,
-     "title": null,
-     "html": "<p>\n\\[(7.2.1)\\qquad d(E_\\eta,s):P_s/P_s^o\\longrightarrow(\\mathbb Q/\\mathbb Z)_{k(s)}.\\]\n\n</p>"
+     "type": "remarque",
+     "label": "7.2.",
+     "title": "Remarque",
+     "html": "<div class=\"thm thm-remark remarque\" id=\"8.7.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">7.2.</span></div>\n  <div class=\"thm-body\"><p>On peut se proposer, étant donné un schéma en groupes lisse\n\\(P\\) sur un schéma localement noethérien régulier connexe \\(S\\) de point générique \\(\\eta\\), d'étudier le foncteur \\(E\\longmapsto E_\\eta\\) de la catégorie des extensions\nde \\(P\\) par \\(G_{mS}\\) dans celle des extensions de \\(P_\\eta\\) par \\(G_{m\\eta}\\). Ce problème se\nramène en fait facilement à celui traité dans 7.1 a). Supposons pour\nsimplifier \\(P\\) de type fini sur \\(S\\). Alors il résulte facilement de 7.1\nque le foncteur envisagé est pleinement fidèle<sup><a href=\"#8-fn-8.7.2\" id=\"8-fn-8.7.2ref\">*</a></sup>. On en déduit aisément\nque si \\(E_\\eta\\) est une extension de \\(P_\\eta\\) par \\(G_{m\\eta}\\), alors pour que celle-ci soit\nisomorphe à la fibre générique d'une extension \\(E\\) de \\(P\\) par \\(G_{mS}\\), il faut\net il suffit que pour tout \\(s\\in S\\) tel que \\(\\dim\\operatorname{Spec}(\\mathcal O_{S,s})=1\\), le problème\nde prolongement analogue obtenu par le changement de base \\(\\operatorname{Spec}(\\mathcal O_{S,s})\\longrightarrow S\\)\nait une solution, — ce qui, en vertu de 7.1 a), s'exprime par la nullité\nd'un certain homomorphisme \\[(7.2.1)\\qquad d(E_\\eta,s):P_s/P_s^o\\longrightarrow(\\mathbb Q/\\mathbb Z)_{k(s)}.\\]</p></div>\n</div>"
     },
     {
      "id": null,
@@ -4683,10 +4627,10 @@
     },
     {
      "id": "8.7.4",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.7.4\"><div class=\"thm-head\"><u>Proposition 7.4.</u> <u>Soit \\(S\\) un schéma réduit.</u></div>\n<div class=\"thm-body\">\n<p>a)   <u>Soit \\(P\\) un schéma en groupes lisse sur \\(S\\) dont les fibres\naux points maximaux de \\(S\\) sont connexes. Alors le foncteur naturel</u></p>\n<p>VII 1.3.4.1</p>\n\\[(7.4.1)\\qquad \\operatorname{EXT}(P,G_{mS})\\longrightarrow\\operatorname{TORSRIG}(P,e_P;G_{mS})\\]\n<p><u>de la catégorie des extensions de \\(P\\) par \\(G_{mS}\\) dans la catégorie des\ntorseurs sous \\(G_{mP}\\) rigidifiés par rapport à la section unité de \\(P\\), est\npleinement fidèle. Si \\(S\\) est normal, et \\(P\\) à fibres connexes, alors un\nobjet \\(E\\) du deuxième membre de (7.4.1) appartient à l'image essentielle\nde ce foncteur si et seulement si pour tout point maximal \\(\\eta\\) de \\(S\\), le\ntorseur rigidifié \\(E_\\eta\\) sur \\(P_\\eta\\) provient d'une extension de \\(P_\\eta\\) par \\(G_{m\\eta}\\).</u></p>\n\n<p>b)   <u>Soient \\(P,Q\\) deux schémas en groupes lisses sur \\(S\\) dont les\nfibres aux points maximaux de \\(S\\) sont connexes. Alors le foncteur naturel</u></p>\n<p>VII 2.9.1</p>\n\\[(7.4.2)\\qquad \\operatorname{BIEXT}(P,Q;G_{mS})\\longrightarrow\\operatorname{TORSBIRIG}(P,Q;G_{mS})\\]\n<p><u>de la catégorie des biextensions de \\((P,Q)\\) par \\(G_{mS}\\) dans la catégorie\ndes torseurs sous \\(G_{m,P\\times_SQ}\\) birigidifiés relativement au couple des\nsections unités de \\(P\\) et de \\(Q\\), est pleinement fidèle. Si \\(S\\) est normal,\net \\(P\\) ou \\(Q\\) à fibres connexes, un objet \\(E\\) du second membre de (7.4.2)\nappartient à l'image essentielle du foncteur si et seulement si pour tout\npoint maximal \\(\\eta\\) de \\(S\\), \\(E_\\eta\\) provient d'une biextension de \\((P_\\eta,Q_\\eta)\\) par \\(G_{m\\eta}\\).</u></p>\n</div></div>"
+     "type": "proposition",
+     "label": "7.4.",
+     "title": "Proposition",
+     "html": "<div class=\"thm thm-plain proposition\" id=\"8.7.4\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">7.4.</span></div>\n  <div class=\"thm-body\"><p>Soit \\(S\\) un schéma réduit.</p>\n  <p>a)   Soit \\(P\\) un schéma en groupes lisse sur \\(S\\) dont les fibres\naux points maximaux de \\(S\\) sont connexes. Alors le foncteur naturel</p>\n<p>VII 1.3.4.1</p>\n\\[(7.4.1)\\qquad \\operatorname{EXT}(P,G_{mS})\\longrightarrow\\operatorname{TORSRIG}(P,e_P;G_{mS})\\]\n<p>de la catégorie des extensions de \\(P\\) par \\(G_{mS}\\) dans la catégorie des\ntorseurs sous \\(G_{mP}\\) rigidifiés par rapport à la section unité de \\(P\\), est\npleinement fidèle. Si \\(S\\) est normal, et \\(P\\) à fibres connexes, alors un\nobjet \\(E\\) du deuxième membre de (7.4.1) appartient à l'image essentielle\nde ce foncteur si et seulement si pour tout point maximal \\(\\eta\\) de \\(S\\), le\ntorseur rigidifié \\(E_\\eta\\) sur \\(P_\\eta\\) provient d'une extension de \\(P_\\eta\\) par \\(G_{m\\eta}\\).</p>\n\n<p>b)   Soient \\(P,Q\\) deux schémas en groupes lisses sur \\(S\\) dont les\nfibres aux points maximaux de \\(S\\) sont connexes. Alors le foncteur naturel</p>\n<p>VII 2.9.1</p>\n\\[(7.4.2)\\qquad \\operatorname{BIEXT}(P,Q;G_{mS})\\longrightarrow\\operatorname{TORSBIRIG}(P,Q;G_{mS})\\]\n<p>de la catégorie des biextensions de \\((P,Q)\\) par \\(G_{mS}\\) dans la catégorie\ndes torseurs sous \\(G_{m,P\\times_SQ}\\) birigidifiés relativement au couple des\nsections unités de \\(P\\) et de \\(Q\\), est pleinement fidèle. Si \\(S\\) est normal,\net \\(P\\) ou \\(Q\\) à fibres connexes, un objet \\(E\\) du second membre de (7.4.2)\nappartient à l'image essentielle du foncteur si et seulement si pour tout\npoint maximal \\(\\eta\\) de \\(S\\), \\(E_\\eta\\) provient d'une biextension de \\((P_\\eta,Q_\\eta)\\) par \\(G_{m\\eta}\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -4711,10 +4655,10 @@
     },
     {
      "id": "8.7.5",
-     "type": "theoreme",
-     "label": null,
-     "title": null,
-     "html": "<div class=\"thm\" id=\"8.7.5\"><div class=\"thm-head\"><u>Corollaire 7.5.</u> <u>Soient \\(S\\) un schéma normal, \\(P\\) et \\(Q\\) deux schémas en groupes\nlisses sur \\(S\\), à fibres maximales connexes, \\(P\\) ou \\(Q\\) étant à fibres connexes.\nSupposons de plus que pour tout point maximal \\(\\eta\\) de \\(S\\), \\(P_\\eta\\) ou \\(Q_\\eta\\) soit\nune extension d'un schéma abélien par un tore (plus généralement qu'il\nadmette une suite de composition dont les facteurs soient des schémas\nabéliens, des tores ou des groupes \\(G_a\\)). Alors le foncteur (7.4.2) est\nune équivalence de catégories.</u></div></div>"
+     "type": "corollaire",
+     "label": "7.5.",
+     "title": "Corollaire",
+     "html": "<div class=\"thm thm-plain corollaire\" id=\"8.7.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Corollaire</span> <span class=\"thm-num\">7.5.</span></div>\n  <div class=\"thm-body\"><p>Soient \\(S\\) un schéma normal, \\(P\\) et \\(Q\\) deux schémas en groupes\nlisses sur \\(S\\), à fibres maximales connexes, \\(P\\) ou \\(Q\\) étant à fibres connexes.\nSupposons de plus que pour tout point maximal \\(\\eta\\) de \\(S\\), \\(P_\\eta\\) ou \\(Q_\\eta\\) soit\nune extension d'un schéma abélien par un tore (plus généralement qu'il\nadmette une suite de composition dont les facteurs soient des schémas\nabéliens, des tores ou des groupes \\(G_a\\)). Alors le foncteur (7.4.2) est\nune équivalence de catégories.</p></div>\n</div>"
     },
     {
      "id": null,

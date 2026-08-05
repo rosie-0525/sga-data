@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '\":white_check_mark: Claude finished a task in *\\(.cwd // \"?\" | split(\"/\") | last)*\"' | python3 \"$CLAUDE_PROJECT_DIR/slack_hook.py\" >/dev/null 2>&1 || true",
+            "async": true,
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '\":bell: \\(.message // \"Claude Code needs your attention\") — *\\(.cwd // \"?\" | split(\"/\") | last)*\"' | python3 \"$CLAUDE_PROJECT_DIR/slack_hook.py\" >/dev/null 2>&1 || true",
+            "async": true,
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

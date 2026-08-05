@@ -132,7 +132,7 @@
      "type": "lemme",
      "label": "1.2",
      "title": "Lemme",
-     "html": "<div class=\"thm thm-plain lemme\" id=\"VIII.1.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">1.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII.1.2\"></span> Soit \\(A\\) un anneau noethérien et soit \\(\\underline{\\mathrm{C}}\\) la catégorie des \\(A\\)-modules. Soit \\({\\underline{\\mathrm{F}}}\\colon \\underline{\\mathrm{C}}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow}\\underline{\\mathrm{Ab}}\\) un foncteur additif exact à gauche tel que, pour tout \\(A\\)-module \\(N\\) et tout \\(A\\)-module <em>injectif</em> \\(C\\), on ait \\(\\operatorname{R}^1{\\underline{\\mathrm{F}}}(\\operatorname{Hom}(N, C))=0\\). Soit \\(M\\) un \\(A\\)-module de type fini et de dimension projective finie. Il existe une suite spectrale:</p>\n<div class=\"displaymath\" id=\"disp-VIII-1-8\">\n\\[\n\\operatorname{R}^\\ast {\\underline{\\mathrm{F}}}(M)\\Longleftarrow \\operatorname{Ext}^p_{{\\underline{\\mathrm{F}}}}(\\operatorname{Ext}^{-q}(M, A), A),\n\\]\n</div>\n<p>où \\(\\operatorname{Ext}^p_{{\\underline{\\mathrm{F}}}}\\) désigne le \\(p\\)-ième foncteur dérivé droit de \\({\\underline{\\mathrm{F}}}\\circ \\operatorname{Hom}\\).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-plain lemme\" id=\"VIII.1.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">1.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"VIII.1.2\"></span> Soit \\(A\\) un anneau noethérien et soit \\(\\underline{\\mathrm{C}}\\) la catégorie des \\(A\\)-modules. Soit \\({\\underline{\\mathrm{F}}}\\colon \\underline{\\mathrm{C}}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow}\\underline{\\mathrm{Ab}}\\) un foncteur additif exact à gauche tel que, pour tout \\(A\\)-module \\(N\\)<a class=\"footnote-ref ed-ref\" id=\"fn-VIII-1-3ref\" href=\"#fn-VIII-1-3\"><sup>*</sup></a> et tout \\(A\\)-module <em>injectif</em> \\(C\\), on ait \\(\\operatorname{R}^1{\\underline{\\mathrm{F}}}(\\operatorname{Hom}(N, C))=0\\). Soit \\(M\\) un \\(A\\)-module de type fini et de dimension projective finie. Il existe une suite spectrale:</p>\n<div class=\"displaymath\" id=\"disp-VIII-1-8\">\n\\[\n\\operatorname{R}^\\ast {\\underline{\\mathrm{F}}}(M)\\Longleftarrow \\operatorname{Ext}^p_{{\\underline{\\mathrm{F}}}}(\\operatorname{Ext}^{-q}(M, A), A),\n\\]\n</div>\n<p>où \\(\\operatorname{Ext}^p_{{\\underline{\\mathrm{F}}}}\\) désigne le \\(p\\)-ième foncteur dérivé droit de \\({\\underline{\\mathrm{F}}}\\circ \\operatorname{Hom}\\).</p></div>\n</div>"
     },
     {
      "id": null,
@@ -258,14 +258,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>une résolution injective de \\(A^\\bullet\\). Considérons le double complexe:</p>"
+     "html": "<p>une résolution injective de \\(A^\\bullet\\). Considérons le double complexe:<a class=\"footnote-ref ed-ref\" id=\"fn-VIII-1-4ref\" href=\"#fn-VIII-1-4\"><sup>†</sup></a></p>"
     },
     {
      "id": "eq:VIII.1.2",
      "type": "equation",
      "label": "1.2",
      "title": null,
-     "html": "<div class=\"equation\" id=\"eq:VIII.1.2\">\n\\[\n\\tag{1.2} Q^{p, q}=\\operatorname{Hom}(\\operatorname{Hom}(L^q, A), CA^p).\n\\]\n</div>"
+     "html": "<div class=\"equation\" id=\"eq:VIII.1.2\">\n\\[\n\\tag{1.2} Q^{p, q}=\\operatorname{Hom}(\\operatorname{Hom}(L^{-q}, A), CA^p).\n\\]\n</div>"
     },
     {
      "id": null,
@@ -425,6 +425,18 @@
      "id": "fn-VIII-1-2",
      "number": "2",
      "html": "Cf. aussi H. Cartan - S. Eilenberg, Homological Algebra, Princeton University Press, 19"
+    },
+    {
+     "id": "fn-VIII-1-3",
+     "number": "*",
+     "kind": "editorial",
+     "html": "N.d.T. : \\(N\\) doit être supposé de type fini."
+    },
+    {
+     "id": "fn-VIII-1-4",
+     "number": "†",
+     "kind": "editorial",
+     "html": "Le texte original imprime « \\(Q^{p, q}=\\operatorname{Hom}(\\operatorname{Hom}(L^{q}, A), CA^p)\\) » ; la formule est corrigée ici en « \\(Q^{p, q}=\\operatorname{Hom}(\\operatorname{Hom}(L^{-q}, A), CA^p)\\) »."
     }
    ],
    "bibliography": []
@@ -487,7 +499,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Remarquons d'abord que, si \\((X_j)_{j\\in\nJ}\\) est un recouvrement ouvert de \\(X\\) par des ouverts, chacune des conditions\nci-dessus est équivalente à la conjonction des conditions\nanalogues obtenues en remplaçant \\(X\\) par \\(X_j\\), \\(Y\\) par\n\\(Y_j=Y\\cap X_j\\) et \\(F\\) par\n\\(F{|X_j}\\). En effet, seules les conditions\nfaisant intervenir \\(c(x)\\) peuvent faire une difficulté. Soit \\(x\\in\nU\\). Si \\(x\\in X_j\\), posons</p>"
+     "html": "<p>Remarquons d'abord que, si \\((X_j)_{j\\in\nJ}\\) est un recouvrement ouvert de \\(X\\), chacune des conditions\nci-dessus est équivalente à la conjonction des conditions\nanalogues obtenues en remplaçant \\(X\\) par \\(X_j\\), \\(Y\\) par\n\\(Y_j=Y\\cap X_j\\) et \\(F\\) par\n\\(F{|X_j}\\). En effet, seules les conditions\nfaisant intervenir \\(c(x)\\) peuvent faire une difficulté. Soit \\(x\\in\nU\\). Si \\(x\\in X_j\\), posons</p>"
     },
     {
      "id": "disp-VIII-2-2",

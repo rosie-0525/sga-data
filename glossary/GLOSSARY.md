@@ -14,7 +14,7 @@ corpus (sga1–sga7). The machine source of truth is
   reports deviations to `issues/glossary_deviations.json`.
 - *Seen* cites exemplar occurrences as `book:anchor` or `book:page#block`.
 
-## Mathematical terms (519)
+## Mathematical terms (521)
 
 | Français | English | Also accepted | Note | Seen |
 |---|---|---|---|---|
@@ -271,6 +271,7 @@ corpus (sga1–sga7). The machine source of truth is
 | idéal *(idéaux)* | ideal |  |  | sga1:I-1#1, sga2:II#15, sga3:II.2.1 |
 | idéal maximal | maximal ideal |  |  | sga1:I.2.1, sga2:III.2.1, sga3:V-4#20 |
 | idéal premier | prime ideal |  | «premier» only as collocations — bare it also means "first" | sga1:I.7.1, sga2:III.1.2, sga3:V.4.b |
+| illimité | unbounded |  | (adj) «suite exacte illimitée» → unbounded exact sequence | sga4.5:VIII:1#71, sga5:VII-1#6 |
 | image directe | direct image |  |  | sga1:V-7#13, sga2:III-3#24, sga3:III.0.13 |
 | image directe à support propre | direct image with proper support |  |  | sga2:XIV-4#4, sga5:VI.2.2.3, sga7:13.1.2.8 |
 | image inverse | inverse image | preimage |  | sga1:I-1#1, sga2:X-2#28, sga3:I-1#17 |
@@ -297,6 +298,7 @@ corpus (sga1–sga7). The machine source of truth is
 | lemme de Nakayama | Nakayama's lemma | Nakayama lemma |  | sga3:VIB-2#41, sga5:I-A-1#8 |
 | lemme du serpent | snake lemma |  |  | sga3:VIIA-8#6, sga5:V-3#18, sga7:22-1#39 |
 | lieu singulier | singular locus |  |  | sga1:XII.5.5, sga2:XIII-5#20, sga5:I.3.1.1 |
+| limité | bounded | limited, restricted | (adj) context-dependent: in technical usage always "bounded" — «famille limitée (par F)» is a bounded family (sga6 XIII, boundedness), «complexe/objet limité à gauche / à droite» is bounded on the left/right, «à degrés limités supérieurement» is bounded above in degree; the verb in this sense is "to bound" («M limite aussi…» → "M also bounds…", sga6:XIII-3#13). Non-mathematical uses stay limited/restricted («circulation très limitée», «nous nous étions limités à»). Cf. «illimité» → unbounded, «borné» → bounded. | sga6:XIII.1.12, sga2:VIII-1#22, sga4.5:VIII:3#8 |
 | limite inductive | inductive limit | direct limit, colimit |  | sga1:III-6#42, sga2:II#38, sga3:I-1#40 |
 | limite projective | projective limit | inverse limit |  | sga1:rem:II.4.18, sga2:IV.1.2, sga3:I-1#6 |
 | lisse | smooth |  |  | sga1:introduction#5, sga2:thm-XII-1-1, sga3:I-4#25 |

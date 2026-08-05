@@ -184,10 +184,47 @@ function collectIds(html) {
   return out;
 }
 
+// Static pass: the footnote apparatus, checked pair by pair.
+//
+// staticDangling below counts a same-page element id as resolving, so a
+// footnote's ↩ (href="#<id>ref") passes there as long as the marker exists —
+// which hid a whole class of real breakage: an id absent from the anchor_index
+// still cannot be deep-linked, and an id the index maps to another page sends a
+// cross-page jump somewhere wrong. Editorial notes are where this keeps
+// happening, since they are added after the convert step built the index.
+//
+//   noref       the note has no <id>ref marker on its page — the ↩ has no target
+//   unindexed   the note or its marker is missing from anchor_index
+//   misindexed  anchor_index maps it to a page other than the one holding it
+//               (in practice: the same marker id reused on two pages)
+//
+// `localIds` is the assembled page's id set — assemblePageHtml() synthesizes the
+// <li id="<id>"> the viewer's footnotesEl() would emit, so both halves of the
+// pair are visible here.
+function staticFootnotePairing(pg, pageId, localIds, anchorIndex) {
+  const out = [];
+  for (const f of (pg && pg.footnotes) || []) {
+    const id = f && f.id;
+    if (!id) continue;
+    const ref = id + 'ref';
+    const hasMarker = localIds.has(ref);
+    if (!hasMarker) out.push({ kind: 'noref', id, ref, number: f.number || null });
+    for (const key of hasMarker ? [id, ref] : [id]) {
+      const at = anchorIndex[key];
+      if (at === undefined) out.push({ kind: 'unindexed', id, key });
+      else if (at !== pageId) out.push({ kind: 'misindexed', id, key, at });
+    }
+  }
+  return out;
+}
+
 // Static pass: every internal <a href="#frag"> whose fragment resolves to
-// nothing. In the SPA a link resolves (viewer.js resolveHash, lines 159-173)
-// if the fragment is a page id, an anchor_index key, a same-page element id, or
-// a toc-anchor-<X> fallback. Anything else would 404 in the viewer.
+// nothing. In the SPA a link resolves (viewer.js resolveHash) if the fragment is
+// a page id, a same-page element id, an anchor_index key, or a toc-anchor-<X>
+// fallback. Anything else would 404 in the viewer. The same-page clause is real:
+// viewer.js looks the fragment up in the live DOM before the index, precisely so
+// a stale index cannot strand a reader on a same-page jump. What it does NOT
+// cover is deep links and cross-page jumps — staticFootnotePairing above.
 function staticDangling(html, localIds, pageIds, anchorKeys) {
   const re = /href\s*=\s*"#([^"]+)"/g;
   const out = [];
@@ -465,7 +502,8 @@ function filterConsole(msgs) {
   });
 }
 
-function makeResult(lang, pageId, title, html, scan, L, cmsgs, perrs, blockShapeIssues) {
+function makeResult(lang, pageId, title, html, scan, L, cmsgs, perrs, blockShapeIssues, pg) {
+  const localIds = collectIds(html);
   return {
     book: BOOK,
     lang,
@@ -479,7 +517,9 @@ function makeResult(lang, pageId, title, html, scan, L, cmsgs, perrs, blockShape
     leakedMacros: scan.leakedMacros || [],
     refsInMath: staticRefsInMath(html),
     refMarkers: scan.refMarkers || [],
-    danglingAnchors: staticDangling(html, collectIds(html), L.pageIds, L.anchorKeys),
+    danglingAnchors: staticDangling(html, localIds, L.pageIds, L.anchorKeys),
+    footnoteIssues: staticFootnotePairing(pg, pageId, localIds,
+                                          (L.manifest && L.manifest.anchor_index) || {}),
     tagIssues: staticTagIntegrity(html),
     quoteSpacing: staticQuoteSpacing(html),
     blockShapeIssues: blockShapeIssues || [],
@@ -494,6 +534,7 @@ function isBad(r) {
     || (r.refsInMath && r.refsInMath.length)
     || (r.refMarkers && r.refMarkers.length)
     || (r.danglingAnchors && r.danglingAnchors.length)
+    || (r.footnoteIssues && r.footnoteIssues.length)
     || (r.tagIssues && r.tagIssues.length)
     || (r.quoteSpacing && r.quoteSpacing.length)
     || (r.blockShapeIssues && r.blockShapeIssues.length)
@@ -517,7 +558,7 @@ const IDENT = ['book', 'lang', 'file', 'pageId', 'title', 'containers'];
 
 const CATEGORIES = {
   mathjax: { scalars: ['typesetError'], arrays: ['merrors', 'leakedMacros'] },
-  crossref: { scalars: [], arrays: ['refsInMath', 'refMarkers', 'danglingAnchors'] },
+  crossref: { scalars: [], arrays: ['refsInMath', 'refMarkers', 'danglingAnchors', 'footnoteIssues'] },
   other: { scalars: ['fatal'], arrays: ['tagIssues', 'quoteSpacing', 'blockShapeIssues', 'pageErrors', 'consoleMsgs'] },
 };
 
@@ -551,6 +592,7 @@ function summarise(results) {
   const totalRefInMath = sumLen('refsInMath');
   const totalRefMarkers = sumLen('refMarkers');
   const totalDangling = sumLen('danglingAnchors');
+  const totalFootnote = sumLen('footnoteIssues');
   const totalTagIssues = sumLen('tagIssues');
   const totalQuoteSpacing = sumLen('quoteSpacing');
   const totalBlockShapeIssues = sumLen('blockShapeIssues');
@@ -578,7 +620,7 @@ function summarise(results) {
   lines.push(`Checked ${results.length} pages — ${totalContainers} mjx-container elements typeset.`);
   lines.push(`Pages with issues: ${bad.length}.`);
   lines.push(`  MathJax    — ${countPages('mathjax')} page(s): ${totalMerror} mjx-merror, ${totalLeakNodes} leaked text node(s).`);
-  lines.push(`  Cross-refs — ${countPages('crossref')} page(s): ${totalRefInMath} ref-in-math, ${totalRefMarkers} ???/?? marker(s), ${totalDangling} dangling anchor(s).`);
+  lines.push(`  Cross-refs — ${countPages('crossref')} page(s): ${totalRefInMath} ref-in-math, ${totalRefMarkers} ???/?? marker(s), ${totalDangling} dangling anchor(s), ${totalFootnote} footnote backref issue(s).`);
   lines.push(`  Other      — ${countPages('other')} page(s): ${totalTagIssues} equation-tag dropout(s), ${totalQuoteSpacing} guillemet-spacing issue(s), ${totalBlockShapeIssues} multi-root block(s).`);
   if (bad.length === 0) {
     lines.push('CHECK PASSED');
@@ -643,6 +685,15 @@ function summarise(results) {
       for (const d of (x.danglingAnchors || [])) {
         lines.push(`  [dangling] href="#${d.frag}" — resolves to no page id, anchor_index key, or same-page id`);
         if (d.context) lines.push(`     context: ${JSON.stringify(d.context)}`);
+      }
+      for (const f of (x.footnoteIssues || [])) {
+        if (f.kind === 'noref') {
+          lines.push(`  [fn-noref] footnote ${f.id}${f.number ? ` (${f.number})` : ''} — no id="${f.ref}" marker on this page; its ↩ has nothing to return to`);
+        } else if (f.kind === 'unindexed') {
+          lines.push(`  [fn-unindexed] ${f.key} — missing from anchor_index; same-page jumps still work, deep links and cross-page jumps do not`);
+        } else {
+          lines.push(`  [fn-misindexed] ${f.key} — anchor_index says ${f.at}, but it is on this page (a marker id reused on two pages?)`);
+        }
       }
     }
     if (refLabelIndex.size > 0) {
@@ -805,10 +856,10 @@ function summarise(results) {
       try {
         blockShapeIssues = await checkBlockShapes(page, pg.blocks);
       } catch (e) { /* non-fatal: leave empty, other checks still report */ }
-      const r = makeResult(lang, pg.id, pg.title, html, scan, L, consoleMsgs.slice(before), pageErrors.slice(beforeE), blockShapeIssues);
+      const r = makeResult(lang, pg.id, pg.title, html, scan, L, consoleMsgs.slice(before), pageErrors.slice(beforeE), blockShapeIssues, pg);
       if (pg.__readError) r.fatal = pg.__readError;
       process.stderr.write(isBad(r)
-        ? `ISSUES (math=${r.containers}, merror=${r.merrors.length}, leak=${r.leakedMacros.length}, refMath=${r.refsInMath.length}, mark=${r.refMarkers.length}, dangling=${r.danglingAnchors.length}, tag=${r.tagIssues.length}, quote=${r.quoteSpacing.length}, blockShape=${r.blockShapeIssues.length}, pageErr=${r.pageErrors.length}, console=${r.consoleMsgs.length}${r.typesetError ? ', typesetError' : ''})\n`
+        ? `ISSUES (math=${r.containers}, merror=${r.merrors.length}, leak=${r.leakedMacros.length}, refMath=${r.refsInMath.length}, mark=${r.refMarkers.length}, dangling=${r.danglingAnchors.length}, footnote=${r.footnoteIssues.length}, tag=${r.tagIssues.length}, quote=${r.quoteSpacing.length}, blockShape=${r.blockShapeIssues.length}, pageErr=${r.pageErrors.length}, console=${r.consoleMsgs.length}${r.typesetError ? ', typesetError' : ''})\n`
         : `ok (${r.containers} math)\n`);
       results.push(r);
     }
@@ -866,6 +917,7 @@ function summarise(results) {
         refsInMath: sumLen('refsInMath'),
         refMarkers: sumLen('refMarkers'),
         danglingAnchors: sumLen('danglingAnchors'),
+        footnoteBackrefIssues: sumLen('footnoteIssues'),
         tagIssues: sumLen('tagIssues'),
         quoteSpacing: sumLen('quoteSpacing'),
         blockShapeIssues: sumLen('blockShapeIssues'),

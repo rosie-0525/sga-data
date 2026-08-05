@@ -104,7 +104,7 @@
      "type": "lemme",
      "label": "2.1",
      "title": "Lemme",
-     "html": "<div class=\"thm thm-plain lemme\" id=\"III.2.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">2.1</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.2.1\"></span>\nSupposons que \\(A\\) soit noethérien et que les modules \\(M\\) et \\(N\\) soient de type fini. Supposons de plus que \\(\\operatorname{Supp} N=Y\\). Alors les assertions suivantes sont équivalentes:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>\\(\\operatorname{Hom}_A(N, M)=0\\).</p></li>\n<li><p>\\(\\operatorname{Supp} N \\cap \\operatorname{Ass} M = \\emptyset\\).</p></li>\n<li><p>L'idéal \\(I\\) n'est pas diviseur de \\(0\\) dans \\(M\\), ce qui signifie que pour tout \\(m\\in M\\), \\(Im=0\\) entraîne \\(m=0\\).</p></li>\n<li><p>Il existe dans \\(I\\) un élément \\(M\\)-régulier. (Un élément \\(a\\) de \\(A\\) est dit \\(M\\)-régulier si l'homothétie de rapport \\(a\\) dans \\(M\\) est injective.)</p></li>\n<li><p>Pour tout \\(\\mathfrak{p} \\in Y\\), l'idéal maximal \\(\\mathfrak{m}_\\mathfrak{p}\\) de l'anneau local \\(A_\\mathfrak{p}\\) n'est pas associé à \\(M_\\mathfrak{p}\\). En formule: \\(\\mathfrak{p} A_\\mathfrak{p} \\notin \\operatorname{Ass} M_\\mathfrak{p}\\).</p></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-plain lemme\" id=\"III.2.1\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">2.1</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.2.1\"></span>\nSupposons que \\(A\\) soit noethérien et que les modules \\(M\\) et \\(N\\) soient de type fini. Supposons de plus que \\(\\operatorname{Supp} N=Y\\). Alors les assertions suivantes sont équivalentes:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>\\(\\operatorname{Hom}_A(N, M)=0\\).</p></li>\n<li><p>\\(\\operatorname{Supp} N \\cap \\operatorname{Ass} M = \\emptyset\\).</p></li>\n<li><p>L'idéal \\(I\\) n'est pas diviseur de \\(0\\) dans \\(M\\), ce qui signifie que pour tout \\(m\\in M\\), \\(Im=0\\) entraîne \\(m=0\\).</p></li>\n<li><p>Il existe dans \\(I\\) un élément \\(M\\)-régulier. (Un élément \\(a\\) de \\(A\\) est dit \\(M\\)-régulier si l'homothétie de rapport \\(a\\) dans \\(M\\) est injective.)</p></li>\n<li><p>Pour tout \\(\\mathfrak{p} \\in Y\\), l'idéal maximal \\(\\mathfrak{m}_\\mathfrak{p}\\) de l'anneau local \\(A_\\mathfrak{p}\\) n'est pas associé à \\(M_\\mathfrak{p}\\). En formule: \\(\\mathfrak{p} A_\\mathfrak{p} \\notin \\operatorname{Ass} M_\\mathfrak{p}\\). <span class=\"ed-inline\"><em>(N.d.T. : \\(\\mathfrak{m}_\\mathfrak{p}\\) désigne ici \\(\\mathfrak{p} A_\\mathfrak{p}\\).)</em></span></p></li>\n</ol></div>\n</div>"
     },
     {
      "id": "proof-III-2-1",
@@ -167,14 +167,14 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Par hypothèse \\(I^rN=0\\), donc \\(f_1^0\\) et nilpotent; \\(\\operatorname{Ext}^i\\) est un foncteur universel, il en est de même de \\(f_1^i\\) pour tout \\(i\\). Par ailleurs, il existe une suite régulière dans \\(M/f_1 M\\) qui a \\(n\\) éléments, donc, par hypothèse de récurrence,</p>"
+     "html": "<p>Par hypothèse \\(I^rN=0\\), donc \\(f_1^0\\) et nilpotent; \\(\\operatorname{Ext}^i\\) est un foncteur universel, il en est de même de \\(f_1^i\\) pour tout \\(i\\). Par ailleurs, il existe une suite régulière dans \\(M/f_1 M\\) qui a \\(n\\) éléments, donc, par hypothèse de récurrence,<a class=\"footnote-ref ed-ref\" id=\"fn-III-2-1ref\" href=\"#fn-III-2-1\"><sup>*</sup></a></p>"
     },
     {
      "id": "disp-III-2-6",
      "type": "displaymath",
      "label": null,
      "title": null,
-     "html": "<div class=\"displaymath\" id=\"disp-III-2-6\">\n\\[\nExt_A^{i-1}(N, M)=0 \\text{ si } i\\leqslant n-1.\n\\]\n</div>"
+     "html": "<div class=\"displaymath\" id=\"disp-III-2-6\">\n\\[\n\\operatorname{Ext}_A^{i-1}(N, M/f_1M)=0 \\text{ si } i\\leqslant n.\n\\]\n</div>"
     },
     {
      "id": null,
@@ -286,7 +286,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>1.2</p>"
+     "html": "<p></p>"
     },
     {
      "id": "III.2.6",
@@ -307,7 +307,7 @@
      "type": "remarque",
      "label": "2.8",
      "title": "Remarque",
-     "html": "<div class=\"thm thm-remark remarque\" id=\"III.2.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">2.8</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.2.8\"></span>\nSi \\(A\\) est un anneau semi-local, soit \\(\\mathfrak{r}(A)\\) son radical et \\(k=A/\\mathfrak{r}(A)\\) son anneau résiduel. La notion de profondeur intéressante est obtenue en prenant pour \\(I\\) le radical de \\(A\\). Nous conviendrons donc de noter simplement \\(\\operatorname{prof} M\\) la \\(\\mathfrak{r}(A)\\)-profondeur d'un \\(A\\)-module \\(M\\). On retrouve dans ce cas la notion de « codimension homologique », (cf. SERRE, <i>op.  cit.</i> note (<a class=\"ref\" href=\"#noteserre\">1</a>), page ), que l'on notait \\(\\operatorname{codh}_A M\\), et qui est définie comme la borne inférieure des entiers \\(i\\) tels que \\(\\operatorname{Ext}_A^i(k, M)\\neq 0\\); en effet \\(\\operatorname{Supp} k = \\operatorname{V}(\\mathfrak{r}(A))\\).</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark remarque\" id=\"III.2.8\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">2.8</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.2.8\"></span>\nSi \\(A\\) est un anneau semi-local, soit \\(\\mathfrak{r}(A)\\) son radical et \\(k=A/\\mathfrak{r}(A)\\) son anneau résiduel. La notion de profondeur intéressante est obtenue en prenant pour \\(I\\) le radical de \\(A\\). Nous conviendrons donc de noter simplement \\(\\operatorname{prof} M\\) la \\(\\mathfrak{r}(A)\\)-profondeur d'un \\(A\\)-module \\(M\\). On retrouve dans ce cas la notion de « codimension homologique », (cf. SERRE, <i>op.  cit.</i>), que l'on notait \\(\\operatorname{codh}_A M\\), et qui est définie comme la borne inférieure des entiers \\(i\\) tels que \\(\\operatorname{Ext}_A^i(k, M)\\neq 0\\); en effet \\(\\operatorname{Supp} k = \\operatorname{V}(\\mathfrak{r}(A))\\).</p></div>\n</div>"
     },
     {
      "id": "III.2.9",
@@ -394,7 +394,14 @@
      "html": "<p>donc \\(\\operatorname{Ext}_A^i(N, M) = 0 \\) entraîne \\(\\operatorname{Ext}_B^i(N_B, M_B)=0\\), et la réciproque est vraie si \\(B\\) est fidèlement plat sur \\(A\\).</p>"
     }
    ],
-   "footnotes": [],
+   "footnotes": [
+    {
+     "id": "fn-III-2-1",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte original imprime « \\(Ext_A^{i-1}(N, M)=0\\) si \\(i\\leqslant n-1\\) » ; la formule est corrigée ici en « \\(\\operatorname{Ext}_A^{i-1}(N, M/f_1M)=0\\) si \\(i\\leqslant n\\) »."
+    }
+   ],
    "bibliography": []
   },
   {
@@ -420,28 +427,28 @@
      "type": "proof",
      "label": null,
      "title": "Démonstration",
-     "html": "<div class=\"proof\" id=\"proof-III-3-3\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>(ii)  \\(\\mathchoice{\\Longleftrightarrow}{\\Leftrightarrow}{\\Leftrightarrow}{\\Leftrightarrow}\\)  (iii); en effet, soit \\(V\\) un ouvert de \\(X\\), posons \\(X'=V\\), \\(Y'=Y\\cap V\\), \\(F'=F_{\\mid V}\\), \\(U'=X'- Y'\\); \\(Y'\\) est fermé dans \\(X'\\), on a donc une suite exacte:</p>\n<div class=\"displaymath\" id=\"disp-III-3-4\">\n\\[\n\\operatorname{H}_{Y'}^i(X', F') \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\operatorname{H}^i(X', F') \\xrightarrow{\\rho_i} \\operatorname{H}^i(U', F') \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\operatorname{H}_{Y'}^{i+1}(X', F').\n\\]\n</div>\n<p>Si les termes extrêmes sont nuls, l'homomorphisme \\(\\rho_i\\) est bijectif, et si le terme de gauche est nul, \\(\\rho_i\\) est injectif. Donc (iii)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (ii). Réciproquement, si \\(i&lt;n\\), \\(\\operatorname{H}_{Y'}^i(X', F')\\) est nul car \\(\\rho_i\\) est injectif et \\(\\rho_{i-1}\\) surjectif.</p>\n<p>(i)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (iii); en effet la suite spectrale « de passage du local au global » donne:</p>\n<div class=\"displaymath\" id=\"disp-III-3-5\">\n\\[\n\\operatorname{H}^p\\bigl(X, \\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^q(X, F)\\bigr) \\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow} \\operatorname{H}_Y^*(X, F).\n\\]\n</div>\n<p>Or, par hypothèse \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^q(X, F) =0\\) si \\(q&lt;n\\), donc \\((\\operatorname{H}_Y (X, F))^{p+q} = 0\\) si \\(p+q&lt;n\\).</p>\n<p>(iii)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (i); en effet (iii) exprime que le préfaisceau</p>\n<div class=\"displaymath\" id=\"disp-III-3-6\">\n\\[\nV \\rightsquigarrow \\operatorname{H}_{Y\\cap V}^i(V, F_{\\mid V})\n\\]\n</div>\n<p>est nul, donc aussi le faisceau associé qui est \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i (X, F)\\), car \\(Y\\) est fermé.</p><span class=\"qed\">C.Q.F.D.</span></div>\n</div>"
+     "html": "<div class=\"proof\" id=\"proof-III-3-3\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>(ii)  \\(\\mathchoice{\\Longleftrightarrow}{\\Leftrightarrow}{\\Leftrightarrow}{\\Leftrightarrow}\\)  (iii); en effet, soit \\(V\\) un ouvert de \\(X\\), posons \\(X'=V\\), \\(Y'=Y\\cap V\\), \\(F'=F_{\\mid V}\\), \\(U'=X'- Y'\\); \\(Y'\\) est fermé dans \\(X'\\), on a donc une suite exacte:</p>\n<div class=\"displaymath\" id=\"disp-III-3-4\">\n\\[\n\\operatorname{H}_{Y'}^i(X', F') \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\operatorname{H}^i(X', F') \\xrightarrow{\\rho_i} \\operatorname{H}^i(U', F') \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\operatorname{H}_{Y'}^{i+1}(X', F').\n\\]\n</div>\n<p>Si les termes extrêmes sont nuls, l'homomorphisme \\(\\rho_i\\) est bijectif, et si le terme de gauche est nul, \\(\\rho_i\\) est injectif. Donc (iii)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (ii). Réciproquement, si \\(i&lt;n\\), \\(\\operatorname{H}_{Y'}^i(X', F')\\) est nul car \\(\\rho_i\\) est injectif et \\(\\rho_{i-1}\\) surjectif.</p>\n<p>(i)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (iii); en effet la suite spectrale « de passage du local au global » donne:</p>\n<div class=\"displaymath\" id=\"disp-III-3-5\">\n\\[\n\\operatorname{H}^p\\bigl(X, \\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^q(X, F)\\bigr) \\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow} \\operatorname{H}_Y^*(X, F).\n\\]\n</div>\n<p>Or, par hypothèse \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^q(X, F) =0\\) si \\(q&lt;n\\), donc \\(\\operatorname{H}_Y^{p+q}(X, F) = 0\\)<a class=\"footnote-ref ed-ref\" id=\"fn-III-3-3ref\" href=\"#fn-III-3-3\"><sup>*</sup></a> si \\(p+q&lt;n\\).</p>\n<p>(iii)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (i); en effet (iii) exprime que le préfaisceau</p>\n<div class=\"displaymath\" id=\"disp-III-3-6\">\n\\[\nV \\rightsquigarrow \\operatorname{H}_{Y\\cap V}^i(V, F_{\\mid V})\n\\]\n</div>\n<p>est nul, donc aussi le faisceau associé qui est \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i (X, F)\\), car \\(Y\\) est fermé.</p><span class=\"qed\">C.Q.F.D.</span></div>\n</div>"
     },
     {
      "id": "III.3.2",
      "type": "remarque",
      "label": "3.2",
      "title": "Remarque",
-     "html": "<div class=\"thm thm-remark remarque\" id=\"III.3.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">3.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.3.2\"></span>\n Si \\(n\\geqslant 2\\), on peut omettre la condition que \\(\\rho_{n-1}\\) soit injectif, car le faisceau associé au préfaisceau</p>\n<div class=\"displaymath\" id=\"disp-III-3-7\">\n\\[\nV \\rightsquigarrow \\operatorname{H}^{n-2}(V\\cap U, F)\n\\]\n</div>\n<p>est isomorphe à \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^{n-1} (X, F)\\), mais par l'hypothèse (ii) pour \\(i=n-2\\), ce préfaisceau est isomorphe au préfaisceau \\(V \\rightsquigarrow \\operatorname{H}^i(V, F)\\) dont le faisceau associé est nul.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark remarque\" id=\"III.3.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Remarque</span> <span class=\"thm-num\">3.2</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.3.2\"></span>\n Si \\(n\\geqslant 2\\), on peut omettre la condition que \\(\\rho_{n-1}\\) soit injectif, car le faisceau associé au préfaisceau</p>\n<div class=\"displaymath\" id=\"disp-III-3-7\">\n\\[\nV \\rightsquigarrow \\operatorname{H}^{n-2}(V\\cap U, F)\n\\]\n</div>\n<p>est isomorphe à \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^{n-1} (X, F)\\), mais par l'hypothèse (ii) pour \\(i=n-2\\), ce préfaisceau est isomorphe au préfaisceau \\(V \\rightsquigarrow \\operatorname{H}^i(V, F)\\) dont le faisceau associé est nul.<a class=\"footnote-ref ed-ref\" id=\"fn-III-3-4ref\" href=\"#fn-III-3-4\"><sup>†</sup></a></p></div>\n</div>"
     },
     {
      "id": "III.3.3",
      "type": "proposition",
      "label": "3.3",
      "title": "Proposition",
-     "html": "<div class=\"thm thm-plain proposition\" id=\"III.3.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.3</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.3.3\"></span>\nSoit \\(X\\) un préschéma localement noethérien, \\(Y\\) un sous-préschéma fermé de \\(X\\), \\(F\\) un \\(\\mathscr{O}_X\\)-module cohérent. Les conditions du lemme <a class=\"ref\" href=\"#III.3.1\">3.1</a> sont équivalentes à chacune des conditions suivantes:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Pour tout \\(y\\in Y\\), on a \\(\\operatorname{prof} F_x \\geqslant n\\);</p></li>\n<li><p>Pour tout \\(\\mathscr{O}_X\\)-module cohérent \\(G\\) sur \\(X\\), de support contenu dans \\(Y\\) on a</p>\n<div class=\"displaymath\" id=\"disp-III-3-8\">\n\\[\n\\mathop{\\underline{\\mathrm{Ext}}}\\nolimits_{\\mathscr{O}_X}^i(G, F)=0 \\text{ si } i&lt;n;\n\\]\n</div></li>\n<li><p>Il existe un \\(\\mathscr{O}_X\\)-module cohérent \\(G\\) dont le support est égal à \\(Y\\) et tel que</p>\n<div class=\"displaymath\" id=\"disp-III-3-9\">\n\\[\n\\mathop{\\underline{\\mathrm{Ext}}}\\nolimits_{\\mathscr{O}_X}^i(G, F)=0 \\text{ si } i&lt;n.\n\\]\n</div></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-plain proposition\" id=\"III.3.3\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Proposition</span> <span class=\"thm-num\">3.3</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.3.3\"></span>\nSoit \\(X\\) un préschéma localement noethérien, \\(Y\\) un sous-préschéma fermé de \\(X\\), \\(F\\) un \\(\\mathscr{O}_X\\)-module cohérent. Les conditions du lemme <a class=\"ref\" href=\"#III.3.1\">3.1</a> sont équivalentes à chacune des conditions suivantes:</p>\n<ol class=\"enumerate-i\" type=\"i\" start=\"4\">\n<li><p>Pour tout \\(y\\in Y\\), on a \\(\\operatorname{prof} F_y \\geqslant n\\)<a class=\"footnote-ref ed-ref\" id=\"fn-III-3-5ref\" href=\"#fn-III-3-5\"><sup>‡</sup></a>;</p></li>\n<li><p>Pour tout \\(\\mathscr{O}_X\\)-module cohérent \\(G\\) sur \\(X\\), de support contenu dans \\(Y\\) on a</p>\n<div class=\"displaymath\" id=\"disp-III-3-8\">\n\\[\n\\mathop{\\underline{\\mathrm{Ext}}}\\nolimits_{\\mathscr{O}_X}^i(G, F)=0 \\text{ si } i&lt;n;\n\\]\n</div></li>\n<li><p>Il existe un \\(\\mathscr{O}_X\\)-module cohérent \\(G\\) dont le support est égal à \\(Y\\) et tel que</p>\n<div class=\"displaymath\" id=\"disp-III-3-9\">\n\\[\n\\mathop{\\underline{\\mathrm{Ext}}}\\nolimits_{\\mathscr{O}_X}^i(G, F)=0 \\text{ si } i&lt;n.\n\\]\n</div></li>\n</ol></div>\n</div>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Si \\(X\\) est affine, on a fait tout ce qu'il faut pour démontrer l'équivalence des trois conditions de la proposition <a class=\"ref\" href=\"#III.3.3\">3.3</a>,  or elles sont locales, donc il suffit de prouver (i)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (vi) et (v)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (i).</p>"
+     "html": "<p>Si \\(X\\) est affine, on a fait tout ce qu'il faut pour démontrer l'équivalence des trois conditions de la proposition <a class=\"ref\" href=\"#III.3.3\">3.3</a>,  or elles sont locales<a class=\"footnote-ref ed-ref\" id=\"fn-III-3-6ref\" href=\"#fn-III-3-6\"><sup>§</sup></a>, donc il suffit de prouver (i)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (vi) et (v)  \\(\\mathchoice{\\Longrightarrow}{\\Rightarrow}{\\Rightarrow}{\\Rightarrow}\\)  (i).</p>"
     },
     {
      "id": null,
@@ -497,7 +504,7 @@
      "type": "proof",
      "label": null,
      "title": "Démonstration",
-     "html": "<div class=\"proof\" id=\"proof-III-3-14\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>Puisque \\(X\\) est localement noethérien, \\(X\\) est localement connexe; il suffit donc de prouver que pour que \\(X\\) soit connexe il est nécessaire et suffisant que \\(X-Y\\) le soit. Or, pour qu'un espace annelé en anneaux -100 locaux \\((X, \\mathscr{O}_X)\\) soit connexe, il est nécessaire et suffisant que \\(\\operatorname{H}^0(X, \\mathscr{O}_X)\\) ne soit pas composé direct de deux anneaux non nuls. Mais l'hypothèse implique, d'après le corollaire <a class=\"ref\" href=\"#III.3.5\">3.5</a> appliqué à \\(F=\\mathscr{O}_X\\), que l'homomorphisme</p>\n<div class=\"displaymath\" id=\"disp-III-3-15\">\n\\[\n\\operatorname{H}^0(X, \\mathscr{O}_X) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\operatorname{H}^0(X-Y, \\mathscr{O}_X)\n\\]\n</div>\n<p>est un isomorphisme, d'où la conclusion.</p><span class=\"qed\">C.Q.F.D.</span></div>\n</div>"
+     "html": "<div class=\"proof\" id=\"proof-III-3-14\">\n  <div class=\"proof-head\"><span class=\"proof-name\">Démonstration</span><span class=\"proof-toggle\">▾</span></div>\n  <div class=\"proof-body\"><p>Puisque \\(X\\) est localement noethérien, \\(X\\) est localement connexe; il suffit donc de prouver que pour que \\(X\\) soit connexe il est nécessaire et suffisant que \\(X-Y\\) le soit. Or, pour qu'un espace annelé en anneaux locaux \\((X, \\mathscr{O}_X)\\) soit connexe, il est nécessaire et suffisant que \\(\\operatorname{H}^0(X, \\mathscr{O}_X)\\) ne soit pas composé direct de deux anneaux non nuls. Mais l'hypothèse implique, d'après le corollaire <a class=\"ref\" href=\"#III.3.5\">3.5</a> appliqué à \\(F=\\mathscr{O}_X\\), que l'homomorphisme</p>\n<div class=\"displaymath\" id=\"disp-III-3-15\">\n\\[\n\\operatorname{H}^0(X, \\mathscr{O}_X) \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} \\operatorname{H}^0(X-Y, \\mathscr{O}_X)\n\\]\n</div>\n<p>est un isomorphisme, d'où la conclusion.</p><span class=\"qed\">C.Q.F.D.</span></div>\n</div>"
     },
     {
      "id": "III.3.7",
@@ -567,7 +574,7 @@
      "type": "exemple",
      "label": "3.13",
      "title": "Exemple",
-     "html": "<div class=\"thm thm-remark exemple\" id=\"III.3.13\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Exemple</span> <span class=\"thm-num\">3.13</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.3.13\"></span>\nSoit \\(X=\\operatorname{Spec} (A)\\), où \\(A\\) est un anneau local noethérien, normal de dimension \\(2\\). Soit \\(Y\\) une courbe dans \\(X\\). On peut démontrer que le complémentaire de la courbe est un ouvert affine donc \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i(X, \\mathscr{O}_X) \\approx \\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i(X, \\mathscr{O}_X)\\) \\(\\operatorname{H}^{i-1}(X-Y, \\mathscr{O}_X)=0\\). Cependant on peut construire une courbe qui n'est pas décrite par une équation.</p></div>\n</div>"
+     "html": "<div class=\"thm thm-remark exemple\" id=\"III.3.13\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Exemple</span> <span class=\"thm-num\">3.13</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"III.3.13\"></span>\nSoit \\(X=\\operatorname{Spec} (A)\\), où \\(A\\) est un anneau local noethérien, normal de dimension \\(2\\). Soit \\(Y\\) une courbe dans \\(X\\). On peut démontrer que le complémentaire de la courbe est un ouvert affine donc \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i(\\mathscr{O}_X) \\approx \\mathop{\\underline{\\mathrm{H}}}\\nolimits_{X-Y}^{i-1}(\\mathscr{O}_X)=0\\)<a class=\"footnote-ref ed-ref\" id=\"fn-III-3-7ref\" href=\"#fn-III-3-7\"><sup>‖</sup></a> pour \\(i&gt;1\\), car \\(\\operatorname{H}^{i-1}(X-Y, \\mathscr{O}_X)=0\\). Cependant on peut construire une courbe qui n'est pas décrite par une équation.</p></div>\n</div>"
     },
     {
      "id": null,
@@ -587,6 +594,36 @@
      "id": "fn-III-3-2",
      "number": "2",
      "html": "Cf. Exp <a class=\"ref\" href=\"#VIII\">VIII</a>."
+    },
+    {
+     "id": "fn-III-3-3",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte original imprime « \\((\\operatorname{H}_Y (X, F))^{p+q}\\) » ; corrigé ici en « \\(\\operatorname{H}_Y^{p+q}(X, F)\\) »."
+    },
+    {
+     "id": "fn-III-3-4",
+     "number": "†",
+     "kind": "editorial",
+     "html": "N.d.T. : L'argument du texte repose sur le fait que le préfaisceau \\(V \\rightsquigarrow \\operatorname{H}^{r}(V, F)\\) a un faisceau associé nul pour \\(r&gt;0\\) ; il exige donc \\(n\\geqslant 3\\). Pour \\(n=2\\), le préfaisceau invoqué est \\(V \\rightsquigarrow \\operatorname{H}^{0}(V, F)=F(V)\\), dont le faisceau associé est \\(F\\), en général non nul. L'énoncé reste néanmoins vrai pour tout \\(n\\geqslant 2\\) : pour tout ouvert \\(V\\), la suite exacte \\(\\operatorname{H}^{n-2}(V, F) \\to \\operatorname{H}^{n-2}(V\\cap U, F) \\to \\operatorname{H}_{Y\\cap V}^{n-1}(V, F) \\to \\operatorname{H}^{n-1}(V, F)\\), dont la première flèche est surjective par l'hypothèse en degré \\(n-2\\), fournit une injection de préfaisceaux \\((V \\rightsquigarrow \\operatorname{H}_{Y\\cap V}^{n-1}(V, F)) \\hookrightarrow (V \\rightsquigarrow \\operatorname{H}^{n-1}(V, F))\\). Comme \\(n-1&gt;0\\), le préfaisceau de droite a un faisceau associé nul ; par passage aux faisceaux associés on en déduit \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^{n-1}(X, F)=0\\), et le lemme 3.1 donne alors l'injectivité de \\(\\rho_{n-1}\\) pour tout ouvert \\(V\\)."
+    },
+    {
+     "id": "fn-III-3-5",
+     "number": "‡",
+     "kind": "editorial",
+     "html": "Le texte original imprime « \\(\\operatorname{prof} F_x\\) » ; corrigé ici en « \\(\\operatorname{prof} F_y\\) »."
+    },
+    {
+     "id": "fn-III-3-6",
+     "number": "§",
+     "kind": "editorial",
+     "html": "N.d.T. : L'implication (v) \\(\\Rightarrow\\) (vi) n'est pas locale ; on peut utiliser la proposition <a class=\"ref\" href=\"#III.2.4\">2.4</a>."
+    },
+    {
+     "id": "fn-III-3-7",
+     "number": "‖",
+     "kind": "editorial",
+     "html": "Le texte original imprime « donc \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i(X, \\mathscr{O}_X) \\approx \\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i(X, \\mathscr{O}_X)\\) \\(\\operatorname{H}^{i-1}(X-Y, \\mathscr{O}_X)=0\\) » ; corrigé ici en « donc \\(\\mathop{\\underline{\\mathrm{H}}}\\nolimits_Y^i(\\mathscr{O}_X) \\approx \\mathop{\\underline{\\mathrm{H}}}\\nolimits_{X-Y}^{i-1}(\\mathscr{O}_X)=0\\) pour \\(i&gt;1\\), car \\(\\operatorname{H}^{i-1}(X-Y, \\mathscr{O}_X)=0\\) », conformément à la version anglaise."
     }
    ],
    "bibliography": []

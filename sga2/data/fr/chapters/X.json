@@ -245,7 +245,7 @@
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Pour tout \\(n\\geqslant 0\\), posons \\(\\operatorname{E}_n=\\mathscr{E}/\\mathscr{I}^{n+1}\\). En tout point fermé \\(y\\in Y\\), la profondeur de \\(\\operatorname{E}_0\\) est \\(\\geqslant 2\\); en effet \\(t\\) est un élément \\(A\\)-régulier donc \\(\\operatorname{prof}\\mathscr{O}_{Y_0, y}=\\operatorname{prof}\\mathscr{O}_{X, y}-1\\geqslant 2\\). On en conclut que \\(\\widehat{f}_\\ast(\\mathscr{E})\\) est cohérent (<a class=\"ref\" href=\"#IX\">IX</a> <a class=\"ref\" href=\"#IX.2.3\">2.3</a>). C.Q.F.D.</p>"
+     "html": "<p>Pour tout \\(n\\geqslant 0\\), posons \\(\\mathscr{E}_n=\\mathscr{E}/\\mathscr{I}^{n+1}\\mathscr{E}\\). En tout point fermé \\(y\\in Y\\), la profondeur de \\(\\mathscr{E}_0\\) est \\(\\geqslant 2\\); en effet \\(t\\) est un élément \\(A\\)-régulier donc \\(\\operatorname{prof}\\mathscr{O}_{Y_0, y}=\\operatorname{prof}\\mathscr{O}_{X, y}-1\\geqslant 2\\). On en conclut que \\(\\widehat{f}_\\ast(\\mathscr{E})\\) est cohérent (<a class=\"ref\" href=\"#IX\">IX</a> <a class=\"ref\" href=\"#IX.2.3\">2.3</a>). C.Q.F.D.</p>"
     },
     {
      "id": null,
@@ -259,7 +259,7 @@
      "type": "enonce",
      "label": "2.2",
      "title": "Exemple 2.2",
-     "html": "<div class=\"thm thm-remark enonce\" id=\"X.2.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Exemple 2.2</span></div>\n  <div class=\"thm-body\"><p>[ Permettra de comparer le groupe fondamental d'une variété projective et d'une section hyperplane]\nSoit \\(K\\) un corps et soit \\(X\\) un \\(K\\)-préschéma propre. Soit \\(\\mathscr{L}\\) un \\(\\mathscr{O}_X\\)-Module inversible ample. Soit \\(t \\in \\Gamma(X, \\mathscr{L})\\) un élément \\(\\mathscr{O}_X\\)-régulier, ce qui signifie que, pour tout ouvert \\(U\\) et tout isomorphisme \\(u\\colon \\mathscr{L}~U\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow}\\mathscr{O}_U\\), \\(u(t)\\) est non diviseur de zéro dans \\(\\mathscr{O}_U\\) (condition qui ne dépend pas de \\(u\\)). Soit \\(Y = V(t)\\) le sous-schéma de \\(X\\) d'équation \\(t = 0\\). Alors:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Si, pour tout point \\(x\\) fermé dans \\(X\\), on a \\(\\operatorname{prof}\\mathscr{O}_{X, x}\\geqslant 2\\), on a \\(\\operatorname{Lef} (X, Y)\\);</p></li>\n<li><p>si de plus, pour tout point fermé \\(y\\in Y\\), on a \\(\\operatorname{prof}\\mathscr{O}_{X, y}\\geqslant 3\\), on a \\(\\operatorname{Leff} (X, Y)\\).</p></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-remark enonce\" id=\"X.2.2\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Exemple 2.2</span></div>\n  <div class=\"thm-body\"><p>[ Permettra de comparer le groupe fondamental d'une variété projective et d'une section hyperplane]\nSoit \\(K\\) un corps et soit \\(X\\) un \\(K\\)-préschéma propre. Soit \\(\\mathscr{L}\\) un \\(\\mathscr{O}_X\\)-Module inversible ample. Soit \\(t \\in \\Gamma(X, \\mathscr{L})\\) un élément \\(\\mathscr{O}_X\\)-régulier, ce qui signifie que, pour tout ouvert \\(U\\) et tout isomorphisme \\(u\\colon \\mathscr{L}_{|U}\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow}\\mathscr{O}_U\\)<a class=\"footnote-ref ed-ref\" id=\"fn-X-2-1ref\" href=\"#fn-X-2-1\"><sup>*</sup></a>, \\(u(t)\\) est non diviseur de zéro dans \\(\\mathscr{O}_U\\) (condition qui ne dépend pas de \\(u\\)). Soit \\(Y = V(t)\\) le sous-schéma de \\(X\\) d'équation \\(t = 0\\). Alors:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Si, pour tout point \\(x\\) fermé dans \\(X\\), on a \\(\\operatorname{prof}\\mathscr{O}_{X, x}\\geqslant 2\\), on a \\(\\operatorname{Lef} (X, Y)\\);</p></li>\n<li><p>si de plus, pour tout point fermé \\(y\\in Y\\), on a \\(\\operatorname{prof}\\mathscr{O}_{X, y}\\geqslant 3\\), on a \\(\\operatorname{Leff} (X, Y)\\).</p></li>\n</ol></div>\n</div>"
     },
     {
      "id": null,
@@ -388,7 +388,14 @@
      "html": "<p>Tout ceci résulte trivialement de la prop.  <a class=\"ref\" href=\"#X.1.1\">1.1</a> et de la prop.  <a class=\"ref\" href=\"#X.2.3\">2.3</a>.</p>"
     }
    ],
-   "footnotes": [],
+   "footnotes": [
+    {
+     "id": "fn-X-2-1",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte original imprime « \\(\\mathscr{L}\\ U\\) » ; corrigé ici en « \\(\\mathscr{L}_{|U}\\) »."
+    }
+   ],
    "bibliography": []
   },
   {
@@ -484,14 +491,14 @@
      "type": "lemme",
      "label": "3.5",
      "title": "Lemme",
-     "html": "<div class=\"thm thm-plain lemme\" id=\"X.3.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">3.5</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"X.3.5\"></span>\nSoit \\(X\\) un préschéma localement noethérien et soit \\(U\\) une partie ouverte de \\(X\\). Posons \\(Z=X-U\\). Soit \\(i\\colon U\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) l'immersion canonique de \\(U\\) dans \\(X\\). Les conditions suivantes sont équivalentes:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Pour tout ouvert \\(V\\) de \\(X\\), si on pose \\(V'=V\\cap U\\), le foncteur \\(F\\rightsquigarrow F|{|V'}\\) de la catégorie des \\(\\mathscr{O}_V\\)-Modules cohérents localement libres dans la catégorie des \\(\\mathscr{O}_{{V'}}\\)-Modules cohérents localement libres est pleinement fidèle;</p></li>\n<li><p>l'homomorphisme naturel \\(\\mathscr{O}_X \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} i_\\ast(\\mathscr{O}_{U})\\) est un isomorphisme;</p></li>\n<li><p>pour tout \\(z\\in Z\\), on a \\(\\operatorname{prof}\\mathscr{O}_{X, z}\\geqslant 2\\).</p></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-plain lemme\" id=\"X.3.5\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">3.5</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"X.3.5\"></span>\nSoit \\(X\\) un préschéma localement noethérien et soit \\(U\\) une partie ouverte de \\(X\\). Posons \\(Z=X-U\\). Soit \\(i\\colon U\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} X\\) l'immersion canonique de \\(U\\) dans \\(X\\). Les conditions suivantes sont équivalentes:</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Pour tout ouvert \\(V\\) de \\(X\\), si on pose \\(V'=V\\cap U\\), le foncteur \\(F\\longmapsto F_{|V'}\\) de la catégorie des \\(\\mathscr{O}_V\\)-Modules cohérents localement libres dans la catégorie des \\(\\mathscr{O}_{{V'}}\\)-Modules cohérents localement libres est pleinement fidèle;</p></li>\n<li><p>l'homomorphisme naturel \\(\\mathscr{O}_X \\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} i_\\ast(\\mathscr{O}_{U})\\) est un isomorphisme;</p></li>\n<li><p>pour tout \\(z\\in Z\\), on a \\(\\operatorname{prof}\\mathscr{O}_{X, z}\\geqslant 2\\).</p></li>\n</ol></div>\n</div>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>On a déjà vu (<a class=\"ref\" href=\"#III\">III</a> <a class=\"ref\" href=\"#III.3.3\">3.3</a>) l'équivalence de (ii) et (iii). Montrons que (ii) entraîne (i). Soient \\(F\\) et \\(G\\) deux \\(\\mathscr{O}_V\\)-Modules cohérents localement libres, \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits(F, G)\\) l'est aussi, donc \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits(F, G)\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} i_\\ast(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits(F|{|V'}, G|{|V'}))\\) est un isomorphisme donc \\(\\operatorname{Hom}(F, G)\\simeq\\operatorname{Hom}(F|{|V'}, G|{|V'})\\). Inversement on prend \\(F=G=\\mathscr{O}_X\\) et on applique (i) à tout ouvert \\(V\\) de \\(X\\).</p>"
+     "html": "<p>On a déjà vu (<a class=\"ref\" href=\"#III\">III</a> <a class=\"ref\" href=\"#III.3.3\">3.3</a>) l'équivalence de (ii) et (iii). Montrons que (ii) entraîne (i). Soient \\(F\\) et \\(G\\) deux \\(\\mathscr{O}_V\\)-Modules cohérents localement libres, \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits(F, G)\\) l'est aussi, donc \\(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits(F, G)\\mathchoice{\\longrightarrow}{\\rightarrow}{\\rightarrow}{\\rightarrow} i_\\ast(\\mathop{\\underline{\\mathrm{Hom}}}\\nolimits(F_{|V'}, G_{|V'}))\\) est un isomorphisme donc \\(\\operatorname{Hom}(F, G)\\simeq\\operatorname{Hom}(F_{|V'}, G_{|V'})\\). Inversement on prend \\(F=G=\\mathscr{O}_X\\) et on applique (i) à tout ouvert \\(V\\) de \\(X\\).</p>"
     },
     {
      "id": null,
@@ -575,14 +582,14 @@
      "type": "lemme",
      "label": "3.9",
      "title": "Lemme",
-     "html": "<div class=\"thm thm-plain lemme\" id=\"X.3.9\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">3.9</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"X.3.9\"></span>\nSoit \\(A\\) un anneau local noethérien et soit \\(t\\in\\mathfrak{r}(A)\\) un élément \\(A\\)-régulier. Supposons que \\(A\\) soit complet pour la topologie \\(t\\)-adique et de plus quotient d'un anneau local régulier (par exemple \\(A\\) complet). Posons \\(B=A/tA\\).</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Si pour tout idéal premier \\(\\mathfrak{p}\\) de \\(A\\) tel que \\(\\dim A/\\mathfrak{p}=1\\), on a \\(\\operatorname{prof} A_{\\mathfrak{p}}\\geqslant 2\\), alors \\(B\\) pur entraîne \\(A\\) pur.</p></li>\n<li><p>Si pour tout idéal premier \\(\\mathfrak{p}\\) de \\(A\\) tel que \\(\\dim A/\\mathfrak{p}=1\\), on a \\(\\operatorname{prof} A_{\\mathfrak{p}}\\geqslant 2\\), si \\(A_\\mathfrak{p}\\) pur lorsque \\(t\\notin\\mathfrak{p}\\), et \\(\\operatorname{prof} A_\\mathfrak{p}\\geqslant3\\) lorsque \\(t\\in\\mathfrak{p}\\), alors \\(A\\) pur entraîne \\(B\\) pur.</p></li>\n</ol></div>\n</div>"
+     "html": "<div class=\"thm thm-plain lemme\" id=\"X.3.9\">\n  <div class=\"thm-head\"><span class=\"thm-name\">Lemme</span> <span class=\"thm-num\">3.9</span></div>\n  <div class=\"thm-body\"><p><span class=\"label-anchor\" id=\"X.3.9\"></span>\nSoit \\(A\\) un anneau local noethérien et soit \\(t\\in\\mathfrak{r}(A)\\) un élément \\(A\\)-régulier. Supposons que \\(A\\) soit complet pour la topologie \\(t\\)-adique et de plus quotient d'un anneau local régulier (par exemple \\(A\\) complet). Posons \\(B=A/tA\\).</p>\n<ol class=\"enumerate-i\" type=\"i\">\n<li><p>Si pour tout idéal premier \\(\\mathfrak{p}\\) de \\(A\\) tel que \\(\\dim A/\\mathfrak{p}=1\\), on a \\(\\operatorname{prof} A_{\\mathfrak{p}}\\geqslant 2\\), alors \\(B\\) pur entraîne \\(A\\) pur.</p></li>\n<li><p>Si pour tout idéal premier \\(\\mathfrak{p}\\) de \\(A\\) tel que \\(\\dim A/\\mathfrak{p}=1\\), on a \\(\\operatorname{prof} A_{\\mathfrak{p}}\\geqslant 2\\), si \\(A_\\mathfrak{p}\\) pur lorsque \\(t\\notin\\mathfrak{p}\\), et si<a class=\"footnote-ref ed-ref\" id=\"fn-X-3-4ref\" href=\"#fn-X-3-4\"><sup>*</sup></a> \\(\\operatorname{prof} A_\\mathfrak{p}\\geqslant3\\) lorsque \\(t\\in\\mathfrak{p}\\), alors \\(A\\) pur entraîne \\(B\\) pur.</p></li>\n</ol></div>\n</div>"
     },
     {
      "id": null,
      "type": "paragraph",
      "label": null,
      "title": null,
-     "html": "<p>Soit \\(X'=\\operatorname{Spec}(A)\\) et soit \\(Y'=V(t)\\), que l'on identifie au spectre de \\(B\\). Soit \\(x=\\mathfrak{r}(A)\\), et posons \\(X=X'-\\{x\\}\\) et \\(Y=Y'-\\{x\\}=X\\cap Y'\\). Désignons par \\(X'\\) le spectre formel de \\(A\\) pour la topologie \\(t\\)-adique, qui s'identifie au complété formel de \\(X'\\) le long de \\(Y'\\).</p>"
+     "html": "<p>Soit \\(X'=\\operatorname{Spec}(A)\\) et soit \\(Y'=V(t)\\), que l'on identifie au spectre de \\(B\\). Soit \\(x=\\mathfrak{r}(A)\\), et posons \\(X=X'-\\{x\\}\\) et \\(Y=Y'-\\{x\\}=X\\cap Y'\\). Désignons par \\(\\widehat{X'}\\)<a class=\"footnote-ref ed-ref\" id=\"fn-X-3-5ref\" href=\"#fn-X-3-5\"><sup>†</sup></a> le spectre formel de \\(A\\) pour la topologie \\(t\\)-adique, qui s'identifie au complété formel de \\(X'\\) le long de \\(Y'\\).</p>"
     },
     {
      "id": null,
@@ -656,6 +663,18 @@
      "id": "fn-X-3-3",
      "number": "3",
      "html": "Cf. J. Giraud, Méthode de la descente, Mémoire nº 2 du Bulletin de la Société Mathématique de France (1964)."
+    },
+    {
+     "id": "fn-X-3-4",
+     "number": "*",
+     "kind": "editorial",
+     "html": "Le texte original omet « si » ; ajouté ici."
+    },
+    {
+     "id": "fn-X-3-5",
+     "number": "†",
+     "kind": "editorial",
+     "html": "Le texte original imprime « \\(X'\\) » ; corrigé ici en « \\(\\widehat{X'}\\) »."
     }
    ],
    "bibliography": []
