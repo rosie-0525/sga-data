@@ -109,6 +109,17 @@ and `issues/glossary_summary.json`; `glossary_md.py` regenerates
 `glossary/GLOSSARY.md`. Prefer widening a term's accepted English variants in
 `glossary.json` over rewriting settled translations.
 
+Candidates come from `glossary_extract.py`, which mines the aligned corpus
+into `glossary/candidates/`: «quoted» terms, definition emphasis and
+"On appelle …" captures (`mined-terms.jsonl`), theorem-kind headings
+(`thm-headings.json`), SGA2's own index (`sga2-index.json`), and every
+aligned FR/EN title — book titles from each `data/config.json` plus exposé
+and section headings (`titles.json`). Promotion into `glossary.json` is a
+curation step, by hand. Reader suggestions ride the existing viewer
+comments: leave a comment starting with `term:` on the French passage
+(e.g. `term: théorie des intersections = intersection theory`); exported
+`comments.json` files are triaged into the same candidates flow.
+
 When a decision does need the corpus brought into line, `glossary_sweep.py`
 enforces it instead of a hand pass:
 

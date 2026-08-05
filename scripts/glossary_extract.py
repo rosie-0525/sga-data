@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mine FR→EN terminology candidates from the well-translated SGA volumes.
 
-Writes three files under glossary/candidates/ (committed as curation
+Writes four files under glossary/candidates/ (committed as curation
 provenance for glossary/glossary.json — they are candidates, not the
 glossary):
 
@@ -9,19 +9,25 @@ glossary):
   thm-headings.json  aligned <span class="thm-name"> pairs, corpus-wide,
                      count-ranked, merged with the TITLE_MAP union from the
                      per-book translation scripts
+  titles.json        aligned FR/EN title pairs: bookTitle from each book's
+                     config.json plus every aligned heading block (exposé
+                     h1 down to §-level h3/h4), numbering stripped —
+                     the source for title terminology (théorie des
+                     intersections, groupes de monodromie, …)
   mined-terms.jsonl  per-block mining of «quoted» terms, emphasis inside
                      definitions, and "On appelle …" captures, deduped and
                      count-ranked — the main curation working file
 
-Corpus: GOOD_BOOKS only (sga4/sga4.5 are raw MT); blocks whose EN side is
-empty (sga3's untranslated chapters) are skipped by content, not by name.
+Corpus: all of BOOKS (sga4/sga4.5, once raw MT, were retranslated with the
+glossary in Aug 2026); blocks whose EN side is empty (sga3's untranslated
+chapters) are skipped by content, not by name.
 """
 import re
 from collections import OrderedDict
 
 from glossary_lib import (
-    CANDIDATES_DIR, GOOD_BOOKS, THM_NAME_RE, dump_json, iter_aligned_blocks,
-    load_chapter, norm_heading, normalize, cite,
+    BOOKS, CANDIDATES_DIR, ROOT, THM_NAME_RE, dump_json, iter_aligned_blocks,
+    load_chapter, load_json, norm_heading, normalize, cite,
 )
 EM_RE = re.compile(r"<(?:em|i)>(.*?)</(?:em|i)>", re.S)
 GUILLEMET_RE = re.compile(r"«\s*([^«»]{2,80}?)\s*»")
@@ -68,7 +74,7 @@ def extract_sga2_index():
 
 def extract_headings():
     pairs = OrderedDict()
-    for book in GOOD_BOOKS:
+    for book in BOOKS:
         for cid, page_id, b_idx, fr_b, en_b in iter_aligned_blocks(book):
             fr_names = THM_NAME_RE.findall(fr_b.get("html", ""))
             if not fr_names or en_b is None:
@@ -93,6 +99,76 @@ def extract_headings():
                           "source": "TITLE_MAP"}
     return sorted(pairs.values(),
                   key=lambda r: -(r["count"] or 0))
+
+
+HEAD_RE = re.compile(r"<h([1-6])[^>]*>(.*?)</h\1>", re.S)
+AUTHOR_RE = re.compile(r'<span class="author">.*?</span>', re.S)
+# Leading matter stripped from a title before pairing: "EXPOSÉ VII",
+# "Chapitre I." / "Chapter I." / "Appendice." / "Appendix.", "§ 1.",
+# bare numbering ("1.", "0.", "II ", "1.3.2"). Applied repeatedly so
+# "EXPOSÉ 0 SKETCH…" and "Chapitre I. § 1. …" both reduce to the title.
+TITLE_PREFIX_RE = re.compile(
+    r"^(?:EXPOSÉ\s+[IVXLCDM\d]+(?:\s+[A-Z])?(?=[\s:])"
+    r"|(?:Chapitre|Chapter|Appendice|Appendix|Annexe|Annex|Partie|Part)"
+    r"\b\s*[IVXLCDM\d]*"
+    r"|§\s*[\d.]+"
+    r"|[IVXLCDM\d]+(?:\.\d+)*(?=[.)\s]))"
+    r"[.):]?\s*", re.I)
+BOOK_TITLE_PREFIX_RE = re.compile(r"^SGA\s*[\d.½]+\s*—\s*")
+
+
+def clean_title(html):
+    """Heading-element html → bare title text, or None when nothing
+    usable remains (pure numbering, math-bearing, too short)."""
+    html = AUTHOR_RE.sub(" ", html)
+    parts = [normalize(p, lower=False) for p in re.split(r"<br\s*/?>", html)]
+    text = " ".join(p for p in parts if p).strip()
+    while True:
+        stripped = TITLE_PREFIX_RE.sub("", text, count=1)
+        if stripped == text:
+            break
+        text = stripped.strip()
+    if len(text) < 3 or "¶" in text:
+        return None
+    if text.isupper():
+        text = text.capitalize()
+    return text
+
+
+def extract_titles():
+    pairs = OrderedDict()
+
+    def add(fr, en, level, where):
+        key = (fr.lower(), en.lower())
+        rec = pairs.setdefault(
+            key, {"fr": fr, "en": en, "level": level, "count": 0, "seen": []})
+        rec["count"] += 1
+        if len(rec["seen"]) < 8:
+            rec["seen"].append(where)
+
+    for book in BOOKS:
+        langs = load_json(ROOT / book / "data" / "config.json")["languages"]
+        fr_t = BOOK_TITLE_PREFIX_RE.sub("", langs["fr"]["bookTitle"])
+        en_t = BOOK_TITLE_PREFIX_RE.sub("", langs["en"]["bookTitle"])
+        if fr_t and en_t:
+            add(fr_t, en_t, "book", f"{book}:config")
+
+        for cid, page_id, b_idx, fr_b, en_b in iter_aligned_blocks(book):
+            if fr_b.get("type") != "heading" or en_b is None:
+                continue
+            fr_heads = HEAD_RE.findall(fr_b.get("html", ""))
+            en_heads = HEAD_RE.findall(en_b.get("html", ""))
+            for i, (fr_lvl, fr_html) in enumerate(fr_heads):
+                if i >= len(en_heads):
+                    break
+                fr_title = clean_title(fr_html)
+                en_title = clean_title(en_heads[i][1])
+                if fr_title and en_title:
+                    add(fr_title, en_title, f"h{fr_lvl}",
+                        cite(book, page_id, fr_b, b_idx))
+
+    return sorted(pairs.values(),
+                  key=lambda r: (-r["count"], r["fr"].lower()))
 
 
 def candidate_key(fr_candidate):
@@ -140,7 +216,7 @@ def mine_blocks():
             return text[:2 * margin]
         return text[max(0, pos - margin):pos + len(term) + margin]
 
-    for book in GOOD_BOOKS:
+    for book in BOOKS:
         for cid, page_id, b_idx, fr_b, en_b in iter_aligned_blocks(book):
             if en_b is None:
                 continue
@@ -197,6 +273,13 @@ def main():
     (CANDIDATES_DIR / "thm-headings.json").write_text(
         dump_json(headings), encoding="utf-8")
     print(f"thm-headings.json: {len(headings)} rows")
+
+    titles = extract_titles()
+    (CANDIDATES_DIR / "titles.json").write_text(
+        dump_json(titles), encoding="utf-8")
+    print(f"titles.json: {len(titles)} rows "
+          f"({sum(1 for r in titles if r['fr'].lower() != r['en'].lower())}"
+          f" with fr != en)")
 
     mined = mine_blocks()
     import json

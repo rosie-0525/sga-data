@@ -17,9 +17,9 @@ corpus (sga1–sga7). The machine source of truth is
 [`glossary/glossary.json`](glossary.json); this file is a generated view.
 
 - Any tooling that translates or checks SGA text (including the future
-  sga4/sga4.5 retranslation and the completion of sga3's untranslated
-  exposés) must source its terminology and theorem-kind headings from
-  `glossary.json`, not from per-script tables.
+  completion of sga3's untranslated exposés) must source its terminology
+  and theorem-kind headings from `glossary.json`, not from per-script
+  tables.
 - Cross-book conformance is checked by `scripts/glossary_check.py`, which
   reports deviations to `issues/glossary_deviations.json`.
 - *Seen* cites exemplar occurrences as `book:anchor` or `book:page#block`.

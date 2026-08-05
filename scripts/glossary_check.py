@@ -26,9 +26,9 @@ import re
 from datetime import datetime, timezone
 
 from glossary_lib import (
-    BOOKS, ISSUES_DIR, THM_NAME_RE, dump_json, en_pattern, fr_pattern,
-    iter_aligned_blocks, iter_aligned_footnotes, load_glossary, load_json,
-    norm_heading, normalize,
+    BOOKS, BOUND_L, BOUND_R, ISSUES_DIR, THM_NAME_RE, dump_json, en_pattern,
+    fr_pattern, iter_aligned_blocks, iter_aligned_footnotes, load_glossary,
+    load_json, norm_heading, normalize,
 )
 
 DEVIATIONS_PATH = ISSUES_DIR / "glossary_deviations.json"
@@ -84,10 +84,12 @@ class Checker:
             if not epat.search(en_l):
                 s, t = span
                 surface = fr_text[s:t]
-                # capitalized French surface appearing verbatim in the EN
-                # side is a quoted proper name (les Éléments, SÉMINAIRE DE
+                # the French surface appearing verbatim (word-bounded) in
+                # the EN side is a quoted title or proper name (Corps
+                # locaux, Groupes et algèbres de Lie, SÉMINAIRE DE
                 # GÉOMÉTRIE ALGÉBRIQUE, …), not a translation failure
-                if surface[:1].isupper() and surface in en_text:
+                if re.search(BOUND_L + re.escape(surface.lower()) + BOUND_R,
+                             en_l):
                     continue
                 snippet = fr_text[max(0, s - 60):t + 60]
                 deviations.append((entry, surface, snippet))
@@ -99,6 +101,16 @@ class Checker:
         for e in self.headings:
             if name == e["fr"] or name.startswith(e["fr"] + " "):
                 return e
+        return None
+
+    def match_en_heading(self, name):
+        """Heading entry whose accepted EN rendering equals the name or is a
+        word-prefix of it — for originally-English text (sga7 Exposé VI),
+        where the fr side carries English heading names."""
+        for e in self.headings:
+            for a in [e["en"]] + e.get("en_accept", []):
+                if name == a or name.startswith(a + " "):
+                    return e
         return None
 
 
@@ -141,8 +153,9 @@ def check_book(checker, book):
 
     for cid, page_id, b_idx, fr_b, en_b in iter_aligned_blocks(book):
         # bibliographies quote French work titles verbatim — not prose
+        # (page ids use both spellings: X-bibliographie and X-biblio)
         if (fr_b.get("type") == "bibliography"
-                or "bibliograph" in (page_id or "")):
+                or "biblio" in (page_id or "")):
             continue
         fr_html = fr_b.get("html", "")
         en_html = en_b.get("html", "") if en_b else ""
@@ -158,14 +171,18 @@ def check_book(checker, book):
                 if not name:
                     continue
                 entry = checker.match_heading(name)
+                en_name = norm_heading(en_names[i]) if i < len(en_names) \
+                    else None
                 if entry is None:
+                    # identical known-English name on both sides means the
+                    # text is originally English, not a stray heading
+                    if name == en_name and checker.match_en_heading(name):
+                        continue
                     stats["unknownHeadings"] += 1
                     record("unknown-heading", cid, page_id, where, None,
                            name, name, en_names[i] if i < len(en_names)
                            else None)
                     continue
-                en_name = norm_heading(en_names[i]) if i < len(en_names) \
-                    else None
                 accepted = [entry["en"]] + entry.get("en_accept", [])
                 exact = name == entry["fr"]
                 ok = en_name is not None and any(

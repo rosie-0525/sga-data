@@ -310,6 +310,24 @@ own footnotes (including the editor's 1976 notes in Exposé VIII).
 
 ---
 
+# SGA 5 — anomalies in the printed typescript
+
+## Exposé V, p. 234 — "fonctions" for "foncteurs"
+
+Below Définition 5.1.3:
+
+> Il est alors clair que les **fonctions** canoniques P_AR^n, P_AR^f …
+
+The typescript prints "fonctions" — verified on the page image, not just the
+OCR layer. The objects are functors between categories, and the sentence
+concludes «… sont des équivalences de catégories». **Corrected** to
+«foncteurs» in `sga5/data/fr/chapters/V.json` (page V-s6) on 2026-08-05
+under the policy above; the English side already reads "the canonical
+functors". Surfaced by `glossary_check.py` (FR «fonction» with no accepted
+rendering in the EN block).
+
+---
+
 # SGA 6 — anomalies in the printed 1971 edition
 
 Flagged during the English translation, checked against the scans in

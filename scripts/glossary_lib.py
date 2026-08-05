@@ -15,9 +15,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 BOOKS = ["sga1", "sga2", "sga3", "sga4", "sga4.5", "sga5", "sga6", "sga7"]
-# Extraction corpus: books whose EN side is human-quality. sga4/sga4.5 are
-# raw machine translation and must never seed the glossary.
-GOOD_BOOKS = ["sga1", "sga2", "sga3", "sga5", "sga6", "sga7"]
 
 GLOSSARY_DIR = ROOT / "glossary"
 GLOSSARY_JSON = GLOSSARY_DIR / "glossary.json"
@@ -31,9 +28,14 @@ THM_NAME_RE = re.compile(r'<span class="thm-name">([^<]+)</span>')
 
 
 def norm_heading(name):
-    """Normalize a thm-name span: strip trailing numbering/punctuation,
-    fold ALL-CAPS to title case."""
+    """Normalize a thm-name span: strip math (a math-only name like the
+    assertion «\\(A\\)» normalizes to empty and is skipped), leading and
+    trailing numbering and punctuation (theorem kinds never start with a
+    digit, so a leading «6.3.» is run-in section numbering), fold ALL-CAPS
+    to title case."""
+    name = MATH_RE.sub(" ", name)
     name = re.sub(r"[\s\d.:—–-]+$", "", name.strip())
+    name = re.sub(r"^[\d.]+\s+", "", name)
     name = re.sub(r"\s+", " ", name)
     if name.isupper():
         name = name.capitalize()
@@ -102,20 +104,50 @@ def fr_pattern(entry):
     return re.compile(BOUND_L + "(?:" + "|".join(alts) + ")" + BOUND_R)
 
 
-def _en_plurals(form):
-    """Regular English plural variants of a (possibly multi-word) form."""
-    words = form.split()
-    last = words[-1]
-    variants = {form}
-    if re.search(r"[a-z]y$", last) and last[-2] not in "aeiou":
-        variants.add(" ".join(words[:-1] + [last[:-1] + "ies"]))
-    elif re.search(r"(?:s|x|z|ch|sh)$", last):
-        variants.add(form + "es")
-    elif last.endswith("f"):
-        variants.add(form + "s")
-        variants.add(" ".join(words[:-1] + [last[:-1] + "ves"]))  # sheaves
+def _word_plurals(word):
+    """Regular English plural variants of one word (word included)."""
+    variants = {word}
+    if re.search(r"[a-z]y$", word) and word[-2] not in "aeiou":
+        variants.add(word[:-1] + "ies")
+    elif re.search(r"(?:s|x|z|ch|sh)$", word):
+        variants.add(word + "es")
+    elif word.endswith("f"):
+        variants.add(word + "s")
+        variants.add(word[:-1] + "ves")  # sheaves
     else:
-        variants.add(form + "s")
+        variants.add(word + "s")
+    return variants
+
+
+def _en_plurals(form):
+    """Regular English plural variants of a (possibly multi-word) form.
+    In a phrase the head word may carry the plural instead of the last
+    ("equivalences of categories")."""
+    words = form.split()
+    variants = {" ".join(words[:-1] + [v]) for v in _word_plurals(words[-1])}
+    if len(words) > 1:
+        variants |= {" ".join([v] + words[1:]) for v in _word_plurals(words[0])}
+    return variants
+
+
+def _word_verb_forms(word):
+    """Regular -ed/-ing inflections of one word (-s comes from plurals)."""
+    if re.search(r"[a-z]y$", word) and word[-2] not in "aeiou":
+        return {word[:-1] + "ied", word + "ing"}
+    if word.endswith("e") and not word.endswith("ee"):
+        return {word + "d", word[:-1] + "ing"}
+    return {word + "ed", word + "ing"}
+
+
+def _en_verb_forms(form):
+    """Verb inflections of a form's first and last words; inflecting both
+    ends covers "bound" → bounded and "upper bound" → upper bounded, and
+    over-generation ("uppered") is harmless in a match-only pattern."""
+    words = form.split()
+    variants = {" ".join([v] + words[1:]) for v in _word_verb_forms(words[0])}
+    if len(words) > 1:
+        variants |= {" ".join(words[:-1] + [v])
+                     for v in _word_verb_forms(words[-1])}
     return variants
 
 
@@ -133,16 +165,30 @@ def _en_separator_variants(form):
     return variants
 
 
+# Between the words of a multi-word rendering: up to two intervening prose
+# tokens (coordination "inductive and projective limits", insertions "formal
+# moduli scheme", "projective (resp. inductive) limits", appositions
+# "covering, i.e. epimorphic, family", math "formal ¶ -adic scheme") and a
+# hyphenated prefix on the following word ("reductive S-group scheme").
+# No period may follow the head word, so the gap cannot start across a
+# sentence boundary.
+EN_GAP = r"[,;]?\s+(?:[\w'¶().,;-]+\s+){0,2}(?:[\w'¶]+-)?"
+
+
 def en_pattern(entry):
     """Compile one regex matching any accepted English rendering (en +
-    en_accept, expanded by regular plurals and hyphenation variants).
+    en_accept, expanded by regular plurals, hyphenation variants and — for
+    pos "v" entries — verb inflections).
     Plain \\b boundaries (not the hyphen-aware FR ones): presence inside an
     EN hyphenated compound ("constant-twisted") counts as a match."""
+    verb = entry.get("pos") == "v"
     variants = set()
     for base in [entry["en"]] + entry.get("en_accept", []):
         for sep in _en_separator_variants(base.lower()):
             variants |= _en_plurals(sep)
-    alts = sorted((re.escape(v).replace(r"\ ", r"\s+") for v in variants),
+            if verb:
+                variants |= _en_verb_forms(sep)
+    alts = sorted((re.escape(v).replace(r"\ ", EN_GAP) for v in variants),
                   key=len, reverse=True)
     return re.compile(r"\b(?:" + "|".join(alts) + r")\b")
 
