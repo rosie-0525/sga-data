@@ -434,3 +434,18 @@ transcription artifact. "Annexe" is not a French mathematical adjective; the
 hypothesis wanted is *S connexe* (S connected), as in the neighbouring statements
 of §1. **Corrected** in `sga7/data/fr/chapters/20.json` (block 40) on 2026-07-29
 under the policy above, the English rendering "S connected" agreeing with it.
+
+## Exposé XIII, p. 19 (vol. p. 100) — "η_xr" for "η_nr"
+
+Proposition 2.1.4, first displayed identity:
+
+> (RΨ(K_η))_{(x̄,η̄)} = RΓ(X_{(x̄)} ×_{η_**xr**} η̄ , K)
+
+The typescript prints the fibre-product subscript as η_xr — verified on the page
+image at 600 dpi. The second identity of the same proposition, and 2.1.3 just
+above it, write η_nr, the geometric point of the strict henselisation S_nr; "xr"
+is a typing slip. **Corrected** to `\eta_{nr}` in `sga7/data/fr/chapters/13.json`
+(block `13.2.1.4`), the English agreeing. (Noted 2026-10-29 while repairing the
+second identity of the same proposition, where the transcription — not the
+print — had misplaced the η: `R^iΨ(K)_{η(x̄,η̄)}` for the printed
+`R^iΨ(K_η)_{(x̄,η̄)}`; reader report.)
