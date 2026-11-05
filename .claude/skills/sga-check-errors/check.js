@@ -465,6 +465,10 @@ async function renderAndScan(page, html) {
         if (!p) continue;
         const tag = p.tagName;
         if (tag === 'SCRIPT' || tag === 'STYLE') continue;
+        // Exception: question marks the source itself prints (e.g. SGA 7 IX
+        // 14.1.12 b) "(à moins que ce ne soit l'opposé ???)") are wrapped in
+        // <span class="sic">…</span> in the data and are not ref markers.
+        if (p.closest('.sic')) continue;
         const text = n.nodeValue || '';
         const triple = /\?\?\?/.test(text);
         if (!triple && !standalone.test(text)) continue;

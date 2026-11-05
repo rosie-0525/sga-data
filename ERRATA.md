@@ -496,3 +496,61 @@ Doubtful glyphs were checked at 400 dpi.
 - French slips kept: "grassmanniene", "suffisament", "alor", "Les homomorphisme",
   "la flèche composé", "n'a qu'a", "n = dim X est paire", "un corps k algébriquement
   clos k".
+
+## Exposé IX, pp. 185–205 (vol. pp. 503–523) — anomalies met while completing the transcription
+
+The transcription of this exposé stopped in the middle of a word ("un mor-") in
+Remarques 13.5.3 a), at the end of p. 184. The rest of 13.5 (13.5.3 a)–b),
+13.5.4–13.5.13), all of § 14 ("Liens avec la théorie transcendante : cas
+rigide-analytique") and the bibliography [1]–[34] were missing from both languages.
+They were transcribed from the page images (200–400 dpi) and translated on 2026-11-05
+(page `9-13` from block 125 on, new pages `9-14` and `9-bibliographie` in
+`sga7/data/{fr,en}/chapters/9.json`). Printed page = PDF page − 6.
+
+### Corrected (unambiguous)
+- 14.1, p. 189 — "qui relèvent **P'_K** : M'_K → B'_K": the capital P is a typing slip
+  for the homomorphism `p'_K` of (14.1.4); transcribed `p'_K`.
+- Diagram (14.1.11), p. 190 — the bottom arrow `G_K^an → A_K^an` carries no label in the
+  print, but the sentence introducing the diagram says that it characterizes the
+  homomorphism `e` of (14.1.7), and the sentence after it says that "les flèches non
+  nommées" are those of (14.1.9) and (14.1.10), so the bottom arrow is `e`; the label is
+  restored (as `F` was in XVIII), with an editorial footnote (`fn-9-14-1`) saying so.
+- 13.5, after (13.5.11), p. 187 — the typewriter, having no braces, prints `U = S−[s]`;
+  transcribed `U = S−\{s\}`, with an editorial footnote (`fn-9-13-1`).
+- In the heading of 14.2 (p. 192), in "au cas où G_K lui-même" (p. 197) and in
+  `G(V/𝔪^{n+1})` (p. 198) the group `G` is typed with the double-struck font used for
+  `𝔾_m`, `𝔾_a`; transcribed as plain `G_K`, `G`.
+- (14.3.2), p. 196 — `Hom(M, H^1(K, T_ℓ(G_K))` lacks a closing parenthesis; balanced.
+- Bibliography — overstruck letters read as the intended ones ("Endlichkeitssatz",
+  "Ergebnisse"); missing spaces restored ("analytiquessur" in 14.1, "notesby",
+  "n°156,1957"). A stray raised dot in "Grundlehren·der Math" [10] is dropped.
+
+### Transcription error fixed in the older part (not a print anomaly)
+- 13.5.1–13.5.3 — the base change `B_Ô` of the abelian scheme to `Ô` (hat over the
+  subscript in the print) had been transcribed `\widehat B_O` five times (blocks 118,
+  121, 125 of `9-13`); now `B_{\widehat O}` in both languages. (Found by the Codex
+  proofreading pass on the completed 13.5.3.)
+
+### Kept as printed (suspect)
+- Cross-references: "la biextension E_K déjà envisagée dans **4.1**" (14.1 meant);
+  "le groupe A_K^b introduit dans **(8.2.3)**" (A_K^b is defined in (8.3.3));
+  "l'isomorphisme **11.11** du Groupe des composantes connexes" (§ 8 announces it as
+  11.10); "on a alors dans **7.22** construit un schéma G" (7.2.2); "le résultat
+  d'unicité de **4.3**" in 14.4.3 (presumably 14.3, whose arithmetic characterization
+  needs a residue field of finite type); "Donc **(14.3.8) et (14.3.10)** nous donnent"
+  (the displays (14.3.5.3) and (14.3.5.5) just above).
+- 14.3.5 — "Supposons donné un deuxième groupe **G'** sur S, satisfaisant aux mêmes
+  hypothèses que A, et une biextension W de (A, A')": `A'` is meant; and "où **T** est la
+  partie torique de l'extension de Raynaud G' = A'^♮" (`T'`).
+- (13.5.10) — the target `ℤ_ℓ(1)_S`, kept as printed.
+- The unlabelled two-row diagram after "grâce à la suite exacte" in 14.2 (p. 193) prints
+  `M'_K ⊗ ℤ_ℓ(1)` under `T_ℓ(T_K)` with no connecting sign; reproduced without one.
+- Remarques 14.1.12 b) ends "(à moins que ce ne soit l'opposé **???**)" — the author's own
+  question marks. They are wrapped in `<span class="sic">` so that the sga-check-errors
+  checker does not report them as an unresolved-ref marker.
+- French slips kept: "pour tout entiers", "la donnée d'homomorphisme",
+  "ridige-analytiques", "rigide analytiques", "dé façon unique", "stucture entière",
+  "réconstituer" (twice), "supposant pour simplifier", "une suite de composition dans
+  les quotients successifs sont", "infiniments divisibles", "une et une seul façon",
+  "limite inductive filtrante sous-anneaux". Bibliography: "schémes", "Noth Holland",
+  "Abbildnngen", "faisceau et et cohomologie", "Herman Paris".

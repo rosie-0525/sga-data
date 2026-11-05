@@ -113,7 +113,10 @@ isn't re-scanned per page):
    mirror). Deduped by container; the summary ends with a per-token rollup.
 3. **`???` / `??` markers** — an unresolved `\ref` consumed by MathJax renders
    as `???`, which is neither an `mjx-merror` nor a `\word` leak. The tree
-   walker reaches the literal `???` in the assistive mirror.
+   walker reaches the literal `???` in the assistive mirror. Exception: question
+   marks printed in the source itself are wrapped in `<span class="sic">…</span>`
+   in the block html and skipped (only case so far: SGA 7 IX 14.1.12 b),
+   "(à moins que ce ne soit l'opposé ???)").
 
 Static passes (over the JSON block html, in Node):
 
