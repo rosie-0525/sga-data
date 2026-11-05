@@ -14,7 +14,7 @@ corpus (sga1–sga7). The machine source of truth is
   reports deviations to `issues/glossary_deviations.json`.
 - *Seen* cites exemplar occurrences as `book:anchor` or `book:page#block`.
 
-## Mathematical terms (557)
+## Mathematical terms (559)
 
 | Français | English | Also accepted | Note | Seen |
 |---|---|---|---|---|
@@ -299,6 +299,7 @@ corpus (sga1–sga7). The machine source of truth is
 | immersion fermée | closed immersion |  |  | sga1:I-1#1, sga2:eq:I.30, sga3:II-4#79 |
 | immersion ouverte | open immersion |  |  | sga1:I.3.1, sga2:III-3#24, sga3:II.3.7.rem |
 | immersion régulière | regular immersion |  |  | sga1:II.4.14, sga5:III.6.8, sga6:0.3.2 |
+| immodéré | wild |  | Grothendieck-school synonym of «sauvage» (non-tame): «exposant conducteur immodéré (ou «sauvage»)», «ramification immodérée», «π_1 immodéré» = the full π_1 as opposed to the tame one; always "wild" | sga4:XVI-1#26, sga7:9-4#47, sga7:9.4.6 |
 | ind-objet | ind-object |  |  |  |
 | inertie | inertia |  |  | sga1:V.2, sga5:IIIB-2#59, sga7:1-0#25 |
 | infinitésimal *(infinitésimaux)* | infinitesimal |  |  | sga1:I-1#1, sga3:II-3#61, sga6:II-appendice-II#16 |
@@ -471,6 +472,7 @@ corpus (sga1–sga7). The machine source of truth is
 | rigidité | rigidity |  |  | sga3:IX.7.4, sga6:II.appendice.II.2, sga7:7-2#123 |
 | sans dénominateurs | without denominators |  |  | sga6:XIV.3 |
 | saturé | saturated | saturation | "saturation" accepted where the participle is rendered nominally | sga4:I-8#190, sga4:IV.9.8.3, sga4:Vbis-2#102 |
+| sauvage | wild |  | see also «immodéré», same meaning | sga4.5:VI:3#6, sga7:9-4#47, sga7:16-1#22 |
 | schéma | scheme |  |  | sga1:introduction#4, sga2:I-0#5, sga3:I-1#44 |
 | schéma abélien | abelian scheme |  |  | sga1:III-6#34, sga3:XI-6#9, sga6:X-7#212 |
 | schéma de base | base scheme |  |  | sga1:XI-2#15, sga2:I-0#6, sga3:IX.8.3 |
@@ -576,7 +578,7 @@ corpus (sga1–sga7). The machine source of truth is
 | voisinage infinitésimal | infinitesimal neighbourhood | infinitesimal neighborhood |  | sga1:I-1#1, sga3:VIIB-2#48, sga7:9-5#5 |
 | vrai groupe fondamental | true fundamental group |  |  | sga1:XI-2#15 |
 
-## Theorem-kind headings (45)
+## Theorem-kind headings (46)
 
 | Français | English |
 |---|---|
@@ -601,6 +603,7 @@ corpus (sga1–sga7). The machine source of truth is
 | Exemples | Examples |
 | Exercice | Exercise |
 | Exercices | Exercises |
+| Fait | Fact |
 | Introduction | Introduction |
 | Lemme | Lemma |
 | Lemme fondamental | Fundamental lemma |

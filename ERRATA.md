@@ -449,3 +449,50 @@ is a typing slip. **Corrected** to `\eta_{nr}` in `sga7/data/fr/chapters/13.json
 second identity of the same proposition, where the transcription — not the
 print — had misplaced the η: `R^iΨ(K)_{η(x̄,η̄)}` for the printed
 `R^iΨ(K_η)_{(x̄,η̄)}`; reader report.)
+
+## Exposé XVIII, pp. 53–73 (vol. pp. 307–327) — anomalies met while completing the transcription
+
+The transcription of this exposé had stopped in the middle of the proof of
+Lemme 5.8.5 (end of p. 52): the rest of 5.8, all of 5.9, all of §6 and the
+bibliography were missing from both languages. They were transcribed from the page
+images (170–400 dpi) and translated on 2026-11-05 (pages `18-5-8` from block 45 on,
+`18-5-9`, `18-6`, `18-bibliographie` in `sga7/data/{fr,en}/chapters/18.json`).
+Doubtful glyphs were checked at 400 dpi.
+
+### Corrected (unambiguous)
+- 5.8.7, proof, first display — the print closes one parenthesis too many,
+  `R^{n-1}ρ_{V*}ℚ_ℓ(j))`; the stray `)` is dropped. Likewise in (6.1.3),
+  `π_1^mod(D_η̄ − D_η̄ ∩ Z), ā)`, and in the bracketed remarks under 6.5.2, where
+  `ℚ_ℓ(m)` lacks its closing parenthesis.
+- 5.8.7, proof, trace map — the print reads `tr_{π_U} : H^1( V, π_U^* ) → H^1(U, F(j))`
+  with the sheaf missing after `π_U^*`; restored as `π_U^*F`, as the same proof writes
+  `H^*(V, π_U^*F)` two lines later.
+- 6.1, proof, p. 63 — "l'action de Gal(/k(η)) sur **K_K** ∩ Z": transcribed `D_K ∩ Z`,
+  the scheme on which this action was defined a few lines earlier.
+- 6.5.2 and the proof of 6.7 — the typescript uses a χ-like glyph where the element
+  `x` (or the variety `X`) is meant: "agit sur χ ∈ H^{n−1}…", "soit χ un élément ≠ 0
+  de Ē", "engendré par χ", "comme χ satisfait (LV)"; also (6.7.4) `σ_i^k(x) = X + …` and
+  the final display `X.δ_i`. Every formula involved writes `x`, so these are transcribed
+  `x` (resp. `X` for the variety that satisfies (LV)).
+
+### Kept as printed (suspect)
+- 5.8.7, proof — "de sorte que (5.8.7.3) se factorise": no display carries 5.8.7.3
+  (nor 5.8.7.2); presumably the unnumbered `Prim^n(X) → H^1(V, μ^*π^*E^{n−1}…)` above it.
+  In the same proof, the target `H^1(U, F(j))` of the trace map carries an unexplained
+  twist, and `μ^*π^*E^{n−1}ρ_*ℚ_ℓ(j) = π_U^*ν^*E^{n−1}ρ_*ℚ_ℓ` drops it on the right.
+- 6.1, proof — `Gal(/k(η)` (three times): the field before the slash is left blank in the
+  typescript (a hand-written symbol never added). Kept, with an editorial note
+  (`fn-18-6-1`) pointing to `π_1(η, η̄)`.
+- 6.1, proof — `k(η) ⊂ K ⊂ K(η̄)` (`k(η̄)` expected); `π_1^mod(D_η̄ − D_η ∩ Z, ā)` with
+  mixed subscripts; "(EGA V ....)" left incomplete; "(ii) ⟺ (iii) par 6.1.6" in the
+  proof of 6.3.
+- Corollaire 6.1.10 says `card(k) ≠ 2` where 6.3.2, 6.4 and 6.6 say `car(k) ≠ 2`.
+- 6.5.1 — the second formula is labelled "(6.5.2.2)" (6.5.1.2 expected); nothing refers
+  to it.
+- Théorème 6.6 — "le groupe I_i d'inertie de δ_i en S_i" (`s_i` expected) and
+  `δ_i ∈ H^{n−1}(X, ℚ_ℓ(m))` (`X_η̄` expected); (6.6.4) ends `ℚ_ℓ(i)` for `ℚ_ℓ(m)`.
+- Remarque 6.3.4 and the proof of 6.6 write `ℙ^r − X` once each where the dual
+  `ℙ̌^r − X̌` (used a line later) is meant.
+- French slips kept: "grassmanniene", "suffisament", "alor", "Les homomorphisme",
+  "la flèche composé", "n'a qu'a", "n = dim X est paire", "un corps k algébriquement
+  clos k".
